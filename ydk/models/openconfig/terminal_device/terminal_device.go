@@ -67,7 +67,7 @@ func init() {
 // TerminalDevice
 // Top-level container for the terminal device
 type TerminalDevice struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data for global terminal-device.
@@ -83,176 +83,73 @@ type TerminalDevice struct {
     OperationalModes TerminalDevice_OperationalModes
 }
 
-func (terminalDevice *TerminalDevice) GetFilter() yfilter.YFilter { return terminalDevice.YFilter }
+func (terminalDevice *TerminalDevice) GetEntityData() *types.CommonEntityData {
+    terminalDevice.EntityData.YFilter = terminalDevice.YFilter
+    terminalDevice.EntityData.YangName = "terminal-device"
+    terminalDevice.EntityData.BundleName = "openconfig"
+    terminalDevice.EntityData.ParentYangName = "openconfig-terminal-device"
+    terminalDevice.EntityData.SegmentPath = "openconfig-terminal-device:terminal-device"
+    terminalDevice.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    terminalDevice.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    terminalDevice.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (terminalDevice *TerminalDevice) SetFilter(yf yfilter.YFilter) { terminalDevice.YFilter = yf }
-
-func (terminalDevice *TerminalDevice) GetGoName(yname string) string {
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    if yname == "logical-channels" { return "LogicalChannels" }
-    if yname == "operational-modes" { return "OperationalModes" }
-    return ""
+    terminalDevice.EntityData.Children = make(map[string]types.YChild)
+    terminalDevice.EntityData.Children["config"] = types.YChild{"Config", &terminalDevice.Config}
+    terminalDevice.EntityData.Children["state"] = types.YChild{"State", &terminalDevice.State}
+    terminalDevice.EntityData.Children["logical-channels"] = types.YChild{"LogicalChannels", &terminalDevice.LogicalChannels}
+    terminalDevice.EntityData.Children["operational-modes"] = types.YChild{"OperationalModes", &terminalDevice.OperationalModes}
+    terminalDevice.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(terminalDevice.EntityData)
 }
-
-func (terminalDevice *TerminalDevice) GetSegmentPath() string {
-    return "openconfig-terminal-device:terminal-device"
-}
-
-func (terminalDevice *TerminalDevice) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &terminalDevice.Config
-    }
-    if childYangName == "state" {
-        return &terminalDevice.State
-    }
-    if childYangName == "logical-channels" {
-        return &terminalDevice.LogicalChannels
-    }
-    if childYangName == "operational-modes" {
-        return &terminalDevice.OperationalModes
-    }
-    return nil
-}
-
-func (terminalDevice *TerminalDevice) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &terminalDevice.Config
-    children["state"] = &terminalDevice.State
-    children["logical-channels"] = &terminalDevice.LogicalChannels
-    children["operational-modes"] = &terminalDevice.OperationalModes
-    return children
-}
-
-func (terminalDevice *TerminalDevice) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (terminalDevice *TerminalDevice) GetBundleName() string { return "openconfig" }
-
-func (terminalDevice *TerminalDevice) GetYangName() string { return "terminal-device" }
-
-func (terminalDevice *TerminalDevice) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (terminalDevice *TerminalDevice) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (terminalDevice *TerminalDevice) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (terminalDevice *TerminalDevice) SetParent(parent types.Entity) { terminalDevice.parent = parent }
-
-func (terminalDevice *TerminalDevice) GetParent() types.Entity { return terminalDevice.parent }
-
-func (terminalDevice *TerminalDevice) GetParentYangName() string { return "openconfig-terminal-device" }
 
 // TerminalDevice_Config
 // Configuration data for global terminal-device
 type TerminalDevice_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (config *TerminalDevice_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "terminal-device"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_Config) GetGoName(yname string) string {
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (config *TerminalDevice_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_Config) GetParentYangName() string { return "terminal-device" }
 
 // TerminalDevice_State
 // Operational state data for global terminal device
 type TerminalDevice_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (state *TerminalDevice_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "terminal-device"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_State) GetGoName(yname string) string {
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *TerminalDevice_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *TerminalDevice_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (state *TerminalDevice_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_State) GetParentYangName() string { return "terminal-device" }
 
 // TerminalDevice_LogicalChannels
 // Enclosing container the list of logical channels
 type TerminalDevice_LogicalChannels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of logical channels. The type is slice of
@@ -260,68 +157,29 @@ type TerminalDevice_LogicalChannels struct {
     Channel []TerminalDevice_LogicalChannels_Channel
 }
 
-func (logicalChannels *TerminalDevice_LogicalChannels) GetFilter() yfilter.YFilter { return logicalChannels.YFilter }
+func (logicalChannels *TerminalDevice_LogicalChannels) GetEntityData() *types.CommonEntityData {
+    logicalChannels.EntityData.YFilter = logicalChannels.YFilter
+    logicalChannels.EntityData.YangName = "logical-channels"
+    logicalChannels.EntityData.BundleName = "openconfig"
+    logicalChannels.EntityData.ParentYangName = "terminal-device"
+    logicalChannels.EntityData.SegmentPath = "logical-channels"
+    logicalChannels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    logicalChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    logicalChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (logicalChannels *TerminalDevice_LogicalChannels) SetFilter(yf yfilter.YFilter) { logicalChannels.YFilter = yf }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetGoName(yname string) string {
-    if yname == "channel" { return "Channel" }
-    return ""
-}
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetSegmentPath() string {
-    return "logical-channels"
-}
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "channel" {
-        for _, c := range logicalChannels.Channel {
-            if logicalChannels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TerminalDevice_LogicalChannels_Channel{}
-        logicalChannels.Channel = append(logicalChannels.Channel, child)
-        return &logicalChannels.Channel[len(logicalChannels.Channel)-1]
-    }
-    return nil
-}
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    logicalChannels.EntityData.Children = make(map[string]types.YChild)
+    logicalChannels.EntityData.Children["channel"] = types.YChild{"Channel", nil}
     for i := range logicalChannels.Channel {
-        children[logicalChannels.Channel[i].GetSegmentPath()] = &logicalChannels.Channel[i]
+        logicalChannels.EntityData.Children[types.GetSegmentPath(&logicalChannels.Channel[i])] = types.YChild{"Channel", &logicalChannels.Channel[i]}
     }
-    return children
+    logicalChannels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(logicalChannels.EntityData)
 }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetBundleName() string { return "openconfig" }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetYangName() string { return "logical-channels" }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) SetParent(parent types.Entity) { logicalChannels.parent = parent }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetParent() types.Entity { return logicalChannels.parent }
-
-func (logicalChannels *TerminalDevice_LogicalChannels) GetParentYangName() string { return "terminal-device" }
 
 // TerminalDevice_LogicalChannels_Channel
 // List of logical channels
 type TerminalDevice_LogicalChannels_Channel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Reference to the index of the logical channel. The
@@ -351,86 +209,32 @@ type TerminalDevice_LogicalChannels_Channel struct {
     LogicalChannelAssignments TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments
 }
 
-func (channel *TerminalDevice_LogicalChannels_Channel) GetFilter() yfilter.YFilter { return channel.YFilter }
+func (channel *TerminalDevice_LogicalChannels_Channel) GetEntityData() *types.CommonEntityData {
+    channel.EntityData.YFilter = channel.YFilter
+    channel.EntityData.YangName = "channel"
+    channel.EntityData.BundleName = "openconfig"
+    channel.EntityData.ParentYangName = "logical-channels"
+    channel.EntityData.SegmentPath = "channel" + "[index='" + fmt.Sprintf("%v", channel.Index) + "']"
+    channel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    channel.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    channel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (channel *TerminalDevice_LogicalChannels_Channel) SetFilter(yf yfilter.YFilter) { channel.YFilter = yf }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    if yname == "otn" { return "Otn" }
-    if yname == "ethernet" { return "Ethernet" }
-    if yname == "ingress" { return "Ingress" }
-    if yname == "logical-channel-assignments" { return "LogicalChannelAssignments" }
-    return ""
+    channel.EntityData.Children = make(map[string]types.YChild)
+    channel.EntityData.Children["config"] = types.YChild{"Config", &channel.Config}
+    channel.EntityData.Children["state"] = types.YChild{"State", &channel.State}
+    channel.EntityData.Children["otn"] = types.YChild{"Otn", &channel.Otn}
+    channel.EntityData.Children["ethernet"] = types.YChild{"Ethernet", &channel.Ethernet}
+    channel.EntityData.Children["ingress"] = types.YChild{"Ingress", &channel.Ingress}
+    channel.EntityData.Children["logical-channel-assignments"] = types.YChild{"LogicalChannelAssignments", &channel.LogicalChannelAssignments}
+    channel.EntityData.Leafs = make(map[string]types.YLeaf)
+    channel.EntityData.Leafs["index"] = types.YLeaf{"Index", channel.Index}
+    return &(channel.EntityData)
 }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetSegmentPath() string {
-    return "channel" + "[index='" + fmt.Sprintf("%v", channel.Index) + "']"
-}
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &channel.Config
-    }
-    if childYangName == "state" {
-        return &channel.State
-    }
-    if childYangName == "otn" {
-        return &channel.Otn
-    }
-    if childYangName == "ethernet" {
-        return &channel.Ethernet
-    }
-    if childYangName == "ingress" {
-        return &channel.Ingress
-    }
-    if childYangName == "logical-channel-assignments" {
-        return &channel.LogicalChannelAssignments
-    }
-    return nil
-}
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &channel.Config
-    children["state"] = &channel.State
-    children["otn"] = &channel.Otn
-    children["ethernet"] = &channel.Ethernet
-    children["ingress"] = &channel.Ingress
-    children["logical-channel-assignments"] = &channel.LogicalChannelAssignments
-    return children
-}
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = channel.Index
-    return leafs
-}
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetBundleName() string { return "openconfig" }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetYangName() string { return "channel" }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) SetParent(parent types.Entity) { channel.parent = parent }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetParent() types.Entity { return channel.parent }
-
-func (channel *TerminalDevice_LogicalChannels_Channel) GetParentYangName() string { return "logical-channels" }
 
 // TerminalDevice_LogicalChannels_Channel_Config
 // Configuration data for logical channels
 type TerminalDevice_LogicalChannels_Channel_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Index of the current logical channel. The type is interface{} with range:
@@ -445,7 +249,7 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
 
     // Rounded bit rate of the tributary signal. Exact bit rate will be refined by
     // protocol selection. The type is one of the following:
-    // TRIBRATE10GTRIBRATE40GTRIBRATE100GTRIBRATE1GTRIBRATE2DOT5G.
+    // TRIBRATE1GTRIBRATE2DOT5GTRIBRATE10GTRIBRATE40GTRIBRATE100G.
     RateClass interface{}
 
     // Protocol framing of the tributary signal. If this LogicalChannel is
@@ -462,7 +266,7 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
     // class: 40G protocols:  40GE, OC768, STM256, OTU3, ODU3  rate class: 100G
     // protocols:  100GE, 100G MLG, OTU4, OTUCn, ODU4. The type is one of the
     // following:
-    // PROTOTU2EPROTODU2EPROTOC768PROT10GEWANPROTSTM16PROTOTUCNPROT1GEPROT100GEPROTOTU3PROTOTU2PROTOTU4PROTSTM256PROT10GELANPROTOC48PROTOC192PROT40GEPROT100GMLGPROTODU3PROTODU2PROTODU4PROTSTM64PROTOTU1E.
+    // PROT1GEPROTOC48PROTSTM16PROT10GELANPROT10GEWANPROTOC192PROTSTM64PROTOTU2PROTOTU2EPROTOTU1EPROTODU2PROTODU2EPROT40GEPROTOC768PROTSTM256PROTOTU3PROTODU3PROT100GEPROT100GMLGPROTOTU4PROTOTUCNPROTODU4.
     TribProtocol interface{}
 
     // The type / stage of the logical element determines the configuration and
@@ -476,68 +280,32 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
     LoopbackMode interface{}
 }
 
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_LogicalChannels_Channel_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "channel"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_LogicalChannels_Channel_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "description" { return "Description" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "rate-class" { return "RateClass" }
-    if yname == "trib-protocol" { return "TribProtocol" }
-    if yname == "logical-channel-type" { return "LogicalChannelType" }
-    if yname == "loopback-mode" { return "LoopbackMode" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
+    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
+    config.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", config.AdminState}
+    config.EntityData.Leafs["rate-class"] = types.YLeaf{"RateClass", config.RateClass}
+    config.EntityData.Leafs["trib-protocol"] = types.YLeaf{"TribProtocol", config.TribProtocol}
+    config.EntityData.Leafs["logical-channel-type"] = types.YLeaf{"LogicalChannelType", config.LogicalChannelType}
+    config.EntityData.Leafs["loopback-mode"] = types.YLeaf{"LoopbackMode", config.LoopbackMode}
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = config.Index
-    leafs["description"] = config.Description
-    leafs["admin-state"] = config.AdminState
-    leafs["rate-class"] = config.RateClass
-    leafs["trib-protocol"] = config.TribProtocol
-    leafs["logical-channel-type"] = config.LogicalChannelType
-    leafs["loopback-mode"] = config.LoopbackMode
-    return leafs
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Config) GetParentYangName() string { return "channel" }
 
 // TerminalDevice_LogicalChannels_Channel_State
 // Operational state data for logical channels
 type TerminalDevice_LogicalChannels_Channel_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Index of the current logical channel. The type is interface{} with range:
@@ -552,7 +320,7 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
 
     // Rounded bit rate of the tributary signal. Exact bit rate will be refined by
     // protocol selection. The type is one of the following:
-    // TRIBRATE10GTRIBRATE40GTRIBRATE100GTRIBRATE1GTRIBRATE2DOT5G.
+    // TRIBRATE1GTRIBRATE2DOT5GTRIBRATE10GTRIBRATE40GTRIBRATE100G.
     RateClass interface{}
 
     // Protocol framing of the tributary signal. If this LogicalChannel is
@@ -569,7 +337,7 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
     // class: 40G protocols:  40GE, OC768, STM256, OTU3, ODU3  rate class: 100G
     // protocols:  100GE, 100G MLG, OTU4, OTUCn, ODU4. The type is one of the
     // following:
-    // PROTOTU2EPROTODU2EPROTOC768PROT10GEWANPROTSTM16PROTOTUCNPROT1GEPROT100GEPROTOTU3PROTOTU2PROTOTU4PROTSTM256PROT10GELANPROTOC48PROTOC192PROT40GEPROT100GMLGPROTODU3PROTODU2PROTODU4PROTSTM64PROTOTU1E.
+    // PROT1GEPROTOC48PROTSTM16PROT10GELANPROT10GEWANPROTOC192PROTSTM64PROTOTU2PROTOTU2EPROTOTU1EPROTODU2PROTODU2EPROT40GEPROTOC768PROTSTM256PROTOTU3PROTODU3PROT100GEPROT100GMLGPROTOTU4PROTOTUCNPROTODU4.
     TribProtocol interface{}
 
     // The type / stage of the logical element determines the configuration and
@@ -587,65 +355,28 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
     LinkState interface{}
 }
 
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_LogicalChannels_Channel_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "channel"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_LogicalChannels_Channel_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "description" { return "Description" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "rate-class" { return "RateClass" }
-    if yname == "trib-protocol" { return "TribProtocol" }
-    if yname == "logical-channel-type" { return "LogicalChannelType" }
-    if yname == "loopback-mode" { return "LoopbackMode" }
-    if yname == "link-state" { return "LinkState" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
+    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
+    state.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", state.AdminState}
+    state.EntityData.Leafs["rate-class"] = types.YLeaf{"RateClass", state.RateClass}
+    state.EntityData.Leafs["trib-protocol"] = types.YLeaf{"TribProtocol", state.TribProtocol}
+    state.EntityData.Leafs["logical-channel-type"] = types.YLeaf{"LogicalChannelType", state.LogicalChannelType}
+    state.EntityData.Leafs["loopback-mode"] = types.YLeaf{"LoopbackMode", state.LoopbackMode}
+    state.EntityData.Leafs["link-state"] = types.YLeaf{"LinkState", state.LinkState}
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = state.Index
-    leafs["description"] = state.Description
-    leafs["admin-state"] = state.AdminState
-    leafs["rate-class"] = state.RateClass
-    leafs["trib-protocol"] = state.TribProtocol
-    leafs["logical-channel-type"] = state.LogicalChannelType
-    leafs["loopback-mode"] = state.LoopbackMode
-    leafs["link-state"] = state.LinkState
-    return leafs
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_State) GetParentYangName() string { return "channel" }
 
 // TerminalDevice_LogicalChannels_Channel_State_LinkState represents SONET / SDH framed signal, etc.
 type TerminalDevice_LogicalChannels_Channel_State_LinkState string
@@ -663,7 +394,7 @@ const (
 // channel framing is using an OTU protocol, e.g., OTU1, OTU3,
 // etc.
 type TerminalDevice_LogicalChannels_Channel_Otn struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data for OTN protocol framing.
@@ -673,64 +404,27 @@ type TerminalDevice_LogicalChannels_Channel_Otn struct {
     State TerminalDevice_LogicalChannels_Channel_Otn_State
 }
 
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetFilter() yfilter.YFilter { return otn.YFilter }
+func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetEntityData() *types.CommonEntityData {
+    otn.EntityData.YFilter = otn.YFilter
+    otn.EntityData.YangName = "otn"
+    otn.EntityData.BundleName = "openconfig"
+    otn.EntityData.ParentYangName = "channel"
+    otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    otn.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    otn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) SetFilter(yf yfilter.YFilter) { otn.YFilter = yf }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetGoName(yname string) string {
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    return ""
+    otn.EntityData.Children = make(map[string]types.YChild)
+    otn.EntityData.Children["config"] = types.YChild{"Config", &otn.Config}
+    otn.EntityData.Children["state"] = types.YChild{"State", &otn.State}
+    otn.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(otn.EntityData)
 }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetSegmentPath() string {
-    return "otn"
-}
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &otn.Config
-    }
-    if childYangName == "state" {
-        return &otn.State
-    }
-    return nil
-}
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &otn.Config
-    children["state"] = &otn.State
-    return children
-}
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetBundleName() string { return "openconfig" }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetYangName() string { return "otn" }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) SetParent(parent types.Entity) { otn.parent = parent }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetParent() types.Entity { return otn.parent }
-
-func (otn *TerminalDevice_LogicalChannels_Channel_Otn) GetParentYangName() string { return "channel" }
 
 // TerminalDevice_LogicalChannels_Channel_Otn_Config
 // Configuration data for OTN protocol framing
 type TerminalDevice_LogicalChannels_Channel_Otn_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trail trace identifier (TTI) message transmitted. The type is string.
@@ -745,61 +439,29 @@ type TerminalDevice_LogicalChannels_Channel_Otn_Config struct {
     TtiMsgAuto interface{}
 }
 
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "otn"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetGoName(yname string) string {
-    if yname == "tti-msg-transmit" { return "TtiMsgTransmit" }
-    if yname == "tti-msg-expected" { return "TtiMsgExpected" }
-    if yname == "tti-msg-auto" { return "TtiMsgAuto" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs["tti-msg-transmit"] = types.YLeaf{"TtiMsgTransmit", config.TtiMsgTransmit}
+    config.EntityData.Leafs["tti-msg-expected"] = types.YLeaf{"TtiMsgExpected", config.TtiMsgExpected}
+    config.EntityData.Leafs["tti-msg-auto"] = types.YLeaf{"TtiMsgAuto", config.TtiMsgAuto}
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tti-msg-transmit"] = config.TtiMsgTransmit
-    leafs["tti-msg-expected"] = config.TtiMsgExpected
-    leafs["tti-msg-auto"] = config.TtiMsgAuto
-    return leafs
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Otn_Config) GetParentYangName() string { return "otn" }
 
 // TerminalDevice_LogicalChannels_Channel_Otn_State
 // Operational state data for OTN protocol PMs, statistics,
 // etc.
 type TerminalDevice_LogicalChannels_Channel_Otn_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trail trace identifier (TTI) message transmitted. The type is string.
@@ -869,101 +531,43 @@ type TerminalDevice_LogicalChannels_Channel_Otn_State struct {
     Esnr TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr
 }
 
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "otn"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetGoName(yname string) string {
-    if yname == "tti-msg-transmit" { return "TtiMsgTransmit" }
-    if yname == "tti-msg-expected" { return "TtiMsgExpected" }
-    if yname == "tti-msg-auto" { return "TtiMsgAuto" }
-    if yname == "tti-msg-recv" { return "TtiMsgRecv" }
-    if yname == "rdi-msg" { return "RdiMsg" }
-    if yname == "errored-seconds" { return "ErroredSeconds" }
-    if yname == "severely-errored-seconds" { return "SeverelyErroredSeconds" }
-    if yname == "unavailable-seconds" { return "UnavailableSeconds" }
-    if yname == "code-violations" { return "CodeViolations" }
-    if yname == "fec-uncorrectable-words" { return "FecUncorrectableWords" }
-    if yname == "fec-corrected-bytes" { return "FecCorrectedBytes" }
-    if yname == "fec-corrected-bits" { return "FecCorrectedBits" }
-    if yname == "background-block-errors" { return "BackgroundBlockErrors" }
-    if yname == "pre-fec-ber" { return "PreFecBer" }
-    if yname == "post-fec-ber" { return "PostFecBer" }
-    if yname == "q-value" { return "QValue" }
-    if yname == "esnr" { return "Esnr" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Children["pre-fec-ber"] = types.YChild{"PreFecBer", &state.PreFecBer}
+    state.EntityData.Children["post-fec-ber"] = types.YChild{"PostFecBer", &state.PostFecBer}
+    state.EntityData.Children["q-value"] = types.YChild{"QValue", &state.QValue}
+    state.EntityData.Children["esnr"] = types.YChild{"Esnr", &state.Esnr}
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["tti-msg-transmit"] = types.YLeaf{"TtiMsgTransmit", state.TtiMsgTransmit}
+    state.EntityData.Leafs["tti-msg-expected"] = types.YLeaf{"TtiMsgExpected", state.TtiMsgExpected}
+    state.EntityData.Leafs["tti-msg-auto"] = types.YLeaf{"TtiMsgAuto", state.TtiMsgAuto}
+    state.EntityData.Leafs["tti-msg-recv"] = types.YLeaf{"TtiMsgRecv", state.TtiMsgRecv}
+    state.EntityData.Leafs["rdi-msg"] = types.YLeaf{"RdiMsg", state.RdiMsg}
+    state.EntityData.Leafs["errored-seconds"] = types.YLeaf{"ErroredSeconds", state.ErroredSeconds}
+    state.EntityData.Leafs["severely-errored-seconds"] = types.YLeaf{"SeverelyErroredSeconds", state.SeverelyErroredSeconds}
+    state.EntityData.Leafs["unavailable-seconds"] = types.YLeaf{"UnavailableSeconds", state.UnavailableSeconds}
+    state.EntityData.Leafs["code-violations"] = types.YLeaf{"CodeViolations", state.CodeViolations}
+    state.EntityData.Leafs["fec-uncorrectable-words"] = types.YLeaf{"FecUncorrectableWords", state.FecUncorrectableWords}
+    state.EntityData.Leafs["fec-corrected-bytes"] = types.YLeaf{"FecCorrectedBytes", state.FecCorrectedBytes}
+    state.EntityData.Leafs["fec-corrected-bits"] = types.YLeaf{"FecCorrectedBits", state.FecCorrectedBits}
+    state.EntityData.Leafs["background-block-errors"] = types.YLeaf{"BackgroundBlockErrors", state.BackgroundBlockErrors}
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pre-fec-ber" {
-        return &state.PreFecBer
-    }
-    if childYangName == "post-fec-ber" {
-        return &state.PostFecBer
-    }
-    if childYangName == "q-value" {
-        return &state.QValue
-    }
-    if childYangName == "esnr" {
-        return &state.Esnr
-    }
-    return nil
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pre-fec-ber"] = &state.PreFecBer
-    children["post-fec-ber"] = &state.PostFecBer
-    children["q-value"] = &state.QValue
-    children["esnr"] = &state.Esnr
-    return children
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tti-msg-transmit"] = state.TtiMsgTransmit
-    leafs["tti-msg-expected"] = state.TtiMsgExpected
-    leafs["tti-msg-auto"] = state.TtiMsgAuto
-    leafs["tti-msg-recv"] = state.TtiMsgRecv
-    leafs["rdi-msg"] = state.RdiMsg
-    leafs["errored-seconds"] = state.ErroredSeconds
-    leafs["severely-errored-seconds"] = state.SeverelyErroredSeconds
-    leafs["unavailable-seconds"] = state.UnavailableSeconds
-    leafs["code-violations"] = state.CodeViolations
-    leafs["fec-uncorrectable-words"] = state.FecUncorrectableWords
-    leafs["fec-corrected-bytes"] = state.FecCorrectedBytes
-    leafs["fec-corrected-bits"] = state.FecCorrectedBits
-    leafs["background-block-errors"] = state.BackgroundBlockErrors
-    return leafs
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Otn_State) GetParentYangName() string { return "otn" }
 
 // TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer
 // Bit error rate before forward error correction -- computed
 // value
 type TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The instantaneous value of the statistic. The type is string with range:
@@ -983,63 +587,30 @@ type TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer struct {
     Max interface{}
 }
 
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetFilter() yfilter.YFilter { return preFecBer.YFilter }
+func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetEntityData() *types.CommonEntityData {
+    preFecBer.EntityData.YFilter = preFecBer.YFilter
+    preFecBer.EntityData.YangName = "pre-fec-ber"
+    preFecBer.EntityData.BundleName = "openconfig"
+    preFecBer.EntityData.ParentYangName = "state"
+    preFecBer.EntityData.SegmentPath = "pre-fec-ber"
+    preFecBer.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    preFecBer.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    preFecBer.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) SetFilter(yf yfilter.YFilter) { preFecBer.YFilter = yf }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetGoName(yname string) string {
-    if yname == "instant" { return "Instant" }
-    if yname == "avg" { return "Avg" }
-    if yname == "min" { return "Min" }
-    if yname == "max" { return "Max" }
-    return ""
+    preFecBer.EntityData.Children = make(map[string]types.YChild)
+    preFecBer.EntityData.Leafs = make(map[string]types.YLeaf)
+    preFecBer.EntityData.Leafs["instant"] = types.YLeaf{"Instant", preFecBer.Instant}
+    preFecBer.EntityData.Leafs["avg"] = types.YLeaf{"Avg", preFecBer.Avg}
+    preFecBer.EntityData.Leafs["min"] = types.YLeaf{"Min", preFecBer.Min}
+    preFecBer.EntityData.Leafs["max"] = types.YLeaf{"Max", preFecBer.Max}
+    return &(preFecBer.EntityData)
 }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetSegmentPath() string {
-    return "pre-fec-ber"
-}
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instant"] = preFecBer.Instant
-    leafs["avg"] = preFecBer.Avg
-    leafs["min"] = preFecBer.Min
-    leafs["max"] = preFecBer.Max
-    return leafs
-}
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetBundleName() string { return "openconfig" }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetYangName() string { return "pre-fec-ber" }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) SetParent(parent types.Entity) { preFecBer.parent = parent }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetParent() types.Entity { return preFecBer.parent }
-
-func (preFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PreFecBer) GetParentYangName() string { return "state" }
 
 // TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer
 // Bit error rate after forward error correction -- computed
 // value
 type TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The instantaneous value of the statistic. The type is string with range:
@@ -1059,62 +630,29 @@ type TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer struct {
     Max interface{}
 }
 
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetFilter() yfilter.YFilter { return postFecBer.YFilter }
+func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetEntityData() *types.CommonEntityData {
+    postFecBer.EntityData.YFilter = postFecBer.YFilter
+    postFecBer.EntityData.YangName = "post-fec-ber"
+    postFecBer.EntityData.BundleName = "openconfig"
+    postFecBer.EntityData.ParentYangName = "state"
+    postFecBer.EntityData.SegmentPath = "post-fec-ber"
+    postFecBer.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    postFecBer.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    postFecBer.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) SetFilter(yf yfilter.YFilter) { postFecBer.YFilter = yf }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetGoName(yname string) string {
-    if yname == "instant" { return "Instant" }
-    if yname == "avg" { return "Avg" }
-    if yname == "min" { return "Min" }
-    if yname == "max" { return "Max" }
-    return ""
+    postFecBer.EntityData.Children = make(map[string]types.YChild)
+    postFecBer.EntityData.Leafs = make(map[string]types.YLeaf)
+    postFecBer.EntityData.Leafs["instant"] = types.YLeaf{"Instant", postFecBer.Instant}
+    postFecBer.EntityData.Leafs["avg"] = types.YLeaf{"Avg", postFecBer.Avg}
+    postFecBer.EntityData.Leafs["min"] = types.YLeaf{"Min", postFecBer.Min}
+    postFecBer.EntityData.Leafs["max"] = types.YLeaf{"Max", postFecBer.Max}
+    return &(postFecBer.EntityData)
 }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetSegmentPath() string {
-    return "post-fec-ber"
-}
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instant"] = postFecBer.Instant
-    leafs["avg"] = postFecBer.Avg
-    leafs["min"] = postFecBer.Min
-    leafs["max"] = postFecBer.Max
-    return leafs
-}
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetBundleName() string { return "openconfig" }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetYangName() string { return "post-fec-ber" }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) SetParent(parent types.Entity) { postFecBer.parent = parent }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetParent() types.Entity { return postFecBer.parent }
-
-func (postFecBer *TerminalDevice_LogicalChannels_Channel_Otn_State_PostFecBer) GetParentYangName() string { return "state" }
 
 // TerminalDevice_LogicalChannels_Channel_Otn_State_QValue
 // Quality value (factor) of a channel
 type TerminalDevice_LogicalChannels_Channel_Otn_State_QValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The instantaneous value of the statistic. The type is string with range:
@@ -1134,64 +672,31 @@ type TerminalDevice_LogicalChannels_Channel_Otn_State_QValue struct {
     Max interface{}
 }
 
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetFilter() yfilter.YFilter { return qValue.YFilter }
+func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetEntityData() *types.CommonEntityData {
+    qValue.EntityData.YFilter = qValue.YFilter
+    qValue.EntityData.YangName = "q-value"
+    qValue.EntityData.BundleName = "openconfig"
+    qValue.EntityData.ParentYangName = "state"
+    qValue.EntityData.SegmentPath = "q-value"
+    qValue.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    qValue.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    qValue.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) SetFilter(yf yfilter.YFilter) { qValue.YFilter = yf }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetGoName(yname string) string {
-    if yname == "instant" { return "Instant" }
-    if yname == "avg" { return "Avg" }
-    if yname == "min" { return "Min" }
-    if yname == "max" { return "Max" }
-    return ""
+    qValue.EntityData.Children = make(map[string]types.YChild)
+    qValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    qValue.EntityData.Leafs["instant"] = types.YLeaf{"Instant", qValue.Instant}
+    qValue.EntityData.Leafs["avg"] = types.YLeaf{"Avg", qValue.Avg}
+    qValue.EntityData.Leafs["min"] = types.YLeaf{"Min", qValue.Min}
+    qValue.EntityData.Leafs["max"] = types.YLeaf{"Max", qValue.Max}
+    return &(qValue.EntityData)
 }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetSegmentPath() string {
-    return "q-value"
-}
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instant"] = qValue.Instant
-    leafs["avg"] = qValue.Avg
-    leafs["min"] = qValue.Min
-    leafs["max"] = qValue.Max
-    return leafs
-}
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetBundleName() string { return "openconfig" }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetYangName() string { return "q-value" }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) SetParent(parent types.Entity) { qValue.parent = parent }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetParent() types.Entity { return qValue.parent }
-
-func (qValue *TerminalDevice_LogicalChannels_Channel_Otn_State_QValue) GetParentYangName() string { return "state" }
 
 // TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr
 // Electrical signal to noise ratio. Baud rate
 // normalized signal to noise ratio based on
 // error vector magnitude
 type TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The instantaneous value of the statistic. The type is string with range:
@@ -1211,63 +716,30 @@ type TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr struct {
     Max interface{}
 }
 
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetFilter() yfilter.YFilter { return esnr.YFilter }
+func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetEntityData() *types.CommonEntityData {
+    esnr.EntityData.YFilter = esnr.YFilter
+    esnr.EntityData.YangName = "esnr"
+    esnr.EntityData.BundleName = "openconfig"
+    esnr.EntityData.ParentYangName = "state"
+    esnr.EntityData.SegmentPath = "esnr"
+    esnr.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    esnr.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    esnr.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) SetFilter(yf yfilter.YFilter) { esnr.YFilter = yf }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetGoName(yname string) string {
-    if yname == "instant" { return "Instant" }
-    if yname == "avg" { return "Avg" }
-    if yname == "min" { return "Min" }
-    if yname == "max" { return "Max" }
-    return ""
+    esnr.EntityData.Children = make(map[string]types.YChild)
+    esnr.EntityData.Leafs = make(map[string]types.YLeaf)
+    esnr.EntityData.Leafs["instant"] = types.YLeaf{"Instant", esnr.Instant}
+    esnr.EntityData.Leafs["avg"] = types.YLeaf{"Avg", esnr.Avg}
+    esnr.EntityData.Leafs["min"] = types.YLeaf{"Min", esnr.Min}
+    esnr.EntityData.Leafs["max"] = types.YLeaf{"Max", esnr.Max}
+    return &(esnr.EntityData)
 }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetSegmentPath() string {
-    return "esnr"
-}
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instant"] = esnr.Instant
-    leafs["avg"] = esnr.Avg
-    leafs["min"] = esnr.Min
-    leafs["max"] = esnr.Max
-    return leafs
-}
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetBundleName() string { return "openconfig" }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetYangName() string { return "esnr" }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) SetParent(parent types.Entity) { esnr.parent = parent }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetParent() types.Entity { return esnr.parent }
-
-func (esnr *TerminalDevice_LogicalChannels_Channel_Otn_State_Esnr) GetParentYangName() string { return "state" }
 
 // TerminalDevice_LogicalChannels_Channel_Ethernet
 // Top level container for data related to Ethernet framing
 // for the logical channel
 type TerminalDevice_LogicalChannels_Channel_Ethernet struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data for Ethernet protocol framing on logical channels.
@@ -1277,117 +749,51 @@ type TerminalDevice_LogicalChannels_Channel_Ethernet struct {
     State TerminalDevice_LogicalChannels_Channel_Ethernet_State
 }
 
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetFilter() yfilter.YFilter { return ethernet.YFilter }
+func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetEntityData() *types.CommonEntityData {
+    ethernet.EntityData.YFilter = ethernet.YFilter
+    ethernet.EntityData.YangName = "ethernet"
+    ethernet.EntityData.BundleName = "openconfig"
+    ethernet.EntityData.ParentYangName = "channel"
+    ethernet.EntityData.SegmentPath = "ethernet"
+    ethernet.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    ethernet.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    ethernet.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) SetFilter(yf yfilter.YFilter) { ethernet.YFilter = yf }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetGoName(yname string) string {
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    return ""
+    ethernet.EntityData.Children = make(map[string]types.YChild)
+    ethernet.EntityData.Children["config"] = types.YChild{"Config", &ethernet.Config}
+    ethernet.EntityData.Children["state"] = types.YChild{"State", &ethernet.State}
+    ethernet.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ethernet.EntityData)
 }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetSegmentPath() string {
-    return "ethernet"
-}
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &ethernet.Config
-    }
-    if childYangName == "state" {
-        return &ethernet.State
-    }
-    return nil
-}
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &ethernet.Config
-    children["state"] = &ethernet.State
-    return children
-}
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetBundleName() string { return "openconfig" }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetYangName() string { return "ethernet" }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) SetParent(parent types.Entity) { ethernet.parent = parent }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetParent() types.Entity { return ethernet.parent }
-
-func (ethernet *TerminalDevice_LogicalChannels_Channel_Ethernet) GetParentYangName() string { return "channel" }
 
 // TerminalDevice_LogicalChannels_Channel_Ethernet_Config
 // Configuration data for Ethernet protocol framing on logical
 // channels
 type TerminalDevice_LogicalChannels_Channel_Ethernet_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "ethernet"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetGoName(yname string) string {
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ethernet_Config) GetParentYangName() string { return "ethernet" }
 
 // TerminalDevice_LogicalChannels_Channel_Ethernet_State
 // Operational state data for Ethernet protocol framing on logical
 // channels
 type TerminalDevice_LogicalChannels_Channel_Ethernet_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC layer control frames received on the interface. The type is interface{}
@@ -1434,76 +840,37 @@ type TerminalDevice_LogicalChannels_Channel_Ethernet_State struct {
     Out8021QFrames interface{}
 }
 
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "ethernet"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetGoName(yname string) string {
-    if yname == "in-mac-control-frames" { return "InMacControlFrames" }
-    if yname == "in-mac-pause-frames" { return "InMacPauseFrames" }
-    if yname == "in-oversize-frames" { return "InOversizeFrames" }
-    if yname == "in-jabber-frames" { return "InJabberFrames" }
-    if yname == "in-fragment-frames" { return "InFragmentFrames" }
-    if yname == "in-8021q-frames" { return "In8021QFrames" }
-    if yname == "in-crc-errors" { return "InCrcErrors" }
-    if yname == "out-mac-control-frames" { return "OutMacControlFrames" }
-    if yname == "out-mac-pause-frames" { return "OutMacPauseFrames" }
-    if yname == "out-8021q-frames" { return "Out8021QFrames" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["in-mac-control-frames"] = types.YLeaf{"InMacControlFrames", state.InMacControlFrames}
+    state.EntityData.Leafs["in-mac-pause-frames"] = types.YLeaf{"InMacPauseFrames", state.InMacPauseFrames}
+    state.EntityData.Leafs["in-oversize-frames"] = types.YLeaf{"InOversizeFrames", state.InOversizeFrames}
+    state.EntityData.Leafs["in-jabber-frames"] = types.YLeaf{"InJabberFrames", state.InJabberFrames}
+    state.EntityData.Leafs["in-fragment-frames"] = types.YLeaf{"InFragmentFrames", state.InFragmentFrames}
+    state.EntityData.Leafs["in-8021q-frames"] = types.YLeaf{"In8021QFrames", state.In8021QFrames}
+    state.EntityData.Leafs["in-crc-errors"] = types.YLeaf{"InCrcErrors", state.InCrcErrors}
+    state.EntityData.Leafs["out-mac-control-frames"] = types.YLeaf{"OutMacControlFrames", state.OutMacControlFrames}
+    state.EntityData.Leafs["out-mac-pause-frames"] = types.YLeaf{"OutMacPauseFrames", state.OutMacPauseFrames}
+    state.EntityData.Leafs["out-8021q-frames"] = types.YLeaf{"Out8021QFrames", state.Out8021QFrames}
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in-mac-control-frames"] = state.InMacControlFrames
-    leafs["in-mac-pause-frames"] = state.InMacPauseFrames
-    leafs["in-oversize-frames"] = state.InOversizeFrames
-    leafs["in-jabber-frames"] = state.InJabberFrames
-    leafs["in-fragment-frames"] = state.InFragmentFrames
-    leafs["in-8021q-frames"] = state.In8021QFrames
-    leafs["in-crc-errors"] = state.InCrcErrors
-    leafs["out-mac-control-frames"] = state.OutMacControlFrames
-    leafs["out-mac-pause-frames"] = state.OutMacPauseFrames
-    leafs["out-8021q-frames"] = state.Out8021QFrames
-    return leafs
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ethernet_State) GetParentYangName() string { return "ethernet" }
 
 // TerminalDevice_LogicalChannels_Channel_Ingress
 // Top-level container for specifying references to the
 // source of signal for the logical channel, either a
 // transceiver or individual physical channels
 type TerminalDevice_LogicalChannels_Channel_Ingress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data for the signal source for the logical channel.
@@ -1513,65 +880,28 @@ type TerminalDevice_LogicalChannels_Channel_Ingress struct {
     State TerminalDevice_LogicalChannels_Channel_Ingress_State
 }
 
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetFilter() yfilter.YFilter { return ingress.YFilter }
+func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetEntityData() *types.CommonEntityData {
+    ingress.EntityData.YFilter = ingress.YFilter
+    ingress.EntityData.YangName = "ingress"
+    ingress.EntityData.BundleName = "openconfig"
+    ingress.EntityData.ParentYangName = "channel"
+    ingress.EntityData.SegmentPath = "ingress"
+    ingress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    ingress.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    ingress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) SetFilter(yf yfilter.YFilter) { ingress.YFilter = yf }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetGoName(yname string) string {
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    return ""
+    ingress.EntityData.Children = make(map[string]types.YChild)
+    ingress.EntityData.Children["config"] = types.YChild{"Config", &ingress.Config}
+    ingress.EntityData.Children["state"] = types.YChild{"State", &ingress.State}
+    ingress.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ingress.EntityData)
 }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetSegmentPath() string {
-    return "ingress"
-}
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &ingress.Config
-    }
-    if childYangName == "state" {
-        return &ingress.State
-    }
-    return nil
-}
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &ingress.Config
-    children["state"] = &ingress.State
-    return children
-}
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetBundleName() string { return "openconfig" }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetYangName() string { return "ingress" }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) SetParent(parent types.Entity) { ingress.parent = parent }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetParent() types.Entity { return ingress.parent }
-
-func (ingress *TerminalDevice_LogicalChannels_Channel_Ingress) GetParentYangName() string { return "channel" }
 
 // TerminalDevice_LogicalChannels_Channel_Ingress_Config
 // Configuration data for the signal source for the
 // logical channel
 type TerminalDevice_LogicalChannels_Channel_Ingress_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reference to the transceiver carrying the input signal for the logical
@@ -1591,59 +921,28 @@ type TerminalDevice_LogicalChannels_Channel_Ingress_Config struct {
     PhysicalChannel []interface{}
 }
 
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "ingress"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetGoName(yname string) string {
-    if yname == "transceiver" { return "Transceiver" }
-    if yname == "physical-channel" { return "PhysicalChannel" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs["transceiver"] = types.YLeaf{"Transceiver", config.Transceiver}
+    config.EntityData.Leafs["physical-channel"] = types.YLeaf{"PhysicalChannel", config.PhysicalChannel}
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transceiver"] = config.Transceiver
-    leafs["physical-channel"] = config.PhysicalChannel
-    return leafs
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_Ingress_Config) GetParentYangName() string { return "ingress" }
 
 // TerminalDevice_LogicalChannels_Channel_Ingress_State
 // Operational state data for the signal source for the
 // logical channel
 type TerminalDevice_LogicalChannels_Channel_Ingress_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reference to the transceiver carrying the input signal for the logical
@@ -1663,58 +962,27 @@ type TerminalDevice_LogicalChannels_Channel_Ingress_State struct {
     PhysicalChannel []interface{}
 }
 
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "ingress"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetGoName(yname string) string {
-    if yname == "transceiver" { return "Transceiver" }
-    if yname == "physical-channel" { return "PhysicalChannel" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["transceiver"] = types.YLeaf{"Transceiver", state.Transceiver}
+    state.EntityData.Leafs["physical-channel"] = types.YLeaf{"PhysicalChannel", state.PhysicalChannel}
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transceiver"] = state.Transceiver
-    leafs["physical-channel"] = state.PhysicalChannel
-    return leafs
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_Ingress_State) GetParentYangName() string { return "ingress" }
 
 // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments
 // Enclosing container for tributary assignments
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Logical channel elements may be assigned directly to optical channels for
@@ -1734,63 +1002,24 @@ type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments struct {
     Assignment []TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
 }
 
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetFilter() yfilter.YFilter { return logicalChannelAssignments.YFilter }
+func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetEntityData() *types.CommonEntityData {
+    logicalChannelAssignments.EntityData.YFilter = logicalChannelAssignments.YFilter
+    logicalChannelAssignments.EntityData.YangName = "logical-channel-assignments"
+    logicalChannelAssignments.EntityData.BundleName = "openconfig"
+    logicalChannelAssignments.EntityData.ParentYangName = "channel"
+    logicalChannelAssignments.EntityData.SegmentPath = "logical-channel-assignments"
+    logicalChannelAssignments.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    logicalChannelAssignments.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    logicalChannelAssignments.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) SetFilter(yf yfilter.YFilter) { logicalChannelAssignments.YFilter = yf }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetGoName(yname string) string {
-    if yname == "assignment" { return "Assignment" }
-    return ""
-}
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetSegmentPath() string {
-    return "logical-channel-assignments"
-}
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "assignment" {
-        for _, c := range logicalChannelAssignments.Assignment {
-            if logicalChannelAssignments.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment{}
-        logicalChannelAssignments.Assignment = append(logicalChannelAssignments.Assignment, child)
-        return &logicalChannelAssignments.Assignment[len(logicalChannelAssignments.Assignment)-1]
-    }
-    return nil
-}
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    logicalChannelAssignments.EntityData.Children = make(map[string]types.YChild)
+    logicalChannelAssignments.EntityData.Children["assignment"] = types.YChild{"Assignment", nil}
     for i := range logicalChannelAssignments.Assignment {
-        children[logicalChannelAssignments.Assignment[i].GetSegmentPath()] = &logicalChannelAssignments.Assignment[i]
+        logicalChannelAssignments.EntityData.Children[types.GetSegmentPath(&logicalChannelAssignments.Assignment[i])] = types.YChild{"Assignment", &logicalChannelAssignments.Assignment[i]}
     }
-    return children
+    logicalChannelAssignments.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(logicalChannelAssignments.EntityData)
 }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetBundleName() string { return "openconfig" }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetYangName() string { return "logical-channel-assignments" }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) SetParent(parent types.Entity) { logicalChannelAssignments.parent = parent }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetParent() types.Entity { return logicalChannelAssignments.parent }
-
-func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments) GetParentYangName() string { return "channel" }
 
 // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
 // Logical channel elements may be assigned directly to
@@ -1813,7 +1042,7 @@ func (logicalChannelAssignments *TerminalDevice_LogicalChannels_Channel_LogicalC
 // along with a bandwidth allocation for the corresponding
 // assignment (e.g., to split or combine signal).
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Reference to the index for the current tributary
@@ -1828,66 +1057,28 @@ type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
     State TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State
 }
 
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetFilter() yfilter.YFilter { return assignment.YFilter }
+func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetEntityData() *types.CommonEntityData {
+    assignment.EntityData.YFilter = assignment.YFilter
+    assignment.EntityData.YangName = "assignment"
+    assignment.EntityData.BundleName = "openconfig"
+    assignment.EntityData.ParentYangName = "logical-channel-assignments"
+    assignment.EntityData.SegmentPath = "assignment" + "[index='" + fmt.Sprintf("%v", assignment.Index) + "']"
+    assignment.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    assignment.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    assignment.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) SetFilter(yf yfilter.YFilter) { assignment.YFilter = yf }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    return ""
+    assignment.EntityData.Children = make(map[string]types.YChild)
+    assignment.EntityData.Children["config"] = types.YChild{"Config", &assignment.Config}
+    assignment.EntityData.Children["state"] = types.YChild{"State", &assignment.State}
+    assignment.EntityData.Leafs = make(map[string]types.YLeaf)
+    assignment.EntityData.Leafs["index"] = types.YLeaf{"Index", assignment.Index}
+    return &(assignment.EntityData)
 }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetSegmentPath() string {
-    return "assignment" + "[index='" + fmt.Sprintf("%v", assignment.Index) + "']"
-}
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &assignment.Config
-    }
-    if childYangName == "state" {
-        return &assignment.State
-    }
-    return nil
-}
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &assignment.Config
-    children["state"] = &assignment.State
-    return children
-}
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = assignment.Index
-    return leafs
-}
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetBundleName() string { return "openconfig" }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetYangName() string { return "assignment" }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) SetParent(parent types.Entity) { assignment.parent = parent }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetParent() types.Entity { return assignment.parent }
-
-func (assignment *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment) GetParentYangName() string { return "logical-channel-assignments" }
 
 // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config
 // Configuration data for tributary assignments
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Index of the current logical client channel to tributary mapping. The type
@@ -1919,61 +1110,26 @@ type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
     Allocation interface{}
 }
 
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "assignment"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "description" { return "Description" }
-    if yname == "assignment-type" { return "AssignmentType" }
-    if yname == "logical-channel" { return "LogicalChannel" }
-    if yname == "optical-channel" { return "OpticalChannel" }
-    if yname == "allocation" { return "Allocation" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs["index"] = types.YLeaf{"Index", config.Index}
+    config.EntityData.Leafs["description"] = types.YLeaf{"Description", config.Description}
+    config.EntityData.Leafs["assignment-type"] = types.YLeaf{"AssignmentType", config.AssignmentType}
+    config.EntityData.Leafs["logical-channel"] = types.YLeaf{"LogicalChannel", config.LogicalChannel}
+    config.EntityData.Leafs["optical-channel"] = types.YLeaf{"OpticalChannel", config.OpticalChannel}
+    config.EntityData.Leafs["allocation"] = types.YLeaf{"Allocation", config.Allocation}
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = config.Index
-    leafs["description"] = config.Description
-    leafs["assignment-type"] = config.AssignmentType
-    leafs["logical-channel"] = config.LogicalChannel
-    leafs["optical-channel"] = config.OpticalChannel
-    leafs["allocation"] = config.Allocation
-    return leafs
-}
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config) GetParentYangName() string { return "assignment" }
 
 // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config_AssignmentType represents bandwidth allocation.
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_Config_AssignmentType string
@@ -1989,7 +1145,7 @@ const (
 // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State
 // Operational state data for tributary assignments
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Index of the current logical client channel to tributary mapping. The type
@@ -2021,61 +1177,26 @@ type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment
     Allocation interface{}
 }
 
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "assignment"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "description" { return "Description" }
-    if yname == "assignment-type" { return "AssignmentType" }
-    if yname == "logical-channel" { return "LogicalChannel" }
-    if yname == "optical-channel" { return "OpticalChannel" }
-    if yname == "allocation" { return "Allocation" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["index"] = types.YLeaf{"Index", state.Index}
+    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
+    state.EntityData.Leafs["assignment-type"] = types.YLeaf{"AssignmentType", state.AssignmentType}
+    state.EntityData.Leafs["logical-channel"] = types.YLeaf{"LogicalChannel", state.LogicalChannel}
+    state.EntityData.Leafs["optical-channel"] = types.YLeaf{"OpticalChannel", state.OpticalChannel}
+    state.EntityData.Leafs["allocation"] = types.YLeaf{"Allocation", state.Allocation}
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = state.Index
-    leafs["description"] = state.Description
-    leafs["assignment-type"] = state.AssignmentType
-    leafs["logical-channel"] = state.LogicalChannel
-    leafs["optical-channel"] = state.OpticalChannel
-    leafs["allocation"] = state.Allocation
-    return leafs
-}
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State) GetParentYangName() string { return "assignment" }
 
 // TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State_AssignmentType represents bandwidth allocation.
 type TerminalDevice_LogicalChannels_Channel_LogicalChannelAssignments_Assignment_State_AssignmentType string
@@ -2091,7 +1212,7 @@ const (
 // TerminalDevice_OperationalModes
 // Enclosing container for list of operational modes
 type TerminalDevice_OperationalModes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of operational modes supported by the platform. The operational mode
@@ -2101,63 +1222,24 @@ type TerminalDevice_OperationalModes struct {
     Mode []TerminalDevice_OperationalModes_Mode
 }
 
-func (operationalModes *TerminalDevice_OperationalModes) GetFilter() yfilter.YFilter { return operationalModes.YFilter }
+func (operationalModes *TerminalDevice_OperationalModes) GetEntityData() *types.CommonEntityData {
+    operationalModes.EntityData.YFilter = operationalModes.YFilter
+    operationalModes.EntityData.YangName = "operational-modes"
+    operationalModes.EntityData.BundleName = "openconfig"
+    operationalModes.EntityData.ParentYangName = "terminal-device"
+    operationalModes.EntityData.SegmentPath = "operational-modes"
+    operationalModes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    operationalModes.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    operationalModes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (operationalModes *TerminalDevice_OperationalModes) SetFilter(yf yfilter.YFilter) { operationalModes.YFilter = yf }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetGoName(yname string) string {
-    if yname == "mode" { return "Mode" }
-    return ""
-}
-
-func (operationalModes *TerminalDevice_OperationalModes) GetSegmentPath() string {
-    return "operational-modes"
-}
-
-func (operationalModes *TerminalDevice_OperationalModes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mode" {
-        for _, c := range operationalModes.Mode {
-            if operationalModes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TerminalDevice_OperationalModes_Mode{}
-        operationalModes.Mode = append(operationalModes.Mode, child)
-        return &operationalModes.Mode[len(operationalModes.Mode)-1]
-    }
-    return nil
-}
-
-func (operationalModes *TerminalDevice_OperationalModes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    operationalModes.EntityData.Children = make(map[string]types.YChild)
+    operationalModes.EntityData.Children["mode"] = types.YChild{"Mode", nil}
     for i := range operationalModes.Mode {
-        children[operationalModes.Mode[i].GetSegmentPath()] = &operationalModes.Mode[i]
+        operationalModes.EntityData.Children[types.GetSegmentPath(&operationalModes.Mode[i])] = types.YChild{"Mode", &operationalModes.Mode[i]}
     }
-    return children
+    operationalModes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(operationalModes.EntityData)
 }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (operationalModes *TerminalDevice_OperationalModes) GetBundleName() string { return "openconfig" }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetYangName() string { return "operational-modes" }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (operationalModes *TerminalDevice_OperationalModes) SetParent(parent types.Entity) { operationalModes.parent = parent }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetParent() types.Entity { return operationalModes.parent }
-
-func (operationalModes *TerminalDevice_OperationalModes) GetParentYangName() string { return "terminal-device" }
 
 // TerminalDevice_OperationalModes_Mode
 // List of operational modes supported by the platform.
@@ -2165,7 +1247,7 @@ func (operationalModes *TerminalDevice_OperationalModes) GetParentYangName() str
 // of information such as symbol rate, modulation, pulse
 // shaping, etc.
 type TerminalDevice_OperationalModes_Mode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Reference to mode-id. The type is string with
@@ -2180,118 +1262,51 @@ type TerminalDevice_OperationalModes_Mode struct {
     State TerminalDevice_OperationalModes_Mode_State
 }
 
-func (mode *TerminalDevice_OperationalModes_Mode) GetFilter() yfilter.YFilter { return mode.YFilter }
+func (mode *TerminalDevice_OperationalModes_Mode) GetEntityData() *types.CommonEntityData {
+    mode.EntityData.YFilter = mode.YFilter
+    mode.EntityData.YangName = "mode"
+    mode.EntityData.BundleName = "openconfig"
+    mode.EntityData.ParentYangName = "operational-modes"
+    mode.EntityData.SegmentPath = "mode" + "[mode-id='" + fmt.Sprintf("%v", mode.ModeId) + "']"
+    mode.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    mode.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    mode.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (mode *TerminalDevice_OperationalModes_Mode) SetFilter(yf yfilter.YFilter) { mode.YFilter = yf }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetGoName(yname string) string {
-    if yname == "mode-id" { return "ModeId" }
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    return ""
+    mode.EntityData.Children = make(map[string]types.YChild)
+    mode.EntityData.Children["config"] = types.YChild{"Config", &mode.Config}
+    mode.EntityData.Children["state"] = types.YChild{"State", &mode.State}
+    mode.EntityData.Leafs = make(map[string]types.YLeaf)
+    mode.EntityData.Leafs["mode-id"] = types.YLeaf{"ModeId", mode.ModeId}
+    return &(mode.EntityData)
 }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetSegmentPath() string {
-    return "mode" + "[mode-id='" + fmt.Sprintf("%v", mode.ModeId) + "']"
-}
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &mode.Config
-    }
-    if childYangName == "state" {
-        return &mode.State
-    }
-    return nil
-}
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &mode.Config
-    children["state"] = &mode.State
-    return children
-}
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mode-id"] = mode.ModeId
-    return leafs
-}
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetBundleName() string { return "openconfig" }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetYangName() string { return "mode" }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (mode *TerminalDevice_OperationalModes_Mode) SetParent(parent types.Entity) { mode.parent = parent }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetParent() types.Entity { return mode.parent }
-
-func (mode *TerminalDevice_OperationalModes_Mode) GetParentYangName() string { return "operational-modes" }
 
 // TerminalDevice_OperationalModes_Mode_Config
 // Configuration data for operational mode
 type TerminalDevice_OperationalModes_Mode_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *TerminalDevice_OperationalModes_Mode_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "mode"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *TerminalDevice_OperationalModes_Mode_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetGoName(yname string) string {
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(config.EntityData)
 }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetBundleName() string { return "openconfig" }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetYangName() string { return "config" }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetParent() types.Entity { return config.parent }
-
-func (config *TerminalDevice_OperationalModes_Mode_Config) GetParentYangName() string { return "mode" }
 
 // TerminalDevice_OperationalModes_Mode_State
 // Operational state data for the platform-defined
 // operational mode
 type TerminalDevice_OperationalModes_Mode_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Two-octet encoding of the vendor-defined operational mode. The type is
@@ -2308,53 +1323,21 @@ type TerminalDevice_OperationalModes_Mode_State struct {
     VendorId interface{}
 }
 
-func (state *TerminalDevice_OperationalModes_Mode_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TerminalDevice_OperationalModes_Mode_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "mode"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *TerminalDevice_OperationalModes_Mode_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetGoName(yname string) string {
-    if yname == "mode-id" { return "ModeId" }
-    if yname == "description" { return "Description" }
-    if yname == "vendor-id" { return "VendorId" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["mode-id"] = types.YLeaf{"ModeId", state.ModeId}
+    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
+    state.EntityData.Leafs["vendor-id"] = types.YLeaf{"VendorId", state.VendorId}
+    return &(state.EntityData)
 }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mode-id"] = state.ModeId
-    leafs["description"] = state.Description
-    leafs["vendor-id"] = state.VendorId
-    return leafs
-}
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetBundleName() string { return "openconfig" }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetYangName() string { return "state" }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetParent() types.Entity { return state.parent }
-
-func (state *TerminalDevice_OperationalModes_Mode_State) GetParentYangName() string { return "mode" }
 

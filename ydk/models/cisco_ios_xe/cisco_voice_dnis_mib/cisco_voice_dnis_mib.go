@@ -33,7 +33,7 @@ func init() {
 
 // CISCOVOICEDNISMIB
 type CISCOVOICEDNISMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The table contains the map name and a url specifying a file name. The file
@@ -45,66 +45,29 @@ type CISCOVOICEDNISMIB struct {
     Cvdnisnodetable CISCOVOICEDNISMIB_Cvdnisnodetable
 }
 
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetFilter() yfilter.YFilter { return cISCOVOICEDNISMIB.YFilter }
+func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetEntityData() *types.CommonEntityData {
+    cISCOVOICEDNISMIB.EntityData.YFilter = cISCOVOICEDNISMIB.YFilter
+    cISCOVOICEDNISMIB.EntityData.YangName = "CISCO-VOICE-DNIS-MIB"
+    cISCOVOICEDNISMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOVOICEDNISMIB.EntityData.ParentYangName = "CISCO-VOICE-DNIS-MIB"
+    cISCOVOICEDNISMIB.EntityData.SegmentPath = "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB"
+    cISCOVOICEDNISMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOVOICEDNISMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOVOICEDNISMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) SetFilter(yf yfilter.YFilter) { cISCOVOICEDNISMIB.YFilter = yf }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetGoName(yname string) string {
-    if yname == "cvDnisMappingTable" { return "Cvdnismappingtable" }
-    if yname == "cvDnisNodeTable" { return "Cvdnisnodetable" }
-    return ""
+    cISCOVOICEDNISMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOVOICEDNISMIB.EntityData.Children["cvDnisMappingTable"] = types.YChild{"Cvdnismappingtable", &cISCOVOICEDNISMIB.Cvdnismappingtable}
+    cISCOVOICEDNISMIB.EntityData.Children["cvDnisNodeTable"] = types.YChild{"Cvdnisnodetable", &cISCOVOICEDNISMIB.Cvdnisnodetable}
+    cISCOVOICEDNISMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOVOICEDNISMIB.EntityData)
 }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetSegmentPath() string {
-    return "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB"
-}
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvDnisMappingTable" {
-        return &cISCOVOICEDNISMIB.Cvdnismappingtable
-    }
-    if childYangName == "cvDnisNodeTable" {
-        return &cISCOVOICEDNISMIB.Cvdnisnodetable
-    }
-    return nil
-}
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cvDnisMappingTable"] = &cISCOVOICEDNISMIB.Cvdnismappingtable
-    children["cvDnisNodeTable"] = &cISCOVOICEDNISMIB.Cvdnisnodetable
-    return children
-}
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetYangName() string { return "CISCO-VOICE-DNIS-MIB" }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) SetParent(parent types.Entity) { cISCOVOICEDNISMIB.parent = parent }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetParent() types.Entity { return cISCOVOICEDNISMIB.parent }
-
-func (cISCOVOICEDNISMIB *CISCOVOICEDNISMIB) GetParentYangName() string { return "CISCO-VOICE-DNIS-MIB" }
 
 // CISCOVOICEDNISMIB_Cvdnismappingtable
 // The table contains the map name and a url specifying
 // a file name. The file contains DNIS entries that belong
 // to the DNIS mapping.
 type CISCOVOICEDNISMIB_Cvdnismappingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single DNIS mapping. There is a unique DNIS map name.
@@ -127,63 +90,24 @@ type CISCOVOICEDNISMIB_Cvdnismappingtable struct {
     Cvdnismappingentry []CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry
 }
 
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetFilter() yfilter.YFilter { return cvdnismappingtable.YFilter }
+func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetEntityData() *types.CommonEntityData {
+    cvdnismappingtable.EntityData.YFilter = cvdnismappingtable.YFilter
+    cvdnismappingtable.EntityData.YangName = "cvDnisMappingTable"
+    cvdnismappingtable.EntityData.BundleName = "cisco_ios_xe"
+    cvdnismappingtable.EntityData.ParentYangName = "CISCO-VOICE-DNIS-MIB"
+    cvdnismappingtable.EntityData.SegmentPath = "cvDnisMappingTable"
+    cvdnismappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvdnismappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvdnismappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) SetFilter(yf yfilter.YFilter) { cvdnismappingtable.YFilter = yf }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetGoName(yname string) string {
-    if yname == "cvDnisMappingEntry" { return "Cvdnismappingentry" }
-    return ""
-}
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetSegmentPath() string {
-    return "cvDnisMappingTable"
-}
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvDnisMappingEntry" {
-        for _, c := range cvdnismappingtable.Cvdnismappingentry {
-            if cvdnismappingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry{}
-        cvdnismappingtable.Cvdnismappingentry = append(cvdnismappingtable.Cvdnismappingentry, child)
-        return &cvdnismappingtable.Cvdnismappingentry[len(cvdnismappingtable.Cvdnismappingentry)-1]
-    }
-    return nil
-}
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvdnismappingtable.EntityData.Children = make(map[string]types.YChild)
+    cvdnismappingtable.EntityData.Children["cvDnisMappingEntry"] = types.YChild{"Cvdnismappingentry", nil}
     for i := range cvdnismappingtable.Cvdnismappingentry {
-        children[cvdnismappingtable.Cvdnismappingentry[i].GetSegmentPath()] = &cvdnismappingtable.Cvdnismappingentry[i]
+        cvdnismappingtable.EntityData.Children[types.GetSegmentPath(&cvdnismappingtable.Cvdnismappingentry[i])] = types.YChild{"Cvdnismappingentry", &cvdnismappingtable.Cvdnismappingentry[i]}
     }
-    return children
+    cvdnismappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvdnismappingtable.EntityData)
 }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetYangName() string { return "cvDnisMappingTable" }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) SetParent(parent types.Entity) { cvdnismappingtable.parent = parent }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetParent() types.Entity { return cvdnismappingtable.parent }
-
-func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetParentYangName() string { return "CISCO-VOICE-DNIS-MIB" }
 
 // CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry
 // Information about a single DNIS mapping. There is a
@@ -214,7 +138,7 @@ func (cvdnismappingtable *CISCOVOICEDNISMIB_Cvdnismappingtable) GetParentYangNam
 // Deleting an entry deletes all the related entries in
 // cvDnisNodeTable. 
 type CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name which uniquely identifies a DNIS mapping.
@@ -264,59 +188,25 @@ type CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry struct {
     Cvdnismappingstatus interface{}
 }
 
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetFilter() yfilter.YFilter { return cvdnismappingentry.YFilter }
+func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetEntityData() *types.CommonEntityData {
+    cvdnismappingentry.EntityData.YFilter = cvdnismappingentry.YFilter
+    cvdnismappingentry.EntityData.YangName = "cvDnisMappingEntry"
+    cvdnismappingentry.EntityData.BundleName = "cisco_ios_xe"
+    cvdnismappingentry.EntityData.ParentYangName = "cvDnisMappingTable"
+    cvdnismappingentry.EntityData.SegmentPath = "cvDnisMappingEntry" + "[cvDnisMappingName='" + fmt.Sprintf("%v", cvdnismappingentry.Cvdnismappingname) + "']"
+    cvdnismappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvdnismappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvdnismappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) SetFilter(yf yfilter.YFilter) { cvdnismappingentry.YFilter = yf }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetGoName(yname string) string {
-    if yname == "cvDnisMappingName" { return "Cvdnismappingname" }
-    if yname == "cvDnisMappingUrl" { return "Cvdnismappingurl" }
-    if yname == "cvDnisMappingRefresh" { return "Cvdnismappingrefresh" }
-    if yname == "cvDnisMappingUrlAccessError" { return "Cvdnismappingurlaccesserror" }
-    if yname == "cvDnisMappingStatus" { return "Cvdnismappingstatus" }
-    return ""
+    cvdnismappingentry.EntityData.Children = make(map[string]types.YChild)
+    cvdnismappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvdnismappingentry.EntityData.Leafs["cvDnisMappingName"] = types.YLeaf{"Cvdnismappingname", cvdnismappingentry.Cvdnismappingname}
+    cvdnismappingentry.EntityData.Leafs["cvDnisMappingUrl"] = types.YLeaf{"Cvdnismappingurl", cvdnismappingentry.Cvdnismappingurl}
+    cvdnismappingentry.EntityData.Leafs["cvDnisMappingRefresh"] = types.YLeaf{"Cvdnismappingrefresh", cvdnismappingentry.Cvdnismappingrefresh}
+    cvdnismappingentry.EntityData.Leafs["cvDnisMappingUrlAccessError"] = types.YLeaf{"Cvdnismappingurlaccesserror", cvdnismappingentry.Cvdnismappingurlaccesserror}
+    cvdnismappingentry.EntityData.Leafs["cvDnisMappingStatus"] = types.YLeaf{"Cvdnismappingstatus", cvdnismappingentry.Cvdnismappingstatus}
+    return &(cvdnismappingentry.EntityData)
 }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetSegmentPath() string {
-    return "cvDnisMappingEntry" + "[cvDnisMappingName='" + fmt.Sprintf("%v", cvdnismappingentry.Cvdnismappingname) + "']"
-}
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvDnisMappingName"] = cvdnismappingentry.Cvdnismappingname
-    leafs["cvDnisMappingUrl"] = cvdnismappingentry.Cvdnismappingurl
-    leafs["cvDnisMappingRefresh"] = cvdnismappingentry.Cvdnismappingrefresh
-    leafs["cvDnisMappingUrlAccessError"] = cvdnismappingentry.Cvdnismappingurlaccesserror
-    leafs["cvDnisMappingStatus"] = cvdnismappingentry.Cvdnismappingstatus
-    return leafs
-}
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetYangName() string { return "cvDnisMappingEntry" }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) SetParent(parent types.Entity) { cvdnismappingentry.parent = parent }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetParent() types.Entity { return cvdnismappingentry.parent }
-
-func (cvdnismappingentry *CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry) GetParentYangName() string { return "cvDnisMappingTable" }
 
 // CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry_Cvdnismappingrefresh represents              becomes idle to issue new refresh.
 type CISCOVOICEDNISMIB_Cvdnismappingtable_Cvdnismappingentry_Cvdnismappingrefresh string
@@ -331,7 +221,7 @@ const (
 // The table contains a DNIS name and a url. The url is a
 // pointer to a VXML page for the DNIS name. 
 type CISCOVOICEDNISMIB_Cvdnisnodetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry is a DNIS name and the location of the associated VXML page. New
@@ -344,63 +234,24 @@ type CISCOVOICEDNISMIB_Cvdnisnodetable struct {
     Cvdnisnodeentry []CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry
 }
 
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetFilter() yfilter.YFilter { return cvdnisnodetable.YFilter }
+func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetEntityData() *types.CommonEntityData {
+    cvdnisnodetable.EntityData.YFilter = cvdnisnodetable.YFilter
+    cvdnisnodetable.EntityData.YangName = "cvDnisNodeTable"
+    cvdnisnodetable.EntityData.BundleName = "cisco_ios_xe"
+    cvdnisnodetable.EntityData.ParentYangName = "CISCO-VOICE-DNIS-MIB"
+    cvdnisnodetable.EntityData.SegmentPath = "cvDnisNodeTable"
+    cvdnisnodetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvdnisnodetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvdnisnodetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) SetFilter(yf yfilter.YFilter) { cvdnisnodetable.YFilter = yf }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetGoName(yname string) string {
-    if yname == "cvDnisNodeEntry" { return "Cvdnisnodeentry" }
-    return ""
-}
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetSegmentPath() string {
-    return "cvDnisNodeTable"
-}
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvDnisNodeEntry" {
-        for _, c := range cvdnisnodetable.Cvdnisnodeentry {
-            if cvdnisnodetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry{}
-        cvdnisnodetable.Cvdnisnodeentry = append(cvdnisnodetable.Cvdnisnodeentry, child)
-        return &cvdnisnodetable.Cvdnisnodeentry[len(cvdnisnodetable.Cvdnisnodeentry)-1]
-    }
-    return nil
-}
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvdnisnodetable.EntityData.Children = make(map[string]types.YChild)
+    cvdnisnodetable.EntityData.Children["cvDnisNodeEntry"] = types.YChild{"Cvdnisnodeentry", nil}
     for i := range cvdnisnodetable.Cvdnisnodeentry {
-        children[cvdnisnodetable.Cvdnisnodeentry[i].GetSegmentPath()] = &cvdnisnodetable.Cvdnisnodeentry[i]
+        cvdnisnodetable.EntityData.Children[types.GetSegmentPath(&cvdnisnodetable.Cvdnisnodeentry[i])] = types.YChild{"Cvdnisnodeentry", &cvdnisnodetable.Cvdnisnodeentry[i]}
     }
-    return children
+    cvdnisnodetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvdnisnodetable.EntityData)
 }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetYangName() string { return "cvDnisNodeTable" }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) SetParent(parent types.Entity) { cvdnisnodetable.parent = parent }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetParent() types.Entity { return cvdnisnodetable.parent }
-
-func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetParentYangName() string { return "CISCO-VOICE-DNIS-MIB" }
 
 // CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry
 // Each entry is a DNIS name and the location of the
@@ -414,7 +265,7 @@ func (cvdnisnodetable *CISCOVOICEDNISMIB_Cvdnisnodetable) GetParentYangName() st
 // corresponding to this entry's map name, then this row
 // will have read permission only.
 type CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..32. Refers to
@@ -446,57 +297,23 @@ type CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry struct {
     Cvdnisnodestatus interface{}
 }
 
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetFilter() yfilter.YFilter { return cvdnisnodeentry.YFilter }
+func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetEntityData() *types.CommonEntityData {
+    cvdnisnodeentry.EntityData.YFilter = cvdnisnodeentry.YFilter
+    cvdnisnodeentry.EntityData.YangName = "cvDnisNodeEntry"
+    cvdnisnodeentry.EntityData.BundleName = "cisco_ios_xe"
+    cvdnisnodeentry.EntityData.ParentYangName = "cvDnisNodeTable"
+    cvdnisnodeentry.EntityData.SegmentPath = "cvDnisNodeEntry" + "[cvDnisMappingName='" + fmt.Sprintf("%v", cvdnisnodeentry.Cvdnismappingname) + "']" + "[cvDnisNumber='" + fmt.Sprintf("%v", cvdnisnodeentry.Cvdnisnumber) + "']"
+    cvdnisnodeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvdnisnodeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvdnisnodeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) SetFilter(yf yfilter.YFilter) { cvdnisnodeentry.YFilter = yf }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetGoName(yname string) string {
-    if yname == "cvDnisMappingName" { return "Cvdnismappingname" }
-    if yname == "cvDnisNumber" { return "Cvdnisnumber" }
-    if yname == "cvDnisNodeUrl" { return "Cvdnisnodeurl" }
-    if yname == "cvDnisNodeModifiable" { return "Cvdnisnodemodifiable" }
-    if yname == "cvDnisNodeStatus" { return "Cvdnisnodestatus" }
-    return ""
+    cvdnisnodeentry.EntityData.Children = make(map[string]types.YChild)
+    cvdnisnodeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvdnisnodeentry.EntityData.Leafs["cvDnisMappingName"] = types.YLeaf{"Cvdnismappingname", cvdnisnodeentry.Cvdnismappingname}
+    cvdnisnodeentry.EntityData.Leafs["cvDnisNumber"] = types.YLeaf{"Cvdnisnumber", cvdnisnodeentry.Cvdnisnumber}
+    cvdnisnodeentry.EntityData.Leafs["cvDnisNodeUrl"] = types.YLeaf{"Cvdnisnodeurl", cvdnisnodeentry.Cvdnisnodeurl}
+    cvdnisnodeentry.EntityData.Leafs["cvDnisNodeModifiable"] = types.YLeaf{"Cvdnisnodemodifiable", cvdnisnodeentry.Cvdnisnodemodifiable}
+    cvdnisnodeentry.EntityData.Leafs["cvDnisNodeStatus"] = types.YLeaf{"Cvdnisnodestatus", cvdnisnodeentry.Cvdnisnodestatus}
+    return &(cvdnisnodeentry.EntityData)
 }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetSegmentPath() string {
-    return "cvDnisNodeEntry" + "[cvDnisMappingName='" + fmt.Sprintf("%v", cvdnisnodeentry.Cvdnismappingname) + "']" + "[cvDnisNumber='" + fmt.Sprintf("%v", cvdnisnodeentry.Cvdnisnumber) + "']"
-}
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvDnisMappingName"] = cvdnisnodeentry.Cvdnismappingname
-    leafs["cvDnisNumber"] = cvdnisnodeentry.Cvdnisnumber
-    leafs["cvDnisNodeUrl"] = cvdnisnodeentry.Cvdnisnodeurl
-    leafs["cvDnisNodeModifiable"] = cvdnisnodeentry.Cvdnisnodemodifiable
-    leafs["cvDnisNodeStatus"] = cvdnisnodeentry.Cvdnisnodestatus
-    return leafs
-}
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetYangName() string { return "cvDnisNodeEntry" }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) SetParent(parent types.Entity) { cvdnisnodeentry.parent = parent }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetParent() types.Entity { return cvdnisnodeentry.parent }
-
-func (cvdnisnodeentry *CISCOVOICEDNISMIB_Cvdnisnodetable_Cvdnisnodeentry) GetParentYangName() string { return "cvDnisNodeTable" }
 

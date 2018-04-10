@@ -27,6 +27,72 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-arp-oper:arp", reflect.TypeOf(Arp{}))
 }
 
+// ArpGmpBagEntry represents ARP Entry type
+type ArpGmpBagEntry string
+
+const (
+    // No state
+    ArpGmpBagEntry_null ArpGmpBagEntry = "null"
+
+    // Static
+    ArpGmpBagEntry_static ArpGmpBagEntry = "static"
+
+    // Alias
+    ArpGmpBagEntry_alias ArpGmpBagEntry = "alias"
+)
+
+// ArpGmpBagEncap represents ARP encapsulation
+type ArpGmpBagEncap string
+
+const (
+    // No encapsulation
+    ArpGmpBagEncap_none ArpGmpBagEncap = "none"
+
+    // ARPA
+    ArpGmpBagEncap_arpa ArpGmpBagEncap = "arpa"
+
+    // SNAP
+    ArpGmpBagEncap_snap ArpGmpBagEncap = "snap"
+
+    // 802 1Q
+    ArpGmpBagEncap_ieee802_1q ArpGmpBagEncap = "ieee802-1q"
+
+    // SRP
+    ArpGmpBagEncap_srp ArpGmpBagEncap = "srp"
+
+    // SRPA
+    ArpGmpBagEncap_srpa ArpGmpBagEncap = "srpa"
+
+    // SRPB
+    ArpGmpBagEncap_srpb ArpGmpBagEncap = "srpb"
+)
+
+// IpArpBagEncap represents ARP encapsulation
+type IpArpBagEncap string
+
+const (
+    // No encapsulation
+    IpArpBagEncap_none IpArpBagEncap = "none"
+
+    // ARPA
+    IpArpBagEncap_arpa IpArpBagEncap = "arpa"
+
+    // SNAP
+    IpArpBagEncap_snap IpArpBagEncap = "snap"
+
+    // 802 1Q
+    IpArpBagEncap_ieee802_1q IpArpBagEncap = "ieee802-1q"
+
+    // SRP
+    IpArpBagEncap_srp IpArpBagEncap = "srp"
+
+    // SRPA
+    IpArpBagEncap_srpa IpArpBagEncap = "srpa"
+
+    // SRPB
+    IpArpBagEncap_srpb IpArpBagEncap = "srpb"
+)
+
 // IpArpBagFlags represents ARP flags
 type IpArpBagFlags string
 
@@ -42,6 +108,76 @@ const (
 
     // Maximum Flag number
     IpArpBagFlags_flag_max IpArpBagFlags = "flag-max"
+)
+
+// IpArpBagState represents ARP state
+type IpArpBagState string
+
+const (
+    // No state
+    IpArpBagState_state_none IpArpBagState = "state-none"
+
+    // Interface
+    IpArpBagState_state_interface IpArpBagState = "state-interface"
+
+    // Standby
+    IpArpBagState_state_standby IpArpBagState = "state-standby"
+
+    // Static
+    IpArpBagState_state_static IpArpBagState = "state-static"
+
+    // Alias
+    IpArpBagState_state_alias IpArpBagState = "state-alias"
+
+    // Mobile
+    IpArpBagState_state_mobile IpArpBagState = "state-mobile"
+
+    // Incomplete
+    IpArpBagState_state_incomplete IpArpBagState = "state-incomplete"
+
+    // Deleted
+    IpArpBagState_state_deleted IpArpBagState = "state-deleted"
+
+    // Dynamic
+    IpArpBagState_state_dynamic IpArpBagState = "state-dynamic"
+
+    // Probe
+    IpArpBagState_state_probe IpArpBagState = "state-probe"
+
+    // Purge delayed
+    IpArpBagState_state_purge_delayed IpArpBagState = "state-purge-delayed"
+
+    // DHCP installed
+    IpArpBagState_state_dhcp IpArpBagState = "state-dhcp"
+
+    // VXLAN installed
+    IpArpBagState_state_vxlan IpArpBagState = "state-vxlan"
+
+    // EVPN-SYNC installed
+    IpArpBagState_state_evpn_sync IpArpBagState = "state-evpn-sync"
+
+    // Satellite installed
+    IpArpBagState_state_sat IpArpBagState = "state-sat"
+
+    // Geo-redundancy sync'ed
+    IpArpBagState_state_r_sync IpArpBagState = "state-r-sync"
+
+    // Maximum state number
+    IpArpBagState_state_max IpArpBagState = "state-max"
+)
+
+// IpArpBagMedia represents ARP media type
+type IpArpBagMedia string
+
+const (
+    // ARPA
+    IpArpBagMedia_media_arpa IpArpBagMedia = "media-arpa"
+
+    // SRP
+    IpArpBagMedia_media_srp IpArpBagMedia = "media-srp"
+
+    // Unknown
+    IpArpBagMedia_media_unknown IpArpBagMedia = "media-unknown"
 )
 
 // ArpResolutionHistoryStatus represents Arp resolution history status
@@ -125,146 +261,10 @@ const (
     ArpResolutionHistoryStatus_status_dropped_unsolicited_pak ArpResolutionHistoryStatus = "status-dropped-unsolicited-pak"
 )
 
-// IpArpBagEncap represents ARP encapsulation
-type IpArpBagEncap string
-
-const (
-    // No encapsulation
-    IpArpBagEncap_none IpArpBagEncap = "none"
-
-    // ARPA
-    IpArpBagEncap_arpa IpArpBagEncap = "arpa"
-
-    // SNAP
-    IpArpBagEncap_snap IpArpBagEncap = "snap"
-
-    // 802 1Q
-    IpArpBagEncap_ieee802_1q IpArpBagEncap = "ieee802-1q"
-
-    // SRP
-    IpArpBagEncap_srp IpArpBagEncap = "srp"
-
-    // SRPA
-    IpArpBagEncap_srpa IpArpBagEncap = "srpa"
-
-    // SRPB
-    IpArpBagEncap_srpb IpArpBagEncap = "srpb"
-)
-
-// ArpGmpBagEncap represents ARP encapsulation
-type ArpGmpBagEncap string
-
-const (
-    // No encapsulation
-    ArpGmpBagEncap_none ArpGmpBagEncap = "none"
-
-    // ARPA
-    ArpGmpBagEncap_arpa ArpGmpBagEncap = "arpa"
-
-    // SNAP
-    ArpGmpBagEncap_snap ArpGmpBagEncap = "snap"
-
-    // 802 1Q
-    ArpGmpBagEncap_ieee802_1q ArpGmpBagEncap = "ieee802-1q"
-
-    // SRP
-    ArpGmpBagEncap_srp ArpGmpBagEncap = "srp"
-
-    // SRPA
-    ArpGmpBagEncap_srpa ArpGmpBagEncap = "srpa"
-
-    // SRPB
-    ArpGmpBagEncap_srpb ArpGmpBagEncap = "srpb"
-)
-
-// IpArpBagMedia represents ARP media type
-type IpArpBagMedia string
-
-const (
-    // ARPA
-    IpArpBagMedia_media_arpa IpArpBagMedia = "media-arpa"
-
-    // SRP
-    IpArpBagMedia_media_srp IpArpBagMedia = "media-srp"
-
-    // Unknown
-    IpArpBagMedia_media_unknown IpArpBagMedia = "media-unknown"
-)
-
-// ArpGmpBagEntry represents ARP Entry type
-type ArpGmpBagEntry string
-
-const (
-    // No state
-    ArpGmpBagEntry_null ArpGmpBagEntry = "null"
-
-    // Static
-    ArpGmpBagEntry_static ArpGmpBagEntry = "static"
-
-    // Alias
-    ArpGmpBagEntry_alias ArpGmpBagEntry = "alias"
-)
-
-// IpArpBagState represents ARP state
-type IpArpBagState string
-
-const (
-    // No state
-    IpArpBagState_state_none IpArpBagState = "state-none"
-
-    // Interface
-    IpArpBagState_state_interface IpArpBagState = "state-interface"
-
-    // Standby
-    IpArpBagState_state_standby IpArpBagState = "state-standby"
-
-    // Static
-    IpArpBagState_state_static IpArpBagState = "state-static"
-
-    // Alias
-    IpArpBagState_state_alias IpArpBagState = "state-alias"
-
-    // Mobile
-    IpArpBagState_state_mobile IpArpBagState = "state-mobile"
-
-    // Incomplete
-    IpArpBagState_state_incomplete IpArpBagState = "state-incomplete"
-
-    // Deleted
-    IpArpBagState_state_deleted IpArpBagState = "state-deleted"
-
-    // Dynamic
-    IpArpBagState_state_dynamic IpArpBagState = "state-dynamic"
-
-    // Probe
-    IpArpBagState_state_probe IpArpBagState = "state-probe"
-
-    // Purge delayed
-    IpArpBagState_state_purge_delayed IpArpBagState = "state-purge-delayed"
-
-    // DHCP installed
-    IpArpBagState_state_dhcp IpArpBagState = "state-dhcp"
-
-    // VXLAN installed
-    IpArpBagState_state_vxlan IpArpBagState = "state-vxlan"
-
-    // EVPN-SYNC installed
-    IpArpBagState_state_evpn_sync IpArpBagState = "state-evpn-sync"
-
-    // Satellite installed
-    IpArpBagState_state_sat IpArpBagState = "state-sat"
-
-    // Geo-redundancy sync'ed
-    IpArpBagState_state_r_sync IpArpBagState = "state-r-sync"
-
-    // Maximum state number
-    IpArpBagState_state_max IpArpBagState = "state-max"
-)
-
 // ArpGmp
 // ARP-GMP global operational data
 type ArpGmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of VRF related ARP-GMP operational data.
@@ -274,64 +274,27 @@ type ArpGmp struct {
     Vrfs ArpGmp_Vrfs
 }
 
-func (arpGmp *ArpGmp) GetFilter() yfilter.YFilter { return arpGmp.YFilter }
+func (arpGmp *ArpGmp) GetEntityData() *types.CommonEntityData {
+    arpGmp.EntityData.YFilter = arpGmp.YFilter
+    arpGmp.EntityData.YangName = "arp-gmp"
+    arpGmp.EntityData.BundleName = "cisco_ios_xr"
+    arpGmp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-oper"
+    arpGmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp"
+    arpGmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    arpGmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    arpGmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (arpGmp *ArpGmp) SetFilter(yf yfilter.YFilter) { arpGmp.YFilter = yf }
-
-func (arpGmp *ArpGmp) GetGoName(yname string) string {
-    if yname == "vrf-infos" { return "VrfInfos" }
-    if yname == "vrfs" { return "Vrfs" }
-    return ""
+    arpGmp.EntityData.Children = make(map[string]types.YChild)
+    arpGmp.EntityData.Children["vrf-infos"] = types.YChild{"VrfInfos", &arpGmp.VrfInfos}
+    arpGmp.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &arpGmp.Vrfs}
+    arpGmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(arpGmp.EntityData)
 }
-
-func (arpGmp *ArpGmp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp"
-}
-
-func (arpGmp *ArpGmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf-infos" {
-        return &arpGmp.VrfInfos
-    }
-    if childYangName == "vrfs" {
-        return &arpGmp.Vrfs
-    }
-    return nil
-}
-
-func (arpGmp *ArpGmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vrf-infos"] = &arpGmp.VrfInfos
-    children["vrfs"] = &arpGmp.Vrfs
-    return children
-}
-
-func (arpGmp *ArpGmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (arpGmp *ArpGmp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (arpGmp *ArpGmp) GetYangName() string { return "arp-gmp" }
-
-func (arpGmp *ArpGmp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (arpGmp *ArpGmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (arpGmp *ArpGmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (arpGmp *ArpGmp) SetParent(parent types.Entity) { arpGmp.parent = parent }
-
-func (arpGmp *ArpGmp) GetParent() types.Entity { return arpGmp.parent }
-
-func (arpGmp *ArpGmp) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-arp-oper" }
 
 // ArpGmp_VrfInfos
 // Table of VRF related ARP-GMP operational data
 type ArpGmp_VrfInfos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF related ARP-GMP operational data. The type is slice of
@@ -339,72 +302,33 @@ type ArpGmp_VrfInfos struct {
     VrfInfo []ArpGmp_VrfInfos_VrfInfo
 }
 
-func (vrfInfos *ArpGmp_VrfInfos) GetFilter() yfilter.YFilter { return vrfInfos.YFilter }
+func (vrfInfos *ArpGmp_VrfInfos) GetEntityData() *types.CommonEntityData {
+    vrfInfos.EntityData.YFilter = vrfInfos.YFilter
+    vrfInfos.EntityData.YangName = "vrf-infos"
+    vrfInfos.EntityData.BundleName = "cisco_ios_xr"
+    vrfInfos.EntityData.ParentYangName = "arp-gmp"
+    vrfInfos.EntityData.SegmentPath = "vrf-infos"
+    vrfInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfInfos *ArpGmp_VrfInfos) SetFilter(yf yfilter.YFilter) { vrfInfos.YFilter = yf }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetGoName(yname string) string {
-    if yname == "vrf-info" { return "VrfInfo" }
-    return ""
-}
-
-func (vrfInfos *ArpGmp_VrfInfos) GetSegmentPath() string {
-    return "vrf-infos"
-}
-
-func (vrfInfos *ArpGmp_VrfInfos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf-info" {
-        for _, c := range vrfInfos.VrfInfo {
-            if vrfInfos.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ArpGmp_VrfInfos_VrfInfo{}
-        vrfInfos.VrfInfo = append(vrfInfos.VrfInfo, child)
-        return &vrfInfos.VrfInfo[len(vrfInfos.VrfInfo)-1]
-    }
-    return nil
-}
-
-func (vrfInfos *ArpGmp_VrfInfos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfInfos.EntityData.Children = make(map[string]types.YChild)
+    vrfInfos.EntityData.Children["vrf-info"] = types.YChild{"VrfInfo", nil}
     for i := range vrfInfos.VrfInfo {
-        children[vrfInfos.VrfInfo[i].GetSegmentPath()] = &vrfInfos.VrfInfo[i]
+        vrfInfos.EntityData.Children[types.GetSegmentPath(&vrfInfos.VrfInfo[i])] = types.YChild{"VrfInfo", &vrfInfos.VrfInfo[i]}
     }
-    return children
+    vrfInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfInfos.EntityData)
 }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfInfos *ArpGmp_VrfInfos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetYangName() string { return "vrf-infos" }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfInfos *ArpGmp_VrfInfos) SetParent(parent types.Entity) { vrfInfos.parent = parent }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetParent() types.Entity { return vrfInfos.parent }
-
-func (vrfInfos *ArpGmp_VrfInfos) GetParentYangName() string { return "arp-gmp" }
 
 // ArpGmp_VrfInfos_VrfInfo
 // VRF related ARP-GMP operational data
 type ArpGmp_VrfInfos_VrfInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name for the default VRF use 'default'. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // VRF Name. The type is string.
@@ -424,138 +348,64 @@ type ArpGmp_VrfInfos_VrfInfo struct {
     RsiHandleHigh interface{}
 }
 
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetFilter() yfilter.YFilter { return vrfInfo.YFilter }
+func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetEntityData() *types.CommonEntityData {
+    vrfInfo.EntityData.YFilter = vrfInfo.YFilter
+    vrfInfo.EntityData.YangName = "vrf-info"
+    vrfInfo.EntityData.BundleName = "cisco_ios_xr"
+    vrfInfo.EntityData.ParentYangName = "vrf-infos"
+    vrfInfo.EntityData.SegmentPath = "vrf-info" + "[vrf-name='" + fmt.Sprintf("%v", vrfInfo.VrfName) + "']"
+    vrfInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) SetFilter(yf yfilter.YFilter) { vrfInfo.YFilter = yf }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "vrf-name-xr" { return "VrfNameXr" }
-    if yname == "vrf-id-number" { return "VrfIdNumber" }
-    if yname == "table-id" { return "TableId" }
-    if yname == "rsi-handle" { return "RsiHandle" }
-    if yname == "rsi-handle-high" { return "RsiHandleHigh" }
-    return ""
+    vrfInfo.EntityData.Children = make(map[string]types.YChild)
+    vrfInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfInfo.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrfInfo.VrfName}
+    vrfInfo.EntityData.Leafs["vrf-name-xr"] = types.YLeaf{"VrfNameXr", vrfInfo.VrfNameXr}
+    vrfInfo.EntityData.Leafs["vrf-id-number"] = types.YLeaf{"VrfIdNumber", vrfInfo.VrfIdNumber}
+    vrfInfo.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", vrfInfo.TableId}
+    vrfInfo.EntityData.Leafs["rsi-handle"] = types.YLeaf{"RsiHandle", vrfInfo.RsiHandle}
+    vrfInfo.EntityData.Leafs["rsi-handle-high"] = types.YLeaf{"RsiHandleHigh", vrfInfo.RsiHandleHigh}
+    return &(vrfInfo.EntityData)
 }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetSegmentPath() string {
-    return "vrf-info" + "[vrf-name='" + fmt.Sprintf("%v", vrfInfo.VrfName) + "']"
-}
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrfInfo.VrfName
-    leafs["vrf-name-xr"] = vrfInfo.VrfNameXr
-    leafs["vrf-id-number"] = vrfInfo.VrfIdNumber
-    leafs["table-id"] = vrfInfo.TableId
-    leafs["rsi-handle"] = vrfInfo.RsiHandle
-    leafs["rsi-handle-high"] = vrfInfo.RsiHandleHigh
-    return leafs
-}
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetYangName() string { return "vrf-info" }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) SetParent(parent types.Entity) { vrfInfo.parent = parent }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetParent() types.Entity { return vrfInfo.parent }
-
-func (vrfInfo *ArpGmp_VrfInfos_VrfInfo) GetParentYangName() string { return "vrf-infos" }
 
 // ArpGmp_Vrfs
 // Table of per VRF ARP-GMP operational data
 type ArpGmp_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per VRF ARP-GMP operational data. The type is slice of ArpGmp_Vrfs_Vrf.
     Vrf []ArpGmp_Vrfs_Vrf
 }
 
-func (vrfs *ArpGmp_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *ArpGmp_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "arp-gmp"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *ArpGmp_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *ArpGmp_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *ArpGmp_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *ArpGmp_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ArpGmp_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *ArpGmp_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *ArpGmp_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *ArpGmp_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *ArpGmp_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *ArpGmp_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *ArpGmp_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *ArpGmp_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *ArpGmp_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *ArpGmp_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *ArpGmp_Vrfs) GetParentYangName() string { return "arp-gmp" }
 
 // ArpGmp_Vrfs_Vrf
 // Per VRF ARP-GMP operational data
 type ArpGmp_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name for the default VRF use 'default'. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Table of ARP-GMP configured IP addresses information.
@@ -568,72 +418,30 @@ type ArpGmp_Vrfs_Vrf struct {
     InterfaceConfiguredIps ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps
 }
 
-func (vrf *ArpGmp_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *ArpGmp_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *ArpGmp_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "configured-ip-addresses" { return "ConfiguredIpAddresses" }
-    if yname == "routes" { return "Routes" }
-    if yname == "interface-configured-ips" { return "InterfaceConfiguredIps" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["configured-ip-addresses"] = types.YChild{"ConfiguredIpAddresses", &vrf.ConfiguredIpAddresses}
+    vrf.EntityData.Children["routes"] = types.YChild{"Routes", &vrf.Routes}
+    vrf.EntityData.Children["interface-configured-ips"] = types.YChild{"InterfaceConfiguredIps", &vrf.InterfaceConfiguredIps}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "configured-ip-addresses" {
-        return &vrf.ConfiguredIpAddresses
-    }
-    if childYangName == "routes" {
-        return &vrf.Routes
-    }
-    if childYangName == "interface-configured-ips" {
-        return &vrf.InterfaceConfiguredIps
-    }
-    return nil
-}
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["configured-ip-addresses"] = &vrf.ConfiguredIpAddresses
-    children["routes"] = &vrf.Routes
-    children["interface-configured-ips"] = &vrf.InterfaceConfiguredIps
-    return children
-}
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *ArpGmp_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *ArpGmp_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses
 // Table of ARP-GMP configured IP addresses
 // information
 type ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ARP-GMP configured IP address information. The type is slice of
@@ -641,81 +449,42 @@ type ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses struct {
     ConfiguredIpAddress []ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress
 }
 
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetFilter() yfilter.YFilter { return configuredIpAddresses.YFilter }
+func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetEntityData() *types.CommonEntityData {
+    configuredIpAddresses.EntityData.YFilter = configuredIpAddresses.YFilter
+    configuredIpAddresses.EntityData.YangName = "configured-ip-addresses"
+    configuredIpAddresses.EntityData.BundleName = "cisco_ios_xr"
+    configuredIpAddresses.EntityData.ParentYangName = "vrf"
+    configuredIpAddresses.EntityData.SegmentPath = "configured-ip-addresses"
+    configuredIpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuredIpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuredIpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) SetFilter(yf yfilter.YFilter) { configuredIpAddresses.YFilter = yf }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetGoName(yname string) string {
-    if yname == "configured-ip-address" { return "ConfiguredIpAddress" }
-    return ""
-}
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetSegmentPath() string {
-    return "configured-ip-addresses"
-}
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "configured-ip-address" {
-        for _, c := range configuredIpAddresses.ConfiguredIpAddress {
-            if configuredIpAddresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress{}
-        configuredIpAddresses.ConfiguredIpAddress = append(configuredIpAddresses.ConfiguredIpAddress, child)
-        return &configuredIpAddresses.ConfiguredIpAddress[len(configuredIpAddresses.ConfiguredIpAddress)-1]
-    }
-    return nil
-}
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    configuredIpAddresses.EntityData.Children = make(map[string]types.YChild)
+    configuredIpAddresses.EntityData.Children["configured-ip-address"] = types.YChild{"ConfiguredIpAddress", nil}
     for i := range configuredIpAddresses.ConfiguredIpAddress {
-        children[configuredIpAddresses.ConfiguredIpAddress[i].GetSegmentPath()] = &configuredIpAddresses.ConfiguredIpAddress[i]
+        configuredIpAddresses.EntityData.Children[types.GetSegmentPath(&configuredIpAddresses.ConfiguredIpAddress[i])] = types.YChild{"ConfiguredIpAddress", &configuredIpAddresses.ConfiguredIpAddress[i]}
     }
-    return children
+    configuredIpAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(configuredIpAddresses.EntityData)
 }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetYangName() string { return "configured-ip-addresses" }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) SetParent(parent types.Entity) { configuredIpAddresses.parent = parent }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetParent() types.Entity { return configuredIpAddresses.parent }
-
-func (configuredIpAddresses *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses) GetParentYangName() string { return "vrf" }
 
 // ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress
 // ARP-GMP configured IP address information
 type ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Configured ARP-GMP IP. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Hardware address . The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     HardwareAddress interface{}
 
     // Encap type. The type is ArpGmpBagEncap.
@@ -725,64 +494,30 @@ type ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress struct {
     EntryType interface{}
 }
 
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetFilter() yfilter.YFilter { return configuredIpAddress.YFilter }
+func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetEntityData() *types.CommonEntityData {
+    configuredIpAddress.EntityData.YFilter = configuredIpAddress.YFilter
+    configuredIpAddress.EntityData.YangName = "configured-ip-address"
+    configuredIpAddress.EntityData.BundleName = "cisco_ios_xr"
+    configuredIpAddress.EntityData.ParentYangName = "configured-ip-addresses"
+    configuredIpAddress.EntityData.SegmentPath = "configured-ip-address" + "[address='" + fmt.Sprintf("%v", configuredIpAddress.Address) + "']"
+    configuredIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuredIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuredIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) SetFilter(yf yfilter.YFilter) { configuredIpAddress.YFilter = yf }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "hardware-address" { return "HardwareAddress" }
-    if yname == "encapsulation-type" { return "EncapsulationType" }
-    if yname == "entry-type" { return "EntryType" }
-    return ""
+    configuredIpAddress.EntityData.Children = make(map[string]types.YChild)
+    configuredIpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    configuredIpAddress.EntityData.Leafs["address"] = types.YLeaf{"Address", configuredIpAddress.Address}
+    configuredIpAddress.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", configuredIpAddress.IpAddress}
+    configuredIpAddress.EntityData.Leafs["hardware-address"] = types.YLeaf{"HardwareAddress", configuredIpAddress.HardwareAddress}
+    configuredIpAddress.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", configuredIpAddress.EncapsulationType}
+    configuredIpAddress.EntityData.Leafs["entry-type"] = types.YLeaf{"EntryType", configuredIpAddress.EntryType}
+    return &(configuredIpAddress.EntityData)
 }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetSegmentPath() string {
-    return "configured-ip-address" + "[address='" + fmt.Sprintf("%v", configuredIpAddress.Address) + "']"
-}
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = configuredIpAddress.Address
-    leafs["ip-address"] = configuredIpAddress.IpAddress
-    leafs["hardware-address"] = configuredIpAddress.HardwareAddress
-    leafs["encapsulation-type"] = configuredIpAddress.EncapsulationType
-    leafs["entry-type"] = configuredIpAddress.EntryType
-    return leafs
-}
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetYangName() string { return "configured-ip-address" }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) SetParent(parent types.Entity) { configuredIpAddress.parent = parent }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetParent() types.Entity { return configuredIpAddress.parent }
-
-func (configuredIpAddress *ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress) GetParentYangName() string { return "configured-ip-addresses" }
 
 // ArpGmp_Vrfs_Vrf_Routes
 // Table of ARP GMP route information
 type ArpGmp_Vrfs_Vrf_Routes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ARP GMP route information. The type is slice of
@@ -790,153 +525,80 @@ type ArpGmp_Vrfs_Vrf_Routes struct {
     Route []ArpGmp_Vrfs_Vrf_Routes_Route
 }
 
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetFilter() yfilter.YFilter { return routes.YFilter }
+func (routes *ArpGmp_Vrfs_Vrf_Routes) GetEntityData() *types.CommonEntityData {
+    routes.EntityData.YFilter = routes.YFilter
+    routes.EntityData.YangName = "routes"
+    routes.EntityData.BundleName = "cisco_ios_xr"
+    routes.EntityData.ParentYangName = "vrf"
+    routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (routes *ArpGmp_Vrfs_Vrf_Routes) SetFilter(yf yfilter.YFilter) { routes.YFilter = yf }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetGoName(yname string) string {
-    if yname == "route" { return "Route" }
-    return ""
-}
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetSegmentPath() string {
-    return "routes"
-}
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "route" {
-        for _, c := range routes.Route {
-            if routes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ArpGmp_Vrfs_Vrf_Routes_Route{}
-        routes.Route = append(routes.Route, child)
-        return &routes.Route[len(routes.Route)-1]
-    }
-    return nil
-}
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    routes.EntityData.Children = make(map[string]types.YChild)
+    routes.EntityData.Children["route"] = types.YChild{"Route", nil}
     for i := range routes.Route {
-        children[routes.Route[i].GetSegmentPath()] = &routes.Route[i]
+        routes.EntityData.Children[types.GetSegmentPath(&routes.Route[i])] = types.YChild{"Route", &routes.Route[i]}
     }
-    return children
+    routes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(routes.EntityData)
 }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetYangName() string { return "routes" }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) SetParent(parent types.Entity) { routes.parent = parent }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetParent() types.Entity { return routes.parent }
-
-func (routes *ArpGmp_Vrfs_Vrf_Routes) GetParentYangName() string { return "vrf" }
 
 // ArpGmp_Vrfs_Vrf_Routes_Route
 // ARP GMP route information
 type ArpGmp_Vrfs_Vrf_Routes_Route struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Prefix length. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // IP address length. The type is interface{} with range: 0..255.
     PrefixLengthXr interface{}
 
     // Interface name (first element of InterfaceNames array). The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceNameXr interface{}
 
-    // Interface names. The type is slice of string with pattern: [a-zA-Z0-9./-]+.
+    // Interface names. The type is slice of string with pattern:
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName []interface{}
 }
 
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetFilter() yfilter.YFilter { return route.YFilter }
+func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetEntityData() *types.CommonEntityData {
+    route.EntityData.YFilter = route.YFilter
+    route.EntityData.YangName = "route"
+    route.EntityData.BundleName = "cisco_ios_xr"
+    route.EntityData.ParentYangName = "routes"
+    route.EntityData.SegmentPath = "route"
+    route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) SetFilter(yf yfilter.YFilter) { route.YFilter = yf }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "prefix-length-xr" { return "PrefixLengthXr" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "interface-name" { return "InterfaceName" }
-    return ""
+    route.EntityData.Children = make(map[string]types.YChild)
+    route.EntityData.Leafs = make(map[string]types.YLeaf)
+    route.EntityData.Leafs["address"] = types.YLeaf{"Address", route.Address}
+    route.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", route.PrefixLength}
+    route.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", route.IpAddress}
+    route.EntityData.Leafs["prefix-length-xr"] = types.YLeaf{"PrefixLengthXr", route.PrefixLengthXr}
+    route.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", route.InterfaceNameXr}
+    route.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", route.InterfaceName}
+    return &(route.EntityData)
 }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetSegmentPath() string {
-    return "route"
-}
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = route.Address
-    leafs["prefix-length"] = route.PrefixLength
-    leafs["ip-address"] = route.IpAddress
-    leafs["prefix-length-xr"] = route.PrefixLengthXr
-    leafs["interface-name-xr"] = route.InterfaceNameXr
-    leafs["interface-name"] = route.InterfaceName
-    return leafs
-}
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetBundleName() string { return "cisco_ios_xr" }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetYangName() string { return "route" }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) SetParent(parent types.Entity) { route.parent = parent }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetParent() types.Entity { return route.parent }
-
-func (route *ArpGmp_Vrfs_Vrf_Routes_Route) GetParentYangName() string { return "routes" }
 
 // ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps
 // Table of ARP GMP interface and associated
 // configured IP data
 type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ARP GMP interface and associated configured IP data. The type is slice of
@@ -944,79 +606,40 @@ type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps struct {
     InterfaceConfiguredIp []ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp
 }
 
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetFilter() yfilter.YFilter { return interfaceConfiguredIps.YFilter }
+func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetEntityData() *types.CommonEntityData {
+    interfaceConfiguredIps.EntityData.YFilter = interfaceConfiguredIps.YFilter
+    interfaceConfiguredIps.EntityData.YangName = "interface-configured-ips"
+    interfaceConfiguredIps.EntityData.BundleName = "cisco_ios_xr"
+    interfaceConfiguredIps.EntityData.ParentYangName = "vrf"
+    interfaceConfiguredIps.EntityData.SegmentPath = "interface-configured-ips"
+    interfaceConfiguredIps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceConfiguredIps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceConfiguredIps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) SetFilter(yf yfilter.YFilter) { interfaceConfiguredIps.YFilter = yf }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetGoName(yname string) string {
-    if yname == "interface-configured-ip" { return "InterfaceConfiguredIp" }
-    return ""
-}
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetSegmentPath() string {
-    return "interface-configured-ips"
-}
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-configured-ip" {
-        for _, c := range interfaceConfiguredIps.InterfaceConfiguredIp {
-            if interfaceConfiguredIps.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp{}
-        interfaceConfiguredIps.InterfaceConfiguredIp = append(interfaceConfiguredIps.InterfaceConfiguredIp, child)
-        return &interfaceConfiguredIps.InterfaceConfiguredIp[len(interfaceConfiguredIps.InterfaceConfiguredIp)-1]
-    }
-    return nil
-}
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceConfiguredIps.EntityData.Children = make(map[string]types.YChild)
+    interfaceConfiguredIps.EntityData.Children["interface-configured-ip"] = types.YChild{"InterfaceConfiguredIp", nil}
     for i := range interfaceConfiguredIps.InterfaceConfiguredIp {
-        children[interfaceConfiguredIps.InterfaceConfiguredIp[i].GetSegmentPath()] = &interfaceConfiguredIps.InterfaceConfiguredIp[i]
+        interfaceConfiguredIps.EntityData.Children[types.GetSegmentPath(&interfaceConfiguredIps.InterfaceConfiguredIp[i])] = types.YChild{"InterfaceConfiguredIp", &interfaceConfiguredIps.InterfaceConfiguredIp[i]}
     }
-    return children
+    interfaceConfiguredIps.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceConfiguredIps.EntityData)
 }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetYangName() string { return "interface-configured-ips" }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) SetParent(parent types.Entity) { interfaceConfiguredIps.parent = parent }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetParent() types.Entity { return interfaceConfiguredIps.parent }
-
-func (interfaceConfiguredIps *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps) GetParentYangName() string { return "vrf" }
 
 // ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp
 // ARP GMP interface and associated configured
 // IP data
 type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Configured ARP-GMP IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceNameXr interface{}
 
     // Route reference count. The type is interface{} with range: 0..4294967295.
@@ -1026,75 +649,38 @@ type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp struct {
     AssociatedConfigurationEntry ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry
 }
 
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetFilter() yfilter.YFilter { return interfaceConfiguredIp.YFilter }
+func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetEntityData() *types.CommonEntityData {
+    interfaceConfiguredIp.EntityData.YFilter = interfaceConfiguredIp.YFilter
+    interfaceConfiguredIp.EntityData.YangName = "interface-configured-ip"
+    interfaceConfiguredIp.EntityData.BundleName = "cisco_ios_xr"
+    interfaceConfiguredIp.EntityData.ParentYangName = "interface-configured-ips"
+    interfaceConfiguredIp.EntityData.SegmentPath = "interface-configured-ip"
+    interfaceConfiguredIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceConfiguredIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceConfiguredIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) SetFilter(yf yfilter.YFilter) { interfaceConfiguredIp.YFilter = yf }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "address" { return "Address" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "reference-count" { return "ReferenceCount" }
-    if yname == "associated-configuration-entry" { return "AssociatedConfigurationEntry" }
-    return ""
+    interfaceConfiguredIp.EntityData.Children = make(map[string]types.YChild)
+    interfaceConfiguredIp.EntityData.Children["associated-configuration-entry"] = types.YChild{"AssociatedConfigurationEntry", &interfaceConfiguredIp.AssociatedConfigurationEntry}
+    interfaceConfiguredIp.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceConfiguredIp.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceConfiguredIp.InterfaceName}
+    interfaceConfiguredIp.EntityData.Leafs["address"] = types.YLeaf{"Address", interfaceConfiguredIp.Address}
+    interfaceConfiguredIp.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", interfaceConfiguredIp.InterfaceNameXr}
+    interfaceConfiguredIp.EntityData.Leafs["reference-count"] = types.YLeaf{"ReferenceCount", interfaceConfiguredIp.ReferenceCount}
+    return &(interfaceConfiguredIp.EntityData)
 }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetSegmentPath() string {
-    return "interface-configured-ip"
-}
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "associated-configuration-entry" {
-        return &interfaceConfiguredIp.AssociatedConfigurationEntry
-    }
-    return nil
-}
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["associated-configuration-entry"] = &interfaceConfiguredIp.AssociatedConfigurationEntry
-    return children
-}
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = interfaceConfiguredIp.InterfaceName
-    leafs["address"] = interfaceConfiguredIp.Address
-    leafs["interface-name-xr"] = interfaceConfiguredIp.InterfaceNameXr
-    leafs["reference-count"] = interfaceConfiguredIp.ReferenceCount
-    return leafs
-}
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetYangName() string { return "interface-configured-ip" }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) SetParent(parent types.Entity) { interfaceConfiguredIp.parent = parent }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetParent() types.Entity { return interfaceConfiguredIp.parent }
-
-func (interfaceConfiguredIp *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp) GetParentYangName() string { return "interface-configured-ips" }
 
 // ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry
 // Associated configuration entry
 type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Hardware address . The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     HardwareAddress interface{}
 
     // Encap type. The type is ArpGmpBagEncap.
@@ -1104,193 +690,88 @@ type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConf
     EntryType interface{}
 }
 
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetFilter() yfilter.YFilter { return associatedConfigurationEntry.YFilter }
+func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetEntityData() *types.CommonEntityData {
+    associatedConfigurationEntry.EntityData.YFilter = associatedConfigurationEntry.YFilter
+    associatedConfigurationEntry.EntityData.YangName = "associated-configuration-entry"
+    associatedConfigurationEntry.EntityData.BundleName = "cisco_ios_xr"
+    associatedConfigurationEntry.EntityData.ParentYangName = "interface-configured-ip"
+    associatedConfigurationEntry.EntityData.SegmentPath = "associated-configuration-entry"
+    associatedConfigurationEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    associatedConfigurationEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    associatedConfigurationEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) SetFilter(yf yfilter.YFilter) { associatedConfigurationEntry.YFilter = yf }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetGoName(yname string) string {
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "hardware-address" { return "HardwareAddress" }
-    if yname == "encapsulation-type" { return "EncapsulationType" }
-    if yname == "entry-type" { return "EntryType" }
-    return ""
+    associatedConfigurationEntry.EntityData.Children = make(map[string]types.YChild)
+    associatedConfigurationEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    associatedConfigurationEntry.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", associatedConfigurationEntry.IpAddress}
+    associatedConfigurationEntry.EntityData.Leafs["hardware-address"] = types.YLeaf{"HardwareAddress", associatedConfigurationEntry.HardwareAddress}
+    associatedConfigurationEntry.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", associatedConfigurationEntry.EncapsulationType}
+    associatedConfigurationEntry.EntityData.Leafs["entry-type"] = types.YLeaf{"EntryType", associatedConfigurationEntry.EntryType}
+    return &(associatedConfigurationEntry.EntityData)
 }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetSegmentPath() string {
-    return "associated-configuration-entry"
-}
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-address"] = associatedConfigurationEntry.IpAddress
-    leafs["hardware-address"] = associatedConfigurationEntry.HardwareAddress
-    leafs["encapsulation-type"] = associatedConfigurationEntry.EncapsulationType
-    leafs["entry-type"] = associatedConfigurationEntry.EntryType
-    return leafs
-}
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetYangName() string { return "associated-configuration-entry" }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) SetParent(parent types.Entity) { associatedConfigurationEntry.parent = parent }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetParent() types.Entity { return associatedConfigurationEntry.parent }
-
-func (associatedConfigurationEntry *ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConfigurationEntry) GetParentYangName() string { return "interface-configured-ip" }
 
 // Arp
 // arp
 type Arp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of per-node ARP operational data.
     Nodes Arp_Nodes
 }
 
-func (arp *Arp) GetFilter() yfilter.YFilter { return arp.YFilter }
+func (arp *Arp) GetEntityData() *types.CommonEntityData {
+    arp.EntityData.YFilter = arp.YFilter
+    arp.EntityData.YangName = "arp"
+    arp.EntityData.BundleName = "cisco_ios_xr"
+    arp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-arp-oper"
+    arp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-arp-oper:arp"
+    arp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    arp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    arp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (arp *Arp) SetFilter(yf yfilter.YFilter) { arp.YFilter = yf }
-
-func (arp *Arp) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    arp.EntityData.Children = make(map[string]types.YChild)
+    arp.EntityData.Children["nodes"] = types.YChild{"Nodes", &arp.Nodes}
+    arp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(arp.EntityData)
 }
-
-func (arp *Arp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-arp-oper:arp"
-}
-
-func (arp *Arp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &arp.Nodes
-    }
-    return nil
-}
-
-func (arp *Arp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &arp.Nodes
-    return children
-}
-
-func (arp *Arp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (arp *Arp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (arp *Arp) GetYangName() string { return "arp" }
-
-func (arp *Arp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (arp *Arp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (arp *Arp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (arp *Arp) SetParent(parent types.Entity) { arp.parent = parent }
-
-func (arp *Arp) GetParent() types.Entity { return arp.parent }
-
-func (arp *Arp) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-arp-oper" }
 
 // Arp_Nodes
 // Table of per-node ARP operational data
 type Arp_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per-node ARP operational data. The type is slice of Arp_Nodes_Node.
     Node []Arp_Nodes_Node
 }
 
-func (nodes *Arp_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Arp_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "arp"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Arp_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Arp_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Arp_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Arp_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Arp_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Arp_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Arp_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Arp_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Arp_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Arp_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Arp_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Arp_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Arp_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Arp_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Arp_Nodes) GetParentYangName() string { return "arp" }
 
 // Arp_Nodes_Node
 // Per-node ARP operational data
 type Arp_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Per node dynamically-resolved ARP resolution history data.
@@ -1312,87 +793,33 @@ type Arp_Nodes_Node struct {
     TrafficInterfaces Arp_Nodes_Node_TrafficInterfaces
 }
 
-func (node *Arp_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Arp_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Arp_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Arp_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "resolution-history-dynamic" { return "ResolutionHistoryDynamic" }
-    if yname == "traffic-vrfs" { return "TrafficVrfs" }
-    if yname == "traffic-node" { return "TrafficNode" }
-    if yname == "resolution-history-client" { return "ResolutionHistoryClient" }
-    if yname == "entries" { return "Entries" }
-    if yname == "traffic-interfaces" { return "TrafficInterfaces" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["resolution-history-dynamic"] = types.YChild{"ResolutionHistoryDynamic", &node.ResolutionHistoryDynamic}
+    node.EntityData.Children["traffic-vrfs"] = types.YChild{"TrafficVrfs", &node.TrafficVrfs}
+    node.EntityData.Children["traffic-node"] = types.YChild{"TrafficNode", &node.TrafficNode}
+    node.EntityData.Children["resolution-history-client"] = types.YChild{"ResolutionHistoryClient", &node.ResolutionHistoryClient}
+    node.EntityData.Children["entries"] = types.YChild{"Entries", &node.Entries}
+    node.EntityData.Children["traffic-interfaces"] = types.YChild{"TrafficInterfaces", &node.TrafficInterfaces}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Arp_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Arp_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "resolution-history-dynamic" {
-        return &node.ResolutionHistoryDynamic
-    }
-    if childYangName == "traffic-vrfs" {
-        return &node.TrafficVrfs
-    }
-    if childYangName == "traffic-node" {
-        return &node.TrafficNode
-    }
-    if childYangName == "resolution-history-client" {
-        return &node.ResolutionHistoryClient
-    }
-    if childYangName == "entries" {
-        return &node.Entries
-    }
-    if childYangName == "traffic-interfaces" {
-        return &node.TrafficInterfaces
-    }
-    return nil
-}
-
-func (node *Arp_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["resolution-history-dynamic"] = &node.ResolutionHistoryDynamic
-    children["traffic-vrfs"] = &node.TrafficVrfs
-    children["traffic-node"] = &node.TrafficNode
-    children["resolution-history-client"] = &node.ResolutionHistoryClient
-    children["entries"] = &node.Entries
-    children["traffic-interfaces"] = &node.TrafficInterfaces
-    return children
-}
-
-func (node *Arp_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Arp_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Arp_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Arp_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Arp_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Arp_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Arp_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Arp_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Arp_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Arp_Nodes_Node_ResolutionHistoryDynamic
 // Per node dynamically-resolved ARP resolution
 // history data
 type Arp_Nodes_Node_ResolutionHistoryDynamic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Resolution history array. The type is slice of
@@ -1400,68 +827,29 @@ type Arp_Nodes_Node_ResolutionHistoryDynamic struct {
     ArpEntry []Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry
 }
 
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetFilter() yfilter.YFilter { return resolutionHistoryDynamic.YFilter }
+func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetEntityData() *types.CommonEntityData {
+    resolutionHistoryDynamic.EntityData.YFilter = resolutionHistoryDynamic.YFilter
+    resolutionHistoryDynamic.EntityData.YangName = "resolution-history-dynamic"
+    resolutionHistoryDynamic.EntityData.BundleName = "cisco_ios_xr"
+    resolutionHistoryDynamic.EntityData.ParentYangName = "node"
+    resolutionHistoryDynamic.EntityData.SegmentPath = "resolution-history-dynamic"
+    resolutionHistoryDynamic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    resolutionHistoryDynamic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    resolutionHistoryDynamic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) SetFilter(yf yfilter.YFilter) { resolutionHistoryDynamic.YFilter = yf }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetGoName(yname string) string {
-    if yname == "arp-entry" { return "ArpEntry" }
-    return ""
-}
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetSegmentPath() string {
-    return "resolution-history-dynamic"
-}
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "arp-entry" {
-        for _, c := range resolutionHistoryDynamic.ArpEntry {
-            if resolutionHistoryDynamic.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry{}
-        resolutionHistoryDynamic.ArpEntry = append(resolutionHistoryDynamic.ArpEntry, child)
-        return &resolutionHistoryDynamic.ArpEntry[len(resolutionHistoryDynamic.ArpEntry)-1]
-    }
-    return nil
-}
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    resolutionHistoryDynamic.EntityData.Children = make(map[string]types.YChild)
+    resolutionHistoryDynamic.EntityData.Children["arp-entry"] = types.YChild{"ArpEntry", nil}
     for i := range resolutionHistoryDynamic.ArpEntry {
-        children[resolutionHistoryDynamic.ArpEntry[i].GetSegmentPath()] = &resolutionHistoryDynamic.ArpEntry[i]
+        resolutionHistoryDynamic.EntityData.Children[types.GetSegmentPath(&resolutionHistoryDynamic.ArpEntry[i])] = types.YChild{"ArpEntry", &resolutionHistoryDynamic.ArpEntry[i]}
     }
-    return children
+    resolutionHistoryDynamic.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(resolutionHistoryDynamic.EntityData)
 }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetYangName() string { return "resolution-history-dynamic" }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) SetParent(parent types.Entity) { resolutionHistoryDynamic.parent = parent }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetParent() types.Entity { return resolutionHistoryDynamic.parent }
-
-func (resolutionHistoryDynamic *Arp_Nodes_Node_ResolutionHistoryDynamic) GetParentYangName() string { return "node" }
 
 // Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry
 // Resolution history array
 type Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timestamp for entry in nanoseconds since Epoch, i.e. since 00:00:00 UTC,
@@ -1469,15 +857,15 @@ type Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry struct {
     // 0..18446744073709551615. Units are nanosecond.
     NsecTimestamp interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     IdbInterfaceName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // Resolution status. The type is ArpResolutionHistoryStatus.
@@ -1496,70 +884,33 @@ type Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry struct {
     ResolutionRequestCount interface{}
 }
 
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetFilter() yfilter.YFilter { return arpEntry.YFilter }
+func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetEntityData() *types.CommonEntityData {
+    arpEntry.EntityData.YFilter = arpEntry.YFilter
+    arpEntry.EntityData.YangName = "arp-entry"
+    arpEntry.EntityData.BundleName = "cisco_ios_xr"
+    arpEntry.EntityData.ParentYangName = "resolution-history-dynamic"
+    arpEntry.EntityData.SegmentPath = "arp-entry"
+    arpEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    arpEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    arpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) SetFilter(yf yfilter.YFilter) { arpEntry.YFilter = yf }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetGoName(yname string) string {
-    if yname == "nsec-timestamp" { return "NsecTimestamp" }
-    if yname == "idb-interface-name" { return "IdbInterfaceName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "status" { return "Status" }
-    if yname == "client-id" { return "ClientId" }
-    if yname == "entry-state" { return "EntryState" }
-    if yname == "resolution-request-count" { return "ResolutionRequestCount" }
-    return ""
+    arpEntry.EntityData.Children = make(map[string]types.YChild)
+    arpEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    arpEntry.EntityData.Leafs["nsec-timestamp"] = types.YLeaf{"NsecTimestamp", arpEntry.NsecTimestamp}
+    arpEntry.EntityData.Leafs["idb-interface-name"] = types.YLeaf{"IdbInterfaceName", arpEntry.IdbInterfaceName}
+    arpEntry.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", arpEntry.Ipv4Address}
+    arpEntry.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", arpEntry.MacAddress}
+    arpEntry.EntityData.Leafs["status"] = types.YLeaf{"Status", arpEntry.Status}
+    arpEntry.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", arpEntry.ClientId}
+    arpEntry.EntityData.Leafs["entry-state"] = types.YLeaf{"EntryState", arpEntry.EntryState}
+    arpEntry.EntityData.Leafs["resolution-request-count"] = types.YLeaf{"ResolutionRequestCount", arpEntry.ResolutionRequestCount}
+    return &(arpEntry.EntityData)
 }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetSegmentPath() string {
-    return "arp-entry"
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nsec-timestamp"] = arpEntry.NsecTimestamp
-    leafs["idb-interface-name"] = arpEntry.IdbInterfaceName
-    leafs["ipv4-address"] = arpEntry.Ipv4Address
-    leafs["mac-address"] = arpEntry.MacAddress
-    leafs["status"] = arpEntry.Status
-    leafs["client-id"] = arpEntry.ClientId
-    leafs["entry-state"] = arpEntry.EntryState
-    leafs["resolution-request-count"] = arpEntry.ResolutionRequestCount
-    return leafs
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetYangName() string { return "arp-entry" }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) SetParent(parent types.Entity) { arpEntry.parent = parent }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetParent() types.Entity { return arpEntry.parent }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetParentYangName() string { return "resolution-history-dynamic" }
 
 // Arp_Nodes_Node_TrafficVrfs
 // ARP Traffic information per VRF
 type Arp_Nodes_Node_TrafficVrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per VRF traffic data. The type is slice of
@@ -1567,68 +918,29 @@ type Arp_Nodes_Node_TrafficVrfs struct {
     TrafficVrf []Arp_Nodes_Node_TrafficVrfs_TrafficVrf
 }
 
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetFilter() yfilter.YFilter { return trafficVrfs.YFilter }
+func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetEntityData() *types.CommonEntityData {
+    trafficVrfs.EntityData.YFilter = trafficVrfs.YFilter
+    trafficVrfs.EntityData.YangName = "traffic-vrfs"
+    trafficVrfs.EntityData.BundleName = "cisco_ios_xr"
+    trafficVrfs.EntityData.ParentYangName = "node"
+    trafficVrfs.EntityData.SegmentPath = "traffic-vrfs"
+    trafficVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) SetFilter(yf yfilter.YFilter) { trafficVrfs.YFilter = yf }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetGoName(yname string) string {
-    if yname == "traffic-vrf" { return "TrafficVrf" }
-    return ""
-}
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetSegmentPath() string {
-    return "traffic-vrfs"
-}
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "traffic-vrf" {
-        for _, c := range trafficVrfs.TrafficVrf {
-            if trafficVrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Arp_Nodes_Node_TrafficVrfs_TrafficVrf{}
-        trafficVrfs.TrafficVrf = append(trafficVrfs.TrafficVrf, child)
-        return &trafficVrfs.TrafficVrf[len(trafficVrfs.TrafficVrf)-1]
-    }
-    return nil
-}
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trafficVrfs.EntityData.Children = make(map[string]types.YChild)
+    trafficVrfs.EntityData.Children["traffic-vrf"] = types.YChild{"TrafficVrf", nil}
     for i := range trafficVrfs.TrafficVrf {
-        children[trafficVrfs.TrafficVrf[i].GetSegmentPath()] = &trafficVrfs.TrafficVrf[i]
+        trafficVrfs.EntityData.Children[types.GetSegmentPath(&trafficVrfs.TrafficVrf[i])] = types.YChild{"TrafficVrf", &trafficVrfs.TrafficVrf[i]}
     }
-    return children
+    trafficVrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trafficVrfs.EntityData)
 }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetYangName() string { return "traffic-vrfs" }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) SetParent(parent types.Entity) { trafficVrfs.parent = parent }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetParent() types.Entity { return trafficVrfs.parent }
-
-func (trafficVrfs *Arp_Nodes_Node_TrafficVrfs) GetParentYangName() string { return "node" }
 
 // Arp_Nodes_Node_TrafficVrfs_TrafficVrf
 // Per VRF traffic data
 type Arp_Nodes_Node_TrafficVrfs_TrafficVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string.
@@ -1749,114 +1061,55 @@ type Arp_Nodes_Node_TrafficVrfs_TrafficVrf struct {
     IdbStructures interface{}
 }
 
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetFilter() yfilter.YFilter { return trafficVrf.YFilter }
+func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetEntityData() *types.CommonEntityData {
+    trafficVrf.EntityData.YFilter = trafficVrf.YFilter
+    trafficVrf.EntityData.YangName = "traffic-vrf"
+    trafficVrf.EntityData.BundleName = "cisco_ios_xr"
+    trafficVrf.EntityData.ParentYangName = "traffic-vrfs"
+    trafficVrf.EntityData.SegmentPath = "traffic-vrf" + "[vrf-name='" + fmt.Sprintf("%v", trafficVrf.VrfName) + "']"
+    trafficVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) SetFilter(yf yfilter.YFilter) { trafficVrf.YFilter = yf }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "requests-received" { return "RequestsReceived" }
-    if yname == "replies-received" { return "RepliesReceived" }
-    if yname == "requests-sent" { return "RequestsSent" }
-    if yname == "replies-sent" { return "RepliesSent" }
-    if yname == "proxy-replies-sent" { return "ProxyRepliesSent" }
-    if yname == "subscr-requests-received" { return "SubscrRequestsReceived" }
-    if yname == "subscr-replies-sent" { return "SubscrRepliesSent" }
-    if yname == "subscr-replies-gratg-sent" { return "SubscrRepliesGratgSent" }
-    if yname == "local-proxy-replies-sent" { return "LocalProxyRepliesSent" }
-    if yname == "gratuitous-replies-sent" { return "GratuitousRepliesSent" }
-    if yname == "resolution-requests-received" { return "ResolutionRequestsReceived" }
-    if yname == "resolution-replies-received" { return "ResolutionRepliesReceived" }
-    if yname == "resolution-requests-dropped" { return "ResolutionRequestsDropped" }
-    if yname == "out-of-memory-errors" { return "OutOfMemoryErrors" }
-    if yname == "no-buffer-errors" { return "NoBufferErrors" }
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "dynamic-entries" { return "DynamicEntries" }
-    if yname == "static-entries" { return "StaticEntries" }
-    if yname == "alias-entries" { return "AliasEntries" }
-    if yname == "interface-entries" { return "InterfaceEntries" }
-    if yname == "standby-entries" { return "StandbyEntries" }
-    if yname == "dhcp-entries" { return "DhcpEntries" }
-    if yname == "vxlan-entries" { return "VxlanEntries" }
-    if yname == "ip-packets-dropped-node" { return "IpPacketsDroppedNode" }
-    if yname == "arp-packet-node-out-of-subnet" { return "ArpPacketNodeOutOfSubnet" }
-    if yname == "ip-packets-dropped-interface" { return "IpPacketsDroppedInterface" }
-    if yname == "arp-packet-interface-out-of-subnet" { return "ArpPacketInterfaceOutOfSubnet" }
-    if yname == "arp-packet-unsolicited-packet" { return "ArpPacketUnsolicitedPacket" }
-    if yname == "idb-structures" { return "IdbStructures" }
-    return ""
+    trafficVrf.EntityData.Children = make(map[string]types.YChild)
+    trafficVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", trafficVrf.VrfName}
+    trafficVrf.EntityData.Leafs["requests-received"] = types.YLeaf{"RequestsReceived", trafficVrf.RequestsReceived}
+    trafficVrf.EntityData.Leafs["replies-received"] = types.YLeaf{"RepliesReceived", trafficVrf.RepliesReceived}
+    trafficVrf.EntityData.Leafs["requests-sent"] = types.YLeaf{"RequestsSent", trafficVrf.RequestsSent}
+    trafficVrf.EntityData.Leafs["replies-sent"] = types.YLeaf{"RepliesSent", trafficVrf.RepliesSent}
+    trafficVrf.EntityData.Leafs["proxy-replies-sent"] = types.YLeaf{"ProxyRepliesSent", trafficVrf.ProxyRepliesSent}
+    trafficVrf.EntityData.Leafs["subscr-requests-received"] = types.YLeaf{"SubscrRequestsReceived", trafficVrf.SubscrRequestsReceived}
+    trafficVrf.EntityData.Leafs["subscr-replies-sent"] = types.YLeaf{"SubscrRepliesSent", trafficVrf.SubscrRepliesSent}
+    trafficVrf.EntityData.Leafs["subscr-replies-gratg-sent"] = types.YLeaf{"SubscrRepliesGratgSent", trafficVrf.SubscrRepliesGratgSent}
+    trafficVrf.EntityData.Leafs["local-proxy-replies-sent"] = types.YLeaf{"LocalProxyRepliesSent", trafficVrf.LocalProxyRepliesSent}
+    trafficVrf.EntityData.Leafs["gratuitous-replies-sent"] = types.YLeaf{"GratuitousRepliesSent", trafficVrf.GratuitousRepliesSent}
+    trafficVrf.EntityData.Leafs["resolution-requests-received"] = types.YLeaf{"ResolutionRequestsReceived", trafficVrf.ResolutionRequestsReceived}
+    trafficVrf.EntityData.Leafs["resolution-replies-received"] = types.YLeaf{"ResolutionRepliesReceived", trafficVrf.ResolutionRepliesReceived}
+    trafficVrf.EntityData.Leafs["resolution-requests-dropped"] = types.YLeaf{"ResolutionRequestsDropped", trafficVrf.ResolutionRequestsDropped}
+    trafficVrf.EntityData.Leafs["out-of-memory-errors"] = types.YLeaf{"OutOfMemoryErrors", trafficVrf.OutOfMemoryErrors}
+    trafficVrf.EntityData.Leafs["no-buffer-errors"] = types.YLeaf{"NoBufferErrors", trafficVrf.NoBufferErrors}
+    trafficVrf.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", trafficVrf.TotalEntries}
+    trafficVrf.EntityData.Leafs["dynamic-entries"] = types.YLeaf{"DynamicEntries", trafficVrf.DynamicEntries}
+    trafficVrf.EntityData.Leafs["static-entries"] = types.YLeaf{"StaticEntries", trafficVrf.StaticEntries}
+    trafficVrf.EntityData.Leafs["alias-entries"] = types.YLeaf{"AliasEntries", trafficVrf.AliasEntries}
+    trafficVrf.EntityData.Leafs["interface-entries"] = types.YLeaf{"InterfaceEntries", trafficVrf.InterfaceEntries}
+    trafficVrf.EntityData.Leafs["standby-entries"] = types.YLeaf{"StandbyEntries", trafficVrf.StandbyEntries}
+    trafficVrf.EntityData.Leafs["dhcp-entries"] = types.YLeaf{"DhcpEntries", trafficVrf.DhcpEntries}
+    trafficVrf.EntityData.Leafs["vxlan-entries"] = types.YLeaf{"VxlanEntries", trafficVrf.VxlanEntries}
+    trafficVrf.EntityData.Leafs["ip-packets-dropped-node"] = types.YLeaf{"IpPacketsDroppedNode", trafficVrf.IpPacketsDroppedNode}
+    trafficVrf.EntityData.Leafs["arp-packet-node-out-of-subnet"] = types.YLeaf{"ArpPacketNodeOutOfSubnet", trafficVrf.ArpPacketNodeOutOfSubnet}
+    trafficVrf.EntityData.Leafs["ip-packets-dropped-interface"] = types.YLeaf{"IpPacketsDroppedInterface", trafficVrf.IpPacketsDroppedInterface}
+    trafficVrf.EntityData.Leafs["arp-packet-interface-out-of-subnet"] = types.YLeaf{"ArpPacketInterfaceOutOfSubnet", trafficVrf.ArpPacketInterfaceOutOfSubnet}
+    trafficVrf.EntityData.Leafs["arp-packet-unsolicited-packet"] = types.YLeaf{"ArpPacketUnsolicitedPacket", trafficVrf.ArpPacketUnsolicitedPacket}
+    trafficVrf.EntityData.Leafs["idb-structures"] = types.YLeaf{"IdbStructures", trafficVrf.IdbStructures}
+    return &(trafficVrf.EntityData)
 }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetSegmentPath() string {
-    return "traffic-vrf" + "[vrf-name='" + fmt.Sprintf("%v", trafficVrf.VrfName) + "']"
-}
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = trafficVrf.VrfName
-    leafs["requests-received"] = trafficVrf.RequestsReceived
-    leafs["replies-received"] = trafficVrf.RepliesReceived
-    leafs["requests-sent"] = trafficVrf.RequestsSent
-    leafs["replies-sent"] = trafficVrf.RepliesSent
-    leafs["proxy-replies-sent"] = trafficVrf.ProxyRepliesSent
-    leafs["subscr-requests-received"] = trafficVrf.SubscrRequestsReceived
-    leafs["subscr-replies-sent"] = trafficVrf.SubscrRepliesSent
-    leafs["subscr-replies-gratg-sent"] = trafficVrf.SubscrRepliesGratgSent
-    leafs["local-proxy-replies-sent"] = trafficVrf.LocalProxyRepliesSent
-    leafs["gratuitous-replies-sent"] = trafficVrf.GratuitousRepliesSent
-    leafs["resolution-requests-received"] = trafficVrf.ResolutionRequestsReceived
-    leafs["resolution-replies-received"] = trafficVrf.ResolutionRepliesReceived
-    leafs["resolution-requests-dropped"] = trafficVrf.ResolutionRequestsDropped
-    leafs["out-of-memory-errors"] = trafficVrf.OutOfMemoryErrors
-    leafs["no-buffer-errors"] = trafficVrf.NoBufferErrors
-    leafs["total-entries"] = trafficVrf.TotalEntries
-    leafs["dynamic-entries"] = trafficVrf.DynamicEntries
-    leafs["static-entries"] = trafficVrf.StaticEntries
-    leafs["alias-entries"] = trafficVrf.AliasEntries
-    leafs["interface-entries"] = trafficVrf.InterfaceEntries
-    leafs["standby-entries"] = trafficVrf.StandbyEntries
-    leafs["dhcp-entries"] = trafficVrf.DhcpEntries
-    leafs["vxlan-entries"] = trafficVrf.VxlanEntries
-    leafs["ip-packets-dropped-node"] = trafficVrf.IpPacketsDroppedNode
-    leafs["arp-packet-node-out-of-subnet"] = trafficVrf.ArpPacketNodeOutOfSubnet
-    leafs["ip-packets-dropped-interface"] = trafficVrf.IpPacketsDroppedInterface
-    leafs["arp-packet-interface-out-of-subnet"] = trafficVrf.ArpPacketInterfaceOutOfSubnet
-    leafs["arp-packet-unsolicited-packet"] = trafficVrf.ArpPacketUnsolicitedPacket
-    leafs["idb-structures"] = trafficVrf.IdbStructures
-    return leafs
-}
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetYangName() string { return "traffic-vrf" }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) SetParent(parent types.Entity) { trafficVrf.parent = parent }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetParent() types.Entity { return trafficVrf.parent }
-
-func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetParentYangName() string { return "traffic-vrfs" }
 
 // Arp_Nodes_Node_TrafficNode
 // Per node ARP Traffic data
 type Arp_Nodes_Node_TrafficNode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total ARP requests received. The type is interface{} with range:
@@ -1974,113 +1227,55 @@ type Arp_Nodes_Node_TrafficNode struct {
     IdbStructures interface{}
 }
 
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetFilter() yfilter.YFilter { return trafficNode.YFilter }
+func (trafficNode *Arp_Nodes_Node_TrafficNode) GetEntityData() *types.CommonEntityData {
+    trafficNode.EntityData.YFilter = trafficNode.YFilter
+    trafficNode.EntityData.YangName = "traffic-node"
+    trafficNode.EntityData.BundleName = "cisco_ios_xr"
+    trafficNode.EntityData.ParentYangName = "node"
+    trafficNode.EntityData.SegmentPath = "traffic-node"
+    trafficNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficNode *Arp_Nodes_Node_TrafficNode) SetFilter(yf yfilter.YFilter) { trafficNode.YFilter = yf }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetGoName(yname string) string {
-    if yname == "requests-received" { return "RequestsReceived" }
-    if yname == "replies-received" { return "RepliesReceived" }
-    if yname == "requests-sent" { return "RequestsSent" }
-    if yname == "replies-sent" { return "RepliesSent" }
-    if yname == "proxy-replies-sent" { return "ProxyRepliesSent" }
-    if yname == "subscr-requests-received" { return "SubscrRequestsReceived" }
-    if yname == "subscr-replies-sent" { return "SubscrRepliesSent" }
-    if yname == "subscr-replies-gratg-sent" { return "SubscrRepliesGratgSent" }
-    if yname == "local-proxy-replies-sent" { return "LocalProxyRepliesSent" }
-    if yname == "gratuitous-replies-sent" { return "GratuitousRepliesSent" }
-    if yname == "resolution-requests-received" { return "ResolutionRequestsReceived" }
-    if yname == "resolution-replies-received" { return "ResolutionRepliesReceived" }
-    if yname == "resolution-requests-dropped" { return "ResolutionRequestsDropped" }
-    if yname == "out-of-memory-errors" { return "OutOfMemoryErrors" }
-    if yname == "no-buffer-errors" { return "NoBufferErrors" }
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "dynamic-entries" { return "DynamicEntries" }
-    if yname == "static-entries" { return "StaticEntries" }
-    if yname == "alias-entries" { return "AliasEntries" }
-    if yname == "interface-entries" { return "InterfaceEntries" }
-    if yname == "standby-entries" { return "StandbyEntries" }
-    if yname == "dhcp-entries" { return "DhcpEntries" }
-    if yname == "vxlan-entries" { return "VxlanEntries" }
-    if yname == "ip-packets-dropped-node" { return "IpPacketsDroppedNode" }
-    if yname == "arp-packet-node-out-of-subnet" { return "ArpPacketNodeOutOfSubnet" }
-    if yname == "ip-packets-dropped-interface" { return "IpPacketsDroppedInterface" }
-    if yname == "arp-packet-interface-out-of-subnet" { return "ArpPacketInterfaceOutOfSubnet" }
-    if yname == "arp-packet-unsolicited-packet" { return "ArpPacketUnsolicitedPacket" }
-    if yname == "idb-structures" { return "IdbStructures" }
-    return ""
+    trafficNode.EntityData.Children = make(map[string]types.YChild)
+    trafficNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficNode.EntityData.Leafs["requests-received"] = types.YLeaf{"RequestsReceived", trafficNode.RequestsReceived}
+    trafficNode.EntityData.Leafs["replies-received"] = types.YLeaf{"RepliesReceived", trafficNode.RepliesReceived}
+    trafficNode.EntityData.Leafs["requests-sent"] = types.YLeaf{"RequestsSent", trafficNode.RequestsSent}
+    trafficNode.EntityData.Leafs["replies-sent"] = types.YLeaf{"RepliesSent", trafficNode.RepliesSent}
+    trafficNode.EntityData.Leafs["proxy-replies-sent"] = types.YLeaf{"ProxyRepliesSent", trafficNode.ProxyRepliesSent}
+    trafficNode.EntityData.Leafs["subscr-requests-received"] = types.YLeaf{"SubscrRequestsReceived", trafficNode.SubscrRequestsReceived}
+    trafficNode.EntityData.Leafs["subscr-replies-sent"] = types.YLeaf{"SubscrRepliesSent", trafficNode.SubscrRepliesSent}
+    trafficNode.EntityData.Leafs["subscr-replies-gratg-sent"] = types.YLeaf{"SubscrRepliesGratgSent", trafficNode.SubscrRepliesGratgSent}
+    trafficNode.EntityData.Leafs["local-proxy-replies-sent"] = types.YLeaf{"LocalProxyRepliesSent", trafficNode.LocalProxyRepliesSent}
+    trafficNode.EntityData.Leafs["gratuitous-replies-sent"] = types.YLeaf{"GratuitousRepliesSent", trafficNode.GratuitousRepliesSent}
+    trafficNode.EntityData.Leafs["resolution-requests-received"] = types.YLeaf{"ResolutionRequestsReceived", trafficNode.ResolutionRequestsReceived}
+    trafficNode.EntityData.Leafs["resolution-replies-received"] = types.YLeaf{"ResolutionRepliesReceived", trafficNode.ResolutionRepliesReceived}
+    trafficNode.EntityData.Leafs["resolution-requests-dropped"] = types.YLeaf{"ResolutionRequestsDropped", trafficNode.ResolutionRequestsDropped}
+    trafficNode.EntityData.Leafs["out-of-memory-errors"] = types.YLeaf{"OutOfMemoryErrors", trafficNode.OutOfMemoryErrors}
+    trafficNode.EntityData.Leafs["no-buffer-errors"] = types.YLeaf{"NoBufferErrors", trafficNode.NoBufferErrors}
+    trafficNode.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", trafficNode.TotalEntries}
+    trafficNode.EntityData.Leafs["dynamic-entries"] = types.YLeaf{"DynamicEntries", trafficNode.DynamicEntries}
+    trafficNode.EntityData.Leafs["static-entries"] = types.YLeaf{"StaticEntries", trafficNode.StaticEntries}
+    trafficNode.EntityData.Leafs["alias-entries"] = types.YLeaf{"AliasEntries", trafficNode.AliasEntries}
+    trafficNode.EntityData.Leafs["interface-entries"] = types.YLeaf{"InterfaceEntries", trafficNode.InterfaceEntries}
+    trafficNode.EntityData.Leafs["standby-entries"] = types.YLeaf{"StandbyEntries", trafficNode.StandbyEntries}
+    trafficNode.EntityData.Leafs["dhcp-entries"] = types.YLeaf{"DhcpEntries", trafficNode.DhcpEntries}
+    trafficNode.EntityData.Leafs["vxlan-entries"] = types.YLeaf{"VxlanEntries", trafficNode.VxlanEntries}
+    trafficNode.EntityData.Leafs["ip-packets-dropped-node"] = types.YLeaf{"IpPacketsDroppedNode", trafficNode.IpPacketsDroppedNode}
+    trafficNode.EntityData.Leafs["arp-packet-node-out-of-subnet"] = types.YLeaf{"ArpPacketNodeOutOfSubnet", trafficNode.ArpPacketNodeOutOfSubnet}
+    trafficNode.EntityData.Leafs["ip-packets-dropped-interface"] = types.YLeaf{"IpPacketsDroppedInterface", trafficNode.IpPacketsDroppedInterface}
+    trafficNode.EntityData.Leafs["arp-packet-interface-out-of-subnet"] = types.YLeaf{"ArpPacketInterfaceOutOfSubnet", trafficNode.ArpPacketInterfaceOutOfSubnet}
+    trafficNode.EntityData.Leafs["arp-packet-unsolicited-packet"] = types.YLeaf{"ArpPacketUnsolicitedPacket", trafficNode.ArpPacketUnsolicitedPacket}
+    trafficNode.EntityData.Leafs["idb-structures"] = types.YLeaf{"IdbStructures", trafficNode.IdbStructures}
+    return &(trafficNode.EntityData)
 }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetSegmentPath() string {
-    return "traffic-node"
-}
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["requests-received"] = trafficNode.RequestsReceived
-    leafs["replies-received"] = trafficNode.RepliesReceived
-    leafs["requests-sent"] = trafficNode.RequestsSent
-    leafs["replies-sent"] = trafficNode.RepliesSent
-    leafs["proxy-replies-sent"] = trafficNode.ProxyRepliesSent
-    leafs["subscr-requests-received"] = trafficNode.SubscrRequestsReceived
-    leafs["subscr-replies-sent"] = trafficNode.SubscrRepliesSent
-    leafs["subscr-replies-gratg-sent"] = trafficNode.SubscrRepliesGratgSent
-    leafs["local-proxy-replies-sent"] = trafficNode.LocalProxyRepliesSent
-    leafs["gratuitous-replies-sent"] = trafficNode.GratuitousRepliesSent
-    leafs["resolution-requests-received"] = trafficNode.ResolutionRequestsReceived
-    leafs["resolution-replies-received"] = trafficNode.ResolutionRepliesReceived
-    leafs["resolution-requests-dropped"] = trafficNode.ResolutionRequestsDropped
-    leafs["out-of-memory-errors"] = trafficNode.OutOfMemoryErrors
-    leafs["no-buffer-errors"] = trafficNode.NoBufferErrors
-    leafs["total-entries"] = trafficNode.TotalEntries
-    leafs["dynamic-entries"] = trafficNode.DynamicEntries
-    leafs["static-entries"] = trafficNode.StaticEntries
-    leafs["alias-entries"] = trafficNode.AliasEntries
-    leafs["interface-entries"] = trafficNode.InterfaceEntries
-    leafs["standby-entries"] = trafficNode.StandbyEntries
-    leafs["dhcp-entries"] = trafficNode.DhcpEntries
-    leafs["vxlan-entries"] = trafficNode.VxlanEntries
-    leafs["ip-packets-dropped-node"] = trafficNode.IpPacketsDroppedNode
-    leafs["arp-packet-node-out-of-subnet"] = trafficNode.ArpPacketNodeOutOfSubnet
-    leafs["ip-packets-dropped-interface"] = trafficNode.IpPacketsDroppedInterface
-    leafs["arp-packet-interface-out-of-subnet"] = trafficNode.ArpPacketInterfaceOutOfSubnet
-    leafs["arp-packet-unsolicited-packet"] = trafficNode.ArpPacketUnsolicitedPacket
-    leafs["idb-structures"] = trafficNode.IdbStructures
-    return leafs
-}
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetYangName() string { return "traffic-node" }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) SetParent(parent types.Entity) { trafficNode.parent = parent }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetParent() types.Entity { return trafficNode.parent }
-
-func (trafficNode *Arp_Nodes_Node_TrafficNode) GetParentYangName() string { return "node" }
 
 // Arp_Nodes_Node_ResolutionHistoryClient
 // Per node client-installed ARP resolution
 // history data
 type Arp_Nodes_Node_ResolutionHistoryClient struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Resolution history array. The type is slice of
@@ -2088,68 +1283,29 @@ type Arp_Nodes_Node_ResolutionHistoryClient struct {
     ArpEntry []Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry
 }
 
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetFilter() yfilter.YFilter { return resolutionHistoryClient.YFilter }
+func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetEntityData() *types.CommonEntityData {
+    resolutionHistoryClient.EntityData.YFilter = resolutionHistoryClient.YFilter
+    resolutionHistoryClient.EntityData.YangName = "resolution-history-client"
+    resolutionHistoryClient.EntityData.BundleName = "cisco_ios_xr"
+    resolutionHistoryClient.EntityData.ParentYangName = "node"
+    resolutionHistoryClient.EntityData.SegmentPath = "resolution-history-client"
+    resolutionHistoryClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    resolutionHistoryClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    resolutionHistoryClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) SetFilter(yf yfilter.YFilter) { resolutionHistoryClient.YFilter = yf }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetGoName(yname string) string {
-    if yname == "arp-entry" { return "ArpEntry" }
-    return ""
-}
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetSegmentPath() string {
-    return "resolution-history-client"
-}
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "arp-entry" {
-        for _, c := range resolutionHistoryClient.ArpEntry {
-            if resolutionHistoryClient.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry{}
-        resolutionHistoryClient.ArpEntry = append(resolutionHistoryClient.ArpEntry, child)
-        return &resolutionHistoryClient.ArpEntry[len(resolutionHistoryClient.ArpEntry)-1]
-    }
-    return nil
-}
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    resolutionHistoryClient.EntityData.Children = make(map[string]types.YChild)
+    resolutionHistoryClient.EntityData.Children["arp-entry"] = types.YChild{"ArpEntry", nil}
     for i := range resolutionHistoryClient.ArpEntry {
-        children[resolutionHistoryClient.ArpEntry[i].GetSegmentPath()] = &resolutionHistoryClient.ArpEntry[i]
+        resolutionHistoryClient.EntityData.Children[types.GetSegmentPath(&resolutionHistoryClient.ArpEntry[i])] = types.YChild{"ArpEntry", &resolutionHistoryClient.ArpEntry[i]}
     }
-    return children
+    resolutionHistoryClient.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(resolutionHistoryClient.EntityData)
 }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetBundleName() string { return "cisco_ios_xr" }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetYangName() string { return "resolution-history-client" }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) SetParent(parent types.Entity) { resolutionHistoryClient.parent = parent }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetParent() types.Entity { return resolutionHistoryClient.parent }
-
-func (resolutionHistoryClient *Arp_Nodes_Node_ResolutionHistoryClient) GetParentYangName() string { return "node" }
 
 // Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry
 // Resolution history array
 type Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timestamp for entry in nanoseconds since Epoch, i.e. since 00:00:00 UTC,
@@ -2157,15 +1313,15 @@ type Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry struct {
     // 0..18446744073709551615. Units are nanosecond.
     NsecTimestamp interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     IdbInterfaceName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // Resolution status. The type is ArpResolutionHistoryStatus.
@@ -2184,147 +1340,71 @@ type Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry struct {
     ResolutionRequestCount interface{}
 }
 
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetFilter() yfilter.YFilter { return arpEntry.YFilter }
+func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetEntityData() *types.CommonEntityData {
+    arpEntry.EntityData.YFilter = arpEntry.YFilter
+    arpEntry.EntityData.YangName = "arp-entry"
+    arpEntry.EntityData.BundleName = "cisco_ios_xr"
+    arpEntry.EntityData.ParentYangName = "resolution-history-client"
+    arpEntry.EntityData.SegmentPath = "arp-entry"
+    arpEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    arpEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    arpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) SetFilter(yf yfilter.YFilter) { arpEntry.YFilter = yf }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetGoName(yname string) string {
-    if yname == "nsec-timestamp" { return "NsecTimestamp" }
-    if yname == "idb-interface-name" { return "IdbInterfaceName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "status" { return "Status" }
-    if yname == "client-id" { return "ClientId" }
-    if yname == "entry-state" { return "EntryState" }
-    if yname == "resolution-request-count" { return "ResolutionRequestCount" }
-    return ""
+    arpEntry.EntityData.Children = make(map[string]types.YChild)
+    arpEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    arpEntry.EntityData.Leafs["nsec-timestamp"] = types.YLeaf{"NsecTimestamp", arpEntry.NsecTimestamp}
+    arpEntry.EntityData.Leafs["idb-interface-name"] = types.YLeaf{"IdbInterfaceName", arpEntry.IdbInterfaceName}
+    arpEntry.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", arpEntry.Ipv4Address}
+    arpEntry.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", arpEntry.MacAddress}
+    arpEntry.EntityData.Leafs["status"] = types.YLeaf{"Status", arpEntry.Status}
+    arpEntry.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", arpEntry.ClientId}
+    arpEntry.EntityData.Leafs["entry-state"] = types.YLeaf{"EntryState", arpEntry.EntryState}
+    arpEntry.EntityData.Leafs["resolution-request-count"] = types.YLeaf{"ResolutionRequestCount", arpEntry.ResolutionRequestCount}
+    return &(arpEntry.EntityData)
 }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetSegmentPath() string {
-    return "arp-entry"
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nsec-timestamp"] = arpEntry.NsecTimestamp
-    leafs["idb-interface-name"] = arpEntry.IdbInterfaceName
-    leafs["ipv4-address"] = arpEntry.Ipv4Address
-    leafs["mac-address"] = arpEntry.MacAddress
-    leafs["status"] = arpEntry.Status
-    leafs["client-id"] = arpEntry.ClientId
-    leafs["entry-state"] = arpEntry.EntryState
-    leafs["resolution-request-count"] = arpEntry.ResolutionRequestCount
-    return leafs
-}
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetYangName() string { return "arp-entry" }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) SetParent(parent types.Entity) { arpEntry.parent = parent }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetParent() types.Entity { return arpEntry.parent }
-
-func (arpEntry *Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry) GetParentYangName() string { return "resolution-history-client" }
 
 // Arp_Nodes_Node_Entries
 // Table of ARP entries
 type Arp_Nodes_Node_Entries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ARP entry. The type is slice of Arp_Nodes_Node_Entries_Entry.
     Entry []Arp_Nodes_Node_Entries_Entry
 }
 
-func (entries *Arp_Nodes_Node_Entries) GetFilter() yfilter.YFilter { return entries.YFilter }
+func (entries *Arp_Nodes_Node_Entries) GetEntityData() *types.CommonEntityData {
+    entries.EntityData.YFilter = entries.YFilter
+    entries.EntityData.YangName = "entries"
+    entries.EntityData.BundleName = "cisco_ios_xr"
+    entries.EntityData.ParentYangName = "node"
+    entries.EntityData.SegmentPath = "entries"
+    entries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (entries *Arp_Nodes_Node_Entries) SetFilter(yf yfilter.YFilter) { entries.YFilter = yf }
-
-func (entries *Arp_Nodes_Node_Entries) GetGoName(yname string) string {
-    if yname == "entry" { return "Entry" }
-    return ""
-}
-
-func (entries *Arp_Nodes_Node_Entries) GetSegmentPath() string {
-    return "entries"
-}
-
-func (entries *Arp_Nodes_Node_Entries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entry" {
-        for _, c := range entries.Entry {
-            if entries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Arp_Nodes_Node_Entries_Entry{}
-        entries.Entry = append(entries.Entry, child)
-        return &entries.Entry[len(entries.Entry)-1]
-    }
-    return nil
-}
-
-func (entries *Arp_Nodes_Node_Entries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    entries.EntityData.Children = make(map[string]types.YChild)
+    entries.EntityData.Children["entry"] = types.YChild{"Entry", nil}
     for i := range entries.Entry {
-        children[entries.Entry[i].GetSegmentPath()] = &entries.Entry[i]
+        entries.EntityData.Children[types.GetSegmentPath(&entries.Entry[i])] = types.YChild{"Entry", &entries.Entry[i]}
     }
-    return children
+    entries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(entries.EntityData)
 }
-
-func (entries *Arp_Nodes_Node_Entries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (entries *Arp_Nodes_Node_Entries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (entries *Arp_Nodes_Node_Entries) GetYangName() string { return "entries" }
-
-func (entries *Arp_Nodes_Node_Entries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (entries *Arp_Nodes_Node_Entries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (entries *Arp_Nodes_Node_Entries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (entries *Arp_Nodes_Node_Entries) SetParent(parent types.Entity) { entries.parent = parent }
-
-func (entries *Arp_Nodes_Node_Entries) GetParent() types.Entity { return entries.parent }
-
-func (entries *Arp_Nodes_Node_Entries) GetParentYangName() string { return "node" }
 
 // Arp_Nodes_Node_Entries_Entry
 // ARP entry
 type Arp_Nodes_Node_Entries_Entry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP Address of ARP entry. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Media type for this entry. The type is IpArpBagMedia.
@@ -2347,76 +1427,38 @@ type Arp_Nodes_Node_Entries_Entry struct {
     HardwareLength interface{}
 
     // Hardware address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     HardwareAddress interface{}
 }
 
-func (entry *Arp_Nodes_Node_Entries_Entry) GetFilter() yfilter.YFilter { return entry.YFilter }
+func (entry *Arp_Nodes_Node_Entries_Entry) GetEntityData() *types.CommonEntityData {
+    entry.EntityData.YFilter = entry.YFilter
+    entry.EntityData.YangName = "entry"
+    entry.EntityData.BundleName = "cisco_ios_xr"
+    entry.EntityData.ParentYangName = "entries"
+    entry.EntityData.SegmentPath = "entry" + "[address='" + fmt.Sprintf("%v", entry.Address) + "']" + "[interface-name='" + fmt.Sprintf("%v", entry.InterfaceName) + "']"
+    entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (entry *Arp_Nodes_Node_Entries_Entry) SetFilter(yf yfilter.YFilter) { entry.YFilter = yf }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "media-type" { return "MediaType" }
-    if yname == "state" { return "State" }
-    if yname == "flag" { return "Flag" }
-    if yname == "age" { return "Age" }
-    if yname == "encapsulation-type" { return "EncapsulationType" }
-    if yname == "hardware-length" { return "HardwareLength" }
-    if yname == "hardware-address" { return "HardwareAddress" }
-    return ""
+    entry.EntityData.Children = make(map[string]types.YChild)
+    entry.EntityData.Leafs = make(map[string]types.YLeaf)
+    entry.EntityData.Leafs["address"] = types.YLeaf{"Address", entry.Address}
+    entry.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", entry.InterfaceName}
+    entry.EntityData.Leafs["media-type"] = types.YLeaf{"MediaType", entry.MediaType}
+    entry.EntityData.Leafs["state"] = types.YLeaf{"State", entry.State}
+    entry.EntityData.Leafs["flag"] = types.YLeaf{"Flag", entry.Flag}
+    entry.EntityData.Leafs["age"] = types.YLeaf{"Age", entry.Age}
+    entry.EntityData.Leafs["encapsulation-type"] = types.YLeaf{"EncapsulationType", entry.EncapsulationType}
+    entry.EntityData.Leafs["hardware-length"] = types.YLeaf{"HardwareLength", entry.HardwareLength}
+    entry.EntityData.Leafs["hardware-address"] = types.YLeaf{"HardwareAddress", entry.HardwareAddress}
+    return &(entry.EntityData)
 }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetSegmentPath() string {
-    return "entry" + "[address='" + fmt.Sprintf("%v", entry.Address) + "']" + "[interface-name='" + fmt.Sprintf("%v", entry.InterfaceName) + "']"
-}
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = entry.Address
-    leafs["interface-name"] = entry.InterfaceName
-    leafs["media-type"] = entry.MediaType
-    leafs["state"] = entry.State
-    leafs["flag"] = entry.Flag
-    leafs["age"] = entry.Age
-    leafs["encapsulation-type"] = entry.EncapsulationType
-    leafs["hardware-length"] = entry.HardwareLength
-    leafs["hardware-address"] = entry.HardwareAddress
-    return leafs
-}
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetYangName() string { return "entry" }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) SetParent(parent types.Entity) { entry.parent = parent }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetParent() types.Entity { return entry.parent }
-
-func (entry *Arp_Nodes_Node_Entries_Entry) GetParentYangName() string { return "entries" }
 
 // Arp_Nodes_Node_TrafficInterfaces
 // ARP Traffic information per interface
 type Arp_Nodes_Node_TrafficInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per interface traffic data. The type is slice of
@@ -2424,72 +1466,33 @@ type Arp_Nodes_Node_TrafficInterfaces struct {
     TrafficInterface []Arp_Nodes_Node_TrafficInterfaces_TrafficInterface
 }
 
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetFilter() yfilter.YFilter { return trafficInterfaces.YFilter }
+func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetEntityData() *types.CommonEntityData {
+    trafficInterfaces.EntityData.YFilter = trafficInterfaces.YFilter
+    trafficInterfaces.EntityData.YangName = "traffic-interfaces"
+    trafficInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    trafficInterfaces.EntityData.ParentYangName = "node"
+    trafficInterfaces.EntityData.SegmentPath = "traffic-interfaces"
+    trafficInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) SetFilter(yf yfilter.YFilter) { trafficInterfaces.YFilter = yf }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetGoName(yname string) string {
-    if yname == "traffic-interface" { return "TrafficInterface" }
-    return ""
-}
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetSegmentPath() string {
-    return "traffic-interfaces"
-}
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "traffic-interface" {
-        for _, c := range trafficInterfaces.TrafficInterface {
-            if trafficInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Arp_Nodes_Node_TrafficInterfaces_TrafficInterface{}
-        trafficInterfaces.TrafficInterface = append(trafficInterfaces.TrafficInterface, child)
-        return &trafficInterfaces.TrafficInterface[len(trafficInterfaces.TrafficInterface)-1]
-    }
-    return nil
-}
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trafficInterfaces.EntityData.Children = make(map[string]types.YChild)
+    trafficInterfaces.EntityData.Children["traffic-interface"] = types.YChild{"TrafficInterface", nil}
     for i := range trafficInterfaces.TrafficInterface {
-        children[trafficInterfaces.TrafficInterface[i].GetSegmentPath()] = &trafficInterfaces.TrafficInterface[i]
+        trafficInterfaces.EntityData.Children[types.GetSegmentPath(&trafficInterfaces.TrafficInterface[i])] = types.YChild{"TrafficInterface", &trafficInterfaces.TrafficInterface[i]}
     }
-    return children
+    trafficInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trafficInterfaces.EntityData)
 }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetYangName() string { return "traffic-interfaces" }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) SetParent(parent types.Entity) { trafficInterfaces.parent = parent }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetParent() types.Entity { return trafficInterfaces.parent }
-
-func (trafficInterfaces *Arp_Nodes_Node_TrafficInterfaces) GetParentYangName() string { return "node" }
 
 // Arp_Nodes_Node_TrafficInterfaces_TrafficInterface
 // Per interface traffic data
 type Arp_Nodes_Node_TrafficInterfaces_TrafficInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Total ARP requests received. The type is interface{} with range:
@@ -2607,107 +1610,48 @@ type Arp_Nodes_Node_TrafficInterfaces_TrafficInterface struct {
     IdbStructures interface{}
 }
 
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetFilter() yfilter.YFilter { return trafficInterface.YFilter }
+func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetEntityData() *types.CommonEntityData {
+    trafficInterface.EntityData.YFilter = trafficInterface.YFilter
+    trafficInterface.EntityData.YangName = "traffic-interface"
+    trafficInterface.EntityData.BundleName = "cisco_ios_xr"
+    trafficInterface.EntityData.ParentYangName = "traffic-interfaces"
+    trafficInterface.EntityData.SegmentPath = "traffic-interface" + "[interface-name='" + fmt.Sprintf("%v", trafficInterface.InterfaceName) + "']"
+    trafficInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) SetFilter(yf yfilter.YFilter) { trafficInterface.YFilter = yf }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "requests-received" { return "RequestsReceived" }
-    if yname == "replies-received" { return "RepliesReceived" }
-    if yname == "requests-sent" { return "RequestsSent" }
-    if yname == "replies-sent" { return "RepliesSent" }
-    if yname == "proxy-replies-sent" { return "ProxyRepliesSent" }
-    if yname == "subscr-requests-received" { return "SubscrRequestsReceived" }
-    if yname == "subscr-replies-sent" { return "SubscrRepliesSent" }
-    if yname == "subscr-replies-gratg-sent" { return "SubscrRepliesGratgSent" }
-    if yname == "local-proxy-replies-sent" { return "LocalProxyRepliesSent" }
-    if yname == "gratuitous-replies-sent" { return "GratuitousRepliesSent" }
-    if yname == "resolution-requests-received" { return "ResolutionRequestsReceived" }
-    if yname == "resolution-replies-received" { return "ResolutionRepliesReceived" }
-    if yname == "resolution-requests-dropped" { return "ResolutionRequestsDropped" }
-    if yname == "out-of-memory-errors" { return "OutOfMemoryErrors" }
-    if yname == "no-buffer-errors" { return "NoBufferErrors" }
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "dynamic-entries" { return "DynamicEntries" }
-    if yname == "static-entries" { return "StaticEntries" }
-    if yname == "alias-entries" { return "AliasEntries" }
-    if yname == "interface-entries" { return "InterfaceEntries" }
-    if yname == "standby-entries" { return "StandbyEntries" }
-    if yname == "dhcp-entries" { return "DhcpEntries" }
-    if yname == "vxlan-entries" { return "VxlanEntries" }
-    if yname == "ip-packets-dropped-node" { return "IpPacketsDroppedNode" }
-    if yname == "arp-packet-node-out-of-subnet" { return "ArpPacketNodeOutOfSubnet" }
-    if yname == "ip-packets-dropped-interface" { return "IpPacketsDroppedInterface" }
-    if yname == "arp-packet-interface-out-of-subnet" { return "ArpPacketInterfaceOutOfSubnet" }
-    if yname == "arp-packet-unsolicited-packet" { return "ArpPacketUnsolicitedPacket" }
-    if yname == "idb-structures" { return "IdbStructures" }
-    return ""
+    trafficInterface.EntityData.Children = make(map[string]types.YChild)
+    trafficInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trafficInterface.InterfaceName}
+    trafficInterface.EntityData.Leafs["requests-received"] = types.YLeaf{"RequestsReceived", trafficInterface.RequestsReceived}
+    trafficInterface.EntityData.Leafs["replies-received"] = types.YLeaf{"RepliesReceived", trafficInterface.RepliesReceived}
+    trafficInterface.EntityData.Leafs["requests-sent"] = types.YLeaf{"RequestsSent", trafficInterface.RequestsSent}
+    trafficInterface.EntityData.Leafs["replies-sent"] = types.YLeaf{"RepliesSent", trafficInterface.RepliesSent}
+    trafficInterface.EntityData.Leafs["proxy-replies-sent"] = types.YLeaf{"ProxyRepliesSent", trafficInterface.ProxyRepliesSent}
+    trafficInterface.EntityData.Leafs["subscr-requests-received"] = types.YLeaf{"SubscrRequestsReceived", trafficInterface.SubscrRequestsReceived}
+    trafficInterface.EntityData.Leafs["subscr-replies-sent"] = types.YLeaf{"SubscrRepliesSent", trafficInterface.SubscrRepliesSent}
+    trafficInterface.EntityData.Leafs["subscr-replies-gratg-sent"] = types.YLeaf{"SubscrRepliesGratgSent", trafficInterface.SubscrRepliesGratgSent}
+    trafficInterface.EntityData.Leafs["local-proxy-replies-sent"] = types.YLeaf{"LocalProxyRepliesSent", trafficInterface.LocalProxyRepliesSent}
+    trafficInterface.EntityData.Leafs["gratuitous-replies-sent"] = types.YLeaf{"GratuitousRepliesSent", trafficInterface.GratuitousRepliesSent}
+    trafficInterface.EntityData.Leafs["resolution-requests-received"] = types.YLeaf{"ResolutionRequestsReceived", trafficInterface.ResolutionRequestsReceived}
+    trafficInterface.EntityData.Leafs["resolution-replies-received"] = types.YLeaf{"ResolutionRepliesReceived", trafficInterface.ResolutionRepliesReceived}
+    trafficInterface.EntityData.Leafs["resolution-requests-dropped"] = types.YLeaf{"ResolutionRequestsDropped", trafficInterface.ResolutionRequestsDropped}
+    trafficInterface.EntityData.Leafs["out-of-memory-errors"] = types.YLeaf{"OutOfMemoryErrors", trafficInterface.OutOfMemoryErrors}
+    trafficInterface.EntityData.Leafs["no-buffer-errors"] = types.YLeaf{"NoBufferErrors", trafficInterface.NoBufferErrors}
+    trafficInterface.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", trafficInterface.TotalEntries}
+    trafficInterface.EntityData.Leafs["dynamic-entries"] = types.YLeaf{"DynamicEntries", trafficInterface.DynamicEntries}
+    trafficInterface.EntityData.Leafs["static-entries"] = types.YLeaf{"StaticEntries", trafficInterface.StaticEntries}
+    trafficInterface.EntityData.Leafs["alias-entries"] = types.YLeaf{"AliasEntries", trafficInterface.AliasEntries}
+    trafficInterface.EntityData.Leafs["interface-entries"] = types.YLeaf{"InterfaceEntries", trafficInterface.InterfaceEntries}
+    trafficInterface.EntityData.Leafs["standby-entries"] = types.YLeaf{"StandbyEntries", trafficInterface.StandbyEntries}
+    trafficInterface.EntityData.Leafs["dhcp-entries"] = types.YLeaf{"DhcpEntries", trafficInterface.DhcpEntries}
+    trafficInterface.EntityData.Leafs["vxlan-entries"] = types.YLeaf{"VxlanEntries", trafficInterface.VxlanEntries}
+    trafficInterface.EntityData.Leafs["ip-packets-dropped-node"] = types.YLeaf{"IpPacketsDroppedNode", trafficInterface.IpPacketsDroppedNode}
+    trafficInterface.EntityData.Leafs["arp-packet-node-out-of-subnet"] = types.YLeaf{"ArpPacketNodeOutOfSubnet", trafficInterface.ArpPacketNodeOutOfSubnet}
+    trafficInterface.EntityData.Leafs["ip-packets-dropped-interface"] = types.YLeaf{"IpPacketsDroppedInterface", trafficInterface.IpPacketsDroppedInterface}
+    trafficInterface.EntityData.Leafs["arp-packet-interface-out-of-subnet"] = types.YLeaf{"ArpPacketInterfaceOutOfSubnet", trafficInterface.ArpPacketInterfaceOutOfSubnet}
+    trafficInterface.EntityData.Leafs["arp-packet-unsolicited-packet"] = types.YLeaf{"ArpPacketUnsolicitedPacket", trafficInterface.ArpPacketUnsolicitedPacket}
+    trafficInterface.EntityData.Leafs["idb-structures"] = types.YLeaf{"IdbStructures", trafficInterface.IdbStructures}
+    return &(trafficInterface.EntityData)
 }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetSegmentPath() string {
-    return "traffic-interface" + "[interface-name='" + fmt.Sprintf("%v", trafficInterface.InterfaceName) + "']"
-}
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = trafficInterface.InterfaceName
-    leafs["requests-received"] = trafficInterface.RequestsReceived
-    leafs["replies-received"] = trafficInterface.RepliesReceived
-    leafs["requests-sent"] = trafficInterface.RequestsSent
-    leafs["replies-sent"] = trafficInterface.RepliesSent
-    leafs["proxy-replies-sent"] = trafficInterface.ProxyRepliesSent
-    leafs["subscr-requests-received"] = trafficInterface.SubscrRequestsReceived
-    leafs["subscr-replies-sent"] = trafficInterface.SubscrRepliesSent
-    leafs["subscr-replies-gratg-sent"] = trafficInterface.SubscrRepliesGratgSent
-    leafs["local-proxy-replies-sent"] = trafficInterface.LocalProxyRepliesSent
-    leafs["gratuitous-replies-sent"] = trafficInterface.GratuitousRepliesSent
-    leafs["resolution-requests-received"] = trafficInterface.ResolutionRequestsReceived
-    leafs["resolution-replies-received"] = trafficInterface.ResolutionRepliesReceived
-    leafs["resolution-requests-dropped"] = trafficInterface.ResolutionRequestsDropped
-    leafs["out-of-memory-errors"] = trafficInterface.OutOfMemoryErrors
-    leafs["no-buffer-errors"] = trafficInterface.NoBufferErrors
-    leafs["total-entries"] = trafficInterface.TotalEntries
-    leafs["dynamic-entries"] = trafficInterface.DynamicEntries
-    leafs["static-entries"] = trafficInterface.StaticEntries
-    leafs["alias-entries"] = trafficInterface.AliasEntries
-    leafs["interface-entries"] = trafficInterface.InterfaceEntries
-    leafs["standby-entries"] = trafficInterface.StandbyEntries
-    leafs["dhcp-entries"] = trafficInterface.DhcpEntries
-    leafs["vxlan-entries"] = trafficInterface.VxlanEntries
-    leafs["ip-packets-dropped-node"] = trafficInterface.IpPacketsDroppedNode
-    leafs["arp-packet-node-out-of-subnet"] = trafficInterface.ArpPacketNodeOutOfSubnet
-    leafs["ip-packets-dropped-interface"] = trafficInterface.IpPacketsDroppedInterface
-    leafs["arp-packet-interface-out-of-subnet"] = trafficInterface.ArpPacketInterfaceOutOfSubnet
-    leafs["arp-packet-unsolicited-packet"] = trafficInterface.ArpPacketUnsolicitedPacket
-    leafs["idb-structures"] = trafficInterface.IdbStructures
-    return leafs
-}
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetYangName() string { return "traffic-interface" }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) SetParent(parent types.Entity) { trafficInterface.parent = parent }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetParent() types.Entity { return trafficInterface.parent }
-
-func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetParentYangName() string { return "traffic-interfaces" }
 

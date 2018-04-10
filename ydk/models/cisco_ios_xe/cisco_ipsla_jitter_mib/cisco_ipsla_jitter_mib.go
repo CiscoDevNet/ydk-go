@@ -28,7 +28,7 @@ func init() {
 
 // CISCOIPSLAJITTERMIB
 type CISCOIPSLAJITTERMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table that contains UDP jitter template specific definitions.
@@ -38,64 +38,27 @@ type CISCOIPSLAJITTERMIB struct {
     Cipslaicmpjittertmpltable CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable
 }
 
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetFilter() yfilter.YFilter { return cISCOIPSLAJITTERMIB.YFilter }
+func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPSLAJITTERMIB.EntityData.YFilter = cISCOIPSLAJITTERMIB.YFilter
+    cISCOIPSLAJITTERMIB.EntityData.YangName = "CISCO-IPSLA-JITTER-MIB"
+    cISCOIPSLAJITTERMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPSLAJITTERMIB.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
+    cISCOIPSLAJITTERMIB.EntityData.SegmentPath = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB"
+    cISCOIPSLAJITTERMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPSLAJITTERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPSLAJITTERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) SetFilter(yf yfilter.YFilter) { cISCOIPSLAJITTERMIB.YFilter = yf }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetGoName(yname string) string {
-    if yname == "cipslaUdpJitterTmplTable" { return "Cipslaudpjittertmpltable" }
-    if yname == "cipslaIcmpJitterTmplTable" { return "Cipslaicmpjittertmpltable" }
-    return ""
+    cISCOIPSLAJITTERMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPSLAJITTERMIB.EntityData.Children["cipslaUdpJitterTmplTable"] = types.YChild{"Cipslaudpjittertmpltable", &cISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable}
+    cISCOIPSLAJITTERMIB.EntityData.Children["cipslaIcmpJitterTmplTable"] = types.YChild{"Cipslaicmpjittertmpltable", &cISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable}
+    cISCOIPSLAJITTERMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPSLAJITTERMIB.EntityData)
 }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetSegmentPath() string {
-    return "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB"
-}
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaUdpJitterTmplTable" {
-        return &cISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable
-    }
-    if childYangName == "cipslaIcmpJitterTmplTable" {
-        return &cISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable
-    }
-    return nil
-}
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cipslaUdpJitterTmplTable"] = &cISCOIPSLAJITTERMIB.Cipslaudpjittertmpltable
-    children["cipslaIcmpJitterTmplTable"] = &cISCOIPSLAJITTERMIB.Cipslaicmpjittertmpltable
-    return children
-}
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetYangName() string { return "CISCO-IPSLA-JITTER-MIB" }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) SetParent(parent types.Entity) { cISCOIPSLAJITTERMIB.parent = parent }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetParent() types.Entity { return cISCOIPSLAJITTERMIB.parent }
-
-func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetParentYangName() string { return "CISCO-IPSLA-JITTER-MIB" }
 
 // CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable
 // A table that contains UDP jitter template specific definitions.
 type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IPSLA UDP jitter template. The type is slice of
@@ -103,68 +66,29 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable struct {
     Cipslaudpjittertmplentry []CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry
 }
 
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetFilter() yfilter.YFilter { return cipslaudpjittertmpltable.YFilter }
+func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetEntityData() *types.CommonEntityData {
+    cipslaudpjittertmpltable.EntityData.YFilter = cipslaudpjittertmpltable.YFilter
+    cipslaudpjittertmpltable.EntityData.YangName = "cipslaUdpJitterTmplTable"
+    cipslaudpjittertmpltable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaudpjittertmpltable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
+    cipslaudpjittertmpltable.EntityData.SegmentPath = "cipslaUdpJitterTmplTable"
+    cipslaudpjittertmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaudpjittertmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaudpjittertmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) SetFilter(yf yfilter.YFilter) { cipslaudpjittertmpltable.YFilter = yf }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetGoName(yname string) string {
-    if yname == "cipslaUdpJitterTmplEntry" { return "Cipslaudpjittertmplentry" }
-    return ""
-}
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetSegmentPath() string {
-    return "cipslaUdpJitterTmplTable"
-}
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaUdpJitterTmplEntry" {
-        for _, c := range cipslaudpjittertmpltable.Cipslaudpjittertmplentry {
-            if cipslaudpjittertmpltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry{}
-        cipslaudpjittertmpltable.Cipslaudpjittertmplentry = append(cipslaudpjittertmpltable.Cipslaudpjittertmplentry, child)
-        return &cipslaudpjittertmpltable.Cipslaudpjittertmplentry[len(cipslaudpjittertmpltable.Cipslaudpjittertmplentry)-1]
-    }
-    return nil
-}
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipslaudpjittertmpltable.EntityData.Children = make(map[string]types.YChild)
+    cipslaudpjittertmpltable.EntityData.Children["cipslaUdpJitterTmplEntry"] = types.YChild{"Cipslaudpjittertmplentry", nil}
     for i := range cipslaudpjittertmpltable.Cipslaudpjittertmplentry {
-        children[cipslaudpjittertmpltable.Cipslaudpjittertmplentry[i].GetSegmentPath()] = &cipslaudpjittertmpltable.Cipslaudpjittertmplentry[i]
+        cipslaudpjittertmpltable.EntityData.Children[types.GetSegmentPath(&cipslaudpjittertmpltable.Cipslaudpjittertmplentry[i])] = types.YChild{"Cipslaudpjittertmplentry", &cipslaudpjittertmpltable.Cipslaudpjittertmplentry[i]}
     }
-    return children
+    cipslaudpjittertmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipslaudpjittertmpltable.EntityData)
 }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetYangName() string { return "cipslaUdpJitterTmplTable" }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) SetParent(parent types.Entity) { cipslaudpjittertmpltable.parent = parent }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetParent() types.Entity { return cipslaudpjittertmpltable.parent }
-
-func (cipslaudpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable) GetParentYangName() string { return "CISCO-IPSLA-JITTER-MIB" }
 
 // CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry
 // A row entry representing an IPSLA UDP jitter template.
 type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A string which specifies the UDP Jitter template
@@ -343,107 +267,49 @@ type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry struc
     Cipslaudpjittertmplrowstatus interface{}
 }
 
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetFilter() yfilter.YFilter { return cipslaudpjittertmplentry.YFilter }
+func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetEntityData() *types.CommonEntityData {
+    cipslaudpjittertmplentry.EntityData.YFilter = cipslaudpjittertmplentry.YFilter
+    cipslaudpjittertmplentry.EntityData.YangName = "cipslaUdpJitterTmplEntry"
+    cipslaudpjittertmplentry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaudpjittertmplentry.EntityData.ParentYangName = "cipslaUdpJitterTmplTable"
+    cipslaudpjittertmplentry.EntityData.SegmentPath = "cipslaUdpJitterTmplEntry" + "[cipslaUdpJitterTmplName='" + fmt.Sprintf("%v", cipslaudpjittertmplentry.Cipslaudpjittertmplname) + "']"
+    cipslaudpjittertmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaudpjittertmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaudpjittertmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) SetFilter(yf yfilter.YFilter) { cipslaudpjittertmplentry.YFilter = yf }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetGoName(yname string) string {
-    if yname == "cipslaUdpJitterTmplName" { return "Cipslaudpjittertmplname" }
-    if yname == "cipslaUdpJitterTmplDescription" { return "Cipslaudpjittertmpldescription" }
-    if yname == "cipslaUdpJitterTmplControlEnable" { return "Cipslaudpjittertmplcontrolenable" }
-    if yname == "cipslaUdpJitterTmplTimeOut" { return "Cipslaudpjittertmpltimeout" }
-    if yname == "cipslaUdpJitterTmplVerifyData" { return "Cipslaudpjittertmplverifydata" }
-    if yname == "cipslaUdpJitterTmplCodecType" { return "Cipslaudpjittertmplcodectype" }
-    if yname == "cipslaUdpJitterTmplCodecInterval" { return "Cipslaudpjittertmplcodecinterval" }
-    if yname == "cipslaUdpJitterTmplCodecPayload" { return "Cipslaudpjittertmplcodecpayload" }
-    if yname == "cipslaUdpJitterTmplCodecNumPkts" { return "Cipslaudpjittertmplcodecnumpkts" }
-    if yname == "cipslaUdpJitterTmplInterval" { return "Cipslaudpjittertmplinterval" }
-    if yname == "cipslaUdpJitterTmplNumPkts" { return "Cipslaudpjittertmplnumpkts" }
-    if yname == "cipslaUdpJitterTmplSrcAddrType" { return "Cipslaudpjittertmplsrcaddrtype" }
-    if yname == "cipslaUdpJitterTmplSrcAddr" { return "Cipslaudpjittertmplsrcaddr" }
-    if yname == "cipslaUdpJitterTmplSrcPort" { return "Cipslaudpjittertmplsrcport" }
-    if yname == "cipslaUdpJitterTmplPrecision" { return "Cipslaudpjittertmplprecision" }
-    if yname == "cipslaUdpJitterTmplReqDataSize" { return "Cipslaudpjittertmplreqdatasize" }
-    if yname == "cipslaUdpJitterTmplPktPriority" { return "Cipslaudpjittertmplpktpriority" }
-    if yname == "cipslaUdpJitterTmplTOS" { return "Cipslaudpjittertmpltos" }
-    if yname == "cipslaUdpJitterTmplVrfName" { return "Cipslaudpjittertmplvrfname" }
-    if yname == "cipslaUdpJitterTmplThreshold" { return "Cipslaudpjittertmplthreshold" }
-    if yname == "cipslaUdpJitterTmplNTPTolAbs" { return "Cipslaudpjittertmplntptolabs" }
-    if yname == "cipslaUdpJitterTmplNTPTolPct" { return "Cipslaudpjittertmplntptolpct" }
-    if yname == "cipslaUdpJitterTmplNTPTolType" { return "Cipslaudpjittertmplntptoltype" }
-    if yname == "cipslaUdpJitterTmplIcpifFactor" { return "Cipslaudpjittertmplicpiffactor" }
-    if yname == "cipslaUdpJitterTmplStatsHours" { return "Cipslaudpjittertmplstatshours" }
-    if yname == "cipslaUdpJitterTmplDistBuckets" { return "Cipslaudpjittertmpldistbuckets" }
-    if yname == "cipslaUdpJitterTmplDistInterval" { return "Cipslaudpjittertmpldistinterval" }
-    if yname == "cipslaUdpJitterTmplStorageType" { return "Cipslaudpjittertmplstoragetype" }
-    if yname == "cipslaUdpJitterTmplRowStatus" { return "Cipslaudpjittertmplrowstatus" }
-    return ""
+    cipslaudpjittertmplentry.EntityData.Children = make(map[string]types.YChild)
+    cipslaudpjittertmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplName"] = types.YLeaf{"Cipslaudpjittertmplname", cipslaudpjittertmplentry.Cipslaudpjittertmplname}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplDescription"] = types.YLeaf{"Cipslaudpjittertmpldescription", cipslaudpjittertmplentry.Cipslaudpjittertmpldescription}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplControlEnable"] = types.YLeaf{"Cipslaudpjittertmplcontrolenable", cipslaudpjittertmplentry.Cipslaudpjittertmplcontrolenable}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplTimeOut"] = types.YLeaf{"Cipslaudpjittertmpltimeout", cipslaudpjittertmplentry.Cipslaudpjittertmpltimeout}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplVerifyData"] = types.YLeaf{"Cipslaudpjittertmplverifydata", cipslaudpjittertmplentry.Cipslaudpjittertmplverifydata}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecType"] = types.YLeaf{"Cipslaudpjittertmplcodectype", cipslaudpjittertmplentry.Cipslaudpjittertmplcodectype}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecInterval"] = types.YLeaf{"Cipslaudpjittertmplcodecinterval", cipslaudpjittertmplentry.Cipslaudpjittertmplcodecinterval}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecPayload"] = types.YLeaf{"Cipslaudpjittertmplcodecpayload", cipslaudpjittertmplentry.Cipslaudpjittertmplcodecpayload}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplCodecNumPkts"] = types.YLeaf{"Cipslaudpjittertmplcodecnumpkts", cipslaudpjittertmplentry.Cipslaudpjittertmplcodecnumpkts}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplInterval"] = types.YLeaf{"Cipslaudpjittertmplinterval", cipslaudpjittertmplentry.Cipslaudpjittertmplinterval}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNumPkts"] = types.YLeaf{"Cipslaudpjittertmplnumpkts", cipslaudpjittertmplentry.Cipslaudpjittertmplnumpkts}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplSrcAddrType"] = types.YLeaf{"Cipslaudpjittertmplsrcaddrtype", cipslaudpjittertmplentry.Cipslaudpjittertmplsrcaddrtype}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplSrcAddr"] = types.YLeaf{"Cipslaudpjittertmplsrcaddr", cipslaudpjittertmplentry.Cipslaudpjittertmplsrcaddr}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplSrcPort"] = types.YLeaf{"Cipslaudpjittertmplsrcport", cipslaudpjittertmplentry.Cipslaudpjittertmplsrcport}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplPrecision"] = types.YLeaf{"Cipslaudpjittertmplprecision", cipslaudpjittertmplentry.Cipslaudpjittertmplprecision}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplReqDataSize"] = types.YLeaf{"Cipslaudpjittertmplreqdatasize", cipslaudpjittertmplentry.Cipslaudpjittertmplreqdatasize}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplPktPriority"] = types.YLeaf{"Cipslaudpjittertmplpktpriority", cipslaudpjittertmplentry.Cipslaudpjittertmplpktpriority}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplTOS"] = types.YLeaf{"Cipslaudpjittertmpltos", cipslaudpjittertmplentry.Cipslaudpjittertmpltos}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplVrfName"] = types.YLeaf{"Cipslaudpjittertmplvrfname", cipslaudpjittertmplentry.Cipslaudpjittertmplvrfname}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplThreshold"] = types.YLeaf{"Cipslaudpjittertmplthreshold", cipslaudpjittertmplentry.Cipslaudpjittertmplthreshold}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNTPTolAbs"] = types.YLeaf{"Cipslaudpjittertmplntptolabs", cipslaudpjittertmplentry.Cipslaudpjittertmplntptolabs}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNTPTolPct"] = types.YLeaf{"Cipslaudpjittertmplntptolpct", cipslaudpjittertmplentry.Cipslaudpjittertmplntptolpct}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplNTPTolType"] = types.YLeaf{"Cipslaudpjittertmplntptoltype", cipslaudpjittertmplentry.Cipslaudpjittertmplntptoltype}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplIcpifFactor"] = types.YLeaf{"Cipslaudpjittertmplicpiffactor", cipslaudpjittertmplentry.Cipslaudpjittertmplicpiffactor}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplStatsHours"] = types.YLeaf{"Cipslaudpjittertmplstatshours", cipslaudpjittertmplentry.Cipslaudpjittertmplstatshours}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplDistBuckets"] = types.YLeaf{"Cipslaudpjittertmpldistbuckets", cipslaudpjittertmplentry.Cipslaudpjittertmpldistbuckets}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplDistInterval"] = types.YLeaf{"Cipslaudpjittertmpldistinterval", cipslaudpjittertmplentry.Cipslaudpjittertmpldistinterval}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplStorageType"] = types.YLeaf{"Cipslaudpjittertmplstoragetype", cipslaudpjittertmplentry.Cipslaudpjittertmplstoragetype}
+    cipslaudpjittertmplentry.EntityData.Leafs["cipslaUdpJitterTmplRowStatus"] = types.YLeaf{"Cipslaudpjittertmplrowstatus", cipslaudpjittertmplentry.Cipslaudpjittertmplrowstatus}
+    return &(cipslaudpjittertmplentry.EntityData)
 }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetSegmentPath() string {
-    return "cipslaUdpJitterTmplEntry" + "[cipslaUdpJitterTmplName='" + fmt.Sprintf("%v", cipslaudpjittertmplentry.Cipslaudpjittertmplname) + "']"
-}
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipslaUdpJitterTmplName"] = cipslaudpjittertmplentry.Cipslaudpjittertmplname
-    leafs["cipslaUdpJitterTmplDescription"] = cipslaudpjittertmplentry.Cipslaudpjittertmpldescription
-    leafs["cipslaUdpJitterTmplControlEnable"] = cipslaudpjittertmplentry.Cipslaudpjittertmplcontrolenable
-    leafs["cipslaUdpJitterTmplTimeOut"] = cipslaudpjittertmplentry.Cipslaudpjittertmpltimeout
-    leafs["cipslaUdpJitterTmplVerifyData"] = cipslaudpjittertmplentry.Cipslaudpjittertmplverifydata
-    leafs["cipslaUdpJitterTmplCodecType"] = cipslaudpjittertmplentry.Cipslaudpjittertmplcodectype
-    leafs["cipslaUdpJitterTmplCodecInterval"] = cipslaudpjittertmplentry.Cipslaudpjittertmplcodecinterval
-    leafs["cipslaUdpJitterTmplCodecPayload"] = cipslaudpjittertmplentry.Cipslaudpjittertmplcodecpayload
-    leafs["cipslaUdpJitterTmplCodecNumPkts"] = cipslaudpjittertmplentry.Cipslaudpjittertmplcodecnumpkts
-    leafs["cipslaUdpJitterTmplInterval"] = cipslaudpjittertmplentry.Cipslaudpjittertmplinterval
-    leafs["cipslaUdpJitterTmplNumPkts"] = cipslaudpjittertmplentry.Cipslaudpjittertmplnumpkts
-    leafs["cipslaUdpJitterTmplSrcAddrType"] = cipslaudpjittertmplentry.Cipslaudpjittertmplsrcaddrtype
-    leafs["cipslaUdpJitterTmplSrcAddr"] = cipslaudpjittertmplentry.Cipslaudpjittertmplsrcaddr
-    leafs["cipslaUdpJitterTmplSrcPort"] = cipslaudpjittertmplentry.Cipslaudpjittertmplsrcport
-    leafs["cipslaUdpJitterTmplPrecision"] = cipslaudpjittertmplentry.Cipslaudpjittertmplprecision
-    leafs["cipslaUdpJitterTmplReqDataSize"] = cipslaudpjittertmplentry.Cipslaudpjittertmplreqdatasize
-    leafs["cipslaUdpJitterTmplPktPriority"] = cipslaudpjittertmplentry.Cipslaudpjittertmplpktpriority
-    leafs["cipslaUdpJitterTmplTOS"] = cipslaudpjittertmplentry.Cipslaudpjittertmpltos
-    leafs["cipslaUdpJitterTmplVrfName"] = cipslaudpjittertmplentry.Cipslaudpjittertmplvrfname
-    leafs["cipslaUdpJitterTmplThreshold"] = cipslaudpjittertmplentry.Cipslaudpjittertmplthreshold
-    leafs["cipslaUdpJitterTmplNTPTolAbs"] = cipslaudpjittertmplentry.Cipslaudpjittertmplntptolabs
-    leafs["cipslaUdpJitterTmplNTPTolPct"] = cipslaudpjittertmplentry.Cipslaudpjittertmplntptolpct
-    leafs["cipslaUdpJitterTmplNTPTolType"] = cipslaudpjittertmplentry.Cipslaudpjittertmplntptoltype
-    leafs["cipslaUdpJitterTmplIcpifFactor"] = cipslaudpjittertmplentry.Cipslaudpjittertmplicpiffactor
-    leafs["cipslaUdpJitterTmplStatsHours"] = cipslaudpjittertmplentry.Cipslaudpjittertmplstatshours
-    leafs["cipslaUdpJitterTmplDistBuckets"] = cipslaudpjittertmplentry.Cipslaudpjittertmpldistbuckets
-    leafs["cipslaUdpJitterTmplDistInterval"] = cipslaudpjittertmplentry.Cipslaudpjittertmpldistinterval
-    leafs["cipslaUdpJitterTmplStorageType"] = cipslaudpjittertmplentry.Cipslaudpjittertmplstoragetype
-    leafs["cipslaUdpJitterTmplRowStatus"] = cipslaudpjittertmplentry.Cipslaudpjittertmplrowstatus
-    return leafs
-}
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetYangName() string { return "cipslaUdpJitterTmplEntry" }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) SetParent(parent types.Entity) { cipslaudpjittertmplentry.parent = parent }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetParent() types.Entity { return cipslaudpjittertmplentry.parent }
-
-func (cipslaudpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry) GetParentYangName() string { return "cipslaUdpJitterTmplTable" }
 
 // CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype represents               percent value.
 type CISCOIPSLAJITTERMIB_Cipslaudpjittertmpltable_Cipslaudpjittertmplentry_Cipslaudpjittertmplntptoltype string
@@ -475,7 +341,7 @@ const (
 // CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable
 // A table that contains ICMP jitter template specific definitions.
 type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row entry representing an IP SLA ICMP Jitter template. The type is slice
@@ -483,68 +349,29 @@ type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable struct {
     Cipslaicmpjittertmplentry []CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry
 }
 
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetFilter() yfilter.YFilter { return cipslaicmpjittertmpltable.YFilter }
+func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetEntityData() *types.CommonEntityData {
+    cipslaicmpjittertmpltable.EntityData.YFilter = cipslaicmpjittertmpltable.YFilter
+    cipslaicmpjittertmpltable.EntityData.YangName = "cipslaIcmpJitterTmplTable"
+    cipslaicmpjittertmpltable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaicmpjittertmpltable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
+    cipslaicmpjittertmpltable.EntityData.SegmentPath = "cipslaIcmpJitterTmplTable"
+    cipslaicmpjittertmpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaicmpjittertmpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaicmpjittertmpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) SetFilter(yf yfilter.YFilter) { cipslaicmpjittertmpltable.YFilter = yf }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetGoName(yname string) string {
-    if yname == "cipslaIcmpJitterTmplEntry" { return "Cipslaicmpjittertmplentry" }
-    return ""
-}
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetSegmentPath() string {
-    return "cipslaIcmpJitterTmplTable"
-}
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaIcmpJitterTmplEntry" {
-        for _, c := range cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry {
-            if cipslaicmpjittertmpltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry{}
-        cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry = append(cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry, child)
-        return &cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[len(cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry)-1]
-    }
-    return nil
-}
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipslaicmpjittertmpltable.EntityData.Children = make(map[string]types.YChild)
+    cipslaicmpjittertmpltable.EntityData.Children["cipslaIcmpJitterTmplEntry"] = types.YChild{"Cipslaicmpjittertmplentry", nil}
     for i := range cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry {
-        children[cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[i].GetSegmentPath()] = &cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[i]
+        cipslaicmpjittertmpltable.EntityData.Children[types.GetSegmentPath(&cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[i])] = types.YChild{"Cipslaicmpjittertmplentry", &cipslaicmpjittertmpltable.Cipslaicmpjittertmplentry[i]}
     }
-    return children
+    cipslaicmpjittertmpltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipslaicmpjittertmpltable.EntityData)
 }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetYangName() string { return "cipslaIcmpJitterTmplTable" }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) SetParent(parent types.Entity) { cipslaicmpjittertmpltable.parent = parent }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetParent() types.Entity { return cipslaicmpjittertmpltable.parent }
-
-func (cipslaicmpjittertmpltable *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable) GetParentYangName() string { return "CISCO-IPSLA-JITTER-MIB" }
 
 // CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry
 // A row entry representing an IP SLA ICMP Jitter template.
 type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A string which specifies the ICMP jitter template
@@ -639,79 +466,34 @@ type CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry str
     Cipslaicmpjittertmplrowstatus interface{}
 }
 
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetFilter() yfilter.YFilter { return cipslaicmpjittertmplentry.YFilter }
+func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetEntityData() *types.CommonEntityData {
+    cipslaicmpjittertmplentry.EntityData.YFilter = cipslaicmpjittertmplentry.YFilter
+    cipslaicmpjittertmplentry.EntityData.YangName = "cipslaIcmpJitterTmplEntry"
+    cipslaicmpjittertmplentry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaicmpjittertmplentry.EntityData.ParentYangName = "cipslaIcmpJitterTmplTable"
+    cipslaicmpjittertmplentry.EntityData.SegmentPath = "cipslaIcmpJitterTmplEntry" + "[cipslaIcmpJitterTmplName='" + fmt.Sprintf("%v", cipslaicmpjittertmplentry.Cipslaicmpjittertmplname) + "']"
+    cipslaicmpjittertmplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaicmpjittertmplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaicmpjittertmplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) SetFilter(yf yfilter.YFilter) { cipslaicmpjittertmplentry.YFilter = yf }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetGoName(yname string) string {
-    if yname == "cipslaIcmpJitterTmplName" { return "Cipslaicmpjittertmplname" }
-    if yname == "cipslaIcmpJitterTmplDescription" { return "Cipslaicmpjittertmpldescription" }
-    if yname == "cipslaIcmpJitterTmplTimeOut" { return "Cipslaicmpjittertmpltimeout" }
-    if yname == "cipslaIcmpJitterTmplVerifyData" { return "Cipslaicmpjittertmplverifydata" }
-    if yname == "cipslaIcmpJitterTmplNumPkts" { return "Cipslaicmpjittertmplnumpkts" }
-    if yname == "cipslaIcmpJitterTmplInterval" { return "Cipslaicmpjittertmplinterval" }
-    if yname == "cipslaIcmpJitterTmplSrcAddrType" { return "Cipslaicmpjittertmplsrcaddrtype" }
-    if yname == "cipslaIcmpJitterTmplSrcAddr" { return "Cipslaicmpjittertmplsrcaddr" }
-    if yname == "cipslaIcmpJitterTmplTOS" { return "Cipslaicmpjittertmpltos" }
-    if yname == "cipslaIcmpJitterTmplVrfName" { return "Cipslaicmpjittertmplvrfname" }
-    if yname == "cipslaIcmpJitterTmplThreshold" { return "Cipslaicmpjittertmplthreshold" }
-    if yname == "cipslaIcmpJitterTmplStatsHours" { return "Cipslaicmpjittertmplstatshours" }
-    if yname == "cipslaIcmpJitterTmplDistBuckets" { return "Cipslaicmpjittertmpldistbuckets" }
-    if yname == "cipslaIcmpJitterTmplDistInterval" { return "Cipslaicmpjittertmpldistinterval" }
-    if yname == "cipslaIcmpJitterTmplStorageType" { return "Cipslaicmpjittertmplstoragetype" }
-    if yname == "cipslaIcmpJitterTmplRowStatus" { return "Cipslaicmpjittertmplrowstatus" }
-    return ""
+    cipslaicmpjittertmplentry.EntityData.Children = make(map[string]types.YChild)
+    cipslaicmpjittertmplentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplName"] = types.YLeaf{"Cipslaicmpjittertmplname", cipslaicmpjittertmplentry.Cipslaicmpjittertmplname}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplDescription"] = types.YLeaf{"Cipslaicmpjittertmpldescription", cipslaicmpjittertmplentry.Cipslaicmpjittertmpldescription}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplTimeOut"] = types.YLeaf{"Cipslaicmpjittertmpltimeout", cipslaicmpjittertmplentry.Cipslaicmpjittertmpltimeout}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplVerifyData"] = types.YLeaf{"Cipslaicmpjittertmplverifydata", cipslaicmpjittertmplentry.Cipslaicmpjittertmplverifydata}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplNumPkts"] = types.YLeaf{"Cipslaicmpjittertmplnumpkts", cipslaicmpjittertmplentry.Cipslaicmpjittertmplnumpkts}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplInterval"] = types.YLeaf{"Cipslaicmpjittertmplinterval", cipslaicmpjittertmplentry.Cipslaicmpjittertmplinterval}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplSrcAddrType"] = types.YLeaf{"Cipslaicmpjittertmplsrcaddrtype", cipslaicmpjittertmplentry.Cipslaicmpjittertmplsrcaddrtype}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplSrcAddr"] = types.YLeaf{"Cipslaicmpjittertmplsrcaddr", cipslaicmpjittertmplentry.Cipslaicmpjittertmplsrcaddr}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplTOS"] = types.YLeaf{"Cipslaicmpjittertmpltos", cipslaicmpjittertmplentry.Cipslaicmpjittertmpltos}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplVrfName"] = types.YLeaf{"Cipslaicmpjittertmplvrfname", cipslaicmpjittertmplentry.Cipslaicmpjittertmplvrfname}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplThreshold"] = types.YLeaf{"Cipslaicmpjittertmplthreshold", cipslaicmpjittertmplentry.Cipslaicmpjittertmplthreshold}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplStatsHours"] = types.YLeaf{"Cipslaicmpjittertmplstatshours", cipslaicmpjittertmplentry.Cipslaicmpjittertmplstatshours}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplDistBuckets"] = types.YLeaf{"Cipslaicmpjittertmpldistbuckets", cipslaicmpjittertmplentry.Cipslaicmpjittertmpldistbuckets}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplDistInterval"] = types.YLeaf{"Cipslaicmpjittertmpldistinterval", cipslaicmpjittertmplentry.Cipslaicmpjittertmpldistinterval}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplStorageType"] = types.YLeaf{"Cipslaicmpjittertmplstoragetype", cipslaicmpjittertmplentry.Cipslaicmpjittertmplstoragetype}
+    cipslaicmpjittertmplentry.EntityData.Leafs["cipslaIcmpJitterTmplRowStatus"] = types.YLeaf{"Cipslaicmpjittertmplrowstatus", cipslaicmpjittertmplentry.Cipslaicmpjittertmplrowstatus}
+    return &(cipslaicmpjittertmplentry.EntityData)
 }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetSegmentPath() string {
-    return "cipslaIcmpJitterTmplEntry" + "[cipslaIcmpJitterTmplName='" + fmt.Sprintf("%v", cipslaicmpjittertmplentry.Cipslaicmpjittertmplname) + "']"
-}
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipslaIcmpJitterTmplName"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplname
-    leafs["cipslaIcmpJitterTmplDescription"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmpldescription
-    leafs["cipslaIcmpJitterTmplTimeOut"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmpltimeout
-    leafs["cipslaIcmpJitterTmplVerifyData"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplverifydata
-    leafs["cipslaIcmpJitterTmplNumPkts"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplnumpkts
-    leafs["cipslaIcmpJitterTmplInterval"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplinterval
-    leafs["cipslaIcmpJitterTmplSrcAddrType"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplsrcaddrtype
-    leafs["cipslaIcmpJitterTmplSrcAddr"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplsrcaddr
-    leafs["cipslaIcmpJitterTmplTOS"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmpltos
-    leafs["cipslaIcmpJitterTmplVrfName"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplvrfname
-    leafs["cipslaIcmpJitterTmplThreshold"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplthreshold
-    leafs["cipslaIcmpJitterTmplStatsHours"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplstatshours
-    leafs["cipslaIcmpJitterTmplDistBuckets"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmpldistbuckets
-    leafs["cipslaIcmpJitterTmplDistInterval"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmpldistinterval
-    leafs["cipslaIcmpJitterTmplStorageType"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplstoragetype
-    leafs["cipslaIcmpJitterTmplRowStatus"] = cipslaicmpjittertmplentry.Cipslaicmpjittertmplrowstatus
-    return leafs
-}
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetYangName() string { return "cipslaIcmpJitterTmplEntry" }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) SetParent(parent types.Entity) { cipslaicmpjittertmplentry.parent = parent }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetParent() types.Entity { return cipslaicmpjittertmplentry.parent }
-
-func (cipslaicmpjittertmplentry *CISCOIPSLAJITTERMIB_Cipslaicmpjittertmpltable_Cipslaicmpjittertmplentry) GetParentYangName() string { return "cipslaIcmpJitterTmplTable" }
 

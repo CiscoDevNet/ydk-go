@@ -52,7 +52,7 @@ func (id Ciscosipuamibnotifications) String() string {
 
 // CISCOSIPUAMIB
 type CISCOSIPUAMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -142,163 +142,46 @@ type CISCOSIPUAMIB struct {
     Csipstatssuccessoktable CISCOSIPUAMIB_Csipstatssuccessoktable
 }
 
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetFilter() yfilter.YFilter { return cISCOSIPUAMIB.YFilter }
+func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetEntityData() *types.CommonEntityData {
+    cISCOSIPUAMIB.EntityData.YFilter = cISCOSIPUAMIB.YFilter
+    cISCOSIPUAMIB.EntityData.YangName = "CISCO-SIP-UA-MIB"
+    cISCOSIPUAMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOSIPUAMIB.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    cISCOSIPUAMIB.EntityData.SegmentPath = "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB"
+    cISCOSIPUAMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOSIPUAMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOSIPUAMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) SetFilter(yf yfilter.YFilter) { cISCOSIPUAMIB.YFilter = yf }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetGoName(yname string) string {
-    if yname == "cSipCfgBase" { return "Csipcfgbase" }
-    if yname == "cSipCfgTimer" { return "Csipcfgtimer" }
-    if yname == "cSipCfgRetry" { return "Csipcfgretry" }
-    if yname == "cSipCfgPeer" { return "Csipcfgpeer" }
-    if yname == "cSipCfgAaa" { return "Csipcfgaaa" }
-    if yname == "cSipCfgVoiceServiceVoip" { return "Csipcfgvoiceservicevoip" }
-    if yname == "cSipStatsInfo" { return "Csipstatsinfo" }
-    if yname == "cSipStatsSuccess" { return "Csipstatssuccess" }
-    if yname == "cSipStatsRedirect" { return "Csipstatsredirect" }
-    if yname == "cSipStatsErrClient" { return "Csipstatserrclient" }
-    if yname == "cSipStatsErrServer" { return "Csipstatserrserver" }
-    if yname == "cSipStatsGlobalFail" { return "Csipstatsglobalfail" }
-    if yname == "cSipStatsTraffic" { return "Csipstatstraffic" }
-    if yname == "cSipStatsRetry" { return "Csipstatsretry" }
-    if yname == "cSipStatsMisc" { return "Csipstatsmisc" }
-    if yname == "cSipStatsConnection" { return "Csipstatsconnection" }
-    if yname == "cSipCfgEarlyMediaTable" { return "Csipcfgearlymediatable" }
-    if yname == "cSipCfgBindSourceAddrTable" { return "Csipcfgbindsourceaddrtable" }
-    if yname == "cSipCfgPeerTable" { return "Csipcfgpeertable" }
-    if yname == "cSipCfgStatusCauseTable" { return "Csipcfgstatuscausetable" }
-    if yname == "cSipCfgCauseStatusTable" { return "Csipcfgcausestatustable" }
-    if yname == "cSipStatsSuccessOkTable" { return "Csipstatssuccessoktable" }
-    return ""
+    cISCOSIPUAMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgBase"] = types.YChild{"Csipcfgbase", &cISCOSIPUAMIB.Csipcfgbase}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgTimer"] = types.YChild{"Csipcfgtimer", &cISCOSIPUAMIB.Csipcfgtimer}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgRetry"] = types.YChild{"Csipcfgretry", &cISCOSIPUAMIB.Csipcfgretry}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgPeer"] = types.YChild{"Csipcfgpeer", &cISCOSIPUAMIB.Csipcfgpeer}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgAaa"] = types.YChild{"Csipcfgaaa", &cISCOSIPUAMIB.Csipcfgaaa}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgVoiceServiceVoip"] = types.YChild{"Csipcfgvoiceservicevoip", &cISCOSIPUAMIB.Csipcfgvoiceservicevoip}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsInfo"] = types.YChild{"Csipstatsinfo", &cISCOSIPUAMIB.Csipstatsinfo}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsSuccess"] = types.YChild{"Csipstatssuccess", &cISCOSIPUAMIB.Csipstatssuccess}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsRedirect"] = types.YChild{"Csipstatsredirect", &cISCOSIPUAMIB.Csipstatsredirect}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsErrClient"] = types.YChild{"Csipstatserrclient", &cISCOSIPUAMIB.Csipstatserrclient}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsErrServer"] = types.YChild{"Csipstatserrserver", &cISCOSIPUAMIB.Csipstatserrserver}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsGlobalFail"] = types.YChild{"Csipstatsglobalfail", &cISCOSIPUAMIB.Csipstatsglobalfail}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsTraffic"] = types.YChild{"Csipstatstraffic", &cISCOSIPUAMIB.Csipstatstraffic}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsRetry"] = types.YChild{"Csipstatsretry", &cISCOSIPUAMIB.Csipstatsretry}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsMisc"] = types.YChild{"Csipstatsmisc", &cISCOSIPUAMIB.Csipstatsmisc}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsConnection"] = types.YChild{"Csipstatsconnection", &cISCOSIPUAMIB.Csipstatsconnection}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgEarlyMediaTable"] = types.YChild{"Csipcfgearlymediatable", &cISCOSIPUAMIB.Csipcfgearlymediatable}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgBindSourceAddrTable"] = types.YChild{"Csipcfgbindsourceaddrtable", &cISCOSIPUAMIB.Csipcfgbindsourceaddrtable}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgPeerTable"] = types.YChild{"Csipcfgpeertable", &cISCOSIPUAMIB.Csipcfgpeertable}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgStatusCauseTable"] = types.YChild{"Csipcfgstatuscausetable", &cISCOSIPUAMIB.Csipcfgstatuscausetable}
+    cISCOSIPUAMIB.EntityData.Children["cSipCfgCauseStatusTable"] = types.YChild{"Csipcfgcausestatustable", &cISCOSIPUAMIB.Csipcfgcausestatustable}
+    cISCOSIPUAMIB.EntityData.Children["cSipStatsSuccessOkTable"] = types.YChild{"Csipstatssuccessoktable", &cISCOSIPUAMIB.Csipstatssuccessoktable}
+    cISCOSIPUAMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOSIPUAMIB.EntityData)
 }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetSegmentPath() string {
-    return "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB"
-}
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipCfgBase" {
-        return &cISCOSIPUAMIB.Csipcfgbase
-    }
-    if childYangName == "cSipCfgTimer" {
-        return &cISCOSIPUAMIB.Csipcfgtimer
-    }
-    if childYangName == "cSipCfgRetry" {
-        return &cISCOSIPUAMIB.Csipcfgretry
-    }
-    if childYangName == "cSipCfgPeer" {
-        return &cISCOSIPUAMIB.Csipcfgpeer
-    }
-    if childYangName == "cSipCfgAaa" {
-        return &cISCOSIPUAMIB.Csipcfgaaa
-    }
-    if childYangName == "cSipCfgVoiceServiceVoip" {
-        return &cISCOSIPUAMIB.Csipcfgvoiceservicevoip
-    }
-    if childYangName == "cSipStatsInfo" {
-        return &cISCOSIPUAMIB.Csipstatsinfo
-    }
-    if childYangName == "cSipStatsSuccess" {
-        return &cISCOSIPUAMIB.Csipstatssuccess
-    }
-    if childYangName == "cSipStatsRedirect" {
-        return &cISCOSIPUAMIB.Csipstatsredirect
-    }
-    if childYangName == "cSipStatsErrClient" {
-        return &cISCOSIPUAMIB.Csipstatserrclient
-    }
-    if childYangName == "cSipStatsErrServer" {
-        return &cISCOSIPUAMIB.Csipstatserrserver
-    }
-    if childYangName == "cSipStatsGlobalFail" {
-        return &cISCOSIPUAMIB.Csipstatsglobalfail
-    }
-    if childYangName == "cSipStatsTraffic" {
-        return &cISCOSIPUAMIB.Csipstatstraffic
-    }
-    if childYangName == "cSipStatsRetry" {
-        return &cISCOSIPUAMIB.Csipstatsretry
-    }
-    if childYangName == "cSipStatsMisc" {
-        return &cISCOSIPUAMIB.Csipstatsmisc
-    }
-    if childYangName == "cSipStatsConnection" {
-        return &cISCOSIPUAMIB.Csipstatsconnection
-    }
-    if childYangName == "cSipCfgEarlyMediaTable" {
-        return &cISCOSIPUAMIB.Csipcfgearlymediatable
-    }
-    if childYangName == "cSipCfgBindSourceAddrTable" {
-        return &cISCOSIPUAMIB.Csipcfgbindsourceaddrtable
-    }
-    if childYangName == "cSipCfgPeerTable" {
-        return &cISCOSIPUAMIB.Csipcfgpeertable
-    }
-    if childYangName == "cSipCfgStatusCauseTable" {
-        return &cISCOSIPUAMIB.Csipcfgstatuscausetable
-    }
-    if childYangName == "cSipCfgCauseStatusTable" {
-        return &cISCOSIPUAMIB.Csipcfgcausestatustable
-    }
-    if childYangName == "cSipStatsSuccessOkTable" {
-        return &cISCOSIPUAMIB.Csipstatssuccessoktable
-    }
-    return nil
-}
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cSipCfgBase"] = &cISCOSIPUAMIB.Csipcfgbase
-    children["cSipCfgTimer"] = &cISCOSIPUAMIB.Csipcfgtimer
-    children["cSipCfgRetry"] = &cISCOSIPUAMIB.Csipcfgretry
-    children["cSipCfgPeer"] = &cISCOSIPUAMIB.Csipcfgpeer
-    children["cSipCfgAaa"] = &cISCOSIPUAMIB.Csipcfgaaa
-    children["cSipCfgVoiceServiceVoip"] = &cISCOSIPUAMIB.Csipcfgvoiceservicevoip
-    children["cSipStatsInfo"] = &cISCOSIPUAMIB.Csipstatsinfo
-    children["cSipStatsSuccess"] = &cISCOSIPUAMIB.Csipstatssuccess
-    children["cSipStatsRedirect"] = &cISCOSIPUAMIB.Csipstatsredirect
-    children["cSipStatsErrClient"] = &cISCOSIPUAMIB.Csipstatserrclient
-    children["cSipStatsErrServer"] = &cISCOSIPUAMIB.Csipstatserrserver
-    children["cSipStatsGlobalFail"] = &cISCOSIPUAMIB.Csipstatsglobalfail
-    children["cSipStatsTraffic"] = &cISCOSIPUAMIB.Csipstatstraffic
-    children["cSipStatsRetry"] = &cISCOSIPUAMIB.Csipstatsretry
-    children["cSipStatsMisc"] = &cISCOSIPUAMIB.Csipstatsmisc
-    children["cSipStatsConnection"] = &cISCOSIPUAMIB.Csipstatsconnection
-    children["cSipCfgEarlyMediaTable"] = &cISCOSIPUAMIB.Csipcfgearlymediatable
-    children["cSipCfgBindSourceAddrTable"] = &cISCOSIPUAMIB.Csipcfgbindsourceaddrtable
-    children["cSipCfgPeerTable"] = &cISCOSIPUAMIB.Csipcfgpeertable
-    children["cSipCfgStatusCauseTable"] = &cISCOSIPUAMIB.Csipcfgstatuscausetable
-    children["cSipCfgCauseStatusTable"] = &cISCOSIPUAMIB.Csipcfgcausestatustable
-    children["cSipStatsSuccessOkTable"] = &cISCOSIPUAMIB.Csipstatssuccessoktable
-    return children
-}
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetYangName() string { return "CISCO-SIP-UA-MIB" }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) SetParent(parent types.Entity) { cISCOSIPUAMIB.parent = parent }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetParent() types.Entity { return cISCOSIPUAMIB.parent }
-
-func (cISCOSIPUAMIB *CISCOSIPUAMIB) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgbase
 type CISCOSIPUAMIB_Csipcfgbase struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object will reflect the version of SIP supported by this  user agent. 
@@ -421,77 +304,34 @@ type CISCOSIPUAMIB_Csipcfgbase struct {
     Csipcfgmaximumforwards interface{}
 }
 
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetFilter() yfilter.YFilter { return csipcfgbase.YFilter }
+func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetEntityData() *types.CommonEntityData {
+    csipcfgbase.EntityData.YFilter = csipcfgbase.YFilter
+    csipcfgbase.EntityData.YangName = "cSipCfgBase"
+    csipcfgbase.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgbase.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgbase.EntityData.SegmentPath = "cSipCfgBase"
+    csipcfgbase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgbase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgbase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) SetFilter(yf yfilter.YFilter) { csipcfgbase.YFilter = yf }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetGoName(yname string) string {
-    if yname == "cSipCfgVersion" { return "Csipcfgversion" }
-    if yname == "cSipCfgTransport" { return "Csipcfgtransport" }
-    if yname == "cSipCfgUserLocationServerAddr" { return "Csipcfguserlocationserveraddr" }
-    if yname == "cSipCfgMaxForwards" { return "Csipcfgmaxforwards" }
-    if yname == "cSipCfgBindSrcAddrInterface" { return "Csipcfgbindsrcaddrinterface" }
-    if yname == "cSipCfgBindSrcAddrScope" { return "Csipcfgbindsrcaddrscope" }
-    if yname == "cSipCfgDnsSrvQueryStringFormat" { return "Csipcfgdnssrvquerystringformat" }
-    if yname == "cSipCfgRedirectionDisabled" { return "Csipcfgredirectiondisabled" }
-    if yname == "cSipCfgSymNatEnabled" { return "Csipcfgsymnatenabled" }
-    if yname == "cSipCfgSymNatDirectionRole" { return "Csipcfgsymnatdirectionrole" }
-    if yname == "cSipCfgSuspendResumeEnabled" { return "Csipcfgsuspendresumeenabled" }
-    if yname == "cSipCfgOfferCallHold" { return "Csipcfgoffercallhold" }
-    if yname == "cSipCfgReasonHeaderOveride" { return "Csipcfgreasonheaderoveride" }
-    if yname == "cSipCfgMaximumForwards" { return "Csipcfgmaximumforwards" }
-    return ""
+    csipcfgbase.EntityData.Children = make(map[string]types.YChild)
+    csipcfgbase.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgbase.EntityData.Leafs["cSipCfgVersion"] = types.YLeaf{"Csipcfgversion", csipcfgbase.Csipcfgversion}
+    csipcfgbase.EntityData.Leafs["cSipCfgTransport"] = types.YLeaf{"Csipcfgtransport", csipcfgbase.Csipcfgtransport}
+    csipcfgbase.EntityData.Leafs["cSipCfgUserLocationServerAddr"] = types.YLeaf{"Csipcfguserlocationserveraddr", csipcfgbase.Csipcfguserlocationserveraddr}
+    csipcfgbase.EntityData.Leafs["cSipCfgMaxForwards"] = types.YLeaf{"Csipcfgmaxforwards", csipcfgbase.Csipcfgmaxforwards}
+    csipcfgbase.EntityData.Leafs["cSipCfgBindSrcAddrInterface"] = types.YLeaf{"Csipcfgbindsrcaddrinterface", csipcfgbase.Csipcfgbindsrcaddrinterface}
+    csipcfgbase.EntityData.Leafs["cSipCfgBindSrcAddrScope"] = types.YLeaf{"Csipcfgbindsrcaddrscope", csipcfgbase.Csipcfgbindsrcaddrscope}
+    csipcfgbase.EntityData.Leafs["cSipCfgDnsSrvQueryStringFormat"] = types.YLeaf{"Csipcfgdnssrvquerystringformat", csipcfgbase.Csipcfgdnssrvquerystringformat}
+    csipcfgbase.EntityData.Leafs["cSipCfgRedirectionDisabled"] = types.YLeaf{"Csipcfgredirectiondisabled", csipcfgbase.Csipcfgredirectiondisabled}
+    csipcfgbase.EntityData.Leafs["cSipCfgSymNatEnabled"] = types.YLeaf{"Csipcfgsymnatenabled", csipcfgbase.Csipcfgsymnatenabled}
+    csipcfgbase.EntityData.Leafs["cSipCfgSymNatDirectionRole"] = types.YLeaf{"Csipcfgsymnatdirectionrole", csipcfgbase.Csipcfgsymnatdirectionrole}
+    csipcfgbase.EntityData.Leafs["cSipCfgSuspendResumeEnabled"] = types.YLeaf{"Csipcfgsuspendresumeenabled", csipcfgbase.Csipcfgsuspendresumeenabled}
+    csipcfgbase.EntityData.Leafs["cSipCfgOfferCallHold"] = types.YLeaf{"Csipcfgoffercallhold", csipcfgbase.Csipcfgoffercallhold}
+    csipcfgbase.EntityData.Leafs["cSipCfgReasonHeaderOveride"] = types.YLeaf{"Csipcfgreasonheaderoveride", csipcfgbase.Csipcfgreasonheaderoveride}
+    csipcfgbase.EntityData.Leafs["cSipCfgMaximumForwards"] = types.YLeaf{"Csipcfgmaximumforwards", csipcfgbase.Csipcfgmaximumforwards}
+    return &(csipcfgbase.EntityData)
 }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetSegmentPath() string {
-    return "cSipCfgBase"
-}
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgVersion"] = csipcfgbase.Csipcfgversion
-    leafs["cSipCfgTransport"] = csipcfgbase.Csipcfgtransport
-    leafs["cSipCfgUserLocationServerAddr"] = csipcfgbase.Csipcfguserlocationserveraddr
-    leafs["cSipCfgMaxForwards"] = csipcfgbase.Csipcfgmaxforwards
-    leafs["cSipCfgBindSrcAddrInterface"] = csipcfgbase.Csipcfgbindsrcaddrinterface
-    leafs["cSipCfgBindSrcAddrScope"] = csipcfgbase.Csipcfgbindsrcaddrscope
-    leafs["cSipCfgDnsSrvQueryStringFormat"] = csipcfgbase.Csipcfgdnssrvquerystringformat
-    leafs["cSipCfgRedirectionDisabled"] = csipcfgbase.Csipcfgredirectiondisabled
-    leafs["cSipCfgSymNatEnabled"] = csipcfgbase.Csipcfgsymnatenabled
-    leafs["cSipCfgSymNatDirectionRole"] = csipcfgbase.Csipcfgsymnatdirectionrole
-    leafs["cSipCfgSuspendResumeEnabled"] = csipcfgbase.Csipcfgsuspendresumeenabled
-    leafs["cSipCfgOfferCallHold"] = csipcfgbase.Csipcfgoffercallhold
-    leafs["cSipCfgReasonHeaderOveride"] = csipcfgbase.Csipcfgreasonheaderoveride
-    leafs["cSipCfgMaximumForwards"] = csipcfgbase.Csipcfgmaximumforwards
-    return leafs
-}
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetYangName() string { return "cSipCfgBase" }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) SetParent(parent types.Entity) { csipcfgbase.parent = parent }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetParent() types.Entity { return csipcfgbase.parent }
-
-func (csipcfgbase *CISCOSIPUAMIB_Csipcfgbase) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope represents the value of this object has no meaning.
 type CISCOSIPUAMIB_Csipcfgbase_Csipcfgbindsrcaddrscope string
@@ -548,7 +388,7 @@ const (
 
 // CISCOSIPUAMIB_Csipcfgtimer
 type CISCOSIPUAMIB_Csipcfgtimer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the time a user agent will wait to  receive a
@@ -631,81 +471,38 @@ type CISCOSIPUAMIB_Csipcfgtimer struct {
     Csipcfgtimerbufferinvite interface{}
 }
 
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetFilter() yfilter.YFilter { return csipcfgtimer.YFilter }
+func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetEntityData() *types.CommonEntityData {
+    csipcfgtimer.EntityData.YFilter = csipcfgtimer.YFilter
+    csipcfgtimer.EntityData.YangName = "cSipCfgTimer"
+    csipcfgtimer.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgtimer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgtimer.EntityData.SegmentPath = "cSipCfgTimer"
+    csipcfgtimer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgtimer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgtimer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) SetFilter(yf yfilter.YFilter) { csipcfgtimer.YFilter = yf }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetGoName(yname string) string {
-    if yname == "cSipCfgTimerTrying" { return "Csipcfgtimertrying" }
-    if yname == "cSipCfgTimerExpires" { return "Csipcfgtimerexpires" }
-    if yname == "cSipCfgTimerConnect" { return "Csipcfgtimerconnect" }
-    if yname == "cSipCfgTimerDisconnect" { return "Csipcfgtimerdisconnect" }
-    if yname == "cSipCfgTimerPrack" { return "Csipcfgtimerprack" }
-    if yname == "cSipCfgTimerComet" { return "Csipcfgtimercomet" }
-    if yname == "cSipCfgTimerReliableRsp" { return "Csipcfgtimerreliablersp" }
-    if yname == "cSipCfgTimerNotify" { return "Csipcfgtimernotify" }
-    if yname == "cSipCfgTimerRefer" { return "Csipcfgtimerrefer" }
-    if yname == "cSipCfgTimerSessionTimer" { return "Csipcfgtimersessiontimer" }
-    if yname == "cSipCfgTimerHold" { return "Csipcfgtimerhold" }
-    if yname == "cSipCfgTimerInfo" { return "Csipcfgtimerinfo" }
-    if yname == "cSipCfgTimerConnectionAging" { return "Csipcfgtimerconnectionaging" }
-    if yname == "cSipCfgTimerBufferInvite" { return "Csipcfgtimerbufferinvite" }
-    return ""
+    csipcfgtimer.EntityData.Children = make(map[string]types.YChild)
+    csipcfgtimer.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerTrying"] = types.YLeaf{"Csipcfgtimertrying", csipcfgtimer.Csipcfgtimertrying}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerExpires"] = types.YLeaf{"Csipcfgtimerexpires", csipcfgtimer.Csipcfgtimerexpires}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerConnect"] = types.YLeaf{"Csipcfgtimerconnect", csipcfgtimer.Csipcfgtimerconnect}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerDisconnect"] = types.YLeaf{"Csipcfgtimerdisconnect", csipcfgtimer.Csipcfgtimerdisconnect}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerPrack"] = types.YLeaf{"Csipcfgtimerprack", csipcfgtimer.Csipcfgtimerprack}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerComet"] = types.YLeaf{"Csipcfgtimercomet", csipcfgtimer.Csipcfgtimercomet}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerReliableRsp"] = types.YLeaf{"Csipcfgtimerreliablersp", csipcfgtimer.Csipcfgtimerreliablersp}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerNotify"] = types.YLeaf{"Csipcfgtimernotify", csipcfgtimer.Csipcfgtimernotify}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerRefer"] = types.YLeaf{"Csipcfgtimerrefer", csipcfgtimer.Csipcfgtimerrefer}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerSessionTimer"] = types.YLeaf{"Csipcfgtimersessiontimer", csipcfgtimer.Csipcfgtimersessiontimer}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerHold"] = types.YLeaf{"Csipcfgtimerhold", csipcfgtimer.Csipcfgtimerhold}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerInfo"] = types.YLeaf{"Csipcfgtimerinfo", csipcfgtimer.Csipcfgtimerinfo}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerConnectionAging"] = types.YLeaf{"Csipcfgtimerconnectionaging", csipcfgtimer.Csipcfgtimerconnectionaging}
+    csipcfgtimer.EntityData.Leafs["cSipCfgTimerBufferInvite"] = types.YLeaf{"Csipcfgtimerbufferinvite", csipcfgtimer.Csipcfgtimerbufferinvite}
+    return &(csipcfgtimer.EntityData)
 }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetSegmentPath() string {
-    return "cSipCfgTimer"
-}
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgTimerTrying"] = csipcfgtimer.Csipcfgtimertrying
-    leafs["cSipCfgTimerExpires"] = csipcfgtimer.Csipcfgtimerexpires
-    leafs["cSipCfgTimerConnect"] = csipcfgtimer.Csipcfgtimerconnect
-    leafs["cSipCfgTimerDisconnect"] = csipcfgtimer.Csipcfgtimerdisconnect
-    leafs["cSipCfgTimerPrack"] = csipcfgtimer.Csipcfgtimerprack
-    leafs["cSipCfgTimerComet"] = csipcfgtimer.Csipcfgtimercomet
-    leafs["cSipCfgTimerReliableRsp"] = csipcfgtimer.Csipcfgtimerreliablersp
-    leafs["cSipCfgTimerNotify"] = csipcfgtimer.Csipcfgtimernotify
-    leafs["cSipCfgTimerRefer"] = csipcfgtimer.Csipcfgtimerrefer
-    leafs["cSipCfgTimerSessionTimer"] = csipcfgtimer.Csipcfgtimersessiontimer
-    leafs["cSipCfgTimerHold"] = csipcfgtimer.Csipcfgtimerhold
-    leafs["cSipCfgTimerInfo"] = csipcfgtimer.Csipcfgtimerinfo
-    leafs["cSipCfgTimerConnectionAging"] = csipcfgtimer.Csipcfgtimerconnectionaging
-    leafs["cSipCfgTimerBufferInvite"] = csipcfgtimer.Csipcfgtimerbufferinvite
-    return leafs
-}
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetYangName() string { return "cSipCfgTimer" }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) SetParent(parent types.Entity) { csipcfgtimer.parent = parent }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetParent() types.Entity { return csipcfgtimer.parent }
-
-func (csipcfgtimer *CISCOSIPUAMIB_Csipcfgtimer) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgretry
 type CISCOSIPUAMIB_Csipcfgretry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the number of times a user agent  will retry sending
@@ -758,77 +555,36 @@ type CISCOSIPUAMIB_Csipcfgretry struct {
     Csipcfgretrysubscribe interface{}
 }
 
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetFilter() yfilter.YFilter { return csipcfgretry.YFilter }
+func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetEntityData() *types.CommonEntityData {
+    csipcfgretry.EntityData.YFilter = csipcfgretry.YFilter
+    csipcfgretry.EntityData.YangName = "cSipCfgRetry"
+    csipcfgretry.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgretry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgretry.EntityData.SegmentPath = "cSipCfgRetry"
+    csipcfgretry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgretry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgretry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) SetFilter(yf yfilter.YFilter) { csipcfgretry.YFilter = yf }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetGoName(yname string) string {
-    if yname == "cSipCfgRetryInvite" { return "Csipcfgretryinvite" }
-    if yname == "cSipCfgRetryBye" { return "Csipcfgretrybye" }
-    if yname == "cSipCfgRetryCancel" { return "Csipcfgretrycancel" }
-    if yname == "cSipCfgRetryRegister" { return "Csipcfgretryregister" }
-    if yname == "cSipCfgRetryResponse" { return "Csipcfgretryresponse" }
-    if yname == "cSipCfgRetryPrack" { return "Csipcfgretryprack" }
-    if yname == "cSipCfgRetryComet" { return "Csipcfgretrycomet" }
-    if yname == "cSipCfgRetryReliableRsp" { return "Csipcfgretryreliablersp" }
-    if yname == "cSipCfgRetryNotify" { return "Csipcfgretrynotify" }
-    if yname == "cSipCfgRetryRefer" { return "Csipcfgretryrefer" }
-    if yname == "cSipCfgRetryInfo" { return "Csipcfgretryinfo" }
-    if yname == "cSipCfgRetrySubscribe" { return "Csipcfgretrysubscribe" }
-    return ""
+    csipcfgretry.EntityData.Children = make(map[string]types.YChild)
+    csipcfgretry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryInvite"] = types.YLeaf{"Csipcfgretryinvite", csipcfgretry.Csipcfgretryinvite}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryBye"] = types.YLeaf{"Csipcfgretrybye", csipcfgretry.Csipcfgretrybye}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryCancel"] = types.YLeaf{"Csipcfgretrycancel", csipcfgretry.Csipcfgretrycancel}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryRegister"] = types.YLeaf{"Csipcfgretryregister", csipcfgretry.Csipcfgretryregister}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryResponse"] = types.YLeaf{"Csipcfgretryresponse", csipcfgretry.Csipcfgretryresponse}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryPrack"] = types.YLeaf{"Csipcfgretryprack", csipcfgretry.Csipcfgretryprack}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryComet"] = types.YLeaf{"Csipcfgretrycomet", csipcfgretry.Csipcfgretrycomet}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryReliableRsp"] = types.YLeaf{"Csipcfgretryreliablersp", csipcfgretry.Csipcfgretryreliablersp}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryNotify"] = types.YLeaf{"Csipcfgretrynotify", csipcfgretry.Csipcfgretrynotify}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryRefer"] = types.YLeaf{"Csipcfgretryrefer", csipcfgretry.Csipcfgretryrefer}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetryInfo"] = types.YLeaf{"Csipcfgretryinfo", csipcfgretry.Csipcfgretryinfo}
+    csipcfgretry.EntityData.Leafs["cSipCfgRetrySubscribe"] = types.YLeaf{"Csipcfgretrysubscribe", csipcfgretry.Csipcfgretrysubscribe}
+    return &(csipcfgretry.EntityData)
 }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetSegmentPath() string {
-    return "cSipCfgRetry"
-}
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgRetryInvite"] = csipcfgretry.Csipcfgretryinvite
-    leafs["cSipCfgRetryBye"] = csipcfgretry.Csipcfgretrybye
-    leafs["cSipCfgRetryCancel"] = csipcfgretry.Csipcfgretrycancel
-    leafs["cSipCfgRetryRegister"] = csipcfgretry.Csipcfgretryregister
-    leafs["cSipCfgRetryResponse"] = csipcfgretry.Csipcfgretryresponse
-    leafs["cSipCfgRetryPrack"] = csipcfgretry.Csipcfgretryprack
-    leafs["cSipCfgRetryComet"] = csipcfgretry.Csipcfgretrycomet
-    leafs["cSipCfgRetryReliableRsp"] = csipcfgretry.Csipcfgretryreliablersp
-    leafs["cSipCfgRetryNotify"] = csipcfgretry.Csipcfgretrynotify
-    leafs["cSipCfgRetryRefer"] = csipcfgretry.Csipcfgretryrefer
-    leafs["cSipCfgRetryInfo"] = csipcfgretry.Csipcfgretryinfo
-    leafs["cSipCfgRetrySubscribe"] = csipcfgretry.Csipcfgretrysubscribe
-    return leafs
-}
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetYangName() string { return "cSipCfgRetry" }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) SetParent(parent types.Entity) { csipcfgretry.parent = parent }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetParent() types.Entity { return csipcfgretry.parent }
-
-func (csipcfgretry *CISCOSIPUAMIB_Csipcfgretry) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgpeer
 type CISCOSIPUAMIB_Csipcfgpeer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the session transport  protocol that will be used for
@@ -862,57 +618,24 @@ type CISCOSIPUAMIB_Csipcfgpeer struct {
     Csipcfgurltype interface{}
 }
 
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetFilter() yfilter.YFilter { return csipcfgpeer.YFilter }
+func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetEntityData() *types.CommonEntityData {
+    csipcfgpeer.EntityData.YFilter = csipcfgpeer.YFilter
+    csipcfgpeer.EntityData.YangName = "cSipCfgPeer"
+    csipcfgpeer.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgpeer.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgpeer.EntityData.SegmentPath = "cSipCfgPeer"
+    csipcfgpeer.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgpeer.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgpeer.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) SetFilter(yf yfilter.YFilter) { csipcfgpeer.YFilter = yf }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetGoName(yname string) string {
-    if yname == "cSipCfgOutSessionTransport" { return "Csipcfgoutsessiontransport" }
-    if yname == "cSipCfgReliable1xxRspStr" { return "Csipcfgreliable1Xxrspstr" }
-    if yname == "cSipCfgReliable1xxRspHdr" { return "Csipcfgreliable1Xxrsphdr" }
-    if yname == "cSipCfgUrlType" { return "Csipcfgurltype" }
-    return ""
+    csipcfgpeer.EntityData.Children = make(map[string]types.YChild)
+    csipcfgpeer.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgpeer.EntityData.Leafs["cSipCfgOutSessionTransport"] = types.YLeaf{"Csipcfgoutsessiontransport", csipcfgpeer.Csipcfgoutsessiontransport}
+    csipcfgpeer.EntityData.Leafs["cSipCfgReliable1xxRspStr"] = types.YLeaf{"Csipcfgreliable1Xxrspstr", csipcfgpeer.Csipcfgreliable1Xxrspstr}
+    csipcfgpeer.EntityData.Leafs["cSipCfgReliable1xxRspHdr"] = types.YLeaf{"Csipcfgreliable1Xxrsphdr", csipcfgpeer.Csipcfgreliable1Xxrsphdr}
+    csipcfgpeer.EntityData.Leafs["cSipCfgUrlType"] = types.YLeaf{"Csipcfgurltype", csipcfgpeer.Csipcfgurltype}
+    return &(csipcfgpeer.EntityData)
 }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetSegmentPath() string {
-    return "cSipCfgPeer"
-}
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgOutSessionTransport"] = csipcfgpeer.Csipcfgoutsessiontransport
-    leafs["cSipCfgReliable1xxRspStr"] = csipcfgpeer.Csipcfgreliable1Xxrspstr
-    leafs["cSipCfgReliable1xxRspHdr"] = csipcfgpeer.Csipcfgreliable1Xxrsphdr
-    leafs["cSipCfgUrlType"] = csipcfgpeer.Csipcfgurltype
-    return leafs
-}
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetYangName() string { return "cSipCfgPeer" }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) SetParent(parent types.Entity) { csipcfgpeer.parent = parent }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetParent() types.Entity { return csipcfgpeer.parent }
-
-func (csipcfgpeer *CISCOSIPUAMIB_Csipcfgpeer) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport represents cSipCfgPeerOutSessionTransport set to 'system'.
 type CISCOSIPUAMIB_Csipcfgpeer_Csipcfgoutsessiontransport string
@@ -945,7 +668,7 @@ const (
 
 // CISCOSIPUAMIB_Csipcfgaaa
 type CISCOSIPUAMIB_Csipcfgaaa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the source of the information used to populate the
@@ -953,51 +676,21 @@ type CISCOSIPUAMIB_Csipcfgaaa struct {
     Csipcfgaaausername interface{}
 }
 
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetFilter() yfilter.YFilter { return csipcfgaaa.YFilter }
+func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetEntityData() *types.CommonEntityData {
+    csipcfgaaa.EntityData.YFilter = csipcfgaaa.YFilter
+    csipcfgaaa.EntityData.YangName = "cSipCfgAaa"
+    csipcfgaaa.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgaaa.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgaaa.EntityData.SegmentPath = "cSipCfgAaa"
+    csipcfgaaa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgaaa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgaaa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) SetFilter(yf yfilter.YFilter) { csipcfgaaa.YFilter = yf }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetGoName(yname string) string {
-    if yname == "cSipCfgAaaUsername" { return "Csipcfgaaausername" }
-    return ""
+    csipcfgaaa.EntityData.Children = make(map[string]types.YChild)
+    csipcfgaaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgaaa.EntityData.Leafs["cSipCfgAaaUsername"] = types.YLeaf{"Csipcfgaaausername", csipcfgaaa.Csipcfgaaausername}
+    return &(csipcfgaaa.EntityData)
 }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetSegmentPath() string {
-    return "cSipCfgAaa"
-}
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgAaaUsername"] = csipcfgaaa.Csipcfgaaausername
-    return leafs
-}
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetYangName() string { return "cSipCfgAaa" }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) SetParent(parent types.Entity) { csipcfgaaa.parent = parent }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetParent() types.Entity { return csipcfgaaa.parent }
-
-func (csipcfgaaa *CISCOSIPUAMIB_Csipcfgaaa) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername represents populate the username attribute of AAA billing records.
 type CISCOSIPUAMIB_Csipcfgaaa_Csipcfgaaausername string
@@ -1010,7 +703,7 @@ const (
 
 // CISCOSIPUAMIB_Csipcfgvoiceservicevoip
 type CISCOSIPUAMIB_Csipcfgvoiceservicevoip struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies if support for passing SIP headers from Invite,
@@ -1037,61 +730,28 @@ type CISCOSIPUAMIB_Csipcfgvoiceservicevoip struct {
     Csipcfgswitchtransportenabled interface{}
 }
 
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetFilter() yfilter.YFilter { return csipcfgvoiceservicevoip.YFilter }
+func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetEntityData() *types.CommonEntityData {
+    csipcfgvoiceservicevoip.EntityData.YFilter = csipcfgvoiceservicevoip.YFilter
+    csipcfgvoiceservicevoip.EntityData.YangName = "cSipCfgVoiceServiceVoip"
+    csipcfgvoiceservicevoip.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgvoiceservicevoip.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgvoiceservicevoip.EntityData.SegmentPath = "cSipCfgVoiceServiceVoip"
+    csipcfgvoiceservicevoip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgvoiceservicevoip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgvoiceservicevoip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) SetFilter(yf yfilter.YFilter) { csipcfgvoiceservicevoip.YFilter = yf }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetGoName(yname string) string {
-    if yname == "cSipCfgHeaderPassingEnabled" { return "Csipcfgheaderpassingenabled" }
-    if yname == "cSipCfgMaxSubscriptionAccept" { return "Csipcfgmaxsubscriptionaccept" }
-    if yname == "cSipCfgMaxSubscriptionOriginate" { return "Csipcfgmaxsubscriptionoriginate" }
-    if yname == "cSipCfgSwitchTransportEnabled" { return "Csipcfgswitchtransportenabled" }
-    return ""
+    csipcfgvoiceservicevoip.EntityData.Children = make(map[string]types.YChild)
+    csipcfgvoiceservicevoip.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgHeaderPassingEnabled"] = types.YLeaf{"Csipcfgheaderpassingenabled", csipcfgvoiceservicevoip.Csipcfgheaderpassingenabled}
+    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgMaxSubscriptionAccept"] = types.YLeaf{"Csipcfgmaxsubscriptionaccept", csipcfgvoiceservicevoip.Csipcfgmaxsubscriptionaccept}
+    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgMaxSubscriptionOriginate"] = types.YLeaf{"Csipcfgmaxsubscriptionoriginate", csipcfgvoiceservicevoip.Csipcfgmaxsubscriptionoriginate}
+    csipcfgvoiceservicevoip.EntityData.Leafs["cSipCfgSwitchTransportEnabled"] = types.YLeaf{"Csipcfgswitchtransportenabled", csipcfgvoiceservicevoip.Csipcfgswitchtransportenabled}
+    return &(csipcfgvoiceservicevoip.EntityData)
 }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetSegmentPath() string {
-    return "cSipCfgVoiceServiceVoip"
-}
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgHeaderPassingEnabled"] = csipcfgvoiceservicevoip.Csipcfgheaderpassingenabled
-    leafs["cSipCfgMaxSubscriptionAccept"] = csipcfgvoiceservicevoip.Csipcfgmaxsubscriptionaccept
-    leafs["cSipCfgMaxSubscriptionOriginate"] = csipcfgvoiceservicevoip.Csipcfgmaxsubscriptionoriginate
-    leafs["cSipCfgSwitchTransportEnabled"] = csipcfgvoiceservicevoip.Csipcfgswitchtransportenabled
-    return leafs
-}
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetYangName() string { return "cSipCfgVoiceServiceVoip" }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) SetParent(parent types.Entity) { csipcfgvoiceservicevoip.parent = parent }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetParent() types.Entity { return csipcfgvoiceservicevoip.parent }
-
-func (csipcfgvoiceservicevoip *CISCOSIPUAMIB_Csipcfgvoiceservicevoip) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatsinfo
 type CISCOSIPUAMIB_Csipstatsinfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of Trying (100) responses received by
@@ -1178,73 +838,34 @@ type CISCOSIPUAMIB_Csipstatsinfo struct {
     Csipstatsinfosessionprogouts interface{}
 }
 
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetFilter() yfilter.YFilter { return csipstatsinfo.YFilter }
+func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetEntityData() *types.CommonEntityData {
+    csipstatsinfo.EntityData.YFilter = csipstatsinfo.YFilter
+    csipstatsinfo.EntityData.YangName = "cSipStatsInfo"
+    csipstatsinfo.EntityData.BundleName = "cisco_ios_xe"
+    csipstatsinfo.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatsinfo.EntityData.SegmentPath = "cSipStatsInfo"
+    csipstatsinfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatsinfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatsinfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) SetFilter(yf yfilter.YFilter) { csipstatsinfo.YFilter = yf }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetGoName(yname string) string {
-    if yname == "cSipStatsInfoTryingIns" { return "Csipstatsinfotryingins" }
-    if yname == "cSipStatsInfoTryingOuts" { return "Csipstatsinfotryingouts" }
-    if yname == "cSipStatsInfoRingingIns" { return "Csipstatsinforingingins" }
-    if yname == "cSipStatsInfoRingingOuts" { return "Csipstatsinforingingouts" }
-    if yname == "cSipStatsInfoForwardedIns" { return "Csipstatsinfoforwardedins" }
-    if yname == "cSipStatsInfoForwardedOuts" { return "Csipstatsinfoforwardedouts" }
-    if yname == "cSipStatsInfoQueuedIns" { return "Csipstatsinfoqueuedins" }
-    if yname == "cSipStatsInfoQueuedOuts" { return "Csipstatsinfoqueuedouts" }
-    if yname == "cSipStatsInfoSessionProgIns" { return "Csipstatsinfosessionprogins" }
-    if yname == "cSipStatsInfoSessionProgOuts" { return "Csipstatsinfosessionprogouts" }
-    return ""
+    csipstatsinfo.EntityData.Children = make(map[string]types.YChild)
+    csipstatsinfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoTryingIns"] = types.YLeaf{"Csipstatsinfotryingins", csipstatsinfo.Csipstatsinfotryingins}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoTryingOuts"] = types.YLeaf{"Csipstatsinfotryingouts", csipstatsinfo.Csipstatsinfotryingouts}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoRingingIns"] = types.YLeaf{"Csipstatsinforingingins", csipstatsinfo.Csipstatsinforingingins}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoRingingOuts"] = types.YLeaf{"Csipstatsinforingingouts", csipstatsinfo.Csipstatsinforingingouts}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoForwardedIns"] = types.YLeaf{"Csipstatsinfoforwardedins", csipstatsinfo.Csipstatsinfoforwardedins}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoForwardedOuts"] = types.YLeaf{"Csipstatsinfoforwardedouts", csipstatsinfo.Csipstatsinfoforwardedouts}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoQueuedIns"] = types.YLeaf{"Csipstatsinfoqueuedins", csipstatsinfo.Csipstatsinfoqueuedins}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoQueuedOuts"] = types.YLeaf{"Csipstatsinfoqueuedouts", csipstatsinfo.Csipstatsinfoqueuedouts}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoSessionProgIns"] = types.YLeaf{"Csipstatsinfosessionprogins", csipstatsinfo.Csipstatsinfosessionprogins}
+    csipstatsinfo.EntityData.Leafs["cSipStatsInfoSessionProgOuts"] = types.YLeaf{"Csipstatsinfosessionprogouts", csipstatsinfo.Csipstatsinfosessionprogouts}
+    return &(csipstatsinfo.EntityData)
 }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetSegmentPath() string {
-    return "cSipStatsInfo"
-}
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsInfoTryingIns"] = csipstatsinfo.Csipstatsinfotryingins
-    leafs["cSipStatsInfoTryingOuts"] = csipstatsinfo.Csipstatsinfotryingouts
-    leafs["cSipStatsInfoRingingIns"] = csipstatsinfo.Csipstatsinforingingins
-    leafs["cSipStatsInfoRingingOuts"] = csipstatsinfo.Csipstatsinforingingouts
-    leafs["cSipStatsInfoForwardedIns"] = csipstatsinfo.Csipstatsinfoforwardedins
-    leafs["cSipStatsInfoForwardedOuts"] = csipstatsinfo.Csipstatsinfoforwardedouts
-    leafs["cSipStatsInfoQueuedIns"] = csipstatsinfo.Csipstatsinfoqueuedins
-    leafs["cSipStatsInfoQueuedOuts"] = csipstatsinfo.Csipstatsinfoqueuedouts
-    leafs["cSipStatsInfoSessionProgIns"] = csipstatsinfo.Csipstatsinfosessionprogins
-    leafs["cSipStatsInfoSessionProgOuts"] = csipstatsinfo.Csipstatsinfosessionprogouts
-    return leafs
-}
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetYangName() string { return "cSipStatsInfo" }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) SetParent(parent types.Entity) { csipstatsinfo.parent = parent }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetParent() types.Entity { return csipstatsinfo.parent }
-
-func (csipstatsinfo *CISCOSIPUAMIB_Csipstatsinfo) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatssuccess
 type CISCOSIPUAMIB_Csipstatssuccess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of Ok (200) responses received by the
@@ -1284,61 +905,28 @@ type CISCOSIPUAMIB_Csipstatssuccess struct {
     Csipstatssuccessacceptedouts interface{}
 }
 
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetFilter() yfilter.YFilter { return csipstatssuccess.YFilter }
+func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetEntityData() *types.CommonEntityData {
+    csipstatssuccess.EntityData.YFilter = csipstatssuccess.YFilter
+    csipstatssuccess.EntityData.YangName = "cSipStatsSuccess"
+    csipstatssuccess.EntityData.BundleName = "cisco_ios_xe"
+    csipstatssuccess.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatssuccess.EntityData.SegmentPath = "cSipStatsSuccess"
+    csipstatssuccess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatssuccess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatssuccess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) SetFilter(yf yfilter.YFilter) { csipstatssuccess.YFilter = yf }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetGoName(yname string) string {
-    if yname == "cSipStatsSuccessOkIns" { return "Csipstatssuccessokins" }
-    if yname == "cSipStatsSuccessOkOuts" { return "Csipstatssuccessokouts" }
-    if yname == "cSipStatsSuccessAcceptedIns" { return "Csipstatssuccessacceptedins" }
-    if yname == "cSipStatsSuccessAcceptedOuts" { return "Csipstatssuccessacceptedouts" }
-    return ""
+    csipstatssuccess.EntityData.Children = make(map[string]types.YChild)
+    csipstatssuccess.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessOkIns"] = types.YLeaf{"Csipstatssuccessokins", csipstatssuccess.Csipstatssuccessokins}
+    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessOkOuts"] = types.YLeaf{"Csipstatssuccessokouts", csipstatssuccess.Csipstatssuccessokouts}
+    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessAcceptedIns"] = types.YLeaf{"Csipstatssuccessacceptedins", csipstatssuccess.Csipstatssuccessacceptedins}
+    csipstatssuccess.EntityData.Leafs["cSipStatsSuccessAcceptedOuts"] = types.YLeaf{"Csipstatssuccessacceptedouts", csipstatssuccess.Csipstatssuccessacceptedouts}
+    return &(csipstatssuccess.EntityData)
 }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetSegmentPath() string {
-    return "cSipStatsSuccess"
-}
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsSuccessOkIns"] = csipstatssuccess.Csipstatssuccessokins
-    leafs["cSipStatsSuccessOkOuts"] = csipstatssuccess.Csipstatssuccessokouts
-    leafs["cSipStatsSuccessAcceptedIns"] = csipstatssuccess.Csipstatssuccessacceptedins
-    leafs["cSipStatsSuccessAcceptedOuts"] = csipstatssuccess.Csipstatssuccessacceptedouts
-    return leafs
-}
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetYangName() string { return "cSipStatsSuccess" }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) SetParent(parent types.Entity) { csipstatssuccess.parent = parent }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetParent() types.Entity { return csipstatssuccess.parent }
-
-func (csipstatssuccess *CISCOSIPUAMIB_Csipstatssuccess) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatsredirect
 type CISCOSIPUAMIB_Csipstatsredirect struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of Multiple Choices (300) responses
@@ -1401,69 +989,32 @@ type CISCOSIPUAMIB_Csipstatsredirect struct {
     Csipstatsredirmovedtempsouts interface{}
 }
 
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetFilter() yfilter.YFilter { return csipstatsredirect.YFilter }
+func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetEntityData() *types.CommonEntityData {
+    csipstatsredirect.EntityData.YFilter = csipstatsredirect.YFilter
+    csipstatsredirect.EntityData.YangName = "cSipStatsRedirect"
+    csipstatsredirect.EntityData.BundleName = "cisco_ios_xe"
+    csipstatsredirect.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatsredirect.EntityData.SegmentPath = "cSipStatsRedirect"
+    csipstatsredirect.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatsredirect.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatsredirect.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) SetFilter(yf yfilter.YFilter) { csipstatsredirect.YFilter = yf }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetGoName(yname string) string {
-    if yname == "cSipStatsRedirMultipleChoices" { return "Csipstatsredirmultiplechoices" }
-    if yname == "cSipStatsRedirMovedPerms" { return "Csipstatsredirmovedperms" }
-    if yname == "cSipStatsRedirMovedTemps" { return "Csipstatsredirmovedtemps" }
-    if yname == "cSipStatsRedirSeeOthers" { return "Csipstatsredirseeothers" }
-    if yname == "cSipStatsRedirUseProxys" { return "Csipstatsrediruseproxys" }
-    if yname == "cSipStatsRedirAltServices" { return "Csipstatsrediraltservices" }
-    if yname == "cSipStatsRedirMovedTempsIns" { return "Csipstatsredirmovedtempsins" }
-    if yname == "cSipStatsRedirMovedTempsOuts" { return "Csipstatsredirmovedtempsouts" }
-    return ""
+    csipstatsredirect.EntityData.Children = make(map[string]types.YChild)
+    csipstatsredirect.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMultipleChoices"] = types.YLeaf{"Csipstatsredirmultiplechoices", csipstatsredirect.Csipstatsredirmultiplechoices}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedPerms"] = types.YLeaf{"Csipstatsredirmovedperms", csipstatsredirect.Csipstatsredirmovedperms}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedTemps"] = types.YLeaf{"Csipstatsredirmovedtemps", csipstatsredirect.Csipstatsredirmovedtemps}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirSeeOthers"] = types.YLeaf{"Csipstatsredirseeothers", csipstatsredirect.Csipstatsredirseeothers}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirUseProxys"] = types.YLeaf{"Csipstatsrediruseproxys", csipstatsredirect.Csipstatsrediruseproxys}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirAltServices"] = types.YLeaf{"Csipstatsrediraltservices", csipstatsredirect.Csipstatsrediraltservices}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedTempsIns"] = types.YLeaf{"Csipstatsredirmovedtempsins", csipstatsredirect.Csipstatsredirmovedtempsins}
+    csipstatsredirect.EntityData.Leafs["cSipStatsRedirMovedTempsOuts"] = types.YLeaf{"Csipstatsredirmovedtempsouts", csipstatsredirect.Csipstatsredirmovedtempsouts}
+    return &(csipstatsredirect.EntityData)
 }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetSegmentPath() string {
-    return "cSipStatsRedirect"
-}
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsRedirMultipleChoices"] = csipstatsredirect.Csipstatsredirmultiplechoices
-    leafs["cSipStatsRedirMovedPerms"] = csipstatsredirect.Csipstatsredirmovedperms
-    leafs["cSipStatsRedirMovedTemps"] = csipstatsredirect.Csipstatsredirmovedtemps
-    leafs["cSipStatsRedirSeeOthers"] = csipstatsredirect.Csipstatsredirseeothers
-    leafs["cSipStatsRedirUseProxys"] = csipstatsredirect.Csipstatsrediruseproxys
-    leafs["cSipStatsRedirAltServices"] = csipstatsredirect.Csipstatsrediraltservices
-    leafs["cSipStatsRedirMovedTempsIns"] = csipstatsredirect.Csipstatsredirmovedtempsins
-    leafs["cSipStatsRedirMovedTempsOuts"] = csipstatsredirect.Csipstatsredirmovedtempsouts
-    return leafs
-}
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetYangName() string { return "cSipStatsRedirect" }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) SetParent(parent types.Entity) { csipstatsredirect.parent = parent }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetParent() types.Entity { return csipstatsredirect.parent }
-
-func (csipstatsredirect *CISCOSIPUAMIB_Csipstatsredirect) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatserrclient
 type CISCOSIPUAMIB_Csipstatserrclient struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of Bad Request (400)  responses
@@ -1844,165 +1395,80 @@ type CISCOSIPUAMIB_Csipstatserrclient struct {
     Csipstatsclientreqpendingouts interface{}
 }
 
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetFilter() yfilter.YFilter { return csipstatserrclient.YFilter }
+func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetEntityData() *types.CommonEntityData {
+    csipstatserrclient.EntityData.YFilter = csipstatserrclient.YFilter
+    csipstatserrclient.EntityData.YangName = "cSipStatsErrClient"
+    csipstatserrclient.EntityData.BundleName = "cisco_ios_xe"
+    csipstatserrclient.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatserrclient.EntityData.SegmentPath = "cSipStatsErrClient"
+    csipstatserrclient.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatserrclient.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatserrclient.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) SetFilter(yf yfilter.YFilter) { csipstatserrclient.YFilter = yf }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetGoName(yname string) string {
-    if yname == "cSipStatsClientBadRequestIns" { return "Csipstatsclientbadrequestins" }
-    if yname == "cSipStatsClientBadRequestOuts" { return "Csipstatsclientbadrequestouts" }
-    if yname == "cSipStatsClientUnauthorizedIns" { return "Csipstatsclientunauthorizedins" }
-    if yname == "cSipStatsClientUnauthorizedOuts" { return "Csipstatsclientunauthorizedouts" }
-    if yname == "cSipStatsClientPaymentReqdIns" { return "Csipstatsclientpaymentreqdins" }
-    if yname == "cSipStatsClientPaymentReqdOuts" { return "Csipstatsclientpaymentreqdouts" }
-    if yname == "cSipStatsClientForbiddenIns" { return "Csipstatsclientforbiddenins" }
-    if yname == "cSipStatsClientForbiddenOuts" { return "Csipstatsclientforbiddenouts" }
-    if yname == "cSipStatsClientNotFoundIns" { return "Csipstatsclientnotfoundins" }
-    if yname == "cSipStatsClientNotFoundOuts" { return "Csipstatsclientnotfoundouts" }
-    if yname == "cSipStatsClientMethNotAllowedIns" { return "Csipstatsclientmethnotallowedins" }
-    if yname == "cSipStatsClientMethNotAllowedOuts" { return "Csipstatsclientmethnotallowedouts" }
-    if yname == "cSipStatsClientNotAcceptableIns" { return "Csipstatsclientnotacceptableins" }
-    if yname == "cSipStatsClientNotAcceptableOuts" { return "Csipstatsclientnotacceptableouts" }
-    if yname == "cSipStatsClientProxyAuthReqdIns" { return "Csipstatsclientproxyauthreqdins" }
-    if yname == "cSipStatsClientProxyAuthReqdOuts" { return "Csipstatsclientproxyauthreqdouts" }
-    if yname == "cSipStatsClientReqTimeoutIns" { return "Csipstatsclientreqtimeoutins" }
-    if yname == "cSipStatsClientReqTimeoutOuts" { return "Csipstatsclientreqtimeoutouts" }
-    if yname == "cSipStatsClientConflictIns" { return "Csipstatsclientconflictins" }
-    if yname == "cSipStatsClientConflictOuts" { return "Csipstatsclientconflictouts" }
-    if yname == "cSipStatsClientGoneIns" { return "Csipstatsclientgoneins" }
-    if yname == "cSipStatsClientGoneOuts" { return "Csipstatsclientgoneouts" }
-    if yname == "cSipStatsClientLengthRequiredIns" { return "Csipstatsclientlengthrequiredins" }
-    if yname == "cSipStatsClientLengthRequiredOuts" { return "Csipstatsclientlengthrequiredouts" }
-    if yname == "cSipStatsClientReqEntTooLargeIns" { return "Csipstatsclientreqenttoolargeins" }
-    if yname == "cSipStatsClientReqEntTooLargeOuts" { return "Csipstatsclientreqenttoolargeouts" }
-    if yname == "cSipStatsClientReqURITooLargeIns" { return "Csipstatsclientrequritoolargeins" }
-    if yname == "cSipStatsClientReqURITooLargeOuts" { return "Csipstatsclientrequritoolargeouts" }
-    if yname == "cSipStatsClientNoSupMediaTypeIns" { return "Csipstatsclientnosupmediatypeins" }
-    if yname == "cSipStatsClientNoSupMediaTypeOuts" { return "Csipstatsclientnosupmediatypeouts" }
-    if yname == "cSipStatsClientBadExtensionIns" { return "Csipstatsclientbadextensionins" }
-    if yname == "cSipStatsClientBadExtensionOuts" { return "Csipstatsclientbadextensionouts" }
-    if yname == "cSipStatsClientTempNotAvailIns" { return "Csipstatsclienttempnotavailins" }
-    if yname == "cSipStatsClientTempNotAvailOuts" { return "Csipstatsclienttempnotavailouts" }
-    if yname == "cSipStatsClientCallLegNoExistIns" { return "Csipstatsclientcalllegnoexistins" }
-    if yname == "cSipStatsClientCallLegNoExistOuts" { return "Csipstatsclientcalllegnoexistouts" }
-    if yname == "cSipStatsClientLoopDetectedIns" { return "Csipstatsclientloopdetectedins" }
-    if yname == "cSipStatsClientLoopDetectedOuts" { return "Csipstatsclientloopdetectedouts" }
-    if yname == "cSipStatsClientTooManyHopsIns" { return "Csipstatsclienttoomanyhopsins" }
-    if yname == "cSipStatsClientTooManyHopsOuts" { return "Csipstatsclienttoomanyhopsouts" }
-    if yname == "cSipStatsClientAddrIncompleteIns" { return "Csipstatsclientaddrincompleteins" }
-    if yname == "cSipStatsClientAddrIncompleteOuts" { return "Csipstatsclientaddrincompleteouts" }
-    if yname == "cSipStatsClientAmbiguousIns" { return "Csipstatsclientambiguousins" }
-    if yname == "cSipStatsClientAmbiguousOuts" { return "Csipstatsclientambiguousouts" }
-    if yname == "cSipStatsClientBusyHereIns" { return "Csipstatsclientbusyhereins" }
-    if yname == "cSipStatsClientBusyHereOuts" { return "Csipstatsclientbusyhereouts" }
-    if yname == "cSipStatsClientReqTermIns" { return "Csipstatsclientreqtermins" }
-    if yname == "cSipStatsClientReqTermOuts" { return "Csipstatsclientreqtermouts" }
-    if yname == "cSipStatsClientNoAcceptHereIns" { return "Csipstatsclientnoaccepthereins" }
-    if yname == "cSipStatsClientNoAcceptHereOuts" { return "Csipstatsclientnoaccepthereouts" }
-    if yname == "cSipStatsClientBadEventIns" { return "Csipstatsclientbadeventins" }
-    if yname == "cSipStatsClientBadEventOuts" { return "Csipstatsclientbadeventouts" }
-    if yname == "cSipStatsClientSTTooSmallIns" { return "Csipstatsclientsttoosmallins" }
-    if yname == "cSipStatsClientSTTooSmallOuts" { return "Csipstatsclientsttoosmallouts" }
-    if yname == "cSipStatsClientReqPendingIns" { return "Csipstatsclientreqpendingins" }
-    if yname == "cSipStatsClientReqPendingOuts" { return "Csipstatsclientreqpendingouts" }
-    return ""
+    csipstatserrclient.EntityData.Children = make(map[string]types.YChild)
+    csipstatserrclient.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadRequestIns"] = types.YLeaf{"Csipstatsclientbadrequestins", csipstatserrclient.Csipstatsclientbadrequestins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadRequestOuts"] = types.YLeaf{"Csipstatsclientbadrequestouts", csipstatserrclient.Csipstatsclientbadrequestouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientUnauthorizedIns"] = types.YLeaf{"Csipstatsclientunauthorizedins", csipstatserrclient.Csipstatsclientunauthorizedins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientUnauthorizedOuts"] = types.YLeaf{"Csipstatsclientunauthorizedouts", csipstatserrclient.Csipstatsclientunauthorizedouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientPaymentReqdIns"] = types.YLeaf{"Csipstatsclientpaymentreqdins", csipstatserrclient.Csipstatsclientpaymentreqdins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientPaymentReqdOuts"] = types.YLeaf{"Csipstatsclientpaymentreqdouts", csipstatserrclient.Csipstatsclientpaymentreqdouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientForbiddenIns"] = types.YLeaf{"Csipstatsclientforbiddenins", csipstatserrclient.Csipstatsclientforbiddenins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientForbiddenOuts"] = types.YLeaf{"Csipstatsclientforbiddenouts", csipstatserrclient.Csipstatsclientforbiddenouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotFoundIns"] = types.YLeaf{"Csipstatsclientnotfoundins", csipstatserrclient.Csipstatsclientnotfoundins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotFoundOuts"] = types.YLeaf{"Csipstatsclientnotfoundouts", csipstatserrclient.Csipstatsclientnotfoundouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientMethNotAllowedIns"] = types.YLeaf{"Csipstatsclientmethnotallowedins", csipstatserrclient.Csipstatsclientmethnotallowedins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientMethNotAllowedOuts"] = types.YLeaf{"Csipstatsclientmethnotallowedouts", csipstatserrclient.Csipstatsclientmethnotallowedouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotAcceptableIns"] = types.YLeaf{"Csipstatsclientnotacceptableins", csipstatserrclient.Csipstatsclientnotacceptableins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNotAcceptableOuts"] = types.YLeaf{"Csipstatsclientnotacceptableouts", csipstatserrclient.Csipstatsclientnotacceptableouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientProxyAuthReqdIns"] = types.YLeaf{"Csipstatsclientproxyauthreqdins", csipstatserrclient.Csipstatsclientproxyauthreqdins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientProxyAuthReqdOuts"] = types.YLeaf{"Csipstatsclientproxyauthreqdouts", csipstatserrclient.Csipstatsclientproxyauthreqdouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTimeoutIns"] = types.YLeaf{"Csipstatsclientreqtimeoutins", csipstatserrclient.Csipstatsclientreqtimeoutins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTimeoutOuts"] = types.YLeaf{"Csipstatsclientreqtimeoutouts", csipstatserrclient.Csipstatsclientreqtimeoutouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientConflictIns"] = types.YLeaf{"Csipstatsclientconflictins", csipstatserrclient.Csipstatsclientconflictins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientConflictOuts"] = types.YLeaf{"Csipstatsclientconflictouts", csipstatserrclient.Csipstatsclientconflictouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientGoneIns"] = types.YLeaf{"Csipstatsclientgoneins", csipstatserrclient.Csipstatsclientgoneins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientGoneOuts"] = types.YLeaf{"Csipstatsclientgoneouts", csipstatserrclient.Csipstatsclientgoneouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientLengthRequiredIns"] = types.YLeaf{"Csipstatsclientlengthrequiredins", csipstatserrclient.Csipstatsclientlengthrequiredins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientLengthRequiredOuts"] = types.YLeaf{"Csipstatsclientlengthrequiredouts", csipstatserrclient.Csipstatsclientlengthrequiredouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqEntTooLargeIns"] = types.YLeaf{"Csipstatsclientreqenttoolargeins", csipstatserrclient.Csipstatsclientreqenttoolargeins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqEntTooLargeOuts"] = types.YLeaf{"Csipstatsclientreqenttoolargeouts", csipstatserrclient.Csipstatsclientreqenttoolargeouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqURITooLargeIns"] = types.YLeaf{"Csipstatsclientrequritoolargeins", csipstatserrclient.Csipstatsclientrequritoolargeins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqURITooLargeOuts"] = types.YLeaf{"Csipstatsclientrequritoolargeouts", csipstatserrclient.Csipstatsclientrequritoolargeouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoSupMediaTypeIns"] = types.YLeaf{"Csipstatsclientnosupmediatypeins", csipstatserrclient.Csipstatsclientnosupmediatypeins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoSupMediaTypeOuts"] = types.YLeaf{"Csipstatsclientnosupmediatypeouts", csipstatserrclient.Csipstatsclientnosupmediatypeouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadExtensionIns"] = types.YLeaf{"Csipstatsclientbadextensionins", csipstatserrclient.Csipstatsclientbadextensionins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadExtensionOuts"] = types.YLeaf{"Csipstatsclientbadextensionouts", csipstatserrclient.Csipstatsclientbadextensionouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientTempNotAvailIns"] = types.YLeaf{"Csipstatsclienttempnotavailins", csipstatserrclient.Csipstatsclienttempnotavailins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientTempNotAvailOuts"] = types.YLeaf{"Csipstatsclienttempnotavailouts", csipstatserrclient.Csipstatsclienttempnotavailouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientCallLegNoExistIns"] = types.YLeaf{"Csipstatsclientcalllegnoexistins", csipstatserrclient.Csipstatsclientcalllegnoexistins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientCallLegNoExistOuts"] = types.YLeaf{"Csipstatsclientcalllegnoexistouts", csipstatserrclient.Csipstatsclientcalllegnoexistouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientLoopDetectedIns"] = types.YLeaf{"Csipstatsclientloopdetectedins", csipstatserrclient.Csipstatsclientloopdetectedins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientLoopDetectedOuts"] = types.YLeaf{"Csipstatsclientloopdetectedouts", csipstatserrclient.Csipstatsclientloopdetectedouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientTooManyHopsIns"] = types.YLeaf{"Csipstatsclienttoomanyhopsins", csipstatserrclient.Csipstatsclienttoomanyhopsins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientTooManyHopsOuts"] = types.YLeaf{"Csipstatsclienttoomanyhopsouts", csipstatserrclient.Csipstatsclienttoomanyhopsouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientAddrIncompleteIns"] = types.YLeaf{"Csipstatsclientaddrincompleteins", csipstatserrclient.Csipstatsclientaddrincompleteins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientAddrIncompleteOuts"] = types.YLeaf{"Csipstatsclientaddrincompleteouts", csipstatserrclient.Csipstatsclientaddrincompleteouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientAmbiguousIns"] = types.YLeaf{"Csipstatsclientambiguousins", csipstatserrclient.Csipstatsclientambiguousins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientAmbiguousOuts"] = types.YLeaf{"Csipstatsclientambiguousouts", csipstatserrclient.Csipstatsclientambiguousouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBusyHereIns"] = types.YLeaf{"Csipstatsclientbusyhereins", csipstatserrclient.Csipstatsclientbusyhereins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBusyHereOuts"] = types.YLeaf{"Csipstatsclientbusyhereouts", csipstatserrclient.Csipstatsclientbusyhereouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTermIns"] = types.YLeaf{"Csipstatsclientreqtermins", csipstatserrclient.Csipstatsclientreqtermins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqTermOuts"] = types.YLeaf{"Csipstatsclientreqtermouts", csipstatserrclient.Csipstatsclientreqtermouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoAcceptHereIns"] = types.YLeaf{"Csipstatsclientnoaccepthereins", csipstatserrclient.Csipstatsclientnoaccepthereins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientNoAcceptHereOuts"] = types.YLeaf{"Csipstatsclientnoaccepthereouts", csipstatserrclient.Csipstatsclientnoaccepthereouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadEventIns"] = types.YLeaf{"Csipstatsclientbadeventins", csipstatserrclient.Csipstatsclientbadeventins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientBadEventOuts"] = types.YLeaf{"Csipstatsclientbadeventouts", csipstatserrclient.Csipstatsclientbadeventouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientSTTooSmallIns"] = types.YLeaf{"Csipstatsclientsttoosmallins", csipstatserrclient.Csipstatsclientsttoosmallins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientSTTooSmallOuts"] = types.YLeaf{"Csipstatsclientsttoosmallouts", csipstatserrclient.Csipstatsclientsttoosmallouts}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqPendingIns"] = types.YLeaf{"Csipstatsclientreqpendingins", csipstatserrclient.Csipstatsclientreqpendingins}
+    csipstatserrclient.EntityData.Leafs["cSipStatsClientReqPendingOuts"] = types.YLeaf{"Csipstatsclientreqpendingouts", csipstatserrclient.Csipstatsclientreqpendingouts}
+    return &(csipstatserrclient.EntityData)
 }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetSegmentPath() string {
-    return "cSipStatsErrClient"
-}
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsClientBadRequestIns"] = csipstatserrclient.Csipstatsclientbadrequestins
-    leafs["cSipStatsClientBadRequestOuts"] = csipstatserrclient.Csipstatsclientbadrequestouts
-    leafs["cSipStatsClientUnauthorizedIns"] = csipstatserrclient.Csipstatsclientunauthorizedins
-    leafs["cSipStatsClientUnauthorizedOuts"] = csipstatserrclient.Csipstatsclientunauthorizedouts
-    leafs["cSipStatsClientPaymentReqdIns"] = csipstatserrclient.Csipstatsclientpaymentreqdins
-    leafs["cSipStatsClientPaymentReqdOuts"] = csipstatserrclient.Csipstatsclientpaymentreqdouts
-    leafs["cSipStatsClientForbiddenIns"] = csipstatserrclient.Csipstatsclientforbiddenins
-    leafs["cSipStatsClientForbiddenOuts"] = csipstatserrclient.Csipstatsclientforbiddenouts
-    leafs["cSipStatsClientNotFoundIns"] = csipstatserrclient.Csipstatsclientnotfoundins
-    leafs["cSipStatsClientNotFoundOuts"] = csipstatserrclient.Csipstatsclientnotfoundouts
-    leafs["cSipStatsClientMethNotAllowedIns"] = csipstatserrclient.Csipstatsclientmethnotallowedins
-    leafs["cSipStatsClientMethNotAllowedOuts"] = csipstatserrclient.Csipstatsclientmethnotallowedouts
-    leafs["cSipStatsClientNotAcceptableIns"] = csipstatserrclient.Csipstatsclientnotacceptableins
-    leafs["cSipStatsClientNotAcceptableOuts"] = csipstatserrclient.Csipstatsclientnotacceptableouts
-    leafs["cSipStatsClientProxyAuthReqdIns"] = csipstatserrclient.Csipstatsclientproxyauthreqdins
-    leafs["cSipStatsClientProxyAuthReqdOuts"] = csipstatserrclient.Csipstatsclientproxyauthreqdouts
-    leafs["cSipStatsClientReqTimeoutIns"] = csipstatserrclient.Csipstatsclientreqtimeoutins
-    leafs["cSipStatsClientReqTimeoutOuts"] = csipstatserrclient.Csipstatsclientreqtimeoutouts
-    leafs["cSipStatsClientConflictIns"] = csipstatserrclient.Csipstatsclientconflictins
-    leafs["cSipStatsClientConflictOuts"] = csipstatserrclient.Csipstatsclientconflictouts
-    leafs["cSipStatsClientGoneIns"] = csipstatserrclient.Csipstatsclientgoneins
-    leafs["cSipStatsClientGoneOuts"] = csipstatserrclient.Csipstatsclientgoneouts
-    leafs["cSipStatsClientLengthRequiredIns"] = csipstatserrclient.Csipstatsclientlengthrequiredins
-    leafs["cSipStatsClientLengthRequiredOuts"] = csipstatserrclient.Csipstatsclientlengthrequiredouts
-    leafs["cSipStatsClientReqEntTooLargeIns"] = csipstatserrclient.Csipstatsclientreqenttoolargeins
-    leafs["cSipStatsClientReqEntTooLargeOuts"] = csipstatserrclient.Csipstatsclientreqenttoolargeouts
-    leafs["cSipStatsClientReqURITooLargeIns"] = csipstatserrclient.Csipstatsclientrequritoolargeins
-    leafs["cSipStatsClientReqURITooLargeOuts"] = csipstatserrclient.Csipstatsclientrequritoolargeouts
-    leafs["cSipStatsClientNoSupMediaTypeIns"] = csipstatserrclient.Csipstatsclientnosupmediatypeins
-    leafs["cSipStatsClientNoSupMediaTypeOuts"] = csipstatserrclient.Csipstatsclientnosupmediatypeouts
-    leafs["cSipStatsClientBadExtensionIns"] = csipstatserrclient.Csipstatsclientbadextensionins
-    leafs["cSipStatsClientBadExtensionOuts"] = csipstatserrclient.Csipstatsclientbadextensionouts
-    leafs["cSipStatsClientTempNotAvailIns"] = csipstatserrclient.Csipstatsclienttempnotavailins
-    leafs["cSipStatsClientTempNotAvailOuts"] = csipstatserrclient.Csipstatsclienttempnotavailouts
-    leafs["cSipStatsClientCallLegNoExistIns"] = csipstatserrclient.Csipstatsclientcalllegnoexistins
-    leafs["cSipStatsClientCallLegNoExistOuts"] = csipstatserrclient.Csipstatsclientcalllegnoexistouts
-    leafs["cSipStatsClientLoopDetectedIns"] = csipstatserrclient.Csipstatsclientloopdetectedins
-    leafs["cSipStatsClientLoopDetectedOuts"] = csipstatserrclient.Csipstatsclientloopdetectedouts
-    leafs["cSipStatsClientTooManyHopsIns"] = csipstatserrclient.Csipstatsclienttoomanyhopsins
-    leafs["cSipStatsClientTooManyHopsOuts"] = csipstatserrclient.Csipstatsclienttoomanyhopsouts
-    leafs["cSipStatsClientAddrIncompleteIns"] = csipstatserrclient.Csipstatsclientaddrincompleteins
-    leafs["cSipStatsClientAddrIncompleteOuts"] = csipstatserrclient.Csipstatsclientaddrincompleteouts
-    leafs["cSipStatsClientAmbiguousIns"] = csipstatserrclient.Csipstatsclientambiguousins
-    leafs["cSipStatsClientAmbiguousOuts"] = csipstatserrclient.Csipstatsclientambiguousouts
-    leafs["cSipStatsClientBusyHereIns"] = csipstatserrclient.Csipstatsclientbusyhereins
-    leafs["cSipStatsClientBusyHereOuts"] = csipstatserrclient.Csipstatsclientbusyhereouts
-    leafs["cSipStatsClientReqTermIns"] = csipstatserrclient.Csipstatsclientreqtermins
-    leafs["cSipStatsClientReqTermOuts"] = csipstatserrclient.Csipstatsclientreqtermouts
-    leafs["cSipStatsClientNoAcceptHereIns"] = csipstatserrclient.Csipstatsclientnoaccepthereins
-    leafs["cSipStatsClientNoAcceptHereOuts"] = csipstatserrclient.Csipstatsclientnoaccepthereouts
-    leafs["cSipStatsClientBadEventIns"] = csipstatserrclient.Csipstatsclientbadeventins
-    leafs["cSipStatsClientBadEventOuts"] = csipstatserrclient.Csipstatsclientbadeventouts
-    leafs["cSipStatsClientSTTooSmallIns"] = csipstatserrclient.Csipstatsclientsttoosmallins
-    leafs["cSipStatsClientSTTooSmallOuts"] = csipstatserrclient.Csipstatsclientsttoosmallouts
-    leafs["cSipStatsClientReqPendingIns"] = csipstatserrclient.Csipstatsclientreqpendingins
-    leafs["cSipStatsClientReqPendingOuts"] = csipstatserrclient.Csipstatsclientreqpendingouts
-    return leafs
-}
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetYangName() string { return "cSipStatsErrClient" }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) SetParent(parent types.Entity) { csipstatserrclient.parent = parent }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetParent() types.Entity { return csipstatserrclient.parent }
-
-func (csipstatserrclient *CISCOSIPUAMIB_Csipstatserrclient) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatserrserver
 type CISCOSIPUAMIB_Csipstatserrserver struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of Internal Server Error (500)
@@ -2100,81 +1566,38 @@ type CISCOSIPUAMIB_Csipstatserrserver struct {
     Csipstatsserverprecondfailureouts interface{}
 }
 
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetFilter() yfilter.YFilter { return csipstatserrserver.YFilter }
+func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetEntityData() *types.CommonEntityData {
+    csipstatserrserver.EntityData.YFilter = csipstatserrserver.YFilter
+    csipstatserrserver.EntityData.YangName = "cSipStatsErrServer"
+    csipstatserrserver.EntityData.BundleName = "cisco_ios_xe"
+    csipstatserrserver.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatserrserver.EntityData.SegmentPath = "cSipStatsErrServer"
+    csipstatserrserver.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatserrserver.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatserrserver.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) SetFilter(yf yfilter.YFilter) { csipstatserrserver.YFilter = yf }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetGoName(yname string) string {
-    if yname == "cSipStatsServerIntErrorIns" { return "Csipstatsserverinterrorins" }
-    if yname == "cSipStatsServerIntErrorOuts" { return "Csipstatsserverinterrorouts" }
-    if yname == "cSipStatsServerNotImplementedIns" { return "Csipstatsservernotimplementedins" }
-    if yname == "cSipStatsServerNotImplementedOuts" { return "Csipstatsservernotimplementedouts" }
-    if yname == "cSipStatsServerBadGatewayIns" { return "Csipstatsserverbadgatewayins" }
-    if yname == "cSipStatsServerBadGatewayOuts" { return "Csipstatsserverbadgatewayouts" }
-    if yname == "cSipStatsServerServiceUnavailIns" { return "Csipstatsserverserviceunavailins" }
-    if yname == "cSipStatsServerServiceUnavailOuts" { return "Csipstatsserverserviceunavailouts" }
-    if yname == "cSipStatsServerGatewayTimeoutIns" { return "Csipstatsservergatewaytimeoutins" }
-    if yname == "cSipStatsServerGatewayTimeoutOuts" { return "Csipstatsservergatewaytimeoutouts" }
-    if yname == "cSipStatsServerBadSipVersionIns" { return "Csipstatsserverbadsipversionins" }
-    if yname == "cSipStatsServerBadSipVersionOuts" { return "Csipstatsserverbadsipversionouts" }
-    if yname == "cSipStatsServerPrecondFailureIns" { return "Csipstatsserverprecondfailureins" }
-    if yname == "cSipStatsServerPrecondFailureOuts" { return "Csipstatsserverprecondfailureouts" }
-    return ""
+    csipstatserrserver.EntityData.Children = make(map[string]types.YChild)
+    csipstatserrserver.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerIntErrorIns"] = types.YLeaf{"Csipstatsserverinterrorins", csipstatserrserver.Csipstatsserverinterrorins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerIntErrorOuts"] = types.YLeaf{"Csipstatsserverinterrorouts", csipstatserrserver.Csipstatsserverinterrorouts}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerNotImplementedIns"] = types.YLeaf{"Csipstatsservernotimplementedins", csipstatserrserver.Csipstatsservernotimplementedins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerNotImplementedOuts"] = types.YLeaf{"Csipstatsservernotimplementedouts", csipstatserrserver.Csipstatsservernotimplementedouts}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadGatewayIns"] = types.YLeaf{"Csipstatsserverbadgatewayins", csipstatserrserver.Csipstatsserverbadgatewayins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadGatewayOuts"] = types.YLeaf{"Csipstatsserverbadgatewayouts", csipstatserrserver.Csipstatsserverbadgatewayouts}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerServiceUnavailIns"] = types.YLeaf{"Csipstatsserverserviceunavailins", csipstatserrserver.Csipstatsserverserviceunavailins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerServiceUnavailOuts"] = types.YLeaf{"Csipstatsserverserviceunavailouts", csipstatserrserver.Csipstatsserverserviceunavailouts}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerGatewayTimeoutIns"] = types.YLeaf{"Csipstatsservergatewaytimeoutins", csipstatserrserver.Csipstatsservergatewaytimeoutins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerGatewayTimeoutOuts"] = types.YLeaf{"Csipstatsservergatewaytimeoutouts", csipstatserrserver.Csipstatsservergatewaytimeoutouts}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadSipVersionIns"] = types.YLeaf{"Csipstatsserverbadsipversionins", csipstatserrserver.Csipstatsserverbadsipversionins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerBadSipVersionOuts"] = types.YLeaf{"Csipstatsserverbadsipversionouts", csipstatserrserver.Csipstatsserverbadsipversionouts}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerPrecondFailureIns"] = types.YLeaf{"Csipstatsserverprecondfailureins", csipstatserrserver.Csipstatsserverprecondfailureins}
+    csipstatserrserver.EntityData.Leafs["cSipStatsServerPrecondFailureOuts"] = types.YLeaf{"Csipstatsserverprecondfailureouts", csipstatserrserver.Csipstatsserverprecondfailureouts}
+    return &(csipstatserrserver.EntityData)
 }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetSegmentPath() string {
-    return "cSipStatsErrServer"
-}
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsServerIntErrorIns"] = csipstatserrserver.Csipstatsserverinterrorins
-    leafs["cSipStatsServerIntErrorOuts"] = csipstatserrserver.Csipstatsserverinterrorouts
-    leafs["cSipStatsServerNotImplementedIns"] = csipstatserrserver.Csipstatsservernotimplementedins
-    leafs["cSipStatsServerNotImplementedOuts"] = csipstatserrserver.Csipstatsservernotimplementedouts
-    leafs["cSipStatsServerBadGatewayIns"] = csipstatserrserver.Csipstatsserverbadgatewayins
-    leafs["cSipStatsServerBadGatewayOuts"] = csipstatserrserver.Csipstatsserverbadgatewayouts
-    leafs["cSipStatsServerServiceUnavailIns"] = csipstatserrserver.Csipstatsserverserviceunavailins
-    leafs["cSipStatsServerServiceUnavailOuts"] = csipstatserrserver.Csipstatsserverserviceunavailouts
-    leafs["cSipStatsServerGatewayTimeoutIns"] = csipstatserrserver.Csipstatsservergatewaytimeoutins
-    leafs["cSipStatsServerGatewayTimeoutOuts"] = csipstatserrserver.Csipstatsservergatewaytimeoutouts
-    leafs["cSipStatsServerBadSipVersionIns"] = csipstatserrserver.Csipstatsserverbadsipversionins
-    leafs["cSipStatsServerBadSipVersionOuts"] = csipstatserrserver.Csipstatsserverbadsipversionouts
-    leafs["cSipStatsServerPrecondFailureIns"] = csipstatserrserver.Csipstatsserverprecondfailureins
-    leafs["cSipStatsServerPrecondFailureOuts"] = csipstatserrserver.Csipstatsserverprecondfailureouts
-    return leafs
-}
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetYangName() string { return "cSipStatsErrServer" }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) SetParent(parent types.Entity) { csipstatserrserver.parent = parent }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetParent() types.Entity { return csipstatserrserver.parent }
-
-func (csipstatserrserver *CISCOSIPUAMIB_Csipstatserrserver) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatsglobalfail
 type CISCOSIPUAMIB_Csipstatsglobalfail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of Busy Everywhere (600) responses
@@ -2235,69 +1658,32 @@ type CISCOSIPUAMIB_Csipstatsglobalfail struct {
     Csipstatsglobalnotacceptableouts interface{}
 }
 
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetFilter() yfilter.YFilter { return csipstatsglobalfail.YFilter }
+func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetEntityData() *types.CommonEntityData {
+    csipstatsglobalfail.EntityData.YFilter = csipstatsglobalfail.YFilter
+    csipstatsglobalfail.EntityData.YangName = "cSipStatsGlobalFail"
+    csipstatsglobalfail.EntityData.BundleName = "cisco_ios_xe"
+    csipstatsglobalfail.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatsglobalfail.EntityData.SegmentPath = "cSipStatsGlobalFail"
+    csipstatsglobalfail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatsglobalfail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatsglobalfail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) SetFilter(yf yfilter.YFilter) { csipstatsglobalfail.YFilter = yf }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetGoName(yname string) string {
-    if yname == "cSipStatsGlobalBusyEverywhereIns" { return "Csipstatsglobalbusyeverywhereins" }
-    if yname == "cSipStatsGlobalBusyEverywhereOuts" { return "Csipstatsglobalbusyeverywhereouts" }
-    if yname == "cSipStatsGlobalDeclineIns" { return "Csipstatsglobaldeclineins" }
-    if yname == "cSipStatsGlobalDeclineOuts" { return "Csipstatsglobaldeclineouts" }
-    if yname == "cSipStatsGlobalNotAnywhereIns" { return "Csipstatsglobalnotanywhereins" }
-    if yname == "cSipStatsGlobalNotAnywhereOuts" { return "Csipstatsglobalnotanywhereouts" }
-    if yname == "cSipStatsGlobalNotAcceptableIns" { return "Csipstatsglobalnotacceptableins" }
-    if yname == "cSipStatsGlobalNotAcceptableOuts" { return "Csipstatsglobalnotacceptableouts" }
-    return ""
+    csipstatsglobalfail.EntityData.Children = make(map[string]types.YChild)
+    csipstatsglobalfail.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalBusyEverywhereIns"] = types.YLeaf{"Csipstatsglobalbusyeverywhereins", csipstatsglobalfail.Csipstatsglobalbusyeverywhereins}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalBusyEverywhereOuts"] = types.YLeaf{"Csipstatsglobalbusyeverywhereouts", csipstatsglobalfail.Csipstatsglobalbusyeverywhereouts}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalDeclineIns"] = types.YLeaf{"Csipstatsglobaldeclineins", csipstatsglobalfail.Csipstatsglobaldeclineins}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalDeclineOuts"] = types.YLeaf{"Csipstatsglobaldeclineouts", csipstatsglobalfail.Csipstatsglobaldeclineouts}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAnywhereIns"] = types.YLeaf{"Csipstatsglobalnotanywhereins", csipstatsglobalfail.Csipstatsglobalnotanywhereins}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAnywhereOuts"] = types.YLeaf{"Csipstatsglobalnotanywhereouts", csipstatsglobalfail.Csipstatsglobalnotanywhereouts}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAcceptableIns"] = types.YLeaf{"Csipstatsglobalnotacceptableins", csipstatsglobalfail.Csipstatsglobalnotacceptableins}
+    csipstatsglobalfail.EntityData.Leafs["cSipStatsGlobalNotAcceptableOuts"] = types.YLeaf{"Csipstatsglobalnotacceptableouts", csipstatsglobalfail.Csipstatsglobalnotacceptableouts}
+    return &(csipstatsglobalfail.EntityData)
 }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetSegmentPath() string {
-    return "cSipStatsGlobalFail"
-}
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsGlobalBusyEverywhereIns"] = csipstatsglobalfail.Csipstatsglobalbusyeverywhereins
-    leafs["cSipStatsGlobalBusyEverywhereOuts"] = csipstatsglobalfail.Csipstatsglobalbusyeverywhereouts
-    leafs["cSipStatsGlobalDeclineIns"] = csipstatsglobalfail.Csipstatsglobaldeclineins
-    leafs["cSipStatsGlobalDeclineOuts"] = csipstatsglobalfail.Csipstatsglobaldeclineouts
-    leafs["cSipStatsGlobalNotAnywhereIns"] = csipstatsglobalfail.Csipstatsglobalnotanywhereins
-    leafs["cSipStatsGlobalNotAnywhereOuts"] = csipstatsglobalfail.Csipstatsglobalnotanywhereouts
-    leafs["cSipStatsGlobalNotAcceptableIns"] = csipstatsglobalfail.Csipstatsglobalnotacceptableins
-    leafs["cSipStatsGlobalNotAcceptableOuts"] = csipstatsglobalfail.Csipstatsglobalnotacceptableouts
-    return leafs
-}
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetYangName() string { return "cSipStatsGlobalFail" }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) SetParent(parent types.Entity) { csipstatsglobalfail.parent = parent }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetParent() types.Entity { return csipstatsglobalfail.parent }
-
-func (csipstatsglobalfail *CISCOSIPUAMIB_Csipstatsglobalfail) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatstraffic
 type CISCOSIPUAMIB_Csipstatstraffic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of INVITE requests  received by the
@@ -2426,105 +1812,50 @@ type CISCOSIPUAMIB_Csipstatstraffic struct {
     Csipstatstrafficupdateouts interface{}
 }
 
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetFilter() yfilter.YFilter { return csipstatstraffic.YFilter }
+func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetEntityData() *types.CommonEntityData {
+    csipstatstraffic.EntityData.YFilter = csipstatstraffic.YFilter
+    csipstatstraffic.EntityData.YangName = "cSipStatsTraffic"
+    csipstatstraffic.EntityData.BundleName = "cisco_ios_xe"
+    csipstatstraffic.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatstraffic.EntityData.SegmentPath = "cSipStatsTraffic"
+    csipstatstraffic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatstraffic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatstraffic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) SetFilter(yf yfilter.YFilter) { csipstatstraffic.YFilter = yf }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetGoName(yname string) string {
-    if yname == "cSipStatsTrafficInviteIns" { return "Csipstatstrafficinviteins" }
-    if yname == "cSipStatsTrafficInviteOuts" { return "Csipstatstrafficinviteouts" }
-    if yname == "cSipStatsTrafficAckIns" { return "Csipstatstrafficackins" }
-    if yname == "cSipStatsTrafficAckOuts" { return "Csipstatstrafficackouts" }
-    if yname == "cSipStatsTrafficByeIns" { return "Csipstatstrafficbyeins" }
-    if yname == "cSipStatsTrafficByeOuts" { return "Csipstatstrafficbyeouts" }
-    if yname == "cSipStatsTrafficCancelIns" { return "Csipstatstrafficcancelins" }
-    if yname == "cSipStatsTrafficCancelOuts" { return "Csipstatstrafficcancelouts" }
-    if yname == "cSipStatsTrafficOptionsIns" { return "Csipstatstrafficoptionsins" }
-    if yname == "cSipStatsTrafficOptionsOuts" { return "Csipstatstrafficoptionsouts" }
-    if yname == "cSipStatsTrafficRegisterIns" { return "Csipstatstrafficregisterins" }
-    if yname == "cSipStatsTrafficRegisterOuts" { return "Csipstatstrafficregisterouts" }
-    if yname == "cSipStatsTrafficCometIns" { return "Csipstatstrafficcometins" }
-    if yname == "cSipStatsTrafficCometOuts" { return "Csipstatstrafficcometouts" }
-    if yname == "cSipStatsTrafficPrackIns" { return "Csipstatstrafficprackins" }
-    if yname == "cSipStatsTrafficPrackOuts" { return "Csipstatstrafficprackouts" }
-    if yname == "cSipStatsTrafficReferIns" { return "Csipstatstrafficreferins" }
-    if yname == "cSipStatsTrafficReferOuts" { return "Csipstatstrafficreferouts" }
-    if yname == "cSipStatsTrafficNotifyIns" { return "Csipstatstrafficnotifyins" }
-    if yname == "cSipStatsTrafficNotifyOuts" { return "Csipstatstrafficnotifyouts" }
-    if yname == "cSipStatsTrafficInfoIns" { return "Csipstatstrafficinfoins" }
-    if yname == "cSipStatsTrafficInfoOuts" { return "Csipstatstrafficinfoouts" }
-    if yname == "cSipStatsTrafficSubscribeIns" { return "Csipstatstrafficsubscribeins" }
-    if yname == "cSipStatsTrafficSubscribeOuts" { return "Csipstatstrafficsubscribeouts" }
-    if yname == "cSipStatsTrafficUpdateIns" { return "Csipstatstrafficupdateins" }
-    if yname == "cSipStatsTrafficUpdateOuts" { return "Csipstatstrafficupdateouts" }
-    return ""
+    csipstatstraffic.EntityData.Children = make(map[string]types.YChild)
+    csipstatstraffic.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInviteIns"] = types.YLeaf{"Csipstatstrafficinviteins", csipstatstraffic.Csipstatstrafficinviteins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInviteOuts"] = types.YLeaf{"Csipstatstrafficinviteouts", csipstatstraffic.Csipstatstrafficinviteouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficAckIns"] = types.YLeaf{"Csipstatstrafficackins", csipstatstraffic.Csipstatstrafficackins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficAckOuts"] = types.YLeaf{"Csipstatstrafficackouts", csipstatstraffic.Csipstatstrafficackouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficByeIns"] = types.YLeaf{"Csipstatstrafficbyeins", csipstatstraffic.Csipstatstrafficbyeins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficByeOuts"] = types.YLeaf{"Csipstatstrafficbyeouts", csipstatstraffic.Csipstatstrafficbyeouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCancelIns"] = types.YLeaf{"Csipstatstrafficcancelins", csipstatstraffic.Csipstatstrafficcancelins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCancelOuts"] = types.YLeaf{"Csipstatstrafficcancelouts", csipstatstraffic.Csipstatstrafficcancelouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficOptionsIns"] = types.YLeaf{"Csipstatstrafficoptionsins", csipstatstraffic.Csipstatstrafficoptionsins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficOptionsOuts"] = types.YLeaf{"Csipstatstrafficoptionsouts", csipstatstraffic.Csipstatstrafficoptionsouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficRegisterIns"] = types.YLeaf{"Csipstatstrafficregisterins", csipstatstraffic.Csipstatstrafficregisterins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficRegisterOuts"] = types.YLeaf{"Csipstatstrafficregisterouts", csipstatstraffic.Csipstatstrafficregisterouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCometIns"] = types.YLeaf{"Csipstatstrafficcometins", csipstatstraffic.Csipstatstrafficcometins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficCometOuts"] = types.YLeaf{"Csipstatstrafficcometouts", csipstatstraffic.Csipstatstrafficcometouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficPrackIns"] = types.YLeaf{"Csipstatstrafficprackins", csipstatstraffic.Csipstatstrafficprackins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficPrackOuts"] = types.YLeaf{"Csipstatstrafficprackouts", csipstatstraffic.Csipstatstrafficprackouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficReferIns"] = types.YLeaf{"Csipstatstrafficreferins", csipstatstraffic.Csipstatstrafficreferins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficReferOuts"] = types.YLeaf{"Csipstatstrafficreferouts", csipstatstraffic.Csipstatstrafficreferouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficNotifyIns"] = types.YLeaf{"Csipstatstrafficnotifyins", csipstatstraffic.Csipstatstrafficnotifyins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficNotifyOuts"] = types.YLeaf{"Csipstatstrafficnotifyouts", csipstatstraffic.Csipstatstrafficnotifyouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInfoIns"] = types.YLeaf{"Csipstatstrafficinfoins", csipstatstraffic.Csipstatstrafficinfoins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficInfoOuts"] = types.YLeaf{"Csipstatstrafficinfoouts", csipstatstraffic.Csipstatstrafficinfoouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficSubscribeIns"] = types.YLeaf{"Csipstatstrafficsubscribeins", csipstatstraffic.Csipstatstrafficsubscribeins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficSubscribeOuts"] = types.YLeaf{"Csipstatstrafficsubscribeouts", csipstatstraffic.Csipstatstrafficsubscribeouts}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficUpdateIns"] = types.YLeaf{"Csipstatstrafficupdateins", csipstatstraffic.Csipstatstrafficupdateins}
+    csipstatstraffic.EntityData.Leafs["cSipStatsTrafficUpdateOuts"] = types.YLeaf{"Csipstatstrafficupdateouts", csipstatstraffic.Csipstatstrafficupdateouts}
+    return &(csipstatstraffic.EntityData)
 }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetSegmentPath() string {
-    return "cSipStatsTraffic"
-}
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsTrafficInviteIns"] = csipstatstraffic.Csipstatstrafficinviteins
-    leafs["cSipStatsTrafficInviteOuts"] = csipstatstraffic.Csipstatstrafficinviteouts
-    leafs["cSipStatsTrafficAckIns"] = csipstatstraffic.Csipstatstrafficackins
-    leafs["cSipStatsTrafficAckOuts"] = csipstatstraffic.Csipstatstrafficackouts
-    leafs["cSipStatsTrafficByeIns"] = csipstatstraffic.Csipstatstrafficbyeins
-    leafs["cSipStatsTrafficByeOuts"] = csipstatstraffic.Csipstatstrafficbyeouts
-    leafs["cSipStatsTrafficCancelIns"] = csipstatstraffic.Csipstatstrafficcancelins
-    leafs["cSipStatsTrafficCancelOuts"] = csipstatstraffic.Csipstatstrafficcancelouts
-    leafs["cSipStatsTrafficOptionsIns"] = csipstatstraffic.Csipstatstrafficoptionsins
-    leafs["cSipStatsTrafficOptionsOuts"] = csipstatstraffic.Csipstatstrafficoptionsouts
-    leafs["cSipStatsTrafficRegisterIns"] = csipstatstraffic.Csipstatstrafficregisterins
-    leafs["cSipStatsTrafficRegisterOuts"] = csipstatstraffic.Csipstatstrafficregisterouts
-    leafs["cSipStatsTrafficCometIns"] = csipstatstraffic.Csipstatstrafficcometins
-    leafs["cSipStatsTrafficCometOuts"] = csipstatstraffic.Csipstatstrafficcometouts
-    leafs["cSipStatsTrafficPrackIns"] = csipstatstraffic.Csipstatstrafficprackins
-    leafs["cSipStatsTrafficPrackOuts"] = csipstatstraffic.Csipstatstrafficprackouts
-    leafs["cSipStatsTrafficReferIns"] = csipstatstraffic.Csipstatstrafficreferins
-    leafs["cSipStatsTrafficReferOuts"] = csipstatstraffic.Csipstatstrafficreferouts
-    leafs["cSipStatsTrafficNotifyIns"] = csipstatstraffic.Csipstatstrafficnotifyins
-    leafs["cSipStatsTrafficNotifyOuts"] = csipstatstraffic.Csipstatstrafficnotifyouts
-    leafs["cSipStatsTrafficInfoIns"] = csipstatstraffic.Csipstatstrafficinfoins
-    leafs["cSipStatsTrafficInfoOuts"] = csipstatstraffic.Csipstatstrafficinfoouts
-    leafs["cSipStatsTrafficSubscribeIns"] = csipstatstraffic.Csipstatstrafficsubscribeins
-    leafs["cSipStatsTrafficSubscribeOuts"] = csipstatstraffic.Csipstatstrafficsubscribeouts
-    leafs["cSipStatsTrafficUpdateIns"] = csipstatstraffic.Csipstatstrafficupdateins
-    leafs["cSipStatsTrafficUpdateOuts"] = csipstatstraffic.Csipstatstrafficupdateouts
-    return leafs
-}
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetYangName() string { return "cSipStatsTraffic" }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) SetParent(parent types.Entity) { csipstatstraffic.parent = parent }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetParent() types.Entity { return csipstatstraffic.parent }
-
-func (csipstatstraffic *CISCOSIPUAMIB_Csipstatstraffic) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatsretry
 type CISCOSIPUAMIB_Csipstatsretry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of INVITE retries that  have been
@@ -2590,77 +1921,36 @@ type CISCOSIPUAMIB_Csipstatsretry struct {
     Csipstatsretrysubscribe interface{}
 }
 
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetFilter() yfilter.YFilter { return csipstatsretry.YFilter }
+func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetEntityData() *types.CommonEntityData {
+    csipstatsretry.EntityData.YFilter = csipstatsretry.YFilter
+    csipstatsretry.EntityData.YangName = "cSipStatsRetry"
+    csipstatsretry.EntityData.BundleName = "cisco_ios_xe"
+    csipstatsretry.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatsretry.EntityData.SegmentPath = "cSipStatsRetry"
+    csipstatsretry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatsretry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatsretry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) SetFilter(yf yfilter.YFilter) { csipstatsretry.YFilter = yf }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetGoName(yname string) string {
-    if yname == "cSipStatsRetryInvites" { return "Csipstatsretryinvites" }
-    if yname == "cSipStatsRetryByes" { return "Csipstatsretrybyes" }
-    if yname == "cSipStatsRetryCancels" { return "Csipstatsretrycancels" }
-    if yname == "cSipStatsRetryRegisters" { return "Csipstatsretryregisters" }
-    if yname == "cSipStatsRetryResponses" { return "Csipstatsretryresponses" }
-    if yname == "cSipStatsRetryPracks" { return "Csipstatsretrypracks" }
-    if yname == "cSipStatsRetryComets" { return "Csipstatsretrycomets" }
-    if yname == "cSipStatsRetryReliable1xxRsps" { return "Csipstatsretryreliable1Xxrsps" }
-    if yname == "cSipStatsRetryNotifys" { return "Csipstatsretrynotifys" }
-    if yname == "cSipStatsRetryRefers" { return "Csipstatsretryrefers" }
-    if yname == "cSipStatsRetryInfo" { return "Csipstatsretryinfo" }
-    if yname == "cSipStatsRetrySubscribe" { return "Csipstatsretrysubscribe" }
-    return ""
+    csipstatsretry.EntityData.Children = make(map[string]types.YChild)
+    csipstatsretry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryInvites"] = types.YLeaf{"Csipstatsretryinvites", csipstatsretry.Csipstatsretryinvites}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryByes"] = types.YLeaf{"Csipstatsretrybyes", csipstatsretry.Csipstatsretrybyes}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryCancels"] = types.YLeaf{"Csipstatsretrycancels", csipstatsretry.Csipstatsretrycancels}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryRegisters"] = types.YLeaf{"Csipstatsretryregisters", csipstatsretry.Csipstatsretryregisters}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryResponses"] = types.YLeaf{"Csipstatsretryresponses", csipstatsretry.Csipstatsretryresponses}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryPracks"] = types.YLeaf{"Csipstatsretrypracks", csipstatsretry.Csipstatsretrypracks}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryComets"] = types.YLeaf{"Csipstatsretrycomets", csipstatsretry.Csipstatsretrycomets}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryReliable1xxRsps"] = types.YLeaf{"Csipstatsretryreliable1Xxrsps", csipstatsretry.Csipstatsretryreliable1Xxrsps}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryNotifys"] = types.YLeaf{"Csipstatsretrynotifys", csipstatsretry.Csipstatsretrynotifys}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryRefers"] = types.YLeaf{"Csipstatsretryrefers", csipstatsretry.Csipstatsretryrefers}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetryInfo"] = types.YLeaf{"Csipstatsretryinfo", csipstatsretry.Csipstatsretryinfo}
+    csipstatsretry.EntityData.Leafs["cSipStatsRetrySubscribe"] = types.YLeaf{"Csipstatsretrysubscribe", csipstatsretry.Csipstatsretrysubscribe}
+    return &(csipstatsretry.EntityData)
 }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetSegmentPath() string {
-    return "cSipStatsRetry"
-}
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsRetryInvites"] = csipstatsretry.Csipstatsretryinvites
-    leafs["cSipStatsRetryByes"] = csipstatsretry.Csipstatsretrybyes
-    leafs["cSipStatsRetryCancels"] = csipstatsretry.Csipstatsretrycancels
-    leafs["cSipStatsRetryRegisters"] = csipstatsretry.Csipstatsretryregisters
-    leafs["cSipStatsRetryResponses"] = csipstatsretry.Csipstatsretryresponses
-    leafs["cSipStatsRetryPracks"] = csipstatsretry.Csipstatsretrypracks
-    leafs["cSipStatsRetryComets"] = csipstatsretry.Csipstatsretrycomets
-    leafs["cSipStatsRetryReliable1xxRsps"] = csipstatsretry.Csipstatsretryreliable1Xxrsps
-    leafs["cSipStatsRetryNotifys"] = csipstatsretry.Csipstatsretrynotifys
-    leafs["cSipStatsRetryRefers"] = csipstatsretry.Csipstatsretryrefers
-    leafs["cSipStatsRetryInfo"] = csipstatsretry.Csipstatsretryinfo
-    leafs["cSipStatsRetrySubscribe"] = csipstatsretry.Csipstatsretrysubscribe
-    return leafs
-}
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetYangName() string { return "cSipStatsRetry" }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) SetParent(parent types.Entity) { csipstatsretry.parent = parent }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetParent() types.Entity { return csipstatsretry.parent }
-
-func (csipstatsretry *CISCOSIPUAMIB_Csipstatsretry) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatsmisc
 type CISCOSIPUAMIB_Csipstatsmisc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of incoming Redirect  (3xx) response
@@ -2669,55 +1959,25 @@ type CISCOSIPUAMIB_Csipstatsmisc struct {
     Csipstatsmisc3Xxmappedto4Xxrsps interface{}
 }
 
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetFilter() yfilter.YFilter { return csipstatsmisc.YFilter }
+func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetEntityData() *types.CommonEntityData {
+    csipstatsmisc.EntityData.YFilter = csipstatsmisc.YFilter
+    csipstatsmisc.EntityData.YangName = "cSipStatsMisc"
+    csipstatsmisc.EntityData.BundleName = "cisco_ios_xe"
+    csipstatsmisc.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatsmisc.EntityData.SegmentPath = "cSipStatsMisc"
+    csipstatsmisc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatsmisc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatsmisc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) SetFilter(yf yfilter.YFilter) { csipstatsmisc.YFilter = yf }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetGoName(yname string) string {
-    if yname == "cSipStatsMisc3xxMappedTo4xxRsps" { return "Csipstatsmisc3Xxmappedto4Xxrsps" }
-    return ""
+    csipstatsmisc.EntityData.Children = make(map[string]types.YChild)
+    csipstatsmisc.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatsmisc.EntityData.Leafs["cSipStatsMisc3xxMappedTo4xxRsps"] = types.YLeaf{"Csipstatsmisc3Xxmappedto4Xxrsps", csipstatsmisc.Csipstatsmisc3Xxmappedto4Xxrsps}
+    return &(csipstatsmisc.EntityData)
 }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetSegmentPath() string {
-    return "cSipStatsMisc"
-}
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsMisc3xxMappedTo4xxRsps"] = csipstatsmisc.Csipstatsmisc3Xxmappedto4Xxrsps
-    return leafs
-}
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetYangName() string { return "cSipStatsMisc" }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) SetParent(parent types.Entity) { csipstatsmisc.parent = parent }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetParent() types.Entity { return csipstatsmisc.parent }
-
-func (csipstatsmisc *CISCOSIPUAMIB_Csipstatsmisc) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatsconnection
 type CISCOSIPUAMIB_Csipstatsconnection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object reflects the total number of TCP send failures since system
@@ -2759,67 +2019,29 @@ type CISCOSIPUAMIB_Csipstatsconnection struct {
     Csipstatsactivetcpconnections interface{}
 }
 
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetFilter() yfilter.YFilter { return csipstatsconnection.YFilter }
+func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetEntityData() *types.CommonEntityData {
+    csipstatsconnection.EntityData.YFilter = csipstatsconnection.YFilter
+    csipstatsconnection.EntityData.YangName = "cSipStatsConnection"
+    csipstatsconnection.EntityData.BundleName = "cisco_ios_xe"
+    csipstatsconnection.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatsconnection.EntityData.SegmentPath = "cSipStatsConnection"
+    csipstatsconnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatsconnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatsconnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) SetFilter(yf yfilter.YFilter) { csipstatsconnection.YFilter = yf }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetGoName(yname string) string {
-    if yname == "cSipStatsConnTCPSendFailures" { return "Csipstatsconntcpsendfailures" }
-    if yname == "cSipStatsConnUDPSendFailures" { return "Csipstatsconnudpsendfailures" }
-    if yname == "cSipStatsConnTCPRemoteClosures" { return "Csipstatsconntcpremoteclosures" }
-    if yname == "cSipStatsConnUDPCreateFailures" { return "Csipstatsconnudpcreatefailures" }
-    if yname == "cSipStatsConnTCPCreateFailures" { return "Csipstatsconntcpcreatefailures" }
-    if yname == "cSipStatsConnUDPInactiveTimeouts" { return "Csipstatsconnudpinactivetimeouts" }
-    if yname == "cSipStatsConnTCPInactiveTimeouts" { return "Csipstatsconntcpinactivetimeouts" }
-    if yname == "cSipStatsActiveUDPConnections" { return "Csipstatsactiveudpconnections" }
-    if yname == "cSipStatsActiveTCPConnections" { return "Csipstatsactivetcpconnections" }
-    return ""
+    csipstatsconnection.EntityData.Children = make(map[string]types.YChild)
+    csipstatsconnection.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPSendFailures"] = types.YLeaf{"Csipstatsconntcpsendfailures", csipstatsconnection.Csipstatsconntcpsendfailures}
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnUDPSendFailures"] = types.YLeaf{"Csipstatsconnudpsendfailures", csipstatsconnection.Csipstatsconnudpsendfailures}
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPRemoteClosures"] = types.YLeaf{"Csipstatsconntcpremoteclosures", csipstatsconnection.Csipstatsconntcpremoteclosures}
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnUDPCreateFailures"] = types.YLeaf{"Csipstatsconnudpcreatefailures", csipstatsconnection.Csipstatsconnudpcreatefailures}
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPCreateFailures"] = types.YLeaf{"Csipstatsconntcpcreatefailures", csipstatsconnection.Csipstatsconntcpcreatefailures}
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnUDPInactiveTimeouts"] = types.YLeaf{"Csipstatsconnudpinactivetimeouts", csipstatsconnection.Csipstatsconnudpinactivetimeouts}
+    csipstatsconnection.EntityData.Leafs["cSipStatsConnTCPInactiveTimeouts"] = types.YLeaf{"Csipstatsconntcpinactivetimeouts", csipstatsconnection.Csipstatsconntcpinactivetimeouts}
+    csipstatsconnection.EntityData.Leafs["cSipStatsActiveUDPConnections"] = types.YLeaf{"Csipstatsactiveudpconnections", csipstatsconnection.Csipstatsactiveudpconnections}
+    csipstatsconnection.EntityData.Leafs["cSipStatsActiveTCPConnections"] = types.YLeaf{"Csipstatsactivetcpconnections", csipstatsconnection.Csipstatsactivetcpconnections}
+    return &(csipstatsconnection.EntityData)
 }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetSegmentPath() string {
-    return "cSipStatsConnection"
-}
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsConnTCPSendFailures"] = csipstatsconnection.Csipstatsconntcpsendfailures
-    leafs["cSipStatsConnUDPSendFailures"] = csipstatsconnection.Csipstatsconnudpsendfailures
-    leafs["cSipStatsConnTCPRemoteClosures"] = csipstatsconnection.Csipstatsconntcpremoteclosures
-    leafs["cSipStatsConnUDPCreateFailures"] = csipstatsconnection.Csipstatsconnudpcreatefailures
-    leafs["cSipStatsConnTCPCreateFailures"] = csipstatsconnection.Csipstatsconntcpcreatefailures
-    leafs["cSipStatsConnUDPInactiveTimeouts"] = csipstatsconnection.Csipstatsconnudpinactivetimeouts
-    leafs["cSipStatsConnTCPInactiveTimeouts"] = csipstatsconnection.Csipstatsconntcpinactivetimeouts
-    leafs["cSipStatsActiveUDPConnections"] = csipstatsconnection.Csipstatsactiveudpconnections
-    leafs["cSipStatsActiveTCPConnections"] = csipstatsconnection.Csipstatsactivetcpconnections
-    return leafs
-}
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetYangName() string { return "cSipStatsConnection" }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) SetParent(parent types.Entity) { csipstatsconnection.parent = parent }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetParent() types.Entity { return csipstatsconnection.parent }
-
-func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgearlymediatable
 // This table contains configuration for Early
@@ -2828,7 +2050,7 @@ func (csipstatsconnection *CISCOSIPUAMIB_Csipstatsconnection) GetParentYangName(
 // (Provisional) SIP response messages that contain 
 // Session Definition Protocol (SDP) payloads.
 type CISCOSIPUAMIB_Csipcfgearlymediatable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgEarlyMediaTable. A row is accessible with a Provisional
@@ -2838,63 +2060,24 @@ type CISCOSIPUAMIB_Csipcfgearlymediatable struct {
     Csipcfgearlymediaentry []CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry
 }
 
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetFilter() yfilter.YFilter { return csipcfgearlymediatable.YFilter }
+func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetEntityData() *types.CommonEntityData {
+    csipcfgearlymediatable.EntityData.YFilter = csipcfgearlymediatable.YFilter
+    csipcfgearlymediatable.EntityData.YangName = "cSipCfgEarlyMediaTable"
+    csipcfgearlymediatable.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgearlymediatable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgearlymediatable.EntityData.SegmentPath = "cSipCfgEarlyMediaTable"
+    csipcfgearlymediatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgearlymediatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgearlymediatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) SetFilter(yf yfilter.YFilter) { csipcfgearlymediatable.YFilter = yf }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetGoName(yname string) string {
-    if yname == "cSipCfgEarlyMediaEntry" { return "Csipcfgearlymediaentry" }
-    return ""
-}
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetSegmentPath() string {
-    return "cSipCfgEarlyMediaTable"
-}
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipCfgEarlyMediaEntry" {
-        for _, c := range csipcfgearlymediatable.Csipcfgearlymediaentry {
-            if csipcfgearlymediatable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry{}
-        csipcfgearlymediatable.Csipcfgearlymediaentry = append(csipcfgearlymediatable.Csipcfgearlymediaentry, child)
-        return &csipcfgearlymediatable.Csipcfgearlymediaentry[len(csipcfgearlymediatable.Csipcfgearlymediaentry)-1]
-    }
-    return nil
-}
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csipcfgearlymediatable.EntityData.Children = make(map[string]types.YChild)
+    csipcfgearlymediatable.EntityData.Children["cSipCfgEarlyMediaEntry"] = types.YChild{"Csipcfgearlymediaentry", nil}
     for i := range csipcfgearlymediatable.Csipcfgearlymediaentry {
-        children[csipcfgearlymediatable.Csipcfgearlymediaentry[i].GetSegmentPath()] = &csipcfgearlymediatable.Csipcfgearlymediaentry[i]
+        csipcfgearlymediatable.EntityData.Children[types.GetSegmentPath(&csipcfgearlymediatable.Csipcfgearlymediaentry[i])] = types.YChild{"Csipcfgearlymediaentry", &csipcfgearlymediatable.Csipcfgearlymediaentry[i]}
     }
-    return children
+    csipcfgearlymediatable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csipcfgearlymediatable.EntityData)
 }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetYangName() string { return "cSipCfgEarlyMediaTable" }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) SetParent(parent types.Entity) { csipcfgearlymediatable.parent = parent }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetParent() types.Entity { return csipcfgearlymediatable.parent }
-
-func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry
 // A row in the cSipCfgEarlyMediaTable.
@@ -2903,7 +2086,7 @@ func (csipcfgearlymediatable *CISCOSIPUAMIB_Csipcfgearlymediatable) GetParentYan
 // an object for the enabling or disabling of
 // the Early Media Cut Through functionality.
 type CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and a
@@ -2922,53 +2105,22 @@ type CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry struct {
     Csipcfgearlymediacutthrudisabled interface{}
 }
 
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetFilter() yfilter.YFilter { return csipcfgearlymediaentry.YFilter }
+func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetEntityData() *types.CommonEntityData {
+    csipcfgearlymediaentry.EntityData.YFilter = csipcfgearlymediaentry.YFilter
+    csipcfgearlymediaentry.EntityData.YangName = "cSipCfgEarlyMediaEntry"
+    csipcfgearlymediaentry.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgearlymediaentry.EntityData.ParentYangName = "cSipCfgEarlyMediaTable"
+    csipcfgearlymediaentry.EntityData.SegmentPath = "cSipCfgEarlyMediaEntry" + "[cSipCfgEarlyMediaStatusCodeIndex='" + fmt.Sprintf("%v", csipcfgearlymediaentry.Csipcfgearlymediastatuscodeindex) + "']"
+    csipcfgearlymediaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgearlymediaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgearlymediaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) SetFilter(yf yfilter.YFilter) { csipcfgearlymediaentry.YFilter = yf }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetGoName(yname string) string {
-    if yname == "cSipCfgEarlyMediaStatusCodeIndex" { return "Csipcfgearlymediastatuscodeindex" }
-    if yname == "cSipCfgEarlyMediaCutThruDisabled" { return "Csipcfgearlymediacutthrudisabled" }
-    return ""
+    csipcfgearlymediaentry.EntityData.Children = make(map[string]types.YChild)
+    csipcfgearlymediaentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgearlymediaentry.EntityData.Leafs["cSipCfgEarlyMediaStatusCodeIndex"] = types.YLeaf{"Csipcfgearlymediastatuscodeindex", csipcfgearlymediaentry.Csipcfgearlymediastatuscodeindex}
+    csipcfgearlymediaentry.EntityData.Leafs["cSipCfgEarlyMediaCutThruDisabled"] = types.YLeaf{"Csipcfgearlymediacutthrudisabled", csipcfgearlymediaentry.Csipcfgearlymediacutthrudisabled}
+    return &(csipcfgearlymediaentry.EntityData)
 }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetSegmentPath() string {
-    return "cSipCfgEarlyMediaEntry" + "[cSipCfgEarlyMediaStatusCodeIndex='" + fmt.Sprintf("%v", csipcfgearlymediaentry.Csipcfgearlymediastatuscodeindex) + "']"
-}
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgEarlyMediaStatusCodeIndex"] = csipcfgearlymediaentry.Csipcfgearlymediastatuscodeindex
-    leafs["cSipCfgEarlyMediaCutThruDisabled"] = csipcfgearlymediaentry.Csipcfgearlymediacutthrudisabled
-    return leafs
-}
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetYangName() string { return "cSipCfgEarlyMediaEntry" }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) SetParent(parent types.Entity) { csipcfgearlymediaentry.parent = parent }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetParent() types.Entity { return csipcfgearlymediaentry.parent }
-
-func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlymediaentry) GetParentYangName() string { return "cSipCfgEarlyMediaTable" }
 
 // CISCOSIPUAMIB_Csipcfgbindsourceaddrtable
 // This table contains configuration for binding
@@ -2979,7 +2131,7 @@ func (csipcfgearlymediaentry *CISCOSIPUAMIB_Csipcfgearlymediatable_Csipcfgearlym
 // specified by the interface index. The table
 // shall be indexed based on the scope.
 type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgBindSourceAddrTable. A row is accessible with the scope
@@ -2989,63 +2141,24 @@ type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable struct {
     Csipcfgbindsourceaddrentry []CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry
 }
 
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetFilter() yfilter.YFilter { return csipcfgbindsourceaddrtable.YFilter }
+func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetEntityData() *types.CommonEntityData {
+    csipcfgbindsourceaddrtable.EntityData.YFilter = csipcfgbindsourceaddrtable.YFilter
+    csipcfgbindsourceaddrtable.EntityData.YangName = "cSipCfgBindSourceAddrTable"
+    csipcfgbindsourceaddrtable.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgbindsourceaddrtable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgbindsourceaddrtable.EntityData.SegmentPath = "cSipCfgBindSourceAddrTable"
+    csipcfgbindsourceaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgbindsourceaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgbindsourceaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) SetFilter(yf yfilter.YFilter) { csipcfgbindsourceaddrtable.YFilter = yf }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetGoName(yname string) string {
-    if yname == "cSipCfgBindSourceAddrEntry" { return "Csipcfgbindsourceaddrentry" }
-    return ""
-}
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetSegmentPath() string {
-    return "cSipCfgBindSourceAddrTable"
-}
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipCfgBindSourceAddrEntry" {
-        for _, c := range csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry {
-            if csipcfgbindsourceaddrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry{}
-        csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry = append(csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry, child)
-        return &csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[len(csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry)-1]
-    }
-    return nil
-}
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csipcfgbindsourceaddrtable.EntityData.Children = make(map[string]types.YChild)
+    csipcfgbindsourceaddrtable.EntityData.Children["cSipCfgBindSourceAddrEntry"] = types.YChild{"Csipcfgbindsourceaddrentry", nil}
     for i := range csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry {
-        children[csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[i].GetSegmentPath()] = &csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[i]
+        csipcfgbindsourceaddrtable.EntityData.Children[types.GetSegmentPath(&csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[i])] = types.YChild{"Csipcfgbindsourceaddrentry", &csipcfgbindsourceaddrtable.Csipcfgbindsourceaddrentry[i]}
     }
-    return children
+    csipcfgbindsourceaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csipcfgbindsourceaddrtable.EntityData)
 }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetYangName() string { return "cSipCfgBindSourceAddrTable" }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) SetParent(parent types.Entity) { csipcfgbindsourceaddrtable.parent = parent }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetParent() types.Entity { return csipcfgbindsourceaddrtable.parent }
-
-func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry
 // A row in the cSipCfgBindSourceAddrTable.
@@ -3054,7 +2167,7 @@ func (csipcfgbindsourceaddrtable *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable) GetP
 // designated by cSipCfgBindSourceAddrInterface
 // will be bound.
 type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and
@@ -3071,53 +2184,22 @@ type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry struct 
     Csipcfgbindsourceaddrinterface interface{}
 }
 
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetFilter() yfilter.YFilter { return csipcfgbindsourceaddrentry.YFilter }
+func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetEntityData() *types.CommonEntityData {
+    csipcfgbindsourceaddrentry.EntityData.YFilter = csipcfgbindsourceaddrentry.YFilter
+    csipcfgbindsourceaddrentry.EntityData.YangName = "cSipCfgBindSourceAddrEntry"
+    csipcfgbindsourceaddrentry.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgbindsourceaddrentry.EntityData.ParentYangName = "cSipCfgBindSourceAddrTable"
+    csipcfgbindsourceaddrentry.EntityData.SegmentPath = "cSipCfgBindSourceAddrEntry" + "[cSipCfgBindSourceAddrScope='" + fmt.Sprintf("%v", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope) + "']"
+    csipcfgbindsourceaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgbindsourceaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgbindsourceaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) SetFilter(yf yfilter.YFilter) { csipcfgbindsourceaddrentry.YFilter = yf }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetGoName(yname string) string {
-    if yname == "cSipCfgBindSourceAddrScope" { return "Csipcfgbindsourceaddrscope" }
-    if yname == "cSipCfgBindSourceAddrInterface" { return "Csipcfgbindsourceaddrinterface" }
-    return ""
+    csipcfgbindsourceaddrentry.EntityData.Children = make(map[string]types.YChild)
+    csipcfgbindsourceaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgbindsourceaddrentry.EntityData.Leafs["cSipCfgBindSourceAddrScope"] = types.YLeaf{"Csipcfgbindsourceaddrscope", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope}
+    csipcfgbindsourceaddrentry.EntityData.Leafs["cSipCfgBindSourceAddrInterface"] = types.YLeaf{"Csipcfgbindsourceaddrinterface", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrinterface}
+    return &(csipcfgbindsourceaddrentry.EntityData)
 }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetSegmentPath() string {
-    return "cSipCfgBindSourceAddrEntry" + "[cSipCfgBindSourceAddrScope='" + fmt.Sprintf("%v", csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope) + "']"
-}
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgBindSourceAddrScope"] = csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrscope
-    leafs["cSipCfgBindSourceAddrInterface"] = csipcfgbindsourceaddrentry.Csipcfgbindsourceaddrinterface
-    return leafs
-}
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetYangName() string { return "cSipCfgBindSourceAddrEntry" }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) SetParent(parent types.Entity) { csipcfgbindsourceaddrentry.parent = parent }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetParent() types.Entity { return csipcfgbindsourceaddrentry.parent }
-
-func (csipcfgbindsourceaddrentry *CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry) GetParentYangName() string { return "cSipCfgBindSourceAddrTable" }
 
 // CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope represents will be bound.
 type CISCOSIPUAMIB_Csipcfgbindsourceaddrtable_Csipcfgbindsourceaddrentry_Csipcfgbindsourceaddrscope string
@@ -3143,7 +2225,7 @@ const (
 // performed via this table once the dial-peer exists
 // in the system and is visible in this table.
 type CISCOSIPUAMIB_Csipcfgpeertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgPeerTable. The type is slice of
@@ -3151,68 +2233,29 @@ type CISCOSIPUAMIB_Csipcfgpeertable struct {
     Csipcfgpeerentry []CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry
 }
 
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetFilter() yfilter.YFilter { return csipcfgpeertable.YFilter }
+func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetEntityData() *types.CommonEntityData {
+    csipcfgpeertable.EntityData.YFilter = csipcfgpeertable.YFilter
+    csipcfgpeertable.EntityData.YangName = "cSipCfgPeerTable"
+    csipcfgpeertable.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgpeertable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgpeertable.EntityData.SegmentPath = "cSipCfgPeerTable"
+    csipcfgpeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgpeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgpeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) SetFilter(yf yfilter.YFilter) { csipcfgpeertable.YFilter = yf }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetGoName(yname string) string {
-    if yname == "cSipCfgPeerEntry" { return "Csipcfgpeerentry" }
-    return ""
-}
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetSegmentPath() string {
-    return "cSipCfgPeerTable"
-}
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipCfgPeerEntry" {
-        for _, c := range csipcfgpeertable.Csipcfgpeerentry {
-            if csipcfgpeertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry{}
-        csipcfgpeertable.Csipcfgpeerentry = append(csipcfgpeertable.Csipcfgpeerentry, child)
-        return &csipcfgpeertable.Csipcfgpeerentry[len(csipcfgpeertable.Csipcfgpeerentry)-1]
-    }
-    return nil
-}
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csipcfgpeertable.EntityData.Children = make(map[string]types.YChild)
+    csipcfgpeertable.EntityData.Children["cSipCfgPeerEntry"] = types.YChild{"Csipcfgpeerentry", nil}
     for i := range csipcfgpeertable.Csipcfgpeerentry {
-        children[csipcfgpeertable.Csipcfgpeerentry[i].GetSegmentPath()] = &csipcfgpeertable.Csipcfgpeerentry[i]
+        csipcfgpeertable.EntityData.Children[types.GetSegmentPath(&csipcfgpeertable.Csipcfgpeerentry[i])] = types.YChild{"Csipcfgpeerentry", &csipcfgpeertable.Csipcfgpeerentry[i]}
     }
-    return children
+    csipcfgpeertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csipcfgpeertable.EntityData)
 }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetYangName() string { return "cSipCfgPeerTable" }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) SetParent(parent types.Entity) { csipcfgpeertable.parent = parent }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetParent() types.Entity { return csipcfgpeertable.parent }
-
-func (csipcfgpeertable *CISCOSIPUAMIB_Csipcfgpeertable) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry
 // A row in the cSipCfgPeerTable.
 type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary index that uniquely identifies a 
@@ -3261,61 +2304,26 @@ type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry struct {
     Csipcfgpeerswitchtransenabled interface{}
 }
 
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetFilter() yfilter.YFilter { return csipcfgpeerentry.YFilter }
+func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetEntityData() *types.CommonEntityData {
+    csipcfgpeerentry.EntityData.YFilter = csipcfgpeerentry.YFilter
+    csipcfgpeerentry.EntityData.YangName = "cSipCfgPeerEntry"
+    csipcfgpeerentry.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgpeerentry.EntityData.ParentYangName = "cSipCfgPeerTable"
+    csipcfgpeerentry.EntityData.SegmentPath = "cSipCfgPeerEntry" + "[cSipCfgPeerIndex='" + fmt.Sprintf("%v", csipcfgpeerentry.Csipcfgpeerindex) + "']"
+    csipcfgpeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgpeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgpeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) SetFilter(yf yfilter.YFilter) { csipcfgpeerentry.YFilter = yf }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetGoName(yname string) string {
-    if yname == "cSipCfgPeerIndex" { return "Csipcfgpeerindex" }
-    if yname == "cSipCfgPeerOutSessionTransport" { return "Csipcfgpeeroutsessiontransport" }
-    if yname == "cSipCfgPeerReliable1xxRspStr" { return "Csipcfgpeerreliable1Xxrspstr" }
-    if yname == "cSipCfgPeerReliable1xxRspHdr" { return "Csipcfgpeerreliable1Xxrsphdr" }
-    if yname == "cSipCfgPeerUrlType" { return "Csipcfgpeerurltype" }
-    if yname == "cSipCfgPeerSwitchTransEnabled" { return "Csipcfgpeerswitchtransenabled" }
-    return ""
+    csipcfgpeerentry.EntityData.Children = make(map[string]types.YChild)
+    csipcfgpeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerIndex"] = types.YLeaf{"Csipcfgpeerindex", csipcfgpeerentry.Csipcfgpeerindex}
+    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerOutSessionTransport"] = types.YLeaf{"Csipcfgpeeroutsessiontransport", csipcfgpeerentry.Csipcfgpeeroutsessiontransport}
+    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerReliable1xxRspStr"] = types.YLeaf{"Csipcfgpeerreliable1Xxrspstr", csipcfgpeerentry.Csipcfgpeerreliable1Xxrspstr}
+    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerReliable1xxRspHdr"] = types.YLeaf{"Csipcfgpeerreliable1Xxrsphdr", csipcfgpeerentry.Csipcfgpeerreliable1Xxrsphdr}
+    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerUrlType"] = types.YLeaf{"Csipcfgpeerurltype", csipcfgpeerentry.Csipcfgpeerurltype}
+    csipcfgpeerentry.EntityData.Leafs["cSipCfgPeerSwitchTransEnabled"] = types.YLeaf{"Csipcfgpeerswitchtransenabled", csipcfgpeerentry.Csipcfgpeerswitchtransenabled}
+    return &(csipcfgpeerentry.EntityData)
 }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetSegmentPath() string {
-    return "cSipCfgPeerEntry" + "[cSipCfgPeerIndex='" + fmt.Sprintf("%v", csipcfgpeerentry.Csipcfgpeerindex) + "']"
-}
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgPeerIndex"] = csipcfgpeerentry.Csipcfgpeerindex
-    leafs["cSipCfgPeerOutSessionTransport"] = csipcfgpeerentry.Csipcfgpeeroutsessiontransport
-    leafs["cSipCfgPeerReliable1xxRspStr"] = csipcfgpeerentry.Csipcfgpeerreliable1Xxrspstr
-    leafs["cSipCfgPeerReliable1xxRspHdr"] = csipcfgpeerentry.Csipcfgpeerreliable1Xxrsphdr
-    leafs["cSipCfgPeerUrlType"] = csipcfgpeerentry.Csipcfgpeerurltype
-    leafs["cSipCfgPeerSwitchTransEnabled"] = csipcfgpeerentry.Csipcfgpeerswitchtransenabled
-    return leafs
-}
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetYangName() string { return "cSipCfgPeerEntry" }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) SetParent(parent types.Entity) { csipcfgpeerentry.parent = parent }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetParent() types.Entity { return csipcfgpeerentry.parent }
-
-func (csipcfgpeerentry *CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry) GetParentYangName() string { return "cSipCfgPeerTable" }
 
 // CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport represents cSipCfgOutSessionTransport instead.
 type CISCOSIPUAMIB_Csipcfgpeertable_Csipcfgpeerentry_Csipcfgpeeroutsessiontransport string
@@ -3360,7 +2368,7 @@ const (
 // PSTN cause codes as prescribed by the contents of this 
 // table.
 type CISCOSIPUAMIB_Csipcfgstatuscausetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgStatusCauseTable.  Entries cannot be created or
@@ -3369,69 +2377,30 @@ type CISCOSIPUAMIB_Csipcfgstatuscausetable struct {
     Csipcfgstatuscauseentry []CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry
 }
 
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetFilter() yfilter.YFilter { return csipcfgstatuscausetable.YFilter }
+func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetEntityData() *types.CommonEntityData {
+    csipcfgstatuscausetable.EntityData.YFilter = csipcfgstatuscausetable.YFilter
+    csipcfgstatuscausetable.EntityData.YangName = "cSipCfgStatusCauseTable"
+    csipcfgstatuscausetable.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgstatuscausetable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgstatuscausetable.EntityData.SegmentPath = "cSipCfgStatusCauseTable"
+    csipcfgstatuscausetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgstatuscausetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgstatuscausetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) SetFilter(yf yfilter.YFilter) { csipcfgstatuscausetable.YFilter = yf }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetGoName(yname string) string {
-    if yname == "cSipCfgStatusCauseEntry" { return "Csipcfgstatuscauseentry" }
-    return ""
-}
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetSegmentPath() string {
-    return "cSipCfgStatusCauseTable"
-}
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipCfgStatusCauseEntry" {
-        for _, c := range csipcfgstatuscausetable.Csipcfgstatuscauseentry {
-            if csipcfgstatuscausetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry{}
-        csipcfgstatuscausetable.Csipcfgstatuscauseentry = append(csipcfgstatuscausetable.Csipcfgstatuscauseentry, child)
-        return &csipcfgstatuscausetable.Csipcfgstatuscauseentry[len(csipcfgstatuscausetable.Csipcfgstatuscauseentry)-1]
-    }
-    return nil
-}
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csipcfgstatuscausetable.EntityData.Children = make(map[string]types.YChild)
+    csipcfgstatuscausetable.EntityData.Children["cSipCfgStatusCauseEntry"] = types.YChild{"Csipcfgstatuscauseentry", nil}
     for i := range csipcfgstatuscausetable.Csipcfgstatuscauseentry {
-        children[csipcfgstatuscausetable.Csipcfgstatuscauseentry[i].GetSegmentPath()] = &csipcfgstatuscausetable.Csipcfgstatuscauseentry[i]
+        csipcfgstatuscausetable.EntityData.Children[types.GetSegmentPath(&csipcfgstatuscausetable.Csipcfgstatuscauseentry[i])] = types.YChild{"Csipcfgstatuscauseentry", &csipcfgstatuscausetable.Csipcfgstatuscauseentry[i]}
     }
-    return children
+    csipcfgstatuscausetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csipcfgstatuscausetable.EntityData)
 }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetYangName() string { return "cSipCfgStatusCauseTable" }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) SetParent(parent types.Entity) { csipcfgstatuscausetable.parent = parent }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetParent() types.Entity { return csipcfgstatuscausetable.parent }
-
-func (csipcfgstatuscausetable *CISCOSIPUAMIB_Csipcfgstatuscausetable) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry
 // A row in the cSipCfgStatusCauseTable.  Entries cannot be
 // created or destroyed by the actions of any NMS.
 type CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and a
@@ -3451,55 +2420,23 @@ type CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry struct {
     Csipcfgstatuscausestorestatus interface{}
 }
 
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetFilter() yfilter.YFilter { return csipcfgstatuscauseentry.YFilter }
+func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetEntityData() *types.CommonEntityData {
+    csipcfgstatuscauseentry.EntityData.YFilter = csipcfgstatuscauseentry.YFilter
+    csipcfgstatuscauseentry.EntityData.YangName = "cSipCfgStatusCauseEntry"
+    csipcfgstatuscauseentry.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgstatuscauseentry.EntityData.ParentYangName = "cSipCfgStatusCauseTable"
+    csipcfgstatuscauseentry.EntityData.SegmentPath = "cSipCfgStatusCauseEntry" + "[cSipCfgStatusCodeIndex='" + fmt.Sprintf("%v", csipcfgstatuscauseentry.Csipcfgstatuscodeindex) + "']"
+    csipcfgstatuscauseentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgstatuscauseentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgstatuscauseentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) SetFilter(yf yfilter.YFilter) { csipcfgstatuscauseentry.YFilter = yf }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetGoName(yname string) string {
-    if yname == "cSipCfgStatusCodeIndex" { return "Csipcfgstatuscodeindex" }
-    if yname == "cSipCfgPstnCause" { return "Csipcfgpstncause" }
-    if yname == "cSipCfgStatusCauseStoreStatus" { return "Csipcfgstatuscausestorestatus" }
-    return ""
+    csipcfgstatuscauseentry.EntityData.Children = make(map[string]types.YChild)
+    csipcfgstatuscauseentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgstatuscauseentry.EntityData.Leafs["cSipCfgStatusCodeIndex"] = types.YLeaf{"Csipcfgstatuscodeindex", csipcfgstatuscauseentry.Csipcfgstatuscodeindex}
+    csipcfgstatuscauseentry.EntityData.Leafs["cSipCfgPstnCause"] = types.YLeaf{"Csipcfgpstncause", csipcfgstatuscauseentry.Csipcfgpstncause}
+    csipcfgstatuscauseentry.EntityData.Leafs["cSipCfgStatusCauseStoreStatus"] = types.YLeaf{"Csipcfgstatuscausestorestatus", csipcfgstatuscauseentry.Csipcfgstatuscausestorestatus}
+    return &(csipcfgstatuscauseentry.EntityData)
 }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetSegmentPath() string {
-    return "cSipCfgStatusCauseEntry" + "[cSipCfgStatusCodeIndex='" + fmt.Sprintf("%v", csipcfgstatuscauseentry.Csipcfgstatuscodeindex) + "']"
-}
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgStatusCodeIndex"] = csipcfgstatuscauseentry.Csipcfgstatuscodeindex
-    leafs["cSipCfgPstnCause"] = csipcfgstatuscauseentry.Csipcfgpstncause
-    leafs["cSipCfgStatusCauseStoreStatus"] = csipcfgstatuscauseentry.Csipcfgstatuscausestorestatus
-    return leafs
-}
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetYangName() string { return "cSipCfgStatusCauseEntry" }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) SetParent(parent types.Entity) { csipcfgstatuscauseentry.parent = parent }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetParent() types.Entity { return csipcfgstatuscauseentry.parent }
-
-func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstatuscauseentry) GetParentYangName() string { return "cSipCfgStatusCauseTable" }
 
 // CISCOSIPUAMIB_Csipcfgcausestatustable
 // This table contains PSTN cause code to SIP status code
@@ -3509,7 +2446,7 @@ func (csipcfgstatuscauseentry *CISCOSIPUAMIB_Csipcfgstatuscausetable_Csipcfgstat
 // SIP status codes as prescribed by the contents of this 
 // table.
 type CISCOSIPUAMIB_Csipcfgcausestatustable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipCfgCauseStatusTable. Entries cannot be created or
@@ -3518,69 +2455,30 @@ type CISCOSIPUAMIB_Csipcfgcausestatustable struct {
     Csipcfgcausestatusentry []CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry
 }
 
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetFilter() yfilter.YFilter { return csipcfgcausestatustable.YFilter }
+func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetEntityData() *types.CommonEntityData {
+    csipcfgcausestatustable.EntityData.YFilter = csipcfgcausestatustable.YFilter
+    csipcfgcausestatustable.EntityData.YangName = "cSipCfgCauseStatusTable"
+    csipcfgcausestatustable.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgcausestatustable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipcfgcausestatustable.EntityData.SegmentPath = "cSipCfgCauseStatusTable"
+    csipcfgcausestatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgcausestatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgcausestatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) SetFilter(yf yfilter.YFilter) { csipcfgcausestatustable.YFilter = yf }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetGoName(yname string) string {
-    if yname == "cSipCfgCauseStatusEntry" { return "Csipcfgcausestatusentry" }
-    return ""
-}
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetSegmentPath() string {
-    return "cSipCfgCauseStatusTable"
-}
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipCfgCauseStatusEntry" {
-        for _, c := range csipcfgcausestatustable.Csipcfgcausestatusentry {
-            if csipcfgcausestatustable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry{}
-        csipcfgcausestatustable.Csipcfgcausestatusentry = append(csipcfgcausestatustable.Csipcfgcausestatusentry, child)
-        return &csipcfgcausestatustable.Csipcfgcausestatusentry[len(csipcfgcausestatustable.Csipcfgcausestatusentry)-1]
-    }
-    return nil
-}
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csipcfgcausestatustable.EntityData.Children = make(map[string]types.YChild)
+    csipcfgcausestatustable.EntityData.Children["cSipCfgCauseStatusEntry"] = types.YChild{"Csipcfgcausestatusentry", nil}
     for i := range csipcfgcausestatustable.Csipcfgcausestatusentry {
-        children[csipcfgcausestatustable.Csipcfgcausestatusentry[i].GetSegmentPath()] = &csipcfgcausestatustable.Csipcfgcausestatusentry[i]
+        csipcfgcausestatustable.EntityData.Children[types.GetSegmentPath(&csipcfgcausestatustable.Csipcfgcausestatusentry[i])] = types.YChild{"Csipcfgcausestatusentry", &csipcfgcausestatustable.Csipcfgcausestatusentry[i]}
     }
-    return children
+    csipcfgcausestatustable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csipcfgcausestatustable.EntityData)
 }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetYangName() string { return "cSipCfgCauseStatusTable" }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) SetParent(parent types.Entity) { csipcfgcausestatustable.parent = parent }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetParent() types.Entity { return csipcfgcausestatustable.parent }
-
-func (csipcfgcausestatustable *CISCOSIPUAMIB_Csipcfgcausestatustable) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry
 // A row in the cSipCfgCauseStatusTable. Entries cannot be
 // created or destroyed by the actions of any NMS.
 type CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table and a
@@ -3600,62 +2498,30 @@ type CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry struct {
     Csipcfgcausestatusstorestatus interface{}
 }
 
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetFilter() yfilter.YFilter { return csipcfgcausestatusentry.YFilter }
+func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetEntityData() *types.CommonEntityData {
+    csipcfgcausestatusentry.EntityData.YFilter = csipcfgcausestatusentry.YFilter
+    csipcfgcausestatusentry.EntityData.YangName = "cSipCfgCauseStatusEntry"
+    csipcfgcausestatusentry.EntityData.BundleName = "cisco_ios_xe"
+    csipcfgcausestatusentry.EntityData.ParentYangName = "cSipCfgCauseStatusTable"
+    csipcfgcausestatusentry.EntityData.SegmentPath = "cSipCfgCauseStatusEntry" + "[cSipCfgPstnCauseIndex='" + fmt.Sprintf("%v", csipcfgcausestatusentry.Csipcfgpstncauseindex) + "']"
+    csipcfgcausestatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipcfgcausestatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipcfgcausestatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) SetFilter(yf yfilter.YFilter) { csipcfgcausestatusentry.YFilter = yf }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetGoName(yname string) string {
-    if yname == "cSipCfgPstnCauseIndex" { return "Csipcfgpstncauseindex" }
-    if yname == "cSipCfgStatusCode" { return "Csipcfgstatuscode" }
-    if yname == "cSipCfgCauseStatusStoreStatus" { return "Csipcfgcausestatusstorestatus" }
-    return ""
+    csipcfgcausestatusentry.EntityData.Children = make(map[string]types.YChild)
+    csipcfgcausestatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipcfgcausestatusentry.EntityData.Leafs["cSipCfgPstnCauseIndex"] = types.YLeaf{"Csipcfgpstncauseindex", csipcfgcausestatusentry.Csipcfgpstncauseindex}
+    csipcfgcausestatusentry.EntityData.Leafs["cSipCfgStatusCode"] = types.YLeaf{"Csipcfgstatuscode", csipcfgcausestatusentry.Csipcfgstatuscode}
+    csipcfgcausestatusentry.EntityData.Leafs["cSipCfgCauseStatusStoreStatus"] = types.YLeaf{"Csipcfgcausestatusstorestatus", csipcfgcausestatusentry.Csipcfgcausestatusstorestatus}
+    return &(csipcfgcausestatusentry.EntityData)
 }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetSegmentPath() string {
-    return "cSipCfgCauseStatusEntry" + "[cSipCfgPstnCauseIndex='" + fmt.Sprintf("%v", csipcfgcausestatusentry.Csipcfgpstncauseindex) + "']"
-}
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipCfgPstnCauseIndex"] = csipcfgcausestatusentry.Csipcfgpstncauseindex
-    leafs["cSipCfgStatusCode"] = csipcfgcausestatusentry.Csipcfgstatuscode
-    leafs["cSipCfgCauseStatusStoreStatus"] = csipcfgcausestatusentry.Csipcfgcausestatusstorestatus
-    return leafs
-}
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetYangName() string { return "cSipCfgCauseStatusEntry" }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) SetParent(parent types.Entity) { csipcfgcausestatusentry.parent = parent }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetParent() types.Entity { return csipcfgcausestatusentry.parent }
-
-func (csipcfgcausestatusentry *CISCOSIPUAMIB_Csipcfgcausestatustable_Csipcfgcausestatusentry) GetParentYangName() string { return "cSipCfgCauseStatusTable" }
 
 // CISCOSIPUAMIB_Csipstatssuccessoktable
 // This table contains statistics for sent and
 // received 200 Ok response messages.  The 
 // statistics are kept on per SIP method basis.
 type CISCOSIPUAMIB_Csipstatssuccessoktable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the cSipStatsSuccessOkTable.  There is  an entry for each SIP
@@ -3665,70 +2531,31 @@ type CISCOSIPUAMIB_Csipstatssuccessoktable struct {
     Csipstatssuccessokentry []CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry
 }
 
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetFilter() yfilter.YFilter { return csipstatssuccessoktable.YFilter }
+func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetEntityData() *types.CommonEntityData {
+    csipstatssuccessoktable.EntityData.YFilter = csipstatssuccessoktable.YFilter
+    csipstatssuccessoktable.EntityData.YangName = "cSipStatsSuccessOkTable"
+    csipstatssuccessoktable.EntityData.BundleName = "cisco_ios_xe"
+    csipstatssuccessoktable.EntityData.ParentYangName = "CISCO-SIP-UA-MIB"
+    csipstatssuccessoktable.EntityData.SegmentPath = "cSipStatsSuccessOkTable"
+    csipstatssuccessoktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatssuccessoktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatssuccessoktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) SetFilter(yf yfilter.YFilter) { csipstatssuccessoktable.YFilter = yf }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetGoName(yname string) string {
-    if yname == "cSipStatsSuccessOkEntry" { return "Csipstatssuccessokentry" }
-    return ""
-}
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetSegmentPath() string {
-    return "cSipStatsSuccessOkTable"
-}
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cSipStatsSuccessOkEntry" {
-        for _, c := range csipstatssuccessoktable.Csipstatssuccessokentry {
-            if csipstatssuccessoktable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry{}
-        csipstatssuccessoktable.Csipstatssuccessokentry = append(csipstatssuccessoktable.Csipstatssuccessokentry, child)
-        return &csipstatssuccessoktable.Csipstatssuccessokentry[len(csipstatssuccessoktable.Csipstatssuccessokentry)-1]
-    }
-    return nil
-}
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csipstatssuccessoktable.EntityData.Children = make(map[string]types.YChild)
+    csipstatssuccessoktable.EntityData.Children["cSipStatsSuccessOkEntry"] = types.YChild{"Csipstatssuccessokentry", nil}
     for i := range csipstatssuccessoktable.Csipstatssuccessokentry {
-        children[csipstatssuccessoktable.Csipstatssuccessokentry[i].GetSegmentPath()] = &csipstatssuccessoktable.Csipstatssuccessokentry[i]
+        csipstatssuccessoktable.EntityData.Children[types.GetSegmentPath(&csipstatssuccessoktable.Csipstatssuccessokentry[i])] = types.YChild{"Csipstatssuccessokentry", &csipstatssuccessoktable.Csipstatssuccessokentry[i]}
     }
-    return children
+    csipstatssuccessoktable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csipstatssuccessoktable.EntityData)
 }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetYangName() string { return "cSipStatsSuccessOkTable" }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) SetParent(parent types.Entity) { csipstatssuccessoktable.parent = parent }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetParent() types.Entity { return csipstatssuccessoktable.parent }
-
-func (csipstatssuccessoktable *CISCOSIPUAMIB_Csipstatssuccessoktable) GetParentYangName() string { return "CISCO-SIP-UA-MIB" }
 
 // CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry
 // A row in the cSipStatsSuccessOkTable.  There is 
 // an entry for each SIP method for which 200 Ok 
 // inbound and/or outbound statistics are kept.
 type CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object is used for instance identification of
@@ -3749,53 +2576,21 @@ type CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry struct {
     Csipstatssuccessokoutbounds interface{}
 }
 
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetFilter() yfilter.YFilter { return csipstatssuccessokentry.YFilter }
+func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetEntityData() *types.CommonEntityData {
+    csipstatssuccessokentry.EntityData.YFilter = csipstatssuccessokentry.YFilter
+    csipstatssuccessokentry.EntityData.YangName = "cSipStatsSuccessOkEntry"
+    csipstatssuccessokentry.EntityData.BundleName = "cisco_ios_xe"
+    csipstatssuccessokentry.EntityData.ParentYangName = "cSipStatsSuccessOkTable"
+    csipstatssuccessokentry.EntityData.SegmentPath = "cSipStatsSuccessOkEntry" + "[cSipStatsSuccessOkMethod='" + fmt.Sprintf("%v", csipstatssuccessokentry.Csipstatssuccessokmethod) + "']"
+    csipstatssuccessokentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csipstatssuccessokentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csipstatssuccessokentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) SetFilter(yf yfilter.YFilter) { csipstatssuccessokentry.YFilter = yf }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetGoName(yname string) string {
-    if yname == "cSipStatsSuccessOkMethod" { return "Csipstatssuccessokmethod" }
-    if yname == "cSipStatsSuccessOkInbounds" { return "Csipstatssuccessokinbounds" }
-    if yname == "cSipStatsSuccessOkOutbounds" { return "Csipstatssuccessokoutbounds" }
-    return ""
+    csipstatssuccessokentry.EntityData.Children = make(map[string]types.YChild)
+    csipstatssuccessokentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csipstatssuccessokentry.EntityData.Leafs["cSipStatsSuccessOkMethod"] = types.YLeaf{"Csipstatssuccessokmethod", csipstatssuccessokentry.Csipstatssuccessokmethod}
+    csipstatssuccessokentry.EntityData.Leafs["cSipStatsSuccessOkInbounds"] = types.YLeaf{"Csipstatssuccessokinbounds", csipstatssuccessokentry.Csipstatssuccessokinbounds}
+    csipstatssuccessokentry.EntityData.Leafs["cSipStatsSuccessOkOutbounds"] = types.YLeaf{"Csipstatssuccessokoutbounds", csipstatssuccessokentry.Csipstatssuccessokoutbounds}
+    return &(csipstatssuccessokentry.EntityData)
 }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetSegmentPath() string {
-    return "cSipStatsSuccessOkEntry" + "[cSipStatsSuccessOkMethod='" + fmt.Sprintf("%v", csipstatssuccessokentry.Csipstatssuccessokmethod) + "']"
-}
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cSipStatsSuccessOkMethod"] = csipstatssuccessokentry.Csipstatssuccessokmethod
-    leafs["cSipStatsSuccessOkInbounds"] = csipstatssuccessokentry.Csipstatssuccessokinbounds
-    leafs["cSipStatsSuccessOkOutbounds"] = csipstatssuccessokentry.Csipstatssuccessokoutbounds
-    return leafs
-}
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetYangName() string { return "cSipStatsSuccessOkEntry" }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) SetParent(parent types.Entity) { csipstatssuccessokentry.parent = parent }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetParent() types.Entity { return csipstatssuccessokentry.parent }
-
-func (csipstatssuccessokentry *CISCOSIPUAMIB_Csipstatssuccessoktable_Csipstatssuccessokentry) GetParentYangName() string { return "cSipStatsSuccessOkTable" }
 

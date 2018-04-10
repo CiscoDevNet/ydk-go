@@ -24,7 +24,7 @@ func init() {
 
 // SNMPPROXYMIB
 type SNMPPROXYMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The table of translation parameters used by proxy forwarder applications
@@ -32,60 +32,27 @@ type SNMPPROXYMIB struct {
     Snmpproxytable SNMPPROXYMIB_Snmpproxytable
 }
 
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetFilter() yfilter.YFilter { return sNMPPROXYMIB.YFilter }
+func (sNMPPROXYMIB *SNMPPROXYMIB) GetEntityData() *types.CommonEntityData {
+    sNMPPROXYMIB.EntityData.YFilter = sNMPPROXYMIB.YFilter
+    sNMPPROXYMIB.EntityData.YangName = "SNMP-PROXY-MIB"
+    sNMPPROXYMIB.EntityData.BundleName = "cisco_ios_xe"
+    sNMPPROXYMIB.EntityData.ParentYangName = "SNMP-PROXY-MIB"
+    sNMPPROXYMIB.EntityData.SegmentPath = "SNMP-PROXY-MIB:SNMP-PROXY-MIB"
+    sNMPPROXYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sNMPPROXYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sNMPPROXYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sNMPPROXYMIB *SNMPPROXYMIB) SetFilter(yf yfilter.YFilter) { sNMPPROXYMIB.YFilter = yf }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetGoName(yname string) string {
-    if yname == "snmpProxyTable" { return "Snmpproxytable" }
-    return ""
+    sNMPPROXYMIB.EntityData.Children = make(map[string]types.YChild)
+    sNMPPROXYMIB.EntityData.Children["snmpProxyTable"] = types.YChild{"Snmpproxytable", &sNMPPROXYMIB.Snmpproxytable}
+    sNMPPROXYMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sNMPPROXYMIB.EntityData)
 }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetSegmentPath() string {
-    return "SNMP-PROXY-MIB:SNMP-PROXY-MIB"
-}
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "snmpProxyTable" {
-        return &sNMPPROXYMIB.Snmpproxytable
-    }
-    return nil
-}
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["snmpProxyTable"] = &sNMPPROXYMIB.Snmpproxytable
-    return children
-}
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetYangName() string { return "SNMP-PROXY-MIB" }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) SetParent(parent types.Entity) { sNMPPROXYMIB.parent = parent }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetParent() types.Entity { return sNMPPROXYMIB.parent }
-
-func (sNMPPROXYMIB *SNMPPROXYMIB) GetParentYangName() string { return "SNMP-PROXY-MIB" }
 
 // SNMPPROXYMIB_Snmpproxytable
 // The table of translation parameters used by proxy forwarder
 // applications for forwarding SNMP messages.
 type SNMPPROXYMIB_Snmpproxytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of translation parameters used by a proxy forwarder application for
@@ -95,63 +62,24 @@ type SNMPPROXYMIB_Snmpproxytable struct {
     Snmpproxyentry []SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry
 }
 
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetFilter() yfilter.YFilter { return snmpproxytable.YFilter }
+func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetEntityData() *types.CommonEntityData {
+    snmpproxytable.EntityData.YFilter = snmpproxytable.YFilter
+    snmpproxytable.EntityData.YangName = "snmpProxyTable"
+    snmpproxytable.EntityData.BundleName = "cisco_ios_xe"
+    snmpproxytable.EntityData.ParentYangName = "SNMP-PROXY-MIB"
+    snmpproxytable.EntityData.SegmentPath = "snmpProxyTable"
+    snmpproxytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpproxytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpproxytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) SetFilter(yf yfilter.YFilter) { snmpproxytable.YFilter = yf }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetGoName(yname string) string {
-    if yname == "snmpProxyEntry" { return "Snmpproxyentry" }
-    return ""
-}
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetSegmentPath() string {
-    return "snmpProxyTable"
-}
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "snmpProxyEntry" {
-        for _, c := range snmpproxytable.Snmpproxyentry {
-            if snmpproxytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry{}
-        snmpproxytable.Snmpproxyentry = append(snmpproxytable.Snmpproxyentry, child)
-        return &snmpproxytable.Snmpproxyentry[len(snmpproxytable.Snmpproxyentry)-1]
-    }
-    return nil
-}
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    snmpproxytable.EntityData.Children = make(map[string]types.YChild)
+    snmpproxytable.EntityData.Children["snmpProxyEntry"] = types.YChild{"Snmpproxyentry", nil}
     for i := range snmpproxytable.Snmpproxyentry {
-        children[snmpproxytable.Snmpproxyentry[i].GetSegmentPath()] = &snmpproxytable.Snmpproxyentry[i]
+        snmpproxytable.EntityData.Children[types.GetSegmentPath(&snmpproxytable.Snmpproxyentry[i])] = types.YChild{"Snmpproxyentry", &snmpproxytable.Snmpproxyentry[i]}
     }
-    return children
+    snmpproxytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(snmpproxytable.EntityData)
 }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetYangName() string { return "snmpProxyTable" }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) SetParent(parent types.Entity) { snmpproxytable.parent = parent }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetParent() types.Entity { return snmpproxytable.parent }
-
-func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetParentYangName() string { return "SNMP-PROXY-MIB" }
 
 // SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry
 // A set of translation parameters used by a proxy forwarder
@@ -160,7 +88,7 @@ func (snmpproxytable *SNMPPROXYMIB_Snmpproxytable) GetParentYangName() string { 
 // Entries in the snmpProxyTable are created and deleted
 // using the snmpProxyRowStatus object.
 type SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The locally arbitrary, but unique identifier
@@ -216,67 +144,29 @@ type SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry struct {
     Snmpproxyrowstatus interface{}
 }
 
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetFilter() yfilter.YFilter { return snmpproxyentry.YFilter }
+func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetEntityData() *types.CommonEntityData {
+    snmpproxyentry.EntityData.YFilter = snmpproxyentry.YFilter
+    snmpproxyentry.EntityData.YangName = "snmpProxyEntry"
+    snmpproxyentry.EntityData.BundleName = "cisco_ios_xe"
+    snmpproxyentry.EntityData.ParentYangName = "snmpProxyTable"
+    snmpproxyentry.EntityData.SegmentPath = "snmpProxyEntry" + "[snmpProxyName='" + fmt.Sprintf("%v", snmpproxyentry.Snmpproxyname) + "']"
+    snmpproxyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpproxyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpproxyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) SetFilter(yf yfilter.YFilter) { snmpproxyentry.YFilter = yf }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetGoName(yname string) string {
-    if yname == "snmpProxyName" { return "Snmpproxyname" }
-    if yname == "snmpProxyType" { return "Snmpproxytype" }
-    if yname == "snmpProxyContextEngineID" { return "Snmpproxycontextengineid" }
-    if yname == "snmpProxyContextName" { return "Snmpproxycontextname" }
-    if yname == "snmpProxyTargetParamsIn" { return "Snmpproxytargetparamsin" }
-    if yname == "snmpProxySingleTargetOut" { return "Snmpproxysingletargetout" }
-    if yname == "snmpProxyMultipleTargetOut" { return "Snmpproxymultipletargetout" }
-    if yname == "snmpProxyStorageType" { return "Snmpproxystoragetype" }
-    if yname == "snmpProxyRowStatus" { return "Snmpproxyrowstatus" }
-    return ""
+    snmpproxyentry.EntityData.Children = make(map[string]types.YChild)
+    snmpproxyentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpproxyentry.EntityData.Leafs["snmpProxyName"] = types.YLeaf{"Snmpproxyname", snmpproxyentry.Snmpproxyname}
+    snmpproxyentry.EntityData.Leafs["snmpProxyType"] = types.YLeaf{"Snmpproxytype", snmpproxyentry.Snmpproxytype}
+    snmpproxyentry.EntityData.Leafs["snmpProxyContextEngineID"] = types.YLeaf{"Snmpproxycontextengineid", snmpproxyentry.Snmpproxycontextengineid}
+    snmpproxyentry.EntityData.Leafs["snmpProxyContextName"] = types.YLeaf{"Snmpproxycontextname", snmpproxyentry.Snmpproxycontextname}
+    snmpproxyentry.EntityData.Leafs["snmpProxyTargetParamsIn"] = types.YLeaf{"Snmpproxytargetparamsin", snmpproxyentry.Snmpproxytargetparamsin}
+    snmpproxyentry.EntityData.Leafs["snmpProxySingleTargetOut"] = types.YLeaf{"Snmpproxysingletargetout", snmpproxyentry.Snmpproxysingletargetout}
+    snmpproxyentry.EntityData.Leafs["snmpProxyMultipleTargetOut"] = types.YLeaf{"Snmpproxymultipletargetout", snmpproxyentry.Snmpproxymultipletargetout}
+    snmpproxyentry.EntityData.Leafs["snmpProxyStorageType"] = types.YLeaf{"Snmpproxystoragetype", snmpproxyentry.Snmpproxystoragetype}
+    snmpproxyentry.EntityData.Leafs["snmpProxyRowStatus"] = types.YLeaf{"Snmpproxyrowstatus", snmpproxyentry.Snmpproxyrowstatus}
+    return &(snmpproxyentry.EntityData)
 }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetSegmentPath() string {
-    return "snmpProxyEntry" + "[snmpProxyName='" + fmt.Sprintf("%v", snmpproxyentry.Snmpproxyname) + "']"
-}
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["snmpProxyName"] = snmpproxyentry.Snmpproxyname
-    leafs["snmpProxyType"] = snmpproxyentry.Snmpproxytype
-    leafs["snmpProxyContextEngineID"] = snmpproxyentry.Snmpproxycontextengineid
-    leafs["snmpProxyContextName"] = snmpproxyentry.Snmpproxycontextname
-    leafs["snmpProxyTargetParamsIn"] = snmpproxyentry.Snmpproxytargetparamsin
-    leafs["snmpProxySingleTargetOut"] = snmpproxyentry.Snmpproxysingletargetout
-    leafs["snmpProxyMultipleTargetOut"] = snmpproxyentry.Snmpproxymultipletargetout
-    leafs["snmpProxyStorageType"] = snmpproxyentry.Snmpproxystoragetype
-    leafs["snmpProxyRowStatus"] = snmpproxyentry.Snmpproxyrowstatus
-    return leafs
-}
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetYangName() string { return "snmpProxyEntry" }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) SetParent(parent types.Entity) { snmpproxyentry.parent = parent }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetParent() types.Entity { return snmpproxyentry.parent }
-
-func (snmpproxyentry *SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry) GetParentYangName() string { return "snmpProxyTable" }
 
 // SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry_Snmpproxytype represents the translation parameters defined by this entry.
 type SNMPPROXYMIB_Snmpproxytable_Snmpproxyentry_Snmpproxytype string

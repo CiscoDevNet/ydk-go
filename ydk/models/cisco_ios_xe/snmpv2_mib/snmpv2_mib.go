@@ -22,7 +22,7 @@ func init() {
 
 // SNMPv2MIB
 type SNMPv2MIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -41,73 +41,28 @@ type SNMPv2MIB struct {
     Sysortable SNMPv2MIB_Sysortable
 }
 
-func (sNMPv2MIB *SNMPv2MIB) GetFilter() yfilter.YFilter { return sNMPv2MIB.YFilter }
+func (sNMPv2MIB *SNMPv2MIB) GetEntityData() *types.CommonEntityData {
+    sNMPv2MIB.EntityData.YFilter = sNMPv2MIB.YFilter
+    sNMPv2MIB.EntityData.YangName = "SNMPv2-MIB"
+    sNMPv2MIB.EntityData.BundleName = "cisco_ios_xe"
+    sNMPv2MIB.EntityData.ParentYangName = "SNMPv2-MIB"
+    sNMPv2MIB.EntityData.SegmentPath = "SNMPv2-MIB:SNMPv2-MIB"
+    sNMPv2MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sNMPv2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sNMPv2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sNMPv2MIB *SNMPv2MIB) SetFilter(yf yfilter.YFilter) { sNMPv2MIB.YFilter = yf }
-
-func (sNMPv2MIB *SNMPv2MIB) GetGoName(yname string) string {
-    if yname == "system" { return "System" }
-    if yname == "snmp" { return "Snmp" }
-    if yname == "snmpSet" { return "Snmpset" }
-    if yname == "sysORTable" { return "Sysortable" }
-    return ""
+    sNMPv2MIB.EntityData.Children = make(map[string]types.YChild)
+    sNMPv2MIB.EntityData.Children["system"] = types.YChild{"System", &sNMPv2MIB.System}
+    sNMPv2MIB.EntityData.Children["snmp"] = types.YChild{"Snmp", &sNMPv2MIB.Snmp}
+    sNMPv2MIB.EntityData.Children["snmpSet"] = types.YChild{"Snmpset", &sNMPv2MIB.Snmpset}
+    sNMPv2MIB.EntityData.Children["sysORTable"] = types.YChild{"Sysortable", &sNMPv2MIB.Sysortable}
+    sNMPv2MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sNMPv2MIB.EntityData)
 }
-
-func (sNMPv2MIB *SNMPv2MIB) GetSegmentPath() string {
-    return "SNMPv2-MIB:SNMPv2-MIB"
-}
-
-func (sNMPv2MIB *SNMPv2MIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "system" {
-        return &sNMPv2MIB.System
-    }
-    if childYangName == "snmp" {
-        return &sNMPv2MIB.Snmp
-    }
-    if childYangName == "snmpSet" {
-        return &sNMPv2MIB.Snmpset
-    }
-    if childYangName == "sysORTable" {
-        return &sNMPv2MIB.Sysortable
-    }
-    return nil
-}
-
-func (sNMPv2MIB *SNMPv2MIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["system"] = &sNMPv2MIB.System
-    children["snmp"] = &sNMPv2MIB.Snmp
-    children["snmpSet"] = &sNMPv2MIB.Snmpset
-    children["sysORTable"] = &sNMPv2MIB.Sysortable
-    return children
-}
-
-func (sNMPv2MIB *SNMPv2MIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sNMPv2MIB *SNMPv2MIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sNMPv2MIB *SNMPv2MIB) GetYangName() string { return "SNMPv2-MIB" }
-
-func (sNMPv2MIB *SNMPv2MIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sNMPv2MIB *SNMPv2MIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sNMPv2MIB *SNMPv2MIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sNMPv2MIB *SNMPv2MIB) SetParent(parent types.Entity) { sNMPv2MIB.parent = parent }
-
-func (sNMPv2MIB *SNMPv2MIB) GetParent() types.Entity { return sNMPv2MIB.parent }
-
-func (sNMPv2MIB *SNMPv2MIB) GetParentYangName() string { return "SNMPv2-MIB" }
 
 // SNMPv2MIB_System
 type SNMPv2MIB_System struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A textual description of the entity.  This value should include the full
@@ -123,7 +78,7 @@ type SNMPv2MIB_System struct {
     // vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.424242, it
     // could assign the identifier 1.3.6.1.4.1.424242.1.1 to its `Fred Router'.
     // The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Sysobjectid interface{}
 
     // The time (in hundredths of a second) since the network management portion
@@ -170,69 +125,32 @@ type SNMPv2MIB_System struct {
     Sysorlastchange interface{}
 }
 
-func (system *SNMPv2MIB_System) GetFilter() yfilter.YFilter { return system.YFilter }
+func (system *SNMPv2MIB_System) GetEntityData() *types.CommonEntityData {
+    system.EntityData.YFilter = system.YFilter
+    system.EntityData.YangName = "system"
+    system.EntityData.BundleName = "cisco_ios_xe"
+    system.EntityData.ParentYangName = "SNMPv2-MIB"
+    system.EntityData.SegmentPath = "system"
+    system.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    system.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    system.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (system *SNMPv2MIB_System) SetFilter(yf yfilter.YFilter) { system.YFilter = yf }
-
-func (system *SNMPv2MIB_System) GetGoName(yname string) string {
-    if yname == "sysDescr" { return "Sysdescr" }
-    if yname == "sysObjectID" { return "Sysobjectid" }
-    if yname == "sysUpTime" { return "Sysuptime" }
-    if yname == "sysContact" { return "Syscontact" }
-    if yname == "sysName" { return "Sysname" }
-    if yname == "sysLocation" { return "Syslocation" }
-    if yname == "sysServices" { return "Sysservices" }
-    if yname == "sysORLastChange" { return "Sysorlastchange" }
-    return ""
+    system.EntityData.Children = make(map[string]types.YChild)
+    system.EntityData.Leafs = make(map[string]types.YLeaf)
+    system.EntityData.Leafs["sysDescr"] = types.YLeaf{"Sysdescr", system.Sysdescr}
+    system.EntityData.Leafs["sysObjectID"] = types.YLeaf{"Sysobjectid", system.Sysobjectid}
+    system.EntityData.Leafs["sysUpTime"] = types.YLeaf{"Sysuptime", system.Sysuptime}
+    system.EntityData.Leafs["sysContact"] = types.YLeaf{"Syscontact", system.Syscontact}
+    system.EntityData.Leafs["sysName"] = types.YLeaf{"Sysname", system.Sysname}
+    system.EntityData.Leafs["sysLocation"] = types.YLeaf{"Syslocation", system.Syslocation}
+    system.EntityData.Leafs["sysServices"] = types.YLeaf{"Sysservices", system.Sysservices}
+    system.EntityData.Leafs["sysORLastChange"] = types.YLeaf{"Sysorlastchange", system.Sysorlastchange}
+    return &(system.EntityData)
 }
-
-func (system *SNMPv2MIB_System) GetSegmentPath() string {
-    return "system"
-}
-
-func (system *SNMPv2MIB_System) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (system *SNMPv2MIB_System) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (system *SNMPv2MIB_System) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sysDescr"] = system.Sysdescr
-    leafs["sysObjectID"] = system.Sysobjectid
-    leafs["sysUpTime"] = system.Sysuptime
-    leafs["sysContact"] = system.Syscontact
-    leafs["sysName"] = system.Sysname
-    leafs["sysLocation"] = system.Syslocation
-    leafs["sysServices"] = system.Sysservices
-    leafs["sysORLastChange"] = system.Sysorlastchange
-    return leafs
-}
-
-func (system *SNMPv2MIB_System) GetBundleName() string { return "cisco_ios_xe" }
-
-func (system *SNMPv2MIB_System) GetYangName() string { return "system" }
-
-func (system *SNMPv2MIB_System) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (system *SNMPv2MIB_System) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (system *SNMPv2MIB_System) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (system *SNMPv2MIB_System) SetParent(parent types.Entity) { system.parent = parent }
-
-func (system *SNMPv2MIB_System) GetParent() types.Entity { return system.parent }
-
-func (system *SNMPv2MIB_System) GetParentYangName() string { return "SNMPv2-MIB" }
 
 // SNMPv2MIB_Snmp
 type SNMPv2MIB_Snmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of messages delivered to the SNMP entity from the
@@ -411,109 +329,50 @@ type SNMPv2MIB_Snmp struct {
     Snmpproxydrops interface{}
 }
 
-func (snmp *SNMPv2MIB_Snmp) GetFilter() yfilter.YFilter { return snmp.YFilter }
+func (snmp *SNMPv2MIB_Snmp) GetEntityData() *types.CommonEntityData {
+    snmp.EntityData.YFilter = snmp.YFilter
+    snmp.EntityData.YangName = "snmp"
+    snmp.EntityData.BundleName = "cisco_ios_xe"
+    snmp.EntityData.ParentYangName = "SNMPv2-MIB"
+    snmp.EntityData.SegmentPath = "snmp"
+    snmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (snmp *SNMPv2MIB_Snmp) SetFilter(yf yfilter.YFilter) { snmp.YFilter = yf }
-
-func (snmp *SNMPv2MIB_Snmp) GetGoName(yname string) string {
-    if yname == "snmpInPkts" { return "Snmpinpkts" }
-    if yname == "snmpOutPkts" { return "Snmpoutpkts" }
-    if yname == "snmpInBadVersions" { return "Snmpinbadversions" }
-    if yname == "snmpInBadCommunityNames" { return "Snmpinbadcommunitynames" }
-    if yname == "snmpInBadCommunityUses" { return "Snmpinbadcommunityuses" }
-    if yname == "snmpInASNParseErrs" { return "Snmpinasnparseerrs" }
-    if yname == "snmpInTooBigs" { return "Snmpintoobigs" }
-    if yname == "snmpInNoSuchNames" { return "Snmpinnosuchnames" }
-    if yname == "snmpInBadValues" { return "Snmpinbadvalues" }
-    if yname == "snmpInReadOnlys" { return "Snmpinreadonlys" }
-    if yname == "snmpInGenErrs" { return "Snmpingenerrs" }
-    if yname == "snmpInTotalReqVars" { return "Snmpintotalreqvars" }
-    if yname == "snmpInTotalSetVars" { return "Snmpintotalsetvars" }
-    if yname == "snmpInGetRequests" { return "Snmpingetrequests" }
-    if yname == "snmpInGetNexts" { return "Snmpingetnexts" }
-    if yname == "snmpInSetRequests" { return "Snmpinsetrequests" }
-    if yname == "snmpInGetResponses" { return "Snmpingetresponses" }
-    if yname == "snmpInTraps" { return "Snmpintraps" }
-    if yname == "snmpOutTooBigs" { return "Snmpouttoobigs" }
-    if yname == "snmpOutNoSuchNames" { return "Snmpoutnosuchnames" }
-    if yname == "snmpOutBadValues" { return "Snmpoutbadvalues" }
-    if yname == "snmpOutGenErrs" { return "Snmpoutgenerrs" }
-    if yname == "snmpOutGetRequests" { return "Snmpoutgetrequests" }
-    if yname == "snmpOutGetNexts" { return "Snmpoutgetnexts" }
-    if yname == "snmpOutSetRequests" { return "Snmpoutsetrequests" }
-    if yname == "snmpOutGetResponses" { return "Snmpoutgetresponses" }
-    if yname == "snmpOutTraps" { return "Snmpouttraps" }
-    if yname == "snmpEnableAuthenTraps" { return "Snmpenableauthentraps" }
-    if yname == "snmpSilentDrops" { return "Snmpsilentdrops" }
-    if yname == "snmpProxyDrops" { return "Snmpproxydrops" }
-    return ""
+    snmp.EntityData.Children = make(map[string]types.YChild)
+    snmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmp.EntityData.Leafs["snmpInPkts"] = types.YLeaf{"Snmpinpkts", snmp.Snmpinpkts}
+    snmp.EntityData.Leafs["snmpOutPkts"] = types.YLeaf{"Snmpoutpkts", snmp.Snmpoutpkts}
+    snmp.EntityData.Leafs["snmpInBadVersions"] = types.YLeaf{"Snmpinbadversions", snmp.Snmpinbadversions}
+    snmp.EntityData.Leafs["snmpInBadCommunityNames"] = types.YLeaf{"Snmpinbadcommunitynames", snmp.Snmpinbadcommunitynames}
+    snmp.EntityData.Leafs["snmpInBadCommunityUses"] = types.YLeaf{"Snmpinbadcommunityuses", snmp.Snmpinbadcommunityuses}
+    snmp.EntityData.Leafs["snmpInASNParseErrs"] = types.YLeaf{"Snmpinasnparseerrs", snmp.Snmpinasnparseerrs}
+    snmp.EntityData.Leafs["snmpInTooBigs"] = types.YLeaf{"Snmpintoobigs", snmp.Snmpintoobigs}
+    snmp.EntityData.Leafs["snmpInNoSuchNames"] = types.YLeaf{"Snmpinnosuchnames", snmp.Snmpinnosuchnames}
+    snmp.EntityData.Leafs["snmpInBadValues"] = types.YLeaf{"Snmpinbadvalues", snmp.Snmpinbadvalues}
+    snmp.EntityData.Leafs["snmpInReadOnlys"] = types.YLeaf{"Snmpinreadonlys", snmp.Snmpinreadonlys}
+    snmp.EntityData.Leafs["snmpInGenErrs"] = types.YLeaf{"Snmpingenerrs", snmp.Snmpingenerrs}
+    snmp.EntityData.Leafs["snmpInTotalReqVars"] = types.YLeaf{"Snmpintotalreqvars", snmp.Snmpintotalreqvars}
+    snmp.EntityData.Leafs["snmpInTotalSetVars"] = types.YLeaf{"Snmpintotalsetvars", snmp.Snmpintotalsetvars}
+    snmp.EntityData.Leafs["snmpInGetRequests"] = types.YLeaf{"Snmpingetrequests", snmp.Snmpingetrequests}
+    snmp.EntityData.Leafs["snmpInGetNexts"] = types.YLeaf{"Snmpingetnexts", snmp.Snmpingetnexts}
+    snmp.EntityData.Leafs["snmpInSetRequests"] = types.YLeaf{"Snmpinsetrequests", snmp.Snmpinsetrequests}
+    snmp.EntityData.Leafs["snmpInGetResponses"] = types.YLeaf{"Snmpingetresponses", snmp.Snmpingetresponses}
+    snmp.EntityData.Leafs["snmpInTraps"] = types.YLeaf{"Snmpintraps", snmp.Snmpintraps}
+    snmp.EntityData.Leafs["snmpOutTooBigs"] = types.YLeaf{"Snmpouttoobigs", snmp.Snmpouttoobigs}
+    snmp.EntityData.Leafs["snmpOutNoSuchNames"] = types.YLeaf{"Snmpoutnosuchnames", snmp.Snmpoutnosuchnames}
+    snmp.EntityData.Leafs["snmpOutBadValues"] = types.YLeaf{"Snmpoutbadvalues", snmp.Snmpoutbadvalues}
+    snmp.EntityData.Leafs["snmpOutGenErrs"] = types.YLeaf{"Snmpoutgenerrs", snmp.Snmpoutgenerrs}
+    snmp.EntityData.Leafs["snmpOutGetRequests"] = types.YLeaf{"Snmpoutgetrequests", snmp.Snmpoutgetrequests}
+    snmp.EntityData.Leafs["snmpOutGetNexts"] = types.YLeaf{"Snmpoutgetnexts", snmp.Snmpoutgetnexts}
+    snmp.EntityData.Leafs["snmpOutSetRequests"] = types.YLeaf{"Snmpoutsetrequests", snmp.Snmpoutsetrequests}
+    snmp.EntityData.Leafs["snmpOutGetResponses"] = types.YLeaf{"Snmpoutgetresponses", snmp.Snmpoutgetresponses}
+    snmp.EntityData.Leafs["snmpOutTraps"] = types.YLeaf{"Snmpouttraps", snmp.Snmpouttraps}
+    snmp.EntityData.Leafs["snmpEnableAuthenTraps"] = types.YLeaf{"Snmpenableauthentraps", snmp.Snmpenableauthentraps}
+    snmp.EntityData.Leafs["snmpSilentDrops"] = types.YLeaf{"Snmpsilentdrops", snmp.Snmpsilentdrops}
+    snmp.EntityData.Leafs["snmpProxyDrops"] = types.YLeaf{"Snmpproxydrops", snmp.Snmpproxydrops}
+    return &(snmp.EntityData)
 }
-
-func (snmp *SNMPv2MIB_Snmp) GetSegmentPath() string {
-    return "snmp"
-}
-
-func (snmp *SNMPv2MIB_Snmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (snmp *SNMPv2MIB_Snmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (snmp *SNMPv2MIB_Snmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["snmpInPkts"] = snmp.Snmpinpkts
-    leafs["snmpOutPkts"] = snmp.Snmpoutpkts
-    leafs["snmpInBadVersions"] = snmp.Snmpinbadversions
-    leafs["snmpInBadCommunityNames"] = snmp.Snmpinbadcommunitynames
-    leafs["snmpInBadCommunityUses"] = snmp.Snmpinbadcommunityuses
-    leafs["snmpInASNParseErrs"] = snmp.Snmpinasnparseerrs
-    leafs["snmpInTooBigs"] = snmp.Snmpintoobigs
-    leafs["snmpInNoSuchNames"] = snmp.Snmpinnosuchnames
-    leafs["snmpInBadValues"] = snmp.Snmpinbadvalues
-    leafs["snmpInReadOnlys"] = snmp.Snmpinreadonlys
-    leafs["snmpInGenErrs"] = snmp.Snmpingenerrs
-    leafs["snmpInTotalReqVars"] = snmp.Snmpintotalreqvars
-    leafs["snmpInTotalSetVars"] = snmp.Snmpintotalsetvars
-    leafs["snmpInGetRequests"] = snmp.Snmpingetrequests
-    leafs["snmpInGetNexts"] = snmp.Snmpingetnexts
-    leafs["snmpInSetRequests"] = snmp.Snmpinsetrequests
-    leafs["snmpInGetResponses"] = snmp.Snmpingetresponses
-    leafs["snmpInTraps"] = snmp.Snmpintraps
-    leafs["snmpOutTooBigs"] = snmp.Snmpouttoobigs
-    leafs["snmpOutNoSuchNames"] = snmp.Snmpoutnosuchnames
-    leafs["snmpOutBadValues"] = snmp.Snmpoutbadvalues
-    leafs["snmpOutGenErrs"] = snmp.Snmpoutgenerrs
-    leafs["snmpOutGetRequests"] = snmp.Snmpoutgetrequests
-    leafs["snmpOutGetNexts"] = snmp.Snmpoutgetnexts
-    leafs["snmpOutSetRequests"] = snmp.Snmpoutsetrequests
-    leafs["snmpOutGetResponses"] = snmp.Snmpoutgetresponses
-    leafs["snmpOutTraps"] = snmp.Snmpouttraps
-    leafs["snmpEnableAuthenTraps"] = snmp.Snmpenableauthentraps
-    leafs["snmpSilentDrops"] = snmp.Snmpsilentdrops
-    leafs["snmpProxyDrops"] = snmp.Snmpproxydrops
-    return leafs
-}
-
-func (snmp *SNMPv2MIB_Snmp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (snmp *SNMPv2MIB_Snmp) GetYangName() string { return "snmp" }
-
-func (snmp *SNMPv2MIB_Snmp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (snmp *SNMPv2MIB_Snmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (snmp *SNMPv2MIB_Snmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (snmp *SNMPv2MIB_Snmp) SetParent(parent types.Entity) { snmp.parent = parent }
-
-func (snmp *SNMPv2MIB_Snmp) GetParent() types.Entity { return snmp.parent }
-
-func (snmp *SNMPv2MIB_Snmp) GetParentYangName() string { return "SNMPv2-MIB" }
 
 // SNMPv2MIB_Snmp_Snmpenableauthentraps represents management system.
 type SNMPv2MIB_Snmp_Snmpenableauthentraps string
@@ -526,7 +385,7 @@ const (
 
 // SNMPv2MIB_Snmpset
 type SNMPv2MIB_Snmpset struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An advisory lock used to allow several cooperating command generator
@@ -537,51 +396,21 @@ type SNMPv2MIB_Snmpset struct {
     Snmpsetserialno interface{}
 }
 
-func (snmpset *SNMPv2MIB_Snmpset) GetFilter() yfilter.YFilter { return snmpset.YFilter }
+func (snmpset *SNMPv2MIB_Snmpset) GetEntityData() *types.CommonEntityData {
+    snmpset.EntityData.YFilter = snmpset.YFilter
+    snmpset.EntityData.YangName = "snmpSet"
+    snmpset.EntityData.BundleName = "cisco_ios_xe"
+    snmpset.EntityData.ParentYangName = "SNMPv2-MIB"
+    snmpset.EntityData.SegmentPath = "snmpSet"
+    snmpset.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpset.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpset.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (snmpset *SNMPv2MIB_Snmpset) SetFilter(yf yfilter.YFilter) { snmpset.YFilter = yf }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetGoName(yname string) string {
-    if yname == "snmpSetSerialNo" { return "Snmpsetserialno" }
-    return ""
+    snmpset.EntityData.Children = make(map[string]types.YChild)
+    snmpset.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpset.EntityData.Leafs["snmpSetSerialNo"] = types.YLeaf{"Snmpsetserialno", snmpset.Snmpsetserialno}
+    return &(snmpset.EntityData)
 }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetSegmentPath() string {
-    return "snmpSet"
-}
-
-func (snmpset *SNMPv2MIB_Snmpset) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (snmpset *SNMPv2MIB_Snmpset) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (snmpset *SNMPv2MIB_Snmpset) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["snmpSetSerialNo"] = snmpset.Snmpsetserialno
-    return leafs
-}
-
-func (snmpset *SNMPv2MIB_Snmpset) GetBundleName() string { return "cisco_ios_xe" }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetYangName() string { return "snmpSet" }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (snmpset *SNMPv2MIB_Snmpset) SetParent(parent types.Entity) { snmpset.parent = parent }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetParent() types.Entity { return snmpset.parent }
-
-func (snmpset *SNMPv2MIB_Snmpset) GetParentYangName() string { return "SNMPv2-MIB" }
 
 // SNMPv2MIB_Sysortable
 // The (conceptual) table listing the capabilities of
@@ -591,7 +420,7 @@ func (snmpset *SNMPv2MIB_Snmpset) GetParentYangName() string { return "SNMPv2-MI
 // of MIB modules will have a dynamically-varying number
 // of conceptual rows.
 type SNMPv2MIB_Sysortable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the sysORTable. The type is slice of
@@ -599,68 +428,29 @@ type SNMPv2MIB_Sysortable struct {
     Sysorentry []SNMPv2MIB_Sysortable_Sysorentry
 }
 
-func (sysortable *SNMPv2MIB_Sysortable) GetFilter() yfilter.YFilter { return sysortable.YFilter }
+func (sysortable *SNMPv2MIB_Sysortable) GetEntityData() *types.CommonEntityData {
+    sysortable.EntityData.YFilter = sysortable.YFilter
+    sysortable.EntityData.YangName = "sysORTable"
+    sysortable.EntityData.BundleName = "cisco_ios_xe"
+    sysortable.EntityData.ParentYangName = "SNMPv2-MIB"
+    sysortable.EntityData.SegmentPath = "sysORTable"
+    sysortable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sysortable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sysortable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sysortable *SNMPv2MIB_Sysortable) SetFilter(yf yfilter.YFilter) { sysortable.YFilter = yf }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetGoName(yname string) string {
-    if yname == "sysOREntry" { return "Sysorentry" }
-    return ""
-}
-
-func (sysortable *SNMPv2MIB_Sysortable) GetSegmentPath() string {
-    return "sysORTable"
-}
-
-func (sysortable *SNMPv2MIB_Sysortable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sysOREntry" {
-        for _, c := range sysortable.Sysorentry {
-            if sysortable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SNMPv2MIB_Sysortable_Sysorentry{}
-        sysortable.Sysorentry = append(sysortable.Sysorentry, child)
-        return &sysortable.Sysorentry[len(sysortable.Sysorentry)-1]
-    }
-    return nil
-}
-
-func (sysortable *SNMPv2MIB_Sysortable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sysortable.EntityData.Children = make(map[string]types.YChild)
+    sysortable.EntityData.Children["sysOREntry"] = types.YChild{"Sysorentry", nil}
     for i := range sysortable.Sysorentry {
-        children[sysortable.Sysorentry[i].GetSegmentPath()] = &sysortable.Sysorentry[i]
+        sysortable.EntityData.Children[types.GetSegmentPath(&sysortable.Sysorentry[i])] = types.YChild{"Sysorentry", &sysortable.Sysorentry[i]}
     }
-    return children
+    sysortable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sysortable.EntityData)
 }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sysortable *SNMPv2MIB_Sysortable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetYangName() string { return "sysORTable" }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sysortable *SNMPv2MIB_Sysortable) SetParent(parent types.Entity) { sysortable.parent = parent }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetParent() types.Entity { return sysortable.parent }
-
-func (sysortable *SNMPv2MIB_Sysortable) GetParentYangName() string { return "SNMPv2-MIB" }
 
 // SNMPv2MIB_Sysortable_Sysorentry
 // An entry (conceptual row) in the sysORTable.
 type SNMPv2MIB_Sysortable_Sysorentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The auxiliary variable used for identifying
@@ -671,7 +461,7 @@ type SNMPv2MIB_Sysortable_Sysorentry struct {
     // An authoritative identification of a capabilities statement with respect to
     // various MIB modules supported by the local SNMP application acting as a
     // command responder. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Sysorid interface{}
 
     // A textual description of the capabilities identified by the corresponding
@@ -683,55 +473,22 @@ type SNMPv2MIB_Sysortable_Sysorentry struct {
     Sysoruptime interface{}
 }
 
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetFilter() yfilter.YFilter { return sysorentry.YFilter }
+func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetEntityData() *types.CommonEntityData {
+    sysorentry.EntityData.YFilter = sysorentry.YFilter
+    sysorentry.EntityData.YangName = "sysOREntry"
+    sysorentry.EntityData.BundleName = "cisco_ios_xe"
+    sysorentry.EntityData.ParentYangName = "sysORTable"
+    sysorentry.EntityData.SegmentPath = "sysOREntry" + "[sysORIndex='" + fmt.Sprintf("%v", sysorentry.Sysorindex) + "']"
+    sysorentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sysorentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sysorentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) SetFilter(yf yfilter.YFilter) { sysorentry.YFilter = yf }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetGoName(yname string) string {
-    if yname == "sysORIndex" { return "Sysorindex" }
-    if yname == "sysORID" { return "Sysorid" }
-    if yname == "sysORDescr" { return "Sysordescr" }
-    if yname == "sysORUpTime" { return "Sysoruptime" }
-    return ""
+    sysorentry.EntityData.Children = make(map[string]types.YChild)
+    sysorentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    sysorentry.EntityData.Leafs["sysORIndex"] = types.YLeaf{"Sysorindex", sysorentry.Sysorindex}
+    sysorentry.EntityData.Leafs["sysORID"] = types.YLeaf{"Sysorid", sysorentry.Sysorid}
+    sysorentry.EntityData.Leafs["sysORDescr"] = types.YLeaf{"Sysordescr", sysorentry.Sysordescr}
+    sysorentry.EntityData.Leafs["sysORUpTime"] = types.YLeaf{"Sysoruptime", sysorentry.Sysoruptime}
+    return &(sysorentry.EntityData)
 }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetSegmentPath() string {
-    return "sysOREntry" + "[sysORIndex='" + fmt.Sprintf("%v", sysorentry.Sysorindex) + "']"
-}
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sysORIndex"] = sysorentry.Sysorindex
-    leafs["sysORID"] = sysorentry.Sysorid
-    leafs["sysORDescr"] = sysorentry.Sysordescr
-    leafs["sysORUpTime"] = sysorentry.Sysoruptime
-    return leafs
-}
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetYangName() string { return "sysOREntry" }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) SetParent(parent types.Entity) { sysorentry.parent = parent }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetParent() types.Entity { return sysorentry.parent }
-
-func (sysorentry *SNMPv2MIB_Sysortable_Sysorentry) GetParentYangName() string { return "sysORTable" }
 

@@ -53,17 +53,6 @@ func init() {
     ydk.RegisterEntity("ietf-netconf:validate", reflect.TypeOf(Validate{}))
 }
 
-// ErrorSeverityType represents NETCONF Error Severity
-type ErrorSeverityType string
-
-const (
-    // Error severity
-    ErrorSeverityType_error ErrorSeverityType = "error"
-
-    // Warning severity
-    ErrorSeverityType_warning ErrorSeverityType = "warning"
-)
-
 // ErrorTagType represents NETCONF Error Tag
 type ErrorTagType string
 
@@ -151,6 +140,17 @@ const (
     ErrorTagType_malformed_message ErrorTagType = "malformed-message"
 )
 
+// ErrorSeverityType represents NETCONF Error Severity
+type ErrorSeverityType string
+
+const (
+    // Error severity
+    ErrorSeverityType_error ErrorSeverityType = "error"
+
+    // Warning severity
+    ErrorSeverityType_warning ErrorSeverityType = "warning"
+)
+
 // EditOperationType represents NETCONF 'operation' attribute values
 type EditOperationType string
 
@@ -204,7 +204,7 @@ const (
 // GetConfig
 // Retrieve all or part of a specified configuration.
 type GetConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -214,63 +214,26 @@ type GetConfig struct {
     Output GetConfig_Output
 }
 
-func (getConfig *GetConfig) GetFilter() yfilter.YFilter { return getConfig.YFilter }
+func (getConfig *GetConfig) GetEntityData() *types.CommonEntityData {
+    getConfig.EntityData.YFilter = getConfig.YFilter
+    getConfig.EntityData.YangName = "get-config"
+    getConfig.EntityData.BundleName = "ietf"
+    getConfig.EntityData.ParentYangName = "ietf-netconf"
+    getConfig.EntityData.SegmentPath = "ietf-netconf:get-config"
+    getConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    getConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
+    getConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (getConfig *GetConfig) SetFilter(yf yfilter.YFilter) { getConfig.YFilter = yf }
-
-func (getConfig *GetConfig) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    getConfig.EntityData.Children = make(map[string]types.YChild)
+    getConfig.EntityData.Children["input"] = types.YChild{"Input", &getConfig.Input}
+    getConfig.EntityData.Children["output"] = types.YChild{"Output", &getConfig.Output}
+    getConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(getConfig.EntityData)
 }
-
-func (getConfig *GetConfig) GetSegmentPath() string {
-    return "ietf-netconf:get-config"
-}
-
-func (getConfig *GetConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &getConfig.Input
-    }
-    if childYangName == "output" {
-        return &getConfig.Output
-    }
-    return nil
-}
-
-func (getConfig *GetConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &getConfig.Input
-    children["output"] = &getConfig.Output
-    return children
-}
-
-func (getConfig *GetConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (getConfig *GetConfig) GetBundleName() string { return "ietf" }
-
-func (getConfig *GetConfig) GetYangName() string { return "get-config" }
-
-func (getConfig *GetConfig) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (getConfig *GetConfig) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (getConfig *GetConfig) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (getConfig *GetConfig) SetParent(parent types.Entity) { getConfig.parent = parent }
-
-func (getConfig *GetConfig) GetParent() types.Entity { return getConfig.parent }
-
-func (getConfig *GetConfig) GetParentYangName() string { return "ietf-netconf" }
 
 // GetConfig_Input
 type GetConfig_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subtree or XPath filter to use. The type is string.
@@ -284,63 +247,28 @@ type GetConfig_Input struct {
     Source GetConfig_Input_Source
 }
 
-func (input *GetConfig_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *GetConfig_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "get-config"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *GetConfig_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *GetConfig_Input) GetGoName(yname string) string {
-    if yname == "filter" { return "Filter" }
-    if yname == "with-defaults" { return "WithDefaults" }
-    if yname == "source" { return "Source" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["source"] = types.YChild{"Source", &input.Source}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
+    input.EntityData.Leafs["with-defaults"] = types.YLeaf{"WithDefaults", input.WithDefaults}
+    return &(input.EntityData)
 }
-
-func (input *GetConfig_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *GetConfig_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "source" {
-        return &input.Source
-    }
-    return nil
-}
-
-func (input *GetConfig_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["source"] = &input.Source
-    return children
-}
-
-func (input *GetConfig_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["filter"] = input.Filter
-    leafs["with-defaults"] = input.WithDefaults
-    return leafs
-}
-
-func (input *GetConfig_Input) GetBundleName() string { return "ietf" }
-
-func (input *GetConfig_Input) GetYangName() string { return "input" }
-
-func (input *GetConfig_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *GetConfig_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *GetConfig_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *GetConfig_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *GetConfig_Input) GetParent() types.Entity { return input.parent }
-
-func (input *GetConfig_Input) GetParentYangName() string { return "get-config" }
 
 // GetConfig_Input_Source
 // Particular configuration to retrieve.
 type GetConfig_Input_Source struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config source. The type is interface{}.
@@ -355,59 +283,27 @@ type GetConfig_Input_Source struct {
     Startup interface{}
 }
 
-func (source *GetConfig_Input_Source) GetFilter() yfilter.YFilter { return source.YFilter }
+func (source *GetConfig_Input_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "ietf"
+    source.EntityData.ParentYangName = "input"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    source.EntityData.NamespaceTable = ietf.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (source *GetConfig_Input_Source) SetFilter(yf yfilter.YFilter) { source.YFilter = yf }
-
-func (source *GetConfig_Input_Source) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    if yname == "startup" { return "Startup" }
-    return ""
+    source.EntityData.Children = make(map[string]types.YChild)
+    source.EntityData.Leafs = make(map[string]types.YLeaf)
+    source.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", source.Candidate}
+    source.EntityData.Leafs["running"] = types.YLeaf{"Running", source.Running}
+    source.EntityData.Leafs["startup"] = types.YLeaf{"Startup", source.Startup}
+    return &(source.EntityData)
 }
-
-func (source *GetConfig_Input_Source) GetSegmentPath() string {
-    return "source"
-}
-
-func (source *GetConfig_Input_Source) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (source *GetConfig_Input_Source) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (source *GetConfig_Input_Source) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = source.Candidate
-    leafs["running"] = source.Running
-    leafs["startup"] = source.Startup
-    return leafs
-}
-
-func (source *GetConfig_Input_Source) GetBundleName() string { return "ietf" }
-
-func (source *GetConfig_Input_Source) GetYangName() string { return "source" }
-
-func (source *GetConfig_Input_Source) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (source *GetConfig_Input_Source) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (source *GetConfig_Input_Source) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (source *GetConfig_Input_Source) SetParent(parent types.Entity) { source.parent = parent }
-
-func (source *GetConfig_Input_Source) GetParent() types.Entity { return source.parent }
-
-func (source *GetConfig_Input_Source) GetParentYangName() string { return "input" }
 
 // GetConfig_Output
 type GetConfig_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Copy of the source datastore subset that matched the filter criteria (if
@@ -416,115 +312,52 @@ type GetConfig_Output struct {
     Data interface{}
 }
 
-func (output *GetConfig_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *GetConfig_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "ietf"
+    output.EntityData.ParentYangName = "get-config"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    output.EntityData.NamespaceTable = ietf.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (output *GetConfig_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *GetConfig_Output) GetGoName(yname string) string {
-    if yname == "data" { return "Data" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["data"] = types.YLeaf{"Data", output.Data}
+    return &(output.EntityData)
 }
-
-func (output *GetConfig_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *GetConfig_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *GetConfig_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *GetConfig_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["data"] = output.Data
-    return leafs
-}
-
-func (output *GetConfig_Output) GetBundleName() string { return "ietf" }
-
-func (output *GetConfig_Output) GetYangName() string { return "output" }
-
-func (output *GetConfig_Output) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (output *GetConfig_Output) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (output *GetConfig_Output) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (output *GetConfig_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *GetConfig_Output) GetParent() types.Entity { return output.parent }
-
-func (output *GetConfig_Output) GetParentYangName() string { return "get-config" }
 
 // EditConfig
 // The <edit-config> operation loads all or part of a specified
 // configuration to the specified target configuration.
 type EditConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input EditConfig_Input
 }
 
-func (editConfig *EditConfig) GetFilter() yfilter.YFilter { return editConfig.YFilter }
+func (editConfig *EditConfig) GetEntityData() *types.CommonEntityData {
+    editConfig.EntityData.YFilter = editConfig.YFilter
+    editConfig.EntityData.YangName = "edit-config"
+    editConfig.EntityData.BundleName = "ietf"
+    editConfig.EntityData.ParentYangName = "ietf-netconf"
+    editConfig.EntityData.SegmentPath = "ietf-netconf:edit-config"
+    editConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    editConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
+    editConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (editConfig *EditConfig) SetFilter(yf yfilter.YFilter) { editConfig.YFilter = yf }
-
-func (editConfig *EditConfig) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    editConfig.EntityData.Children = make(map[string]types.YChild)
+    editConfig.EntityData.Children["input"] = types.YChild{"Input", &editConfig.Input}
+    editConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(editConfig.EntityData)
 }
-
-func (editConfig *EditConfig) GetSegmentPath() string {
-    return "ietf-netconf:edit-config"
-}
-
-func (editConfig *EditConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &editConfig.Input
-    }
-    return nil
-}
-
-func (editConfig *EditConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &editConfig.Input
-    return children
-}
-
-func (editConfig *EditConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (editConfig *EditConfig) GetBundleName() string { return "ietf" }
-
-func (editConfig *EditConfig) GetYangName() string { return "edit-config" }
-
-func (editConfig *EditConfig) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (editConfig *EditConfig) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (editConfig *EditConfig) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (editConfig *EditConfig) SetParent(parent types.Entity) { editConfig.parent = parent }
-
-func (editConfig *EditConfig) GetParent() types.Entity { return editConfig.parent }
-
-func (editConfig *EditConfig) GetParentYangName() string { return "ietf-netconf" }
 
 // EditConfig_Input
 type EditConfig_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The default operation to use. The type is DefaultOperation. The default
@@ -549,69 +382,31 @@ type EditConfig_Input struct {
     Target EditConfig_Input_Target
 }
 
-func (input *EditConfig_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *EditConfig_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "edit-config"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *EditConfig_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *EditConfig_Input) GetGoName(yname string) string {
-    if yname == "default-operation" { return "DefaultOperation" }
-    if yname == "test-option" { return "TestOption" }
-    if yname == "error-option" { return "ErrorOption" }
-    if yname == "config" { return "Config" }
-    if yname == "url" { return "Url" }
-    if yname == "target" { return "Target" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["default-operation"] = types.YLeaf{"DefaultOperation", input.DefaultOperation}
+    input.EntityData.Leafs["test-option"] = types.YLeaf{"TestOption", input.TestOption}
+    input.EntityData.Leafs["error-option"] = types.YLeaf{"ErrorOption", input.ErrorOption}
+    input.EntityData.Leafs["config"] = types.YLeaf{"Config", input.Config}
+    input.EntityData.Leafs["url"] = types.YLeaf{"Url", input.Url}
+    return &(input.EntityData)
 }
-
-func (input *EditConfig_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *EditConfig_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "target" {
-        return &input.Target
-    }
-    return nil
-}
-
-func (input *EditConfig_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["target"] = &input.Target
-    return children
-}
-
-func (input *EditConfig_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["default-operation"] = input.DefaultOperation
-    leafs["test-option"] = input.TestOption
-    leafs["error-option"] = input.ErrorOption
-    leafs["config"] = input.Config
-    leafs["url"] = input.Url
-    return leafs
-}
-
-func (input *EditConfig_Input) GetBundleName() string { return "ietf" }
-
-func (input *EditConfig_Input) GetYangName() string { return "input" }
-
-func (input *EditConfig_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *EditConfig_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *EditConfig_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *EditConfig_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *EditConfig_Input) GetParent() types.Entity { return input.parent }
-
-func (input *EditConfig_Input) GetParentYangName() string { return "edit-config" }
 
 // EditConfig_Input_Target
 // Particular configuration to edit.
 type EditConfig_Input_Target struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config target. The type is interface{}.
@@ -621,53 +416,22 @@ type EditConfig_Input_Target struct {
     Running interface{}
 }
 
-func (target *EditConfig_Input_Target) GetFilter() yfilter.YFilter { return target.YFilter }
+func (target *EditConfig_Input_Target) GetEntityData() *types.CommonEntityData {
+    target.EntityData.YFilter = target.YFilter
+    target.EntityData.YangName = "target"
+    target.EntityData.BundleName = "ietf"
+    target.EntityData.ParentYangName = "input"
+    target.EntityData.SegmentPath = "target"
+    target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    target.EntityData.NamespaceTable = ietf.GetNamespaces()
+    target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (target *EditConfig_Input_Target) SetFilter(yf yfilter.YFilter) { target.YFilter = yf }
-
-func (target *EditConfig_Input_Target) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    return ""
+    target.EntityData.Children = make(map[string]types.YChild)
+    target.EntityData.Leafs = make(map[string]types.YLeaf)
+    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
+    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
+    return &(target.EntityData)
 }
-
-func (target *EditConfig_Input_Target) GetSegmentPath() string {
-    return "target"
-}
-
-func (target *EditConfig_Input_Target) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (target *EditConfig_Input_Target) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (target *EditConfig_Input_Target) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = target.Candidate
-    leafs["running"] = target.Running
-    return leafs
-}
-
-func (target *EditConfig_Input_Target) GetBundleName() string { return "ietf" }
-
-func (target *EditConfig_Input_Target) GetYangName() string { return "target" }
-
-func (target *EditConfig_Input_Target) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (target *EditConfig_Input_Target) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (target *EditConfig_Input_Target) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (target *EditConfig_Input_Target) SetParent(parent types.Entity) { target.parent = parent }
-
-func (target *EditConfig_Input_Target) GetParent() types.Entity { return target.parent }
-
-func (target *EditConfig_Input_Target) GetParentYangName() string { return "input" }
 
 // EditConfig_Input_DefaultOperation represents The default operation to use.
 type EditConfig_Input_DefaultOperation string
@@ -718,65 +482,32 @@ const (
 // Create or replace an entire configuration datastore with the
 // contents of another complete configuration datastore.
 type CopyConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input CopyConfig_Input
 }
 
-func (copyConfig *CopyConfig) GetFilter() yfilter.YFilter { return copyConfig.YFilter }
+func (copyConfig *CopyConfig) GetEntityData() *types.CommonEntityData {
+    copyConfig.EntityData.YFilter = copyConfig.YFilter
+    copyConfig.EntityData.YangName = "copy-config"
+    copyConfig.EntityData.BundleName = "ietf"
+    copyConfig.EntityData.ParentYangName = "ietf-netconf"
+    copyConfig.EntityData.SegmentPath = "ietf-netconf:copy-config"
+    copyConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    copyConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
+    copyConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (copyConfig *CopyConfig) SetFilter(yf yfilter.YFilter) { copyConfig.YFilter = yf }
-
-func (copyConfig *CopyConfig) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    copyConfig.EntityData.Children = make(map[string]types.YChild)
+    copyConfig.EntityData.Children["input"] = types.YChild{"Input", &copyConfig.Input}
+    copyConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(copyConfig.EntityData)
 }
-
-func (copyConfig *CopyConfig) GetSegmentPath() string {
-    return "ietf-netconf:copy-config"
-}
-
-func (copyConfig *CopyConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &copyConfig.Input
-    }
-    return nil
-}
-
-func (copyConfig *CopyConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &copyConfig.Input
-    return children
-}
-
-func (copyConfig *CopyConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (copyConfig *CopyConfig) GetBundleName() string { return "ietf" }
-
-func (copyConfig *CopyConfig) GetYangName() string { return "copy-config" }
-
-func (copyConfig *CopyConfig) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (copyConfig *CopyConfig) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (copyConfig *CopyConfig) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (copyConfig *CopyConfig) SetParent(parent types.Entity) { copyConfig.parent = parent }
-
-func (copyConfig *CopyConfig) GetParent() types.Entity { return copyConfig.parent }
-
-func (copyConfig *CopyConfig) GetParentYangName() string { return "ietf-netconf" }
 
 // CopyConfig_Input
 type CopyConfig_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The explicit defaults processing mode requested. The type is
@@ -790,66 +521,28 @@ type CopyConfig_Input struct {
     Source CopyConfig_Input_Source
 }
 
-func (input *CopyConfig_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *CopyConfig_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "copy-config"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *CopyConfig_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *CopyConfig_Input) GetGoName(yname string) string {
-    if yname == "with-defaults" { return "WithDefaults" }
-    if yname == "target" { return "Target" }
-    if yname == "source" { return "Source" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
+    input.EntityData.Children["source"] = types.YChild{"Source", &input.Source}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["with-defaults"] = types.YLeaf{"WithDefaults", input.WithDefaults}
+    return &(input.EntityData)
 }
-
-func (input *CopyConfig_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *CopyConfig_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "target" {
-        return &input.Target
-    }
-    if childYangName == "source" {
-        return &input.Source
-    }
-    return nil
-}
-
-func (input *CopyConfig_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["target"] = &input.Target
-    children["source"] = &input.Source
-    return children
-}
-
-func (input *CopyConfig_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["with-defaults"] = input.WithDefaults
-    return leafs
-}
-
-func (input *CopyConfig_Input) GetBundleName() string { return "ietf" }
-
-func (input *CopyConfig_Input) GetYangName() string { return "input" }
-
-func (input *CopyConfig_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *CopyConfig_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *CopyConfig_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *CopyConfig_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *CopyConfig_Input) GetParent() types.Entity { return input.parent }
-
-func (input *CopyConfig_Input) GetParentYangName() string { return "copy-config" }
 
 // CopyConfig_Input_Target
 // Particular configuration to copy to.
 type CopyConfig_Input_Target struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config target. The type is interface{}.
@@ -866,62 +559,29 @@ type CopyConfig_Input_Target struct {
     Url interface{}
 }
 
-func (target *CopyConfig_Input_Target) GetFilter() yfilter.YFilter { return target.YFilter }
+func (target *CopyConfig_Input_Target) GetEntityData() *types.CommonEntityData {
+    target.EntityData.YFilter = target.YFilter
+    target.EntityData.YangName = "target"
+    target.EntityData.BundleName = "ietf"
+    target.EntityData.ParentYangName = "input"
+    target.EntityData.SegmentPath = "target"
+    target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    target.EntityData.NamespaceTable = ietf.GetNamespaces()
+    target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (target *CopyConfig_Input_Target) SetFilter(yf yfilter.YFilter) { target.YFilter = yf }
-
-func (target *CopyConfig_Input_Target) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    if yname == "startup" { return "Startup" }
-    if yname == "url" { return "Url" }
-    return ""
+    target.EntityData.Children = make(map[string]types.YChild)
+    target.EntityData.Leafs = make(map[string]types.YLeaf)
+    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
+    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
+    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    target.EntityData.Leafs["url"] = types.YLeaf{"Url", target.Url}
+    return &(target.EntityData)
 }
-
-func (target *CopyConfig_Input_Target) GetSegmentPath() string {
-    return "target"
-}
-
-func (target *CopyConfig_Input_Target) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (target *CopyConfig_Input_Target) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (target *CopyConfig_Input_Target) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = target.Candidate
-    leafs["running"] = target.Running
-    leafs["startup"] = target.Startup
-    leafs["url"] = target.Url
-    return leafs
-}
-
-func (target *CopyConfig_Input_Target) GetBundleName() string { return "ietf" }
-
-func (target *CopyConfig_Input_Target) GetYangName() string { return "target" }
-
-func (target *CopyConfig_Input_Target) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (target *CopyConfig_Input_Target) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (target *CopyConfig_Input_Target) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (target *CopyConfig_Input_Target) SetParent(parent types.Entity) { target.parent = parent }
-
-func (target *CopyConfig_Input_Target) GetParent() types.Entity { return target.parent }
-
-func (target *CopyConfig_Input_Target) GetParentYangName() string { return "input" }
 
 // CopyConfig_Input_Source
 // Particular configuration to copy from.
 type CopyConfig_Input_Source struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config source. The type is interface{}.
@@ -942,181 +602,81 @@ type CopyConfig_Input_Source struct {
     Config interface{}
 }
 
-func (source *CopyConfig_Input_Source) GetFilter() yfilter.YFilter { return source.YFilter }
+func (source *CopyConfig_Input_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "ietf"
+    source.EntityData.ParentYangName = "input"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    source.EntityData.NamespaceTable = ietf.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (source *CopyConfig_Input_Source) SetFilter(yf yfilter.YFilter) { source.YFilter = yf }
-
-func (source *CopyConfig_Input_Source) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    if yname == "startup" { return "Startup" }
-    if yname == "url" { return "Url" }
-    if yname == "config" { return "Config" }
-    return ""
+    source.EntityData.Children = make(map[string]types.YChild)
+    source.EntityData.Leafs = make(map[string]types.YLeaf)
+    source.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", source.Candidate}
+    source.EntityData.Leafs["running"] = types.YLeaf{"Running", source.Running}
+    source.EntityData.Leafs["startup"] = types.YLeaf{"Startup", source.Startup}
+    source.EntityData.Leafs["url"] = types.YLeaf{"Url", source.Url}
+    source.EntityData.Leafs["config"] = types.YLeaf{"Config", source.Config}
+    return &(source.EntityData)
 }
-
-func (source *CopyConfig_Input_Source) GetSegmentPath() string {
-    return "source"
-}
-
-func (source *CopyConfig_Input_Source) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (source *CopyConfig_Input_Source) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (source *CopyConfig_Input_Source) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = source.Candidate
-    leafs["running"] = source.Running
-    leafs["startup"] = source.Startup
-    leafs["url"] = source.Url
-    leafs["config"] = source.Config
-    return leafs
-}
-
-func (source *CopyConfig_Input_Source) GetBundleName() string { return "ietf" }
-
-func (source *CopyConfig_Input_Source) GetYangName() string { return "source" }
-
-func (source *CopyConfig_Input_Source) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (source *CopyConfig_Input_Source) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (source *CopyConfig_Input_Source) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (source *CopyConfig_Input_Source) SetParent(parent types.Entity) { source.parent = parent }
-
-func (source *CopyConfig_Input_Source) GetParent() types.Entity { return source.parent }
-
-func (source *CopyConfig_Input_Source) GetParentYangName() string { return "input" }
 
 // DeleteConfig
 // Delete a configuration datastore.
 type DeleteConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input DeleteConfig_Input
 }
 
-func (deleteConfig *DeleteConfig) GetFilter() yfilter.YFilter { return deleteConfig.YFilter }
+func (deleteConfig *DeleteConfig) GetEntityData() *types.CommonEntityData {
+    deleteConfig.EntityData.YFilter = deleteConfig.YFilter
+    deleteConfig.EntityData.YangName = "delete-config"
+    deleteConfig.EntityData.BundleName = "ietf"
+    deleteConfig.EntityData.ParentYangName = "ietf-netconf"
+    deleteConfig.EntityData.SegmentPath = "ietf-netconf:delete-config"
+    deleteConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    deleteConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
+    deleteConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (deleteConfig *DeleteConfig) SetFilter(yf yfilter.YFilter) { deleteConfig.YFilter = yf }
-
-func (deleteConfig *DeleteConfig) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    deleteConfig.EntityData.Children = make(map[string]types.YChild)
+    deleteConfig.EntityData.Children["input"] = types.YChild{"Input", &deleteConfig.Input}
+    deleteConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(deleteConfig.EntityData)
 }
-
-func (deleteConfig *DeleteConfig) GetSegmentPath() string {
-    return "ietf-netconf:delete-config"
-}
-
-func (deleteConfig *DeleteConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &deleteConfig.Input
-    }
-    return nil
-}
-
-func (deleteConfig *DeleteConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &deleteConfig.Input
-    return children
-}
-
-func (deleteConfig *DeleteConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (deleteConfig *DeleteConfig) GetBundleName() string { return "ietf" }
-
-func (deleteConfig *DeleteConfig) GetYangName() string { return "delete-config" }
-
-func (deleteConfig *DeleteConfig) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (deleteConfig *DeleteConfig) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (deleteConfig *DeleteConfig) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (deleteConfig *DeleteConfig) SetParent(parent types.Entity) { deleteConfig.parent = parent }
-
-func (deleteConfig *DeleteConfig) GetParent() types.Entity { return deleteConfig.parent }
-
-func (deleteConfig *DeleteConfig) GetParentYangName() string { return "ietf-netconf" }
 
 // DeleteConfig_Input
 type DeleteConfig_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Particular configuration to delete.
     Target DeleteConfig_Input_Target
 }
 
-func (input *DeleteConfig_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *DeleteConfig_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "delete-config"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *DeleteConfig_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *DeleteConfig_Input) GetGoName(yname string) string {
-    if yname == "target" { return "Target" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(input.EntityData)
 }
-
-func (input *DeleteConfig_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *DeleteConfig_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "target" {
-        return &input.Target
-    }
-    return nil
-}
-
-func (input *DeleteConfig_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["target"] = &input.Target
-    return children
-}
-
-func (input *DeleteConfig_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (input *DeleteConfig_Input) GetBundleName() string { return "ietf" }
-
-func (input *DeleteConfig_Input) GetYangName() string { return "input" }
-
-func (input *DeleteConfig_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *DeleteConfig_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *DeleteConfig_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *DeleteConfig_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *DeleteConfig_Input) GetParent() types.Entity { return input.parent }
-
-func (input *DeleteConfig_Input) GetParentYangName() string { return "delete-config" }
 
 // DeleteConfig_Input_Target
 // Particular configuration to delete.
 type DeleteConfig_Input_Target struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The startup configuration is the config target. The type is interface{}.
@@ -1126,176 +686,79 @@ type DeleteConfig_Input_Target struct {
     Url interface{}
 }
 
-func (target *DeleteConfig_Input_Target) GetFilter() yfilter.YFilter { return target.YFilter }
+func (target *DeleteConfig_Input_Target) GetEntityData() *types.CommonEntityData {
+    target.EntityData.YFilter = target.YFilter
+    target.EntityData.YangName = "target"
+    target.EntityData.BundleName = "ietf"
+    target.EntityData.ParentYangName = "input"
+    target.EntityData.SegmentPath = "target"
+    target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    target.EntityData.NamespaceTable = ietf.GetNamespaces()
+    target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (target *DeleteConfig_Input_Target) SetFilter(yf yfilter.YFilter) { target.YFilter = yf }
-
-func (target *DeleteConfig_Input_Target) GetGoName(yname string) string {
-    if yname == "startup" { return "Startup" }
-    if yname == "url" { return "Url" }
-    return ""
+    target.EntityData.Children = make(map[string]types.YChild)
+    target.EntityData.Leafs = make(map[string]types.YLeaf)
+    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    target.EntityData.Leafs["url"] = types.YLeaf{"Url", target.Url}
+    return &(target.EntityData)
 }
-
-func (target *DeleteConfig_Input_Target) GetSegmentPath() string {
-    return "target"
-}
-
-func (target *DeleteConfig_Input_Target) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (target *DeleteConfig_Input_Target) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (target *DeleteConfig_Input_Target) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["startup"] = target.Startup
-    leafs["url"] = target.Url
-    return leafs
-}
-
-func (target *DeleteConfig_Input_Target) GetBundleName() string { return "ietf" }
-
-func (target *DeleteConfig_Input_Target) GetYangName() string { return "target" }
-
-func (target *DeleteConfig_Input_Target) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (target *DeleteConfig_Input_Target) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (target *DeleteConfig_Input_Target) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (target *DeleteConfig_Input_Target) SetParent(parent types.Entity) { target.parent = parent }
-
-func (target *DeleteConfig_Input_Target) GetParent() types.Entity { return target.parent }
-
-func (target *DeleteConfig_Input_Target) GetParentYangName() string { return "input" }
 
 // Lock
 // The lock operation allows the client to lock the configuration
 // system of a device.
 type Lock struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input Lock_Input
 }
 
-func (lock *Lock) GetFilter() yfilter.YFilter { return lock.YFilter }
+func (lock *Lock) GetEntityData() *types.CommonEntityData {
+    lock.EntityData.YFilter = lock.YFilter
+    lock.EntityData.YangName = "lock"
+    lock.EntityData.BundleName = "ietf"
+    lock.EntityData.ParentYangName = "ietf-netconf"
+    lock.EntityData.SegmentPath = "ietf-netconf:lock"
+    lock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    lock.EntityData.NamespaceTable = ietf.GetNamespaces()
+    lock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (lock *Lock) SetFilter(yf yfilter.YFilter) { lock.YFilter = yf }
-
-func (lock *Lock) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    lock.EntityData.Children = make(map[string]types.YChild)
+    lock.EntityData.Children["input"] = types.YChild{"Input", &lock.Input}
+    lock.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lock.EntityData)
 }
-
-func (lock *Lock) GetSegmentPath() string {
-    return "ietf-netconf:lock"
-}
-
-func (lock *Lock) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &lock.Input
-    }
-    return nil
-}
-
-func (lock *Lock) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &lock.Input
-    return children
-}
-
-func (lock *Lock) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lock *Lock) GetBundleName() string { return "ietf" }
-
-func (lock *Lock) GetYangName() string { return "lock" }
-
-func (lock *Lock) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (lock *Lock) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (lock *Lock) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (lock *Lock) SetParent(parent types.Entity) { lock.parent = parent }
-
-func (lock *Lock) GetParent() types.Entity { return lock.parent }
-
-func (lock *Lock) GetParentYangName() string { return "ietf-netconf" }
 
 // Lock_Input
 type Lock_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Particular configuration to lock.
     Target Lock_Input_Target
 }
 
-func (input *Lock_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Lock_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "lock"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *Lock_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Lock_Input) GetGoName(yname string) string {
-    if yname == "target" { return "Target" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(input.EntityData)
 }
-
-func (input *Lock_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Lock_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "target" {
-        return &input.Target
-    }
-    return nil
-}
-
-func (input *Lock_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["target"] = &input.Target
-    return children
-}
-
-func (input *Lock_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (input *Lock_Input) GetBundleName() string { return "ietf" }
-
-func (input *Lock_Input) GetYangName() string { return "input" }
-
-func (input *Lock_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *Lock_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *Lock_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *Lock_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Lock_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Lock_Input) GetParentYangName() string { return "lock" }
 
 // Lock_Input_Target
 // Particular configuration to lock.
 type Lock_Input_Target struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config target. The type is interface{}.
@@ -1308,178 +771,80 @@ type Lock_Input_Target struct {
     Startup interface{}
 }
 
-func (target *Lock_Input_Target) GetFilter() yfilter.YFilter { return target.YFilter }
+func (target *Lock_Input_Target) GetEntityData() *types.CommonEntityData {
+    target.EntityData.YFilter = target.YFilter
+    target.EntityData.YangName = "target"
+    target.EntityData.BundleName = "ietf"
+    target.EntityData.ParentYangName = "input"
+    target.EntityData.SegmentPath = "target"
+    target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    target.EntityData.NamespaceTable = ietf.GetNamespaces()
+    target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (target *Lock_Input_Target) SetFilter(yf yfilter.YFilter) { target.YFilter = yf }
-
-func (target *Lock_Input_Target) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    if yname == "startup" { return "Startup" }
-    return ""
+    target.EntityData.Children = make(map[string]types.YChild)
+    target.EntityData.Leafs = make(map[string]types.YLeaf)
+    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
+    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
+    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    return &(target.EntityData)
 }
-
-func (target *Lock_Input_Target) GetSegmentPath() string {
-    return "target"
-}
-
-func (target *Lock_Input_Target) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (target *Lock_Input_Target) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (target *Lock_Input_Target) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = target.Candidate
-    leafs["running"] = target.Running
-    leafs["startup"] = target.Startup
-    return leafs
-}
-
-func (target *Lock_Input_Target) GetBundleName() string { return "ietf" }
-
-func (target *Lock_Input_Target) GetYangName() string { return "target" }
-
-func (target *Lock_Input_Target) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (target *Lock_Input_Target) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (target *Lock_Input_Target) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (target *Lock_Input_Target) SetParent(parent types.Entity) { target.parent = parent }
-
-func (target *Lock_Input_Target) GetParent() types.Entity { return target.parent }
-
-func (target *Lock_Input_Target) GetParentYangName() string { return "input" }
 
 // Unlock
 // The unlock operation is used to release a configuration lock,
 // previously obtained with the 'lock' operation.
 type Unlock struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input Unlock_Input
 }
 
-func (unlock *Unlock) GetFilter() yfilter.YFilter { return unlock.YFilter }
+func (unlock *Unlock) GetEntityData() *types.CommonEntityData {
+    unlock.EntityData.YFilter = unlock.YFilter
+    unlock.EntityData.YangName = "unlock"
+    unlock.EntityData.BundleName = "ietf"
+    unlock.EntityData.ParentYangName = "ietf-netconf"
+    unlock.EntityData.SegmentPath = "ietf-netconf:unlock"
+    unlock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    unlock.EntityData.NamespaceTable = ietf.GetNamespaces()
+    unlock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (unlock *Unlock) SetFilter(yf yfilter.YFilter) { unlock.YFilter = yf }
-
-func (unlock *Unlock) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    unlock.EntityData.Children = make(map[string]types.YChild)
+    unlock.EntityData.Children["input"] = types.YChild{"Input", &unlock.Input}
+    unlock.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(unlock.EntityData)
 }
-
-func (unlock *Unlock) GetSegmentPath() string {
-    return "ietf-netconf:unlock"
-}
-
-func (unlock *Unlock) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &unlock.Input
-    }
-    return nil
-}
-
-func (unlock *Unlock) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &unlock.Input
-    return children
-}
-
-func (unlock *Unlock) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (unlock *Unlock) GetBundleName() string { return "ietf" }
-
-func (unlock *Unlock) GetYangName() string { return "unlock" }
-
-func (unlock *Unlock) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (unlock *Unlock) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (unlock *Unlock) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (unlock *Unlock) SetParent(parent types.Entity) { unlock.parent = parent }
-
-func (unlock *Unlock) GetParent() types.Entity { return unlock.parent }
-
-func (unlock *Unlock) GetParentYangName() string { return "ietf-netconf" }
 
 // Unlock_Input
 type Unlock_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Particular configuration to unlock.
     Target Unlock_Input_Target
 }
 
-func (input *Unlock_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Unlock_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "unlock"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *Unlock_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Unlock_Input) GetGoName(yname string) string {
-    if yname == "target" { return "Target" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(input.EntityData)
 }
-
-func (input *Unlock_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Unlock_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "target" {
-        return &input.Target
-    }
-    return nil
-}
-
-func (input *Unlock_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["target"] = &input.Target
-    return children
-}
-
-func (input *Unlock_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (input *Unlock_Input) GetBundleName() string { return "ietf" }
-
-func (input *Unlock_Input) GetYangName() string { return "input" }
-
-func (input *Unlock_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *Unlock_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *Unlock_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *Unlock_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Unlock_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Unlock_Input) GetParentYangName() string { return "unlock" }
 
 // Unlock_Input_Target
 // Particular configuration to unlock.
 type Unlock_Input_Target struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config target. The type is interface{}.
@@ -1492,60 +857,28 @@ type Unlock_Input_Target struct {
     Startup interface{}
 }
 
-func (target *Unlock_Input_Target) GetFilter() yfilter.YFilter { return target.YFilter }
+func (target *Unlock_Input_Target) GetEntityData() *types.CommonEntityData {
+    target.EntityData.YFilter = target.YFilter
+    target.EntityData.YangName = "target"
+    target.EntityData.BundleName = "ietf"
+    target.EntityData.ParentYangName = "input"
+    target.EntityData.SegmentPath = "target"
+    target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    target.EntityData.NamespaceTable = ietf.GetNamespaces()
+    target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (target *Unlock_Input_Target) SetFilter(yf yfilter.YFilter) { target.YFilter = yf }
-
-func (target *Unlock_Input_Target) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    if yname == "startup" { return "Startup" }
-    return ""
+    target.EntityData.Children = make(map[string]types.YChild)
+    target.EntityData.Leafs = make(map[string]types.YLeaf)
+    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
+    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
+    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    return &(target.EntityData)
 }
-
-func (target *Unlock_Input_Target) GetSegmentPath() string {
-    return "target"
-}
-
-func (target *Unlock_Input_Target) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (target *Unlock_Input_Target) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (target *Unlock_Input_Target) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = target.Candidate
-    leafs["running"] = target.Running
-    leafs["startup"] = target.Startup
-    return leafs
-}
-
-func (target *Unlock_Input_Target) GetBundleName() string { return "ietf" }
-
-func (target *Unlock_Input_Target) GetYangName() string { return "target" }
-
-func (target *Unlock_Input_Target) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (target *Unlock_Input_Target) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (target *Unlock_Input_Target) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (target *Unlock_Input_Target) SetParent(parent types.Entity) { target.parent = parent }
-
-func (target *Unlock_Input_Target) GetParent() types.Entity { return target.parent }
-
-func (target *Unlock_Input_Target) GetParentYangName() string { return "input" }
 
 // Get
 // Retrieve running configuration and device state information.
 type Get struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -1555,63 +888,26 @@ type Get struct {
     Output Get_Output
 }
 
-func (get *Get) GetFilter() yfilter.YFilter { return get.YFilter }
+func (get *Get) GetEntityData() *types.CommonEntityData {
+    get.EntityData.YFilter = get.YFilter
+    get.EntityData.YangName = "get"
+    get.EntityData.BundleName = "ietf"
+    get.EntityData.ParentYangName = "ietf-netconf"
+    get.EntityData.SegmentPath = "ietf-netconf:get"
+    get.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    get.EntityData.NamespaceTable = ietf.GetNamespaces()
+    get.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (get *Get) SetFilter(yf yfilter.YFilter) { get.YFilter = yf }
-
-func (get *Get) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    get.EntityData.Children = make(map[string]types.YChild)
+    get.EntityData.Children["input"] = types.YChild{"Input", &get.Input}
+    get.EntityData.Children["output"] = types.YChild{"Output", &get.Output}
+    get.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(get.EntityData)
 }
-
-func (get *Get) GetSegmentPath() string {
-    return "ietf-netconf:get"
-}
-
-func (get *Get) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &get.Input
-    }
-    if childYangName == "output" {
-        return &get.Output
-    }
-    return nil
-}
-
-func (get *Get) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &get.Input
-    children["output"] = &get.Output
-    return children
-}
-
-func (get *Get) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (get *Get) GetBundleName() string { return "ietf" }
-
-func (get *Get) GetYangName() string { return "get" }
-
-func (get *Get) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (get *Get) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (get *Get) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (get *Get) SetParent(parent types.Entity) { get.parent = parent }
-
-func (get *Get) GetParent() types.Entity { return get.parent }
-
-func (get *Get) GetParentYangName() string { return "ietf-netconf" }
 
 // Get_Input
 type Get_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This parameter specifies the portion of the system configuration and state
@@ -1623,57 +919,26 @@ type Get_Input struct {
     WithDefaults interface{}
 }
 
-func (input *Get_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Get_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "get"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *Get_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Get_Input) GetGoName(yname string) string {
-    if yname == "filter" { return "Filter" }
-    if yname == "with-defaults" { return "WithDefaults" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
+    input.EntityData.Leafs["with-defaults"] = types.YLeaf{"WithDefaults", input.WithDefaults}
+    return &(input.EntityData)
 }
-
-func (input *Get_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Get_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *Get_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *Get_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["filter"] = input.Filter
-    leafs["with-defaults"] = input.WithDefaults
-    return leafs
-}
-
-func (input *Get_Input) GetBundleName() string { return "ietf" }
-
-func (input *Get_Input) GetYangName() string { return "input" }
-
-func (input *Get_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *Get_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *Get_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *Get_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Get_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Get_Input) GetParentYangName() string { return "get" }
 
 // Get_Output
 type Get_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Copy of the running datastore subset and/or state data that matched the
@@ -1682,165 +947,73 @@ type Get_Output struct {
     Data interface{}
 }
 
-func (output *Get_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Get_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "ietf"
+    output.EntityData.ParentYangName = "get"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    output.EntityData.NamespaceTable = ietf.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (output *Get_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Get_Output) GetGoName(yname string) string {
-    if yname == "data" { return "Data" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["data"] = types.YLeaf{"Data", output.Data}
+    return &(output.EntityData)
 }
-
-func (output *Get_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Get_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Get_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Get_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["data"] = output.Data
-    return leafs
-}
-
-func (output *Get_Output) GetBundleName() string { return "ietf" }
-
-func (output *Get_Output) GetYangName() string { return "output" }
-
-func (output *Get_Output) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (output *Get_Output) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (output *Get_Output) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (output *Get_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Get_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Get_Output) GetParentYangName() string { return "get" }
 
 // CloseSession
 // Request graceful termination of a NETCONF session.
 type CloseSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (closeSession *CloseSession) GetFilter() yfilter.YFilter { return closeSession.YFilter }
+func (closeSession *CloseSession) GetEntityData() *types.CommonEntityData {
+    closeSession.EntityData.YFilter = closeSession.YFilter
+    closeSession.EntityData.YangName = "close-session"
+    closeSession.EntityData.BundleName = "ietf"
+    closeSession.EntityData.ParentYangName = "ietf-netconf"
+    closeSession.EntityData.SegmentPath = "ietf-netconf:close-session"
+    closeSession.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    closeSession.EntityData.NamespaceTable = ietf.GetNamespaces()
+    closeSession.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (closeSession *CloseSession) SetFilter(yf yfilter.YFilter) { closeSession.YFilter = yf }
-
-func (closeSession *CloseSession) GetGoName(yname string) string {
-    return ""
+    closeSession.EntityData.Children = make(map[string]types.YChild)
+    closeSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(closeSession.EntityData)
 }
-
-func (closeSession *CloseSession) GetSegmentPath() string {
-    return "ietf-netconf:close-session"
-}
-
-func (closeSession *CloseSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (closeSession *CloseSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (closeSession *CloseSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (closeSession *CloseSession) GetBundleName() string { return "ietf" }
-
-func (closeSession *CloseSession) GetYangName() string { return "close-session" }
-
-func (closeSession *CloseSession) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (closeSession *CloseSession) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (closeSession *CloseSession) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (closeSession *CloseSession) SetParent(parent types.Entity) { closeSession.parent = parent }
-
-func (closeSession *CloseSession) GetParent() types.Entity { return closeSession.parent }
-
-func (closeSession *CloseSession) GetParentYangName() string { return "ietf-netconf" }
 
 // KillSession
 // Force the termination of a NETCONF session.
 type KillSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input KillSession_Input
 }
 
-func (killSession *KillSession) GetFilter() yfilter.YFilter { return killSession.YFilter }
+func (killSession *KillSession) GetEntityData() *types.CommonEntityData {
+    killSession.EntityData.YFilter = killSession.YFilter
+    killSession.EntityData.YangName = "kill-session"
+    killSession.EntityData.BundleName = "ietf"
+    killSession.EntityData.ParentYangName = "ietf-netconf"
+    killSession.EntityData.SegmentPath = "ietf-netconf:kill-session"
+    killSession.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    killSession.EntityData.NamespaceTable = ietf.GetNamespaces()
+    killSession.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (killSession *KillSession) SetFilter(yf yfilter.YFilter) { killSession.YFilter = yf }
-
-func (killSession *KillSession) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    killSession.EntityData.Children = make(map[string]types.YChild)
+    killSession.EntityData.Children["input"] = types.YChild{"Input", &killSession.Input}
+    killSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(killSession.EntityData)
 }
-
-func (killSession *KillSession) GetSegmentPath() string {
-    return "ietf-netconf:kill-session"
-}
-
-func (killSession *KillSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &killSession.Input
-    }
-    return nil
-}
-
-func (killSession *KillSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &killSession.Input
-    return children
-}
-
-func (killSession *KillSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (killSession *KillSession) GetBundleName() string { return "ietf" }
-
-func (killSession *KillSession) GetYangName() string { return "kill-session" }
-
-func (killSession *KillSession) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (killSession *KillSession) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (killSession *KillSession) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (killSession *KillSession) SetParent(parent types.Entity) { killSession.parent = parent }
-
-func (killSession *KillSession) GetParent() types.Entity { return killSession.parent }
-
-func (killSession *KillSession) GetParentYangName() string { return "ietf-netconf" }
 
 // KillSession_Input
 type KillSession_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Particular session to kill. The type is interface{} with range:
@@ -1848,115 +1021,52 @@ type KillSession_Input struct {
     SessionId interface{}
 }
 
-func (input *KillSession_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *KillSession_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "kill-session"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *KillSession_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *KillSession_Input) GetGoName(yname string) string {
-    if yname == "session-id" { return "SessionId" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", input.SessionId}
+    return &(input.EntityData)
 }
-
-func (input *KillSession_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *KillSession_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *KillSession_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *KillSession_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-id"] = input.SessionId
-    return leafs
-}
-
-func (input *KillSession_Input) GetBundleName() string { return "ietf" }
-
-func (input *KillSession_Input) GetYangName() string { return "input" }
-
-func (input *KillSession_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *KillSession_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *KillSession_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *KillSession_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *KillSession_Input) GetParent() types.Entity { return input.parent }
-
-func (input *KillSession_Input) GetParentYangName() string { return "kill-session" }
 
 // Commit
 // Commit the candidate configuration as the device's new
 // current configuration.
 type Commit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input Commit_Input
 }
 
-func (commit *Commit) GetFilter() yfilter.YFilter { return commit.YFilter }
+func (commit *Commit) GetEntityData() *types.CommonEntityData {
+    commit.EntityData.YFilter = commit.YFilter
+    commit.EntityData.YangName = "commit"
+    commit.EntityData.BundleName = "ietf"
+    commit.EntityData.ParentYangName = "ietf-netconf"
+    commit.EntityData.SegmentPath = "ietf-netconf:commit"
+    commit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    commit.EntityData.NamespaceTable = ietf.GetNamespaces()
+    commit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (commit *Commit) SetFilter(yf yfilter.YFilter) { commit.YFilter = yf }
-
-func (commit *Commit) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    commit.EntityData.Children = make(map[string]types.YChild)
+    commit.EntityData.Children["input"] = types.YChild{"Input", &commit.Input}
+    commit.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(commit.EntityData)
 }
-
-func (commit *Commit) GetSegmentPath() string {
-    return "ietf-netconf:commit"
-}
-
-func (commit *Commit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &commit.Input
-    }
-    return nil
-}
-
-func (commit *Commit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &commit.Input
-    return children
-}
-
-func (commit *Commit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (commit *Commit) GetBundleName() string { return "ietf" }
-
-func (commit *Commit) GetYangName() string { return "commit" }
-
-func (commit *Commit) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (commit *Commit) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (commit *Commit) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (commit *Commit) SetParent(parent types.Entity) { commit.parent = parent }
-
-func (commit *Commit) GetParent() types.Entity { return commit.parent }
-
-func (commit *Commit) GetParentYangName() string { return "ietf-netconf" }
 
 // Commit_Input
 type Commit_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Requests a confirmed commit. The type is interface{}.
@@ -1982,109 +1092,47 @@ type Commit_Input struct {
     PersistId interface{}
 }
 
-func (input *Commit_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Commit_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "commit"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *Commit_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Commit_Input) GetGoName(yname string) string {
-    if yname == "confirmed" { return "Confirmed" }
-    if yname == "confirm-timeout" { return "ConfirmTimeout" }
-    if yname == "persist" { return "Persist" }
-    if yname == "persist-id" { return "PersistId" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["confirmed"] = types.YLeaf{"Confirmed", input.Confirmed}
+    input.EntityData.Leafs["confirm-timeout"] = types.YLeaf{"ConfirmTimeout", input.ConfirmTimeout}
+    input.EntityData.Leafs["persist"] = types.YLeaf{"Persist", input.Persist}
+    input.EntityData.Leafs["persist-id"] = types.YLeaf{"PersistId", input.PersistId}
+    return &(input.EntityData)
 }
-
-func (input *Commit_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Commit_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *Commit_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *Commit_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["confirmed"] = input.Confirmed
-    leafs["confirm-timeout"] = input.ConfirmTimeout
-    leafs["persist"] = input.Persist
-    leafs["persist-id"] = input.PersistId
-    return leafs
-}
-
-func (input *Commit_Input) GetBundleName() string { return "ietf" }
-
-func (input *Commit_Input) GetYangName() string { return "input" }
-
-func (input *Commit_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *Commit_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *Commit_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *Commit_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Commit_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Commit_Input) GetParentYangName() string { return "commit" }
 
 // DiscardChanges
 // Revert the candidate configuration to the current
 // running configuration.
 type DiscardChanges struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (discardChanges *DiscardChanges) GetFilter() yfilter.YFilter { return discardChanges.YFilter }
+func (discardChanges *DiscardChanges) GetEntityData() *types.CommonEntityData {
+    discardChanges.EntityData.YFilter = discardChanges.YFilter
+    discardChanges.EntityData.YangName = "discard-changes"
+    discardChanges.EntityData.BundleName = "ietf"
+    discardChanges.EntityData.ParentYangName = "ietf-netconf"
+    discardChanges.EntityData.SegmentPath = "ietf-netconf:discard-changes"
+    discardChanges.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    discardChanges.EntityData.NamespaceTable = ietf.GetNamespaces()
+    discardChanges.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (discardChanges *DiscardChanges) SetFilter(yf yfilter.YFilter) { discardChanges.YFilter = yf }
-
-func (discardChanges *DiscardChanges) GetGoName(yname string) string {
-    return ""
+    discardChanges.EntityData.Children = make(map[string]types.YChild)
+    discardChanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(discardChanges.EntityData)
 }
-
-func (discardChanges *DiscardChanges) GetSegmentPath() string {
-    return "ietf-netconf:discard-changes"
-}
-
-func (discardChanges *DiscardChanges) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (discardChanges *DiscardChanges) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (discardChanges *DiscardChanges) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (discardChanges *DiscardChanges) GetBundleName() string { return "ietf" }
-
-func (discardChanges *DiscardChanges) GetYangName() string { return "discard-changes" }
-
-func (discardChanges *DiscardChanges) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (discardChanges *DiscardChanges) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (discardChanges *DiscardChanges) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (discardChanges *DiscardChanges) SetParent(parent types.Entity) { discardChanges.parent = parent }
-
-func (discardChanges *DiscardChanges) GetParent() types.Entity { return discardChanges.parent }
-
-func (discardChanges *DiscardChanges) GetParentYangName() string { return "ietf-netconf" }
 
 // CancelCommit
 // This operation is used to cancel an ongoing confirmed commit.
@@ -2092,65 +1140,32 @@ func (discardChanges *DiscardChanges) GetParentYangName() string { return "ietf-
 // 'persist-id' must be given, and it must match the value of the
 // 'persist' parameter.
 type CancelCommit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input CancelCommit_Input
 }
 
-func (cancelCommit *CancelCommit) GetFilter() yfilter.YFilter { return cancelCommit.YFilter }
+func (cancelCommit *CancelCommit) GetEntityData() *types.CommonEntityData {
+    cancelCommit.EntityData.YFilter = cancelCommit.YFilter
+    cancelCommit.EntityData.YangName = "cancel-commit"
+    cancelCommit.EntityData.BundleName = "ietf"
+    cancelCommit.EntityData.ParentYangName = "ietf-netconf"
+    cancelCommit.EntityData.SegmentPath = "ietf-netconf:cancel-commit"
+    cancelCommit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    cancelCommit.EntityData.NamespaceTable = ietf.GetNamespaces()
+    cancelCommit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (cancelCommit *CancelCommit) SetFilter(yf yfilter.YFilter) { cancelCommit.YFilter = yf }
-
-func (cancelCommit *CancelCommit) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    cancelCommit.EntityData.Children = make(map[string]types.YChild)
+    cancelCommit.EntityData.Children["input"] = types.YChild{"Input", &cancelCommit.Input}
+    cancelCommit.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cancelCommit.EntityData)
 }
-
-func (cancelCommit *CancelCommit) GetSegmentPath() string {
-    return "ietf-netconf:cancel-commit"
-}
-
-func (cancelCommit *CancelCommit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &cancelCommit.Input
-    }
-    return nil
-}
-
-func (cancelCommit *CancelCommit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &cancelCommit.Input
-    return children
-}
-
-func (cancelCommit *CancelCommit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cancelCommit *CancelCommit) GetBundleName() string { return "ietf" }
-
-func (cancelCommit *CancelCommit) GetYangName() string { return "cancel-commit" }
-
-func (cancelCommit *CancelCommit) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (cancelCommit *CancelCommit) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (cancelCommit *CancelCommit) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (cancelCommit *CancelCommit) SetParent(parent types.Entity) { cancelCommit.parent = parent }
-
-func (cancelCommit *CancelCommit) GetParent() types.Entity { return cancelCommit.parent }
-
-func (cancelCommit *CancelCommit) GetParentYangName() string { return "ietf-netconf" }
 
 // CancelCommit_Input
 type CancelCommit_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This parameter is given in order to cancel a persistent confirmed commit. 
@@ -2160,173 +1175,77 @@ type CancelCommit_Input struct {
     PersistId interface{}
 }
 
-func (input *CancelCommit_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *CancelCommit_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "cancel-commit"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *CancelCommit_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *CancelCommit_Input) GetGoName(yname string) string {
-    if yname == "persist-id" { return "PersistId" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["persist-id"] = types.YLeaf{"PersistId", input.PersistId}
+    return &(input.EntityData)
 }
-
-func (input *CancelCommit_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *CancelCommit_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *CancelCommit_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *CancelCommit_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["persist-id"] = input.PersistId
-    return leafs
-}
-
-func (input *CancelCommit_Input) GetBundleName() string { return "ietf" }
-
-func (input *CancelCommit_Input) GetYangName() string { return "input" }
-
-func (input *CancelCommit_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *CancelCommit_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *CancelCommit_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *CancelCommit_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *CancelCommit_Input) GetParent() types.Entity { return input.parent }
-
-func (input *CancelCommit_Input) GetParentYangName() string { return "cancel-commit" }
 
 // Validate
 // Validates the contents of the specified configuration.
 type Validate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input Validate_Input
 }
 
-func (validate *Validate) GetFilter() yfilter.YFilter { return validate.YFilter }
+func (validate *Validate) GetEntityData() *types.CommonEntityData {
+    validate.EntityData.YFilter = validate.YFilter
+    validate.EntityData.YangName = "validate"
+    validate.EntityData.BundleName = "ietf"
+    validate.EntityData.ParentYangName = "ietf-netconf"
+    validate.EntityData.SegmentPath = "ietf-netconf:validate"
+    validate.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    validate.EntityData.NamespaceTable = ietf.GetNamespaces()
+    validate.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (validate *Validate) SetFilter(yf yfilter.YFilter) { validate.YFilter = yf }
-
-func (validate *Validate) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    validate.EntityData.Children = make(map[string]types.YChild)
+    validate.EntityData.Children["input"] = types.YChild{"Input", &validate.Input}
+    validate.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(validate.EntityData)
 }
-
-func (validate *Validate) GetSegmentPath() string {
-    return "ietf-netconf:validate"
-}
-
-func (validate *Validate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &validate.Input
-    }
-    return nil
-}
-
-func (validate *Validate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &validate.Input
-    return children
-}
-
-func (validate *Validate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (validate *Validate) GetBundleName() string { return "ietf" }
-
-func (validate *Validate) GetYangName() string { return "validate" }
-
-func (validate *Validate) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (validate *Validate) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (validate *Validate) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (validate *Validate) SetParent(parent types.Entity) { validate.parent = parent }
-
-func (validate *Validate) GetParent() types.Entity { return validate.parent }
-
-func (validate *Validate) GetParentYangName() string { return "ietf-netconf" }
 
 // Validate_Input
 type Validate_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Particular configuration to validate.
     Source Validate_Input_Source
 }
 
-func (input *Validate_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Validate_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "validate"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *Validate_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Validate_Input) GetGoName(yname string) string {
-    if yname == "source" { return "Source" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["source"] = types.YChild{"Source", &input.Source}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(input.EntityData)
 }
-
-func (input *Validate_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Validate_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "source" {
-        return &input.Source
-    }
-    return nil
-}
-
-func (input *Validate_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["source"] = &input.Source
-    return children
-}
-
-func (input *Validate_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (input *Validate_Input) GetBundleName() string { return "ietf" }
-
-func (input *Validate_Input) GetYangName() string { return "input" }
-
-func (input *Validate_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *Validate_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *Validate_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *Validate_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Validate_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Validate_Input) GetParentYangName() string { return "validate" }
 
 // Validate_Input_Source
 // Particular configuration to validate.
 type Validate_Input_Source struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The candidate configuration is the config source. The type is interface{}.
@@ -2347,57 +1266,23 @@ type Validate_Input_Source struct {
     Config interface{}
 }
 
-func (source *Validate_Input_Source) GetFilter() yfilter.YFilter { return source.YFilter }
+func (source *Validate_Input_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "ietf"
+    source.EntityData.ParentYangName = "input"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    source.EntityData.NamespaceTable = ietf.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (source *Validate_Input_Source) SetFilter(yf yfilter.YFilter) { source.YFilter = yf }
-
-func (source *Validate_Input_Source) GetGoName(yname string) string {
-    if yname == "candidate" { return "Candidate" }
-    if yname == "running" { return "Running" }
-    if yname == "startup" { return "Startup" }
-    if yname == "url" { return "Url" }
-    if yname == "config" { return "Config" }
-    return ""
+    source.EntityData.Children = make(map[string]types.YChild)
+    source.EntityData.Leafs = make(map[string]types.YLeaf)
+    source.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", source.Candidate}
+    source.EntityData.Leafs["running"] = types.YLeaf{"Running", source.Running}
+    source.EntityData.Leafs["startup"] = types.YLeaf{"Startup", source.Startup}
+    source.EntityData.Leafs["url"] = types.YLeaf{"Url", source.Url}
+    source.EntityData.Leafs["config"] = types.YLeaf{"Config", source.Config}
+    return &(source.EntityData)
 }
-
-func (source *Validate_Input_Source) GetSegmentPath() string {
-    return "source"
-}
-
-func (source *Validate_Input_Source) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (source *Validate_Input_Source) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (source *Validate_Input_Source) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["candidate"] = source.Candidate
-    leafs["running"] = source.Running
-    leafs["startup"] = source.Startup
-    leafs["url"] = source.Url
-    leafs["config"] = source.Config
-    return leafs
-}
-
-func (source *Validate_Input_Source) GetBundleName() string { return "ietf" }
-
-func (source *Validate_Input_Source) GetYangName() string { return "source" }
-
-func (source *Validate_Input_Source) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (source *Validate_Input_Source) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (source *Validate_Input_Source) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (source *Validate_Input_Source) SetParent(parent types.Entity) { source.parent = parent }
-
-func (source *Validate_Input_Source) GetParent() types.Entity { return source.parent }
-
-func (source *Validate_Input_Source) GetParentYangName() string { return "input" }
 

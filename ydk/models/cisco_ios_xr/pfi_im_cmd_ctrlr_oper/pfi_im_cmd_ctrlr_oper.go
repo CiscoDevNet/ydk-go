@@ -89,142 +89,70 @@ const (
 // Controllers
 // Controller operational data
 type Controllers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Descriptions for controllers.
-    Controllers Controllers_Controllers
+    Controllers Controllers_Controllers_
 }
 
-func (controllers *Controllers) GetFilter() yfilter.YFilter { return controllers.YFilter }
+func (controllers *Controllers) GetEntityData() *types.CommonEntityData {
+    controllers.EntityData.YFilter = controllers.YFilter
+    controllers.EntityData.YangName = "controllers"
+    controllers.EntityData.BundleName = "cisco_ios_xr"
+    controllers.EntityData.ParentYangName = "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper"
+    controllers.EntityData.SegmentPath = "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers"
+    controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controllers *Controllers) SetFilter(yf yfilter.YFilter) { controllers.YFilter = yf }
-
-func (controllers *Controllers) GetGoName(yname string) string {
-    if yname == "controllers" { return "Controllers" }
-    return ""
+    controllers.EntityData.Children = make(map[string]types.YChild)
+    controllers.EntityData.Children["controllers"] = types.YChild{"Controllers", &controllers.Controllers}
+    controllers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(controllers.EntityData)
 }
 
-func (controllers *Controllers) GetSegmentPath() string {
-    return "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers"
-}
-
-func (controllers *Controllers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "controllers" {
-        return &controllers.Controllers
-    }
-    return nil
-}
-
-func (controllers *Controllers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["controllers"] = &controllers.Controllers
-    return children
-}
-
-func (controllers *Controllers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (controllers *Controllers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controllers *Controllers) GetYangName() string { return "controllers" }
-
-func (controllers *Controllers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controllers *Controllers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controllers *Controllers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controllers *Controllers) SetParent(parent types.Entity) { controllers.parent = parent }
-
-func (controllers *Controllers) GetParent() types.Entity { return controllers.parent }
-
-func (controllers *Controllers) GetParentYangName() string { return "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper" }
-
-// Controllers_Controllers
+// Controllers_Controllers_
 // Descriptions for controllers
-type Controllers_Controllers struct {
-    parent types.Entity
+type Controllers_Controllers_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Description for a particular controller. The type is slice of
-    // Controllers_Controllers_Controller.
-    Controller []Controllers_Controllers_Controller
+    // Controllers_Controllers__Controller.
+    Controller []Controllers_Controllers__Controller
 }
 
-func (controllers *Controllers_Controllers) GetFilter() yfilter.YFilter { return controllers.YFilter }
+func (controllers_ *Controllers_Controllers_) GetEntityData() *types.CommonEntityData {
+    controllers_.EntityData.YFilter = controllers_.YFilter
+    controllers_.EntityData.YangName = "controllers"
+    controllers_.EntityData.BundleName = "cisco_ios_xr"
+    controllers_.EntityData.ParentYangName = "controllers"
+    controllers_.EntityData.SegmentPath = "controllers"
+    controllers_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controllers_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controllers_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controllers *Controllers_Controllers) SetFilter(yf yfilter.YFilter) { controllers.YFilter = yf }
-
-func (controllers *Controllers_Controllers) GetGoName(yname string) string {
-    if yname == "controller" { return "Controller" }
-    return ""
-}
-
-func (controllers *Controllers_Controllers) GetSegmentPath() string {
-    return "controllers"
-}
-
-func (controllers *Controllers_Controllers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "controller" {
-        for _, c := range controllers.Controller {
-            if controllers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Controllers_Controllers_Controller{}
-        controllers.Controller = append(controllers.Controller, child)
-        return &controllers.Controller[len(controllers.Controller)-1]
+    controllers_.EntityData.Children = make(map[string]types.YChild)
+    controllers_.EntityData.Children["controller"] = types.YChild{"Controller", nil}
+    for i := range controllers_.Controller {
+        controllers_.EntityData.Children[types.GetSegmentPath(&controllers_.Controller[i])] = types.YChild{"Controller", &controllers_.Controller[i]}
     }
-    return nil
+    controllers_.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(controllers_.EntityData)
 }
 
-func (controllers *Controllers_Controllers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range controllers.Controller {
-        children[controllers.Controller[i].GetSegmentPath()] = &controllers.Controller[i]
-    }
-    return children
-}
-
-func (controllers *Controllers_Controllers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (controllers *Controllers_Controllers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controllers *Controllers_Controllers) GetYangName() string { return "controllers" }
-
-func (controllers *Controllers_Controllers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controllers *Controllers_Controllers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controllers *Controllers_Controllers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controllers *Controllers_Controllers) SetParent(parent types.Entity) { controllers.parent = parent }
-
-func (controllers *Controllers_Controllers) GetParent() types.Entity { return controllers.parent }
-
-func (controllers *Controllers_Controllers) GetParentYangName() string { return "controllers" }
-
-// Controllers_Controllers_Controller
+// Controllers_Controllers__Controller
 // Description for a particular controller
-type Controllers_Controllers_Controller struct {
-    parent types.Entity
+type Controllers_Controllers__Controller struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the controller. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: b'[a-zA-Z0-9./-]+'.
     InterafceName interface{}
 
-    // Controller. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Controller. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     Controller interface{}
 
     // Operational state with no translation of error disable or shutdown. The
@@ -235,55 +163,22 @@ type Controllers_Controllers_Controller struct {
     Description interface{}
 }
 
-func (controller *Controllers_Controllers_Controller) GetFilter() yfilter.YFilter { return controller.YFilter }
+func (controller *Controllers_Controllers__Controller) GetEntityData() *types.CommonEntityData {
+    controller.EntityData.YFilter = controller.YFilter
+    controller.EntityData.YangName = "controller"
+    controller.EntityData.BundleName = "cisco_ios_xr"
+    controller.EntityData.ParentYangName = "controllers"
+    controller.EntityData.SegmentPath = "controller" + "[interafce-name='" + fmt.Sprintf("%v", controller.InterafceName) + "']"
+    controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controller *Controllers_Controllers_Controller) SetFilter(yf yfilter.YFilter) { controller.YFilter = yf }
-
-func (controller *Controllers_Controllers_Controller) GetGoName(yname string) string {
-    if yname == "interafce-name" { return "InterafceName" }
-    if yname == "controller" { return "Controller" }
-    if yname == "state" { return "State" }
-    if yname == "description" { return "Description" }
-    return ""
+    controller.EntityData.Children = make(map[string]types.YChild)
+    controller.EntityData.Leafs = make(map[string]types.YLeaf)
+    controller.EntityData.Leafs["interafce-name"] = types.YLeaf{"InterafceName", controller.InterafceName}
+    controller.EntityData.Leafs["controller"] = types.YLeaf{"Controller", controller.Controller}
+    controller.EntityData.Leafs["state"] = types.YLeaf{"State", controller.State}
+    controller.EntityData.Leafs["description"] = types.YLeaf{"Description", controller.Description}
+    return &(controller.EntityData)
 }
-
-func (controller *Controllers_Controllers_Controller) GetSegmentPath() string {
-    return "controller" + "[interafce-name='" + fmt.Sprintf("%v", controller.InterafceName) + "']"
-}
-
-func (controller *Controllers_Controllers_Controller) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (controller *Controllers_Controllers_Controller) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (controller *Controllers_Controllers_Controller) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interafce-name"] = controller.InterafceName
-    leafs["controller"] = controller.Controller
-    leafs["state"] = controller.State
-    leafs["description"] = controller.Description
-    return leafs
-}
-
-func (controller *Controllers_Controllers_Controller) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controller *Controllers_Controllers_Controller) GetYangName() string { return "controller" }
-
-func (controller *Controllers_Controllers_Controller) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controller *Controllers_Controllers_Controller) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controller *Controllers_Controllers_Controller) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controller *Controllers_Controllers_Controller) SetParent(parent types.Entity) { controller.parent = parent }
-
-func (controller *Controllers_Controllers_Controller) GetParent() types.Entity { return controller.parent }
-
-func (controller *Controllers_Controllers_Controller) GetParentYangName() string { return "controllers" }
 

@@ -19,21 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-platform-oper:components", reflect.TypeOf(Components{}))
 }
 
-// PlatformPropValueType represents Property value type
-type PlatformPropValueType string
-
-const (
-    PlatformPropValueType_property_string PlatformPropValueType = "property-string"
-
-    PlatformPropValueType_property_boolean PlatformPropValueType = "property-boolean"
-
-    PlatformPropValueType_property_int64 PlatformPropValueType = "property-int64"
-
-    PlatformPropValueType_property_uint64 PlatformPropValueType = "property-uint64"
-
-    PlatformPropValueType_property_decimal64 PlatformPropValueType = "property-decimal64"
-)
-
 // PlatformCompType represents Component Type
 type PlatformCompType string
 
@@ -60,13 +45,28 @@ const (
 
     PlatformCompType_comp_optical_channel PlatformCompType = "comp-optical-channel"
 
-    PlatformCompType_CONTAINER PlatformCompType = "CONTAINER"
+    PlatformCompType_comp_container PlatformCompType = "comp-container"
+)
+
+// PlatformPropValueType represents Property value type
+type PlatformPropValueType string
+
+const (
+    PlatformPropValueType_property_string PlatformPropValueType = "property-string"
+
+    PlatformPropValueType_property_boolean PlatformPropValueType = "property-boolean"
+
+    PlatformPropValueType_property_int64 PlatformPropValueType = "property-int64"
+
+    PlatformPropValueType_property_uint64 PlatformPropValueType = "property-uint64"
+
+    PlatformPropValueType_property_decimal64 PlatformPropValueType = "property-decimal64"
 )
 
 // Components
 // Enclosing container for the components in the system
 type Components struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of components, keyed by component name. The type is slice of
@@ -74,68 +74,29 @@ type Components struct {
     Component []Components_Component
 }
 
-func (components *Components) GetFilter() yfilter.YFilter { return components.YFilter }
+func (components *Components) GetEntityData() *types.CommonEntityData {
+    components.EntityData.YFilter = components.YFilter
+    components.EntityData.YangName = "components"
+    components.EntityData.BundleName = "cisco_ios_xe"
+    components.EntityData.ParentYangName = "Cisco-IOS-XE-platform-oper"
+    components.EntityData.SegmentPath = "Cisco-IOS-XE-platform-oper:components"
+    components.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    components.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    components.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (components *Components) SetFilter(yf yfilter.YFilter) { components.YFilter = yf }
-
-func (components *Components) GetGoName(yname string) string {
-    if yname == "component" { return "Component" }
-    return ""
-}
-
-func (components *Components) GetSegmentPath() string {
-    return "Cisco-IOS-XE-platform-oper:components"
-}
-
-func (components *Components) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "component" {
-        for _, c := range components.Component {
-            if components.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Components_Component{}
-        components.Component = append(components.Component, child)
-        return &components.Component[len(components.Component)-1]
-    }
-    return nil
-}
-
-func (components *Components) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    components.EntityData.Children = make(map[string]types.YChild)
+    components.EntityData.Children["component"] = types.YChild{"Component", nil}
     for i := range components.Component {
-        children[components.Component[i].GetSegmentPath()] = &components.Component[i]
+        components.EntityData.Children[types.GetSegmentPath(&components.Component[i])] = types.YChild{"Component", &components.Component[i]}
     }
-    return children
+    components.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(components.EntityData)
 }
-
-func (components *Components) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (components *Components) GetBundleName() string { return "cisco_ios_xe" }
-
-func (components *Components) GetYangName() string { return "components" }
-
-func (components *Components) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (components *Components) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (components *Components) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (components *Components) SetParent(parent types.Entity) { components.parent = parent }
-
-func (components *Components) GetParent() types.Entity { return components.parent }
-
-func (components *Components) GetParentYangName() string { return "Cisco-IOS-XE-platform-oper" }
 
 // Components_Component
 // List of components, keyed by component name
 type Components_Component struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. References component name. The type is string.
@@ -151,76 +112,34 @@ type Components_Component struct {
     PlatformSubcomponents Components_Component_PlatformSubcomponents
 }
 
-func (component *Components_Component) GetFilter() yfilter.YFilter { return component.YFilter }
+func (component *Components_Component) GetEntityData() *types.CommonEntityData {
+    component.EntityData.YFilter = component.YFilter
+    component.EntityData.YangName = "component"
+    component.EntityData.BundleName = "cisco_ios_xe"
+    component.EntityData.ParentYangName = "components"
+    component.EntityData.SegmentPath = "component" + "[cname='" + fmt.Sprintf("%v", component.Cname) + "']"
+    component.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    component.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    component.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (component *Components_Component) SetFilter(yf yfilter.YFilter) { component.YFilter = yf }
-
-func (component *Components_Component) GetGoName(yname string) string {
-    if yname == "cname" { return "Cname" }
-    if yname == "state" { return "State" }
-    if yname == "platform-properties" { return "PlatformProperties" }
-    if yname == "platform-subcomponents" { return "PlatformSubcomponents" }
-    return ""
+    component.EntityData.Children = make(map[string]types.YChild)
+    component.EntityData.Children["state"] = types.YChild{"State", &component.State}
+    component.EntityData.Children["platform-properties"] = types.YChild{"PlatformProperties", &component.PlatformProperties}
+    component.EntityData.Children["platform-subcomponents"] = types.YChild{"PlatformSubcomponents", &component.PlatformSubcomponents}
+    component.EntityData.Leafs = make(map[string]types.YLeaf)
+    component.EntityData.Leafs["cname"] = types.YLeaf{"Cname", component.Cname}
+    return &(component.EntityData)
 }
-
-func (component *Components_Component) GetSegmentPath() string {
-    return "component" + "[cname='" + fmt.Sprintf("%v", component.Cname) + "']"
-}
-
-func (component *Components_Component) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "state" {
-        return &component.State
-    }
-    if childYangName == "platform-properties" {
-        return &component.PlatformProperties
-    }
-    if childYangName == "platform-subcomponents" {
-        return &component.PlatformSubcomponents
-    }
-    return nil
-}
-
-func (component *Components_Component) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["state"] = &component.State
-    children["platform-properties"] = &component.PlatformProperties
-    children["platform-subcomponents"] = &component.PlatformSubcomponents
-    return children
-}
-
-func (component *Components_Component) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cname"] = component.Cname
-    return leafs
-}
-
-func (component *Components_Component) GetBundleName() string { return "cisco_ios_xe" }
-
-func (component *Components_Component) GetYangName() string { return "component" }
-
-func (component *Components_Component) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (component *Components_Component) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (component *Components_Component) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (component *Components_Component) SetParent(parent types.Entity) { component.parent = parent }
-
-func (component *Components_Component) GetParent() types.Entity { return component.parent }
-
-func (component *Components_Component) GetParentYangName() string { return "components" }
 
 // Components_Component_State
 // Operational state data for each component
 type Components_Component_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Type of component as identified by the system. The type is
     // PlatformCompType.
-    Type interface{}
+    Type_ interface{}
 
     // Unique identifier assigned to the component by the system. The type is
     // string.
@@ -253,68 +172,28 @@ type Components_Component_State struct {
     Temp Components_Component_State_Temp
 }
 
-func (state *Components_Component_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *Components_Component_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "cisco_ios_xe"
+    state.EntityData.ParentYangName = "component"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    state.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (state *Components_Component_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *Components_Component_State) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "id" { return "Id" }
-    if yname == "description" { return "Description" }
-    if yname == "mfg-name" { return "MfgName" }
-    if yname == "version" { return "Version" }
-    if yname == "serial-no" { return "SerialNo" }
-    if yname == "part-no" { return "PartNo" }
-    if yname == "temp" { return "Temp" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Children["temp"] = types.YChild{"Temp", &state.Temp}
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["type"] = types.YLeaf{"Type_", state.Type_}
+    state.EntityData.Leafs["id"] = types.YLeaf{"Id", state.Id}
+    state.EntityData.Leafs["description"] = types.YLeaf{"Description", state.Description}
+    state.EntityData.Leafs["mfg-name"] = types.YLeaf{"MfgName", state.MfgName}
+    state.EntityData.Leafs["version"] = types.YLeaf{"Version", state.Version}
+    state.EntityData.Leafs["serial-no"] = types.YLeaf{"SerialNo", state.SerialNo}
+    state.EntityData.Leafs["part-no"] = types.YLeaf{"PartNo", state.PartNo}
+    return &(state.EntityData)
 }
-
-func (state *Components_Component_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *Components_Component_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "temp" {
-        return &state.Temp
-    }
-    return nil
-}
-
-func (state *Components_Component_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["temp"] = &state.Temp
-    return children
-}
-
-func (state *Components_Component_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = state.Type
-    leafs["id"] = state.Id
-    leafs["description"] = state.Description
-    leafs["mfg-name"] = state.MfgName
-    leafs["version"] = state.Version
-    leafs["serial-no"] = state.SerialNo
-    leafs["part-no"] = state.PartNo
-    return leafs
-}
-
-func (state *Components_Component_State) GetBundleName() string { return "cisco_ios_xe" }
-
-func (state *Components_Component_State) GetYangName() string { return "state" }
-
-func (state *Components_Component_State) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (state *Components_Component_State) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (state *Components_Component_State) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (state *Components_Component_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *Components_Component_State) GetParent() types.Entity { return state.parent }
-
-func (state *Components_Component_State) GetParentYangName() string { return "component" }
 
 // Components_Component_State_Temp
 // Temperature in degrees Celsius of the component. Values include
@@ -322,7 +201,7 @@ func (state *Components_Component_State) GetParentYangName() string { return "co
 // avg/min/max statistics are not supported, the target is expected
 // to just supply the instant value
 type Components_Component_State_Temp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Instantaneous temperature value of a component. The type is string with
@@ -342,62 +221,29 @@ type Components_Component_State_Temp struct {
     TempMin interface{}
 }
 
-func (temp *Components_Component_State_Temp) GetFilter() yfilter.YFilter { return temp.YFilter }
+func (temp *Components_Component_State_Temp) GetEntityData() *types.CommonEntityData {
+    temp.EntityData.YFilter = temp.YFilter
+    temp.EntityData.YangName = "temp"
+    temp.EntityData.BundleName = "cisco_ios_xe"
+    temp.EntityData.ParentYangName = "state"
+    temp.EntityData.SegmentPath = "temp"
+    temp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    temp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    temp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (temp *Components_Component_State_Temp) SetFilter(yf yfilter.YFilter) { temp.YFilter = yf }
-
-func (temp *Components_Component_State_Temp) GetGoName(yname string) string {
-    if yname == "temp-instant" { return "TempInstant" }
-    if yname == "temp-avg" { return "TempAvg" }
-    if yname == "temp-max" { return "TempMax" }
-    if yname == "temp-min" { return "TempMin" }
-    return ""
+    temp.EntityData.Children = make(map[string]types.YChild)
+    temp.EntityData.Leafs = make(map[string]types.YLeaf)
+    temp.EntityData.Leafs["temp-instant"] = types.YLeaf{"TempInstant", temp.TempInstant}
+    temp.EntityData.Leafs["temp-avg"] = types.YLeaf{"TempAvg", temp.TempAvg}
+    temp.EntityData.Leafs["temp-max"] = types.YLeaf{"TempMax", temp.TempMax}
+    temp.EntityData.Leafs["temp-min"] = types.YLeaf{"TempMin", temp.TempMin}
+    return &(temp.EntityData)
 }
-
-func (temp *Components_Component_State_Temp) GetSegmentPath() string {
-    return "temp"
-}
-
-func (temp *Components_Component_State_Temp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (temp *Components_Component_State_Temp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (temp *Components_Component_State_Temp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["temp-instant"] = temp.TempInstant
-    leafs["temp-avg"] = temp.TempAvg
-    leafs["temp-max"] = temp.TempMax
-    leafs["temp-min"] = temp.TempMin
-    return leafs
-}
-
-func (temp *Components_Component_State_Temp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (temp *Components_Component_State_Temp) GetYangName() string { return "temp" }
-
-func (temp *Components_Component_State_Temp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (temp *Components_Component_State_Temp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (temp *Components_Component_State_Temp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (temp *Components_Component_State_Temp) SetParent(parent types.Entity) { temp.parent = parent }
-
-func (temp *Components_Component_State_Temp) GetParent() types.Entity { return temp.parent }
-
-func (temp *Components_Component_State_Temp) GetParentYangName() string { return "state" }
 
 // Components_Component_PlatformProperties
 // Platform component properties
 type Components_Component_PlatformProperties struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of platform component properties. The type is slice of
@@ -405,68 +251,29 @@ type Components_Component_PlatformProperties struct {
     PlatformProperty []Components_Component_PlatformProperties_PlatformProperty
 }
 
-func (platformProperties *Components_Component_PlatformProperties) GetFilter() yfilter.YFilter { return platformProperties.YFilter }
+func (platformProperties *Components_Component_PlatformProperties) GetEntityData() *types.CommonEntityData {
+    platformProperties.EntityData.YFilter = platformProperties.YFilter
+    platformProperties.EntityData.YangName = "platform-properties"
+    platformProperties.EntityData.BundleName = "cisco_ios_xe"
+    platformProperties.EntityData.ParentYangName = "component"
+    platformProperties.EntityData.SegmentPath = "platform-properties"
+    platformProperties.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    platformProperties.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    platformProperties.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (platformProperties *Components_Component_PlatformProperties) SetFilter(yf yfilter.YFilter) { platformProperties.YFilter = yf }
-
-func (platformProperties *Components_Component_PlatformProperties) GetGoName(yname string) string {
-    if yname == "platform-property" { return "PlatformProperty" }
-    return ""
-}
-
-func (platformProperties *Components_Component_PlatformProperties) GetSegmentPath() string {
-    return "platform-properties"
-}
-
-func (platformProperties *Components_Component_PlatformProperties) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "platform-property" {
-        for _, c := range platformProperties.PlatformProperty {
-            if platformProperties.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Components_Component_PlatformProperties_PlatformProperty{}
-        platformProperties.PlatformProperty = append(platformProperties.PlatformProperty, child)
-        return &platformProperties.PlatformProperty[len(platformProperties.PlatformProperty)-1]
-    }
-    return nil
-}
-
-func (platformProperties *Components_Component_PlatformProperties) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    platformProperties.EntityData.Children = make(map[string]types.YChild)
+    platformProperties.EntityData.Children["platform-property"] = types.YChild{"PlatformProperty", nil}
     for i := range platformProperties.PlatformProperty {
-        children[platformProperties.PlatformProperty[i].GetSegmentPath()] = &platformProperties.PlatformProperty[i]
+        platformProperties.EntityData.Children[types.GetSegmentPath(&platformProperties.PlatformProperty[i])] = types.YChild{"PlatformProperty", &platformProperties.PlatformProperty[i]}
     }
-    return children
+    platformProperties.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(platformProperties.EntityData)
 }
-
-func (platformProperties *Components_Component_PlatformProperties) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (platformProperties *Components_Component_PlatformProperties) GetBundleName() string { return "cisco_ios_xe" }
-
-func (platformProperties *Components_Component_PlatformProperties) GetYangName() string { return "platform-properties" }
-
-func (platformProperties *Components_Component_PlatformProperties) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (platformProperties *Components_Component_PlatformProperties) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (platformProperties *Components_Component_PlatformProperties) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (platformProperties *Components_Component_PlatformProperties) SetParent(parent types.Entity) { platformProperties.parent = parent }
-
-func (platformProperties *Components_Component_PlatformProperties) GetParent() types.Entity { return platformProperties.parent }
-
-func (platformProperties *Components_Component_PlatformProperties) GetParentYangName() string { return "component" }
 
 // Components_Component_PlatformProperties_PlatformProperty
 // List of platform component properties
 type Components_Component_PlatformProperties_PlatformProperty struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Property name. The type is string.
@@ -475,76 +282,36 @@ type Components_Component_PlatformProperties_PlatformProperty struct {
     // Indication of whether the property is user-configurable. The type is bool.
     Configurable interface{}
 
-    // Name of the parent component. The type is string.
-    ParentPlatformComponentCnameKey interface{}
-
     // Property value.
     Value Components_Component_PlatformProperties_PlatformProperty_Value
 }
 
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetFilter() yfilter.YFilter { return platformProperty.YFilter }
+func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetEntityData() *types.CommonEntityData {
+    platformProperty.EntityData.YFilter = platformProperty.YFilter
+    platformProperty.EntityData.YangName = "platform-property"
+    platformProperty.EntityData.BundleName = "cisco_ios_xe"
+    platformProperty.EntityData.ParentYangName = "platform-properties"
+    platformProperty.EntityData.SegmentPath = "platform-property" + "[name='" + fmt.Sprintf("%v", platformProperty.Name) + "']"
+    platformProperty.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    platformProperty.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    platformProperty.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) SetFilter(yf yfilter.YFilter) { platformProperty.YFilter = yf }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "configurable" { return "Configurable" }
-    if yname == "parent-platform-component-cname-key" { return "ParentPlatformComponentCnameKey" }
-    if yname == "value" { return "Value" }
-    return ""
+    platformProperty.EntityData.Children = make(map[string]types.YChild)
+    platformProperty.EntityData.Children["value"] = types.YChild{"Value", &platformProperty.Value}
+    platformProperty.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformProperty.EntityData.Leafs["name"] = types.YLeaf{"Name", platformProperty.Name}
+    platformProperty.EntityData.Leafs["configurable"] = types.YLeaf{"Configurable", platformProperty.Configurable}
+    return &(platformProperty.EntityData)
 }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetSegmentPath() string {
-    return "platform-property" + "[name='" + fmt.Sprintf("%v", platformProperty.Name) + "']"
-}
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "value" {
-        return &platformProperty.Value
-    }
-    return nil
-}
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["value"] = &platformProperty.Value
-    return children
-}
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = platformProperty.Name
-    leafs["configurable"] = platformProperty.Configurable
-    leafs["parent-platform-component-cname-key"] = platformProperty.ParentPlatformComponentCnameKey
-    return leafs
-}
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetBundleName() string { return "cisco_ios_xe" }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetYangName() string { return "platform-property" }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) SetParent(parent types.Entity) { platformProperty.parent = parent }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetParent() types.Entity { return platformProperty.parent }
-
-func (platformProperty *Components_Component_PlatformProperties_PlatformProperty) GetParentYangName() string { return "platform-properties" }
 
 // Components_Component_PlatformProperties_PlatformProperty_Value
 // Property value
 type Components_Component_PlatformProperties_PlatformProperty_Value struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // String property value. The type is string.
-    String interface{}
+    String_ interface{}
 
     // Boolean property value. The type is bool.
     Boolean interface{}
@@ -562,64 +329,30 @@ type Components_Component_PlatformProperties_PlatformProperty_Value struct {
     Decimal interface{}
 }
 
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetFilter() yfilter.YFilter { return value.YFilter }
+func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetEntityData() *types.CommonEntityData {
+    value.EntityData.YFilter = value.YFilter
+    value.EntityData.YangName = "value"
+    value.EntityData.BundleName = "cisco_ios_xe"
+    value.EntityData.ParentYangName = "platform-property"
+    value.EntityData.SegmentPath = "value"
+    value.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    value.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    value.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) SetFilter(yf yfilter.YFilter) { value.YFilter = yf }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetGoName(yname string) string {
-    if yname == "string" { return "String" }
-    if yname == "boolean" { return "Boolean" }
-    if yname == "intsixfour" { return "Intsixfour" }
-    if yname == "uintsixfour" { return "Uintsixfour" }
-    if yname == "decimal" { return "Decimal" }
-    return ""
+    value.EntityData.Children = make(map[string]types.YChild)
+    value.EntityData.Leafs = make(map[string]types.YLeaf)
+    value.EntityData.Leafs["string"] = types.YLeaf{"String_", value.String_}
+    value.EntityData.Leafs["boolean"] = types.YLeaf{"Boolean", value.Boolean}
+    value.EntityData.Leafs["intsixfour"] = types.YLeaf{"Intsixfour", value.Intsixfour}
+    value.EntityData.Leafs["uintsixfour"] = types.YLeaf{"Uintsixfour", value.Uintsixfour}
+    value.EntityData.Leafs["decimal"] = types.YLeaf{"Decimal", value.Decimal}
+    return &(value.EntityData)
 }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetSegmentPath() string {
-    return "value"
-}
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["string"] = value.String
-    leafs["boolean"] = value.Boolean
-    leafs["intsixfour"] = value.Intsixfour
-    leafs["uintsixfour"] = value.Uintsixfour
-    leafs["decimal"] = value.Decimal
-    return leafs
-}
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetBundleName() string { return "cisco_ios_xe" }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetYangName() string { return "value" }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) SetParent(parent types.Entity) { value.parent = parent }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetParent() types.Entity { return value.parent }
-
-func (value *Components_Component_PlatformProperties_PlatformProperty_Value) GetParentYangName() string { return "platform-property" }
 
 // Components_Component_PlatformSubcomponents
 // Platform subcomponents
 type Components_Component_PlatformSubcomponents struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of platform subcomponents. The type is slice of
@@ -627,122 +360,48 @@ type Components_Component_PlatformSubcomponents struct {
     PlatformSubcomponent []Components_Component_PlatformSubcomponents_PlatformSubcomponent
 }
 
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetFilter() yfilter.YFilter { return platformSubcomponents.YFilter }
+func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetEntityData() *types.CommonEntityData {
+    platformSubcomponents.EntityData.YFilter = platformSubcomponents.YFilter
+    platformSubcomponents.EntityData.YangName = "platform-subcomponents"
+    platformSubcomponents.EntityData.BundleName = "cisco_ios_xe"
+    platformSubcomponents.EntityData.ParentYangName = "component"
+    platformSubcomponents.EntityData.SegmentPath = "platform-subcomponents"
+    platformSubcomponents.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    platformSubcomponents.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    platformSubcomponents.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) SetFilter(yf yfilter.YFilter) { platformSubcomponents.YFilter = yf }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetGoName(yname string) string {
-    if yname == "platform-subcomponent" { return "PlatformSubcomponent" }
-    return ""
-}
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetSegmentPath() string {
-    return "platform-subcomponents"
-}
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "platform-subcomponent" {
-        for _, c := range platformSubcomponents.PlatformSubcomponent {
-            if platformSubcomponents.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Components_Component_PlatformSubcomponents_PlatformSubcomponent{}
-        platformSubcomponents.PlatformSubcomponent = append(platformSubcomponents.PlatformSubcomponent, child)
-        return &platformSubcomponents.PlatformSubcomponent[len(platformSubcomponents.PlatformSubcomponent)-1]
-    }
-    return nil
-}
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    platformSubcomponents.EntityData.Children = make(map[string]types.YChild)
+    platformSubcomponents.EntityData.Children["platform-subcomponent"] = types.YChild{"PlatformSubcomponent", nil}
     for i := range platformSubcomponents.PlatformSubcomponent {
-        children[platformSubcomponents.PlatformSubcomponent[i].GetSegmentPath()] = &platformSubcomponents.PlatformSubcomponent[i]
+        platformSubcomponents.EntityData.Children[types.GetSegmentPath(&platformSubcomponents.PlatformSubcomponent[i])] = types.YChild{"PlatformSubcomponent", &platformSubcomponents.PlatformSubcomponent[i]}
     }
-    return children
+    platformSubcomponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(platformSubcomponents.EntityData)
 }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetBundleName() string { return "cisco_ios_xe" }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetYangName() string { return "platform-subcomponents" }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) SetParent(parent types.Entity) { platformSubcomponents.parent = parent }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetParent() types.Entity { return platformSubcomponents.parent }
-
-func (platformSubcomponents *Components_Component_PlatformSubcomponents) GetParentYangName() string { return "component" }
 
 // Components_Component_PlatformSubcomponents_PlatformSubcomponent
 // List of platform subcomponents
 type Components_Component_PlatformSubcomponents_PlatformSubcomponent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Subcomponent name. The type is string.
     Name interface{}
-
-    // Name of the parent component. The type is string.
-    ParentPlatformComponentCnameKey interface{}
 }
 
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetFilter() yfilter.YFilter { return platformSubcomponent.YFilter }
+func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetEntityData() *types.CommonEntityData {
+    platformSubcomponent.EntityData.YFilter = platformSubcomponent.YFilter
+    platformSubcomponent.EntityData.YangName = "platform-subcomponent"
+    platformSubcomponent.EntityData.BundleName = "cisco_ios_xe"
+    platformSubcomponent.EntityData.ParentYangName = "platform-subcomponents"
+    platformSubcomponent.EntityData.SegmentPath = "platform-subcomponent" + "[name='" + fmt.Sprintf("%v", platformSubcomponent.Name) + "']"
+    platformSubcomponent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    platformSubcomponent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    platformSubcomponent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) SetFilter(yf yfilter.YFilter) { platformSubcomponent.YFilter = yf }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "parent-platform-component-cname-key" { return "ParentPlatformComponentCnameKey" }
-    return ""
+    platformSubcomponent.EntityData.Children = make(map[string]types.YChild)
+    platformSubcomponent.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformSubcomponent.EntityData.Leafs["name"] = types.YLeaf{"Name", platformSubcomponent.Name}
+    return &(platformSubcomponent.EntityData)
 }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetSegmentPath() string {
-    return "platform-subcomponent" + "[name='" + fmt.Sprintf("%v", platformSubcomponent.Name) + "']"
-}
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = platformSubcomponent.Name
-    leafs["parent-platform-component-cname-key"] = platformSubcomponent.ParentPlatformComponentCnameKey
-    return leafs
-}
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetBundleName() string { return "cisco_ios_xe" }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetYangName() string { return "platform-subcomponent" }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) SetParent(parent types.Entity) { platformSubcomponent.parent = parent }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetParent() types.Entity { return platformSubcomponent.parent }
-
-func (platformSubcomponent *Components_Component_PlatformSubcomponents_PlatformSubcomponent) GetParentYangName() string { return "platform-subcomponents" }
 

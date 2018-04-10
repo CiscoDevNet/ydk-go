@@ -65,7 +65,7 @@ const (
 
 // CISCONBARPROTOCOLDISCOVERYMIB
 type CISCONBARPROTOCOLDISCOVERYMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -102,93 +102,32 @@ type CISCONBARPROTOCOLDISCOVERYMIB struct {
     Cnpdsupportedprotocolstable CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable
 }
 
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetFilter() yfilter.YFilter { return cISCONBARPROTOCOLDISCOVERYMIB.YFilter }
+func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetEntityData() *types.CommonEntityData {
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.YFilter = cISCONBARPROTOCOLDISCOVERYMIB.YFilter
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.YangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.SegmentPath = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) SetFilter(yf yfilter.YFilter) { cISCONBARPROTOCOLDISCOVERYMIB.YFilter = yf }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetGoName(yname string) string {
-    if yname == "cnpdNotificationsConfig" { return "Cnpdnotificationsconfig" }
-    if yname == "cnpdStatusTable" { return "Cnpdstatustable" }
-    if yname == "cnpdAllStatsTable" { return "Cnpdallstatstable" }
-    if yname == "cnpdTopNConfigTable" { return "Cnpdtopnconfigtable" }
-    if yname == "cnpdTopNStatsTable" { return "Cnpdtopnstatstable" }
-    if yname == "cnpdThresholdConfigTable" { return "Cnpdthresholdconfigtable" }
-    if yname == "cnpdThresholdHistoryTable" { return "Cnpdthresholdhistorytable" }
-    if yname == "cnpdSupportedProtocolsTable" { return "Cnpdsupportedprotocolstable" }
-    return ""
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdNotificationsConfig"] = types.YChild{"Cnpdnotificationsconfig", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdStatusTable"] = types.YChild{"Cnpdstatustable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdAllStatsTable"] = types.YChild{"Cnpdallstatstable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdTopNConfigTable"] = types.YChild{"Cnpdtopnconfigtable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdTopNStatsTable"] = types.YChild{"Cnpdtopnstatstable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdThresholdConfigTable"] = types.YChild{"Cnpdthresholdconfigtable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdThresholdHistoryTable"] = types.YChild{"Cnpdthresholdhistorytable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Children["cnpdSupportedProtocolsTable"] = types.YChild{"Cnpdsupportedprotocolstable", &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable}
+    cISCONBARPROTOCOLDISCOVERYMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCONBARPROTOCOLDISCOVERYMIB.EntityData)
 }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetSegmentPath() string {
-    return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
-}
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdNotificationsConfig" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig
-    }
-    if childYangName == "cnpdStatusTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable
-    }
-    if childYangName == "cnpdAllStatsTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable
-    }
-    if childYangName == "cnpdTopNConfigTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable
-    }
-    if childYangName == "cnpdTopNStatsTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable
-    }
-    if childYangName == "cnpdThresholdConfigTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable
-    }
-    if childYangName == "cnpdThresholdHistoryTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable
-    }
-    if childYangName == "cnpdSupportedProtocolsTable" {
-        return &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable
-    }
-    return nil
-}
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cnpdNotificationsConfig"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdnotificationsconfig
-    children["cnpdStatusTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdstatustable
-    children["cnpdAllStatsTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdallstatstable
-    children["cnpdTopNConfigTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnconfigtable
-    children["cnpdTopNStatsTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdtopnstatstable
-    children["cnpdThresholdConfigTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdconfigtable
-    children["cnpdThresholdHistoryTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdthresholdhistorytable
-    children["cnpdSupportedProtocolsTable"] = &cISCONBARPROTOCOLDISCOVERYMIB.Cnpdsupportedprotocolstable
-    return children
-}
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) SetParent(parent types.Entity) { cISCONBARPROTOCOLDISCOVERYMIB.parent = parent }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetParent() types.Entity { return cISCONBARPROTOCOLDISCOVERYMIB.parent }
-
-func (cISCONBARPROTOCOLDISCOVERYMIB *CISCONBARPROTOCOLDISCOVERYMIB) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object is used to enable or disable  Notifications on a global basis. 
@@ -197,57 +136,27 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig struct {
     Cnpdnotificationsenable interface{}
 }
 
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetFilter() yfilter.YFilter { return cnpdnotificationsconfig.YFilter }
+func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetEntityData() *types.CommonEntityData {
+    cnpdnotificationsconfig.EntityData.YFilter = cnpdnotificationsconfig.YFilter
+    cnpdnotificationsconfig.EntityData.YangName = "cnpdNotificationsConfig"
+    cnpdnotificationsconfig.EntityData.BundleName = "cisco_ios_xe"
+    cnpdnotificationsconfig.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdnotificationsconfig.EntityData.SegmentPath = "cnpdNotificationsConfig"
+    cnpdnotificationsconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdnotificationsconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdnotificationsconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) SetFilter(yf yfilter.YFilter) { cnpdnotificationsconfig.YFilter = yf }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetGoName(yname string) string {
-    if yname == "cnpdNotificationsEnable" { return "Cnpdnotificationsenable" }
-    return ""
+    cnpdnotificationsconfig.EntityData.Children = make(map[string]types.YChild)
+    cnpdnotificationsconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdnotificationsconfig.EntityData.Leafs["cnpdNotificationsEnable"] = types.YLeaf{"Cnpdnotificationsenable", cnpdnotificationsconfig.Cnpdnotificationsenable}
+    return &(cnpdnotificationsconfig.EntityData)
 }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetSegmentPath() string {
-    return "cnpdNotificationsConfig"
-}
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cnpdNotificationsEnable"] = cnpdnotificationsconfig.Cnpdnotificationsenable
-    return leafs
-}
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetYangName() string { return "cnpdNotificationsConfig" }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) SetParent(parent types.Entity) { cnpdnotificationsconfig.parent = parent }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetParent() types.Entity { return cnpdnotificationsconfig.parent }
-
-func (cnpdnotificationsconfig *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdnotificationsconfig) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable
 // The cnpdStatusTable is used to enable and
 // disable Protocol Discovery on an interface.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cnpdStatusTable contains objects for enabling or disabling
@@ -256,70 +165,31 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable struct {
     Cnpdstatusentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry
 }
 
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetFilter() yfilter.YFilter { return cnpdstatustable.YFilter }
+func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetEntityData() *types.CommonEntityData {
+    cnpdstatustable.EntityData.YFilter = cnpdstatustable.YFilter
+    cnpdstatustable.EntityData.YangName = "cnpdStatusTable"
+    cnpdstatustable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdstatustable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdstatustable.EntityData.SegmentPath = "cnpdStatusTable"
+    cnpdstatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdstatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdstatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) SetFilter(yf yfilter.YFilter) { cnpdstatustable.YFilter = yf }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetGoName(yname string) string {
-    if yname == "cnpdStatusEntry" { return "Cnpdstatusentry" }
-    return ""
-}
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetSegmentPath() string {
-    return "cnpdStatusTable"
-}
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdStatusEntry" {
-        for _, c := range cnpdstatustable.Cnpdstatusentry {
-            if cnpdstatustable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry{}
-        cnpdstatustable.Cnpdstatusentry = append(cnpdstatustable.Cnpdstatusentry, child)
-        return &cnpdstatustable.Cnpdstatusentry[len(cnpdstatustable.Cnpdstatusentry)-1]
-    }
-    return nil
-}
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdstatustable.EntityData.Children = make(map[string]types.YChild)
+    cnpdstatustable.EntityData.Children["cnpdStatusEntry"] = types.YChild{"Cnpdstatusentry", nil}
     for i := range cnpdstatustable.Cnpdstatusentry {
-        children[cnpdstatustable.Cnpdstatusentry[i].GetSegmentPath()] = &cnpdstatustable.Cnpdstatusentry[i]
+        cnpdstatustable.EntityData.Children[types.GetSegmentPath(&cnpdstatustable.Cnpdstatusentry[i])] = types.YChild{"Cnpdstatusentry", &cnpdstatustable.Cnpdstatusentry[i]}
     }
-    return children
+    cnpdstatustable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdstatustable.EntityData)
 }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetYangName() string { return "cnpdStatusTable" }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) SetParent(parent types.Entity) { cnpdstatustable.parent = parent }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetParent() types.Entity { return cnpdstatustable.parent }
-
-func (cnpdstatustable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry
 // An entry in the cnpdStatusTable contains objects
 // for enabling or disabling Protocol Discovery on a
 // per interface basis.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -338,55 +208,23 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry struct {
     Cnpdstatuslastupdatetime interface{}
 }
 
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetFilter() yfilter.YFilter { return cnpdstatusentry.YFilter }
+func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetEntityData() *types.CommonEntityData {
+    cnpdstatusentry.EntityData.YFilter = cnpdstatusentry.YFilter
+    cnpdstatusentry.EntityData.YangName = "cnpdStatusEntry"
+    cnpdstatusentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdstatusentry.EntityData.ParentYangName = "cnpdStatusTable"
+    cnpdstatusentry.EntityData.SegmentPath = "cnpdStatusEntry" + "[ifIndex='" + fmt.Sprintf("%v", cnpdstatusentry.Ifindex) + "']"
+    cnpdstatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdstatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdstatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) SetFilter(yf yfilter.YFilter) { cnpdstatusentry.YFilter = yf }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cnpdStatusPdEnable" { return "Cnpdstatuspdenable" }
-    if yname == "cnpdStatusLastUpdateTime" { return "Cnpdstatuslastupdatetime" }
-    return ""
+    cnpdstatusentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdstatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdstatusentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cnpdstatusentry.Ifindex}
+    cnpdstatusentry.EntityData.Leafs["cnpdStatusPdEnable"] = types.YLeaf{"Cnpdstatuspdenable", cnpdstatusentry.Cnpdstatuspdenable}
+    cnpdstatusentry.EntityData.Leafs["cnpdStatusLastUpdateTime"] = types.YLeaf{"Cnpdstatuslastupdatetime", cnpdstatusentry.Cnpdstatuslastupdatetime}
+    return &(cnpdstatusentry.EntityData)
 }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetSegmentPath() string {
-    return "cnpdStatusEntry" + "[ifIndex='" + fmt.Sprintf("%v", cnpdstatusentry.Ifindex) + "']"
-}
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cnpdstatusentry.Ifindex
-    leafs["cnpdStatusPdEnable"] = cnpdstatusentry.Cnpdstatuspdenable
-    leafs["cnpdStatusLastUpdateTime"] = cnpdstatusentry.Cnpdstatuslastupdatetime
-    return leafs
-}
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetYangName() string { return "cnpdStatusEntry" }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) SetParent(parent types.Entity) { cnpdstatusentry.parent = parent }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetParent() types.Entity { return cnpdstatusentry.parent }
-
-func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatusentry) GetParentYangName() string { return "cnpdStatusTable" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable
 // The cnpdAllStatsTable contains all the statistics
@@ -397,7 +235,7 @@ func (cnpdstatusentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdstatustable_Cnpdstatuse
 // In the event of an overflow, the 32 bit counters are not 
 // valid. There is no overflow support.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cnpdAllStatsTable table. This entry  contains the
@@ -407,70 +245,31 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable struct {
     Cnpdallstatsentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry
 }
 
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetFilter() yfilter.YFilter { return cnpdallstatstable.YFilter }
+func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetEntityData() *types.CommonEntityData {
+    cnpdallstatstable.EntityData.YFilter = cnpdallstatstable.YFilter
+    cnpdallstatstable.EntityData.YangName = "cnpdAllStatsTable"
+    cnpdallstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdallstatstable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdallstatstable.EntityData.SegmentPath = "cnpdAllStatsTable"
+    cnpdallstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdallstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdallstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) SetFilter(yf yfilter.YFilter) { cnpdallstatstable.YFilter = yf }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetGoName(yname string) string {
-    if yname == "cnpdAllStatsEntry" { return "Cnpdallstatsentry" }
-    return ""
-}
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetSegmentPath() string {
-    return "cnpdAllStatsTable"
-}
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdAllStatsEntry" {
-        for _, c := range cnpdallstatstable.Cnpdallstatsentry {
-            if cnpdallstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry{}
-        cnpdallstatstable.Cnpdallstatsentry = append(cnpdallstatstable.Cnpdallstatsentry, child)
-        return &cnpdallstatstable.Cnpdallstatsentry[len(cnpdallstatstable.Cnpdallstatsentry)-1]
-    }
-    return nil
-}
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdallstatstable.EntityData.Children = make(map[string]types.YChild)
+    cnpdallstatstable.EntityData.Children["cnpdAllStatsEntry"] = types.YChild{"Cnpdallstatsentry", nil}
     for i := range cnpdallstatstable.Cnpdallstatsentry {
-        children[cnpdallstatstable.Cnpdallstatsentry[i].GetSegmentPath()] = &cnpdallstatstable.Cnpdallstatsentry[i]
+        cnpdallstatstable.EntityData.Children[types.GetSegmentPath(&cnpdallstatstable.Cnpdallstatsentry[i])] = types.YChild{"Cnpdallstatsentry", &cnpdallstatstable.Cnpdallstatsentry[i]}
     }
-    return children
+    cnpdallstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdallstatstable.EntityData)
 }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetYangName() string { return "cnpdAllStatsTable" }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) SetParent(parent types.Entity) { cnpdallstatstable.parent = parent }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetParent() types.Entity { return cnpdallstatstable.parent }
-
-func (cnpdallstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry
 // An entry in the cnpdAllStatsTable table. This entry 
 // contains the statistics collected on all the protocols 
 // which NBAR classifies for a particular interface.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -532,81 +331,39 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry struct {
     Cnpdallstatsoutbitrate interface{}
 }
 
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetFilter() yfilter.YFilter { return cnpdallstatsentry.YFilter }
+func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetEntityData() *types.CommonEntityData {
+    cnpdallstatsentry.EntityData.YFilter = cnpdallstatsentry.YFilter
+    cnpdallstatsentry.EntityData.YangName = "cnpdAllStatsEntry"
+    cnpdallstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdallstatsentry.EntityData.ParentYangName = "cnpdAllStatsTable"
+    cnpdallstatsentry.EntityData.SegmentPath = "cnpdAllStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cnpdallstatsentry.Ifindex) + "']" + "[cnpdAllStatsProtocolsIndex='" + fmt.Sprintf("%v", cnpdallstatsentry.Cnpdallstatsprotocolsindex) + "']"
+    cnpdallstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdallstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdallstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) SetFilter(yf yfilter.YFilter) { cnpdallstatsentry.YFilter = yf }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cnpdAllStatsProtocolsIndex" { return "Cnpdallstatsprotocolsindex" }
-    if yname == "cnpdAllStatsProtocolName" { return "Cnpdallstatsprotocolname" }
-    if yname == "cnpdAllStatsInPkts" { return "Cnpdallstatsinpkts" }
-    if yname == "cnpdAllStatsOutPkts" { return "Cnpdallstatsoutpkts" }
-    if yname == "cnpdAllStatsInBytes" { return "Cnpdallstatsinbytes" }
-    if yname == "cnpdAllStatsOutBytes" { return "Cnpdallstatsoutbytes" }
-    if yname == "cnpdAllStatsHCInPkts" { return "Cnpdallstatshcinpkts" }
-    if yname == "cnpdAllStatsHCOutPkts" { return "Cnpdallstatshcoutpkts" }
-    if yname == "cnpdAllStatsHCInBytes" { return "Cnpdallstatshcinbytes" }
-    if yname == "cnpdAllStatsHCOutBytes" { return "Cnpdallstatshcoutbytes" }
-    if yname == "cnpdAllStatsInBitRate" { return "Cnpdallstatsinbitrate" }
-    if yname == "cnpdAllStatsOutBitRate" { return "Cnpdallstatsoutbitrate" }
-    return ""
+    cnpdallstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdallstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdallstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cnpdallstatsentry.Ifindex}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsProtocolsIndex"] = types.YLeaf{"Cnpdallstatsprotocolsindex", cnpdallstatsentry.Cnpdallstatsprotocolsindex}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsProtocolName"] = types.YLeaf{"Cnpdallstatsprotocolname", cnpdallstatsentry.Cnpdallstatsprotocolname}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsInPkts"] = types.YLeaf{"Cnpdallstatsinpkts", cnpdallstatsentry.Cnpdallstatsinpkts}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsOutPkts"] = types.YLeaf{"Cnpdallstatsoutpkts", cnpdallstatsentry.Cnpdallstatsoutpkts}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsInBytes"] = types.YLeaf{"Cnpdallstatsinbytes", cnpdallstatsentry.Cnpdallstatsinbytes}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsOutBytes"] = types.YLeaf{"Cnpdallstatsoutbytes", cnpdallstatsentry.Cnpdallstatsoutbytes}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCInPkts"] = types.YLeaf{"Cnpdallstatshcinpkts", cnpdallstatsentry.Cnpdallstatshcinpkts}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCOutPkts"] = types.YLeaf{"Cnpdallstatshcoutpkts", cnpdallstatsentry.Cnpdallstatshcoutpkts}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCInBytes"] = types.YLeaf{"Cnpdallstatshcinbytes", cnpdallstatsentry.Cnpdallstatshcinbytes}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsHCOutBytes"] = types.YLeaf{"Cnpdallstatshcoutbytes", cnpdallstatsentry.Cnpdallstatshcoutbytes}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsInBitRate"] = types.YLeaf{"Cnpdallstatsinbitrate", cnpdallstatsentry.Cnpdallstatsinbitrate}
+    cnpdallstatsentry.EntityData.Leafs["cnpdAllStatsOutBitRate"] = types.YLeaf{"Cnpdallstatsoutbitrate", cnpdallstatsentry.Cnpdallstatsoutbitrate}
+    return &(cnpdallstatsentry.EntityData)
 }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetSegmentPath() string {
-    return "cnpdAllStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cnpdallstatsentry.Ifindex) + "']" + "[cnpdAllStatsProtocolsIndex='" + fmt.Sprintf("%v", cnpdallstatsentry.Cnpdallstatsprotocolsindex) + "']"
-}
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cnpdallstatsentry.Ifindex
-    leafs["cnpdAllStatsProtocolsIndex"] = cnpdallstatsentry.Cnpdallstatsprotocolsindex
-    leafs["cnpdAllStatsProtocolName"] = cnpdallstatsentry.Cnpdallstatsprotocolname
-    leafs["cnpdAllStatsInPkts"] = cnpdallstatsentry.Cnpdallstatsinpkts
-    leafs["cnpdAllStatsOutPkts"] = cnpdallstatsentry.Cnpdallstatsoutpkts
-    leafs["cnpdAllStatsInBytes"] = cnpdallstatsentry.Cnpdallstatsinbytes
-    leafs["cnpdAllStatsOutBytes"] = cnpdallstatsentry.Cnpdallstatsoutbytes
-    leafs["cnpdAllStatsHCInPkts"] = cnpdallstatsentry.Cnpdallstatshcinpkts
-    leafs["cnpdAllStatsHCOutPkts"] = cnpdallstatsentry.Cnpdallstatshcoutpkts
-    leafs["cnpdAllStatsHCInBytes"] = cnpdallstatsentry.Cnpdallstatshcinbytes
-    leafs["cnpdAllStatsHCOutBytes"] = cnpdallstatsentry.Cnpdallstatshcoutbytes
-    leafs["cnpdAllStatsInBitRate"] = cnpdallstatsentry.Cnpdallstatsinbitrate
-    leafs["cnpdAllStatsOutBitRate"] = cnpdallstatsentry.Cnpdallstatsoutbitrate
-    return leafs
-}
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetYangName() string { return "cnpdAllStatsEntry" }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) SetParent(parent types.Entity) { cnpdallstatsentry.parent = parent }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetParent() types.Entity { return cnpdallstatsentry.parent }
-
-func (cnpdallstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdallstatstable_Cnpdallstatsentry) GetParentYangName() string { return "cnpdAllStatsTable" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable
 // The cnpdTopNConfigTable is used to configure
 // cnpdTopNStatsTable's.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry provides the objects to configure and thus initiate the
@@ -615,69 +372,30 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable struct {
     Cnpdtopnconfigentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry
 }
 
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetFilter() yfilter.YFilter { return cnpdtopnconfigtable.YFilter }
+func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetEntityData() *types.CommonEntityData {
+    cnpdtopnconfigtable.EntityData.YFilter = cnpdtopnconfigtable.YFilter
+    cnpdtopnconfigtable.EntityData.YangName = "cnpdTopNConfigTable"
+    cnpdtopnconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdtopnconfigtable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdtopnconfigtable.EntityData.SegmentPath = "cnpdTopNConfigTable"
+    cnpdtopnconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdtopnconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdtopnconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) SetFilter(yf yfilter.YFilter) { cnpdtopnconfigtable.YFilter = yf }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetGoName(yname string) string {
-    if yname == "cnpdTopNConfigEntry" { return "Cnpdtopnconfigentry" }
-    return ""
-}
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetSegmentPath() string {
-    return "cnpdTopNConfigTable"
-}
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdTopNConfigEntry" {
-        for _, c := range cnpdtopnconfigtable.Cnpdtopnconfigentry {
-            if cnpdtopnconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry{}
-        cnpdtopnconfigtable.Cnpdtopnconfigentry = append(cnpdtopnconfigtable.Cnpdtopnconfigentry, child)
-        return &cnpdtopnconfigtable.Cnpdtopnconfigentry[len(cnpdtopnconfigtable.Cnpdtopnconfigentry)-1]
-    }
-    return nil
-}
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdtopnconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cnpdtopnconfigtable.EntityData.Children["cnpdTopNConfigEntry"] = types.YChild{"Cnpdtopnconfigentry", nil}
     for i := range cnpdtopnconfigtable.Cnpdtopnconfigentry {
-        children[cnpdtopnconfigtable.Cnpdtopnconfigentry[i].GetSegmentPath()] = &cnpdtopnconfigtable.Cnpdtopnconfigentry[i]
+        cnpdtopnconfigtable.EntityData.Children[types.GetSegmentPath(&cnpdtopnconfigtable.Cnpdtopnconfigentry[i])] = types.YChild{"Cnpdtopnconfigentry", &cnpdtopnconfigtable.Cnpdtopnconfigentry[i]}
     }
-    return children
+    cnpdtopnconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdtopnconfigtable.EntityData)
 }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetYangName() string { return "cnpdTopNConfigTable" }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) SetParent(parent types.Entity) { cnpdtopnconfigtable.parent = parent }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetParent() types.Entity { return cnpdtopnconfigtable.parent }
-
-func (cnpdtopnconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry
 // This entry provides the objects to configure and thus
 // initiate the generation of a cnpdTopNStatsTable..
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer which uniquely
@@ -744,71 +462,34 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry struc
     Cnpdtopnconfigstatus interface{}
 }
 
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetFilter() yfilter.YFilter { return cnpdtopnconfigentry.YFilter }
+func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetEntityData() *types.CommonEntityData {
+    cnpdtopnconfigentry.EntityData.YFilter = cnpdtopnconfigentry.YFilter
+    cnpdtopnconfigentry.EntityData.YangName = "cnpdTopNConfigEntry"
+    cnpdtopnconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdtopnconfigentry.EntityData.ParentYangName = "cnpdTopNConfigTable"
+    cnpdtopnconfigentry.EntityData.SegmentPath = "cnpdTopNConfigEntry" + "[cnpdTopNConfigIndex='" + fmt.Sprintf("%v", cnpdtopnconfigentry.Cnpdtopnconfigindex) + "']"
+    cnpdtopnconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdtopnconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdtopnconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) SetFilter(yf yfilter.YFilter) { cnpdtopnconfigentry.YFilter = yf }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetGoName(yname string) string {
-    if yname == "cnpdTopNConfigIndex" { return "Cnpdtopnconfigindex" }
-    if yname == "cnpdTopNConfigIfIndex" { return "Cnpdtopnconfigifindex" }
-    if yname == "cnpdTopNConfigStatsSelect" { return "Cnpdtopnconfigstatsselect" }
-    if yname == "cnpdTopNConfigSampleTime" { return "Cnpdtopnconfigsampletime" }
-    if yname == "cnpdTopNConfigRequestedSize" { return "Cnpdtopnconfigrequestedsize" }
-    if yname == "cnpdTopNConfigGrantedSize" { return "Cnpdtopnconfiggrantedsize" }
-    if yname == "cnpdTopNConfigTime" { return "Cnpdtopnconfigtime" }
-    if yname == "cnpdTopNConfigStatus" { return "Cnpdtopnconfigstatus" }
-    return ""
+    cnpdtopnconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdtopnconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigIndex"] = types.YLeaf{"Cnpdtopnconfigindex", cnpdtopnconfigentry.Cnpdtopnconfigindex}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigIfIndex"] = types.YLeaf{"Cnpdtopnconfigifindex", cnpdtopnconfigentry.Cnpdtopnconfigifindex}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigStatsSelect"] = types.YLeaf{"Cnpdtopnconfigstatsselect", cnpdtopnconfigentry.Cnpdtopnconfigstatsselect}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigSampleTime"] = types.YLeaf{"Cnpdtopnconfigsampletime", cnpdtopnconfigentry.Cnpdtopnconfigsampletime}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigRequestedSize"] = types.YLeaf{"Cnpdtopnconfigrequestedsize", cnpdtopnconfigentry.Cnpdtopnconfigrequestedsize}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigGrantedSize"] = types.YLeaf{"Cnpdtopnconfiggrantedsize", cnpdtopnconfigentry.Cnpdtopnconfiggrantedsize}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigTime"] = types.YLeaf{"Cnpdtopnconfigtime", cnpdtopnconfigentry.Cnpdtopnconfigtime}
+    cnpdtopnconfigentry.EntityData.Leafs["cnpdTopNConfigStatus"] = types.YLeaf{"Cnpdtopnconfigstatus", cnpdtopnconfigentry.Cnpdtopnconfigstatus}
+    return &(cnpdtopnconfigentry.EntityData)
 }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetSegmentPath() string {
-    return "cnpdTopNConfigEntry" + "[cnpdTopNConfigIndex='" + fmt.Sprintf("%v", cnpdtopnconfigentry.Cnpdtopnconfigindex) + "']"
-}
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cnpdTopNConfigIndex"] = cnpdtopnconfigentry.Cnpdtopnconfigindex
-    leafs["cnpdTopNConfigIfIndex"] = cnpdtopnconfigentry.Cnpdtopnconfigifindex
-    leafs["cnpdTopNConfigStatsSelect"] = cnpdtopnconfigentry.Cnpdtopnconfigstatsselect
-    leafs["cnpdTopNConfigSampleTime"] = cnpdtopnconfigentry.Cnpdtopnconfigsampletime
-    leafs["cnpdTopNConfigRequestedSize"] = cnpdtopnconfigentry.Cnpdtopnconfigrequestedsize
-    leafs["cnpdTopNConfigGrantedSize"] = cnpdtopnconfigentry.Cnpdtopnconfiggrantedsize
-    leafs["cnpdTopNConfigTime"] = cnpdtopnconfigentry.Cnpdtopnconfigtime
-    leafs["cnpdTopNConfigStatus"] = cnpdtopnconfigentry.Cnpdtopnconfigstatus
-    return leafs
-}
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetYangName() string { return "cnpdTopNConfigEntry" }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) SetParent(parent types.Entity) { cnpdtopnconfigentry.parent = parent }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetParent() types.Entity { return cnpdtopnconfigentry.parent }
-
-func (cnpdtopnconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnconfigtable_Cnpdtopnconfigentry) GetParentYangName() string { return "cnpdTopNConfigTable" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable
 // A cnpdTopNStatsTable describes an ordered
 // list of protocols.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry is used to store a set of objects which  describe a
@@ -821,63 +502,24 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable struct {
     Cnpdtopnstatsentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry
 }
 
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetFilter() yfilter.YFilter { return cnpdtopnstatstable.YFilter }
+func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetEntityData() *types.CommonEntityData {
+    cnpdtopnstatstable.EntityData.YFilter = cnpdtopnstatstable.YFilter
+    cnpdtopnstatstable.EntityData.YangName = "cnpdTopNStatsTable"
+    cnpdtopnstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdtopnstatstable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdtopnstatstable.EntityData.SegmentPath = "cnpdTopNStatsTable"
+    cnpdtopnstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdtopnstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdtopnstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) SetFilter(yf yfilter.YFilter) { cnpdtopnstatstable.YFilter = yf }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetGoName(yname string) string {
-    if yname == "cnpdTopNStatsEntry" { return "Cnpdtopnstatsentry" }
-    return ""
-}
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetSegmentPath() string {
-    return "cnpdTopNStatsTable"
-}
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdTopNStatsEntry" {
-        for _, c := range cnpdtopnstatstable.Cnpdtopnstatsentry {
-            if cnpdtopnstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry{}
-        cnpdtopnstatstable.Cnpdtopnstatsentry = append(cnpdtopnstatstable.Cnpdtopnstatsentry, child)
-        return &cnpdtopnstatstable.Cnpdtopnstatsentry[len(cnpdtopnstatstable.Cnpdtopnstatsentry)-1]
-    }
-    return nil
-}
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdtopnstatstable.EntityData.Children = make(map[string]types.YChild)
+    cnpdtopnstatstable.EntityData.Children["cnpdTopNStatsEntry"] = types.YChild{"Cnpdtopnstatsentry", nil}
     for i := range cnpdtopnstatstable.Cnpdtopnstatsentry {
-        children[cnpdtopnstatstable.Cnpdtopnstatsentry[i].GetSegmentPath()] = &cnpdtopnstatstable.Cnpdtopnstatsentry[i]
+        cnpdtopnstatstable.EntityData.Children[types.GetSegmentPath(&cnpdtopnstatstable.Cnpdtopnstatsentry[i])] = types.YChild{"Cnpdtopnstatsentry", &cnpdtopnstatstable.Cnpdtopnstatsentry[i]}
     }
-    return children
+    cnpdtopnstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdtopnstatstable.EntityData)
 }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetYangName() string { return "cnpdTopNStatsTable" }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) SetParent(parent types.Entity) { cnpdtopnstatstable.parent = parent }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetParent() types.Entity { return cnpdtopnstatstable.parent }
-
-func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry
 // This entry is used to store a set of objects which 
@@ -890,7 +532,7 @@ func (cnpdtopnstatstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable) GetP
 // and size according to what was configured in the associated
 // cnpdTopNConfigTableEntry.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..50. Refers to
@@ -920,59 +562,25 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry struct 
     Cnpdtopnstatshcrate interface{}
 }
 
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetFilter() yfilter.YFilter { return cnpdtopnstatsentry.YFilter }
+func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetEntityData() *types.CommonEntityData {
+    cnpdtopnstatsentry.EntityData.YFilter = cnpdtopnstatsentry.YFilter
+    cnpdtopnstatsentry.EntityData.YangName = "cnpdTopNStatsEntry"
+    cnpdtopnstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdtopnstatsentry.EntityData.ParentYangName = "cnpdTopNStatsTable"
+    cnpdtopnstatsentry.EntityData.SegmentPath = "cnpdTopNStatsEntry" + "[cnpdTopNConfigIndex='" + fmt.Sprintf("%v", cnpdtopnstatsentry.Cnpdtopnconfigindex) + "']" + "[cnpdTopNStatsIndex='" + fmt.Sprintf("%v", cnpdtopnstatsentry.Cnpdtopnstatsindex) + "']"
+    cnpdtopnstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdtopnstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdtopnstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) SetFilter(yf yfilter.YFilter) { cnpdtopnstatsentry.YFilter = yf }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetGoName(yname string) string {
-    if yname == "cnpdTopNConfigIndex" { return "Cnpdtopnconfigindex" }
-    if yname == "cnpdTopNStatsIndex" { return "Cnpdtopnstatsindex" }
-    if yname == "cnpdTopNStatsProtocolName" { return "Cnpdtopnstatsprotocolname" }
-    if yname == "cnpdTopNStatsRate" { return "Cnpdtopnstatsrate" }
-    if yname == "cnpdTopNStatsHCRate" { return "Cnpdtopnstatshcrate" }
-    return ""
+    cnpdtopnstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdtopnstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNConfigIndex"] = types.YLeaf{"Cnpdtopnconfigindex", cnpdtopnstatsentry.Cnpdtopnconfigindex}
+    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsIndex"] = types.YLeaf{"Cnpdtopnstatsindex", cnpdtopnstatsentry.Cnpdtopnstatsindex}
+    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsProtocolName"] = types.YLeaf{"Cnpdtopnstatsprotocolname", cnpdtopnstatsentry.Cnpdtopnstatsprotocolname}
+    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsRate"] = types.YLeaf{"Cnpdtopnstatsrate", cnpdtopnstatsentry.Cnpdtopnstatsrate}
+    cnpdtopnstatsentry.EntityData.Leafs["cnpdTopNStatsHCRate"] = types.YLeaf{"Cnpdtopnstatshcrate", cnpdtopnstatsentry.Cnpdtopnstatshcrate}
+    return &(cnpdtopnstatsentry.EntityData)
 }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetSegmentPath() string {
-    return "cnpdTopNStatsEntry" + "[cnpdTopNConfigIndex='" + fmt.Sprintf("%v", cnpdtopnstatsentry.Cnpdtopnconfigindex) + "']" + "[cnpdTopNStatsIndex='" + fmt.Sprintf("%v", cnpdtopnstatsentry.Cnpdtopnstatsindex) + "']"
-}
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cnpdTopNConfigIndex"] = cnpdtopnstatsentry.Cnpdtopnconfigindex
-    leafs["cnpdTopNStatsIndex"] = cnpdtopnstatsentry.Cnpdtopnstatsindex
-    leafs["cnpdTopNStatsProtocolName"] = cnpdtopnstatsentry.Cnpdtopnstatsprotocolname
-    leafs["cnpdTopNStatsRate"] = cnpdtopnstatsentry.Cnpdtopnstatsrate
-    leafs["cnpdTopNStatsHCRate"] = cnpdtopnstatsentry.Cnpdtopnstatshcrate
-    return leafs
-}
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetYangName() string { return "cnpdTopNStatsEntry" }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) SetParent(parent types.Entity) { cnpdtopnstatsentry.parent = parent }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetParent() types.Entity { return cnpdtopnstatsentry.parent }
-
-func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdtopnstatsentry) GetParentYangName() string { return "cnpdTopNStatsTable" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable
 // The cnpdThresholdConfigTable allows the management
@@ -980,7 +588,7 @@ func (cnpdtopnstatsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdtopnstatstable_Cnpdt
 // sending notifications if breached, and creating a
 // history of breached thresholds.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry contains configuration information to  set thresholds for the
@@ -1000,63 +608,24 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable struct {
     Cnpdthresholdconfigentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry
 }
 
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetFilter() yfilter.YFilter { return cnpdthresholdconfigtable.YFilter }
+func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetEntityData() *types.CommonEntityData {
+    cnpdthresholdconfigtable.EntityData.YFilter = cnpdthresholdconfigtable.YFilter
+    cnpdthresholdconfigtable.EntityData.YangName = "cnpdThresholdConfigTable"
+    cnpdthresholdconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdthresholdconfigtable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdthresholdconfigtable.EntityData.SegmentPath = "cnpdThresholdConfigTable"
+    cnpdthresholdconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdthresholdconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdthresholdconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) SetFilter(yf yfilter.YFilter) { cnpdthresholdconfigtable.YFilter = yf }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetGoName(yname string) string {
-    if yname == "cnpdThresholdConfigEntry" { return "Cnpdthresholdconfigentry" }
-    return ""
-}
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetSegmentPath() string {
-    return "cnpdThresholdConfigTable"
-}
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdThresholdConfigEntry" {
-        for _, c := range cnpdthresholdconfigtable.Cnpdthresholdconfigentry {
-            if cnpdthresholdconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry{}
-        cnpdthresholdconfigtable.Cnpdthresholdconfigentry = append(cnpdthresholdconfigtable.Cnpdthresholdconfigentry, child)
-        return &cnpdthresholdconfigtable.Cnpdthresholdconfigentry[len(cnpdthresholdconfigtable.Cnpdthresholdconfigentry)-1]
-    }
-    return nil
-}
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdthresholdconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cnpdthresholdconfigtable.EntityData.Children["cnpdThresholdConfigEntry"] = types.YChild{"Cnpdthresholdconfigentry", nil}
     for i := range cnpdthresholdconfigtable.Cnpdthresholdconfigentry {
-        children[cnpdthresholdconfigtable.Cnpdthresholdconfigentry[i].GetSegmentPath()] = &cnpdthresholdconfigtable.Cnpdthresholdconfigentry[i]
+        cnpdthresholdconfigtable.EntityData.Children[types.GetSegmentPath(&cnpdthresholdconfigtable.Cnpdthresholdconfigentry[i])] = types.YChild{"Cnpdthresholdconfigentry", &cnpdthresholdconfigtable.Cnpdthresholdconfigentry[i]}
     }
-    return children
+    cnpdthresholdconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdthresholdconfigtable.EntityData)
 }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetYangName() string { return "cnpdThresholdConfigTable" }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) SetParent(parent types.Entity) { cnpdthresholdconfigtable.parent = parent }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetParent() types.Entity { return cnpdthresholdconfigtable.parent }
-
-func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry
 // This entry contains configuration information to 
@@ -1081,7 +650,7 @@ func (cnpdthresholdconfigtable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfi
 // and one notification when the statistic drops below
 // the threshold value again.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer which  uniquely
@@ -1200,71 +769,31 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfige
     Cnpdthresholdconfigstatus interface{}
 }
 
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetFilter() yfilter.YFilter { return cnpdthresholdconfigentry.YFilter }
+func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetEntityData() *types.CommonEntityData {
+    cnpdthresholdconfigentry.EntityData.YFilter = cnpdthresholdconfigentry.YFilter
+    cnpdthresholdconfigentry.EntityData.YangName = "cnpdThresholdConfigEntry"
+    cnpdthresholdconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdthresholdconfigentry.EntityData.ParentYangName = "cnpdThresholdConfigTable"
+    cnpdthresholdconfigentry.EntityData.SegmentPath = "cnpdThresholdConfigEntry" + "[cnpdThresholdConfigIndex='" + fmt.Sprintf("%v", cnpdthresholdconfigentry.Cnpdthresholdconfigindex) + "']"
+    cnpdthresholdconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdthresholdconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdthresholdconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) SetFilter(yf yfilter.YFilter) { cnpdthresholdconfigentry.YFilter = yf }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetGoName(yname string) string {
-    if yname == "cnpdThresholdConfigIndex" { return "Cnpdthresholdconfigindex" }
-    if yname == "cnpdThresholdConfigIfIndex" { return "Cnpdthresholdconfigifindex" }
-    if yname == "cnpdThresholdConfigInterval" { return "Cnpdthresholdconfiginterval" }
-    if yname == "cnpdThresholdConfigSampleType" { return "Cnpdthresholdconfigsampletype" }
-    if yname == "cnpdThresholdConfigProtocol" { return "Cnpdthresholdconfigprotocol" }
-    if yname == "cnpdThresholdConfigProtocolAny" { return "Cnpdthresholdconfigprotocolany" }
-    if yname == "cnpdThresholdConfigStatsSelect" { return "Cnpdthresholdconfigstatsselect" }
-    if yname == "cnpdThresholdConfigStartup" { return "Cnpdthresholdconfigstartup" }
-    if yname == "cnpdThresholdConfigRising" { return "Cnpdthresholdconfigrising" }
-    if yname == "cnpdThresholdConfigFalling" { return "Cnpdthresholdconfigfalling" }
-    if yname == "cnpdThresholdConfigStatus" { return "Cnpdthresholdconfigstatus" }
-    return ""
+    cnpdthresholdconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdthresholdconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigIndex"] = types.YLeaf{"Cnpdthresholdconfigindex", cnpdthresholdconfigentry.Cnpdthresholdconfigindex}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigIfIndex"] = types.YLeaf{"Cnpdthresholdconfigifindex", cnpdthresholdconfigentry.Cnpdthresholdconfigifindex}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigInterval"] = types.YLeaf{"Cnpdthresholdconfiginterval", cnpdthresholdconfigentry.Cnpdthresholdconfiginterval}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigSampleType"] = types.YLeaf{"Cnpdthresholdconfigsampletype", cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigProtocol"] = types.YLeaf{"Cnpdthresholdconfigprotocol", cnpdthresholdconfigentry.Cnpdthresholdconfigprotocol}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigProtocolAny"] = types.YLeaf{"Cnpdthresholdconfigprotocolany", cnpdthresholdconfigentry.Cnpdthresholdconfigprotocolany}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigStatsSelect"] = types.YLeaf{"Cnpdthresholdconfigstatsselect", cnpdthresholdconfigentry.Cnpdthresholdconfigstatsselect}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigStartup"] = types.YLeaf{"Cnpdthresholdconfigstartup", cnpdthresholdconfigentry.Cnpdthresholdconfigstartup}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigRising"] = types.YLeaf{"Cnpdthresholdconfigrising", cnpdthresholdconfigentry.Cnpdthresholdconfigrising}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigFalling"] = types.YLeaf{"Cnpdthresholdconfigfalling", cnpdthresholdconfigentry.Cnpdthresholdconfigfalling}
+    cnpdthresholdconfigentry.EntityData.Leafs["cnpdThresholdConfigStatus"] = types.YLeaf{"Cnpdthresholdconfigstatus", cnpdthresholdconfigentry.Cnpdthresholdconfigstatus}
+    return &(cnpdthresholdconfigentry.EntityData)
 }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetSegmentPath() string {
-    return "cnpdThresholdConfigEntry" + "[cnpdThresholdConfigIndex='" + fmt.Sprintf("%v", cnpdthresholdconfigentry.Cnpdthresholdconfigindex) + "']"
-}
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cnpdThresholdConfigIndex"] = cnpdthresholdconfigentry.Cnpdthresholdconfigindex
-    leafs["cnpdThresholdConfigIfIndex"] = cnpdthresholdconfigentry.Cnpdthresholdconfigifindex
-    leafs["cnpdThresholdConfigInterval"] = cnpdthresholdconfigentry.Cnpdthresholdconfiginterval
-    leafs["cnpdThresholdConfigSampleType"] = cnpdthresholdconfigentry.Cnpdthresholdconfigsampletype
-    leafs["cnpdThresholdConfigProtocol"] = cnpdthresholdconfigentry.Cnpdthresholdconfigprotocol
-    leafs["cnpdThresholdConfigProtocolAny"] = cnpdthresholdconfigentry.Cnpdthresholdconfigprotocolany
-    leafs["cnpdThresholdConfigStatsSelect"] = cnpdthresholdconfigentry.Cnpdthresholdconfigstatsselect
-    leafs["cnpdThresholdConfigStartup"] = cnpdthresholdconfigentry.Cnpdthresholdconfigstartup
-    leafs["cnpdThresholdConfigRising"] = cnpdthresholdconfigentry.Cnpdthresholdconfigrising
-    leafs["cnpdThresholdConfigFalling"] = cnpdthresholdconfigentry.Cnpdthresholdconfigfalling
-    leafs["cnpdThresholdConfigStatus"] = cnpdthresholdconfigentry.Cnpdthresholdconfigstatus
-    return leafs
-}
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetYangName() string { return "cnpdThresholdConfigEntry" }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) SetParent(parent types.Entity) { cnpdthresholdconfigentry.parent = parent }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetParent() types.Entity { return cnpdthresholdconfigentry.parent }
-
-func (cnpdthresholdconfigentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry) GetParentYangName() string { return "cnpdThresholdConfigTable" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype represents cnpdThresholdConfigFalling value.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdconfigtable_Cnpdthresholdconfigentry_Cnpdthresholdconfigsampletype string
@@ -1293,7 +822,7 @@ const (
 // events. A notification can be traced back to
 // its cnpdThresholdHistoryEntry.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry is created each time a threshold  is breached.   Thus there is
@@ -1303,63 +832,24 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable struct {
     Cnpdthresholdhistoryentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry
 }
 
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetFilter() yfilter.YFilter { return cnpdthresholdhistorytable.YFilter }
+func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetEntityData() *types.CommonEntityData {
+    cnpdthresholdhistorytable.EntityData.YFilter = cnpdthresholdhistorytable.YFilter
+    cnpdthresholdhistorytable.EntityData.YangName = "cnpdThresholdHistoryTable"
+    cnpdthresholdhistorytable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdthresholdhistorytable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdthresholdhistorytable.EntityData.SegmentPath = "cnpdThresholdHistoryTable"
+    cnpdthresholdhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdthresholdhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdthresholdhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) SetFilter(yf yfilter.YFilter) { cnpdthresholdhistorytable.YFilter = yf }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetGoName(yname string) string {
-    if yname == "cnpdThresholdHistoryEntry" { return "Cnpdthresholdhistoryentry" }
-    return ""
-}
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetSegmentPath() string {
-    return "cnpdThresholdHistoryTable"
-}
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdThresholdHistoryEntry" {
-        for _, c := range cnpdthresholdhistorytable.Cnpdthresholdhistoryentry {
-            if cnpdthresholdhistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry{}
-        cnpdthresholdhistorytable.Cnpdthresholdhistoryentry = append(cnpdthresholdhistorytable.Cnpdthresholdhistoryentry, child)
-        return &cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[len(cnpdthresholdhistorytable.Cnpdthresholdhistoryentry)-1]
-    }
-    return nil
-}
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdthresholdhistorytable.EntityData.Children = make(map[string]types.YChild)
+    cnpdthresholdhistorytable.EntityData.Children["cnpdThresholdHistoryEntry"] = types.YChild{"Cnpdthresholdhistoryentry", nil}
     for i := range cnpdthresholdhistorytable.Cnpdthresholdhistoryentry {
-        children[cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[i].GetSegmentPath()] = &cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[i]
+        cnpdthresholdhistorytable.EntityData.Children[types.GetSegmentPath(&cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[i])] = types.YChild{"Cnpdthresholdhistoryentry", &cnpdthresholdhistorytable.Cnpdthresholdhistoryentry[i]}
     }
-    return children
+    cnpdthresholdhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdthresholdhistorytable.EntityData)
 }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetYangName() string { return "cnpdThresholdHistoryTable" }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) SetParent(parent types.Entity) { cnpdthresholdhistorytable.parent = parent }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetParent() types.Entity { return cnpdthresholdhistorytable.parent }
-
-func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry
 // This entry is created each time a threshold 
@@ -1370,7 +860,7 @@ func (cnpdthresholdhistorytable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhist
 // as not every Threshold configured will 
 // be breached.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer which uniquely
@@ -1406,63 +896,27 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistor
     Cnpdthresholdhistorystatsselect interface{}
 }
 
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetFilter() yfilter.YFilter { return cnpdthresholdhistoryentry.YFilter }
+func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetEntityData() *types.CommonEntityData {
+    cnpdthresholdhistoryentry.EntityData.YFilter = cnpdthresholdhistoryentry.YFilter
+    cnpdthresholdhistoryentry.EntityData.YangName = "cnpdThresholdHistoryEntry"
+    cnpdthresholdhistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdthresholdhistoryentry.EntityData.ParentYangName = "cnpdThresholdHistoryTable"
+    cnpdthresholdhistoryentry.EntityData.SegmentPath = "cnpdThresholdHistoryEntry" + "[cnpdThresholdHistoryIndex='" + fmt.Sprintf("%v", cnpdthresholdhistoryentry.Cnpdthresholdhistoryindex) + "']"
+    cnpdthresholdhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdthresholdhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdthresholdhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) SetFilter(yf yfilter.YFilter) { cnpdthresholdhistoryentry.YFilter = yf }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetGoName(yname string) string {
-    if yname == "cnpdThresholdHistoryIndex" { return "Cnpdthresholdhistoryindex" }
-    if yname == "cnpdThresholdHistoryConfigIndex" { return "Cnpdthresholdhistoryconfigindex" }
-    if yname == "cnpdThresholdHistoryValue" { return "Cnpdthresholdhistoryvalue" }
-    if yname == "cnpdThresholdHistoryType" { return "Cnpdthresholdhistorytype" }
-    if yname == "cnpdThresholdHistoryTime" { return "Cnpdthresholdhistorytime" }
-    if yname == "cnpdThresholdHistoryProtocol" { return "Cnpdthresholdhistoryprotocol" }
-    if yname == "cnpdThresholdHistoryStatsSelect" { return "Cnpdthresholdhistorystatsselect" }
-    return ""
+    cnpdthresholdhistoryentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdthresholdhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryIndex"] = types.YLeaf{"Cnpdthresholdhistoryindex", cnpdthresholdhistoryentry.Cnpdthresholdhistoryindex}
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryConfigIndex"] = types.YLeaf{"Cnpdthresholdhistoryconfigindex", cnpdthresholdhistoryentry.Cnpdthresholdhistoryconfigindex}
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryValue"] = types.YLeaf{"Cnpdthresholdhistoryvalue", cnpdthresholdhistoryentry.Cnpdthresholdhistoryvalue}
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryType"] = types.YLeaf{"Cnpdthresholdhistorytype", cnpdthresholdhistoryentry.Cnpdthresholdhistorytype}
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryTime"] = types.YLeaf{"Cnpdthresholdhistorytime", cnpdthresholdhistoryentry.Cnpdthresholdhistorytime}
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryProtocol"] = types.YLeaf{"Cnpdthresholdhistoryprotocol", cnpdthresholdhistoryentry.Cnpdthresholdhistoryprotocol}
+    cnpdthresholdhistoryentry.EntityData.Leafs["cnpdThresholdHistoryStatsSelect"] = types.YLeaf{"Cnpdthresholdhistorystatsselect", cnpdthresholdhistoryentry.Cnpdthresholdhistorystatsselect}
+    return &(cnpdthresholdhistoryentry.EntityData)
 }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetSegmentPath() string {
-    return "cnpdThresholdHistoryEntry" + "[cnpdThresholdHistoryIndex='" + fmt.Sprintf("%v", cnpdthresholdhistoryentry.Cnpdthresholdhistoryindex) + "']"
-}
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cnpdThresholdHistoryIndex"] = cnpdthresholdhistoryentry.Cnpdthresholdhistoryindex
-    leafs["cnpdThresholdHistoryConfigIndex"] = cnpdthresholdhistoryentry.Cnpdthresholdhistoryconfigindex
-    leafs["cnpdThresholdHistoryValue"] = cnpdthresholdhistoryentry.Cnpdthresholdhistoryvalue
-    leafs["cnpdThresholdHistoryType"] = cnpdthresholdhistoryentry.Cnpdthresholdhistorytype
-    leafs["cnpdThresholdHistoryTime"] = cnpdthresholdhistoryentry.Cnpdthresholdhistorytime
-    leafs["cnpdThresholdHistoryProtocol"] = cnpdthresholdhistoryentry.Cnpdthresholdhistoryprotocol
-    leafs["cnpdThresholdHistoryStatsSelect"] = cnpdthresholdhistoryentry.Cnpdthresholdhistorystatsselect
-    return leafs
-}
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetYangName() string { return "cnpdThresholdHistoryEntry" }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) SetParent(parent types.Entity) { cnpdthresholdhistoryentry.parent = parent }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetParent() types.Entity { return cnpdthresholdhistoryentry.parent }
-
-func (cnpdthresholdhistoryentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry) GetParentYangName() string { return "cnpdThresholdHistoryTable" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype represents or falling threshold breach.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdthresholdhistorytable_Cnpdthresholdhistoryentry_Cnpdthresholdhistorytype string
@@ -1478,7 +932,7 @@ const (
 // protocols and applications which NBAR is currently
 // capable of recognizing.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A entry in the Supported Protocols table reflecting key information about a
@@ -1487,69 +941,30 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable struct {
     Cnpdsupportedprotocolsentry []CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry
 }
 
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetFilter() yfilter.YFilter { return cnpdsupportedprotocolstable.YFilter }
+func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetEntityData() *types.CommonEntityData {
+    cnpdsupportedprotocolstable.EntityData.YFilter = cnpdsupportedprotocolstable.YFilter
+    cnpdsupportedprotocolstable.EntityData.YangName = "cnpdSupportedProtocolsTable"
+    cnpdsupportedprotocolstable.EntityData.BundleName = "cisco_ios_xe"
+    cnpdsupportedprotocolstable.EntityData.ParentYangName = "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+    cnpdsupportedprotocolstable.EntityData.SegmentPath = "cnpdSupportedProtocolsTable"
+    cnpdsupportedprotocolstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdsupportedprotocolstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdsupportedprotocolstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) SetFilter(yf yfilter.YFilter) { cnpdsupportedprotocolstable.YFilter = yf }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetGoName(yname string) string {
-    if yname == "cnpdSupportedProtocolsEntry" { return "Cnpdsupportedprotocolsentry" }
-    return ""
-}
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetSegmentPath() string {
-    return "cnpdSupportedProtocolsTable"
-}
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cnpdSupportedProtocolsEntry" {
-        for _, c := range cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry {
-            if cnpdsupportedprotocolstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry{}
-        cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry = append(cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry, child)
-        return &cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[len(cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry)-1]
-    }
-    return nil
-}
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cnpdsupportedprotocolstable.EntityData.Children = make(map[string]types.YChild)
+    cnpdsupportedprotocolstable.EntityData.Children["cnpdSupportedProtocolsEntry"] = types.YChild{"Cnpdsupportedprotocolsentry", nil}
     for i := range cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry {
-        children[cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[i].GetSegmentPath()] = &cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[i]
+        cnpdsupportedprotocolstable.EntityData.Children[types.GetSegmentPath(&cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[i])] = types.YChild{"Cnpdsupportedprotocolsentry", &cnpdsupportedprotocolstable.Cnpdsupportedprotocolsentry[i]}
     }
-    return children
+    cnpdsupportedprotocolstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cnpdsupportedprotocolstable.EntityData)
 }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetYangName() string { return "cnpdSupportedProtocolsTable" }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) SetParent(parent types.Entity) { cnpdsupportedprotocolstable.parent = parent }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetParent() types.Entity { return cnpdsupportedprotocolstable.parent }
-
-func (cnpdsupportedprotocolstable *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable) GetParentYangName() string { return "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB" }
 
 // CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry
 // A entry in the Supported Protocols table reflecting
 // key information about a protocol.
 type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier of a row in this table.  Thus
@@ -1562,51 +977,20 @@ type CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprot
     Cnpdsupportedprotocolsname interface{}
 }
 
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetFilter() yfilter.YFilter { return cnpdsupportedprotocolsentry.YFilter }
+func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetEntityData() *types.CommonEntityData {
+    cnpdsupportedprotocolsentry.EntityData.YFilter = cnpdsupportedprotocolsentry.YFilter
+    cnpdsupportedprotocolsentry.EntityData.YangName = "cnpdSupportedProtocolsEntry"
+    cnpdsupportedprotocolsentry.EntityData.BundleName = "cisco_ios_xe"
+    cnpdsupportedprotocolsentry.EntityData.ParentYangName = "cnpdSupportedProtocolsTable"
+    cnpdsupportedprotocolsentry.EntityData.SegmentPath = "cnpdSupportedProtocolsEntry" + "[cnpdSupportedProtocolsIndex='" + fmt.Sprintf("%v", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsindex) + "']"
+    cnpdsupportedprotocolsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cnpdsupportedprotocolsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cnpdsupportedprotocolsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) SetFilter(yf yfilter.YFilter) { cnpdsupportedprotocolsentry.YFilter = yf }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetGoName(yname string) string {
-    if yname == "cnpdSupportedProtocolsIndex" { return "Cnpdsupportedprotocolsindex" }
-    if yname == "cnpdSupportedProtocolsName" { return "Cnpdsupportedprotocolsname" }
-    return ""
+    cnpdsupportedprotocolsentry.EntityData.Children = make(map[string]types.YChild)
+    cnpdsupportedprotocolsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cnpdsupportedprotocolsentry.EntityData.Leafs["cnpdSupportedProtocolsIndex"] = types.YLeaf{"Cnpdsupportedprotocolsindex", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsindex}
+    cnpdsupportedprotocolsentry.EntityData.Leafs["cnpdSupportedProtocolsName"] = types.YLeaf{"Cnpdsupportedprotocolsname", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsname}
+    return &(cnpdsupportedprotocolsentry.EntityData)
 }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetSegmentPath() string {
-    return "cnpdSupportedProtocolsEntry" + "[cnpdSupportedProtocolsIndex='" + fmt.Sprintf("%v", cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsindex) + "']"
-}
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cnpdSupportedProtocolsIndex"] = cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsindex
-    leafs["cnpdSupportedProtocolsName"] = cnpdsupportedprotocolsentry.Cnpdsupportedprotocolsname
-    return leafs
-}
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetYangName() string { return "cnpdSupportedProtocolsEntry" }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) SetParent(parent types.Entity) { cnpdsupportedprotocolsentry.parent = parent }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetParent() types.Entity { return cnpdsupportedprotocolsentry.parent }
-
-func (cnpdsupportedprotocolsentry *CISCONBARPROTOCOLDISCOVERYMIB_Cnpdsupportedprotocolstable_Cnpdsupportedprotocolsentry) GetParentYangName() string { return "cnpdSupportedProtocolsTable" }
 

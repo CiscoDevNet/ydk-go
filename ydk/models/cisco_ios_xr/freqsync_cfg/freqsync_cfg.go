@@ -30,6 +30,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-freqsync-cfg:frequency-synchronization", reflect.TypeOf(FrequencySynchronization{}))
 }
 
+// FsyncSystemTimingMode represents Fsync system timing mode
+type FsyncSystemTimingMode string
+
+const (
+    // Line-interfaces only
+    FsyncSystemTimingMode_line_only FsyncSystemTimingMode = "line-only"
+
+    // Clock-interfaces only
+    FsyncSystemTimingMode_clock_only FsyncSystemTimingMode = "clock-only"
+)
+
 // FsyncClockSource represents Fsync clock source
 type FsyncClockSource string
 
@@ -52,21 +63,10 @@ const (
     FsyncSourceSelectionLogging_errors FsyncSourceSelectionLogging = "errors"
 )
 
-// FsyncSystemTimingMode represents Fsync system timing mode
-type FsyncSystemTimingMode string
-
-const (
-    // Line-interfaces only
-    FsyncSystemTimingMode_line_only FsyncSystemTimingMode = "line-only"
-
-    // Clock-interfaces only
-    FsyncSystemTimingMode_clock_only FsyncSystemTimingMode = "clock-only"
-)
-
 // FrequencySynchronization
 // frequency synchronization
 type FrequencySynchronization struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Quality level option. The type is FsyncQlOption. The default value is
@@ -86,57 +86,23 @@ type FrequencySynchronization struct {
     SystemTimingMode interface{}
 }
 
-func (frequencySynchronization *FrequencySynchronization) GetFilter() yfilter.YFilter { return frequencySynchronization.YFilter }
+func (frequencySynchronization *FrequencySynchronization) GetEntityData() *types.CommonEntityData {
+    frequencySynchronization.EntityData.YFilter = frequencySynchronization.YFilter
+    frequencySynchronization.EntityData.YangName = "frequency-synchronization"
+    frequencySynchronization.EntityData.BundleName = "cisco_ios_xr"
+    frequencySynchronization.EntityData.ParentYangName = "Cisco-IOS-XR-freqsync-cfg"
+    frequencySynchronization.EntityData.SegmentPath = "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
+    frequencySynchronization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frequencySynchronization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frequencySynchronization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (frequencySynchronization *FrequencySynchronization) SetFilter(yf yfilter.YFilter) { frequencySynchronization.YFilter = yf }
-
-func (frequencySynchronization *FrequencySynchronization) GetGoName(yname string) string {
-    if yname == "quality-level-option" { return "QualityLevelOption" }
-    if yname == "enable" { return "Enable" }
-    if yname == "source-selection-logging" { return "SourceSelectionLogging" }
-    if yname == "clock-interface-source-type" { return "ClockInterfaceSourceType" }
-    if yname == "system-timing-mode" { return "SystemTimingMode" }
-    return ""
+    frequencySynchronization.EntityData.Children = make(map[string]types.YChild)
+    frequencySynchronization.EntityData.Leafs = make(map[string]types.YLeaf)
+    frequencySynchronization.EntityData.Leafs["quality-level-option"] = types.YLeaf{"QualityLevelOption", frequencySynchronization.QualityLevelOption}
+    frequencySynchronization.EntityData.Leafs["enable"] = types.YLeaf{"Enable", frequencySynchronization.Enable}
+    frequencySynchronization.EntityData.Leafs["source-selection-logging"] = types.YLeaf{"SourceSelectionLogging", frequencySynchronization.SourceSelectionLogging}
+    frequencySynchronization.EntityData.Leafs["clock-interface-source-type"] = types.YLeaf{"ClockInterfaceSourceType", frequencySynchronization.ClockInterfaceSourceType}
+    frequencySynchronization.EntityData.Leafs["system-timing-mode"] = types.YLeaf{"SystemTimingMode", frequencySynchronization.SystemTimingMode}
+    return &(frequencySynchronization.EntityData)
 }
-
-func (frequencySynchronization *FrequencySynchronization) GetSegmentPath() string {
-    return "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
-}
-
-func (frequencySynchronization *FrequencySynchronization) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (frequencySynchronization *FrequencySynchronization) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (frequencySynchronization *FrequencySynchronization) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["quality-level-option"] = frequencySynchronization.QualityLevelOption
-    leafs["enable"] = frequencySynchronization.Enable
-    leafs["source-selection-logging"] = frequencySynchronization.SourceSelectionLogging
-    leafs["clock-interface-source-type"] = frequencySynchronization.ClockInterfaceSourceType
-    leafs["system-timing-mode"] = frequencySynchronization.SystemTimingMode
-    return leafs
-}
-
-func (frequencySynchronization *FrequencySynchronization) GetBundleName() string { return "cisco_ios_xr" }
-
-func (frequencySynchronization *FrequencySynchronization) GetYangName() string { return "frequency-synchronization" }
-
-func (frequencySynchronization *FrequencySynchronization) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (frequencySynchronization *FrequencySynchronization) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (frequencySynchronization *FrequencySynchronization) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (frequencySynchronization *FrequencySynchronization) SetParent(parent types.Entity) { frequencySynchronization.parent = parent }
-
-func (frequencySynchronization *FrequencySynchronization) GetParent() types.Entity { return frequencySynchronization.parent }
-
-func (frequencySynchronization *FrequencySynchronization) GetParentYangName() string { return "Cisco-IOS-XR-freqsync-cfg" }
 

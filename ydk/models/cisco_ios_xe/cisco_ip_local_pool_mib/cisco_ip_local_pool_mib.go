@@ -44,7 +44,7 @@ func init() {
 
 // CISCOIPLOCALPOOLMIB
 type CISCOIPLOCALPOOLMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -99,83 +99,30 @@ type CISCOIPLOCALPOOLMIB struct {
     Ciplocalpoolalloctable CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable
 }
 
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetFilter() yfilter.YFilter { return cISCOIPLOCALPOOLMIB.YFilter }
+func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPLOCALPOOLMIB.EntityData.YFilter = cISCOIPLOCALPOOLMIB.YFilter
+    cISCOIPLOCALPOOLMIB.EntityData.YangName = "CISCO-IP-LOCAL-POOL-MIB"
+    cISCOIPLOCALPOOLMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPLOCALPOOLMIB.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    cISCOIPLOCALPOOLMIB.EntityData.SegmentPath = "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB"
+    cISCOIPLOCALPOOLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPLOCALPOOLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPLOCALPOOLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) SetFilter(yf yfilter.YFilter) { cISCOIPLOCALPOOLMIB.YFilter = yf }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolConfig" { return "Ciplocalpoolconfig" }
-    if yname == "cIpLocalPoolConfigTable" { return "Ciplocalpoolconfigtable" }
-    if yname == "cIpLocalPoolGroupContainsTable" { return "Ciplocalpoolgroupcontainstable" }
-    if yname == "cIpLocalPoolGroupTable" { return "Ciplocalpoolgrouptable" }
-    if yname == "cIpLocalPoolStatsTable" { return "Ciplocalpoolstatstable" }
-    if yname == "cIpLocalPoolAllocTable" { return "Ciplocalpoolalloctable" }
-    return ""
+    cISCOIPLOCALPOOLMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPLOCALPOOLMIB.EntityData.Children["cIpLocalPoolConfig"] = types.YChild{"Ciplocalpoolconfig", &cISCOIPLOCALPOOLMIB.Ciplocalpoolconfig}
+    cISCOIPLOCALPOOLMIB.EntityData.Children["cIpLocalPoolConfigTable"] = types.YChild{"Ciplocalpoolconfigtable", &cISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable}
+    cISCOIPLOCALPOOLMIB.EntityData.Children["cIpLocalPoolGroupContainsTable"] = types.YChild{"Ciplocalpoolgroupcontainstable", &cISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable}
+    cISCOIPLOCALPOOLMIB.EntityData.Children["cIpLocalPoolGroupTable"] = types.YChild{"Ciplocalpoolgrouptable", &cISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable}
+    cISCOIPLOCALPOOLMIB.EntityData.Children["cIpLocalPoolStatsTable"] = types.YChild{"Ciplocalpoolstatstable", &cISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable}
+    cISCOIPLOCALPOOLMIB.EntityData.Children["cIpLocalPoolAllocTable"] = types.YChild{"Ciplocalpoolalloctable", &cISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable}
+    cISCOIPLOCALPOOLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPLOCALPOOLMIB.EntityData)
 }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetSegmentPath() string {
-    return "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB"
-}
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIpLocalPoolConfig" {
-        return &cISCOIPLOCALPOOLMIB.Ciplocalpoolconfig
-    }
-    if childYangName == "cIpLocalPoolConfigTable" {
-        return &cISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable
-    }
-    if childYangName == "cIpLocalPoolGroupContainsTable" {
-        return &cISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable
-    }
-    if childYangName == "cIpLocalPoolGroupTable" {
-        return &cISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable
-    }
-    if childYangName == "cIpLocalPoolStatsTable" {
-        return &cISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable
-    }
-    if childYangName == "cIpLocalPoolAllocTable" {
-        return &cISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable
-    }
-    return nil
-}
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cIpLocalPoolConfig"] = &cISCOIPLOCALPOOLMIB.Ciplocalpoolconfig
-    children["cIpLocalPoolConfigTable"] = &cISCOIPLOCALPOOLMIB.Ciplocalpoolconfigtable
-    children["cIpLocalPoolGroupContainsTable"] = &cISCOIPLOCALPOOLMIB.Ciplocalpoolgroupcontainstable
-    children["cIpLocalPoolGroupTable"] = &cISCOIPLOCALPOOLMIB.Ciplocalpoolgrouptable
-    children["cIpLocalPoolStatsTable"] = &cISCOIPLOCALPOOLMIB.Ciplocalpoolstatstable
-    children["cIpLocalPoolAllocTable"] = &cISCOIPLOCALPOOLMIB.Ciplocalpoolalloctable
-    return children
-}
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) SetParent(parent types.Entity) { cISCOIPLOCALPOOLMIB.parent = parent }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetParent() types.Entity { return cISCOIPLOCALPOOLMIB.parent }
-
-func (cISCOIPLOCALPOOLMIB *CISCOIPLOCALPOOLMIB) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An indication of whether the notifications defined by the
@@ -183,51 +130,21 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig struct {
     Ciplocalpoolnotificationsenable interface{}
 }
 
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetFilter() yfilter.YFilter { return ciplocalpoolconfig.YFilter }
+func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolconfig.EntityData.YFilter = ciplocalpoolconfig.YFilter
+    ciplocalpoolconfig.EntityData.YangName = "cIpLocalPoolConfig"
+    ciplocalpoolconfig.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolconfig.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    ciplocalpoolconfig.EntityData.SegmentPath = "cIpLocalPoolConfig"
+    ciplocalpoolconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) SetFilter(yf yfilter.YFilter) { ciplocalpoolconfig.YFilter = yf }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolNotificationsEnable" { return "Ciplocalpoolnotificationsenable" }
-    return ""
+    ciplocalpoolconfig.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciplocalpoolconfig.EntityData.Leafs["cIpLocalPoolNotificationsEnable"] = types.YLeaf{"Ciplocalpoolnotificationsenable", ciplocalpoolconfig.Ciplocalpoolnotificationsenable}
+    return &(ciplocalpoolconfig.EntityData)
 }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetSegmentPath() string {
-    return "cIpLocalPoolConfig"
-}
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIpLocalPoolNotificationsEnable"] = ciplocalpoolconfig.Ciplocalpoolnotificationsenable
-    return leafs
-}
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetYangName() string { return "cIpLocalPoolConfig" }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) SetParent(parent types.Entity) { ciplocalpoolconfig.parent = parent }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetParent() types.Entity { return ciplocalpoolconfig.parent }
-
-func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable
 // This table manages the creation, modification, and deletion
@@ -244,7 +161,7 @@ func (ciplocalpoolconfig *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfig) GetParentYangN
 // the low address of the IP local pool together with its address
 // type.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry provides information about a particular IP local pool, including
@@ -253,69 +170,30 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable struct {
     Ciplocalpoolconfigentry []CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry
 }
 
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetFilter() yfilter.YFilter { return ciplocalpoolconfigtable.YFilter }
+func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolconfigtable.EntityData.YFilter = ciplocalpoolconfigtable.YFilter
+    ciplocalpoolconfigtable.EntityData.YangName = "cIpLocalPoolConfigTable"
+    ciplocalpoolconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolconfigtable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    ciplocalpoolconfigtable.EntityData.SegmentPath = "cIpLocalPoolConfigTable"
+    ciplocalpoolconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) SetFilter(yf yfilter.YFilter) { ciplocalpoolconfigtable.YFilter = yf }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolConfigEntry" { return "Ciplocalpoolconfigentry" }
-    return ""
-}
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetSegmentPath() string {
-    return "cIpLocalPoolConfigTable"
-}
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIpLocalPoolConfigEntry" {
-        for _, c := range ciplocalpoolconfigtable.Ciplocalpoolconfigentry {
-            if ciplocalpoolconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry{}
-        ciplocalpoolconfigtable.Ciplocalpoolconfigentry = append(ciplocalpoolconfigtable.Ciplocalpoolconfigentry, child)
-        return &ciplocalpoolconfigtable.Ciplocalpoolconfigentry[len(ciplocalpoolconfigtable.Ciplocalpoolconfigentry)-1]
-    }
-    return nil
-}
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciplocalpoolconfigtable.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolconfigtable.EntityData.Children["cIpLocalPoolConfigEntry"] = types.YChild{"Ciplocalpoolconfigentry", nil}
     for i := range ciplocalpoolconfigtable.Ciplocalpoolconfigentry {
-        children[ciplocalpoolconfigtable.Ciplocalpoolconfigentry[i].GetSegmentPath()] = &ciplocalpoolconfigtable.Ciplocalpoolconfigentry[i]
+        ciplocalpoolconfigtable.EntityData.Children[types.GetSegmentPath(&ciplocalpoolconfigtable.Ciplocalpoolconfigentry[i])] = types.YChild{"Ciplocalpoolconfigentry", &ciplocalpoolconfigtable.Ciplocalpoolconfigentry[i]}
     }
-    return children
+    ciplocalpoolconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciplocalpoolconfigtable.EntityData)
 }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetYangName() string { return "cIpLocalPoolConfigTable" }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) SetParent(parent types.Entity) { ciplocalpoolconfigtable.parent = parent }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetParent() types.Entity { return ciplocalpoolconfigtable.parent }
-
-func (ciplocalpoolconfigtable *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry
 // Each entry provides information about a particular IP local
 // pool, including the number of free and used addresses and its priority.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary non-empty string that uniquely
@@ -367,67 +245,29 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry struct 
     Ciplocalpoolpriority interface{}
 }
 
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetFilter() yfilter.YFilter { return ciplocalpoolconfigentry.YFilter }
+func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolconfigentry.EntityData.YFilter = ciplocalpoolconfigentry.YFilter
+    ciplocalpoolconfigentry.EntityData.YangName = "cIpLocalPoolConfigEntry"
+    ciplocalpoolconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolconfigentry.EntityData.ParentYangName = "cIpLocalPoolConfigTable"
+    ciplocalpoolconfigentry.EntityData.SegmentPath = "cIpLocalPoolConfigEntry" + "[cIpLocalPoolName='" + fmt.Sprintf("%v", ciplocalpoolconfigentry.Ciplocalpoolname) + "']" + "[cIpLocalPoolAddrType='" + fmt.Sprintf("%v", ciplocalpoolconfigentry.Ciplocalpooladdrtype) + "']" + "[cIpLocalPoolAddressLo='" + fmt.Sprintf("%v", ciplocalpoolconfigentry.Ciplocalpooladdresslo) + "']"
+    ciplocalpoolconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) SetFilter(yf yfilter.YFilter) { ciplocalpoolconfigentry.YFilter = yf }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolName" { return "Ciplocalpoolname" }
-    if yname == "cIpLocalPoolAddrType" { return "Ciplocalpooladdrtype" }
-    if yname == "cIpLocalPoolAddressLo" { return "Ciplocalpooladdresslo" }
-    if yname == "cIpLocalPoolAddressHi" { return "Ciplocalpooladdresshi" }
-    if yname == "cIpLocalPoolFreeAddrs" { return "Ciplocalpoolfreeaddrs" }
-    if yname == "cIpLocalPoolInUseAddrs" { return "Ciplocalpoolinuseaddrs" }
-    if yname == "cIpLocalPoolGroupContainedIn" { return "Ciplocalpoolgroupcontainedin" }
-    if yname == "cIpLocalPoolRowStatus" { return "Ciplocalpoolrowstatus" }
-    if yname == "cIpLocalPoolPriority" { return "Ciplocalpoolpriority" }
-    return ""
+    ciplocalpoolconfigentry.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolName"] = types.YLeaf{"Ciplocalpoolname", ciplocalpoolconfigentry.Ciplocalpoolname}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolAddrType"] = types.YLeaf{"Ciplocalpooladdrtype", ciplocalpoolconfigentry.Ciplocalpooladdrtype}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolAddressLo"] = types.YLeaf{"Ciplocalpooladdresslo", ciplocalpoolconfigentry.Ciplocalpooladdresslo}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolAddressHi"] = types.YLeaf{"Ciplocalpooladdresshi", ciplocalpoolconfigentry.Ciplocalpooladdresshi}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolFreeAddrs"] = types.YLeaf{"Ciplocalpoolfreeaddrs", ciplocalpoolconfigentry.Ciplocalpoolfreeaddrs}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolInUseAddrs"] = types.YLeaf{"Ciplocalpoolinuseaddrs", ciplocalpoolconfigentry.Ciplocalpoolinuseaddrs}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolGroupContainedIn"] = types.YLeaf{"Ciplocalpoolgroupcontainedin", ciplocalpoolconfigentry.Ciplocalpoolgroupcontainedin}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolRowStatus"] = types.YLeaf{"Ciplocalpoolrowstatus", ciplocalpoolconfigentry.Ciplocalpoolrowstatus}
+    ciplocalpoolconfigentry.EntityData.Leafs["cIpLocalPoolPriority"] = types.YLeaf{"Ciplocalpoolpriority", ciplocalpoolconfigentry.Ciplocalpoolpriority}
+    return &(ciplocalpoolconfigentry.EntityData)
 }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetSegmentPath() string {
-    return "cIpLocalPoolConfigEntry" + "[cIpLocalPoolName='" + fmt.Sprintf("%v", ciplocalpoolconfigentry.Ciplocalpoolname) + "']" + "[cIpLocalPoolAddrType='" + fmt.Sprintf("%v", ciplocalpoolconfigentry.Ciplocalpooladdrtype) + "']" + "[cIpLocalPoolAddressLo='" + fmt.Sprintf("%v", ciplocalpoolconfigentry.Ciplocalpooladdresslo) + "']"
-}
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIpLocalPoolName"] = ciplocalpoolconfigentry.Ciplocalpoolname
-    leafs["cIpLocalPoolAddrType"] = ciplocalpoolconfigentry.Ciplocalpooladdrtype
-    leafs["cIpLocalPoolAddressLo"] = ciplocalpoolconfigentry.Ciplocalpooladdresslo
-    leafs["cIpLocalPoolAddressHi"] = ciplocalpoolconfigentry.Ciplocalpooladdresshi
-    leafs["cIpLocalPoolFreeAddrs"] = ciplocalpoolconfigentry.Ciplocalpoolfreeaddrs
-    leafs["cIpLocalPoolInUseAddrs"] = ciplocalpoolconfigentry.Ciplocalpoolinuseaddrs
-    leafs["cIpLocalPoolGroupContainedIn"] = ciplocalpoolconfigentry.Ciplocalpoolgroupcontainedin
-    leafs["cIpLocalPoolRowStatus"] = ciplocalpoolconfigentry.Ciplocalpoolrowstatus
-    leafs["cIpLocalPoolPriority"] = ciplocalpoolconfigentry.Ciplocalpoolpriority
-    return leafs
-}
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetYangName() string { return "cIpLocalPoolConfigEntry" }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) SetParent(parent types.Entity) { ciplocalpoolconfigentry.parent = parent }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetParent() types.Entity { return ciplocalpoolconfigentry.parent }
-
-func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplocalpoolconfigentry) GetParentYangName() string { return "cIpLocalPoolConfigTable" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable
 // A table which exposes the container/'containee' relationships
@@ -446,7 +286,7 @@ func (ciplocalpoolconfigentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolconfigtable_Ciplo
 // this table with the respective cIpLocalPoolGroupName and
 // cIpLocalPoolName indices will be removed.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry describes single container/'containee' relationship.  Pool names
@@ -457,63 +297,24 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable struct {
     Ciplocalpoolgroupcontainsentry []CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry
 }
 
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetFilter() yfilter.YFilter { return ciplocalpoolgroupcontainstable.YFilter }
+func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolgroupcontainstable.EntityData.YFilter = ciplocalpoolgroupcontainstable.YFilter
+    ciplocalpoolgroupcontainstable.EntityData.YangName = "cIpLocalPoolGroupContainsTable"
+    ciplocalpoolgroupcontainstable.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolgroupcontainstable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    ciplocalpoolgroupcontainstable.EntityData.SegmentPath = "cIpLocalPoolGroupContainsTable"
+    ciplocalpoolgroupcontainstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolgroupcontainstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolgroupcontainstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) SetFilter(yf yfilter.YFilter) { ciplocalpoolgroupcontainstable.YFilter = yf }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolGroupContainsEntry" { return "Ciplocalpoolgroupcontainsentry" }
-    return ""
-}
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetSegmentPath() string {
-    return "cIpLocalPoolGroupContainsTable"
-}
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIpLocalPoolGroupContainsEntry" {
-        for _, c := range ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry {
-            if ciplocalpoolgroupcontainstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry{}
-        ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry = append(ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry, child)
-        return &ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry[len(ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry)-1]
-    }
-    return nil
-}
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciplocalpoolgroupcontainstable.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolgroupcontainstable.EntityData.Children["cIpLocalPoolGroupContainsEntry"] = types.YChild{"Ciplocalpoolgroupcontainsentry", nil}
     for i := range ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry {
-        children[ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry[i].GetSegmentPath()] = &ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry[i]
+        ciplocalpoolgroupcontainstable.EntityData.Children[types.GetSegmentPath(&ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry[i])] = types.YChild{"Ciplocalpoolgroupcontainsentry", &ciplocalpoolgroupcontainstable.Ciplocalpoolgroupcontainsentry[i]}
     }
-    return children
+    ciplocalpoolgroupcontainstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciplocalpoolgroupcontainstable.EntityData)
 }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetYangName() string { return "cIpLocalPoolGroupContainsTable" }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) SetParent(parent types.Entity) { ciplocalpoolgroupcontainstable.parent = parent }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetParent() types.Entity { return ciplocalpoolgroupcontainstable.parent }
-
-func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry
 // Each entry describes single container/'containee'
@@ -524,7 +325,7 @@ func (ciplocalpoolgroupcontainstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupconta
 // associated with one group.  An entry in this table describes
 // such an association.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique group name that identifies the IP pool
@@ -537,53 +338,22 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontain
     Ciplocalpoolchildindex interface{}
 }
 
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetFilter() yfilter.YFilter { return ciplocalpoolgroupcontainsentry.YFilter }
+func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolgroupcontainsentry.EntityData.YFilter = ciplocalpoolgroupcontainsentry.YFilter
+    ciplocalpoolgroupcontainsentry.EntityData.YangName = "cIpLocalPoolGroupContainsEntry"
+    ciplocalpoolgroupcontainsentry.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolgroupcontainsentry.EntityData.ParentYangName = "cIpLocalPoolGroupContainsTable"
+    ciplocalpoolgroupcontainsentry.EntityData.SegmentPath = "cIpLocalPoolGroupContainsEntry" + "[cIpLocalPoolGroupName='" + fmt.Sprintf("%v", ciplocalpoolgroupcontainsentry.Ciplocalpoolgroupname) + "']" + "[cIpLocalPoolChildIndex='" + fmt.Sprintf("%v", ciplocalpoolgroupcontainsentry.Ciplocalpoolchildindex) + "']"
+    ciplocalpoolgroupcontainsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolgroupcontainsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolgroupcontainsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) SetFilter(yf yfilter.YFilter) { ciplocalpoolgroupcontainsentry.YFilter = yf }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolGroupName" { return "Ciplocalpoolgroupname" }
-    if yname == "cIpLocalPoolChildIndex" { return "Ciplocalpoolchildindex" }
-    return ""
+    ciplocalpoolgroupcontainsentry.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolgroupcontainsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciplocalpoolgroupcontainsentry.EntityData.Leafs["cIpLocalPoolGroupName"] = types.YLeaf{"Ciplocalpoolgroupname", ciplocalpoolgroupcontainsentry.Ciplocalpoolgroupname}
+    ciplocalpoolgroupcontainsentry.EntityData.Leafs["cIpLocalPoolChildIndex"] = types.YLeaf{"Ciplocalpoolchildindex", ciplocalpoolgroupcontainsentry.Ciplocalpoolchildindex}
+    return &(ciplocalpoolgroupcontainsentry.EntityData)
 }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetSegmentPath() string {
-    return "cIpLocalPoolGroupContainsEntry" + "[cIpLocalPoolGroupName='" + fmt.Sprintf("%v", ciplocalpoolgroupcontainsentry.Ciplocalpoolgroupname) + "']" + "[cIpLocalPoolChildIndex='" + fmt.Sprintf("%v", ciplocalpoolgroupcontainsentry.Ciplocalpoolchildindex) + "']"
-}
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIpLocalPoolGroupName"] = ciplocalpoolgroupcontainsentry.Ciplocalpoolgroupname
-    leafs["cIpLocalPoolChildIndex"] = ciplocalpoolgroupcontainsentry.Ciplocalpoolchildindex
-    return leafs
-}
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetYangName() string { return "cIpLocalPoolGroupContainsEntry" }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) SetParent(parent types.Entity) { ciplocalpoolgroupcontainsentry.parent = parent }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetParent() types.Entity { return ciplocalpoolgroupcontainsentry.parent }
-
-func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupcontainstable_Ciplocalpoolgroupcontainsentry) GetParentYangName() string { return "cIpLocalPoolGroupContainsTable" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable
 // This table provides statistics for configured IP pool groups.
@@ -598,7 +368,7 @@ func (ciplocalpoolgroupcontainsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgroupconta
 // An entry in this table is uniquely indexed by IP pool group
 // name.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry provides information about a particular IP pool group and the
@@ -607,70 +377,31 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable struct {
     Ciplocalpoolgroupentry []CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry
 }
 
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetFilter() yfilter.YFilter { return ciplocalpoolgrouptable.YFilter }
+func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolgrouptable.EntityData.YFilter = ciplocalpoolgrouptable.YFilter
+    ciplocalpoolgrouptable.EntityData.YangName = "cIpLocalPoolGroupTable"
+    ciplocalpoolgrouptable.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolgrouptable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    ciplocalpoolgrouptable.EntityData.SegmentPath = "cIpLocalPoolGroupTable"
+    ciplocalpoolgrouptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolgrouptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolgrouptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) SetFilter(yf yfilter.YFilter) { ciplocalpoolgrouptable.YFilter = yf }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolGroupEntry" { return "Ciplocalpoolgroupentry" }
-    return ""
-}
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetSegmentPath() string {
-    return "cIpLocalPoolGroupTable"
-}
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIpLocalPoolGroupEntry" {
-        for _, c := range ciplocalpoolgrouptable.Ciplocalpoolgroupentry {
-            if ciplocalpoolgrouptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry{}
-        ciplocalpoolgrouptable.Ciplocalpoolgroupentry = append(ciplocalpoolgrouptable.Ciplocalpoolgroupentry, child)
-        return &ciplocalpoolgrouptable.Ciplocalpoolgroupentry[len(ciplocalpoolgrouptable.Ciplocalpoolgroupentry)-1]
-    }
-    return nil
-}
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciplocalpoolgrouptable.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolgrouptable.EntityData.Children["cIpLocalPoolGroupEntry"] = types.YChild{"Ciplocalpoolgroupentry", nil}
     for i := range ciplocalpoolgrouptable.Ciplocalpoolgroupentry {
-        children[ciplocalpoolgrouptable.Ciplocalpoolgroupentry[i].GetSegmentPath()] = &ciplocalpoolgrouptable.Ciplocalpoolgroupentry[i]
+        ciplocalpoolgrouptable.EntityData.Children[types.GetSegmentPath(&ciplocalpoolgrouptable.Ciplocalpoolgroupentry[i])] = types.YChild{"Ciplocalpoolgroupentry", &ciplocalpoolgrouptable.Ciplocalpoolgroupentry[i]}
     }
-    return children
+    ciplocalpoolgrouptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciplocalpoolgrouptable.EntityData)
 }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetYangName() string { return "cIpLocalPoolGroupTable" }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) SetParent(parent types.Entity) { ciplocalpoolgrouptable.parent = parent }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetParent() types.Entity { return ciplocalpoolgrouptable.parent }
-
-func (ciplocalpoolgrouptable *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry
 // Each entry provides information about a particular IP pool
 // group and the number of free and used addresses in an IP pool
 // group.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..48. Refers to
@@ -686,55 +417,23 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry struct {
     Ciplocalpoolgroupinuseaddrs interface{}
 }
 
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetFilter() yfilter.YFilter { return ciplocalpoolgroupentry.YFilter }
+func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolgroupentry.EntityData.YFilter = ciplocalpoolgroupentry.YFilter
+    ciplocalpoolgroupentry.EntityData.YangName = "cIpLocalPoolGroupEntry"
+    ciplocalpoolgroupentry.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolgroupentry.EntityData.ParentYangName = "cIpLocalPoolGroupTable"
+    ciplocalpoolgroupentry.EntityData.SegmentPath = "cIpLocalPoolGroupEntry" + "[cIpLocalPoolGroupName='" + fmt.Sprintf("%v", ciplocalpoolgroupentry.Ciplocalpoolgroupname) + "']"
+    ciplocalpoolgroupentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolgroupentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolgroupentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) SetFilter(yf yfilter.YFilter) { ciplocalpoolgroupentry.YFilter = yf }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolGroupName" { return "Ciplocalpoolgroupname" }
-    if yname == "cIpLocalPoolGroupFreeAddrs" { return "Ciplocalpoolgroupfreeaddrs" }
-    if yname == "cIpLocalPoolGroupInUseAddrs" { return "Ciplocalpoolgroupinuseaddrs" }
-    return ""
+    ciplocalpoolgroupentry.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolgroupentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciplocalpoolgroupentry.EntityData.Leafs["cIpLocalPoolGroupName"] = types.YLeaf{"Ciplocalpoolgroupname", ciplocalpoolgroupentry.Ciplocalpoolgroupname}
+    ciplocalpoolgroupentry.EntityData.Leafs["cIpLocalPoolGroupFreeAddrs"] = types.YLeaf{"Ciplocalpoolgroupfreeaddrs", ciplocalpoolgroupentry.Ciplocalpoolgroupfreeaddrs}
+    ciplocalpoolgroupentry.EntityData.Leafs["cIpLocalPoolGroupInUseAddrs"] = types.YLeaf{"Ciplocalpoolgroupinuseaddrs", ciplocalpoolgroupentry.Ciplocalpoolgroupinuseaddrs}
+    return &(ciplocalpoolgroupentry.EntityData)
 }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetSegmentPath() string {
-    return "cIpLocalPoolGroupEntry" + "[cIpLocalPoolGroupName='" + fmt.Sprintf("%v", ciplocalpoolgroupentry.Ciplocalpoolgroupname) + "']"
-}
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIpLocalPoolGroupName"] = ciplocalpoolgroupentry.Ciplocalpoolgroupname
-    leafs["cIpLocalPoolGroupFreeAddrs"] = ciplocalpoolgroupentry.Ciplocalpoolgroupfreeaddrs
-    leafs["cIpLocalPoolGroupInUseAddrs"] = ciplocalpoolgroupentry.Ciplocalpoolgroupinuseaddrs
-    return leafs
-}
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetYangName() string { return "cIpLocalPoolGroupEntry" }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) SetParent(parent types.Entity) { ciplocalpoolgroupentry.parent = parent }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetParent() types.Entity { return ciplocalpoolgroupentry.parent }
-
-func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciplocalpoolgroupentry) GetParentYangName() string { return "cIpLocalPoolGroupTable" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable
 // A table providing statistics for each IP local pool.
@@ -749,7 +448,7 @@ func (ciplocalpoolgroupentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolgrouptable_Ciploca
 // Entries in this table are uniquely indexed by the name of the IP
 // local pool.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry provides statistical information about a particular IP local
@@ -759,70 +458,31 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable struct {
     Ciplocalpoolstatsentry []CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry
 }
 
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetFilter() yfilter.YFilter { return ciplocalpoolstatstable.YFilter }
+func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolstatstable.EntityData.YFilter = ciplocalpoolstatstable.YFilter
+    ciplocalpoolstatstable.EntityData.YangName = "cIpLocalPoolStatsTable"
+    ciplocalpoolstatstable.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolstatstable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    ciplocalpoolstatstable.EntityData.SegmentPath = "cIpLocalPoolStatsTable"
+    ciplocalpoolstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) SetFilter(yf yfilter.YFilter) { ciplocalpoolstatstable.YFilter = yf }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolStatsEntry" { return "Ciplocalpoolstatsentry" }
-    return ""
-}
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetSegmentPath() string {
-    return "cIpLocalPoolStatsTable"
-}
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIpLocalPoolStatsEntry" {
-        for _, c := range ciplocalpoolstatstable.Ciplocalpoolstatsentry {
-            if ciplocalpoolstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry{}
-        ciplocalpoolstatstable.Ciplocalpoolstatsentry = append(ciplocalpoolstatstable.Ciplocalpoolstatsentry, child)
-        return &ciplocalpoolstatstable.Ciplocalpoolstatsentry[len(ciplocalpoolstatstable.Ciplocalpoolstatsentry)-1]
-    }
-    return nil
-}
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciplocalpoolstatstable.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolstatstable.EntityData.Children["cIpLocalPoolStatsEntry"] = types.YChild{"Ciplocalpoolstatsentry", nil}
     for i := range ciplocalpoolstatstable.Ciplocalpoolstatsentry {
-        children[ciplocalpoolstatstable.Ciplocalpoolstatsentry[i].GetSegmentPath()] = &ciplocalpoolstatstable.Ciplocalpoolstatsentry[i]
+        ciplocalpoolstatstable.EntityData.Children[types.GetSegmentPath(&ciplocalpoolstatstable.Ciplocalpoolstatsentry[i])] = types.YChild{"Ciplocalpoolstatsentry", &ciplocalpoolstatstable.Ciplocalpoolstatsentry[i]}
     }
-    return children
+    ciplocalpoolstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciplocalpoolstatstable.EntityData)
 }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetYangName() string { return "cIpLocalPoolStatsTable" }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) SetParent(parent types.Entity) { ciplocalpoolstatstable.parent = parent }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetParent() types.Entity { return ciplocalpoolstatstable.parent }
-
-func (ciplocalpoolstatstable *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry
 // Each entry provides statistical information about a particular
 // IP local pool, and the total number of free and used addresses
 // of all the ranges in an IP local pool.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..48. Refers to
@@ -884,65 +544,28 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry struct {
     Ciplocalpoolpercentaddrthldhi interface{}
 }
 
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetFilter() yfilter.YFilter { return ciplocalpoolstatsentry.YFilter }
+func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolstatsentry.EntityData.YFilter = ciplocalpoolstatsentry.YFilter
+    ciplocalpoolstatsentry.EntityData.YangName = "cIpLocalPoolStatsEntry"
+    ciplocalpoolstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolstatsentry.EntityData.ParentYangName = "cIpLocalPoolStatsTable"
+    ciplocalpoolstatsentry.EntityData.SegmentPath = "cIpLocalPoolStatsEntry" + "[cIpLocalPoolName='" + fmt.Sprintf("%v", ciplocalpoolstatsentry.Ciplocalpoolname) + "']"
+    ciplocalpoolstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) SetFilter(yf yfilter.YFilter) { ciplocalpoolstatsentry.YFilter = yf }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolName" { return "Ciplocalpoolname" }
-    if yname == "cIpLocalPoolStatFreeAddrs" { return "Ciplocalpoolstatfreeaddrs" }
-    if yname == "cIpLocalPoolStatInUseAddrs" { return "Ciplocalpoolstatinuseaddrs" }
-    if yname == "cIpLocalPoolStatHiWaterUsedAddrs" { return "Ciplocalpoolstathiwaterusedaddrs" }
-    if yname == "cIpLocalPoolStatInUseAddrThldLo" { return "Ciplocalpoolstatinuseaddrthldlo" }
-    if yname == "cIpLocalPoolStatInUseAddrThldHi" { return "Ciplocalpoolstatinuseaddrthldhi" }
-    if yname == "cIpLocalPoolPercentAddrThldLo" { return "Ciplocalpoolpercentaddrthldlo" }
-    if yname == "cIpLocalPoolPercentAddrThldHi" { return "Ciplocalpoolpercentaddrthldhi" }
-    return ""
+    ciplocalpoolstatsentry.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolName"] = types.YLeaf{"Ciplocalpoolname", ciplocalpoolstatsentry.Ciplocalpoolname}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolStatFreeAddrs"] = types.YLeaf{"Ciplocalpoolstatfreeaddrs", ciplocalpoolstatsentry.Ciplocalpoolstatfreeaddrs}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolStatInUseAddrs"] = types.YLeaf{"Ciplocalpoolstatinuseaddrs", ciplocalpoolstatsentry.Ciplocalpoolstatinuseaddrs}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolStatHiWaterUsedAddrs"] = types.YLeaf{"Ciplocalpoolstathiwaterusedaddrs", ciplocalpoolstatsentry.Ciplocalpoolstathiwaterusedaddrs}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolStatInUseAddrThldLo"] = types.YLeaf{"Ciplocalpoolstatinuseaddrthldlo", ciplocalpoolstatsentry.Ciplocalpoolstatinuseaddrthldlo}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolStatInUseAddrThldHi"] = types.YLeaf{"Ciplocalpoolstatinuseaddrthldhi", ciplocalpoolstatsentry.Ciplocalpoolstatinuseaddrthldhi}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolPercentAddrThldLo"] = types.YLeaf{"Ciplocalpoolpercentaddrthldlo", ciplocalpoolstatsentry.Ciplocalpoolpercentaddrthldlo}
+    ciplocalpoolstatsentry.EntityData.Leafs["cIpLocalPoolPercentAddrThldHi"] = types.YLeaf{"Ciplocalpoolpercentaddrthldhi", ciplocalpoolstatsentry.Ciplocalpoolpercentaddrthldhi}
+    return &(ciplocalpoolstatsentry.EntityData)
 }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetSegmentPath() string {
-    return "cIpLocalPoolStatsEntry" + "[cIpLocalPoolName='" + fmt.Sprintf("%v", ciplocalpoolstatsentry.Ciplocalpoolname) + "']"
-}
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIpLocalPoolName"] = ciplocalpoolstatsentry.Ciplocalpoolname
-    leafs["cIpLocalPoolStatFreeAddrs"] = ciplocalpoolstatsentry.Ciplocalpoolstatfreeaddrs
-    leafs["cIpLocalPoolStatInUseAddrs"] = ciplocalpoolstatsentry.Ciplocalpoolstatinuseaddrs
-    leafs["cIpLocalPoolStatHiWaterUsedAddrs"] = ciplocalpoolstatsentry.Ciplocalpoolstathiwaterusedaddrs
-    leafs["cIpLocalPoolStatInUseAddrThldLo"] = ciplocalpoolstatsentry.Ciplocalpoolstatinuseaddrthldlo
-    leafs["cIpLocalPoolStatInUseAddrThldHi"] = ciplocalpoolstatsentry.Ciplocalpoolstatinuseaddrthldhi
-    leafs["cIpLocalPoolPercentAddrThldLo"] = ciplocalpoolstatsentry.Ciplocalpoolpercentaddrthldlo
-    leafs["cIpLocalPoolPercentAddrThldHi"] = ciplocalpoolstatsentry.Ciplocalpoolpercentaddrthldhi
-    return leafs
-}
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetYangName() string { return "cIpLocalPoolStatsEntry" }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) SetParent(parent types.Entity) { ciplocalpoolstatsentry.parent = parent }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetParent() types.Entity { return ciplocalpoolstatsentry.parent }
-
-func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciplocalpoolstatsentry) GetParentYangName() string { return "cIpLocalPoolStatsTable" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable
 // This table lists all addresses that have been allocated out of
@@ -960,7 +583,7 @@ func (ciplocalpoolstatsentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolstatstable_Ciploca
 // local pool, and the allocated address, together with its address
 // type.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry refers to conceptual row that associates an IP addresses with
@@ -970,70 +593,31 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable struct {
     Ciplocalpoolallocentry []CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry
 }
 
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetFilter() yfilter.YFilter { return ciplocalpoolalloctable.YFilter }
+func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolalloctable.EntityData.YFilter = ciplocalpoolalloctable.YFilter
+    ciplocalpoolalloctable.EntityData.YangName = "cIpLocalPoolAllocTable"
+    ciplocalpoolalloctable.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolalloctable.EntityData.ParentYangName = "CISCO-IP-LOCAL-POOL-MIB"
+    ciplocalpoolalloctable.EntityData.SegmentPath = "cIpLocalPoolAllocTable"
+    ciplocalpoolalloctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolalloctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolalloctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) SetFilter(yf yfilter.YFilter) { ciplocalpoolalloctable.YFilter = yf }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolAllocEntry" { return "Ciplocalpoolallocentry" }
-    return ""
-}
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetSegmentPath() string {
-    return "cIpLocalPoolAllocTable"
-}
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIpLocalPoolAllocEntry" {
-        for _, c := range ciplocalpoolalloctable.Ciplocalpoolallocentry {
-            if ciplocalpoolalloctable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry{}
-        ciplocalpoolalloctable.Ciplocalpoolallocentry = append(ciplocalpoolalloctable.Ciplocalpoolallocentry, child)
-        return &ciplocalpoolalloctable.Ciplocalpoolallocentry[len(ciplocalpoolalloctable.Ciplocalpoolallocentry)-1]
-    }
-    return nil
-}
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciplocalpoolalloctable.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolalloctable.EntityData.Children["cIpLocalPoolAllocEntry"] = types.YChild{"Ciplocalpoolallocentry", nil}
     for i := range ciplocalpoolalloctable.Ciplocalpoolallocentry {
-        children[ciplocalpoolalloctable.Ciplocalpoolallocentry[i].GetSegmentPath()] = &ciplocalpoolalloctable.Ciplocalpoolallocentry[i]
+        ciplocalpoolalloctable.EntityData.Children[types.GetSegmentPath(&ciplocalpoolalloctable.Ciplocalpoolallocentry[i])] = types.YChild{"Ciplocalpoolallocentry", &ciplocalpoolalloctable.Ciplocalpoolallocentry[i]}
     }
-    return children
+    ciplocalpoolalloctable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciplocalpoolalloctable.EntityData)
 }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetYangName() string { return "cIpLocalPoolAllocTable" }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) SetParent(parent types.Entity) { ciplocalpoolalloctable.parent = parent }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetParent() types.Entity { return ciplocalpoolalloctable.parent }
-
-func (ciplocalpoolalloctable *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable) GetParentYangName() string { return "CISCO-IP-LOCAL-POOL-MIB" }
 
 // CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry
 // Each entry refers to conceptual row that associates an IP
 // addresses with the interface where the request was received, and
 // the user that requested the address.
 type CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..48. Refers to
@@ -1061,57 +645,23 @@ type CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry struct {
     Ciplocalpoolallocuser interface{}
 }
 
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetFilter() yfilter.YFilter { return ciplocalpoolallocentry.YFilter }
+func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetEntityData() *types.CommonEntityData {
+    ciplocalpoolallocentry.EntityData.YFilter = ciplocalpoolallocentry.YFilter
+    ciplocalpoolallocentry.EntityData.YangName = "cIpLocalPoolAllocEntry"
+    ciplocalpoolallocentry.EntityData.BundleName = "cisco_ios_xe"
+    ciplocalpoolallocentry.EntityData.ParentYangName = "cIpLocalPoolAllocTable"
+    ciplocalpoolallocentry.EntityData.SegmentPath = "cIpLocalPoolAllocEntry" + "[cIpLocalPoolName='" + fmt.Sprintf("%v", ciplocalpoolallocentry.Ciplocalpoolname) + "']" + "[cIpLocalPoolAllocAddrType='" + fmt.Sprintf("%v", ciplocalpoolallocentry.Ciplocalpoolallocaddrtype) + "']" + "[cIpLocalPoolAllocAddr='" + fmt.Sprintf("%v", ciplocalpoolallocentry.Ciplocalpoolallocaddr) + "']"
+    ciplocalpoolallocentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciplocalpoolallocentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciplocalpoolallocentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) SetFilter(yf yfilter.YFilter) { ciplocalpoolallocentry.YFilter = yf }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetGoName(yname string) string {
-    if yname == "cIpLocalPoolName" { return "Ciplocalpoolname" }
-    if yname == "cIpLocalPoolAllocAddrType" { return "Ciplocalpoolallocaddrtype" }
-    if yname == "cIpLocalPoolAllocAddr" { return "Ciplocalpoolallocaddr" }
-    if yname == "cIpLocalPoolAllocIfIndex" { return "Ciplocalpoolallocifindex" }
-    if yname == "cIpLocalPoolAllocUser" { return "Ciplocalpoolallocuser" }
-    return ""
+    ciplocalpoolallocentry.EntityData.Children = make(map[string]types.YChild)
+    ciplocalpoolallocentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciplocalpoolallocentry.EntityData.Leafs["cIpLocalPoolName"] = types.YLeaf{"Ciplocalpoolname", ciplocalpoolallocentry.Ciplocalpoolname}
+    ciplocalpoolallocentry.EntityData.Leafs["cIpLocalPoolAllocAddrType"] = types.YLeaf{"Ciplocalpoolallocaddrtype", ciplocalpoolallocentry.Ciplocalpoolallocaddrtype}
+    ciplocalpoolallocentry.EntityData.Leafs["cIpLocalPoolAllocAddr"] = types.YLeaf{"Ciplocalpoolallocaddr", ciplocalpoolallocentry.Ciplocalpoolallocaddr}
+    ciplocalpoolallocentry.EntityData.Leafs["cIpLocalPoolAllocIfIndex"] = types.YLeaf{"Ciplocalpoolallocifindex", ciplocalpoolallocentry.Ciplocalpoolallocifindex}
+    ciplocalpoolallocentry.EntityData.Leafs["cIpLocalPoolAllocUser"] = types.YLeaf{"Ciplocalpoolallocuser", ciplocalpoolallocentry.Ciplocalpoolallocuser}
+    return &(ciplocalpoolallocentry.EntityData)
 }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetSegmentPath() string {
-    return "cIpLocalPoolAllocEntry" + "[cIpLocalPoolName='" + fmt.Sprintf("%v", ciplocalpoolallocentry.Ciplocalpoolname) + "']" + "[cIpLocalPoolAllocAddrType='" + fmt.Sprintf("%v", ciplocalpoolallocentry.Ciplocalpoolallocaddrtype) + "']" + "[cIpLocalPoolAllocAddr='" + fmt.Sprintf("%v", ciplocalpoolallocentry.Ciplocalpoolallocaddr) + "']"
-}
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIpLocalPoolName"] = ciplocalpoolallocentry.Ciplocalpoolname
-    leafs["cIpLocalPoolAllocAddrType"] = ciplocalpoolallocentry.Ciplocalpoolallocaddrtype
-    leafs["cIpLocalPoolAllocAddr"] = ciplocalpoolallocentry.Ciplocalpoolallocaddr
-    leafs["cIpLocalPoolAllocIfIndex"] = ciplocalpoolallocentry.Ciplocalpoolallocifindex
-    leafs["cIpLocalPoolAllocUser"] = ciplocalpoolallocentry.Ciplocalpoolallocuser
-    return leafs
-}
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetYangName() string { return "cIpLocalPoolAllocEntry" }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) SetParent(parent types.Entity) { ciplocalpoolallocentry.parent = parent }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetParent() types.Entity { return ciplocalpoolallocentry.parent }
-
-func (ciplocalpoolallocentry *CISCOIPLOCALPOOLMIB_Ciplocalpoolalloctable_Ciplocalpoolallocentry) GetParentYangName() string { return "cIpLocalPoolAllocTable" }
 

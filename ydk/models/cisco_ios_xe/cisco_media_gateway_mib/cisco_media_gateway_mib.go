@@ -44,13 +44,15 @@ func init() {
     ydk.RegisterEntity("CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB", reflect.TypeOf(CISCOMEDIAGATEWAYMIB{}))
 }
 
-// CCallControlJitterDelayMode represents            which is specified by jitter nominal delay.
-type CCallControlJitterDelayMode string
+// CGwServiceState represents     No new connections are allowed.
+type CGwServiceState string
 
 const (
-    CCallControlJitterDelayMode_adaptive CCallControlJitterDelayMode = "adaptive"
+    CGwServiceState_inService CGwServiceState = "inService"
 
-    CCallControlJitterDelayMode_fixed CCallControlJitterDelayMode = "fixed"
+    CGwServiceState_forcedOutOfService CGwServiceState = "forcedOutOfService"
+
+    CGwServiceState_gracefulOutOfService CGwServiceState = "gracefulOutOfService"
 )
 
 // CGwAdminState represents       New connections would be blocked.
@@ -64,20 +66,18 @@ const (
     CGwAdminState_gracefulOutOfService CGwAdminState = "gracefulOutOfService"
 )
 
-// CGwServiceState represents     No new connections are allowed.
-type CGwServiceState string
+// CCallControlJitterDelayMode represents            which is specified by jitter nominal delay.
+type CCallControlJitterDelayMode string
 
 const (
-    CGwServiceState_inService CGwServiceState = "inService"
+    CCallControlJitterDelayMode_adaptive CCallControlJitterDelayMode = "adaptive"
 
-    CGwServiceState_forcedOutOfService CGwServiceState = "forcedOutOfService"
-
-    CGwServiceState_gracefulOutOfService CGwServiceState = "gracefulOutOfService"
+    CCallControlJitterDelayMode_fixed CCallControlJitterDelayMode = "fixed"
 )
 
 // CISCOMEDIAGATEWAYMIB
 type CISCOMEDIAGATEWAYMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains the global media gateway parameters information. It
@@ -126,89 +126,28 @@ type CISCOMEDIAGATEWAYMIB struct {
     Cmediagwrscstatstable CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable
 }
 
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetFilter() yfilter.YFilter { return cISCOMEDIAGATEWAYMIB.YFilter }
+func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetEntityData() *types.CommonEntityData {
+    cISCOMEDIAGATEWAYMIB.EntityData.YFilter = cISCOMEDIAGATEWAYMIB.YFilter
+    cISCOMEDIAGATEWAYMIB.EntityData.YangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cISCOMEDIAGATEWAYMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOMEDIAGATEWAYMIB.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cISCOMEDIAGATEWAYMIB.EntityData.SegmentPath = "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB"
+    cISCOMEDIAGATEWAYMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOMEDIAGATEWAYMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOMEDIAGATEWAYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) SetFilter(yf yfilter.YFilter) { cISCOMEDIAGATEWAYMIB.YFilter = yf }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetGoName(yname string) string {
-    if yname == "cMediaGwTable" { return "Cmediagwtable" }
-    if yname == "cmgwSignalProtocolTable" { return "Cmgwsignalprotocoltable" }
-    if yname == "cMediaGwIpConfigTable" { return "Cmediagwipconfigtable" }
-    if yname == "cMediaGwDomainNameConfigTable" { return "Cmediagwdomainnameconfigtable" }
-    if yname == "cMediaGwDnsIpConfigTable" { return "Cmediagwdnsipconfigtable" }
-    if yname == "cmgwLifTable" { return "Cmgwliftable" }
-    if yname == "cMediaGwCallControlConfigTable" { return "Cmediagwcallcontrolconfigtable" }
-    if yname == "cMediaGwRscStatsTable" { return "Cmediagwrscstatstable" }
-    return ""
+    cISCOMEDIAGATEWAYMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cMediaGwTable"] = types.YChild{"Cmediagwtable", &cISCOMEDIAGATEWAYMIB.Cmediagwtable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cmgwSignalProtocolTable"] = types.YChild{"Cmgwsignalprotocoltable", &cISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cMediaGwIpConfigTable"] = types.YChild{"Cmediagwipconfigtable", &cISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cMediaGwDomainNameConfigTable"] = types.YChild{"Cmediagwdomainnameconfigtable", &cISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cMediaGwDnsIpConfigTable"] = types.YChild{"Cmediagwdnsipconfigtable", &cISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cmgwLifTable"] = types.YChild{"Cmgwliftable", &cISCOMEDIAGATEWAYMIB.Cmgwliftable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cMediaGwCallControlConfigTable"] = types.YChild{"Cmediagwcallcontrolconfigtable", &cISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Children["cMediaGwRscStatsTable"] = types.YChild{"Cmediagwrscstatstable", &cISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable}
+    cISCOMEDIAGATEWAYMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOMEDIAGATEWAYMIB.EntityData)
 }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetSegmentPath() string {
-    return "CISCO-MEDIA-GATEWAY-MIB:CISCO-MEDIA-GATEWAY-MIB"
-}
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmediagwtable
-    }
-    if childYangName == "cmgwSignalProtocolTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable
-    }
-    if childYangName == "cMediaGwIpConfigTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable
-    }
-    if childYangName == "cMediaGwDomainNameConfigTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable
-    }
-    if childYangName == "cMediaGwDnsIpConfigTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable
-    }
-    if childYangName == "cmgwLifTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmgwliftable
-    }
-    if childYangName == "cMediaGwCallControlConfigTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable
-    }
-    if childYangName == "cMediaGwRscStatsTable" {
-        return &cISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable
-    }
-    return nil
-}
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cMediaGwTable"] = &cISCOMEDIAGATEWAYMIB.Cmediagwtable
-    children["cmgwSignalProtocolTable"] = &cISCOMEDIAGATEWAYMIB.Cmgwsignalprotocoltable
-    children["cMediaGwIpConfigTable"] = &cISCOMEDIAGATEWAYMIB.Cmediagwipconfigtable
-    children["cMediaGwDomainNameConfigTable"] = &cISCOMEDIAGATEWAYMIB.Cmediagwdomainnameconfigtable
-    children["cMediaGwDnsIpConfigTable"] = &cISCOMEDIAGATEWAYMIB.Cmediagwdnsipconfigtable
-    children["cmgwLifTable"] = &cISCOMEDIAGATEWAYMIB.Cmgwliftable
-    children["cMediaGwCallControlConfigTable"] = &cISCOMEDIAGATEWAYMIB.Cmediagwcallcontrolconfigtable
-    children["cMediaGwRscStatsTable"] = &cISCOMEDIAGATEWAYMIB.Cmediagwrscstatstable
-    return children
-}
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) SetParent(parent types.Entity) { cISCOMEDIAGATEWAYMIB.parent = parent }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetParent() types.Entity { return cISCOMEDIAGATEWAYMIB.parent }
-
-func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwtable
 // This table contains the global media gateway parameters
@@ -216,7 +155,7 @@ func (cISCOMEDIAGATEWAYMIB *CISCOMEDIAGATEWAYMIB) GetParentYangName() string { r
 // It supports the modification of the global media gateway 
 // parameters.
 type CISCOMEDIAGATEWAYMIB_Cmediagwtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Media Gateway Entry.   At system power-up, an entry is created by the
@@ -227,63 +166,24 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwtable struct {
     Cmediagwentry []CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry
 }
 
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetFilter() yfilter.YFilter { return cmediagwtable.YFilter }
+func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetEntityData() *types.CommonEntityData {
+    cmediagwtable.EntityData.YFilter = cmediagwtable.YFilter
+    cmediagwtable.EntityData.YangName = "cMediaGwTable"
+    cmediagwtable.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwtable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmediagwtable.EntityData.SegmentPath = "cMediaGwTable"
+    cmediagwtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) SetFilter(yf yfilter.YFilter) { cmediagwtable.YFilter = yf }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetGoName(yname string) string {
-    if yname == "cMediaGwEntry" { return "Cmediagwentry" }
-    return ""
-}
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetSegmentPath() string {
-    return "cMediaGwTable"
-}
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwEntry" {
-        for _, c := range cmediagwtable.Cmediagwentry {
-            if cmediagwtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry{}
-        cmediagwtable.Cmediagwentry = append(cmediagwtable.Cmediagwentry, child)
-        return &cmediagwtable.Cmediagwentry[len(cmediagwtable.Cmediagwentry)-1]
-    }
-    return nil
-}
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmediagwtable.EntityData.Children = make(map[string]types.YChild)
+    cmediagwtable.EntityData.Children["cMediaGwEntry"] = types.YChild{"Cmediagwentry", nil}
     for i := range cmediagwtable.Cmediagwentry {
-        children[cmediagwtable.Cmediagwentry[i].GetSegmentPath()] = &cmediagwtable.Cmediagwentry[i]
+        cmediagwtable.EntityData.Children[types.GetSegmentPath(&cmediagwtable.Cmediagwentry[i])] = types.YChild{"Cmediagwentry", &cmediagwtable.Cmediagwentry[i]}
     }
-    return children
+    cmediagwtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmediagwtable.EntityData)
 }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetYangName() string { return "cMediaGwTable" }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) SetParent(parent types.Entity) { cmediagwtable.parent = parent }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetParent() types.Entity { return cmediagwtable.parent }
-
-func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry
 // A Media Gateway Entry.  
@@ -292,7 +192,7 @@ func (cmediagwtable *CISCOMEDIAGATEWAYMIB_Cmediagwtable) GetParentYangName() str
 // to the system, and an entry is deleted if the entry associated
 // media gateway module has been removed from the system.
 type CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the 
@@ -358,69 +258,30 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry struct {
     Cmgwv23Enabled interface{}
 }
 
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetFilter() yfilter.YFilter { return cmediagwentry.YFilter }
+func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetEntityData() *types.CommonEntityData {
+    cmediagwentry.EntityData.YFilter = cmediagwentry.YFilter
+    cmediagwentry.EntityData.YangName = "cMediaGwEntry"
+    cmediagwentry.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwentry.EntityData.ParentYangName = "cMediaGwTable"
+    cmediagwentry.EntityData.SegmentPath = "cMediaGwEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwentry.Cmgwindex) + "']"
+    cmediagwentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) SetFilter(yf yfilter.YFilter) { cmediagwentry.YFilter = yf }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwDomainName" { return "Cmgwdomainname" }
-    if yname == "cmgwPhysicalIndex" { return "Cmgwphysicalindex" }
-    if yname == "cmgwServiceState" { return "Cmgwservicestate" }
-    if yname == "cmgwAdminState" { return "Cmgwadminstate" }
-    if yname == "cmgwGraceTime" { return "Cmgwgracetime" }
-    if yname == "cmgwVtMappingMode" { return "Cmgwvtmappingmode" }
-    if yname == "cmgwSrcFilterEnabled" { return "Cmgwsrcfilterenabled" }
-    if yname == "cmgwLawInterceptEnabled" { return "Cmgwlawinterceptenabled" }
-    if yname == "cmgwV23Enabled" { return "Cmgwv23Enabled" }
-    return ""
+    cmediagwentry.EntityData.Children = make(map[string]types.YChild)
+    cmediagwentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmediagwentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmediagwentry.Cmgwindex}
+    cmediagwentry.EntityData.Leafs["cmgwDomainName"] = types.YLeaf{"Cmgwdomainname", cmediagwentry.Cmgwdomainname}
+    cmediagwentry.EntityData.Leafs["cmgwPhysicalIndex"] = types.YLeaf{"Cmgwphysicalindex", cmediagwentry.Cmgwphysicalindex}
+    cmediagwentry.EntityData.Leafs["cmgwServiceState"] = types.YLeaf{"Cmgwservicestate", cmediagwentry.Cmgwservicestate}
+    cmediagwentry.EntityData.Leafs["cmgwAdminState"] = types.YLeaf{"Cmgwadminstate", cmediagwentry.Cmgwadminstate}
+    cmediagwentry.EntityData.Leafs["cmgwGraceTime"] = types.YLeaf{"Cmgwgracetime", cmediagwentry.Cmgwgracetime}
+    cmediagwentry.EntityData.Leafs["cmgwVtMappingMode"] = types.YLeaf{"Cmgwvtmappingmode", cmediagwentry.Cmgwvtmappingmode}
+    cmediagwentry.EntityData.Leafs["cmgwSrcFilterEnabled"] = types.YLeaf{"Cmgwsrcfilterenabled", cmediagwentry.Cmgwsrcfilterenabled}
+    cmediagwentry.EntityData.Leafs["cmgwLawInterceptEnabled"] = types.YLeaf{"Cmgwlawinterceptenabled", cmediagwentry.Cmgwlawinterceptenabled}
+    cmediagwentry.EntityData.Leafs["cmgwV23Enabled"] = types.YLeaf{"Cmgwv23Enabled", cmediagwentry.Cmgwv23Enabled}
+    return &(cmediagwentry.EntityData)
 }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetSegmentPath() string {
-    return "cMediaGwEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwentry.Cmgwindex) + "']"
-}
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmediagwentry.Cmgwindex
-    leafs["cmgwDomainName"] = cmediagwentry.Cmgwdomainname
-    leafs["cmgwPhysicalIndex"] = cmediagwentry.Cmgwphysicalindex
-    leafs["cmgwServiceState"] = cmediagwentry.Cmgwservicestate
-    leafs["cmgwAdminState"] = cmediagwentry.Cmgwadminstate
-    leafs["cmgwGraceTime"] = cmediagwentry.Cmgwgracetime
-    leafs["cmgwVtMappingMode"] = cmediagwentry.Cmgwvtmappingmode
-    leafs["cmgwSrcFilterEnabled"] = cmediagwentry.Cmgwsrcfilterenabled
-    leafs["cmgwLawInterceptEnabled"] = cmediagwentry.Cmgwlawinterceptenabled
-    leafs["cmgwV23Enabled"] = cmediagwentry.Cmgwv23Enabled
-    return leafs
-}
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetYangName() string { return "cMediaGwEntry" }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) SetParent(parent types.Entity) { cmediagwentry.parent = parent }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetParent() types.Entity { return cmediagwentry.parent }
-
-func (cmediagwentry *CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry) GetParentYangName() string { return "cMediaGwTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry_Cmgwvtmappingmode represents       CISCO-SONET-MIB) is 'vt15vc11'.
 type CISCOMEDIAGATEWAYMIB_Cmediagwtable_Cmediagwentry_Cmgwvtmappingmode string
@@ -436,7 +297,7 @@ const (
 // are supported by the media gateway for communication with
 // MGCs.
 type CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents an signaling protocol supported by the media gateway.
@@ -445,69 +306,30 @@ type CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable struct {
     Cmgwsignalprotocolentry []CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry
 }
 
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetFilter() yfilter.YFilter { return cmgwsignalprotocoltable.YFilter }
+func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetEntityData() *types.CommonEntityData {
+    cmgwsignalprotocoltable.EntityData.YFilter = cmgwsignalprotocoltable.YFilter
+    cmgwsignalprotocoltable.EntityData.YangName = "cmgwSignalProtocolTable"
+    cmgwsignalprotocoltable.EntityData.BundleName = "cisco_ios_xe"
+    cmgwsignalprotocoltable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmgwsignalprotocoltable.EntityData.SegmentPath = "cmgwSignalProtocolTable"
+    cmgwsignalprotocoltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmgwsignalprotocoltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmgwsignalprotocoltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) SetFilter(yf yfilter.YFilter) { cmgwsignalprotocoltable.YFilter = yf }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetGoName(yname string) string {
-    if yname == "cmgwSignalProtocolEntry" { return "Cmgwsignalprotocolentry" }
-    return ""
-}
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetSegmentPath() string {
-    return "cmgwSignalProtocolTable"
-}
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmgwSignalProtocolEntry" {
-        for _, c := range cmgwsignalprotocoltable.Cmgwsignalprotocolentry {
-            if cmgwsignalprotocoltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry{}
-        cmgwsignalprotocoltable.Cmgwsignalprotocolentry = append(cmgwsignalprotocoltable.Cmgwsignalprotocolentry, child)
-        return &cmgwsignalprotocoltable.Cmgwsignalprotocolentry[len(cmgwsignalprotocoltable.Cmgwsignalprotocolentry)-1]
-    }
-    return nil
-}
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmgwsignalprotocoltable.EntityData.Children = make(map[string]types.YChild)
+    cmgwsignalprotocoltable.EntityData.Children["cmgwSignalProtocolEntry"] = types.YChild{"Cmgwsignalprotocolentry", nil}
     for i := range cmgwsignalprotocoltable.Cmgwsignalprotocolentry {
-        children[cmgwsignalprotocoltable.Cmgwsignalprotocolentry[i].GetSegmentPath()] = &cmgwsignalprotocoltable.Cmgwsignalprotocolentry[i]
+        cmgwsignalprotocoltable.EntityData.Children[types.GetSegmentPath(&cmgwsignalprotocoltable.Cmgwsignalprotocolentry[i])] = types.YChild{"Cmgwsignalprotocolentry", &cmgwsignalprotocoltable.Cmgwsignalprotocolentry[i]}
     }
-    return children
+    cmgwsignalprotocoltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmgwsignalprotocoltable.EntityData)
 }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetYangName() string { return "cmgwSignalProtocolTable" }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) SetParent(parent types.Entity) { cmgwsignalprotocoltable.parent = parent }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetParent() types.Entity { return cmgwsignalprotocoltable.parent }
-
-func (cmgwsignalprotocoltable *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry
 // Each entry represents an signaling protocol supported
 // by the media gateway.
 type CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -570,65 +392,28 @@ type CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry struct
     Cmgwsignalprotocolconfigver interface{}
 }
 
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetFilter() yfilter.YFilter { return cmgwsignalprotocolentry.YFilter }
+func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetEntityData() *types.CommonEntityData {
+    cmgwsignalprotocolentry.EntityData.YFilter = cmgwsignalprotocolentry.YFilter
+    cmgwsignalprotocolentry.EntityData.YangName = "cmgwSignalProtocolEntry"
+    cmgwsignalprotocolentry.EntityData.BundleName = "cisco_ios_xe"
+    cmgwsignalprotocolentry.EntityData.ParentYangName = "cmgwSignalProtocolTable"
+    cmgwsignalprotocolentry.EntityData.SegmentPath = "cmgwSignalProtocolEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmgwsignalprotocolentry.Cmgwindex) + "']" + "[cmgwSignalProtocolIndex='" + fmt.Sprintf("%v", cmgwsignalprotocolentry.Cmgwsignalprotocolindex) + "']"
+    cmgwsignalprotocolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmgwsignalprotocolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmgwsignalprotocolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) SetFilter(yf yfilter.YFilter) { cmgwsignalprotocolentry.YFilter = yf }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwSignalProtocolIndex" { return "Cmgwsignalprotocolindex" }
-    if yname == "cmgwSignalProtocol" { return "Cmgwsignalprotocol" }
-    if yname == "cmgwSignalProtocolVersion" { return "Cmgwsignalprotocolversion" }
-    if yname == "cmgwSignalProtocolPort" { return "Cmgwsignalprotocolport" }
-    if yname == "cmgwSignalMgcProtocolPort" { return "Cmgwsignalmgcprotocolport" }
-    if yname == "cmgwSignalProtocolPreference" { return "Cmgwsignalprotocolpreference" }
-    if yname == "cmgwSignalProtocolConfigVer" { return "Cmgwsignalprotocolconfigver" }
-    return ""
+    cmgwsignalprotocolentry.EntityData.Children = make(map[string]types.YChild)
+    cmgwsignalprotocolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmgwsignalprotocolentry.Cmgwindex}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalProtocolIndex"] = types.YLeaf{"Cmgwsignalprotocolindex", cmgwsignalprotocolentry.Cmgwsignalprotocolindex}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalProtocol"] = types.YLeaf{"Cmgwsignalprotocol", cmgwsignalprotocolentry.Cmgwsignalprotocol}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalProtocolVersion"] = types.YLeaf{"Cmgwsignalprotocolversion", cmgwsignalprotocolentry.Cmgwsignalprotocolversion}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalProtocolPort"] = types.YLeaf{"Cmgwsignalprotocolport", cmgwsignalprotocolentry.Cmgwsignalprotocolport}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalMgcProtocolPort"] = types.YLeaf{"Cmgwsignalmgcprotocolport", cmgwsignalprotocolentry.Cmgwsignalmgcprotocolport}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalProtocolPreference"] = types.YLeaf{"Cmgwsignalprotocolpreference", cmgwsignalprotocolentry.Cmgwsignalprotocolpreference}
+    cmgwsignalprotocolentry.EntityData.Leafs["cmgwSignalProtocolConfigVer"] = types.YLeaf{"Cmgwsignalprotocolconfigver", cmgwsignalprotocolentry.Cmgwsignalprotocolconfigver}
+    return &(cmgwsignalprotocolentry.EntityData)
 }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetSegmentPath() string {
-    return "cmgwSignalProtocolEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmgwsignalprotocolentry.Cmgwindex) + "']" + "[cmgwSignalProtocolIndex='" + fmt.Sprintf("%v", cmgwsignalprotocolentry.Cmgwsignalprotocolindex) + "']"
-}
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmgwsignalprotocolentry.Cmgwindex
-    leafs["cmgwSignalProtocolIndex"] = cmgwsignalprotocolentry.Cmgwsignalprotocolindex
-    leafs["cmgwSignalProtocol"] = cmgwsignalprotocolentry.Cmgwsignalprotocol
-    leafs["cmgwSignalProtocolVersion"] = cmgwsignalprotocolentry.Cmgwsignalprotocolversion
-    leafs["cmgwSignalProtocolPort"] = cmgwsignalprotocolentry.Cmgwsignalprotocolport
-    leafs["cmgwSignalMgcProtocolPort"] = cmgwsignalprotocolentry.Cmgwsignalmgcprotocolport
-    leafs["cmgwSignalProtocolPreference"] = cmgwsignalprotocolentry.Cmgwsignalprotocolpreference
-    leafs["cmgwSignalProtocolConfigVer"] = cmgwsignalprotocolentry.Cmgwsignalprotocolconfigver
-    return leafs
-}
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetYangName() string { return "cmgwSignalProtocolEntry" }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) SetParent(parent types.Entity) { cmgwsignalprotocolentry.parent = parent }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetParent() types.Entity { return cmgwsignalprotocolentry.parent }
-
-func (cmgwsignalprotocolentry *CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry) GetParentYangName() string { return "cmgwSignalProtocolTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry_Cmgwsignalprotocol represents tgcp - Trunking Gateway Control Protocol
 type CISCOMEDIAGATEWAYMIB_Cmgwsignalprotocoltable_Cmgwsignalprotocolentry_Cmgwsignalprotocol string
@@ -660,7 +445,7 @@ const (
 // IP addresses associated interface table for the usage
 // of IP address.
 type CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Media Gateway IP configuration entry.  Each entry represents a media
@@ -670,70 +455,31 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable struct {
     Cmediagwipconfigentry []CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry
 }
 
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetFilter() yfilter.YFilter { return cmediagwipconfigtable.YFilter }
+func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetEntityData() *types.CommonEntityData {
+    cmediagwipconfigtable.EntityData.YFilter = cmediagwipconfigtable.YFilter
+    cmediagwipconfigtable.EntityData.YangName = "cMediaGwIpConfigTable"
+    cmediagwipconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwipconfigtable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmediagwipconfigtable.EntityData.SegmentPath = "cMediaGwIpConfigTable"
+    cmediagwipconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwipconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwipconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) SetFilter(yf yfilter.YFilter) { cmediagwipconfigtable.YFilter = yf }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetGoName(yname string) string {
-    if yname == "cMediaGwIpConfigEntry" { return "Cmediagwipconfigentry" }
-    return ""
-}
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetSegmentPath() string {
-    return "cMediaGwIpConfigTable"
-}
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwIpConfigEntry" {
-        for _, c := range cmediagwipconfigtable.Cmediagwipconfigentry {
-            if cmediagwipconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry{}
-        cmediagwipconfigtable.Cmediagwipconfigentry = append(cmediagwipconfigtable.Cmediagwipconfigentry, child)
-        return &cmediagwipconfigtable.Cmediagwipconfigentry[len(cmediagwipconfigtable.Cmediagwipconfigentry)-1]
-    }
-    return nil
-}
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmediagwipconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cmediagwipconfigtable.EntityData.Children["cMediaGwIpConfigEntry"] = types.YChild{"Cmediagwipconfigentry", nil}
     for i := range cmediagwipconfigtable.Cmediagwipconfigentry {
-        children[cmediagwipconfigtable.Cmediagwipconfigentry[i].GetSegmentPath()] = &cmediagwipconfigtable.Cmediagwipconfigentry[i]
+        cmediagwipconfigtable.EntityData.Children[types.GetSegmentPath(&cmediagwipconfigtable.Cmediagwipconfigentry[i])] = types.YChild{"Cmediagwipconfigentry", &cmediagwipconfigtable.Cmediagwipconfigentry[i]}
     }
-    return children
+    cmediagwipconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmediagwipconfigtable.EntityData)
 }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetYangName() string { return "cMediaGwIpConfigTable" }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) SetParent(parent types.Entity) { cmediagwipconfigtable.parent = parent }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetParent() types.Entity { return cmediagwipconfigtable.parent }
-
-func (cmediagwipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry
 // A Media Gateway IP configuration entry. 
 // Each entry represents a media gateway IP address for MGCs
 // to communicate with the media gateway.
 type CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -803,71 +549,31 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry struct {
     Cmgwipconfigrowstatus interface{}
 }
 
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetFilter() yfilter.YFilter { return cmediagwipconfigentry.YFilter }
+func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetEntityData() *types.CommonEntityData {
+    cmediagwipconfigentry.EntityData.YFilter = cmediagwipconfigentry.YFilter
+    cmediagwipconfigentry.EntityData.YangName = "cMediaGwIpConfigEntry"
+    cmediagwipconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwipconfigentry.EntityData.ParentYangName = "cMediaGwIpConfigTable"
+    cmediagwipconfigentry.EntityData.SegmentPath = "cMediaGwIpConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwipconfigentry.Cmgwindex) + "']" + "[cmgwIpConfigIndex='" + fmt.Sprintf("%v", cmediagwipconfigentry.Cmgwipconfigindex) + "']"
+    cmediagwipconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwipconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwipconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) SetFilter(yf yfilter.YFilter) { cmediagwipconfigentry.YFilter = yf }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwIpConfigIndex" { return "Cmgwipconfigindex" }
-    if yname == "cmgwIpConfigIfIndex" { return "Cmgwipconfigifindex" }
-    if yname == "cmgwIpConfigVpi" { return "Cmgwipconfigvpi" }
-    if yname == "cmgwIpConfigVci" { return "Cmgwipconfigvci" }
-    if yname == "cmgwIpConfigAddrType" { return "Cmgwipconfigaddrtype" }
-    if yname == "cmgwIpConfigAddress" { return "Cmgwipconfigaddress" }
-    if yname == "cmgwIpConfigSubnetMask" { return "Cmgwipconfigsubnetmask" }
-    if yname == "cmgwIpConfigDefaultGwIp" { return "Cmgwipconfigdefaultgwip" }
-    if yname == "cmgwIpConfigForRemoteMapping" { return "Cmgwipconfigforremotemapping" }
-    if yname == "cmgwIpConfigRowStatus" { return "Cmgwipconfigrowstatus" }
-    return ""
+    cmediagwipconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cmediagwipconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmediagwipconfigentry.Cmgwindex}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigIndex"] = types.YLeaf{"Cmgwipconfigindex", cmediagwipconfigentry.Cmgwipconfigindex}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigIfIndex"] = types.YLeaf{"Cmgwipconfigifindex", cmediagwipconfigentry.Cmgwipconfigifindex}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigVpi"] = types.YLeaf{"Cmgwipconfigvpi", cmediagwipconfigentry.Cmgwipconfigvpi}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigVci"] = types.YLeaf{"Cmgwipconfigvci", cmediagwipconfigentry.Cmgwipconfigvci}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigAddrType"] = types.YLeaf{"Cmgwipconfigaddrtype", cmediagwipconfigentry.Cmgwipconfigaddrtype}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigAddress"] = types.YLeaf{"Cmgwipconfigaddress", cmediagwipconfigentry.Cmgwipconfigaddress}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigSubnetMask"] = types.YLeaf{"Cmgwipconfigsubnetmask", cmediagwipconfigentry.Cmgwipconfigsubnetmask}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigDefaultGwIp"] = types.YLeaf{"Cmgwipconfigdefaultgwip", cmediagwipconfigentry.Cmgwipconfigdefaultgwip}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigForRemoteMapping"] = types.YLeaf{"Cmgwipconfigforremotemapping", cmediagwipconfigentry.Cmgwipconfigforremotemapping}
+    cmediagwipconfigentry.EntityData.Leafs["cmgwIpConfigRowStatus"] = types.YLeaf{"Cmgwipconfigrowstatus", cmediagwipconfigentry.Cmgwipconfigrowstatus}
+    return &(cmediagwipconfigentry.EntityData)
 }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetSegmentPath() string {
-    return "cMediaGwIpConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwipconfigentry.Cmgwindex) + "']" + "[cmgwIpConfigIndex='" + fmt.Sprintf("%v", cmediagwipconfigentry.Cmgwipconfigindex) + "']"
-}
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmediagwipconfigentry.Cmgwindex
-    leafs["cmgwIpConfigIndex"] = cmediagwipconfigentry.Cmgwipconfigindex
-    leafs["cmgwIpConfigIfIndex"] = cmediagwipconfigentry.Cmgwipconfigifindex
-    leafs["cmgwIpConfigVpi"] = cmediagwipconfigentry.Cmgwipconfigvpi
-    leafs["cmgwIpConfigVci"] = cmediagwipconfigentry.Cmgwipconfigvci
-    leafs["cmgwIpConfigAddrType"] = cmediagwipconfigentry.Cmgwipconfigaddrtype
-    leafs["cmgwIpConfigAddress"] = cmediagwipconfigentry.Cmgwipconfigaddress
-    leafs["cmgwIpConfigSubnetMask"] = cmediagwipconfigentry.Cmgwipconfigsubnetmask
-    leafs["cmgwIpConfigDefaultGwIp"] = cmediagwipconfigentry.Cmgwipconfigdefaultgwip
-    leafs["cmgwIpConfigForRemoteMapping"] = cmediagwipconfigentry.Cmgwipconfigforremotemapping
-    leafs["cmgwIpConfigRowStatus"] = cmediagwipconfigentry.Cmgwipconfigrowstatus
-    return leafs
-}
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetYangName() string { return "cMediaGwIpConfigEntry" }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) SetParent(parent types.Entity) { cmediagwipconfigentry.parent = parent }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetParent() types.Entity { return cmediagwipconfigentry.parent }
-
-func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagwipconfigentry) GetParentYangName() string { return "cMediaGwIpConfigTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable
 // This table provides the domain names which are configured by 
@@ -878,7 +584,7 @@ func (cmediagwipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwipconfigtable_Cmediagw
 //     External DNS name server
 //     MGC (call agent) 
 type CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents a domain name used in the system.  Creation and
@@ -887,63 +593,24 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable struct {
     Cmediagwdomainnameconfigentry []CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry
 }
 
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetFilter() yfilter.YFilter { return cmediagwdomainnameconfigtable.YFilter }
+func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetEntityData() *types.CommonEntityData {
+    cmediagwdomainnameconfigtable.EntityData.YFilter = cmediagwdomainnameconfigtable.YFilter
+    cmediagwdomainnameconfigtable.EntityData.YangName = "cMediaGwDomainNameConfigTable"
+    cmediagwdomainnameconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwdomainnameconfigtable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmediagwdomainnameconfigtable.EntityData.SegmentPath = "cMediaGwDomainNameConfigTable"
+    cmediagwdomainnameconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwdomainnameconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwdomainnameconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) SetFilter(yf yfilter.YFilter) { cmediagwdomainnameconfigtable.YFilter = yf }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetGoName(yname string) string {
-    if yname == "cMediaGwDomainNameConfigEntry" { return "Cmediagwdomainnameconfigentry" }
-    return ""
-}
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetSegmentPath() string {
-    return "cMediaGwDomainNameConfigTable"
-}
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwDomainNameConfigEntry" {
-        for _, c := range cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry {
-            if cmediagwdomainnameconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry{}
-        cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry = append(cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry, child)
-        return &cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry[len(cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry)-1]
-    }
-    return nil
-}
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmediagwdomainnameconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cmediagwdomainnameconfigtable.EntityData.Children["cMediaGwDomainNameConfigEntry"] = types.YChild{"Cmediagwdomainnameconfigentry", nil}
     for i := range cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry {
-        children[cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry[i].GetSegmentPath()] = &cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry[i]
+        cmediagwdomainnameconfigtable.EntityData.Children[types.GetSegmentPath(&cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry[i])] = types.YChild{"Cmediagwdomainnameconfigentry", &cmediagwdomainnameconfigtable.Cmediagwdomainnameconfigentry[i]}
     }
-    return children
+    cmediagwdomainnameconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmediagwdomainnameconfigtable.EntityData)
 }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetYangName() string { return "cMediaGwDomainNameConfigTable" }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) SetParent(parent types.Entity) { cmediagwdomainnameconfigtable.parent = parent }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetParent() types.Entity { return cmediagwdomainnameconfigtable.parent }
-
-func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry
 // Each entry represents a domain name used in the system.
@@ -951,7 +618,7 @@ func (cmediagwdomainnameconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconf
 // Creation and deletion are supported. Modification
 // is prohibited.
 type CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -992,59 +659,25 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfig
     Cmgwconfigdomainnamerowstatus interface{}
 }
 
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetFilter() yfilter.YFilter { return cmediagwdomainnameconfigentry.YFilter }
+func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetEntityData() *types.CommonEntityData {
+    cmediagwdomainnameconfigentry.EntityData.YFilter = cmediagwdomainnameconfigentry.YFilter
+    cmediagwdomainnameconfigentry.EntityData.YangName = "cMediaGwDomainNameConfigEntry"
+    cmediagwdomainnameconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwdomainnameconfigentry.EntityData.ParentYangName = "cMediaGwDomainNameConfigTable"
+    cmediagwdomainnameconfigentry.EntityData.SegmentPath = "cMediaGwDomainNameConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwdomainnameconfigentry.Cmgwindex) + "']" + "[cmgwConfigDomainNameIndex='" + fmt.Sprintf("%v", cmediagwdomainnameconfigentry.Cmgwconfigdomainnameindex) + "']"
+    cmediagwdomainnameconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwdomainnameconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwdomainnameconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) SetFilter(yf yfilter.YFilter) { cmediagwdomainnameconfigentry.YFilter = yf }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwConfigDomainNameIndex" { return "Cmgwconfigdomainnameindex" }
-    if yname == "cmgwConfigDomainNameEntity" { return "Cmgwconfigdomainnameentity" }
-    if yname == "cmgwConfigDomainName" { return "Cmgwconfigdomainname" }
-    if yname == "cmgwConfigDomainNameRowStatus" { return "Cmgwconfigdomainnamerowstatus" }
-    return ""
+    cmediagwdomainnameconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cmediagwdomainnameconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmediagwdomainnameconfigentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmediagwdomainnameconfigentry.Cmgwindex}
+    cmediagwdomainnameconfigentry.EntityData.Leafs["cmgwConfigDomainNameIndex"] = types.YLeaf{"Cmgwconfigdomainnameindex", cmediagwdomainnameconfigentry.Cmgwconfigdomainnameindex}
+    cmediagwdomainnameconfigentry.EntityData.Leafs["cmgwConfigDomainNameEntity"] = types.YLeaf{"Cmgwconfigdomainnameentity", cmediagwdomainnameconfigentry.Cmgwconfigdomainnameentity}
+    cmediagwdomainnameconfigentry.EntityData.Leafs["cmgwConfigDomainName"] = types.YLeaf{"Cmgwconfigdomainname", cmediagwdomainnameconfigentry.Cmgwconfigdomainname}
+    cmediagwdomainnameconfigentry.EntityData.Leafs["cmgwConfigDomainNameRowStatus"] = types.YLeaf{"Cmgwconfigdomainnamerowstatus", cmediagwdomainnameconfigentry.Cmgwconfigdomainnamerowstatus}
+    return &(cmediagwdomainnameconfigentry.EntityData)
 }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetSegmentPath() string {
-    return "cMediaGwDomainNameConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwdomainnameconfigentry.Cmgwindex) + "']" + "[cmgwConfigDomainNameIndex='" + fmt.Sprintf("%v", cmediagwdomainnameconfigentry.Cmgwconfigdomainnameindex) + "']"
-}
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmediagwdomainnameconfigentry.Cmgwindex
-    leafs["cmgwConfigDomainNameIndex"] = cmediagwdomainnameconfigentry.Cmgwconfigdomainnameindex
-    leafs["cmgwConfigDomainNameEntity"] = cmediagwdomainnameconfigentry.Cmgwconfigdomainnameentity
-    leafs["cmgwConfigDomainName"] = cmediagwdomainnameconfigentry.Cmgwconfigdomainname
-    leafs["cmgwConfigDomainNameRowStatus"] = cmediagwdomainnameconfigentry.Cmgwconfigdomainnamerowstatus
-    return leafs
-}
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetYangName() string { return "cMediaGwDomainNameConfigEntry" }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) SetParent(parent types.Entity) { cmediagwdomainnameconfigentry.parent = parent }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetParent() types.Entity { return cmediagwdomainnameconfigentry.parent }
-
-func (cmediagwdomainnameconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry) GetParentYangName() string { return "cMediaGwDomainNameConfigTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry_Cmgwconfigdomainnameentity represents                gateway. 
 type CISCOMEDIAGATEWAYMIB_Cmediagwdomainnameconfigtable_Cmediagwdomainnameconfigentry_Cmgwconfigdomainnameentity string
@@ -1069,7 +702,7 @@ const (
 // If any domain name using external resolution, the last entry
 // of this table is not allowed to be deleted.
 type CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents an IP address of the DNS name  server. The type is
@@ -1078,69 +711,30 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable struct {
     Cmediagwdnsipconfigentry []CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry
 }
 
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetFilter() yfilter.YFilter { return cmediagwdnsipconfigtable.YFilter }
+func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetEntityData() *types.CommonEntityData {
+    cmediagwdnsipconfigtable.EntityData.YFilter = cmediagwdnsipconfigtable.YFilter
+    cmediagwdnsipconfigtable.EntityData.YangName = "cMediaGwDnsIpConfigTable"
+    cmediagwdnsipconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwdnsipconfigtable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmediagwdnsipconfigtable.EntityData.SegmentPath = "cMediaGwDnsIpConfigTable"
+    cmediagwdnsipconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwdnsipconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwdnsipconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) SetFilter(yf yfilter.YFilter) { cmediagwdnsipconfigtable.YFilter = yf }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetGoName(yname string) string {
-    if yname == "cMediaGwDnsIpConfigEntry" { return "Cmediagwdnsipconfigentry" }
-    return ""
-}
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetSegmentPath() string {
-    return "cMediaGwDnsIpConfigTable"
-}
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwDnsIpConfigEntry" {
-        for _, c := range cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry {
-            if cmediagwdnsipconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry{}
-        cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry = append(cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry, child)
-        return &cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry[len(cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry)-1]
-    }
-    return nil
-}
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmediagwdnsipconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cmediagwdnsipconfigtable.EntityData.Children["cMediaGwDnsIpConfigEntry"] = types.YChild{"Cmediagwdnsipconfigentry", nil}
     for i := range cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry {
-        children[cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry[i].GetSegmentPath()] = &cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry[i]
+        cmediagwdnsipconfigtable.EntityData.Children[types.GetSegmentPath(&cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry[i])] = types.YChild{"Cmediagwdnsipconfigentry", &cmediagwdnsipconfigtable.Cmediagwdnsipconfigentry[i]}
     }
-    return children
+    cmediagwdnsipconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmediagwdnsipconfigtable.EntityData)
 }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetYangName() string { return "cMediaGwDnsIpConfigTable" }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) SetParent(parent types.Entity) { cmediagwdnsipconfigtable.parent = parent }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetParent() types.Entity { return cmediagwdnsipconfigtable.parent }
-
-func (cmediagwdnsipconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry
 // Each entry represents an IP address of the DNS name 
 // server.
 type CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1177,61 +771,26 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry stru
     Cmgwdnsiprowstatus interface{}
 }
 
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetFilter() yfilter.YFilter { return cmediagwdnsipconfigentry.YFilter }
+func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetEntityData() *types.CommonEntityData {
+    cmediagwdnsipconfigentry.EntityData.YFilter = cmediagwdnsipconfigentry.YFilter
+    cmediagwdnsipconfigentry.EntityData.YangName = "cMediaGwDnsIpConfigEntry"
+    cmediagwdnsipconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwdnsipconfigentry.EntityData.ParentYangName = "cMediaGwDnsIpConfigTable"
+    cmediagwdnsipconfigentry.EntityData.SegmentPath = "cMediaGwDnsIpConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwdnsipconfigentry.Cmgwindex) + "']" + "[cmgwDnsIpIndex='" + fmt.Sprintf("%v", cmediagwdnsipconfigentry.Cmgwdnsipindex) + "']"
+    cmediagwdnsipconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwdnsipconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwdnsipconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) SetFilter(yf yfilter.YFilter) { cmediagwdnsipconfigentry.YFilter = yf }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwDnsIpIndex" { return "Cmgwdnsipindex" }
-    if yname == "cmgwDnsDomainName" { return "Cmgwdnsdomainname" }
-    if yname == "cmgwDnsIpType" { return "Cmgwdnsiptype" }
-    if yname == "cmgwDnsIp" { return "Cmgwdnsip" }
-    if yname == "cmgwDnsIpRowStatus" { return "Cmgwdnsiprowstatus" }
-    return ""
+    cmediagwdnsipconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cmediagwdnsipconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmediagwdnsipconfigentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmediagwdnsipconfigentry.Cmgwindex}
+    cmediagwdnsipconfigentry.EntityData.Leafs["cmgwDnsIpIndex"] = types.YLeaf{"Cmgwdnsipindex", cmediagwdnsipconfigentry.Cmgwdnsipindex}
+    cmediagwdnsipconfigentry.EntityData.Leafs["cmgwDnsDomainName"] = types.YLeaf{"Cmgwdnsdomainname", cmediagwdnsipconfigentry.Cmgwdnsdomainname}
+    cmediagwdnsipconfigentry.EntityData.Leafs["cmgwDnsIpType"] = types.YLeaf{"Cmgwdnsiptype", cmediagwdnsipconfigentry.Cmgwdnsiptype}
+    cmediagwdnsipconfigentry.EntityData.Leafs["cmgwDnsIp"] = types.YLeaf{"Cmgwdnsip", cmediagwdnsipconfigentry.Cmgwdnsip}
+    cmediagwdnsipconfigentry.EntityData.Leafs["cmgwDnsIpRowStatus"] = types.YLeaf{"Cmgwdnsiprowstatus", cmediagwdnsipconfigentry.Cmgwdnsiprowstatus}
+    return &(cmediagwdnsipconfigentry.EntityData)
 }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetSegmentPath() string {
-    return "cMediaGwDnsIpConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwdnsipconfigentry.Cmgwindex) + "']" + "[cmgwDnsIpIndex='" + fmt.Sprintf("%v", cmediagwdnsipconfigentry.Cmgwdnsipindex) + "']"
-}
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmediagwdnsipconfigentry.Cmgwindex
-    leafs["cmgwDnsIpIndex"] = cmediagwdnsipconfigentry.Cmgwdnsipindex
-    leafs["cmgwDnsDomainName"] = cmediagwdnsipconfigentry.Cmgwdnsdomainname
-    leafs["cmgwDnsIpType"] = cmediagwdnsipconfigentry.Cmgwdnsiptype
-    leafs["cmgwDnsIp"] = cmediagwdnsipconfigentry.Cmgwdnsip
-    leafs["cmgwDnsIpRowStatus"] = cmediagwdnsipconfigentry.Cmgwdnsiprowstatus
-    return leafs
-}
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetYangName() string { return "cMediaGwDnsIpConfigEntry" }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) SetParent(parent types.Entity) { cmediagwdnsipconfigentry.parent = parent }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetParent() types.Entity { return cmediagwdnsipconfigentry.parent }
-
-func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cmediagwdnsipconfigentry) GetParentYangName() string { return "cMediaGwDnsIpConfigTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmgwliftable
 // This table is for managing LIF (Logical Interface) 
@@ -1245,7 +804,7 @@ func (cmediagwdnsipconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwdnsipconfigtable_Cm
 // 1. VoIP switching 
 // 2. VoATM switching 
 type CISCOMEDIAGATEWAYMIB_Cmgwliftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry of this table is created by the media gateway when it supports the
@@ -1254,69 +813,30 @@ type CISCOMEDIAGATEWAYMIB_Cmgwliftable struct {
     Cmgwlifentry []CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry
 }
 
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetFilter() yfilter.YFilter { return cmgwliftable.YFilter }
+func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetEntityData() *types.CommonEntityData {
+    cmgwliftable.EntityData.YFilter = cmgwliftable.YFilter
+    cmgwliftable.EntityData.YangName = "cmgwLifTable"
+    cmgwliftable.EntityData.BundleName = "cisco_ios_xe"
+    cmgwliftable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmgwliftable.EntityData.SegmentPath = "cmgwLifTable"
+    cmgwliftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmgwliftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmgwliftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) SetFilter(yf yfilter.YFilter) { cmgwliftable.YFilter = yf }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetGoName(yname string) string {
-    if yname == "cmgwLifEntry" { return "Cmgwlifentry" }
-    return ""
-}
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetSegmentPath() string {
-    return "cmgwLifTable"
-}
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmgwLifEntry" {
-        for _, c := range cmgwliftable.Cmgwlifentry {
-            if cmgwliftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry{}
-        cmgwliftable.Cmgwlifentry = append(cmgwliftable.Cmgwlifentry, child)
-        return &cmgwliftable.Cmgwlifentry[len(cmgwliftable.Cmgwlifentry)-1]
-    }
-    return nil
-}
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmgwliftable.EntityData.Children = make(map[string]types.YChild)
+    cmgwliftable.EntityData.Children["cmgwLifEntry"] = types.YChild{"Cmgwlifentry", nil}
     for i := range cmgwliftable.Cmgwlifentry {
-        children[cmgwliftable.Cmgwlifentry[i].GetSegmentPath()] = &cmgwliftable.Cmgwlifentry[i]
+        cmgwliftable.EntityData.Children[types.GetSegmentPath(&cmgwliftable.Cmgwlifentry[i])] = types.YChild{"Cmgwlifentry", &cmgwliftable.Cmgwlifentry[i]}
     }
-    return children
+    cmgwliftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmgwliftable.EntityData)
 }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetYangName() string { return "cmgwLifTable" }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) SetParent(parent types.Entity) { cmgwliftable.parent = parent }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetParent() types.Entity { return cmgwliftable.parent }
-
-func (cmgwliftable *CISCOMEDIAGATEWAYMIB_Cmgwliftable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry
 // An entry of this table is created by the media gateway
 // when it supports the VoIP/VoATM application.
 type CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1346,63 +866,30 @@ type CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry struct {
     Cmgwlifvoiceifcount interface{}
 }
 
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetFilter() yfilter.YFilter { return cmgwlifentry.YFilter }
+func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetEntityData() *types.CommonEntityData {
+    cmgwlifentry.EntityData.YFilter = cmgwlifentry.YFilter
+    cmgwlifentry.EntityData.YangName = "cmgwLifEntry"
+    cmgwlifentry.EntityData.BundleName = "cisco_ios_xe"
+    cmgwlifentry.EntityData.ParentYangName = "cmgwLifTable"
+    cmgwlifentry.EntityData.SegmentPath = "cmgwLifEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmgwlifentry.Cmgwindex) + "']" + "[cmgwLifNumber='" + fmt.Sprintf("%v", cmgwlifentry.Cmgwlifnumber) + "']"
+    cmgwlifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmgwlifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmgwlifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) SetFilter(yf yfilter.YFilter) { cmgwlifentry.YFilter = yf }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwLifNumber" { return "Cmgwlifnumber" }
-    if yname == "cmgwLifPvcCount" { return "Cmgwlifpvccount" }
-    if yname == "cmgwLifVoiceIfCount" { return "Cmgwlifvoiceifcount" }
-    return ""
+    cmgwlifentry.EntityData.Children = make(map[string]types.YChild)
+    cmgwlifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmgwlifentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmgwlifentry.Cmgwindex}
+    cmgwlifentry.EntityData.Leafs["cmgwLifNumber"] = types.YLeaf{"Cmgwlifnumber", cmgwlifentry.Cmgwlifnumber}
+    cmgwlifentry.EntityData.Leafs["cmgwLifPvcCount"] = types.YLeaf{"Cmgwlifpvccount", cmgwlifentry.Cmgwlifpvccount}
+    cmgwlifentry.EntityData.Leafs["cmgwLifVoiceIfCount"] = types.YLeaf{"Cmgwlifvoiceifcount", cmgwlifentry.Cmgwlifvoiceifcount}
+    return &(cmgwlifentry.EntityData)
 }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetSegmentPath() string {
-    return "cmgwLifEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmgwlifentry.Cmgwindex) + "']" + "[cmgwLifNumber='" + fmt.Sprintf("%v", cmgwlifentry.Cmgwlifnumber) + "']"
-}
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmgwlifentry.Cmgwindex
-    leafs["cmgwLifNumber"] = cmgwlifentry.Cmgwlifnumber
-    leafs["cmgwLifPvcCount"] = cmgwlifentry.Cmgwlifpvccount
-    leafs["cmgwLifVoiceIfCount"] = cmgwlifentry.Cmgwlifvoiceifcount
-    return leafs
-}
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetYangName() string { return "cmgwLifEntry" }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) SetParent(parent types.Entity) { cmgwlifentry.parent = parent }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetParent() types.Entity { return cmgwlifentry.parent }
-
-func (cmgwlifentry *CISCOMEDIAGATEWAYMIB_Cmgwliftable_Cmgwlifentry) GetParentYangName() string { return "cmgwLifTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable
 // This table defines general call control attributes for
 // the media gateway.
 type CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // One entry for each media gateway which supports call control  protocol. The
@@ -1411,69 +898,30 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable struct {
     Cmediagwcallcontrolconfigentry []CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry
 }
 
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetFilter() yfilter.YFilter { return cmediagwcallcontrolconfigtable.YFilter }
+func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetEntityData() *types.CommonEntityData {
+    cmediagwcallcontrolconfigtable.EntityData.YFilter = cmediagwcallcontrolconfigtable.YFilter
+    cmediagwcallcontrolconfigtable.EntityData.YangName = "cMediaGwCallControlConfigTable"
+    cmediagwcallcontrolconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwcallcontrolconfigtable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmediagwcallcontrolconfigtable.EntityData.SegmentPath = "cMediaGwCallControlConfigTable"
+    cmediagwcallcontrolconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwcallcontrolconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwcallcontrolconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) SetFilter(yf yfilter.YFilter) { cmediagwcallcontrolconfigtable.YFilter = yf }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetGoName(yname string) string {
-    if yname == "cMediaGwCallControlConfigEntry" { return "Cmediagwcallcontrolconfigentry" }
-    return ""
-}
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetSegmentPath() string {
-    return "cMediaGwCallControlConfigTable"
-}
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwCallControlConfigEntry" {
-        for _, c := range cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry {
-            if cmediagwcallcontrolconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry{}
-        cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry = append(cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry, child)
-        return &cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry[len(cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry)-1]
-    }
-    return nil
-}
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmediagwcallcontrolconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cmediagwcallcontrolconfigtable.EntityData.Children["cMediaGwCallControlConfigEntry"] = types.YChild{"Cmediagwcallcontrolconfigentry", nil}
     for i := range cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry {
-        children[cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry[i].GetSegmentPath()] = &cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry[i]
+        cmediagwcallcontrolconfigtable.EntityData.Children[types.GetSegmentPath(&cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry[i])] = types.YChild{"Cmediagwcallcontrolconfigentry", &cmediagwcallcontrolconfigtable.Cmediagwcallcontrolconfigentry[i]}
     }
-    return children
+    cmediagwcallcontrolconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmediagwcallcontrolconfigtable.EntityData)
 }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetYangName() string { return "cMediaGwCallControlConfigTable" }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) SetParent(parent types.Entity) { cmediagwcallcontrolconfigtable.parent = parent }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetParent() types.Entity { return cmediagwcallcontrolconfigtable.parent }
-
-func (cmediagwcallcontrolconfigtable *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry
 // One entry for each media gateway which supports call control 
 // protocol.
 type CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1618,87 +1066,39 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconf
     Cmediagwcccfgdefrtpnameprefix interface{}
 }
 
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetFilter() yfilter.YFilter { return cmediagwcallcontrolconfigentry.YFilter }
+func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetEntityData() *types.CommonEntityData {
+    cmediagwcallcontrolconfigentry.EntityData.YFilter = cmediagwcallcontrolconfigentry.YFilter
+    cmediagwcallcontrolconfigentry.EntityData.YangName = "cMediaGwCallControlConfigEntry"
+    cmediagwcallcontrolconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwcallcontrolconfigentry.EntityData.ParentYangName = "cMediaGwCallControlConfigTable"
+    cmediagwcallcontrolconfigentry.EntityData.SegmentPath = "cMediaGwCallControlConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwcallcontrolconfigentry.Cmgwindex) + "']"
+    cmediagwcallcontrolconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwcallcontrolconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwcallcontrolconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) SetFilter(yf yfilter.YFilter) { cmediagwcallcontrolconfigentry.YFilter = yf }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cMediaGwCcCfgControlTos" { return "Cmediagwcccfgcontroltos" }
-    if yname == "cMediaGwCcCfgBearerTos" { return "Cmediagwcccfgbearertos" }
-    if yname == "cMediaGwCcCfgNtePayload" { return "Cmediagwcccfgntepayload" }
-    if yname == "cMediaGwCcCfgNsePayload" { return "Cmediagwcccfgnsepayload" }
-    if yname == "cMediaGwCcCfgNseRespTimer" { return "Cmediagwcccfgnseresptimer" }
-    if yname == "cMediaGwCcCfgVbdJitterDelayMode" { return "Cmediagwcccfgvbdjitterdelaymode" }
-    if yname == "cMediaGwCcCfgVbdJitterMaxDelay" { return "Cmediagwcccfgvbdjittermaxdelay" }
-    if yname == "cMediaGwCcCfgVbdJitterNomDelay" { return "Cmediagwcccfgvbdjitternomdelay" }
-    if yname == "cMediaGwCcCfgVbdJitterMinDelay" { return "Cmediagwcccfgvbdjittermindelay" }
-    if yname == "cMediaGwCcCfgDefaultTonePlanId" { return "Cmediagwcccfgdefaulttoneplanid" }
-    if yname == "cMediaGwCcCfgDescrInfoEnabled" { return "Cmediagwcccfgdescrinfoenabled" }
-    if yname == "cMediaGwCcCfgDsNamePrefix" { return "Cmediagwcccfgdsnameprefix" }
-    if yname == "cMediaGwCcCfgRtpNamePrefix" { return "Cmediagwcccfgrtpnameprefix" }
-    if yname == "cMediaGwCcCfgAal1SvcNamePrefix" { return "Cmediagwcccfgaal1Svcnameprefix" }
-    if yname == "cMediaGwCcCfgAal2SvcNamePrefix" { return "Cmediagwcccfgaal2Svcnameprefix" }
-    if yname == "cMediaGwCcCfgClusterEnabled" { return "Cmediagwcccfgclusterenabled" }
-    if yname == "cMediaGwCcCfgDefBearerTraffic" { return "Cmediagwcccfgdefbearertraffic" }
-    if yname == "cMediaGwCcCfgDefRtpNamePrefix" { return "Cmediagwcccfgdefrtpnameprefix" }
-    return ""
+    cmediagwcallcontrolconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cmediagwcallcontrolconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmediagwcallcontrolconfigentry.Cmgwindex}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgControlTos"] = types.YLeaf{"Cmediagwcccfgcontroltos", cmediagwcallcontrolconfigentry.Cmediagwcccfgcontroltos}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgBearerTos"] = types.YLeaf{"Cmediagwcccfgbearertos", cmediagwcallcontrolconfigentry.Cmediagwcccfgbearertos}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgNtePayload"] = types.YLeaf{"Cmediagwcccfgntepayload", cmediagwcallcontrolconfigentry.Cmediagwcccfgntepayload}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgNsePayload"] = types.YLeaf{"Cmediagwcccfgnsepayload", cmediagwcallcontrolconfigentry.Cmediagwcccfgnsepayload}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgNseRespTimer"] = types.YLeaf{"Cmediagwcccfgnseresptimer", cmediagwcallcontrolconfigentry.Cmediagwcccfgnseresptimer}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgVbdJitterDelayMode"] = types.YLeaf{"Cmediagwcccfgvbdjitterdelaymode", cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjitterdelaymode}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgVbdJitterMaxDelay"] = types.YLeaf{"Cmediagwcccfgvbdjittermaxdelay", cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjittermaxdelay}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgVbdJitterNomDelay"] = types.YLeaf{"Cmediagwcccfgvbdjitternomdelay", cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjitternomdelay}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgVbdJitterMinDelay"] = types.YLeaf{"Cmediagwcccfgvbdjittermindelay", cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjittermindelay}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgDefaultTonePlanId"] = types.YLeaf{"Cmediagwcccfgdefaulttoneplanid", cmediagwcallcontrolconfigentry.Cmediagwcccfgdefaulttoneplanid}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgDescrInfoEnabled"] = types.YLeaf{"Cmediagwcccfgdescrinfoenabled", cmediagwcallcontrolconfigentry.Cmediagwcccfgdescrinfoenabled}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgDsNamePrefix"] = types.YLeaf{"Cmediagwcccfgdsnameprefix", cmediagwcallcontrolconfigentry.Cmediagwcccfgdsnameprefix}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgRtpNamePrefix"] = types.YLeaf{"Cmediagwcccfgrtpnameprefix", cmediagwcallcontrolconfigentry.Cmediagwcccfgrtpnameprefix}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgAal1SvcNamePrefix"] = types.YLeaf{"Cmediagwcccfgaal1Svcnameprefix", cmediagwcallcontrolconfigentry.Cmediagwcccfgaal1Svcnameprefix}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgAal2SvcNamePrefix"] = types.YLeaf{"Cmediagwcccfgaal2Svcnameprefix", cmediagwcallcontrolconfigentry.Cmediagwcccfgaal2Svcnameprefix}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgClusterEnabled"] = types.YLeaf{"Cmediagwcccfgclusterenabled", cmediagwcallcontrolconfigentry.Cmediagwcccfgclusterenabled}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgDefBearerTraffic"] = types.YLeaf{"Cmediagwcccfgdefbearertraffic", cmediagwcallcontrolconfigentry.Cmediagwcccfgdefbearertraffic}
+    cmediagwcallcontrolconfigentry.EntityData.Leafs["cMediaGwCcCfgDefRtpNamePrefix"] = types.YLeaf{"Cmediagwcccfgdefrtpnameprefix", cmediagwcallcontrolconfigentry.Cmediagwcccfgdefrtpnameprefix}
+    return &(cmediagwcallcontrolconfigentry.EntityData)
 }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetSegmentPath() string {
-    return "cMediaGwCallControlConfigEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwcallcontrolconfigentry.Cmgwindex) + "']"
-}
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmediagwcallcontrolconfigentry.Cmgwindex
-    leafs["cMediaGwCcCfgControlTos"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgcontroltos
-    leafs["cMediaGwCcCfgBearerTos"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgbearertos
-    leafs["cMediaGwCcCfgNtePayload"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgntepayload
-    leafs["cMediaGwCcCfgNsePayload"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgnsepayload
-    leafs["cMediaGwCcCfgNseRespTimer"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgnseresptimer
-    leafs["cMediaGwCcCfgVbdJitterDelayMode"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjitterdelaymode
-    leafs["cMediaGwCcCfgVbdJitterMaxDelay"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjittermaxdelay
-    leafs["cMediaGwCcCfgVbdJitterNomDelay"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjitternomdelay
-    leafs["cMediaGwCcCfgVbdJitterMinDelay"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgvbdjittermindelay
-    leafs["cMediaGwCcCfgDefaultTonePlanId"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgdefaulttoneplanid
-    leafs["cMediaGwCcCfgDescrInfoEnabled"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgdescrinfoenabled
-    leafs["cMediaGwCcCfgDsNamePrefix"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgdsnameprefix
-    leafs["cMediaGwCcCfgRtpNamePrefix"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgrtpnameprefix
-    leafs["cMediaGwCcCfgAal1SvcNamePrefix"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgaal1Svcnameprefix
-    leafs["cMediaGwCcCfgAal2SvcNamePrefix"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgaal2Svcnameprefix
-    leafs["cMediaGwCcCfgClusterEnabled"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgclusterenabled
-    leafs["cMediaGwCcCfgDefBearerTraffic"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgdefbearertraffic
-    leafs["cMediaGwCcCfgDefRtpNamePrefix"] = cmediagwcallcontrolconfigentry.Cmediagwcccfgdefrtpnameprefix
-    return leafs
-}
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetYangName() string { return "cMediaGwCallControlConfigEntry" }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) SetParent(parent types.Entity) { cmediagwcallcontrolconfigentry.parent = parent }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetParent() types.Entity { return cmediagwcallcontrolconfigentry.parent }
-
-func (cmediagwcallcontrolconfigentry *CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry) GetParentYangName() string { return "cMediaGwCallControlConfigTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry_Cmediagwcccfgclusterenabled represents               attribute is upon MGC request.
 type CISCOMEDIAGATEWAYMIB_Cmediagwcallcontrolconfigtable_Cmediagwcallcontrolconfigentry_Cmediagwcccfgclusterenabled string
@@ -1728,7 +1128,7 @@ const (
 // This table stores the gateway resource statistics
 // information.
 type CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry stores the statistics information for a specific resource. The
@@ -1737,69 +1137,30 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable struct {
     Cmediagwrscstatsentry []CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry
 }
 
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetFilter() yfilter.YFilter { return cmediagwrscstatstable.YFilter }
+func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetEntityData() *types.CommonEntityData {
+    cmediagwrscstatstable.EntityData.YFilter = cmediagwrscstatstable.YFilter
+    cmediagwrscstatstable.EntityData.YangName = "cMediaGwRscStatsTable"
+    cmediagwrscstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwrscstatstable.EntityData.ParentYangName = "CISCO-MEDIA-GATEWAY-MIB"
+    cmediagwrscstatstable.EntityData.SegmentPath = "cMediaGwRscStatsTable"
+    cmediagwrscstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwrscstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwrscstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) SetFilter(yf yfilter.YFilter) { cmediagwrscstatstable.YFilter = yf }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetGoName(yname string) string {
-    if yname == "cMediaGwRscStatsEntry" { return "Cmediagwrscstatsentry" }
-    return ""
-}
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetSegmentPath() string {
-    return "cMediaGwRscStatsTable"
-}
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cMediaGwRscStatsEntry" {
-        for _, c := range cmediagwrscstatstable.Cmediagwrscstatsentry {
-            if cmediagwrscstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry{}
-        cmediagwrscstatstable.Cmediagwrscstatsentry = append(cmediagwrscstatstable.Cmediagwrscstatsentry, child)
-        return &cmediagwrscstatstable.Cmediagwrscstatsentry[len(cmediagwrscstatstable.Cmediagwrscstatsentry)-1]
-    }
-    return nil
-}
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmediagwrscstatstable.EntityData.Children = make(map[string]types.YChild)
+    cmediagwrscstatstable.EntityData.Children["cMediaGwRscStatsEntry"] = types.YChild{"Cmediagwrscstatsentry", nil}
     for i := range cmediagwrscstatstable.Cmediagwrscstatsentry {
-        children[cmediagwrscstatstable.Cmediagwrscstatsentry[i].GetSegmentPath()] = &cmediagwrscstatstable.Cmediagwrscstatsentry[i]
+        cmediagwrscstatstable.EntityData.Children[types.GetSegmentPath(&cmediagwrscstatstable.Cmediagwrscstatsentry[i])] = types.YChild{"Cmediagwrscstatsentry", &cmediagwrscstatstable.Cmediagwrscstatsentry[i]}
     }
-    return children
+    cmediagwrscstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmediagwrscstatstable.EntityData)
 }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetYangName() string { return "cMediaGwRscStatsTable" }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) SetParent(parent types.Entity) { cmediagwrscstatstable.parent = parent }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetParent() types.Entity { return cmediagwrscstatstable.parent }
-
-func (cmediagwrscstatstable *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable) GetParentYangName() string { return "CISCO-MEDIA-GATEWAY-MIB" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry
 // Each entry stores the statistics
 // information for a specific resource.
 type CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1833,61 +1194,26 @@ type CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry struct {
     Cmgwrscsincelastreset interface{}
 }
 
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetFilter() yfilter.YFilter { return cmediagwrscstatsentry.YFilter }
+func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetEntityData() *types.CommonEntityData {
+    cmediagwrscstatsentry.EntityData.YFilter = cmediagwrscstatsentry.YFilter
+    cmediagwrscstatsentry.EntityData.YangName = "cMediaGwRscStatsEntry"
+    cmediagwrscstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cmediagwrscstatsentry.EntityData.ParentYangName = "cMediaGwRscStatsTable"
+    cmediagwrscstatsentry.EntityData.SegmentPath = "cMediaGwRscStatsEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwrscstatsentry.Cmgwindex) + "']" + "[cmgwRscStatsIndex='" + fmt.Sprintf("%v", cmediagwrscstatsentry.Cmgwrscstatsindex) + "']"
+    cmediagwrscstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmediagwrscstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmediagwrscstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) SetFilter(yf yfilter.YFilter) { cmediagwrscstatsentry.YFilter = yf }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cmgwRscStatsIndex" { return "Cmgwrscstatsindex" }
-    if yname == "cmgwRscMaximumUtilization" { return "Cmgwrscmaximumutilization" }
-    if yname == "cmgwRscMinimumUtilization" { return "Cmgwrscminimumutilization" }
-    if yname == "cmgwRscAverageUtilization" { return "Cmgwrscaverageutilization" }
-    if yname == "cmgwRscSinceLastReset" { return "Cmgwrscsincelastreset" }
-    return ""
+    cmediagwrscstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cmediagwrscstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmediagwrscstatsentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cmediagwrscstatsentry.Cmgwindex}
+    cmediagwrscstatsentry.EntityData.Leafs["cmgwRscStatsIndex"] = types.YLeaf{"Cmgwrscstatsindex", cmediagwrscstatsentry.Cmgwrscstatsindex}
+    cmediagwrscstatsentry.EntityData.Leafs["cmgwRscMaximumUtilization"] = types.YLeaf{"Cmgwrscmaximumutilization", cmediagwrscstatsentry.Cmgwrscmaximumutilization}
+    cmediagwrscstatsentry.EntityData.Leafs["cmgwRscMinimumUtilization"] = types.YLeaf{"Cmgwrscminimumutilization", cmediagwrscstatsentry.Cmgwrscminimumutilization}
+    cmediagwrscstatsentry.EntityData.Leafs["cmgwRscAverageUtilization"] = types.YLeaf{"Cmgwrscaverageutilization", cmediagwrscstatsentry.Cmgwrscaverageutilization}
+    cmediagwrscstatsentry.EntityData.Leafs["cmgwRscSinceLastReset"] = types.YLeaf{"Cmgwrscsincelastreset", cmediagwrscstatsentry.Cmgwrscsincelastreset}
+    return &(cmediagwrscstatsentry.EntityData)
 }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetSegmentPath() string {
-    return "cMediaGwRscStatsEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cmediagwrscstatsentry.Cmgwindex) + "']" + "[cmgwRscStatsIndex='" + fmt.Sprintf("%v", cmediagwrscstatsentry.Cmgwrscstatsindex) + "']"
-}
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cmediagwrscstatsentry.Cmgwindex
-    leafs["cmgwRscStatsIndex"] = cmediagwrscstatsentry.Cmgwrscstatsindex
-    leafs["cmgwRscMaximumUtilization"] = cmediagwrscstatsentry.Cmgwrscmaximumutilization
-    leafs["cmgwRscMinimumUtilization"] = cmediagwrscstatsentry.Cmgwrscminimumutilization
-    leafs["cmgwRscAverageUtilization"] = cmediagwrscstatsentry.Cmgwrscaverageutilization
-    leafs["cmgwRscSinceLastReset"] = cmediagwrscstatsentry.Cmgwrscsincelastreset
-    return leafs
-}
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetYangName() string { return "cMediaGwRscStatsEntry" }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) SetParent(parent types.Entity) { cmediagwrscstatsentry.parent = parent }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetParent() types.Entity { return cmediagwrscstatsentry.parent }
-
-func (cmediagwrscstatsentry *CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry) GetParentYangName() string { return "cMediaGwRscStatsTable" }
 
 // CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry_Cmgwrscstatsindex represents resource.
 type CISCOMEDIAGATEWAYMIB_Cmediagwrscstatstable_Cmediagwrscstatsentry_Cmgwrscstatsindex string

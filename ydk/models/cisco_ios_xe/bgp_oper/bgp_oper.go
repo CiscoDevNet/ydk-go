@@ -19,6 +19,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-bgp-oper:bgp-state-data", reflect.TypeOf(BgpStateData{}))
 }
 
+// BgpLink represents Operational state relevent to bgp global neighbor
+type BgpLink string
+
+const (
+    // iBGP neighbors
+    BgpLink_internal BgpLink = "internal"
+
+    // eBGP neighbors
+    BgpLink_external BgpLink = "external"
+)
+
 // BgpFsmState represents BGP FSM State
 type BgpFsmState string
 
@@ -45,17 +56,6 @@ const (
     BgpFsmState_fsm_nonnegotiated BgpFsmState = "fsm-nonnegotiated"
 )
 
-// BgpLink represents Operational state relevent to bgp global neighbor
-type BgpLink string
-
-const (
-    // iBGP neighbors
-    BgpLink_internal BgpLink = "internal"
-
-    // eBGP neighbors
-    BgpLink_external BgpLink = "external"
-)
-
 // BgpMode represents BGP mode
 type BgpMode string
 
@@ -70,7 +70,7 @@ const (
 // BgpStateData
 // BGP operational state data
 type BgpStateData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // BGP neighbor information.
@@ -81,71 +81,34 @@ type BgpStateData struct {
 
     // BGP VRFs.
     BgpRouteVrfs BgpStateData_BgpRouteVrfs
+
+    // BGP RDs.
+    BgpRouteRds BgpStateData_BgpRouteRds
 }
 
-func (bgpStateData *BgpStateData) GetFilter() yfilter.YFilter { return bgpStateData.YFilter }
+func (bgpStateData *BgpStateData) GetEntityData() *types.CommonEntityData {
+    bgpStateData.EntityData.YFilter = bgpStateData.YFilter
+    bgpStateData.EntityData.YangName = "bgp-state-data"
+    bgpStateData.EntityData.BundleName = "cisco_ios_xe"
+    bgpStateData.EntityData.ParentYangName = "Cisco-IOS-XE-bgp-oper"
+    bgpStateData.EntityData.SegmentPath = "Cisco-IOS-XE-bgp-oper:bgp-state-data"
+    bgpStateData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpStateData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpStateData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpStateData *BgpStateData) SetFilter(yf yfilter.YFilter) { bgpStateData.YFilter = yf }
-
-func (bgpStateData *BgpStateData) GetGoName(yname string) string {
-    if yname == "neighbors" { return "Neighbors" }
-    if yname == "address-families" { return "AddressFamilies" }
-    if yname == "bgp-route-vrfs" { return "BgpRouteVrfs" }
-    return ""
+    bgpStateData.EntityData.Children = make(map[string]types.YChild)
+    bgpStateData.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &bgpStateData.Neighbors}
+    bgpStateData.EntityData.Children["address-families"] = types.YChild{"AddressFamilies", &bgpStateData.AddressFamilies}
+    bgpStateData.EntityData.Children["bgp-route-vrfs"] = types.YChild{"BgpRouteVrfs", &bgpStateData.BgpRouteVrfs}
+    bgpStateData.EntityData.Children["bgp-route-rds"] = types.YChild{"BgpRouteRds", &bgpStateData.BgpRouteRds}
+    bgpStateData.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpStateData.EntityData)
 }
-
-func (bgpStateData *BgpStateData) GetSegmentPath() string {
-    return "Cisco-IOS-XE-bgp-oper:bgp-state-data"
-}
-
-func (bgpStateData *BgpStateData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "neighbors" {
-        return &bgpStateData.Neighbors
-    }
-    if childYangName == "address-families" {
-        return &bgpStateData.AddressFamilies
-    }
-    if childYangName == "bgp-route-vrfs" {
-        return &bgpStateData.BgpRouteVrfs
-    }
-    return nil
-}
-
-func (bgpStateData *BgpStateData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["neighbors"] = &bgpStateData.Neighbors
-    children["address-families"] = &bgpStateData.AddressFamilies
-    children["bgp-route-vrfs"] = &bgpStateData.BgpRouteVrfs
-    return children
-}
-
-func (bgpStateData *BgpStateData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpStateData *BgpStateData) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpStateData *BgpStateData) GetYangName() string { return "bgp-state-data" }
-
-func (bgpStateData *BgpStateData) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpStateData *BgpStateData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpStateData *BgpStateData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpStateData *BgpStateData) SetParent(parent types.Entity) { bgpStateData.parent = parent }
-
-func (bgpStateData *BgpStateData) GetParent() types.Entity { return bgpStateData.parent }
-
-func (bgpStateData *BgpStateData) GetParentYangName() string { return "Cisco-IOS-XE-bgp-oper" }
 
 // BgpStateData_Neighbors
 // BGP neighbor information
 type BgpStateData_Neighbors struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of BGP neighbors. The type is slice of
@@ -153,68 +116,29 @@ type BgpStateData_Neighbors struct {
     Neighbor []BgpStateData_Neighbors_Neighbor
 }
 
-func (neighbors *BgpStateData_Neighbors) GetFilter() yfilter.YFilter { return neighbors.YFilter }
+func (neighbors *BgpStateData_Neighbors) GetEntityData() *types.CommonEntityData {
+    neighbors.EntityData.YFilter = neighbors.YFilter
+    neighbors.EntityData.YangName = "neighbors"
+    neighbors.EntityData.BundleName = "cisco_ios_xe"
+    neighbors.EntityData.ParentYangName = "bgp-state-data"
+    neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    neighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (neighbors *BgpStateData_Neighbors) SetFilter(yf yfilter.YFilter) { neighbors.YFilter = yf }
-
-func (neighbors *BgpStateData_Neighbors) GetGoName(yname string) string {
-    if yname == "neighbor" { return "Neighbor" }
-    return ""
-}
-
-func (neighbors *BgpStateData_Neighbors) GetSegmentPath() string {
-    return "neighbors"
-}
-
-func (neighbors *BgpStateData_Neighbors) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "neighbor" {
-        for _, c := range neighbors.Neighbor {
-            if neighbors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_Neighbors_Neighbor{}
-        neighbors.Neighbor = append(neighbors.Neighbor, child)
-        return &neighbors.Neighbor[len(neighbors.Neighbor)-1]
-    }
-    return nil
-}
-
-func (neighbors *BgpStateData_Neighbors) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    neighbors.EntityData.Children = make(map[string]types.YChild)
+    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
     for i := range neighbors.Neighbor {
-        children[neighbors.Neighbor[i].GetSegmentPath()] = &neighbors.Neighbor[i]
+        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
     }
-    return children
+    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(neighbors.EntityData)
 }
-
-func (neighbors *BgpStateData_Neighbors) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (neighbors *BgpStateData_Neighbors) GetBundleName() string { return "cisco_ios_xe" }
-
-func (neighbors *BgpStateData_Neighbors) GetYangName() string { return "neighbors" }
-
-func (neighbors *BgpStateData_Neighbors) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (neighbors *BgpStateData_Neighbors) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (neighbors *BgpStateData_Neighbors) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (neighbors *BgpStateData_Neighbors) SetParent(parent types.Entity) { neighbors.parent = parent }
-
-func (neighbors *BgpStateData_Neighbors) GetParent() types.Entity { return neighbors.parent }
-
-func (neighbors *BgpStateData_Neighbors) GetParentYangName() string { return "bgp-state-data" }
 
 // BgpStateData_Neighbors_Neighbor
 // List of BGP neighbors
 type BgpStateData_Neighbors_Neighbor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Afi-safi key. The type is AfiSafi.
@@ -257,6 +181,9 @@ type BgpStateData_Neighbors_Neighbor struct {
     // Negotiated capabilities for neighbor session. The type is slice of string.
     NegotiatedCap []interface{}
 
+    // BGP neighbor AS number. The type is interface{} with range: 0..4294967295.
+    As interface{}
+
     // Negotiated keepalive timers status of BGP neighbor.
     NegotiatedKeepaliveTimers BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers
 
@@ -273,103 +200,43 @@ type BgpStateData_Neighbors_Neighbor struct {
     PrefixActivity BgpStateData_Neighbors_Neighbor_PrefixActivity
 }
 
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetFilter() yfilter.YFilter { return neighbor.YFilter }
+func (neighbor *BgpStateData_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData {
+    neighbor.EntityData.YFilter = neighbor.YFilter
+    neighbor.EntityData.YangName = "neighbor"
+    neighbor.EntityData.BundleName = "cisco_ios_xe"
+    neighbor.EntityData.ParentYangName = "neighbors"
+    neighbor.EntityData.SegmentPath = "neighbor" + "[afi-safi='" + fmt.Sprintf("%v", neighbor.AfiSafi) + "']" + "[vrf-name='" + fmt.Sprintf("%v", neighbor.VrfName) + "']" + "[neighbor-id='" + fmt.Sprintf("%v", neighbor.NeighborId) + "']"
+    neighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    neighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (neighbor *BgpStateData_Neighbors_Neighbor) SetFilter(yf yfilter.YFilter) { neighbor.YFilter = yf }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetGoName(yname string) string {
-    if yname == "afi-safi" { return "AfiSafi" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "neighbor-id" { return "NeighborId" }
-    if yname == "description" { return "Description" }
-    if yname == "bgp-version" { return "BgpVersion" }
-    if yname == "link" { return "Link" }
-    if yname == "up-time" { return "UpTime" }
-    if yname == "last-write" { return "LastWrite" }
-    if yname == "last-read" { return "LastRead" }
-    if yname == "installed-prefixes" { return "InstalledPrefixes" }
-    if yname == "session-state" { return "SessionState" }
-    if yname == "negotiated-cap" { return "NegotiatedCap" }
-    if yname == "negotiated-keepalive-timers" { return "NegotiatedKeepaliveTimers" }
-    if yname == "bgp-neighbor-counters" { return "BgpNeighborCounters" }
-    if yname == "connection" { return "Connection" }
-    if yname == "transport" { return "Transport" }
-    if yname == "prefix-activity" { return "PrefixActivity" }
-    return ""
+    neighbor.EntityData.Children = make(map[string]types.YChild)
+    neighbor.EntityData.Children["negotiated-keepalive-timers"] = types.YChild{"NegotiatedKeepaliveTimers", &neighbor.NegotiatedKeepaliveTimers}
+    neighbor.EntityData.Children["bgp-neighbor-counters"] = types.YChild{"BgpNeighborCounters", &neighbor.BgpNeighborCounters}
+    neighbor.EntityData.Children["connection"] = types.YChild{"Connection", &neighbor.Connection}
+    neighbor.EntityData.Children["transport"] = types.YChild{"Transport", &neighbor.Transport}
+    neighbor.EntityData.Children["prefix-activity"] = types.YChild{"PrefixActivity", &neighbor.PrefixActivity}
+    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbor.EntityData.Leafs["afi-safi"] = types.YLeaf{"AfiSafi", neighbor.AfiSafi}
+    neighbor.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", neighbor.VrfName}
+    neighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", neighbor.NeighborId}
+    neighbor.EntityData.Leafs["description"] = types.YLeaf{"Description", neighbor.Description}
+    neighbor.EntityData.Leafs["bgp-version"] = types.YLeaf{"BgpVersion", neighbor.BgpVersion}
+    neighbor.EntityData.Leafs["link"] = types.YLeaf{"Link", neighbor.Link}
+    neighbor.EntityData.Leafs["up-time"] = types.YLeaf{"UpTime", neighbor.UpTime}
+    neighbor.EntityData.Leafs["last-write"] = types.YLeaf{"LastWrite", neighbor.LastWrite}
+    neighbor.EntityData.Leafs["last-read"] = types.YLeaf{"LastRead", neighbor.LastRead}
+    neighbor.EntityData.Leafs["installed-prefixes"] = types.YLeaf{"InstalledPrefixes", neighbor.InstalledPrefixes}
+    neighbor.EntityData.Leafs["session-state"] = types.YLeaf{"SessionState", neighbor.SessionState}
+    neighbor.EntityData.Leafs["negotiated-cap"] = types.YLeaf{"NegotiatedCap", neighbor.NegotiatedCap}
+    neighbor.EntityData.Leafs["as"] = types.YLeaf{"As", neighbor.As}
+    return &(neighbor.EntityData)
 }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetSegmentPath() string {
-    return "neighbor" + "[afi-safi='" + fmt.Sprintf("%v", neighbor.AfiSafi) + "']" + "[vrf-name='" + fmt.Sprintf("%v", neighbor.VrfName) + "']" + "[neighbor-id='" + fmt.Sprintf("%v", neighbor.NeighborId) + "']"
-}
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "negotiated-keepalive-timers" {
-        return &neighbor.NegotiatedKeepaliveTimers
-    }
-    if childYangName == "bgp-neighbor-counters" {
-        return &neighbor.BgpNeighborCounters
-    }
-    if childYangName == "connection" {
-        return &neighbor.Connection
-    }
-    if childYangName == "transport" {
-        return &neighbor.Transport
-    }
-    if childYangName == "prefix-activity" {
-        return &neighbor.PrefixActivity
-    }
-    return nil
-}
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["negotiated-keepalive-timers"] = &neighbor.NegotiatedKeepaliveTimers
-    children["bgp-neighbor-counters"] = &neighbor.BgpNeighborCounters
-    children["connection"] = &neighbor.Connection
-    children["transport"] = &neighbor.Transport
-    children["prefix-activity"] = &neighbor.PrefixActivity
-    return children
-}
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["afi-safi"] = neighbor.AfiSafi
-    leafs["vrf-name"] = neighbor.VrfName
-    leafs["neighbor-id"] = neighbor.NeighborId
-    leafs["description"] = neighbor.Description
-    leafs["bgp-version"] = neighbor.BgpVersion
-    leafs["link"] = neighbor.Link
-    leafs["up-time"] = neighbor.UpTime
-    leafs["last-write"] = neighbor.LastWrite
-    leafs["last-read"] = neighbor.LastRead
-    leafs["installed-prefixes"] = neighbor.InstalledPrefixes
-    leafs["session-state"] = neighbor.SessionState
-    leafs["negotiated-cap"] = neighbor.NegotiatedCap
-    return leafs
-}
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetBundleName() string { return "cisco_ios_xe" }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetYangName() string { return "neighbor" }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) SetParent(parent types.Entity) { neighbor.parent = parent }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetParent() types.Entity { return neighbor.parent }
-
-func (neighbor *BgpStateData_Neighbors_Neighbor) GetParentYangName() string { return "neighbors" }
 
 // BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers
 // Negotiated keepalive timers status of BGP neighbor
 type BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Hold time. The type is interface{} with range: 0..65535.
@@ -379,58 +246,27 @@ type BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers struct {
     KeepaliveInterval interface{}
 }
 
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetFilter() yfilter.YFilter { return negotiatedKeepaliveTimers.YFilter }
+func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetEntityData() *types.CommonEntityData {
+    negotiatedKeepaliveTimers.EntityData.YFilter = negotiatedKeepaliveTimers.YFilter
+    negotiatedKeepaliveTimers.EntityData.YangName = "negotiated-keepalive-timers"
+    negotiatedKeepaliveTimers.EntityData.BundleName = "cisco_ios_xe"
+    negotiatedKeepaliveTimers.EntityData.ParentYangName = "neighbor"
+    negotiatedKeepaliveTimers.EntityData.SegmentPath = "negotiated-keepalive-timers"
+    negotiatedKeepaliveTimers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    negotiatedKeepaliveTimers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    negotiatedKeepaliveTimers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) SetFilter(yf yfilter.YFilter) { negotiatedKeepaliveTimers.YFilter = yf }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetGoName(yname string) string {
-    if yname == "hold-time" { return "HoldTime" }
-    if yname == "keepalive-interval" { return "KeepaliveInterval" }
-    return ""
+    negotiatedKeepaliveTimers.EntityData.Children = make(map[string]types.YChild)
+    negotiatedKeepaliveTimers.EntityData.Leafs = make(map[string]types.YLeaf)
+    negotiatedKeepaliveTimers.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", negotiatedKeepaliveTimers.HoldTime}
+    negotiatedKeepaliveTimers.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", negotiatedKeepaliveTimers.KeepaliveInterval}
+    return &(negotiatedKeepaliveTimers.EntityData)
 }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetSegmentPath() string {
-    return "negotiated-keepalive-timers"
-}
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hold-time"] = negotiatedKeepaliveTimers.HoldTime
-    leafs["keepalive-interval"] = negotiatedKeepaliveTimers.KeepaliveInterval
-    return leafs
-}
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetBundleName() string { return "cisco_ios_xe" }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetYangName() string { return "negotiated-keepalive-timers" }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) SetParent(parent types.Entity) { negotiatedKeepaliveTimers.parent = parent }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetParent() types.Entity { return negotiatedKeepaliveTimers.parent }
-
-func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepaliveTimers) GetParentYangName() string { return "neighbor" }
 
 // BgpStateData_Neighbors_Neighbor_BgpNeighborCounters
 // BGP neighbor session counters
 type BgpStateData_Neighbors_Neighbor_BgpNeighborCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Input Q depth. The type is interface{} with range: 0..4294967295.
@@ -446,68 +282,29 @@ type BgpStateData_Neighbors_Neighbor_BgpNeighborCounters struct {
     Received BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received
 }
 
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetFilter() yfilter.YFilter { return bgpNeighborCounters.YFilter }
+func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetEntityData() *types.CommonEntityData {
+    bgpNeighborCounters.EntityData.YFilter = bgpNeighborCounters.YFilter
+    bgpNeighborCounters.EntityData.YangName = "bgp-neighbor-counters"
+    bgpNeighborCounters.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborCounters.EntityData.ParentYangName = "neighbor"
+    bgpNeighborCounters.EntityData.SegmentPath = "bgp-neighbor-counters"
+    bgpNeighborCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) SetFilter(yf yfilter.YFilter) { bgpNeighborCounters.YFilter = yf }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetGoName(yname string) string {
-    if yname == "inq-depth" { return "InqDepth" }
-    if yname == "outq-depth" { return "OutqDepth" }
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    return ""
+    bgpNeighborCounters.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborCounters.EntityData.Children["sent"] = types.YChild{"Sent", &bgpNeighborCounters.Sent}
+    bgpNeighborCounters.EntityData.Children["received"] = types.YChild{"Received", &bgpNeighborCounters.Received}
+    bgpNeighborCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighborCounters.EntityData.Leafs["inq-depth"] = types.YLeaf{"InqDepth", bgpNeighborCounters.InqDepth}
+    bgpNeighborCounters.EntityData.Leafs["outq-depth"] = types.YLeaf{"OutqDepth", bgpNeighborCounters.OutqDepth}
+    return &(bgpNeighborCounters.EntityData)
 }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetSegmentPath() string {
-    return "bgp-neighbor-counters"
-}
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sent" {
-        return &bgpNeighborCounters.Sent
-    }
-    if childYangName == "received" {
-        return &bgpNeighborCounters.Received
-    }
-    return nil
-}
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sent"] = &bgpNeighborCounters.Sent
-    children["received"] = &bgpNeighborCounters.Received
-    return children
-}
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["inq-depth"] = bgpNeighborCounters.InqDepth
-    leafs["outq-depth"] = bgpNeighborCounters.OutqDepth
-    return leafs
-}
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetYangName() string { return "bgp-neighbor-counters" }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) SetParent(parent types.Entity) { bgpNeighborCounters.parent = parent }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetParent() types.Entity { return bgpNeighborCounters.parent }
-
-func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) GetParentYangName() string { return "neighbor" }
 
 // BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent
 // Number of mesaged sent
 type BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OPEN message count. The type is interface{} with range: 0..4294967295.
@@ -528,64 +325,30 @@ type BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent struct {
     RouteRefreshes interface{}
 }
 
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetFilter() yfilter.YFilter { return sent.YFilter }
+func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetEntityData() *types.CommonEntityData {
+    sent.EntityData.YFilter = sent.YFilter
+    sent.EntityData.YangName = "sent"
+    sent.EntityData.BundleName = "cisco_ios_xe"
+    sent.EntityData.ParentYangName = "bgp-neighbor-counters"
+    sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) SetFilter(yf yfilter.YFilter) { sent.YFilter = yf }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetGoName(yname string) string {
-    if yname == "opens" { return "Opens" }
-    if yname == "updates" { return "Updates" }
-    if yname == "notifications" { return "Notifications" }
-    if yname == "keepalives" { return "Keepalives" }
-    if yname == "route-refreshes" { return "RouteRefreshes" }
-    return ""
+    sent.EntityData.Children = make(map[string]types.YChild)
+    sent.EntityData.Leafs = make(map[string]types.YLeaf)
+    sent.EntityData.Leafs["opens"] = types.YLeaf{"Opens", sent.Opens}
+    sent.EntityData.Leafs["updates"] = types.YLeaf{"Updates", sent.Updates}
+    sent.EntityData.Leafs["notifications"] = types.YLeaf{"Notifications", sent.Notifications}
+    sent.EntityData.Leafs["keepalives"] = types.YLeaf{"Keepalives", sent.Keepalives}
+    sent.EntityData.Leafs["route-refreshes"] = types.YLeaf{"RouteRefreshes", sent.RouteRefreshes}
+    return &(sent.EntityData)
 }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetSegmentPath() string {
-    return "sent"
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["opens"] = sent.Opens
-    leafs["updates"] = sent.Updates
-    leafs["notifications"] = sent.Notifications
-    leafs["keepalives"] = sent.Keepalives
-    leafs["route-refreshes"] = sent.RouteRefreshes
-    return leafs
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetYangName() string { return "sent" }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) SetParent(parent types.Entity) { sent.parent = parent }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetParent() types.Entity { return sent.parent }
-
-func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetParentYangName() string { return "bgp-neighbor-counters" }
 
 // BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received
 // Number of mesaged received
 type BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OPEN message count. The type is interface{} with range: 0..4294967295.
@@ -606,64 +369,30 @@ type BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received struct {
     RouteRefreshes interface{}
 }
 
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetFilter() yfilter.YFilter { return received.YFilter }
+func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetEntityData() *types.CommonEntityData {
+    received.EntityData.YFilter = received.YFilter
+    received.EntityData.YangName = "received"
+    received.EntityData.BundleName = "cisco_ios_xe"
+    received.EntityData.ParentYangName = "bgp-neighbor-counters"
+    received.EntityData.SegmentPath = "received"
+    received.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    received.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    received.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) SetFilter(yf yfilter.YFilter) { received.YFilter = yf }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetGoName(yname string) string {
-    if yname == "opens" { return "Opens" }
-    if yname == "updates" { return "Updates" }
-    if yname == "notifications" { return "Notifications" }
-    if yname == "keepalives" { return "Keepalives" }
-    if yname == "route-refreshes" { return "RouteRefreshes" }
-    return ""
+    received.EntityData.Children = make(map[string]types.YChild)
+    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Leafs["opens"] = types.YLeaf{"Opens", received.Opens}
+    received.EntityData.Leafs["updates"] = types.YLeaf{"Updates", received.Updates}
+    received.EntityData.Leafs["notifications"] = types.YLeaf{"Notifications", received.Notifications}
+    received.EntityData.Leafs["keepalives"] = types.YLeaf{"Keepalives", received.Keepalives}
+    received.EntityData.Leafs["route-refreshes"] = types.YLeaf{"RouteRefreshes", received.RouteRefreshes}
+    return &(received.EntityData)
 }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetSegmentPath() string {
-    return "received"
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["opens"] = received.Opens
-    leafs["updates"] = received.Updates
-    leafs["notifications"] = received.Notifications
-    leafs["keepalives"] = received.Keepalives
-    leafs["route-refreshes"] = received.RouteRefreshes
-    return leafs
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetBundleName() string { return "cisco_ios_xe" }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetYangName() string { return "received" }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) SetParent(parent types.Entity) { received.parent = parent }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetParent() types.Entity { return received.parent }
-
-func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) GetParentYangName() string { return "bgp-neighbor-counters" }
 
 // BgpStateData_Neighbors_Neighbor_Connection
 // BGP neighbor connection
 type BgpStateData_Neighbors_Neighbor_Connection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TCP FSM state. The type is TcpFsmState.
@@ -687,66 +416,31 @@ type BgpStateData_Neighbors_Neighbor_Connection struct {
     ResetReason interface{}
 }
 
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetFilter() yfilter.YFilter { return connection.YFilter }
+func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetEntityData() *types.CommonEntityData {
+    connection.EntityData.YFilter = connection.YFilter
+    connection.EntityData.YangName = "connection"
+    connection.EntityData.BundleName = "cisco_ios_xe"
+    connection.EntityData.ParentYangName = "neighbor"
+    connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    connection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    connection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) SetFilter(yf yfilter.YFilter) { connection.YFilter = yf }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetGoName(yname string) string {
-    if yname == "state" { return "State" }
-    if yname == "mode" { return "Mode" }
-    if yname == "total-established" { return "TotalEstablished" }
-    if yname == "total-dropped" { return "TotalDropped" }
-    if yname == "last-reset" { return "LastReset" }
-    if yname == "reset-reason" { return "ResetReason" }
-    return ""
+    connection.EntityData.Children = make(map[string]types.YChild)
+    connection.EntityData.Leafs = make(map[string]types.YLeaf)
+    connection.EntityData.Leafs["state"] = types.YLeaf{"State", connection.State}
+    connection.EntityData.Leafs["mode"] = types.YLeaf{"Mode", connection.Mode}
+    connection.EntityData.Leafs["total-established"] = types.YLeaf{"TotalEstablished", connection.TotalEstablished}
+    connection.EntityData.Leafs["total-dropped"] = types.YLeaf{"TotalDropped", connection.TotalDropped}
+    connection.EntityData.Leafs["last-reset"] = types.YLeaf{"LastReset", connection.LastReset}
+    connection.EntityData.Leafs["reset-reason"] = types.YLeaf{"ResetReason", connection.ResetReason}
+    return &(connection.EntityData)
 }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetSegmentPath() string {
-    return "connection"
-}
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["state"] = connection.State
-    leafs["mode"] = connection.Mode
-    leafs["total-established"] = connection.TotalEstablished
-    leafs["total-dropped"] = connection.TotalDropped
-    leafs["last-reset"] = connection.LastReset
-    leafs["reset-reason"] = connection.ResetReason
-    return leafs
-}
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetBundleName() string { return "cisco_ios_xe" }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetYangName() string { return "connection" }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) SetParent(parent types.Entity) { connection.parent = parent }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetParent() types.Entity { return connection.parent }
-
-func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetParentYangName() string { return "neighbor" }
 
 // BgpStateData_Neighbors_Neighbor_Transport
 // BGP neighbor transport
 type BgpStateData_Neighbors_Neighbor_Transport struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indication whether path MTU discovrey is enabled. The type is bool.
@@ -758,9 +452,9 @@ type BgpStateData_Neighbors_Neighbor_Transport struct {
 
     // Local address used for the TCP session. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalHost interface{}
 
     // Remote port used by the peer for the TCP session. The type is interface{}
@@ -769,9 +463,9 @@ type BgpStateData_Neighbors_Neighbor_Transport struct {
 
     // Remote address of the BGP session. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ForeignHost interface{}
 
     // Maximum Data segment size. The type is interface{} with range:
@@ -779,66 +473,31 @@ type BgpStateData_Neighbors_Neighbor_Transport struct {
     Mss interface{}
 }
 
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetFilter() yfilter.YFilter { return transport.YFilter }
+func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetEntityData() *types.CommonEntityData {
+    transport.EntityData.YFilter = transport.YFilter
+    transport.EntityData.YangName = "transport"
+    transport.EntityData.BundleName = "cisco_ios_xe"
+    transport.EntityData.ParentYangName = "neighbor"
+    transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    transport.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    transport.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) SetFilter(yf yfilter.YFilter) { transport.YFilter = yf }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetGoName(yname string) string {
-    if yname == "path-mtu-discovery" { return "PathMtuDiscovery" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "local-host" { return "LocalHost" }
-    if yname == "foreign-port" { return "ForeignPort" }
-    if yname == "foreign-host" { return "ForeignHost" }
-    if yname == "mss" { return "Mss" }
-    return ""
+    transport.EntityData.Children = make(map[string]types.YChild)
+    transport.EntityData.Leafs = make(map[string]types.YLeaf)
+    transport.EntityData.Leafs["path-mtu-discovery"] = types.YLeaf{"PathMtuDiscovery", transport.PathMtuDiscovery}
+    transport.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", transport.LocalPort}
+    transport.EntityData.Leafs["local-host"] = types.YLeaf{"LocalHost", transport.LocalHost}
+    transport.EntityData.Leafs["foreign-port"] = types.YLeaf{"ForeignPort", transport.ForeignPort}
+    transport.EntityData.Leafs["foreign-host"] = types.YLeaf{"ForeignHost", transport.ForeignHost}
+    transport.EntityData.Leafs["mss"] = types.YLeaf{"Mss", transport.Mss}
+    return &(transport.EntityData)
 }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetSegmentPath() string {
-    return "transport"
-}
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path-mtu-discovery"] = transport.PathMtuDiscovery
-    leafs["local-port"] = transport.LocalPort
-    leafs["local-host"] = transport.LocalHost
-    leafs["foreign-port"] = transport.ForeignPort
-    leafs["foreign-host"] = transport.ForeignHost
-    leafs["mss"] = transport.Mss
-    return leafs
-}
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetBundleName() string { return "cisco_ios_xe" }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetYangName() string { return "transport" }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) SetParent(parent types.Entity) { transport.parent = parent }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetParent() types.Entity { return transport.parent }
-
-func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetParentYangName() string { return "neighbor" }
 
 // BgpStateData_Neighbors_Neighbor_PrefixActivity
 // BGP neighbor activity
 type BgpStateData_Neighbors_Neighbor_PrefixActivity struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of prefixes sent.
@@ -848,64 +507,27 @@ type BgpStateData_Neighbors_Neighbor_PrefixActivity struct {
     Received BgpStateData_Neighbors_Neighbor_PrefixActivity_Received
 }
 
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetFilter() yfilter.YFilter { return prefixActivity.YFilter }
+func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetEntityData() *types.CommonEntityData {
+    prefixActivity.EntityData.YFilter = prefixActivity.YFilter
+    prefixActivity.EntityData.YangName = "prefix-activity"
+    prefixActivity.EntityData.BundleName = "cisco_ios_xe"
+    prefixActivity.EntityData.ParentYangName = "neighbor"
+    prefixActivity.EntityData.SegmentPath = "prefix-activity"
+    prefixActivity.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    prefixActivity.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    prefixActivity.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) SetFilter(yf yfilter.YFilter) { prefixActivity.YFilter = yf }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    return ""
+    prefixActivity.EntityData.Children = make(map[string]types.YChild)
+    prefixActivity.EntityData.Children["sent"] = types.YChild{"Sent", &prefixActivity.Sent}
+    prefixActivity.EntityData.Children["received"] = types.YChild{"Received", &prefixActivity.Received}
+    prefixActivity.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(prefixActivity.EntityData)
 }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetSegmentPath() string {
-    return "prefix-activity"
-}
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sent" {
-        return &prefixActivity.Sent
-    }
-    if childYangName == "received" {
-        return &prefixActivity.Received
-    }
-    return nil
-}
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sent"] = &prefixActivity.Sent
-    children["received"] = &prefixActivity.Received
-    return children
-}
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetBundleName() string { return "cisco_ios_xe" }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetYangName() string { return "prefix-activity" }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) SetParent(parent types.Entity) { prefixActivity.parent = parent }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetParent() types.Entity { return prefixActivity.parent }
-
-func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetParentYangName() string { return "neighbor" }
 
 // BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent
 // Number of prefixes sent
 type BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The current number of accepted prefixes. The type is interface{} with
@@ -933,66 +555,31 @@ type BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent struct {
     Multipaths interface{}
 }
 
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetFilter() yfilter.YFilter { return sent.YFilter }
+func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetEntityData() *types.CommonEntityData {
+    sent.EntityData.YFilter = sent.YFilter
+    sent.EntityData.YangName = "sent"
+    sent.EntityData.BundleName = "cisco_ios_xe"
+    sent.EntityData.ParentYangName = "prefix-activity"
+    sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) SetFilter(yf yfilter.YFilter) { sent.YFilter = yf }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetGoName(yname string) string {
-    if yname == "current-prefixes" { return "CurrentPrefixes" }
-    if yname == "total-prefixes" { return "TotalPrefixes" }
-    if yname == "implicit-withdraw" { return "ImplicitWithdraw" }
-    if yname == "explicit-withdraw" { return "ExplicitWithdraw" }
-    if yname == "bestpaths" { return "Bestpaths" }
-    if yname == "multipaths" { return "Multipaths" }
-    return ""
+    sent.EntityData.Children = make(map[string]types.YChild)
+    sent.EntityData.Leafs = make(map[string]types.YLeaf)
+    sent.EntityData.Leafs["current-prefixes"] = types.YLeaf{"CurrentPrefixes", sent.CurrentPrefixes}
+    sent.EntityData.Leafs["total-prefixes"] = types.YLeaf{"TotalPrefixes", sent.TotalPrefixes}
+    sent.EntityData.Leafs["implicit-withdraw"] = types.YLeaf{"ImplicitWithdraw", sent.ImplicitWithdraw}
+    sent.EntityData.Leafs["explicit-withdraw"] = types.YLeaf{"ExplicitWithdraw", sent.ExplicitWithdraw}
+    sent.EntityData.Leafs["bestpaths"] = types.YLeaf{"Bestpaths", sent.Bestpaths}
+    sent.EntityData.Leafs["multipaths"] = types.YLeaf{"Multipaths", sent.Multipaths}
+    return &(sent.EntityData)
 }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetSegmentPath() string {
-    return "sent"
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["current-prefixes"] = sent.CurrentPrefixes
-    leafs["total-prefixes"] = sent.TotalPrefixes
-    leafs["implicit-withdraw"] = sent.ImplicitWithdraw
-    leafs["explicit-withdraw"] = sent.ExplicitWithdraw
-    leafs["bestpaths"] = sent.Bestpaths
-    leafs["multipaths"] = sent.Multipaths
-    return leafs
-}
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetYangName() string { return "sent" }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) SetParent(parent types.Entity) { sent.parent = parent }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetParent() types.Entity { return sent.parent }
-
-func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetParentYangName() string { return "prefix-activity" }
 
 // BgpStateData_Neighbors_Neighbor_PrefixActivity_Received
 // Number of prefixes received
 type BgpStateData_Neighbors_Neighbor_PrefixActivity_Received struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The current number of accepted prefixes. The type is interface{} with
@@ -1020,66 +607,31 @@ type BgpStateData_Neighbors_Neighbor_PrefixActivity_Received struct {
     Multipaths interface{}
 }
 
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetFilter() yfilter.YFilter { return received.YFilter }
+func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetEntityData() *types.CommonEntityData {
+    received.EntityData.YFilter = received.YFilter
+    received.EntityData.YangName = "received"
+    received.EntityData.BundleName = "cisco_ios_xe"
+    received.EntityData.ParentYangName = "prefix-activity"
+    received.EntityData.SegmentPath = "received"
+    received.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    received.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    received.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) SetFilter(yf yfilter.YFilter) { received.YFilter = yf }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetGoName(yname string) string {
-    if yname == "current-prefixes" { return "CurrentPrefixes" }
-    if yname == "total-prefixes" { return "TotalPrefixes" }
-    if yname == "implicit-withdraw" { return "ImplicitWithdraw" }
-    if yname == "explicit-withdraw" { return "ExplicitWithdraw" }
-    if yname == "bestpaths" { return "Bestpaths" }
-    if yname == "multipaths" { return "Multipaths" }
-    return ""
+    received.EntityData.Children = make(map[string]types.YChild)
+    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Leafs["current-prefixes"] = types.YLeaf{"CurrentPrefixes", received.CurrentPrefixes}
+    received.EntityData.Leafs["total-prefixes"] = types.YLeaf{"TotalPrefixes", received.TotalPrefixes}
+    received.EntityData.Leafs["implicit-withdraw"] = types.YLeaf{"ImplicitWithdraw", received.ImplicitWithdraw}
+    received.EntityData.Leafs["explicit-withdraw"] = types.YLeaf{"ExplicitWithdraw", received.ExplicitWithdraw}
+    received.EntityData.Leafs["bestpaths"] = types.YLeaf{"Bestpaths", received.Bestpaths}
+    received.EntityData.Leafs["multipaths"] = types.YLeaf{"Multipaths", received.Multipaths}
+    return &(received.EntityData)
 }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetSegmentPath() string {
-    return "received"
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["current-prefixes"] = received.CurrentPrefixes
-    leafs["total-prefixes"] = received.TotalPrefixes
-    leafs["implicit-withdraw"] = received.ImplicitWithdraw
-    leafs["explicit-withdraw"] = received.ExplicitWithdraw
-    leafs["bestpaths"] = received.Bestpaths
-    leafs["multipaths"] = received.Multipaths
-    return leafs
-}
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetBundleName() string { return "cisco_ios_xe" }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetYangName() string { return "received" }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) SetParent(parent types.Entity) { received.parent = parent }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetParent() types.Entity { return received.parent }
-
-func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetParentYangName() string { return "prefix-activity" }
 
 // BgpStateData_AddressFamilies
 // BGP address family
 type BgpStateData_AddressFamilies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of BGP address families. The type is slice of
@@ -1087,68 +639,29 @@ type BgpStateData_AddressFamilies struct {
     AddressFamily []BgpStateData_AddressFamilies_AddressFamily
 }
 
-func (addressFamilies *BgpStateData_AddressFamilies) GetFilter() yfilter.YFilter { return addressFamilies.YFilter }
+func (addressFamilies *BgpStateData_AddressFamilies) GetEntityData() *types.CommonEntityData {
+    addressFamilies.EntityData.YFilter = addressFamilies.YFilter
+    addressFamilies.EntityData.YangName = "address-families"
+    addressFamilies.EntityData.BundleName = "cisco_ios_xe"
+    addressFamilies.EntityData.ParentYangName = "bgp-state-data"
+    addressFamilies.EntityData.SegmentPath = "address-families"
+    addressFamilies.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressFamilies.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressFamilies.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (addressFamilies *BgpStateData_AddressFamilies) SetFilter(yf yfilter.YFilter) { addressFamilies.YFilter = yf }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetGoName(yname string) string {
-    if yname == "address-family" { return "AddressFamily" }
-    return ""
-}
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetSegmentPath() string {
-    return "address-families"
-}
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "address-family" {
-        for _, c := range addressFamilies.AddressFamily {
-            if addressFamilies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_AddressFamilies_AddressFamily{}
-        addressFamilies.AddressFamily = append(addressFamilies.AddressFamily, child)
-        return &addressFamilies.AddressFamily[len(addressFamilies.AddressFamily)-1]
-    }
-    return nil
-}
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    addressFamilies.EntityData.Children = make(map[string]types.YChild)
+    addressFamilies.EntityData.Children["address-family"] = types.YChild{"AddressFamily", nil}
     for i := range addressFamilies.AddressFamily {
-        children[addressFamilies.AddressFamily[i].GetSegmentPath()] = &addressFamilies.AddressFamily[i]
+        addressFamilies.EntityData.Children[types.GetSegmentPath(&addressFamilies.AddressFamily[i])] = types.YChild{"AddressFamily", &addressFamilies.AddressFamily[i]}
     }
-    return children
+    addressFamilies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addressFamilies.EntityData)
 }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetBundleName() string { return "cisco_ios_xe" }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetYangName() string { return "address-families" }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (addressFamilies *BgpStateData_AddressFamilies) SetParent(parent types.Entity) { addressFamilies.parent = parent }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetParent() types.Entity { return addressFamilies.parent }
-
-func (addressFamilies *BgpStateData_AddressFamilies) GetParentYangName() string { return "bgp-state-data" }
 
 // BgpStateData_AddressFamilies_AddressFamily
 // List of BGP address families
 type BgpStateData_AddressFamilies_AddressFamily struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Afi-safi value. The type is AfiSafi.
@@ -1158,9 +671,9 @@ type BgpStateData_AddressFamilies_AddressFamily struct {
     VrfName interface{}
 
     // Router ID. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RouterId interface{}
 
     // BGP table version number. The type is interface{} with range:
@@ -1174,6 +687,9 @@ type BgpStateData_AddressFamilies_AddressFamily struct {
     // Total memory in use. The type is interface{} with range:
     // 0..18446744073709551615.
     TotalMemory interface{}
+
+    // Local AS number. The type is interface{} with range: 0..4294967295.
+    LocalAs interface{}
 
     // Prefix entry statistics.
     Prefixes BgpStateData_AddressFamilies_AddressFamily_Prefixes
@@ -1197,101 +713,39 @@ type BgpStateData_AddressFamilies_AddressFamily struct {
     BgpNeighborSummaries BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries
 }
 
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetFilter() yfilter.YFilter { return addressFamily.YFilter }
+func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetEntityData() *types.CommonEntityData {
+    addressFamily.EntityData.YFilter = addressFamily.YFilter
+    addressFamily.EntityData.YangName = "address-family"
+    addressFamily.EntityData.BundleName = "cisco_ios_xe"
+    addressFamily.EntityData.ParentYangName = "address-families"
+    addressFamily.EntityData.SegmentPath = "address-family" + "[afi-safi='" + fmt.Sprintf("%v", addressFamily.AfiSafi) + "']" + "[vrf-name='" + fmt.Sprintf("%v", addressFamily.VrfName) + "']"
+    addressFamily.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressFamily.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) SetFilter(yf yfilter.YFilter) { addressFamily.YFilter = yf }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetGoName(yname string) string {
-    if yname == "afi-safi" { return "AfiSafi" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "router-id" { return "RouterId" }
-    if yname == "bgp-table-version" { return "BgpTableVersion" }
-    if yname == "routing-table-version" { return "RoutingTableVersion" }
-    if yname == "total-memory" { return "TotalMemory" }
-    if yname == "prefixes" { return "Prefixes" }
-    if yname == "path" { return "Path" }
-    if yname == "as-path" { return "AsPath" }
-    if yname == "route-map" { return "RouteMap" }
-    if yname == "filter-list" { return "FilterList" }
-    if yname == "activities" { return "Activities" }
-    if yname == "bgp-neighbor-summaries" { return "BgpNeighborSummaries" }
-    return ""
+    addressFamily.EntityData.Children = make(map[string]types.YChild)
+    addressFamily.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &addressFamily.Prefixes}
+    addressFamily.EntityData.Children["path"] = types.YChild{"Path", &addressFamily.Path}
+    addressFamily.EntityData.Children["as-path"] = types.YChild{"AsPath", &addressFamily.AsPath}
+    addressFamily.EntityData.Children["route-map"] = types.YChild{"RouteMap", &addressFamily.RouteMap}
+    addressFamily.EntityData.Children["filter-list"] = types.YChild{"FilterList", &addressFamily.FilterList}
+    addressFamily.EntityData.Children["activities"] = types.YChild{"Activities", &addressFamily.Activities}
+    addressFamily.EntityData.Children["bgp-neighbor-summaries"] = types.YChild{"BgpNeighborSummaries", &addressFamily.BgpNeighborSummaries}
+    addressFamily.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamily.EntityData.Leafs["afi-safi"] = types.YLeaf{"AfiSafi", addressFamily.AfiSafi}
+    addressFamily.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", addressFamily.VrfName}
+    addressFamily.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", addressFamily.RouterId}
+    addressFamily.EntityData.Leafs["bgp-table-version"] = types.YLeaf{"BgpTableVersion", addressFamily.BgpTableVersion}
+    addressFamily.EntityData.Leafs["routing-table-version"] = types.YLeaf{"RoutingTableVersion", addressFamily.RoutingTableVersion}
+    addressFamily.EntityData.Leafs["total-memory"] = types.YLeaf{"TotalMemory", addressFamily.TotalMemory}
+    addressFamily.EntityData.Leafs["local-as"] = types.YLeaf{"LocalAs", addressFamily.LocalAs}
+    return &(addressFamily.EntityData)
 }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetSegmentPath() string {
-    return "address-family" + "[afi-safi='" + fmt.Sprintf("%v", addressFamily.AfiSafi) + "']" + "[vrf-name='" + fmt.Sprintf("%v", addressFamily.VrfName) + "']"
-}
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefixes" {
-        return &addressFamily.Prefixes
-    }
-    if childYangName == "path" {
-        return &addressFamily.Path
-    }
-    if childYangName == "as-path" {
-        return &addressFamily.AsPath
-    }
-    if childYangName == "route-map" {
-        return &addressFamily.RouteMap
-    }
-    if childYangName == "filter-list" {
-        return &addressFamily.FilterList
-    }
-    if childYangName == "activities" {
-        return &addressFamily.Activities
-    }
-    if childYangName == "bgp-neighbor-summaries" {
-        return &addressFamily.BgpNeighborSummaries
-    }
-    return nil
-}
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["prefixes"] = &addressFamily.Prefixes
-    children["path"] = &addressFamily.Path
-    children["as-path"] = &addressFamily.AsPath
-    children["route-map"] = &addressFamily.RouteMap
-    children["filter-list"] = &addressFamily.FilterList
-    children["activities"] = &addressFamily.Activities
-    children["bgp-neighbor-summaries"] = &addressFamily.BgpNeighborSummaries
-    return children
-}
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["afi-safi"] = addressFamily.AfiSafi
-    leafs["vrf-name"] = addressFamily.VrfName
-    leafs["router-id"] = addressFamily.RouterId
-    leafs["bgp-table-version"] = addressFamily.BgpTableVersion
-    leafs["routing-table-version"] = addressFamily.RoutingTableVersion
-    leafs["total-memory"] = addressFamily.TotalMemory
-    return leafs
-}
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetBundleName() string { return "cisco_ios_xe" }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetYangName() string { return "address-family" }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) SetParent(parent types.Entity) { addressFamily.parent = parent }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetParent() types.Entity { return addressFamily.parent }
-
-func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetParentYangName() string { return "address-families" }
 
 // BgpStateData_AddressFamilies_AddressFamily_Prefixes
 // Prefix entry statistics
 type BgpStateData_AddressFamilies_AddressFamily_Prefixes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of prefix entries. The type is interface{} with range:
@@ -1303,58 +757,27 @@ type BgpStateData_AddressFamilies_AddressFamily_Prefixes struct {
     MemoryUsage interface{}
 }
 
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetFilter() yfilter.YFilter { return prefixes.YFilter }
+func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetEntityData() *types.CommonEntityData {
+    prefixes.EntityData.YFilter = prefixes.YFilter
+    prefixes.EntityData.YangName = "prefixes"
+    prefixes.EntityData.BundleName = "cisco_ios_xe"
+    prefixes.EntityData.ParentYangName = "address-family"
+    prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    prefixes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) SetFilter(yf yfilter.YFilter) { prefixes.YFilter = yf }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetGoName(yname string) string {
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "memory-usage" { return "MemoryUsage" }
-    return ""
+    prefixes.EntityData.Children = make(map[string]types.YChild)
+    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixes.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", prefixes.TotalEntries}
+    prefixes.EntityData.Leafs["memory-usage"] = types.YLeaf{"MemoryUsage", prefixes.MemoryUsage}
+    return &(prefixes.EntityData)
 }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetSegmentPath() string {
-    return "prefixes"
-}
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-entries"] = prefixes.TotalEntries
-    leafs["memory-usage"] = prefixes.MemoryUsage
-    return leafs
-}
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetBundleName() string { return "cisco_ios_xe" }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetYangName() string { return "prefixes" }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) SetParent(parent types.Entity) { prefixes.parent = parent }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetParent() types.Entity { return prefixes.parent }
-
-func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_Path
 // Path entry statistics
 type BgpStateData_AddressFamilies_AddressFamily_Path struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of prefix entries. The type is interface{} with range:
@@ -1366,58 +789,27 @@ type BgpStateData_AddressFamilies_AddressFamily_Path struct {
     MemoryUsage interface{}
 }
 
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetFilter() yfilter.YFilter { return path.YFilter }
+func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetEntityData() *types.CommonEntityData {
+    path.EntityData.YFilter = path.YFilter
+    path.EntityData.YangName = "path"
+    path.EntityData.BundleName = "cisco_ios_xe"
+    path.EntityData.ParentYangName = "address-family"
+    path.EntityData.SegmentPath = "path"
+    path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    path.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) SetFilter(yf yfilter.YFilter) { path.YFilter = yf }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetGoName(yname string) string {
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "memory-usage" { return "MemoryUsage" }
-    return ""
+    path.EntityData.Children = make(map[string]types.YChild)
+    path.EntityData.Leafs = make(map[string]types.YLeaf)
+    path.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", path.TotalEntries}
+    path.EntityData.Leafs["memory-usage"] = types.YLeaf{"MemoryUsage", path.MemoryUsage}
+    return &(path.EntityData)
 }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetSegmentPath() string {
-    return "path"
-}
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-entries"] = path.TotalEntries
-    leafs["memory-usage"] = path.MemoryUsage
-    return leafs
-}
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetBundleName() string { return "cisco_ios_xe" }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetYangName() string { return "path" }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) SetParent(parent types.Entity) { path.parent = parent }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetParent() types.Entity { return path.parent }
-
-func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_AsPath
 // AS path entry statistics
 type BgpStateData_AddressFamilies_AddressFamily_AsPath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of prefix entries. The type is interface{} with range:
@@ -1429,58 +821,27 @@ type BgpStateData_AddressFamilies_AddressFamily_AsPath struct {
     MemoryUsage interface{}
 }
 
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetFilter() yfilter.YFilter { return asPath.YFilter }
+func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetEntityData() *types.CommonEntityData {
+    asPath.EntityData.YFilter = asPath.YFilter
+    asPath.EntityData.YangName = "as-path"
+    asPath.EntityData.BundleName = "cisco_ios_xe"
+    asPath.EntityData.ParentYangName = "address-family"
+    asPath.EntityData.SegmentPath = "as-path"
+    asPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    asPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    asPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) SetFilter(yf yfilter.YFilter) { asPath.YFilter = yf }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetGoName(yname string) string {
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "memory-usage" { return "MemoryUsage" }
-    return ""
+    asPath.EntityData.Children = make(map[string]types.YChild)
+    asPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    asPath.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", asPath.TotalEntries}
+    asPath.EntityData.Leafs["memory-usage"] = types.YLeaf{"MemoryUsage", asPath.MemoryUsage}
+    return &(asPath.EntityData)
 }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetSegmentPath() string {
-    return "as-path"
-}
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-entries"] = asPath.TotalEntries
-    leafs["memory-usage"] = asPath.MemoryUsage
-    return leafs
-}
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetBundleName() string { return "cisco_ios_xe" }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetYangName() string { return "as-path" }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) SetParent(parent types.Entity) { asPath.parent = parent }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetParent() types.Entity { return asPath.parent }
-
-func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_RouteMap
 // Route map entry statistics
 type BgpStateData_AddressFamilies_AddressFamily_RouteMap struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of prefix entries. The type is interface{} with range:
@@ -1492,58 +853,27 @@ type BgpStateData_AddressFamilies_AddressFamily_RouteMap struct {
     MemoryUsage interface{}
 }
 
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetFilter() yfilter.YFilter { return routeMap.YFilter }
+func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetEntityData() *types.CommonEntityData {
+    routeMap.EntityData.YFilter = routeMap.YFilter
+    routeMap.EntityData.YangName = "route-map"
+    routeMap.EntityData.BundleName = "cisco_ios_xe"
+    routeMap.EntityData.ParentYangName = "address-family"
+    routeMap.EntityData.SegmentPath = "route-map"
+    routeMap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routeMap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routeMap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) SetFilter(yf yfilter.YFilter) { routeMap.YFilter = yf }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetGoName(yname string) string {
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "memory-usage" { return "MemoryUsage" }
-    return ""
+    routeMap.EntityData.Children = make(map[string]types.YChild)
+    routeMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    routeMap.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", routeMap.TotalEntries}
+    routeMap.EntityData.Leafs["memory-usage"] = types.YLeaf{"MemoryUsage", routeMap.MemoryUsage}
+    return &(routeMap.EntityData)
 }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetSegmentPath() string {
-    return "route-map"
-}
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-entries"] = routeMap.TotalEntries
-    leafs["memory-usage"] = routeMap.MemoryUsage
-    return leafs
-}
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetBundleName() string { return "cisco_ios_xe" }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetYangName() string { return "route-map" }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) SetParent(parent types.Entity) { routeMap.parent = parent }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetParent() types.Entity { return routeMap.parent }
-
-func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_FilterList
 // Filter list entry statistics
 type BgpStateData_AddressFamilies_AddressFamily_FilterList struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of prefix entries. The type is interface{} with range:
@@ -1555,58 +885,27 @@ type BgpStateData_AddressFamilies_AddressFamily_FilterList struct {
     MemoryUsage interface{}
 }
 
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetFilter() yfilter.YFilter { return filterList.YFilter }
+func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetEntityData() *types.CommonEntityData {
+    filterList.EntityData.YFilter = filterList.YFilter
+    filterList.EntityData.YangName = "filter-list"
+    filterList.EntityData.BundleName = "cisco_ios_xe"
+    filterList.EntityData.ParentYangName = "address-family"
+    filterList.EntityData.SegmentPath = "filter-list"
+    filterList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    filterList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    filterList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) SetFilter(yf yfilter.YFilter) { filterList.YFilter = yf }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetGoName(yname string) string {
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "memory-usage" { return "MemoryUsage" }
-    return ""
+    filterList.EntityData.Children = make(map[string]types.YChild)
+    filterList.EntityData.Leafs = make(map[string]types.YLeaf)
+    filterList.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", filterList.TotalEntries}
+    filterList.EntityData.Leafs["memory-usage"] = types.YLeaf{"MemoryUsage", filterList.MemoryUsage}
+    return &(filterList.EntityData)
 }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetSegmentPath() string {
-    return "filter-list"
-}
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-entries"] = filterList.TotalEntries
-    leafs["memory-usage"] = filterList.MemoryUsage
-    return leafs
-}
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetBundleName() string { return "cisco_ios_xe" }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetYangName() string { return "filter-list" }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) SetParent(parent types.Entity) { filterList.parent = parent }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetParent() types.Entity { return filterList.parent }
-
-func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_Activities
 // BGP activity information
 type BgpStateData_AddressFamilies_AddressFamily_Activities struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of prefixes. The type is interface{} with range:
@@ -1621,60 +920,28 @@ type BgpStateData_AddressFamilies_AddressFamily_Activities struct {
     ScanInterval interface{}
 }
 
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetFilter() yfilter.YFilter { return activities.YFilter }
+func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetEntityData() *types.CommonEntityData {
+    activities.EntityData.YFilter = activities.YFilter
+    activities.EntityData.YangName = "activities"
+    activities.EntityData.BundleName = "cisco_ios_xe"
+    activities.EntityData.ParentYangName = "address-family"
+    activities.EntityData.SegmentPath = "activities"
+    activities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    activities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    activities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) SetFilter(yf yfilter.YFilter) { activities.YFilter = yf }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetGoName(yname string) string {
-    if yname == "prefixes" { return "Prefixes" }
-    if yname == "paths" { return "Paths" }
-    if yname == "scan-interval" { return "ScanInterval" }
-    return ""
+    activities.EntityData.Children = make(map[string]types.YChild)
+    activities.EntityData.Leafs = make(map[string]types.YLeaf)
+    activities.EntityData.Leafs["prefixes"] = types.YLeaf{"Prefixes", activities.Prefixes}
+    activities.EntityData.Leafs["paths"] = types.YLeaf{"Paths", activities.Paths}
+    activities.EntityData.Leafs["scan-interval"] = types.YLeaf{"ScanInterval", activities.ScanInterval}
+    return &(activities.EntityData)
 }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetSegmentPath() string {
-    return "activities"
-}
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefixes"] = activities.Prefixes
-    leafs["paths"] = activities.Paths
-    leafs["scan-interval"] = activities.ScanInterval
-    return leafs
-}
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetBundleName() string { return "cisco_ios_xe" }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetYangName() string { return "activities" }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) SetParent(parent types.Entity) { activities.parent = parent }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetParent() types.Entity { return activities.parent }
-
-func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries
 // Neighbor summary
 type BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of neighbor summaries. The type is slice of
@@ -1682,68 +949,29 @@ type BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries struct {
     BgpNeighborSummary []BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary
 }
 
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetFilter() yfilter.YFilter { return bgpNeighborSummaries.YFilter }
+func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetEntityData() *types.CommonEntityData {
+    bgpNeighborSummaries.EntityData.YFilter = bgpNeighborSummaries.YFilter
+    bgpNeighborSummaries.EntityData.YangName = "bgp-neighbor-summaries"
+    bgpNeighborSummaries.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborSummaries.EntityData.ParentYangName = "address-family"
+    bgpNeighborSummaries.EntityData.SegmentPath = "bgp-neighbor-summaries"
+    bgpNeighborSummaries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborSummaries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) SetFilter(yf yfilter.YFilter) { bgpNeighborSummaries.YFilter = yf }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetGoName(yname string) string {
-    if yname == "bgp-neighbor-summary" { return "BgpNeighborSummary" }
-    return ""
-}
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetSegmentPath() string {
-    return "bgp-neighbor-summaries"
-}
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-neighbor-summary" {
-        for _, c := range bgpNeighborSummaries.BgpNeighborSummary {
-            if bgpNeighborSummaries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary{}
-        bgpNeighborSummaries.BgpNeighborSummary = append(bgpNeighborSummaries.BgpNeighborSummary, child)
-        return &bgpNeighborSummaries.BgpNeighborSummary[len(bgpNeighborSummaries.BgpNeighborSummary)-1]
-    }
-    return nil
-}
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bgpNeighborSummaries.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborSummaries.EntityData.Children["bgp-neighbor-summary"] = types.YChild{"BgpNeighborSummary", nil}
     for i := range bgpNeighborSummaries.BgpNeighborSummary {
-        children[bgpNeighborSummaries.BgpNeighborSummary[i].GetSegmentPath()] = &bgpNeighborSummaries.BgpNeighborSummary[i]
+        bgpNeighborSummaries.EntityData.Children[types.GetSegmentPath(&bgpNeighborSummaries.BgpNeighborSummary[i])] = types.YChild{"BgpNeighborSummary", &bgpNeighborSummaries.BgpNeighborSummary[i]}
     }
-    return children
+    bgpNeighborSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpNeighborSummaries.EntityData)
 }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetYangName() string { return "bgp-neighbor-summaries" }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) SetParent(parent types.Entity) { bgpNeighborSummaries.parent = parent }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetParent() types.Entity { return bgpNeighborSummaries.parent }
-
-func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries) GetParentYangName() string { return "address-family" }
 
 // BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary
 // List of neighbor summaries
 type BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Neighbor address. The type is string.
@@ -1785,78 +1013,42 @@ type BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighbor
     // Indication of whether the neighbor was dyanmically configured. The type is
     // bool.
     DynamicallyConfigured interface{}
+
+    // BGP neighbor AS number. The type is interface{} with range: 0..4294967295.
+    As interface{}
 }
 
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetFilter() yfilter.YFilter { return bgpNeighborSummary.YFilter }
+func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetEntityData() *types.CommonEntityData {
+    bgpNeighborSummary.EntityData.YFilter = bgpNeighborSummary.YFilter
+    bgpNeighborSummary.EntityData.YangName = "bgp-neighbor-summary"
+    bgpNeighborSummary.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborSummary.EntityData.ParentYangName = "bgp-neighbor-summaries"
+    bgpNeighborSummary.EntityData.SegmentPath = "bgp-neighbor-summary" + "[id='" + fmt.Sprintf("%v", bgpNeighborSummary.Id) + "']"
+    bgpNeighborSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) SetFilter(yf yfilter.YFilter) { bgpNeighborSummary.YFilter = yf }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "bgp-version" { return "BgpVersion" }
-    if yname == "messages-received" { return "MessagesReceived" }
-    if yname == "messages-sent" { return "MessagesSent" }
-    if yname == "table-version" { return "TableVersion" }
-    if yname == "input-queue" { return "InputQueue" }
-    if yname == "output-queue" { return "OutputQueue" }
-    if yname == "up-time" { return "UpTime" }
-    if yname == "state" { return "State" }
-    if yname == "prefixes-received" { return "PrefixesReceived" }
-    if yname == "dynamically-configured" { return "DynamicallyConfigured" }
-    return ""
+    bgpNeighborSummary.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighborSummary.EntityData.Leafs["id"] = types.YLeaf{"Id", bgpNeighborSummary.Id}
+    bgpNeighborSummary.EntityData.Leafs["bgp-version"] = types.YLeaf{"BgpVersion", bgpNeighborSummary.BgpVersion}
+    bgpNeighborSummary.EntityData.Leafs["messages-received"] = types.YLeaf{"MessagesReceived", bgpNeighborSummary.MessagesReceived}
+    bgpNeighborSummary.EntityData.Leafs["messages-sent"] = types.YLeaf{"MessagesSent", bgpNeighborSummary.MessagesSent}
+    bgpNeighborSummary.EntityData.Leafs["table-version"] = types.YLeaf{"TableVersion", bgpNeighborSummary.TableVersion}
+    bgpNeighborSummary.EntityData.Leafs["input-queue"] = types.YLeaf{"InputQueue", bgpNeighborSummary.InputQueue}
+    bgpNeighborSummary.EntityData.Leafs["output-queue"] = types.YLeaf{"OutputQueue", bgpNeighborSummary.OutputQueue}
+    bgpNeighborSummary.EntityData.Leafs["up-time"] = types.YLeaf{"UpTime", bgpNeighborSummary.UpTime}
+    bgpNeighborSummary.EntityData.Leafs["state"] = types.YLeaf{"State", bgpNeighborSummary.State}
+    bgpNeighborSummary.EntityData.Leafs["prefixes-received"] = types.YLeaf{"PrefixesReceived", bgpNeighborSummary.PrefixesReceived}
+    bgpNeighborSummary.EntityData.Leafs["dynamically-configured"] = types.YLeaf{"DynamicallyConfigured", bgpNeighborSummary.DynamicallyConfigured}
+    bgpNeighborSummary.EntityData.Leafs["as"] = types.YLeaf{"As", bgpNeighborSummary.As}
+    return &(bgpNeighborSummary.EntityData)
 }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetSegmentPath() string {
-    return "bgp-neighbor-summary" + "[id='" + fmt.Sprintf("%v", bgpNeighborSummary.Id) + "']"
-}
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = bgpNeighborSummary.Id
-    leafs["bgp-version"] = bgpNeighborSummary.BgpVersion
-    leafs["messages-received"] = bgpNeighborSummary.MessagesReceived
-    leafs["messages-sent"] = bgpNeighborSummary.MessagesSent
-    leafs["table-version"] = bgpNeighborSummary.TableVersion
-    leafs["input-queue"] = bgpNeighborSummary.InputQueue
-    leafs["output-queue"] = bgpNeighborSummary.OutputQueue
-    leafs["up-time"] = bgpNeighborSummary.UpTime
-    leafs["state"] = bgpNeighborSummary.State
-    leafs["prefixes-received"] = bgpNeighborSummary.PrefixesReceived
-    leafs["dynamically-configured"] = bgpNeighborSummary.DynamicallyConfigured
-    return leafs
-}
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetYangName() string { return "bgp-neighbor-summary" }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) SetParent(parent types.Entity) { bgpNeighborSummary.parent = parent }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetParent() types.Entity { return bgpNeighborSummary.parent }
-
-func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary) GetParentYangName() string { return "bgp-neighbor-summaries" }
 
 // BgpStateData_BgpRouteVrfs
 // BGP VRFs
 type BgpStateData_BgpRouteVrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of BGP VRFs. The type is slice of
@@ -1864,68 +1056,29 @@ type BgpStateData_BgpRouteVrfs struct {
     BgpRouteVrf []BgpStateData_BgpRouteVrfs_BgpRouteVrf
 }
 
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetFilter() yfilter.YFilter { return bgpRouteVrfs.YFilter }
+func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetEntityData() *types.CommonEntityData {
+    bgpRouteVrfs.EntityData.YFilter = bgpRouteVrfs.YFilter
+    bgpRouteVrfs.EntityData.YangName = "bgp-route-vrfs"
+    bgpRouteVrfs.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteVrfs.EntityData.ParentYangName = "bgp-state-data"
+    bgpRouteVrfs.EntityData.SegmentPath = "bgp-route-vrfs"
+    bgpRouteVrfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteVrfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) SetFilter(yf yfilter.YFilter) { bgpRouteVrfs.YFilter = yf }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetGoName(yname string) string {
-    if yname == "bgp-route-vrf" { return "BgpRouteVrf" }
-    return ""
-}
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetSegmentPath() string {
-    return "bgp-route-vrfs"
-}
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-vrf" {
-        for _, c := range bgpRouteVrfs.BgpRouteVrf {
-            if bgpRouteVrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_BgpRouteVrfs_BgpRouteVrf{}
-        bgpRouteVrfs.BgpRouteVrf = append(bgpRouteVrfs.BgpRouteVrf, child)
-        return &bgpRouteVrfs.BgpRouteVrf[len(bgpRouteVrfs.BgpRouteVrf)-1]
-    }
-    return nil
-}
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bgpRouteVrfs.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteVrfs.EntityData.Children["bgp-route-vrf"] = types.YChild{"BgpRouteVrf", nil}
     for i := range bgpRouteVrfs.BgpRouteVrf {
-        children[bgpRouteVrfs.BgpRouteVrf[i].GetSegmentPath()] = &bgpRouteVrfs.BgpRouteVrf[i]
+        bgpRouteVrfs.EntityData.Children[types.GetSegmentPath(&bgpRouteVrfs.BgpRouteVrf[i])] = types.YChild{"BgpRouteVrf", &bgpRouteVrfs.BgpRouteVrf[i]}
     }
-    return children
+    bgpRouteVrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRouteVrfs.EntityData)
 }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetYangName() string { return "bgp-route-vrfs" }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) SetParent(parent types.Entity) { bgpRouteVrfs.parent = parent }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetParent() types.Entity { return bgpRouteVrfs.parent }
-
-func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetParentYangName() string { return "bgp-state-data" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf
 // List of BGP VRFs
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. BGP vrf. The type is string.
@@ -1935,61 +1088,27 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf struct {
     BgpRouteAfs BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs
 }
 
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetFilter() yfilter.YFilter { return bgpRouteVrf.YFilter }
+func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetEntityData() *types.CommonEntityData {
+    bgpRouteVrf.EntityData.YFilter = bgpRouteVrf.YFilter
+    bgpRouteVrf.EntityData.YangName = "bgp-route-vrf"
+    bgpRouteVrf.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteVrf.EntityData.ParentYangName = "bgp-route-vrfs"
+    bgpRouteVrf.EntityData.SegmentPath = "bgp-route-vrf" + "[vrf='" + fmt.Sprintf("%v", bgpRouteVrf.Vrf) + "']"
+    bgpRouteVrf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteVrf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteVrf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) SetFilter(yf yfilter.YFilter) { bgpRouteVrf.YFilter = yf }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    if yname == "bgp-route-afs" { return "BgpRouteAfs" }
-    return ""
+    bgpRouteVrf.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteVrf.EntityData.Children["bgp-route-afs"] = types.YChild{"BgpRouteAfs", &bgpRouteVrf.BgpRouteAfs}
+    bgpRouteVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRouteVrf.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", bgpRouteVrf.Vrf}
+    return &(bgpRouteVrf.EntityData)
 }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetSegmentPath() string {
-    return "bgp-route-vrf" + "[vrf='" + fmt.Sprintf("%v", bgpRouteVrf.Vrf) + "']"
-}
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-afs" {
-        return &bgpRouteVrf.BgpRouteAfs
-    }
-    return nil
-}
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bgp-route-afs"] = &bgpRouteVrf.BgpRouteAfs
-    return children
-}
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf"] = bgpRouteVrf.Vrf
-    return leafs
-}
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetYangName() string { return "bgp-route-vrf" }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) SetParent(parent types.Entity) { bgpRouteVrf.parent = parent }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetParent() types.Entity { return bgpRouteVrf.parent }
-
-func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetParentYangName() string { return "bgp-route-vrfs" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs
 // BGP address families
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of BGP address families. The type is slice of
@@ -1997,68 +1116,29 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs struct {
     BgpRouteAf []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf
 }
 
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetFilter() yfilter.YFilter { return bgpRouteAfs.YFilter }
+func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetEntityData() *types.CommonEntityData {
+    bgpRouteAfs.EntityData.YFilter = bgpRouteAfs.YFilter
+    bgpRouteAfs.EntityData.YangName = "bgp-route-afs"
+    bgpRouteAfs.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteAfs.EntityData.ParentYangName = "bgp-route-vrf"
+    bgpRouteAfs.EntityData.SegmentPath = "bgp-route-afs"
+    bgpRouteAfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteAfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteAfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) SetFilter(yf yfilter.YFilter) { bgpRouteAfs.YFilter = yf }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetGoName(yname string) string {
-    if yname == "bgp-route-af" { return "BgpRouteAf" }
-    return ""
-}
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetSegmentPath() string {
-    return "bgp-route-afs"
-}
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-af" {
-        for _, c := range bgpRouteAfs.BgpRouteAf {
-            if bgpRouteAfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf{}
-        bgpRouteAfs.BgpRouteAf = append(bgpRouteAfs.BgpRouteAf, child)
-        return &bgpRouteAfs.BgpRouteAf[len(bgpRouteAfs.BgpRouteAf)-1]
-    }
-    return nil
-}
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bgpRouteAfs.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteAfs.EntityData.Children["bgp-route-af"] = types.YChild{"BgpRouteAf", nil}
     for i := range bgpRouteAfs.BgpRouteAf {
-        children[bgpRouteAfs.BgpRouteAf[i].GetSegmentPath()] = &bgpRouteAfs.BgpRouteAf[i]
+        bgpRouteAfs.EntityData.Children[types.GetSegmentPath(&bgpRouteAfs.BgpRouteAf[i])] = types.YChild{"BgpRouteAf", &bgpRouteAfs.BgpRouteAf[i]}
     }
-    return children
+    bgpRouteAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRouteAfs.EntityData)
 }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetYangName() string { return "bgp-route-afs" }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) SetParent(parent types.Entity) { bgpRouteAfs.parent = parent }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetParent() types.Entity { return bgpRouteAfs.parent }
-
-func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetParentYangName() string { return "bgp-route-vrf" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf
 // List of BGP address families
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. BGP address family. The type is AfiSafi.
@@ -2066,63 +1146,37 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf struct {
 
     // BGP route filters.
     BgpRouteFilters BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters
+
+    // BGP route neighbors.
+    BgpRouteNeighbors BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors
+
+    // BGP peer groups.
+    BgpPeerGroups BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups
 }
 
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetFilter() yfilter.YFilter { return bgpRouteAf.YFilter }
+func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetEntityData() *types.CommonEntityData {
+    bgpRouteAf.EntityData.YFilter = bgpRouteAf.YFilter
+    bgpRouteAf.EntityData.YangName = "bgp-route-af"
+    bgpRouteAf.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteAf.EntityData.ParentYangName = "bgp-route-afs"
+    bgpRouteAf.EntityData.SegmentPath = "bgp-route-af" + "[afi-safi='" + fmt.Sprintf("%v", bgpRouteAf.AfiSafi) + "']"
+    bgpRouteAf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteAf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteAf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) SetFilter(yf yfilter.YFilter) { bgpRouteAf.YFilter = yf }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetGoName(yname string) string {
-    if yname == "afi-safi" { return "AfiSafi" }
-    if yname == "bgp-route-filters" { return "BgpRouteFilters" }
-    return ""
+    bgpRouteAf.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteAf.EntityData.Children["bgp-route-filters"] = types.YChild{"BgpRouteFilters", &bgpRouteAf.BgpRouteFilters}
+    bgpRouteAf.EntityData.Children["bgp-route-neighbors"] = types.YChild{"BgpRouteNeighbors", &bgpRouteAf.BgpRouteNeighbors}
+    bgpRouteAf.EntityData.Children["bgp-peer-groups"] = types.YChild{"BgpPeerGroups", &bgpRouteAf.BgpPeerGroups}
+    bgpRouteAf.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRouteAf.EntityData.Leafs["afi-safi"] = types.YLeaf{"AfiSafi", bgpRouteAf.AfiSafi}
+    return &(bgpRouteAf.EntityData)
 }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetSegmentPath() string {
-    return "bgp-route-af" + "[afi-safi='" + fmt.Sprintf("%v", bgpRouteAf.AfiSafi) + "']"
-}
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-filters" {
-        return &bgpRouteAf.BgpRouteFilters
-    }
-    return nil
-}
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bgp-route-filters"] = &bgpRouteAf.BgpRouteFilters
-    return children
-}
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["afi-safi"] = bgpRouteAf.AfiSafi
-    return leafs
-}
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetYangName() string { return "bgp-route-af" }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) SetParent(parent types.Entity) { bgpRouteAf.parent = parent }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetParent() types.Entity { return bgpRouteAf.parent }
-
-func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) GetParentYangName() string { return "bgp-route-afs" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters
 // BGP route filters
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of BGP route filters. The type is slice of
@@ -2130,68 +1184,29 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     BgpRouteFilter []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter
 }
 
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetFilter() yfilter.YFilter { return bgpRouteFilters.YFilter }
+func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetEntityData() *types.CommonEntityData {
+    bgpRouteFilters.EntityData.YFilter = bgpRouteFilters.YFilter
+    bgpRouteFilters.EntityData.YangName = "bgp-route-filters"
+    bgpRouteFilters.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteFilters.EntityData.ParentYangName = "bgp-route-af"
+    bgpRouteFilters.EntityData.SegmentPath = "bgp-route-filters"
+    bgpRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) SetFilter(yf yfilter.YFilter) { bgpRouteFilters.YFilter = yf }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetGoName(yname string) string {
-    if yname == "bgp-route-filter" { return "BgpRouteFilter" }
-    return ""
-}
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetSegmentPath() string {
-    return "bgp-route-filters"
-}
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-filter" {
-        for _, c := range bgpRouteFilters.BgpRouteFilter {
-            if bgpRouteFilters.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter{}
-        bgpRouteFilters.BgpRouteFilter = append(bgpRouteFilters.BgpRouteFilter, child)
-        return &bgpRouteFilters.BgpRouteFilter[len(bgpRouteFilters.BgpRouteFilter)-1]
-    }
-    return nil
-}
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bgpRouteFilters.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteFilters.EntityData.Children["bgp-route-filter"] = types.YChild{"BgpRouteFilter", nil}
     for i := range bgpRouteFilters.BgpRouteFilter {
-        children[bgpRouteFilters.BgpRouteFilter[i].GetSegmentPath()] = &bgpRouteFilters.BgpRouteFilter[i]
+        bgpRouteFilters.EntityData.Children[types.GetSegmentPath(&bgpRouteFilters.BgpRouteFilter[i])] = types.YChild{"BgpRouteFilter", &bgpRouteFilters.BgpRouteFilter[i]}
     }
-    return children
+    bgpRouteFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRouteFilters.EntityData)
 }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetYangName() string { return "bgp-route-filters" }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) SetParent(parent types.Entity) { bgpRouteFilters.parent = parent }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetParent() types.Entity { return bgpRouteFilters.parent }
-
-func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters) GetParentYangName() string { return "bgp-route-af" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter
 // List of BGP route filters
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. BGP route filter. The type is BgpRouteFilters.
@@ -2201,61 +1216,27 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     BgpRouteEntries BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries
 }
 
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetFilter() yfilter.YFilter { return bgpRouteFilter.YFilter }
+func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetEntityData() *types.CommonEntityData {
+    bgpRouteFilter.EntityData.YFilter = bgpRouteFilter.YFilter
+    bgpRouteFilter.EntityData.YangName = "bgp-route-filter"
+    bgpRouteFilter.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteFilter.EntityData.ParentYangName = "bgp-route-filters"
+    bgpRouteFilter.EntityData.SegmentPath = "bgp-route-filter" + "[route-filter='" + fmt.Sprintf("%v", bgpRouteFilter.RouteFilter) + "']"
+    bgpRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) SetFilter(yf yfilter.YFilter) { bgpRouteFilter.YFilter = yf }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetGoName(yname string) string {
-    if yname == "route-filter" { return "RouteFilter" }
-    if yname == "bgp-route-entries" { return "BgpRouteEntries" }
-    return ""
+    bgpRouteFilter.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteFilter.EntityData.Children["bgp-route-entries"] = types.YChild{"BgpRouteEntries", &bgpRouteFilter.BgpRouteEntries}
+    bgpRouteFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRouteFilter.EntityData.Leafs["route-filter"] = types.YLeaf{"RouteFilter", bgpRouteFilter.RouteFilter}
+    return &(bgpRouteFilter.EntityData)
 }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetSegmentPath() string {
-    return "bgp-route-filter" + "[route-filter='" + fmt.Sprintf("%v", bgpRouteFilter.RouteFilter) + "']"
-}
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-entries" {
-        return &bgpRouteFilter.BgpRouteEntries
-    }
-    return nil
-}
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bgp-route-entries"] = &bgpRouteFilter.BgpRouteEntries
-    return children
-}
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["route-filter"] = bgpRouteFilter.RouteFilter
-    return leafs
-}
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetYangName() string { return "bgp-route-filter" }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) SetParent(parent types.Entity) { bgpRouteFilter.parent = parent }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetParent() types.Entity { return bgpRouteFilter.parent }
-
-func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter) GetParentYangName() string { return "bgp-route-filters" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries
 // BGP route entries
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of BGP route entries. The type is slice of
@@ -2263,68 +1244,29 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     BgpRouteEntry []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry
 }
 
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetFilter() yfilter.YFilter { return bgpRouteEntries.YFilter }
+func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetEntityData() *types.CommonEntityData {
+    bgpRouteEntries.EntityData.YFilter = bgpRouteEntries.YFilter
+    bgpRouteEntries.EntityData.YangName = "bgp-route-entries"
+    bgpRouteEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteEntries.EntityData.ParentYangName = "bgp-route-filter"
+    bgpRouteEntries.EntityData.SegmentPath = "bgp-route-entries"
+    bgpRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) SetFilter(yf yfilter.YFilter) { bgpRouteEntries.YFilter = yf }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetGoName(yname string) string {
-    if yname == "bgp-route-entry" { return "BgpRouteEntry" }
-    return ""
-}
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetSegmentPath() string {
-    return "bgp-route-entries"
-}
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-route-entry" {
-        for _, c := range bgpRouteEntries.BgpRouteEntry {
-            if bgpRouteEntries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry{}
-        bgpRouteEntries.BgpRouteEntry = append(bgpRouteEntries.BgpRouteEntry, child)
-        return &bgpRouteEntries.BgpRouteEntry[len(bgpRouteEntries.BgpRouteEntry)-1]
-    }
-    return nil
-}
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bgpRouteEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteEntries.EntityData.Children["bgp-route-entry"] = types.YChild{"BgpRouteEntry", nil}
     for i := range bgpRouteEntries.BgpRouteEntry {
-        children[bgpRouteEntries.BgpRouteEntry[i].GetSegmentPath()] = &bgpRouteEntries.BgpRouteEntry[i]
+        bgpRouteEntries.EntityData.Children[types.GetSegmentPath(&bgpRouteEntries.BgpRouteEntry[i])] = types.YChild{"BgpRouteEntry", &bgpRouteEntries.BgpRouteEntry[i]}
     }
-    return children
+    bgpRouteEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRouteEntries.EntityData)
 }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetYangName() string { return "bgp-route-entries" }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) SetParent(parent types.Entity) { bgpRouteEntries.parent = parent }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetParent() types.Entity { return bgpRouteEntries.parent }
-
-func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries) GetParentYangName() string { return "bgp-route-filter" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry
 // List of BGP route entries
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Routing table entry prefix. The type is string.
@@ -2344,67 +1286,30 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     BgpPathEntries BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries
 }
 
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetFilter() yfilter.YFilter { return bgpRouteEntry.YFilter }
+func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetEntityData() *types.CommonEntityData {
+    bgpRouteEntry.EntityData.YFilter = bgpRouteEntry.YFilter
+    bgpRouteEntry.EntityData.YangName = "bgp-route-entry"
+    bgpRouteEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteEntry.EntityData.ParentYangName = "bgp-route-entries"
+    bgpRouteEntry.EntityData.SegmentPath = "bgp-route-entry" + "[prefix='" + fmt.Sprintf("%v", bgpRouteEntry.Prefix) + "']"
+    bgpRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) SetFilter(yf yfilter.YFilter) { bgpRouteEntry.YFilter = yf }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    if yname == "version" { return "Version" }
-    if yname == "available-paths" { return "AvailablePaths" }
-    if yname == "advertised-to" { return "AdvertisedTo" }
-    if yname == "bgp-path-entries" { return "BgpPathEntries" }
-    return ""
+    bgpRouteEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteEntry.EntityData.Children["bgp-path-entries"] = types.YChild{"BgpPathEntries", &bgpRouteEntry.BgpPathEntries}
+    bgpRouteEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRouteEntry.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", bgpRouteEntry.Prefix}
+    bgpRouteEntry.EntityData.Leafs["version"] = types.YLeaf{"Version", bgpRouteEntry.Version}
+    bgpRouteEntry.EntityData.Leafs["available-paths"] = types.YLeaf{"AvailablePaths", bgpRouteEntry.AvailablePaths}
+    bgpRouteEntry.EntityData.Leafs["advertised-to"] = types.YLeaf{"AdvertisedTo", bgpRouteEntry.AdvertisedTo}
+    return &(bgpRouteEntry.EntityData)
 }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetSegmentPath() string {
-    return "bgp-route-entry" + "[prefix='" + fmt.Sprintf("%v", bgpRouteEntry.Prefix) + "']"
-}
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-path-entries" {
-        return &bgpRouteEntry.BgpPathEntries
-    }
-    return nil
-}
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bgp-path-entries"] = &bgpRouteEntry.BgpPathEntries
-    return children
-}
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix"] = bgpRouteEntry.Prefix
-    leafs["version"] = bgpRouteEntry.Version
-    leafs["available-paths"] = bgpRouteEntry.AvailablePaths
-    leafs["advertised-to"] = bgpRouteEntry.AdvertisedTo
-    return leafs
-}
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetYangName() string { return "bgp-route-entry" }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) SetParent(parent types.Entity) { bgpRouteEntry.parent = parent }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetParent() types.Entity { return bgpRouteEntry.parent }
-
-func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry) GetParentYangName() string { return "bgp-route-entries" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries
 // Prefix next hop details
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of prefix next hop details. The type is slice of
@@ -2412,68 +1317,29 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     BgpPathEntry []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry
 }
 
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetFilter() yfilter.YFilter { return bgpPathEntries.YFilter }
+func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetEntityData() *types.CommonEntityData {
+    bgpPathEntries.EntityData.YFilter = bgpPathEntries.YFilter
+    bgpPathEntries.EntityData.YangName = "bgp-path-entries"
+    bgpPathEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpPathEntries.EntityData.ParentYangName = "bgp-route-entry"
+    bgpPathEntries.EntityData.SegmentPath = "bgp-path-entries"
+    bgpPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) SetFilter(yf yfilter.YFilter) { bgpPathEntries.YFilter = yf }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetGoName(yname string) string {
-    if yname == "bgp-path-entry" { return "BgpPathEntry" }
-    return ""
-}
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetSegmentPath() string {
-    return "bgp-path-entries"
-}
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-path-entry" {
-        for _, c := range bgpPathEntries.BgpPathEntry {
-            if bgpPathEntries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry{}
-        bgpPathEntries.BgpPathEntry = append(bgpPathEntries.BgpPathEntry, child)
-        return &bgpPathEntries.BgpPathEntry[len(bgpPathEntries.BgpPathEntry)-1]
-    }
-    return nil
-}
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bgpPathEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpPathEntries.EntityData.Children["bgp-path-entry"] = types.YChild{"BgpPathEntry", nil}
     for i := range bgpPathEntries.BgpPathEntry {
-        children[bgpPathEntries.BgpPathEntry[i].GetSegmentPath()] = &bgpPathEntries.BgpPathEntry[i]
+        bgpPathEntries.EntityData.Children[types.GetSegmentPath(&bgpPathEntries.BgpPathEntry[i])] = types.YChild{"BgpPathEntry", &bgpPathEntries.BgpPathEntry[i]}
     }
-    return children
+    bgpPathEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpPathEntries.EntityData)
 }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetYangName() string { return "bgp-path-entries" }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) SetParent(parent types.Entity) { bgpPathEntries.parent = parent }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetParent() types.Entity { return bgpPathEntries.parent }
-
-func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries) GetParentYangName() string { return "bgp-route-entry" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry
 // List of prefix next hop details
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Next hop for this path. The type is string.
@@ -2502,79 +1368,107 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     // Community label for the path. The type is string.
     Community interface{}
 
+    // MPLS label in for the path. The type is string.
+    MplsIn interface{}
+
+    // MPLS label out for the path. The type is string.
+    MplsOut interface{}
+
+    // SR profile name for the path. The type is string.
+    SrProfileName interface{}
+
+    // SR binding sid for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrBindingSid interface{}
+
+    // SR label index for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrLabelIndx interface{}
+
+    // path using 4-octet AS numbers. The type is string.
+    As4Path interface{}
+
+    // attribute indicating whether or not the prefix is an atomic aggregate. The
+    // type is bool.
+    AtomicAggregate interface{}
+
+    // AS number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAsNumber interface{}
+
+    // AS4 number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAs4Number interface{}
+
+    // IP address of the router that performed the aggregation. The type is
+    // string.
+    AggrAddress interface{}
+
+    // the router ID of the originator of the route in the local AS. The type is
+    // string.
+    OriginatorId interface{}
+
+    // the reflection path the route has passed. The type is string.
+    ClusterList interface{}
+
+    // BGP extended community attribute. The type is string.
+    ExtendedCommunity interface{}
+
+    // the accumulated IGP metric for the path. The type is interface{} with
+    // range: 0..18446744073709551615.
+    ExtAigpMetric interface{}
+
+    // path identifier used to uniquely identify a route. The type is interface{}
+    // with range: 0..4294967295.
+    PathId interface{}
+
     // Path status.
     PathStatus BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus
 }
 
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetFilter() yfilter.YFilter { return bgpPathEntry.YFilter }
+func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetEntityData() *types.CommonEntityData {
+    bgpPathEntry.EntityData.YFilter = bgpPathEntry.YFilter
+    bgpPathEntry.EntityData.YangName = "bgp-path-entry"
+    bgpPathEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpPathEntry.EntityData.ParentYangName = "bgp-path-entries"
+    bgpPathEntry.EntityData.SegmentPath = "bgp-path-entry" + "[nexthop='" + fmt.Sprintf("%v", bgpPathEntry.Nexthop) + "']"
+    bgpPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) SetFilter(yf yfilter.YFilter) { bgpPathEntry.YFilter = yf }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetGoName(yname string) string {
-    if yname == "nexthop" { return "Nexthop" }
-    if yname == "metric" { return "Metric" }
-    if yname == "local-pref" { return "LocalPref" }
-    if yname == "weight" { return "Weight" }
-    if yname == "as-path" { return "AsPath" }
-    if yname == "origin" { return "Origin" }
-    if yname == "rpki-status" { return "RpkiStatus" }
-    if yname == "community" { return "Community" }
-    if yname == "path-status" { return "PathStatus" }
-    return ""
+    bgpPathEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpPathEntry.EntityData.Children["path-status"] = types.YChild{"PathStatus", &bgpPathEntry.PathStatus}
+    bgpPathEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpPathEntry.EntityData.Leafs["nexthop"] = types.YLeaf{"Nexthop", bgpPathEntry.Nexthop}
+    bgpPathEntry.EntityData.Leafs["metric"] = types.YLeaf{"Metric", bgpPathEntry.Metric}
+    bgpPathEntry.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", bgpPathEntry.LocalPref}
+    bgpPathEntry.EntityData.Leafs["weight"] = types.YLeaf{"Weight", bgpPathEntry.Weight}
+    bgpPathEntry.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", bgpPathEntry.AsPath}
+    bgpPathEntry.EntityData.Leafs["origin"] = types.YLeaf{"Origin", bgpPathEntry.Origin}
+    bgpPathEntry.EntityData.Leafs["rpki-status"] = types.YLeaf{"RpkiStatus", bgpPathEntry.RpkiStatus}
+    bgpPathEntry.EntityData.Leafs["community"] = types.YLeaf{"Community", bgpPathEntry.Community}
+    bgpPathEntry.EntityData.Leafs["mpls-in"] = types.YLeaf{"MplsIn", bgpPathEntry.MplsIn}
+    bgpPathEntry.EntityData.Leafs["mpls-out"] = types.YLeaf{"MplsOut", bgpPathEntry.MplsOut}
+    bgpPathEntry.EntityData.Leafs["sr-profile-name"] = types.YLeaf{"SrProfileName", bgpPathEntry.SrProfileName}
+    bgpPathEntry.EntityData.Leafs["sr-binding-sid"] = types.YLeaf{"SrBindingSid", bgpPathEntry.SrBindingSid}
+    bgpPathEntry.EntityData.Leafs["sr-label-indx"] = types.YLeaf{"SrLabelIndx", bgpPathEntry.SrLabelIndx}
+    bgpPathEntry.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", bgpPathEntry.As4Path}
+    bgpPathEntry.EntityData.Leafs["atomic-aggregate"] = types.YLeaf{"AtomicAggregate", bgpPathEntry.AtomicAggregate}
+    bgpPathEntry.EntityData.Leafs["aggr-as-number"] = types.YLeaf{"AggrAsNumber", bgpPathEntry.AggrAsNumber}
+    bgpPathEntry.EntityData.Leafs["aggr-as4-number"] = types.YLeaf{"AggrAs4Number", bgpPathEntry.AggrAs4Number}
+    bgpPathEntry.EntityData.Leafs["aggr-address"] = types.YLeaf{"AggrAddress", bgpPathEntry.AggrAddress}
+    bgpPathEntry.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", bgpPathEntry.OriginatorId}
+    bgpPathEntry.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", bgpPathEntry.ClusterList}
+    bgpPathEntry.EntityData.Leafs["extended-community"] = types.YLeaf{"ExtendedCommunity", bgpPathEntry.ExtendedCommunity}
+    bgpPathEntry.EntityData.Leafs["ext-aigp-metric"] = types.YLeaf{"ExtAigpMetric", bgpPathEntry.ExtAigpMetric}
+    bgpPathEntry.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", bgpPathEntry.PathId}
+    return &(bgpPathEntry.EntityData)
 }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetSegmentPath() string {
-    return "bgp-path-entry" + "[nexthop='" + fmt.Sprintf("%v", bgpPathEntry.Nexthop) + "']"
-}
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "path-status" {
-        return &bgpPathEntry.PathStatus
-    }
-    return nil
-}
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["path-status"] = &bgpPathEntry.PathStatus
-    return children
-}
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nexthop"] = bgpPathEntry.Nexthop
-    leafs["metric"] = bgpPathEntry.Metric
-    leafs["local-pref"] = bgpPathEntry.LocalPref
-    leafs["weight"] = bgpPathEntry.Weight
-    leafs["as-path"] = bgpPathEntry.AsPath
-    leafs["origin"] = bgpPathEntry.Origin
-    leafs["rpki-status"] = bgpPathEntry.RpkiStatus
-    leafs["community"] = bgpPathEntry.Community
-    return leafs
-}
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetYangName() string { return "bgp-path-entry" }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) SetParent(parent types.Entity) { bgpPathEntry.parent = parent }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetParent() types.Entity { return bgpPathEntry.parent }
-
-func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry) GetParentYangName() string { return "bgp-path-entries" }
 
 // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus
 // Path status
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Suppressed path. The type is interface{}.
@@ -2623,77 +1517,1557 @@ type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilter
     RibCompressed interface{}
 }
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetFilter() yfilter.YFilter { return pathStatus.YFilter }
+func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetEntityData() *types.CommonEntityData {
+    pathStatus.EntityData.YFilter = pathStatus.YFilter
+    pathStatus.EntityData.YangName = "path-status"
+    pathStatus.EntityData.BundleName = "cisco_ios_xe"
+    pathStatus.EntityData.ParentYangName = "bgp-path-entry"
+    pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) SetFilter(yf yfilter.YFilter) { pathStatus.YFilter = yf }
-
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetGoName(yname string) string {
-    if yname == "suppressed" { return "Suppressed" }
-    if yname == "damped" { return "Damped" }
-    if yname == "history" { return "History" }
-    if yname == "valid" { return "Valid" }
-    if yname == "sourced" { return "Sourced" }
-    if yname == "bestpath" { return "Bestpath" }
-    if yname == "internal" { return "Internal" }
-    if yname == "rib-fail" { return "RibFail" }
-    if yname == "stale" { return "Stale" }
-    if yname == "multipath" { return "Multipath" }
-    if yname == "backup-path" { return "BackupPath" }
-    if yname == "rt-filter" { return "RtFilter" }
-    if yname == "best-external" { return "BestExternal" }
-    if yname == "additional-path" { return "AdditionalPath" }
-    if yname == "rib-compressed" { return "RibCompressed" }
-    return ""
+    pathStatus.EntityData.Children = make(map[string]types.YChild)
+    pathStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathStatus.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", pathStatus.Suppressed}
+    pathStatus.EntityData.Leafs["damped"] = types.YLeaf{"Damped", pathStatus.Damped}
+    pathStatus.EntityData.Leafs["history"] = types.YLeaf{"History", pathStatus.History}
+    pathStatus.EntityData.Leafs["valid"] = types.YLeaf{"Valid", pathStatus.Valid}
+    pathStatus.EntityData.Leafs["sourced"] = types.YLeaf{"Sourced", pathStatus.Sourced}
+    pathStatus.EntityData.Leafs["bestpath"] = types.YLeaf{"Bestpath", pathStatus.Bestpath}
+    pathStatus.EntityData.Leafs["internal"] = types.YLeaf{"Internal", pathStatus.Internal}
+    pathStatus.EntityData.Leafs["rib-fail"] = types.YLeaf{"RibFail", pathStatus.RibFail}
+    pathStatus.EntityData.Leafs["stale"] = types.YLeaf{"Stale", pathStatus.Stale}
+    pathStatus.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", pathStatus.Multipath}
+    pathStatus.EntityData.Leafs["backup-path"] = types.YLeaf{"BackupPath", pathStatus.BackupPath}
+    pathStatus.EntityData.Leafs["rt-filter"] = types.YLeaf{"RtFilter", pathStatus.RtFilter}
+    pathStatus.EntityData.Leafs["best-external"] = types.YLeaf{"BestExternal", pathStatus.BestExternal}
+    pathStatus.EntityData.Leafs["additional-path"] = types.YLeaf{"AdditionalPath", pathStatus.AdditionalPath}
+    pathStatus.EntityData.Leafs["rib-compressed"] = types.YLeaf{"RibCompressed", pathStatus.RibCompressed}
+    return &(pathStatus.EntityData)
 }
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetSegmentPath() string {
-    return "path-status"
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors
+// BGP route neighbors
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP route neighbors. The type is slice of
+    // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor.
+    BgpRouteNeighbor []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor
 }
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (bgpRouteNeighbors *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors) GetEntityData() *types.CommonEntityData {
+    bgpRouteNeighbors.EntityData.YFilter = bgpRouteNeighbors.YFilter
+    bgpRouteNeighbors.EntityData.YangName = "bgp-route-neighbors"
+    bgpRouteNeighbors.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteNeighbors.EntityData.ParentYangName = "bgp-route-af"
+    bgpRouteNeighbors.EntityData.SegmentPath = "bgp-route-neighbors"
+    bgpRouteNeighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteNeighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRouteNeighbors.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteNeighbors.EntityData.Children["bgp-route-neighbor"] = types.YChild{"BgpRouteNeighbor", nil}
+    for i := range bgpRouteNeighbors.BgpRouteNeighbor {
+        bgpRouteNeighbors.EntityData.Children[types.GetSegmentPath(&bgpRouteNeighbors.BgpRouteNeighbor[i])] = types.YChild{"BgpRouteNeighbor", &bgpRouteNeighbors.BgpRouteNeighbor[i]}
+    }
+    bgpRouteNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRouteNeighbors.EntityData)
 }
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor
+// List of BGP route neighbors
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP neighbor ID. The type is string.
+    NbrId interface{}
+
+    // BGP neighbor route filters.
+    BgpNeighborRouteFilters BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters
 }
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["suppressed"] = pathStatus.Suppressed
-    leafs["damped"] = pathStatus.Damped
-    leafs["history"] = pathStatus.History
-    leafs["valid"] = pathStatus.Valid
-    leafs["sourced"] = pathStatus.Sourced
-    leafs["bestpath"] = pathStatus.Bestpath
-    leafs["internal"] = pathStatus.Internal
-    leafs["rib-fail"] = pathStatus.RibFail
-    leafs["stale"] = pathStatus.Stale
-    leafs["multipath"] = pathStatus.Multipath
-    leafs["backup-path"] = pathStatus.BackupPath
-    leafs["rt-filter"] = pathStatus.RtFilter
-    leafs["best-external"] = pathStatus.BestExternal
-    leafs["additional-path"] = pathStatus.AdditionalPath
-    leafs["rib-compressed"] = pathStatus.RibCompressed
-    return leafs
+func (bgpRouteNeighbor *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor) GetEntityData() *types.CommonEntityData {
+    bgpRouteNeighbor.EntityData.YFilter = bgpRouteNeighbor.YFilter
+    bgpRouteNeighbor.EntityData.YangName = "bgp-route-neighbor"
+    bgpRouteNeighbor.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteNeighbor.EntityData.ParentYangName = "bgp-route-neighbors"
+    bgpRouteNeighbor.EntityData.SegmentPath = "bgp-route-neighbor" + "[nbr-id='" + fmt.Sprintf("%v", bgpRouteNeighbor.NbrId) + "']"
+    bgpRouteNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRouteNeighbor.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteNeighbor.EntityData.Children["bgp-neighbor-route-filters"] = types.YChild{"BgpNeighborRouteFilters", &bgpRouteNeighbor.BgpNeighborRouteFilters}
+    bgpRouteNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRouteNeighbor.EntityData.Leafs["nbr-id"] = types.YLeaf{"NbrId", bgpRouteNeighbor.NbrId}
+    return &(bgpRouteNeighbor.EntityData)
 }
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetBundleName() string { return "cisco_ios_xe" }
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters
+// BGP neighbor route filters
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetYangName() string { return "path-status" }
+    // List of BGP neighbor route filters. The type is slice of
+    // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter.
+    BgpNeighborRouteFilter []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter
+}
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
+func (bgpNeighborRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters) GetEntityData() *types.CommonEntityData {
+    bgpNeighborRouteFilters.EntityData.YFilter = bgpNeighborRouteFilters.YFilter
+    bgpNeighborRouteFilters.EntityData.YangName = "bgp-neighbor-route-filters"
+    bgpNeighborRouteFilters.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborRouteFilters.EntityData.ParentYangName = "bgp-route-neighbor"
+    bgpNeighborRouteFilters.EntityData.SegmentPath = "bgp-neighbor-route-filters"
+    bgpNeighborRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
+    bgpNeighborRouteFilters.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborRouteFilters.EntityData.Children["bgp-neighbor-route-filter"] = types.YChild{"BgpNeighborRouteFilter", nil}
+    for i := range bgpNeighborRouteFilters.BgpNeighborRouteFilter {
+        bgpNeighborRouteFilters.EntityData.Children[types.GetSegmentPath(&bgpNeighborRouteFilters.BgpNeighborRouteFilter[i])] = types.YChild{"BgpNeighborRouteFilter", &bgpNeighborRouteFilters.BgpNeighborRouteFilter[i]}
+    }
+    bgpNeighborRouteFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpNeighborRouteFilters.EntityData)
+}
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter
+// List of BGP neighbor route filters
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) SetParent(parent types.Entity) { pathStatus.parent = parent }
+    // This attribute is a key. BGP neighbor route filter. The type is
+    // BgpNeighborRouteFilters.
+    NbrFltr interface{}
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetParent() types.Entity { return pathStatus.parent }
+    // BGP neighbor route entries.
+    BgpNeighborRouteEntries BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries
+}
 
-func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry_PathStatus) GetParentYangName() string { return "bgp-path-entry" }
+func (bgpNeighborRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter) GetEntityData() *types.CommonEntityData {
+    bgpNeighborRouteFilter.EntityData.YFilter = bgpNeighborRouteFilter.YFilter
+    bgpNeighborRouteFilter.EntityData.YangName = "bgp-neighbor-route-filter"
+    bgpNeighborRouteFilter.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborRouteFilter.EntityData.ParentYangName = "bgp-neighbor-route-filters"
+    bgpNeighborRouteFilter.EntityData.SegmentPath = "bgp-neighbor-route-filter" + "[nbr-fltr='" + fmt.Sprintf("%v", bgpNeighborRouteFilter.NbrFltr) + "']"
+    bgpNeighborRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpNeighborRouteFilter.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborRouteFilter.EntityData.Children["bgp-neighbor-route-entries"] = types.YChild{"BgpNeighborRouteEntries", &bgpNeighborRouteFilter.BgpNeighborRouteEntries}
+    bgpNeighborRouteFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighborRouteFilter.EntityData.Leafs["nbr-fltr"] = types.YLeaf{"NbrFltr", bgpNeighborRouteFilter.NbrFltr}
+    return &(bgpNeighborRouteFilter.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries
+// BGP neighbor route entries
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP neighbor route entries. The type is slice of
+    // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry.
+    BgpNeighborRouteEntry []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry
+}
+
+func (bgpNeighborRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries) GetEntityData() *types.CommonEntityData {
+    bgpNeighborRouteEntries.EntityData.YFilter = bgpNeighborRouteEntries.YFilter
+    bgpNeighborRouteEntries.EntityData.YangName = "bgp-neighbor-route-entries"
+    bgpNeighborRouteEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborRouteEntries.EntityData.ParentYangName = "bgp-neighbor-route-filter"
+    bgpNeighborRouteEntries.EntityData.SegmentPath = "bgp-neighbor-route-entries"
+    bgpNeighborRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpNeighborRouteEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborRouteEntries.EntityData.Children["bgp-neighbor-route-entry"] = types.YChild{"BgpNeighborRouteEntry", nil}
+    for i := range bgpNeighborRouteEntries.BgpNeighborRouteEntry {
+        bgpNeighborRouteEntries.EntityData.Children[types.GetSegmentPath(&bgpNeighborRouteEntries.BgpNeighborRouteEntry[i])] = types.YChild{"BgpNeighborRouteEntry", &bgpNeighborRouteEntries.BgpNeighborRouteEntry[i]}
+    }
+    bgpNeighborRouteEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpNeighborRouteEntries.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry
+// List of BGP neighbor route entries
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Neighbor routing table entry prefix. The type is
+    // string.
+    Prefix interface{}
+
+    // Neighbor routing table version. The type is interface{} with range:
+    // 0..4294967295.
+    Version interface{}
+
+    // Number of paths available for BGP prefix. The type is interface{} with
+    // range: 0..4294967295.
+    AvailablePaths interface{}
+
+    // Who this prefix was advertized to. The type is string.
+    AdvertisedTo interface{}
+
+    // Prefix next hop details.
+    BgpNeighborPathEntries BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries
+}
+
+func (bgpNeighborRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry) GetEntityData() *types.CommonEntityData {
+    bgpNeighborRouteEntry.EntityData.YFilter = bgpNeighborRouteEntry.YFilter
+    bgpNeighborRouteEntry.EntityData.YangName = "bgp-neighbor-route-entry"
+    bgpNeighborRouteEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborRouteEntry.EntityData.ParentYangName = "bgp-neighbor-route-entries"
+    bgpNeighborRouteEntry.EntityData.SegmentPath = "bgp-neighbor-route-entry" + "[prefix='" + fmt.Sprintf("%v", bgpNeighborRouteEntry.Prefix) + "']"
+    bgpNeighborRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpNeighborRouteEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborRouteEntry.EntityData.Children["bgp-neighbor-path-entries"] = types.YChild{"BgpNeighborPathEntries", &bgpNeighborRouteEntry.BgpNeighborPathEntries}
+    bgpNeighborRouteEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighborRouteEntry.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", bgpNeighborRouteEntry.Prefix}
+    bgpNeighborRouteEntry.EntityData.Leafs["version"] = types.YLeaf{"Version", bgpNeighborRouteEntry.Version}
+    bgpNeighborRouteEntry.EntityData.Leafs["available-paths"] = types.YLeaf{"AvailablePaths", bgpNeighborRouteEntry.AvailablePaths}
+    bgpNeighborRouteEntry.EntityData.Leafs["advertised-to"] = types.YLeaf{"AdvertisedTo", bgpNeighborRouteEntry.AdvertisedTo}
+    return &(bgpNeighborRouteEntry.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries
+// Prefix next hop details
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of prefix next hop details. The type is slice of
+    // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry.
+    BgpNeighborPathEntry []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry
+}
+
+func (bgpNeighborPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries) GetEntityData() *types.CommonEntityData {
+    bgpNeighborPathEntries.EntityData.YFilter = bgpNeighborPathEntries.YFilter
+    bgpNeighborPathEntries.EntityData.YangName = "bgp-neighbor-path-entries"
+    bgpNeighborPathEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborPathEntries.EntityData.ParentYangName = "bgp-neighbor-route-entry"
+    bgpNeighborPathEntries.EntityData.SegmentPath = "bgp-neighbor-path-entries"
+    bgpNeighborPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpNeighborPathEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborPathEntries.EntityData.Children["bgp-neighbor-path-entry"] = types.YChild{"BgpNeighborPathEntry", nil}
+    for i := range bgpNeighborPathEntries.BgpNeighborPathEntry {
+        bgpNeighborPathEntries.EntityData.Children[types.GetSegmentPath(&bgpNeighborPathEntries.BgpNeighborPathEntry[i])] = types.YChild{"BgpNeighborPathEntry", &bgpNeighborPathEntries.BgpNeighborPathEntry[i]}
+    }
+    bgpNeighborPathEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpNeighborPathEntries.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry
+// List of prefix next hop details
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Next hop for this path. The type is string.
+    Nexthop interface{}
+
+    // Metric associated with the path. The type is interface{} with range:
+    // 0..4294967295.
+    Metric interface{}
+
+    // Local preference for this path. The type is interface{} with range:
+    // 0..4294967295.
+    LocalPref interface{}
+
+    // Path weight. The type is interface{} with range: 0..4294967295.
+    Weight interface{}
+
+    // AS path. The type is string.
+    AsPath interface{}
+
+    // Path origin. The type is BgpOriginCode.
+    Origin interface{}
+
+    // RPKI path status. The type is BgpRpkiStatus.
+    RpkiStatus interface{}
+
+    // Community label for the path. The type is string.
+    Community interface{}
+
+    // MPLS label in for the path. The type is string.
+    MplsIn interface{}
+
+    // MPLS label out for the path. The type is string.
+    MplsOut interface{}
+
+    // SR profile name for the path. The type is string.
+    SrProfileName interface{}
+
+    // SR binding sid for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrBindingSid interface{}
+
+    // SR label index for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrLabelIndx interface{}
+
+    // path using 4-octet AS numbers. The type is string.
+    As4Path interface{}
+
+    // attribute indicating whether or not the prefix is an atomic aggregate. The
+    // type is bool.
+    AtomicAggregate interface{}
+
+    // AS number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAsNumber interface{}
+
+    // AS4 number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAs4Number interface{}
+
+    // IP address of the router that performed the aggregation. The type is
+    // string.
+    AggrAddress interface{}
+
+    // the router ID of the originator of the route in the local AS. The type is
+    // string.
+    OriginatorId interface{}
+
+    // the reflection path the route has passed. The type is string.
+    ClusterList interface{}
+
+    // BGP extended community attribute. The type is string.
+    ExtendedCommunity interface{}
+
+    // the accumulated IGP metric for the path. The type is interface{} with
+    // range: 0..18446744073709551615.
+    ExtAigpMetric interface{}
+
+    // path identifier used to uniquely identify a route. The type is interface{}
+    // with range: 0..4294967295.
+    PathId interface{}
+
+    // Path status.
+    PathStatus BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry_PathStatus
+}
+
+func (bgpNeighborPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry) GetEntityData() *types.CommonEntityData {
+    bgpNeighborPathEntry.EntityData.YFilter = bgpNeighborPathEntry.YFilter
+    bgpNeighborPathEntry.EntityData.YangName = "bgp-neighbor-path-entry"
+    bgpNeighborPathEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpNeighborPathEntry.EntityData.ParentYangName = "bgp-neighbor-path-entries"
+    bgpNeighborPathEntry.EntityData.SegmentPath = "bgp-neighbor-path-entry" + "[nexthop='" + fmt.Sprintf("%v", bgpNeighborPathEntry.Nexthop) + "']"
+    bgpNeighborPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpNeighborPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpNeighborPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpNeighborPathEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpNeighborPathEntry.EntityData.Children["path-status"] = types.YChild{"PathStatus", &bgpNeighborPathEntry.PathStatus}
+    bgpNeighborPathEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpNeighborPathEntry.EntityData.Leafs["nexthop"] = types.YLeaf{"Nexthop", bgpNeighborPathEntry.Nexthop}
+    bgpNeighborPathEntry.EntityData.Leafs["metric"] = types.YLeaf{"Metric", bgpNeighborPathEntry.Metric}
+    bgpNeighborPathEntry.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", bgpNeighborPathEntry.LocalPref}
+    bgpNeighborPathEntry.EntityData.Leafs["weight"] = types.YLeaf{"Weight", bgpNeighborPathEntry.Weight}
+    bgpNeighborPathEntry.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", bgpNeighborPathEntry.AsPath}
+    bgpNeighborPathEntry.EntityData.Leafs["origin"] = types.YLeaf{"Origin", bgpNeighborPathEntry.Origin}
+    bgpNeighborPathEntry.EntityData.Leafs["rpki-status"] = types.YLeaf{"RpkiStatus", bgpNeighborPathEntry.RpkiStatus}
+    bgpNeighborPathEntry.EntityData.Leafs["community"] = types.YLeaf{"Community", bgpNeighborPathEntry.Community}
+    bgpNeighborPathEntry.EntityData.Leafs["mpls-in"] = types.YLeaf{"MplsIn", bgpNeighborPathEntry.MplsIn}
+    bgpNeighborPathEntry.EntityData.Leafs["mpls-out"] = types.YLeaf{"MplsOut", bgpNeighborPathEntry.MplsOut}
+    bgpNeighborPathEntry.EntityData.Leafs["sr-profile-name"] = types.YLeaf{"SrProfileName", bgpNeighborPathEntry.SrProfileName}
+    bgpNeighborPathEntry.EntityData.Leafs["sr-binding-sid"] = types.YLeaf{"SrBindingSid", bgpNeighborPathEntry.SrBindingSid}
+    bgpNeighborPathEntry.EntityData.Leafs["sr-label-indx"] = types.YLeaf{"SrLabelIndx", bgpNeighborPathEntry.SrLabelIndx}
+    bgpNeighborPathEntry.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", bgpNeighborPathEntry.As4Path}
+    bgpNeighborPathEntry.EntityData.Leafs["atomic-aggregate"] = types.YLeaf{"AtomicAggregate", bgpNeighborPathEntry.AtomicAggregate}
+    bgpNeighborPathEntry.EntityData.Leafs["aggr-as-number"] = types.YLeaf{"AggrAsNumber", bgpNeighborPathEntry.AggrAsNumber}
+    bgpNeighborPathEntry.EntityData.Leafs["aggr-as4-number"] = types.YLeaf{"AggrAs4Number", bgpNeighborPathEntry.AggrAs4Number}
+    bgpNeighborPathEntry.EntityData.Leafs["aggr-address"] = types.YLeaf{"AggrAddress", bgpNeighborPathEntry.AggrAddress}
+    bgpNeighborPathEntry.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", bgpNeighborPathEntry.OriginatorId}
+    bgpNeighborPathEntry.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", bgpNeighborPathEntry.ClusterList}
+    bgpNeighborPathEntry.EntityData.Leafs["extended-community"] = types.YLeaf{"ExtendedCommunity", bgpNeighborPathEntry.ExtendedCommunity}
+    bgpNeighborPathEntry.EntityData.Leafs["ext-aigp-metric"] = types.YLeaf{"ExtAigpMetric", bgpNeighborPathEntry.ExtAigpMetric}
+    bgpNeighborPathEntry.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", bgpNeighborPathEntry.PathId}
+    return &(bgpNeighborPathEntry.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry_PathStatus
+// Path status
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry_PathStatus struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Suppressed path. The type is interface{}.
+    Suppressed interface{}
+
+    // Damped path. The type is interface{}.
+    Damped interface{}
+
+    // History path. The type is interface{}.
+    History interface{}
+
+    // Valid path. The type is interface{}.
+    Valid interface{}
+
+    // Sourced path. The type is interface{}.
+    Sourced interface{}
+
+    // Best path. The type is interface{}.
+    Bestpath interface{}
+
+    // Internal path. The type is interface{}.
+    Internal interface{}
+
+    // RIB-fail path. The type is interface{}.
+    RibFail interface{}
+
+    // Stale path. The type is interface{}.
+    Stale interface{}
+
+    // Multipath path. The type is interface{}.
+    Multipath interface{}
+
+    // Backup path. The type is interface{}.
+    BackupPath interface{}
+
+    // RT filter path. The type is interface{}.
+    RtFilter interface{}
+
+    // Best externa path. The type is interface{}.
+    BestExternal interface{}
+
+    // Additional path. The type is interface{}.
+    AdditionalPath interface{}
+
+    // RIB compressed path. The type is interface{}.
+    RibCompressed interface{}
+}
+
+func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry_PathStatus) GetEntityData() *types.CommonEntityData {
+    pathStatus.EntityData.YFilter = pathStatus.YFilter
+    pathStatus.EntityData.YangName = "path-status"
+    pathStatus.EntityData.BundleName = "cisco_ios_xe"
+    pathStatus.EntityData.ParentYangName = "bgp-neighbor-path-entry"
+    pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    pathStatus.EntityData.Children = make(map[string]types.YChild)
+    pathStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathStatus.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", pathStatus.Suppressed}
+    pathStatus.EntityData.Leafs["damped"] = types.YLeaf{"Damped", pathStatus.Damped}
+    pathStatus.EntityData.Leafs["history"] = types.YLeaf{"History", pathStatus.History}
+    pathStatus.EntityData.Leafs["valid"] = types.YLeaf{"Valid", pathStatus.Valid}
+    pathStatus.EntityData.Leafs["sourced"] = types.YLeaf{"Sourced", pathStatus.Sourced}
+    pathStatus.EntityData.Leafs["bestpath"] = types.YLeaf{"Bestpath", pathStatus.Bestpath}
+    pathStatus.EntityData.Leafs["internal"] = types.YLeaf{"Internal", pathStatus.Internal}
+    pathStatus.EntityData.Leafs["rib-fail"] = types.YLeaf{"RibFail", pathStatus.RibFail}
+    pathStatus.EntityData.Leafs["stale"] = types.YLeaf{"Stale", pathStatus.Stale}
+    pathStatus.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", pathStatus.Multipath}
+    pathStatus.EntityData.Leafs["backup-path"] = types.YLeaf{"BackupPath", pathStatus.BackupPath}
+    pathStatus.EntityData.Leafs["rt-filter"] = types.YLeaf{"RtFilter", pathStatus.RtFilter}
+    pathStatus.EntityData.Leafs["best-external"] = types.YLeaf{"BestExternal", pathStatus.BestExternal}
+    pathStatus.EntityData.Leafs["additional-path"] = types.YLeaf{"AdditionalPath", pathStatus.AdditionalPath}
+    pathStatus.EntityData.Leafs["rib-compressed"] = types.YLeaf{"RibCompressed", pathStatus.RibCompressed}
+    return &(pathStatus.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups
+// BGP peer groups
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP peer groups. The type is slice of
+    // BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups_BgpPeerGroup.
+    BgpPeerGroup []BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups_BgpPeerGroup
+}
+
+func (bgpPeerGroups *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups) GetEntityData() *types.CommonEntityData {
+    bgpPeerGroups.EntityData.YFilter = bgpPeerGroups.YFilter
+    bgpPeerGroups.EntityData.YangName = "bgp-peer-groups"
+    bgpPeerGroups.EntityData.BundleName = "cisco_ios_xe"
+    bgpPeerGroups.EntityData.ParentYangName = "bgp-route-af"
+    bgpPeerGroups.EntityData.SegmentPath = "bgp-peer-groups"
+    bgpPeerGroups.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpPeerGroups.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpPeerGroups.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpPeerGroups.EntityData.Children = make(map[string]types.YChild)
+    bgpPeerGroups.EntityData.Children["bgp-peer-group"] = types.YChild{"BgpPeerGroup", nil}
+    for i := range bgpPeerGroups.BgpPeerGroup {
+        bgpPeerGroups.EntityData.Children[types.GetSegmentPath(&bgpPeerGroups.BgpPeerGroup[i])] = types.YChild{"BgpPeerGroup", &bgpPeerGroups.BgpPeerGroup[i]}
+    }
+    bgpPeerGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpPeerGroups.EntityData)
+}
+
+// BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups_BgpPeerGroup
+// List of BGP peer groups
+type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups_BgpPeerGroup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP peer group name. The type is string.
+    Name interface{}
+
+    // Peer Group description string. The type is string.
+    Description interface{}
+
+    // Peer Group Remote as value. The type is interface{} with range:
+    // 0..4294967295.
+    RemoteAs interface{}
+
+    // BGP version being used to communicate with the remote router. The type is
+    // interface{} with range: 0..65535.
+    BgpVersion interface{}
+
+    // Peer Group minimum time. The type is interface{} with range: 0..65535.
+    MinTime interface{}
+
+    // Number of Sessions for peer group. The type is interface{} with range:
+    // 0..4294967295.
+    NumOfSessions interface{}
+
+    // Number of established sessions  for peer group. The type is interface{}
+    // with range: 0..4294967295.
+    NumEstabSessions interface{}
+
+    // Number of SSO sesssions for peer group. The type is interface{} with range:
+    // 0..4294967295.
+    NumSsoSessions interface{}
+
+    // BGP peer group members. The type is slice of string.
+    PeerMembers []interface{}
+
+    // BGP peer group Formatted Group Index value. The type is interface{} with
+    // range: 0..65535.
+    FmtGrpIx interface{}
+
+    // BGP peer group Advertised Index value. The type is interface{} with range:
+    // 0..65535.
+    AdvIx interface{}
+
+    // BGP peer group aspath  filter in value. The type is interface{} with range:
+    // 0..4294967295.
+    AspathIn interface{}
+
+    // BGP peer group aspath  filter out value. The type is interface{} with
+    // range: 0..4294967295.
+    AspathOut interface{}
+
+    // BGP peer group Route Map in value. The type is string.
+    RoutemapIn interface{}
+
+    // BGP peer group Route Map out value. The type is string.
+    RoutemapOut interface{}
+
+    // BGP peer group Updated Messages value. The type is interface{} with range:
+    // 0..18446744073709551615.
+    UpdatedMessages interface{}
+
+    // BGP peer group Replicated Count value. The type is interface{} with range:
+    // 0..4294967295.
+    RepCount interface{}
+
+    // BGP peer group slow peer Threshold value. The type is interface{} with
+    // range: 0..65535.
+    SlowpeerDetectionValue interface{}
+
+    // BGP weight value. The type is interface{} with range: 0..65535.
+    Weight interface{}
+
+    // BGP Send Community status. The type is bool.
+    SendCommunity interface{}
+
+    // BGP Extended Community status. The type is bool.
+    ExtendedCommunity interface{}
+
+    // BGP Remove PrivateAs status. The type is bool.
+    RemovePrivateAs interface{}
+}
+
+func (bgpPeerGroup *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups_BgpPeerGroup) GetEntityData() *types.CommonEntityData {
+    bgpPeerGroup.EntityData.YFilter = bgpPeerGroup.YFilter
+    bgpPeerGroup.EntityData.YangName = "bgp-peer-group"
+    bgpPeerGroup.EntityData.BundleName = "cisco_ios_xe"
+    bgpPeerGroup.EntityData.ParentYangName = "bgp-peer-groups"
+    bgpPeerGroup.EntityData.SegmentPath = "bgp-peer-group" + "[name='" + fmt.Sprintf("%v", bgpPeerGroup.Name) + "']"
+    bgpPeerGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpPeerGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpPeerGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpPeerGroup.EntityData.Children = make(map[string]types.YChild)
+    bgpPeerGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpPeerGroup.EntityData.Leafs["name"] = types.YLeaf{"Name", bgpPeerGroup.Name}
+    bgpPeerGroup.EntityData.Leafs["description"] = types.YLeaf{"Description", bgpPeerGroup.Description}
+    bgpPeerGroup.EntityData.Leafs["remote-as"] = types.YLeaf{"RemoteAs", bgpPeerGroup.RemoteAs}
+    bgpPeerGroup.EntityData.Leafs["bgp-version"] = types.YLeaf{"BgpVersion", bgpPeerGroup.BgpVersion}
+    bgpPeerGroup.EntityData.Leafs["min-time"] = types.YLeaf{"MinTime", bgpPeerGroup.MinTime}
+    bgpPeerGroup.EntityData.Leafs["num-of-sessions"] = types.YLeaf{"NumOfSessions", bgpPeerGroup.NumOfSessions}
+    bgpPeerGroup.EntityData.Leafs["num-estab-sessions"] = types.YLeaf{"NumEstabSessions", bgpPeerGroup.NumEstabSessions}
+    bgpPeerGroup.EntityData.Leafs["num-sso-sessions"] = types.YLeaf{"NumSsoSessions", bgpPeerGroup.NumSsoSessions}
+    bgpPeerGroup.EntityData.Leafs["peer-members"] = types.YLeaf{"PeerMembers", bgpPeerGroup.PeerMembers}
+    bgpPeerGroup.EntityData.Leafs["fmt-grp-ix"] = types.YLeaf{"FmtGrpIx", bgpPeerGroup.FmtGrpIx}
+    bgpPeerGroup.EntityData.Leafs["adv-ix"] = types.YLeaf{"AdvIx", bgpPeerGroup.AdvIx}
+    bgpPeerGroup.EntityData.Leafs["aspath-in"] = types.YLeaf{"AspathIn", bgpPeerGroup.AspathIn}
+    bgpPeerGroup.EntityData.Leafs["aspath-out"] = types.YLeaf{"AspathOut", bgpPeerGroup.AspathOut}
+    bgpPeerGroup.EntityData.Leafs["routemap-in"] = types.YLeaf{"RoutemapIn", bgpPeerGroup.RoutemapIn}
+    bgpPeerGroup.EntityData.Leafs["routemap-out"] = types.YLeaf{"RoutemapOut", bgpPeerGroup.RoutemapOut}
+    bgpPeerGroup.EntityData.Leafs["updated-messages"] = types.YLeaf{"UpdatedMessages", bgpPeerGroup.UpdatedMessages}
+    bgpPeerGroup.EntityData.Leafs["rep-count"] = types.YLeaf{"RepCount", bgpPeerGroup.RepCount}
+    bgpPeerGroup.EntityData.Leafs["slowpeer-detection-value"] = types.YLeaf{"SlowpeerDetectionValue", bgpPeerGroup.SlowpeerDetectionValue}
+    bgpPeerGroup.EntityData.Leafs["weight"] = types.YLeaf{"Weight", bgpPeerGroup.Weight}
+    bgpPeerGroup.EntityData.Leafs["send-community"] = types.YLeaf{"SendCommunity", bgpPeerGroup.SendCommunity}
+    bgpPeerGroup.EntityData.Leafs["extended-community"] = types.YLeaf{"ExtendedCommunity", bgpPeerGroup.ExtendedCommunity}
+    bgpPeerGroup.EntityData.Leafs["remove-private-as"] = types.YLeaf{"RemovePrivateAs", bgpPeerGroup.RemovePrivateAs}
+    return &(bgpPeerGroup.EntityData)
+}
+
+// BgpStateData_BgpRouteRds
+// BGP RDs
+type BgpStateData_BgpRouteRds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RDs. The type is slice of BgpStateData_BgpRouteRds_BgpRouteRd.
+    BgpRouteRd []BgpStateData_BgpRouteRds_BgpRouteRd
+}
+
+func (bgpRouteRds *BgpStateData_BgpRouteRds) GetEntityData() *types.CommonEntityData {
+    bgpRouteRds.EntityData.YFilter = bgpRouteRds.YFilter
+    bgpRouteRds.EntityData.YangName = "bgp-route-rds"
+    bgpRouteRds.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteRds.EntityData.ParentYangName = "bgp-state-data"
+    bgpRouteRds.EntityData.SegmentPath = "bgp-route-rds"
+    bgpRouteRds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteRds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteRds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRouteRds.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteRds.EntityData.Children["bgp-route-rd"] = types.YChild{"BgpRouteRd", nil}
+    for i := range bgpRouteRds.BgpRouteRd {
+        bgpRouteRds.EntityData.Children[types.GetSegmentPath(&bgpRouteRds.BgpRouteRd[i])] = types.YChild{"BgpRouteRd", &bgpRouteRds.BgpRouteRd[i]}
+    }
+    bgpRouteRds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRouteRds.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd
+// List of BGP RDs
+type BgpStateData_BgpRouteRds_BgpRouteRd struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP rd value. The type is string.
+    RdValue interface{}
+
+    // BGP rd address families.
+    BgpRdRouteAfs BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs
+}
+
+func (bgpRouteRd *BgpStateData_BgpRouteRds_BgpRouteRd) GetEntityData() *types.CommonEntityData {
+    bgpRouteRd.EntityData.YFilter = bgpRouteRd.YFilter
+    bgpRouteRd.EntityData.YangName = "bgp-route-rd"
+    bgpRouteRd.EntityData.BundleName = "cisco_ios_xe"
+    bgpRouteRd.EntityData.ParentYangName = "bgp-route-rds"
+    bgpRouteRd.EntityData.SegmentPath = "bgp-route-rd" + "[rd-value='" + fmt.Sprintf("%v", bgpRouteRd.RdValue) + "']"
+    bgpRouteRd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRouteRd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRouteRd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRouteRd.EntityData.Children = make(map[string]types.YChild)
+    bgpRouteRd.EntityData.Children["bgp-rd-route-afs"] = types.YChild{"BgpRdRouteAfs", &bgpRouteRd.BgpRdRouteAfs}
+    bgpRouteRd.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRouteRd.EntityData.Leafs["rd-value"] = types.YLeaf{"RdValue", bgpRouteRd.RdValue}
+    return &(bgpRouteRd.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs
+// BGP rd address families
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RD address families. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf.
+    BgpRdRouteAf []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf
+}
+
+func (bgpRdRouteAfs *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteAfs.EntityData.YFilter = bgpRdRouteAfs.YFilter
+    bgpRdRouteAfs.EntityData.YangName = "bgp-rd-route-afs"
+    bgpRdRouteAfs.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteAfs.EntityData.ParentYangName = "bgp-route-rd"
+    bgpRdRouteAfs.EntityData.SegmentPath = "bgp-rd-route-afs"
+    bgpRdRouteAfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteAfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteAfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteAfs.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteAfs.EntityData.Children["bgp-rd-route-af"] = types.YChild{"BgpRdRouteAf", nil}
+    for i := range bgpRdRouteAfs.BgpRdRouteAf {
+        bgpRdRouteAfs.EntityData.Children[types.GetSegmentPath(&bgpRdRouteAfs.BgpRdRouteAf[i])] = types.YChild{"BgpRdRouteAf", &bgpRdRouteAfs.BgpRdRouteAf[i]}
+    }
+    bgpRdRouteAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdRouteAfs.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf
+// List of BGP RD address families
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP address family. The type is AfiSafi.
+    AfiSafi interface{}
+
+    // BGP RD route filters.
+    BgpRdRouteFilters BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters
+
+    // BGP RD route neighbors.
+    BgpRdRouteNeighbors BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors
+}
+
+func (bgpRdRouteAf *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteAf.EntityData.YFilter = bgpRdRouteAf.YFilter
+    bgpRdRouteAf.EntityData.YangName = "bgp-rd-route-af"
+    bgpRdRouteAf.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteAf.EntityData.ParentYangName = "bgp-rd-route-afs"
+    bgpRdRouteAf.EntityData.SegmentPath = "bgp-rd-route-af" + "[afi-safi='" + fmt.Sprintf("%v", bgpRdRouteAf.AfiSafi) + "']"
+    bgpRdRouteAf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteAf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteAf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteAf.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteAf.EntityData.Children["bgp-rd-route-filters"] = types.YChild{"BgpRdRouteFilters", &bgpRdRouteAf.BgpRdRouteFilters}
+    bgpRdRouteAf.EntityData.Children["bgp-rd-route-neighbors"] = types.YChild{"BgpRdRouteNeighbors", &bgpRdRouteAf.BgpRdRouteNeighbors}
+    bgpRdRouteAf.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdRouteAf.EntityData.Leafs["afi-safi"] = types.YLeaf{"AfiSafi", bgpRdRouteAf.AfiSafi}
+    return &(bgpRdRouteAf.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters
+// BGP RD route filters
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RD route filters. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter.
+    BgpRdRouteFilter []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter
+}
+
+func (bgpRdRouteFilters *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteFilters.EntityData.YFilter = bgpRdRouteFilters.YFilter
+    bgpRdRouteFilters.EntityData.YangName = "bgp-rd-route-filters"
+    bgpRdRouteFilters.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteFilters.EntityData.ParentYangName = "bgp-rd-route-af"
+    bgpRdRouteFilters.EntityData.SegmentPath = "bgp-rd-route-filters"
+    bgpRdRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteFilters.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteFilters.EntityData.Children["bgp-rd-route-filter"] = types.YChild{"BgpRdRouteFilter", nil}
+    for i := range bgpRdRouteFilters.BgpRdRouteFilter {
+        bgpRdRouteFilters.EntityData.Children[types.GetSegmentPath(&bgpRdRouteFilters.BgpRdRouteFilter[i])] = types.YChild{"BgpRdRouteFilter", &bgpRdRouteFilters.BgpRdRouteFilter[i]}
+    }
+    bgpRdRouteFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdRouteFilters.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter
+// List of BGP RD route filters
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP RD route filter. The type is BgpRouteFilters.
+    RouteFilter interface{}
+
+    // BGP RD route entries.
+    BgpRdRouteEntries BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries
+}
+
+func (bgpRdRouteFilter *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteFilter.EntityData.YFilter = bgpRdRouteFilter.YFilter
+    bgpRdRouteFilter.EntityData.YangName = "bgp-rd-route-filter"
+    bgpRdRouteFilter.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteFilter.EntityData.ParentYangName = "bgp-rd-route-filters"
+    bgpRdRouteFilter.EntityData.SegmentPath = "bgp-rd-route-filter" + "[route-filter='" + fmt.Sprintf("%v", bgpRdRouteFilter.RouteFilter) + "']"
+    bgpRdRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteFilter.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteFilter.EntityData.Children["bgp-rd-route-entries"] = types.YChild{"BgpRdRouteEntries", &bgpRdRouteFilter.BgpRdRouteEntries}
+    bgpRdRouteFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdRouteFilter.EntityData.Leafs["route-filter"] = types.YLeaf{"RouteFilter", bgpRdRouteFilter.RouteFilter}
+    return &(bgpRdRouteFilter.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries
+// BGP RD route entries
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RD route entries. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry.
+    BgpRdRouteEntry []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry
+}
+
+func (bgpRdRouteEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteEntries.EntityData.YFilter = bgpRdRouteEntries.YFilter
+    bgpRdRouteEntries.EntityData.YangName = "bgp-rd-route-entries"
+    bgpRdRouteEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteEntries.EntityData.ParentYangName = "bgp-rd-route-filter"
+    bgpRdRouteEntries.EntityData.SegmentPath = "bgp-rd-route-entries"
+    bgpRdRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteEntries.EntityData.Children["bgp-rd-route-entry"] = types.YChild{"BgpRdRouteEntry", nil}
+    for i := range bgpRdRouteEntries.BgpRdRouteEntry {
+        bgpRdRouteEntries.EntityData.Children[types.GetSegmentPath(&bgpRdRouteEntries.BgpRdRouteEntry[i])] = types.YChild{"BgpRdRouteEntry", &bgpRdRouteEntries.BgpRdRouteEntry[i]}
+    }
+    bgpRdRouteEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdRouteEntries.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry
+// List of BGP RD route entries
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. RD Routing table entry prefix. The type is string.
+    Prefix interface{}
+
+    // RD Routing table version. The type is interface{} with range:
+    // 0..4294967295.
+    Version interface{}
+
+    // Number of  paths available for BGP prefix. The type is interface{} with
+    // range: 0..4294967295.
+    AvailablePaths interface{}
+
+    // Whom is thie prefix advertized to. The type is string.
+    AdvertisedTo interface{}
+
+    // Prefix next hop details.
+    BgpRdPathEntries BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries
+}
+
+func (bgpRdRouteEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteEntry.EntityData.YFilter = bgpRdRouteEntry.YFilter
+    bgpRdRouteEntry.EntityData.YangName = "bgp-rd-route-entry"
+    bgpRdRouteEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteEntry.EntityData.ParentYangName = "bgp-rd-route-entries"
+    bgpRdRouteEntry.EntityData.SegmentPath = "bgp-rd-route-entry" + "[prefix='" + fmt.Sprintf("%v", bgpRdRouteEntry.Prefix) + "']"
+    bgpRdRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteEntry.EntityData.Children["bgp-rd-path-entries"] = types.YChild{"BgpRdPathEntries", &bgpRdRouteEntry.BgpRdPathEntries}
+    bgpRdRouteEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdRouteEntry.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", bgpRdRouteEntry.Prefix}
+    bgpRdRouteEntry.EntityData.Leafs["version"] = types.YLeaf{"Version", bgpRdRouteEntry.Version}
+    bgpRdRouteEntry.EntityData.Leafs["available-paths"] = types.YLeaf{"AvailablePaths", bgpRdRouteEntry.AvailablePaths}
+    bgpRdRouteEntry.EntityData.Leafs["advertised-to"] = types.YLeaf{"AdvertisedTo", bgpRdRouteEntry.AdvertisedTo}
+    return &(bgpRdRouteEntry.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries
+// Prefix next hop details
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of prefix next hop details. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry.
+    BgpRdPathEntry []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry
+}
+
+func (bgpRdPathEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries) GetEntityData() *types.CommonEntityData {
+    bgpRdPathEntries.EntityData.YFilter = bgpRdPathEntries.YFilter
+    bgpRdPathEntries.EntityData.YangName = "bgp-rd-path-entries"
+    bgpRdPathEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdPathEntries.EntityData.ParentYangName = "bgp-rd-route-entry"
+    bgpRdPathEntries.EntityData.SegmentPath = "bgp-rd-path-entries"
+    bgpRdPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdPathEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpRdPathEntries.EntityData.Children["bgp-rd-path-entry"] = types.YChild{"BgpRdPathEntry", nil}
+    for i := range bgpRdPathEntries.BgpRdPathEntry {
+        bgpRdPathEntries.EntityData.Children[types.GetSegmentPath(&bgpRdPathEntries.BgpRdPathEntry[i])] = types.YChild{"BgpRdPathEntry", &bgpRdPathEntries.BgpRdPathEntry[i]}
+    }
+    bgpRdPathEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdPathEntries.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry
+// List of prefix next hop details
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Next hop for this path. The type is string.
+    Nexthop interface{}
+
+    // Metric associated with the path. The type is interface{} with range:
+    // 0..4294967295.
+    Metric interface{}
+
+    // Local preference for this path. The type is interface{} with range:
+    // 0..4294967295.
+    LocalPref interface{}
+
+    // Path weight. The type is interface{} with range: 0..4294967295.
+    Weight interface{}
+
+    // AS path. The type is string.
+    AsPath interface{}
+
+    // Path origin. The type is BgpOriginCode.
+    Origin interface{}
+
+    // RPKI path status. The type is BgpRpkiStatus.
+    RpkiStatus interface{}
+
+    // Community label for the path. The type is string.
+    Community interface{}
+
+    // MPLS label in for the path. The type is string.
+    MplsIn interface{}
+
+    // MPLS label out for the path. The type is string.
+    MplsOut interface{}
+
+    // SR profile name for the path. The type is string.
+    SrProfileName interface{}
+
+    // SR binding sid for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrBindingSid interface{}
+
+    // SR label index for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrLabelIndx interface{}
+
+    // path using 4-octet AS numbers. The type is string.
+    As4Path interface{}
+
+    // attribute indicating whether or not the prefix is an atomic aggregate. The
+    // type is bool.
+    AtomicAggregate interface{}
+
+    // AS number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAsNumber interface{}
+
+    // AS4 number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAs4Number interface{}
+
+    // IP address of the router that performed the aggregation. The type is
+    // string.
+    AggrAddress interface{}
+
+    // the router ID of the originator of the route in the local AS. The type is
+    // string.
+    OriginatorId interface{}
+
+    // the reflection path the route has passed. The type is string.
+    ClusterList interface{}
+
+    // BGP extended community attribute. The type is string.
+    ExtendedCommunity interface{}
+
+    // the accumulated IGP metric for the path. The type is interface{} with
+    // range: 0..18446744073709551615.
+    ExtAigpMetric interface{}
+
+    // path identifier used to uniquely identify a route. The type is interface{}
+    // with range: 0..4294967295.
+    PathId interface{}
+
+    // Path status.
+    PathStatus BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry_PathStatus
+}
+
+func (bgpRdPathEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry) GetEntityData() *types.CommonEntityData {
+    bgpRdPathEntry.EntityData.YFilter = bgpRdPathEntry.YFilter
+    bgpRdPathEntry.EntityData.YangName = "bgp-rd-path-entry"
+    bgpRdPathEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdPathEntry.EntityData.ParentYangName = "bgp-rd-path-entries"
+    bgpRdPathEntry.EntityData.SegmentPath = "bgp-rd-path-entry" + "[nexthop='" + fmt.Sprintf("%v", bgpRdPathEntry.Nexthop) + "']"
+    bgpRdPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdPathEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpRdPathEntry.EntityData.Children["path-status"] = types.YChild{"PathStatus", &bgpRdPathEntry.PathStatus}
+    bgpRdPathEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdPathEntry.EntityData.Leafs["nexthop"] = types.YLeaf{"Nexthop", bgpRdPathEntry.Nexthop}
+    bgpRdPathEntry.EntityData.Leafs["metric"] = types.YLeaf{"Metric", bgpRdPathEntry.Metric}
+    bgpRdPathEntry.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", bgpRdPathEntry.LocalPref}
+    bgpRdPathEntry.EntityData.Leafs["weight"] = types.YLeaf{"Weight", bgpRdPathEntry.Weight}
+    bgpRdPathEntry.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", bgpRdPathEntry.AsPath}
+    bgpRdPathEntry.EntityData.Leafs["origin"] = types.YLeaf{"Origin", bgpRdPathEntry.Origin}
+    bgpRdPathEntry.EntityData.Leafs["rpki-status"] = types.YLeaf{"RpkiStatus", bgpRdPathEntry.RpkiStatus}
+    bgpRdPathEntry.EntityData.Leafs["community"] = types.YLeaf{"Community", bgpRdPathEntry.Community}
+    bgpRdPathEntry.EntityData.Leafs["mpls-in"] = types.YLeaf{"MplsIn", bgpRdPathEntry.MplsIn}
+    bgpRdPathEntry.EntityData.Leafs["mpls-out"] = types.YLeaf{"MplsOut", bgpRdPathEntry.MplsOut}
+    bgpRdPathEntry.EntityData.Leafs["sr-profile-name"] = types.YLeaf{"SrProfileName", bgpRdPathEntry.SrProfileName}
+    bgpRdPathEntry.EntityData.Leafs["sr-binding-sid"] = types.YLeaf{"SrBindingSid", bgpRdPathEntry.SrBindingSid}
+    bgpRdPathEntry.EntityData.Leafs["sr-label-indx"] = types.YLeaf{"SrLabelIndx", bgpRdPathEntry.SrLabelIndx}
+    bgpRdPathEntry.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", bgpRdPathEntry.As4Path}
+    bgpRdPathEntry.EntityData.Leafs["atomic-aggregate"] = types.YLeaf{"AtomicAggregate", bgpRdPathEntry.AtomicAggregate}
+    bgpRdPathEntry.EntityData.Leafs["aggr-as-number"] = types.YLeaf{"AggrAsNumber", bgpRdPathEntry.AggrAsNumber}
+    bgpRdPathEntry.EntityData.Leafs["aggr-as4-number"] = types.YLeaf{"AggrAs4Number", bgpRdPathEntry.AggrAs4Number}
+    bgpRdPathEntry.EntityData.Leafs["aggr-address"] = types.YLeaf{"AggrAddress", bgpRdPathEntry.AggrAddress}
+    bgpRdPathEntry.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", bgpRdPathEntry.OriginatorId}
+    bgpRdPathEntry.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", bgpRdPathEntry.ClusterList}
+    bgpRdPathEntry.EntityData.Leafs["extended-community"] = types.YLeaf{"ExtendedCommunity", bgpRdPathEntry.ExtendedCommunity}
+    bgpRdPathEntry.EntityData.Leafs["ext-aigp-metric"] = types.YLeaf{"ExtAigpMetric", bgpRdPathEntry.ExtAigpMetric}
+    bgpRdPathEntry.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", bgpRdPathEntry.PathId}
+    return &(bgpRdPathEntry.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry_PathStatus
+// Path status
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry_PathStatus struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Suppressed path. The type is interface{}.
+    Suppressed interface{}
+
+    // Damped path. The type is interface{}.
+    Damped interface{}
+
+    // History path. The type is interface{}.
+    History interface{}
+
+    // Valid path. The type is interface{}.
+    Valid interface{}
+
+    // Sourced path. The type is interface{}.
+    Sourced interface{}
+
+    // Best path. The type is interface{}.
+    Bestpath interface{}
+
+    // Internal path. The type is interface{}.
+    Internal interface{}
+
+    // RIB-fail path. The type is interface{}.
+    RibFail interface{}
+
+    // Stale path. The type is interface{}.
+    Stale interface{}
+
+    // Multipath path. The type is interface{}.
+    Multipath interface{}
+
+    // Backup path. The type is interface{}.
+    BackupPath interface{}
+
+    // RT filter path. The type is interface{}.
+    RtFilter interface{}
+
+    // Best externa path. The type is interface{}.
+    BestExternal interface{}
+
+    // Additional path. The type is interface{}.
+    AdditionalPath interface{}
+
+    // RIB compressed path. The type is interface{}.
+    RibCompressed interface{}
+}
+
+func (pathStatus *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry_PathStatus) GetEntityData() *types.CommonEntityData {
+    pathStatus.EntityData.YFilter = pathStatus.YFilter
+    pathStatus.EntityData.YangName = "path-status"
+    pathStatus.EntityData.BundleName = "cisco_ios_xe"
+    pathStatus.EntityData.ParentYangName = "bgp-rd-path-entry"
+    pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    pathStatus.EntityData.Children = make(map[string]types.YChild)
+    pathStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathStatus.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", pathStatus.Suppressed}
+    pathStatus.EntityData.Leafs["damped"] = types.YLeaf{"Damped", pathStatus.Damped}
+    pathStatus.EntityData.Leafs["history"] = types.YLeaf{"History", pathStatus.History}
+    pathStatus.EntityData.Leafs["valid"] = types.YLeaf{"Valid", pathStatus.Valid}
+    pathStatus.EntityData.Leafs["sourced"] = types.YLeaf{"Sourced", pathStatus.Sourced}
+    pathStatus.EntityData.Leafs["bestpath"] = types.YLeaf{"Bestpath", pathStatus.Bestpath}
+    pathStatus.EntityData.Leafs["internal"] = types.YLeaf{"Internal", pathStatus.Internal}
+    pathStatus.EntityData.Leafs["rib-fail"] = types.YLeaf{"RibFail", pathStatus.RibFail}
+    pathStatus.EntityData.Leafs["stale"] = types.YLeaf{"Stale", pathStatus.Stale}
+    pathStatus.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", pathStatus.Multipath}
+    pathStatus.EntityData.Leafs["backup-path"] = types.YLeaf{"BackupPath", pathStatus.BackupPath}
+    pathStatus.EntityData.Leafs["rt-filter"] = types.YLeaf{"RtFilter", pathStatus.RtFilter}
+    pathStatus.EntityData.Leafs["best-external"] = types.YLeaf{"BestExternal", pathStatus.BestExternal}
+    pathStatus.EntityData.Leafs["additional-path"] = types.YLeaf{"AdditionalPath", pathStatus.AdditionalPath}
+    pathStatus.EntityData.Leafs["rib-compressed"] = types.YLeaf{"RibCompressed", pathStatus.RibCompressed}
+    return &(pathStatus.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors
+// BGP RD route neighbors
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RD route neighbors. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor.
+    BgpRdRouteNeighbor []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor
+}
+
+func (bgpRdRouteNeighbors *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteNeighbors.EntityData.YFilter = bgpRdRouteNeighbors.YFilter
+    bgpRdRouteNeighbors.EntityData.YangName = "bgp-rd-route-neighbors"
+    bgpRdRouteNeighbors.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteNeighbors.EntityData.ParentYangName = "bgp-rd-route-af"
+    bgpRdRouteNeighbors.EntityData.SegmentPath = "bgp-rd-route-neighbors"
+    bgpRdRouteNeighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteNeighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteNeighbors.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteNeighbors.EntityData.Children["bgp-rd-route-neighbor"] = types.YChild{"BgpRdRouteNeighbor", nil}
+    for i := range bgpRdRouteNeighbors.BgpRdRouteNeighbor {
+        bgpRdRouteNeighbors.EntityData.Children[types.GetSegmentPath(&bgpRdRouteNeighbors.BgpRdRouteNeighbor[i])] = types.YChild{"BgpRdRouteNeighbor", &bgpRdRouteNeighbors.BgpRdRouteNeighbor[i]}
+    }
+    bgpRdRouteNeighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdRouteNeighbors.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor
+// List of BGP RD route neighbors
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP RD neighbor ID. The type is string.
+    NeighborId interface{}
+
+    // BGP RD neighbor route filters.
+    BgpRdNeighborRouteFilters BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters
+}
+
+func (bgpRdRouteNeighbor *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor) GetEntityData() *types.CommonEntityData {
+    bgpRdRouteNeighbor.EntityData.YFilter = bgpRdRouteNeighbor.YFilter
+    bgpRdRouteNeighbor.EntityData.YangName = "bgp-rd-route-neighbor"
+    bgpRdRouteNeighbor.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdRouteNeighbor.EntityData.ParentYangName = "bgp-rd-route-neighbors"
+    bgpRdRouteNeighbor.EntityData.SegmentPath = "bgp-rd-route-neighbor" + "[neighbor-id='" + fmt.Sprintf("%v", bgpRdRouteNeighbor.NeighborId) + "']"
+    bgpRdRouteNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdRouteNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdRouteNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdRouteNeighbor.EntityData.Children = make(map[string]types.YChild)
+    bgpRdRouteNeighbor.EntityData.Children["bgp-rd-neighbor-route-filters"] = types.YChild{"BgpRdNeighborRouteFilters", &bgpRdRouteNeighbor.BgpRdNeighborRouteFilters}
+    bgpRdRouteNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdRouteNeighbor.EntityData.Leafs["neighbor-id"] = types.YLeaf{"NeighborId", bgpRdRouteNeighbor.NeighborId}
+    return &(bgpRdRouteNeighbor.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters
+// BGP RD neighbor route filters
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RD neighbor route filters. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter.
+    BgpRdNeighborRouteFilter []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter
+}
+
+func (bgpRdNeighborRouteFilters *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters) GetEntityData() *types.CommonEntityData {
+    bgpRdNeighborRouteFilters.EntityData.YFilter = bgpRdNeighborRouteFilters.YFilter
+    bgpRdNeighborRouteFilters.EntityData.YangName = "bgp-rd-neighbor-route-filters"
+    bgpRdNeighborRouteFilters.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdNeighborRouteFilters.EntityData.ParentYangName = "bgp-rd-route-neighbor"
+    bgpRdNeighborRouteFilters.EntityData.SegmentPath = "bgp-rd-neighbor-route-filters"
+    bgpRdNeighborRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdNeighborRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdNeighborRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdNeighborRouteFilters.EntityData.Children = make(map[string]types.YChild)
+    bgpRdNeighborRouteFilters.EntityData.Children["bgp-rd-neighbor-route-filter"] = types.YChild{"BgpRdNeighborRouteFilter", nil}
+    for i := range bgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter {
+        bgpRdNeighborRouteFilters.EntityData.Children[types.GetSegmentPath(&bgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter[i])] = types.YChild{"BgpRdNeighborRouteFilter", &bgpRdNeighborRouteFilters.BgpRdNeighborRouteFilter[i]}
+    }
+    bgpRdNeighborRouteFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdNeighborRouteFilters.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter
+// List of BGP RD neighbor route filters
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. BGP RD neighbor route filter. The type is
+    // BgpNeighborRouteFilters.
+    NeighborFilter interface{}
+
+    // BGP RD neighbor route entries.
+    BgpRdNeighborRouteEntries BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries
+}
+
+func (bgpRdNeighborRouteFilter *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter) GetEntityData() *types.CommonEntityData {
+    bgpRdNeighborRouteFilter.EntityData.YFilter = bgpRdNeighborRouteFilter.YFilter
+    bgpRdNeighborRouteFilter.EntityData.YangName = "bgp-rd-neighbor-route-filter"
+    bgpRdNeighborRouteFilter.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdNeighborRouteFilter.EntityData.ParentYangName = "bgp-rd-neighbor-route-filters"
+    bgpRdNeighborRouteFilter.EntityData.SegmentPath = "bgp-rd-neighbor-route-filter" + "[neighbor-filter='" + fmt.Sprintf("%v", bgpRdNeighborRouteFilter.NeighborFilter) + "']"
+    bgpRdNeighborRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdNeighborRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdNeighborRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdNeighborRouteFilter.EntityData.Children = make(map[string]types.YChild)
+    bgpRdNeighborRouteFilter.EntityData.Children["bgp-rd-neighbor-route-entries"] = types.YChild{"BgpRdNeighborRouteEntries", &bgpRdNeighborRouteFilter.BgpRdNeighborRouteEntries}
+    bgpRdNeighborRouteFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdNeighborRouteFilter.EntityData.Leafs["neighbor-filter"] = types.YLeaf{"NeighborFilter", bgpRdNeighborRouteFilter.NeighborFilter}
+    return &(bgpRdNeighborRouteFilter.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries
+// BGP RD neighbor route entries
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of BGP RD neighbor route entries. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry.
+    BgpRdNeighborRouteEntry []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry
+}
+
+func (bgpRdNeighborRouteEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries) GetEntityData() *types.CommonEntityData {
+    bgpRdNeighborRouteEntries.EntityData.YFilter = bgpRdNeighborRouteEntries.YFilter
+    bgpRdNeighborRouteEntries.EntityData.YangName = "bgp-rd-neighbor-route-entries"
+    bgpRdNeighborRouteEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdNeighborRouteEntries.EntityData.ParentYangName = "bgp-rd-neighbor-route-filter"
+    bgpRdNeighborRouteEntries.EntityData.SegmentPath = "bgp-rd-neighbor-route-entries"
+    bgpRdNeighborRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdNeighborRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdNeighborRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdNeighborRouteEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpRdNeighborRouteEntries.EntityData.Children["bgp-rd-neighbor-route-entry"] = types.YChild{"BgpRdNeighborRouteEntry", nil}
+    for i := range bgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry {
+        bgpRdNeighborRouteEntries.EntityData.Children[types.GetSegmentPath(&bgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry[i])] = types.YChild{"BgpRdNeighborRouteEntry", &bgpRdNeighborRouteEntries.BgpRdNeighborRouteEntry[i]}
+    }
+    bgpRdNeighborRouteEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdNeighborRouteEntries.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry
+// List of BGP RD neighbor route entries
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. RD neighbor routing table entry prefix. The type
+    // is string.
+    Prefix interface{}
+
+    // RD neighbor routing table version. The type is interface{} with range:
+    // 0..4294967295.
+    Version interface{}
+
+    // Number of  paths available for BGP prefix. The type is interface{} with
+    // range: 0..4294967295.
+    AvailablePaths interface{}
+
+    // Who this prefix was advertized to. The type is string.
+    AdvertisedTo interface{}
+
+    // Prefix next hop details.
+    BgpRdNeighborPathEntries BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries
+}
+
+func (bgpRdNeighborRouteEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry) GetEntityData() *types.CommonEntityData {
+    bgpRdNeighborRouteEntry.EntityData.YFilter = bgpRdNeighborRouteEntry.YFilter
+    bgpRdNeighborRouteEntry.EntityData.YangName = "bgp-rd-neighbor-route-entry"
+    bgpRdNeighborRouteEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdNeighborRouteEntry.EntityData.ParentYangName = "bgp-rd-neighbor-route-entries"
+    bgpRdNeighborRouteEntry.EntityData.SegmentPath = "bgp-rd-neighbor-route-entry" + "[prefix='" + fmt.Sprintf("%v", bgpRdNeighborRouteEntry.Prefix) + "']"
+    bgpRdNeighborRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdNeighborRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdNeighborRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdNeighborRouteEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpRdNeighborRouteEntry.EntityData.Children["bgp-rd-neighbor-path-entries"] = types.YChild{"BgpRdNeighborPathEntries", &bgpRdNeighborRouteEntry.BgpRdNeighborPathEntries}
+    bgpRdNeighborRouteEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdNeighborRouteEntry.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", bgpRdNeighborRouteEntry.Prefix}
+    bgpRdNeighborRouteEntry.EntityData.Leafs["version"] = types.YLeaf{"Version", bgpRdNeighborRouteEntry.Version}
+    bgpRdNeighborRouteEntry.EntityData.Leafs["available-paths"] = types.YLeaf{"AvailablePaths", bgpRdNeighborRouteEntry.AvailablePaths}
+    bgpRdNeighborRouteEntry.EntityData.Leafs["advertised-to"] = types.YLeaf{"AdvertisedTo", bgpRdNeighborRouteEntry.AdvertisedTo}
+    return &(bgpRdNeighborRouteEntry.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries
+// Prefix next hop details
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of prefix next hop details. The type is slice of
+    // BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry.
+    BgpRdNeighborPathEntry []BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry
+}
+
+func (bgpRdNeighborPathEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries) GetEntityData() *types.CommonEntityData {
+    bgpRdNeighborPathEntries.EntityData.YFilter = bgpRdNeighborPathEntries.YFilter
+    bgpRdNeighborPathEntries.EntityData.YangName = "bgp-rd-neighbor-path-entries"
+    bgpRdNeighborPathEntries.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdNeighborPathEntries.EntityData.ParentYangName = "bgp-rd-neighbor-route-entry"
+    bgpRdNeighborPathEntries.EntityData.SegmentPath = "bgp-rd-neighbor-path-entries"
+    bgpRdNeighborPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdNeighborPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdNeighborPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdNeighborPathEntries.EntityData.Children = make(map[string]types.YChild)
+    bgpRdNeighborPathEntries.EntityData.Children["bgp-rd-neighbor-path-entry"] = types.YChild{"BgpRdNeighborPathEntry", nil}
+    for i := range bgpRdNeighborPathEntries.BgpRdNeighborPathEntry {
+        bgpRdNeighborPathEntries.EntityData.Children[types.GetSegmentPath(&bgpRdNeighborPathEntries.BgpRdNeighborPathEntry[i])] = types.YChild{"BgpRdNeighborPathEntry", &bgpRdNeighborPathEntries.BgpRdNeighborPathEntry[i]}
+    }
+    bgpRdNeighborPathEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpRdNeighborPathEntries.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry
+// List of prefix next hop details
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Next hop for this path. The type is string.
+    Nexthop interface{}
+
+    // Metric associated with the path. The type is interface{} with range:
+    // 0..4294967295.
+    Metric interface{}
+
+    // Local preference for this path. The type is interface{} with range:
+    // 0..4294967295.
+    LocalPref interface{}
+
+    // Path weight. The type is interface{} with range: 0..4294967295.
+    Weight interface{}
+
+    // AS path. The type is string.
+    AsPath interface{}
+
+    // Path origin. The type is BgpOriginCode.
+    Origin interface{}
+
+    // RPKI path status. The type is BgpRpkiStatus.
+    RpkiStatus interface{}
+
+    // Community label for the path. The type is string.
+    Community interface{}
+
+    // MPLS label in for the path. The type is string.
+    MplsIn interface{}
+
+    // MPLS label out for the path. The type is string.
+    MplsOut interface{}
+
+    // SR profile name for the path. The type is string.
+    SrProfileName interface{}
+
+    // SR binding sid for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrBindingSid interface{}
+
+    // SR label index for the path. The type is interface{} with range:
+    // 0..4294967295.
+    SrLabelIndx interface{}
+
+    // path using 4-octet AS numbers. The type is string.
+    As4Path interface{}
+
+    // attribute indicating whether or not the prefix is an atomic aggregate. The
+    // type is bool.
+    AtomicAggregate interface{}
+
+    // AS number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAsNumber interface{}
+
+    // AS4 number of autonomous system them performed the aggregation. The type is
+    // interface{} with range: 0..4294967295.
+    AggrAs4Number interface{}
+
+    // IP address of the router that performed the aggregation. The type is
+    // string.
+    AggrAddress interface{}
+
+    // the router ID of the originator of the route in the local AS. The type is
+    // string.
+    OriginatorId interface{}
+
+    // the reflection path the route has passed. The type is string.
+    ClusterList interface{}
+
+    // BGP extended community attribute. The type is string.
+    ExtendedCommunity interface{}
+
+    // the accumulated IGP metric for the path. The type is interface{} with
+    // range: 0..18446744073709551615.
+    ExtAigpMetric interface{}
+
+    // path identifier used to uniquely identify a route. The type is interface{}
+    // with range: 0..4294967295.
+    PathId interface{}
+
+    // Path status.
+    PathStatus BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry_PathStatus
+}
+
+func (bgpRdNeighborPathEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry) GetEntityData() *types.CommonEntityData {
+    bgpRdNeighborPathEntry.EntityData.YFilter = bgpRdNeighborPathEntry.YFilter
+    bgpRdNeighborPathEntry.EntityData.YangName = "bgp-rd-neighbor-path-entry"
+    bgpRdNeighborPathEntry.EntityData.BundleName = "cisco_ios_xe"
+    bgpRdNeighborPathEntry.EntityData.ParentYangName = "bgp-rd-neighbor-path-entries"
+    bgpRdNeighborPathEntry.EntityData.SegmentPath = "bgp-rd-neighbor-path-entry" + "[nexthop='" + fmt.Sprintf("%v", bgpRdNeighborPathEntry.Nexthop) + "']"
+    bgpRdNeighborPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRdNeighborPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRdNeighborPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    bgpRdNeighborPathEntry.EntityData.Children = make(map[string]types.YChild)
+    bgpRdNeighborPathEntry.EntityData.Children["path-status"] = types.YChild{"PathStatus", &bgpRdNeighborPathEntry.PathStatus}
+    bgpRdNeighborPathEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRdNeighborPathEntry.EntityData.Leafs["nexthop"] = types.YLeaf{"Nexthop", bgpRdNeighborPathEntry.Nexthop}
+    bgpRdNeighborPathEntry.EntityData.Leafs["metric"] = types.YLeaf{"Metric", bgpRdNeighborPathEntry.Metric}
+    bgpRdNeighborPathEntry.EntityData.Leafs["local-pref"] = types.YLeaf{"LocalPref", bgpRdNeighborPathEntry.LocalPref}
+    bgpRdNeighborPathEntry.EntityData.Leafs["weight"] = types.YLeaf{"Weight", bgpRdNeighborPathEntry.Weight}
+    bgpRdNeighborPathEntry.EntityData.Leafs["as-path"] = types.YLeaf{"AsPath", bgpRdNeighborPathEntry.AsPath}
+    bgpRdNeighborPathEntry.EntityData.Leafs["origin"] = types.YLeaf{"Origin", bgpRdNeighborPathEntry.Origin}
+    bgpRdNeighborPathEntry.EntityData.Leafs["rpki-status"] = types.YLeaf{"RpkiStatus", bgpRdNeighborPathEntry.RpkiStatus}
+    bgpRdNeighborPathEntry.EntityData.Leafs["community"] = types.YLeaf{"Community", bgpRdNeighborPathEntry.Community}
+    bgpRdNeighborPathEntry.EntityData.Leafs["mpls-in"] = types.YLeaf{"MplsIn", bgpRdNeighborPathEntry.MplsIn}
+    bgpRdNeighborPathEntry.EntityData.Leafs["mpls-out"] = types.YLeaf{"MplsOut", bgpRdNeighborPathEntry.MplsOut}
+    bgpRdNeighborPathEntry.EntityData.Leafs["sr-profile-name"] = types.YLeaf{"SrProfileName", bgpRdNeighborPathEntry.SrProfileName}
+    bgpRdNeighborPathEntry.EntityData.Leafs["sr-binding-sid"] = types.YLeaf{"SrBindingSid", bgpRdNeighborPathEntry.SrBindingSid}
+    bgpRdNeighborPathEntry.EntityData.Leafs["sr-label-indx"] = types.YLeaf{"SrLabelIndx", bgpRdNeighborPathEntry.SrLabelIndx}
+    bgpRdNeighborPathEntry.EntityData.Leafs["as4-path"] = types.YLeaf{"As4Path", bgpRdNeighborPathEntry.As4Path}
+    bgpRdNeighborPathEntry.EntityData.Leafs["atomic-aggregate"] = types.YLeaf{"AtomicAggregate", bgpRdNeighborPathEntry.AtomicAggregate}
+    bgpRdNeighborPathEntry.EntityData.Leafs["aggr-as-number"] = types.YLeaf{"AggrAsNumber", bgpRdNeighborPathEntry.AggrAsNumber}
+    bgpRdNeighborPathEntry.EntityData.Leafs["aggr-as4-number"] = types.YLeaf{"AggrAs4Number", bgpRdNeighborPathEntry.AggrAs4Number}
+    bgpRdNeighborPathEntry.EntityData.Leafs["aggr-address"] = types.YLeaf{"AggrAddress", bgpRdNeighborPathEntry.AggrAddress}
+    bgpRdNeighborPathEntry.EntityData.Leafs["originator-id"] = types.YLeaf{"OriginatorId", bgpRdNeighborPathEntry.OriginatorId}
+    bgpRdNeighborPathEntry.EntityData.Leafs["cluster-list"] = types.YLeaf{"ClusterList", bgpRdNeighborPathEntry.ClusterList}
+    bgpRdNeighborPathEntry.EntityData.Leafs["extended-community"] = types.YLeaf{"ExtendedCommunity", bgpRdNeighborPathEntry.ExtendedCommunity}
+    bgpRdNeighborPathEntry.EntityData.Leafs["ext-aigp-metric"] = types.YLeaf{"ExtAigpMetric", bgpRdNeighborPathEntry.ExtAigpMetric}
+    bgpRdNeighborPathEntry.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", bgpRdNeighborPathEntry.PathId}
+    return &(bgpRdNeighborPathEntry.EntityData)
+}
+
+// BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry_PathStatus
+// Path status
+type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry_PathStatus struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Suppressed path. The type is interface{}.
+    Suppressed interface{}
+
+    // Damped path. The type is interface{}.
+    Damped interface{}
+
+    // History path. The type is interface{}.
+    History interface{}
+
+    // Valid path. The type is interface{}.
+    Valid interface{}
+
+    // Sourced path. The type is interface{}.
+    Sourced interface{}
+
+    // Best path. The type is interface{}.
+    Bestpath interface{}
+
+    // Internal path. The type is interface{}.
+    Internal interface{}
+
+    // RIB-fail path. The type is interface{}.
+    RibFail interface{}
+
+    // Stale path. The type is interface{}.
+    Stale interface{}
+
+    // Multipath path. The type is interface{}.
+    Multipath interface{}
+
+    // Backup path. The type is interface{}.
+    BackupPath interface{}
+
+    // RT filter path. The type is interface{}.
+    RtFilter interface{}
+
+    // Best externa path. The type is interface{}.
+    BestExternal interface{}
+
+    // Additional path. The type is interface{}.
+    AdditionalPath interface{}
+
+    // RIB compressed path. The type is interface{}.
+    RibCompressed interface{}
+}
+
+func (pathStatus *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry_PathStatus) GetEntityData() *types.CommonEntityData {
+    pathStatus.EntityData.YFilter = pathStatus.YFilter
+    pathStatus.EntityData.YangName = "path-status"
+    pathStatus.EntityData.BundleName = "cisco_ios_xe"
+    pathStatus.EntityData.ParentYangName = "bgp-rd-neighbor-path-entry"
+    pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    pathStatus.EntityData.Children = make(map[string]types.YChild)
+    pathStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    pathStatus.EntityData.Leafs["suppressed"] = types.YLeaf{"Suppressed", pathStatus.Suppressed}
+    pathStatus.EntityData.Leafs["damped"] = types.YLeaf{"Damped", pathStatus.Damped}
+    pathStatus.EntityData.Leafs["history"] = types.YLeaf{"History", pathStatus.History}
+    pathStatus.EntityData.Leafs["valid"] = types.YLeaf{"Valid", pathStatus.Valid}
+    pathStatus.EntityData.Leafs["sourced"] = types.YLeaf{"Sourced", pathStatus.Sourced}
+    pathStatus.EntityData.Leafs["bestpath"] = types.YLeaf{"Bestpath", pathStatus.Bestpath}
+    pathStatus.EntityData.Leafs["internal"] = types.YLeaf{"Internal", pathStatus.Internal}
+    pathStatus.EntityData.Leafs["rib-fail"] = types.YLeaf{"RibFail", pathStatus.RibFail}
+    pathStatus.EntityData.Leafs["stale"] = types.YLeaf{"Stale", pathStatus.Stale}
+    pathStatus.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", pathStatus.Multipath}
+    pathStatus.EntityData.Leafs["backup-path"] = types.YLeaf{"BackupPath", pathStatus.BackupPath}
+    pathStatus.EntityData.Leafs["rt-filter"] = types.YLeaf{"RtFilter", pathStatus.RtFilter}
+    pathStatus.EntityData.Leafs["best-external"] = types.YLeaf{"BestExternal", pathStatus.BestExternal}
+    pathStatus.EntityData.Leafs["additional-path"] = types.YLeaf{"AdditionalPath", pathStatus.AdditionalPath}
+    pathStatus.EntityData.Leafs["rib-compressed"] = types.YLeaf{"RibCompressed", pathStatus.RibCompressed}
+    return &(pathStatus.EntityData)
+}
 

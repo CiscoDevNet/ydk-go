@@ -46,7 +46,7 @@ const (
 // IP Address Repository Manager (IPv4/IPv6 ARM)
 // configuration data
 type IpArm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 ARM configuration.
@@ -56,64 +56,27 @@ type IpArm struct {
     Ipv6 IpArm_Ipv6
 }
 
-func (ipArm *IpArm) GetFilter() yfilter.YFilter { return ipArm.YFilter }
+func (ipArm *IpArm) GetEntityData() *types.CommonEntityData {
+    ipArm.EntityData.YFilter = ipArm.YFilter
+    ipArm.EntityData.YangName = "ip-arm"
+    ipArm.EntityData.BundleName = "cisco_ios_xr"
+    ipArm.EntityData.ParentYangName = "Cisco-IOS-XR-ip-iarm-cfg"
+    ipArm.EntityData.SegmentPath = "Cisco-IOS-XR-ip-iarm-cfg:ip-arm"
+    ipArm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipArm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipArm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipArm *IpArm) SetFilter(yf yfilter.YFilter) { ipArm.YFilter = yf }
-
-func (ipArm *IpArm) GetGoName(yname string) string {
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "ipv6" { return "Ipv6" }
-    return ""
+    ipArm.EntityData.Children = make(map[string]types.YChild)
+    ipArm.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &ipArm.Ipv4}
+    ipArm.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &ipArm.Ipv6}
+    ipArm.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipArm.EntityData)
 }
-
-func (ipArm *IpArm) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-iarm-cfg:ip-arm"
-}
-
-func (ipArm *IpArm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4" {
-        return &ipArm.Ipv4
-    }
-    if childYangName == "ipv6" {
-        return &ipArm.Ipv6
-    }
-    return nil
-}
-
-func (ipArm *IpArm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4"] = &ipArm.Ipv4
-    children["ipv6"] = &ipArm.Ipv6
-    return children
-}
-
-func (ipArm *IpArm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipArm *IpArm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipArm *IpArm) GetYangName() string { return "ip-arm" }
-
-func (ipArm *IpArm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipArm *IpArm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipArm *IpArm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipArm *IpArm) SetParent(parent types.Entity) { ipArm.parent = parent }
-
-func (ipArm *IpArm) GetParent() types.Entity { return ipArm.parent }
-
-func (ipArm *IpArm) GetParentYangName() string { return "Cisco-IOS-XR-ip-iarm-cfg" }
 
 // IpArm_Ipv4
 // IPv4 ARM configuration
 type IpArm_Ipv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP ARM conflict policy configuration.
@@ -123,177 +86,80 @@ type IpArm_Ipv4 struct {
     MulticastHost IpArm_Ipv4_MulticastHost
 }
 
-func (ipv4 *IpArm_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
+func (ipv4 *IpArm_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "ip-arm"
+    ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4 *IpArm_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *IpArm_Ipv4) GetGoName(yname string) string {
-    if yname == "conflict-policy-table" { return "ConflictPolicyTable" }
-    if yname == "multicast-host" { return "MulticastHost" }
-    return ""
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Children["conflict-policy-table"] = types.YChild{"ConflictPolicyTable", &ipv4.ConflictPolicyTable}
+    ipv4.EntityData.Children["multicast-host"] = types.YChild{"MulticastHost", &ipv4.MulticastHost}
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4.EntityData)
 }
-
-func (ipv4 *IpArm_Ipv4) GetSegmentPath() string {
-    return "ipv4"
-}
-
-func (ipv4 *IpArm_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "conflict-policy-table" {
-        return &ipv4.ConflictPolicyTable
-    }
-    if childYangName == "multicast-host" {
-        return &ipv4.MulticastHost
-    }
-    return nil
-}
-
-func (ipv4 *IpArm_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["conflict-policy-table"] = &ipv4.ConflictPolicyTable
-    children["multicast-host"] = &ipv4.MulticastHost
-    return children
-}
-
-func (ipv4 *IpArm_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4 *IpArm_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *IpArm_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *IpArm_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *IpArm_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *IpArm_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *IpArm_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *IpArm_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *IpArm_Ipv4) GetParentYangName() string { return "ip-arm" }
 
 // IpArm_Ipv4_ConflictPolicyTable
 // IP ARM conflict policy configuration
 type IpArm_Ipv4_ConflictPolicyTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP ARM conflict policy value definitions. The type is IpArmConflictPolicy.
     ConflictPolicy interface{}
 }
 
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetFilter() yfilter.YFilter { return conflictPolicyTable.YFilter }
+func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetEntityData() *types.CommonEntityData {
+    conflictPolicyTable.EntityData.YFilter = conflictPolicyTable.YFilter
+    conflictPolicyTable.EntityData.YangName = "conflict-policy-table"
+    conflictPolicyTable.EntityData.BundleName = "cisco_ios_xr"
+    conflictPolicyTable.EntityData.ParentYangName = "ipv4"
+    conflictPolicyTable.EntityData.SegmentPath = "conflict-policy-table"
+    conflictPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conflictPolicyTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conflictPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) SetFilter(yf yfilter.YFilter) { conflictPolicyTable.YFilter = yf }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetGoName(yname string) string {
-    if yname == "conflict-policy" { return "ConflictPolicy" }
-    return ""
+    conflictPolicyTable.EntityData.Children = make(map[string]types.YChild)
+    conflictPolicyTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    conflictPolicyTable.EntityData.Leafs["conflict-policy"] = types.YLeaf{"ConflictPolicy", conflictPolicyTable.ConflictPolicy}
+    return &(conflictPolicyTable.EntityData)
 }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetSegmentPath() string {
-    return "conflict-policy-table"
-}
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["conflict-policy"] = conflictPolicyTable.ConflictPolicy
-    return leafs
-}
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetYangName() string { return "conflict-policy-table" }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) SetParent(parent types.Entity) { conflictPolicyTable.parent = parent }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetParent() types.Entity { return conflictPolicyTable.parent }
-
-func (conflictPolicyTable *IpArm_Ipv4_ConflictPolicyTable) GetParentYangName() string { return "ipv4" }
 
 // IpArm_Ipv4_MulticastHost
 // IP ARM Multicast Host configuration
 type IpArm_Ipv4_MulticastHost struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     MulticastHostInterface interface{}
 }
 
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetFilter() yfilter.YFilter { return multicastHost.YFilter }
+func (multicastHost *IpArm_Ipv4_MulticastHost) GetEntityData() *types.CommonEntityData {
+    multicastHost.EntityData.YFilter = multicastHost.YFilter
+    multicastHost.EntityData.YangName = "multicast-host"
+    multicastHost.EntityData.BundleName = "cisco_ios_xr"
+    multicastHost.EntityData.ParentYangName = "ipv4"
+    multicastHost.EntityData.SegmentPath = "multicast-host"
+    multicastHost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastHost *IpArm_Ipv4_MulticastHost) SetFilter(yf yfilter.YFilter) { multicastHost.YFilter = yf }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetGoName(yname string) string {
-    if yname == "multicast-host-interface" { return "MulticastHostInterface" }
-    return ""
+    multicastHost.EntityData.Children = make(map[string]types.YChild)
+    multicastHost.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastHost.EntityData.Leafs["multicast-host-interface"] = types.YLeaf{"MulticastHostInterface", multicastHost.MulticastHostInterface}
+    return &(multicastHost.EntityData)
 }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetSegmentPath() string {
-    return "multicast-host"
-}
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["multicast-host-interface"] = multicastHost.MulticastHostInterface
-    return leafs
-}
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetYangName() string { return "multicast-host" }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) SetParent(parent types.Entity) { multicastHost.parent = parent }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetParent() types.Entity { return multicastHost.parent }
-
-func (multicastHost *IpArm_Ipv4_MulticastHost) GetParentYangName() string { return "ipv4" }
 
 // IpArm_Ipv6
 // IPv6 ARM configuration
 type IpArm_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP ARM conflict policy configuration.
@@ -303,170 +169,73 @@ type IpArm_Ipv6 struct {
     MulticastHost IpArm_Ipv6_MulticastHost
 }
 
-func (ipv6 *IpArm_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *IpArm_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "ip-arm"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *IpArm_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *IpArm_Ipv6) GetGoName(yname string) string {
-    if yname == "conflict-policy-table" { return "ConflictPolicyTable" }
-    if yname == "multicast-host" { return "MulticastHost" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Children["conflict-policy-table"] = types.YChild{"ConflictPolicyTable", &ipv6.ConflictPolicyTable}
+    ipv6.EntityData.Children["multicast-host"] = types.YChild{"MulticastHost", &ipv6.MulticastHost}
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *IpArm_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *IpArm_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "conflict-policy-table" {
-        return &ipv6.ConflictPolicyTable
-    }
-    if childYangName == "multicast-host" {
-        return &ipv6.MulticastHost
-    }
-    return nil
-}
-
-func (ipv6 *IpArm_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["conflict-policy-table"] = &ipv6.ConflictPolicyTable
-    children["multicast-host"] = &ipv6.MulticastHost
-    return children
-}
-
-func (ipv6 *IpArm_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6 *IpArm_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *IpArm_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *IpArm_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *IpArm_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *IpArm_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *IpArm_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *IpArm_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *IpArm_Ipv6) GetParentYangName() string { return "ip-arm" }
 
 // IpArm_Ipv6_ConflictPolicyTable
 // IP ARM conflict policy configuration
 type IpArm_Ipv6_ConflictPolicyTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP ARM conflict policy value definitions. The type is IpArmConflictPolicy.
     ConflictPolicy interface{}
 }
 
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetFilter() yfilter.YFilter { return conflictPolicyTable.YFilter }
+func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetEntityData() *types.CommonEntityData {
+    conflictPolicyTable.EntityData.YFilter = conflictPolicyTable.YFilter
+    conflictPolicyTable.EntityData.YangName = "conflict-policy-table"
+    conflictPolicyTable.EntityData.BundleName = "cisco_ios_xr"
+    conflictPolicyTable.EntityData.ParentYangName = "ipv6"
+    conflictPolicyTable.EntityData.SegmentPath = "conflict-policy-table"
+    conflictPolicyTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conflictPolicyTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conflictPolicyTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) SetFilter(yf yfilter.YFilter) { conflictPolicyTable.YFilter = yf }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetGoName(yname string) string {
-    if yname == "conflict-policy" { return "ConflictPolicy" }
-    return ""
+    conflictPolicyTable.EntityData.Children = make(map[string]types.YChild)
+    conflictPolicyTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    conflictPolicyTable.EntityData.Leafs["conflict-policy"] = types.YLeaf{"ConflictPolicy", conflictPolicyTable.ConflictPolicy}
+    return &(conflictPolicyTable.EntityData)
 }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetSegmentPath() string {
-    return "conflict-policy-table"
-}
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["conflict-policy"] = conflictPolicyTable.ConflictPolicy
-    return leafs
-}
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetYangName() string { return "conflict-policy-table" }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) SetParent(parent types.Entity) { conflictPolicyTable.parent = parent }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetParent() types.Entity { return conflictPolicyTable.parent }
-
-func (conflictPolicyTable *IpArm_Ipv6_ConflictPolicyTable) GetParentYangName() string { return "ipv6" }
 
 // IpArm_Ipv6_MulticastHost
 // IP ARM Multicast Host configuration
 type IpArm_Ipv6_MulticastHost struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Default multicast host interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     MulticastHostInterface interface{}
 }
 
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetFilter() yfilter.YFilter { return multicastHost.YFilter }
+func (multicastHost *IpArm_Ipv6_MulticastHost) GetEntityData() *types.CommonEntityData {
+    multicastHost.EntityData.YFilter = multicastHost.YFilter
+    multicastHost.EntityData.YangName = "multicast-host"
+    multicastHost.EntityData.BundleName = "cisco_ios_xr"
+    multicastHost.EntityData.ParentYangName = "ipv6"
+    multicastHost.EntityData.SegmentPath = "multicast-host"
+    multicastHost.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastHost.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastHost.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastHost *IpArm_Ipv6_MulticastHost) SetFilter(yf yfilter.YFilter) { multicastHost.YFilter = yf }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetGoName(yname string) string {
-    if yname == "multicast-host-interface" { return "MulticastHostInterface" }
-    return ""
+    multicastHost.EntityData.Children = make(map[string]types.YChild)
+    multicastHost.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastHost.EntityData.Leafs["multicast-host-interface"] = types.YLeaf{"MulticastHostInterface", multicastHost.MulticastHostInterface}
+    return &(multicastHost.EntityData)
 }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetSegmentPath() string {
-    return "multicast-host"
-}
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["multicast-host-interface"] = multicastHost.MulticastHostInterface
-    return leafs
-}
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetYangName() string { return "multicast-host" }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) SetParent(parent types.Entity) { multicastHost.parent = parent }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetParent() types.Entity { return multicastHost.parent }
-
-func (multicastHost *IpArm_Ipv6_MulticastHost) GetParentYangName() string { return "ipv6" }
 

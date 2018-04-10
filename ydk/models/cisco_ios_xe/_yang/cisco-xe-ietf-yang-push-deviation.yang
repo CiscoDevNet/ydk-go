@@ -15,6 +15,10 @@ module cisco-xe-ietf-yang-push-deviation {
     prefix yp;
   }
 
+  import cisco-xe-ietf-yang-push-ext {
+    prefix cyp;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -35,6 +39,11 @@ module cisco-xe-ietf-yang-push-deviation {
      Copyright (c) 2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-08-22 {
+    description
+      "Suppressed unsupported elements of establish-subscription";
+  }
+
   revision 2017-02-22 {
     description
       "Initial Revision";
@@ -44,6 +53,20 @@ module cisco-xe-ietf-yang-push-deviation {
        Network Configuration Protocol (NETCONF)";
 
   }
+
+  deviation "/notif-bis:modify-subscription" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  /*
+   *
+  deviation "/notif-bis:establish-subscription/notif-bis:input" +
+            "/notif-bis:filter-type/yp:update-filter/yp:update-filter/yp:subtree" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+  */
 
   deviation "/notif-bis:establish-subscription/notif-bis:input" +
             "/yp:update-trigger/yp:periodic/yp:anchor-time" {
@@ -84,5 +107,109 @@ module cisco-xe-ietf-yang-push-deviation {
     deviate not-supported;
     description  "Currently not supported.";
   }
+
+  /*
+   * ==============================
+   * subscription-config
+   * ==============================
+   */
+
+  /*
+   *
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/notif-bis:filter-type/yp:update-filter/yp:update-filter/yp:subtree" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+   */
+
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/yp:update-trigger/yp:periodic/yp:anchor-time" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/yp:update-trigger/yp:on-change/yp:dampening-period" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/yp:update-trigger/yp:on-change/yp:excluded-change" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/yp:dscp" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/yp:subscription-priority" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscription-config/notif-bis:subscription" +
+            "/yp:subscription-dependency" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  /*
+   * ==============================
+   * subscriptions
+   * ==============================
+   */
+
+  /*
+   *
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/notif-bis:filter-type/yp:update-filter/yp:update-filter/yp:subtree" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+   */
+
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/yp:update-trigger/yp:periodic/yp:anchor-time" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/yp:update-trigger/yp:on-change/yp:dampening-period" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/yp:update-trigger/yp:on-change/yp:excluded-change" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/yp:dscp" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/yp:subscription-priority" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+  deviation "/notif-bis:subscriptions/notif-bis:subscription" +
+            "/yp:subscription-dependency" {
+    deviate not-supported;
+    description  "Currently not supported.";
+  }
+
+
 
 }

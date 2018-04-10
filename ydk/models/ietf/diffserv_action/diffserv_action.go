@@ -26,41 +26,6 @@ func (id Marking) String() string {
 	return "ietf-diffserv-action:marking"
 }
 
-type AlwaysDrop struct {
-}
-
-func (id AlwaysDrop) String() string {
-	return "ietf-diffserv-action:always-drop"
-}
-
-type TailDrop struct {
-}
-
-func (id TailDrop) String() string {
-	return "ietf-diffserv-action:tail-drop"
-}
-
-type DropType struct {
-}
-
-func (id DropType) String() string {
-	return "ietf-diffserv-action:drop-type"
-}
-
-type MeterActionDrop struct {
-}
-
-func (id MeterActionDrop) String() string {
-	return "ietf-diffserv-action:meter-action-drop"
-}
-
-type MinRate struct {
-}
-
-func (id MinRate) String() string {
-	return "ietf-diffserv-action:min-rate"
-}
-
 type Meter struct {
 }
 
@@ -75,6 +40,13 @@ func (id Priority) String() string {
 	return "ietf-diffserv-action:priority"
 }
 
+type MinRate struct {
+}
+
+func (id MinRate) String() string {
+	return "ietf-diffserv-action:min-rate"
+}
+
 type MaxRate struct {
 }
 
@@ -82,18 +54,32 @@ func (id MaxRate) String() string {
 	return "ietf-diffserv-action:max-rate"
 }
 
-type MeterActionType struct {
+type AlgorithmicDrop struct {
 }
 
-func (id MeterActionType) String() string {
-	return "ietf-diffserv-action:meter-action-type"
+func (id AlgorithmicDrop) String() string {
+	return "ietf-diffserv-action:algorithmic-drop"
 }
 
-type MeterActionSet struct {
+type DropType struct {
 }
 
-func (id MeterActionSet) String() string {
-	return "ietf-diffserv-action:meter-action-set"
+func (id DropType) String() string {
+	return "ietf-diffserv-action:drop-type"
+}
+
+type AlwaysDrop struct {
+}
+
+func (id AlwaysDrop) String() string {
+	return "ietf-diffserv-action:always-drop"
+}
+
+type TailDrop struct {
+}
+
+func (id TailDrop) String() string {
+	return "ietf-diffserv-action:tail-drop"
 }
 
 type RandomDetect struct {
@@ -103,10 +89,24 @@ func (id RandomDetect) String() string {
 	return "ietf-diffserv-action:random-detect"
 }
 
-type AlgorithmicDrop struct {
+type MeterActionType struct {
 }
 
-func (id AlgorithmicDrop) String() string {
-	return "ietf-diffserv-action:algorithmic-drop"
+func (id MeterActionType) String() string {
+	return "ietf-diffserv-action:meter-action-type"
+}
+
+type MeterActionDrop struct {
+}
+
+func (id MeterActionDrop) String() string {
+	return "ietf-diffserv-action:meter-action-drop"
+}
+
+type MeterActionSet struct {
+}
+
+func (id MeterActionSet) String() string {
+	return "ietf-diffserv-action:meter-action-set"
 }
 

@@ -65,23 +65,6 @@ const (
     CtsOdmBindingSource_from_cli_hi CtsOdmBindingSource = "from-cli-hi"
 )
 
-// SxpConMode represents SXP Connection mode
-type SxpConMode string
-
-const (
-    // SXP Connection mode is Invalid
-    SxpConMode_con_mode_invalid SxpConMode = "con-mode-invalid"
-
-    // SXP Connection mode is Speaker
-    SxpConMode_con_mode_speaker SxpConMode = "con-mode-speaker"
-
-    // SXP Connection mode is Listener
-    SxpConMode_con_mode_listener SxpConMode = "con-mode-listener"
-
-    // SXP Connection mode is Both (Speaker and Listener)
-    SxpConMode_con_mode_both SxpConMode = "con-mode-both"
-)
-
 // SxpConState represents SXP Connection state
 type SxpConState string
 
@@ -102,6 +85,23 @@ const (
     SxpConState_state_not_applicable SxpConState = "state-not-applicable"
 )
 
+// SxpConMode represents SXP Connection mode
+type SxpConMode string
+
+const (
+    // SXP Connection mode is Invalid
+    SxpConMode_con_mode_invalid SxpConMode = "con-mode-invalid"
+
+    // SXP Connection mode is Speaker
+    SxpConMode_con_mode_speaker SxpConMode = "con-mode-speaker"
+
+    // SXP Connection mode is Listener
+    SxpConMode_con_mode_listener SxpConMode = "con-mode-listener"
+
+    // SXP Connection mode is Both (Speaker and Listener)
+    SxpConMode_con_mode_both SxpConMode = "con-mode-both"
+)
+
 // TrustsecState
 // This is top level container for Cisco Trusted Security
 // solution operational data.
@@ -111,7 +111,7 @@ const (
 // Group, SXP Connection information for a given peer
 // IP-Address in this device
 type TrustsecState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Security Group Tag value corresponding to an IP-Address  in the given VRF
@@ -130,70 +130,29 @@ type TrustsecState struct {
     CtsSxpConnections TrustsecState_CtsSxpConnections
 }
 
-func (trustsecState *TrustsecState) GetFilter() yfilter.YFilter { return trustsecState.YFilter }
+func (trustsecState *TrustsecState) GetEntityData() *types.CommonEntityData {
+    trustsecState.EntityData.YFilter = trustsecState.YFilter
+    trustsecState.EntityData.YangName = "trustsec-state"
+    trustsecState.EntityData.BundleName = "cisco_ios_xe"
+    trustsecState.EntityData.ParentYangName = "Cisco-IOS-XE-trustsec-oper"
+    trustsecState.EntityData.SegmentPath = "Cisco-IOS-XE-trustsec-oper:trustsec-state"
+    trustsecState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    trustsecState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    trustsecState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (trustsecState *TrustsecState) SetFilter(yf yfilter.YFilter) { trustsecState.YFilter = yf }
-
-func (trustsecState *TrustsecState) GetGoName(yname string) string {
-    if yname == "cts-rolebased-sgtmaps" { return "CtsRolebasedSgtmaps" }
-    if yname == "cts-rolebased-policies" { return "CtsRolebasedPolicies" }
-    if yname == "cts-sxp-connections" { return "CtsSxpConnections" }
-    return ""
+    trustsecState.EntityData.Children = make(map[string]types.YChild)
+    trustsecState.EntityData.Children["cts-rolebased-sgtmaps"] = types.YChild{"CtsRolebasedSgtmaps", &trustsecState.CtsRolebasedSgtmaps}
+    trustsecState.EntityData.Children["cts-rolebased-policies"] = types.YChild{"CtsRolebasedPolicies", &trustsecState.CtsRolebasedPolicies}
+    trustsecState.EntityData.Children["cts-sxp-connections"] = types.YChild{"CtsSxpConnections", &trustsecState.CtsSxpConnections}
+    trustsecState.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trustsecState.EntityData)
 }
-
-func (trustsecState *TrustsecState) GetSegmentPath() string {
-    return "Cisco-IOS-XE-trustsec-oper:trustsec-state"
-}
-
-func (trustsecState *TrustsecState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cts-rolebased-sgtmaps" {
-        return &trustsecState.CtsRolebasedSgtmaps
-    }
-    if childYangName == "cts-rolebased-policies" {
-        return &trustsecState.CtsRolebasedPolicies
-    }
-    if childYangName == "cts-sxp-connections" {
-        return &trustsecState.CtsSxpConnections
-    }
-    return nil
-}
-
-func (trustsecState *TrustsecState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cts-rolebased-sgtmaps"] = &trustsecState.CtsRolebasedSgtmaps
-    children["cts-rolebased-policies"] = &trustsecState.CtsRolebasedPolicies
-    children["cts-sxp-connections"] = &trustsecState.CtsSxpConnections
-    return children
-}
-
-func (trustsecState *TrustsecState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trustsecState *TrustsecState) GetBundleName() string { return "cisco_ios_xe" }
-
-func (trustsecState *TrustsecState) GetYangName() string { return "trustsec-state" }
-
-func (trustsecState *TrustsecState) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (trustsecState *TrustsecState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (trustsecState *TrustsecState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (trustsecState *TrustsecState) SetParent(parent types.Entity) { trustsecState.parent = parent }
-
-func (trustsecState *TrustsecState) GetParent() types.Entity { return trustsecState.parent }
-
-func (trustsecState *TrustsecState) GetParentYangName() string { return "Cisco-IOS-XE-trustsec-oper" }
 
 // TrustsecState_CtsRolebasedSgtmaps
 // Security Group Tag value corresponding to an IP-Address 
 // in the given VRF instance in this device
 type TrustsecState_CtsRolebasedSgtmaps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Security Group Tag is assigned for an IP-Address based on the user
@@ -203,63 +162,24 @@ type TrustsecState_CtsRolebasedSgtmaps struct {
     CtsRolebasedSgtmap []TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap
 }
 
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetFilter() yfilter.YFilter { return ctsRolebasedSgtmaps.YFilter }
+func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetEntityData() *types.CommonEntityData {
+    ctsRolebasedSgtmaps.EntityData.YFilter = ctsRolebasedSgtmaps.YFilter
+    ctsRolebasedSgtmaps.EntityData.YangName = "cts-rolebased-sgtmaps"
+    ctsRolebasedSgtmaps.EntityData.BundleName = "cisco_ios_xe"
+    ctsRolebasedSgtmaps.EntityData.ParentYangName = "trustsec-state"
+    ctsRolebasedSgtmaps.EntityData.SegmentPath = "cts-rolebased-sgtmaps"
+    ctsRolebasedSgtmaps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctsRolebasedSgtmaps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctsRolebasedSgtmaps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) SetFilter(yf yfilter.YFilter) { ctsRolebasedSgtmaps.YFilter = yf }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetGoName(yname string) string {
-    if yname == "cts-rolebased-sgtmap" { return "CtsRolebasedSgtmap" }
-    return ""
-}
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetSegmentPath() string {
-    return "cts-rolebased-sgtmaps"
-}
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cts-rolebased-sgtmap" {
-        for _, c := range ctsRolebasedSgtmaps.CtsRolebasedSgtmap {
-            if ctsRolebasedSgtmaps.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap{}
-        ctsRolebasedSgtmaps.CtsRolebasedSgtmap = append(ctsRolebasedSgtmaps.CtsRolebasedSgtmap, child)
-        return &ctsRolebasedSgtmaps.CtsRolebasedSgtmap[len(ctsRolebasedSgtmaps.CtsRolebasedSgtmap)-1]
-    }
-    return nil
-}
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctsRolebasedSgtmaps.EntityData.Children = make(map[string]types.YChild)
+    ctsRolebasedSgtmaps.EntityData.Children["cts-rolebased-sgtmap"] = types.YChild{"CtsRolebasedSgtmap", nil}
     for i := range ctsRolebasedSgtmaps.CtsRolebasedSgtmap {
-        children[ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i].GetSegmentPath()] = &ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i]
+        ctsRolebasedSgtmaps.EntityData.Children[types.GetSegmentPath(&ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i])] = types.YChild{"CtsRolebasedSgtmap", &ctsRolebasedSgtmaps.CtsRolebasedSgtmap[i]}
     }
-    return children
+    ctsRolebasedSgtmaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctsRolebasedSgtmaps.EntityData)
 }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetYangName() string { return "cts-rolebased-sgtmaps" }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) SetParent(parent types.Entity) { ctsRolebasedSgtmaps.parent = parent }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetParent() types.Entity { return ctsRolebasedSgtmaps.parent }
-
-func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetParentYangName() string { return "trustsec-state" }
 
 // TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap
 // Security Group Tag is assigned for an IP-Address
@@ -267,16 +187,16 @@ func (ctsRolebasedSgtmaps *TrustsecState_CtsRolebasedSgtmaps) GetParentYangName(
 // level as configured by the network administrator
 // in Identity Service Engine server or in the device locally
 type TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP-Prefix information to find its corresponding
     // Secure Group Tag. Only IPv4 prefix information is supported currently to
     // get the Security Group Tag binding in this device. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     Ip interface{}
 
     // This attribute is a key. VRF-Name to find the Security Group Tag for the
@@ -294,64 +214,31 @@ type TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap struct {
     Source interface{}
 }
 
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetFilter() yfilter.YFilter { return ctsRolebasedSgtmap.YFilter }
+func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetEntityData() *types.CommonEntityData {
+    ctsRolebasedSgtmap.EntityData.YFilter = ctsRolebasedSgtmap.YFilter
+    ctsRolebasedSgtmap.EntityData.YangName = "cts-rolebased-sgtmap"
+    ctsRolebasedSgtmap.EntityData.BundleName = "cisco_ios_xe"
+    ctsRolebasedSgtmap.EntityData.ParentYangName = "cts-rolebased-sgtmaps"
+    ctsRolebasedSgtmap.EntityData.SegmentPath = "cts-rolebased-sgtmap" + "[ip='" + fmt.Sprintf("%v", ctsRolebasedSgtmap.Ip) + "']" + "[vrf-name='" + fmt.Sprintf("%v", ctsRolebasedSgtmap.VrfName) + "']"
+    ctsRolebasedSgtmap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctsRolebasedSgtmap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctsRolebasedSgtmap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) SetFilter(yf yfilter.YFilter) { ctsRolebasedSgtmap.YFilter = yf }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetGoName(yname string) string {
-    if yname == "ip" { return "Ip" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "sgt" { return "Sgt" }
-    if yname == "source" { return "Source" }
-    return ""
+    ctsRolebasedSgtmap.EntityData.Children = make(map[string]types.YChild)
+    ctsRolebasedSgtmap.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctsRolebasedSgtmap.EntityData.Leafs["ip"] = types.YLeaf{"Ip", ctsRolebasedSgtmap.Ip}
+    ctsRolebasedSgtmap.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ctsRolebasedSgtmap.VrfName}
+    ctsRolebasedSgtmap.EntityData.Leafs["sgt"] = types.YLeaf{"Sgt", ctsRolebasedSgtmap.Sgt}
+    ctsRolebasedSgtmap.EntityData.Leafs["source"] = types.YLeaf{"Source", ctsRolebasedSgtmap.Source}
+    return &(ctsRolebasedSgtmap.EntityData)
 }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetSegmentPath() string {
-    return "cts-rolebased-sgtmap" + "[ip='" + fmt.Sprintf("%v", ctsRolebasedSgtmap.Ip) + "']" + "[vrf-name='" + fmt.Sprintf("%v", ctsRolebasedSgtmap.VrfName) + "']"
-}
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip"] = ctsRolebasedSgtmap.Ip
-    leafs["vrf-name"] = ctsRolebasedSgtmap.VrfName
-    leafs["sgt"] = ctsRolebasedSgtmap.Sgt
-    leafs["source"] = ctsRolebasedSgtmap.Source
-    return leafs
-}
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetYangName() string { return "cts-rolebased-sgtmap" }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) SetParent(parent types.Entity) { ctsRolebasedSgtmap.parent = parent }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetParent() types.Entity { return ctsRolebasedSgtmap.parent }
-
-func (ctsRolebasedSgtmap *TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap) GetParentYangName() string { return "cts-rolebased-sgtmaps" }
 
 // TrustsecState_CtsRolebasedPolicies
 // Role based permissions between a Source Security Group
 // and a Destination Security Group are configured by the
 // administrator in the Identity Services Engine or in the Device
 type TrustsecState_CtsRolebasedPolicies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Role based permissions between a Source Security Group and a Destination
@@ -361,63 +248,24 @@ type TrustsecState_CtsRolebasedPolicies struct {
     CtsRolebasedPolicy []TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy
 }
 
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetFilter() yfilter.YFilter { return ctsRolebasedPolicies.YFilter }
+func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetEntityData() *types.CommonEntityData {
+    ctsRolebasedPolicies.EntityData.YFilter = ctsRolebasedPolicies.YFilter
+    ctsRolebasedPolicies.EntityData.YangName = "cts-rolebased-policies"
+    ctsRolebasedPolicies.EntityData.BundleName = "cisco_ios_xe"
+    ctsRolebasedPolicies.EntityData.ParentYangName = "trustsec-state"
+    ctsRolebasedPolicies.EntityData.SegmentPath = "cts-rolebased-policies"
+    ctsRolebasedPolicies.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctsRolebasedPolicies.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctsRolebasedPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) SetFilter(yf yfilter.YFilter) { ctsRolebasedPolicies.YFilter = yf }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetGoName(yname string) string {
-    if yname == "cts-rolebased-policy" { return "CtsRolebasedPolicy" }
-    return ""
-}
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetSegmentPath() string {
-    return "cts-rolebased-policies"
-}
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cts-rolebased-policy" {
-        for _, c := range ctsRolebasedPolicies.CtsRolebasedPolicy {
-            if ctsRolebasedPolicies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy{}
-        ctsRolebasedPolicies.CtsRolebasedPolicy = append(ctsRolebasedPolicies.CtsRolebasedPolicy, child)
-        return &ctsRolebasedPolicies.CtsRolebasedPolicy[len(ctsRolebasedPolicies.CtsRolebasedPolicy)-1]
-    }
-    return nil
-}
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctsRolebasedPolicies.EntityData.Children = make(map[string]types.YChild)
+    ctsRolebasedPolicies.EntityData.Children["cts-rolebased-policy"] = types.YChild{"CtsRolebasedPolicy", nil}
     for i := range ctsRolebasedPolicies.CtsRolebasedPolicy {
-        children[ctsRolebasedPolicies.CtsRolebasedPolicy[i].GetSegmentPath()] = &ctsRolebasedPolicies.CtsRolebasedPolicy[i]
+        ctsRolebasedPolicies.EntityData.Children[types.GetSegmentPath(&ctsRolebasedPolicies.CtsRolebasedPolicy[i])] = types.YChild{"CtsRolebasedPolicy", &ctsRolebasedPolicies.CtsRolebasedPolicy[i]}
     }
-    return children
+    ctsRolebasedPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctsRolebasedPolicies.EntityData)
 }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetYangName() string { return "cts-rolebased-policies" }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) SetParent(parent types.Entity) { ctsRolebasedPolicies.parent = parent }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetParent() types.Entity { return ctsRolebasedPolicies.parent }
-
-func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetParentYangName() string { return "trustsec-state" }
 
 // TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy
 // Role based permissions between a Source Security Group
@@ -425,7 +273,7 @@ func (ctsRolebasedPolicies *TrustsecState_CtsRolebasedPolicies) GetParentYangNam
 // the device using a Security Group Tag and Destination
 // Group Tag value
 type TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Source Security Group Tag number. This value must
@@ -465,7 +313,7 @@ type TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy struct {
     // last. The value will be represented as date and time  corresponding to the
     // local time zone of the Identify Services Engine when the Role based 
     // permissions was modified or updated last. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LastUpdatedTime interface{}
 
     // Total number of packets that have been denied by the Role based permissions
@@ -519,79 +367,35 @@ type TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy struct {
     HardwareMonitorCount interface{}
 }
 
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetFilter() yfilter.YFilter { return ctsRolebasedPolicy.YFilter }
+func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetEntityData() *types.CommonEntityData {
+    ctsRolebasedPolicy.EntityData.YFilter = ctsRolebasedPolicy.YFilter
+    ctsRolebasedPolicy.EntityData.YangName = "cts-rolebased-policy"
+    ctsRolebasedPolicy.EntityData.BundleName = "cisco_ios_xe"
+    ctsRolebasedPolicy.EntityData.ParentYangName = "cts-rolebased-policies"
+    ctsRolebasedPolicy.EntityData.SegmentPath = "cts-rolebased-policy" + "[src-sgt='" + fmt.Sprintf("%v", ctsRolebasedPolicy.SrcSgt) + "']" + "[dst-sgt='" + fmt.Sprintf("%v", ctsRolebasedPolicy.DstSgt) + "']"
+    ctsRolebasedPolicy.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctsRolebasedPolicy.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctsRolebasedPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) SetFilter(yf yfilter.YFilter) { ctsRolebasedPolicy.YFilter = yf }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetGoName(yname string) string {
-    if yname == "src-sgt" { return "SrcSgt" }
-    if yname == "dst-sgt" { return "DstSgt" }
-    if yname == "sgacl-name" { return "SgaclName" }
-    if yname == "num-of-sgacl" { return "NumOfSgacl" }
-    if yname == "monitor-mode" { return "MonitorMode" }
-    if yname == "policy-life-time" { return "PolicyLifeTime" }
-    if yname == "last-updated-time" { return "LastUpdatedTime" }
-    if yname == "total-deny-count" { return "TotalDenyCount" }
-    if yname == "total-permit-count" { return "TotalPermitCount" }
-    if yname == "software-deny-count" { return "SoftwareDenyCount" }
-    if yname == "software-permit-count" { return "SoftwarePermitCount" }
-    if yname == "hardware-deny-count" { return "HardwareDenyCount" }
-    if yname == "hardware-permit-count" { return "HardwarePermitCount" }
-    if yname == "software-monitor-count" { return "SoftwareMonitorCount" }
-    if yname == "hardware-monitor-count" { return "HardwareMonitorCount" }
-    return ""
+    ctsRolebasedPolicy.EntityData.Children = make(map[string]types.YChild)
+    ctsRolebasedPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctsRolebasedPolicy.EntityData.Leafs["src-sgt"] = types.YLeaf{"SrcSgt", ctsRolebasedPolicy.SrcSgt}
+    ctsRolebasedPolicy.EntityData.Leafs["dst-sgt"] = types.YLeaf{"DstSgt", ctsRolebasedPolicy.DstSgt}
+    ctsRolebasedPolicy.EntityData.Leafs["sgacl-name"] = types.YLeaf{"SgaclName", ctsRolebasedPolicy.SgaclName}
+    ctsRolebasedPolicy.EntityData.Leafs["num-of-sgacl"] = types.YLeaf{"NumOfSgacl", ctsRolebasedPolicy.NumOfSgacl}
+    ctsRolebasedPolicy.EntityData.Leafs["monitor-mode"] = types.YLeaf{"MonitorMode", ctsRolebasedPolicy.MonitorMode}
+    ctsRolebasedPolicy.EntityData.Leafs["policy-life-time"] = types.YLeaf{"PolicyLifeTime", ctsRolebasedPolicy.PolicyLifeTime}
+    ctsRolebasedPolicy.EntityData.Leafs["last-updated-time"] = types.YLeaf{"LastUpdatedTime", ctsRolebasedPolicy.LastUpdatedTime}
+    ctsRolebasedPolicy.EntityData.Leafs["total-deny-count"] = types.YLeaf{"TotalDenyCount", ctsRolebasedPolicy.TotalDenyCount}
+    ctsRolebasedPolicy.EntityData.Leafs["total-permit-count"] = types.YLeaf{"TotalPermitCount", ctsRolebasedPolicy.TotalPermitCount}
+    ctsRolebasedPolicy.EntityData.Leafs["software-deny-count"] = types.YLeaf{"SoftwareDenyCount", ctsRolebasedPolicy.SoftwareDenyCount}
+    ctsRolebasedPolicy.EntityData.Leafs["software-permit-count"] = types.YLeaf{"SoftwarePermitCount", ctsRolebasedPolicy.SoftwarePermitCount}
+    ctsRolebasedPolicy.EntityData.Leafs["hardware-deny-count"] = types.YLeaf{"HardwareDenyCount", ctsRolebasedPolicy.HardwareDenyCount}
+    ctsRolebasedPolicy.EntityData.Leafs["hardware-permit-count"] = types.YLeaf{"HardwarePermitCount", ctsRolebasedPolicy.HardwarePermitCount}
+    ctsRolebasedPolicy.EntityData.Leafs["software-monitor-count"] = types.YLeaf{"SoftwareMonitorCount", ctsRolebasedPolicy.SoftwareMonitorCount}
+    ctsRolebasedPolicy.EntityData.Leafs["hardware-monitor-count"] = types.YLeaf{"HardwareMonitorCount", ctsRolebasedPolicy.HardwareMonitorCount}
+    return &(ctsRolebasedPolicy.EntityData)
 }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetSegmentPath() string {
-    return "cts-rolebased-policy" + "[src-sgt='" + fmt.Sprintf("%v", ctsRolebasedPolicy.SrcSgt) + "']" + "[dst-sgt='" + fmt.Sprintf("%v", ctsRolebasedPolicy.DstSgt) + "']"
-}
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["src-sgt"] = ctsRolebasedPolicy.SrcSgt
-    leafs["dst-sgt"] = ctsRolebasedPolicy.DstSgt
-    leafs["sgacl-name"] = ctsRolebasedPolicy.SgaclName
-    leafs["num-of-sgacl"] = ctsRolebasedPolicy.NumOfSgacl
-    leafs["monitor-mode"] = ctsRolebasedPolicy.MonitorMode
-    leafs["policy-life-time"] = ctsRolebasedPolicy.PolicyLifeTime
-    leafs["last-updated-time"] = ctsRolebasedPolicy.LastUpdatedTime
-    leafs["total-deny-count"] = ctsRolebasedPolicy.TotalDenyCount
-    leafs["total-permit-count"] = ctsRolebasedPolicy.TotalPermitCount
-    leafs["software-deny-count"] = ctsRolebasedPolicy.SoftwareDenyCount
-    leafs["software-permit-count"] = ctsRolebasedPolicy.SoftwarePermitCount
-    leafs["hardware-deny-count"] = ctsRolebasedPolicy.HardwareDenyCount
-    leafs["hardware-permit-count"] = ctsRolebasedPolicy.HardwarePermitCount
-    leafs["software-monitor-count"] = ctsRolebasedPolicy.SoftwareMonitorCount
-    leafs["hardware-monitor-count"] = ctsRolebasedPolicy.HardwareMonitorCount
-    return leafs
-}
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetYangName() string { return "cts-rolebased-policy" }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) SetParent(parent types.Entity) { ctsRolebasedPolicy.parent = parent }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetParent() types.Entity { return ctsRolebasedPolicy.parent }
-
-func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy) GetParentYangName() string { return "cts-rolebased-policies" }
 
 // TrustsecState_CtsSxpConnections
 // Trustsec SXP connection is used between Cisco devices
@@ -600,7 +404,7 @@ func (ctsRolebasedPolicy *TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy)
 // mode or Listener mode or both the devices can be in
 // both the connection modes
 type TrustsecState_CtsSxpConnections struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trustsec SXP connection information from a device can be retrieved with the
@@ -610,63 +414,24 @@ type TrustsecState_CtsSxpConnections struct {
     CtsSxpConnection []TrustsecState_CtsSxpConnections_CtsSxpConnection
 }
 
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetFilter() yfilter.YFilter { return ctsSxpConnections.YFilter }
+func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetEntityData() *types.CommonEntityData {
+    ctsSxpConnections.EntityData.YFilter = ctsSxpConnections.YFilter
+    ctsSxpConnections.EntityData.YangName = "cts-sxp-connections"
+    ctsSxpConnections.EntityData.BundleName = "cisco_ios_xe"
+    ctsSxpConnections.EntityData.ParentYangName = "trustsec-state"
+    ctsSxpConnections.EntityData.SegmentPath = "cts-sxp-connections"
+    ctsSxpConnections.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctsSxpConnections.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctsSxpConnections.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) SetFilter(yf yfilter.YFilter) { ctsSxpConnections.YFilter = yf }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetGoName(yname string) string {
-    if yname == "cts-sxp-connection" { return "CtsSxpConnection" }
-    return ""
-}
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetSegmentPath() string {
-    return "cts-sxp-connections"
-}
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cts-sxp-connection" {
-        for _, c := range ctsSxpConnections.CtsSxpConnection {
-            if ctsSxpConnections.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrustsecState_CtsSxpConnections_CtsSxpConnection{}
-        ctsSxpConnections.CtsSxpConnection = append(ctsSxpConnections.CtsSxpConnection, child)
-        return &ctsSxpConnections.CtsSxpConnection[len(ctsSxpConnections.CtsSxpConnection)-1]
-    }
-    return nil
-}
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctsSxpConnections.EntityData.Children = make(map[string]types.YChild)
+    ctsSxpConnections.EntityData.Children["cts-sxp-connection"] = types.YChild{"CtsSxpConnection", nil}
     for i := range ctsSxpConnections.CtsSxpConnection {
-        children[ctsSxpConnections.CtsSxpConnection[i].GetSegmentPath()] = &ctsSxpConnections.CtsSxpConnection[i]
+        ctsSxpConnections.EntityData.Children[types.GetSegmentPath(&ctsSxpConnections.CtsSxpConnection[i])] = types.YChild{"CtsSxpConnection", &ctsSxpConnections.CtsSxpConnection[i]}
     }
-    return children
+    ctsSxpConnections.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctsSxpConnections.EntityData)
 }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetYangName() string { return "cts-sxp-connections" }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) SetParent(parent types.Entity) { ctsSxpConnections.parent = parent }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetParent() types.Entity { return ctsSxpConnections.parent }
-
-func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetParentYangName() string { return "trustsec-state" }
 
 // TrustsecState_CtsSxpConnections_CtsSxpConnection
 // Trustsec SXP connection information from a device
@@ -674,15 +439,15 @@ func (ctsSxpConnections *TrustsecState_CtsSxpConnections) GetParentYangName() st
 // address. Only IPv4 address as Peer IP and default
 // VRF instance in device is supported currently
 type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP-Address information of the peer of an SXP
     // connection in this device. Only IPv4 address is currently supported. The
     // type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIp interface{}
 
     // This attribute is a key. vrf-name string of the VRF instance in this
@@ -693,9 +458,9 @@ type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
 
     // Source IP-Address of the SXP connection in this device for the given peer
     // IP-Address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceIp interface{}
 
     // SXP speaker state information of the SXP connection in this device. This
@@ -723,63 +488,26 @@ type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
     LocalMode interface{}
 }
 
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetFilter() yfilter.YFilter { return ctsSxpConnection.YFilter }
+func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetEntityData() *types.CommonEntityData {
+    ctsSxpConnection.EntityData.YFilter = ctsSxpConnection.YFilter
+    ctsSxpConnection.EntityData.YangName = "cts-sxp-connection"
+    ctsSxpConnection.EntityData.BundleName = "cisco_ios_xe"
+    ctsSxpConnection.EntityData.ParentYangName = "cts-sxp-connections"
+    ctsSxpConnection.EntityData.SegmentPath = "cts-sxp-connection" + "[peer-ip='" + fmt.Sprintf("%v", ctsSxpConnection.PeerIp) + "']" + "[vrf-name='" + fmt.Sprintf("%v", ctsSxpConnection.VrfName) + "']"
+    ctsSxpConnection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctsSxpConnection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctsSxpConnection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) SetFilter(yf yfilter.YFilter) { ctsSxpConnection.YFilter = yf }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetGoName(yname string) string {
-    if yname == "peer-ip" { return "PeerIp" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source-ip" { return "SourceIp" }
-    if yname == "speaker-state" { return "SpeakerState" }
-    if yname == "speaker-duration" { return "SpeakerDuration" }
-    if yname == "listener-state" { return "ListenerState" }
-    if yname == "listener-duration" { return "ListenerDuration" }
-    if yname == "local-mode" { return "LocalMode" }
-    return ""
+    ctsSxpConnection.EntityData.Children = make(map[string]types.YChild)
+    ctsSxpConnection.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctsSxpConnection.EntityData.Leafs["peer-ip"] = types.YLeaf{"PeerIp", ctsSxpConnection.PeerIp}
+    ctsSxpConnection.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ctsSxpConnection.VrfName}
+    ctsSxpConnection.EntityData.Leafs["source-ip"] = types.YLeaf{"SourceIp", ctsSxpConnection.SourceIp}
+    ctsSxpConnection.EntityData.Leafs["speaker-state"] = types.YLeaf{"SpeakerState", ctsSxpConnection.SpeakerState}
+    ctsSxpConnection.EntityData.Leafs["speaker-duration"] = types.YLeaf{"SpeakerDuration", ctsSxpConnection.SpeakerDuration}
+    ctsSxpConnection.EntityData.Leafs["listener-state"] = types.YLeaf{"ListenerState", ctsSxpConnection.ListenerState}
+    ctsSxpConnection.EntityData.Leafs["listener-duration"] = types.YLeaf{"ListenerDuration", ctsSxpConnection.ListenerDuration}
+    ctsSxpConnection.EntityData.Leafs["local-mode"] = types.YLeaf{"LocalMode", ctsSxpConnection.LocalMode}
+    return &(ctsSxpConnection.EntityData)
 }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetSegmentPath() string {
-    return "cts-sxp-connection" + "[peer-ip='" + fmt.Sprintf("%v", ctsSxpConnection.PeerIp) + "']" + "[vrf-name='" + fmt.Sprintf("%v", ctsSxpConnection.VrfName) + "']"
-}
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["peer-ip"] = ctsSxpConnection.PeerIp
-    leafs["vrf-name"] = ctsSxpConnection.VrfName
-    leafs["source-ip"] = ctsSxpConnection.SourceIp
-    leafs["speaker-state"] = ctsSxpConnection.SpeakerState
-    leafs["speaker-duration"] = ctsSxpConnection.SpeakerDuration
-    leafs["listener-state"] = ctsSxpConnection.ListenerState
-    leafs["listener-duration"] = ctsSxpConnection.ListenerDuration
-    leafs["local-mode"] = ctsSxpConnection.LocalMode
-    return leafs
-}
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetYangName() string { return "cts-sxp-connection" }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) SetParent(parent types.Entity) { ctsSxpConnection.parent = parent }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetParent() types.Entity { return ctsSxpConnection.parent }
-
-func (ctsSxpConnection *TrustsecState_CtsSxpConnections_CtsSxpConnection) GetParentYangName() string { return "cts-sxp-connections" }
 

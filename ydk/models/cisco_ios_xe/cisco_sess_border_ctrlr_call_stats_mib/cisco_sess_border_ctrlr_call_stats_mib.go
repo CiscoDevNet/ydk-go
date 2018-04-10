@@ -110,7 +110,7 @@ const (
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB
 type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The call stats instance table contains the physical index for each of the
@@ -177,84 +177,27 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB struct {
     Csbh248Statsrev1Table CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table
 }
 
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetFilter() yfilter.YFilter { return cISCOSESSBORDERCTRLRCALLSTATSMIB.YFilter }
+func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetEntityData() *types.CommonEntityData {
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.YFilter = cISCOSESSBORDERCTRLRCALLSTATSMIB.YFilter
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.YangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.SegmentPath = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) SetFilter(yf yfilter.YFilter) { cISCOSESSBORDERCTRLRCALLSTATSMIB.YFilter = yf }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceTable" { return "Csbcallstatsinstancetable" }
-    if yname == "csbCallStatsTable" { return "Csbcallstatstable" }
-    if yname == "csbCurrPeriodicStatsTable" { return "Csbcurrperiodicstatstable" }
-    if yname == "csbHistoryStatsTable" { return "Csbhistorystatstable" }
-    if yname == "csbPerFlowStatsTable" { return "Csbperflowstatstable" }
-    if yname == "csbH248StatsTable" { return "Csbh248Statstable" }
-    if yname == "csbH248StatsRev1Table" { return "Csbh248Statsrev1Table" }
-    return ""
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbCallStatsInstanceTable"] = types.YChild{"Csbcallstatsinstancetable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbCallStatsTable"] = types.YChild{"Csbcallstatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbCurrPeriodicStatsTable"] = types.YChild{"Csbcurrperiodicstatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbHistoryStatsTable"] = types.YChild{"Csbhistorystatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbPerFlowStatsTable"] = types.YChild{"Csbperflowstatstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbH248StatsTable"] = types.YChild{"Csbh248Statstable", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Children["csbH248StatsRev1Table"] = types.YChild{"Csbh248Statsrev1Table", &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table}
+    cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOSESSBORDERCTRLRCALLSTATSMIB.EntityData)
 }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetSegmentPath() string {
-    return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB:CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
-}
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbCallStatsInstanceTable" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable
-    }
-    if childYangName == "csbCallStatsTable" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable
-    }
-    if childYangName == "csbCurrPeriodicStatsTable" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable
-    }
-    if childYangName == "csbHistoryStatsTable" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable
-    }
-    if childYangName == "csbPerFlowStatsTable" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable
-    }
-    if childYangName == "csbH248StatsTable" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable
-    }
-    if childYangName == "csbH248StatsRev1Table" {
-        return &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table
-    }
-    return nil
-}
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["csbCallStatsInstanceTable"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatsinstancetable
-    children["csbCallStatsTable"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcallstatstable
-    children["csbCurrPeriodicStatsTable"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbcurrperiodicstatstable
-    children["csbHistoryStatsTable"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbhistorystatstable
-    children["csbPerFlowStatsTable"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbperflowstatstable
-    children["csbH248StatsTable"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statstable
-    children["csbH248StatsRev1Table"] = &cISCOSESSBORDERCTRLRCALLSTATSMIB.Csbh248Statsrev1Table
-    return children
-}
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) SetParent(parent types.Entity) { cISCOSESSBORDERCTRLRCALLSTATSMIB.parent = parent }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetParent() types.Entity { return cISCOSESSBORDERCTRLRCALLSTATSMIB.parent }
-
-func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable
 // The call stats instance table contains the physical index for
@@ -262,7 +205,7 @@ func (cISCOSESSBORDERCTRLRCALLSTATSMIB *CISCOSESSBORDERCTRLRCALLSTATSMIB) GetPar
 // cards). The index of the table is instance index which uniquely
 // identifies the physical entity present on the box.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in csbCallStatsInstanceTable. There is an entry in this
@@ -272,70 +215,31 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable struct {
     Csbcallstatsinstanceentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry
 }
 
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetFilter() yfilter.YFilter { return csbcallstatsinstancetable.YFilter }
+func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetEntityData() *types.CommonEntityData {
+    csbcallstatsinstancetable.EntityData.YFilter = csbcallstatsinstancetable.YFilter
+    csbcallstatsinstancetable.EntityData.YangName = "csbCallStatsInstanceTable"
+    csbcallstatsinstancetable.EntityData.BundleName = "cisco_ios_xe"
+    csbcallstatsinstancetable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbcallstatsinstancetable.EntityData.SegmentPath = "csbCallStatsInstanceTable"
+    csbcallstatsinstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbcallstatsinstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbcallstatsinstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) SetFilter(yf yfilter.YFilter) { csbcallstatsinstancetable.YFilter = yf }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceEntry" { return "Csbcallstatsinstanceentry" }
-    return ""
-}
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetSegmentPath() string {
-    return "csbCallStatsInstanceTable"
-}
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbCallStatsInstanceEntry" {
-        for _, c := range csbcallstatsinstancetable.Csbcallstatsinstanceentry {
-            if csbcallstatsinstancetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry{}
-        csbcallstatsinstancetable.Csbcallstatsinstanceentry = append(csbcallstatsinstancetable.Csbcallstatsinstanceentry, child)
-        return &csbcallstatsinstancetable.Csbcallstatsinstanceentry[len(csbcallstatsinstancetable.Csbcallstatsinstanceentry)-1]
-    }
-    return nil
-}
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbcallstatsinstancetable.EntityData.Children = make(map[string]types.YChild)
+    csbcallstatsinstancetable.EntityData.Children["csbCallStatsInstanceEntry"] = types.YChild{"Csbcallstatsinstanceentry", nil}
     for i := range csbcallstatsinstancetable.Csbcallstatsinstanceentry {
-        children[csbcallstatsinstancetable.Csbcallstatsinstanceentry[i].GetSegmentPath()] = &csbcallstatsinstancetable.Csbcallstatsinstanceentry[i]
+        csbcallstatsinstancetable.EntityData.Children[types.GetSegmentPath(&csbcallstatsinstancetable.Csbcallstatsinstanceentry[i])] = types.YChild{"Csbcallstatsinstanceentry", &csbcallstatsinstancetable.Csbcallstatsinstanceentry[i]}
     }
-    return children
+    csbcallstatsinstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbcallstatsinstancetable.EntityData)
 }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetYangName() string { return "csbCallStatsInstanceTable" }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) SetParent(parent types.Entity) { csbcallstatsinstancetable.parent = parent }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetParent() types.Entity { return csbcallstatsinstancetable.parent }
-
-func (csbcallstatsinstancetable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry
 // A conceptual row in csbCallStatsInstanceTable. There is an
 // entry in this table for each SBC instance, as identified by a 
 // value of csbCallStatsInstanceIndex.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object uniquely identifies the sequence
@@ -351,53 +255,22 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinst
     Csbcallstatsinstancephysicalindex interface{}
 }
 
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetFilter() yfilter.YFilter { return csbcallstatsinstanceentry.YFilter }
+func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetEntityData() *types.CommonEntityData {
+    csbcallstatsinstanceentry.EntityData.YFilter = csbcallstatsinstanceentry.YFilter
+    csbcallstatsinstanceentry.EntityData.YangName = "csbCallStatsInstanceEntry"
+    csbcallstatsinstanceentry.EntityData.BundleName = "cisco_ios_xe"
+    csbcallstatsinstanceentry.EntityData.ParentYangName = "csbCallStatsInstanceTable"
+    csbcallstatsinstanceentry.EntityData.SegmentPath = "csbCallStatsInstanceEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcallstatsinstanceentry.Csbcallstatsinstanceindex) + "']"
+    csbcallstatsinstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbcallstatsinstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbcallstatsinstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) SetFilter(yf yfilter.YFilter) { csbcallstatsinstanceentry.YFilter = yf }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsInstancePhysicalIndex" { return "Csbcallstatsinstancephysicalindex" }
-    return ""
+    csbcallstatsinstanceentry.EntityData.Children = make(map[string]types.YChild)
+    csbcallstatsinstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbcallstatsinstanceentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbcallstatsinstanceentry.Csbcallstatsinstanceindex}
+    csbcallstatsinstanceentry.EntityData.Leafs["csbCallStatsInstancePhysicalIndex"] = types.YLeaf{"Csbcallstatsinstancephysicalindex", csbcallstatsinstanceentry.Csbcallstatsinstancephysicalindex}
+    return &(csbcallstatsinstanceentry.EntityData)
 }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetSegmentPath() string {
-    return "csbCallStatsInstanceEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcallstatsinstanceentry.Csbcallstatsinstanceindex) + "']"
-}
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbcallstatsinstanceentry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsInstancePhysicalIndex"] = csbcallstatsinstanceentry.Csbcallstatsinstancephysicalindex
-    return leafs
-}
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetYangName() string { return "csbCallStatsInstanceEntry" }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) SetParent(parent types.Entity) { csbcallstatsinstanceentry.parent = parent }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetParent() types.Entity { return csbcallstatsinstanceentry.parent }
-
-func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsinstancetable_Csbcallstatsinstanceentry) GetParentYangName() string { return "csbCallStatsInstanceTable" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable
 // This table describes the global statistics information in the
@@ -410,7 +283,7 @@ func (csbcallstatsinstanceentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatsin
 // table is csbCallStatsInstanceIndex which is defined in
 // csbCallStatsInstanceTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An conceptual row in the csbCallStatsGlobalStatsTable. There is an entry in
@@ -422,63 +295,24 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable struct {
     Csbcallstatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry
 }
 
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetFilter() yfilter.YFilter { return csbcallstatstable.YFilter }
+func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetEntityData() *types.CommonEntityData {
+    csbcallstatstable.EntityData.YFilter = csbcallstatstable.YFilter
+    csbcallstatstable.EntityData.YangName = "csbCallStatsTable"
+    csbcallstatstable.EntityData.BundleName = "cisco_ios_xe"
+    csbcallstatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbcallstatstable.EntityData.SegmentPath = "csbCallStatsTable"
+    csbcallstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbcallstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbcallstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) SetFilter(yf yfilter.YFilter) { csbcallstatstable.YFilter = yf }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetGoName(yname string) string {
-    if yname == "csbCallStatsEntry" { return "Csbcallstatsentry" }
-    return ""
-}
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetSegmentPath() string {
-    return "csbCallStatsTable"
-}
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbCallStatsEntry" {
-        for _, c := range csbcallstatstable.Csbcallstatsentry {
-            if csbcallstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry{}
-        csbcallstatstable.Csbcallstatsentry = append(csbcallstatstable.Csbcallstatsentry, child)
-        return &csbcallstatstable.Csbcallstatsentry[len(csbcallstatstable.Csbcallstatsentry)-1]
-    }
-    return nil
-}
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbcallstatstable.EntityData.Children = make(map[string]types.YChild)
+    csbcallstatstable.EntityData.Children["csbCallStatsEntry"] = types.YChild{"Csbcallstatsentry", nil}
     for i := range csbcallstatstable.Csbcallstatsentry {
-        children[csbcallstatstable.Csbcallstatsentry[i].GetSegmentPath()] = &csbcallstatstable.Csbcallstatsentry[i]
+        csbcallstatstable.EntityData.Children[types.GetSegmentPath(&csbcallstatstable.Csbcallstatsentry[i])] = types.YChild{"Csbcallstatsentry", &csbcallstatstable.Csbcallstatsentry[i]}
     }
-    return children
+    csbcallstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbcallstatstable.EntityData)
 }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetYangName() string { return "csbCallStatsTable" }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) SetParent(parent types.Entity) { csbcallstatstable.parent = parent }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetParent() types.Entity { return csbcallstatstable.parent }
-
-func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry
 // An conceptual row in the csbCallStatsGlobalStatsTable. There is
@@ -487,7 +321,7 @@ func (csbcallstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable) Get
 // other index of this table is csbCallStatsInstanceIndex which is
 // defined in csbCallStatsInstanceTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -625,103 +459,47 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry struct
     Csbcallstatstotaltranscodeflows interface{}
 }
 
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetFilter() yfilter.YFilter { return csbcallstatsentry.YFilter }
+func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetEntityData() *types.CommonEntityData {
+    csbcallstatsentry.EntityData.YFilter = csbcallstatsentry.YFilter
+    csbcallstatsentry.EntityData.YangName = "csbCallStatsEntry"
+    csbcallstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    csbcallstatsentry.EntityData.ParentYangName = "csbCallStatsTable"
+    csbcallstatsentry.EntityData.SegmentPath = "csbCallStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcallstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbcallstatsentry.Csbcallstatsserviceindex) + "']"
+    csbcallstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbcallstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbcallstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) SetFilter(yf yfilter.YFilter) { csbcallstatsentry.YFilter = yf }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsServiceIndex" { return "Csbcallstatsserviceindex" }
-    if yname == "csbCallStatsSbcName" { return "Csbcallstatssbcname" }
-    if yname == "csbCallStatsCallsHigh" { return "Csbcallstatscallshigh" }
-    if yname == "csbCallStatsRate1Sec" { return "Csbcallstatsrate1Sec" }
-    if yname == "csbCallStatsCallsLow" { return "Csbcallstatscallslow" }
-    if yname == "csbCallStatsAvailableFlows" { return "Csbcallstatsavailableflows" }
-    if yname == "csbCallStatsUsedFlows" { return "Csbcallstatsusedflows" }
-    if yname == "csbCallStatsPeakFlows" { return "Csbcallstatspeakflows" }
-    if yname == "csbCallStatsTotalFlows" { return "Csbcallstatstotalflows" }
-    if yname == "csbCallStatsUsedSigFlows" { return "Csbcallstatsusedsigflows" }
-    if yname == "csbCallStatsPeakSigFlows" { return "Csbcallstatspeaksigflows" }
-    if yname == "csbCallStatsTotalSigFlows" { return "Csbcallstatstotalsigflows" }
-    if yname == "csbCallStatsAvailablePktRate" { return "Csbcallstatsavailablepktrate" }
-    if yname == "csbCallStatsUnclassifiedPkts" { return "Csbcallstatsunclassifiedpkts" }
-    if yname == "csbCallStatsRTPPktsSent" { return "Csbcallstatsrtppktssent" }
-    if yname == "csbCallStatsRTPPktsRcvd" { return "Csbcallstatsrtppktsrcvd" }
-    if yname == "csbCallStatsRTPPktsDiscard" { return "Csbcallstatsrtppktsdiscard" }
-    if yname == "csbCallStatsRTPOctetsSent" { return "Csbcallstatsrtpoctetssent" }
-    if yname == "csbCallStatsRTPOctetsRcvd" { return "Csbcallstatsrtpoctetsrcvd" }
-    if yname == "csbCallStatsRTPOctetsDiscard" { return "Csbcallstatsrtpoctetsdiscard" }
-    if yname == "csbCallStatsNoMediaCount" { return "Csbcallstatsnomediacount" }
-    if yname == "csbCallStatsRouteErrors" { return "Csbcallstatsrouteerrors" }
-    if yname == "csbCallStatsAvailableTranscodeFlows" { return "Csbcallstatsavailabletranscodeflows" }
-    if yname == "csbCallStatsActiveTranscodeFlows" { return "Csbcallstatsactivetranscodeflows" }
-    if yname == "csbCallStatsPeakTranscodeFlows" { return "Csbcallstatspeaktranscodeflows" }
-    if yname == "csbCallStatsTotalTranscodeFlows" { return "Csbcallstatstotaltranscodeflows" }
-    return ""
+    csbcallstatsentry.EntityData.Children = make(map[string]types.YChild)
+    csbcallstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbcallstatsentry.Csbcallstatsinstanceindex}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbcallstatsentry.Csbcallstatsserviceindex}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsSbcName"] = types.YLeaf{"Csbcallstatssbcname", csbcallstatsentry.Csbcallstatssbcname}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsCallsHigh"] = types.YLeaf{"Csbcallstatscallshigh", csbcallstatsentry.Csbcallstatscallshigh}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRate1Sec"] = types.YLeaf{"Csbcallstatsrate1Sec", csbcallstatsentry.Csbcallstatsrate1Sec}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsCallsLow"] = types.YLeaf{"Csbcallstatscallslow", csbcallstatsentry.Csbcallstatscallslow}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsAvailableFlows"] = types.YLeaf{"Csbcallstatsavailableflows", csbcallstatsentry.Csbcallstatsavailableflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsUsedFlows"] = types.YLeaf{"Csbcallstatsusedflows", csbcallstatsentry.Csbcallstatsusedflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsPeakFlows"] = types.YLeaf{"Csbcallstatspeakflows", csbcallstatsentry.Csbcallstatspeakflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsTotalFlows"] = types.YLeaf{"Csbcallstatstotalflows", csbcallstatsentry.Csbcallstatstotalflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsUsedSigFlows"] = types.YLeaf{"Csbcallstatsusedsigflows", csbcallstatsentry.Csbcallstatsusedsigflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsPeakSigFlows"] = types.YLeaf{"Csbcallstatspeaksigflows", csbcallstatsentry.Csbcallstatspeaksigflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsTotalSigFlows"] = types.YLeaf{"Csbcallstatstotalsigflows", csbcallstatsentry.Csbcallstatstotalsigflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsAvailablePktRate"] = types.YLeaf{"Csbcallstatsavailablepktrate", csbcallstatsentry.Csbcallstatsavailablepktrate}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsUnclassifiedPkts"] = types.YLeaf{"Csbcallstatsunclassifiedpkts", csbcallstatsentry.Csbcallstatsunclassifiedpkts}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPPktsSent"] = types.YLeaf{"Csbcallstatsrtppktssent", csbcallstatsentry.Csbcallstatsrtppktssent}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPPktsRcvd"] = types.YLeaf{"Csbcallstatsrtppktsrcvd", csbcallstatsentry.Csbcallstatsrtppktsrcvd}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPPktsDiscard"] = types.YLeaf{"Csbcallstatsrtppktsdiscard", csbcallstatsentry.Csbcallstatsrtppktsdiscard}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPOctetsSent"] = types.YLeaf{"Csbcallstatsrtpoctetssent", csbcallstatsentry.Csbcallstatsrtpoctetssent}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPOctetsRcvd"] = types.YLeaf{"Csbcallstatsrtpoctetsrcvd", csbcallstatsentry.Csbcallstatsrtpoctetsrcvd}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRTPOctetsDiscard"] = types.YLeaf{"Csbcallstatsrtpoctetsdiscard", csbcallstatsentry.Csbcallstatsrtpoctetsdiscard}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsNoMediaCount"] = types.YLeaf{"Csbcallstatsnomediacount", csbcallstatsentry.Csbcallstatsnomediacount}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsRouteErrors"] = types.YLeaf{"Csbcallstatsrouteerrors", csbcallstatsentry.Csbcallstatsrouteerrors}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsAvailableTranscodeFlows"] = types.YLeaf{"Csbcallstatsavailabletranscodeflows", csbcallstatsentry.Csbcallstatsavailabletranscodeflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsActiveTranscodeFlows"] = types.YLeaf{"Csbcallstatsactivetranscodeflows", csbcallstatsentry.Csbcallstatsactivetranscodeflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsPeakTranscodeFlows"] = types.YLeaf{"Csbcallstatspeaktranscodeflows", csbcallstatsentry.Csbcallstatspeaktranscodeflows}
+    csbcallstatsentry.EntityData.Leafs["csbCallStatsTotalTranscodeFlows"] = types.YLeaf{"Csbcallstatstotaltranscodeflows", csbcallstatsentry.Csbcallstatstotaltranscodeflows}
+    return &(csbcallstatsentry.EntityData)
 }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetSegmentPath() string {
-    return "csbCallStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcallstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbcallstatsentry.Csbcallstatsserviceindex) + "']"
-}
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbcallstatsentry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsServiceIndex"] = csbcallstatsentry.Csbcallstatsserviceindex
-    leafs["csbCallStatsSbcName"] = csbcallstatsentry.Csbcallstatssbcname
-    leafs["csbCallStatsCallsHigh"] = csbcallstatsentry.Csbcallstatscallshigh
-    leafs["csbCallStatsRate1Sec"] = csbcallstatsentry.Csbcallstatsrate1Sec
-    leafs["csbCallStatsCallsLow"] = csbcallstatsentry.Csbcallstatscallslow
-    leafs["csbCallStatsAvailableFlows"] = csbcallstatsentry.Csbcallstatsavailableflows
-    leafs["csbCallStatsUsedFlows"] = csbcallstatsentry.Csbcallstatsusedflows
-    leafs["csbCallStatsPeakFlows"] = csbcallstatsentry.Csbcallstatspeakflows
-    leafs["csbCallStatsTotalFlows"] = csbcallstatsentry.Csbcallstatstotalflows
-    leafs["csbCallStatsUsedSigFlows"] = csbcallstatsentry.Csbcallstatsusedsigflows
-    leafs["csbCallStatsPeakSigFlows"] = csbcallstatsentry.Csbcallstatspeaksigflows
-    leafs["csbCallStatsTotalSigFlows"] = csbcallstatsentry.Csbcallstatstotalsigflows
-    leafs["csbCallStatsAvailablePktRate"] = csbcallstatsentry.Csbcallstatsavailablepktrate
-    leafs["csbCallStatsUnclassifiedPkts"] = csbcallstatsentry.Csbcallstatsunclassifiedpkts
-    leafs["csbCallStatsRTPPktsSent"] = csbcallstatsentry.Csbcallstatsrtppktssent
-    leafs["csbCallStatsRTPPktsRcvd"] = csbcallstatsentry.Csbcallstatsrtppktsrcvd
-    leafs["csbCallStatsRTPPktsDiscard"] = csbcallstatsentry.Csbcallstatsrtppktsdiscard
-    leafs["csbCallStatsRTPOctetsSent"] = csbcallstatsentry.Csbcallstatsrtpoctetssent
-    leafs["csbCallStatsRTPOctetsRcvd"] = csbcallstatsentry.Csbcallstatsrtpoctetsrcvd
-    leafs["csbCallStatsRTPOctetsDiscard"] = csbcallstatsentry.Csbcallstatsrtpoctetsdiscard
-    leafs["csbCallStatsNoMediaCount"] = csbcallstatsentry.Csbcallstatsnomediacount
-    leafs["csbCallStatsRouteErrors"] = csbcallstatsentry.Csbcallstatsrouteerrors
-    leafs["csbCallStatsAvailableTranscodeFlows"] = csbcallstatsentry.Csbcallstatsavailabletranscodeflows
-    leafs["csbCallStatsActiveTranscodeFlows"] = csbcallstatsentry.Csbcallstatsactivetranscodeflows
-    leafs["csbCallStatsPeakTranscodeFlows"] = csbcallstatsentry.Csbcallstatspeaktranscodeflows
-    leafs["csbCallStatsTotalTranscodeFlows"] = csbcallstatsentry.Csbcallstatstotaltranscodeflows
-    return leafs
-}
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetYangName() string { return "csbCallStatsEntry" }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) SetParent(parent types.Entity) { csbcallstatsentry.parent = parent }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetParent() types.Entity { return csbcallstatsentry.parent }
-
-func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbcallstatsentry) GetParentYangName() string { return "csbCallStatsTable" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable
 // This table is used to collect measurement over several
@@ -741,7 +519,7 @@ func (csbcallstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcallstatstable_Csbc
 // 2.Otherwise, for the other intevals, this is an average value
 // during the summary period sampled at 5 minute intervals.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An conceptual row in the csbCurrPeriodicStatsTable. There is an entry in
@@ -753,63 +531,24 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable struct {
     Csbcurrperiodicstatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry
 }
 
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetFilter() yfilter.YFilter { return csbcurrperiodicstatstable.YFilter }
+func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetEntityData() *types.CommonEntityData {
+    csbcurrperiodicstatstable.EntityData.YFilter = csbcurrperiodicstatstable.YFilter
+    csbcurrperiodicstatstable.EntityData.YangName = "csbCurrPeriodicStatsTable"
+    csbcurrperiodicstatstable.EntityData.BundleName = "cisco_ios_xe"
+    csbcurrperiodicstatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbcurrperiodicstatstable.EntityData.SegmentPath = "csbCurrPeriodicStatsTable"
+    csbcurrperiodicstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbcurrperiodicstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbcurrperiodicstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) SetFilter(yf yfilter.YFilter) { csbcurrperiodicstatstable.YFilter = yf }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetGoName(yname string) string {
-    if yname == "csbCurrPeriodicStatsEntry" { return "Csbcurrperiodicstatsentry" }
-    return ""
-}
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetSegmentPath() string {
-    return "csbCurrPeriodicStatsTable"
-}
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbCurrPeriodicStatsEntry" {
-        for _, c := range csbcurrperiodicstatstable.Csbcurrperiodicstatsentry {
-            if csbcurrperiodicstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry{}
-        csbcurrperiodicstatstable.Csbcurrperiodicstatsentry = append(csbcurrperiodicstatstable.Csbcurrperiodicstatsentry, child)
-        return &csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[len(csbcurrperiodicstatstable.Csbcurrperiodicstatsentry)-1]
-    }
-    return nil
-}
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbcurrperiodicstatstable.EntityData.Children = make(map[string]types.YChild)
+    csbcurrperiodicstatstable.EntityData.Children["csbCurrPeriodicStatsEntry"] = types.YChild{"Csbcurrperiodicstatsentry", nil}
     for i := range csbcurrperiodicstatstable.Csbcurrperiodicstatsentry {
-        children[csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[i].GetSegmentPath()] = &csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[i]
+        csbcurrperiodicstatstable.EntityData.Children[types.GetSegmentPath(&csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[i])] = types.YChild{"Csbcurrperiodicstatsentry", &csbcurrperiodicstatstable.Csbcurrperiodicstatsentry[i]}
     }
-    return children
+    csbcurrperiodicstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbcurrperiodicstatstable.EntityData)
 }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetYangName() string { return "csbCurrPeriodicStatsTable" }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) SetParent(parent types.Entity) { csbcurrperiodicstatstable.parent = parent }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetParent() types.Entity { return csbcurrperiodicstatstable.parent }
-
-func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry
 // An conceptual row in the csbCurrPeriodicStatsTable. There is
@@ -818,7 +557,7 @@ func (csbcurrperiodicstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodi
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1068,145 +807,68 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodics
     Csbcurrperiodicipseccalls interface{}
 }
 
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetFilter() yfilter.YFilter { return csbcurrperiodicstatsentry.YFilter }
+func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetEntityData() *types.CommonEntityData {
+    csbcurrperiodicstatsentry.EntityData.YFilter = csbcurrperiodicstatsentry.YFilter
+    csbcurrperiodicstatsentry.EntityData.YangName = "csbCurrPeriodicStatsEntry"
+    csbcurrperiodicstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    csbcurrperiodicstatsentry.EntityData.ParentYangName = "csbCurrPeriodicStatsTable"
+    csbcurrperiodicstatsentry.EntityData.SegmentPath = "csbCurrPeriodicStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcallstatsserviceindex) + "']" + "[csbCurrPeriodicStatsInterval='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcurrperiodicstatsinterval) + "']"
+    csbcurrperiodicstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbcurrperiodicstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbcurrperiodicstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) SetFilter(yf yfilter.YFilter) { csbcurrperiodicstatsentry.YFilter = yf }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsServiceIndex" { return "Csbcallstatsserviceindex" }
-    if yname == "csbCurrPeriodicStatsInterval" { return "Csbcurrperiodicstatsinterval" }
-    if yname == "csbCurrPeriodicStatsActiveCalls" { return "Csbcurrperiodicstatsactivecalls" }
-    if yname == "csbCurrPeriodicStatsActivatingCalls" { return "Csbcurrperiodicstatsactivatingcalls" }
-    if yname == "csbCurrPeriodicStatsDeactivatingCalls" { return "Csbcurrperiodicstatsdeactivatingcalls" }
-    if yname == "csbCurrPeriodicStatsTotalCallAttempts" { return "Csbcurrperiodicstatstotalcallattempts" }
-    if yname == "csbCurrPeriodicStatsFailedCallAttempts" { return "Csbcurrperiodicstatsfailedcallattempts" }
-    if yname == "csbCurrPeriodicStatsCallRoutingFailure" { return "Csbcurrperiodicstatscallroutingfailure" }
-    if yname == "csbCurrPeriodicStatsCallResourceFailure" { return "Csbcurrperiodicstatscallresourcefailure" }
-    if yname == "csbCurrPeriodicStatsCallMediaFailure" { return "Csbcurrperiodicstatscallmediafailure" }
-    if yname == "csbCurrPeriodicStatsCallSigFailure" { return "Csbcurrperiodicstatscallsigfailure" }
-    if yname == "csbCurrPeriodicStatsActiveCallFailure" { return "Csbcurrperiodicstatsactivecallfailure" }
-    if yname == "csbCurrPeriodicStatsCongestionFailure" { return "Csbcurrperiodicstatscongestionfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupPolicyFailure" { return "Csbcurrperiodicstatscallsetuppolicyfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupNAPolicyFailure" { return "Csbcurrperiodicstatscallsetupnapolicyfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupRoutingPolicyFailure" { return "Csbcurrperiodicstatscallsetuproutingpolicyfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupCACPolicyFailure" { return "Csbcurrperiodicstatscallsetupcacpolicyfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupCACCallLimitFailure" { return "Csbcurrperiodicstatscallsetupcaccalllimitfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupCACRateLimitFailure" { return "Csbcurrperiodicstatscallsetupcacratelimitfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupCACBandwidthFailure" { return "Csbcurrperiodicstatscallsetupcacbandwidthfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupCACMediaLimitFailure" { return "Csbcurrperiodicstatscallsetupcacmedialimitfailure" }
-    if yname == "csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure" { return "Csbcurrperiodicstatscallsetupcacmediaupdatefailure" }
-    if yname == "csbCurrPeriodicStatsTimestamp" { return "Csbcurrperiodicstatstimestamp" }
-    if yname == "csbCurrPeriodicStatsTranscodedCalls" { return "Csbcurrperiodicstatstranscodedcalls" }
-    if yname == "csbCurrPeriodicStatsTransratedCalls" { return "Csbcurrperiodicstatstransratedcalls" }
-    if yname == "csbCurrPeriodicStatsTotalCallUpdateFailure" { return "Csbcurrperiodicstatstotalcallupdatefailure" }
-    if yname == "csbCurrPeriodicStatsActiveIpv6Calls" { return "Csbcurrperiodicstatsactiveipv6Calls" }
-    if yname == "csbCurrPeriodicStatsActiveEmergencyCalls" { return "Csbcurrperiodicstatsactiveemergencycalls" }
-    if yname == "csbCurrPeriodicStatsActiveE2EmergencyCalls" { return "Csbcurrperiodicstatsactivee2Emergencycalls" }
-    if yname == "csbCurrPeriodicStatsImsRxActiveCalls" { return "Csbcurrperiodicstatsimsrxactivecalls" }
-    if yname == "csbCurrPeriodicStatsImsRxCallSetupFaiures" { return "Csbcurrperiodicstatsimsrxcallsetupfaiures" }
-    if yname == "csbCurrPeriodicStatsImsRxCallRenegotiationAttempts" { return "Csbcurrperiodicstatsimsrxcallrenegotiationattempts" }
-    if yname == "csbCurrPeriodicStatsImsRxCallRenegotiationFailures" { return "Csbcurrperiodicstatsimsrxcallrenegotiationfailures" }
-    if yname == "csbCurrPeriodicStatsAudioTranscodedCalls" { return "Csbcurrperiodicstatsaudiotranscodedcalls" }
-    if yname == "csbCurrPeriodicStatsFaxTranscodedCalls" { return "Csbcurrperiodicstatsfaxtranscodedcalls" }
-    if yname == "csbCurrPeriodicStatsRtpDisallowedFailures" { return "Csbcurrperiodicstatsrtpdisallowedfailures" }
-    if yname == "csbCurrPeriodicStatsSrtpDisallowedFailures" { return "Csbcurrperiodicstatssrtpdisallowedfailures" }
-    if yname == "csbCurrPeriodicStatsNonSrtpCalls" { return "Csbcurrperiodicstatsnonsrtpcalls" }
-    if yname == "csbCurrPeriodicStatsSrtpNonIwCalls" { return "Csbcurrperiodicstatssrtpnoniwcalls" }
-    if yname == "csbCurrPeriodicStatsSrtpIwCalls" { return "Csbcurrperiodicstatssrtpiwcalls" }
-    if yname == "csbCurrPeriodicStatsDtmfIw2833Calls" { return "Csbcurrperiodicstatsdtmfiw2833Calls" }
-    if yname == "csbCurrPeriodicStatsDtmfIwInbandCalls" { return "Csbcurrperiodicstatsdtmfiwinbandcalls" }
-    if yname == "csbCurrPeriodicStatsDtmfIw2833InbandCalls" { return "Csbcurrperiodicstatsdtmfiw2833Inbandcalls" }
-    if yname == "csbCurrPeriodicStatsTotalTapsRequested" { return "Csbcurrperiodicstatstotaltapsrequested" }
-    if yname == "csbCurrPeriodicStatsTotalTapsSucceeded" { return "Csbcurrperiodicstatstotaltapssucceeded" }
-    if yname == "csbCurrPeriodicStatsCurrentTaps" { return "Csbcurrperiodicstatscurrenttaps" }
-    if yname == "csbCurrPeriodicIpsecCalls" { return "Csbcurrperiodicipseccalls" }
-    return ""
+    csbcurrperiodicstatsentry.EntityData.Children = make(map[string]types.YChild)
+    csbcurrperiodicstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbcurrperiodicstatsentry.Csbcallstatsinstanceindex}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbcurrperiodicstatsentry.Csbcallstatsserviceindex}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsInterval"] = types.YLeaf{"Csbcurrperiodicstatsinterval", csbcurrperiodicstatsentry.Csbcurrperiodicstatsinterval}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveCalls"] = types.YLeaf{"Csbcurrperiodicstatsactivecalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivecalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActivatingCalls"] = types.YLeaf{"Csbcurrperiodicstatsactivatingcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivatingcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDeactivatingCalls"] = types.YLeaf{"Csbcurrperiodicstatsdeactivatingcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdeactivatingcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalCallAttempts"] = types.YLeaf{"Csbcurrperiodicstatstotalcallattempts", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotalcallattempts}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsFailedCallAttempts"] = types.YLeaf{"Csbcurrperiodicstatsfailedcallattempts", csbcurrperiodicstatsentry.Csbcurrperiodicstatsfailedcallattempts}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallRoutingFailure"] = types.YLeaf{"Csbcurrperiodicstatscallroutingfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallroutingfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallResourceFailure"] = types.YLeaf{"Csbcurrperiodicstatscallresourcefailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallresourcefailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallMediaFailure"] = types.YLeaf{"Csbcurrperiodicstatscallmediafailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallmediafailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSigFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsigfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsigfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveCallFailure"] = types.YLeaf{"Csbcurrperiodicstatsactivecallfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivecallfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCongestionFailure"] = types.YLeaf{"Csbcurrperiodicstatscongestionfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscongestionfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetuppolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetuppolicyfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupNAPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupnapolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupnapolicyfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupRoutingPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetuproutingpolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetuproutingpolicyfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACPolicyFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacpolicyfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacpolicyfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACCallLimitFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcaccalllimitfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcaccalllimitfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACRateLimitFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacratelimitfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacratelimitfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACBandwidthFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacbandwidthfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacbandwidthfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACMediaLimitFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacmedialimitfailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacmedialimitfailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure"] = types.YLeaf{"Csbcurrperiodicstatscallsetupcacmediaupdatefailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacmediaupdatefailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTimestamp"] = types.YLeaf{"Csbcurrperiodicstatstimestamp", csbcurrperiodicstatsentry.Csbcurrperiodicstatstimestamp}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTranscodedCalls"] = types.YLeaf{"Csbcurrperiodicstatstranscodedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatstranscodedcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTransratedCalls"] = types.YLeaf{"Csbcurrperiodicstatstransratedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatstransratedcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalCallUpdateFailure"] = types.YLeaf{"Csbcurrperiodicstatstotalcallupdatefailure", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotalcallupdatefailure}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveIpv6Calls"] = types.YLeaf{"Csbcurrperiodicstatsactiveipv6Calls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactiveipv6Calls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveEmergencyCalls"] = types.YLeaf{"Csbcurrperiodicstatsactiveemergencycalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactiveemergencycalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsActiveE2EmergencyCalls"] = types.YLeaf{"Csbcurrperiodicstatsactivee2Emergencycalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivee2Emergencycalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxActiveCalls"] = types.YLeaf{"Csbcurrperiodicstatsimsrxactivecalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxactivecalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxCallSetupFaiures"] = types.YLeaf{"Csbcurrperiodicstatsimsrxcallsetupfaiures", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallsetupfaiures}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxCallRenegotiationAttempts"] = types.YLeaf{"Csbcurrperiodicstatsimsrxcallrenegotiationattempts", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallrenegotiationattempts}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsImsRxCallRenegotiationFailures"] = types.YLeaf{"Csbcurrperiodicstatsimsrxcallrenegotiationfailures", csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallrenegotiationfailures}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsAudioTranscodedCalls"] = types.YLeaf{"Csbcurrperiodicstatsaudiotranscodedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsaudiotranscodedcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsFaxTranscodedCalls"] = types.YLeaf{"Csbcurrperiodicstatsfaxtranscodedcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsfaxtranscodedcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsRtpDisallowedFailures"] = types.YLeaf{"Csbcurrperiodicstatsrtpdisallowedfailures", csbcurrperiodicstatsentry.Csbcurrperiodicstatsrtpdisallowedfailures}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsSrtpDisallowedFailures"] = types.YLeaf{"Csbcurrperiodicstatssrtpdisallowedfailures", csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpdisallowedfailures}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsNonSrtpCalls"] = types.YLeaf{"Csbcurrperiodicstatsnonsrtpcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsnonsrtpcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsSrtpNonIwCalls"] = types.YLeaf{"Csbcurrperiodicstatssrtpnoniwcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpnoniwcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsSrtpIwCalls"] = types.YLeaf{"Csbcurrperiodicstatssrtpiwcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpiwcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDtmfIw2833Calls"] = types.YLeaf{"Csbcurrperiodicstatsdtmfiw2833Calls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiw2833Calls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDtmfIwInbandCalls"] = types.YLeaf{"Csbcurrperiodicstatsdtmfiwinbandcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiwinbandcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsDtmfIw2833InbandCalls"] = types.YLeaf{"Csbcurrperiodicstatsdtmfiw2833Inbandcalls", csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiw2833Inbandcalls}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalTapsRequested"] = types.YLeaf{"Csbcurrperiodicstatstotaltapsrequested", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotaltapsrequested}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsTotalTapsSucceeded"] = types.YLeaf{"Csbcurrperiodicstatstotaltapssucceeded", csbcurrperiodicstatsentry.Csbcurrperiodicstatstotaltapssucceeded}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicStatsCurrentTaps"] = types.YLeaf{"Csbcurrperiodicstatscurrenttaps", csbcurrperiodicstatsentry.Csbcurrperiodicstatscurrenttaps}
+    csbcurrperiodicstatsentry.EntityData.Leafs["csbCurrPeriodicIpsecCalls"] = types.YLeaf{"Csbcurrperiodicipseccalls", csbcurrperiodicstatsentry.Csbcurrperiodicipseccalls}
+    return &(csbcurrperiodicstatsentry.EntityData)
 }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetSegmentPath() string {
-    return "csbCurrPeriodicStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcallstatsserviceindex) + "']" + "[csbCurrPeriodicStatsInterval='" + fmt.Sprintf("%v", csbcurrperiodicstatsentry.Csbcurrperiodicstatsinterval) + "']"
-}
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbcurrperiodicstatsentry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsServiceIndex"] = csbcurrperiodicstatsentry.Csbcallstatsserviceindex
-    leafs["csbCurrPeriodicStatsInterval"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsinterval
-    leafs["csbCurrPeriodicStatsActiveCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivecalls
-    leafs["csbCurrPeriodicStatsActivatingCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivatingcalls
-    leafs["csbCurrPeriodicStatsDeactivatingCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsdeactivatingcalls
-    leafs["csbCurrPeriodicStatsTotalCallAttempts"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstotalcallattempts
-    leafs["csbCurrPeriodicStatsFailedCallAttempts"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsfailedcallattempts
-    leafs["csbCurrPeriodicStatsCallRoutingFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallroutingfailure
-    leafs["csbCurrPeriodicStatsCallResourceFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallresourcefailure
-    leafs["csbCurrPeriodicStatsCallMediaFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallmediafailure
-    leafs["csbCurrPeriodicStatsCallSigFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsigfailure
-    leafs["csbCurrPeriodicStatsActiveCallFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivecallfailure
-    leafs["csbCurrPeriodicStatsCongestionFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscongestionfailure
-    leafs["csbCurrPeriodicStatsCallSetupPolicyFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetuppolicyfailure
-    leafs["csbCurrPeriodicStatsCallSetupNAPolicyFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupnapolicyfailure
-    leafs["csbCurrPeriodicStatsCallSetupRoutingPolicyFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetuproutingpolicyfailure
-    leafs["csbCurrPeriodicStatsCallSetupCACPolicyFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacpolicyfailure
-    leafs["csbCurrPeriodicStatsCallSetupCACCallLimitFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcaccalllimitfailure
-    leafs["csbCurrPeriodicStatsCallSetupCACRateLimitFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacratelimitfailure
-    leafs["csbCurrPeriodicStatsCallSetupCACBandwidthFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacbandwidthfailure
-    leafs["csbCurrPeriodicStatsCallSetupCACMediaLimitFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacmedialimitfailure
-    leafs["csbCurrPeriodicStatsCallSetupCACMediaUpdateFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscallsetupcacmediaupdatefailure
-    leafs["csbCurrPeriodicStatsTimestamp"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstimestamp
-    leafs["csbCurrPeriodicStatsTranscodedCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstranscodedcalls
-    leafs["csbCurrPeriodicStatsTransratedCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstransratedcalls
-    leafs["csbCurrPeriodicStatsTotalCallUpdateFailure"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstotalcallupdatefailure
-    leafs["csbCurrPeriodicStatsActiveIpv6Calls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsactiveipv6Calls
-    leafs["csbCurrPeriodicStatsActiveEmergencyCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsactiveemergencycalls
-    leafs["csbCurrPeriodicStatsActiveE2EmergencyCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsactivee2Emergencycalls
-    leafs["csbCurrPeriodicStatsImsRxActiveCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxactivecalls
-    leafs["csbCurrPeriodicStatsImsRxCallSetupFaiures"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallsetupfaiures
-    leafs["csbCurrPeriodicStatsImsRxCallRenegotiationAttempts"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallrenegotiationattempts
-    leafs["csbCurrPeriodicStatsImsRxCallRenegotiationFailures"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsimsrxcallrenegotiationfailures
-    leafs["csbCurrPeriodicStatsAudioTranscodedCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsaudiotranscodedcalls
-    leafs["csbCurrPeriodicStatsFaxTranscodedCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsfaxtranscodedcalls
-    leafs["csbCurrPeriodicStatsRtpDisallowedFailures"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsrtpdisallowedfailures
-    leafs["csbCurrPeriodicStatsSrtpDisallowedFailures"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpdisallowedfailures
-    leafs["csbCurrPeriodicStatsNonSrtpCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsnonsrtpcalls
-    leafs["csbCurrPeriodicStatsSrtpNonIwCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpnoniwcalls
-    leafs["csbCurrPeriodicStatsSrtpIwCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatssrtpiwcalls
-    leafs["csbCurrPeriodicStatsDtmfIw2833Calls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiw2833Calls
-    leafs["csbCurrPeriodicStatsDtmfIwInbandCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiwinbandcalls
-    leafs["csbCurrPeriodicStatsDtmfIw2833InbandCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatsdtmfiw2833Inbandcalls
-    leafs["csbCurrPeriodicStatsTotalTapsRequested"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstotaltapsrequested
-    leafs["csbCurrPeriodicStatsTotalTapsSucceeded"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatstotaltapssucceeded
-    leafs["csbCurrPeriodicStatsCurrentTaps"] = csbcurrperiodicstatsentry.Csbcurrperiodicstatscurrenttaps
-    leafs["csbCurrPeriodicIpsecCalls"] = csbcurrperiodicstatsentry.Csbcurrperiodicipseccalls
-    return leafs
-}
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetYangName() string { return "csbCurrPeriodicStatsEntry" }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) SetParent(parent types.Entity) { csbcurrperiodicstatsentry.parent = parent }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetParent() types.Entity { return csbcurrperiodicstatsentry.parent }
-
-func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodicstatstable_Csbcurrperiodicstatsentry) GetParentYangName() string { return "csbCurrPeriodicStatsTable" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable
 // This table provide historical measurement in various interval
@@ -1225,7 +887,7 @@ func (csbcurrperiodicstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbcurrperiodi
 // period. Otherwise for the other intevals, this is an average
 // value during the summary period, sampled at 5 minute intervals.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the csbHistoryStatsTable. The entries in this table are
@@ -1235,63 +897,24 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable struct {
     Csbhistorystatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry
 }
 
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetFilter() yfilter.YFilter { return csbhistorystatstable.YFilter }
+func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetEntityData() *types.CommonEntityData {
+    csbhistorystatstable.EntityData.YFilter = csbhistorystatstable.YFilter
+    csbhistorystatstable.EntityData.YangName = "csbHistoryStatsTable"
+    csbhistorystatstable.EntityData.BundleName = "cisco_ios_xe"
+    csbhistorystatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbhistorystatstable.EntityData.SegmentPath = "csbHistoryStatsTable"
+    csbhistorystatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbhistorystatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbhistorystatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) SetFilter(yf yfilter.YFilter) { csbhistorystatstable.YFilter = yf }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetGoName(yname string) string {
-    if yname == "csbHistoryStatsEntry" { return "Csbhistorystatsentry" }
-    return ""
-}
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetSegmentPath() string {
-    return "csbHistoryStatsTable"
-}
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbHistoryStatsEntry" {
-        for _, c := range csbhistorystatstable.Csbhistorystatsentry {
-            if csbhistorystatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry{}
-        csbhistorystatstable.Csbhistorystatsentry = append(csbhistorystatstable.Csbhistorystatsentry, child)
-        return &csbhistorystatstable.Csbhistorystatsentry[len(csbhistorystatstable.Csbhistorystatsentry)-1]
-    }
-    return nil
-}
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbhistorystatstable.EntityData.Children = make(map[string]types.YChild)
+    csbhistorystatstable.EntityData.Children["csbHistoryStatsEntry"] = types.YChild{"Csbhistorystatsentry", nil}
     for i := range csbhistorystatstable.Csbhistorystatsentry {
-        children[csbhistorystatstable.Csbhistorystatsentry[i].GetSegmentPath()] = &csbhistorystatstable.Csbhistorystatsentry[i]
+        csbhistorystatstable.EntityData.Children[types.GetSegmentPath(&csbhistorystatstable.Csbhistorystatsentry[i])] = types.YChild{"Csbhistorystatsentry", &csbhistorystatstable.Csbhistorystatsentry[i]}
     }
-    return children
+    csbhistorystatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbhistorystatstable.EntityData)
 }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetYangName() string { return "csbHistoryStatsTable" }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) SetParent(parent types.Entity) { csbhistorystatstable.parent = parent }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetParent() types.Entity { return csbhistorystatstable.parent }
-
-func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry
 // A conceptual row in the csbHistoryStatsTable. The entries in
@@ -1299,7 +922,7 @@ func (csbhistorystatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstabl
 // csbCurrPeriodicStatsTable table and the data is moved from that
 // table to this one.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1546,143 +1169,67 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry 
     Csbhistorystatsipseccalls interface{}
 }
 
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetFilter() yfilter.YFilter { return csbhistorystatsentry.YFilter }
+func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetEntityData() *types.CommonEntityData {
+    csbhistorystatsentry.EntityData.YFilter = csbhistorystatsentry.YFilter
+    csbhistorystatsentry.EntityData.YangName = "csbHistoryStatsEntry"
+    csbhistorystatsentry.EntityData.BundleName = "cisco_ios_xe"
+    csbhistorystatsentry.EntityData.ParentYangName = "csbHistoryStatsTable"
+    csbhistorystatsentry.EntityData.SegmentPath = "csbHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbcallstatsserviceindex) + "']" + "[csbHistoryStatsInterval='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbhistorystatsinterval) + "']" + "[csbHistoryStatsElements='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbhistorystatselements) + "']"
+    csbhistorystatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbhistorystatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbhistorystatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) SetFilter(yf yfilter.YFilter) { csbhistorystatsentry.YFilter = yf }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsServiceIndex" { return "Csbcallstatsserviceindex" }
-    if yname == "csbHistoryStatsInterval" { return "Csbhistorystatsinterval" }
-    if yname == "csbHistoryStatsElements" { return "Csbhistorystatselements" }
-    if yname == "csbHistoryStatsActiveCalls" { return "Csbhistorystatsactivecalls" }
-    if yname == "csbHistoryStatsTotalCallAttempts" { return "Csbhistorystatstotalcallattempts" }
-    if yname == "csbHistoryStatsFailedCallAttempts" { return "Csbhistorystatsfailedcallattempts" }
-    if yname == "csbHistoryStatsCallRoutingFailure" { return "Csbhistorystatscallroutingfailure" }
-    if yname == "csbHistoryStatsCallResourceFailure" { return "Csbhistorystatscallresourcefailure" }
-    if yname == "csbHistoryStatsCallMediaFailure" { return "Csbhistorystatscallmediafailure" }
-    if yname == "csbHistoryStatsFailSigFailure" { return "Csbhistorystatsfailsigfailure" }
-    if yname == "csbHistoryStatsActiveCallFailure" { return "Csbhistorystatsactivecallfailure" }
-    if yname == "csbHistoryStatsCongestionFailure" { return "Csbhistorystatscongestionfailure" }
-    if yname == "csbHistoryStatsCallSetupPolicyFailure" { return "Csbhistorystatscallsetuppolicyfailure" }
-    if yname == "csbHistoryStatsCallSetupNAPolicyFailure" { return "Csbhistorystatscallsetupnapolicyfailure" }
-    if yname == "csbHistoryStatsCallSetupRoutingPolicyFailure" { return "Csbhistorystatscallsetuproutingpolicyfailure" }
-    if yname == "csbHistoryStatsCallSetupCACPolicyFailure" { return "Csbhistorystatscallsetupcacpolicyfailure" }
-    if yname == "csbHistoryStatsCallSetupCACCallLimitFailure" { return "Csbhistorystatscallsetupcaccalllimitfailure" }
-    if yname == "csbHistoryStatsCallSetupCACRateLimitFailure" { return "Csbhistorystatscallsetupcacratelimitfailure" }
-    if yname == "csbHistoryStatsCallSetupCACBandwidthFailure" { return "Csbhistorystatscallsetupcacbandwidthfailure" }
-    if yname == "csbHistoryStatsCallSetupCACMediaLimitFailure" { return "Csbhistorystatscallsetupcacmedialimitfailure" }
-    if yname == "csbHistoryStatsCallSetupCACMediaUpdateFailure" { return "Csbhistorystatscallsetupcacmediaupdatefailure" }
-    if yname == "csbHistoryStatsTimestamp" { return "Csbhistorystatstimestamp" }
-    if yname == "csbHistroyStatsTranscodedCalls" { return "Csbhistroystatstranscodedcalls" }
-    if yname == "csbHistroyStatsTransratedCalls" { return "Csbhistroystatstransratedcalls" }
-    if yname == "csbHistoryStatsTotalCallUpdateFailure" { return "Csbhistorystatstotalcallupdatefailure" }
-    if yname == "csbHistoryStatsActiveIpv6Calls" { return "Csbhistorystatsactiveipv6Calls" }
-    if yname == "csbHistoryStatsActiveEmergencyCalls" { return "Csbhistorystatsactiveemergencycalls" }
-    if yname == "csbHistoryStatsActiveE2EmergencyCalls" { return "Csbhistorystatsactivee2Emergencycalls" }
-    if yname == "csbHistoryStatsImsRxActiveCalls" { return "Csbhistorystatsimsrxactivecalls" }
-    if yname == "csbHistoryStatsImsRxCallSetupFailures" { return "Csbhistorystatsimsrxcallsetupfailures" }
-    if yname == "csbHistoryStatsImsRxCallRenegotiationAttempts" { return "Csbhistorystatsimsrxcallrenegotiationattempts" }
-    if yname == "csbHistoryStatsImsRxCallRenegotiationFailures" { return "Csbhistorystatsimsrxcallrenegotiationfailures" }
-    if yname == "csbHistoryStatsAudioTranscodedCalls" { return "Csbhistorystatsaudiotranscodedcalls" }
-    if yname == "csbHistoryStatsFaxTranscodedCalls" { return "Csbhistorystatsfaxtranscodedcalls" }
-    if yname == "csbHistoryStatsRtpDisallowedFailures" { return "Csbhistorystatsrtpdisallowedfailures" }
-    if yname == "csbHistoryStatsSrtpDisallowedFailures" { return "Csbhistorystatssrtpdisallowedfailures" }
-    if yname == "csbHistoryStatsNonSrtpCalls" { return "Csbhistorystatsnonsrtpcalls" }
-    if yname == "csbHistoryStatsSrtpNonIwCalls" { return "Csbhistorystatssrtpnoniwcalls" }
-    if yname == "csbHistoryStatsSrtpIwCalls" { return "Csbhistorystatssrtpiwcalls" }
-    if yname == "csbHistoryStatsDtmfIw2833Calls" { return "Csbhistorystatsdtmfiw2833Calls" }
-    if yname == "csbHistoryStatsDtmfIwInbandCalls" { return "Csbhistorystatsdtmfiwinbandcalls" }
-    if yname == "csbHistoryStatsDtmfIw2833InbandCalls" { return "Csbhistorystatsdtmfiw2833Inbandcalls" }
-    if yname == "csbHistoryStatsTotalTapsRequested" { return "Csbhistorystatstotaltapsrequested" }
-    if yname == "csbHistoryStatsTotalTapsSucceeded" { return "Csbhistorystatstotaltapssucceeded" }
-    if yname == "csbHistoryStatsCurrentTaps" { return "Csbhistorystatscurrenttaps" }
-    if yname == "csbHistoryStatsIpsecCalls" { return "Csbhistorystatsipseccalls" }
-    return ""
+    csbhistorystatsentry.EntityData.Children = make(map[string]types.YChild)
+    csbhistorystatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbhistorystatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbhistorystatsentry.Csbcallstatsinstanceindex}
+    csbhistorystatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbhistorystatsentry.Csbcallstatsserviceindex}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsInterval"] = types.YLeaf{"Csbhistorystatsinterval", csbhistorystatsentry.Csbhistorystatsinterval}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsElements"] = types.YLeaf{"Csbhistorystatselements", csbhistorystatsentry.Csbhistorystatselements}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveCalls"] = types.YLeaf{"Csbhistorystatsactivecalls", csbhistorystatsentry.Csbhistorystatsactivecalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalCallAttempts"] = types.YLeaf{"Csbhistorystatstotalcallattempts", csbhistorystatsentry.Csbhistorystatstotalcallattempts}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsFailedCallAttempts"] = types.YLeaf{"Csbhistorystatsfailedcallattempts", csbhistorystatsentry.Csbhistorystatsfailedcallattempts}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallRoutingFailure"] = types.YLeaf{"Csbhistorystatscallroutingfailure", csbhistorystatsentry.Csbhistorystatscallroutingfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallResourceFailure"] = types.YLeaf{"Csbhistorystatscallresourcefailure", csbhistorystatsentry.Csbhistorystatscallresourcefailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallMediaFailure"] = types.YLeaf{"Csbhistorystatscallmediafailure", csbhistorystatsentry.Csbhistorystatscallmediafailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsFailSigFailure"] = types.YLeaf{"Csbhistorystatsfailsigfailure", csbhistorystatsentry.Csbhistorystatsfailsigfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveCallFailure"] = types.YLeaf{"Csbhistorystatsactivecallfailure", csbhistorystatsentry.Csbhistorystatsactivecallfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCongestionFailure"] = types.YLeaf{"Csbhistorystatscongestionfailure", csbhistorystatsentry.Csbhistorystatscongestionfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetuppolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetuppolicyfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupNAPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetupnapolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetupnapolicyfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupRoutingPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetuproutingpolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetuproutingpolicyfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACPolicyFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacpolicyfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacpolicyfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACCallLimitFailure"] = types.YLeaf{"Csbhistorystatscallsetupcaccalllimitfailure", csbhistorystatsentry.Csbhistorystatscallsetupcaccalllimitfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACRateLimitFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacratelimitfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacratelimitfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACBandwidthFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacbandwidthfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacbandwidthfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACMediaLimitFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacmedialimitfailure", csbhistorystatsentry.Csbhistorystatscallsetupcacmedialimitfailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCallSetupCACMediaUpdateFailure"] = types.YLeaf{"Csbhistorystatscallsetupcacmediaupdatefailure", csbhistorystatsentry.Csbhistorystatscallsetupcacmediaupdatefailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTimestamp"] = types.YLeaf{"Csbhistorystatstimestamp", csbhistorystatsentry.Csbhistorystatstimestamp}
+    csbhistorystatsentry.EntityData.Leafs["csbHistroyStatsTranscodedCalls"] = types.YLeaf{"Csbhistroystatstranscodedcalls", csbhistorystatsentry.Csbhistroystatstranscodedcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistroyStatsTransratedCalls"] = types.YLeaf{"Csbhistroystatstransratedcalls", csbhistorystatsentry.Csbhistroystatstransratedcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalCallUpdateFailure"] = types.YLeaf{"Csbhistorystatstotalcallupdatefailure", csbhistorystatsentry.Csbhistorystatstotalcallupdatefailure}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveIpv6Calls"] = types.YLeaf{"Csbhistorystatsactiveipv6Calls", csbhistorystatsentry.Csbhistorystatsactiveipv6Calls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveEmergencyCalls"] = types.YLeaf{"Csbhistorystatsactiveemergencycalls", csbhistorystatsentry.Csbhistorystatsactiveemergencycalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsActiveE2EmergencyCalls"] = types.YLeaf{"Csbhistorystatsactivee2Emergencycalls", csbhistorystatsentry.Csbhistorystatsactivee2Emergencycalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxActiveCalls"] = types.YLeaf{"Csbhistorystatsimsrxactivecalls", csbhistorystatsentry.Csbhistorystatsimsrxactivecalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxCallSetupFailures"] = types.YLeaf{"Csbhistorystatsimsrxcallsetupfailures", csbhistorystatsentry.Csbhistorystatsimsrxcallsetupfailures}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxCallRenegotiationAttempts"] = types.YLeaf{"Csbhistorystatsimsrxcallrenegotiationattempts", csbhistorystatsentry.Csbhistorystatsimsrxcallrenegotiationattempts}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsImsRxCallRenegotiationFailures"] = types.YLeaf{"Csbhistorystatsimsrxcallrenegotiationfailures", csbhistorystatsentry.Csbhistorystatsimsrxcallrenegotiationfailures}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsAudioTranscodedCalls"] = types.YLeaf{"Csbhistorystatsaudiotranscodedcalls", csbhistorystatsentry.Csbhistorystatsaudiotranscodedcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsFaxTranscodedCalls"] = types.YLeaf{"Csbhistorystatsfaxtranscodedcalls", csbhistorystatsentry.Csbhistorystatsfaxtranscodedcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsRtpDisallowedFailures"] = types.YLeaf{"Csbhistorystatsrtpdisallowedfailures", csbhistorystatsentry.Csbhistorystatsrtpdisallowedfailures}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsSrtpDisallowedFailures"] = types.YLeaf{"Csbhistorystatssrtpdisallowedfailures", csbhistorystatsentry.Csbhistorystatssrtpdisallowedfailures}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsNonSrtpCalls"] = types.YLeaf{"Csbhistorystatsnonsrtpcalls", csbhistorystatsentry.Csbhistorystatsnonsrtpcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsSrtpNonIwCalls"] = types.YLeaf{"Csbhistorystatssrtpnoniwcalls", csbhistorystatsentry.Csbhistorystatssrtpnoniwcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsSrtpIwCalls"] = types.YLeaf{"Csbhistorystatssrtpiwcalls", csbhistorystatsentry.Csbhistorystatssrtpiwcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsDtmfIw2833Calls"] = types.YLeaf{"Csbhistorystatsdtmfiw2833Calls", csbhistorystatsentry.Csbhistorystatsdtmfiw2833Calls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsDtmfIwInbandCalls"] = types.YLeaf{"Csbhistorystatsdtmfiwinbandcalls", csbhistorystatsentry.Csbhistorystatsdtmfiwinbandcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsDtmfIw2833InbandCalls"] = types.YLeaf{"Csbhistorystatsdtmfiw2833Inbandcalls", csbhistorystatsentry.Csbhistorystatsdtmfiw2833Inbandcalls}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalTapsRequested"] = types.YLeaf{"Csbhistorystatstotaltapsrequested", csbhistorystatsentry.Csbhistorystatstotaltapsrequested}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsTotalTapsSucceeded"] = types.YLeaf{"Csbhistorystatstotaltapssucceeded", csbhistorystatsentry.Csbhistorystatstotaltapssucceeded}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsCurrentTaps"] = types.YLeaf{"Csbhistorystatscurrenttaps", csbhistorystatsentry.Csbhistorystatscurrenttaps}
+    csbhistorystatsentry.EntityData.Leafs["csbHistoryStatsIpsecCalls"] = types.YLeaf{"Csbhistorystatsipseccalls", csbhistorystatsentry.Csbhistorystatsipseccalls}
+    return &(csbhistorystatsentry.EntityData)
 }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetSegmentPath() string {
-    return "csbHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbcallstatsserviceindex) + "']" + "[csbHistoryStatsInterval='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbhistorystatsinterval) + "']" + "[csbHistoryStatsElements='" + fmt.Sprintf("%v", csbhistorystatsentry.Csbhistorystatselements) + "']"
-}
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbhistorystatsentry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsServiceIndex"] = csbhistorystatsentry.Csbcallstatsserviceindex
-    leafs["csbHistoryStatsInterval"] = csbhistorystatsentry.Csbhistorystatsinterval
-    leafs["csbHistoryStatsElements"] = csbhistorystatsentry.Csbhistorystatselements
-    leafs["csbHistoryStatsActiveCalls"] = csbhistorystatsentry.Csbhistorystatsactivecalls
-    leafs["csbHistoryStatsTotalCallAttempts"] = csbhistorystatsentry.Csbhistorystatstotalcallattempts
-    leafs["csbHistoryStatsFailedCallAttempts"] = csbhistorystatsentry.Csbhistorystatsfailedcallattempts
-    leafs["csbHistoryStatsCallRoutingFailure"] = csbhistorystatsentry.Csbhistorystatscallroutingfailure
-    leafs["csbHistoryStatsCallResourceFailure"] = csbhistorystatsentry.Csbhistorystatscallresourcefailure
-    leafs["csbHistoryStatsCallMediaFailure"] = csbhistorystatsentry.Csbhistorystatscallmediafailure
-    leafs["csbHistoryStatsFailSigFailure"] = csbhistorystatsentry.Csbhistorystatsfailsigfailure
-    leafs["csbHistoryStatsActiveCallFailure"] = csbhistorystatsentry.Csbhistorystatsactivecallfailure
-    leafs["csbHistoryStatsCongestionFailure"] = csbhistorystatsentry.Csbhistorystatscongestionfailure
-    leafs["csbHistoryStatsCallSetupPolicyFailure"] = csbhistorystatsentry.Csbhistorystatscallsetuppolicyfailure
-    leafs["csbHistoryStatsCallSetupNAPolicyFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupnapolicyfailure
-    leafs["csbHistoryStatsCallSetupRoutingPolicyFailure"] = csbhistorystatsentry.Csbhistorystatscallsetuproutingpolicyfailure
-    leafs["csbHistoryStatsCallSetupCACPolicyFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupcacpolicyfailure
-    leafs["csbHistoryStatsCallSetupCACCallLimitFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupcaccalllimitfailure
-    leafs["csbHistoryStatsCallSetupCACRateLimitFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupcacratelimitfailure
-    leafs["csbHistoryStatsCallSetupCACBandwidthFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupcacbandwidthfailure
-    leafs["csbHistoryStatsCallSetupCACMediaLimitFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupcacmedialimitfailure
-    leafs["csbHistoryStatsCallSetupCACMediaUpdateFailure"] = csbhistorystatsentry.Csbhistorystatscallsetupcacmediaupdatefailure
-    leafs["csbHistoryStatsTimestamp"] = csbhistorystatsentry.Csbhistorystatstimestamp
-    leafs["csbHistroyStatsTranscodedCalls"] = csbhistorystatsentry.Csbhistroystatstranscodedcalls
-    leafs["csbHistroyStatsTransratedCalls"] = csbhistorystatsentry.Csbhistroystatstransratedcalls
-    leafs["csbHistoryStatsTotalCallUpdateFailure"] = csbhistorystatsentry.Csbhistorystatstotalcallupdatefailure
-    leafs["csbHistoryStatsActiveIpv6Calls"] = csbhistorystatsentry.Csbhistorystatsactiveipv6Calls
-    leafs["csbHistoryStatsActiveEmergencyCalls"] = csbhistorystatsentry.Csbhistorystatsactiveemergencycalls
-    leafs["csbHistoryStatsActiveE2EmergencyCalls"] = csbhistorystatsentry.Csbhistorystatsactivee2Emergencycalls
-    leafs["csbHistoryStatsImsRxActiveCalls"] = csbhistorystatsentry.Csbhistorystatsimsrxactivecalls
-    leafs["csbHistoryStatsImsRxCallSetupFailures"] = csbhistorystatsentry.Csbhistorystatsimsrxcallsetupfailures
-    leafs["csbHistoryStatsImsRxCallRenegotiationAttempts"] = csbhistorystatsentry.Csbhistorystatsimsrxcallrenegotiationattempts
-    leafs["csbHistoryStatsImsRxCallRenegotiationFailures"] = csbhistorystatsentry.Csbhistorystatsimsrxcallrenegotiationfailures
-    leafs["csbHistoryStatsAudioTranscodedCalls"] = csbhistorystatsentry.Csbhistorystatsaudiotranscodedcalls
-    leafs["csbHistoryStatsFaxTranscodedCalls"] = csbhistorystatsentry.Csbhistorystatsfaxtranscodedcalls
-    leafs["csbHistoryStatsRtpDisallowedFailures"] = csbhistorystatsentry.Csbhistorystatsrtpdisallowedfailures
-    leafs["csbHistoryStatsSrtpDisallowedFailures"] = csbhistorystatsentry.Csbhistorystatssrtpdisallowedfailures
-    leafs["csbHistoryStatsNonSrtpCalls"] = csbhistorystatsentry.Csbhistorystatsnonsrtpcalls
-    leafs["csbHistoryStatsSrtpNonIwCalls"] = csbhistorystatsentry.Csbhistorystatssrtpnoniwcalls
-    leafs["csbHistoryStatsSrtpIwCalls"] = csbhistorystatsentry.Csbhistorystatssrtpiwcalls
-    leafs["csbHistoryStatsDtmfIw2833Calls"] = csbhistorystatsentry.Csbhistorystatsdtmfiw2833Calls
-    leafs["csbHistoryStatsDtmfIwInbandCalls"] = csbhistorystatsentry.Csbhistorystatsdtmfiwinbandcalls
-    leafs["csbHistoryStatsDtmfIw2833InbandCalls"] = csbhistorystatsentry.Csbhistorystatsdtmfiw2833Inbandcalls
-    leafs["csbHistoryStatsTotalTapsRequested"] = csbhistorystatsentry.Csbhistorystatstotaltapsrequested
-    leafs["csbHistoryStatsTotalTapsSucceeded"] = csbhistorystatsentry.Csbhistorystatstotaltapssucceeded
-    leafs["csbHistoryStatsCurrentTaps"] = csbhistorystatsentry.Csbhistorystatscurrenttaps
-    leafs["csbHistoryStatsIpsecCalls"] = csbhistorystatsentry.Csbhistorystatsipseccalls
-    return leafs
-}
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetYangName() string { return "csbHistoryStatsEntry" }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) SetParent(parent types.Entity) { csbhistorystatsentry.parent = parent }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetParent() types.Entity { return csbhistorystatsentry.parent }
-
-func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstable_Csbhistorystatsentry) GetParentYangName() string { return "csbHistoryStatsTable" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable
 // This table describes statistics table for each call flow. The
@@ -1692,7 +1239,7 @@ func (csbhistorystatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbhistorystatstabl
 // defined in csbCallStatsInstanceTable and
 // csbCallStatsServiceIndex defined in csbCallStatsTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An conceptual row in the csbPerFlowStatsTable. There is an entry in this
@@ -1704,63 +1251,24 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable struct {
     Csbperflowstatsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry
 }
 
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetFilter() yfilter.YFilter { return csbperflowstatstable.YFilter }
+func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetEntityData() *types.CommonEntityData {
+    csbperflowstatstable.EntityData.YFilter = csbperflowstatstable.YFilter
+    csbperflowstatstable.EntityData.YangName = "csbPerFlowStatsTable"
+    csbperflowstatstable.EntityData.BundleName = "cisco_ios_xe"
+    csbperflowstatstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbperflowstatstable.EntityData.SegmentPath = "csbPerFlowStatsTable"
+    csbperflowstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbperflowstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbperflowstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) SetFilter(yf yfilter.YFilter) { csbperflowstatstable.YFilter = yf }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetGoName(yname string) string {
-    if yname == "csbPerFlowStatsEntry" { return "Csbperflowstatsentry" }
-    return ""
-}
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetSegmentPath() string {
-    return "csbPerFlowStatsTable"
-}
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbPerFlowStatsEntry" {
-        for _, c := range csbperflowstatstable.Csbperflowstatsentry {
-            if csbperflowstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry{}
-        csbperflowstatstable.Csbperflowstatsentry = append(csbperflowstatstable.Csbperflowstatsentry, child)
-        return &csbperflowstatstable.Csbperflowstatsentry[len(csbperflowstatstable.Csbperflowstatsentry)-1]
-    }
-    return nil
-}
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbperflowstatstable.EntityData.Children = make(map[string]types.YChild)
+    csbperflowstatstable.EntityData.Children["csbPerFlowStatsEntry"] = types.YChild{"Csbperflowstatsentry", nil}
     for i := range csbperflowstatstable.Csbperflowstatsentry {
-        children[csbperflowstatstable.Csbperflowstatsentry[i].GetSegmentPath()] = &csbperflowstatstable.Csbperflowstatsentry[i]
+        csbperflowstatstable.EntityData.Children[types.GetSegmentPath(&csbperflowstatstable.Csbperflowstatsentry[i])] = types.YChild{"Csbperflowstatsentry", &csbperflowstatstable.Csbperflowstatsentry[i]}
     }
-    return children
+    csbperflowstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbperflowstatstable.EntityData)
 }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetYangName() string { return "csbPerFlowStatsTable" }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) SetParent(parent types.Entity) { csbperflowstatstable.parent = parent }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetParent() types.Entity { return csbperflowstatstable.parent }
-
-func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry
 // An conceptual row in the csbPerFlowStatsTable. There is
@@ -1769,7 +1277,7 @@ func (csbperflowstatstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstabl
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1894,95 +1402,43 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry 
     Csbperflowstatsrtppktslost interface{}
 }
 
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetFilter() yfilter.YFilter { return csbperflowstatsentry.YFilter }
+func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetEntityData() *types.CommonEntityData {
+    csbperflowstatsentry.EntityData.YFilter = csbperflowstatsentry.YFilter
+    csbperflowstatsentry.EntityData.YangName = "csbPerFlowStatsEntry"
+    csbperflowstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    csbperflowstatsentry.EntityData.ParentYangName = "csbPerFlowStatsTable"
+    csbperflowstatsentry.EntityData.SegmentPath = "csbPerFlowStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbcallstatsserviceindex) + "']" + "[csbPerFlowStatsVdbeId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsvdbeid) + "']" + "[csbPerFlowStatsGateId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsgateid) + "']" + "[csbPerFlowStatsFlowPairId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsflowpairid) + "']" + "[csbPerFlowStatsSideId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatssideid) + "']"
+    csbperflowstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbperflowstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbperflowstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) SetFilter(yf yfilter.YFilter) { csbperflowstatsentry.YFilter = yf }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsServiceIndex" { return "Csbcallstatsserviceindex" }
-    if yname == "csbPerFlowStatsVdbeId" { return "Csbperflowstatsvdbeid" }
-    if yname == "csbPerFlowStatsGateId" { return "Csbperflowstatsgateid" }
-    if yname == "csbPerFlowStatsFlowPairId" { return "Csbperflowstatsflowpairid" }
-    if yname == "csbPerFlowStatsSideId" { return "Csbperflowstatssideid" }
-    if yname == "csbPerFlowStatsFlowType" { return "Csbperflowstatsflowtype" }
-    if yname == "csbPerFlowStatsRTPPktsSent" { return "Csbperflowstatsrtppktssent" }
-    if yname == "csbPerFlowStatsRTPPktsRcvd" { return "Csbperflowstatsrtppktsrcvd" }
-    if yname == "csbPerFlowStatsRTPPktsDiscard" { return "Csbperflowstatsrtppktsdiscard" }
-    if yname == "csbPerFlowStatsRTPOctetsSent" { return "Csbperflowstatsrtpoctetssent" }
-    if yname == "csbPerFlowStatsRTPOctetsRcvd" { return "Csbperflowstatsrtpoctetsrcvd" }
-    if yname == "csbPerFlowStatsRTPOctetsDiscard" { return "Csbperflowstatsrtpoctetsdiscard" }
-    if yname == "csbPerFlowStatsRTCPPktsSent" { return "Csbperflowstatsrtcppktssent" }
-    if yname == "csbPerFlowStatsRTCPPktsRcvd" { return "Csbperflowstatsrtcppktsrcvd" }
-    if yname == "csbPerFlowStatsRTCPPktsLost" { return "Csbperflowstatsrtcppktslost" }
-    if yname == "csbPerFlowStatsEPJitter" { return "Csbperflowstatsepjitter" }
-    if yname == "csbPerFlowStatsTmanPerMbs" { return "Csbperflowstatstmanpermbs" }
-    if yname == "csbPerFlowStatsTmanPerSdr" { return "Csbperflowstatstmanpersdr" }
-    if yname == "csbPerFlowStatsDscpSettings" { return "Csbperflowstatsdscpsettings" }
-    if yname == "csbPerFlowStatsAdrStatus" { return "Csbperflowstatsadrstatus" }
-    if yname == "csbPerFlowStatsQASettings" { return "Csbperflowstatsqasettings" }
-    if yname == "csbPerFlowStatsRTPPktsLost" { return "Csbperflowstatsrtppktslost" }
-    return ""
+    csbperflowstatsentry.EntityData.Children = make(map[string]types.YChild)
+    csbperflowstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbperflowstatsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbperflowstatsentry.Csbcallstatsinstanceindex}
+    csbperflowstatsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbperflowstatsentry.Csbcallstatsserviceindex}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsVdbeId"] = types.YLeaf{"Csbperflowstatsvdbeid", csbperflowstatsentry.Csbperflowstatsvdbeid}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsGateId"] = types.YLeaf{"Csbperflowstatsgateid", csbperflowstatsentry.Csbperflowstatsgateid}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsFlowPairId"] = types.YLeaf{"Csbperflowstatsflowpairid", csbperflowstatsentry.Csbperflowstatsflowpairid}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsSideId"] = types.YLeaf{"Csbperflowstatssideid", csbperflowstatsentry.Csbperflowstatssideid}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsFlowType"] = types.YLeaf{"Csbperflowstatsflowtype", csbperflowstatsentry.Csbperflowstatsflowtype}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsSent"] = types.YLeaf{"Csbperflowstatsrtppktssent", csbperflowstatsentry.Csbperflowstatsrtppktssent}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsRcvd"] = types.YLeaf{"Csbperflowstatsrtppktsrcvd", csbperflowstatsentry.Csbperflowstatsrtppktsrcvd}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsDiscard"] = types.YLeaf{"Csbperflowstatsrtppktsdiscard", csbperflowstatsentry.Csbperflowstatsrtppktsdiscard}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPOctetsSent"] = types.YLeaf{"Csbperflowstatsrtpoctetssent", csbperflowstatsentry.Csbperflowstatsrtpoctetssent}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPOctetsRcvd"] = types.YLeaf{"Csbperflowstatsrtpoctetsrcvd", csbperflowstatsentry.Csbperflowstatsrtpoctetsrcvd}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPOctetsDiscard"] = types.YLeaf{"Csbperflowstatsrtpoctetsdiscard", csbperflowstatsentry.Csbperflowstatsrtpoctetsdiscard}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTCPPktsSent"] = types.YLeaf{"Csbperflowstatsrtcppktssent", csbperflowstatsentry.Csbperflowstatsrtcppktssent}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTCPPktsRcvd"] = types.YLeaf{"Csbperflowstatsrtcppktsrcvd", csbperflowstatsentry.Csbperflowstatsrtcppktsrcvd}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTCPPktsLost"] = types.YLeaf{"Csbperflowstatsrtcppktslost", csbperflowstatsentry.Csbperflowstatsrtcppktslost}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsEPJitter"] = types.YLeaf{"Csbperflowstatsepjitter", csbperflowstatsentry.Csbperflowstatsepjitter}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsTmanPerMbs"] = types.YLeaf{"Csbperflowstatstmanpermbs", csbperflowstatsentry.Csbperflowstatstmanpermbs}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsTmanPerSdr"] = types.YLeaf{"Csbperflowstatstmanpersdr", csbperflowstatsentry.Csbperflowstatstmanpersdr}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsDscpSettings"] = types.YLeaf{"Csbperflowstatsdscpsettings", csbperflowstatsentry.Csbperflowstatsdscpsettings}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsAdrStatus"] = types.YLeaf{"Csbperflowstatsadrstatus", csbperflowstatsentry.Csbperflowstatsadrstatus}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsQASettings"] = types.YLeaf{"Csbperflowstatsqasettings", csbperflowstatsentry.Csbperflowstatsqasettings}
+    csbperflowstatsentry.EntityData.Leafs["csbPerFlowStatsRTPPktsLost"] = types.YLeaf{"Csbperflowstatsrtppktslost", csbperflowstatsentry.Csbperflowstatsrtppktslost}
+    return &(csbperflowstatsentry.EntityData)
 }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetSegmentPath() string {
-    return "csbPerFlowStatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbcallstatsserviceindex) + "']" + "[csbPerFlowStatsVdbeId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsvdbeid) + "']" + "[csbPerFlowStatsGateId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsgateid) + "']" + "[csbPerFlowStatsFlowPairId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatsflowpairid) + "']" + "[csbPerFlowStatsSideId='" + fmt.Sprintf("%v", csbperflowstatsentry.Csbperflowstatssideid) + "']"
-}
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbperflowstatsentry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsServiceIndex"] = csbperflowstatsentry.Csbcallstatsserviceindex
-    leafs["csbPerFlowStatsVdbeId"] = csbperflowstatsentry.Csbperflowstatsvdbeid
-    leafs["csbPerFlowStatsGateId"] = csbperflowstatsentry.Csbperflowstatsgateid
-    leafs["csbPerFlowStatsFlowPairId"] = csbperflowstatsentry.Csbperflowstatsflowpairid
-    leafs["csbPerFlowStatsSideId"] = csbperflowstatsentry.Csbperflowstatssideid
-    leafs["csbPerFlowStatsFlowType"] = csbperflowstatsentry.Csbperflowstatsflowtype
-    leafs["csbPerFlowStatsRTPPktsSent"] = csbperflowstatsentry.Csbperflowstatsrtppktssent
-    leafs["csbPerFlowStatsRTPPktsRcvd"] = csbperflowstatsentry.Csbperflowstatsrtppktsrcvd
-    leafs["csbPerFlowStatsRTPPktsDiscard"] = csbperflowstatsentry.Csbperflowstatsrtppktsdiscard
-    leafs["csbPerFlowStatsRTPOctetsSent"] = csbperflowstatsentry.Csbperflowstatsrtpoctetssent
-    leafs["csbPerFlowStatsRTPOctetsRcvd"] = csbperflowstatsentry.Csbperflowstatsrtpoctetsrcvd
-    leafs["csbPerFlowStatsRTPOctetsDiscard"] = csbperflowstatsentry.Csbperflowstatsrtpoctetsdiscard
-    leafs["csbPerFlowStatsRTCPPktsSent"] = csbperflowstatsentry.Csbperflowstatsrtcppktssent
-    leafs["csbPerFlowStatsRTCPPktsRcvd"] = csbperflowstatsentry.Csbperflowstatsrtcppktsrcvd
-    leafs["csbPerFlowStatsRTCPPktsLost"] = csbperflowstatsentry.Csbperflowstatsrtcppktslost
-    leafs["csbPerFlowStatsEPJitter"] = csbperflowstatsentry.Csbperflowstatsepjitter
-    leafs["csbPerFlowStatsTmanPerMbs"] = csbperflowstatsentry.Csbperflowstatstmanpermbs
-    leafs["csbPerFlowStatsTmanPerSdr"] = csbperflowstatsentry.Csbperflowstatstmanpersdr
-    leafs["csbPerFlowStatsDscpSettings"] = csbperflowstatsentry.Csbperflowstatsdscpsettings
-    leafs["csbPerFlowStatsAdrStatus"] = csbperflowstatsentry.Csbperflowstatsadrstatus
-    leafs["csbPerFlowStatsQASettings"] = csbperflowstatsentry.Csbperflowstatsqasettings
-    leafs["csbPerFlowStatsRTPPktsLost"] = csbperflowstatsentry.Csbperflowstatsrtppktslost
-    return leafs
-}
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetYangName() string { return "csbPerFlowStatsEntry" }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) SetParent(parent types.Entity) { csbperflowstatsentry.parent = parent }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetParent() types.Entity { return csbperflowstatsentry.parent }
-
-func (csbperflowstatsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry) GetParentYangName() string { return "csbPerFlowStatsTable" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype represents signaling flow etc.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbperflowstatstable_Csbperflowstatsentry_Csbperflowstatsflowtype string
@@ -2010,7 +1466,7 @@ const (
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
 // This table is replaced by the csbH248StatsRev1Table.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An conceptual row in the csbCallStath248Table. There is an entry in this
@@ -2022,63 +1478,24 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable struct {
     Csbh248Statsentry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry
 }
 
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetFilter() yfilter.YFilter { return csbh248Statstable.YFilter }
+func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetEntityData() *types.CommonEntityData {
+    csbh248Statstable.EntityData.YFilter = csbh248Statstable.YFilter
+    csbh248Statstable.EntityData.YangName = "csbH248StatsTable"
+    csbh248Statstable.EntityData.BundleName = "cisco_ios_xe"
+    csbh248Statstable.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbh248Statstable.EntityData.SegmentPath = "csbH248StatsTable"
+    csbh248Statstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbh248Statstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbh248Statstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) SetFilter(yf yfilter.YFilter) { csbh248Statstable.YFilter = yf }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetGoName(yname string) string {
-    if yname == "csbH248StatsEntry" { return "Csbh248Statsentry" }
-    return ""
-}
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetSegmentPath() string {
-    return "csbH248StatsTable"
-}
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbH248StatsEntry" {
-        for _, c := range csbh248Statstable.Csbh248Statsentry {
-            if csbh248Statstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry{}
-        csbh248Statstable.Csbh248Statsentry = append(csbh248Statstable.Csbh248Statsentry, child)
-        return &csbh248Statstable.Csbh248Statsentry[len(csbh248Statstable.Csbh248Statsentry)-1]
-    }
-    return nil
-}
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbh248Statstable.EntityData.Children = make(map[string]types.YChild)
+    csbh248Statstable.EntityData.Children["csbH248StatsEntry"] = types.YChild{"Csbh248Statsentry", nil}
     for i := range csbh248Statstable.Csbh248Statsentry {
-        children[csbh248Statstable.Csbh248Statsentry[i].GetSegmentPath()] = &csbh248Statstable.Csbh248Statsentry[i]
+        csbh248Statstable.EntityData.Children[types.GetSegmentPath(&csbh248Statstable.Csbh248Statsentry[i])] = types.YChild{"Csbh248Statsentry", &csbh248Statstable.Csbh248Statsentry[i]}
     }
-    return children
+    csbh248Statstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbh248Statstable.EntityData)
 }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetYangName() string { return "csbH248StatsTable" }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) SetParent(parent types.Entity) { csbh248Statstable.parent = parent }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetParent() types.Entity { return csbh248Statstable.parent }
-
-func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry
 // An conceptual row in the csbCallStath248Table. There is
@@ -2087,7 +1504,7 @@ func (csbh248Statstable *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable) Get
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -2173,81 +1590,36 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry struct
     Csbh248Statslt interface{}
 }
 
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetFilter() yfilter.YFilter { return csbh248Statsentry.YFilter }
+func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetEntityData() *types.CommonEntityData {
+    csbh248Statsentry.EntityData.YFilter = csbh248Statsentry.YFilter
+    csbh248Statsentry.EntityData.YangName = "csbH248StatsEntry"
+    csbh248Statsentry.EntityData.BundleName = "cisco_ios_xe"
+    csbh248Statsentry.EntityData.ParentYangName = "csbH248StatsTable"
+    csbh248Statsentry.EntityData.SegmentPath = "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbcallstatsserviceindex) + "']" + "[csbH248StatsCtrlrIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbh248Statsctrlrindex) + "']"
+    csbh248Statsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbh248Statsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbh248Statsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) SetFilter(yf yfilter.YFilter) { csbh248Statsentry.YFilter = yf }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsServiceIndex" { return "Csbcallstatsserviceindex" }
-    if yname == "csbH248StatsCtrlrIndex" { return "Csbh248Statsctrlrindex" }
-    if yname == "csbH248StatsRequestsSent" { return "Csbh248Statsrequestssent" }
-    if yname == "csbH248StatsRequestsRcvd" { return "Csbh248Statsrequestsrcvd" }
-    if yname == "csbH248StatsRequestsFailed" { return "Csbh248Statsrequestsfailed" }
-    if yname == "csbH248StatsRequestsRetried" { return "Csbh248Statsrequestsretried" }
-    if yname == "csbH248StatsRepliesSent" { return "Csbh248Statsrepliessent" }
-    if yname == "csbH248StatsRepliesRcvd" { return "Csbh248Statsrepliesrcvd" }
-    if yname == "csbH248StatsRepliesRetried" { return "Csbh248Statsrepliesretried" }
-    if yname == "csbH248StatsSegPktsSent" { return "Csbh248Statssegpktssent" }
-    if yname == "csbH248StatsSegPktsRcvd" { return "Csbh248Statssegpktsrcvd" }
-    if yname == "csbH248StatsEstablishedTime" { return "Csbh248Statsestablishedtime" }
-    if yname == "csbH248StatsTMaxTimeoutVal" { return "Csbh248Statstmaxtimeoutval" }
-    if yname == "csbH248StatsRTT" { return "Csbh248Statsrtt" }
-    if yname == "csbH248StatsLT" { return "Csbh248Statslt" }
-    return ""
+    csbh248Statsentry.EntityData.Children = make(map[string]types.YChild)
+    csbh248Statsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbh248Statsentry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbh248Statsentry.Csbcallstatsinstanceindex}
+    csbh248Statsentry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbh248Statsentry.Csbcallstatsserviceindex}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsCtrlrIndex"] = types.YLeaf{"Csbh248Statsctrlrindex", csbh248Statsentry.Csbh248Statsctrlrindex}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsSent"] = types.YLeaf{"Csbh248Statsrequestssent", csbh248Statsentry.Csbh248Statsrequestssent}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsRcvd"] = types.YLeaf{"Csbh248Statsrequestsrcvd", csbh248Statsentry.Csbh248Statsrequestsrcvd}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsFailed"] = types.YLeaf{"Csbh248Statsrequestsfailed", csbh248Statsentry.Csbh248Statsrequestsfailed}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRequestsRetried"] = types.YLeaf{"Csbh248Statsrequestsretried", csbh248Statsentry.Csbh248Statsrequestsretried}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRepliesSent"] = types.YLeaf{"Csbh248Statsrepliessent", csbh248Statsentry.Csbh248Statsrepliessent}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRepliesRcvd"] = types.YLeaf{"Csbh248Statsrepliesrcvd", csbh248Statsentry.Csbh248Statsrepliesrcvd}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRepliesRetried"] = types.YLeaf{"Csbh248Statsrepliesretried", csbh248Statsentry.Csbh248Statsrepliesretried}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsSegPktsSent"] = types.YLeaf{"Csbh248Statssegpktssent", csbh248Statsentry.Csbh248Statssegpktssent}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsSegPktsRcvd"] = types.YLeaf{"Csbh248Statssegpktsrcvd", csbh248Statsentry.Csbh248Statssegpktsrcvd}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsEstablishedTime"] = types.YLeaf{"Csbh248Statsestablishedtime", csbh248Statsentry.Csbh248Statsestablishedtime}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsTMaxTimeoutVal"] = types.YLeaf{"Csbh248Statstmaxtimeoutval", csbh248Statsentry.Csbh248Statstmaxtimeoutval}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsRTT"] = types.YLeaf{"Csbh248Statsrtt", csbh248Statsentry.Csbh248Statsrtt}
+    csbh248Statsentry.EntityData.Leafs["csbH248StatsLT"] = types.YLeaf{"Csbh248Statslt", csbh248Statsentry.Csbh248Statslt}
+    return &(csbh248Statsentry.EntityData)
 }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetSegmentPath() string {
-    return "csbH248StatsEntry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbcallstatsserviceindex) + "']" + "[csbH248StatsCtrlrIndex='" + fmt.Sprintf("%v", csbh248Statsentry.Csbh248Statsctrlrindex) + "']"
-}
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbh248Statsentry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsServiceIndex"] = csbh248Statsentry.Csbcallstatsserviceindex
-    leafs["csbH248StatsCtrlrIndex"] = csbh248Statsentry.Csbh248Statsctrlrindex
-    leafs["csbH248StatsRequestsSent"] = csbh248Statsentry.Csbh248Statsrequestssent
-    leafs["csbH248StatsRequestsRcvd"] = csbh248Statsentry.Csbh248Statsrequestsrcvd
-    leafs["csbH248StatsRequestsFailed"] = csbh248Statsentry.Csbh248Statsrequestsfailed
-    leafs["csbH248StatsRequestsRetried"] = csbh248Statsentry.Csbh248Statsrequestsretried
-    leafs["csbH248StatsRepliesSent"] = csbh248Statsentry.Csbh248Statsrepliessent
-    leafs["csbH248StatsRepliesRcvd"] = csbh248Statsentry.Csbh248Statsrepliesrcvd
-    leafs["csbH248StatsRepliesRetried"] = csbh248Statsentry.Csbh248Statsrepliesretried
-    leafs["csbH248StatsSegPktsSent"] = csbh248Statsentry.Csbh248Statssegpktssent
-    leafs["csbH248StatsSegPktsRcvd"] = csbh248Statsentry.Csbh248Statssegpktsrcvd
-    leafs["csbH248StatsEstablishedTime"] = csbh248Statsentry.Csbh248Statsestablishedtime
-    leafs["csbH248StatsTMaxTimeoutVal"] = csbh248Statsentry.Csbh248Statstmaxtimeoutval
-    leafs["csbH248StatsRTT"] = csbh248Statsentry.Csbh248Statsrtt
-    leafs["csbH248StatsLT"] = csbh248Statsentry.Csbh248Statslt
-    return leafs
-}
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetYangName() string { return "csbH248StatsEntry" }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) SetParent(parent types.Entity) { csbh248Statsentry.parent = parent }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetParent() types.Entity { return csbh248Statsentry.parent }
-
-func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh248Statsentry) GetParentYangName() string { return "csbH248StatsTable" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table
 // This table describes the H.248 statistics for SBC. The index of
@@ -2256,7 +1628,7 @@ func (csbh248Statsentry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statstable_Csbh
 // particular H.248 controller. The other index of this table is
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An conceptual row in the csbCallStath248Table. There is an entry in this
@@ -2268,63 +1640,24 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table struct {
     Csbh248Statsrev1Entry []CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry
 }
 
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetFilter() yfilter.YFilter { return csbh248Statsrev1Table.YFilter }
+func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetEntityData() *types.CommonEntityData {
+    csbh248Statsrev1Table.EntityData.YFilter = csbh248Statsrev1Table.YFilter
+    csbh248Statsrev1Table.EntityData.YangName = "csbH248StatsRev1Table"
+    csbh248Statsrev1Table.EntityData.BundleName = "cisco_ios_xe"
+    csbh248Statsrev1Table.EntityData.ParentYangName = "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB"
+    csbh248Statsrev1Table.EntityData.SegmentPath = "csbH248StatsRev1Table"
+    csbh248Statsrev1Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbh248Statsrev1Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbh248Statsrev1Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) SetFilter(yf yfilter.YFilter) { csbh248Statsrev1Table.YFilter = yf }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetGoName(yname string) string {
-    if yname == "csbH248StatsRev1Entry" { return "Csbh248Statsrev1Entry" }
-    return ""
-}
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetSegmentPath() string {
-    return "csbH248StatsRev1Table"
-}
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csbH248StatsRev1Entry" {
-        for _, c := range csbh248Statsrev1Table.Csbh248Statsrev1Entry {
-            if csbh248Statsrev1Table.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry{}
-        csbh248Statsrev1Table.Csbh248Statsrev1Entry = append(csbh248Statsrev1Table.Csbh248Statsrev1Entry, child)
-        return &csbh248Statsrev1Table.Csbh248Statsrev1Entry[len(csbh248Statsrev1Table.Csbh248Statsrev1Entry)-1]
-    }
-    return nil
-}
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csbh248Statsrev1Table.EntityData.Children = make(map[string]types.YChild)
+    csbh248Statsrev1Table.EntityData.Children["csbH248StatsRev1Entry"] = types.YChild{"Csbh248Statsrev1Entry", nil}
     for i := range csbh248Statsrev1Table.Csbh248Statsrev1Entry {
-        children[csbh248Statsrev1Table.Csbh248Statsrev1Entry[i].GetSegmentPath()] = &csbh248Statsrev1Table.Csbh248Statsrev1Entry[i]
+        csbh248Statsrev1Table.EntityData.Children[types.GetSegmentPath(&csbh248Statsrev1Table.Csbh248Statsrev1Entry[i])] = types.YChild{"Csbh248Statsrev1Entry", &csbh248Statsrev1Table.Csbh248Statsrev1Entry[i]}
     }
-    return children
+    csbh248Statsrev1Table.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csbh248Statsrev1Table.EntityData)
 }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetYangName() string { return "csbH248StatsRev1Table" }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) SetParent(parent types.Entity) { csbh248Statsrev1Table.parent = parent }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetParent() types.Entity { return csbh248Statsrev1Table.parent }
-
-func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table) GetParentYangName() string { return "CISCO-SESS-BORDER-CTRLR-CALL-STATS-MIB" }
 
 // CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry
 // An conceptual row in the csbCallStath248Table. There is
@@ -2333,7 +1666,7 @@ func (csbh248Statsrev1Table *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Ta
 // csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable
 // and csbCallStatsServiceIndex defined in csbCallStatsTable.
 type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -2419,79 +1752,34 @@ type CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entr
     Csbh248Statsltrev1 interface{}
 }
 
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetFilter() yfilter.YFilter { return csbh248Statsrev1Entry.YFilter }
+func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetEntityData() *types.CommonEntityData {
+    csbh248Statsrev1Entry.EntityData.YFilter = csbh248Statsrev1Entry.YFilter
+    csbh248Statsrev1Entry.EntityData.YangName = "csbH248StatsRev1Entry"
+    csbh248Statsrev1Entry.EntityData.BundleName = "cisco_ios_xe"
+    csbh248Statsrev1Entry.EntityData.ParentYangName = "csbH248StatsRev1Table"
+    csbh248Statsrev1Entry.EntityData.SegmentPath = "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbcallstatsserviceindex) + "']" + "[csbH248StatsVdbeId='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbh248Statsvdbeid) + "']"
+    csbh248Statsrev1Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csbh248Statsrev1Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csbh248Statsrev1Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) SetFilter(yf yfilter.YFilter) { csbh248Statsrev1Entry.YFilter = yf }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetGoName(yname string) string {
-    if yname == "csbCallStatsInstanceIndex" { return "Csbcallstatsinstanceindex" }
-    if yname == "csbCallStatsServiceIndex" { return "Csbcallstatsserviceindex" }
-    if yname == "csbH248StatsVdbeId" { return "Csbh248Statsvdbeid" }
-    if yname == "csbH248StatsRequestsSentRev1" { return "Csbh248Statsrequestssentrev1" }
-    if yname == "csbH248StatsRequestsRcvdRev1" { return "Csbh248Statsrequestsrcvdrev1" }
-    if yname == "csbH248StatsRequestsFailedRev1" { return "Csbh248Statsrequestsfailedrev1" }
-    if yname == "csbH248StatsRequestsRetriedRev1" { return "Csbh248Statsrequestsretriedrev1" }
-    if yname == "csbH248StatsRepliesSentRev1" { return "Csbh248Statsrepliessentrev1" }
-    if yname == "csbH248StatsRepliesRcvdRev1" { return "Csbh248Statsrepliesrcvdrev1" }
-    if yname == "csbH248StatsRepliesRetriedRev1" { return "Csbh248Statsrepliesretriedrev1" }
-    if yname == "csbH248StatsSegPktsSentRev1" { return "Csbh248Statssegpktssentrev1" }
-    if yname == "csbH248StatsSegPktsRcvdRev1" { return "Csbh248Statssegpktsrcvdrev1" }
-    if yname == "csbH248StatsEstablishedTimeRev1" { return "Csbh248Statsestablishedtimerev1" }
-    if yname == "csbH248StatsTMaxTimeoutValRev1" { return "Csbh248Statstmaxtimeoutvalrev1" }
-    if yname == "csbH248StatsRTTRev1" { return "Csbh248Statsrttrev1" }
-    if yname == "csbH248StatsLTRev1" { return "Csbh248Statsltrev1" }
-    return ""
+    csbh248Statsrev1Entry.EntityData.Children = make(map[string]types.YChild)
+    csbh248Statsrev1Entry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csbh248Statsrev1Entry.EntityData.Leafs["csbCallStatsInstanceIndex"] = types.YLeaf{"Csbcallstatsinstanceindex", csbh248Statsrev1Entry.Csbcallstatsinstanceindex}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbCallStatsServiceIndex"] = types.YLeaf{"Csbcallstatsserviceindex", csbh248Statsrev1Entry.Csbcallstatsserviceindex}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsVdbeId"] = types.YLeaf{"Csbh248Statsvdbeid", csbh248Statsrev1Entry.Csbh248Statsvdbeid}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsSentRev1"] = types.YLeaf{"Csbh248Statsrequestssentrev1", csbh248Statsrev1Entry.Csbh248Statsrequestssentrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsRcvdRev1"] = types.YLeaf{"Csbh248Statsrequestsrcvdrev1", csbh248Statsrev1Entry.Csbh248Statsrequestsrcvdrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsFailedRev1"] = types.YLeaf{"Csbh248Statsrequestsfailedrev1", csbh248Statsrev1Entry.Csbh248Statsrequestsfailedrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRequestsRetriedRev1"] = types.YLeaf{"Csbh248Statsrequestsretriedrev1", csbh248Statsrev1Entry.Csbh248Statsrequestsretriedrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRepliesSentRev1"] = types.YLeaf{"Csbh248Statsrepliessentrev1", csbh248Statsrev1Entry.Csbh248Statsrepliessentrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRepliesRcvdRev1"] = types.YLeaf{"Csbh248Statsrepliesrcvdrev1", csbh248Statsrev1Entry.Csbh248Statsrepliesrcvdrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRepliesRetriedRev1"] = types.YLeaf{"Csbh248Statsrepliesretriedrev1", csbh248Statsrev1Entry.Csbh248Statsrepliesretriedrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsSegPktsSentRev1"] = types.YLeaf{"Csbh248Statssegpktssentrev1", csbh248Statsrev1Entry.Csbh248Statssegpktssentrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsSegPktsRcvdRev1"] = types.YLeaf{"Csbh248Statssegpktsrcvdrev1", csbh248Statsrev1Entry.Csbh248Statssegpktsrcvdrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsEstablishedTimeRev1"] = types.YLeaf{"Csbh248Statsestablishedtimerev1", csbh248Statsrev1Entry.Csbh248Statsestablishedtimerev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsTMaxTimeoutValRev1"] = types.YLeaf{"Csbh248Statstmaxtimeoutvalrev1", csbh248Statsrev1Entry.Csbh248Statstmaxtimeoutvalrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsRTTRev1"] = types.YLeaf{"Csbh248Statsrttrev1", csbh248Statsrev1Entry.Csbh248Statsrttrev1}
+    csbh248Statsrev1Entry.EntityData.Leafs["csbH248StatsLTRev1"] = types.YLeaf{"Csbh248Statsltrev1", csbh248Statsrev1Entry.Csbh248Statsltrev1}
+    return &(csbh248Statsrev1Entry.EntityData)
 }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetSegmentPath() string {
-    return "csbH248StatsRev1Entry" + "[csbCallStatsInstanceIndex='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbcallstatsserviceindex) + "']" + "[csbH248StatsVdbeId='" + fmt.Sprintf("%v", csbh248Statsrev1Entry.Csbh248Statsvdbeid) + "']"
-}
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csbCallStatsInstanceIndex"] = csbh248Statsrev1Entry.Csbcallstatsinstanceindex
-    leafs["csbCallStatsServiceIndex"] = csbh248Statsrev1Entry.Csbcallstatsserviceindex
-    leafs["csbH248StatsVdbeId"] = csbh248Statsrev1Entry.Csbh248Statsvdbeid
-    leafs["csbH248StatsRequestsSentRev1"] = csbh248Statsrev1Entry.Csbh248Statsrequestssentrev1
-    leafs["csbH248StatsRequestsRcvdRev1"] = csbh248Statsrev1Entry.Csbh248Statsrequestsrcvdrev1
-    leafs["csbH248StatsRequestsFailedRev1"] = csbh248Statsrev1Entry.Csbh248Statsrequestsfailedrev1
-    leafs["csbH248StatsRequestsRetriedRev1"] = csbh248Statsrev1Entry.Csbh248Statsrequestsretriedrev1
-    leafs["csbH248StatsRepliesSentRev1"] = csbh248Statsrev1Entry.Csbh248Statsrepliessentrev1
-    leafs["csbH248StatsRepliesRcvdRev1"] = csbh248Statsrev1Entry.Csbh248Statsrepliesrcvdrev1
-    leafs["csbH248StatsRepliesRetriedRev1"] = csbh248Statsrev1Entry.Csbh248Statsrepliesretriedrev1
-    leafs["csbH248StatsSegPktsSentRev1"] = csbh248Statsrev1Entry.Csbh248Statssegpktssentrev1
-    leafs["csbH248StatsSegPktsRcvdRev1"] = csbh248Statsrev1Entry.Csbh248Statssegpktsrcvdrev1
-    leafs["csbH248StatsEstablishedTimeRev1"] = csbh248Statsrev1Entry.Csbh248Statsestablishedtimerev1
-    leafs["csbH248StatsTMaxTimeoutValRev1"] = csbh248Statsrev1Entry.Csbh248Statstmaxtimeoutvalrev1
-    leafs["csbH248StatsRTTRev1"] = csbh248Statsrev1Entry.Csbh248Statsrttrev1
-    leafs["csbH248StatsLTRev1"] = csbh248Statsrev1Entry.Csbh248Statsltrev1
-    return leafs
-}
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetYangName() string { return "csbH248StatsRev1Entry" }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) SetParent(parent types.Entity) { csbh248Statsrev1Entry.parent = parent }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetParent() types.Entity { return csbh248Statsrev1Entry.parent }
-
-func (csbh248Statsrev1Entry *CISCOSESSBORDERCTRLRCALLSTATSMIB_Csbh248Statsrev1Table_Csbh248Statsrev1Entry) GetParentYangName() string { return "csbH248StatsRev1Table" }
 

@@ -28,7 +28,7 @@ func init() {
 
 // MPLSLSRSTDMIB
 type MPLSLSRSTDMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -76,88 +76,31 @@ type MPLSLSRSTDMIB struct {
     Mplsinsegmentmaptable MPLSLSRSTDMIB_Mplsinsegmentmaptable
 }
 
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetFilter() yfilter.YFilter { return mPLSLSRSTDMIB.YFilter }
+func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetEntityData() *types.CommonEntityData {
+    mPLSLSRSTDMIB.EntityData.YFilter = mPLSLSRSTDMIB.YFilter
+    mPLSLSRSTDMIB.EntityData.YangName = "MPLS-LSR-STD-MIB"
+    mPLSLSRSTDMIB.EntityData.BundleName = "cisco_ios_xe"
+    mPLSLSRSTDMIB.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mPLSLSRSTDMIB.EntityData.SegmentPath = "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB"
+    mPLSLSRSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mPLSLSRSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mPLSLSRSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) SetFilter(yf yfilter.YFilter) { mPLSLSRSTDMIB.YFilter = yf }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetGoName(yname string) string {
-    if yname == "mplsLsrObjects" { return "Mplslsrobjects" }
-    if yname == "mplsInterfaceTable" { return "Mplsinterfacetable" }
-    if yname == "mplsInSegmentTable" { return "Mplsinsegmenttable" }
-    if yname == "mplsOutSegmentTable" { return "Mplsoutsegmenttable" }
-    if yname == "mplsXCTable" { return "Mplsxctable" }
-    if yname == "mplsLabelStackTable" { return "Mplslabelstacktable" }
-    if yname == "mplsInSegmentMapTable" { return "Mplsinsegmentmaptable" }
-    return ""
+    mPLSLSRSTDMIB.EntityData.Children = make(map[string]types.YChild)
+    mPLSLSRSTDMIB.EntityData.Children["mplsLsrObjects"] = types.YChild{"Mplslsrobjects", &mPLSLSRSTDMIB.Mplslsrobjects}
+    mPLSLSRSTDMIB.EntityData.Children["mplsInterfaceTable"] = types.YChild{"Mplsinterfacetable", &mPLSLSRSTDMIB.Mplsinterfacetable}
+    mPLSLSRSTDMIB.EntityData.Children["mplsInSegmentTable"] = types.YChild{"Mplsinsegmenttable", &mPLSLSRSTDMIB.Mplsinsegmenttable}
+    mPLSLSRSTDMIB.EntityData.Children["mplsOutSegmentTable"] = types.YChild{"Mplsoutsegmenttable", &mPLSLSRSTDMIB.Mplsoutsegmenttable}
+    mPLSLSRSTDMIB.EntityData.Children["mplsXCTable"] = types.YChild{"Mplsxctable", &mPLSLSRSTDMIB.Mplsxctable}
+    mPLSLSRSTDMIB.EntityData.Children["mplsLabelStackTable"] = types.YChild{"Mplslabelstacktable", &mPLSLSRSTDMIB.Mplslabelstacktable}
+    mPLSLSRSTDMIB.EntityData.Children["mplsInSegmentMapTable"] = types.YChild{"Mplsinsegmentmaptable", &mPLSLSRSTDMIB.Mplsinsegmentmaptable}
+    mPLSLSRSTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mPLSLSRSTDMIB.EntityData)
 }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetSegmentPath() string {
-    return "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB"
-}
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsLsrObjects" {
-        return &mPLSLSRSTDMIB.Mplslsrobjects
-    }
-    if childYangName == "mplsInterfaceTable" {
-        return &mPLSLSRSTDMIB.Mplsinterfacetable
-    }
-    if childYangName == "mplsInSegmentTable" {
-        return &mPLSLSRSTDMIB.Mplsinsegmenttable
-    }
-    if childYangName == "mplsOutSegmentTable" {
-        return &mPLSLSRSTDMIB.Mplsoutsegmenttable
-    }
-    if childYangName == "mplsXCTable" {
-        return &mPLSLSRSTDMIB.Mplsxctable
-    }
-    if childYangName == "mplsLabelStackTable" {
-        return &mPLSLSRSTDMIB.Mplslabelstacktable
-    }
-    if childYangName == "mplsInSegmentMapTable" {
-        return &mPLSLSRSTDMIB.Mplsinsegmentmaptable
-    }
-    return nil
-}
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mplsLsrObjects"] = &mPLSLSRSTDMIB.Mplslsrobjects
-    children["mplsInterfaceTable"] = &mPLSLSRSTDMIB.Mplsinterfacetable
-    children["mplsInSegmentTable"] = &mPLSLSRSTDMIB.Mplsinsegmenttable
-    children["mplsOutSegmentTable"] = &mPLSLSRSTDMIB.Mplsoutsegmenttable
-    children["mplsXCTable"] = &mPLSLSRSTDMIB.Mplsxctable
-    children["mplsLabelStackTable"] = &mPLSLSRSTDMIB.Mplslabelstacktable
-    children["mplsInSegmentMapTable"] = &mPLSLSRSTDMIB.Mplsinsegmentmaptable
-    return children
-}
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetYangName() string { return "MPLS-LSR-STD-MIB" }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) SetParent(parent types.Entity) { mPLSLSRSTDMIB.parent = parent }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetParent() types.Entity { return mPLSLSRSTDMIB.parent }
-
-func (mPLSLSRSTDMIB *MPLSLSRSTDMIB) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplslsrobjects
 type MPLSLSRSTDMIB_Mplslsrobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object contains the next available value to be used for
@@ -202,67 +145,32 @@ type MPLSLSRSTDMIB_Mplslsrobjects struct {
     Mplsxcnotificationsenable interface{}
 }
 
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetFilter() yfilter.YFilter { return mplslsrobjects.YFilter }
+func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetEntityData() *types.CommonEntityData {
+    mplslsrobjects.EntityData.YFilter = mplslsrobjects.YFilter
+    mplslsrobjects.EntityData.YangName = "mplsLsrObjects"
+    mplslsrobjects.EntityData.BundleName = "cisco_ios_xe"
+    mplslsrobjects.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplslsrobjects.EntityData.SegmentPath = "mplsLsrObjects"
+    mplslsrobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplslsrobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplslsrobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) SetFilter(yf yfilter.YFilter) { mplslsrobjects.YFilter = yf }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetGoName(yname string) string {
-    if yname == "mplsInSegmentIndexNext" { return "Mplsinsegmentindexnext" }
-    if yname == "mplsOutSegmentIndexNext" { return "Mplsoutsegmentindexnext" }
-    if yname == "mplsXCIndexNext" { return "Mplsxcindexnext" }
-    if yname == "mplsMaxLabelStackDepth" { return "Mplsmaxlabelstackdepth" }
-    if yname == "mplsLabelStackIndexNext" { return "Mplslabelstackindexnext" }
-    if yname == "mplsXCNotificationsEnable" { return "Mplsxcnotificationsenable" }
-    return ""
+    mplslsrobjects.EntityData.Children = make(map[string]types.YChild)
+    mplslsrobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplslsrobjects.EntityData.Leafs["mplsInSegmentIndexNext"] = types.YLeaf{"Mplsinsegmentindexnext", mplslsrobjects.Mplsinsegmentindexnext}
+    mplslsrobjects.EntityData.Leafs["mplsOutSegmentIndexNext"] = types.YLeaf{"Mplsoutsegmentindexnext", mplslsrobjects.Mplsoutsegmentindexnext}
+    mplslsrobjects.EntityData.Leafs["mplsXCIndexNext"] = types.YLeaf{"Mplsxcindexnext", mplslsrobjects.Mplsxcindexnext}
+    mplslsrobjects.EntityData.Leafs["mplsMaxLabelStackDepth"] = types.YLeaf{"Mplsmaxlabelstackdepth", mplslsrobjects.Mplsmaxlabelstackdepth}
+    mplslsrobjects.EntityData.Leafs["mplsLabelStackIndexNext"] = types.YLeaf{"Mplslabelstackindexnext", mplslsrobjects.Mplslabelstackindexnext}
+    mplslsrobjects.EntityData.Leafs["mplsXCNotificationsEnable"] = types.YLeaf{"Mplsxcnotificationsenable", mplslsrobjects.Mplsxcnotificationsenable}
+    return &(mplslsrobjects.EntityData)
 }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetSegmentPath() string {
-    return "mplsLsrObjects"
-}
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsInSegmentIndexNext"] = mplslsrobjects.Mplsinsegmentindexnext
-    leafs["mplsOutSegmentIndexNext"] = mplslsrobjects.Mplsoutsegmentindexnext
-    leafs["mplsXCIndexNext"] = mplslsrobjects.Mplsxcindexnext
-    leafs["mplsMaxLabelStackDepth"] = mplslsrobjects.Mplsmaxlabelstackdepth
-    leafs["mplsLabelStackIndexNext"] = mplslsrobjects.Mplslabelstackindexnext
-    leafs["mplsXCNotificationsEnable"] = mplslsrobjects.Mplsxcnotificationsenable
-    return leafs
-}
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetYangName() string { return "mplsLsrObjects" }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) SetParent(parent types.Entity) { mplslsrobjects.parent = parent }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetParent() types.Entity { return mplslsrobjects.parent }
-
-func (mplslsrobjects *MPLSLSRSTDMIB_Mplslsrobjects) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplsinterfacetable
 // This table specifies per-interface MPLS capability
 // and associated information.
 type MPLSLSRSTDMIB_Mplsinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in this table is created automatically by an LSR for every
@@ -287,63 +195,24 @@ type MPLSLSRSTDMIB_Mplsinterfacetable struct {
     Mplsinterfaceentry []MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry
 }
 
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetFilter() yfilter.YFilter { return mplsinterfacetable.YFilter }
+func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetEntityData() *types.CommonEntityData {
+    mplsinterfacetable.EntityData.YFilter = mplsinterfacetable.YFilter
+    mplsinterfacetable.EntityData.YangName = "mplsInterfaceTable"
+    mplsinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    mplsinterfacetable.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplsinterfacetable.EntityData.SegmentPath = "mplsInterfaceTable"
+    mplsinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) SetFilter(yf yfilter.YFilter) { mplsinterfacetable.YFilter = yf }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetGoName(yname string) string {
-    if yname == "mplsInterfaceEntry" { return "Mplsinterfaceentry" }
-    return ""
-}
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetSegmentPath() string {
-    return "mplsInterfaceTable"
-}
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsInterfaceEntry" {
-        for _, c := range mplsinterfacetable.Mplsinterfaceentry {
-            if mplsinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry{}
-        mplsinterfacetable.Mplsinterfaceentry = append(mplsinterfacetable.Mplsinterfaceentry, child)
-        return &mplsinterfacetable.Mplsinterfaceentry[len(mplsinterfacetable.Mplsinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    mplsinterfacetable.EntityData.Children["mplsInterfaceEntry"] = types.YChild{"Mplsinterfaceentry", nil}
     for i := range mplsinterfacetable.Mplsinterfaceentry {
-        children[mplsinterfacetable.Mplsinterfaceentry[i].GetSegmentPath()] = &mplsinterfacetable.Mplsinterfaceentry[i]
+        mplsinterfacetable.EntityData.Children[types.GetSegmentPath(&mplsinterfacetable.Mplsinterfaceentry[i])] = types.YChild{"Mplsinterfaceentry", &mplsinterfacetable.Mplsinterfaceentry[i]}
     }
-    return children
+    mplsinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsinterfacetable.EntityData)
 }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetYangName() string { return "mplsInterfaceTable" }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) SetParent(parent types.Entity) { mplsinterfacetable.parent = parent }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetParent() types.Entity { return mplsinterfacetable.parent }
-
-func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry
 // A conceptual row in this table is created
@@ -372,7 +241,7 @@ func (mplsinterfacetable *MPLSLSRSTDMIB_Mplsinterfacetable) GetParentYangName() 
 // the DESCRIPTION clause of
 // mplsInterfaceLabelParticipationType.
 type MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is a unique index for an entry in the
@@ -472,73 +341,32 @@ type MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry struct {
     Mplsinterfaceperfoutfragmentedpkts interface{}
 }
 
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetFilter() yfilter.YFilter { return mplsinterfaceentry.YFilter }
+func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetEntityData() *types.CommonEntityData {
+    mplsinterfaceentry.EntityData.YFilter = mplsinterfaceentry.YFilter
+    mplsinterfaceentry.EntityData.YangName = "mplsInterfaceEntry"
+    mplsinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsinterfaceentry.EntityData.ParentYangName = "mplsInterfaceTable"
+    mplsinterfaceentry.EntityData.SegmentPath = "mplsInterfaceEntry" + "[mplsInterfaceIndex='" + fmt.Sprintf("%v", mplsinterfaceentry.Mplsinterfaceindex) + "']"
+    mplsinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) SetFilter(yf yfilter.YFilter) { mplsinterfaceentry.YFilter = yf }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetGoName(yname string) string {
-    if yname == "mplsInterfaceIndex" { return "Mplsinterfaceindex" }
-    if yname == "mplsInterfaceLabelMinIn" { return "Mplsinterfacelabelminin" }
-    if yname == "mplsInterfaceLabelMaxIn" { return "Mplsinterfacelabelmaxin" }
-    if yname == "mplsInterfaceLabelMinOut" { return "Mplsinterfacelabelminout" }
-    if yname == "mplsInterfaceLabelMaxOut" { return "Mplsinterfacelabelmaxout" }
-    if yname == "mplsInterfaceTotalBandwidth" { return "Mplsinterfacetotalbandwidth" }
-    if yname == "mplsInterfaceAvailableBandwidth" { return "Mplsinterfaceavailablebandwidth" }
-    if yname == "mplsInterfaceLabelParticipationType" { return "Mplsinterfacelabelparticipationtype" }
-    if yname == "mplsInterfacePerfInLabelsInUse" { return "Mplsinterfaceperfinlabelsinuse" }
-    if yname == "mplsInterfacePerfInLabelLookupFailures" { return "Mplsinterfaceperfinlabellookupfailures" }
-    if yname == "mplsInterfacePerfOutLabelsInUse" { return "Mplsinterfaceperfoutlabelsinuse" }
-    if yname == "mplsInterfacePerfOutFragmentedPkts" { return "Mplsinterfaceperfoutfragmentedpkts" }
-    return ""
+    mplsinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    mplsinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceIndex"] = types.YLeaf{"Mplsinterfaceindex", mplsinterfaceentry.Mplsinterfaceindex}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceLabelMinIn"] = types.YLeaf{"Mplsinterfacelabelminin", mplsinterfaceentry.Mplsinterfacelabelminin}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceLabelMaxIn"] = types.YLeaf{"Mplsinterfacelabelmaxin", mplsinterfaceentry.Mplsinterfacelabelmaxin}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceLabelMinOut"] = types.YLeaf{"Mplsinterfacelabelminout", mplsinterfaceentry.Mplsinterfacelabelminout}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceLabelMaxOut"] = types.YLeaf{"Mplsinterfacelabelmaxout", mplsinterfaceentry.Mplsinterfacelabelmaxout}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceTotalBandwidth"] = types.YLeaf{"Mplsinterfacetotalbandwidth", mplsinterfaceentry.Mplsinterfacetotalbandwidth}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceAvailableBandwidth"] = types.YLeaf{"Mplsinterfaceavailablebandwidth", mplsinterfaceentry.Mplsinterfaceavailablebandwidth}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfaceLabelParticipationType"] = types.YLeaf{"Mplsinterfacelabelparticipationtype", mplsinterfaceentry.Mplsinterfacelabelparticipationtype}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfacePerfInLabelsInUse"] = types.YLeaf{"Mplsinterfaceperfinlabelsinuse", mplsinterfaceentry.Mplsinterfaceperfinlabelsinuse}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfacePerfInLabelLookupFailures"] = types.YLeaf{"Mplsinterfaceperfinlabellookupfailures", mplsinterfaceentry.Mplsinterfaceperfinlabellookupfailures}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfacePerfOutLabelsInUse"] = types.YLeaf{"Mplsinterfaceperfoutlabelsinuse", mplsinterfaceentry.Mplsinterfaceperfoutlabelsinuse}
+    mplsinterfaceentry.EntityData.Leafs["mplsInterfacePerfOutFragmentedPkts"] = types.YLeaf{"Mplsinterfaceperfoutfragmentedpkts", mplsinterfaceentry.Mplsinterfaceperfoutfragmentedpkts}
+    return &(mplsinterfaceentry.EntityData)
 }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetSegmentPath() string {
-    return "mplsInterfaceEntry" + "[mplsInterfaceIndex='" + fmt.Sprintf("%v", mplsinterfaceentry.Mplsinterfaceindex) + "']"
-}
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsInterfaceIndex"] = mplsinterfaceentry.Mplsinterfaceindex
-    leafs["mplsInterfaceLabelMinIn"] = mplsinterfaceentry.Mplsinterfacelabelminin
-    leafs["mplsInterfaceLabelMaxIn"] = mplsinterfaceentry.Mplsinterfacelabelmaxin
-    leafs["mplsInterfaceLabelMinOut"] = mplsinterfaceentry.Mplsinterfacelabelminout
-    leafs["mplsInterfaceLabelMaxOut"] = mplsinterfaceentry.Mplsinterfacelabelmaxout
-    leafs["mplsInterfaceTotalBandwidth"] = mplsinterfaceentry.Mplsinterfacetotalbandwidth
-    leafs["mplsInterfaceAvailableBandwidth"] = mplsinterfaceentry.Mplsinterfaceavailablebandwidth
-    leafs["mplsInterfaceLabelParticipationType"] = mplsinterfaceentry.Mplsinterfacelabelparticipationtype
-    leafs["mplsInterfacePerfInLabelsInUse"] = mplsinterfaceentry.Mplsinterfaceperfinlabelsinuse
-    leafs["mplsInterfacePerfInLabelLookupFailures"] = mplsinterfaceentry.Mplsinterfaceperfinlabellookupfailures
-    leafs["mplsInterfacePerfOutLabelsInUse"] = mplsinterfaceentry.Mplsinterfaceperfoutlabelsinuse
-    leafs["mplsInterfacePerfOutFragmentedPkts"] = mplsinterfaceentry.Mplsinterfaceperfoutfragmentedpkts
-    return leafs
-}
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetYangName() string { return "mplsInterfaceEntry" }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) SetParent(parent types.Entity) { mplsinterfaceentry.parent = parent }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetParent() types.Entity { return mplsinterfaceentry.parent }
-
-func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) GetParentYangName() string { return "mplsInterfaceTable" }
 
 // MPLSLSRSTDMIB_Mplsinsegmenttable
 // This table contains a description of the incoming MPLS
@@ -566,7 +394,7 @@ func (mplsinterfaceentry *MPLSLSRSTDMIB_Mplsinterfacetable_Mplsinterfaceentry) G
 // of any extension tables is beyond the scope of this
 // MIB module.
 type MPLSLSRSTDMIB_Mplsinsegmenttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents one incoming segment as is represented in
@@ -581,63 +409,24 @@ type MPLSLSRSTDMIB_Mplsinsegmenttable struct {
     Mplsinsegmententry []MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry
 }
 
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetFilter() yfilter.YFilter { return mplsinsegmenttable.YFilter }
+func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetEntityData() *types.CommonEntityData {
+    mplsinsegmenttable.EntityData.YFilter = mplsinsegmenttable.YFilter
+    mplsinsegmenttable.EntityData.YangName = "mplsInSegmentTable"
+    mplsinsegmenttable.EntityData.BundleName = "cisco_ios_xe"
+    mplsinsegmenttable.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplsinsegmenttable.EntityData.SegmentPath = "mplsInSegmentTable"
+    mplsinsegmenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsinsegmenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsinsegmenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) SetFilter(yf yfilter.YFilter) { mplsinsegmenttable.YFilter = yf }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetGoName(yname string) string {
-    if yname == "mplsInSegmentEntry" { return "Mplsinsegmententry" }
-    return ""
-}
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetSegmentPath() string {
-    return "mplsInSegmentTable"
-}
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsInSegmentEntry" {
-        for _, c := range mplsinsegmenttable.Mplsinsegmententry {
-            if mplsinsegmenttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry{}
-        mplsinsegmenttable.Mplsinsegmententry = append(mplsinsegmenttable.Mplsinsegmententry, child)
-        return &mplsinsegmenttable.Mplsinsegmententry[len(mplsinsegmenttable.Mplsinsegmententry)-1]
-    }
-    return nil
-}
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsinsegmenttable.EntityData.Children = make(map[string]types.YChild)
+    mplsinsegmenttable.EntityData.Children["mplsInSegmentEntry"] = types.YChild{"Mplsinsegmententry", nil}
     for i := range mplsinsegmenttable.Mplsinsegmententry {
-        children[mplsinsegmenttable.Mplsinsegmententry[i].GetSegmentPath()] = &mplsinsegmenttable.Mplsinsegmententry[i]
+        mplsinsegmenttable.EntityData.Children[types.GetSegmentPath(&mplsinsegmenttable.Mplsinsegmententry[i])] = types.YChild{"Mplsinsegmententry", &mplsinsegmenttable.Mplsinsegmententry[i]}
     }
-    return children
+    mplsinsegmenttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsinsegmenttable.EntityData)
 }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetYangName() string { return "mplsInSegmentTable" }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) SetParent(parent types.Entity) { mplsinsegmenttable.parent = parent }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetParent() types.Entity { return mplsinsegmenttable.parent }
-
-func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry
 // An entry in this table represents one incoming
@@ -653,7 +442,7 @@ func (mplsinsegmenttable *MPLSLSRSTDMIB_Mplsinsegmenttable) GetParentYangName() 
 // instance of mplsXCEntry based on which forwarding
 // and/or switching actions are taken.
 type MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index for this in-segment. The string
@@ -682,7 +471,8 @@ type MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry struct {
     // column of a conceptual row in an external table containing the label.  In
     // this case, the mplsInSegmentTopLabel object SHOULD be set to 0 and ignored.
     // This object MUST be set to zeroDotZero otherwise. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplsinsegmentlabelptr interface{}
 
     // The number of labels to pop from the incoming packet.  Normally only the
@@ -726,7 +516,7 @@ type MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry struct {
     // active(1).  For entries in this table that are preserved after a re-boot,
     // the agent MUST ensure that their integrity be preserved, or this object
     // should be set to 0.0 if it cannot. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplsinsegmenttrafficparamptr interface{}
 
     // This variable is used to create, modify, and/or delete a row in this table.
@@ -777,89 +567,43 @@ type MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry struct {
     Mplsinsegmentperfdiscontinuitytime interface{}
 }
 
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetFilter() yfilter.YFilter { return mplsinsegmententry.YFilter }
+func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetEntityData() *types.CommonEntityData {
+    mplsinsegmententry.EntityData.YFilter = mplsinsegmententry.YFilter
+    mplsinsegmententry.EntityData.YangName = "mplsInSegmentEntry"
+    mplsinsegmententry.EntityData.BundleName = "cisco_ios_xe"
+    mplsinsegmententry.EntityData.ParentYangName = "mplsInSegmentTable"
+    mplsinsegmententry.EntityData.SegmentPath = "mplsInSegmentEntry" + "[mplsInSegmentIndex='" + fmt.Sprintf("%v", mplsinsegmententry.Mplsinsegmentindex) + "']"
+    mplsinsegmententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsinsegmententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsinsegmententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) SetFilter(yf yfilter.YFilter) { mplsinsegmententry.YFilter = yf }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetGoName(yname string) string {
-    if yname == "mplsInSegmentIndex" { return "Mplsinsegmentindex" }
-    if yname == "mplsInSegmentInterface" { return "Mplsinsegmentinterface" }
-    if yname == "mplsInSegmentLabel" { return "Mplsinsegmentlabel" }
-    if yname == "mplsInSegmentLabelPtr" { return "Mplsinsegmentlabelptr" }
-    if yname == "mplsInSegmentNPop" { return "Mplsinsegmentnpop" }
-    if yname == "mplsInSegmentAddrFamily" { return "Mplsinsegmentaddrfamily" }
-    if yname == "mplsInSegmentXCIndex" { return "Mplsinsegmentxcindex" }
-    if yname == "mplsInSegmentOwner" { return "Mplsinsegmentowner" }
-    if yname == "mplsInSegmentTrafficParamPtr" { return "Mplsinsegmenttrafficparamptr" }
-    if yname == "mplsInSegmentRowStatus" { return "Mplsinsegmentrowstatus" }
-    if yname == "mplsInSegmentStorageType" { return "Mplsinsegmentstoragetype" }
-    if yname == "mplsInSegmentPerfOctets" { return "Mplsinsegmentperfoctets" }
-    if yname == "mplsInSegmentPerfPackets" { return "Mplsinsegmentperfpackets" }
-    if yname == "mplsInSegmentPerfErrors" { return "Mplsinsegmentperferrors" }
-    if yname == "mplsInSegmentPerfDiscards" { return "Mplsinsegmentperfdiscards" }
-    if yname == "mplsInSegmentPerfHCOctets" { return "Mplsinsegmentperfhcoctets" }
-    if yname == "mplsInSegmentPerfDiscontinuityTime" { return "Mplsinsegmentperfdiscontinuitytime" }
-    return ""
+    mplsinsegmententry.EntityData.Children = make(map[string]types.YChild)
+    mplsinsegmententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentIndex"] = types.YLeaf{"Mplsinsegmentindex", mplsinsegmententry.Mplsinsegmentindex}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentInterface"] = types.YLeaf{"Mplsinsegmentinterface", mplsinsegmententry.Mplsinsegmentinterface}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentLabel"] = types.YLeaf{"Mplsinsegmentlabel", mplsinsegmententry.Mplsinsegmentlabel}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentLabelPtr"] = types.YLeaf{"Mplsinsegmentlabelptr", mplsinsegmententry.Mplsinsegmentlabelptr}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentNPop"] = types.YLeaf{"Mplsinsegmentnpop", mplsinsegmententry.Mplsinsegmentnpop}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentAddrFamily"] = types.YLeaf{"Mplsinsegmentaddrfamily", mplsinsegmententry.Mplsinsegmentaddrfamily}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentXCIndex"] = types.YLeaf{"Mplsinsegmentxcindex", mplsinsegmententry.Mplsinsegmentxcindex}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentOwner"] = types.YLeaf{"Mplsinsegmentowner", mplsinsegmententry.Mplsinsegmentowner}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentTrafficParamPtr"] = types.YLeaf{"Mplsinsegmenttrafficparamptr", mplsinsegmententry.Mplsinsegmenttrafficparamptr}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentRowStatus"] = types.YLeaf{"Mplsinsegmentrowstatus", mplsinsegmententry.Mplsinsegmentrowstatus}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentStorageType"] = types.YLeaf{"Mplsinsegmentstoragetype", mplsinsegmententry.Mplsinsegmentstoragetype}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentPerfOctets"] = types.YLeaf{"Mplsinsegmentperfoctets", mplsinsegmententry.Mplsinsegmentperfoctets}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentPerfPackets"] = types.YLeaf{"Mplsinsegmentperfpackets", mplsinsegmententry.Mplsinsegmentperfpackets}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentPerfErrors"] = types.YLeaf{"Mplsinsegmentperferrors", mplsinsegmententry.Mplsinsegmentperferrors}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentPerfDiscards"] = types.YLeaf{"Mplsinsegmentperfdiscards", mplsinsegmententry.Mplsinsegmentperfdiscards}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentPerfHCOctets"] = types.YLeaf{"Mplsinsegmentperfhcoctets", mplsinsegmententry.Mplsinsegmentperfhcoctets}
+    mplsinsegmententry.EntityData.Leafs["mplsInSegmentPerfDiscontinuityTime"] = types.YLeaf{"Mplsinsegmentperfdiscontinuitytime", mplsinsegmententry.Mplsinsegmentperfdiscontinuitytime}
+    return &(mplsinsegmententry.EntityData)
 }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetSegmentPath() string {
-    return "mplsInSegmentEntry" + "[mplsInSegmentIndex='" + fmt.Sprintf("%v", mplsinsegmententry.Mplsinsegmentindex) + "']"
-}
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsInSegmentIndex"] = mplsinsegmententry.Mplsinsegmentindex
-    leafs["mplsInSegmentInterface"] = mplsinsegmententry.Mplsinsegmentinterface
-    leafs["mplsInSegmentLabel"] = mplsinsegmententry.Mplsinsegmentlabel
-    leafs["mplsInSegmentLabelPtr"] = mplsinsegmententry.Mplsinsegmentlabelptr
-    leafs["mplsInSegmentNPop"] = mplsinsegmententry.Mplsinsegmentnpop
-    leafs["mplsInSegmentAddrFamily"] = mplsinsegmententry.Mplsinsegmentaddrfamily
-    leafs["mplsInSegmentXCIndex"] = mplsinsegmententry.Mplsinsegmentxcindex
-    leafs["mplsInSegmentOwner"] = mplsinsegmententry.Mplsinsegmentowner
-    leafs["mplsInSegmentTrafficParamPtr"] = mplsinsegmententry.Mplsinsegmenttrafficparamptr
-    leafs["mplsInSegmentRowStatus"] = mplsinsegmententry.Mplsinsegmentrowstatus
-    leafs["mplsInSegmentStorageType"] = mplsinsegmententry.Mplsinsegmentstoragetype
-    leafs["mplsInSegmentPerfOctets"] = mplsinsegmententry.Mplsinsegmentperfoctets
-    leafs["mplsInSegmentPerfPackets"] = mplsinsegmententry.Mplsinsegmentperfpackets
-    leafs["mplsInSegmentPerfErrors"] = mplsinsegmententry.Mplsinsegmentperferrors
-    leafs["mplsInSegmentPerfDiscards"] = mplsinsegmententry.Mplsinsegmentperfdiscards
-    leafs["mplsInSegmentPerfHCOctets"] = mplsinsegmententry.Mplsinsegmentperfhcoctets
-    leafs["mplsInSegmentPerfDiscontinuityTime"] = mplsinsegmententry.Mplsinsegmentperfdiscontinuitytime
-    return leafs
-}
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetYangName() string { return "mplsInSegmentEntry" }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) SetParent(parent types.Entity) { mplsinsegmententry.parent = parent }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetParent() types.Entity { return mplsinsegmententry.parent }
-
-func (mplsinsegmententry *MPLSLSRSTDMIB_Mplsinsegmenttable_Mplsinsegmententry) GetParentYangName() string { return "mplsInSegmentTable" }
 
 // MPLSLSRSTDMIB_Mplsoutsegmenttable
 // This table contains a representation of the outgoing
 // segments from an LSR.
 type MPLSLSRSTDMIB_Mplsoutsegmenttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents one outgoing segment.  An entry can be
@@ -879,63 +623,24 @@ type MPLSLSRSTDMIB_Mplsoutsegmenttable struct {
     Mplsoutsegmententry []MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry
 }
 
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetFilter() yfilter.YFilter { return mplsoutsegmenttable.YFilter }
+func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetEntityData() *types.CommonEntityData {
+    mplsoutsegmenttable.EntityData.YFilter = mplsoutsegmenttable.YFilter
+    mplsoutsegmenttable.EntityData.YangName = "mplsOutSegmentTable"
+    mplsoutsegmenttable.EntityData.BundleName = "cisco_ios_xe"
+    mplsoutsegmenttable.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplsoutsegmenttable.EntityData.SegmentPath = "mplsOutSegmentTable"
+    mplsoutsegmenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsoutsegmenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsoutsegmenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) SetFilter(yf yfilter.YFilter) { mplsoutsegmenttable.YFilter = yf }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetGoName(yname string) string {
-    if yname == "mplsOutSegmentEntry" { return "Mplsoutsegmententry" }
-    return ""
-}
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetSegmentPath() string {
-    return "mplsOutSegmentTable"
-}
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsOutSegmentEntry" {
-        for _, c := range mplsoutsegmenttable.Mplsoutsegmententry {
-            if mplsoutsegmenttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry{}
-        mplsoutsegmenttable.Mplsoutsegmententry = append(mplsoutsegmenttable.Mplsoutsegmententry, child)
-        return &mplsoutsegmenttable.Mplsoutsegmententry[len(mplsoutsegmenttable.Mplsoutsegmententry)-1]
-    }
-    return nil
-}
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsoutsegmenttable.EntityData.Children = make(map[string]types.YChild)
+    mplsoutsegmenttable.EntityData.Children["mplsOutSegmentEntry"] = types.YChild{"Mplsoutsegmententry", nil}
     for i := range mplsoutsegmenttable.Mplsoutsegmententry {
-        children[mplsoutsegmenttable.Mplsoutsegmententry[i].GetSegmentPath()] = &mplsoutsegmenttable.Mplsoutsegmententry[i]
+        mplsoutsegmenttable.EntityData.Children[types.GetSegmentPath(&mplsoutsegmenttable.Mplsoutsegmententry[i])] = types.YChild{"Mplsoutsegmententry", &mplsoutsegmenttable.Mplsoutsegmententry[i]}
     }
-    return children
+    mplsoutsegmenttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsoutsegmenttable.EntityData)
 }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetYangName() string { return "mplsOutSegmentTable" }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) SetParent(parent types.Entity) { mplsoutsegmenttable.parent = parent }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetParent() types.Entity { return mplsoutsegmenttable.parent }
-
-func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry
 // An entry in this table represents one outgoing
@@ -960,7 +665,7 @@ func (mplsoutsegmenttable *MPLSLSRSTDMIB_Mplsoutsegmenttable) GetParentYangName(
 // by the mplsXCEntry, an arbitrary integer must be used as
 // the index for this table.
 type MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This value contains a unique index for this row.
@@ -1002,7 +707,7 @@ type MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry struct {
     // this case, the mplsOutSegmentTopLabel object SHOULD be set to 0 and
     // ignored. This object MUST be set to zeroDotZero otherwise. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplsoutsegmenttoplabelptr interface{}
 
     // Indicates the next hop Internet address type. Only values unknown(0),
@@ -1044,7 +749,7 @@ type MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry struct {
     // entries in this table that are preserved after a re-boot, the agent MUST
     // ensure that their integrity be preserved, or this object should be set to
     // 0.0 if it cannot. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplsoutsegmenttrafficparamptr interface{}
 
     // For creating, modifying, and deleting this row. When a row in this table
@@ -1095,85 +800,38 @@ type MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry struct {
     Mplsoutsegmentperfdiscontinuitytime interface{}
 }
 
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetFilter() yfilter.YFilter { return mplsoutsegmententry.YFilter }
+func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetEntityData() *types.CommonEntityData {
+    mplsoutsegmententry.EntityData.YFilter = mplsoutsegmententry.YFilter
+    mplsoutsegmententry.EntityData.YangName = "mplsOutSegmentEntry"
+    mplsoutsegmententry.EntityData.BundleName = "cisco_ios_xe"
+    mplsoutsegmententry.EntityData.ParentYangName = "mplsOutSegmentTable"
+    mplsoutsegmententry.EntityData.SegmentPath = "mplsOutSegmentEntry" + "[mplsOutSegmentIndex='" + fmt.Sprintf("%v", mplsoutsegmententry.Mplsoutsegmentindex) + "']"
+    mplsoutsegmententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsoutsegmententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsoutsegmententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) SetFilter(yf yfilter.YFilter) { mplsoutsegmententry.YFilter = yf }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetGoName(yname string) string {
-    if yname == "mplsOutSegmentIndex" { return "Mplsoutsegmentindex" }
-    if yname == "mplsOutSegmentInterface" { return "Mplsoutsegmentinterface" }
-    if yname == "mplsOutSegmentPushTopLabel" { return "Mplsoutsegmentpushtoplabel" }
-    if yname == "mplsOutSegmentTopLabel" { return "Mplsoutsegmenttoplabel" }
-    if yname == "mplsOutSegmentTopLabelPtr" { return "Mplsoutsegmenttoplabelptr" }
-    if yname == "mplsOutSegmentNextHopAddrType" { return "Mplsoutsegmentnexthopaddrtype" }
-    if yname == "mplsOutSegmentNextHopAddr" { return "Mplsoutsegmentnexthopaddr" }
-    if yname == "mplsOutSegmentXCIndex" { return "Mplsoutsegmentxcindex" }
-    if yname == "mplsOutSegmentOwner" { return "Mplsoutsegmentowner" }
-    if yname == "mplsOutSegmentTrafficParamPtr" { return "Mplsoutsegmenttrafficparamptr" }
-    if yname == "mplsOutSegmentRowStatus" { return "Mplsoutsegmentrowstatus" }
-    if yname == "mplsOutSegmentStorageType" { return "Mplsoutsegmentstoragetype" }
-    if yname == "mplsOutSegmentPerfOctets" { return "Mplsoutsegmentperfoctets" }
-    if yname == "mplsOutSegmentPerfPackets" { return "Mplsoutsegmentperfpackets" }
-    if yname == "mplsOutSegmentPerfErrors" { return "Mplsoutsegmentperferrors" }
-    if yname == "mplsOutSegmentPerfDiscards" { return "Mplsoutsegmentperfdiscards" }
-    if yname == "mplsOutSegmentPerfHCOctets" { return "Mplsoutsegmentperfhcoctets" }
-    if yname == "mplsOutSegmentPerfDiscontinuityTime" { return "Mplsoutsegmentperfdiscontinuitytime" }
-    return ""
+    mplsoutsegmententry.EntityData.Children = make(map[string]types.YChild)
+    mplsoutsegmententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentIndex"] = types.YLeaf{"Mplsoutsegmentindex", mplsoutsegmententry.Mplsoutsegmentindex}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentInterface"] = types.YLeaf{"Mplsoutsegmentinterface", mplsoutsegmententry.Mplsoutsegmentinterface}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPushTopLabel"] = types.YLeaf{"Mplsoutsegmentpushtoplabel", mplsoutsegmententry.Mplsoutsegmentpushtoplabel}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentTopLabel"] = types.YLeaf{"Mplsoutsegmenttoplabel", mplsoutsegmententry.Mplsoutsegmenttoplabel}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentTopLabelPtr"] = types.YLeaf{"Mplsoutsegmenttoplabelptr", mplsoutsegmententry.Mplsoutsegmenttoplabelptr}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentNextHopAddrType"] = types.YLeaf{"Mplsoutsegmentnexthopaddrtype", mplsoutsegmententry.Mplsoutsegmentnexthopaddrtype}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentNextHopAddr"] = types.YLeaf{"Mplsoutsegmentnexthopaddr", mplsoutsegmententry.Mplsoutsegmentnexthopaddr}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentXCIndex"] = types.YLeaf{"Mplsoutsegmentxcindex", mplsoutsegmententry.Mplsoutsegmentxcindex}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentOwner"] = types.YLeaf{"Mplsoutsegmentowner", mplsoutsegmententry.Mplsoutsegmentowner}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentTrafficParamPtr"] = types.YLeaf{"Mplsoutsegmenttrafficparamptr", mplsoutsegmententry.Mplsoutsegmenttrafficparamptr}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentRowStatus"] = types.YLeaf{"Mplsoutsegmentrowstatus", mplsoutsegmententry.Mplsoutsegmentrowstatus}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentStorageType"] = types.YLeaf{"Mplsoutsegmentstoragetype", mplsoutsegmententry.Mplsoutsegmentstoragetype}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPerfOctets"] = types.YLeaf{"Mplsoutsegmentperfoctets", mplsoutsegmententry.Mplsoutsegmentperfoctets}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPerfPackets"] = types.YLeaf{"Mplsoutsegmentperfpackets", mplsoutsegmententry.Mplsoutsegmentperfpackets}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPerfErrors"] = types.YLeaf{"Mplsoutsegmentperferrors", mplsoutsegmententry.Mplsoutsegmentperferrors}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPerfDiscards"] = types.YLeaf{"Mplsoutsegmentperfdiscards", mplsoutsegmententry.Mplsoutsegmentperfdiscards}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPerfHCOctets"] = types.YLeaf{"Mplsoutsegmentperfhcoctets", mplsoutsegmententry.Mplsoutsegmentperfhcoctets}
+    mplsoutsegmententry.EntityData.Leafs["mplsOutSegmentPerfDiscontinuityTime"] = types.YLeaf{"Mplsoutsegmentperfdiscontinuitytime", mplsoutsegmententry.Mplsoutsegmentperfdiscontinuitytime}
+    return &(mplsoutsegmententry.EntityData)
 }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetSegmentPath() string {
-    return "mplsOutSegmentEntry" + "[mplsOutSegmentIndex='" + fmt.Sprintf("%v", mplsoutsegmententry.Mplsoutsegmentindex) + "']"
-}
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsOutSegmentIndex"] = mplsoutsegmententry.Mplsoutsegmentindex
-    leafs["mplsOutSegmentInterface"] = mplsoutsegmententry.Mplsoutsegmentinterface
-    leafs["mplsOutSegmentPushTopLabel"] = mplsoutsegmententry.Mplsoutsegmentpushtoplabel
-    leafs["mplsOutSegmentTopLabel"] = mplsoutsegmententry.Mplsoutsegmenttoplabel
-    leafs["mplsOutSegmentTopLabelPtr"] = mplsoutsegmententry.Mplsoutsegmenttoplabelptr
-    leafs["mplsOutSegmentNextHopAddrType"] = mplsoutsegmententry.Mplsoutsegmentnexthopaddrtype
-    leafs["mplsOutSegmentNextHopAddr"] = mplsoutsegmententry.Mplsoutsegmentnexthopaddr
-    leafs["mplsOutSegmentXCIndex"] = mplsoutsegmententry.Mplsoutsegmentxcindex
-    leafs["mplsOutSegmentOwner"] = mplsoutsegmententry.Mplsoutsegmentowner
-    leafs["mplsOutSegmentTrafficParamPtr"] = mplsoutsegmententry.Mplsoutsegmenttrafficparamptr
-    leafs["mplsOutSegmentRowStatus"] = mplsoutsegmententry.Mplsoutsegmentrowstatus
-    leafs["mplsOutSegmentStorageType"] = mplsoutsegmententry.Mplsoutsegmentstoragetype
-    leafs["mplsOutSegmentPerfOctets"] = mplsoutsegmententry.Mplsoutsegmentperfoctets
-    leafs["mplsOutSegmentPerfPackets"] = mplsoutsegmententry.Mplsoutsegmentperfpackets
-    leafs["mplsOutSegmentPerfErrors"] = mplsoutsegmententry.Mplsoutsegmentperferrors
-    leafs["mplsOutSegmentPerfDiscards"] = mplsoutsegmententry.Mplsoutsegmentperfdiscards
-    leafs["mplsOutSegmentPerfHCOctets"] = mplsoutsegmententry.Mplsoutsegmentperfhcoctets
-    leafs["mplsOutSegmentPerfDiscontinuityTime"] = mplsoutsegmententry.Mplsoutsegmentperfdiscontinuitytime
-    return leafs
-}
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetYangName() string { return "mplsOutSegmentEntry" }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) SetParent(parent types.Entity) { mplsoutsegmententry.parent = parent }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetParent() types.Entity { return mplsoutsegmententry.parent }
-
-func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry) GetParentYangName() string { return "mplsOutSegmentTable" }
 
 // MPLSLSRSTDMIB_Mplsxctable
 // This table specifies information for switching
@@ -1183,7 +841,7 @@ func (mplsoutsegmententry *MPLSLSRSTDMIB_Mplsoutsegmenttable_Mplsoutsegmententry
 // label stack information for a cross-connect LSR and
 // is referred to from mplsXCTable.
 type MPLSLSRSTDMIB_Mplsxctable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in this table represents one cross-connect entry.  It is indexed by
@@ -1207,63 +865,24 @@ type MPLSLSRSTDMIB_Mplsxctable struct {
     Mplsxcentry []MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry
 }
 
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetFilter() yfilter.YFilter { return mplsxctable.YFilter }
+func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetEntityData() *types.CommonEntityData {
+    mplsxctable.EntityData.YFilter = mplsxctable.YFilter
+    mplsxctable.EntityData.YangName = "mplsXCTable"
+    mplsxctable.EntityData.BundleName = "cisco_ios_xe"
+    mplsxctable.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplsxctable.EntityData.SegmentPath = "mplsXCTable"
+    mplsxctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsxctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsxctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) SetFilter(yf yfilter.YFilter) { mplsxctable.YFilter = yf }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetGoName(yname string) string {
-    if yname == "mplsXCEntry" { return "Mplsxcentry" }
-    return ""
-}
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetSegmentPath() string {
-    return "mplsXCTable"
-}
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsXCEntry" {
-        for _, c := range mplsxctable.Mplsxcentry {
-            if mplsxctable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry{}
-        mplsxctable.Mplsxcentry = append(mplsxctable.Mplsxcentry, child)
-        return &mplsxctable.Mplsxcentry[len(mplsxctable.Mplsxcentry)-1]
-    }
-    return nil
-}
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsxctable.EntityData.Children = make(map[string]types.YChild)
+    mplsxctable.EntityData.Children["mplsXCEntry"] = types.YChild{"Mplsxcentry", nil}
     for i := range mplsxctable.Mplsxcentry {
-        children[mplsxctable.Mplsxcentry[i].GetSegmentPath()] = &mplsxctable.Mplsxcentry[i]
+        mplsxctable.EntityData.Children[types.GetSegmentPath(&mplsxctable.Mplsxcentry[i])] = types.YChild{"Mplsxcentry", &mplsxctable.Mplsxcentry[i]}
     }
-    return children
+    mplsxctable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsxctable.EntityData)
 }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetYangName() string { return "mplsXCTable" }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) SetParent(parent types.Entity) { mplsxctable.parent = parent }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetParent() types.Entity { return mplsxctable.parent }
-
-func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry
 // A row in this table represents one cross-connect
@@ -1304,7 +923,7 @@ func (mplsxctable *MPLSLSRSTDMIB_Mplsxctable) GetParentYangName() string { retur
 // or by an SNMP agent as instructed by an MPLS
 // signaling protocol.
 type MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Primary index for the conceptual row identifying a
@@ -1366,69 +985,30 @@ type MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry struct {
     Mplsxcoperstatus interface{}
 }
 
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetFilter() yfilter.YFilter { return mplsxcentry.YFilter }
+func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetEntityData() *types.CommonEntityData {
+    mplsxcentry.EntityData.YFilter = mplsxcentry.YFilter
+    mplsxcentry.EntityData.YangName = "mplsXCEntry"
+    mplsxcentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsxcentry.EntityData.ParentYangName = "mplsXCTable"
+    mplsxcentry.EntityData.SegmentPath = "mplsXCEntry" + "[mplsXCIndex='" + fmt.Sprintf("%v", mplsxcentry.Mplsxcindex) + "']" + "[mplsXCInSegmentIndex='" + fmt.Sprintf("%v", mplsxcentry.Mplsxcinsegmentindex) + "']" + "[mplsXCOutSegmentIndex='" + fmt.Sprintf("%v", mplsxcentry.Mplsxcoutsegmentindex) + "']"
+    mplsxcentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsxcentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsxcentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) SetFilter(yf yfilter.YFilter) { mplsxcentry.YFilter = yf }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetGoName(yname string) string {
-    if yname == "mplsXCIndex" { return "Mplsxcindex" }
-    if yname == "mplsXCInSegmentIndex" { return "Mplsxcinsegmentindex" }
-    if yname == "mplsXCOutSegmentIndex" { return "Mplsxcoutsegmentindex" }
-    if yname == "mplsXCLspId" { return "Mplsxclspid" }
-    if yname == "mplsXCLabelStackIndex" { return "Mplsxclabelstackindex" }
-    if yname == "mplsXCOwner" { return "Mplsxcowner" }
-    if yname == "mplsXCRowStatus" { return "Mplsxcrowstatus" }
-    if yname == "mplsXCStorageType" { return "Mplsxcstoragetype" }
-    if yname == "mplsXCAdminStatus" { return "Mplsxcadminstatus" }
-    if yname == "mplsXCOperStatus" { return "Mplsxcoperstatus" }
-    return ""
+    mplsxcentry.EntityData.Children = make(map[string]types.YChild)
+    mplsxcentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsxcentry.EntityData.Leafs["mplsXCIndex"] = types.YLeaf{"Mplsxcindex", mplsxcentry.Mplsxcindex}
+    mplsxcentry.EntityData.Leafs["mplsXCInSegmentIndex"] = types.YLeaf{"Mplsxcinsegmentindex", mplsxcentry.Mplsxcinsegmentindex}
+    mplsxcentry.EntityData.Leafs["mplsXCOutSegmentIndex"] = types.YLeaf{"Mplsxcoutsegmentindex", mplsxcentry.Mplsxcoutsegmentindex}
+    mplsxcentry.EntityData.Leafs["mplsXCLspId"] = types.YLeaf{"Mplsxclspid", mplsxcentry.Mplsxclspid}
+    mplsxcentry.EntityData.Leafs["mplsXCLabelStackIndex"] = types.YLeaf{"Mplsxclabelstackindex", mplsxcentry.Mplsxclabelstackindex}
+    mplsxcentry.EntityData.Leafs["mplsXCOwner"] = types.YLeaf{"Mplsxcowner", mplsxcentry.Mplsxcowner}
+    mplsxcentry.EntityData.Leafs["mplsXCRowStatus"] = types.YLeaf{"Mplsxcrowstatus", mplsxcentry.Mplsxcrowstatus}
+    mplsxcentry.EntityData.Leafs["mplsXCStorageType"] = types.YLeaf{"Mplsxcstoragetype", mplsxcentry.Mplsxcstoragetype}
+    mplsxcentry.EntityData.Leafs["mplsXCAdminStatus"] = types.YLeaf{"Mplsxcadminstatus", mplsxcentry.Mplsxcadminstatus}
+    mplsxcentry.EntityData.Leafs["mplsXCOperStatus"] = types.YLeaf{"Mplsxcoperstatus", mplsxcentry.Mplsxcoperstatus}
+    return &(mplsxcentry.EntityData)
 }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetSegmentPath() string {
-    return "mplsXCEntry" + "[mplsXCIndex='" + fmt.Sprintf("%v", mplsxcentry.Mplsxcindex) + "']" + "[mplsXCInSegmentIndex='" + fmt.Sprintf("%v", mplsxcentry.Mplsxcinsegmentindex) + "']" + "[mplsXCOutSegmentIndex='" + fmt.Sprintf("%v", mplsxcentry.Mplsxcoutsegmentindex) + "']"
-}
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsXCIndex"] = mplsxcentry.Mplsxcindex
-    leafs["mplsXCInSegmentIndex"] = mplsxcentry.Mplsxcinsegmentindex
-    leafs["mplsXCOutSegmentIndex"] = mplsxcentry.Mplsxcoutsegmentindex
-    leafs["mplsXCLspId"] = mplsxcentry.Mplsxclspid
-    leafs["mplsXCLabelStackIndex"] = mplsxcentry.Mplsxclabelstackindex
-    leafs["mplsXCOwner"] = mplsxcentry.Mplsxcowner
-    leafs["mplsXCRowStatus"] = mplsxcentry.Mplsxcrowstatus
-    leafs["mplsXCStorageType"] = mplsxcentry.Mplsxcstoragetype
-    leafs["mplsXCAdminStatus"] = mplsxcentry.Mplsxcadminstatus
-    leafs["mplsXCOperStatus"] = mplsxcentry.Mplsxcoperstatus
-    return leafs
-}
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetYangName() string { return "mplsXCEntry" }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) SetParent(parent types.Entity) { mplsxcentry.parent = parent }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetParent() types.Entity { return mplsxcentry.parent }
-
-func (mplsxcentry *MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry) GetParentYangName() string { return "mplsXCTable" }
 
 // MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry_Mplsxcadminstatus represents The desired operational status of this segment.
 type MPLSLSRSTDMIB_Mplsxctable_Mplsxcentry_Mplsxcadminstatus string
@@ -1465,7 +1045,7 @@ const (
 // onto a packet, beneath the top label.  Entries into
 // this table are referred to from mplsXCTable.
 type MPLSLSRSTDMIB_Mplslabelstacktable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents one label which is to be pushed onto an
@@ -1476,63 +1056,24 @@ type MPLSLSRSTDMIB_Mplslabelstacktable struct {
     Mplslabelstackentry []MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry
 }
 
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetFilter() yfilter.YFilter { return mplslabelstacktable.YFilter }
+func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetEntityData() *types.CommonEntityData {
+    mplslabelstacktable.EntityData.YFilter = mplslabelstacktable.YFilter
+    mplslabelstacktable.EntityData.YangName = "mplsLabelStackTable"
+    mplslabelstacktable.EntityData.BundleName = "cisco_ios_xe"
+    mplslabelstacktable.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplslabelstacktable.EntityData.SegmentPath = "mplsLabelStackTable"
+    mplslabelstacktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplslabelstacktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplslabelstacktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) SetFilter(yf yfilter.YFilter) { mplslabelstacktable.YFilter = yf }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetGoName(yname string) string {
-    if yname == "mplsLabelStackEntry" { return "Mplslabelstackentry" }
-    return ""
-}
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetSegmentPath() string {
-    return "mplsLabelStackTable"
-}
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsLabelStackEntry" {
-        for _, c := range mplslabelstacktable.Mplslabelstackentry {
-            if mplslabelstacktable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry{}
-        mplslabelstacktable.Mplslabelstackentry = append(mplslabelstacktable.Mplslabelstackentry, child)
-        return &mplslabelstacktable.Mplslabelstackentry[len(mplslabelstacktable.Mplslabelstackentry)-1]
-    }
-    return nil
-}
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplslabelstacktable.EntityData.Children = make(map[string]types.YChild)
+    mplslabelstacktable.EntityData.Children["mplsLabelStackEntry"] = types.YChild{"Mplslabelstackentry", nil}
     for i := range mplslabelstacktable.Mplslabelstackentry {
-        children[mplslabelstacktable.Mplslabelstackentry[i].GetSegmentPath()] = &mplslabelstacktable.Mplslabelstackentry[i]
+        mplslabelstacktable.EntityData.Children[types.GetSegmentPath(&mplslabelstacktable.Mplslabelstackentry[i])] = types.YChild{"Mplslabelstackentry", &mplslabelstacktable.Mplslabelstackentry[i]}
     }
-    return children
+    mplslabelstacktable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplslabelstacktable.EntityData)
 }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetYangName() string { return "mplsLabelStackTable" }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) SetParent(parent types.Entity) { mplslabelstacktable.parent = parent }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetParent() types.Entity { return mplslabelstacktable.parent }
-
-func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry
 // An entry in this table represents one label which is
@@ -1541,7 +1082,7 @@ func (mplslabelstacktable *MPLSLSRSTDMIB_Mplslabelstacktable) GetParentYangName(
 // administrator or by an SNMP agent as instructed by
 // an MPLS signaling protocol.
 type MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Primary index for this row identifying a stack of
@@ -1566,7 +1107,8 @@ type MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry struct {
     // column of a conceptual row in an external table containing the label.  In
     // this case, the mplsLabelStackLabel object SHOULD be set to 0 and ignored.
     // This object MUST be set to zeroDotZero otherwise. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplslabelstacklabelptr interface{}
 
     // For creating, modifying, and deleting this row. When a row in this table
@@ -1585,61 +1127,26 @@ type MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry struct {
     Mplslabelstackstoragetype interface{}
 }
 
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetFilter() yfilter.YFilter { return mplslabelstackentry.YFilter }
+func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetEntityData() *types.CommonEntityData {
+    mplslabelstackentry.EntityData.YFilter = mplslabelstackentry.YFilter
+    mplslabelstackentry.EntityData.YangName = "mplsLabelStackEntry"
+    mplslabelstackentry.EntityData.BundleName = "cisco_ios_xe"
+    mplslabelstackentry.EntityData.ParentYangName = "mplsLabelStackTable"
+    mplslabelstackentry.EntityData.SegmentPath = "mplsLabelStackEntry" + "[mplsLabelStackIndex='" + fmt.Sprintf("%v", mplslabelstackentry.Mplslabelstackindex) + "']" + "[mplsLabelStackLabelIndex='" + fmt.Sprintf("%v", mplslabelstackentry.Mplslabelstacklabelindex) + "']"
+    mplslabelstackentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplslabelstackentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplslabelstackentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) SetFilter(yf yfilter.YFilter) { mplslabelstackentry.YFilter = yf }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetGoName(yname string) string {
-    if yname == "mplsLabelStackIndex" { return "Mplslabelstackindex" }
-    if yname == "mplsLabelStackLabelIndex" { return "Mplslabelstacklabelindex" }
-    if yname == "mplsLabelStackLabel" { return "Mplslabelstacklabel" }
-    if yname == "mplsLabelStackLabelPtr" { return "Mplslabelstacklabelptr" }
-    if yname == "mplsLabelStackRowStatus" { return "Mplslabelstackrowstatus" }
-    if yname == "mplsLabelStackStorageType" { return "Mplslabelstackstoragetype" }
-    return ""
+    mplslabelstackentry.EntityData.Children = make(map[string]types.YChild)
+    mplslabelstackentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplslabelstackentry.EntityData.Leafs["mplsLabelStackIndex"] = types.YLeaf{"Mplslabelstackindex", mplslabelstackentry.Mplslabelstackindex}
+    mplslabelstackentry.EntityData.Leafs["mplsLabelStackLabelIndex"] = types.YLeaf{"Mplslabelstacklabelindex", mplslabelstackentry.Mplslabelstacklabelindex}
+    mplslabelstackentry.EntityData.Leafs["mplsLabelStackLabel"] = types.YLeaf{"Mplslabelstacklabel", mplslabelstackentry.Mplslabelstacklabel}
+    mplslabelstackentry.EntityData.Leafs["mplsLabelStackLabelPtr"] = types.YLeaf{"Mplslabelstacklabelptr", mplslabelstackentry.Mplslabelstacklabelptr}
+    mplslabelstackentry.EntityData.Leafs["mplsLabelStackRowStatus"] = types.YLeaf{"Mplslabelstackrowstatus", mplslabelstackentry.Mplslabelstackrowstatus}
+    mplslabelstackentry.EntityData.Leafs["mplsLabelStackStorageType"] = types.YLeaf{"Mplslabelstackstoragetype", mplslabelstackentry.Mplslabelstackstoragetype}
+    return &(mplslabelstackentry.EntityData)
 }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetSegmentPath() string {
-    return "mplsLabelStackEntry" + "[mplsLabelStackIndex='" + fmt.Sprintf("%v", mplslabelstackentry.Mplslabelstackindex) + "']" + "[mplsLabelStackLabelIndex='" + fmt.Sprintf("%v", mplslabelstackentry.Mplslabelstacklabelindex) + "']"
-}
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsLabelStackIndex"] = mplslabelstackentry.Mplslabelstackindex
-    leafs["mplsLabelStackLabelIndex"] = mplslabelstackentry.Mplslabelstacklabelindex
-    leafs["mplsLabelStackLabel"] = mplslabelstackentry.Mplslabelstacklabel
-    leafs["mplsLabelStackLabelPtr"] = mplslabelstackentry.Mplslabelstacklabelptr
-    leafs["mplsLabelStackRowStatus"] = mplslabelstackentry.Mplslabelstackrowstatus
-    leafs["mplsLabelStackStorageType"] = mplslabelstackentry.Mplslabelstackstoragetype
-    return leafs
-}
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetYangName() string { return "mplsLabelStackEntry" }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) SetParent(parent types.Entity) { mplslabelstackentry.parent = parent }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetParent() types.Entity { return mplslabelstackentry.parent }
-
-func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry) GetParentYangName() string { return "mplsLabelStackTable" }
 
 // MPLSLSRSTDMIB_Mplsinsegmentmaptable
 // This table specifies the mapping from the
@@ -1649,7 +1156,7 @@ func (mplslabelstackentry *MPLSLSRSTDMIB_Mplslabelstacktable_Mplslabelstackentry
 // provide the manager with an alternative
 // means by which to locate in-segments.
 type MPLSLSRSTDMIB_Mplsinsegmentmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents one interface and incoming label pair. 
@@ -1667,63 +1174,24 @@ type MPLSLSRSTDMIB_Mplsinsegmentmaptable struct {
     Mplsinsegmentmapentry []MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry
 }
 
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetFilter() yfilter.YFilter { return mplsinsegmentmaptable.YFilter }
+func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetEntityData() *types.CommonEntityData {
+    mplsinsegmentmaptable.EntityData.YFilter = mplsinsegmentmaptable.YFilter
+    mplsinsegmentmaptable.EntityData.YangName = "mplsInSegmentMapTable"
+    mplsinsegmentmaptable.EntityData.BundleName = "cisco_ios_xe"
+    mplsinsegmentmaptable.EntityData.ParentYangName = "MPLS-LSR-STD-MIB"
+    mplsinsegmentmaptable.EntityData.SegmentPath = "mplsInSegmentMapTable"
+    mplsinsegmentmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsinsegmentmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsinsegmentmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) SetFilter(yf yfilter.YFilter) { mplsinsegmentmaptable.YFilter = yf }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetGoName(yname string) string {
-    if yname == "mplsInSegmentMapEntry" { return "Mplsinsegmentmapentry" }
-    return ""
-}
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetSegmentPath() string {
-    return "mplsInSegmentMapTable"
-}
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsInSegmentMapEntry" {
-        for _, c := range mplsinsegmentmaptable.Mplsinsegmentmapentry {
-            if mplsinsegmentmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry{}
-        mplsinsegmentmaptable.Mplsinsegmentmapentry = append(mplsinsegmentmaptable.Mplsinsegmentmapentry, child)
-        return &mplsinsegmentmaptable.Mplsinsegmentmapentry[len(mplsinsegmentmaptable.Mplsinsegmentmapentry)-1]
-    }
-    return nil
-}
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsinsegmentmaptable.EntityData.Children = make(map[string]types.YChild)
+    mplsinsegmentmaptable.EntityData.Children["mplsInSegmentMapEntry"] = types.YChild{"Mplsinsegmentmapentry", nil}
     for i := range mplsinsegmentmaptable.Mplsinsegmentmapentry {
-        children[mplsinsegmentmaptable.Mplsinsegmentmapentry[i].GetSegmentPath()] = &mplsinsegmentmaptable.Mplsinsegmentmapentry[i]
+        mplsinsegmentmaptable.EntityData.Children[types.GetSegmentPath(&mplsinsegmentmaptable.Mplsinsegmentmapentry[i])] = types.YChild{"Mplsinsegmentmapentry", &mplsinsegmentmaptable.Mplsinsegmentmapentry[i]}
     }
-    return children
+    mplsinsegmentmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsinsegmentmaptable.EntityData)
 }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetYangName() string { return "mplsInSegmentMapTable" }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) SetParent(parent types.Entity) { mplsinsegmentmaptable.parent = parent }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetParent() types.Entity { return mplsinsegmentmaptable.parent }
-
-func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetParentYangName() string { return "MPLS-LSR-STD-MIB" }
 
 // MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry
 // An entry in this table represents one interface
@@ -1745,7 +1213,7 @@ func (mplsinsegmentmaptable *MPLSLSRSTDMIB_Mplsinsegmentmaptable) GetParentYangN
 // sub-identifiers and cannot be accessed using SNMPv1,
 // SNMPv2c, or SNMPv3.
 type MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This index contains the same value as the
@@ -1765,7 +1233,7 @@ type MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry struct {
     // table containing the label.  In this case, the mplsInSegmentTopLabel object
     // SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero
     // otherwise. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplsinsegmentmaplabelptrindex interface{}
 
     // The mplsInSegmentIndex that corresponds to the mplsInSegmentInterface and
@@ -1775,55 +1243,22 @@ type MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry struct {
     Mplsinsegmentmapindex interface{}
 }
 
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetFilter() yfilter.YFilter { return mplsinsegmentmapentry.YFilter }
+func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetEntityData() *types.CommonEntityData {
+    mplsinsegmentmapentry.EntityData.YFilter = mplsinsegmentmapentry.YFilter
+    mplsinsegmentmapentry.EntityData.YangName = "mplsInSegmentMapEntry"
+    mplsinsegmentmapentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsinsegmentmapentry.EntityData.ParentYangName = "mplsInSegmentMapTable"
+    mplsinsegmentmapentry.EntityData.SegmentPath = "mplsInSegmentMapEntry" + "[mplsInSegmentMapInterface='" + fmt.Sprintf("%v", mplsinsegmentmapentry.Mplsinsegmentmapinterface) + "']" + "[mplsInSegmentMapLabel='" + fmt.Sprintf("%v", mplsinsegmentmapentry.Mplsinsegmentmaplabel) + "']" + "[mplsInSegmentMapLabelPtrIndex='" + fmt.Sprintf("%v", mplsinsegmentmapentry.Mplsinsegmentmaplabelptrindex) + "']"
+    mplsinsegmentmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsinsegmentmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsinsegmentmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) SetFilter(yf yfilter.YFilter) { mplsinsegmentmapentry.YFilter = yf }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetGoName(yname string) string {
-    if yname == "mplsInSegmentMapInterface" { return "Mplsinsegmentmapinterface" }
-    if yname == "mplsInSegmentMapLabel" { return "Mplsinsegmentmaplabel" }
-    if yname == "mplsInSegmentMapLabelPtrIndex" { return "Mplsinsegmentmaplabelptrindex" }
-    if yname == "mplsInSegmentMapIndex" { return "Mplsinsegmentmapindex" }
-    return ""
+    mplsinsegmentmapentry.EntityData.Children = make(map[string]types.YChild)
+    mplsinsegmentmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsinsegmentmapentry.EntityData.Leafs["mplsInSegmentMapInterface"] = types.YLeaf{"Mplsinsegmentmapinterface", mplsinsegmentmapentry.Mplsinsegmentmapinterface}
+    mplsinsegmentmapentry.EntityData.Leafs["mplsInSegmentMapLabel"] = types.YLeaf{"Mplsinsegmentmaplabel", mplsinsegmentmapentry.Mplsinsegmentmaplabel}
+    mplsinsegmentmapentry.EntityData.Leafs["mplsInSegmentMapLabelPtrIndex"] = types.YLeaf{"Mplsinsegmentmaplabelptrindex", mplsinsegmentmapentry.Mplsinsegmentmaplabelptrindex}
+    mplsinsegmentmapentry.EntityData.Leafs["mplsInSegmentMapIndex"] = types.YLeaf{"Mplsinsegmentmapindex", mplsinsegmentmapentry.Mplsinsegmentmapindex}
+    return &(mplsinsegmentmapentry.EntityData)
 }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetSegmentPath() string {
-    return "mplsInSegmentMapEntry" + "[mplsInSegmentMapInterface='" + fmt.Sprintf("%v", mplsinsegmentmapentry.Mplsinsegmentmapinterface) + "']" + "[mplsInSegmentMapLabel='" + fmt.Sprintf("%v", mplsinsegmentmapentry.Mplsinsegmentmaplabel) + "']" + "[mplsInSegmentMapLabelPtrIndex='" + fmt.Sprintf("%v", mplsinsegmentmapentry.Mplsinsegmentmaplabelptrindex) + "']"
-}
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsInSegmentMapInterface"] = mplsinsegmentmapentry.Mplsinsegmentmapinterface
-    leafs["mplsInSegmentMapLabel"] = mplsinsegmentmapentry.Mplsinsegmentmaplabel
-    leafs["mplsInSegmentMapLabelPtrIndex"] = mplsinsegmentmapentry.Mplsinsegmentmaplabelptrindex
-    leafs["mplsInSegmentMapIndex"] = mplsinsegmentmapentry.Mplsinsegmentmapindex
-    return leafs
-}
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetYangName() string { return "mplsInSegmentMapEntry" }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) SetParent(parent types.Entity) { mplsinsegmentmapentry.parent = parent }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetParent() types.Entity { return mplsinsegmentmapentry.parent }
-
-func (mplsinsegmentmapentry *MPLSLSRSTDMIB_Mplsinsegmentmaptable_Mplsinsegmentmapentry) GetParentYangName() string { return "mplsInSegmentMapTable" }
 

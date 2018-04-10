@@ -19,7 +19,7 @@ func init() {
 
 // CISCOIETFATM2PVCTRAPMIB
 type CISCOIETFATM2PVCTRAPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table indicating all VCLs for which there is an active row in the
@@ -28,54 +28,21 @@ type CISCOIETFATM2PVCTRAPMIB struct {
     Atmcurrentlyfailingpvcltable CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable
 }
 
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetFilter() yfilter.YFilter { return cISCOIETFATM2PVCTRAPMIB.YFilter }
+func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIETFATM2PVCTRAPMIB.EntityData.YFilter = cISCOIETFATM2PVCTRAPMIB.YFilter
+    cISCOIETFATM2PVCTRAPMIB.EntityData.YangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
+    cISCOIETFATM2PVCTRAPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIETFATM2PVCTRAPMIB.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
+    cISCOIETFATM2PVCTRAPMIB.EntityData.SegmentPath = "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB"
+    cISCOIETFATM2PVCTRAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIETFATM2PVCTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIETFATM2PVCTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) SetFilter(yf yfilter.YFilter) { cISCOIETFATM2PVCTRAPMIB.YFilter = yf }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetGoName(yname string) string {
-    if yname == "atmCurrentlyFailingPVclTable" { return "Atmcurrentlyfailingpvcltable" }
-    return ""
+    cISCOIETFATM2PVCTRAPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIETFATM2PVCTRAPMIB.EntityData.Children["atmCurrentlyFailingPVclTable"] = types.YChild{"Atmcurrentlyfailingpvcltable", &cISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable}
+    cISCOIETFATM2PVCTRAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIETFATM2PVCTRAPMIB.EntityData)
 }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetSegmentPath() string {
-    return "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB"
-}
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmCurrentlyFailingPVclTable" {
-        return &cISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable
-    }
-    return nil
-}
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["atmCurrentlyFailingPVclTable"] = &cISCOIETFATM2PVCTRAPMIB.Atmcurrentlyfailingpvcltable
-    return children
-}
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetYangName() string { return "CISCO-IETF-ATM2-PVCTRAP-MIB" }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) SetParent(parent types.Entity) { cISCOIETFATM2PVCTRAPMIB.parent = parent }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetParent() types.Entity { return cISCOIETFATM2PVCTRAPMIB.parent }
-
-func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetParentYangName() string { return "CISCO-IETF-ATM2-PVCTRAP-MIB" }
 
 // CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable
 // A table indicating all VCLs for which there is an
@@ -83,7 +50,7 @@ func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetParentYangName() stri
 // value of `pvc' and an atmVclOperStatus with a value
 // other than `up'.
 type CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry in this table represents a VCL for which the atmVclRowStatus is
@@ -93,70 +60,31 @@ type CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable struct {
     Atmcurrentlyfailingpvclentry []CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry
 }
 
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetFilter() yfilter.YFilter { return atmcurrentlyfailingpvcltable.YFilter }
+func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetEntityData() *types.CommonEntityData {
+    atmcurrentlyfailingpvcltable.EntityData.YFilter = atmcurrentlyfailingpvcltable.YFilter
+    atmcurrentlyfailingpvcltable.EntityData.YangName = "atmCurrentlyFailingPVclTable"
+    atmcurrentlyfailingpvcltable.EntityData.BundleName = "cisco_ios_xe"
+    atmcurrentlyfailingpvcltable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
+    atmcurrentlyfailingpvcltable.EntityData.SegmentPath = "atmCurrentlyFailingPVclTable"
+    atmcurrentlyfailingpvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmcurrentlyfailingpvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmcurrentlyfailingpvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) SetFilter(yf yfilter.YFilter) { atmcurrentlyfailingpvcltable.YFilter = yf }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetGoName(yname string) string {
-    if yname == "atmCurrentlyFailingPVclEntry" { return "Atmcurrentlyfailingpvclentry" }
-    return ""
-}
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetSegmentPath() string {
-    return "atmCurrentlyFailingPVclTable"
-}
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmCurrentlyFailingPVclEntry" {
-        for _, c := range atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry {
-            if atmcurrentlyfailingpvcltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry{}
-        atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry = append(atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry, child)
-        return &atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[len(atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry)-1]
-    }
-    return nil
-}
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atmcurrentlyfailingpvcltable.EntityData.Children = make(map[string]types.YChild)
+    atmcurrentlyfailingpvcltable.EntityData.Children["atmCurrentlyFailingPVclEntry"] = types.YChild{"Atmcurrentlyfailingpvclentry", nil}
     for i := range atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry {
-        children[atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[i].GetSegmentPath()] = &atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[i]
+        atmcurrentlyfailingpvcltable.EntityData.Children[types.GetSegmentPath(&atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[i])] = types.YChild{"Atmcurrentlyfailingpvclentry", &atmcurrentlyfailingpvcltable.Atmcurrentlyfailingpvclentry[i]}
     }
-    return children
+    atmcurrentlyfailingpvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atmcurrentlyfailingpvcltable.EntityData)
 }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetYangName() string { return "atmCurrentlyFailingPVclTable" }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) SetParent(parent types.Entity) { atmcurrentlyfailingpvcltable.parent = parent }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetParent() types.Entity { return atmcurrentlyfailingpvcltable.parent }
-
-func (atmcurrentlyfailingpvcltable *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable) GetParentYangName() string { return "CISCO-IETF-ATM2-PVCTRAP-MIB" }
 
 // CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry
 // Each entry in this table represents a VCL for which
 // the atmVclRowStatus is `active', the atmVclConnKind is
 // `pvc', and the atmVclOperStatus is other than `up'.
 type CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -180,57 +108,23 @@ type CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvc
     Atmpreviouslyfailedpvcltimestamp interface{}
 }
 
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetFilter() yfilter.YFilter { return atmcurrentlyfailingpvclentry.YFilter }
+func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetEntityData() *types.CommonEntityData {
+    atmcurrentlyfailingpvclentry.EntityData.YFilter = atmcurrentlyfailingpvclentry.YFilter
+    atmcurrentlyfailingpvclentry.EntityData.YangName = "atmCurrentlyFailingPVclEntry"
+    atmcurrentlyfailingpvclentry.EntityData.BundleName = "cisco_ios_xe"
+    atmcurrentlyfailingpvclentry.EntityData.ParentYangName = "atmCurrentlyFailingPVclTable"
+    atmcurrentlyfailingpvclentry.EntityData.SegmentPath = "atmCurrentlyFailingPVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Atmvclvci) + "']"
+    atmcurrentlyfailingpvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmcurrentlyfailingpvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmcurrentlyfailingpvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) SetFilter(yf yfilter.YFilter) { atmcurrentlyfailingpvclentry.YFilter = yf }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "atmVclVpi" { return "Atmvclvpi" }
-    if yname == "atmVclVci" { return "Atmvclvci" }
-    if yname == "atmCurrentlyFailingPVclTimeStamp" { return "Atmcurrentlyfailingpvcltimestamp" }
-    if yname == "atmPreviouslyFailedPVclTimeStamp" { return "Atmpreviouslyfailedpvcltimestamp" }
-    return ""
+    atmcurrentlyfailingpvclentry.EntityData.Children = make(map[string]types.YChild)
+    atmcurrentlyfailingpvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmcurrentlyfailingpvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmcurrentlyfailingpvclentry.Ifindex}
+    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", atmcurrentlyfailingpvclentry.Atmvclvpi}
+    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", atmcurrentlyfailingpvclentry.Atmvclvci}
+    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmCurrentlyFailingPVclTimeStamp"] = types.YLeaf{"Atmcurrentlyfailingpvcltimestamp", atmcurrentlyfailingpvclentry.Atmcurrentlyfailingpvcltimestamp}
+    atmcurrentlyfailingpvclentry.EntityData.Leafs["atmPreviouslyFailedPVclTimeStamp"] = types.YLeaf{"Atmpreviouslyfailedpvcltimestamp", atmcurrentlyfailingpvclentry.Atmpreviouslyfailedpvcltimestamp}
+    return &(atmcurrentlyfailingpvclentry.EntityData)
 }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetSegmentPath() string {
-    return "atmCurrentlyFailingPVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmcurrentlyfailingpvclentry.Atmvclvci) + "']"
-}
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = atmcurrentlyfailingpvclentry.Ifindex
-    leafs["atmVclVpi"] = atmcurrentlyfailingpvclentry.Atmvclvpi
-    leafs["atmVclVci"] = atmcurrentlyfailingpvclentry.Atmvclvci
-    leafs["atmCurrentlyFailingPVclTimeStamp"] = atmcurrentlyfailingpvclentry.Atmcurrentlyfailingpvcltimestamp
-    leafs["atmPreviouslyFailedPVclTimeStamp"] = atmcurrentlyfailingpvclentry.Atmpreviouslyfailedpvcltimestamp
-    return leafs
-}
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetYangName() string { return "atmCurrentlyFailingPVclEntry" }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) SetParent(parent types.Entity) { atmcurrentlyfailingpvclentry.parent = parent }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetParent() types.Entity { return atmcurrentlyfailingpvclentry.parent }
-
-func (atmcurrentlyfailingpvclentry *CISCOIETFATM2PVCTRAPMIB_Atmcurrentlyfailingpvcltable_Atmcurrentlyfailingpvclentry) GetParentYangName() string { return "atmCurrentlyFailingPVclTable" }
 

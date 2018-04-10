@@ -24,7 +24,7 @@ func init() {
 
 // CISCOIETFPWATMMIB
 type CISCOIETFPWATMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table specifies the information for an ATM interface, VC, VP to be
@@ -32,60 +32,27 @@ type CISCOIETFPWATMMIB struct {
     Cpwvcatmtable CISCOIETFPWATMMIB_Cpwvcatmtable
 }
 
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetFilter() yfilter.YFilter { return cISCOIETFPWATMMIB.YFilter }
+func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIETFPWATMMIB.EntityData.YFilter = cISCOIETFPWATMMIB.YFilter
+    cISCOIETFPWATMMIB.EntityData.YangName = "CISCO-IETF-PW-ATM-MIB"
+    cISCOIETFPWATMMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIETFPWATMMIB.EntityData.ParentYangName = "CISCO-IETF-PW-ATM-MIB"
+    cISCOIETFPWATMMIB.EntityData.SegmentPath = "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB"
+    cISCOIETFPWATMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIETFPWATMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIETFPWATMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) SetFilter(yf yfilter.YFilter) { cISCOIETFPWATMMIB.YFilter = yf }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetGoName(yname string) string {
-    if yname == "cpwVcAtmTable" { return "Cpwvcatmtable" }
-    return ""
+    cISCOIETFPWATMMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIETFPWATMMIB.EntityData.Children["cpwVcAtmTable"] = types.YChild{"Cpwvcatmtable", &cISCOIETFPWATMMIB.Cpwvcatmtable}
+    cISCOIETFPWATMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIETFPWATMMIB.EntityData)
 }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetSegmentPath() string {
-    return "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB"
-}
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpwVcAtmTable" {
-        return &cISCOIETFPWATMMIB.Cpwvcatmtable
-    }
-    return nil
-}
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cpwVcAtmTable"] = &cISCOIETFPWATMMIB.Cpwvcatmtable
-    return children
-}
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetYangName() string { return "CISCO-IETF-PW-ATM-MIB" }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) SetParent(parent types.Entity) { cISCOIETFPWATMMIB.parent = parent }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetParent() types.Entity { return cISCOIETFPWATMMIB.parent }
-
-func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetParentYangName() string { return "CISCO-IETF-PW-ATM-MIB" }
 
 // CISCOIETFPWATMMIB_Cpwvcatmtable
 // This table specifies the information for an ATM interface, VC,
 // VP to be carried over PSN.
 type CISCOIETFPWATMMIB_Cpwvcatmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in this table represents an ATM interface, VC, VP that needs to be
@@ -95,70 +62,31 @@ type CISCOIETFPWATMMIB_Cpwvcatmtable struct {
     Cpwvcatmentry []CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry
 }
 
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetFilter() yfilter.YFilter { return cpwvcatmtable.YFilter }
+func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetEntityData() *types.CommonEntityData {
+    cpwvcatmtable.EntityData.YFilter = cpwvcatmtable.YFilter
+    cpwvcatmtable.EntityData.YangName = "cpwVcAtmTable"
+    cpwvcatmtable.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcatmtable.EntityData.ParentYangName = "CISCO-IETF-PW-ATM-MIB"
+    cpwvcatmtable.EntityData.SegmentPath = "cpwVcAtmTable"
+    cpwvcatmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcatmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcatmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) SetFilter(yf yfilter.YFilter) { cpwvcatmtable.YFilter = yf }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetGoName(yname string) string {
-    if yname == "cpwVcAtmEntry" { return "Cpwvcatmentry" }
-    return ""
-}
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetSegmentPath() string {
-    return "cpwVcAtmTable"
-}
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpwVcAtmEntry" {
-        for _, c := range cpwvcatmtable.Cpwvcatmentry {
-            if cpwvcatmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry{}
-        cpwvcatmtable.Cpwvcatmentry = append(cpwvcatmtable.Cpwvcatmentry, child)
-        return &cpwvcatmtable.Cpwvcatmentry[len(cpwvcatmtable.Cpwvcatmentry)-1]
-    }
-    return nil
-}
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cpwvcatmtable.EntityData.Children = make(map[string]types.YChild)
+    cpwvcatmtable.EntityData.Children["cpwVcAtmEntry"] = types.YChild{"Cpwvcatmentry", nil}
     for i := range cpwvcatmtable.Cpwvcatmentry {
-        children[cpwvcatmtable.Cpwvcatmentry[i].GetSegmentPath()] = &cpwvcatmtable.Cpwvcatmentry[i]
+        cpwvcatmtable.EntityData.Children[types.GetSegmentPath(&cpwvcatmtable.Cpwvcatmentry[i])] = types.YChild{"Cpwvcatmentry", &cpwvcatmtable.Cpwvcatmentry[i]}
     }
-    return children
+    cpwvcatmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cpwvcatmtable.EntityData)
 }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetYangName() string { return "cpwVcAtmTable" }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) SetParent(parent types.Entity) { cpwvcatmtable.parent = parent }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetParent() types.Entity { return cpwvcatmtable.parent }
-
-func (cpwvcatmtable *CISCOIETFPWATMMIB_Cpwvcatmtable) GetParentYangName() string { return "CISCO-IETF-PW-ATM-MIB" }
 
 // CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry
 // A row in this table represents an ATM interface, VC, VP
 // that needs to be adapted and carried over PSN. This table
 // is indexed by CpwVcIndex in CISCO-IETF-PW-MIB.
 type CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -268,97 +196,44 @@ type CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry struct {
     Cpwatmpktsrejected interface{}
 }
 
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetFilter() yfilter.YFilter { return cpwvcatmentry.YFilter }
+func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetEntityData() *types.CommonEntityData {
+    cpwvcatmentry.EntityData.YFilter = cpwvcatmentry.YFilter
+    cpwvcatmentry.EntityData.YangName = "cpwVcAtmEntry"
+    cpwvcatmentry.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcatmentry.EntityData.ParentYangName = "cpwVcAtmTable"
+    cpwvcatmentry.EntityData.SegmentPath = "cpwVcAtmEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcatmentry.Cpwvcindex) + "']"
+    cpwvcatmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcatmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcatmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) SetFilter(yf yfilter.YFilter) { cpwvcatmentry.YFilter = yf }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetGoName(yname string) string {
-    if yname == "cpwVcIndex" { return "Cpwvcindex" }
-    if yname == "cpwAtmIf" { return "Cpwatmif" }
-    if yname == "cpwAtmVpi" { return "Cpwatmvpi" }
-    if yname == "cpwAtmVci" { return "Cpwatmvci" }
-    if yname == "cpwAtmClpQosMapping" { return "Cpwatmclpqosmapping" }
-    if yname == "cpwAtmRowStatus" { return "Cpwatmrowstatus" }
-    if yname == "cpwAtmOamCellSupported" { return "Cpwatmoamcellsupported" }
-    if yname == "cpwAtmQosScalingFactor" { return "Cpwatmqosscalingfactor" }
-    if yname == "cpwAtmCellPacking" { return "Cpwatmcellpacking" }
-    if yname == "cpwAtmMncp" { return "Cpwatmmncp" }
-    if yname == "cpwAtmPeerMncp" { return "Cpwatmpeermncp" }
-    if yname == "cpwAtmEncap" { return "Cpwatmencap" }
-    if yname == "cpwAtmMcptTimeout" { return "Cpwatmmcpttimeout" }
-    if yname == "cpwAtmCellsReceived" { return "Cpwatmcellsreceived" }
-    if yname == "cpwAtmCellsSent" { return "Cpwatmcellssent" }
-    if yname == "cpwAtmCellsRejected" { return "Cpwatmcellsrejected" }
-    if yname == "cpwAtmCellsTagged" { return "Cpwatmcellstagged" }
-    if yname == "cpwAtmHCCellsReceived" { return "Cpwatmhccellsreceived" }
-    if yname == "cpwAtmHCCellsRejected" { return "Cpwatmhccellsrejected" }
-    if yname == "cpwAtmHCCellsTagged" { return "Cpwatmhccellstagged" }
-    if yname == "cpwAtmAvgCellsPacked" { return "Cpwatmavgcellspacked" }
-    if yname == "cpwAtmPktsReceived" { return "Cpwatmpktsreceived" }
-    if yname == "cpwAtmPktsSent" { return "Cpwatmpktssent" }
-    if yname == "cpwAtmPktsRejected" { return "Cpwatmpktsrejected" }
-    return ""
+    cpwvcatmentry.EntityData.Children = make(map[string]types.YChild)
+    cpwvcatmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpwvcatmentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcatmentry.Cpwvcindex}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmIf"] = types.YLeaf{"Cpwatmif", cpwvcatmentry.Cpwatmif}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmVpi"] = types.YLeaf{"Cpwatmvpi", cpwvcatmentry.Cpwatmvpi}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmVci"] = types.YLeaf{"Cpwatmvci", cpwvcatmentry.Cpwatmvci}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmClpQosMapping"] = types.YLeaf{"Cpwatmclpqosmapping", cpwvcatmentry.Cpwatmclpqosmapping}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmRowStatus"] = types.YLeaf{"Cpwatmrowstatus", cpwvcatmentry.Cpwatmrowstatus}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmOamCellSupported"] = types.YLeaf{"Cpwatmoamcellsupported", cpwvcatmentry.Cpwatmoamcellsupported}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmQosScalingFactor"] = types.YLeaf{"Cpwatmqosscalingfactor", cpwvcatmentry.Cpwatmqosscalingfactor}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmCellPacking"] = types.YLeaf{"Cpwatmcellpacking", cpwvcatmentry.Cpwatmcellpacking}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmMncp"] = types.YLeaf{"Cpwatmmncp", cpwvcatmentry.Cpwatmmncp}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmPeerMncp"] = types.YLeaf{"Cpwatmpeermncp", cpwvcatmentry.Cpwatmpeermncp}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmEncap"] = types.YLeaf{"Cpwatmencap", cpwvcatmentry.Cpwatmencap}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmMcptTimeout"] = types.YLeaf{"Cpwatmmcpttimeout", cpwvcatmentry.Cpwatmmcpttimeout}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmCellsReceived"] = types.YLeaf{"Cpwatmcellsreceived", cpwvcatmentry.Cpwatmcellsreceived}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmCellsSent"] = types.YLeaf{"Cpwatmcellssent", cpwvcatmentry.Cpwatmcellssent}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmCellsRejected"] = types.YLeaf{"Cpwatmcellsrejected", cpwvcatmentry.Cpwatmcellsrejected}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmCellsTagged"] = types.YLeaf{"Cpwatmcellstagged", cpwvcatmentry.Cpwatmcellstagged}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmHCCellsReceived"] = types.YLeaf{"Cpwatmhccellsreceived", cpwvcatmentry.Cpwatmhccellsreceived}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmHCCellsRejected"] = types.YLeaf{"Cpwatmhccellsrejected", cpwvcatmentry.Cpwatmhccellsrejected}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmHCCellsTagged"] = types.YLeaf{"Cpwatmhccellstagged", cpwvcatmentry.Cpwatmhccellstagged}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmAvgCellsPacked"] = types.YLeaf{"Cpwatmavgcellspacked", cpwvcatmentry.Cpwatmavgcellspacked}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmPktsReceived"] = types.YLeaf{"Cpwatmpktsreceived", cpwvcatmentry.Cpwatmpktsreceived}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmPktsSent"] = types.YLeaf{"Cpwatmpktssent", cpwvcatmentry.Cpwatmpktssent}
+    cpwvcatmentry.EntityData.Leafs["cpwAtmPktsRejected"] = types.YLeaf{"Cpwatmpktsrejected", cpwvcatmentry.Cpwatmpktsrejected}
+    return &(cpwvcatmentry.EntityData)
 }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetSegmentPath() string {
-    return "cpwVcAtmEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcatmentry.Cpwvcindex) + "']"
-}
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cpwVcIndex"] = cpwvcatmentry.Cpwvcindex
-    leafs["cpwAtmIf"] = cpwvcatmentry.Cpwatmif
-    leafs["cpwAtmVpi"] = cpwvcatmentry.Cpwatmvpi
-    leafs["cpwAtmVci"] = cpwvcatmentry.Cpwatmvci
-    leafs["cpwAtmClpQosMapping"] = cpwvcatmentry.Cpwatmclpqosmapping
-    leafs["cpwAtmRowStatus"] = cpwvcatmentry.Cpwatmrowstatus
-    leafs["cpwAtmOamCellSupported"] = cpwvcatmentry.Cpwatmoamcellsupported
-    leafs["cpwAtmQosScalingFactor"] = cpwvcatmentry.Cpwatmqosscalingfactor
-    leafs["cpwAtmCellPacking"] = cpwvcatmentry.Cpwatmcellpacking
-    leafs["cpwAtmMncp"] = cpwvcatmentry.Cpwatmmncp
-    leafs["cpwAtmPeerMncp"] = cpwvcatmentry.Cpwatmpeermncp
-    leafs["cpwAtmEncap"] = cpwvcatmentry.Cpwatmencap
-    leafs["cpwAtmMcptTimeout"] = cpwvcatmentry.Cpwatmmcpttimeout
-    leafs["cpwAtmCellsReceived"] = cpwvcatmentry.Cpwatmcellsreceived
-    leafs["cpwAtmCellsSent"] = cpwvcatmentry.Cpwatmcellssent
-    leafs["cpwAtmCellsRejected"] = cpwvcatmentry.Cpwatmcellsrejected
-    leafs["cpwAtmCellsTagged"] = cpwvcatmentry.Cpwatmcellstagged
-    leafs["cpwAtmHCCellsReceived"] = cpwvcatmentry.Cpwatmhccellsreceived
-    leafs["cpwAtmHCCellsRejected"] = cpwvcatmentry.Cpwatmhccellsrejected
-    leafs["cpwAtmHCCellsTagged"] = cpwvcatmentry.Cpwatmhccellstagged
-    leafs["cpwAtmAvgCellsPacked"] = cpwvcatmentry.Cpwatmavgcellspacked
-    leafs["cpwAtmPktsReceived"] = cpwvcatmentry.Cpwatmpktsreceived
-    leafs["cpwAtmPktsSent"] = cpwvcatmentry.Cpwatmpktssent
-    leafs["cpwAtmPktsRejected"] = cpwvcatmentry.Cpwatmpktsrejected
-    return leafs
-}
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetYangName() string { return "cpwVcAtmEntry" }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) SetParent(parent types.Entity) { cpwvcatmentry.parent = parent }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetParent() types.Entity { return cpwvcatmentry.parent }
-
-func (cpwvcatmentry *CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry) GetParentYangName() string { return "cpwVcAtmTable" }
 
 // CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry_Cpwatmencap represents is mpls or l2tpv3 encapsulated.
 type CISCOIETFPWATMMIB_Cpwvcatmtable_Cpwvcatmentry_Cpwatmencap string

@@ -16,20 +16,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_storm_control"))
 }
 
-type ActionShutdown struct {
-}
-
-func (id ActionShutdown) String() string {
-	return "cisco-storm-control:action-shutdown"
-}
-
-type ActionSnmpTrap struct {
-}
-
-func (id ActionSnmpTrap) String() string {
-	return "cisco-storm-control:action-snmp-trap"
-}
-
 type StormControlAction struct {
 }
 
@@ -42,5 +28,19 @@ type ActionDrop struct {
 
 func (id ActionDrop) String() string {
 	return "cisco-storm-control:action-drop"
+}
+
+type ActionSnmpTrap struct {
+}
+
+func (id ActionSnmpTrap) String() string {
+	return "cisco-storm-control:action-snmp-trap"
+}
+
+type ActionShutdown struct {
+}
+
+func (id ActionShutdown) String() string {
+	return "cisco-storm-control:action-shutdown"
 }
 

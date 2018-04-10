@@ -47,7 +47,7 @@ func init() {
 
 // CISCORADIUSEXTMIB
 type CISCORADIUSEXTMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -60,68 +60,27 @@ type CISCORADIUSEXTMIB struct {
     Creclientaccounting CISCORADIUSEXTMIB_Creclientaccounting
 }
 
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetFilter() yfilter.YFilter { return cISCORADIUSEXTMIB.YFilter }
+func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetEntityData() *types.CommonEntityData {
+    cISCORADIUSEXTMIB.EntityData.YFilter = cISCORADIUSEXTMIB.YFilter
+    cISCORADIUSEXTMIB.EntityData.YangName = "CISCO-RADIUS-EXT-MIB"
+    cISCORADIUSEXTMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCORADIUSEXTMIB.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    cISCORADIUSEXTMIB.EntityData.SegmentPath = "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB"
+    cISCORADIUSEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCORADIUSEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCORADIUSEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) SetFilter(yf yfilter.YFilter) { cISCORADIUSEXTMIB.YFilter = yf }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetGoName(yname string) string {
-    if yname == "creClientGlobal" { return "Creclientglobal" }
-    if yname == "creClientAuthentication" { return "Creclientauthentication" }
-    if yname == "creClientAccounting" { return "Creclientaccounting" }
-    return ""
+    cISCORADIUSEXTMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCORADIUSEXTMIB.EntityData.Children["creClientGlobal"] = types.YChild{"Creclientglobal", &cISCORADIUSEXTMIB.Creclientglobal}
+    cISCORADIUSEXTMIB.EntityData.Children["creClientAuthentication"] = types.YChild{"Creclientauthentication", &cISCORADIUSEXTMIB.Creclientauthentication}
+    cISCORADIUSEXTMIB.EntityData.Children["creClientAccounting"] = types.YChild{"Creclientaccounting", &cISCORADIUSEXTMIB.Creclientaccounting}
+    cISCORADIUSEXTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCORADIUSEXTMIB.EntityData)
 }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetSegmentPath() string {
-    return "CISCO-RADIUS-EXT-MIB:CISCO-RADIUS-EXT-MIB"
-}
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "creClientGlobal" {
-        return &cISCORADIUSEXTMIB.Creclientglobal
-    }
-    if childYangName == "creClientAuthentication" {
-        return &cISCORADIUSEXTMIB.Creclientauthentication
-    }
-    if childYangName == "creClientAccounting" {
-        return &cISCORADIUSEXTMIB.Creclientaccounting
-    }
-    return nil
-}
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["creClientGlobal"] = &cISCORADIUSEXTMIB.Creclientglobal
-    children["creClientAuthentication"] = &cISCORADIUSEXTMIB.Creclientauthentication
-    children["creClientAccounting"] = &cISCORADIUSEXTMIB.Creclientaccounting
-    return children
-}
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetYangName() string { return "CISCO-RADIUS-EXT-MIB" }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) SetParent(parent types.Entity) { cISCORADIUSEXTMIB.parent = parent }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetParent() types.Entity { return cISCORADIUSEXTMIB.parent }
-
-func (cISCORADIUSEXTMIB *CISCORADIUSEXTMIB) GetParentYangName() string { return "CISCO-RADIUS-EXT-MIB" }
 
 // CISCORADIUSEXTMIB_Creclientglobal
 type CISCORADIUSEXTMIB_Creclientglobal struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the maximum length of the queue which stores the
@@ -176,71 +135,33 @@ type CISCORADIUSEXTMIB_Creclientglobal struct {
     Creclientlastusedsourceid interface{}
 }
 
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetFilter() yfilter.YFilter { return creclientglobal.YFilter }
+func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetEntityData() *types.CommonEntityData {
+    creclientglobal.EntityData.YFilter = creclientglobal.YFilter
+    creclientglobal.EntityData.YangName = "creClientGlobal"
+    creclientglobal.EntityData.BundleName = "cisco_ios_xe"
+    creclientglobal.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    creclientglobal.EntityData.SegmentPath = "creClientGlobal"
+    creclientglobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    creclientglobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    creclientglobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) SetFilter(yf yfilter.YFilter) { creclientglobal.YFilter = yf }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetGoName(yname string) string {
-    if yname == "creClientTotalMaxInQLength" { return "Creclienttotalmaxinqlength" }
-    if yname == "creClientTotalMaxWaitQLength" { return "Creclienttotalmaxwaitqlength" }
-    if yname == "creClientTotalMaxDoneQLength" { return "Creclienttotalmaxdoneqlength" }
-    if yname == "creClientTotalAccessRejects" { return "Creclienttotalaccessrejects" }
-    if yname == "creClientTotalAverageResponseDelay" { return "Creclienttotalaverageresponsedelay" }
-    if yname == "creClientSourcePortRangeStart" { return "Creclientsourceportrangestart" }
-    if yname == "creClientSourcePortRangeEnd" { return "Creclientsourceportrangeend" }
-    if yname == "creClientLastUsedSourcePort" { return "Creclientlastusedsourceport" }
-    if yname == "creClientLastUsedSourceId" { return "Creclientlastusedsourceid" }
-    return ""
+    creclientglobal.EntityData.Children = make(map[string]types.YChild)
+    creclientglobal.EntityData.Leafs = make(map[string]types.YLeaf)
+    creclientglobal.EntityData.Leafs["creClientTotalMaxInQLength"] = types.YLeaf{"Creclienttotalmaxinqlength", creclientglobal.Creclienttotalmaxinqlength}
+    creclientglobal.EntityData.Leafs["creClientTotalMaxWaitQLength"] = types.YLeaf{"Creclienttotalmaxwaitqlength", creclientglobal.Creclienttotalmaxwaitqlength}
+    creclientglobal.EntityData.Leafs["creClientTotalMaxDoneQLength"] = types.YLeaf{"Creclienttotalmaxdoneqlength", creclientglobal.Creclienttotalmaxdoneqlength}
+    creclientglobal.EntityData.Leafs["creClientTotalAccessRejects"] = types.YLeaf{"Creclienttotalaccessrejects", creclientglobal.Creclienttotalaccessrejects}
+    creclientglobal.EntityData.Leafs["creClientTotalAverageResponseDelay"] = types.YLeaf{"Creclienttotalaverageresponsedelay", creclientglobal.Creclienttotalaverageresponsedelay}
+    creclientglobal.EntityData.Leafs["creClientSourcePortRangeStart"] = types.YLeaf{"Creclientsourceportrangestart", creclientglobal.Creclientsourceportrangestart}
+    creclientglobal.EntityData.Leafs["creClientSourcePortRangeEnd"] = types.YLeaf{"Creclientsourceportrangeend", creclientglobal.Creclientsourceportrangeend}
+    creclientglobal.EntityData.Leafs["creClientLastUsedSourcePort"] = types.YLeaf{"Creclientlastusedsourceport", creclientglobal.Creclientlastusedsourceport}
+    creclientglobal.EntityData.Leafs["creClientLastUsedSourceId"] = types.YLeaf{"Creclientlastusedsourceid", creclientglobal.Creclientlastusedsourceid}
+    return &(creclientglobal.EntityData)
 }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetSegmentPath() string {
-    return "creClientGlobal"
-}
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["creClientTotalMaxInQLength"] = creclientglobal.Creclienttotalmaxinqlength
-    leafs["creClientTotalMaxWaitQLength"] = creclientglobal.Creclienttotalmaxwaitqlength
-    leafs["creClientTotalMaxDoneQLength"] = creclientglobal.Creclienttotalmaxdoneqlength
-    leafs["creClientTotalAccessRejects"] = creclientglobal.Creclienttotalaccessrejects
-    leafs["creClientTotalAverageResponseDelay"] = creclientglobal.Creclienttotalaverageresponsedelay
-    leafs["creClientSourcePortRangeStart"] = creclientglobal.Creclientsourceportrangestart
-    leafs["creClientSourcePortRangeEnd"] = creclientglobal.Creclientsourceportrangeend
-    leafs["creClientLastUsedSourcePort"] = creclientglobal.Creclientlastusedsourceport
-    leafs["creClientLastUsedSourceId"] = creclientglobal.Creclientlastusedsourceid
-    return leafs
-}
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetBundleName() string { return "cisco_ios_xe" }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetYangName() string { return "creClientGlobal" }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) SetParent(parent types.Entity) { creclientglobal.parent = parent }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetParent() types.Entity { return creclientglobal.parent }
-
-func (creclientglobal *CISCORADIUSEXTMIB_Creclientglobal) GetParentYangName() string { return "CISCO-RADIUS-EXT-MIB" }
 
 // CISCORADIUSEXTMIB_Creclientauthentication
 type CISCORADIUSEXTMIB_Creclientauthentication struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the number of RADIUS authentication response packets
@@ -312,79 +233,37 @@ type CISCORADIUSEXTMIB_Creclientauthentication struct {
     Creauthclientlastusedsourceid interface{}
 }
 
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetFilter() yfilter.YFilter { return creclientauthentication.YFilter }
+func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetEntityData() *types.CommonEntityData {
+    creclientauthentication.EntityData.YFilter = creclientauthentication.YFilter
+    creclientauthentication.EntityData.YangName = "creClientAuthentication"
+    creclientauthentication.EntityData.BundleName = "cisco_ios_xe"
+    creclientauthentication.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    creclientauthentication.EntityData.SegmentPath = "creClientAuthentication"
+    creclientauthentication.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    creclientauthentication.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    creclientauthentication.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) SetFilter(yf yfilter.YFilter) { creclientauthentication.YFilter = yf }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetGoName(yname string) string {
-    if yname == "creAuthClientBadAuthenticators" { return "Creauthclientbadauthenticators" }
-    if yname == "creAuthClientUnknownResponses" { return "Creauthclientunknownresponses" }
-    if yname == "creAuthClientTotalPacketsWithResponses" { return "Creauthclienttotalpacketswithresponses" }
-    if yname == "creAuthClientBufferAllocFailures" { return "Creauthclientbufferallocfailures" }
-    if yname == "creAuthClientTotalResponses" { return "Creauthclienttotalresponses" }
-    if yname == "creAuthClientTotalPacketsWithoutResponses" { return "Creauthclienttotalpacketswithoutresponses" }
-    if yname == "creAuthClientAverageResponseDelay" { return "Creauthclientaverageresponsedelay" }
-    if yname == "creAuthClientMaxResponseDelay" { return "Creauthclientmaxresponsedelay" }
-    if yname == "creAuthClientMaxBufferSize" { return "Creauthclientmaxbuffersize" }
-    if yname == "creAuthClientTimeouts" { return "Creauthclienttimeouts" }
-    if yname == "creAuthClientDupIDs" { return "Creauthclientdupids" }
-    if yname == "creAuthClientMalformedResponses" { return "Creauthclientmalformedresponses" }
-    if yname == "creAuthClientLastUsedSourceId" { return "Creauthclientlastusedsourceid" }
-    return ""
+    creclientauthentication.EntityData.Children = make(map[string]types.YChild)
+    creclientauthentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    creclientauthentication.EntityData.Leafs["creAuthClientBadAuthenticators"] = types.YLeaf{"Creauthclientbadauthenticators", creclientauthentication.Creauthclientbadauthenticators}
+    creclientauthentication.EntityData.Leafs["creAuthClientUnknownResponses"] = types.YLeaf{"Creauthclientunknownresponses", creclientauthentication.Creauthclientunknownresponses}
+    creclientauthentication.EntityData.Leafs["creAuthClientTotalPacketsWithResponses"] = types.YLeaf{"Creauthclienttotalpacketswithresponses", creclientauthentication.Creauthclienttotalpacketswithresponses}
+    creclientauthentication.EntityData.Leafs["creAuthClientBufferAllocFailures"] = types.YLeaf{"Creauthclientbufferallocfailures", creclientauthentication.Creauthclientbufferallocfailures}
+    creclientauthentication.EntityData.Leafs["creAuthClientTotalResponses"] = types.YLeaf{"Creauthclienttotalresponses", creclientauthentication.Creauthclienttotalresponses}
+    creclientauthentication.EntityData.Leafs["creAuthClientTotalPacketsWithoutResponses"] = types.YLeaf{"Creauthclienttotalpacketswithoutresponses", creclientauthentication.Creauthclienttotalpacketswithoutresponses}
+    creclientauthentication.EntityData.Leafs["creAuthClientAverageResponseDelay"] = types.YLeaf{"Creauthclientaverageresponsedelay", creclientauthentication.Creauthclientaverageresponsedelay}
+    creclientauthentication.EntityData.Leafs["creAuthClientMaxResponseDelay"] = types.YLeaf{"Creauthclientmaxresponsedelay", creclientauthentication.Creauthclientmaxresponsedelay}
+    creclientauthentication.EntityData.Leafs["creAuthClientMaxBufferSize"] = types.YLeaf{"Creauthclientmaxbuffersize", creclientauthentication.Creauthclientmaxbuffersize}
+    creclientauthentication.EntityData.Leafs["creAuthClientTimeouts"] = types.YLeaf{"Creauthclienttimeouts", creclientauthentication.Creauthclienttimeouts}
+    creclientauthentication.EntityData.Leafs["creAuthClientDupIDs"] = types.YLeaf{"Creauthclientdupids", creclientauthentication.Creauthclientdupids}
+    creclientauthentication.EntityData.Leafs["creAuthClientMalformedResponses"] = types.YLeaf{"Creauthclientmalformedresponses", creclientauthentication.Creauthclientmalformedresponses}
+    creclientauthentication.EntityData.Leafs["creAuthClientLastUsedSourceId"] = types.YLeaf{"Creauthclientlastusedsourceid", creclientauthentication.Creauthclientlastusedsourceid}
+    return &(creclientauthentication.EntityData)
 }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetSegmentPath() string {
-    return "creClientAuthentication"
-}
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["creAuthClientBadAuthenticators"] = creclientauthentication.Creauthclientbadauthenticators
-    leafs["creAuthClientUnknownResponses"] = creclientauthentication.Creauthclientunknownresponses
-    leafs["creAuthClientTotalPacketsWithResponses"] = creclientauthentication.Creauthclienttotalpacketswithresponses
-    leafs["creAuthClientBufferAllocFailures"] = creclientauthentication.Creauthclientbufferallocfailures
-    leafs["creAuthClientTotalResponses"] = creclientauthentication.Creauthclienttotalresponses
-    leafs["creAuthClientTotalPacketsWithoutResponses"] = creclientauthentication.Creauthclienttotalpacketswithoutresponses
-    leafs["creAuthClientAverageResponseDelay"] = creclientauthentication.Creauthclientaverageresponsedelay
-    leafs["creAuthClientMaxResponseDelay"] = creclientauthentication.Creauthclientmaxresponsedelay
-    leafs["creAuthClientMaxBufferSize"] = creclientauthentication.Creauthclientmaxbuffersize
-    leafs["creAuthClientTimeouts"] = creclientauthentication.Creauthclienttimeouts
-    leafs["creAuthClientDupIDs"] = creclientauthentication.Creauthclientdupids
-    leafs["creAuthClientMalformedResponses"] = creclientauthentication.Creauthclientmalformedresponses
-    leafs["creAuthClientLastUsedSourceId"] = creclientauthentication.Creauthclientlastusedsourceid
-    return leafs
-}
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetBundleName() string { return "cisco_ios_xe" }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetYangName() string { return "creClientAuthentication" }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) SetParent(parent types.Entity) { creclientauthentication.parent = parent }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetParent() types.Entity { return creclientauthentication.parent }
-
-func (creclientauthentication *CISCORADIUSEXTMIB_Creclientauthentication) GetParentYangName() string { return "CISCO-RADIUS-EXT-MIB" }
 
 // CISCORADIUSEXTMIB_Creclientaccounting
 type CISCORADIUSEXTMIB_Creclientaccounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the number of RADIUS Accounting-Response packets
@@ -456,73 +335,31 @@ type CISCORADIUSEXTMIB_Creclientaccounting struct {
     Creacctclientlastusedsourceid interface{}
 }
 
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetFilter() yfilter.YFilter { return creclientaccounting.YFilter }
+func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetEntityData() *types.CommonEntityData {
+    creclientaccounting.EntityData.YFilter = creclientaccounting.YFilter
+    creclientaccounting.EntityData.YangName = "creClientAccounting"
+    creclientaccounting.EntityData.BundleName = "cisco_ios_xe"
+    creclientaccounting.EntityData.ParentYangName = "CISCO-RADIUS-EXT-MIB"
+    creclientaccounting.EntityData.SegmentPath = "creClientAccounting"
+    creclientaccounting.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    creclientaccounting.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    creclientaccounting.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) SetFilter(yf yfilter.YFilter) { creclientaccounting.YFilter = yf }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetGoName(yname string) string {
-    if yname == "creAcctClientBadAuthenticators" { return "Creacctclientbadauthenticators" }
-    if yname == "creAcctClientUnknownResponses" { return "Creacctclientunknownresponses" }
-    if yname == "creAcctClientTotalPacketsWithResponses" { return "Creacctclienttotalpacketswithresponses" }
-    if yname == "creAcctClientBufferAllocFailures" { return "Creacctclientbufferallocfailures" }
-    if yname == "creAcctClientTotalResponses" { return "Creacctclienttotalresponses" }
-    if yname == "creAcctClientTotalPacketsWithoutResponses" { return "Creacctclienttotalpacketswithoutresponses" }
-    if yname == "creAcctClientAverageResponseDelay" { return "Creacctclientaverageresponsedelay" }
-    if yname == "creAcctClientMaxResponseDelay" { return "Creacctclientmaxresponsedelay" }
-    if yname == "creAcctClientMaxBufferSize" { return "Creacctclientmaxbuffersize" }
-    if yname == "creAcctClientTimeouts" { return "Creacctclienttimeouts" }
-    if yname == "creAcctClientDupIDs" { return "Creacctclientdupids" }
-    if yname == "creAcctClientMalformedResponses" { return "Creacctclientmalformedresponses" }
-    if yname == "creAcctClientLastUsedSourceId" { return "Creacctclientlastusedsourceid" }
-    return ""
+    creclientaccounting.EntityData.Children = make(map[string]types.YChild)
+    creclientaccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    creclientaccounting.EntityData.Leafs["creAcctClientBadAuthenticators"] = types.YLeaf{"Creacctclientbadauthenticators", creclientaccounting.Creacctclientbadauthenticators}
+    creclientaccounting.EntityData.Leafs["creAcctClientUnknownResponses"] = types.YLeaf{"Creacctclientunknownresponses", creclientaccounting.Creacctclientunknownresponses}
+    creclientaccounting.EntityData.Leafs["creAcctClientTotalPacketsWithResponses"] = types.YLeaf{"Creacctclienttotalpacketswithresponses", creclientaccounting.Creacctclienttotalpacketswithresponses}
+    creclientaccounting.EntityData.Leafs["creAcctClientBufferAllocFailures"] = types.YLeaf{"Creacctclientbufferallocfailures", creclientaccounting.Creacctclientbufferallocfailures}
+    creclientaccounting.EntityData.Leafs["creAcctClientTotalResponses"] = types.YLeaf{"Creacctclienttotalresponses", creclientaccounting.Creacctclienttotalresponses}
+    creclientaccounting.EntityData.Leafs["creAcctClientTotalPacketsWithoutResponses"] = types.YLeaf{"Creacctclienttotalpacketswithoutresponses", creclientaccounting.Creacctclienttotalpacketswithoutresponses}
+    creclientaccounting.EntityData.Leafs["creAcctClientAverageResponseDelay"] = types.YLeaf{"Creacctclientaverageresponsedelay", creclientaccounting.Creacctclientaverageresponsedelay}
+    creclientaccounting.EntityData.Leafs["creAcctClientMaxResponseDelay"] = types.YLeaf{"Creacctclientmaxresponsedelay", creclientaccounting.Creacctclientmaxresponsedelay}
+    creclientaccounting.EntityData.Leafs["creAcctClientMaxBufferSize"] = types.YLeaf{"Creacctclientmaxbuffersize", creclientaccounting.Creacctclientmaxbuffersize}
+    creclientaccounting.EntityData.Leafs["creAcctClientTimeouts"] = types.YLeaf{"Creacctclienttimeouts", creclientaccounting.Creacctclienttimeouts}
+    creclientaccounting.EntityData.Leafs["creAcctClientDupIDs"] = types.YLeaf{"Creacctclientdupids", creclientaccounting.Creacctclientdupids}
+    creclientaccounting.EntityData.Leafs["creAcctClientMalformedResponses"] = types.YLeaf{"Creacctclientmalformedresponses", creclientaccounting.Creacctclientmalformedresponses}
+    creclientaccounting.EntityData.Leafs["creAcctClientLastUsedSourceId"] = types.YLeaf{"Creacctclientlastusedsourceid", creclientaccounting.Creacctclientlastusedsourceid}
+    return &(creclientaccounting.EntityData)
 }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetSegmentPath() string {
-    return "creClientAccounting"
-}
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["creAcctClientBadAuthenticators"] = creclientaccounting.Creacctclientbadauthenticators
-    leafs["creAcctClientUnknownResponses"] = creclientaccounting.Creacctclientunknownresponses
-    leafs["creAcctClientTotalPacketsWithResponses"] = creclientaccounting.Creacctclienttotalpacketswithresponses
-    leafs["creAcctClientBufferAllocFailures"] = creclientaccounting.Creacctclientbufferallocfailures
-    leafs["creAcctClientTotalResponses"] = creclientaccounting.Creacctclienttotalresponses
-    leafs["creAcctClientTotalPacketsWithoutResponses"] = creclientaccounting.Creacctclienttotalpacketswithoutresponses
-    leafs["creAcctClientAverageResponseDelay"] = creclientaccounting.Creacctclientaverageresponsedelay
-    leafs["creAcctClientMaxResponseDelay"] = creclientaccounting.Creacctclientmaxresponsedelay
-    leafs["creAcctClientMaxBufferSize"] = creclientaccounting.Creacctclientmaxbuffersize
-    leafs["creAcctClientTimeouts"] = creclientaccounting.Creacctclienttimeouts
-    leafs["creAcctClientDupIDs"] = creclientaccounting.Creacctclientdupids
-    leafs["creAcctClientMalformedResponses"] = creclientaccounting.Creacctclientmalformedresponses
-    leafs["creAcctClientLastUsedSourceId"] = creclientaccounting.Creacctclientlastusedsourceid
-    return leafs
-}
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetBundleName() string { return "cisco_ios_xe" }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetYangName() string { return "creClientAccounting" }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) SetParent(parent types.Entity) { creclientaccounting.parent = parent }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetParent() types.Entity { return creclientaccounting.parent }
-
-func (creclientaccounting *CISCORADIUSEXTMIB_Creclientaccounting) GetParentYangName() string { return "CISCO-RADIUS-EXT-MIB" }
 

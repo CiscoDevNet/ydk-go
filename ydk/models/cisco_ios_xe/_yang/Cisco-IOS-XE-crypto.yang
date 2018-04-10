@@ -39,12 +39,56 @@ module Cisco-IOS-XE-crypto {
 
   description
     "Cisco XE Crypto Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-06 {
+     description
+       "Change 'crypto pki trustpool import url' to string";
+  }
+
+  revision 2018-01-04 {
+     description
+       "Change crypto map sequence to list";
+  }
+
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Add 40 and 100GE support";
+  }
+
+  revision 2017-10-06 {
+    description
+      "Add pki server submod support";
+  }
+
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
+  revision 2017-08-08 {
+    description
+      "crypto pki trustpoint is missing fqdn node";
+  }
+  revision 2017-08-04 {
+    description
+      "add lifetime container support under key chain";
+  }
+  revision 2017-05-24 {
+      description 
+        "Modified container ipv4-addr and address under container 
+        pre-shared-key to list address to support multiple 
+        pre-shared-key commands.";
+  }
   revision 2017-05-10 {
     description
       "inet:ipv6-prefix changed to ios-types:ipv6-prefix";
@@ -77,7 +121,112 @@ module Cisco-IOS-XE-crypto {
       "Initial revision";
   }
 
+  grouping database-password-grouping {
+    container password {
+      description "Passphrase to protect the private key archive";
+      leaf encryption-type {
+        type uint8 {
+          range "0..9";
+        }
+      }
+      leaf passphrase {
+        type string;
+      } 
+    }
+  }
 
+  grouping lifetime-grouping {
+    container lifetime-group {
+      leaf hh-mm-ss {
+        type ios-types:hhmmss-type;
+      }
+      choice date-month {
+        case date1 {
+          leaf date1 {
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month1 {
+          leaf month1 {
+            type string;
+          }
+        }
+      }
+      choice month-date {
+        case date2 {
+          leaf date2 {
+            when "../month1";
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month2 {
+          leaf month2 {
+            when "../date1";
+            type string;
+          }
+        }
+      }
+      leaf year {
+        type uint16 {
+          range "1993..2035";
+        }
+      }
+      leaf duration {
+        description
+          "Set key lifetime duration";
+        type uint32 {
+          range "1..864000";
+        }
+      }
+      leaf hh-mm-ss1 {
+        type ios-types:hhmmss-type;
+      }
+      choice date-month1 {
+        case date3 {
+          leaf date3 {
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month3 {
+          leaf month3 {
+              type string;
+          }
+        }
+      }
+      choice month-date1 {
+        case date4 {
+          leaf date4 {
+            when "../month3";
+            type uint8 {
+              range "1..31";
+            }
+          }
+        }
+        case month4 {
+          leaf month4 {
+            when "../date3";
+            type string;
+          }
+        }
+      }
+      leaf year1 {
+        type uint16 {
+          range "1993..2035";
+        }
+      }
+      leaf infinite {
+        description
+          "Never expires";
+        type empty;
+      }
+    }
+  }
   grouping crypto-pki-token-grouping {
     // max-retries  maximum number of consecutive login failures permitted
     container removal {
@@ -5019,7 +5168,7 @@ module Cisco-IOS-XE-crypto {
               }
               leaf mask {
                 description
-                    "address prefix mask";
+                  "address prefix mask";
                 type inet:ipv4-address;
               }
               uses crypto-keyring-key-grouping;
@@ -5029,10 +5178,10 @@ module Cisco-IOS-XE-crypto {
             list ipv6 {
               description
                 "define shared key with IPv6 address";
-              key "ipv6";
-              leaf ipv6 {
+              key "ipv6-addr";
+              leaf ipv6-addr {
                 description
-                  "IPv6 prefix mask";
+                  "IPv6 address prefix";
                 type ios-types:ipv6-prefix;
               }
               uses crypto-keyring-key-grouping;
@@ -5733,17 +5882,17 @@ module Cisco-IOS-XE-crypto {
       list map {
         description
           "Enter a crypto map";
-        key "name";
+        key "name sequence-number";
         leaf name {
           type string;
+        }
+        leaf sequence-number {
+          type uint16;
         }
         leaf ipv6 {
           description
             "IPv6 crypto map";
           type empty;
-        }
-        leaf sequence-number {
-          type uint16;
         }
         leaf keying {
           type enumeration {
@@ -6317,19 +6466,69 @@ Hex-data is not supported */
         description
           "Enable IOS Certificate server";
         leaf name {
+          description
+            "Certificate Server Name";
           type string;
         }
-        leaf rollover {
+        container database {
           description
-            "Rollover the server's key and certificate";
-          type empty;
+            "Certificate Server database config parameters";
+          container archive {
+            description
+              "Backup Certificate Server Signing Certificate and Keys";
+            choice format {
+              container pem {
+                description
+                  "PEM format";
+                presence true;
+                uses database-password-grouping;
+              }
+              container pkcs12 {
+                description
+                  "PKCS12 format";
+                presence true;
+                uses database-password-grouping;
+              }
+            }
+          }
+        } 
+        leaf issuer-name {
+          description
+            "Issuer name";
+          type string;
         }
-        leaf cancel {
+        leaf grant {
           description
-            "Cancel a pending rollover";
-          type empty;
+            "Certificate granting options";
+          type enumeration {
+            enum "auto";
+            enum "none";
+            enum "ra-auto";
+          }
+        } 
+      }   
+      /* add the following container to avoid duplicate 
+       name "server" in the same level" */
+      container pki-server-no-submode {
+        container server {
+          description
+            "Enable IOS Certificate server";
+          leaf name {
+            type string;
+          }
+          leaf rollover {
+            description
+              "Rollover the server's key and certificate";
+            type empty;
+          }
+          leaf cancel {
+            description
+              "Cancel a pending rollover";
+            type empty;
+          }
         }
       }
+
       // crypto pki trustpoint *
       list trustpoint {
         description
@@ -6421,18 +6620,23 @@ Hex-data is not supported */
             type string;
           }
         }
+        leaf fqdn {
+          description
+            "include fully-qualified domain name";
+          type string;
+        }
         container password {
           description
             "revocation password";
           presence true;
-          leaf encryption_type {
+          leaf encryption-type {
             description
               "Encryption type";
             type uint8 {
               range "0..9";
             }
           }
-          leaf clear_password {
+          leaf clear-password {
             description
               "revocation password";
             type string;
@@ -6441,7 +6645,6 @@ Hex-data is not supported */
         //  exit              Exit from certificate authority trustpoint
         //                    entry mode
         //  fingerprint       CA Certificate Fingerprint
-        //  fqdn              include fully-qualified domain name
         //  hash              Hash algorithm
         //  ip-address        include ip address
         //  ip-extension      RFC3779 IP extension for device certificate
@@ -6559,10 +6762,12 @@ Hex-data is not supported */
               "Import bundle via the terminal (cut-and-paste) in PEM format";
             type empty;
           }
-          container url {
+          leaf url {
             description
               "Import via the file systems";
-            uses crypto-key-url-file-im-grouping;
+            type string {
+              pattern "(((bootflash:)|(harddisk:)|(flash:)|(nvram:)|(ftp:)|(http:)|(https:)|(scp:)|(tftp:)|(webui:)).*)";
+            }
           }
         }
       }
@@ -6869,10 +7074,27 @@ Hex-data is not supported */
               }
             }
           }
+          choice lifetime-choice {
+            case lifetime-only {
+              container lifetime {
+                description
+                  "Set lifetime of Macsec key";
+                uses lifetime-grouping;
+              }
+            }
+            case lifetime-local {
+              container lifetime-local {
+                container local {
+                  description
+                    "Specify time in local timezone";
+                  uses lifetime-grouping;
+                }
+              }
+            }
+          }
         }
       }
-  }
-
+    }
   grouping config-interface-tunnel-ipsec-grouping {
     container ipsec {
       description
@@ -6935,6 +7157,36 @@ Hex-data is not supported */
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+  
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
   augment "/ios:native/ios:interface/ios:Loopback" {
     uses config-interface-crypto-grouping {
       if-feature ios-features:crypto; 
@@ -6986,6 +7238,34 @@ Hex-data is not supported */
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+  
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
+    uses config-interface-ipv6-crypto-grouping {
+      if-feature ios-features:crypto;
+    }
+  }
   augment "/ios:native/ios:interface/ios:Loopback/ios:ipv6" {
     uses config-interface-ipv6-crypto-grouping {
       if-feature ios-features:crypto;

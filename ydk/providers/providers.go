@@ -21,6 +21,7 @@ package providers
 import (
 	"fmt"
 	"github.com/CiscoDevNet/ydk-go/ydk"
+	"github.com/CiscoDevNet/ydk-go/ydk/errors"
 	"github.com/CiscoDevNet/ydk-go/ydk/path"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
 	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
@@ -40,7 +41,7 @@ type OpenDaylightServiceProvider struct {
 	Private types.COpenDaylightServiceProvider
 	// keep alive
 	ProvidersHolder []types.ServiceProvider
-	State           types.State
+	State           errors.State
 }
 
 // NetconfServiceProvider Implementation of ServiceProvider for the NETCONF protocol: https://tools.ietf.org/html/rfc6241
@@ -55,7 +56,7 @@ type NetconfServiceProvider struct {
 	CommonCache	bool
 
 	Private types.CServiceProvider
-	State   types.State
+	State   errors.State
 }
 
 // RestconfServiceProvider Implementation of ServiceProvider for the RESTCONF protocol: https://tools.ietf.org/html/draft-ietf-netconf-restconf-18
@@ -70,7 +71,7 @@ type RestconfServiceProvider struct {
 	ConfigURLRoot string
 
 	Private types.CServiceProvider
-	State   types.State
+	State   errors.State
 }
 
 // GetPrivate returns private pointer for OpenDaylightServiceProvider
@@ -111,7 +112,7 @@ func (provider *OpenDaylightServiceProvider) GetNodeProvider(nodeID string) type
 }
 
 // GetState returns error state from OpenDaylightServiceProvider
-func (provider *OpenDaylightServiceProvider) GetState() *types.State {
+func (provider *OpenDaylightServiceProvider) GetState() *errors.State {
 	return &provider.State
 }
 
@@ -147,7 +148,7 @@ func (provider *NetconfServiceProvider) Connect() {
 }
 
 // GetState returns error state from NetconfServiceProvider
-func (provider *NetconfServiceProvider) GetState() *types.State {
+func (provider *NetconfServiceProvider) GetState() *errors.State {
 	return &provider.State
 }
 
@@ -177,7 +178,7 @@ func (provider *RestconfServiceProvider) Connect() {
 }
 
 // GetState returns error state from RestconfServiceProvider
-func (provider *RestconfServiceProvider) GetState() *types.State {
+func (provider *RestconfServiceProvider) GetState() *errors.State {
 	return &provider.State
 }
 
@@ -196,7 +197,7 @@ type CodecServiceProvider struct {
 	Encoding encoding.EncodingFormat
 
 	RootSchemaTable map[string]types.RootSchemaNode
-	State           types.State
+	State           errors.State
 }
 
 // Initialize CodecServiceProvider
@@ -205,7 +206,7 @@ func (provider *CodecServiceProvider) Initialize(entity types.Entity) {
 		path.AddCState(&provider.State)
 	}
 
-	bundleName := entity.GetBundleName()
+	bundleName :=  entity.GetEntityData().BundleName
 	if len(provider.RootSchemaTable) == 0 {
 		provider.RootSchemaTable = make(map[string]types.RootSchemaNode)
 	}
@@ -224,13 +225,13 @@ func (provider *CodecServiceProvider) GetEncoding() encoding.EncodingFormat {
 }
 
 // GetState returns error state from CodecServiceProvider
-func (provider *CodecServiceProvider) GetState() *types.State {
+func (provider *CodecServiceProvider) GetState() *errors.State {
 	return &provider.State
 }
 
 // GetRootSchemaNode returns root schema node for entity
 func (provider *CodecServiceProvider) GetRootSchemaNode(entity types.Entity) types.RootSchemaNode {
-	rootSchemaNode, ok := provider.RootSchemaTable[entity.GetBundleName()]
+	rootSchemaNode, ok := provider.RootSchemaTable[entity.GetEntityData().BundleName]
 	if !ok {
 		panic("Root schema node not found in provider!")
 	}

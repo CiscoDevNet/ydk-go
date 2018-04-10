@@ -25,14 +25,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-tc-cfg:traffic-collector", reflect.TypeOf(TrafficCollector{}))
 }
 
-// HistoryTimeout represents History timeout
-type HistoryTimeout string
-
-const (
-    // Max timeout
-    HistoryTimeout_max HistoryTimeout = "max"
-)
-
 // HistorySize represents History size
 type HistorySize string
 
@@ -82,10 +74,18 @@ const (
     CollectIonInterval_Y_60_minutes CollectIonInterval = "60-minutes"
 )
 
+// HistoryTimeout represents History timeout
+type HistoryTimeout string
+
+const (
+    // Max timeout
+    HistoryTimeout_max HistoryTimeout = "max"
+)
+
 // TrafficCollector
 // Global Traffic Collector configuration commands
 type TrafficCollector struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable traffic collector. The type is interface{}.
@@ -98,66 +98,28 @@ type TrafficCollector struct {
     Statistics TrafficCollector_Statistics
 }
 
-func (trafficCollector *TrafficCollector) GetFilter() yfilter.YFilter { return trafficCollector.YFilter }
+func (trafficCollector *TrafficCollector) GetEntityData() *types.CommonEntityData {
+    trafficCollector.EntityData.YFilter = trafficCollector.YFilter
+    trafficCollector.EntityData.YangName = "traffic-collector"
+    trafficCollector.EntityData.BundleName = "cisco_ios_xr"
+    trafficCollector.EntityData.ParentYangName = "Cisco-IOS-XR-infra-tc-cfg"
+    trafficCollector.EntityData.SegmentPath = "Cisco-IOS-XR-infra-tc-cfg:traffic-collector"
+    trafficCollector.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficCollector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficCollector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficCollector *TrafficCollector) SetFilter(yf yfilter.YFilter) { trafficCollector.YFilter = yf }
-
-func (trafficCollector *TrafficCollector) GetGoName(yname string) string {
-    if yname == "enable-traffic-collector" { return "EnableTrafficCollector" }
-    if yname == "external-interfaces" { return "ExternalInterfaces" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    trafficCollector.EntityData.Children = make(map[string]types.YChild)
+    trafficCollector.EntityData.Children["external-interfaces"] = types.YChild{"ExternalInterfaces", &trafficCollector.ExternalInterfaces}
+    trafficCollector.EntityData.Children["statistics"] = types.YChild{"Statistics", &trafficCollector.Statistics}
+    trafficCollector.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficCollector.EntityData.Leafs["enable-traffic-collector"] = types.YLeaf{"EnableTrafficCollector", trafficCollector.EnableTrafficCollector}
+    return &(trafficCollector.EntityData)
 }
-
-func (trafficCollector *TrafficCollector) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-tc-cfg:traffic-collector"
-}
-
-func (trafficCollector *TrafficCollector) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "external-interfaces" {
-        return &trafficCollector.ExternalInterfaces
-    }
-    if childYangName == "statistics" {
-        return &trafficCollector.Statistics
-    }
-    return nil
-}
-
-func (trafficCollector *TrafficCollector) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["external-interfaces"] = &trafficCollector.ExternalInterfaces
-    children["statistics"] = &trafficCollector.Statistics
-    return children
-}
-
-func (trafficCollector *TrafficCollector) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable-traffic-collector"] = trafficCollector.EnableTrafficCollector
-    return leafs
-}
-
-func (trafficCollector *TrafficCollector) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficCollector *TrafficCollector) GetYangName() string { return "traffic-collector" }
-
-func (trafficCollector *TrafficCollector) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficCollector *TrafficCollector) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficCollector *TrafficCollector) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficCollector *TrafficCollector) SetParent(parent types.Entity) { trafficCollector.parent = parent }
-
-func (trafficCollector *TrafficCollector) GetParent() types.Entity { return trafficCollector.parent }
-
-func (trafficCollector *TrafficCollector) GetParentYangName() string { return "Cisco-IOS-XR-infra-tc-cfg" }
 
 // TrafficCollector_ExternalInterfaces
 // Configure external interfaces
 type TrafficCollector_ExternalInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure an external internface. The type is slice of
@@ -165,130 +127,60 @@ type TrafficCollector_ExternalInterfaces struct {
     ExternalInterface []TrafficCollector_ExternalInterfaces_ExternalInterface
 }
 
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetFilter() yfilter.YFilter { return externalInterfaces.YFilter }
+func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *types.CommonEntityData {
+    externalInterfaces.EntityData.YFilter = externalInterfaces.YFilter
+    externalInterfaces.EntityData.YangName = "external-interfaces"
+    externalInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    externalInterfaces.EntityData.ParentYangName = "traffic-collector"
+    externalInterfaces.EntityData.SegmentPath = "external-interfaces"
+    externalInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    externalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    externalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) SetFilter(yf yfilter.YFilter) { externalInterfaces.YFilter = yf }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetGoName(yname string) string {
-    if yname == "external-interface" { return "ExternalInterface" }
-    return ""
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetSegmentPath() string {
-    return "external-interfaces"
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "external-interface" {
-        for _, c := range externalInterfaces.ExternalInterface {
-            if externalInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_ExternalInterfaces_ExternalInterface{}
-        externalInterfaces.ExternalInterface = append(externalInterfaces.ExternalInterface, child)
-        return &externalInterfaces.ExternalInterface[len(externalInterfaces.ExternalInterface)-1]
-    }
-    return nil
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    externalInterfaces.EntityData.Children = make(map[string]types.YChild)
+    externalInterfaces.EntityData.Children["external-interface"] = types.YChild{"ExternalInterface", nil}
     for i := range externalInterfaces.ExternalInterface {
-        children[externalInterfaces.ExternalInterface[i].GetSegmentPath()] = &externalInterfaces.ExternalInterface[i]
+        externalInterfaces.EntityData.Children[types.GetSegmentPath(&externalInterfaces.ExternalInterface[i])] = types.YChild{"ExternalInterface", &externalInterfaces.ExternalInterface[i]}
     }
-    return children
+    externalInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(externalInterfaces.EntityData)
 }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetYangName() string { return "external-interfaces" }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) SetParent(parent types.Entity) { externalInterfaces.parent = parent }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetParent() types.Entity { return externalInterfaces.parent }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetParentYangName() string { return "traffic-collector" }
 
 // TrafficCollector_ExternalInterfaces_ExternalInterface
 // Configure an external internface
 type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Enable traffic collector on this interface. The type is interface{}.
     Enable interface{}
 }
 
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetFilter() yfilter.YFilter { return externalInterface.YFilter }
+func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetEntityData() *types.CommonEntityData {
+    externalInterface.EntityData.YFilter = externalInterface.YFilter
+    externalInterface.EntityData.YangName = "external-interface"
+    externalInterface.EntityData.BundleName = "cisco_ios_xr"
+    externalInterface.EntityData.ParentYangName = "external-interfaces"
+    externalInterface.EntityData.SegmentPath = "external-interface" + "[interface-name='" + fmt.Sprintf("%v", externalInterface.InterfaceName) + "']"
+    externalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    externalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    externalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) SetFilter(yf yfilter.YFilter) { externalInterface.YFilter = yf }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    externalInterface.EntityData.Children = make(map[string]types.YChild)
+    externalInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    externalInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", externalInterface.InterfaceName}
+    externalInterface.EntityData.Leafs["enable"] = types.YLeaf{"Enable", externalInterface.Enable}
+    return &(externalInterface.EntityData)
 }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetSegmentPath() string {
-    return "external-interface" + "[interface-name='" + fmt.Sprintf("%v", externalInterface.InterfaceName) + "']"
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = externalInterface.InterfaceName
-    leafs["enable"] = externalInterface.Enable
-    return leafs
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetYangName() string { return "external-interface" }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) SetParent(parent types.Entity) { externalInterface.parent = parent }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetParent() types.Entity { return externalInterface.parent }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetParentYangName() string { return "external-interfaces" }
 
 // TrafficCollector_Statistics
 // Configure statistics related parameters
 type TrafficCollector_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure statistics history size. The type is one of the following types:
@@ -306,55 +198,22 @@ type TrafficCollector_Statistics struct {
     HistoryTimeout interface{}
 }
 
-func (statistics *TrafficCollector_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *TrafficCollector_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "traffic-collector"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *TrafficCollector_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *TrafficCollector_Statistics) GetGoName(yname string) string {
-    if yname == "history-size" { return "HistorySize" }
-    if yname == "collection-interval" { return "CollectionInterval" }
-    if yname == "enable-traffic-collector-statistics" { return "EnableTrafficCollectorStatistics" }
-    if yname == "history-timeout" { return "HistoryTimeout" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs["history-size"] = types.YLeaf{"HistorySize", statistics.HistorySize}
+    statistics.EntityData.Leafs["collection-interval"] = types.YLeaf{"CollectionInterval", statistics.CollectionInterval}
+    statistics.EntityData.Leafs["enable-traffic-collector-statistics"] = types.YLeaf{"EnableTrafficCollectorStatistics", statistics.EnableTrafficCollectorStatistics}
+    statistics.EntityData.Leafs["history-timeout"] = types.YLeaf{"HistoryTimeout", statistics.HistoryTimeout}
+    return &(statistics.EntityData)
 }
-
-func (statistics *TrafficCollector_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *TrafficCollector_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *TrafficCollector_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *TrafficCollector_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["history-size"] = statistics.HistorySize
-    leafs["collection-interval"] = statistics.CollectionInterval
-    leafs["enable-traffic-collector-statistics"] = statistics.EnableTrafficCollectorStatistics
-    leafs["history-timeout"] = statistics.HistoryTimeout
-    return leafs
-}
-
-func (statistics *TrafficCollector_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *TrafficCollector_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *TrafficCollector_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *TrafficCollector_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *TrafficCollector_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *TrafficCollector_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *TrafficCollector_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *TrafficCollector_Statistics) GetParentYangName() string { return "traffic-collector" }
 

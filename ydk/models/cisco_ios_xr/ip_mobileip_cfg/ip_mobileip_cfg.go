@@ -24,6 +24,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip", reflect.TypeOf(MobileIp{}))
 }
 
+// GreKeyType represents Gre key type
+type GreKeyType string
+
+const (
+    // Symmetric GRE Key (same Uplink and Downlink
+    // key)
+    GreKeyType_symmetric GreKeyType = "symmetric"
+)
+
 // ServiceType represents Service type
 type ServiceType string
 
@@ -46,21 +55,12 @@ const (
     LmaService_service_mll LmaService = "service-mll"
 )
 
-// EncapOpt represents Encap opt
-type EncapOpt string
+// RedistType represents Redist type
+type RedistType string
 
 const (
-    // GRE IPv4 tunnel encap
-    EncapOpt_greipv4 EncapOpt = "greipv4"
-
-    // GRE IPv6 tunnel encap
-    EncapOpt_greipv6 EncapOpt = "greipv6"
-
-    // mGRE IPv4 tunnel encap
-    EncapOpt_mgreipv4 EncapOpt = "mgreipv4"
-
-    // mGRE IPv6 tunnel encap
-    EncapOpt_mgreipv6 EncapOpt = "mgreipv6"
+    // Redistribute HoA/HNP routes
+    RedistType_home_address RedistType = "home-address"
 )
 
 // RedistSubType represents Redist sub type
@@ -81,23 +81,6 @@ type LmaRole string
 const (
     // 3GMA mode
     LmaRole_Y_3gma LmaRole = "3gma"
-)
-
-// RedistType represents Redist type
-type RedistType string
-
-const (
-    // Redistribute HoA/HNP routes
-    RedistType_home_address RedistType = "home-address"
-)
-
-// GreKeyType represents Gre key type
-type GreKeyType string
-
-const (
-    // Symmetric GRE Key (same Uplink and Downlink
-    // key)
-    GreKeyType_symmetric GreKeyType = "symmetric"
 )
 
 // LmaRat represents Lma rat
@@ -141,10 +124,27 @@ const (
     LmaRat_Y_3gpp2umb LmaRat = "3gpp2umb"
 )
 
+// EncapOpt represents Encap opt
+type EncapOpt string
+
+const (
+    // GRE IPv4 tunnel encap
+    EncapOpt_greipv4 EncapOpt = "greipv4"
+
+    // GRE IPv6 tunnel encap
+    EncapOpt_greipv6 EncapOpt = "greipv6"
+
+    // mGRE IPv4 tunnel encap
+    EncapOpt_mgreipv4 EncapOpt = "mgreipv4"
+
+    // mGRE IPv6 tunnel encap
+    EncapOpt_mgreipv6 EncapOpt = "mgreipv6"
+)
+
 // MobileIp
 // MobileIP configuration
 type MobileIp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Domain.
@@ -154,132 +154,56 @@ type MobileIp struct {
     Lmas MobileIp_Lmas
 }
 
-func (mobileIp *MobileIp) GetFilter() yfilter.YFilter { return mobileIp.YFilter }
+func (mobileIp *MobileIp) GetEntityData() *types.CommonEntityData {
+    mobileIp.EntityData.YFilter = mobileIp.YFilter
+    mobileIp.EntityData.YangName = "mobile-ip"
+    mobileIp.EntityData.BundleName = "cisco_ios_xr"
+    mobileIp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-mobileip-cfg"
+    mobileIp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip"
+    mobileIp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mobileIp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mobileIp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mobileIp *MobileIp) SetFilter(yf yfilter.YFilter) { mobileIp.YFilter = yf }
-
-func (mobileIp *MobileIp) GetGoName(yname string) string {
-    if yname == "domains" { return "Domains" }
-    if yname == "lmas" { return "Lmas" }
-    return ""
+    mobileIp.EntityData.Children = make(map[string]types.YChild)
+    mobileIp.EntityData.Children["domains"] = types.YChild{"Domains", &mobileIp.Domains}
+    mobileIp.EntityData.Children["lmas"] = types.YChild{"Lmas", &mobileIp.Lmas}
+    mobileIp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mobileIp.EntityData)
 }
-
-func (mobileIp *MobileIp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip"
-}
-
-func (mobileIp *MobileIp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "domains" {
-        return &mobileIp.Domains
-    }
-    if childYangName == "lmas" {
-        return &mobileIp.Lmas
-    }
-    return nil
-}
-
-func (mobileIp *MobileIp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["domains"] = &mobileIp.Domains
-    children["lmas"] = &mobileIp.Lmas
-    return children
-}
-
-func (mobileIp *MobileIp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mobileIp *MobileIp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mobileIp *MobileIp) GetYangName() string { return "mobile-ip" }
-
-func (mobileIp *MobileIp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mobileIp *MobileIp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mobileIp *MobileIp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mobileIp *MobileIp) SetParent(parent types.Entity) { mobileIp.parent = parent }
-
-func (mobileIp *MobileIp) GetParent() types.Entity { return mobileIp.parent }
-
-func (mobileIp *MobileIp) GetParentYangName() string { return "Cisco-IOS-XR-ip-mobileip-cfg" }
 
 // MobileIp_Domains
 // Table of Domain
 type MobileIp_Domains struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PMIPv6 domain configuration. The type is slice of MobileIp_Domains_Domain.
     Domain []MobileIp_Domains_Domain
 }
 
-func (domains *MobileIp_Domains) GetFilter() yfilter.YFilter { return domains.YFilter }
+func (domains *MobileIp_Domains) GetEntityData() *types.CommonEntityData {
+    domains.EntityData.YFilter = domains.YFilter
+    domains.EntityData.YangName = "domains"
+    domains.EntityData.BundleName = "cisco_ios_xr"
+    domains.EntityData.ParentYangName = "mobile-ip"
+    domains.EntityData.SegmentPath = "domains"
+    domains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    domains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    domains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (domains *MobileIp_Domains) SetFilter(yf yfilter.YFilter) { domains.YFilter = yf }
-
-func (domains *MobileIp_Domains) GetGoName(yname string) string {
-    if yname == "domain" { return "Domain" }
-    return ""
-}
-
-func (domains *MobileIp_Domains) GetSegmentPath() string {
-    return "domains"
-}
-
-func (domains *MobileIp_Domains) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "domain" {
-        for _, c := range domains.Domain {
-            if domains.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Domains_Domain{}
-        domains.Domain = append(domains.Domain, child)
-        return &domains.Domain[len(domains.Domain)-1]
-    }
-    return nil
-}
-
-func (domains *MobileIp_Domains) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    domains.EntityData.Children = make(map[string]types.YChild)
+    domains.EntityData.Children["domain"] = types.YChild{"Domain", nil}
     for i := range domains.Domain {
-        children[domains.Domain[i].GetSegmentPath()] = &domains.Domain[i]
+        domains.EntityData.Children[types.GetSegmentPath(&domains.Domain[i])] = types.YChild{"Domain", &domains.Domain[i]}
     }
-    return children
+    domains.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(domains.EntityData)
 }
-
-func (domains *MobileIp_Domains) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (domains *MobileIp_Domains) GetBundleName() string { return "cisco_ios_xr" }
-
-func (domains *MobileIp_Domains) GetYangName() string { return "domains" }
-
-func (domains *MobileIp_Domains) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (domains *MobileIp_Domains) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (domains *MobileIp_Domains) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (domains *MobileIp_Domains) SetParent(parent types.Entity) { domains.parent = parent }
-
-func (domains *MobileIp_Domains) GetParent() types.Entity { return domains.parent }
-
-func (domains *MobileIp_Domains) GetParentYangName() string { return "mobile-ip" }
 
 // MobileIp_Domains_Domain
 // PMIPv6 domain configuration
 type MobileIp_Domains_Domain struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Domain Name. The type is string with length:
@@ -303,146 +227,60 @@ type MobileIp_Domains_Domain struct {
     Lmas MobileIp_Domains_Domain_Lmas
 }
 
-func (domain *MobileIp_Domains_Domain) GetFilter() yfilter.YFilter { return domain.YFilter }
+func (domain *MobileIp_Domains_Domain) GetEntityData() *types.CommonEntityData {
+    domain.EntityData.YFilter = domain.YFilter
+    domain.EntityData.YangName = "domain"
+    domain.EntityData.BundleName = "cisco_ios_xr"
+    domain.EntityData.ParentYangName = "domains"
+    domain.EntityData.SegmentPath = "domain" + "[domain-name='" + fmt.Sprintf("%v", domain.DomainName) + "']"
+    domain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    domain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    domain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (domain *MobileIp_Domains_Domain) SetFilter(yf yfilter.YFilter) { domain.YFilter = yf }
-
-func (domain *MobileIp_Domains_Domain) GetGoName(yname string) string {
-    if yname == "domain-name" { return "DomainName" }
-    if yname == "enable" { return "Enable" }
-    if yname == "mags" { return "Mags" }
-    if yname == "nais" { return "Nais" }
-    if yname == "authenticate-option" { return "AuthenticateOption" }
-    if yname == "lmas" { return "Lmas" }
-    return ""
+    domain.EntityData.Children = make(map[string]types.YChild)
+    domain.EntityData.Children["mags"] = types.YChild{"Mags", &domain.Mags}
+    domain.EntityData.Children["nais"] = types.YChild{"Nais", &domain.Nais}
+    domain.EntityData.Children["authenticate-option"] = types.YChild{"AuthenticateOption", &domain.AuthenticateOption}
+    domain.EntityData.Children["lmas"] = types.YChild{"Lmas", &domain.Lmas}
+    domain.EntityData.Leafs = make(map[string]types.YLeaf)
+    domain.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", domain.DomainName}
+    domain.EntityData.Leafs["enable"] = types.YLeaf{"Enable", domain.Enable}
+    return &(domain.EntityData)
 }
-
-func (domain *MobileIp_Domains_Domain) GetSegmentPath() string {
-    return "domain" + "[domain-name='" + fmt.Sprintf("%v", domain.DomainName) + "']"
-}
-
-func (domain *MobileIp_Domains_Domain) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mags" {
-        return &domain.Mags
-    }
-    if childYangName == "nais" {
-        return &domain.Nais
-    }
-    if childYangName == "authenticate-option" {
-        return &domain.AuthenticateOption
-    }
-    if childYangName == "lmas" {
-        return &domain.Lmas
-    }
-    return nil
-}
-
-func (domain *MobileIp_Domains_Domain) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mags"] = &domain.Mags
-    children["nais"] = &domain.Nais
-    children["authenticate-option"] = &domain.AuthenticateOption
-    children["lmas"] = &domain.Lmas
-    return children
-}
-
-func (domain *MobileIp_Domains_Domain) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["domain-name"] = domain.DomainName
-    leafs["enable"] = domain.Enable
-    return leafs
-}
-
-func (domain *MobileIp_Domains_Domain) GetBundleName() string { return "cisco_ios_xr" }
-
-func (domain *MobileIp_Domains_Domain) GetYangName() string { return "domain" }
-
-func (domain *MobileIp_Domains_Domain) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (domain *MobileIp_Domains_Domain) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (domain *MobileIp_Domains_Domain) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (domain *MobileIp_Domains_Domain) SetParent(parent types.Entity) { domain.parent = parent }
-
-func (domain *MobileIp_Domains_Domain) GetParent() types.Entity { return domain.parent }
-
-func (domain *MobileIp_Domains_Domain) GetParentYangName() string { return "domains" }
 
 // MobileIp_Domains_Domain_Mags
 // Table of MAG
 type MobileIp_Domains_Domain_Mags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAG within domain. The type is slice of MobileIp_Domains_Domain_Mags_Mag.
     Mag []MobileIp_Domains_Domain_Mags_Mag
 }
 
-func (mags *MobileIp_Domains_Domain_Mags) GetFilter() yfilter.YFilter { return mags.YFilter }
+func (mags *MobileIp_Domains_Domain_Mags) GetEntityData() *types.CommonEntityData {
+    mags.EntityData.YFilter = mags.YFilter
+    mags.EntityData.YangName = "mags"
+    mags.EntityData.BundleName = "cisco_ios_xr"
+    mags.EntityData.ParentYangName = "domain"
+    mags.EntityData.SegmentPath = "mags"
+    mags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mags *MobileIp_Domains_Domain_Mags) SetFilter(yf yfilter.YFilter) { mags.YFilter = yf }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetGoName(yname string) string {
-    if yname == "mag" { return "Mag" }
-    return ""
-}
-
-func (mags *MobileIp_Domains_Domain_Mags) GetSegmentPath() string {
-    return "mags"
-}
-
-func (mags *MobileIp_Domains_Domain_Mags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mag" {
-        for _, c := range mags.Mag {
-            if mags.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Domains_Domain_Mags_Mag{}
-        mags.Mag = append(mags.Mag, child)
-        return &mags.Mag[len(mags.Mag)-1]
-    }
-    return nil
-}
-
-func (mags *MobileIp_Domains_Domain_Mags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mags.EntityData.Children = make(map[string]types.YChild)
+    mags.EntityData.Children["mag"] = types.YChild{"Mag", nil}
     for i := range mags.Mag {
-        children[mags.Mag[i].GetSegmentPath()] = &mags.Mag[i]
+        mags.EntityData.Children[types.GetSegmentPath(&mags.Mag[i])] = types.YChild{"Mag", &mags.Mag[i]}
     }
-    return children
+    mags.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mags.EntityData)
 }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mags *MobileIp_Domains_Domain_Mags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetYangName() string { return "mags" }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mags *MobileIp_Domains_Domain_Mags) SetParent(parent types.Entity) { mags.parent = parent }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetParent() types.Entity { return mags.parent }
-
-func (mags *MobileIp_Domains_Domain_Mags) GetParentYangName() string { return "domain" }
 
 // MobileIp_Domains_Domain_Mags_Mag
 // MAG within domain
 type MobileIp_Domains_Domain_Mags_Mag struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. MAG Identifier. The type is string with length:
@@ -450,56 +288,26 @@ type MobileIp_Domains_Domain_Mags_Mag struct {
     MagName interface{}
 }
 
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetFilter() yfilter.YFilter { return mag.YFilter }
+func (mag *MobileIp_Domains_Domain_Mags_Mag) GetEntityData() *types.CommonEntityData {
+    mag.EntityData.YFilter = mag.YFilter
+    mag.EntityData.YangName = "mag"
+    mag.EntityData.BundleName = "cisco_ios_xr"
+    mag.EntityData.ParentYangName = "mags"
+    mag.EntityData.SegmentPath = "mag" + "[mag-name='" + fmt.Sprintf("%v", mag.MagName) + "']"
+    mag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mag *MobileIp_Domains_Domain_Mags_Mag) SetFilter(yf yfilter.YFilter) { mag.YFilter = yf }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetGoName(yname string) string {
-    if yname == "mag-name" { return "MagName" }
-    return ""
+    mag.EntityData.Children = make(map[string]types.YChild)
+    mag.EntityData.Leafs = make(map[string]types.YLeaf)
+    mag.EntityData.Leafs["mag-name"] = types.YLeaf{"MagName", mag.MagName}
+    return &(mag.EntityData)
 }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetSegmentPath() string {
-    return "mag" + "[mag-name='" + fmt.Sprintf("%v", mag.MagName) + "']"
-}
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mag-name"] = mag.MagName
-    return leafs
-}
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetYangName() string { return "mag" }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) SetParent(parent types.Entity) { mag.parent = parent }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetParent() types.Entity { return mag.parent }
-
-func (mag *MobileIp_Domains_Domain_Mags_Mag) GetParentYangName() string { return "mags" }
 
 // MobileIp_Domains_Domain_Nais
 // Table of NAI
 type MobileIp_Domains_Domain_Nais struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Network access identifier or Realm. The type is slice of
@@ -507,68 +315,29 @@ type MobileIp_Domains_Domain_Nais struct {
     Nai []MobileIp_Domains_Domain_Nais_Nai
 }
 
-func (nais *MobileIp_Domains_Domain_Nais) GetFilter() yfilter.YFilter { return nais.YFilter }
+func (nais *MobileIp_Domains_Domain_Nais) GetEntityData() *types.CommonEntityData {
+    nais.EntityData.YFilter = nais.YFilter
+    nais.EntityData.YangName = "nais"
+    nais.EntityData.BundleName = "cisco_ios_xr"
+    nais.EntityData.ParentYangName = "domain"
+    nais.EntityData.SegmentPath = "nais"
+    nais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nais *MobileIp_Domains_Domain_Nais) SetFilter(yf yfilter.YFilter) { nais.YFilter = yf }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetGoName(yname string) string {
-    if yname == "nai" { return "Nai" }
-    return ""
-}
-
-func (nais *MobileIp_Domains_Domain_Nais) GetSegmentPath() string {
-    return "nais"
-}
-
-func (nais *MobileIp_Domains_Domain_Nais) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nai" {
-        for _, c := range nais.Nai {
-            if nais.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Domains_Domain_Nais_Nai{}
-        nais.Nai = append(nais.Nai, child)
-        return &nais.Nai[len(nais.Nai)-1]
-    }
-    return nil
-}
-
-func (nais *MobileIp_Domains_Domain_Nais) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nais.EntityData.Children = make(map[string]types.YChild)
+    nais.EntityData.Children["nai"] = types.YChild{"Nai", nil}
     for i := range nais.Nai {
-        children[nais.Nai[i].GetSegmentPath()] = &nais.Nai[i]
+        nais.EntityData.Children[types.GetSegmentPath(&nais.Nai[i])] = types.YChild{"Nai", &nais.Nai[i]}
     }
-    return children
+    nais.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nais.EntityData)
 }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nais *MobileIp_Domains_Domain_Nais) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetYangName() string { return "nais" }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nais *MobileIp_Domains_Domain_Nais) SetParent(parent types.Entity) { nais.parent = parent }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetParent() types.Entity { return nais.parent }
-
-func (nais *MobileIp_Domains_Domain_Nais) GetParentYangName() string { return "domain" }
 
 // MobileIp_Domains_Domain_Nais_Nai
 // Network access identifier or Realm
 type MobileIp_Domains_Domain_Nais_Nai struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. MN Identifier. The type is string with length:
@@ -592,195 +361,90 @@ type MobileIp_Domains_Domain_Nais_Nai struct {
     Network interface{}
 }
 
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetFilter() yfilter.YFilter { return nai.YFilter }
+func (nai *MobileIp_Domains_Domain_Nais_Nai) GetEntityData() *types.CommonEntityData {
+    nai.EntityData.YFilter = nai.YFilter
+    nai.EntityData.YangName = "nai"
+    nai.EntityData.BundleName = "cisco_ios_xr"
+    nai.EntityData.ParentYangName = "nais"
+    nai.EntityData.SegmentPath = "nai" + "[nai-name='" + fmt.Sprintf("%v", nai.NaiName) + "']"
+    nai.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nai.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nai.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nai *MobileIp_Domains_Domain_Nais_Nai) SetFilter(yf yfilter.YFilter) { nai.YFilter = yf }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetGoName(yname string) string {
-    if yname == "nai-name" { return "NaiName" }
-    if yname == "lma" { return "Lma" }
-    if yname == "apn" { return "Apn" }
-    if yname == "customer" { return "Customer" }
-    if yname == "service" { return "Service" }
-    if yname == "network" { return "Network" }
-    return ""
+    nai.EntityData.Children = make(map[string]types.YChild)
+    nai.EntityData.Leafs = make(map[string]types.YLeaf)
+    nai.EntityData.Leafs["nai-name"] = types.YLeaf{"NaiName", nai.NaiName}
+    nai.EntityData.Leafs["lma"] = types.YLeaf{"Lma", nai.Lma}
+    nai.EntityData.Leafs["apn"] = types.YLeaf{"Apn", nai.Apn}
+    nai.EntityData.Leafs["customer"] = types.YLeaf{"Customer", nai.Customer}
+    nai.EntityData.Leafs["service"] = types.YLeaf{"Service", nai.Service}
+    nai.EntityData.Leafs["network"] = types.YLeaf{"Network", nai.Network}
+    return &(nai.EntityData)
 }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetSegmentPath() string {
-    return "nai" + "[nai-name='" + fmt.Sprintf("%v", nai.NaiName) + "']"
-}
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nai-name"] = nai.NaiName
-    leafs["lma"] = nai.Lma
-    leafs["apn"] = nai.Apn
-    leafs["customer"] = nai.Customer
-    leafs["service"] = nai.Service
-    leafs["network"] = nai.Network
-    return leafs
-}
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetYangName() string { return "nai" }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) SetParent(parent types.Entity) { nai.parent = parent }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetParent() types.Entity { return nai.parent }
-
-func (nai *MobileIp_Domains_Domain_Nais_Nai) GetParentYangName() string { return "nais" }
 
 // MobileIp_Domains_Domain_AuthenticateOption
 // Authentication option between PMIPV6 entities
 type MobileIp_Domains_Domain_AuthenticateOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
     Key interface{}
 }
 
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetFilter() yfilter.YFilter { return authenticateOption.YFilter }
+func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetEntityData() *types.CommonEntityData {
+    authenticateOption.EntityData.YFilter = authenticateOption.YFilter
+    authenticateOption.EntityData.YangName = "authenticate-option"
+    authenticateOption.EntityData.BundleName = "cisco_ios_xr"
+    authenticateOption.EntityData.ParentYangName = "domain"
+    authenticateOption.EntityData.SegmentPath = "authenticate-option"
+    authenticateOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) SetFilter(yf yfilter.YFilter) { authenticateOption.YFilter = yf }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetGoName(yname string) string {
-    if yname == "spi" { return "Spi" }
-    if yname == "key" { return "Key" }
-    return ""
+    authenticateOption.EntityData.Children = make(map[string]types.YChild)
+    authenticateOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticateOption.EntityData.Leafs["spi"] = types.YLeaf{"Spi", authenticateOption.Spi}
+    authenticateOption.EntityData.Leafs["key"] = types.YLeaf{"Key", authenticateOption.Key}
+    return &(authenticateOption.EntityData)
 }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetSegmentPath() string {
-    return "authenticate-option"
-}
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["spi"] = authenticateOption.Spi
-    leafs["key"] = authenticateOption.Key
-    return leafs
-}
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetYangName() string { return "authenticate-option" }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) SetParent(parent types.Entity) { authenticateOption.parent = parent }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetParent() types.Entity { return authenticateOption.parent }
-
-func (authenticateOption *MobileIp_Domains_Domain_AuthenticateOption) GetParentYangName() string { return "domain" }
 
 // MobileIp_Domains_Domain_Lmas
 // Table of LMA
 type MobileIp_Domains_Domain_Lmas struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LMA within domain. The type is slice of MobileIp_Domains_Domain_Lmas_Lma.
     Lma []MobileIp_Domains_Domain_Lmas_Lma
 }
 
-func (lmas *MobileIp_Domains_Domain_Lmas) GetFilter() yfilter.YFilter { return lmas.YFilter }
+func (lmas *MobileIp_Domains_Domain_Lmas) GetEntityData() *types.CommonEntityData {
+    lmas.EntityData.YFilter = lmas.YFilter
+    lmas.EntityData.YangName = "lmas"
+    lmas.EntityData.BundleName = "cisco_ios_xr"
+    lmas.EntityData.ParentYangName = "domain"
+    lmas.EntityData.SegmentPath = "lmas"
+    lmas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lmas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lmas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lmas *MobileIp_Domains_Domain_Lmas) SetFilter(yf yfilter.YFilter) { lmas.YFilter = yf }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetGoName(yname string) string {
-    if yname == "lma" { return "Lma" }
-    return ""
-}
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetSegmentPath() string {
-    return "lmas"
-}
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lma" {
-        for _, c := range lmas.Lma {
-            if lmas.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Domains_Domain_Lmas_Lma{}
-        lmas.Lma = append(lmas.Lma, child)
-        return &lmas.Lma[len(lmas.Lma)-1]
-    }
-    return nil
-}
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lmas.EntityData.Children = make(map[string]types.YChild)
+    lmas.EntityData.Children["lma"] = types.YChild{"Lma", nil}
     for i := range lmas.Lma {
-        children[lmas.Lma[i].GetSegmentPath()] = &lmas.Lma[i]
+        lmas.EntityData.Children[types.GetSegmentPath(&lmas.Lma[i])] = types.YChild{"Lma", &lmas.Lma[i]}
     }
-    return children
+    lmas.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lmas.EntityData)
 }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetYangName() string { return "lmas" }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) SetParent(parent types.Entity) { lmas.parent = parent }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetParent() types.Entity { return lmas.parent }
-
-func (lmas *MobileIp_Domains_Domain_Lmas) GetParentYangName() string { return "domain" }
 
 // MobileIp_Domains_Domain_Lmas_Lma
 // LMA within domain
 type MobileIp_Domains_Domain_Lmas_Lma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA Identifier. The type is string with length:
@@ -788,124 +452,55 @@ type MobileIp_Domains_Domain_Lmas_Lma struct {
     LmaName interface{}
 }
 
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetFilter() yfilter.YFilter { return lma.YFilter }
+func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetEntityData() *types.CommonEntityData {
+    lma.EntityData.YFilter = lma.YFilter
+    lma.EntityData.YangName = "lma"
+    lma.EntityData.BundleName = "cisco_ios_xr"
+    lma.EntityData.ParentYangName = "lmas"
+    lma.EntityData.SegmentPath = "lma" + "[lma-name='" + fmt.Sprintf("%v", lma.LmaName) + "']"
+    lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) SetFilter(yf yfilter.YFilter) { lma.YFilter = yf }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetGoName(yname string) string {
-    if yname == "lma-name" { return "LmaName" }
-    return ""
+    lma.EntityData.Children = make(map[string]types.YChild)
+    lma.EntityData.Leafs = make(map[string]types.YLeaf)
+    lma.EntityData.Leafs["lma-name"] = types.YLeaf{"LmaName", lma.LmaName}
+    return &(lma.EntityData)
 }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetSegmentPath() string {
-    return "lma" + "[lma-name='" + fmt.Sprintf("%v", lma.LmaName) + "']"
-}
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-name"] = lma.LmaName
-    return leafs
-}
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetYangName() string { return "lma" }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) SetParent(parent types.Entity) { lma.parent = parent }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetParent() types.Entity { return lma.parent }
-
-func (lma *MobileIp_Domains_Domain_Lmas_Lma) GetParentYangName() string { return "lmas" }
 
 // MobileIp_Lmas
 // Table of LMA
 type MobileIp_Lmas struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PMIPv6 LMA configuration. The type is slice of MobileIp_Lmas_Lma.
     Lma []MobileIp_Lmas_Lma
 }
 
-func (lmas *MobileIp_Lmas) GetFilter() yfilter.YFilter { return lmas.YFilter }
+func (lmas *MobileIp_Lmas) GetEntityData() *types.CommonEntityData {
+    lmas.EntityData.YFilter = lmas.YFilter
+    lmas.EntityData.YangName = "lmas"
+    lmas.EntityData.BundleName = "cisco_ios_xr"
+    lmas.EntityData.ParentYangName = "mobile-ip"
+    lmas.EntityData.SegmentPath = "lmas"
+    lmas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lmas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lmas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lmas *MobileIp_Lmas) SetFilter(yf yfilter.YFilter) { lmas.YFilter = yf }
-
-func (lmas *MobileIp_Lmas) GetGoName(yname string) string {
-    if yname == "lma" { return "Lma" }
-    return ""
-}
-
-func (lmas *MobileIp_Lmas) GetSegmentPath() string {
-    return "lmas"
-}
-
-func (lmas *MobileIp_Lmas) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lma" {
-        for _, c := range lmas.Lma {
-            if lmas.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma{}
-        lmas.Lma = append(lmas.Lma, child)
-        return &lmas.Lma[len(lmas.Lma)-1]
-    }
-    return nil
-}
-
-func (lmas *MobileIp_Lmas) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lmas.EntityData.Children = make(map[string]types.YChild)
+    lmas.EntityData.Children["lma"] = types.YChild{"Lma", nil}
     for i := range lmas.Lma {
-        children[lmas.Lma[i].GetSegmentPath()] = &lmas.Lma[i]
+        lmas.EntityData.Children[types.GetSegmentPath(&lmas.Lma[i])] = types.YChild{"Lma", &lmas.Lma[i]}
     }
-    return children
+    lmas.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lmas.EntityData)
 }
-
-func (lmas *MobileIp_Lmas) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lmas *MobileIp_Lmas) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lmas *MobileIp_Lmas) GetYangName() string { return "lmas" }
-
-func (lmas *MobileIp_Lmas) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lmas *MobileIp_Lmas) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lmas *MobileIp_Lmas) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lmas *MobileIp_Lmas) SetParent(parent types.Entity) { lmas.parent = parent }
-
-func (lmas *MobileIp_Lmas) GetParent() types.Entity { return lmas.parent }
-
-func (lmas *MobileIp_Lmas) GetParentYangName() string { return "mobile-ip" }
 
 // MobileIp_Lmas_Lma
 // PMIPv6 LMA configuration
 type MobileIp_Lmas_Lma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA name. The type is string with length: 1..125.
@@ -937,8 +532,9 @@ type MobileIp_Lmas_Lma struct {
     // Default MN profile for LMA. The type is string with length: 1..125.
     DefaultProfile interface{}
 
-    // CN facing interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // CN facing interface name. The type is string with pattern:
+    // b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Mobile Map for this LMA. The type is string with length: 1..125.
     MobileMap interface{}
@@ -995,158 +591,53 @@ type MobileIp_Lmas_Lma struct {
     ReplayProtection MobileIp_Lmas_Lma_ReplayProtection
 }
 
-func (lma *MobileIp_Lmas_Lma) GetFilter() yfilter.YFilter { return lma.YFilter }
+func (lma *MobileIp_Lmas_Lma) GetEntityData() *types.CommonEntityData {
+    lma.EntityData.YFilter = lma.YFilter
+    lma.EntityData.YangName = "lma"
+    lma.EntityData.BundleName = "cisco_ios_xr"
+    lma.EntityData.ParentYangName = "lmas"
+    lma.EntityData.SegmentPath = "lma" + "[lma-name='" + fmt.Sprintf("%v", lma.LmaName) + "']" + "[domain-name='" + fmt.Sprintf("%v", lma.DomainName) + "']"
+    lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lma *MobileIp_Lmas_Lma) SetFilter(yf yfilter.YFilter) { lma.YFilter = yf }
-
-func (lma *MobileIp_Lmas_Lma) GetGoName(yname string) string {
-    if yname == "lma-name" { return "LmaName" }
-    if yname == "domain-name" { return "DomainName" }
-    if yname == "generate" { return "Generate" }
-    if yname == "mobile-route-ad" { return "MobileRouteAd" }
-    if yname == "ani" { return "Ani" }
-    if yname == "multipath" { return "Multipath" }
-    if yname == "dynamic" { return "Dynamic" }
-    if yname == "enforce" { return "Enforce" }
-    if yname == "default-profile" { return "DefaultProfile" }
-    if yname == "interface" { return "Interface" }
-    if yname == "mobile-map" { return "MobileMap" }
-    if yname == "pgw-subs-cont" { return "PgwSubsCont" }
-    if yname == "binding-revocation-attributes" { return "BindingRevocationAttributes" }
-    if yname == "rat-attributes" { return "RatAttributes" }
-    if yname == "heart-beat-attributes" { return "HeartBeatAttributes" }
-    if yname == "lmaipv6-addresses" { return "Lmaipv6Addresses" }
-    if yname == "hnp" { return "Hnp" }
-    if yname == "redistribute" { return "Redistribute" }
-    if yname == "aaa" { return "Aaa" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "lmaipv4-addresses" { return "Lmaipv4Addresses" }
-    if yname == "roles" { return "Roles" }
-    if yname == "binding-attributes" { return "BindingAttributes" }
-    if yname == "mags" { return "Mags" }
-    if yname == "tunnel-attributes" { return "TunnelAttributes" }
-    if yname == "services" { return "Services" }
-    if yname == "networks" { return "Networks" }
-    if yname == "replay-protection" { return "ReplayProtection" }
-    return ""
+    lma.EntityData.Children = make(map[string]types.YChild)
+    lma.EntityData.Children["binding-revocation-attributes"] = types.YChild{"BindingRevocationAttributes", &lma.BindingRevocationAttributes}
+    lma.EntityData.Children["rat-attributes"] = types.YChild{"RatAttributes", &lma.RatAttributes}
+    lma.EntityData.Children["heart-beat-attributes"] = types.YChild{"HeartBeatAttributes", &lma.HeartBeatAttributes}
+    lma.EntityData.Children["lmaipv6-addresses"] = types.YChild{"Lmaipv6Addresses", &lma.Lmaipv6Addresses}
+    lma.EntityData.Children["hnp"] = types.YChild{"Hnp", &lma.Hnp}
+    lma.EntityData.Children["redistribute"] = types.YChild{"Redistribute", &lma.Redistribute}
+    lma.EntityData.Children["aaa"] = types.YChild{"Aaa", &lma.Aaa}
+    lma.EntityData.Children["dscp"] = types.YChild{"Dscp", &lma.Dscp}
+    lma.EntityData.Children["lmaipv4-addresses"] = types.YChild{"Lmaipv4Addresses", &lma.Lmaipv4Addresses}
+    lma.EntityData.Children["roles"] = types.YChild{"Roles", &lma.Roles}
+    lma.EntityData.Children["binding-attributes"] = types.YChild{"BindingAttributes", &lma.BindingAttributes}
+    lma.EntityData.Children["mags"] = types.YChild{"Mags", &lma.Mags}
+    lma.EntityData.Children["tunnel-attributes"] = types.YChild{"TunnelAttributes", &lma.TunnelAttributes}
+    lma.EntityData.Children["services"] = types.YChild{"Services", &lma.Services}
+    lma.EntityData.Children["networks"] = types.YChild{"Networks", &lma.Networks}
+    lma.EntityData.Children["replay-protection"] = types.YChild{"ReplayProtection", &lma.ReplayProtection}
+    lma.EntityData.Leafs = make(map[string]types.YLeaf)
+    lma.EntityData.Leafs["lma-name"] = types.YLeaf{"LmaName", lma.LmaName}
+    lma.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", lma.DomainName}
+    lma.EntityData.Leafs["generate"] = types.YLeaf{"Generate", lma.Generate}
+    lma.EntityData.Leafs["mobile-route-ad"] = types.YLeaf{"MobileRouteAd", lma.MobileRouteAd}
+    lma.EntityData.Leafs["ani"] = types.YLeaf{"Ani", lma.Ani}
+    lma.EntityData.Leafs["multipath"] = types.YLeaf{"Multipath", lma.Multipath}
+    lma.EntityData.Leafs["dynamic"] = types.YLeaf{"Dynamic", lma.Dynamic}
+    lma.EntityData.Leafs["enforce"] = types.YLeaf{"Enforce", lma.Enforce}
+    lma.EntityData.Leafs["default-profile"] = types.YLeaf{"DefaultProfile", lma.DefaultProfile}
+    lma.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", lma.Interface_}
+    lma.EntityData.Leafs["mobile-map"] = types.YLeaf{"MobileMap", lma.MobileMap}
+    lma.EntityData.Leafs["pgw-subs-cont"] = types.YLeaf{"PgwSubsCont", lma.PgwSubsCont}
+    return &(lma.EntityData)
 }
-
-func (lma *MobileIp_Lmas_Lma) GetSegmentPath() string {
-    return "lma" + "[lma-name='" + fmt.Sprintf("%v", lma.LmaName) + "']" + "[domain-name='" + fmt.Sprintf("%v", lma.DomainName) + "']"
-}
-
-func (lma *MobileIp_Lmas_Lma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "binding-revocation-attributes" {
-        return &lma.BindingRevocationAttributes
-    }
-    if childYangName == "rat-attributes" {
-        return &lma.RatAttributes
-    }
-    if childYangName == "heart-beat-attributes" {
-        return &lma.HeartBeatAttributes
-    }
-    if childYangName == "lmaipv6-addresses" {
-        return &lma.Lmaipv6Addresses
-    }
-    if childYangName == "hnp" {
-        return &lma.Hnp
-    }
-    if childYangName == "redistribute" {
-        return &lma.Redistribute
-    }
-    if childYangName == "aaa" {
-        return &lma.Aaa
-    }
-    if childYangName == "dscp" {
-        return &lma.Dscp
-    }
-    if childYangName == "lmaipv4-addresses" {
-        return &lma.Lmaipv4Addresses
-    }
-    if childYangName == "roles" {
-        return &lma.Roles
-    }
-    if childYangName == "binding-attributes" {
-        return &lma.BindingAttributes
-    }
-    if childYangName == "mags" {
-        return &lma.Mags
-    }
-    if childYangName == "tunnel-attributes" {
-        return &lma.TunnelAttributes
-    }
-    if childYangName == "services" {
-        return &lma.Services
-    }
-    if childYangName == "networks" {
-        return &lma.Networks
-    }
-    if childYangName == "replay-protection" {
-        return &lma.ReplayProtection
-    }
-    return nil
-}
-
-func (lma *MobileIp_Lmas_Lma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["binding-revocation-attributes"] = &lma.BindingRevocationAttributes
-    children["rat-attributes"] = &lma.RatAttributes
-    children["heart-beat-attributes"] = &lma.HeartBeatAttributes
-    children["lmaipv6-addresses"] = &lma.Lmaipv6Addresses
-    children["hnp"] = &lma.Hnp
-    children["redistribute"] = &lma.Redistribute
-    children["aaa"] = &lma.Aaa
-    children["dscp"] = &lma.Dscp
-    children["lmaipv4-addresses"] = &lma.Lmaipv4Addresses
-    children["roles"] = &lma.Roles
-    children["binding-attributes"] = &lma.BindingAttributes
-    children["mags"] = &lma.Mags
-    children["tunnel-attributes"] = &lma.TunnelAttributes
-    children["services"] = &lma.Services
-    children["networks"] = &lma.Networks
-    children["replay-protection"] = &lma.ReplayProtection
-    return children
-}
-
-func (lma *MobileIp_Lmas_Lma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-name"] = lma.LmaName
-    leafs["domain-name"] = lma.DomainName
-    leafs["generate"] = lma.Generate
-    leafs["mobile-route-ad"] = lma.MobileRouteAd
-    leafs["ani"] = lma.Ani
-    leafs["multipath"] = lma.Multipath
-    leafs["dynamic"] = lma.Dynamic
-    leafs["enforce"] = lma.Enforce
-    leafs["default-profile"] = lma.DefaultProfile
-    leafs["interface"] = lma.Interface
-    leafs["mobile-map"] = lma.MobileMap
-    leafs["pgw-subs-cont"] = lma.PgwSubsCont
-    return leafs
-}
-
-func (lma *MobileIp_Lmas_Lma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lma *MobileIp_Lmas_Lma) GetYangName() string { return "lma" }
-
-func (lma *MobileIp_Lmas_Lma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lma *MobileIp_Lmas_Lma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lma *MobileIp_Lmas_Lma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lma *MobileIp_Lmas_Lma) SetParent(parent types.Entity) { lma.parent = parent }
-
-func (lma *MobileIp_Lmas_Lma) GetParent() types.Entity { return lma.parent }
-
-func (lma *MobileIp_Lmas_Lma) GetParentYangName() string { return "lmas" }
 
 // MobileIp_Lmas_Lma_BindingRevocationAttributes
 // LMA Binding Revocation Attributes
 type MobileIp_Lmas_Lma_BindingRevocationAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of Retransmissons Allowed for BRI Message. The type is interface{}
@@ -1157,62 +648,28 @@ type MobileIp_Lmas_Lma_BindingRevocationAttributes struct {
     Delay MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay
 }
 
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetFilter() yfilter.YFilter { return bindingRevocationAttributes.YFilter }
+func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetEntityData() *types.CommonEntityData {
+    bindingRevocationAttributes.EntityData.YFilter = bindingRevocationAttributes.YFilter
+    bindingRevocationAttributes.EntityData.YangName = "binding-revocation-attributes"
+    bindingRevocationAttributes.EntityData.BundleName = "cisco_ios_xr"
+    bindingRevocationAttributes.EntityData.ParentYangName = "lma"
+    bindingRevocationAttributes.EntityData.SegmentPath = "binding-revocation-attributes"
+    bindingRevocationAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindingRevocationAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindingRevocationAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) SetFilter(yf yfilter.YFilter) { bindingRevocationAttributes.YFilter = yf }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetGoName(yname string) string {
-    if yname == "retry" { return "Retry" }
-    if yname == "delay" { return "Delay" }
-    return ""
+    bindingRevocationAttributes.EntityData.Children = make(map[string]types.YChild)
+    bindingRevocationAttributes.EntityData.Children["delay"] = types.YChild{"Delay", &bindingRevocationAttributes.Delay}
+    bindingRevocationAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    bindingRevocationAttributes.EntityData.Leafs["retry"] = types.YLeaf{"Retry", bindingRevocationAttributes.Retry}
+    return &(bindingRevocationAttributes.EntityData)
 }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetSegmentPath() string {
-    return "binding-revocation-attributes"
-}
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "delay" {
-        return &bindingRevocationAttributes.Delay
-    }
-    return nil
-}
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["delay"] = &bindingRevocationAttributes.Delay
-    return children
-}
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["retry"] = bindingRevocationAttributes.Retry
-    return leafs
-}
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetYangName() string { return "binding-revocation-attributes" }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) SetParent(parent types.Entity) { bindingRevocationAttributes.parent = parent }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetParent() types.Entity { return bindingRevocationAttributes.parent }
-
-func (bindingRevocationAttributes *MobileIp_Lmas_Lma_BindingRevocationAttributes) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay
 // Time to wait before Retransmitting BRI
 // Message
 type MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify in millisec. The type is interface{} with range: 500..65535.
@@ -1222,58 +679,27 @@ type MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay struct {
     BrMax interface{}
 }
 
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetFilter() yfilter.YFilter { return delay.YFilter }
+func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetEntityData() *types.CommonEntityData {
+    delay.EntityData.YFilter = delay.YFilter
+    delay.EntityData.YangName = "delay"
+    delay.EntityData.BundleName = "cisco_ios_xr"
+    delay.EntityData.ParentYangName = "binding-revocation-attributes"
+    delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) SetFilter(yf yfilter.YFilter) { delay.YFilter = yf }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetGoName(yname string) string {
-    if yname == "br-min" { return "BrMin" }
-    if yname == "br-max" { return "BrMax" }
-    return ""
+    delay.EntityData.Children = make(map[string]types.YChild)
+    delay.EntityData.Leafs = make(map[string]types.YLeaf)
+    delay.EntityData.Leafs["br-min"] = types.YLeaf{"BrMin", delay.BrMin}
+    delay.EntityData.Leafs["br-max"] = types.YLeaf{"BrMax", delay.BrMax}
+    return &(delay.EntityData)
 }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetSegmentPath() string {
-    return "delay"
-}
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["br-min"] = delay.BrMin
-    leafs["br-max"] = delay.BrMax
-    return leafs
-}
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetBundleName() string { return "cisco_ios_xr" }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetYangName() string { return "delay" }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) SetParent(parent types.Entity) { delay.parent = parent }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetParent() types.Entity { return delay.parent }
-
-func (delay *MobileIp_Lmas_Lma_BindingRevocationAttributes_Delay) GetParentYangName() string { return "binding-revocation-attributes" }
 
 // MobileIp_Lmas_Lma_RatAttributes
 // Radio access technology type config  this LMA
 type MobileIp_Lmas_Lma_RatAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LMA rat type. The type is LmaRat.
@@ -1283,58 +709,27 @@ type MobileIp_Lmas_Lma_RatAttributes struct {
     PriorityValue interface{}
 }
 
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetFilter() yfilter.YFilter { return ratAttributes.YFilter }
+func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetEntityData() *types.CommonEntityData {
+    ratAttributes.EntityData.YFilter = ratAttributes.YFilter
+    ratAttributes.EntityData.YangName = "rat-attributes"
+    ratAttributes.EntityData.BundleName = "cisco_ios_xr"
+    ratAttributes.EntityData.ParentYangName = "lma"
+    ratAttributes.EntityData.SegmentPath = "rat-attributes"
+    ratAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ratAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ratAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) SetFilter(yf yfilter.YFilter) { ratAttributes.YFilter = yf }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetGoName(yname string) string {
-    if yname == "lma-rat" { return "LmaRat" }
-    if yname == "priority-value" { return "PriorityValue" }
-    return ""
+    ratAttributes.EntityData.Children = make(map[string]types.YChild)
+    ratAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    ratAttributes.EntityData.Leafs["lma-rat"] = types.YLeaf{"LmaRat", ratAttributes.LmaRat}
+    ratAttributes.EntityData.Leafs["priority-value"] = types.YLeaf{"PriorityValue", ratAttributes.PriorityValue}
+    return &(ratAttributes.EntityData)
 }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetSegmentPath() string {
-    return "rat-attributes"
-}
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-rat"] = ratAttributes.LmaRat
-    leafs["priority-value"] = ratAttributes.PriorityValue
-    return leafs
-}
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetYangName() string { return "rat-attributes" }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) SetParent(parent types.Entity) { ratAttributes.parent = parent }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetParent() types.Entity { return ratAttributes.parent }
-
-func (ratAttributes *MobileIp_Lmas_Lma_RatAttributes) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_HeartBeatAttributes
 // heartbeat config for this LMA
 type MobileIp_Lmas_Lma_HeartBeatAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the interval value in second. The type is interface{} with range:
@@ -1348,60 +743,28 @@ type MobileIp_Lmas_Lma_HeartBeatAttributes struct {
     Timeout interface{}
 }
 
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetFilter() yfilter.YFilter { return heartBeatAttributes.YFilter }
+func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetEntityData() *types.CommonEntityData {
+    heartBeatAttributes.EntityData.YFilter = heartBeatAttributes.YFilter
+    heartBeatAttributes.EntityData.YangName = "heart-beat-attributes"
+    heartBeatAttributes.EntityData.BundleName = "cisco_ios_xr"
+    heartBeatAttributes.EntityData.ParentYangName = "lma"
+    heartBeatAttributes.EntityData.SegmentPath = "heart-beat-attributes"
+    heartBeatAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    heartBeatAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    heartBeatAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) SetFilter(yf yfilter.YFilter) { heartBeatAttributes.YFilter = yf }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetGoName(yname string) string {
-    if yname == "interval" { return "Interval" }
-    if yname == "retries" { return "Retries" }
-    if yname == "timeout" { return "Timeout" }
-    return ""
+    heartBeatAttributes.EntityData.Children = make(map[string]types.YChild)
+    heartBeatAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    heartBeatAttributes.EntityData.Leafs["interval"] = types.YLeaf{"Interval", heartBeatAttributes.Interval}
+    heartBeatAttributes.EntityData.Leafs["retries"] = types.YLeaf{"Retries", heartBeatAttributes.Retries}
+    heartBeatAttributes.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", heartBeatAttributes.Timeout}
+    return &(heartBeatAttributes.EntityData)
 }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetSegmentPath() string {
-    return "heart-beat-attributes"
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interval"] = heartBeatAttributes.Interval
-    leafs["retries"] = heartBeatAttributes.Retries
-    leafs["timeout"] = heartBeatAttributes.Timeout
-    return leafs
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetYangName() string { return "heart-beat-attributes" }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) SetParent(parent types.Entity) { heartBeatAttributes.parent = parent }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetParent() types.Entity { return heartBeatAttributes.parent }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_HeartBeatAttributes) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Lmaipv6Addresses
 // Table of LMAIPv6Address
 type MobileIp_Lmas_Lma_Lmaipv6Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure IPv6 address for this LMA. The type is slice of
@@ -1409,125 +772,56 @@ type MobileIp_Lmas_Lma_Lmaipv6Addresses struct {
     Lmaipv6Address []MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address
 }
 
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetFilter() yfilter.YFilter { return lmaipv6Addresses.YFilter }
+func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetEntityData() *types.CommonEntityData {
+    lmaipv6Addresses.EntityData.YFilter = lmaipv6Addresses.YFilter
+    lmaipv6Addresses.EntityData.YangName = "lmaipv6-addresses"
+    lmaipv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    lmaipv6Addresses.EntityData.ParentYangName = "lma"
+    lmaipv6Addresses.EntityData.SegmentPath = "lmaipv6-addresses"
+    lmaipv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lmaipv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lmaipv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) SetFilter(yf yfilter.YFilter) { lmaipv6Addresses.YFilter = yf }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetGoName(yname string) string {
-    if yname == "lmaipv6-address" { return "Lmaipv6Address" }
-    return ""
-}
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetSegmentPath() string {
-    return "lmaipv6-addresses"
-}
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lmaipv6-address" {
-        for _, c := range lmaipv6Addresses.Lmaipv6Address {
-            if lmaipv6Addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address{}
-        lmaipv6Addresses.Lmaipv6Address = append(lmaipv6Addresses.Lmaipv6Address, child)
-        return &lmaipv6Addresses.Lmaipv6Address[len(lmaipv6Addresses.Lmaipv6Address)-1]
-    }
-    return nil
-}
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lmaipv6Addresses.EntityData.Children = make(map[string]types.YChild)
+    lmaipv6Addresses.EntityData.Children["lmaipv6-address"] = types.YChild{"Lmaipv6Address", nil}
     for i := range lmaipv6Addresses.Lmaipv6Address {
-        children[lmaipv6Addresses.Lmaipv6Address[i].GetSegmentPath()] = &lmaipv6Addresses.Lmaipv6Address[i]
+        lmaipv6Addresses.EntityData.Children[types.GetSegmentPath(&lmaipv6Addresses.Lmaipv6Address[i])] = types.YChild{"Lmaipv6Address", &lmaipv6Addresses.Lmaipv6Address[i]}
     }
-    return children
+    lmaipv6Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lmaipv6Addresses.EntityData)
 }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetYangName() string { return "lmaipv6-addresses" }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) SetParent(parent types.Entity) { lmaipv6Addresses.parent = parent }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetParent() types.Entity { return lmaipv6Addresses.parent }
-
-func (lmaipv6Addresses *MobileIp_Lmas_Lma_Lmaipv6Addresses) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address
 // Configure IPv6 address for this LMA
 type MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetFilter() yfilter.YFilter { return lmaipv6Address.YFilter }
+func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetEntityData() *types.CommonEntityData {
+    lmaipv6Address.EntityData.YFilter = lmaipv6Address.YFilter
+    lmaipv6Address.EntityData.YangName = "lmaipv6-address"
+    lmaipv6Address.EntityData.BundleName = "cisco_ios_xr"
+    lmaipv6Address.EntityData.ParentYangName = "lmaipv6-addresses"
+    lmaipv6Address.EntityData.SegmentPath = "lmaipv6-address" + "[address='" + fmt.Sprintf("%v", lmaipv6Address.Address) + "']"
+    lmaipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lmaipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lmaipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) SetFilter(yf yfilter.YFilter) { lmaipv6Address.YFilter = yf }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    return ""
+    lmaipv6Address.EntityData.Children = make(map[string]types.YChild)
+    lmaipv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
+    lmaipv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", lmaipv6Address.Address}
+    return &(lmaipv6Address.EntityData)
 }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetSegmentPath() string {
-    return "lmaipv6-address" + "[address='" + fmt.Sprintf("%v", lmaipv6Address.Address) + "']"
-}
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = lmaipv6Address.Address
-    return leafs
-}
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetYangName() string { return "lmaipv6-address" }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) SetParent(parent types.Entity) { lmaipv6Address.parent = parent }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetParent() types.Entity { return lmaipv6Address.parent }
-
-func (lmaipv6Address *MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address) GetParentYangName() string { return "lmaipv6-addresses" }
 
 // MobileIp_Lmas_Lma_Hnp
 // LMA HNP options
 type MobileIp_Lmas_Lma_Hnp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // maximum HNPs allowed per MN interface. The type is interface{} with range:
@@ -1535,56 +829,26 @@ type MobileIp_Lmas_Lma_Hnp struct {
     Maximum interface{}
 }
 
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetFilter() yfilter.YFilter { return hnp.YFilter }
+func (hnp *MobileIp_Lmas_Lma_Hnp) GetEntityData() *types.CommonEntityData {
+    hnp.EntityData.YFilter = hnp.YFilter
+    hnp.EntityData.YangName = "hnp"
+    hnp.EntityData.BundleName = "cisco_ios_xr"
+    hnp.EntityData.ParentYangName = "lma"
+    hnp.EntityData.SegmentPath = "hnp"
+    hnp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hnp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hnp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hnp *MobileIp_Lmas_Lma_Hnp) SetFilter(yf yfilter.YFilter) { hnp.YFilter = yf }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetGoName(yname string) string {
-    if yname == "maximum" { return "Maximum" }
-    return ""
+    hnp.EntityData.Children = make(map[string]types.YChild)
+    hnp.EntityData.Leafs = make(map[string]types.YLeaf)
+    hnp.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", hnp.Maximum}
+    return &(hnp.EntityData)
 }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetSegmentPath() string {
-    return "hnp"
-}
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["maximum"] = hnp.Maximum
-    return leafs
-}
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetYangName() string { return "hnp" }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) SetParent(parent types.Entity) { hnp.parent = parent }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetParent() types.Entity { return hnp.parent }
-
-func (hnp *MobileIp_Lmas_Lma_Hnp) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Redistribute
 // Redistribute routes
 type MobileIp_Lmas_Lma_Redistribute struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Redistribute type. The type is RedistType.
@@ -1594,117 +858,53 @@ type MobileIp_Lmas_Lma_Redistribute struct {
     RedistSubType interface{}
 }
 
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetFilter() yfilter.YFilter { return redistribute.YFilter }
+func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetEntityData() *types.CommonEntityData {
+    redistribute.EntityData.YFilter = redistribute.YFilter
+    redistribute.EntityData.YangName = "redistribute"
+    redistribute.EntityData.BundleName = "cisco_ios_xr"
+    redistribute.EntityData.ParentYangName = "lma"
+    redistribute.EntityData.SegmentPath = "redistribute"
+    redistribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    redistribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    redistribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) SetFilter(yf yfilter.YFilter) { redistribute.YFilter = yf }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetGoName(yname string) string {
-    if yname == "redist-type" { return "RedistType" }
-    if yname == "redist-sub-type" { return "RedistSubType" }
-    return ""
+    redistribute.EntityData.Children = make(map[string]types.YChild)
+    redistribute.EntityData.Leafs = make(map[string]types.YLeaf)
+    redistribute.EntityData.Leafs["redist-type"] = types.YLeaf{"RedistType", redistribute.RedistType}
+    redistribute.EntityData.Leafs["redist-sub-type"] = types.YLeaf{"RedistSubType", redistribute.RedistSubType}
+    return &(redistribute.EntityData)
 }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetSegmentPath() string {
-    return "redistribute"
-}
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["redist-type"] = redistribute.RedistType
-    leafs["redist-sub-type"] = redistribute.RedistSubType
-    return leafs
-}
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetBundleName() string { return "cisco_ios_xr" }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetYangName() string { return "redistribute" }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) SetParent(parent types.Entity) { redistribute.parent = parent }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetParent() types.Entity { return redistribute.parent }
-
-func (redistribute *MobileIp_Lmas_Lma_Redistribute) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Aaa
 // AAA configuration for this LMA
 type MobileIp_Lmas_Lma_Aaa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AAA accounting for this LMA.
     Accounting MobileIp_Lmas_Lma_Aaa_Accounting
 }
 
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetFilter() yfilter.YFilter { return aaa.YFilter }
+func (aaa *MobileIp_Lmas_Lma_Aaa) GetEntityData() *types.CommonEntityData {
+    aaa.EntityData.YFilter = aaa.YFilter
+    aaa.EntityData.YangName = "aaa"
+    aaa.EntityData.BundleName = "cisco_ios_xr"
+    aaa.EntityData.ParentYangName = "lma"
+    aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (aaa *MobileIp_Lmas_Lma_Aaa) SetFilter(yf yfilter.YFilter) { aaa.YFilter = yf }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetGoName(yname string) string {
-    if yname == "accounting" { return "Accounting" }
-    return ""
+    aaa.EntityData.Children = make(map[string]types.YChild)
+    aaa.EntityData.Children["accounting"] = types.YChild{"Accounting", &aaa.Accounting}
+    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(aaa.EntityData)
 }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetSegmentPath() string {
-    return "aaa"
-}
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accounting" {
-        return &aaa.Accounting
-    }
-    return nil
-}
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accounting"] = &aaa.Accounting
-    return children
-}
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetYangName() string { return "aaa" }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) SetParent(parent types.Entity) { aaa.parent = parent }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetParent() types.Entity { return aaa.parent }
-
-func (aaa *MobileIp_Lmas_Lma_Aaa) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Aaa_Accounting
 // AAA accounting for this LMA
 type MobileIp_Lmas_Lma_Aaa_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set constant integer. The type is interface{}.
@@ -1715,58 +915,27 @@ type MobileIp_Lmas_Lma_Aaa_Accounting struct {
     InterimInterval interface{}
 }
 
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "aaa"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "interim-interval" { return "InterimInterval" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs["enable"] = types.YLeaf{"Enable", accounting.Enable}
+    accounting.EntityData.Leafs["interim-interval"] = types.YLeaf{"InterimInterval", accounting.InterimInterval}
+    return &(accounting.EntityData)
 }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetSegmentPath() string {
-    return "accounting"
-}
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = accounting.Enable
-    leafs["interim-interval"] = accounting.InterimInterval
-    return leafs
-}
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *MobileIp_Lmas_Lma_Aaa_Accounting) GetParentYangName() string { return "aaa" }
 
 // MobileIp_Lmas_Lma_Dscp
 // DSCP for packets originating from this LMA
 type MobileIp_Lmas_Lma_Dscp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the DSCP value. The type is interface{} with range: 1..63.
@@ -1776,58 +945,27 @@ type MobileIp_Lmas_Lma_Dscp struct {
     Force interface{}
 }
 
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetFilter() yfilter.YFilter { return dscp.YFilter }
+func (dscp *MobileIp_Lmas_Lma_Dscp) GetEntityData() *types.CommonEntityData {
+    dscp.EntityData.YFilter = dscp.YFilter
+    dscp.EntityData.YangName = "dscp"
+    dscp.EntityData.BundleName = "cisco_ios_xr"
+    dscp.EntityData.ParentYangName = "lma"
+    dscp.EntityData.SegmentPath = "dscp"
+    dscp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dscp *MobileIp_Lmas_Lma_Dscp) SetFilter(yf yfilter.YFilter) { dscp.YFilter = yf }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetGoName(yname string) string {
-    if yname == "value" { return "Value" }
-    if yname == "force" { return "Force" }
-    return ""
+    dscp.EntityData.Children = make(map[string]types.YChild)
+    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dscp.EntityData.Leafs["value"] = types.YLeaf{"Value", dscp.Value}
+    dscp.EntityData.Leafs["force"] = types.YLeaf{"Force", dscp.Force}
+    return &(dscp.EntityData)
 }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetSegmentPath() string {
-    return "dscp"
-}
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["value"] = dscp.Value
-    leafs["force"] = dscp.Force
-    return leafs
-}
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetYangName() string { return "dscp" }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) SetParent(parent types.Entity) { dscp.parent = parent }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetParent() types.Entity { return dscp.parent }
-
-func (dscp *MobileIp_Lmas_Lma_Dscp) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Lmaipv4Addresses
 // Table of LMAIPv4Address
 type MobileIp_Lmas_Lma_Lmaipv4Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure IPv4 address for this LMA. The type is slice of
@@ -1835,249 +973,111 @@ type MobileIp_Lmas_Lma_Lmaipv4Addresses struct {
     Lmaipv4Address []MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address
 }
 
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetFilter() yfilter.YFilter { return lmaipv4Addresses.YFilter }
+func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetEntityData() *types.CommonEntityData {
+    lmaipv4Addresses.EntityData.YFilter = lmaipv4Addresses.YFilter
+    lmaipv4Addresses.EntityData.YangName = "lmaipv4-addresses"
+    lmaipv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    lmaipv4Addresses.EntityData.ParentYangName = "lma"
+    lmaipv4Addresses.EntityData.SegmentPath = "lmaipv4-addresses"
+    lmaipv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lmaipv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lmaipv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) SetFilter(yf yfilter.YFilter) { lmaipv4Addresses.YFilter = yf }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetGoName(yname string) string {
-    if yname == "lmaipv4-address" { return "Lmaipv4Address" }
-    return ""
-}
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetSegmentPath() string {
-    return "lmaipv4-addresses"
-}
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lmaipv4-address" {
-        for _, c := range lmaipv4Addresses.Lmaipv4Address {
-            if lmaipv4Addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address{}
-        lmaipv4Addresses.Lmaipv4Address = append(lmaipv4Addresses.Lmaipv4Address, child)
-        return &lmaipv4Addresses.Lmaipv4Address[len(lmaipv4Addresses.Lmaipv4Address)-1]
-    }
-    return nil
-}
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lmaipv4Addresses.EntityData.Children = make(map[string]types.YChild)
+    lmaipv4Addresses.EntityData.Children["lmaipv4-address"] = types.YChild{"Lmaipv4Address", nil}
     for i := range lmaipv4Addresses.Lmaipv4Address {
-        children[lmaipv4Addresses.Lmaipv4Address[i].GetSegmentPath()] = &lmaipv4Addresses.Lmaipv4Address[i]
+        lmaipv4Addresses.EntityData.Children[types.GetSegmentPath(&lmaipv4Addresses.Lmaipv4Address[i])] = types.YChild{"Lmaipv4Address", &lmaipv4Addresses.Lmaipv4Address[i]}
     }
-    return children
+    lmaipv4Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lmaipv4Addresses.EntityData)
 }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetYangName() string { return "lmaipv4-addresses" }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) SetParent(parent types.Entity) { lmaipv4Addresses.parent = parent }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetParent() types.Entity { return lmaipv4Addresses.parent }
-
-func (lmaipv4Addresses *MobileIp_Lmas_Lma_Lmaipv4Addresses) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address
 // Configure IPv4 address for this LMA
 type MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetFilter() yfilter.YFilter { return lmaipv4Address.YFilter }
+func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetEntityData() *types.CommonEntityData {
+    lmaipv4Address.EntityData.YFilter = lmaipv4Address.YFilter
+    lmaipv4Address.EntityData.YangName = "lmaipv4-address"
+    lmaipv4Address.EntityData.BundleName = "cisco_ios_xr"
+    lmaipv4Address.EntityData.ParentYangName = "lmaipv4-addresses"
+    lmaipv4Address.EntityData.SegmentPath = "lmaipv4-address" + "[address='" + fmt.Sprintf("%v", lmaipv4Address.Address) + "']"
+    lmaipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lmaipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lmaipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) SetFilter(yf yfilter.YFilter) { lmaipv4Address.YFilter = yf }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    return ""
+    lmaipv4Address.EntityData.Children = make(map[string]types.YChild)
+    lmaipv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
+    lmaipv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", lmaipv4Address.Address}
+    return &(lmaipv4Address.EntityData)
 }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetSegmentPath() string {
-    return "lmaipv4-address" + "[address='" + fmt.Sprintf("%v", lmaipv4Address.Address) + "']"
-}
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = lmaipv4Address.Address
-    return leafs
-}
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetYangName() string { return "lmaipv4-address" }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) SetParent(parent types.Entity) { lmaipv4Address.parent = parent }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetParent() types.Entity { return lmaipv4Address.parent }
-
-func (lmaipv4Address *MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address) GetParentYangName() string { return "lmaipv4-addresses" }
 
 // MobileIp_Lmas_Lma_Roles
 // Table of Role
 type MobileIp_Lmas_Lma_Roles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Role of this LMA. The type is slice of MobileIp_Lmas_Lma_Roles_Role.
     Role []MobileIp_Lmas_Lma_Roles_Role
 }
 
-func (roles *MobileIp_Lmas_Lma_Roles) GetFilter() yfilter.YFilter { return roles.YFilter }
+func (roles *MobileIp_Lmas_Lma_Roles) GetEntityData() *types.CommonEntityData {
+    roles.EntityData.YFilter = roles.YFilter
+    roles.EntityData.YangName = "roles"
+    roles.EntityData.BundleName = "cisco_ios_xr"
+    roles.EntityData.ParentYangName = "lma"
+    roles.EntityData.SegmentPath = "roles"
+    roles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    roles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    roles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (roles *MobileIp_Lmas_Lma_Roles) SetFilter(yf yfilter.YFilter) { roles.YFilter = yf }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetGoName(yname string) string {
-    if yname == "role" { return "Role" }
-    return ""
-}
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetSegmentPath() string {
-    return "roles"
-}
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "role" {
-        for _, c := range roles.Role {
-            if roles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Roles_Role{}
-        roles.Role = append(roles.Role, child)
-        return &roles.Role[len(roles.Role)-1]
-    }
-    return nil
-}
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    roles.EntityData.Children = make(map[string]types.YChild)
+    roles.EntityData.Children["role"] = types.YChild{"Role", nil}
     for i := range roles.Role {
-        children[roles.Role[i].GetSegmentPath()] = &roles.Role[i]
+        roles.EntityData.Children[types.GetSegmentPath(&roles.Role[i])] = types.YChild{"Role", &roles.Role[i]}
     }
-    return children
+    roles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(roles.EntityData)
 }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetYangName() string { return "roles" }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (roles *MobileIp_Lmas_Lma_Roles) SetParent(parent types.Entity) { roles.parent = parent }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetParent() types.Entity { return roles.parent }
-
-func (roles *MobileIp_Lmas_Lma_Roles) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Roles_Role
 // Role of this LMA
 type MobileIp_Lmas_Lma_Roles_Role struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA role mode. The type is LmaRole.
     LmaRole interface{}
 }
 
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetFilter() yfilter.YFilter { return role.YFilter }
+func (role *MobileIp_Lmas_Lma_Roles_Role) GetEntityData() *types.CommonEntityData {
+    role.EntityData.YFilter = role.YFilter
+    role.EntityData.YangName = "role"
+    role.EntityData.BundleName = "cisco_ios_xr"
+    role.EntityData.ParentYangName = "roles"
+    role.EntityData.SegmentPath = "role" + "[lma-role='" + fmt.Sprintf("%v", role.LmaRole) + "']"
+    role.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    role.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    role.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (role *MobileIp_Lmas_Lma_Roles_Role) SetFilter(yf yfilter.YFilter) { role.YFilter = yf }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetGoName(yname string) string {
-    if yname == "lma-role" { return "LmaRole" }
-    return ""
+    role.EntityData.Children = make(map[string]types.YChild)
+    role.EntityData.Leafs = make(map[string]types.YLeaf)
+    role.EntityData.Leafs["lma-role"] = types.YLeaf{"LmaRole", role.LmaRole}
+    return &(role.EntityData)
 }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetSegmentPath() string {
-    return "role" + "[lma-role='" + fmt.Sprintf("%v", role.LmaRole) + "']"
-}
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-role"] = role.LmaRole
-    return leafs
-}
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetBundleName() string { return "cisco_ios_xr" }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetYangName() string { return "role" }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) SetParent(parent types.Entity) { role.parent = parent }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetParent() types.Entity { return role.parent }
-
-func (role *MobileIp_Lmas_Lma_Roles_Role) GetParentYangName() string { return "roles" }
 
 // MobileIp_Lmas_Lma_BindingAttributes
 // LMA binding attributes
 type MobileIp_Lmas_Lma_BindingAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify in seconds, (multiples of 4). The type is interface{} with range:
@@ -2101,132 +1101,59 @@ type MobileIp_Lmas_Lma_BindingAttributes struct {
     Maximum interface{}
 }
 
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetFilter() yfilter.YFilter { return bindingAttributes.YFilter }
+func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetEntityData() *types.CommonEntityData {
+    bindingAttributes.EntityData.YFilter = bindingAttributes.YFilter
+    bindingAttributes.EntityData.YangName = "binding-attributes"
+    bindingAttributes.EntityData.BundleName = "cisco_ios_xr"
+    bindingAttributes.EntityData.ParentYangName = "lma"
+    bindingAttributes.EntityData.SegmentPath = "binding-attributes"
+    bindingAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindingAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindingAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) SetFilter(yf yfilter.YFilter) { bindingAttributes.YFilter = yf }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetGoName(yname string) string {
-    if yname == "refresh-time" { return "RefreshTime" }
-    if yname == "delete-wait-interval" { return "DeleteWaitInterval" }
-    if yname == "create-wait-interval" { return "CreateWaitInterval" }
-    if yname == "max-life-time" { return "MaxLifeTime" }
-    if yname == "maximum" { return "Maximum" }
-    return ""
+    bindingAttributes.EntityData.Children = make(map[string]types.YChild)
+    bindingAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    bindingAttributes.EntityData.Leafs["refresh-time"] = types.YLeaf{"RefreshTime", bindingAttributes.RefreshTime}
+    bindingAttributes.EntityData.Leafs["delete-wait-interval"] = types.YLeaf{"DeleteWaitInterval", bindingAttributes.DeleteWaitInterval}
+    bindingAttributes.EntityData.Leafs["create-wait-interval"] = types.YLeaf{"CreateWaitInterval", bindingAttributes.CreateWaitInterval}
+    bindingAttributes.EntityData.Leafs["max-life-time"] = types.YLeaf{"MaxLifeTime", bindingAttributes.MaxLifeTime}
+    bindingAttributes.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", bindingAttributes.Maximum}
+    return &(bindingAttributes.EntityData)
 }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetSegmentPath() string {
-    return "binding-attributes"
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["refresh-time"] = bindingAttributes.RefreshTime
-    leafs["delete-wait-interval"] = bindingAttributes.DeleteWaitInterval
-    leafs["create-wait-interval"] = bindingAttributes.CreateWaitInterval
-    leafs["max-life-time"] = bindingAttributes.MaxLifeTime
-    leafs["maximum"] = bindingAttributes.Maximum
-    return leafs
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetYangName() string { return "binding-attributes" }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) SetParent(parent types.Entity) { bindingAttributes.parent = parent }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetParent() types.Entity { return bindingAttributes.parent }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_BindingAttributes) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Mags
 // Table of MAG
 type MobileIp_Lmas_Lma_Mags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAG within LMA. The type is slice of MobileIp_Lmas_Lma_Mags_Mag.
     Mag []MobileIp_Lmas_Lma_Mags_Mag
 }
 
-func (mags *MobileIp_Lmas_Lma_Mags) GetFilter() yfilter.YFilter { return mags.YFilter }
+func (mags *MobileIp_Lmas_Lma_Mags) GetEntityData() *types.CommonEntityData {
+    mags.EntityData.YFilter = mags.YFilter
+    mags.EntityData.YangName = "mags"
+    mags.EntityData.BundleName = "cisco_ios_xr"
+    mags.EntityData.ParentYangName = "lma"
+    mags.EntityData.SegmentPath = "mags"
+    mags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mags *MobileIp_Lmas_Lma_Mags) SetFilter(yf yfilter.YFilter) { mags.YFilter = yf }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetGoName(yname string) string {
-    if yname == "mag" { return "Mag" }
-    return ""
-}
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetSegmentPath() string {
-    return "mags"
-}
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mag" {
-        for _, c := range mags.Mag {
-            if mags.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Mags_Mag{}
-        mags.Mag = append(mags.Mag, child)
-        return &mags.Mag[len(mags.Mag)-1]
-    }
-    return nil
-}
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mags.EntityData.Children = make(map[string]types.YChild)
+    mags.EntityData.Children["mag"] = types.YChild{"Mag", nil}
     for i := range mags.Mag {
-        children[mags.Mag[i].GetSegmentPath()] = &mags.Mag[i]
+        mags.EntityData.Children[types.GetSegmentPath(&mags.Mag[i])] = types.YChild{"Mag", &mags.Mag[i]}
     }
-    return children
+    mags.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mags.EntityData)
 }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetYangName() string { return "mags" }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mags *MobileIp_Lmas_Lma_Mags) SetParent(parent types.Entity) { mags.parent = parent }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetParent() types.Entity { return mags.parent }
-
-func (mags *MobileIp_Lmas_Lma_Mags) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Mags_Mag
 // MAG within LMA
 type MobileIp_Lmas_Lma_Mags_Mag struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. MAG identifier. The type is string with length:
@@ -2241,15 +1168,15 @@ type MobileIp_Lmas_Lma_Mags_Mag struct {
     EncapOption interface{}
 
     // Configure IPv4 address for this MAG. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Configure IPv6 address for this MAG. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // static tunnel for this peer MAG. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     Tunnel interface{}
 
     // Authentication option between PMIPV6 entities.
@@ -2259,138 +1186,64 @@ type MobileIp_Lmas_Lma_Mags_Mag struct {
     Dscp MobileIp_Lmas_Lma_Mags_Mag_Dscp
 }
 
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetFilter() yfilter.YFilter { return mag.YFilter }
+func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetEntityData() *types.CommonEntityData {
+    mag.EntityData.YFilter = mag.YFilter
+    mag.EntityData.YangName = "mag"
+    mag.EntityData.BundleName = "cisco_ios_xr"
+    mag.EntityData.ParentYangName = "mags"
+    mag.EntityData.SegmentPath = "mag" + "[mag-name='" + fmt.Sprintf("%v", mag.MagName) + "']" + "[domain-name='" + fmt.Sprintf("%v", mag.DomainName) + "']"
+    mag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) SetFilter(yf yfilter.YFilter) { mag.YFilter = yf }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetGoName(yname string) string {
-    if yname == "mag-name" { return "MagName" }
-    if yname == "domain-name" { return "DomainName" }
-    if yname == "encap-option" { return "EncapOption" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "tunnel" { return "Tunnel" }
-    if yname == "authenticate-option" { return "AuthenticateOption" }
-    if yname == "dscp" { return "Dscp" }
-    return ""
+    mag.EntityData.Children = make(map[string]types.YChild)
+    mag.EntityData.Children["authenticate-option"] = types.YChild{"AuthenticateOption", &mag.AuthenticateOption}
+    mag.EntityData.Children["dscp"] = types.YChild{"Dscp", &mag.Dscp}
+    mag.EntityData.Leafs = make(map[string]types.YLeaf)
+    mag.EntityData.Leafs["mag-name"] = types.YLeaf{"MagName", mag.MagName}
+    mag.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", mag.DomainName}
+    mag.EntityData.Leafs["encap-option"] = types.YLeaf{"EncapOption", mag.EncapOption}
+    mag.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", mag.Ipv4Address}
+    mag.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", mag.Ipv6Address}
+    mag.EntityData.Leafs["tunnel"] = types.YLeaf{"Tunnel", mag.Tunnel}
+    return &(mag.EntityData)
 }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetSegmentPath() string {
-    return "mag" + "[mag-name='" + fmt.Sprintf("%v", mag.MagName) + "']" + "[domain-name='" + fmt.Sprintf("%v", mag.DomainName) + "']"
-}
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authenticate-option" {
-        return &mag.AuthenticateOption
-    }
-    if childYangName == "dscp" {
-        return &mag.Dscp
-    }
-    return nil
-}
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["authenticate-option"] = &mag.AuthenticateOption
-    children["dscp"] = &mag.Dscp
-    return children
-}
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mag-name"] = mag.MagName
-    leafs["domain-name"] = mag.DomainName
-    leafs["encap-option"] = mag.EncapOption
-    leafs["ipv4-address"] = mag.Ipv4Address
-    leafs["ipv6-address"] = mag.Ipv6Address
-    leafs["tunnel"] = mag.Tunnel
-    return leafs
-}
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetYangName() string { return "mag" }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) SetParent(parent types.Entity) { mag.parent = parent }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetParent() types.Entity { return mag.parent }
-
-func (mag *MobileIp_Lmas_Lma_Mags_Mag) GetParentYangName() string { return "mags" }
 
 // MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption
 // Authentication option between PMIPV6
 // entities
 type MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
     Key interface{}
 }
 
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetFilter() yfilter.YFilter { return authenticateOption.YFilter }
+func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetEntityData() *types.CommonEntityData {
+    authenticateOption.EntityData.YFilter = authenticateOption.YFilter
+    authenticateOption.EntityData.YangName = "authenticate-option"
+    authenticateOption.EntityData.BundleName = "cisco_ios_xr"
+    authenticateOption.EntityData.ParentYangName = "mag"
+    authenticateOption.EntityData.SegmentPath = "authenticate-option"
+    authenticateOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) SetFilter(yf yfilter.YFilter) { authenticateOption.YFilter = yf }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetGoName(yname string) string {
-    if yname == "spi" { return "Spi" }
-    if yname == "key" { return "Key" }
-    return ""
+    authenticateOption.EntityData.Children = make(map[string]types.YChild)
+    authenticateOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticateOption.EntityData.Leafs["spi"] = types.YLeaf{"Spi", authenticateOption.Spi}
+    authenticateOption.EntityData.Leafs["key"] = types.YLeaf{"Key", authenticateOption.Key}
+    return &(authenticateOption.EntityData)
 }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetSegmentPath() string {
-    return "authenticate-option"
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["spi"] = authenticateOption.Spi
-    leafs["key"] = authenticateOption.Key
-    return leafs
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetYangName() string { return "authenticate-option" }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) SetParent(parent types.Entity) { authenticateOption.parent = parent }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetParent() types.Entity { return authenticateOption.parent }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption) GetParentYangName() string { return "mag" }
 
 // MobileIp_Lmas_Lma_Mags_Mag_Dscp
 // DSCP for packets originating from this MAG
 type MobileIp_Lmas_Lma_Mags_Mag_Dscp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the DSCP value. The type is interface{} with range: 1..63.
@@ -2400,58 +1253,27 @@ type MobileIp_Lmas_Lma_Mags_Mag_Dscp struct {
     Force interface{}
 }
 
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetFilter() yfilter.YFilter { return dscp.YFilter }
+func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetEntityData() *types.CommonEntityData {
+    dscp.EntityData.YFilter = dscp.YFilter
+    dscp.EntityData.YangName = "dscp"
+    dscp.EntityData.BundleName = "cisco_ios_xr"
+    dscp.EntityData.ParentYangName = "mag"
+    dscp.EntityData.SegmentPath = "dscp"
+    dscp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) SetFilter(yf yfilter.YFilter) { dscp.YFilter = yf }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetGoName(yname string) string {
-    if yname == "value" { return "Value" }
-    if yname == "force" { return "Force" }
-    return ""
+    dscp.EntityData.Children = make(map[string]types.YChild)
+    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dscp.EntityData.Leafs["value"] = types.YLeaf{"Value", dscp.Value}
+    dscp.EntityData.Leafs["force"] = types.YLeaf{"Force", dscp.Force}
+    return &(dscp.EntityData)
 }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetSegmentPath() string {
-    return "dscp"
-}
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["value"] = dscp.Value
-    leafs["force"] = dscp.Force
-    return leafs
-}
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetYangName() string { return "dscp" }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) SetParent(parent types.Entity) { dscp.parent = parent }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetParent() types.Entity { return dscp.parent }
-
-func (dscp *MobileIp_Lmas_Lma_Mags_Mag_Dscp) GetParentYangName() string { return "mag" }
 
 // MobileIp_Lmas_Lma_TunnelAttributes
 // tunnel attributes
 type MobileIp_Lmas_Lma_TunnelAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // maximum transmission unit for tunnel. The type is interface{} with range:
@@ -2462,58 +1284,27 @@ type MobileIp_Lmas_Lma_TunnelAttributes struct {
     Acl interface{}
 }
 
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetFilter() yfilter.YFilter { return tunnelAttributes.YFilter }
+func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetEntityData() *types.CommonEntityData {
+    tunnelAttributes.EntityData.YFilter = tunnelAttributes.YFilter
+    tunnelAttributes.EntityData.YangName = "tunnel-attributes"
+    tunnelAttributes.EntityData.BundleName = "cisco_ios_xr"
+    tunnelAttributes.EntityData.ParentYangName = "lma"
+    tunnelAttributes.EntityData.SegmentPath = "tunnel-attributes"
+    tunnelAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) SetFilter(yf yfilter.YFilter) { tunnelAttributes.YFilter = yf }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetGoName(yname string) string {
-    if yname == "mtu" { return "Mtu" }
-    if yname == "acl" { return "Acl" }
-    return ""
+    tunnelAttributes.EntityData.Children = make(map[string]types.YChild)
+    tunnelAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelAttributes.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", tunnelAttributes.Mtu}
+    tunnelAttributes.EntityData.Leafs["acl"] = types.YLeaf{"Acl", tunnelAttributes.Acl}
+    return &(tunnelAttributes.EntityData)
 }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetSegmentPath() string {
-    return "tunnel-attributes"
-}
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mtu"] = tunnelAttributes.Mtu
-    leafs["acl"] = tunnelAttributes.Acl
-    return leafs
-}
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetYangName() string { return "tunnel-attributes" }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) SetParent(parent types.Entity) { tunnelAttributes.parent = parent }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetParent() types.Entity { return tunnelAttributes.parent }
-
-func (tunnelAttributes *MobileIp_Lmas_Lma_TunnelAttributes) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Services
 // Table of Service
 type MobileIp_Lmas_Lma_Services struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service of this LMA. The type is slice of
@@ -2521,68 +1312,29 @@ type MobileIp_Lmas_Lma_Services struct {
     Service []MobileIp_Lmas_Lma_Services_Service
 }
 
-func (services *MobileIp_Lmas_Lma_Services) GetFilter() yfilter.YFilter { return services.YFilter }
+func (services *MobileIp_Lmas_Lma_Services) GetEntityData() *types.CommonEntityData {
+    services.EntityData.YFilter = services.YFilter
+    services.EntityData.YangName = "services"
+    services.EntityData.BundleName = "cisco_ios_xr"
+    services.EntityData.ParentYangName = "lma"
+    services.EntityData.SegmentPath = "services"
+    services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (services *MobileIp_Lmas_Lma_Services) SetFilter(yf yfilter.YFilter) { services.YFilter = yf }
-
-func (services *MobileIp_Lmas_Lma_Services) GetGoName(yname string) string {
-    if yname == "service" { return "Service" }
-    return ""
-}
-
-func (services *MobileIp_Lmas_Lma_Services) GetSegmentPath() string {
-    return "services"
-}
-
-func (services *MobileIp_Lmas_Lma_Services) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service" {
-        for _, c := range services.Service {
-            if services.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Services_Service{}
-        services.Service = append(services.Service, child)
-        return &services.Service[len(services.Service)-1]
-    }
-    return nil
-}
-
-func (services *MobileIp_Lmas_Lma_Services) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    services.EntityData.Children = make(map[string]types.YChild)
+    services.EntityData.Children["service"] = types.YChild{"Service", nil}
     for i := range services.Service {
-        children[services.Service[i].GetSegmentPath()] = &services.Service[i]
+        services.EntityData.Children[types.GetSegmentPath(&services.Service[i])] = types.YChild{"Service", &services.Service[i]}
     }
-    return children
+    services.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(services.EntityData)
 }
-
-func (services *MobileIp_Lmas_Lma_Services) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (services *MobileIp_Lmas_Lma_Services) GetBundleName() string { return "cisco_ios_xr" }
-
-func (services *MobileIp_Lmas_Lma_Services) GetYangName() string { return "services" }
-
-func (services *MobileIp_Lmas_Lma_Services) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (services *MobileIp_Lmas_Lma_Services) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (services *MobileIp_Lmas_Lma_Services) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (services *MobileIp_Lmas_Lma_Services) SetParent(parent types.Entity) { services.parent = parent }
-
-func (services *MobileIp_Lmas_Lma_Services) GetParent() types.Entity { return services.parent }
-
-func (services *MobileIp_Lmas_Lma_Services) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Services_Service
 // Service of this LMA
 type MobileIp_Lmas_Lma_Services_Service struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. LMA service mode. The type is LmaService.
@@ -2619,75 +1371,34 @@ type MobileIp_Lmas_Lma_Services_Service struct {
     Customers MobileIp_Lmas_Lma_Services_Service_Customers
 }
 
-func (service *MobileIp_Lmas_Lma_Services_Service) GetFilter() yfilter.YFilter { return service.YFilter }
+func (service *MobileIp_Lmas_Lma_Services_Service) GetEntityData() *types.CommonEntityData {
+    service.EntityData.YFilter = service.YFilter
+    service.EntityData.YangName = "service"
+    service.EntityData.BundleName = "cisco_ios_xr"
+    service.EntityData.ParentYangName = "services"
+    service.EntityData.SegmentPath = "service" + "[lma-service='" + fmt.Sprintf("%v", service.LmaService) + "']"
+    service.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (service *MobileIp_Lmas_Lma_Services_Service) SetFilter(yf yfilter.YFilter) { service.YFilter = yf }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetGoName(yname string) string {
-    if yname == "lma-service" { return "LmaService" }
-    if yname == "mnp-customer" { return "MnpCustomer" }
-    if yname == "mnp-ipv4-lmn" { return "MnpIpv4Lmn" }
-    if yname == "mnp-ipv6-lmn" { return "MnpIpv6Lmn" }
-    if yname == "mnp-lmn" { return "MnpLmn" }
-    if yname == "ignore-home-address" { return "IgnoreHomeAddress" }
-    if yname == "mnp-ipv4-customer" { return "MnpIpv4Customer" }
-    if yname == "mnp-ipv6-customer" { return "MnpIpv6Customer" }
-    if yname == "customers" { return "Customers" }
-    return ""
+    service.EntityData.Children = make(map[string]types.YChild)
+    service.EntityData.Children["customers"] = types.YChild{"Customers", &service.Customers}
+    service.EntityData.Leafs = make(map[string]types.YLeaf)
+    service.EntityData.Leafs["lma-service"] = types.YLeaf{"LmaService", service.LmaService}
+    service.EntityData.Leafs["mnp-customer"] = types.YLeaf{"MnpCustomer", service.MnpCustomer}
+    service.EntityData.Leafs["mnp-ipv4-lmn"] = types.YLeaf{"MnpIpv4Lmn", service.MnpIpv4Lmn}
+    service.EntityData.Leafs["mnp-ipv6-lmn"] = types.YLeaf{"MnpIpv6Lmn", service.MnpIpv6Lmn}
+    service.EntityData.Leafs["mnp-lmn"] = types.YLeaf{"MnpLmn", service.MnpLmn}
+    service.EntityData.Leafs["ignore-home-address"] = types.YLeaf{"IgnoreHomeAddress", service.IgnoreHomeAddress}
+    service.EntityData.Leafs["mnp-ipv4-customer"] = types.YLeaf{"MnpIpv4Customer", service.MnpIpv4Customer}
+    service.EntityData.Leafs["mnp-ipv6-customer"] = types.YLeaf{"MnpIpv6Customer", service.MnpIpv6Customer}
+    return &(service.EntityData)
 }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetSegmentPath() string {
-    return "service" + "[lma-service='" + fmt.Sprintf("%v", service.LmaService) + "']"
-}
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "customers" {
-        return &service.Customers
-    }
-    return nil
-}
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["customers"] = &service.Customers
-    return children
-}
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-service"] = service.LmaService
-    leafs["mnp-customer"] = service.MnpCustomer
-    leafs["mnp-ipv4-lmn"] = service.MnpIpv4Lmn
-    leafs["mnp-ipv6-lmn"] = service.MnpIpv6Lmn
-    leafs["mnp-lmn"] = service.MnpLmn
-    leafs["ignore-home-address"] = service.IgnoreHomeAddress
-    leafs["mnp-ipv4-customer"] = service.MnpIpv4Customer
-    leafs["mnp-ipv6-customer"] = service.MnpIpv6Customer
-    return leafs
-}
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetBundleName() string { return "cisco_ios_xr" }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetYangName() string { return "service" }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) SetParent(parent types.Entity) { service.parent = parent }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetParent() types.Entity { return service.parent }
-
-func (service *MobileIp_Lmas_Lma_Services_Service) GetParentYangName() string { return "services" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers
 // Table of Customer
 type MobileIp_Lmas_Lma_Services_Service_Customers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // customer configuration on this mobile local loop service. The type is slice
@@ -2695,69 +1406,30 @@ type MobileIp_Lmas_Lma_Services_Service_Customers struct {
     Customer []MobileIp_Lmas_Lma_Services_Service_Customers_Customer
 }
 
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetFilter() yfilter.YFilter { return customers.YFilter }
+func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetEntityData() *types.CommonEntityData {
+    customers.EntityData.YFilter = customers.YFilter
+    customers.EntityData.YangName = "customers"
+    customers.EntityData.BundleName = "cisco_ios_xr"
+    customers.EntityData.ParentYangName = "service"
+    customers.EntityData.SegmentPath = "customers"
+    customers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    customers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    customers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) SetFilter(yf yfilter.YFilter) { customers.YFilter = yf }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetGoName(yname string) string {
-    if yname == "customer" { return "Customer" }
-    return ""
-}
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetSegmentPath() string {
-    return "customers"
-}
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "customer" {
-        for _, c := range customers.Customer {
-            if customers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Services_Service_Customers_Customer{}
-        customers.Customer = append(customers.Customer, child)
-        return &customers.Customer[len(customers.Customer)-1]
-    }
-    return nil
-}
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    customers.EntityData.Children = make(map[string]types.YChild)
+    customers.EntityData.Children["customer"] = types.YChild{"Customer", nil}
     for i := range customers.Customer {
-        children[customers.Customer[i].GetSegmentPath()] = &customers.Customer[i]
+        customers.EntityData.Children[types.GetSegmentPath(&customers.Customer[i])] = types.YChild{"Customer", &customers.Customer[i]}
     }
-    return children
+    customers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(customers.EntityData)
 }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetYangName() string { return "customers" }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) SetParent(parent types.Entity) { customers.parent = parent }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetParent() types.Entity { return customers.parent }
-
-func (customers *MobileIp_Lmas_Lma_Services_Service_Customers) GetParentYangName() string { return "service" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer
 // customer configuration on this mobile local
 // loop service
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Customer name. The type is string with length:
@@ -2818,166 +1490,72 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer struct {
     BindingAttributes MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes
 }
 
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetFilter() yfilter.YFilter { return customer.YFilter }
+func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetEntityData() *types.CommonEntityData {
+    customer.EntityData.YFilter = customer.YFilter
+    customer.EntityData.YangName = "customer"
+    customer.EntityData.BundleName = "cisco_ios_xr"
+    customer.EntityData.ParentYangName = "customers"
+    customer.EntityData.SegmentPath = "customer" + "[customer-name='" + fmt.Sprintf("%v", customer.CustomerName) + "']" + "[vrf-name='" + fmt.Sprintf("%v", customer.VrfName) + "']"
+    customer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    customer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    customer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) SetFilter(yf yfilter.YFilter) { customer.YFilter = yf }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetGoName(yname string) string {
-    if yname == "customer-name" { return "CustomerName" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "mnp-customer" { return "MnpCustomer" }
-    if yname == "mnp-ipv4-lmn" { return "MnpIpv4Lmn" }
-    if yname == "mnp-ipv6-lmn" { return "MnpIpv6Lmn" }
-    if yname == "mnp-lmn" { return "MnpLmn" }
-    if yname == "mnp-ipv4-customer" { return "MnpIpv4Customer" }
-    if yname == "mnp-ipv6-customer" { return "MnpIpv6Customer" }
-    if yname == "mobile-route-ad" { return "MobileRouteAd" }
-    if yname == "bandwidth-aggregate" { return "BandwidthAggregate" }
-    if yname == "authenticate-option" { return "AuthenticateOption" }
-    if yname == "heart-beat-attributes" { return "HeartBeatAttributes" }
-    if yname == "transports" { return "Transports" }
-    if yname == "network-attributes" { return "NetworkAttributes" }
-    if yname == "gre-key" { return "GreKey" }
-    if yname == "binding-attributes" { return "BindingAttributes" }
-    return ""
+    customer.EntityData.Children = make(map[string]types.YChild)
+    customer.EntityData.Children["authenticate-option"] = types.YChild{"AuthenticateOption", &customer.AuthenticateOption}
+    customer.EntityData.Children["heart-beat-attributes"] = types.YChild{"HeartBeatAttributes", &customer.HeartBeatAttributes}
+    customer.EntityData.Children["transports"] = types.YChild{"Transports", &customer.Transports}
+    customer.EntityData.Children["network-attributes"] = types.YChild{"NetworkAttributes", &customer.NetworkAttributes}
+    customer.EntityData.Children["gre-key"] = types.YChild{"GreKey", &customer.GreKey}
+    customer.EntityData.Children["binding-attributes"] = types.YChild{"BindingAttributes", &customer.BindingAttributes}
+    customer.EntityData.Leafs = make(map[string]types.YLeaf)
+    customer.EntityData.Leafs["customer-name"] = types.YLeaf{"CustomerName", customer.CustomerName}
+    customer.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", customer.VrfName}
+    customer.EntityData.Leafs["mnp-customer"] = types.YLeaf{"MnpCustomer", customer.MnpCustomer}
+    customer.EntityData.Leafs["mnp-ipv4-lmn"] = types.YLeaf{"MnpIpv4Lmn", customer.MnpIpv4Lmn}
+    customer.EntityData.Leafs["mnp-ipv6-lmn"] = types.YLeaf{"MnpIpv6Lmn", customer.MnpIpv6Lmn}
+    customer.EntityData.Leafs["mnp-lmn"] = types.YLeaf{"MnpLmn", customer.MnpLmn}
+    customer.EntityData.Leafs["mnp-ipv4-customer"] = types.YLeaf{"MnpIpv4Customer", customer.MnpIpv4Customer}
+    customer.EntityData.Leafs["mnp-ipv6-customer"] = types.YLeaf{"MnpIpv6Customer", customer.MnpIpv6Customer}
+    customer.EntityData.Leafs["mobile-route-ad"] = types.YLeaf{"MobileRouteAd", customer.MobileRouteAd}
+    customer.EntityData.Leafs["bandwidth-aggregate"] = types.YLeaf{"BandwidthAggregate", customer.BandwidthAggregate}
+    return &(customer.EntityData)
 }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetSegmentPath() string {
-    return "customer" + "[customer-name='" + fmt.Sprintf("%v", customer.CustomerName) + "']" + "[vrf-name='" + fmt.Sprintf("%v", customer.VrfName) + "']"
-}
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authenticate-option" {
-        return &customer.AuthenticateOption
-    }
-    if childYangName == "heart-beat-attributes" {
-        return &customer.HeartBeatAttributes
-    }
-    if childYangName == "transports" {
-        return &customer.Transports
-    }
-    if childYangName == "network-attributes" {
-        return &customer.NetworkAttributes
-    }
-    if childYangName == "gre-key" {
-        return &customer.GreKey
-    }
-    if childYangName == "binding-attributes" {
-        return &customer.BindingAttributes
-    }
-    return nil
-}
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["authenticate-option"] = &customer.AuthenticateOption
-    children["heart-beat-attributes"] = &customer.HeartBeatAttributes
-    children["transports"] = &customer.Transports
-    children["network-attributes"] = &customer.NetworkAttributes
-    children["gre-key"] = &customer.GreKey
-    children["binding-attributes"] = &customer.BindingAttributes
-    return children
-}
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["customer-name"] = customer.CustomerName
-    leafs["vrf-name"] = customer.VrfName
-    leafs["mnp-customer"] = customer.MnpCustomer
-    leafs["mnp-ipv4-lmn"] = customer.MnpIpv4Lmn
-    leafs["mnp-ipv6-lmn"] = customer.MnpIpv6Lmn
-    leafs["mnp-lmn"] = customer.MnpLmn
-    leafs["mnp-ipv4-customer"] = customer.MnpIpv4Customer
-    leafs["mnp-ipv6-customer"] = customer.MnpIpv6Customer
-    leafs["mobile-route-ad"] = customer.MobileRouteAd
-    leafs["bandwidth-aggregate"] = customer.BandwidthAggregate
-    return leafs
-}
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetYangName() string { return "customer" }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) SetParent(parent types.Entity) { customer.parent = parent }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetParent() types.Entity { return customer.parent }
-
-func (customer *MobileIp_Lmas_Lma_Services_Service_Customers_Customer) GetParentYangName() string { return "customers" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption
 // Authentication option between PMIPV6
 // entities
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
     Key interface{}
 }
 
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetFilter() yfilter.YFilter { return authenticateOption.YFilter }
+func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetEntityData() *types.CommonEntityData {
+    authenticateOption.EntityData.YFilter = authenticateOption.YFilter
+    authenticateOption.EntityData.YangName = "authenticate-option"
+    authenticateOption.EntityData.BundleName = "cisco_ios_xr"
+    authenticateOption.EntityData.ParentYangName = "customer"
+    authenticateOption.EntityData.SegmentPath = "authenticate-option"
+    authenticateOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticateOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticateOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) SetFilter(yf yfilter.YFilter) { authenticateOption.YFilter = yf }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetGoName(yname string) string {
-    if yname == "spi" { return "Spi" }
-    if yname == "key" { return "Key" }
-    return ""
+    authenticateOption.EntityData.Children = make(map[string]types.YChild)
+    authenticateOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticateOption.EntityData.Leafs["spi"] = types.YLeaf{"Spi", authenticateOption.Spi}
+    authenticateOption.EntityData.Leafs["key"] = types.YLeaf{"Key", authenticateOption.Key}
+    return &(authenticateOption.EntityData)
 }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetSegmentPath() string {
-    return "authenticate-option"
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["spi"] = authenticateOption.Spi
-    leafs["key"] = authenticateOption.Key
-    return leafs
-}
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetYangName() string { return "authenticate-option" }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) SetParent(parent types.Entity) { authenticateOption.parent = parent }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetParent() types.Entity { return authenticateOption.parent }
-
-func (authenticateOption *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption) GetParentYangName() string { return "customer" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes
 // heartbeat config for this Customer
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the interval value in second. The type is interface{} with range:
@@ -2991,60 +1569,28 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes s
     Timeout interface{}
 }
 
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetFilter() yfilter.YFilter { return heartBeatAttributes.YFilter }
+func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetEntityData() *types.CommonEntityData {
+    heartBeatAttributes.EntityData.YFilter = heartBeatAttributes.YFilter
+    heartBeatAttributes.EntityData.YangName = "heart-beat-attributes"
+    heartBeatAttributes.EntityData.BundleName = "cisco_ios_xr"
+    heartBeatAttributes.EntityData.ParentYangName = "customer"
+    heartBeatAttributes.EntityData.SegmentPath = "heart-beat-attributes"
+    heartBeatAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    heartBeatAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    heartBeatAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) SetFilter(yf yfilter.YFilter) { heartBeatAttributes.YFilter = yf }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetGoName(yname string) string {
-    if yname == "interval" { return "Interval" }
-    if yname == "retries" { return "Retries" }
-    if yname == "timeout" { return "Timeout" }
-    return ""
+    heartBeatAttributes.EntityData.Children = make(map[string]types.YChild)
+    heartBeatAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    heartBeatAttributes.EntityData.Leafs["interval"] = types.YLeaf{"Interval", heartBeatAttributes.Interval}
+    heartBeatAttributes.EntityData.Leafs["retries"] = types.YLeaf{"Retries", heartBeatAttributes.Retries}
+    heartBeatAttributes.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", heartBeatAttributes.Timeout}
+    return &(heartBeatAttributes.EntityData)
 }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetSegmentPath() string {
-    return "heart-beat-attributes"
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interval"] = heartBeatAttributes.Interval
-    leafs["retries"] = heartBeatAttributes.Retries
-    leafs["timeout"] = heartBeatAttributes.Timeout
-    return leafs
-}
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetYangName() string { return "heart-beat-attributes" }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) SetParent(parent types.Entity) { heartBeatAttributes.parent = parent }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetParent() types.Entity { return heartBeatAttributes.parent }
-
-func (heartBeatAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_HeartBeatAttributes) GetParentYangName() string { return "customer" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports
 // Table of Transport
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Customer transport attributes. The type is slice of
@@ -3052,136 +1598,65 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports struct {
     Transport []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport
 }
 
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetFilter() yfilter.YFilter { return transports.YFilter }
+func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetEntityData() *types.CommonEntityData {
+    transports.EntityData.YFilter = transports.YFilter
+    transports.EntityData.YangName = "transports"
+    transports.EntityData.BundleName = "cisco_ios_xr"
+    transports.EntityData.ParentYangName = "customer"
+    transports.EntityData.SegmentPath = "transports"
+    transports.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transports.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transports.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) SetFilter(yf yfilter.YFilter) { transports.YFilter = yf }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetGoName(yname string) string {
-    if yname == "transport" { return "Transport" }
-    return ""
-}
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetSegmentPath() string {
-    return "transports"
-}
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "transport" {
-        for _, c := range transports.Transport {
-            if transports.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport{}
-        transports.Transport = append(transports.Transport, child)
-        return &transports.Transport[len(transports.Transport)-1]
-    }
-    return nil
-}
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    transports.EntityData.Children = make(map[string]types.YChild)
+    transports.EntityData.Children["transport"] = types.YChild{"Transport", nil}
     for i := range transports.Transport {
-        children[transports.Transport[i].GetSegmentPath()] = &transports.Transport[i]
+        transports.EntityData.Children[types.GetSegmentPath(&transports.Transport[i])] = types.YChild{"Transport", &transports.Transport[i]}
     }
-    return children
+    transports.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(transports.EntityData)
 }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetYangName() string { return "transports" }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) SetParent(parent types.Entity) { transports.parent = parent }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetParent() types.Entity { return transports.parent }
-
-func (transports *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports) GetParentYangName() string { return "customer" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport
 // Customer transport attributes
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF Name. The type is string with length: 1..125.
     VrfName interface{}
 
     // Configure IPv4 address for this LMA. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // Configure IPv6 address for this LMA. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetFilter() yfilter.YFilter { return transport.YFilter }
+func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetEntityData() *types.CommonEntityData {
+    transport.EntityData.YFilter = transport.YFilter
+    transport.EntityData.YangName = "transport"
+    transport.EntityData.BundleName = "cisco_ios_xr"
+    transport.EntityData.ParentYangName = "transports"
+    transport.EntityData.SegmentPath = "transport" + "[vrf-name='" + fmt.Sprintf("%v", transport.VrfName) + "']"
+    transport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) SetFilter(yf yfilter.YFilter) { transport.YFilter = yf }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    transport.EntityData.Children = make(map[string]types.YChild)
+    transport.EntityData.Leafs = make(map[string]types.YLeaf)
+    transport.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", transport.VrfName}
+    transport.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", transport.Ipv4Address}
+    transport.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", transport.Ipv6Address}
+    return &(transport.EntityData)
 }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetSegmentPath() string {
-    return "transport" + "[vrf-name='" + fmt.Sprintf("%v", transport.VrfName) + "']"
-}
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = transport.VrfName
-    leafs["ipv4-address"] = transport.Ipv4Address
-    leafs["ipv6-address"] = transport.Ipv6Address
-    return leafs
-}
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetYangName() string { return "transport" }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) SetParent(parent types.Entity) { transport.parent = parent }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetParent() types.Entity { return transport.parent }
-
-func (transport *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport) GetParentYangName() string { return "transports" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes
 // network parameters for the customer
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // not authorize the network prefixes. The type is interface{}.
@@ -3191,61 +1666,27 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes str
     Authorizes MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes
 }
 
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetFilter() yfilter.YFilter { return networkAttributes.YFilter }
+func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetEntityData() *types.CommonEntityData {
+    networkAttributes.EntityData.YFilter = networkAttributes.YFilter
+    networkAttributes.EntityData.YangName = "network-attributes"
+    networkAttributes.EntityData.BundleName = "cisco_ios_xr"
+    networkAttributes.EntityData.ParentYangName = "customer"
+    networkAttributes.EntityData.SegmentPath = "network-attributes"
+    networkAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networkAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networkAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) SetFilter(yf yfilter.YFilter) { networkAttributes.YFilter = yf }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetGoName(yname string) string {
-    if yname == "unauthorize" { return "Unauthorize" }
-    if yname == "authorizes" { return "Authorizes" }
-    return ""
+    networkAttributes.EntityData.Children = make(map[string]types.YChild)
+    networkAttributes.EntityData.Children["authorizes"] = types.YChild{"Authorizes", &networkAttributes.Authorizes}
+    networkAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkAttributes.EntityData.Leafs["unauthorize"] = types.YLeaf{"Unauthorize", networkAttributes.Unauthorize}
+    return &(networkAttributes.EntityData)
 }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetSegmentPath() string {
-    return "network-attributes"
-}
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authorizes" {
-        return &networkAttributes.Authorizes
-    }
-    return nil
-}
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["authorizes"] = &networkAttributes.Authorizes
-    return children
-}
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unauthorize"] = networkAttributes.Unauthorize
-    return leafs
-}
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetYangName() string { return "network-attributes" }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) SetParent(parent types.Entity) { networkAttributes.parent = parent }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetParent() types.Entity { return networkAttributes.parent }
-
-func (networkAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes) GetParentYangName() string { return "customer" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes
 // Table of Authorize
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // not authorize the network prefixes. The type is slice of
@@ -3253,68 +1694,29 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     Authorize []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize
 }
 
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetFilter() yfilter.YFilter { return authorizes.YFilter }
+func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetEntityData() *types.CommonEntityData {
+    authorizes.EntityData.YFilter = authorizes.YFilter
+    authorizes.EntityData.YangName = "authorizes"
+    authorizes.EntityData.BundleName = "cisco_ios_xr"
+    authorizes.EntityData.ParentYangName = "network-attributes"
+    authorizes.EntityData.SegmentPath = "authorizes"
+    authorizes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authorizes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authorizes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) SetFilter(yf yfilter.YFilter) { authorizes.YFilter = yf }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetGoName(yname string) string {
-    if yname == "authorize" { return "Authorize" }
-    return ""
-}
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetSegmentPath() string {
-    return "authorizes"
-}
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authorize" {
-        for _, c := range authorizes.Authorize {
-            if authorizes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize{}
-        authorizes.Authorize = append(authorizes.Authorize, child)
-        return &authorizes.Authorize[len(authorizes.Authorize)-1]
-    }
-    return nil
-}
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    authorizes.EntityData.Children = make(map[string]types.YChild)
+    authorizes.EntityData.Children["authorize"] = types.YChild{"Authorize", nil}
     for i := range authorizes.Authorize {
-        children[authorizes.Authorize[i].GetSegmentPath()] = &authorizes.Authorize[i]
+        authorizes.EntityData.Children[types.GetSegmentPath(&authorizes.Authorize[i])] = types.YChild{"Authorize", &authorizes.Authorize[i]}
     }
-    return children
+    authorizes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(authorizes.EntityData)
 }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetYangName() string { return "authorizes" }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) SetParent(parent types.Entity) { authorizes.parent = parent }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetParent() types.Entity { return authorizes.parent }
-
-func (authorizes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes) GetParentYangName() string { return "network-attributes" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize
 // not authorize the network prefixes
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. ASCII string. The type is string with length:
@@ -3325,61 +1727,27 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     PoolAttributes MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes
 }
 
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetFilter() yfilter.YFilter { return authorize.YFilter }
+func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetEntityData() *types.CommonEntityData {
+    authorize.EntityData.YFilter = authorize.YFilter
+    authorize.EntityData.YangName = "authorize"
+    authorize.EntityData.BundleName = "cisco_ios_xr"
+    authorize.EntityData.ParentYangName = "authorizes"
+    authorize.EntityData.SegmentPath = "authorize" + "[name='" + fmt.Sprintf("%v", authorize.Name) + "']"
+    authorize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authorize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authorize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) SetFilter(yf yfilter.YFilter) { authorize.YFilter = yf }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "pool-attributes" { return "PoolAttributes" }
-    return ""
+    authorize.EntityData.Children = make(map[string]types.YChild)
+    authorize.EntityData.Children["pool-attributes"] = types.YChild{"PoolAttributes", &authorize.PoolAttributes}
+    authorize.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorize.EntityData.Leafs["name"] = types.YLeaf{"Name", authorize.Name}
+    return &(authorize.EntityData)
 }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetSegmentPath() string {
-    return "authorize" + "[name='" + fmt.Sprintf("%v", authorize.Name) + "']"
-}
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pool-attributes" {
-        return &authorize.PoolAttributes
-    }
-    return nil
-}
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pool-attributes"] = &authorize.PoolAttributes
-    return children
-}
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = authorize.Name
-    return leafs
-}
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetYangName() string { return "authorize" }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) SetParent(parent types.Entity) { authorize.parent = parent }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetParent() types.Entity { return authorize.parent }
-
-func (authorize *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize) GetParentYangName() string { return "authorizes" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes
 // Pool configs for this network
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // pool configs for the mobile nodes.
@@ -3389,64 +1757,27 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     MobileNetwork MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork
 }
 
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetFilter() yfilter.YFilter { return poolAttributes.YFilter }
+func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetEntityData() *types.CommonEntityData {
+    poolAttributes.EntityData.YFilter = poolAttributes.YFilter
+    poolAttributes.EntityData.YangName = "pool-attributes"
+    poolAttributes.EntityData.BundleName = "cisco_ios_xr"
+    poolAttributes.EntityData.ParentYangName = "authorize"
+    poolAttributes.EntityData.SegmentPath = "pool-attributes"
+    poolAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    poolAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    poolAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) SetFilter(yf yfilter.YFilter) { poolAttributes.YFilter = yf }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetGoName(yname string) string {
-    if yname == "mobile-node" { return "MobileNode" }
-    if yname == "mobile-network" { return "MobileNetwork" }
-    return ""
+    poolAttributes.EntityData.Children = make(map[string]types.YChild)
+    poolAttributes.EntityData.Children["mobile-node"] = types.YChild{"MobileNode", &poolAttributes.MobileNode}
+    poolAttributes.EntityData.Children["mobile-network"] = types.YChild{"MobileNetwork", &poolAttributes.MobileNetwork}
+    poolAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(poolAttributes.EntityData)
 }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetSegmentPath() string {
-    return "pool-attributes"
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mobile-node" {
-        return &poolAttributes.MobileNode
-    }
-    if childYangName == "mobile-network" {
-        return &poolAttributes.MobileNetwork
-    }
-    return nil
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mobile-node"] = &poolAttributes.MobileNode
-    children["mobile-network"] = &poolAttributes.MobileNetwork
-    return children
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetYangName() string { return "pool-attributes" }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) SetParent(parent types.Entity) { poolAttributes.parent = parent }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetParent() types.Entity { return poolAttributes.parent }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes) GetParentYangName() string { return "authorize" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode
 // pool configs for the mobile nodes
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // None.
@@ -3456,188 +1787,89 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     Ipv6Pool MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool
 }
 
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetFilter() yfilter.YFilter { return mobileNode.YFilter }
+func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetEntityData() *types.CommonEntityData {
+    mobileNode.EntityData.YFilter = mobileNode.YFilter
+    mobileNode.EntityData.YangName = "mobile-node"
+    mobileNode.EntityData.BundleName = "cisco_ios_xr"
+    mobileNode.EntityData.ParentYangName = "pool-attributes"
+    mobileNode.EntityData.SegmentPath = "mobile-node"
+    mobileNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mobileNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mobileNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) SetFilter(yf yfilter.YFilter) { mobileNode.YFilter = yf }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetGoName(yname string) string {
-    if yname == "ipv4-pool" { return "Ipv4Pool" }
-    if yname == "ipv6-pool" { return "Ipv6Pool" }
-    return ""
+    mobileNode.EntityData.Children = make(map[string]types.YChild)
+    mobileNode.EntityData.Children["ipv4-pool"] = types.YChild{"Ipv4Pool", &mobileNode.Ipv4Pool}
+    mobileNode.EntityData.Children["ipv6-pool"] = types.YChild{"Ipv6Pool", &mobileNode.Ipv6Pool}
+    mobileNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mobileNode.EntityData)
 }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetSegmentPath() string {
-    return "mobile-node"
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-pool" {
-        return &mobileNode.Ipv4Pool
-    }
-    if childYangName == "ipv6-pool" {
-        return &mobileNode.Ipv6Pool
-    }
-    return nil
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-pool"] = &mobileNode.Ipv4Pool
-    children["ipv6-pool"] = &mobileNode.Ipv6Pool
-    return children
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetYangName() string { return "mobile-node" }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) SetParent(parent types.Entity) { mobileNode.parent = parent }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetParent() types.Entity { return mobileNode.parent }
-
-func (mobileNode *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode) GetParentYangName() string { return "pool-attributes" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool
 // None
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pool IPv4 start address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
     PoolPrefix interface{}
 }
 
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetFilter() yfilter.YFilter { return ipv4Pool.YFilter }
+func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetEntityData() *types.CommonEntityData {
+    ipv4Pool.EntityData.YFilter = ipv4Pool.YFilter
+    ipv4Pool.EntityData.YangName = "ipv4-pool"
+    ipv4Pool.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Pool.EntityData.ParentYangName = "mobile-node"
+    ipv4Pool.EntityData.SegmentPath = "ipv4-pool"
+    ipv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) SetFilter(yf yfilter.YFilter) { ipv4Pool.YFilter = yf }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    return ""
+    ipv4Pool.EntityData.Children = make(map[string]types.YChild)
+    ipv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv4Pool.StartAddress}
+    ipv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv4Pool.PoolPrefix}
+    return &(ipv4Pool.EntityData)
 }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetSegmentPath() string {
-    return "ipv4-pool"
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = ipv4Pool.StartAddress
-    leafs["pool-prefix"] = ipv4Pool.PoolPrefix
-    return leafs
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetYangName() string { return "ipv4-pool" }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) SetParent(parent types.Entity) { ipv4Pool.parent = parent }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetParent() types.Entity { return ipv4Pool.parent }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv4Pool) GetParentYangName() string { return "mobile-node" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool
 // None
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pool IPv6 start address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..62.
     PoolPrefix interface{}
 }
 
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetFilter() yfilter.YFilter { return ipv6Pool.YFilter }
+func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetEntityData() *types.CommonEntityData {
+    ipv6Pool.EntityData.YFilter = ipv6Pool.YFilter
+    ipv6Pool.EntityData.YangName = "ipv6-pool"
+    ipv6Pool.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Pool.EntityData.ParentYangName = "mobile-node"
+    ipv6Pool.EntityData.SegmentPath = "ipv6-pool"
+    ipv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) SetFilter(yf yfilter.YFilter) { ipv6Pool.YFilter = yf }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    return ""
+    ipv6Pool.EntityData.Children = make(map[string]types.YChild)
+    ipv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv6Pool.StartAddress}
+    ipv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv6Pool.PoolPrefix}
+    return &(ipv6Pool.EntityData)
 }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetSegmentPath() string {
-    return "ipv6-pool"
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = ipv6Pool.StartAddress
-    leafs["pool-prefix"] = ipv6Pool.PoolPrefix
-    return leafs
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetYangName() string { return "ipv6-pool" }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) SetParent(parent types.Entity) { ipv6Pool.parent = parent }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetParent() types.Entity { return ipv6Pool.parent }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNode_Ipv6Pool) GetParentYangName() string { return "mobile-node" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork
 // pool configs for the mobile network
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of MRIPV6Pool.
@@ -3647,64 +1879,27 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     Mripv4Pools MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools
 }
 
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetFilter() yfilter.YFilter { return mobileNetwork.YFilter }
+func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetEntityData() *types.CommonEntityData {
+    mobileNetwork.EntityData.YFilter = mobileNetwork.YFilter
+    mobileNetwork.EntityData.YangName = "mobile-network"
+    mobileNetwork.EntityData.BundleName = "cisco_ios_xr"
+    mobileNetwork.EntityData.ParentYangName = "pool-attributes"
+    mobileNetwork.EntityData.SegmentPath = "mobile-network"
+    mobileNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mobileNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mobileNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) SetFilter(yf yfilter.YFilter) { mobileNetwork.YFilter = yf }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetGoName(yname string) string {
-    if yname == "mripv6-pools" { return "Mripv6Pools" }
-    if yname == "mripv4-pools" { return "Mripv4Pools" }
-    return ""
+    mobileNetwork.EntityData.Children = make(map[string]types.YChild)
+    mobileNetwork.EntityData.Children["mripv6-pools"] = types.YChild{"Mripv6Pools", &mobileNetwork.Mripv6Pools}
+    mobileNetwork.EntityData.Children["mripv4-pools"] = types.YChild{"Mripv4Pools", &mobileNetwork.Mripv4Pools}
+    mobileNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mobileNetwork.EntityData)
 }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetSegmentPath() string {
-    return "mobile-network"
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mripv6-pools" {
-        return &mobileNetwork.Mripv6Pools
-    }
-    if childYangName == "mripv4-pools" {
-        return &mobileNetwork.Mripv4Pools
-    }
-    return nil
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mripv6-pools"] = &mobileNetwork.Mripv6Pools
-    children["mripv4-pools"] = &mobileNetwork.Mripv4Pools
-    return children
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetYangName() string { return "mobile-network" }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) SetParent(parent types.Entity) { mobileNetwork.parent = parent }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetParent() types.Entity { return mobileNetwork.parent }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork) GetParentYangName() string { return "pool-attributes" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools
 // Table of MRIPV6Pool
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 pool. The type is slice of
@@ -3712,73 +1907,34 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     Mripv6Pool []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
 }
 
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetFilter() yfilter.YFilter { return mripv6Pools.YFilter }
+func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetEntityData() *types.CommonEntityData {
+    mripv6Pools.EntityData.YFilter = mripv6Pools.YFilter
+    mripv6Pools.EntityData.YangName = "mripv6-pools"
+    mripv6Pools.EntityData.BundleName = "cisco_ios_xr"
+    mripv6Pools.EntityData.ParentYangName = "mobile-network"
+    mripv6Pools.EntityData.SegmentPath = "mripv6-pools"
+    mripv6Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv6Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv6Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) SetFilter(yf yfilter.YFilter) { mripv6Pools.YFilter = yf }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetGoName(yname string) string {
-    if yname == "mripv6-pool" { return "Mripv6Pool" }
-    return ""
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetSegmentPath() string {
-    return "mripv6-pools"
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mripv6-pool" {
-        for _, c := range mripv6Pools.Mripv6Pool {
-            if mripv6Pools.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool{}
-        mripv6Pools.Mripv6Pool = append(mripv6Pools.Mripv6Pool, child)
-        return &mripv6Pools.Mripv6Pool[len(mripv6Pools.Mripv6Pool)-1]
-    }
-    return nil
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mripv6Pools.EntityData.Children = make(map[string]types.YChild)
+    mripv6Pools.EntityData.Children["mripv6-pool"] = types.YChild{"Mripv6Pool", nil}
     for i := range mripv6Pools.Mripv6Pool {
-        children[mripv6Pools.Mripv6Pool[i].GetSegmentPath()] = &mripv6Pools.Mripv6Pool[i]
+        mripv6Pools.EntityData.Children[types.GetSegmentPath(&mripv6Pools.Mripv6Pool[i])] = types.YChild{"Mripv6Pool", &mripv6Pools.Mripv6Pool[i]}
     }
-    return children
+    mripv6Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mripv6Pools.EntityData)
 }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetYangName() string { return "mripv6-pools" }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) SetParent(parent types.Entity) { mripv6Pools.parent = parent }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetParent() types.Entity { return mripv6Pools.parent }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools) GetParentYangName() string { return "mobile-network" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
 // ipv6 pool
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..64.
@@ -3788,60 +1944,28 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     NetworkPrefix interface{}
 }
 
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetFilter() yfilter.YFilter { return mripv6Pool.YFilter }
+func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetEntityData() *types.CommonEntityData {
+    mripv6Pool.EntityData.YFilter = mripv6Pool.YFilter
+    mripv6Pool.EntityData.YangName = "mripv6-pool"
+    mripv6Pool.EntityData.BundleName = "cisco_ios_xr"
+    mripv6Pool.EntityData.ParentYangName = "mripv6-pools"
+    mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + "[start-address='" + fmt.Sprintf("%v", mripv6Pool.StartAddress) + "']"
+    mripv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) SetFilter(yf yfilter.YFilter) { mripv6Pool.YFilter = yf }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    if yname == "network-prefix" { return "NetworkPrefix" }
-    return ""
+    mripv6Pool.EntityData.Children = make(map[string]types.YChild)
+    mripv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv6Pool.StartAddress}
+    mripv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv6Pool.PoolPrefix}
+    mripv6Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv6Pool.NetworkPrefix}
+    return &(mripv6Pool.EntityData)
 }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetSegmentPath() string {
-    return "mripv6-pool" + "[start-address='" + fmt.Sprintf("%v", mripv6Pool.StartAddress) + "']"
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = mripv6Pool.StartAddress
-    leafs["pool-prefix"] = mripv6Pool.PoolPrefix
-    leafs["network-prefix"] = mripv6Pool.NetworkPrefix
-    return leafs
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetYangName() string { return "mripv6-pool" }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) SetParent(parent types.Entity) { mripv6Pool.parent = parent }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetParent() types.Entity { return mripv6Pool.parent }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetParentYangName() string { return "mripv6-pools" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools
 // Table of MRIPV4Pool
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv4 pool. The type is slice of
@@ -3849,73 +1973,34 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     Mripv4Pool []MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
 }
 
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetFilter() yfilter.YFilter { return mripv4Pools.YFilter }
+func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetEntityData() *types.CommonEntityData {
+    mripv4Pools.EntityData.YFilter = mripv4Pools.YFilter
+    mripv4Pools.EntityData.YangName = "mripv4-pools"
+    mripv4Pools.EntityData.BundleName = "cisco_ios_xr"
+    mripv4Pools.EntityData.ParentYangName = "mobile-network"
+    mripv4Pools.EntityData.SegmentPath = "mripv4-pools"
+    mripv4Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv4Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv4Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) SetFilter(yf yfilter.YFilter) { mripv4Pools.YFilter = yf }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetGoName(yname string) string {
-    if yname == "mripv4-pool" { return "Mripv4Pool" }
-    return ""
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetSegmentPath() string {
-    return "mripv4-pools"
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mripv4-pool" {
-        for _, c := range mripv4Pools.Mripv4Pool {
-            if mripv4Pools.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool{}
-        mripv4Pools.Mripv4Pool = append(mripv4Pools.Mripv4Pool, child)
-        return &mripv4Pools.Mripv4Pool[len(mripv4Pools.Mripv4Pool)-1]
-    }
-    return nil
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mripv4Pools.EntityData.Children = make(map[string]types.YChild)
+    mripv4Pools.EntityData.Children["mripv4-pool"] = types.YChild{"Mripv4Pool", nil}
     for i := range mripv4Pools.Mripv4Pool {
-        children[mripv4Pools.Mripv4Pool[i].GetSegmentPath()] = &mripv4Pools.Mripv4Pool[i]
+        mripv4Pools.EntityData.Children[types.GetSegmentPath(&mripv4Pools.Mripv4Pool[i])] = types.YChild{"Mripv4Pool", &mripv4Pools.Mripv4Pool[i]}
     }
-    return children
+    mripv4Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mripv4Pools.EntityData)
 }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetYangName() string { return "mripv4-pools" }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) SetParent(parent types.Entity) { mripv4Pools.parent = parent }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetParent() types.Entity { return mripv4Pools.parent }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools) GetParentYangName() string { return "mobile-network" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
 // ipv4 pool
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -3925,60 +2010,28 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     NetworkPrefix interface{}
 }
 
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetFilter() yfilter.YFilter { return mripv4Pool.YFilter }
+func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetEntityData() *types.CommonEntityData {
+    mripv4Pool.EntityData.YFilter = mripv4Pool.YFilter
+    mripv4Pool.EntityData.YangName = "mripv4-pool"
+    mripv4Pool.EntityData.BundleName = "cisco_ios_xr"
+    mripv4Pool.EntityData.ParentYangName = "mripv4-pools"
+    mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + "[start-address='" + fmt.Sprintf("%v", mripv4Pool.StartAddress) + "']"
+    mripv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) SetFilter(yf yfilter.YFilter) { mripv4Pool.YFilter = yf }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    if yname == "network-prefix" { return "NetworkPrefix" }
-    return ""
+    mripv4Pool.EntityData.Children = make(map[string]types.YChild)
+    mripv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv4Pool.StartAddress}
+    mripv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv4Pool.PoolPrefix}
+    mripv4Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv4Pool.NetworkPrefix}
+    return &(mripv4Pool.EntityData)
 }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetSegmentPath() string {
-    return "mripv4-pool" + "[start-address='" + fmt.Sprintf("%v", mripv4Pool.StartAddress) + "']"
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = mripv4Pool.StartAddress
-    leafs["pool-prefix"] = mripv4Pool.PoolPrefix
-    leafs["network-prefix"] = mripv4Pool.NetworkPrefix
-    return leafs
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetYangName() string { return "mripv4-pool" }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) SetParent(parent types.Entity) { mripv4Pool.parent = parent }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetParent() types.Entity { return mripv4Pool.parent }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Authorizes_Authorize_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetParentYangName() string { return "mripv4-pools" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey
 // Customer specific GRE key
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // GRE key type. The type is GreKeyType.
@@ -3988,58 +2041,27 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey struct {
     GreKeyValue interface{}
 }
 
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetFilter() yfilter.YFilter { return greKey.YFilter }
+func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetEntityData() *types.CommonEntityData {
+    greKey.EntityData.YFilter = greKey.YFilter
+    greKey.EntityData.YangName = "gre-key"
+    greKey.EntityData.BundleName = "cisco_ios_xr"
+    greKey.EntityData.ParentYangName = "customer"
+    greKey.EntityData.SegmentPath = "gre-key"
+    greKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    greKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    greKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) SetFilter(yf yfilter.YFilter) { greKey.YFilter = yf }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetGoName(yname string) string {
-    if yname == "gre-key-type" { return "GreKeyType" }
-    if yname == "gre-key-value" { return "GreKeyValue" }
-    return ""
+    greKey.EntityData.Children = make(map[string]types.YChild)
+    greKey.EntityData.Leafs = make(map[string]types.YLeaf)
+    greKey.EntityData.Leafs["gre-key-type"] = types.YLeaf{"GreKeyType", greKey.GreKeyType}
+    greKey.EntityData.Leafs["gre-key-value"] = types.YLeaf{"GreKeyValue", greKey.GreKeyValue}
+    return &(greKey.EntityData)
 }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetSegmentPath() string {
-    return "gre-key"
-}
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["gre-key-type"] = greKey.GreKeyType
-    leafs["gre-key-value"] = greKey.GreKeyValue
-    return leafs
-}
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetBundleName() string { return "cisco_ios_xr" }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetYangName() string { return "gre-key" }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) SetParent(parent types.Entity) { greKey.parent = parent }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetParent() types.Entity { return greKey.parent }
-
-func (greKey *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_GreKey) GetParentYangName() string { return "customer" }
 
 // MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes
 // Customer specific binding attributes
 type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum bce lifetime permitted. The type is interface{} with range:
@@ -4047,56 +2069,26 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes str
     MaxLifeTime interface{}
 }
 
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetFilter() yfilter.YFilter { return bindingAttributes.YFilter }
+func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetEntityData() *types.CommonEntityData {
+    bindingAttributes.EntityData.YFilter = bindingAttributes.YFilter
+    bindingAttributes.EntityData.YangName = "binding-attributes"
+    bindingAttributes.EntityData.BundleName = "cisco_ios_xr"
+    bindingAttributes.EntityData.ParentYangName = "customer"
+    bindingAttributes.EntityData.SegmentPath = "binding-attributes"
+    bindingAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindingAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindingAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) SetFilter(yf yfilter.YFilter) { bindingAttributes.YFilter = yf }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetGoName(yname string) string {
-    if yname == "max-life-time" { return "MaxLifeTime" }
-    return ""
+    bindingAttributes.EntityData.Children = make(map[string]types.YChild)
+    bindingAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    bindingAttributes.EntityData.Leafs["max-life-time"] = types.YLeaf{"MaxLifeTime", bindingAttributes.MaxLifeTime}
+    return &(bindingAttributes.EntityData)
 }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetSegmentPath() string {
-    return "binding-attributes"
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-life-time"] = bindingAttributes.MaxLifeTime
-    return leafs
-}
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetYangName() string { return "binding-attributes" }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) SetParent(parent types.Entity) { bindingAttributes.parent = parent }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetParent() types.Entity { return bindingAttributes.parent }
-
-func (bindingAttributes *MobileIp_Lmas_Lma_Services_Service_Customers_Customer_BindingAttributes) GetParentYangName() string { return "customer" }
 
 // MobileIp_Lmas_Lma_Networks
 // Table of Network
 type MobileIp_Lmas_Lma_Networks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // network for this LMA. The type is slice of
@@ -4104,68 +2096,29 @@ type MobileIp_Lmas_Lma_Networks struct {
     Network []MobileIp_Lmas_Lma_Networks_Network
 }
 
-func (networks *MobileIp_Lmas_Lma_Networks) GetFilter() yfilter.YFilter { return networks.YFilter }
+func (networks *MobileIp_Lmas_Lma_Networks) GetEntityData() *types.CommonEntityData {
+    networks.EntityData.YFilter = networks.YFilter
+    networks.EntityData.YangName = "networks"
+    networks.EntityData.BundleName = "cisco_ios_xr"
+    networks.EntityData.ParentYangName = "lma"
+    networks.EntityData.SegmentPath = "networks"
+    networks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networks *MobileIp_Lmas_Lma_Networks) SetFilter(yf yfilter.YFilter) { networks.YFilter = yf }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetGoName(yname string) string {
-    if yname == "network" { return "Network" }
-    return ""
-}
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetSegmentPath() string {
-    return "networks"
-}
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "network" {
-        for _, c := range networks.Network {
-            if networks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Networks_Network{}
-        networks.Network = append(networks.Network, child)
-        return &networks.Network[len(networks.Network)-1]
-    }
-    return nil
-}
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    networks.EntityData.Children = make(map[string]types.YChild)
+    networks.EntityData.Children["network"] = types.YChild{"Network", nil}
     for i := range networks.Network {
-        children[networks.Network[i].GetSegmentPath()] = &networks.Network[i]
+        networks.EntityData.Children[types.GetSegmentPath(&networks.Network[i])] = types.YChild{"Network", &networks.Network[i]}
     }
-    return children
+    networks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(networks.EntityData)
 }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetYangName() string { return "networks" }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networks *MobileIp_Lmas_Lma_Networks) SetParent(parent types.Entity) { networks.parent = parent }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetParent() types.Entity { return networks.parent }
-
-func (networks *MobileIp_Lmas_Lma_Networks) GetParentYangName() string { return "lma" }
 
 // MobileIp_Lmas_Lma_Networks_Network
 // network for this LMA
 type MobileIp_Lmas_Lma_Networks_Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Network name. The type is string with length:
@@ -4176,61 +2129,27 @@ type MobileIp_Lmas_Lma_Networks_Network struct {
     PoolAttributes MobileIp_Lmas_Lma_Networks_Network_PoolAttributes
 }
 
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetFilter() yfilter.YFilter { return network.YFilter }
+func (network *MobileIp_Lmas_Lma_Networks_Network) GetEntityData() *types.CommonEntityData {
+    network.EntityData.YFilter = network.YFilter
+    network.EntityData.YangName = "network"
+    network.EntityData.BundleName = "cisco_ios_xr"
+    network.EntityData.ParentYangName = "networks"
+    network.EntityData.SegmentPath = "network" + "[lma-network='" + fmt.Sprintf("%v", network.LmaNetwork) + "']"
+    network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (network *MobileIp_Lmas_Lma_Networks_Network) SetFilter(yf yfilter.YFilter) { network.YFilter = yf }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetGoName(yname string) string {
-    if yname == "lma-network" { return "LmaNetwork" }
-    if yname == "pool-attributes" { return "PoolAttributes" }
-    return ""
+    network.EntityData.Children = make(map[string]types.YChild)
+    network.EntityData.Children["pool-attributes"] = types.YChild{"PoolAttributes", &network.PoolAttributes}
+    network.EntityData.Leafs = make(map[string]types.YLeaf)
+    network.EntityData.Leafs["lma-network"] = types.YLeaf{"LmaNetwork", network.LmaNetwork}
+    return &(network.EntityData)
 }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetSegmentPath() string {
-    return "network" + "[lma-network='" + fmt.Sprintf("%v", network.LmaNetwork) + "']"
-}
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pool-attributes" {
-        return &network.PoolAttributes
-    }
-    return nil
-}
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pool-attributes"] = &network.PoolAttributes
-    return children
-}
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-network"] = network.LmaNetwork
-    return leafs
-}
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetYangName() string { return "network" }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) SetParent(parent types.Entity) { network.parent = parent }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetParent() types.Entity { return network.parent }
-
-func (network *MobileIp_Lmas_Lma_Networks_Network) GetParentYangName() string { return "networks" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes
 // Pool configs for this network
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // pool configs for the mobile nodes.
@@ -4240,64 +2159,27 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes struct {
     MobileNetwork MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork
 }
 
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetFilter() yfilter.YFilter { return poolAttributes.YFilter }
+func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetEntityData() *types.CommonEntityData {
+    poolAttributes.EntityData.YFilter = poolAttributes.YFilter
+    poolAttributes.EntityData.YangName = "pool-attributes"
+    poolAttributes.EntityData.BundleName = "cisco_ios_xr"
+    poolAttributes.EntityData.ParentYangName = "network"
+    poolAttributes.EntityData.SegmentPath = "pool-attributes"
+    poolAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    poolAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    poolAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) SetFilter(yf yfilter.YFilter) { poolAttributes.YFilter = yf }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetGoName(yname string) string {
-    if yname == "mobile-node" { return "MobileNode" }
-    if yname == "mobile-network" { return "MobileNetwork" }
-    return ""
+    poolAttributes.EntityData.Children = make(map[string]types.YChild)
+    poolAttributes.EntityData.Children["mobile-node"] = types.YChild{"MobileNode", &poolAttributes.MobileNode}
+    poolAttributes.EntityData.Children["mobile-network"] = types.YChild{"MobileNetwork", &poolAttributes.MobileNetwork}
+    poolAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(poolAttributes.EntityData)
 }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetSegmentPath() string {
-    return "pool-attributes"
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mobile-node" {
-        return &poolAttributes.MobileNode
-    }
-    if childYangName == "mobile-network" {
-        return &poolAttributes.MobileNetwork
-    }
-    return nil
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mobile-node"] = &poolAttributes.MobileNode
-    children["mobile-network"] = &poolAttributes.MobileNetwork
-    return children
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetYangName() string { return "pool-attributes" }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) SetParent(parent types.Entity) { poolAttributes.parent = parent }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetParent() types.Entity { return poolAttributes.parent }
-
-func (poolAttributes *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes) GetParentYangName() string { return "network" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode
 // pool configs for the mobile nodes
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // None.
@@ -4307,188 +2189,89 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode struct {
     Ipv6Pool MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool
 }
 
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetFilter() yfilter.YFilter { return mobileNode.YFilter }
+func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetEntityData() *types.CommonEntityData {
+    mobileNode.EntityData.YFilter = mobileNode.YFilter
+    mobileNode.EntityData.YangName = "mobile-node"
+    mobileNode.EntityData.BundleName = "cisco_ios_xr"
+    mobileNode.EntityData.ParentYangName = "pool-attributes"
+    mobileNode.EntityData.SegmentPath = "mobile-node"
+    mobileNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mobileNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mobileNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) SetFilter(yf yfilter.YFilter) { mobileNode.YFilter = yf }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetGoName(yname string) string {
-    if yname == "ipv4-pool" { return "Ipv4Pool" }
-    if yname == "ipv6-pool" { return "Ipv6Pool" }
-    return ""
+    mobileNode.EntityData.Children = make(map[string]types.YChild)
+    mobileNode.EntityData.Children["ipv4-pool"] = types.YChild{"Ipv4Pool", &mobileNode.Ipv4Pool}
+    mobileNode.EntityData.Children["ipv6-pool"] = types.YChild{"Ipv6Pool", &mobileNode.Ipv6Pool}
+    mobileNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mobileNode.EntityData)
 }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetSegmentPath() string {
-    return "mobile-node"
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-pool" {
-        return &mobileNode.Ipv4Pool
-    }
-    if childYangName == "ipv6-pool" {
-        return &mobileNode.Ipv6Pool
-    }
-    return nil
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-pool"] = &mobileNode.Ipv4Pool
-    children["ipv6-pool"] = &mobileNode.Ipv6Pool
-    return children
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetYangName() string { return "mobile-node" }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) SetParent(parent types.Entity) { mobileNode.parent = parent }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetParent() types.Entity { return mobileNode.parent }
-
-func (mobileNode *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode) GetParentYangName() string { return "pool-attributes" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool
 // None
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pool IPv4 start address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
     PoolPrefix interface{}
 }
 
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetFilter() yfilter.YFilter { return ipv4Pool.YFilter }
+func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetEntityData() *types.CommonEntityData {
+    ipv4Pool.EntityData.YFilter = ipv4Pool.YFilter
+    ipv4Pool.EntityData.YangName = "ipv4-pool"
+    ipv4Pool.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Pool.EntityData.ParentYangName = "mobile-node"
+    ipv4Pool.EntityData.SegmentPath = "ipv4-pool"
+    ipv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) SetFilter(yf yfilter.YFilter) { ipv4Pool.YFilter = yf }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    return ""
+    ipv4Pool.EntityData.Children = make(map[string]types.YChild)
+    ipv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv4Pool.StartAddress}
+    ipv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv4Pool.PoolPrefix}
+    return &(ipv4Pool.EntityData)
 }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetSegmentPath() string {
-    return "ipv4-pool"
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = ipv4Pool.StartAddress
-    leafs["pool-prefix"] = ipv4Pool.PoolPrefix
-    return leafs
-}
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetYangName() string { return "ipv4-pool" }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) SetParent(parent types.Entity) { ipv4Pool.parent = parent }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetParent() types.Entity { return ipv4Pool.parent }
-
-func (ipv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool) GetParentYangName() string { return "mobile-node" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool
 // None
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pool IPv6 start address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..62.
     PoolPrefix interface{}
 }
 
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetFilter() yfilter.YFilter { return ipv6Pool.YFilter }
+func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetEntityData() *types.CommonEntityData {
+    ipv6Pool.EntityData.YFilter = ipv6Pool.YFilter
+    ipv6Pool.EntityData.YangName = "ipv6-pool"
+    ipv6Pool.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Pool.EntityData.ParentYangName = "mobile-node"
+    ipv6Pool.EntityData.SegmentPath = "ipv6-pool"
+    ipv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) SetFilter(yf yfilter.YFilter) { ipv6Pool.YFilter = yf }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    return ""
+    ipv6Pool.EntityData.Children = make(map[string]types.YChild)
+    ipv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", ipv6Pool.StartAddress}
+    ipv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", ipv6Pool.PoolPrefix}
+    return &(ipv6Pool.EntityData)
 }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetSegmentPath() string {
-    return "ipv6-pool"
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = ipv6Pool.StartAddress
-    leafs["pool-prefix"] = ipv6Pool.PoolPrefix
-    return leafs
-}
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetYangName() string { return "ipv6-pool" }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) SetParent(parent types.Entity) { ipv6Pool.parent = parent }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetParent() types.Entity { return ipv6Pool.parent }
-
-func (ipv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool) GetParentYangName() string { return "mobile-node" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork
 // pool configs for the mobile network
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of MRIPV6Pool.
@@ -4498,64 +2281,27 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork struct {
     Mripv4Pools MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
 }
 
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetFilter() yfilter.YFilter { return mobileNetwork.YFilter }
+func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetEntityData() *types.CommonEntityData {
+    mobileNetwork.EntityData.YFilter = mobileNetwork.YFilter
+    mobileNetwork.EntityData.YangName = "mobile-network"
+    mobileNetwork.EntityData.BundleName = "cisco_ios_xr"
+    mobileNetwork.EntityData.ParentYangName = "pool-attributes"
+    mobileNetwork.EntityData.SegmentPath = "mobile-network"
+    mobileNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mobileNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mobileNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) SetFilter(yf yfilter.YFilter) { mobileNetwork.YFilter = yf }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetGoName(yname string) string {
-    if yname == "mripv6-pools" { return "Mripv6Pools" }
-    if yname == "mripv4-pools" { return "Mripv4Pools" }
-    return ""
+    mobileNetwork.EntityData.Children = make(map[string]types.YChild)
+    mobileNetwork.EntityData.Children["mripv6-pools"] = types.YChild{"Mripv6Pools", &mobileNetwork.Mripv6Pools}
+    mobileNetwork.EntityData.Children["mripv4-pools"] = types.YChild{"Mripv4Pools", &mobileNetwork.Mripv4Pools}
+    mobileNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mobileNetwork.EntityData)
 }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetSegmentPath() string {
-    return "mobile-network"
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mripv6-pools" {
-        return &mobileNetwork.Mripv6Pools
-    }
-    if childYangName == "mripv4-pools" {
-        return &mobileNetwork.Mripv4Pools
-    }
-    return nil
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mripv6-pools"] = &mobileNetwork.Mripv6Pools
-    children["mripv4-pools"] = &mobileNetwork.Mripv4Pools
-    return children
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetYangName() string { return "mobile-network" }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) SetParent(parent types.Entity) { mobileNetwork.parent = parent }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetParent() types.Entity { return mobileNetwork.parent }
-
-func (mobileNetwork *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork) GetParentYangName() string { return "pool-attributes" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools
 // Table of MRIPV6Pool
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 pool. The type is slice of
@@ -4563,73 +2309,34 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools
     Mripv6Pool []MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
 }
 
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetFilter() yfilter.YFilter { return mripv6Pools.YFilter }
+func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetEntityData() *types.CommonEntityData {
+    mripv6Pools.EntityData.YFilter = mripv6Pools.YFilter
+    mripv6Pools.EntityData.YangName = "mripv6-pools"
+    mripv6Pools.EntityData.BundleName = "cisco_ios_xr"
+    mripv6Pools.EntityData.ParentYangName = "mobile-network"
+    mripv6Pools.EntityData.SegmentPath = "mripv6-pools"
+    mripv6Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv6Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv6Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) SetFilter(yf yfilter.YFilter) { mripv6Pools.YFilter = yf }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetGoName(yname string) string {
-    if yname == "mripv6-pool" { return "Mripv6Pool" }
-    return ""
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetSegmentPath() string {
-    return "mripv6-pools"
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mripv6-pool" {
-        for _, c := range mripv6Pools.Mripv6Pool {
-            if mripv6Pools.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool{}
-        mripv6Pools.Mripv6Pool = append(mripv6Pools.Mripv6Pool, child)
-        return &mripv6Pools.Mripv6Pool[len(mripv6Pools.Mripv6Pool)-1]
-    }
-    return nil
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mripv6Pools.EntityData.Children = make(map[string]types.YChild)
+    mripv6Pools.EntityData.Children["mripv6-pool"] = types.YChild{"Mripv6Pool", nil}
     for i := range mripv6Pools.Mripv6Pool {
-        children[mripv6Pools.Mripv6Pool[i].GetSegmentPath()] = &mripv6Pools.Mripv6Pool[i]
+        mripv6Pools.EntityData.Children[types.GetSegmentPath(&mripv6Pools.Mripv6Pool[i])] = types.YChild{"Mripv6Pool", &mripv6Pools.Mripv6Pool[i]}
     }
-    return children
+    mripv6Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mripv6Pools.EntityData)
 }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetYangName() string { return "mripv6-pools" }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) SetParent(parent types.Entity) { mripv6Pools.parent = parent }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetParent() types.Entity { return mripv6Pools.parent }
-
-func (mripv6Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools) GetParentYangName() string { return "mobile-network" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool
 // ipv6 pool
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..64.
@@ -4639,60 +2346,28 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools
     NetworkPrefix interface{}
 }
 
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetFilter() yfilter.YFilter { return mripv6Pool.YFilter }
+func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetEntityData() *types.CommonEntityData {
+    mripv6Pool.EntityData.YFilter = mripv6Pool.YFilter
+    mripv6Pool.EntityData.YangName = "mripv6-pool"
+    mripv6Pool.EntityData.BundleName = "cisco_ios_xr"
+    mripv6Pool.EntityData.ParentYangName = "mripv6-pools"
+    mripv6Pool.EntityData.SegmentPath = "mripv6-pool" + "[start-address='" + fmt.Sprintf("%v", mripv6Pool.StartAddress) + "']"
+    mripv6Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv6Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv6Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) SetFilter(yf yfilter.YFilter) { mripv6Pool.YFilter = yf }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    if yname == "network-prefix" { return "NetworkPrefix" }
-    return ""
+    mripv6Pool.EntityData.Children = make(map[string]types.YChild)
+    mripv6Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv6Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv6Pool.StartAddress}
+    mripv6Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv6Pool.PoolPrefix}
+    mripv6Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv6Pool.NetworkPrefix}
+    return &(mripv6Pool.EntityData)
 }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetSegmentPath() string {
-    return "mripv6-pool" + "[start-address='" + fmt.Sprintf("%v", mripv6Pool.StartAddress) + "']"
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = mripv6Pool.StartAddress
-    leafs["pool-prefix"] = mripv6Pool.PoolPrefix
-    leafs["network-prefix"] = mripv6Pool.NetworkPrefix
-    return leafs
-}
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetYangName() string { return "mripv6-pool" }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) SetParent(parent types.Entity) { mripv6Pool.parent = parent }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetParent() types.Entity { return mripv6Pool.parent }
-
-func (mripv6Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools_Mripv6Pool) GetParentYangName() string { return "mripv6-pools" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
 // Table of MRIPV4Pool
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv4 pool. The type is slice of
@@ -4700,73 +2375,34 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
     Mripv4Pool []MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
 }
 
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetFilter() yfilter.YFilter { return mripv4Pools.YFilter }
+func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetEntityData() *types.CommonEntityData {
+    mripv4Pools.EntityData.YFilter = mripv4Pools.YFilter
+    mripv4Pools.EntityData.YangName = "mripv4-pools"
+    mripv4Pools.EntityData.BundleName = "cisco_ios_xr"
+    mripv4Pools.EntityData.ParentYangName = "mobile-network"
+    mripv4Pools.EntityData.SegmentPath = "mripv4-pools"
+    mripv4Pools.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv4Pools.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv4Pools.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) SetFilter(yf yfilter.YFilter) { mripv4Pools.YFilter = yf }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetGoName(yname string) string {
-    if yname == "mripv4-pool" { return "Mripv4Pool" }
-    return ""
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetSegmentPath() string {
-    return "mripv4-pools"
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mripv4-pool" {
-        for _, c := range mripv4Pools.Mripv4Pool {
-            if mripv4Pools.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool{}
-        mripv4Pools.Mripv4Pool = append(mripv4Pools.Mripv4Pool, child)
-        return &mripv4Pools.Mripv4Pool[len(mripv4Pools.Mripv4Pool)-1]
-    }
-    return nil
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mripv4Pools.EntityData.Children = make(map[string]types.YChild)
+    mripv4Pools.EntityData.Children["mripv4-pool"] = types.YChild{"Mripv4Pool", nil}
     for i := range mripv4Pools.Mripv4Pool {
-        children[mripv4Pools.Mripv4Pool[i].GetSegmentPath()] = &mripv4Pools.Mripv4Pool[i]
+        mripv4Pools.EntityData.Children[types.GetSegmentPath(&mripv4Pools.Mripv4Pool[i])] = types.YChild{"Mripv4Pool", &mripv4Pools.Mripv4Pool[i]}
     }
-    return children
+    mripv4Pools.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mripv4Pools.EntityData)
 }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetYangName() string { return "mripv4-pools" }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) SetParent(parent types.Entity) { mripv4Pools.parent = parent }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetParent() types.Entity { return mripv4Pools.parent }
-
-func (mripv4Pools *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools) GetParentYangName() string { return "mobile-network" }
 
 // MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool
 // ipv4 pool
 type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -4776,60 +2412,28 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
     NetworkPrefix interface{}
 }
 
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetFilter() yfilter.YFilter { return mripv4Pool.YFilter }
+func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetEntityData() *types.CommonEntityData {
+    mripv4Pool.EntityData.YFilter = mripv4Pool.YFilter
+    mripv4Pool.EntityData.YangName = "mripv4-pool"
+    mripv4Pool.EntityData.BundleName = "cisco_ios_xr"
+    mripv4Pool.EntityData.ParentYangName = "mripv4-pools"
+    mripv4Pool.EntityData.SegmentPath = "mripv4-pool" + "[start-address='" + fmt.Sprintf("%v", mripv4Pool.StartAddress) + "']"
+    mripv4Pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mripv4Pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mripv4Pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) SetFilter(yf yfilter.YFilter) { mripv4Pool.YFilter = yf }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetGoName(yname string) string {
-    if yname == "start-address" { return "StartAddress" }
-    if yname == "pool-prefix" { return "PoolPrefix" }
-    if yname == "network-prefix" { return "NetworkPrefix" }
-    return ""
+    mripv4Pool.EntityData.Children = make(map[string]types.YChild)
+    mripv4Pool.EntityData.Leafs = make(map[string]types.YLeaf)
+    mripv4Pool.EntityData.Leafs["start-address"] = types.YLeaf{"StartAddress", mripv4Pool.StartAddress}
+    mripv4Pool.EntityData.Leafs["pool-prefix"] = types.YLeaf{"PoolPrefix", mripv4Pool.PoolPrefix}
+    mripv4Pool.EntityData.Leafs["network-prefix"] = types.YLeaf{"NetworkPrefix", mripv4Pool.NetworkPrefix}
+    return &(mripv4Pool.EntityData)
 }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetSegmentPath() string {
-    return "mripv4-pool" + "[start-address='" + fmt.Sprintf("%v", mripv4Pool.StartAddress) + "']"
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-address"] = mripv4Pool.StartAddress
-    leafs["pool-prefix"] = mripv4Pool.PoolPrefix
-    leafs["network-prefix"] = mripv4Pool.NetworkPrefix
-    return leafs
-}
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetYangName() string { return "mripv4-pool" }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) SetParent(parent types.Entity) { mripv4Pool.parent = parent }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetParent() types.Entity { return mripv4Pool.parent }
-
-func (mripv4Pool *MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools_Mripv4Pool) GetParentYangName() string { return "mripv4-pools" }
 
 // MobileIp_Lmas_Lma_ReplayProtection
 // Replay Protection Method
 type MobileIp_Lmas_Lma_ReplayProtection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify timestamp window value in seconds. The type is interface{} with
@@ -4837,49 +2441,19 @@ type MobileIp_Lmas_Lma_ReplayProtection struct {
     TimestampWindow interface{}
 }
 
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetFilter() yfilter.YFilter { return replayProtection.YFilter }
+func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetEntityData() *types.CommonEntityData {
+    replayProtection.EntityData.YFilter = replayProtection.YFilter
+    replayProtection.EntityData.YangName = "replay-protection"
+    replayProtection.EntityData.BundleName = "cisco_ios_xr"
+    replayProtection.EntityData.ParentYangName = "lma"
+    replayProtection.EntityData.SegmentPath = "replay-protection"
+    replayProtection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    replayProtection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    replayProtection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) SetFilter(yf yfilter.YFilter) { replayProtection.YFilter = yf }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetGoName(yname string) string {
-    if yname == "timestamp-window" { return "TimestampWindow" }
-    return ""
+    replayProtection.EntityData.Children = make(map[string]types.YChild)
+    replayProtection.EntityData.Leafs = make(map[string]types.YLeaf)
+    replayProtection.EntityData.Leafs["timestamp-window"] = types.YLeaf{"TimestampWindow", replayProtection.TimestampWindow}
+    return &(replayProtection.EntityData)
 }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetSegmentPath() string {
-    return "replay-protection"
-}
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timestamp-window"] = replayProtection.TimestampWindow
-    return leafs
-}
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetBundleName() string { return "cisco_ios_xr" }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetYangName() string { return "replay-protection" }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) SetParent(parent types.Entity) { replayProtection.parent = parent }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetParent() types.Entity { return replayProtection.parent }
-
-func (replayProtection *MobileIp_Lmas_Lma_ReplayProtection) GetParentYangName() string { return "lma" }
 

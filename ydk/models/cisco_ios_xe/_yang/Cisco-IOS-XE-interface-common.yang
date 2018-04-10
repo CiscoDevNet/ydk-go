@@ -19,12 +19,30 @@ module Cisco-IOS-XE-interface-common {
 
   description
     "Cisco XE Native Interfaces Common Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-13 {
+    description
+      "Added leafs for FortyGigabitEthernet and HundredGigE interfaces";
+  }
+  revision 2017-09-15 {
+    description
+      "This revison has changes for the new 2gig interface addition";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-03-04 {
     description
       "Changed LISP key type to string to support OC mapping";
@@ -118,6 +136,36 @@ module Cisco-IOS-XE-interface-common {
       leaf GigabitEthernet {
         description
           "GigabitEthernet IEEE 802.3z";
+        type string;
+      }
+
+      leaf FiveGigabitEthernet {
+        description
+          "Five GigabitEthernet ";
+        type string;
+      }
+
+      leaf TwentyFiveGigE {
+        description
+          "Twenty Five GigabitEthernet ";
+        type string;
+      }
+
+      leaf TwoGigabitEthernet {
+        description
+          "Two GigabitEthernet ";
+        type string;
+      }
+
+      leaf FortyGigabitEthernet {
+        description
+          "Forty GigabitEthernet ";
+        type string;
+      }
+
+      leaf HundredGigE {
+        description
+          "Hundred GigabitEthernet";
         type string;
       }
 

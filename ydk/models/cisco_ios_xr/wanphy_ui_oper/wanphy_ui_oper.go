@@ -49,66 +49,33 @@ const (
 // Wanphy
 // WANPHY operational data
 type Wanphy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // All WANPHY controller operational data.
     Controllers Wanphy_Controllers
 }
 
-func (wanphy *Wanphy) GetFilter() yfilter.YFilter { return wanphy.YFilter }
+func (wanphy *Wanphy) GetEntityData() *types.CommonEntityData {
+    wanphy.EntityData.YFilter = wanphy.YFilter
+    wanphy.EntityData.YangName = "wanphy"
+    wanphy.EntityData.BundleName = "cisco_ios_xr"
+    wanphy.EntityData.ParentYangName = "Cisco-IOS-XR-wanphy-ui-oper"
+    wanphy.EntityData.SegmentPath = "Cisco-IOS-XR-wanphy-ui-oper:wanphy"
+    wanphy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wanphy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wanphy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wanphy *Wanphy) SetFilter(yf yfilter.YFilter) { wanphy.YFilter = yf }
-
-func (wanphy *Wanphy) GetGoName(yname string) string {
-    if yname == "controllers" { return "Controllers" }
-    return ""
+    wanphy.EntityData.Children = make(map[string]types.YChild)
+    wanphy.EntityData.Children["controllers"] = types.YChild{"Controllers", &wanphy.Controllers}
+    wanphy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wanphy.EntityData)
 }
-
-func (wanphy *Wanphy) GetSegmentPath() string {
-    return "Cisco-IOS-XR-wanphy-ui-oper:wanphy"
-}
-
-func (wanphy *Wanphy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "controllers" {
-        return &wanphy.Controllers
-    }
-    return nil
-}
-
-func (wanphy *Wanphy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["controllers"] = &wanphy.Controllers
-    return children
-}
-
-func (wanphy *Wanphy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (wanphy *Wanphy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wanphy *Wanphy) GetYangName() string { return "wanphy" }
-
-func (wanphy *Wanphy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wanphy *Wanphy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wanphy *Wanphy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wanphy *Wanphy) SetParent(parent types.Entity) { wanphy.parent = parent }
-
-func (wanphy *Wanphy) GetParent() types.Entity { return wanphy.parent }
-
-func (wanphy *Wanphy) GetParentYangName() string { return "Cisco-IOS-XR-wanphy-ui-oper" }
 
 // Wanphy_Controllers
 // All WANPHY controller operational data
 type Wanphy_Controllers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // WANPHY controller operational data. The type is slice of
@@ -116,133 +83,60 @@ type Wanphy_Controllers struct {
     Controller []Wanphy_Controllers_Controller
 }
 
-func (controllers *Wanphy_Controllers) GetFilter() yfilter.YFilter { return controllers.YFilter }
+func (controllers *Wanphy_Controllers) GetEntityData() *types.CommonEntityData {
+    controllers.EntityData.YFilter = controllers.YFilter
+    controllers.EntityData.YangName = "controllers"
+    controllers.EntityData.BundleName = "cisco_ios_xr"
+    controllers.EntityData.ParentYangName = "wanphy"
+    controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controllers *Wanphy_Controllers) SetFilter(yf yfilter.YFilter) { controllers.YFilter = yf }
-
-func (controllers *Wanphy_Controllers) GetGoName(yname string) string {
-    if yname == "controller" { return "Controller" }
-    return ""
-}
-
-func (controllers *Wanphy_Controllers) GetSegmentPath() string {
-    return "controllers"
-}
-
-func (controllers *Wanphy_Controllers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "controller" {
-        for _, c := range controllers.Controller {
-            if controllers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Wanphy_Controllers_Controller{}
-        controllers.Controller = append(controllers.Controller, child)
-        return &controllers.Controller[len(controllers.Controller)-1]
-    }
-    return nil
-}
-
-func (controllers *Wanphy_Controllers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    controllers.EntityData.Children = make(map[string]types.YChild)
+    controllers.EntityData.Children["controller"] = types.YChild{"Controller", nil}
     for i := range controllers.Controller {
-        children[controllers.Controller[i].GetSegmentPath()] = &controllers.Controller[i]
+        controllers.EntityData.Children[types.GetSegmentPath(&controllers.Controller[i])] = types.YChild{"Controller", &controllers.Controller[i]}
     }
-    return children
+    controllers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(controllers.EntityData)
 }
-
-func (controllers *Wanphy_Controllers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (controllers *Wanphy_Controllers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controllers *Wanphy_Controllers) GetYangName() string { return "controllers" }
-
-func (controllers *Wanphy_Controllers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controllers *Wanphy_Controllers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controllers *Wanphy_Controllers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controllers *Wanphy_Controllers) SetParent(parent types.Entity) { controllers.parent = parent }
-
-func (controllers *Wanphy_Controllers) GetParent() types.Entity { return controllers.parent }
-
-func (controllers *Wanphy_Controllers) GetParentYangName() string { return "wanphy" }
 
 // Wanphy_Controllers_Controller
 // WANPHY controller operational data
 type Wanphy_Controllers_Controller struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     ControllerName interface{}
 
     // WANPHY controller operational data.
     Info Wanphy_Controllers_Controller_Info
 }
 
-func (controller *Wanphy_Controllers_Controller) GetFilter() yfilter.YFilter { return controller.YFilter }
+func (controller *Wanphy_Controllers_Controller) GetEntityData() *types.CommonEntityData {
+    controller.EntityData.YFilter = controller.YFilter
+    controller.EntityData.YangName = "controller"
+    controller.EntityData.BundleName = "cisco_ios_xr"
+    controller.EntityData.ParentYangName = "controllers"
+    controller.EntityData.SegmentPath = "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
+    controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controller *Wanphy_Controllers_Controller) SetFilter(yf yfilter.YFilter) { controller.YFilter = yf }
-
-func (controller *Wanphy_Controllers_Controller) GetGoName(yname string) string {
-    if yname == "controller-name" { return "ControllerName" }
-    if yname == "info" { return "Info" }
-    return ""
+    controller.EntityData.Children = make(map[string]types.YChild)
+    controller.EntityData.Children["info"] = types.YChild{"Info", &controller.Info}
+    controller.EntityData.Leafs = make(map[string]types.YLeaf)
+    controller.EntityData.Leafs["controller-name"] = types.YLeaf{"ControllerName", controller.ControllerName}
+    return &(controller.EntityData)
 }
-
-func (controller *Wanphy_Controllers_Controller) GetSegmentPath() string {
-    return "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
-}
-
-func (controller *Wanphy_Controllers_Controller) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "info" {
-        return &controller.Info
-    }
-    return nil
-}
-
-func (controller *Wanphy_Controllers_Controller) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["info"] = &controller.Info
-    return children
-}
-
-func (controller *Wanphy_Controllers_Controller) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["controller-name"] = controller.ControllerName
-    return leafs
-}
-
-func (controller *Wanphy_Controllers_Controller) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controller *Wanphy_Controllers_Controller) GetYangName() string { return "controller" }
-
-func (controller *Wanphy_Controllers_Controller) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controller *Wanphy_Controllers_Controller) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controller *Wanphy_Controllers_Controller) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controller *Wanphy_Controllers_Controller) SetParent(parent types.Entity) { controller.parent = parent }
-
-func (controller *Wanphy_Controllers_Controller) GetParent() types.Entity { return controller.parent }
-
-func (controller *Wanphy_Controllers_Controller) GetParentYangName() string { return "controllers" }
 
 // Wanphy_Controllers_Controller_Info
 // WANPHY controller operational data
 type Wanphy_Controllers_Controller_Info struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration Mode. The type is WanphyModeInfo.
@@ -386,137 +280,63 @@ type Wanphy_Controllers_Controller_Info struct {
     WanphyPollTimer interface{}
 }
 
-func (info *Wanphy_Controllers_Controller_Info) GetFilter() yfilter.YFilter { return info.YFilter }
+func (info *Wanphy_Controllers_Controller_Info) GetEntityData() *types.CommonEntityData {
+    info.EntityData.YFilter = info.YFilter
+    info.EntityData.YangName = "info"
+    info.EntityData.BundleName = "cisco_ios_xr"
+    info.EntityData.ParentYangName = "controller"
+    info.EntityData.SegmentPath = "info"
+    info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (info *Wanphy_Controllers_Controller_Info) SetFilter(yf yfilter.YFilter) { info.YFilter = yf }
-
-func (info *Wanphy_Controllers_Controller_Info) GetGoName(yname string) string {
-    if yname == "admin-mode" { return "AdminMode" }
-    if yname == "port-state" { return "PortState" }
-    if yname == "section-lof" { return "SectionLof" }
-    if yname == "section-los" { return "SectionLos" }
-    if yname == "section-bip" { return "SectionBip" }
-    if yname == "line-ais" { return "LineAis" }
-    if yname == "line-rdi" { return "LineRdi" }
-    if yname == "line-febe" { return "LineFebe" }
-    if yname == "line-bip" { return "LineBip" }
-    if yname == "path-ais" { return "PathAis" }
-    if yname == "path-rdi" { return "PathRdi" }
-    if yname == "path-febe" { return "PathFebe" }
-    if yname == "path-bip" { return "PathBip" }
-    if yname == "path-lop" { return "PathLop" }
-    if yname == "path-newptr" { return "PathNewptr" }
-    if yname == "path-pse" { return "PathPse" }
-    if yname == "path-nse" { return "PathNse" }
-    if yname == "wis-alarms-ser" { return "WisAlarmsSer" }
-    if yname == "wis-alarms-felcdp" { return "WisAlarmsFelcdp" }
-    if yname == "wis-alarms-feaisp" { return "WisAlarmsFeaisp" }
-    if yname == "wis-alarms-wlos" { return "WisAlarmsWlos" }
-    if yname == "wis-alarms-plcd" { return "WisAlarmsPlcd" }
-    if yname == "wis-alarms-lfebip" { return "WisAlarmsLfebip" }
-    if yname == "wis-alarms-pbec" { return "WisAlarmsPbec" }
-    if yname == "wis-alarms-plmp" { return "WisAlarmsPlmp" }
-    if yname == "sf-ber-threshold" { return "SfBerThreshold" }
-    if yname == "sd-ber-threshold" { return "SdBerThreshold" }
-    if yname == "sf-ber-report" { return "SfBerReport" }
-    if yname == "sd-ber-report" { return "SdBerReport" }
-    if yname == "operational-mode" { return "OperationalMode" }
-    if yname == "remote-ip" { return "RemoteIp" }
-    if yname == "register-p-febe" { return "RegisterPFebe" }
-    if yname == "register-l-fe-bip" { return "RegisterLFeBip" }
-    if yname == "register-l-bip" { return "RegisterLBip" }
-    if yname == "register-p-bec" { return "RegisterPBec" }
-    if yname == "register-s-bip" { return "RegisterSBip" }
-    if yname == "register-j1-rx0" { return "RegisterJ1Rx0" }
-    if yname == "register-j1-rx1" { return "RegisterJ1Rx1" }
-    if yname == "register-j1-rx2" { return "RegisterJ1Rx2" }
-    if yname == "register-j1-rx3" { return "RegisterJ1Rx3" }
-    if yname == "register-j1-rx4" { return "RegisterJ1Rx4" }
-    if yname == "register-j1-rx5" { return "RegisterJ1Rx5" }
-    if yname == "register-j1-rx6" { return "RegisterJ1Rx6" }
-    if yname == "register-j1-rx7" { return "RegisterJ1Rx7" }
-    if yname == "wanphy-poll-timer" { return "WanphyPollTimer" }
-    return ""
+    info.EntityData.Children = make(map[string]types.YChild)
+    info.EntityData.Leafs = make(map[string]types.YLeaf)
+    info.EntityData.Leafs["admin-mode"] = types.YLeaf{"AdminMode", info.AdminMode}
+    info.EntityData.Leafs["port-state"] = types.YLeaf{"PortState", info.PortState}
+    info.EntityData.Leafs["section-lof"] = types.YLeaf{"SectionLof", info.SectionLof}
+    info.EntityData.Leafs["section-los"] = types.YLeaf{"SectionLos", info.SectionLos}
+    info.EntityData.Leafs["section-bip"] = types.YLeaf{"SectionBip", info.SectionBip}
+    info.EntityData.Leafs["line-ais"] = types.YLeaf{"LineAis", info.LineAis}
+    info.EntityData.Leafs["line-rdi"] = types.YLeaf{"LineRdi", info.LineRdi}
+    info.EntityData.Leafs["line-febe"] = types.YLeaf{"LineFebe", info.LineFebe}
+    info.EntityData.Leafs["line-bip"] = types.YLeaf{"LineBip", info.LineBip}
+    info.EntityData.Leafs["path-ais"] = types.YLeaf{"PathAis", info.PathAis}
+    info.EntityData.Leafs["path-rdi"] = types.YLeaf{"PathRdi", info.PathRdi}
+    info.EntityData.Leafs["path-febe"] = types.YLeaf{"PathFebe", info.PathFebe}
+    info.EntityData.Leafs["path-bip"] = types.YLeaf{"PathBip", info.PathBip}
+    info.EntityData.Leafs["path-lop"] = types.YLeaf{"PathLop", info.PathLop}
+    info.EntityData.Leafs["path-newptr"] = types.YLeaf{"PathNewptr", info.PathNewptr}
+    info.EntityData.Leafs["path-pse"] = types.YLeaf{"PathPse", info.PathPse}
+    info.EntityData.Leafs["path-nse"] = types.YLeaf{"PathNse", info.PathNse}
+    info.EntityData.Leafs["wis-alarms-ser"] = types.YLeaf{"WisAlarmsSer", info.WisAlarmsSer}
+    info.EntityData.Leafs["wis-alarms-felcdp"] = types.YLeaf{"WisAlarmsFelcdp", info.WisAlarmsFelcdp}
+    info.EntityData.Leafs["wis-alarms-feaisp"] = types.YLeaf{"WisAlarmsFeaisp", info.WisAlarmsFeaisp}
+    info.EntityData.Leafs["wis-alarms-wlos"] = types.YLeaf{"WisAlarmsWlos", info.WisAlarmsWlos}
+    info.EntityData.Leafs["wis-alarms-plcd"] = types.YLeaf{"WisAlarmsPlcd", info.WisAlarmsPlcd}
+    info.EntityData.Leafs["wis-alarms-lfebip"] = types.YLeaf{"WisAlarmsLfebip", info.WisAlarmsLfebip}
+    info.EntityData.Leafs["wis-alarms-pbec"] = types.YLeaf{"WisAlarmsPbec", info.WisAlarmsPbec}
+    info.EntityData.Leafs["wis-alarms-plmp"] = types.YLeaf{"WisAlarmsPlmp", info.WisAlarmsPlmp}
+    info.EntityData.Leafs["sf-ber-threshold"] = types.YLeaf{"SfBerThreshold", info.SfBerThreshold}
+    info.EntityData.Leafs["sd-ber-threshold"] = types.YLeaf{"SdBerThreshold", info.SdBerThreshold}
+    info.EntityData.Leafs["sf-ber-report"] = types.YLeaf{"SfBerReport", info.SfBerReport}
+    info.EntityData.Leafs["sd-ber-report"] = types.YLeaf{"SdBerReport", info.SdBerReport}
+    info.EntityData.Leafs["operational-mode"] = types.YLeaf{"OperationalMode", info.OperationalMode}
+    info.EntityData.Leafs["remote-ip"] = types.YLeaf{"RemoteIp", info.RemoteIp}
+    info.EntityData.Leafs["register-p-febe"] = types.YLeaf{"RegisterPFebe", info.RegisterPFebe}
+    info.EntityData.Leafs["register-l-fe-bip"] = types.YLeaf{"RegisterLFeBip", info.RegisterLFeBip}
+    info.EntityData.Leafs["register-l-bip"] = types.YLeaf{"RegisterLBip", info.RegisterLBip}
+    info.EntityData.Leafs["register-p-bec"] = types.YLeaf{"RegisterPBec", info.RegisterPBec}
+    info.EntityData.Leafs["register-s-bip"] = types.YLeaf{"RegisterSBip", info.RegisterSBip}
+    info.EntityData.Leafs["register-j1-rx0"] = types.YLeaf{"RegisterJ1Rx0", info.RegisterJ1Rx0}
+    info.EntityData.Leafs["register-j1-rx1"] = types.YLeaf{"RegisterJ1Rx1", info.RegisterJ1Rx1}
+    info.EntityData.Leafs["register-j1-rx2"] = types.YLeaf{"RegisterJ1Rx2", info.RegisterJ1Rx2}
+    info.EntityData.Leafs["register-j1-rx3"] = types.YLeaf{"RegisterJ1Rx3", info.RegisterJ1Rx3}
+    info.EntityData.Leafs["register-j1-rx4"] = types.YLeaf{"RegisterJ1Rx4", info.RegisterJ1Rx4}
+    info.EntityData.Leafs["register-j1-rx5"] = types.YLeaf{"RegisterJ1Rx5", info.RegisterJ1Rx5}
+    info.EntityData.Leafs["register-j1-rx6"] = types.YLeaf{"RegisterJ1Rx6", info.RegisterJ1Rx6}
+    info.EntityData.Leafs["register-j1-rx7"] = types.YLeaf{"RegisterJ1Rx7", info.RegisterJ1Rx7}
+    info.EntityData.Leafs["wanphy-poll-timer"] = types.YLeaf{"WanphyPollTimer", info.WanphyPollTimer}
+    return &(info.EntityData)
 }
-
-func (info *Wanphy_Controllers_Controller_Info) GetSegmentPath() string {
-    return "info"
-}
-
-func (info *Wanphy_Controllers_Controller_Info) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (info *Wanphy_Controllers_Controller_Info) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (info *Wanphy_Controllers_Controller_Info) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["admin-mode"] = info.AdminMode
-    leafs["port-state"] = info.PortState
-    leafs["section-lof"] = info.SectionLof
-    leafs["section-los"] = info.SectionLos
-    leafs["section-bip"] = info.SectionBip
-    leafs["line-ais"] = info.LineAis
-    leafs["line-rdi"] = info.LineRdi
-    leafs["line-febe"] = info.LineFebe
-    leafs["line-bip"] = info.LineBip
-    leafs["path-ais"] = info.PathAis
-    leafs["path-rdi"] = info.PathRdi
-    leafs["path-febe"] = info.PathFebe
-    leafs["path-bip"] = info.PathBip
-    leafs["path-lop"] = info.PathLop
-    leafs["path-newptr"] = info.PathNewptr
-    leafs["path-pse"] = info.PathPse
-    leafs["path-nse"] = info.PathNse
-    leafs["wis-alarms-ser"] = info.WisAlarmsSer
-    leafs["wis-alarms-felcdp"] = info.WisAlarmsFelcdp
-    leafs["wis-alarms-feaisp"] = info.WisAlarmsFeaisp
-    leafs["wis-alarms-wlos"] = info.WisAlarmsWlos
-    leafs["wis-alarms-plcd"] = info.WisAlarmsPlcd
-    leafs["wis-alarms-lfebip"] = info.WisAlarmsLfebip
-    leafs["wis-alarms-pbec"] = info.WisAlarmsPbec
-    leafs["wis-alarms-plmp"] = info.WisAlarmsPlmp
-    leafs["sf-ber-threshold"] = info.SfBerThreshold
-    leafs["sd-ber-threshold"] = info.SdBerThreshold
-    leafs["sf-ber-report"] = info.SfBerReport
-    leafs["sd-ber-report"] = info.SdBerReport
-    leafs["operational-mode"] = info.OperationalMode
-    leafs["remote-ip"] = info.RemoteIp
-    leafs["register-p-febe"] = info.RegisterPFebe
-    leafs["register-l-fe-bip"] = info.RegisterLFeBip
-    leafs["register-l-bip"] = info.RegisterLBip
-    leafs["register-p-bec"] = info.RegisterPBec
-    leafs["register-s-bip"] = info.RegisterSBip
-    leafs["register-j1-rx0"] = info.RegisterJ1Rx0
-    leafs["register-j1-rx1"] = info.RegisterJ1Rx1
-    leafs["register-j1-rx2"] = info.RegisterJ1Rx2
-    leafs["register-j1-rx3"] = info.RegisterJ1Rx3
-    leafs["register-j1-rx4"] = info.RegisterJ1Rx4
-    leafs["register-j1-rx5"] = info.RegisterJ1Rx5
-    leafs["register-j1-rx6"] = info.RegisterJ1Rx6
-    leafs["register-j1-rx7"] = info.RegisterJ1Rx7
-    leafs["wanphy-poll-timer"] = info.WanphyPollTimer
-    return leafs
-}
-
-func (info *Wanphy_Controllers_Controller_Info) GetBundleName() string { return "cisco_ios_xr" }
-
-func (info *Wanphy_Controllers_Controller_Info) GetYangName() string { return "info" }
-
-func (info *Wanphy_Controllers_Controller_Info) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (info *Wanphy_Controllers_Controller_Info) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (info *Wanphy_Controllers_Controller_Info) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (info *Wanphy_Controllers_Controller_Info) SetParent(parent types.Entity) { info.parent = parent }
-
-func (info *Wanphy_Controllers_Controller_Info) GetParent() types.Entity { return info.parent }
-
-func (info *Wanphy_Controllers_Controller_Info) GetParentYangName() string { return "controller" }
 

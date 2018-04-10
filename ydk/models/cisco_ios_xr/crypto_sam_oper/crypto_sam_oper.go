@@ -24,6 +24,35 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-sam-oper:sam", reflect.TypeOf(Sam{}))
 }
 
+// LogTables represents Log tables
+type LogTables string
+
+const (
+    // Table is not known
+    LogTables_unkown LogTables = "unkown"
+
+    // Table is memory digest table
+    LogTables_memory_digest_table LogTables = "memory-digest-table"
+
+    // Table is system database digest table
+    LogTables_system_database_digest LogTables = "system-database-digest"
+
+    // Table is SAM table
+    LogTables_sam_tables LogTables = "sam-tables"
+)
+
+// CertificateIssuer represents Certificate issuers
+type CertificateIssuer string
+
+const (
+    // Issuer is not known
+    CertificateIssuer_unknown CertificateIssuer = "unknown"
+
+    // Issuer is code signing server certificate
+    // authority
+    CertificateIssuer_code_signing_server_certificate_authority CertificateIssuer = "code-signing-server-certificate-authority"
+)
+
 // LogError represents Log errors
 type LogError string
 
@@ -111,40 +140,11 @@ const (
     LogCode_namespace_deleted_recovered_by_sam LogCode = "namespace-deleted-recovered-by-sam"
 )
 
-// CertificateIssuer represents Certificate issuers
-type CertificateIssuer string
-
-const (
-    // Issuer is not known
-    CertificateIssuer_unknown CertificateIssuer = "unknown"
-
-    // Issuer is code signing server certificate
-    // authority
-    CertificateIssuer_code_signing_server_certificate_authority CertificateIssuer = "code-signing-server-certificate-authority"
-)
-
-// LogTables represents Log tables
-type LogTables string
-
-const (
-    // Table is not known
-    LogTables_unkown LogTables = "unkown"
-
-    // Table is memory digest table
-    LogTables_memory_digest_table LogTables = "memory-digest-table"
-
-    // Table is system database digest table
-    LogTables_system_database_digest LogTables = "system-database-digest"
-
-    // Table is SAM table
-    LogTables_sam_tables LogTables = "sam-tables"
-)
-
 // Sam
 // Software authentication manager certificate
 // information
 type Sam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // SAM system information.
@@ -166,84 +166,31 @@ type Sam struct {
     CertificateRevocationListSummary Sam_CertificateRevocationListSummary
 }
 
-func (sam *Sam) GetFilter() yfilter.YFilter { return sam.YFilter }
+func (sam *Sam) GetEntityData() *types.CommonEntityData {
+    sam.EntityData.YFilter = sam.YFilter
+    sam.EntityData.YangName = "sam"
+    sam.EntityData.BundleName = "cisco_ios_xr"
+    sam.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-sam-oper"
+    sam.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-sam-oper:sam"
+    sam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sam *Sam) SetFilter(yf yfilter.YFilter) { sam.YFilter = yf }
-
-func (sam *Sam) GetGoName(yname string) string {
-    if yname == "system-information" { return "SystemInformation" }
-    if yname == "log-contents" { return "LogContents" }
-    if yname == "devices" { return "Devices" }
-    if yname == "packages" { return "Packages" }
-    if yname == "certificate-revocations" { return "CertificateRevocations" }
-    if yname == "certificate-revocation-list-summary" { return "CertificateRevocationListSummary" }
-    return ""
+    sam.EntityData.Children = make(map[string]types.YChild)
+    sam.EntityData.Children["system-information"] = types.YChild{"SystemInformation", &sam.SystemInformation}
+    sam.EntityData.Children["log-contents"] = types.YChild{"LogContents", &sam.LogContents}
+    sam.EntityData.Children["devices"] = types.YChild{"Devices", &sam.Devices}
+    sam.EntityData.Children["packages"] = types.YChild{"Packages", &sam.Packages}
+    sam.EntityData.Children["certificate-revocations"] = types.YChild{"CertificateRevocations", &sam.CertificateRevocations}
+    sam.EntityData.Children["certificate-revocation-list-summary"] = types.YChild{"CertificateRevocationListSummary", &sam.CertificateRevocationListSummary}
+    sam.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sam.EntityData)
 }
-
-func (sam *Sam) GetSegmentPath() string {
-    return "Cisco-IOS-XR-crypto-sam-oper:sam"
-}
-
-func (sam *Sam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "system-information" {
-        return &sam.SystemInformation
-    }
-    if childYangName == "log-contents" {
-        return &sam.LogContents
-    }
-    if childYangName == "devices" {
-        return &sam.Devices
-    }
-    if childYangName == "packages" {
-        return &sam.Packages
-    }
-    if childYangName == "certificate-revocations" {
-        return &sam.CertificateRevocations
-    }
-    if childYangName == "certificate-revocation-list-summary" {
-        return &sam.CertificateRevocationListSummary
-    }
-    return nil
-}
-
-func (sam *Sam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["system-information"] = &sam.SystemInformation
-    children["log-contents"] = &sam.LogContents
-    children["devices"] = &sam.Devices
-    children["packages"] = &sam.Packages
-    children["certificate-revocations"] = &sam.CertificateRevocations
-    children["certificate-revocation-list-summary"] = &sam.CertificateRevocationListSummary
-    return children
-}
-
-func (sam *Sam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sam *Sam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sam *Sam) GetYangName() string { return "sam" }
-
-func (sam *Sam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sam *Sam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sam *Sam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sam *Sam) SetParent(parent types.Entity) { sam.parent = parent }
-
-func (sam *Sam) GetParent() types.Entity { return sam.parent }
-
-func (sam *Sam) GetParentYangName() string { return "Cisco-IOS-XR-crypto-sam-oper" }
 
 // Sam_SystemInformation
 // SAM system information
 type Sam_SystemInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // True if SAM status information runs. The type is bool.
@@ -257,60 +204,28 @@ type Sam_SystemInformation struct {
     IsDefaultResponse interface{}
 }
 
-func (systemInformation *Sam_SystemInformation) GetFilter() yfilter.YFilter { return systemInformation.YFilter }
+func (systemInformation *Sam_SystemInformation) GetEntityData() *types.CommonEntityData {
+    systemInformation.EntityData.YFilter = systemInformation.YFilter
+    systemInformation.EntityData.YangName = "system-information"
+    systemInformation.EntityData.BundleName = "cisco_ios_xr"
+    systemInformation.EntityData.ParentYangName = "sam"
+    systemInformation.EntityData.SegmentPath = "system-information"
+    systemInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    systemInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    systemInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (systemInformation *Sam_SystemInformation) SetFilter(yf yfilter.YFilter) { systemInformation.YFilter = yf }
-
-func (systemInformation *Sam_SystemInformation) GetGoName(yname string) string {
-    if yname == "is-running" { return "IsRunning" }
-    if yname == "prompt-interval" { return "PromptInterval" }
-    if yname == "is-default-response" { return "IsDefaultResponse" }
-    return ""
+    systemInformation.EntityData.Children = make(map[string]types.YChild)
+    systemInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    systemInformation.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", systemInformation.IsRunning}
+    systemInformation.EntityData.Leafs["prompt-interval"] = types.YLeaf{"PromptInterval", systemInformation.PromptInterval}
+    systemInformation.EntityData.Leafs["is-default-response"] = types.YLeaf{"IsDefaultResponse", systemInformation.IsDefaultResponse}
+    return &(systemInformation.EntityData)
 }
-
-func (systemInformation *Sam_SystemInformation) GetSegmentPath() string {
-    return "system-information"
-}
-
-func (systemInformation *Sam_SystemInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (systemInformation *Sam_SystemInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (systemInformation *Sam_SystemInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-running"] = systemInformation.IsRunning
-    leafs["prompt-interval"] = systemInformation.PromptInterval
-    leafs["is-default-response"] = systemInformation.IsDefaultResponse
-    return leafs
-}
-
-func (systemInformation *Sam_SystemInformation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (systemInformation *Sam_SystemInformation) GetYangName() string { return "system-information" }
-
-func (systemInformation *Sam_SystemInformation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (systemInformation *Sam_SystemInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (systemInformation *Sam_SystemInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (systemInformation *Sam_SystemInformation) SetParent(parent types.Entity) { systemInformation.parent = parent }
-
-func (systemInformation *Sam_SystemInformation) GetParent() types.Entity { return systemInformation.parent }
-
-func (systemInformation *Sam_SystemInformation) GetParentYangName() string { return "sam" }
 
 // Sam_LogContents
 // SAM log content table information
 type Sam_LogContents struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of lines for SAM log message. The type is slice of
@@ -318,68 +233,29 @@ type Sam_LogContents struct {
     LogContent []Sam_LogContents_LogContent
 }
 
-func (logContents *Sam_LogContents) GetFilter() yfilter.YFilter { return logContents.YFilter }
+func (logContents *Sam_LogContents) GetEntityData() *types.CommonEntityData {
+    logContents.EntityData.YFilter = logContents.YFilter
+    logContents.EntityData.YangName = "log-contents"
+    logContents.EntityData.BundleName = "cisco_ios_xr"
+    logContents.EntityData.ParentYangName = "sam"
+    logContents.EntityData.SegmentPath = "log-contents"
+    logContents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    logContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    logContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (logContents *Sam_LogContents) SetFilter(yf yfilter.YFilter) { logContents.YFilter = yf }
-
-func (logContents *Sam_LogContents) GetGoName(yname string) string {
-    if yname == "log-content" { return "LogContent" }
-    return ""
-}
-
-func (logContents *Sam_LogContents) GetSegmentPath() string {
-    return "log-contents"
-}
-
-func (logContents *Sam_LogContents) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "log-content" {
-        for _, c := range logContents.LogContent {
-            if logContents.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sam_LogContents_LogContent{}
-        logContents.LogContent = append(logContents.LogContent, child)
-        return &logContents.LogContent[len(logContents.LogContent)-1]
-    }
-    return nil
-}
-
-func (logContents *Sam_LogContents) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    logContents.EntityData.Children = make(map[string]types.YChild)
+    logContents.EntityData.Children["log-content"] = types.YChild{"LogContent", nil}
     for i := range logContents.LogContent {
-        children[logContents.LogContent[i].GetSegmentPath()] = &logContents.LogContent[i]
+        logContents.EntityData.Children[types.GetSegmentPath(&logContents.LogContent[i])] = types.YChild{"LogContent", &logContents.LogContent[i]}
     }
-    return children
+    logContents.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(logContents.EntityData)
 }
-
-func (logContents *Sam_LogContents) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (logContents *Sam_LogContents) GetBundleName() string { return "cisco_ios_xr" }
-
-func (logContents *Sam_LogContents) GetYangName() string { return "log-contents" }
-
-func (logContents *Sam_LogContents) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (logContents *Sam_LogContents) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (logContents *Sam_LogContents) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (logContents *Sam_LogContents) SetParent(parent types.Entity) { logContents.parent = parent }
-
-func (logContents *Sam_LogContents) GetParent() types.Entity { return logContents.parent }
-
-func (logContents *Sam_LogContents) GetParentYangName() string { return "sam" }
 
 // Sam_LogContents_LogContent
 // Number of lines for SAM log message
 type Sam_LogContents_LogContent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Number of lines. The type is interface{} with
@@ -397,74 +273,32 @@ type Sam_LogContents_LogContent struct {
     Logs []Sam_LogContents_LogContent_Logs
 }
 
-func (logContent *Sam_LogContents_LogContent) GetFilter() yfilter.YFilter { return logContent.YFilter }
+func (logContent *Sam_LogContents_LogContent) GetEntityData() *types.CommonEntityData {
+    logContent.EntityData.YFilter = logContent.YFilter
+    logContent.EntityData.YangName = "log-content"
+    logContent.EntityData.BundleName = "cisco_ios_xr"
+    logContent.EntityData.ParentYangName = "log-contents"
+    logContent.EntityData.SegmentPath = "log-content" + "[number-of-lines='" + fmt.Sprintf("%v", logContent.NumberOfLines) + "']"
+    logContent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    logContent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    logContent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (logContent *Sam_LogContents_LogContent) SetFilter(yf yfilter.YFilter) { logContent.YFilter = yf }
-
-func (logContent *Sam_LogContents_LogContent) GetGoName(yname string) string {
-    if yname == "number-of-lines" { return "NumberOfLines" }
-    if yname == "total-entries" { return "TotalEntries" }
-    if yname == "entries-shown" { return "EntriesShown" }
-    if yname == "logs" { return "Logs" }
-    return ""
-}
-
-func (logContent *Sam_LogContents_LogContent) GetSegmentPath() string {
-    return "log-content" + "[number-of-lines='" + fmt.Sprintf("%v", logContent.NumberOfLines) + "']"
-}
-
-func (logContent *Sam_LogContents_LogContent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "logs" {
-        for _, c := range logContent.Logs {
-            if logContent.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sam_LogContents_LogContent_Logs{}
-        logContent.Logs = append(logContent.Logs, child)
-        return &logContent.Logs[len(logContent.Logs)-1]
-    }
-    return nil
-}
-
-func (logContent *Sam_LogContents_LogContent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    logContent.EntityData.Children = make(map[string]types.YChild)
+    logContent.EntityData.Children["logs"] = types.YChild{"Logs", nil}
     for i := range logContent.Logs {
-        children[logContent.Logs[i].GetSegmentPath()] = &logContent.Logs[i]
+        logContent.EntityData.Children[types.GetSegmentPath(&logContent.Logs[i])] = types.YChild{"Logs", &logContent.Logs[i]}
     }
-    return children
+    logContent.EntityData.Leafs = make(map[string]types.YLeaf)
+    logContent.EntityData.Leafs["number-of-lines"] = types.YLeaf{"NumberOfLines", logContent.NumberOfLines}
+    logContent.EntityData.Leafs["total-entries"] = types.YLeaf{"TotalEntries", logContent.TotalEntries}
+    logContent.EntityData.Leafs["entries-shown"] = types.YLeaf{"EntriesShown", logContent.EntriesShown}
+    return &(logContent.EntityData)
 }
-
-func (logContent *Sam_LogContents_LogContent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number-of-lines"] = logContent.NumberOfLines
-    leafs["total-entries"] = logContent.TotalEntries
-    leafs["entries-shown"] = logContent.EntriesShown
-    return leafs
-}
-
-func (logContent *Sam_LogContents_LogContent) GetBundleName() string { return "cisco_ios_xr" }
-
-func (logContent *Sam_LogContents_LogContent) GetYangName() string { return "log-content" }
-
-func (logContent *Sam_LogContents_LogContent) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (logContent *Sam_LogContents_LogContent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (logContent *Sam_LogContents_LogContent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (logContent *Sam_LogContents_LogContent) SetParent(parent types.Entity) { logContent.parent = parent }
-
-func (logContent *Sam_LogContents_LogContent) GetParent() types.Entity { return logContent.parent }
-
-func (logContent *Sam_LogContents_LogContent) GetParentYangName() string { return "log-contents" }
 
 // Sam_LogContents_LogContent_Logs
 // SAM logs
 type Sam_LogContents_LogContent_Logs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Log time. The type is string.
@@ -501,76 +335,36 @@ type Sam_LogContents_LogContent_Logs struct {
     Table interface{}
 }
 
-func (logs *Sam_LogContents_LogContent_Logs) GetFilter() yfilter.YFilter { return logs.YFilter }
+func (logs *Sam_LogContents_LogContent_Logs) GetEntityData() *types.CommonEntityData {
+    logs.EntityData.YFilter = logs.YFilter
+    logs.EntityData.YangName = "logs"
+    logs.EntityData.BundleName = "cisco_ios_xr"
+    logs.EntityData.ParentYangName = "log-content"
+    logs.EntityData.SegmentPath = "logs"
+    logs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (logs *Sam_LogContents_LogContent_Logs) SetFilter(yf yfilter.YFilter) { logs.YFilter = yf }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetGoName(yname string) string {
-    if yname == "time" { return "Time" }
-    if yname == "code" { return "Code" }
-    if yname == "target-device" { return "TargetDevice" }
-    if yname == "index" { return "Index" }
-    if yname == "error" { return "Error" }
-    if yname == "issuer" { return "Issuer" }
-    if yname == "serial-no" { return "SerialNo" }
-    if yname == "sam-table-index" { return "SamTableIndex" }
-    if yname == "update-time" { return "UpdateTime" }
-    if yname == "source-device" { return "SourceDevice" }
-    if yname == "table" { return "Table" }
-    return ""
+    logs.EntityData.Children = make(map[string]types.YChild)
+    logs.EntityData.Leafs = make(map[string]types.YLeaf)
+    logs.EntityData.Leafs["time"] = types.YLeaf{"Time", logs.Time}
+    logs.EntityData.Leafs["code"] = types.YLeaf{"Code", logs.Code}
+    logs.EntityData.Leafs["target-device"] = types.YLeaf{"TargetDevice", logs.TargetDevice}
+    logs.EntityData.Leafs["index"] = types.YLeaf{"Index", logs.Index}
+    logs.EntityData.Leafs["error"] = types.YLeaf{"Error", logs.Error}
+    logs.EntityData.Leafs["issuer"] = types.YLeaf{"Issuer", logs.Issuer}
+    logs.EntityData.Leafs["serial-no"] = types.YLeaf{"SerialNo", logs.SerialNo}
+    logs.EntityData.Leafs["sam-table-index"] = types.YLeaf{"SamTableIndex", logs.SamTableIndex}
+    logs.EntityData.Leafs["update-time"] = types.YLeaf{"UpdateTime", logs.UpdateTime}
+    logs.EntityData.Leafs["source-device"] = types.YLeaf{"SourceDevice", logs.SourceDevice}
+    logs.EntityData.Leafs["table"] = types.YLeaf{"Table", logs.Table}
+    return &(logs.EntityData)
 }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetSegmentPath() string {
-    return "logs"
-}
-
-func (logs *Sam_LogContents_LogContent_Logs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (logs *Sam_LogContents_LogContent_Logs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (logs *Sam_LogContents_LogContent_Logs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time"] = logs.Time
-    leafs["code"] = logs.Code
-    leafs["target-device"] = logs.TargetDevice
-    leafs["index"] = logs.Index
-    leafs["error"] = logs.Error
-    leafs["issuer"] = logs.Issuer
-    leafs["serial-no"] = logs.SerialNo
-    leafs["sam-table-index"] = logs.SamTableIndex
-    leafs["update-time"] = logs.UpdateTime
-    leafs["source-device"] = logs.SourceDevice
-    leafs["table"] = logs.Table
-    return leafs
-}
-
-func (logs *Sam_LogContents_LogContent_Logs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetYangName() string { return "logs" }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (logs *Sam_LogContents_LogContent_Logs) SetParent(parent types.Entity) { logs.parent = parent }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetParent() types.Entity { return logs.parent }
-
-func (logs *Sam_LogContents_LogContent_Logs) GetParentYangName() string { return "log-content" }
 
 // Sam_Devices
 // Certificate device table information
 type Sam_Devices struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Certificate table device information. The type is slice of
@@ -578,133 +372,60 @@ type Sam_Devices struct {
     Device []Sam_Devices_Device
 }
 
-func (devices *Sam_Devices) GetFilter() yfilter.YFilter { return devices.YFilter }
+func (devices *Sam_Devices) GetEntityData() *types.CommonEntityData {
+    devices.EntityData.YFilter = devices.YFilter
+    devices.EntityData.YangName = "devices"
+    devices.EntityData.BundleName = "cisco_ios_xr"
+    devices.EntityData.ParentYangName = "sam"
+    devices.EntityData.SegmentPath = "devices"
+    devices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    devices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    devices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (devices *Sam_Devices) SetFilter(yf yfilter.YFilter) { devices.YFilter = yf }
-
-func (devices *Sam_Devices) GetGoName(yname string) string {
-    if yname == "device" { return "Device" }
-    return ""
-}
-
-func (devices *Sam_Devices) GetSegmentPath() string {
-    return "devices"
-}
-
-func (devices *Sam_Devices) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "device" {
-        for _, c := range devices.Device {
-            if devices.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sam_Devices_Device{}
-        devices.Device = append(devices.Device, child)
-        return &devices.Device[len(devices.Device)-1]
-    }
-    return nil
-}
-
-func (devices *Sam_Devices) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    devices.EntityData.Children = make(map[string]types.YChild)
+    devices.EntityData.Children["device"] = types.YChild{"Device", nil}
     for i := range devices.Device {
-        children[devices.Device[i].GetSegmentPath()] = &devices.Device[i]
+        devices.EntityData.Children[types.GetSegmentPath(&devices.Device[i])] = types.YChild{"Device", &devices.Device[i]}
     }
-    return children
+    devices.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(devices.EntityData)
 }
-
-func (devices *Sam_Devices) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (devices *Sam_Devices) GetBundleName() string { return "cisco_ios_xr" }
-
-func (devices *Sam_Devices) GetYangName() string { return "devices" }
-
-func (devices *Sam_Devices) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (devices *Sam_Devices) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (devices *Sam_Devices) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (devices *Sam_Devices) SetParent(parent types.Entity) { devices.parent = parent }
-
-func (devices *Sam_Devices) GetParent() types.Entity { return devices.parent }
-
-func (devices *Sam_Devices) GetParentYangName() string { return "sam" }
 
 // Sam_Devices_Device
 // Certificate table device information
 type Sam_Devices_Device struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify device name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     DeviceName interface{}
 
     // Certificate table information.
     Certificate Sam_Devices_Device_Certificate
 }
 
-func (device *Sam_Devices_Device) GetFilter() yfilter.YFilter { return device.YFilter }
+func (device *Sam_Devices_Device) GetEntityData() *types.CommonEntityData {
+    device.EntityData.YFilter = device.YFilter
+    device.EntityData.YangName = "device"
+    device.EntityData.BundleName = "cisco_ios_xr"
+    device.EntityData.ParentYangName = "devices"
+    device.EntityData.SegmentPath = "device" + "[device-name='" + fmt.Sprintf("%v", device.DeviceName) + "']"
+    device.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    device.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    device.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (device *Sam_Devices_Device) SetFilter(yf yfilter.YFilter) { device.YFilter = yf }
-
-func (device *Sam_Devices_Device) GetGoName(yname string) string {
-    if yname == "device-name" { return "DeviceName" }
-    if yname == "certificate" { return "Certificate" }
-    return ""
+    device.EntityData.Children = make(map[string]types.YChild)
+    device.EntityData.Children["certificate"] = types.YChild{"Certificate", &device.Certificate}
+    device.EntityData.Leafs = make(map[string]types.YLeaf)
+    device.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", device.DeviceName}
+    return &(device.EntityData)
 }
-
-func (device *Sam_Devices_Device) GetSegmentPath() string {
-    return "device" + "[device-name='" + fmt.Sprintf("%v", device.DeviceName) + "']"
-}
-
-func (device *Sam_Devices_Device) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate" {
-        return &device.Certificate
-    }
-    return nil
-}
-
-func (device *Sam_Devices_Device) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["certificate"] = &device.Certificate
-    return children
-}
-
-func (device *Sam_Devices_Device) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["device-name"] = device.DeviceName
-    return leafs
-}
-
-func (device *Sam_Devices_Device) GetBundleName() string { return "cisco_ios_xr" }
-
-func (device *Sam_Devices_Device) GetYangName() string { return "device" }
-
-func (device *Sam_Devices_Device) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (device *Sam_Devices_Device) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (device *Sam_Devices_Device) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (device *Sam_Devices_Device) SetParent(parent types.Entity) { device.parent = parent }
-
-func (device *Sam_Devices_Device) GetParent() types.Entity { return device.parent }
-
-func (device *Sam_Devices_Device) GetParentYangName() string { return "devices" }
 
 // Sam_Devices_Device_Certificate
 // Certificate table information
 type Sam_Devices_Device_Certificate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Certificate table brief information.
@@ -714,64 +435,27 @@ type Sam_Devices_Device_Certificate struct {
     CertificateIndexes Sam_Devices_Device_Certificate_CertificateIndexes
 }
 
-func (certificate *Sam_Devices_Device_Certificate) GetFilter() yfilter.YFilter { return certificate.YFilter }
+func (certificate *Sam_Devices_Device_Certificate) GetEntityData() *types.CommonEntityData {
+    certificate.EntityData.YFilter = certificate.YFilter
+    certificate.EntityData.YangName = "certificate"
+    certificate.EntityData.BundleName = "cisco_ios_xr"
+    certificate.EntityData.ParentYangName = "device"
+    certificate.EntityData.SegmentPath = "certificate"
+    certificate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificate *Sam_Devices_Device_Certificate) SetFilter(yf yfilter.YFilter) { certificate.YFilter = yf }
-
-func (certificate *Sam_Devices_Device_Certificate) GetGoName(yname string) string {
-    if yname == "brief" { return "Brief" }
-    if yname == "certificate-indexes" { return "CertificateIndexes" }
-    return ""
+    certificate.EntityData.Children = make(map[string]types.YChild)
+    certificate.EntityData.Children["brief"] = types.YChild{"Brief", &certificate.Brief}
+    certificate.EntityData.Children["certificate-indexes"] = types.YChild{"CertificateIndexes", &certificate.CertificateIndexes}
+    certificate.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(certificate.EntityData)
 }
-
-func (certificate *Sam_Devices_Device_Certificate) GetSegmentPath() string {
-    return "certificate"
-}
-
-func (certificate *Sam_Devices_Device_Certificate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "brief" {
-        return &certificate.Brief
-    }
-    if childYangName == "certificate-indexes" {
-        return &certificate.CertificateIndexes
-    }
-    return nil
-}
-
-func (certificate *Sam_Devices_Device_Certificate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["brief"] = &certificate.Brief
-    children["certificate-indexes"] = &certificate.CertificateIndexes
-    return children
-}
-
-func (certificate *Sam_Devices_Device_Certificate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (certificate *Sam_Devices_Device_Certificate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificate *Sam_Devices_Device_Certificate) GetYangName() string { return "certificate" }
-
-func (certificate *Sam_Devices_Device_Certificate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificate *Sam_Devices_Device_Certificate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificate *Sam_Devices_Device_Certificate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificate *Sam_Devices_Device_Certificate) SetParent(parent types.Entity) { certificate.parent = parent }
-
-func (certificate *Sam_Devices_Device_Certificate) GetParent() types.Entity { return certificate.parent }
-
-func (certificate *Sam_Devices_Device_Certificate) GetParentYangName() string { return "device" }
 
 // Sam_Devices_Device_Certificate_Brief
 // Certificate table brief information
 type Sam_Devices_Device_Certificate_Brief struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Certificate location. The type is string.
@@ -784,63 +468,28 @@ type Sam_Devices_Device_Certificate_Brief struct {
     CertificateFlags Sam_Devices_Device_Certificate_Brief_CertificateFlags
 }
 
-func (brief *Sam_Devices_Device_Certificate_Brief) GetFilter() yfilter.YFilter { return brief.YFilter }
+func (brief *Sam_Devices_Device_Certificate_Brief) GetEntityData() *types.CommonEntityData {
+    brief.EntityData.YFilter = brief.YFilter
+    brief.EntityData.YangName = "brief"
+    brief.EntityData.BundleName = "cisco_ios_xr"
+    brief.EntityData.ParentYangName = "certificate"
+    brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (brief *Sam_Devices_Device_Certificate_Brief) SetFilter(yf yfilter.YFilter) { brief.YFilter = yf }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "certificate-index" { return "CertificateIndex" }
-    if yname == "certificate-flags" { return "CertificateFlags" }
-    return ""
+    brief.EntityData.Children = make(map[string]types.YChild)
+    brief.EntityData.Children["certificate-flags"] = types.YChild{"CertificateFlags", &brief.CertificateFlags}
+    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Leafs["location"] = types.YLeaf{"Location", brief.Location}
+    brief.EntityData.Leafs["certificate-index"] = types.YLeaf{"CertificateIndex", brief.CertificateIndex}
+    return &(brief.EntityData)
 }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetSegmentPath() string {
-    return "brief"
-}
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate-flags" {
-        return &brief.CertificateFlags
-    }
-    return nil
-}
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["certificate-flags"] = &brief.CertificateFlags
-    return children
-}
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = brief.Location
-    leafs["certificate-index"] = brief.CertificateIndex
-    return leafs
-}
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetBundleName() string { return "cisco_ios_xr" }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetYangName() string { return "brief" }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) SetParent(parent types.Entity) { brief.parent = parent }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetParent() types.Entity { return brief.parent }
-
-func (brief *Sam_Devices_Device_Certificate_Brief) GetParentYangName() string { return "certificate" }
 
 // Sam_Devices_Device_Certificate_Brief_CertificateFlags
 // Certificate flags
 type Sam_Devices_Device_Certificate_Brief_CertificateFlags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trusted flag. The type is bool.
@@ -856,62 +505,29 @@ type Sam_Devices_Device_Certificate_Brief_CertificateFlags struct {
     IsValidated interface{}
 }
 
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetFilter() yfilter.YFilter { return certificateFlags.YFilter }
+func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetEntityData() *types.CommonEntityData {
+    certificateFlags.EntityData.YFilter = certificateFlags.YFilter
+    certificateFlags.EntityData.YangName = "certificate-flags"
+    certificateFlags.EntityData.BundleName = "cisco_ios_xr"
+    certificateFlags.EntityData.ParentYangName = "brief"
+    certificateFlags.EntityData.SegmentPath = "certificate-flags"
+    certificateFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) SetFilter(yf yfilter.YFilter) { certificateFlags.YFilter = yf }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetGoName(yname string) string {
-    if yname == "is-trusted" { return "IsTrusted" }
-    if yname == "is-revoked" { return "IsRevoked" }
-    if yname == "is-expired" { return "IsExpired" }
-    if yname == "is-validated" { return "IsValidated" }
-    return ""
+    certificateFlags.EntityData.Children = make(map[string]types.YChild)
+    certificateFlags.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateFlags.EntityData.Leafs["is-trusted"] = types.YLeaf{"IsTrusted", certificateFlags.IsTrusted}
+    certificateFlags.EntityData.Leafs["is-revoked"] = types.YLeaf{"IsRevoked", certificateFlags.IsRevoked}
+    certificateFlags.EntityData.Leafs["is-expired"] = types.YLeaf{"IsExpired", certificateFlags.IsExpired}
+    certificateFlags.EntityData.Leafs["is-validated"] = types.YLeaf{"IsValidated", certificateFlags.IsValidated}
+    return &(certificateFlags.EntityData)
 }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetSegmentPath() string {
-    return "certificate-flags"
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-trusted"] = certificateFlags.IsTrusted
-    leafs["is-revoked"] = certificateFlags.IsRevoked
-    leafs["is-expired"] = certificateFlags.IsExpired
-    leafs["is-validated"] = certificateFlags.IsValidated
-    return leafs
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetYangName() string { return "certificate-flags" }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) SetParent(parent types.Entity) { certificateFlags.parent = parent }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetParent() types.Entity { return certificateFlags.parent }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_Brief_CertificateFlags) GetParentYangName() string { return "brief" }
 
 // Sam_Devices_Device_Certificate_CertificateIndexes
 // Certificate detail index table information
 type Sam_Devices_Device_Certificate_CertificateIndexes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Certificate detail index information. The type is slice of
@@ -919,68 +535,29 @@ type Sam_Devices_Device_Certificate_CertificateIndexes struct {
     CertificateIndex []Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex
 }
 
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetFilter() yfilter.YFilter { return certificateIndexes.YFilter }
+func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetEntityData() *types.CommonEntityData {
+    certificateIndexes.EntityData.YFilter = certificateIndexes.YFilter
+    certificateIndexes.EntityData.YangName = "certificate-indexes"
+    certificateIndexes.EntityData.BundleName = "cisco_ios_xr"
+    certificateIndexes.EntityData.ParentYangName = "certificate"
+    certificateIndexes.EntityData.SegmentPath = "certificate-indexes"
+    certificateIndexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) SetFilter(yf yfilter.YFilter) { certificateIndexes.YFilter = yf }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetGoName(yname string) string {
-    if yname == "certificate-index" { return "CertificateIndex" }
-    return ""
-}
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetSegmentPath() string {
-    return "certificate-indexes"
-}
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate-index" {
-        for _, c := range certificateIndexes.CertificateIndex {
-            if certificateIndexes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex{}
-        certificateIndexes.CertificateIndex = append(certificateIndexes.CertificateIndex, child)
-        return &certificateIndexes.CertificateIndex[len(certificateIndexes.CertificateIndex)-1]
-    }
-    return nil
-}
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    certificateIndexes.EntityData.Children = make(map[string]types.YChild)
+    certificateIndexes.EntityData.Children["certificate-index"] = types.YChild{"CertificateIndex", nil}
     for i := range certificateIndexes.CertificateIndex {
-        children[certificateIndexes.CertificateIndex[i].GetSegmentPath()] = &certificateIndexes.CertificateIndex[i]
+        certificateIndexes.EntityData.Children[types.GetSegmentPath(&certificateIndexes.CertificateIndex[i])] = types.YChild{"CertificateIndex", &certificateIndexes.CertificateIndex[i]}
     }
-    return children
+    certificateIndexes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(certificateIndexes.EntityData)
 }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetYangName() string { return "certificate-indexes" }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) SetParent(parent types.Entity) { certificateIndexes.parent = parent }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetParent() types.Entity { return certificateIndexes.parent }
-
-func (certificateIndexes *Sam_Devices_Device_Certificate_CertificateIndexes) GetParentYangName() string { return "certificate" }
 
 // Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex
 // Certificate detail index information
 type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify certificate index. The type is interface{}
@@ -991,61 +568,27 @@ type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex struct {
     Detail Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail
 }
 
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetFilter() yfilter.YFilter { return certificateIndex.YFilter }
+func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetEntityData() *types.CommonEntityData {
+    certificateIndex.EntityData.YFilter = certificateIndex.YFilter
+    certificateIndex.EntityData.YangName = "certificate-index"
+    certificateIndex.EntityData.BundleName = "cisco_ios_xr"
+    certificateIndex.EntityData.ParentYangName = "certificate-indexes"
+    certificateIndex.EntityData.SegmentPath = "certificate-index" + "[index='" + fmt.Sprintf("%v", certificateIndex.Index) + "']"
+    certificateIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) SetFilter(yf yfilter.YFilter) { certificateIndex.YFilter = yf }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetGoName(yname string) string {
-    if yname == "index" { return "Index" }
-    if yname == "detail" { return "Detail" }
-    return ""
+    certificateIndex.EntityData.Children = make(map[string]types.YChild)
+    certificateIndex.EntityData.Children["detail"] = types.YChild{"Detail", &certificateIndex.Detail}
+    certificateIndex.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateIndex.EntityData.Leafs["index"] = types.YLeaf{"Index", certificateIndex.Index}
+    return &(certificateIndex.EntityData)
 }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetSegmentPath() string {
-    return "certificate-index" + "[index='" + fmt.Sprintf("%v", certificateIndex.Index) + "']"
-}
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "detail" {
-        return &certificateIndex.Detail
-    }
-    return nil
-}
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["detail"] = &certificateIndex.Detail
-    return children
-}
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index"] = certificateIndex.Index
-    return leafs
-}
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetYangName() string { return "certificate-index" }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) SetParent(parent types.Entity) { certificateIndex.parent = parent }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetParent() types.Entity { return certificateIndex.parent }
-
-func (certificateIndex *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex) GetParentYangName() string { return "certificate-indexes" }
 
 // Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail
 // Certificate table detail information
 type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Certificate location. The type is string.
@@ -1058,63 +601,28 @@ type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail s
     CertificateFlags Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags
 }
 
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetFilter() yfilter.YFilter { return detail.YFilter }
+func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetEntityData() *types.CommonEntityData {
+    detail.EntityData.YFilter = detail.YFilter
+    detail.EntityData.YangName = "detail"
+    detail.EntityData.BundleName = "cisco_ios_xr"
+    detail.EntityData.ParentYangName = "certificate-index"
+    detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) SetFilter(yf yfilter.YFilter) { detail.YFilter = yf }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "certificate-index" { return "CertificateIndex" }
-    if yname == "certificate-flags" { return "CertificateFlags" }
-    return ""
+    detail.EntityData.Children = make(map[string]types.YChild)
+    detail.EntityData.Children["certificate-flags"] = types.YChild{"CertificateFlags", &detail.CertificateFlags}
+    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs["location"] = types.YLeaf{"Location", detail.Location}
+    detail.EntityData.Leafs["certificate-index"] = types.YLeaf{"CertificateIndex", detail.CertificateIndex}
+    return &(detail.EntityData)
 }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetSegmentPath() string {
-    return "detail"
-}
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate-flags" {
-        return &detail.CertificateFlags
-    }
-    return nil
-}
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["certificate-flags"] = &detail.CertificateFlags
-    return children
-}
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = detail.Location
-    leafs["certificate-index"] = detail.CertificateIndex
-    return leafs
-}
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetYangName() string { return "detail" }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) SetParent(parent types.Entity) { detail.parent = parent }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetParent() types.Entity { return detail.parent }
-
-func (detail *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail) GetParentYangName() string { return "certificate-index" }
 
 // Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags
 // Certificate flags
 type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trusted flag. The type is bool.
@@ -1130,132 +638,60 @@ type Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_C
     IsValidated interface{}
 }
 
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetFilter() yfilter.YFilter { return certificateFlags.YFilter }
+func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetEntityData() *types.CommonEntityData {
+    certificateFlags.EntityData.YFilter = certificateFlags.YFilter
+    certificateFlags.EntityData.YangName = "certificate-flags"
+    certificateFlags.EntityData.BundleName = "cisco_ios_xr"
+    certificateFlags.EntityData.ParentYangName = "detail"
+    certificateFlags.EntityData.SegmentPath = "certificate-flags"
+    certificateFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) SetFilter(yf yfilter.YFilter) { certificateFlags.YFilter = yf }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetGoName(yname string) string {
-    if yname == "is-trusted" { return "IsTrusted" }
-    if yname == "is-revoked" { return "IsRevoked" }
-    if yname == "is-expired" { return "IsExpired" }
-    if yname == "is-validated" { return "IsValidated" }
-    return ""
+    certificateFlags.EntityData.Children = make(map[string]types.YChild)
+    certificateFlags.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateFlags.EntityData.Leafs["is-trusted"] = types.YLeaf{"IsTrusted", certificateFlags.IsTrusted}
+    certificateFlags.EntityData.Leafs["is-revoked"] = types.YLeaf{"IsRevoked", certificateFlags.IsRevoked}
+    certificateFlags.EntityData.Leafs["is-expired"] = types.YLeaf{"IsExpired", certificateFlags.IsExpired}
+    certificateFlags.EntityData.Leafs["is-validated"] = types.YLeaf{"IsValidated", certificateFlags.IsValidated}
+    return &(certificateFlags.EntityData)
 }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetSegmentPath() string {
-    return "certificate-flags"
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-trusted"] = certificateFlags.IsTrusted
-    leafs["is-revoked"] = certificateFlags.IsRevoked
-    leafs["is-expired"] = certificateFlags.IsExpired
-    leafs["is-validated"] = certificateFlags.IsValidated
-    return leafs
-}
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetYangName() string { return "certificate-flags" }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) SetParent(parent types.Entity) { certificateFlags.parent = parent }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetParent() types.Entity { return certificateFlags.parent }
-
-func (certificateFlags *Sam_Devices_Device_Certificate_CertificateIndexes_CertificateIndex_Detail_CertificateFlags) GetParentYangName() string { return "detail" }
 
 // Sam_Packages
 // SAM certificate information  package
 type Sam_Packages struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // SAM certificate information for a specific package. The type is slice of
-    // Sam_Packages_Package.
-    Package []Sam_Packages_Package
+    // Sam_Packages_Package_.
+    Package_ []Sam_Packages_Package
 }
 
-func (packages *Sam_Packages) GetFilter() yfilter.YFilter { return packages.YFilter }
+func (packages *Sam_Packages) GetEntityData() *types.CommonEntityData {
+    packages.EntityData.YFilter = packages.YFilter
+    packages.EntityData.YangName = "packages"
+    packages.EntityData.BundleName = "cisco_ios_xr"
+    packages.EntityData.ParentYangName = "sam"
+    packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packages *Sam_Packages) SetFilter(yf yfilter.YFilter) { packages.YFilter = yf }
-
-func (packages *Sam_Packages) GetGoName(yname string) string {
-    if yname == "package" { return "Package" }
-    return ""
-}
-
-func (packages *Sam_Packages) GetSegmentPath() string {
-    return "packages"
-}
-
-func (packages *Sam_Packages) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "package" {
-        for _, c := range packages.Package {
-            if packages.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sam_Packages_Package{}
-        packages.Package = append(packages.Package, child)
-        return &packages.Package[len(packages.Package)-1]
+    packages.EntityData.Children = make(map[string]types.YChild)
+    packages.EntityData.Children["package"] = types.YChild{"Package_", nil}
+    for i := range packages.Package_ {
+        packages.EntityData.Children[types.GetSegmentPath(&packages.Package_[i])] = types.YChild{"Package_", &packages.Package_[i]}
     }
-    return nil
+    packages.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(packages.EntityData)
 }
-
-func (packages *Sam_Packages) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range packages.Package {
-        children[packages.Package[i].GetSegmentPath()] = &packages.Package[i]
-    }
-    return children
-}
-
-func (packages *Sam_Packages) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (packages *Sam_Packages) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packages *Sam_Packages) GetYangName() string { return "packages" }
-
-func (packages *Sam_Packages) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packages *Sam_Packages) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packages *Sam_Packages) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packages *Sam_Packages) SetParent(parent types.Entity) { packages.parent = parent }
-
-func (packages *Sam_Packages) GetParent() types.Entity { return packages.parent }
-
-func (packages *Sam_Packages) GetParentYangName() string { return "sam" }
 
 // Sam_Packages_Package
 // SAM certificate information for a specific
 // package
 type Sam_Packages_Package struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify package name. The type is string.
@@ -1271,65 +707,29 @@ type Sam_Packages_Package struct {
     CertificateFlags Sam_Packages_Package_CertificateFlags
 }
 
-func (self *Sam_Packages_Package) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Sam_Packages_Package) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "package"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "packages"
+    self.EntityData.SegmentPath = "package" + "[package-name='" + fmt.Sprintf("%v", self.PackageName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Sam_Packages_Package) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Sam_Packages_Package) GetGoName(yname string) string {
-    if yname == "package-name" { return "PackageName" }
-    if yname == "location" { return "Location" }
-    if yname == "certificate-index" { return "CertificateIndex" }
-    if yname == "certificate-flags" { return "CertificateFlags" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["certificate-flags"] = types.YChild{"CertificateFlags", &self.CertificateFlags}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["package-name"] = types.YLeaf{"PackageName", self.PackageName}
+    self.EntityData.Leafs["location"] = types.YLeaf{"Location", self.Location}
+    self.EntityData.Leafs["certificate-index"] = types.YLeaf{"CertificateIndex", self.CertificateIndex}
+    return &(self.EntityData)
 }
-
-func (self *Sam_Packages_Package) GetSegmentPath() string {
-    return "package" + "[package-name='" + fmt.Sprintf("%v", self.PackageName) + "']"
-}
-
-func (self *Sam_Packages_Package) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate-flags" {
-        return &self.CertificateFlags
-    }
-    return nil
-}
-
-func (self *Sam_Packages_Package) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["certificate-flags"] = &self.CertificateFlags
-    return children
-}
-
-func (self *Sam_Packages_Package) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["package-name"] = self.PackageName
-    leafs["location"] = self.Location
-    leafs["certificate-index"] = self.CertificateIndex
-    return leafs
-}
-
-func (self *Sam_Packages_Package) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Sam_Packages_Package) GetYangName() string { return "package" }
-
-func (self *Sam_Packages_Package) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Sam_Packages_Package) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Sam_Packages_Package) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Sam_Packages_Package) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Sam_Packages_Package) GetParent() types.Entity { return self.parent }
-
-func (self *Sam_Packages_Package) GetParentYangName() string { return "packages" }
 
 // Sam_Packages_Package_CertificateFlags
 // Certificate flags
 type Sam_Packages_Package_CertificateFlags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trusted flag. The type is bool.
@@ -1345,63 +745,30 @@ type Sam_Packages_Package_CertificateFlags struct {
     IsValidated interface{}
 }
 
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetFilter() yfilter.YFilter { return certificateFlags.YFilter }
+func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetEntityData() *types.CommonEntityData {
+    certificateFlags.EntityData.YFilter = certificateFlags.YFilter
+    certificateFlags.EntityData.YangName = "certificate-flags"
+    certificateFlags.EntityData.BundleName = "cisco_ios_xr"
+    certificateFlags.EntityData.ParentYangName = "package"
+    certificateFlags.EntityData.SegmentPath = "certificate-flags"
+    certificateFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) SetFilter(yf yfilter.YFilter) { certificateFlags.YFilter = yf }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetGoName(yname string) string {
-    if yname == "is-trusted" { return "IsTrusted" }
-    if yname == "is-revoked" { return "IsRevoked" }
-    if yname == "is-expired" { return "IsExpired" }
-    if yname == "is-validated" { return "IsValidated" }
-    return ""
+    certificateFlags.EntityData.Children = make(map[string]types.YChild)
+    certificateFlags.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateFlags.EntityData.Leafs["is-trusted"] = types.YLeaf{"IsTrusted", certificateFlags.IsTrusted}
+    certificateFlags.EntityData.Leafs["is-revoked"] = types.YLeaf{"IsRevoked", certificateFlags.IsRevoked}
+    certificateFlags.EntityData.Leafs["is-expired"] = types.YLeaf{"IsExpired", certificateFlags.IsExpired}
+    certificateFlags.EntityData.Leafs["is-validated"] = types.YLeaf{"IsValidated", certificateFlags.IsValidated}
+    return &(certificateFlags.EntityData)
 }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetSegmentPath() string {
-    return "certificate-flags"
-}
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-trusted"] = certificateFlags.IsTrusted
-    leafs["is-revoked"] = certificateFlags.IsRevoked
-    leafs["is-expired"] = certificateFlags.IsExpired
-    leafs["is-validated"] = certificateFlags.IsValidated
-    return leafs
-}
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetYangName() string { return "certificate-flags" }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) SetParent(parent types.Entity) { certificateFlags.parent = parent }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetParent() types.Entity { return certificateFlags.parent }
-
-func (certificateFlags *Sam_Packages_Package_CertificateFlags) GetParentYangName() string { return "package" }
 
 // Sam_CertificateRevocations
 // Certificate revocation list index table
 // information
 type Sam_CertificateRevocations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Certificate revocation list index information. The type is slice of
@@ -1409,68 +776,29 @@ type Sam_CertificateRevocations struct {
     CertificateRevocation []Sam_CertificateRevocations_CertificateRevocation
 }
 
-func (certificateRevocations *Sam_CertificateRevocations) GetFilter() yfilter.YFilter { return certificateRevocations.YFilter }
+func (certificateRevocations *Sam_CertificateRevocations) GetEntityData() *types.CommonEntityData {
+    certificateRevocations.EntityData.YFilter = certificateRevocations.YFilter
+    certificateRevocations.EntityData.YangName = "certificate-revocations"
+    certificateRevocations.EntityData.BundleName = "cisco_ios_xr"
+    certificateRevocations.EntityData.ParentYangName = "sam"
+    certificateRevocations.EntityData.SegmentPath = "certificate-revocations"
+    certificateRevocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateRevocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateRevocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateRevocations *Sam_CertificateRevocations) SetFilter(yf yfilter.YFilter) { certificateRevocations.YFilter = yf }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetGoName(yname string) string {
-    if yname == "certificate-revocation" { return "CertificateRevocation" }
-    return ""
-}
-
-func (certificateRevocations *Sam_CertificateRevocations) GetSegmentPath() string {
-    return "certificate-revocations"
-}
-
-func (certificateRevocations *Sam_CertificateRevocations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate-revocation" {
-        for _, c := range certificateRevocations.CertificateRevocation {
-            if certificateRevocations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sam_CertificateRevocations_CertificateRevocation{}
-        certificateRevocations.CertificateRevocation = append(certificateRevocations.CertificateRevocation, child)
-        return &certificateRevocations.CertificateRevocation[len(certificateRevocations.CertificateRevocation)-1]
-    }
-    return nil
-}
-
-func (certificateRevocations *Sam_CertificateRevocations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    certificateRevocations.EntityData.Children = make(map[string]types.YChild)
+    certificateRevocations.EntityData.Children["certificate-revocation"] = types.YChild{"CertificateRevocation", nil}
     for i := range certificateRevocations.CertificateRevocation {
-        children[certificateRevocations.CertificateRevocation[i].GetSegmentPath()] = &certificateRevocations.CertificateRevocation[i]
+        certificateRevocations.EntityData.Children[types.GetSegmentPath(&certificateRevocations.CertificateRevocation[i])] = types.YChild{"CertificateRevocation", &certificateRevocations.CertificateRevocation[i]}
     }
-    return children
+    certificateRevocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(certificateRevocations.EntityData)
 }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (certificateRevocations *Sam_CertificateRevocations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetYangName() string { return "certificate-revocations" }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateRevocations *Sam_CertificateRevocations) SetParent(parent types.Entity) { certificateRevocations.parent = parent }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetParent() types.Entity { return certificateRevocations.parent }
-
-func (certificateRevocations *Sam_CertificateRevocations) GetParentYangName() string { return "sam" }
 
 // Sam_CertificateRevocations_CertificateRevocation
 // Certificate revocation list index information
 type Sam_CertificateRevocations_CertificateRevocation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. CRL index. The type is interface{} with range:
@@ -1481,61 +809,27 @@ type Sam_CertificateRevocations_CertificateRevocation struct {
     CertificateRevocationListDetail Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail
 }
 
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetFilter() yfilter.YFilter { return certificateRevocation.YFilter }
+func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetEntityData() *types.CommonEntityData {
+    certificateRevocation.EntityData.YFilter = certificateRevocation.YFilter
+    certificateRevocation.EntityData.YangName = "certificate-revocation"
+    certificateRevocation.EntityData.BundleName = "cisco_ios_xr"
+    certificateRevocation.EntityData.ParentYangName = "certificate-revocations"
+    certificateRevocation.EntityData.SegmentPath = "certificate-revocation" + "[crl-index='" + fmt.Sprintf("%v", certificateRevocation.CrlIndex) + "']"
+    certificateRevocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateRevocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateRevocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) SetFilter(yf yfilter.YFilter) { certificateRevocation.YFilter = yf }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetGoName(yname string) string {
-    if yname == "crl-index" { return "CrlIndex" }
-    if yname == "certificate-revocation-list-detail" { return "CertificateRevocationListDetail" }
-    return ""
+    certificateRevocation.EntityData.Children = make(map[string]types.YChild)
+    certificateRevocation.EntityData.Children["certificate-revocation-list-detail"] = types.YChild{"CertificateRevocationListDetail", &certificateRevocation.CertificateRevocationListDetail}
+    certificateRevocation.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateRevocation.EntityData.Leafs["crl-index"] = types.YLeaf{"CrlIndex", certificateRevocation.CrlIndex}
+    return &(certificateRevocation.EntityData)
 }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetSegmentPath() string {
-    return "certificate-revocation" + "[crl-index='" + fmt.Sprintf("%v", certificateRevocation.CrlIndex) + "']"
-}
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "certificate-revocation-list-detail" {
-        return &certificateRevocation.CertificateRevocationListDetail
-    }
-    return nil
-}
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["certificate-revocation-list-detail"] = &certificateRevocation.CertificateRevocationListDetail
-    return children
-}
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["crl-index"] = certificateRevocation.CrlIndex
-    return leafs
-}
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetYangName() string { return "certificate-revocation" }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) SetParent(parent types.Entity) { certificateRevocation.parent = parent }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetParent() types.Entity { return certificateRevocation.parent }
-
-func (certificateRevocation *Sam_CertificateRevocations_CertificateRevocation) GetParentYangName() string { return "certificate-revocations" }
 
 // Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail
 // Certificate revocation list detail information
 type Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // CRL index. The type is interface{} with range: 0..65535.
@@ -1548,63 +842,28 @@ type Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListD
     Issuer Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer
 }
 
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetFilter() yfilter.YFilter { return certificateRevocationListDetail.YFilter }
+func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetEntityData() *types.CommonEntityData {
+    certificateRevocationListDetail.EntityData.YFilter = certificateRevocationListDetail.YFilter
+    certificateRevocationListDetail.EntityData.YangName = "certificate-revocation-list-detail"
+    certificateRevocationListDetail.EntityData.BundleName = "cisco_ios_xr"
+    certificateRevocationListDetail.EntityData.ParentYangName = "certificate-revocation"
+    certificateRevocationListDetail.EntityData.SegmentPath = "certificate-revocation-list-detail"
+    certificateRevocationListDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateRevocationListDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateRevocationListDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) SetFilter(yf yfilter.YFilter) { certificateRevocationListDetail.YFilter = yf }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetGoName(yname string) string {
-    if yname == "crl-index" { return "CrlIndex" }
-    if yname == "updates" { return "Updates" }
-    if yname == "issuer" { return "Issuer" }
-    return ""
+    certificateRevocationListDetail.EntityData.Children = make(map[string]types.YChild)
+    certificateRevocationListDetail.EntityData.Children["issuer"] = types.YChild{"Issuer", &certificateRevocationListDetail.Issuer}
+    certificateRevocationListDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateRevocationListDetail.EntityData.Leafs["crl-index"] = types.YLeaf{"CrlIndex", certificateRevocationListDetail.CrlIndex}
+    certificateRevocationListDetail.EntityData.Leafs["updates"] = types.YLeaf{"Updates", certificateRevocationListDetail.Updates}
+    return &(certificateRevocationListDetail.EntityData)
 }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetSegmentPath() string {
-    return "certificate-revocation-list-detail"
-}
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "issuer" {
-        return &certificateRevocationListDetail.Issuer
-    }
-    return nil
-}
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["issuer"] = &certificateRevocationListDetail.Issuer
-    return children
-}
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["crl-index"] = certificateRevocationListDetail.CrlIndex
-    leafs["updates"] = certificateRevocationListDetail.Updates
-    return leafs
-}
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetYangName() string { return "certificate-revocation-list-detail" }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) SetParent(parent types.Entity) { certificateRevocationListDetail.parent = parent }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetParent() types.Entity { return certificateRevocationListDetail.parent }
-
-func (certificateRevocationListDetail *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail) GetParentYangName() string { return "certificate-revocation" }
 
 // Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer
 // Issuer name
 type Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Common name. The type is string.
@@ -1617,60 +876,28 @@ type Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListD
     Country interface{}
 }
 
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetFilter() yfilter.YFilter { return issuer.YFilter }
+func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetEntityData() *types.CommonEntityData {
+    issuer.EntityData.YFilter = issuer.YFilter
+    issuer.EntityData.YangName = "issuer"
+    issuer.EntityData.BundleName = "cisco_ios_xr"
+    issuer.EntityData.ParentYangName = "certificate-revocation-list-detail"
+    issuer.EntityData.SegmentPath = "issuer"
+    issuer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    issuer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    issuer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) SetFilter(yf yfilter.YFilter) { issuer.YFilter = yf }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetGoName(yname string) string {
-    if yname == "common-name" { return "CommonName" }
-    if yname == "organization" { return "Organization" }
-    if yname == "country" { return "Country" }
-    return ""
+    issuer.EntityData.Children = make(map[string]types.YChild)
+    issuer.EntityData.Leafs = make(map[string]types.YLeaf)
+    issuer.EntityData.Leafs["common-name"] = types.YLeaf{"CommonName", issuer.CommonName}
+    issuer.EntityData.Leafs["organization"] = types.YLeaf{"Organization", issuer.Organization}
+    issuer.EntityData.Leafs["country"] = types.YLeaf{"Country", issuer.Country}
+    return &(issuer.EntityData)
 }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetSegmentPath() string {
-    return "issuer"
-}
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-name"] = issuer.CommonName
-    leafs["organization"] = issuer.Organization
-    leafs["country"] = issuer.Country
-    return leafs
-}
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetYangName() string { return "issuer" }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) SetParent(parent types.Entity) { issuer.parent = parent }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetParent() types.Entity { return issuer.parent }
-
-func (issuer *Sam_CertificateRevocations_CertificateRevocation_CertificateRevocationListDetail_Issuer) GetParentYangName() string { return "certificate-revocation-list-detail" }
 
 // Sam_CertificateRevocationListSummary
 // Certificate revocation list summary information 
 type Sam_CertificateRevocationListSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // CRL index. The type is interface{} with range: 0..65535.
@@ -1683,63 +910,28 @@ type Sam_CertificateRevocationListSummary struct {
     Issuer Sam_CertificateRevocationListSummary_Issuer
 }
 
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetFilter() yfilter.YFilter { return certificateRevocationListSummary.YFilter }
+func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetEntityData() *types.CommonEntityData {
+    certificateRevocationListSummary.EntityData.YFilter = certificateRevocationListSummary.YFilter
+    certificateRevocationListSummary.EntityData.YangName = "certificate-revocation-list-summary"
+    certificateRevocationListSummary.EntityData.BundleName = "cisco_ios_xr"
+    certificateRevocationListSummary.EntityData.ParentYangName = "sam"
+    certificateRevocationListSummary.EntityData.SegmentPath = "certificate-revocation-list-summary"
+    certificateRevocationListSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    certificateRevocationListSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    certificateRevocationListSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) SetFilter(yf yfilter.YFilter) { certificateRevocationListSummary.YFilter = yf }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetGoName(yname string) string {
-    if yname == "crl-index" { return "CrlIndex" }
-    if yname == "updates" { return "Updates" }
-    if yname == "issuer" { return "Issuer" }
-    return ""
+    certificateRevocationListSummary.EntityData.Children = make(map[string]types.YChild)
+    certificateRevocationListSummary.EntityData.Children["issuer"] = types.YChild{"Issuer", &certificateRevocationListSummary.Issuer}
+    certificateRevocationListSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    certificateRevocationListSummary.EntityData.Leafs["crl-index"] = types.YLeaf{"CrlIndex", certificateRevocationListSummary.CrlIndex}
+    certificateRevocationListSummary.EntityData.Leafs["updates"] = types.YLeaf{"Updates", certificateRevocationListSummary.Updates}
+    return &(certificateRevocationListSummary.EntityData)
 }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetSegmentPath() string {
-    return "certificate-revocation-list-summary"
-}
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "issuer" {
-        return &certificateRevocationListSummary.Issuer
-    }
-    return nil
-}
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["issuer"] = &certificateRevocationListSummary.Issuer
-    return children
-}
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["crl-index"] = certificateRevocationListSummary.CrlIndex
-    leafs["updates"] = certificateRevocationListSummary.Updates
-    return leafs
-}
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetYangName() string { return "certificate-revocation-list-summary" }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) SetParent(parent types.Entity) { certificateRevocationListSummary.parent = parent }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetParent() types.Entity { return certificateRevocationListSummary.parent }
-
-func (certificateRevocationListSummary *Sam_CertificateRevocationListSummary) GetParentYangName() string { return "sam" }
 
 // Sam_CertificateRevocationListSummary_Issuer
 // Issuer name
 type Sam_CertificateRevocationListSummary_Issuer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Common name. The type is string.
@@ -1752,53 +944,21 @@ type Sam_CertificateRevocationListSummary_Issuer struct {
     Country interface{}
 }
 
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetFilter() yfilter.YFilter { return issuer.YFilter }
+func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetEntityData() *types.CommonEntityData {
+    issuer.EntityData.YFilter = issuer.YFilter
+    issuer.EntityData.YangName = "issuer"
+    issuer.EntityData.BundleName = "cisco_ios_xr"
+    issuer.EntityData.ParentYangName = "certificate-revocation-list-summary"
+    issuer.EntityData.SegmentPath = "issuer"
+    issuer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    issuer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    issuer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) SetFilter(yf yfilter.YFilter) { issuer.YFilter = yf }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetGoName(yname string) string {
-    if yname == "common-name" { return "CommonName" }
-    if yname == "organization" { return "Organization" }
-    if yname == "country" { return "Country" }
-    return ""
+    issuer.EntityData.Children = make(map[string]types.YChild)
+    issuer.EntityData.Leafs = make(map[string]types.YLeaf)
+    issuer.EntityData.Leafs["common-name"] = types.YLeaf{"CommonName", issuer.CommonName}
+    issuer.EntityData.Leafs["organization"] = types.YLeaf{"Organization", issuer.Organization}
+    issuer.EntityData.Leafs["country"] = types.YLeaf{"Country", issuer.Country}
+    return &(issuer.EntityData)
 }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetSegmentPath() string {
-    return "issuer"
-}
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-name"] = issuer.CommonName
-    leafs["organization"] = issuer.Organization
-    leafs["country"] = issuer.Country
-    return leafs
-}
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetYangName() string { return "issuer" }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) SetParent(parent types.Entity) { issuer.parent = parent }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetParent() types.Entity { return issuer.parent }
-
-func (issuer *Sam_CertificateRevocationListSummary_Issuer) GetParentYangName() string { return "certificate-revocation-list-summary" }
 

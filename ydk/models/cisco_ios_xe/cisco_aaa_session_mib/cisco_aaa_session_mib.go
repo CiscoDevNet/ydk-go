@@ -25,7 +25,7 @@ func init() {
 
 // CISCOAAASESSIONMIB
 type CISCOAAASESSIONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -39,68 +39,27 @@ type CISCOAAASESSIONMIB struct {
     Casnactivetable CISCOAAASESSIONMIB_Casnactivetable
 }
 
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetFilter() yfilter.YFilter { return cISCOAAASESSIONMIB.YFilter }
+func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetEntityData() *types.CommonEntityData {
+    cISCOAAASESSIONMIB.EntityData.YFilter = cISCOAAASESSIONMIB.YFilter
+    cISCOAAASESSIONMIB.EntityData.YangName = "CISCO-AAA-SESSION-MIB"
+    cISCOAAASESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOAAASESSIONMIB.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
+    cISCOAAASESSIONMIB.EntityData.SegmentPath = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB"
+    cISCOAAASESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOAAASESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOAAASESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) SetFilter(yf yfilter.YFilter) { cISCOAAASESSIONMIB.YFilter = yf }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetGoName(yname string) string {
-    if yname == "casnActive" { return "Casnactive" }
-    if yname == "casnGeneral" { return "Casngeneral" }
-    if yname == "casnActiveTable" { return "Casnactivetable" }
-    return ""
+    cISCOAAASESSIONMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOAAASESSIONMIB.EntityData.Children["casnActive"] = types.YChild{"Casnactive", &cISCOAAASESSIONMIB.Casnactive}
+    cISCOAAASESSIONMIB.EntityData.Children["casnGeneral"] = types.YChild{"Casngeneral", &cISCOAAASESSIONMIB.Casngeneral}
+    cISCOAAASESSIONMIB.EntityData.Children["casnActiveTable"] = types.YChild{"Casnactivetable", &cISCOAAASESSIONMIB.Casnactivetable}
+    cISCOAAASESSIONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOAAASESSIONMIB.EntityData)
 }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetSegmentPath() string {
-    return "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB"
-}
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "casnActive" {
-        return &cISCOAAASESSIONMIB.Casnactive
-    }
-    if childYangName == "casnGeneral" {
-        return &cISCOAAASESSIONMIB.Casngeneral
-    }
-    if childYangName == "casnActiveTable" {
-        return &cISCOAAASESSIONMIB.Casnactivetable
-    }
-    return nil
-}
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["casnActive"] = &cISCOAAASESSIONMIB.Casnactive
-    children["casnGeneral"] = &cISCOAAASESSIONMIB.Casngeneral
-    children["casnActiveTable"] = &cISCOAAASESSIONMIB.Casnactivetable
-    return children
-}
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetYangName() string { return "CISCO-AAA-SESSION-MIB" }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) SetParent(parent types.Entity) { cISCOAAASESSIONMIB.parent = parent }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetParent() types.Entity { return cISCOAAASESSIONMIB.parent }
-
-func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetParentYangName() string { return "CISCO-AAA-SESSION-MIB" }
 
 // CISCOAAASESSIONMIB_Casnactive
 type CISCOAAASESSIONMIB_Casnactive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of entries currently in casnActiveTable. The type is interface{}
@@ -113,57 +72,26 @@ type CISCOAAASESSIONMIB_Casnactive struct {
     Casnactivetablehighwatermark interface{}
 }
 
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetFilter() yfilter.YFilter { return casnactive.YFilter }
+func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetEntityData() *types.CommonEntityData {
+    casnactive.EntityData.YFilter = casnactive.YFilter
+    casnactive.EntityData.YangName = "casnActive"
+    casnactive.EntityData.BundleName = "cisco_ios_xe"
+    casnactive.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
+    casnactive.EntityData.SegmentPath = "casnActive"
+    casnactive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casnactive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casnactive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) SetFilter(yf yfilter.YFilter) { casnactive.YFilter = yf }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetGoName(yname string) string {
-    if yname == "casnActiveTableEntries" { return "Casnactivetableentries" }
-    if yname == "casnActiveTableHighWaterMark" { return "Casnactivetablehighwatermark" }
-    return ""
+    casnactive.EntityData.Children = make(map[string]types.YChild)
+    casnactive.EntityData.Leafs = make(map[string]types.YLeaf)
+    casnactive.EntityData.Leafs["casnActiveTableEntries"] = types.YLeaf{"Casnactivetableentries", casnactive.Casnactivetableentries}
+    casnactive.EntityData.Leafs["casnActiveTableHighWaterMark"] = types.YLeaf{"Casnactivetablehighwatermark", casnactive.Casnactivetablehighwatermark}
+    return &(casnactive.EntityData)
 }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetSegmentPath() string {
-    return "casnActive"
-}
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["casnActiveTableEntries"] = casnactive.Casnactivetableentries
-    leafs["casnActiveTableHighWaterMark"] = casnactive.Casnactivetablehighwatermark
-    return leafs
-}
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetYangName() string { return "casnActive" }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) SetParent(parent types.Entity) { casnactive.parent = parent }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetParent() types.Entity { return casnactive.parent }
-
-func (casnactive *CISCOAAASESSIONMIB_Casnactive) GetParentYangName() string { return "CISCO-AAA-SESSION-MIB" }
 
 // CISCOAAASESSIONMIB_Casngeneral
 type CISCOAAASESSIONMIB_Casngeneral struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of sessions since last system re-initialization.  This value
@@ -180,59 +108,28 @@ type CISCOAAASESSIONMIB_Casngeneral struct {
     Casndisconnectedsessions interface{}
 }
 
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetFilter() yfilter.YFilter { return casngeneral.YFilter }
+func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetEntityData() *types.CommonEntityData {
+    casngeneral.EntityData.YFilter = casngeneral.YFilter
+    casngeneral.EntityData.YangName = "casnGeneral"
+    casngeneral.EntityData.BundleName = "cisco_ios_xe"
+    casngeneral.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
+    casngeneral.EntityData.SegmentPath = "casnGeneral"
+    casngeneral.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casngeneral.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casngeneral.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) SetFilter(yf yfilter.YFilter) { casngeneral.YFilter = yf }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetGoName(yname string) string {
-    if yname == "casnTotalSessions" { return "Casntotalsessions" }
-    if yname == "casnDisconnectedSessions" { return "Casndisconnectedsessions" }
-    return ""
+    casngeneral.EntityData.Children = make(map[string]types.YChild)
+    casngeneral.EntityData.Leafs = make(map[string]types.YLeaf)
+    casngeneral.EntityData.Leafs["casnTotalSessions"] = types.YLeaf{"Casntotalsessions", casngeneral.Casntotalsessions}
+    casngeneral.EntityData.Leafs["casnDisconnectedSessions"] = types.YLeaf{"Casndisconnectedsessions", casngeneral.Casndisconnectedsessions}
+    return &(casngeneral.EntityData)
 }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetSegmentPath() string {
-    return "casnGeneral"
-}
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["casnTotalSessions"] = casngeneral.Casntotalsessions
-    leafs["casnDisconnectedSessions"] = casngeneral.Casndisconnectedsessions
-    return leafs
-}
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetYangName() string { return "casnGeneral" }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) SetParent(parent types.Entity) { casngeneral.parent = parent }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetParent() types.Entity { return casngeneral.parent }
-
-func (casngeneral *CISCOAAASESSIONMIB_Casngeneral) GetParentYangName() string { return "CISCO-AAA-SESSION-MIB" }
 
 // CISCOAAASESSIONMIB_Casnactivetable
 // This table contains entries for active AAA accounting
 // sessions in the system.
 type CISCOAAASESSIONMIB_Casnactivetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single accounting session.  Entries are created
@@ -244,63 +141,24 @@ type CISCOAAASESSIONMIB_Casnactivetable struct {
     Casnactiveentry []CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry
 }
 
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetFilter() yfilter.YFilter { return casnactivetable.YFilter }
+func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetEntityData() *types.CommonEntityData {
+    casnactivetable.EntityData.YFilter = casnactivetable.YFilter
+    casnactivetable.EntityData.YangName = "casnActiveTable"
+    casnactivetable.EntityData.BundleName = "cisco_ios_xe"
+    casnactivetable.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
+    casnactivetable.EntityData.SegmentPath = "casnActiveTable"
+    casnactivetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casnactivetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casnactivetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) SetFilter(yf yfilter.YFilter) { casnactivetable.YFilter = yf }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetGoName(yname string) string {
-    if yname == "casnActiveEntry" { return "Casnactiveentry" }
-    return ""
-}
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetSegmentPath() string {
-    return "casnActiveTable"
-}
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "casnActiveEntry" {
-        for _, c := range casnactivetable.Casnactiveentry {
-            if casnactivetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry{}
-        casnactivetable.Casnactiveentry = append(casnactivetable.Casnactiveentry, child)
-        return &casnactivetable.Casnactiveentry[len(casnactivetable.Casnactiveentry)-1]
-    }
-    return nil
-}
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    casnactivetable.EntityData.Children = make(map[string]types.YChild)
+    casnactivetable.EntityData.Children["casnActiveEntry"] = types.YChild{"Casnactiveentry", nil}
     for i := range casnactivetable.Casnactiveentry {
-        children[casnactivetable.Casnactiveentry[i].GetSegmentPath()] = &casnactivetable.Casnactiveentry[i]
+        casnactivetable.EntityData.Children[types.GetSegmentPath(&casnactivetable.Casnactiveentry[i])] = types.YChild{"Casnactiveentry", &casnactivetable.Casnactiveentry[i]}
     }
-    return children
+    casnactivetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(casnactivetable.EntityData)
 }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetYangName() string { return "casnActiveTable" }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) SetParent(parent types.Entity) { casnactivetable.parent = parent }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetParent() types.Entity { return casnactivetable.parent }
-
-func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetParentYangName() string { return "CISCO-AAA-SESSION-MIB" }
 
 // CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry
 // The information regarding a single accounting session.
@@ -315,7 +173,7 @@ func (casnactivetable *CISCOAAASESSIONMIB_Casnactivetable) GetParentYangName() s
 // casnDisconnect will cause removal of the entry when
 // the session completes termination.
 type CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is the session identification used by the
@@ -335,7 +193,7 @@ type CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry struct {
     // The IP address of the session or 0.0.0.0 if not applicable or unavailable. 
     // RADIUS:  attribute 8, Framed-IP-Address TACACS+: attribute 'addr'. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Casnipaddr interface{}
 
     // The elapsed time that this session has been idle.  This is the time since
@@ -374,7 +232,7 @@ type CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry struct {
     // ------------------------------+  where atmVclAdminStatus is the first
     // accessible object of the atmVclTable of the ATM-MIB. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Casnnasport interface{}
 
     // The ifIndex of the Virtual Access Interface (VAI) that is associated with
@@ -384,63 +242,26 @@ type CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry struct {
     Casnvaiifindex interface{}
 }
 
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetFilter() yfilter.YFilter { return casnactiveentry.YFilter }
+func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetEntityData() *types.CommonEntityData {
+    casnactiveentry.EntityData.YFilter = casnactiveentry.YFilter
+    casnactiveentry.EntityData.YangName = "casnActiveEntry"
+    casnactiveentry.EntityData.BundleName = "cisco_ios_xe"
+    casnactiveentry.EntityData.ParentYangName = "casnActiveTable"
+    casnactiveentry.EntityData.SegmentPath = "casnActiveEntry" + "[casnSessionId='" + fmt.Sprintf("%v", casnactiveentry.Casnsessionid) + "']"
+    casnactiveentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casnactiveentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casnactiveentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) SetFilter(yf yfilter.YFilter) { casnactiveentry.YFilter = yf }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetGoName(yname string) string {
-    if yname == "casnSessionId" { return "Casnsessionid" }
-    if yname == "casnUserId" { return "Casnuserid" }
-    if yname == "casnIpAddr" { return "Casnipaddr" }
-    if yname == "casnIdleTime" { return "Casnidletime" }
-    if yname == "casnDisconnect" { return "Casndisconnect" }
-    if yname == "casnCallTrackerId" { return "Casncalltrackerid" }
-    if yname == "casnNasPort" { return "Casnnasport" }
-    if yname == "casnVaiIfIndex" { return "Casnvaiifindex" }
-    return ""
+    casnactiveentry.EntityData.Children = make(map[string]types.YChild)
+    casnactiveentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    casnactiveentry.EntityData.Leafs["casnSessionId"] = types.YLeaf{"Casnsessionid", casnactiveentry.Casnsessionid}
+    casnactiveentry.EntityData.Leafs["casnUserId"] = types.YLeaf{"Casnuserid", casnactiveentry.Casnuserid}
+    casnactiveentry.EntityData.Leafs["casnIpAddr"] = types.YLeaf{"Casnipaddr", casnactiveentry.Casnipaddr}
+    casnactiveentry.EntityData.Leafs["casnIdleTime"] = types.YLeaf{"Casnidletime", casnactiveentry.Casnidletime}
+    casnactiveentry.EntityData.Leafs["casnDisconnect"] = types.YLeaf{"Casndisconnect", casnactiveentry.Casndisconnect}
+    casnactiveentry.EntityData.Leafs["casnCallTrackerId"] = types.YLeaf{"Casncalltrackerid", casnactiveentry.Casncalltrackerid}
+    casnactiveentry.EntityData.Leafs["casnNasPort"] = types.YLeaf{"Casnnasport", casnactiveentry.Casnnasport}
+    casnactiveentry.EntityData.Leafs["casnVaiIfIndex"] = types.YLeaf{"Casnvaiifindex", casnactiveentry.Casnvaiifindex}
+    return &(casnactiveentry.EntityData)
 }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetSegmentPath() string {
-    return "casnActiveEntry" + "[casnSessionId='" + fmt.Sprintf("%v", casnactiveentry.Casnsessionid) + "']"
-}
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["casnSessionId"] = casnactiveentry.Casnsessionid
-    leafs["casnUserId"] = casnactiveentry.Casnuserid
-    leafs["casnIpAddr"] = casnactiveentry.Casnipaddr
-    leafs["casnIdleTime"] = casnactiveentry.Casnidletime
-    leafs["casnDisconnect"] = casnactiveentry.Casndisconnect
-    leafs["casnCallTrackerId"] = casnactiveentry.Casncalltrackerid
-    leafs["casnNasPort"] = casnactiveentry.Casnnasport
-    leafs["casnVaiIfIndex"] = casnactiveentry.Casnvaiifindex
-    return leafs
-}
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetYangName() string { return "casnActiveEntry" }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) SetParent(parent types.Entity) { casnactiveentry.parent = parent }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetParent() types.Entity { return casnactiveentry.parent }
-
-func (casnactiveentry *CISCOAAASESSIONMIB_Casnactivetable_Casnactiveentry) GetParentYangName() string { return "casnActiveTable" }
 

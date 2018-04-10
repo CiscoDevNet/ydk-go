@@ -41,7 +41,7 @@ const (
 // L2Tp
 // L2TP operational data
 type L2Tp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control messages counters.
@@ -66,148 +66,58 @@ type L2Tp struct {
     Session L2Tp_Session
 }
 
-func (l2Tp *L2Tp) GetFilter() yfilter.YFilter { return l2Tp.YFilter }
+func (l2Tp *L2Tp) GetEntityData() *types.CommonEntityData {
+    l2Tp.EntityData.YFilter = l2Tp.YFilter
+    l2Tp.EntityData.YangName = "l2tp"
+    l2Tp.EntityData.BundleName = "cisco_ios_xr"
+    l2Tp.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-l2tun-oper"
+    l2Tp.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp"
+    l2Tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2Tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2Tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (l2Tp *L2Tp) SetFilter(yf yfilter.YFilter) { l2Tp.YFilter = yf }
-
-func (l2Tp *L2Tp) GetGoName(yname string) string {
-    if yname == "counters" { return "Counters" }
-    if yname == "tunnel-configurations" { return "TunnelConfigurations" }
-    if yname == "counter-hist-fail" { return "CounterHistFail" }
-    if yname == "classes" { return "Classes" }
-    if yname == "tunnels" { return "Tunnels" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "session" { return "Session" }
-    return ""
+    l2Tp.EntityData.Children = make(map[string]types.YChild)
+    l2Tp.EntityData.Children["counters"] = types.YChild{"Counters", &l2Tp.Counters}
+    l2Tp.EntityData.Children["tunnel-configurations"] = types.YChild{"TunnelConfigurations", &l2Tp.TunnelConfigurations}
+    l2Tp.EntityData.Children["counter-hist-fail"] = types.YChild{"CounterHistFail", &l2Tp.CounterHistFail}
+    l2Tp.EntityData.Children["classes"] = types.YChild{"Classes", &l2Tp.Classes}
+    l2Tp.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &l2Tp.Tunnels}
+    l2Tp.EntityData.Children["sessions"] = types.YChild{"Sessions", &l2Tp.Sessions}
+    l2Tp.EntityData.Children["session"] = types.YChild{"Session", &l2Tp.Session}
+    l2Tp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(l2Tp.EntityData)
 }
-
-func (l2Tp *L2Tp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp"
-}
-
-func (l2Tp *L2Tp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "counters" {
-        return &l2Tp.Counters
-    }
-    if childYangName == "tunnel-configurations" {
-        return &l2Tp.TunnelConfigurations
-    }
-    if childYangName == "counter-hist-fail" {
-        return &l2Tp.CounterHistFail
-    }
-    if childYangName == "classes" {
-        return &l2Tp.Classes
-    }
-    if childYangName == "tunnels" {
-        return &l2Tp.Tunnels
-    }
-    if childYangName == "sessions" {
-        return &l2Tp.Sessions
-    }
-    if childYangName == "session" {
-        return &l2Tp.Session
-    }
-    return nil
-}
-
-func (l2Tp *L2Tp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["counters"] = &l2Tp.Counters
-    children["tunnel-configurations"] = &l2Tp.TunnelConfigurations
-    children["counter-hist-fail"] = &l2Tp.CounterHistFail
-    children["classes"] = &l2Tp.Classes
-    children["tunnels"] = &l2Tp.Tunnels
-    children["sessions"] = &l2Tp.Sessions
-    children["session"] = &l2Tp.Session
-    return children
-}
-
-func (l2Tp *L2Tp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (l2Tp *L2Tp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (l2Tp *L2Tp) GetYangName() string { return "l2tp" }
-
-func (l2Tp *L2Tp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (l2Tp *L2Tp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (l2Tp *L2Tp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (l2Tp *L2Tp) SetParent(parent types.Entity) { l2Tp.parent = parent }
-
-func (l2Tp *L2Tp) GetParent() types.Entity { return l2Tp.parent }
-
-func (l2Tp *L2Tp) GetParentYangName() string { return "Cisco-IOS-XR-tunnel-l2tun-oper" }
 
 // L2Tp_Counters
 // L2TP control messages counters
 type L2Tp_Counters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control messages counters.
     Control L2Tp_Counters_Control
 }
 
-func (counters *L2Tp_Counters) GetFilter() yfilter.YFilter { return counters.YFilter }
+func (counters *L2Tp_Counters) GetEntityData() *types.CommonEntityData {
+    counters.EntityData.YFilter = counters.YFilter
+    counters.EntityData.YangName = "counters"
+    counters.EntityData.BundleName = "cisco_ios_xr"
+    counters.EntityData.ParentYangName = "l2tp"
+    counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (counters *L2Tp_Counters) SetFilter(yf yfilter.YFilter) { counters.YFilter = yf }
-
-func (counters *L2Tp_Counters) GetGoName(yname string) string {
-    if yname == "control" { return "Control" }
-    return ""
+    counters.EntityData.Children = make(map[string]types.YChild)
+    counters.EntityData.Children["control"] = types.YChild{"Control", &counters.Control}
+    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(counters.EntityData)
 }
-
-func (counters *L2Tp_Counters) GetSegmentPath() string {
-    return "counters"
-}
-
-func (counters *L2Tp_Counters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "control" {
-        return &counters.Control
-    }
-    return nil
-}
-
-func (counters *L2Tp_Counters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["control"] = &counters.Control
-    return children
-}
-
-func (counters *L2Tp_Counters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (counters *L2Tp_Counters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (counters *L2Tp_Counters) GetYangName() string { return "counters" }
-
-func (counters *L2Tp_Counters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (counters *L2Tp_Counters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (counters *L2Tp_Counters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (counters *L2Tp_Counters) SetParent(parent types.Entity) { counters.parent = parent }
-
-func (counters *L2Tp_Counters) GetParent() types.Entity { return counters.parent }
-
-func (counters *L2Tp_Counters) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_Counters_Control
 // L2TP control messages counters
 type L2Tp_Counters_Control struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control tunnel messages counters.
@@ -217,64 +127,27 @@ type L2Tp_Counters_Control struct {
     Tunnels L2Tp_Counters_Control_Tunnels
 }
 
-func (control *L2Tp_Counters_Control) GetFilter() yfilter.YFilter { return control.YFilter }
+func (control *L2Tp_Counters_Control) GetEntityData() *types.CommonEntityData {
+    control.EntityData.YFilter = control.YFilter
+    control.EntityData.YangName = "control"
+    control.EntityData.BundleName = "cisco_ios_xr"
+    control.EntityData.ParentYangName = "counters"
+    control.EntityData.SegmentPath = "control"
+    control.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    control.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    control.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (control *L2Tp_Counters_Control) SetFilter(yf yfilter.YFilter) { control.YFilter = yf }
-
-func (control *L2Tp_Counters_Control) GetGoName(yname string) string {
-    if yname == "tunnel-xr" { return "TunnelXr" }
-    if yname == "tunnels" { return "Tunnels" }
-    return ""
+    control.EntityData.Children = make(map[string]types.YChild)
+    control.EntityData.Children["tunnel-xr"] = types.YChild{"TunnelXr", &control.TunnelXr}
+    control.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &control.Tunnels}
+    control.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(control.EntityData)
 }
-
-func (control *L2Tp_Counters_Control) GetSegmentPath() string {
-    return "control"
-}
-
-func (control *L2Tp_Counters_Control) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel-xr" {
-        return &control.TunnelXr
-    }
-    if childYangName == "tunnels" {
-        return &control.Tunnels
-    }
-    return nil
-}
-
-func (control *L2Tp_Counters_Control) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tunnel-xr"] = &control.TunnelXr
-    children["tunnels"] = &control.Tunnels
-    return children
-}
-
-func (control *L2Tp_Counters_Control) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (control *L2Tp_Counters_Control) GetBundleName() string { return "cisco_ios_xr" }
-
-func (control *L2Tp_Counters_Control) GetYangName() string { return "control" }
-
-func (control *L2Tp_Counters_Control) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (control *L2Tp_Counters_Control) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (control *L2Tp_Counters_Control) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (control *L2Tp_Counters_Control) SetParent(parent types.Entity) { control.parent = parent }
-
-func (control *L2Tp_Counters_Control) GetParent() types.Entity { return control.parent }
-
-func (control *L2Tp_Counters_Control) GetParentYangName() string { return "counters" }
 
 // L2Tp_Counters_Control_TunnelXr
 // L2TP control tunnel messages counters
 type L2Tp_Counters_Control_TunnelXr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel authentication counters.
@@ -284,64 +157,27 @@ type L2Tp_Counters_Control_TunnelXr struct {
     Global L2Tp_Counters_Control_TunnelXr_Global
 }
 
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetFilter() yfilter.YFilter { return tunnelXr.YFilter }
+func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetEntityData() *types.CommonEntityData {
+    tunnelXr.EntityData.YFilter = tunnelXr.YFilter
+    tunnelXr.EntityData.YangName = "tunnel-xr"
+    tunnelXr.EntityData.BundleName = "cisco_ios_xr"
+    tunnelXr.EntityData.ParentYangName = "control"
+    tunnelXr.EntityData.SegmentPath = "tunnel-xr"
+    tunnelXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) SetFilter(yf yfilter.YFilter) { tunnelXr.YFilter = yf }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetGoName(yname string) string {
-    if yname == "authentication" { return "Authentication" }
-    if yname == "global" { return "Global" }
-    return ""
+    tunnelXr.EntityData.Children = make(map[string]types.YChild)
+    tunnelXr.EntityData.Children["authentication"] = types.YChild{"Authentication", &tunnelXr.Authentication}
+    tunnelXr.EntityData.Children["global"] = types.YChild{"Global", &tunnelXr.Global}
+    tunnelXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelXr.EntityData)
 }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetSegmentPath() string {
-    return "tunnel-xr"
-}
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authentication" {
-        return &tunnelXr.Authentication
-    }
-    if childYangName == "global" {
-        return &tunnelXr.Global
-    }
-    return nil
-}
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["authentication"] = &tunnelXr.Authentication
-    children["global"] = &tunnelXr.Global
-    return children
-}
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetYangName() string { return "tunnel-xr" }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) SetParent(parent types.Entity) { tunnelXr.parent = parent }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetParent() types.Entity { return tunnelXr.parent }
-
-func (tunnelXr *L2Tp_Counters_Control_TunnelXr) GetParentYangName() string { return "control" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication
 // Tunnel authentication counters
 type L2Tp_Counters_Control_TunnelXr_Authentication struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Nonce AVP statistics.
@@ -372,99 +208,34 @@ type L2Tp_Counters_Control_TunnelXr_Authentication struct {
     OverallStatistics L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics
 }
 
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetEntityData() *types.CommonEntityData {
+    authentication.EntityData.YFilter = authentication.YFilter
+    authentication.EntityData.YangName = "authentication"
+    authentication.EntityData.BundleName = "cisco_ios_xr"
+    authentication.EntityData.ParentYangName = "tunnel-xr"
+    authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetGoName(yname string) string {
-    if yname == "nonce-avp" { return "NonceAvp" }
-    if yname == "common-digest" { return "CommonDigest" }
-    if yname == "primary-digest" { return "PrimaryDigest" }
-    if yname == "secondary-digest" { return "SecondaryDigest" }
-    if yname == "integrity-check" { return "IntegrityCheck" }
-    if yname == "local-secret" { return "LocalSecret" }
-    if yname == "challenge-avp" { return "ChallengeAvp" }
-    if yname == "challenge-reponse" { return "ChallengeReponse" }
-    if yname == "overall-statistics" { return "OverallStatistics" }
-    return ""
+    authentication.EntityData.Children = make(map[string]types.YChild)
+    authentication.EntityData.Children["nonce-avp"] = types.YChild{"NonceAvp", &authentication.NonceAvp}
+    authentication.EntityData.Children["common-digest"] = types.YChild{"CommonDigest", &authentication.CommonDigest}
+    authentication.EntityData.Children["primary-digest"] = types.YChild{"PrimaryDigest", &authentication.PrimaryDigest}
+    authentication.EntityData.Children["secondary-digest"] = types.YChild{"SecondaryDigest", &authentication.SecondaryDigest}
+    authentication.EntityData.Children["integrity-check"] = types.YChild{"IntegrityCheck", &authentication.IntegrityCheck}
+    authentication.EntityData.Children["local-secret"] = types.YChild{"LocalSecret", &authentication.LocalSecret}
+    authentication.EntityData.Children["challenge-avp"] = types.YChild{"ChallengeAvp", &authentication.ChallengeAvp}
+    authentication.EntityData.Children["challenge-reponse"] = types.YChild{"ChallengeReponse", &authentication.ChallengeReponse}
+    authentication.EntityData.Children["overall-statistics"] = types.YChild{"OverallStatistics", &authentication.OverallStatistics}
+    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(authentication.EntityData)
 }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nonce-avp" {
-        return &authentication.NonceAvp
-    }
-    if childYangName == "common-digest" {
-        return &authentication.CommonDigest
-    }
-    if childYangName == "primary-digest" {
-        return &authentication.PrimaryDigest
-    }
-    if childYangName == "secondary-digest" {
-        return &authentication.SecondaryDigest
-    }
-    if childYangName == "integrity-check" {
-        return &authentication.IntegrityCheck
-    }
-    if childYangName == "local-secret" {
-        return &authentication.LocalSecret
-    }
-    if childYangName == "challenge-avp" {
-        return &authentication.ChallengeAvp
-    }
-    if childYangName == "challenge-reponse" {
-        return &authentication.ChallengeReponse
-    }
-    if childYangName == "overall-statistics" {
-        return &authentication.OverallStatistics
-    }
-    return nil
-}
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nonce-avp"] = &authentication.NonceAvp
-    children["common-digest"] = &authentication.CommonDigest
-    children["primary-digest"] = &authentication.PrimaryDigest
-    children["secondary-digest"] = &authentication.SecondaryDigest
-    children["integrity-check"] = &authentication.IntegrityCheck
-    children["local-secret"] = &authentication.LocalSecret
-    children["challenge-avp"] = &authentication.ChallengeAvp
-    children["challenge-reponse"] = &authentication.ChallengeReponse
-    children["overall-statistics"] = &authentication.OverallStatistics
-    return children
-}
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *L2Tp_Counters_Control_TunnelXr_Authentication) GetParentYangName() string { return "tunnel-xr" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp
 // Nonce AVP statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -501,76 +272,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
     UnexpectedZlb interface{}
 }
 
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetFilter() yfilter.YFilter { return nonceAvp.YFilter }
+func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntityData() *types.CommonEntityData {
+    nonceAvp.EntityData.YFilter = nonceAvp.YFilter
+    nonceAvp.EntityData.YangName = "nonce-avp"
+    nonceAvp.EntityData.BundleName = "cisco_ios_xr"
+    nonceAvp.EntityData.ParentYangName = "authentication"
+    nonceAvp.EntityData.SegmentPath = "nonce-avp"
+    nonceAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nonceAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nonceAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) SetFilter(yf yfilter.YFilter) { nonceAvp.YFilter = yf }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    nonceAvp.EntityData.Children = make(map[string]types.YChild)
+    nonceAvp.EntityData.Leafs = make(map[string]types.YLeaf)
+    nonceAvp.EntityData.Leafs["validate"] = types.YLeaf{"Validate", nonceAvp.Validate}
+    nonceAvp.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", nonceAvp.BadHash}
+    nonceAvp.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", nonceAvp.BadLength}
+    nonceAvp.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", nonceAvp.Ignored}
+    nonceAvp.EntityData.Leafs["missing"] = types.YLeaf{"Missing", nonceAvp.Missing}
+    nonceAvp.EntityData.Leafs["passed"] = types.YLeaf{"Passed", nonceAvp.Passed}
+    nonceAvp.EntityData.Leafs["failed"] = types.YLeaf{"Failed", nonceAvp.Failed}
+    nonceAvp.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", nonceAvp.Skipped}
+    nonceAvp.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", nonceAvp.GenerateResponseFailures}
+    nonceAvp.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", nonceAvp.Unexpected}
+    nonceAvp.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", nonceAvp.UnexpectedZlb}
+    return &(nonceAvp.EntityData)
 }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetSegmentPath() string {
-    return "nonce-avp"
-}
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = nonceAvp.Validate
-    leafs["bad-hash"] = nonceAvp.BadHash
-    leafs["bad-length"] = nonceAvp.BadLength
-    leafs["ignored"] = nonceAvp.Ignored
-    leafs["missing"] = nonceAvp.Missing
-    leafs["passed"] = nonceAvp.Passed
-    leafs["failed"] = nonceAvp.Failed
-    leafs["skipped"] = nonceAvp.Skipped
-    leafs["generate-response-failures"] = nonceAvp.GenerateResponseFailures
-    leafs["unexpected"] = nonceAvp.Unexpected
-    leafs["unexpected-zlb"] = nonceAvp.UnexpectedZlb
-    return leafs
-}
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetYangName() string { return "nonce-avp" }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) SetParent(parent types.Entity) { nonceAvp.parent = parent }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetParent() types.Entity { return nonceAvp.parent }
-
-func (nonceAvp *L2Tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest
 // Common digest statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -607,76 +338,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
     UnexpectedZlb interface{}
 }
 
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetFilter() yfilter.YFilter { return commonDigest.YFilter }
+func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetEntityData() *types.CommonEntityData {
+    commonDigest.EntityData.YFilter = commonDigest.YFilter
+    commonDigest.EntityData.YangName = "common-digest"
+    commonDigest.EntityData.BundleName = "cisco_ios_xr"
+    commonDigest.EntityData.ParentYangName = "authentication"
+    commonDigest.EntityData.SegmentPath = "common-digest"
+    commonDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) SetFilter(yf yfilter.YFilter) { commonDigest.YFilter = yf }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    commonDigest.EntityData.Children = make(map[string]types.YChild)
+    commonDigest.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonDigest.EntityData.Leafs["validate"] = types.YLeaf{"Validate", commonDigest.Validate}
+    commonDigest.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", commonDigest.BadHash}
+    commonDigest.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", commonDigest.BadLength}
+    commonDigest.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", commonDigest.Ignored}
+    commonDigest.EntityData.Leafs["missing"] = types.YLeaf{"Missing", commonDigest.Missing}
+    commonDigest.EntityData.Leafs["passed"] = types.YLeaf{"Passed", commonDigest.Passed}
+    commonDigest.EntityData.Leafs["failed"] = types.YLeaf{"Failed", commonDigest.Failed}
+    commonDigest.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", commonDigest.Skipped}
+    commonDigest.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", commonDigest.GenerateResponseFailures}
+    commonDigest.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", commonDigest.Unexpected}
+    commonDigest.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", commonDigest.UnexpectedZlb}
+    return &(commonDigest.EntityData)
 }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetSegmentPath() string {
-    return "common-digest"
-}
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = commonDigest.Validate
-    leafs["bad-hash"] = commonDigest.BadHash
-    leafs["bad-length"] = commonDigest.BadLength
-    leafs["ignored"] = commonDigest.Ignored
-    leafs["missing"] = commonDigest.Missing
-    leafs["passed"] = commonDigest.Passed
-    leafs["failed"] = commonDigest.Failed
-    leafs["skipped"] = commonDigest.Skipped
-    leafs["generate-response-failures"] = commonDigest.GenerateResponseFailures
-    leafs["unexpected"] = commonDigest.Unexpected
-    leafs["unexpected-zlb"] = commonDigest.UnexpectedZlb
-    return leafs
-}
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetBundleName() string { return "cisco_ios_xr" }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetYangName() string { return "common-digest" }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) SetParent(parent types.Entity) { commonDigest.parent = parent }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetParent() types.Entity { return commonDigest.parent }
-
-func (commonDigest *L2Tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest
 // Primary digest statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -713,76 +404,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
     UnexpectedZlb interface{}
 }
 
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetFilter() yfilter.YFilter { return primaryDigest.YFilter }
+func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetEntityData() *types.CommonEntityData {
+    primaryDigest.EntityData.YFilter = primaryDigest.YFilter
+    primaryDigest.EntityData.YangName = "primary-digest"
+    primaryDigest.EntityData.BundleName = "cisco_ios_xr"
+    primaryDigest.EntityData.ParentYangName = "authentication"
+    primaryDigest.EntityData.SegmentPath = "primary-digest"
+    primaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    primaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    primaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) SetFilter(yf yfilter.YFilter) { primaryDigest.YFilter = yf }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    primaryDigest.EntityData.Children = make(map[string]types.YChild)
+    primaryDigest.EntityData.Leafs = make(map[string]types.YLeaf)
+    primaryDigest.EntityData.Leafs["validate"] = types.YLeaf{"Validate", primaryDigest.Validate}
+    primaryDigest.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", primaryDigest.BadHash}
+    primaryDigest.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", primaryDigest.BadLength}
+    primaryDigest.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", primaryDigest.Ignored}
+    primaryDigest.EntityData.Leafs["missing"] = types.YLeaf{"Missing", primaryDigest.Missing}
+    primaryDigest.EntityData.Leafs["passed"] = types.YLeaf{"Passed", primaryDigest.Passed}
+    primaryDigest.EntityData.Leafs["failed"] = types.YLeaf{"Failed", primaryDigest.Failed}
+    primaryDigest.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", primaryDigest.Skipped}
+    primaryDigest.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", primaryDigest.GenerateResponseFailures}
+    primaryDigest.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", primaryDigest.Unexpected}
+    primaryDigest.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", primaryDigest.UnexpectedZlb}
+    return &(primaryDigest.EntityData)
 }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetSegmentPath() string {
-    return "primary-digest"
-}
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = primaryDigest.Validate
-    leafs["bad-hash"] = primaryDigest.BadHash
-    leafs["bad-length"] = primaryDigest.BadLength
-    leafs["ignored"] = primaryDigest.Ignored
-    leafs["missing"] = primaryDigest.Missing
-    leafs["passed"] = primaryDigest.Passed
-    leafs["failed"] = primaryDigest.Failed
-    leafs["skipped"] = primaryDigest.Skipped
-    leafs["generate-response-failures"] = primaryDigest.GenerateResponseFailures
-    leafs["unexpected"] = primaryDigest.Unexpected
-    leafs["unexpected-zlb"] = primaryDigest.UnexpectedZlb
-    return leafs
-}
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetBundleName() string { return "cisco_ios_xr" }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetYangName() string { return "primary-digest" }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) SetParent(parent types.Entity) { primaryDigest.parent = parent }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetParent() types.Entity { return primaryDigest.parent }
-
-func (primaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest
 // Secondary digest statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -819,76 +470,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
     UnexpectedZlb interface{}
 }
 
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetFilter() yfilter.YFilter { return secondaryDigest.YFilter }
+func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetEntityData() *types.CommonEntityData {
+    secondaryDigest.EntityData.YFilter = secondaryDigest.YFilter
+    secondaryDigest.EntityData.YangName = "secondary-digest"
+    secondaryDigest.EntityData.BundleName = "cisco_ios_xr"
+    secondaryDigest.EntityData.ParentYangName = "authentication"
+    secondaryDigest.EntityData.SegmentPath = "secondary-digest"
+    secondaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    secondaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    secondaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) SetFilter(yf yfilter.YFilter) { secondaryDigest.YFilter = yf }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    secondaryDigest.EntityData.Children = make(map[string]types.YChild)
+    secondaryDigest.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryDigest.EntityData.Leafs["validate"] = types.YLeaf{"Validate", secondaryDigest.Validate}
+    secondaryDigest.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", secondaryDigest.BadHash}
+    secondaryDigest.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", secondaryDigest.BadLength}
+    secondaryDigest.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", secondaryDigest.Ignored}
+    secondaryDigest.EntityData.Leafs["missing"] = types.YLeaf{"Missing", secondaryDigest.Missing}
+    secondaryDigest.EntityData.Leafs["passed"] = types.YLeaf{"Passed", secondaryDigest.Passed}
+    secondaryDigest.EntityData.Leafs["failed"] = types.YLeaf{"Failed", secondaryDigest.Failed}
+    secondaryDigest.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", secondaryDigest.Skipped}
+    secondaryDigest.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", secondaryDigest.GenerateResponseFailures}
+    secondaryDigest.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", secondaryDigest.Unexpected}
+    secondaryDigest.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", secondaryDigest.UnexpectedZlb}
+    return &(secondaryDigest.EntityData)
 }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetSegmentPath() string {
-    return "secondary-digest"
-}
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = secondaryDigest.Validate
-    leafs["bad-hash"] = secondaryDigest.BadHash
-    leafs["bad-length"] = secondaryDigest.BadLength
-    leafs["ignored"] = secondaryDigest.Ignored
-    leafs["missing"] = secondaryDigest.Missing
-    leafs["passed"] = secondaryDigest.Passed
-    leafs["failed"] = secondaryDigest.Failed
-    leafs["skipped"] = secondaryDigest.Skipped
-    leafs["generate-response-failures"] = secondaryDigest.GenerateResponseFailures
-    leafs["unexpected"] = secondaryDigest.Unexpected
-    leafs["unexpected-zlb"] = secondaryDigest.UnexpectedZlb
-    return leafs
-}
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetBundleName() string { return "cisco_ios_xr" }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetYangName() string { return "secondary-digest" }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) SetParent(parent types.Entity) { secondaryDigest.parent = parent }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetParent() types.Entity { return secondaryDigest.parent }
-
-func (secondaryDigest *L2Tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck
 // Integrity check statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -925,76 +536,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
     UnexpectedZlb interface{}
 }
 
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetFilter() yfilter.YFilter { return integrityCheck.YFilter }
+func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetEntityData() *types.CommonEntityData {
+    integrityCheck.EntityData.YFilter = integrityCheck.YFilter
+    integrityCheck.EntityData.YangName = "integrity-check"
+    integrityCheck.EntityData.BundleName = "cisco_ios_xr"
+    integrityCheck.EntityData.ParentYangName = "authentication"
+    integrityCheck.EntityData.SegmentPath = "integrity-check"
+    integrityCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    integrityCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    integrityCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) SetFilter(yf yfilter.YFilter) { integrityCheck.YFilter = yf }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    integrityCheck.EntityData.Children = make(map[string]types.YChild)
+    integrityCheck.EntityData.Leafs = make(map[string]types.YLeaf)
+    integrityCheck.EntityData.Leafs["validate"] = types.YLeaf{"Validate", integrityCheck.Validate}
+    integrityCheck.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", integrityCheck.BadHash}
+    integrityCheck.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", integrityCheck.BadLength}
+    integrityCheck.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", integrityCheck.Ignored}
+    integrityCheck.EntityData.Leafs["missing"] = types.YLeaf{"Missing", integrityCheck.Missing}
+    integrityCheck.EntityData.Leafs["passed"] = types.YLeaf{"Passed", integrityCheck.Passed}
+    integrityCheck.EntityData.Leafs["failed"] = types.YLeaf{"Failed", integrityCheck.Failed}
+    integrityCheck.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", integrityCheck.Skipped}
+    integrityCheck.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", integrityCheck.GenerateResponseFailures}
+    integrityCheck.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", integrityCheck.Unexpected}
+    integrityCheck.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", integrityCheck.UnexpectedZlb}
+    return &(integrityCheck.EntityData)
 }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetSegmentPath() string {
-    return "integrity-check"
-}
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = integrityCheck.Validate
-    leafs["bad-hash"] = integrityCheck.BadHash
-    leafs["bad-length"] = integrityCheck.BadLength
-    leafs["ignored"] = integrityCheck.Ignored
-    leafs["missing"] = integrityCheck.Missing
-    leafs["passed"] = integrityCheck.Passed
-    leafs["failed"] = integrityCheck.Failed
-    leafs["skipped"] = integrityCheck.Skipped
-    leafs["generate-response-failures"] = integrityCheck.GenerateResponseFailures
-    leafs["unexpected"] = integrityCheck.Unexpected
-    leafs["unexpected-zlb"] = integrityCheck.UnexpectedZlb
-    return leafs
-}
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetBundleName() string { return "cisco_ios_xr" }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetYangName() string { return "integrity-check" }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) SetParent(parent types.Entity) { integrityCheck.parent = parent }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetParent() types.Entity { return integrityCheck.parent }
-
-func (integrityCheck *L2Tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret
 // Local secret statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -1031,76 +602,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
     UnexpectedZlb interface{}
 }
 
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetFilter() yfilter.YFilter { return localSecret.YFilter }
+func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetEntityData() *types.CommonEntityData {
+    localSecret.EntityData.YFilter = localSecret.YFilter
+    localSecret.EntityData.YangName = "local-secret"
+    localSecret.EntityData.BundleName = "cisco_ios_xr"
+    localSecret.EntityData.ParentYangName = "authentication"
+    localSecret.EntityData.SegmentPath = "local-secret"
+    localSecret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localSecret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localSecret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) SetFilter(yf yfilter.YFilter) { localSecret.YFilter = yf }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    localSecret.EntityData.Children = make(map[string]types.YChild)
+    localSecret.EntityData.Leafs = make(map[string]types.YLeaf)
+    localSecret.EntityData.Leafs["validate"] = types.YLeaf{"Validate", localSecret.Validate}
+    localSecret.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", localSecret.BadHash}
+    localSecret.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", localSecret.BadLength}
+    localSecret.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", localSecret.Ignored}
+    localSecret.EntityData.Leafs["missing"] = types.YLeaf{"Missing", localSecret.Missing}
+    localSecret.EntityData.Leafs["passed"] = types.YLeaf{"Passed", localSecret.Passed}
+    localSecret.EntityData.Leafs["failed"] = types.YLeaf{"Failed", localSecret.Failed}
+    localSecret.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", localSecret.Skipped}
+    localSecret.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", localSecret.GenerateResponseFailures}
+    localSecret.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", localSecret.Unexpected}
+    localSecret.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", localSecret.UnexpectedZlb}
+    return &(localSecret.EntityData)
 }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetSegmentPath() string {
-    return "local-secret"
-}
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = localSecret.Validate
-    leafs["bad-hash"] = localSecret.BadHash
-    leafs["bad-length"] = localSecret.BadLength
-    leafs["ignored"] = localSecret.Ignored
-    leafs["missing"] = localSecret.Missing
-    leafs["passed"] = localSecret.Passed
-    leafs["failed"] = localSecret.Failed
-    leafs["skipped"] = localSecret.Skipped
-    leafs["generate-response-failures"] = localSecret.GenerateResponseFailures
-    leafs["unexpected"] = localSecret.Unexpected
-    leafs["unexpected-zlb"] = localSecret.UnexpectedZlb
-    return leafs
-}
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetYangName() string { return "local-secret" }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) SetParent(parent types.Entity) { localSecret.parent = parent }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetParent() types.Entity { return localSecret.parent }
-
-func (localSecret *L2Tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp
 // Challenge AVP statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -1137,76 +668,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
     UnexpectedZlb interface{}
 }
 
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetFilter() yfilter.YFilter { return challengeAvp.YFilter }
+func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetEntityData() *types.CommonEntityData {
+    challengeAvp.EntityData.YFilter = challengeAvp.YFilter
+    challengeAvp.EntityData.YangName = "challenge-avp"
+    challengeAvp.EntityData.BundleName = "cisco_ios_xr"
+    challengeAvp.EntityData.ParentYangName = "authentication"
+    challengeAvp.EntityData.SegmentPath = "challenge-avp"
+    challengeAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    challengeAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    challengeAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) SetFilter(yf yfilter.YFilter) { challengeAvp.YFilter = yf }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    challengeAvp.EntityData.Children = make(map[string]types.YChild)
+    challengeAvp.EntityData.Leafs = make(map[string]types.YLeaf)
+    challengeAvp.EntityData.Leafs["validate"] = types.YLeaf{"Validate", challengeAvp.Validate}
+    challengeAvp.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", challengeAvp.BadHash}
+    challengeAvp.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", challengeAvp.BadLength}
+    challengeAvp.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", challengeAvp.Ignored}
+    challengeAvp.EntityData.Leafs["missing"] = types.YLeaf{"Missing", challengeAvp.Missing}
+    challengeAvp.EntityData.Leafs["passed"] = types.YLeaf{"Passed", challengeAvp.Passed}
+    challengeAvp.EntityData.Leafs["failed"] = types.YLeaf{"Failed", challengeAvp.Failed}
+    challengeAvp.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", challengeAvp.Skipped}
+    challengeAvp.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", challengeAvp.GenerateResponseFailures}
+    challengeAvp.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", challengeAvp.Unexpected}
+    challengeAvp.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", challengeAvp.UnexpectedZlb}
+    return &(challengeAvp.EntityData)
 }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetSegmentPath() string {
-    return "challenge-avp"
-}
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = challengeAvp.Validate
-    leafs["bad-hash"] = challengeAvp.BadHash
-    leafs["bad-length"] = challengeAvp.BadLength
-    leafs["ignored"] = challengeAvp.Ignored
-    leafs["missing"] = challengeAvp.Missing
-    leafs["passed"] = challengeAvp.Passed
-    leafs["failed"] = challengeAvp.Failed
-    leafs["skipped"] = challengeAvp.Skipped
-    leafs["generate-response-failures"] = challengeAvp.GenerateResponseFailures
-    leafs["unexpected"] = challengeAvp.Unexpected
-    leafs["unexpected-zlb"] = challengeAvp.UnexpectedZlb
-    return leafs
-}
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetYangName() string { return "challenge-avp" }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) SetParent(parent types.Entity) { challengeAvp.parent = parent }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetParent() types.Entity { return challengeAvp.parent }
-
-func (challengeAvp *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse
 // Challenge response statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -1243,76 +734,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
     UnexpectedZlb interface{}
 }
 
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetFilter() yfilter.YFilter { return challengeReponse.YFilter }
+func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetEntityData() *types.CommonEntityData {
+    challengeReponse.EntityData.YFilter = challengeReponse.YFilter
+    challengeReponse.EntityData.YangName = "challenge-reponse"
+    challengeReponse.EntityData.BundleName = "cisco_ios_xr"
+    challengeReponse.EntityData.ParentYangName = "authentication"
+    challengeReponse.EntityData.SegmentPath = "challenge-reponse"
+    challengeReponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    challengeReponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    challengeReponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) SetFilter(yf yfilter.YFilter) { challengeReponse.YFilter = yf }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    challengeReponse.EntityData.Children = make(map[string]types.YChild)
+    challengeReponse.EntityData.Leafs = make(map[string]types.YLeaf)
+    challengeReponse.EntityData.Leafs["validate"] = types.YLeaf{"Validate", challengeReponse.Validate}
+    challengeReponse.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", challengeReponse.BadHash}
+    challengeReponse.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", challengeReponse.BadLength}
+    challengeReponse.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", challengeReponse.Ignored}
+    challengeReponse.EntityData.Leafs["missing"] = types.YLeaf{"Missing", challengeReponse.Missing}
+    challengeReponse.EntityData.Leafs["passed"] = types.YLeaf{"Passed", challengeReponse.Passed}
+    challengeReponse.EntityData.Leafs["failed"] = types.YLeaf{"Failed", challengeReponse.Failed}
+    challengeReponse.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", challengeReponse.Skipped}
+    challengeReponse.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", challengeReponse.GenerateResponseFailures}
+    challengeReponse.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", challengeReponse.Unexpected}
+    challengeReponse.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", challengeReponse.UnexpectedZlb}
+    return &(challengeReponse.EntityData)
 }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetSegmentPath() string {
-    return "challenge-reponse"
-}
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = challengeReponse.Validate
-    leafs["bad-hash"] = challengeReponse.BadHash
-    leafs["bad-length"] = challengeReponse.BadLength
-    leafs["ignored"] = challengeReponse.Ignored
-    leafs["missing"] = challengeReponse.Missing
-    leafs["passed"] = challengeReponse.Passed
-    leafs["failed"] = challengeReponse.Failed
-    leafs["skipped"] = challengeReponse.Skipped
-    leafs["generate-response-failures"] = challengeReponse.GenerateResponseFailures
-    leafs["unexpected"] = challengeReponse.Unexpected
-    leafs["unexpected-zlb"] = challengeReponse.UnexpectedZlb
-    return leafs
-}
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetBundleName() string { return "cisco_ios_xr" }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetYangName() string { return "challenge-reponse" }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) SetParent(parent types.Entity) { challengeReponse.parent = parent }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetParent() types.Entity { return challengeReponse.parent }
-
-func (challengeReponse *L2Tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics
 // Overall statistics
 type L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -1349,76 +800,36 @@ type L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
     UnexpectedZlb interface{}
 }
 
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetFilter() yfilter.YFilter { return overallStatistics.YFilter }
+func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetEntityData() *types.CommonEntityData {
+    overallStatistics.EntityData.YFilter = overallStatistics.YFilter
+    overallStatistics.EntityData.YangName = "overall-statistics"
+    overallStatistics.EntityData.BundleName = "cisco_ios_xr"
+    overallStatistics.EntityData.ParentYangName = "authentication"
+    overallStatistics.EntityData.SegmentPath = "overall-statistics"
+    overallStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    overallStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    overallStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) SetFilter(yf yfilter.YFilter) { overallStatistics.YFilter = yf }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    overallStatistics.EntityData.Children = make(map[string]types.YChild)
+    overallStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    overallStatistics.EntityData.Leafs["validate"] = types.YLeaf{"Validate", overallStatistics.Validate}
+    overallStatistics.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", overallStatistics.BadHash}
+    overallStatistics.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", overallStatistics.BadLength}
+    overallStatistics.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", overallStatistics.Ignored}
+    overallStatistics.EntityData.Leafs["missing"] = types.YLeaf{"Missing", overallStatistics.Missing}
+    overallStatistics.EntityData.Leafs["passed"] = types.YLeaf{"Passed", overallStatistics.Passed}
+    overallStatistics.EntityData.Leafs["failed"] = types.YLeaf{"Failed", overallStatistics.Failed}
+    overallStatistics.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", overallStatistics.Skipped}
+    overallStatistics.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", overallStatistics.GenerateResponseFailures}
+    overallStatistics.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", overallStatistics.Unexpected}
+    overallStatistics.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", overallStatistics.UnexpectedZlb}
+    return &(overallStatistics.EntityData)
 }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetSegmentPath() string {
-    return "overall-statistics"
-}
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = overallStatistics.Validate
-    leafs["bad-hash"] = overallStatistics.BadHash
-    leafs["bad-length"] = overallStatistics.BadLength
-    leafs["ignored"] = overallStatistics.Ignored
-    leafs["missing"] = overallStatistics.Missing
-    leafs["passed"] = overallStatistics.Passed
-    leafs["failed"] = overallStatistics.Failed
-    leafs["skipped"] = overallStatistics.Skipped
-    leafs["generate-response-failures"] = overallStatistics.GenerateResponseFailures
-    leafs["unexpected"] = overallStatistics.Unexpected
-    leafs["unexpected-zlb"] = overallStatistics.UnexpectedZlb
-    return leafs
-}
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetYangName() string { return "overall-statistics" }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) SetParent(parent types.Entity) { overallStatistics.parent = parent }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetParent() types.Entity { return overallStatistics.parent }
-
-func (overallStatistics *L2Tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetParentYangName() string { return "authentication" }
 
 // L2Tp_Counters_Control_TunnelXr_Global
 // Tunnel counters
 type L2Tp_Counters_Control_TunnelXr_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total transmit. The type is interface{} with range: 0..4294967295.
@@ -1446,82 +857,33 @@ type L2Tp_Counters_Control_TunnelXr_Global struct {
     Drop L2Tp_Counters_Control_TunnelXr_Global_Drop
 }
 
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *L2Tp_Counters_Control_TunnelXr_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "tunnel-xr"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *L2Tp_Counters_Control_TunnelXr_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetGoName(yname string) string {
-    if yname == "total-transmit" { return "TotalTransmit" }
-    if yname == "total-retransmit" { return "TotalRetransmit" }
-    if yname == "total-received" { return "TotalReceived" }
-    if yname == "total-drop" { return "TotalDrop" }
-    if yname == "transmit" { return "Transmit" }
-    if yname == "retransmit" { return "Retransmit" }
-    if yname == "received" { return "Received" }
-    if yname == "drop" { return "Drop" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Children["transmit"] = types.YChild{"Transmit", &global.Transmit}
+    global.EntityData.Children["retransmit"] = types.YChild{"Retransmit", &global.Retransmit}
+    global.EntityData.Children["received"] = types.YChild{"Received", &global.Received}
+    global.EntityData.Children["drop"] = types.YChild{"Drop", &global.Drop}
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Leafs["total-transmit"] = types.YLeaf{"TotalTransmit", global.TotalTransmit}
+    global.EntityData.Leafs["total-retransmit"] = types.YLeaf{"TotalRetransmit", global.TotalRetransmit}
+    global.EntityData.Leafs["total-received"] = types.YLeaf{"TotalReceived", global.TotalReceived}
+    global.EntityData.Leafs["total-drop"] = types.YLeaf{"TotalDrop", global.TotalDrop}
+    return &(global.EntityData)
 }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "transmit" {
-        return &global.Transmit
-    }
-    if childYangName == "retransmit" {
-        return &global.Retransmit
-    }
-    if childYangName == "received" {
-        return &global.Received
-    }
-    if childYangName == "drop" {
-        return &global.Drop
-    }
-    return nil
-}
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["transmit"] = &global.Transmit
-    children["retransmit"] = &global.Retransmit
-    children["received"] = &global.Received
-    children["drop"] = &global.Drop
-    return children
-}
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-transmit"] = global.TotalTransmit
-    leafs["total-retransmit"] = global.TotalRetransmit
-    leafs["total-received"] = global.TotalReceived
-    leafs["total-drop"] = global.TotalDrop
-    return leafs
-}
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetYangName() string { return "global" }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetParent() types.Entity { return global.parent }
-
-func (global *L2Tp_Counters_Control_TunnelXr_Global) GetParentYangName() string { return "tunnel-xr" }
 
 // L2Tp_Counters_Control_TunnelXr_Global_Transmit
 // Transmit data
 type L2Tp_Counters_Control_TunnelXr_Global_Transmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -1593,92 +955,44 @@ type L2Tp_Counters_Control_TunnelXr_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetFilter() yfilter.YFilter { return transmit.YFilter }
+func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() *types.CommonEntityData {
+    transmit.EntityData.YFilter = transmit.YFilter
+    transmit.EntityData.YangName = "transmit"
+    transmit.EntityData.BundleName = "cisco_ios_xr"
+    transmit.EntityData.ParentYangName = "global"
+    transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) SetFilter(yf yfilter.YFilter) { transmit.YFilter = yf }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    transmit.EntityData.Children = make(map[string]types.YChild)
+    transmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    transmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", transmit.UnknownPackets}
+    transmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", transmit.ZeroLengthBodyPackets}
+    transmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", transmit.StartControlConnectionRequests}
+    transmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", transmit.StartControlConnectionReplies}
+    transmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", transmit.StartControlConnectionNotifications}
+    transmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", transmit.StopControlConnectionNotifications}
+    transmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", transmit.HelloPackets}
+    transmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", transmit.OutgoingCallRequests}
+    transmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", transmit.OutgoingCallReplies}
+    transmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", transmit.OutgoingCallConnectedPackets}
+    transmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", transmit.IncomingCallRequests}
+    transmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", transmit.IncomingCallReplies}
+    transmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", transmit.IncomingCallConnectedPackets}
+    transmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", transmit.CallDisconnectNotifyPackets}
+    transmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", transmit.WanErrorNotifyPackets}
+    transmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", transmit.SetLinkInfoPackets}
+    transmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", transmit.ServiceRelayRequests}
+    transmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", transmit.ServiceRelayReplies}
+    transmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", transmit.AcknowledgementPackets}
+    return &(transmit.EntityData)
 }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetSegmentPath() string {
-    return "transmit"
-}
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = transmit.UnknownPackets
-    leafs["zero-length-body-packets"] = transmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = transmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = transmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = transmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = transmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = transmit.HelloPackets
-    leafs["outgoing-call-requests"] = transmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = transmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = transmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = transmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = transmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = transmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = transmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = transmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = transmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = transmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = transmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = transmit.AcknowledgementPackets
-    return leafs
-}
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetYangName() string { return "transmit" }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) SetParent(parent types.Entity) { transmit.parent = parent }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetParent() types.Entity { return transmit.parent }
-
-func (transmit *L2Tp_Counters_Control_TunnelXr_Global_Transmit) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_TunnelXr_Global_Retransmit
 // Re transmit data
 type L2Tp_Counters_Control_TunnelXr_Global_Retransmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -1750,92 +1064,44 @@ type L2Tp_Counters_Control_TunnelXr_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetFilter() yfilter.YFilter { return retransmit.YFilter }
+func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+    retransmit.EntityData.YFilter = retransmit.YFilter
+    retransmit.EntityData.YangName = "retransmit"
+    retransmit.EntityData.BundleName = "cisco_ios_xr"
+    retransmit.EntityData.ParentYangName = "global"
+    retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) SetFilter(yf yfilter.YFilter) { retransmit.YFilter = yf }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    retransmit.EntityData.Children = make(map[string]types.YChild)
+    retransmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    retransmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", retransmit.UnknownPackets}
+    retransmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", retransmit.ZeroLengthBodyPackets}
+    retransmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", retransmit.StartControlConnectionRequests}
+    retransmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", retransmit.StartControlConnectionReplies}
+    retransmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", retransmit.StartControlConnectionNotifications}
+    retransmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", retransmit.StopControlConnectionNotifications}
+    retransmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", retransmit.HelloPackets}
+    retransmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", retransmit.OutgoingCallRequests}
+    retransmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", retransmit.OutgoingCallReplies}
+    retransmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", retransmit.OutgoingCallConnectedPackets}
+    retransmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", retransmit.IncomingCallRequests}
+    retransmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", retransmit.IncomingCallReplies}
+    retransmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", retransmit.IncomingCallConnectedPackets}
+    retransmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", retransmit.CallDisconnectNotifyPackets}
+    retransmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", retransmit.WanErrorNotifyPackets}
+    retransmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", retransmit.SetLinkInfoPackets}
+    retransmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", retransmit.ServiceRelayRequests}
+    retransmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", retransmit.ServiceRelayReplies}
+    retransmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", retransmit.AcknowledgementPackets}
+    return &(retransmit.EntityData)
 }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetSegmentPath() string {
-    return "retransmit"
-}
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = retransmit.UnknownPackets
-    leafs["zero-length-body-packets"] = retransmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = retransmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = retransmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = retransmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = retransmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = retransmit.HelloPackets
-    leafs["outgoing-call-requests"] = retransmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = retransmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = retransmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = retransmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = retransmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = retransmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = retransmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = retransmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = retransmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = retransmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = retransmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = retransmit.AcknowledgementPackets
-    return leafs
-}
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetYangName() string { return "retransmit" }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) SetParent(parent types.Entity) { retransmit.parent = parent }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetParent() types.Entity { return retransmit.parent }
-
-func (retransmit *L2Tp_Counters_Control_TunnelXr_Global_Retransmit) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_TunnelXr_Global_Received
 // Received data
 type L2Tp_Counters_Control_TunnelXr_Global_Received struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -1907,92 +1173,44 @@ type L2Tp_Counters_Control_TunnelXr_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetFilter() yfilter.YFilter { return received.YFilter }
+func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetEntityData() *types.CommonEntityData {
+    received.EntityData.YFilter = received.YFilter
+    received.EntityData.YangName = "received"
+    received.EntityData.BundleName = "cisco_ios_xr"
+    received.EntityData.ParentYangName = "global"
+    received.EntityData.SegmentPath = "received"
+    received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) SetFilter(yf yfilter.YFilter) { received.YFilter = yf }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    received.EntityData.Children = make(map[string]types.YChild)
+    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", received.UnknownPackets}
+    received.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", received.ZeroLengthBodyPackets}
+    received.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", received.StartControlConnectionRequests}
+    received.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", received.StartControlConnectionReplies}
+    received.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", received.StartControlConnectionNotifications}
+    received.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", received.StopControlConnectionNotifications}
+    received.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", received.HelloPackets}
+    received.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", received.OutgoingCallRequests}
+    received.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", received.OutgoingCallReplies}
+    received.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", received.OutgoingCallConnectedPackets}
+    received.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", received.IncomingCallRequests}
+    received.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", received.IncomingCallReplies}
+    received.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", received.IncomingCallConnectedPackets}
+    received.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", received.CallDisconnectNotifyPackets}
+    received.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", received.WanErrorNotifyPackets}
+    received.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", received.SetLinkInfoPackets}
+    received.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", received.ServiceRelayRequests}
+    received.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", received.ServiceRelayReplies}
+    received.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", received.AcknowledgementPackets}
+    return &(received.EntityData)
 }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetSegmentPath() string {
-    return "received"
-}
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = received.UnknownPackets
-    leafs["zero-length-body-packets"] = received.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = received.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = received.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = received.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = received.StopControlConnectionNotifications
-    leafs["hello-packets"] = received.HelloPackets
-    leafs["outgoing-call-requests"] = received.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = received.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = received.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = received.IncomingCallRequests
-    leafs["incoming-call-replies"] = received.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = received.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = received.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = received.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = received.SetLinkInfoPackets
-    leafs["service-relay-requests"] = received.ServiceRelayRequests
-    leafs["service-relay-replies"] = received.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = received.AcknowledgementPackets
-    return leafs
-}
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetBundleName() string { return "cisco_ios_xr" }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetYangName() string { return "received" }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) SetParent(parent types.Entity) { received.parent = parent }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetParent() types.Entity { return received.parent }
-
-func (received *L2Tp_Counters_Control_TunnelXr_Global_Received) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_TunnelXr_Global_Drop
 // Drop data
 type L2Tp_Counters_Control_TunnelXr_Global_Drop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -2064,92 +1282,44 @@ type L2Tp_Counters_Control_TunnelXr_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetFilter() yfilter.YFilter { return drop.YFilter }
+func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.CommonEntityData {
+    drop.EntityData.YFilter = drop.YFilter
+    drop.EntityData.YangName = "drop"
+    drop.EntityData.BundleName = "cisco_ios_xr"
+    drop.EntityData.ParentYangName = "global"
+    drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) SetFilter(yf yfilter.YFilter) { drop.YFilter = yf }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    drop.EntityData.Children = make(map[string]types.YChild)
+    drop.EntityData.Leafs = make(map[string]types.YLeaf)
+    drop.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", drop.UnknownPackets}
+    drop.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", drop.ZeroLengthBodyPackets}
+    drop.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", drop.StartControlConnectionRequests}
+    drop.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", drop.StartControlConnectionReplies}
+    drop.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", drop.StartControlConnectionNotifications}
+    drop.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", drop.StopControlConnectionNotifications}
+    drop.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", drop.HelloPackets}
+    drop.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", drop.OutgoingCallRequests}
+    drop.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", drop.OutgoingCallReplies}
+    drop.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", drop.OutgoingCallConnectedPackets}
+    drop.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", drop.IncomingCallRequests}
+    drop.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", drop.IncomingCallReplies}
+    drop.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", drop.IncomingCallConnectedPackets}
+    drop.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", drop.CallDisconnectNotifyPackets}
+    drop.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", drop.WanErrorNotifyPackets}
+    drop.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", drop.SetLinkInfoPackets}
+    drop.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", drop.ServiceRelayRequests}
+    drop.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", drop.ServiceRelayReplies}
+    drop.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", drop.AcknowledgementPackets}
+    return &(drop.EntityData)
 }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetSegmentPath() string {
-    return "drop"
-}
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = drop.UnknownPackets
-    leafs["zero-length-body-packets"] = drop.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = drop.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = drop.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = drop.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = drop.StopControlConnectionNotifications
-    leafs["hello-packets"] = drop.HelloPackets
-    leafs["outgoing-call-requests"] = drop.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = drop.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = drop.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = drop.IncomingCallRequests
-    leafs["incoming-call-replies"] = drop.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = drop.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = drop.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = drop.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = drop.SetLinkInfoPackets
-    leafs["service-relay-requests"] = drop.ServiceRelayRequests
-    leafs["service-relay-replies"] = drop.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = drop.AcknowledgementPackets
-    return leafs
-}
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetYangName() string { return "drop" }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) SetParent(parent types.Entity) { drop.parent = parent }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetParent() types.Entity { return drop.parent }
-
-func (drop *L2Tp_Counters_Control_TunnelXr_Global_Drop) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_Tunnels
 // Table of tunnel IDs of control message counters
 type L2Tp_Counters_Control_Tunnels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel control message counters. The type is slice of
@@ -2157,68 +1327,29 @@ type L2Tp_Counters_Control_Tunnels struct {
     Tunnel []L2Tp_Counters_Control_Tunnels_Tunnel
 }
 
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetFilter() yfilter.YFilter { return tunnels.YFilter }
+func (tunnels *L2Tp_Counters_Control_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "cisco_ios_xr"
+    tunnels.EntityData.ParentYangName = "control"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnels *L2Tp_Counters_Control_Tunnels) SetFilter(yf yfilter.YFilter) { tunnels.YFilter = yf }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetGoName(yname string) string {
-    if yname == "tunnel" { return "Tunnel" }
-    return ""
-}
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetSegmentPath() string {
-    return "tunnels"
-}
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel" {
-        for _, c := range tunnels.Tunnel {
-            if tunnels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tp_Counters_Control_Tunnels_Tunnel{}
-        tunnels.Tunnel = append(tunnels.Tunnel, child)
-        return &tunnels.Tunnel[len(tunnels.Tunnel)-1]
-    }
-    return nil
-}
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnels.EntityData.Children = make(map[string]types.YChild)
+    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
     for i := range tunnels.Tunnel {
-        children[tunnels.Tunnel[i].GetSegmentPath()] = &tunnels.Tunnel[i]
+        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
     }
-    return children
+    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnels.EntityData)
 }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetYangName() string { return "tunnels" }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) SetParent(parent types.Entity) { tunnels.parent = parent }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetParent() types.Entity { return tunnels.parent }
-
-func (tunnels *L2Tp_Counters_Control_Tunnels) GetParentYangName() string { return "control" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel
 // L2TP tunnel control message counters
 type L2Tp_Counters_Control_Tunnels_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. L2TP tunnel ID. The type is interface{} with
@@ -2232,134 +1363,64 @@ type L2Tp_Counters_Control_Tunnels_Tunnel struct {
     Global L2Tp_Counters_Control_Tunnels_Tunnel_Global
 }
 
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + "[tunnel-id='" + fmt.Sprintf("%v", tunnel.TunnelId) + "']"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetGoName(yname string) string {
-    if yname == "tunnel-id" { return "TunnelId" }
-    if yname == "brief" { return "Brief" }
-    if yname == "global" { return "Global" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Children["brief"] = types.YChild{"Brief", &tunnel.Brief}
+    tunnel.EntityData.Children["global"] = types.YChild{"Global", &tunnel.Global}
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnel.EntityData.Leafs["tunnel-id"] = types.YLeaf{"TunnelId", tunnel.TunnelId}
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetSegmentPath() string {
-    return "tunnel" + "[tunnel-id='" + fmt.Sprintf("%v", tunnel.TunnelId) + "']"
-}
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "brief" {
-        return &tunnel.Brief
-    }
-    if childYangName == "global" {
-        return &tunnel.Global
-    }
-    return nil
-}
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["brief"] = &tunnel.Brief
-    children["global"] = &tunnel.Global
-    return children
-}
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tunnel-id"] = tunnel.TunnelId
-    return leafs
-}
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *L2Tp_Counters_Control_Tunnels_Tunnel) GetParentYangName() string { return "tunnels" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel_Brief
 // L2TP control message local and remote addresses
 type L2Tp_Counters_Control_Tunnels_Tunnel_Brief struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Remote tunnel ID. The type is interface{} with range: 0..4294967295.
     RemoteTunnelId interface{}
 
     // Local IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Remote IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteAddress interface{}
 }
 
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetFilter() yfilter.YFilter { return brief.YFilter }
+func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.CommonEntityData {
+    brief.EntityData.YFilter = brief.YFilter
+    brief.EntityData.YangName = "brief"
+    brief.EntityData.BundleName = "cisco_ios_xr"
+    brief.EntityData.ParentYangName = "tunnel"
+    brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) SetFilter(yf yfilter.YFilter) { brief.YFilter = yf }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetGoName(yname string) string {
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "remote-address" { return "RemoteAddress" }
-    return ""
+    brief.EntityData.Children = make(map[string]types.YChild)
+    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", brief.RemoteTunnelId}
+    brief.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", brief.LocalAddress}
+    brief.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", brief.RemoteAddress}
+    return &(brief.EntityData)
 }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetSegmentPath() string {
-    return "brief"
-}
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["remote-tunnel-id"] = brief.RemoteTunnelId
-    leafs["local-address"] = brief.LocalAddress
-    leafs["remote-address"] = brief.RemoteAddress
-    return leafs
-}
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetBundleName() string { return "cisco_ios_xr" }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetYangName() string { return "brief" }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) SetParent(parent types.Entity) { brief.parent = parent }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetParent() types.Entity { return brief.parent }
-
-func (brief *L2Tp_Counters_Control_Tunnels_Tunnel_Brief) GetParentYangName() string { return "tunnel" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel_Global
 // Global data
 type L2Tp_Counters_Control_Tunnels_Tunnel_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total transmit. The type is interface{} with range: 0..4294967295.
@@ -2387,82 +1448,33 @@ type L2Tp_Counters_Control_Tunnels_Tunnel_Global struct {
     Drop L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop
 }
 
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "tunnel"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetGoName(yname string) string {
-    if yname == "total-transmit" { return "TotalTransmit" }
-    if yname == "total-retransmit" { return "TotalRetransmit" }
-    if yname == "total-received" { return "TotalReceived" }
-    if yname == "total-drop" { return "TotalDrop" }
-    if yname == "transmit" { return "Transmit" }
-    if yname == "retransmit" { return "Retransmit" }
-    if yname == "received" { return "Received" }
-    if yname == "drop" { return "Drop" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Children["transmit"] = types.YChild{"Transmit", &global.Transmit}
+    global.EntityData.Children["retransmit"] = types.YChild{"Retransmit", &global.Retransmit}
+    global.EntityData.Children["received"] = types.YChild{"Received", &global.Received}
+    global.EntityData.Children["drop"] = types.YChild{"Drop", &global.Drop}
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Leafs["total-transmit"] = types.YLeaf{"TotalTransmit", global.TotalTransmit}
+    global.EntityData.Leafs["total-retransmit"] = types.YLeaf{"TotalRetransmit", global.TotalRetransmit}
+    global.EntityData.Leafs["total-received"] = types.YLeaf{"TotalReceived", global.TotalReceived}
+    global.EntityData.Leafs["total-drop"] = types.YLeaf{"TotalDrop", global.TotalDrop}
+    return &(global.EntityData)
 }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "transmit" {
-        return &global.Transmit
-    }
-    if childYangName == "retransmit" {
-        return &global.Retransmit
-    }
-    if childYangName == "received" {
-        return &global.Received
-    }
-    if childYangName == "drop" {
-        return &global.Drop
-    }
-    return nil
-}
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["transmit"] = &global.Transmit
-    children["retransmit"] = &global.Retransmit
-    children["received"] = &global.Received
-    children["drop"] = &global.Drop
-    return children
-}
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-transmit"] = global.TotalTransmit
-    leafs["total-retransmit"] = global.TotalRetransmit
-    leafs["total-received"] = global.TotalReceived
-    leafs["total-drop"] = global.TotalDrop
-    return leafs
-}
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetYangName() string { return "global" }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetParent() types.Entity { return global.parent }
-
-func (global *L2Tp_Counters_Control_Tunnels_Tunnel_Global) GetParentYangName() string { return "tunnel" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit
 // Transmit data
 type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -2534,92 +1546,44 @@ type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetFilter() yfilter.YFilter { return transmit.YFilter }
+func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityData() *types.CommonEntityData {
+    transmit.EntityData.YFilter = transmit.YFilter
+    transmit.EntityData.YangName = "transmit"
+    transmit.EntityData.BundleName = "cisco_ios_xr"
+    transmit.EntityData.ParentYangName = "global"
+    transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) SetFilter(yf yfilter.YFilter) { transmit.YFilter = yf }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    transmit.EntityData.Children = make(map[string]types.YChild)
+    transmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    transmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", transmit.UnknownPackets}
+    transmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", transmit.ZeroLengthBodyPackets}
+    transmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", transmit.StartControlConnectionRequests}
+    transmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", transmit.StartControlConnectionReplies}
+    transmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", transmit.StartControlConnectionNotifications}
+    transmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", transmit.StopControlConnectionNotifications}
+    transmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", transmit.HelloPackets}
+    transmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", transmit.OutgoingCallRequests}
+    transmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", transmit.OutgoingCallReplies}
+    transmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", transmit.OutgoingCallConnectedPackets}
+    transmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", transmit.IncomingCallRequests}
+    transmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", transmit.IncomingCallReplies}
+    transmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", transmit.IncomingCallConnectedPackets}
+    transmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", transmit.CallDisconnectNotifyPackets}
+    transmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", transmit.WanErrorNotifyPackets}
+    transmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", transmit.SetLinkInfoPackets}
+    transmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", transmit.ServiceRelayRequests}
+    transmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", transmit.ServiceRelayReplies}
+    transmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", transmit.AcknowledgementPackets}
+    return &(transmit.EntityData)
 }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetSegmentPath() string {
-    return "transmit"
-}
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = transmit.UnknownPackets
-    leafs["zero-length-body-packets"] = transmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = transmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = transmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = transmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = transmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = transmit.HelloPackets
-    leafs["outgoing-call-requests"] = transmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = transmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = transmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = transmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = transmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = transmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = transmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = transmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = transmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = transmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = transmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = transmit.AcknowledgementPackets
-    return leafs
-}
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetYangName() string { return "transmit" }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) SetParent(parent types.Entity) { transmit.parent = parent }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetParent() types.Entity { return transmit.parent }
-
-func (transmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit
 // Re transmit data
 type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -2691,92 +1655,44 @@ type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetFilter() yfilter.YFilter { return retransmit.YFilter }
+func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+    retransmit.EntityData.YFilter = retransmit.YFilter
+    retransmit.EntityData.YangName = "retransmit"
+    retransmit.EntityData.BundleName = "cisco_ios_xr"
+    retransmit.EntityData.ParentYangName = "global"
+    retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) SetFilter(yf yfilter.YFilter) { retransmit.YFilter = yf }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    retransmit.EntityData.Children = make(map[string]types.YChild)
+    retransmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    retransmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", retransmit.UnknownPackets}
+    retransmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", retransmit.ZeroLengthBodyPackets}
+    retransmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", retransmit.StartControlConnectionRequests}
+    retransmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", retransmit.StartControlConnectionReplies}
+    retransmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", retransmit.StartControlConnectionNotifications}
+    retransmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", retransmit.StopControlConnectionNotifications}
+    retransmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", retransmit.HelloPackets}
+    retransmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", retransmit.OutgoingCallRequests}
+    retransmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", retransmit.OutgoingCallReplies}
+    retransmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", retransmit.OutgoingCallConnectedPackets}
+    retransmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", retransmit.IncomingCallRequests}
+    retransmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", retransmit.IncomingCallReplies}
+    retransmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", retransmit.IncomingCallConnectedPackets}
+    retransmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", retransmit.CallDisconnectNotifyPackets}
+    retransmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", retransmit.WanErrorNotifyPackets}
+    retransmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", retransmit.SetLinkInfoPackets}
+    retransmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", retransmit.ServiceRelayRequests}
+    retransmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", retransmit.ServiceRelayReplies}
+    retransmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", retransmit.AcknowledgementPackets}
+    return &(retransmit.EntityData)
 }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetSegmentPath() string {
-    return "retransmit"
-}
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = retransmit.UnknownPackets
-    leafs["zero-length-body-packets"] = retransmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = retransmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = retransmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = retransmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = retransmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = retransmit.HelloPackets
-    leafs["outgoing-call-requests"] = retransmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = retransmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = retransmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = retransmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = retransmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = retransmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = retransmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = retransmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = retransmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = retransmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = retransmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = retransmit.AcknowledgementPackets
-    return leafs
-}
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetYangName() string { return "retransmit" }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) SetParent(parent types.Entity) { retransmit.parent = parent }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetParent() types.Entity { return retransmit.parent }
-
-func (retransmit *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received
 // Received data
 type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -2848,92 +1764,44 @@ type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetFilter() yfilter.YFilter { return received.YFilter }
+func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityData() *types.CommonEntityData {
+    received.EntityData.YFilter = received.YFilter
+    received.EntityData.YangName = "received"
+    received.EntityData.BundleName = "cisco_ios_xr"
+    received.EntityData.ParentYangName = "global"
+    received.EntityData.SegmentPath = "received"
+    received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) SetFilter(yf yfilter.YFilter) { received.YFilter = yf }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    received.EntityData.Children = make(map[string]types.YChild)
+    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", received.UnknownPackets}
+    received.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", received.ZeroLengthBodyPackets}
+    received.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", received.StartControlConnectionRequests}
+    received.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", received.StartControlConnectionReplies}
+    received.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", received.StartControlConnectionNotifications}
+    received.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", received.StopControlConnectionNotifications}
+    received.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", received.HelloPackets}
+    received.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", received.OutgoingCallRequests}
+    received.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", received.OutgoingCallReplies}
+    received.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", received.OutgoingCallConnectedPackets}
+    received.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", received.IncomingCallRequests}
+    received.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", received.IncomingCallReplies}
+    received.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", received.IncomingCallConnectedPackets}
+    received.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", received.CallDisconnectNotifyPackets}
+    received.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", received.WanErrorNotifyPackets}
+    received.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", received.SetLinkInfoPackets}
+    received.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", received.ServiceRelayRequests}
+    received.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", received.ServiceRelayReplies}
+    received.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", received.AcknowledgementPackets}
+    return &(received.EntityData)
 }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetSegmentPath() string {
-    return "received"
-}
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = received.UnknownPackets
-    leafs["zero-length-body-packets"] = received.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = received.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = received.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = received.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = received.StopControlConnectionNotifications
-    leafs["hello-packets"] = received.HelloPackets
-    leafs["outgoing-call-requests"] = received.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = received.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = received.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = received.IncomingCallRequests
-    leafs["incoming-call-replies"] = received.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = received.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = received.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = received.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = received.SetLinkInfoPackets
-    leafs["service-relay-requests"] = received.ServiceRelayRequests
-    leafs["service-relay-replies"] = received.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = received.AcknowledgementPackets
-    return leafs
-}
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetBundleName() string { return "cisco_ios_xr" }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetYangName() string { return "received" }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) SetParent(parent types.Entity) { received.parent = parent }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetParent() types.Entity { return received.parent }
-
-func (received *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetParentYangName() string { return "global" }
 
 // L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop
 // Drop data
 type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -3005,92 +1873,44 @@ type L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetFilter() yfilter.YFilter { return drop.YFilter }
+func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *types.CommonEntityData {
+    drop.EntityData.YFilter = drop.YFilter
+    drop.EntityData.YangName = "drop"
+    drop.EntityData.BundleName = "cisco_ios_xr"
+    drop.EntityData.ParentYangName = "global"
+    drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) SetFilter(yf yfilter.YFilter) { drop.YFilter = yf }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    drop.EntityData.Children = make(map[string]types.YChild)
+    drop.EntityData.Leafs = make(map[string]types.YLeaf)
+    drop.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", drop.UnknownPackets}
+    drop.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", drop.ZeroLengthBodyPackets}
+    drop.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", drop.StartControlConnectionRequests}
+    drop.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", drop.StartControlConnectionReplies}
+    drop.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", drop.StartControlConnectionNotifications}
+    drop.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", drop.StopControlConnectionNotifications}
+    drop.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", drop.HelloPackets}
+    drop.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", drop.OutgoingCallRequests}
+    drop.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", drop.OutgoingCallReplies}
+    drop.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", drop.OutgoingCallConnectedPackets}
+    drop.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", drop.IncomingCallRequests}
+    drop.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", drop.IncomingCallReplies}
+    drop.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", drop.IncomingCallConnectedPackets}
+    drop.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", drop.CallDisconnectNotifyPackets}
+    drop.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", drop.WanErrorNotifyPackets}
+    drop.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", drop.SetLinkInfoPackets}
+    drop.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", drop.ServiceRelayRequests}
+    drop.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", drop.ServiceRelayReplies}
+    drop.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", drop.AcknowledgementPackets}
+    return &(drop.EntityData)
 }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetSegmentPath() string {
-    return "drop"
-}
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = drop.UnknownPackets
-    leafs["zero-length-body-packets"] = drop.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = drop.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = drop.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = drop.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = drop.StopControlConnectionNotifications
-    leafs["hello-packets"] = drop.HelloPackets
-    leafs["outgoing-call-requests"] = drop.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = drop.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = drop.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = drop.IncomingCallRequests
-    leafs["incoming-call-replies"] = drop.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = drop.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = drop.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = drop.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = drop.SetLinkInfoPackets
-    leafs["service-relay-requests"] = drop.ServiceRelayRequests
-    leafs["service-relay-replies"] = drop.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = drop.AcknowledgementPackets
-    return leafs
-}
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetYangName() string { return "drop" }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) SetParent(parent types.Entity) { drop.parent = parent }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetParent() types.Entity { return drop.parent }
-
-func (drop *L2Tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetParentYangName() string { return "global" }
 
 // L2Tp_TunnelConfigurations
 // List of tunnel IDs
 type L2Tp_TunnelConfigurations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel information. The type is slice of
@@ -3098,68 +1918,29 @@ type L2Tp_TunnelConfigurations struct {
     TunnelConfiguration []L2Tp_TunnelConfigurations_TunnelConfiguration
 }
 
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetFilter() yfilter.YFilter { return tunnelConfigurations.YFilter }
+func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetEntityData() *types.CommonEntityData {
+    tunnelConfigurations.EntityData.YFilter = tunnelConfigurations.YFilter
+    tunnelConfigurations.EntityData.YangName = "tunnel-configurations"
+    tunnelConfigurations.EntityData.BundleName = "cisco_ios_xr"
+    tunnelConfigurations.EntityData.ParentYangName = "l2tp"
+    tunnelConfigurations.EntityData.SegmentPath = "tunnel-configurations"
+    tunnelConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) SetFilter(yf yfilter.YFilter) { tunnelConfigurations.YFilter = yf }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetGoName(yname string) string {
-    if yname == "tunnel-configuration" { return "TunnelConfiguration" }
-    return ""
-}
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetSegmentPath() string {
-    return "tunnel-configurations"
-}
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel-configuration" {
-        for _, c := range tunnelConfigurations.TunnelConfiguration {
-            if tunnelConfigurations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tp_TunnelConfigurations_TunnelConfiguration{}
-        tunnelConfigurations.TunnelConfiguration = append(tunnelConfigurations.TunnelConfiguration, child)
-        return &tunnelConfigurations.TunnelConfiguration[len(tunnelConfigurations.TunnelConfiguration)-1]
-    }
-    return nil
-}
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnelConfigurations.EntityData.Children = make(map[string]types.YChild)
+    tunnelConfigurations.EntityData.Children["tunnel-configuration"] = types.YChild{"TunnelConfiguration", nil}
     for i := range tunnelConfigurations.TunnelConfiguration {
-        children[tunnelConfigurations.TunnelConfiguration[i].GetSegmentPath()] = &tunnelConfigurations.TunnelConfiguration[i]
+        tunnelConfigurations.EntityData.Children[types.GetSegmentPath(&tunnelConfigurations.TunnelConfiguration[i])] = types.YChild{"TunnelConfiguration", &tunnelConfigurations.TunnelConfiguration[i]}
     }
-    return children
+    tunnelConfigurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelConfigurations.EntityData)
 }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetYangName() string { return "tunnel-configurations" }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) SetParent(parent types.Entity) { tunnelConfigurations.parent = parent }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetParent() types.Entity { return tunnelConfigurations.parent }
-
-func (tunnelConfigurations *L2Tp_TunnelConfigurations) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_TunnelConfigurations_TunnelConfiguration
 // L2TP tunnel information
 type L2Tp_TunnelConfigurations_TunnelConfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -3173,63 +1954,28 @@ type L2Tp_TunnelConfigurations_TunnelConfiguration struct {
     L2TpClass L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass
 }
 
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetFilter() yfilter.YFilter { return tunnelConfiguration.YFilter }
+func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetEntityData() *types.CommonEntityData {
+    tunnelConfiguration.EntityData.YFilter = tunnelConfiguration.YFilter
+    tunnelConfiguration.EntityData.YangName = "tunnel-configuration"
+    tunnelConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    tunnelConfiguration.EntityData.ParentYangName = "tunnel-configurations"
+    tunnelConfiguration.EntityData.SegmentPath = "tunnel-configuration" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnelConfiguration.LocalTunnelId) + "']"
+    tunnelConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) SetFilter(yf yfilter.YFilter) { tunnelConfiguration.YFilter = yf }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetGoName(yname string) string {
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "l2tp-class" { return "L2TpClass" }
-    return ""
+    tunnelConfiguration.EntityData.Children = make(map[string]types.YChild)
+    tunnelConfiguration.EntityData.Children["l2tp-class"] = types.YChild{"L2TpClass", &tunnelConfiguration.L2TpClass}
+    tunnelConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelConfiguration.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", tunnelConfiguration.LocalTunnelId}
+    tunnelConfiguration.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", tunnelConfiguration.RemoteTunnelId}
+    return &(tunnelConfiguration.EntityData)
 }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetSegmentPath() string {
-    return "tunnel-configuration" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnelConfiguration.LocalTunnelId) + "']"
-}
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "l2tp-class" {
-        return &tunnelConfiguration.L2TpClass
-    }
-    return nil
-}
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["l2tp-class"] = &tunnelConfiguration.L2TpClass
-    return children
-}
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-tunnel-id"] = tunnelConfiguration.LocalTunnelId
-    leafs["remote-tunnel-id"] = tunnelConfiguration.RemoteTunnelId
-    return leafs
-}
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetYangName() string { return "tunnel-configuration" }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) SetParent(parent types.Entity) { tunnelConfiguration.parent = parent }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetParent() types.Entity { return tunnelConfiguration.parent }
-
-func (tunnelConfiguration *L2Tp_TunnelConfigurations_TunnelConfiguration) GetParentYangName() string { return "tunnel-configurations" }
 
 // L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass
 // L2Tp class data
 type L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP TOS. The type is interface{} with range: 0..255.
@@ -3312,102 +2058,49 @@ type L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass struct {
     IsPeerAddressChecked interface{}
 }
 
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetFilter() yfilter.YFilter { return l2TpClass.YFilter }
+func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetEntityData() *types.CommonEntityData {
+    l2TpClass.EntityData.YFilter = l2TpClass.YFilter
+    l2TpClass.EntityData.YangName = "l2tp-class"
+    l2TpClass.EntityData.BundleName = "cisco_ios_xr"
+    l2TpClass.EntityData.ParentYangName = "tunnel-configuration"
+    l2TpClass.EntityData.SegmentPath = "l2tp-class"
+    l2TpClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2TpClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2TpClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) SetFilter(yf yfilter.YFilter) { l2TpClass.YFilter = yf }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetGoName(yname string) string {
-    if yname == "ip-tos" { return "IpTos" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "receive-window-size" { return "ReceiveWindowSize" }
-    if yname == "class-name-xr" { return "ClassNameXr" }
-    if yname == "digest-hash" { return "DigestHash" }
-    if yname == "password" { return "Password" }
-    if yname == "encoded-password" { return "EncodedPassword" }
-    if yname == "host-name" { return "HostName" }
-    if yname == "accounting-method-list" { return "AccountingMethodList" }
-    if yname == "hello-timeout" { return "HelloTimeout" }
-    if yname == "setup-timeout" { return "SetupTimeout" }
-    if yname == "retransmit-minimum-timeout" { return "RetransmitMinimumTimeout" }
-    if yname == "retransmit-maximum-timeout" { return "RetransmitMaximumTimeout" }
-    if yname == "initial-retransmit-minimum-timeout" { return "InitialRetransmitMinimumTimeout" }
-    if yname == "initial-retransmit-maximum-timeout" { return "InitialRetransmitMaximumTimeout" }
-    if yname == "timeout-no-user" { return "TimeoutNoUser" }
-    if yname == "retransmit-retries" { return "RetransmitRetries" }
-    if yname == "initial-retransmit-retries" { return "InitialRetransmitRetries" }
-    if yname == "is-authentication-enabled" { return "IsAuthenticationEnabled" }
-    if yname == "is-hidden" { return "IsHidden" }
-    if yname == "is-digest-enabled" { return "IsDigestEnabled" }
-    if yname == "is-digest-check-enabled" { return "IsDigestCheckEnabled" }
-    if yname == "is-congestion-control-enabled" { return "IsCongestionControlEnabled" }
-    if yname == "is-peer-address-checked" { return "IsPeerAddressChecked" }
-    return ""
+    l2TpClass.EntityData.Children = make(map[string]types.YChild)
+    l2TpClass.EntityData.Leafs = make(map[string]types.YLeaf)
+    l2TpClass.EntityData.Leafs["ip-tos"] = types.YLeaf{"IpTos", l2TpClass.IpTos}
+    l2TpClass.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", l2TpClass.VrfName}
+    l2TpClass.EntityData.Leafs["receive-window-size"] = types.YLeaf{"ReceiveWindowSize", l2TpClass.ReceiveWindowSize}
+    l2TpClass.EntityData.Leafs["class-name-xr"] = types.YLeaf{"ClassNameXr", l2TpClass.ClassNameXr}
+    l2TpClass.EntityData.Leafs["digest-hash"] = types.YLeaf{"DigestHash", l2TpClass.DigestHash}
+    l2TpClass.EntityData.Leafs["password"] = types.YLeaf{"Password", l2TpClass.Password}
+    l2TpClass.EntityData.Leafs["encoded-password"] = types.YLeaf{"EncodedPassword", l2TpClass.EncodedPassword}
+    l2TpClass.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", l2TpClass.HostName}
+    l2TpClass.EntityData.Leafs["accounting-method-list"] = types.YLeaf{"AccountingMethodList", l2TpClass.AccountingMethodList}
+    l2TpClass.EntityData.Leafs["hello-timeout"] = types.YLeaf{"HelloTimeout", l2TpClass.HelloTimeout}
+    l2TpClass.EntityData.Leafs["setup-timeout"] = types.YLeaf{"SetupTimeout", l2TpClass.SetupTimeout}
+    l2TpClass.EntityData.Leafs["retransmit-minimum-timeout"] = types.YLeaf{"RetransmitMinimumTimeout", l2TpClass.RetransmitMinimumTimeout}
+    l2TpClass.EntityData.Leafs["retransmit-maximum-timeout"] = types.YLeaf{"RetransmitMaximumTimeout", l2TpClass.RetransmitMaximumTimeout}
+    l2TpClass.EntityData.Leafs["initial-retransmit-minimum-timeout"] = types.YLeaf{"InitialRetransmitMinimumTimeout", l2TpClass.InitialRetransmitMinimumTimeout}
+    l2TpClass.EntityData.Leafs["initial-retransmit-maximum-timeout"] = types.YLeaf{"InitialRetransmitMaximumTimeout", l2TpClass.InitialRetransmitMaximumTimeout}
+    l2TpClass.EntityData.Leafs["timeout-no-user"] = types.YLeaf{"TimeoutNoUser", l2TpClass.TimeoutNoUser}
+    l2TpClass.EntityData.Leafs["retransmit-retries"] = types.YLeaf{"RetransmitRetries", l2TpClass.RetransmitRetries}
+    l2TpClass.EntityData.Leafs["initial-retransmit-retries"] = types.YLeaf{"InitialRetransmitRetries", l2TpClass.InitialRetransmitRetries}
+    l2TpClass.EntityData.Leafs["is-authentication-enabled"] = types.YLeaf{"IsAuthenticationEnabled", l2TpClass.IsAuthenticationEnabled}
+    l2TpClass.EntityData.Leafs["is-hidden"] = types.YLeaf{"IsHidden", l2TpClass.IsHidden}
+    l2TpClass.EntityData.Leafs["is-digest-enabled"] = types.YLeaf{"IsDigestEnabled", l2TpClass.IsDigestEnabled}
+    l2TpClass.EntityData.Leafs["is-digest-check-enabled"] = types.YLeaf{"IsDigestCheckEnabled", l2TpClass.IsDigestCheckEnabled}
+    l2TpClass.EntityData.Leafs["is-congestion-control-enabled"] = types.YLeaf{"IsCongestionControlEnabled", l2TpClass.IsCongestionControlEnabled}
+    l2TpClass.EntityData.Leafs["is-peer-address-checked"] = types.YLeaf{"IsPeerAddressChecked", l2TpClass.IsPeerAddressChecked}
+    return &(l2TpClass.EntityData)
 }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetSegmentPath() string {
-    return "l2tp-class"
-}
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-tos"] = l2TpClass.IpTos
-    leafs["vrf-name"] = l2TpClass.VrfName
-    leafs["receive-window-size"] = l2TpClass.ReceiveWindowSize
-    leafs["class-name-xr"] = l2TpClass.ClassNameXr
-    leafs["digest-hash"] = l2TpClass.DigestHash
-    leafs["password"] = l2TpClass.Password
-    leafs["encoded-password"] = l2TpClass.EncodedPassword
-    leafs["host-name"] = l2TpClass.HostName
-    leafs["accounting-method-list"] = l2TpClass.AccountingMethodList
-    leafs["hello-timeout"] = l2TpClass.HelloTimeout
-    leafs["setup-timeout"] = l2TpClass.SetupTimeout
-    leafs["retransmit-minimum-timeout"] = l2TpClass.RetransmitMinimumTimeout
-    leafs["retransmit-maximum-timeout"] = l2TpClass.RetransmitMaximumTimeout
-    leafs["initial-retransmit-minimum-timeout"] = l2TpClass.InitialRetransmitMinimumTimeout
-    leafs["initial-retransmit-maximum-timeout"] = l2TpClass.InitialRetransmitMaximumTimeout
-    leafs["timeout-no-user"] = l2TpClass.TimeoutNoUser
-    leafs["retransmit-retries"] = l2TpClass.RetransmitRetries
-    leafs["initial-retransmit-retries"] = l2TpClass.InitialRetransmitRetries
-    leafs["is-authentication-enabled"] = l2TpClass.IsAuthenticationEnabled
-    leafs["is-hidden"] = l2TpClass.IsHidden
-    leafs["is-digest-enabled"] = l2TpClass.IsDigestEnabled
-    leafs["is-digest-check-enabled"] = l2TpClass.IsDigestCheckEnabled
-    leafs["is-congestion-control-enabled"] = l2TpClass.IsCongestionControlEnabled
-    leafs["is-peer-address-checked"] = l2TpClass.IsPeerAddressChecked
-    return leafs
-}
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetBundleName() string { return "cisco_ios_xr" }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetYangName() string { return "l2tp-class" }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) SetParent(parent types.Entity) { l2TpClass.parent = parent }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetParent() types.Entity { return l2TpClass.parent }
-
-func (l2TpClass *L2Tp_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetParentYangName() string { return "tunnel-configuration" }
 
 // L2Tp_CounterHistFail
 // Failure events leading to disconnection
 type L2Tp_CounterHistFail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // sesions affected due to timeout. The type is interface{} with range:
@@ -3415,11 +2108,11 @@ type L2Tp_CounterHistFail struct {
     SessDownTmout interface{}
 
     // Send side counters. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TxCounters interface{}
 
     // Receive side counters. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RxCounters interface{}
 
     // timeout events by packet. The type is slice of interface{} with range:
@@ -3427,130 +2120,58 @@ type L2Tp_CounterHistFail struct {
     PktTimeout []interface{}
 }
 
-func (counterHistFail *L2Tp_CounterHistFail) GetFilter() yfilter.YFilter { return counterHistFail.YFilter }
+func (counterHistFail *L2Tp_CounterHistFail) GetEntityData() *types.CommonEntityData {
+    counterHistFail.EntityData.YFilter = counterHistFail.YFilter
+    counterHistFail.EntityData.YangName = "counter-hist-fail"
+    counterHistFail.EntityData.BundleName = "cisco_ios_xr"
+    counterHistFail.EntityData.ParentYangName = "l2tp"
+    counterHistFail.EntityData.SegmentPath = "counter-hist-fail"
+    counterHistFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    counterHistFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (counterHistFail *L2Tp_CounterHistFail) SetFilter(yf yfilter.YFilter) { counterHistFail.YFilter = yf }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetGoName(yname string) string {
-    if yname == "sess-down-tmout" { return "SessDownTmout" }
-    if yname == "tx-counters" { return "TxCounters" }
-    if yname == "rx-counters" { return "RxCounters" }
-    if yname == "pkt-timeout" { return "PktTimeout" }
-    return ""
+    counterHistFail.EntityData.Children = make(map[string]types.YChild)
+    counterHistFail.EntityData.Leafs = make(map[string]types.YLeaf)
+    counterHistFail.EntityData.Leafs["sess-down-tmout"] = types.YLeaf{"SessDownTmout", counterHistFail.SessDownTmout}
+    counterHistFail.EntityData.Leafs["tx-counters"] = types.YLeaf{"TxCounters", counterHistFail.TxCounters}
+    counterHistFail.EntityData.Leafs["rx-counters"] = types.YLeaf{"RxCounters", counterHistFail.RxCounters}
+    counterHistFail.EntityData.Leafs["pkt-timeout"] = types.YLeaf{"PktTimeout", counterHistFail.PktTimeout}
+    return &(counterHistFail.EntityData)
 }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetSegmentPath() string {
-    return "counter-hist-fail"
-}
-
-func (counterHistFail *L2Tp_CounterHistFail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (counterHistFail *L2Tp_CounterHistFail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (counterHistFail *L2Tp_CounterHistFail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sess-down-tmout"] = counterHistFail.SessDownTmout
-    leafs["tx-counters"] = counterHistFail.TxCounters
-    leafs["rx-counters"] = counterHistFail.RxCounters
-    leafs["pkt-timeout"] = counterHistFail.PktTimeout
-    return leafs
-}
-
-func (counterHistFail *L2Tp_CounterHistFail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetYangName() string { return "counter-hist-fail" }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (counterHistFail *L2Tp_CounterHistFail) SetParent(parent types.Entity) { counterHistFail.parent = parent }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetParent() types.Entity { return counterHistFail.parent }
-
-func (counterHistFail *L2Tp_CounterHistFail) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_Classes
 // List of L2TP class names
 type L2Tp_Classes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP class name. The type is slice of L2Tp_Classes_Class.
     Class []L2Tp_Classes_Class
 }
 
-func (classes *L2Tp_Classes) GetFilter() yfilter.YFilter { return classes.YFilter }
+func (classes *L2Tp_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "l2tp"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classes *L2Tp_Classes) SetFilter(yf yfilter.YFilter) { classes.YFilter = yf }
-
-func (classes *L2Tp_Classes) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    return ""
-}
-
-func (classes *L2Tp_Classes) GetSegmentPath() string {
-    return "classes"
-}
-
-func (classes *L2Tp_Classes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class" {
-        for _, c := range classes.Class {
-            if classes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tp_Classes_Class{}
-        classes.Class = append(classes.Class, child)
-        return &classes.Class[len(classes.Class)-1]
-    }
-    return nil
-}
-
-func (classes *L2Tp_Classes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
     for i := range classes.Class {
-        children[classes.Class[i].GetSegmentPath()] = &classes.Class[i]
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
     }
-    return children
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
 }
-
-func (classes *L2Tp_Classes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (classes *L2Tp_Classes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classes *L2Tp_Classes) GetYangName() string { return "classes" }
-
-func (classes *L2Tp_Classes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classes *L2Tp_Classes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classes *L2Tp_Classes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classes *L2Tp_Classes) SetParent(parent types.Entity) { classes.parent = parent }
-
-func (classes *L2Tp_Classes) GetParent() types.Entity { return classes.parent }
-
-func (classes *L2Tp_Classes) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_Classes_Class
 // L2TP class name
 type L2Tp_Classes_Class struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. L2TP class name. The type is string with length:
@@ -3637,172 +2258,79 @@ type L2Tp_Classes_Class struct {
     IsPeerAddressChecked interface{}
 }
 
-func (class *L2Tp_Classes_Class) GetFilter() yfilter.YFilter { return class.YFilter }
+func (class *L2Tp_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[class-name='" + fmt.Sprintf("%v", class.ClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (class *L2Tp_Classes_Class) SetFilter(yf yfilter.YFilter) { class.YFilter = yf }
-
-func (class *L2Tp_Classes_Class) GetGoName(yname string) string {
-    if yname == "class-name" { return "ClassName" }
-    if yname == "ip-tos" { return "IpTos" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "receive-window-size" { return "ReceiveWindowSize" }
-    if yname == "class-name-xr" { return "ClassNameXr" }
-    if yname == "digest-hash" { return "DigestHash" }
-    if yname == "password" { return "Password" }
-    if yname == "encoded-password" { return "EncodedPassword" }
-    if yname == "host-name" { return "HostName" }
-    if yname == "accounting-method-list" { return "AccountingMethodList" }
-    if yname == "hello-timeout" { return "HelloTimeout" }
-    if yname == "setup-timeout" { return "SetupTimeout" }
-    if yname == "retransmit-minimum-timeout" { return "RetransmitMinimumTimeout" }
-    if yname == "retransmit-maximum-timeout" { return "RetransmitMaximumTimeout" }
-    if yname == "initial-retransmit-minimum-timeout" { return "InitialRetransmitMinimumTimeout" }
-    if yname == "initial-retransmit-maximum-timeout" { return "InitialRetransmitMaximumTimeout" }
-    if yname == "timeout-no-user" { return "TimeoutNoUser" }
-    if yname == "retransmit-retries" { return "RetransmitRetries" }
-    if yname == "initial-retransmit-retries" { return "InitialRetransmitRetries" }
-    if yname == "is-authentication-enabled" { return "IsAuthenticationEnabled" }
-    if yname == "is-hidden" { return "IsHidden" }
-    if yname == "is-digest-enabled" { return "IsDigestEnabled" }
-    if yname == "is-digest-check-enabled" { return "IsDigestCheckEnabled" }
-    if yname == "is-congestion-control-enabled" { return "IsCongestionControlEnabled" }
-    if yname == "is-peer-address-checked" { return "IsPeerAddressChecked" }
-    return ""
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", class.ClassName}
+    class.EntityData.Leafs["ip-tos"] = types.YLeaf{"IpTos", class.IpTos}
+    class.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", class.VrfName}
+    class.EntityData.Leafs["receive-window-size"] = types.YLeaf{"ReceiveWindowSize", class.ReceiveWindowSize}
+    class.EntityData.Leafs["class-name-xr"] = types.YLeaf{"ClassNameXr", class.ClassNameXr}
+    class.EntityData.Leafs["digest-hash"] = types.YLeaf{"DigestHash", class.DigestHash}
+    class.EntityData.Leafs["password"] = types.YLeaf{"Password", class.Password}
+    class.EntityData.Leafs["encoded-password"] = types.YLeaf{"EncodedPassword", class.EncodedPassword}
+    class.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", class.HostName}
+    class.EntityData.Leafs["accounting-method-list"] = types.YLeaf{"AccountingMethodList", class.AccountingMethodList}
+    class.EntityData.Leafs["hello-timeout"] = types.YLeaf{"HelloTimeout", class.HelloTimeout}
+    class.EntityData.Leafs["setup-timeout"] = types.YLeaf{"SetupTimeout", class.SetupTimeout}
+    class.EntityData.Leafs["retransmit-minimum-timeout"] = types.YLeaf{"RetransmitMinimumTimeout", class.RetransmitMinimumTimeout}
+    class.EntityData.Leafs["retransmit-maximum-timeout"] = types.YLeaf{"RetransmitMaximumTimeout", class.RetransmitMaximumTimeout}
+    class.EntityData.Leafs["initial-retransmit-minimum-timeout"] = types.YLeaf{"InitialRetransmitMinimumTimeout", class.InitialRetransmitMinimumTimeout}
+    class.EntityData.Leafs["initial-retransmit-maximum-timeout"] = types.YLeaf{"InitialRetransmitMaximumTimeout", class.InitialRetransmitMaximumTimeout}
+    class.EntityData.Leafs["timeout-no-user"] = types.YLeaf{"TimeoutNoUser", class.TimeoutNoUser}
+    class.EntityData.Leafs["retransmit-retries"] = types.YLeaf{"RetransmitRetries", class.RetransmitRetries}
+    class.EntityData.Leafs["initial-retransmit-retries"] = types.YLeaf{"InitialRetransmitRetries", class.InitialRetransmitRetries}
+    class.EntityData.Leafs["is-authentication-enabled"] = types.YLeaf{"IsAuthenticationEnabled", class.IsAuthenticationEnabled}
+    class.EntityData.Leafs["is-hidden"] = types.YLeaf{"IsHidden", class.IsHidden}
+    class.EntityData.Leafs["is-digest-enabled"] = types.YLeaf{"IsDigestEnabled", class.IsDigestEnabled}
+    class.EntityData.Leafs["is-digest-check-enabled"] = types.YLeaf{"IsDigestCheckEnabled", class.IsDigestCheckEnabled}
+    class.EntityData.Leafs["is-congestion-control-enabled"] = types.YLeaf{"IsCongestionControlEnabled", class.IsCongestionControlEnabled}
+    class.EntityData.Leafs["is-peer-address-checked"] = types.YLeaf{"IsPeerAddressChecked", class.IsPeerAddressChecked}
+    return &(class.EntityData)
 }
-
-func (class *L2Tp_Classes_Class) GetSegmentPath() string {
-    return "class" + "[class-name='" + fmt.Sprintf("%v", class.ClassName) + "']"
-}
-
-func (class *L2Tp_Classes_Class) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (class *L2Tp_Classes_Class) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (class *L2Tp_Classes_Class) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class-name"] = class.ClassName
-    leafs["ip-tos"] = class.IpTos
-    leafs["vrf-name"] = class.VrfName
-    leafs["receive-window-size"] = class.ReceiveWindowSize
-    leafs["class-name-xr"] = class.ClassNameXr
-    leafs["digest-hash"] = class.DigestHash
-    leafs["password"] = class.Password
-    leafs["encoded-password"] = class.EncodedPassword
-    leafs["host-name"] = class.HostName
-    leafs["accounting-method-list"] = class.AccountingMethodList
-    leafs["hello-timeout"] = class.HelloTimeout
-    leafs["setup-timeout"] = class.SetupTimeout
-    leafs["retransmit-minimum-timeout"] = class.RetransmitMinimumTimeout
-    leafs["retransmit-maximum-timeout"] = class.RetransmitMaximumTimeout
-    leafs["initial-retransmit-minimum-timeout"] = class.InitialRetransmitMinimumTimeout
-    leafs["initial-retransmit-maximum-timeout"] = class.InitialRetransmitMaximumTimeout
-    leafs["timeout-no-user"] = class.TimeoutNoUser
-    leafs["retransmit-retries"] = class.RetransmitRetries
-    leafs["initial-retransmit-retries"] = class.InitialRetransmitRetries
-    leafs["is-authentication-enabled"] = class.IsAuthenticationEnabled
-    leafs["is-hidden"] = class.IsHidden
-    leafs["is-digest-enabled"] = class.IsDigestEnabled
-    leafs["is-digest-check-enabled"] = class.IsDigestCheckEnabled
-    leafs["is-congestion-control-enabled"] = class.IsCongestionControlEnabled
-    leafs["is-peer-address-checked"] = class.IsPeerAddressChecked
-    return leafs
-}
-
-func (class *L2Tp_Classes_Class) GetBundleName() string { return "cisco_ios_xr" }
-
-func (class *L2Tp_Classes_Class) GetYangName() string { return "class" }
-
-func (class *L2Tp_Classes_Class) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (class *L2Tp_Classes_Class) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (class *L2Tp_Classes_Class) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (class *L2Tp_Classes_Class) SetParent(parent types.Entity) { class.parent = parent }
-
-func (class *L2Tp_Classes_Class) GetParent() types.Entity { return class.parent }
-
-func (class *L2Tp_Classes_Class) GetParentYangName() string { return "classes" }
 
 // L2Tp_Tunnels
 // List of tunnel IDs
 type L2Tp_Tunnels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel  information. The type is slice of L2Tp_Tunnels_Tunnel.
     Tunnel []L2Tp_Tunnels_Tunnel
 }
 
-func (tunnels *L2Tp_Tunnels) GetFilter() yfilter.YFilter { return tunnels.YFilter }
+func (tunnels *L2Tp_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "cisco_ios_xr"
+    tunnels.EntityData.ParentYangName = "l2tp"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnels *L2Tp_Tunnels) SetFilter(yf yfilter.YFilter) { tunnels.YFilter = yf }
-
-func (tunnels *L2Tp_Tunnels) GetGoName(yname string) string {
-    if yname == "tunnel" { return "Tunnel" }
-    return ""
-}
-
-func (tunnels *L2Tp_Tunnels) GetSegmentPath() string {
-    return "tunnels"
-}
-
-func (tunnels *L2Tp_Tunnels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel" {
-        for _, c := range tunnels.Tunnel {
-            if tunnels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tp_Tunnels_Tunnel{}
-        tunnels.Tunnel = append(tunnels.Tunnel, child)
-        return &tunnels.Tunnel[len(tunnels.Tunnel)-1]
-    }
-    return nil
-}
-
-func (tunnels *L2Tp_Tunnels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnels.EntityData.Children = make(map[string]types.YChild)
+    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
     for i := range tunnels.Tunnel {
-        children[tunnels.Tunnel[i].GetSegmentPath()] = &tunnels.Tunnel[i]
+        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
     }
-    return children
+    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnels.EntityData)
 }
-
-func (tunnels *L2Tp_Tunnels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnels *L2Tp_Tunnels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnels *L2Tp_Tunnels) GetYangName() string { return "tunnels" }
-
-func (tunnels *L2Tp_Tunnels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnels *L2Tp_Tunnels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnels *L2Tp_Tunnels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnels *L2Tp_Tunnels) SetParent(parent types.Entity) { tunnels.parent = parent }
-
-func (tunnels *L2Tp_Tunnels) GetParent() types.Entity { return tunnels.parent }
-
-func (tunnels *L2Tp_Tunnels) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_Tunnels_Tunnel
 // L2TP tunnel  information
 type L2Tp_Tunnels_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -3810,11 +2338,11 @@ type L2Tp_Tunnels_Tunnel struct {
     LocalTunnelId interface{}
 
     // Local tunnel address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Remote tunnel address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteAddress interface{}
 
     // Local port. The type is interface{} with range: 0..65535.
@@ -3918,120 +2446,58 @@ type L2Tp_Tunnels_Tunnel struct {
     RetransmitTime []interface{}
 }
 
-func (tunnel *L2Tp_Tunnels_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *L2Tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnel.LocalTunnelId) + "']"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *L2Tp_Tunnels_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetGoName(yname string) string {
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "remote-address" { return "RemoteAddress" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "remote-port" { return "RemotePort" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "is-pmtu-enabled" { return "IsPmtuEnabled" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "local-tunnel-name" { return "LocalTunnelName" }
-    if yname == "remote-tunnel-name" { return "RemoteTunnelName" }
-    if yname == "class-name" { return "ClassName" }
-    if yname == "active-sessions" { return "ActiveSessions" }
-    if yname == "sequence-ns" { return "SequenceNs" }
-    if yname == "sequence-nr" { return "SequenceNr" }
-    if yname == "local-window-size" { return "LocalWindowSize" }
-    if yname == "remote-window-size" { return "RemoteWindowSize" }
-    if yname == "retransmission-time" { return "RetransmissionTime" }
-    if yname == "maximum-retransmission-time" { return "MaximumRetransmissionTime" }
-    if yname == "unsent-queue-size" { return "UnsentQueueSize" }
-    if yname == "unsent-maximum-queue-size" { return "UnsentMaximumQueueSize" }
-    if yname == "resend-queue-size" { return "ResendQueueSize" }
-    if yname == "resend-maximum-queue-size" { return "ResendMaximumQueueSize" }
-    if yname == "order-queue-size" { return "OrderQueueSize" }
-    if yname == "packet-queue-check" { return "PacketQueueCheck" }
-    if yname == "digest-secrets" { return "DigestSecrets" }
-    if yname == "resends" { return "Resends" }
-    if yname == "zero-length-body-acknowledgement-sent" { return "ZeroLengthBodyAcknowledgementSent" }
-    if yname == "total-out-of-order-drop-packets" { return "TotalOutOfOrderDropPackets" }
-    if yname == "total-out-of-order-reorder-packets" { return "TotalOutOfOrderReorderPackets" }
-    if yname == "total-peer-authentication-failures" { return "TotalPeerAuthenticationFailures" }
-    if yname == "is-tunnel-up" { return "IsTunnelUp" }
-    if yname == "is-congestion-control-enabled" { return "IsCongestionControlEnabled" }
-    if yname == "retransmit-time" { return "RetransmitTime" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnel.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", tunnel.LocalTunnelId}
+    tunnel.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", tunnel.LocalAddress}
+    tunnel.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", tunnel.RemoteAddress}
+    tunnel.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", tunnel.LocalPort}
+    tunnel.EntityData.Leafs["remote-port"] = types.YLeaf{"RemotePort", tunnel.RemotePort}
+    tunnel.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", tunnel.Protocol}
+    tunnel.EntityData.Leafs["is-pmtu-enabled"] = types.YLeaf{"IsPmtuEnabled", tunnel.IsPmtuEnabled}
+    tunnel.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", tunnel.RemoteTunnelId}
+    tunnel.EntityData.Leafs["local-tunnel-name"] = types.YLeaf{"LocalTunnelName", tunnel.LocalTunnelName}
+    tunnel.EntityData.Leafs["remote-tunnel-name"] = types.YLeaf{"RemoteTunnelName", tunnel.RemoteTunnelName}
+    tunnel.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", tunnel.ClassName}
+    tunnel.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", tunnel.ActiveSessions}
+    tunnel.EntityData.Leafs["sequence-ns"] = types.YLeaf{"SequenceNs", tunnel.SequenceNs}
+    tunnel.EntityData.Leafs["sequence-nr"] = types.YLeaf{"SequenceNr", tunnel.SequenceNr}
+    tunnel.EntityData.Leafs["local-window-size"] = types.YLeaf{"LocalWindowSize", tunnel.LocalWindowSize}
+    tunnel.EntityData.Leafs["remote-window-size"] = types.YLeaf{"RemoteWindowSize", tunnel.RemoteWindowSize}
+    tunnel.EntityData.Leafs["retransmission-time"] = types.YLeaf{"RetransmissionTime", tunnel.RetransmissionTime}
+    tunnel.EntityData.Leafs["maximum-retransmission-time"] = types.YLeaf{"MaximumRetransmissionTime", tunnel.MaximumRetransmissionTime}
+    tunnel.EntityData.Leafs["unsent-queue-size"] = types.YLeaf{"UnsentQueueSize", tunnel.UnsentQueueSize}
+    tunnel.EntityData.Leafs["unsent-maximum-queue-size"] = types.YLeaf{"UnsentMaximumQueueSize", tunnel.UnsentMaximumQueueSize}
+    tunnel.EntityData.Leafs["resend-queue-size"] = types.YLeaf{"ResendQueueSize", tunnel.ResendQueueSize}
+    tunnel.EntityData.Leafs["resend-maximum-queue-size"] = types.YLeaf{"ResendMaximumQueueSize", tunnel.ResendMaximumQueueSize}
+    tunnel.EntityData.Leafs["order-queue-size"] = types.YLeaf{"OrderQueueSize", tunnel.OrderQueueSize}
+    tunnel.EntityData.Leafs["packet-queue-check"] = types.YLeaf{"PacketQueueCheck", tunnel.PacketQueueCheck}
+    tunnel.EntityData.Leafs["digest-secrets"] = types.YLeaf{"DigestSecrets", tunnel.DigestSecrets}
+    tunnel.EntityData.Leafs["resends"] = types.YLeaf{"Resends", tunnel.Resends}
+    tunnel.EntityData.Leafs["zero-length-body-acknowledgement-sent"] = types.YLeaf{"ZeroLengthBodyAcknowledgementSent", tunnel.ZeroLengthBodyAcknowledgementSent}
+    tunnel.EntityData.Leafs["total-out-of-order-drop-packets"] = types.YLeaf{"TotalOutOfOrderDropPackets", tunnel.TotalOutOfOrderDropPackets}
+    tunnel.EntityData.Leafs["total-out-of-order-reorder-packets"] = types.YLeaf{"TotalOutOfOrderReorderPackets", tunnel.TotalOutOfOrderReorderPackets}
+    tunnel.EntityData.Leafs["total-peer-authentication-failures"] = types.YLeaf{"TotalPeerAuthenticationFailures", tunnel.TotalPeerAuthenticationFailures}
+    tunnel.EntityData.Leafs["is-tunnel-up"] = types.YLeaf{"IsTunnelUp", tunnel.IsTunnelUp}
+    tunnel.EntityData.Leafs["is-congestion-control-enabled"] = types.YLeaf{"IsCongestionControlEnabled", tunnel.IsCongestionControlEnabled}
+    tunnel.EntityData.Leafs["retransmit-time"] = types.YLeaf{"RetransmitTime", tunnel.RetransmitTime}
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetSegmentPath() string {
-    return "tunnel" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnel.LocalTunnelId) + "']"
-}
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-tunnel-id"] = tunnel.LocalTunnelId
-    leafs["local-address"] = tunnel.LocalAddress
-    leafs["remote-address"] = tunnel.RemoteAddress
-    leafs["local-port"] = tunnel.LocalPort
-    leafs["remote-port"] = tunnel.RemotePort
-    leafs["protocol"] = tunnel.Protocol
-    leafs["is-pmtu-enabled"] = tunnel.IsPmtuEnabled
-    leafs["remote-tunnel-id"] = tunnel.RemoteTunnelId
-    leafs["local-tunnel-name"] = tunnel.LocalTunnelName
-    leafs["remote-tunnel-name"] = tunnel.RemoteTunnelName
-    leafs["class-name"] = tunnel.ClassName
-    leafs["active-sessions"] = tunnel.ActiveSessions
-    leafs["sequence-ns"] = tunnel.SequenceNs
-    leafs["sequence-nr"] = tunnel.SequenceNr
-    leafs["local-window-size"] = tunnel.LocalWindowSize
-    leafs["remote-window-size"] = tunnel.RemoteWindowSize
-    leafs["retransmission-time"] = tunnel.RetransmissionTime
-    leafs["maximum-retransmission-time"] = tunnel.MaximumRetransmissionTime
-    leafs["unsent-queue-size"] = tunnel.UnsentQueueSize
-    leafs["unsent-maximum-queue-size"] = tunnel.UnsentMaximumQueueSize
-    leafs["resend-queue-size"] = tunnel.ResendQueueSize
-    leafs["resend-maximum-queue-size"] = tunnel.ResendMaximumQueueSize
-    leafs["order-queue-size"] = tunnel.OrderQueueSize
-    leafs["packet-queue-check"] = tunnel.PacketQueueCheck
-    leafs["digest-secrets"] = tunnel.DigestSecrets
-    leafs["resends"] = tunnel.Resends
-    leafs["zero-length-body-acknowledgement-sent"] = tunnel.ZeroLengthBodyAcknowledgementSent
-    leafs["total-out-of-order-drop-packets"] = tunnel.TotalOutOfOrderDropPackets
-    leafs["total-out-of-order-reorder-packets"] = tunnel.TotalOutOfOrderReorderPackets
-    leafs["total-peer-authentication-failures"] = tunnel.TotalPeerAuthenticationFailures
-    leafs["is-tunnel-up"] = tunnel.IsTunnelUp
-    leafs["is-congestion-control-enabled"] = tunnel.IsCongestionControlEnabled
-    leafs["retransmit-time"] = tunnel.RetransmitTime
-    return leafs
-}
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *L2Tp_Tunnels_Tunnel) GetParentYangName() string { return "tunnels" }
 
 // L2Tp_Sessions
 // List of session IDs
 type L2Tp_Sessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP information for a particular session. The type is slice of
@@ -4039,68 +2505,29 @@ type L2Tp_Sessions struct {
     Session []L2Tp_Sessions_Session
 }
 
-func (sessions *L2Tp_Sessions) GetFilter() yfilter.YFilter { return sessions.YFilter }
+func (sessions *L2Tp_Sessions) GetEntityData() *types.CommonEntityData {
+    sessions.EntityData.YFilter = sessions.YFilter
+    sessions.EntityData.YangName = "sessions"
+    sessions.EntityData.BundleName = "cisco_ios_xr"
+    sessions.EntityData.ParentYangName = "l2tp"
+    sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessions *L2Tp_Sessions) SetFilter(yf yfilter.YFilter) { sessions.YFilter = yf }
-
-func (sessions *L2Tp_Sessions) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    return ""
-}
-
-func (sessions *L2Tp_Sessions) GetSegmentPath() string {
-    return "sessions"
-}
-
-func (sessions *L2Tp_Sessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        for _, c := range sessions.Session {
-            if sessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tp_Sessions_Session{}
-        sessions.Session = append(sessions.Session, child)
-        return &sessions.Session[len(sessions.Session)-1]
-    }
-    return nil
-}
-
-func (sessions *L2Tp_Sessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessions.EntityData.Children = make(map[string]types.YChild)
+    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
     for i := range sessions.Session {
-        children[sessions.Session[i].GetSegmentPath()] = &sessions.Session[i]
+        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
     }
-    return children
+    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessions.EntityData)
 }
-
-func (sessions *L2Tp_Sessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessions *L2Tp_Sessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessions *L2Tp_Sessions) GetYangName() string { return "sessions" }
-
-func (sessions *L2Tp_Sessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessions *L2Tp_Sessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessions *L2Tp_Sessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessions *L2Tp_Sessions) SetParent(parent types.Entity) { sessions.parent = parent }
-
-func (sessions *L2Tp_Sessions) GetParent() types.Entity { return sessions.parent }
-
-func (sessions *L2Tp_Sessions) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_Sessions_Session
 // L2TP information for a particular session
 type L2Tp_Sessions_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -4112,11 +2539,11 @@ type L2Tp_Sessions_Session struct {
     LocalSessionId interface{}
 
     // Local session IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalIpAddress interface{}
 
     // Remote session IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteIpAddress interface{}
 
     // l2tp sh sess udp lport. The type is interface{} with range: 0..65535.
@@ -4182,105 +2609,49 @@ type L2Tp_Sessions_Session struct {
     SessionApplicationData L2Tp_Sessions_Session_SessionApplicationData
 }
 
-func (session *L2Tp_Sessions_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *L2Tp_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + "[local-tunnel-id='" + fmt.Sprintf("%v", session.LocalTunnelId) + "']" + "[local-session-id='" + fmt.Sprintf("%v", session.LocalSessionId) + "']"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *L2Tp_Sessions_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *L2Tp_Sessions_Session) GetGoName(yname string) string {
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "local-session-id" { return "LocalSessionId" }
-    if yname == "local-ip-address" { return "LocalIpAddress" }
-    if yname == "remote-ip-address" { return "RemoteIpAddress" }
-    if yname == "l2tp-sh-sess-udp-lport" { return "L2TpShSessUdpLport" }
-    if yname == "l2tp-sh-sess-udp-rport" { return "L2TpShSessUdpRport" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "call-serial-number" { return "CallSerialNumber" }
-    if yname == "local-tunnel-name" { return "LocalTunnelName" }
-    if yname == "remote-tunnel-name" { return "RemoteTunnelName" }
-    if yname == "remote-session-id" { return "RemoteSessionId" }
-    if yname == "l2tp-sh-sess-tie-breaker-enabled" { return "L2TpShSessTieBreakerEnabled" }
-    if yname == "l2tp-sh-sess-tie-breaker" { return "L2TpShSessTieBreaker" }
-    if yname == "is-session-manual" { return "IsSessionManual" }
-    if yname == "is-session-up" { return "IsSessionUp" }
-    if yname == "is-udp-checksum-enabled" { return "IsUdpChecksumEnabled" }
-    if yname == "is-sequencing-on" { return "IsSequencingOn" }
-    if yname == "is-session-state-established" { return "IsSessionStateEstablished" }
-    if yname == "is-session-locally-initiated" { return "IsSessionLocallyInitiated" }
-    if yname == "is-conditional-debug-enabled" { return "IsConditionalDebugEnabled" }
-    if yname == "unique-id" { return "UniqueId" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "session-application-data" { return "SessionApplicationData" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["session-application-data"] = types.YChild{"SessionApplicationData", &session.SessionApplicationData}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", session.LocalTunnelId}
+    session.EntityData.Leafs["local-session-id"] = types.YLeaf{"LocalSessionId", session.LocalSessionId}
+    session.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", session.LocalIpAddress}
+    session.EntityData.Leafs["remote-ip-address"] = types.YLeaf{"RemoteIpAddress", session.RemoteIpAddress}
+    session.EntityData.Leafs["l2tp-sh-sess-udp-lport"] = types.YLeaf{"L2TpShSessUdpLport", session.L2TpShSessUdpLport}
+    session.EntityData.Leafs["l2tp-sh-sess-udp-rport"] = types.YLeaf{"L2TpShSessUdpRport", session.L2TpShSessUdpRport}
+    session.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", session.Protocol}
+    session.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", session.RemoteTunnelId}
+    session.EntityData.Leafs["call-serial-number"] = types.YLeaf{"CallSerialNumber", session.CallSerialNumber}
+    session.EntityData.Leafs["local-tunnel-name"] = types.YLeaf{"LocalTunnelName", session.LocalTunnelName}
+    session.EntityData.Leafs["remote-tunnel-name"] = types.YLeaf{"RemoteTunnelName", session.RemoteTunnelName}
+    session.EntityData.Leafs["remote-session-id"] = types.YLeaf{"RemoteSessionId", session.RemoteSessionId}
+    session.EntityData.Leafs["l2tp-sh-sess-tie-breaker-enabled"] = types.YLeaf{"L2TpShSessTieBreakerEnabled", session.L2TpShSessTieBreakerEnabled}
+    session.EntityData.Leafs["l2tp-sh-sess-tie-breaker"] = types.YLeaf{"L2TpShSessTieBreaker", session.L2TpShSessTieBreaker}
+    session.EntityData.Leafs["is-session-manual"] = types.YLeaf{"IsSessionManual", session.IsSessionManual}
+    session.EntityData.Leafs["is-session-up"] = types.YLeaf{"IsSessionUp", session.IsSessionUp}
+    session.EntityData.Leafs["is-udp-checksum-enabled"] = types.YLeaf{"IsUdpChecksumEnabled", session.IsUdpChecksumEnabled}
+    session.EntityData.Leafs["is-sequencing-on"] = types.YLeaf{"IsSequencingOn", session.IsSequencingOn}
+    session.EntityData.Leafs["is-session-state-established"] = types.YLeaf{"IsSessionStateEstablished", session.IsSessionStateEstablished}
+    session.EntityData.Leafs["is-session-locally-initiated"] = types.YLeaf{"IsSessionLocallyInitiated", session.IsSessionLocallyInitiated}
+    session.EntityData.Leafs["is-conditional-debug-enabled"] = types.YLeaf{"IsConditionalDebugEnabled", session.IsConditionalDebugEnabled}
+    session.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", session.UniqueId}
+    session.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", session.InterfaceName}
+    return &(session.EntityData)
 }
-
-func (session *L2Tp_Sessions_Session) GetSegmentPath() string {
-    return "session" + "[local-tunnel-id='" + fmt.Sprintf("%v", session.LocalTunnelId) + "']" + "[local-session-id='" + fmt.Sprintf("%v", session.LocalSessionId) + "']"
-}
-
-func (session *L2Tp_Sessions_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session-application-data" {
-        return &session.SessionApplicationData
-    }
-    return nil
-}
-
-func (session *L2Tp_Sessions_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session-application-data"] = &session.SessionApplicationData
-    return children
-}
-
-func (session *L2Tp_Sessions_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-tunnel-id"] = session.LocalTunnelId
-    leafs["local-session-id"] = session.LocalSessionId
-    leafs["local-ip-address"] = session.LocalIpAddress
-    leafs["remote-ip-address"] = session.RemoteIpAddress
-    leafs["l2tp-sh-sess-udp-lport"] = session.L2TpShSessUdpLport
-    leafs["l2tp-sh-sess-udp-rport"] = session.L2TpShSessUdpRport
-    leafs["protocol"] = session.Protocol
-    leafs["remote-tunnel-id"] = session.RemoteTunnelId
-    leafs["call-serial-number"] = session.CallSerialNumber
-    leafs["local-tunnel-name"] = session.LocalTunnelName
-    leafs["remote-tunnel-name"] = session.RemoteTunnelName
-    leafs["remote-session-id"] = session.RemoteSessionId
-    leafs["l2tp-sh-sess-tie-breaker-enabled"] = session.L2TpShSessTieBreakerEnabled
-    leafs["l2tp-sh-sess-tie-breaker"] = session.L2TpShSessTieBreaker
-    leafs["is-session-manual"] = session.IsSessionManual
-    leafs["is-session-up"] = session.IsSessionUp
-    leafs["is-udp-checksum-enabled"] = session.IsUdpChecksumEnabled
-    leafs["is-sequencing-on"] = session.IsSequencingOn
-    leafs["is-session-state-established"] = session.IsSessionStateEstablished
-    leafs["is-session-locally-initiated"] = session.IsSessionLocallyInitiated
-    leafs["is-conditional-debug-enabled"] = session.IsConditionalDebugEnabled
-    leafs["unique-id"] = session.UniqueId
-    leafs["interface-name"] = session.InterfaceName
-    return leafs
-}
-
-func (session *L2Tp_Sessions_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *L2Tp_Sessions_Session) GetYangName() string { return "session" }
-
-func (session *L2Tp_Sessions_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *L2Tp_Sessions_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *L2Tp_Sessions_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *L2Tp_Sessions_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *L2Tp_Sessions_Session) GetParent() types.Entity { return session.parent }
-
-func (session *L2Tp_Sessions_Session) GetParentYangName() string { return "sessions" }
 
 // L2Tp_Sessions_Session_SessionApplicationData
 // Session application data
 type L2Tp_Sessions_Session_SessionApplicationData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // l2tp sh sess app type. The type is interface{} with range: 0..4294967295.
@@ -4293,66 +2664,28 @@ type L2Tp_Sessions_Session_SessionApplicationData struct {
     Vpdn L2Tp_Sessions_Session_SessionApplicationData_Vpdn
 }
 
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetFilter() yfilter.YFilter { return sessionApplicationData.YFilter }
+func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetEntityData() *types.CommonEntityData {
+    sessionApplicationData.EntityData.YFilter = sessionApplicationData.YFilter
+    sessionApplicationData.EntityData.YangName = "session-application-data"
+    sessionApplicationData.EntityData.BundleName = "cisco_ios_xr"
+    sessionApplicationData.EntityData.ParentYangName = "session"
+    sessionApplicationData.EntityData.SegmentPath = "session-application-data"
+    sessionApplicationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionApplicationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionApplicationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) SetFilter(yf yfilter.YFilter) { sessionApplicationData.YFilter = yf }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetGoName(yname string) string {
-    if yname == "l2tp-sh-sess-app-type" { return "L2TpShSessAppType" }
-    if yname == "xconnect" { return "Xconnect" }
-    if yname == "vpdn" { return "Vpdn" }
-    return ""
+    sessionApplicationData.EntityData.Children = make(map[string]types.YChild)
+    sessionApplicationData.EntityData.Children["xconnect"] = types.YChild{"Xconnect", &sessionApplicationData.Xconnect}
+    sessionApplicationData.EntityData.Children["vpdn"] = types.YChild{"Vpdn", &sessionApplicationData.Vpdn}
+    sessionApplicationData.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionApplicationData.EntityData.Leafs["l2tp-sh-sess-app-type"] = types.YLeaf{"L2TpShSessAppType", sessionApplicationData.L2TpShSessAppType}
+    return &(sessionApplicationData.EntityData)
 }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetSegmentPath() string {
-    return "session-application-data"
-}
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "xconnect" {
-        return &sessionApplicationData.Xconnect
-    }
-    if childYangName == "vpdn" {
-        return &sessionApplicationData.Vpdn
-    }
-    return nil
-}
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["xconnect"] = &sessionApplicationData.Xconnect
-    children["vpdn"] = &sessionApplicationData.Vpdn
-    return children
-}
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["l2tp-sh-sess-app-type"] = sessionApplicationData.L2TpShSessAppType
-    return leafs
-}
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetYangName() string { return "session-application-data" }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) SetParent(parent types.Entity) { sessionApplicationData.parent = parent }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetParent() types.Entity { return sessionApplicationData.parent }
-
-func (sessionApplicationData *L2Tp_Sessions_Session_SessionApplicationData) GetParentYangName() string { return "session" }
 
 // L2Tp_Sessions_Session_SessionApplicationData_Xconnect
 // Xconnect data
 type L2Tp_Sessions_Session_SessionApplicationData_Xconnect struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Circuit name. The type is string.
@@ -4374,186 +2707,87 @@ type L2Tp_Sessions_Session_SessionApplicationData_Xconnect struct {
     Ipv6ProtocolTunneling interface{}
 }
 
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetFilter() yfilter.YFilter { return xconnect.YFilter }
+func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetEntityData() *types.CommonEntityData {
+    xconnect.EntityData.YFilter = xconnect.YFilter
+    xconnect.EntityData.YangName = "xconnect"
+    xconnect.EntityData.BundleName = "cisco_ios_xr"
+    xconnect.EntityData.ParentYangName = "session-application-data"
+    xconnect.EntityData.SegmentPath = "xconnect"
+    xconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    xconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    xconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) SetFilter(yf yfilter.YFilter) { xconnect.YFilter = yf }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetGoName(yname string) string {
-    if yname == "circuit-name" { return "CircuitName" }
-    if yname == "sessionvc-id" { return "SessionvcId" }
-    if yname == "is-circuit-state-up" { return "IsCircuitStateUp" }
-    if yname == "is-local-circuit-state-up" { return "IsLocalCircuitStateUp" }
-    if yname == "is-remote-circuit-state-up" { return "IsRemoteCircuitStateUp" }
-    if yname == "ipv6-protocol-tunneling" { return "Ipv6ProtocolTunneling" }
-    return ""
+    xconnect.EntityData.Children = make(map[string]types.YChild)
+    xconnect.EntityData.Leafs = make(map[string]types.YLeaf)
+    xconnect.EntityData.Leafs["circuit-name"] = types.YLeaf{"CircuitName", xconnect.CircuitName}
+    xconnect.EntityData.Leafs["sessionvc-id"] = types.YLeaf{"SessionvcId", xconnect.SessionvcId}
+    xconnect.EntityData.Leafs["is-circuit-state-up"] = types.YLeaf{"IsCircuitStateUp", xconnect.IsCircuitStateUp}
+    xconnect.EntityData.Leafs["is-local-circuit-state-up"] = types.YLeaf{"IsLocalCircuitStateUp", xconnect.IsLocalCircuitStateUp}
+    xconnect.EntityData.Leafs["is-remote-circuit-state-up"] = types.YLeaf{"IsRemoteCircuitStateUp", xconnect.IsRemoteCircuitStateUp}
+    xconnect.EntityData.Leafs["ipv6-protocol-tunneling"] = types.YLeaf{"Ipv6ProtocolTunneling", xconnect.Ipv6ProtocolTunneling}
+    return &(xconnect.EntityData)
 }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetSegmentPath() string {
-    return "xconnect"
-}
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["circuit-name"] = xconnect.CircuitName
-    leafs["sessionvc-id"] = xconnect.SessionvcId
-    leafs["is-circuit-state-up"] = xconnect.IsCircuitStateUp
-    leafs["is-local-circuit-state-up"] = xconnect.IsLocalCircuitStateUp
-    leafs["is-remote-circuit-state-up"] = xconnect.IsRemoteCircuitStateUp
-    leafs["ipv6-protocol-tunneling"] = xconnect.Ipv6ProtocolTunneling
-    return leafs
-}
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetBundleName() string { return "cisco_ios_xr" }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetYangName() string { return "xconnect" }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) SetParent(parent types.Entity) { xconnect.parent = parent }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetParent() types.Entity { return xconnect.parent }
-
-func (xconnect *L2Tp_Sessions_Session_SessionApplicationData_Xconnect) GetParentYangName() string { return "session-application-data" }
 
 // L2Tp_Sessions_Session_SessionApplicationData_Vpdn
 // VPDN data
 type L2Tp_Sessions_Session_SessionApplicationData_Vpdn struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session username. The type is string.
     Username interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 }
 
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetFilter() yfilter.YFilter { return vpdn.YFilter }
+func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *types.CommonEntityData {
+    vpdn.EntityData.YFilter = vpdn.YFilter
+    vpdn.EntityData.YangName = "vpdn"
+    vpdn.EntityData.BundleName = "cisco_ios_xr"
+    vpdn.EntityData.ParentYangName = "session-application-data"
+    vpdn.EntityData.SegmentPath = "vpdn"
+    vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) SetFilter(yf yfilter.YFilter) { vpdn.YFilter = yf }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetGoName(yname string) string {
-    if yname == "username" { return "Username" }
-    if yname == "interface-name" { return "InterfaceName" }
-    return ""
+    vpdn.EntityData.Children = make(map[string]types.YChild)
+    vpdn.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpdn.EntityData.Leafs["username"] = types.YLeaf{"Username", vpdn.Username}
+    vpdn.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", vpdn.InterfaceName}
+    return &(vpdn.EntityData)
 }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetSegmentPath() string {
-    return "vpdn"
-}
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["username"] = vpdn.Username
-    leafs["interface-name"] = vpdn.InterfaceName
-    return leafs
-}
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetYangName() string { return "vpdn" }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) SetParent(parent types.Entity) { vpdn.parent = parent }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetParent() types.Entity { return vpdn.parent }
-
-func (vpdn *L2Tp_Sessions_Session_SessionApplicationData_Vpdn) GetParentYangName() string { return "session-application-data" }
 
 // L2Tp_Session
 // L2TP control messages counters
 type L2Tp_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP session unavailable  information.
     Unavailable L2Tp_Session_Unavailable
 }
 
-func (session *L2Tp_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *L2Tp_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "l2tp"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *L2Tp_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *L2Tp_Session) GetGoName(yname string) string {
-    if yname == "unavailable" { return "Unavailable" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["unavailable"] = types.YChild{"Unavailable", &session.Unavailable}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(session.EntityData)
 }
-
-func (session *L2Tp_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *L2Tp_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "unavailable" {
-        return &session.Unavailable
-    }
-    return nil
-}
-
-func (session *L2Tp_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["unavailable"] = &session.Unavailable
-    return children
-}
-
-func (session *L2Tp_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (session *L2Tp_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *L2Tp_Session) GetYangName() string { return "session" }
-
-func (session *L2Tp_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *L2Tp_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *L2Tp_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *L2Tp_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *L2Tp_Session) GetParent() types.Entity { return session.parent }
-
-func (session *L2Tp_Session) GetParentYangName() string { return "l2tp" }
 
 // L2Tp_Session_Unavailable
 // L2TP session unavailable  information
 type L2Tp_Session_Unavailable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of session ID in hold database. The type is interface{} with range:
@@ -4561,56 +2795,26 @@ type L2Tp_Session_Unavailable struct {
     SessionsOnHold interface{}
 }
 
-func (unavailable *L2Tp_Session_Unavailable) GetFilter() yfilter.YFilter { return unavailable.YFilter }
+func (unavailable *L2Tp_Session_Unavailable) GetEntityData() *types.CommonEntityData {
+    unavailable.EntityData.YFilter = unavailable.YFilter
+    unavailable.EntityData.YangName = "unavailable"
+    unavailable.EntityData.BundleName = "cisco_ios_xr"
+    unavailable.EntityData.ParentYangName = "session"
+    unavailable.EntityData.SegmentPath = "unavailable"
+    unavailable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    unavailable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    unavailable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (unavailable *L2Tp_Session_Unavailable) SetFilter(yf yfilter.YFilter) { unavailable.YFilter = yf }
-
-func (unavailable *L2Tp_Session_Unavailable) GetGoName(yname string) string {
-    if yname == "sessions-on-hold" { return "SessionsOnHold" }
-    return ""
+    unavailable.EntityData.Children = make(map[string]types.YChild)
+    unavailable.EntityData.Leafs = make(map[string]types.YLeaf)
+    unavailable.EntityData.Leafs["sessions-on-hold"] = types.YLeaf{"SessionsOnHold", unavailable.SessionsOnHold}
+    return &(unavailable.EntityData)
 }
-
-func (unavailable *L2Tp_Session_Unavailable) GetSegmentPath() string {
-    return "unavailable"
-}
-
-func (unavailable *L2Tp_Session_Unavailable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (unavailable *L2Tp_Session_Unavailable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (unavailable *L2Tp_Session_Unavailable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sessions-on-hold"] = unavailable.SessionsOnHold
-    return leafs
-}
-
-func (unavailable *L2Tp_Session_Unavailable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (unavailable *L2Tp_Session_Unavailable) GetYangName() string { return "unavailable" }
-
-func (unavailable *L2Tp_Session_Unavailable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (unavailable *L2Tp_Session_Unavailable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (unavailable *L2Tp_Session_Unavailable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (unavailable *L2Tp_Session_Unavailable) SetParent(parent types.Entity) { unavailable.parent = parent }
-
-func (unavailable *L2Tp_Session_Unavailable) GetParent() types.Entity { return unavailable.parent }
-
-func (unavailable *L2Tp_Session_Unavailable) GetParentYangName() string { return "session" }
 
 // L2Tpv2
 // l2tpv2
 type L2Tpv2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control messages counters.
@@ -4641,99 +2845,34 @@ type L2Tpv2 struct {
     Session L2Tpv2_Session
 }
 
-func (l2Tpv2 *L2Tpv2) GetFilter() yfilter.YFilter { return l2Tpv2.YFilter }
+func (l2Tpv2 *L2Tpv2) GetEntityData() *types.CommonEntityData {
+    l2Tpv2.EntityData.YFilter = l2Tpv2.YFilter
+    l2Tpv2.EntityData.YangName = "l2tpv2"
+    l2Tpv2.EntityData.BundleName = "cisco_ios_xr"
+    l2Tpv2.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-l2tun-oper"
+    l2Tpv2.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2"
+    l2Tpv2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2Tpv2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2Tpv2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (l2Tpv2 *L2Tpv2) SetFilter(yf yfilter.YFilter) { l2Tpv2.YFilter = yf }
-
-func (l2Tpv2 *L2Tpv2) GetGoName(yname string) string {
-    if yname == "counters" { return "Counters" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "tunnel" { return "Tunnel" }
-    if yname == "tunnel-configurations" { return "TunnelConfigurations" }
-    if yname == "counter-hist-fail" { return "CounterHistFail" }
-    if yname == "classes" { return "Classes" }
-    if yname == "tunnels" { return "Tunnels" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "session" { return "Session" }
-    return ""
+    l2Tpv2.EntityData.Children = make(map[string]types.YChild)
+    l2Tpv2.EntityData.Children["counters"] = types.YChild{"Counters", &l2Tpv2.Counters}
+    l2Tpv2.EntityData.Children["statistics"] = types.YChild{"Statistics", &l2Tpv2.Statistics}
+    l2Tpv2.EntityData.Children["tunnel"] = types.YChild{"Tunnel", &l2Tpv2.Tunnel}
+    l2Tpv2.EntityData.Children["tunnel-configurations"] = types.YChild{"TunnelConfigurations", &l2Tpv2.TunnelConfigurations}
+    l2Tpv2.EntityData.Children["counter-hist-fail"] = types.YChild{"CounterHistFail", &l2Tpv2.CounterHistFail}
+    l2Tpv2.EntityData.Children["classes"] = types.YChild{"Classes", &l2Tpv2.Classes}
+    l2Tpv2.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &l2Tpv2.Tunnels}
+    l2Tpv2.EntityData.Children["sessions"] = types.YChild{"Sessions", &l2Tpv2.Sessions}
+    l2Tpv2.EntityData.Children["session"] = types.YChild{"Session", &l2Tpv2.Session}
+    l2Tpv2.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(l2Tpv2.EntityData)
 }
-
-func (l2Tpv2 *L2Tpv2) GetSegmentPath() string {
-    return "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2"
-}
-
-func (l2Tpv2 *L2Tpv2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "counters" {
-        return &l2Tpv2.Counters
-    }
-    if childYangName == "statistics" {
-        return &l2Tpv2.Statistics
-    }
-    if childYangName == "tunnel" {
-        return &l2Tpv2.Tunnel
-    }
-    if childYangName == "tunnel-configurations" {
-        return &l2Tpv2.TunnelConfigurations
-    }
-    if childYangName == "counter-hist-fail" {
-        return &l2Tpv2.CounterHistFail
-    }
-    if childYangName == "classes" {
-        return &l2Tpv2.Classes
-    }
-    if childYangName == "tunnels" {
-        return &l2Tpv2.Tunnels
-    }
-    if childYangName == "sessions" {
-        return &l2Tpv2.Sessions
-    }
-    if childYangName == "session" {
-        return &l2Tpv2.Session
-    }
-    return nil
-}
-
-func (l2Tpv2 *L2Tpv2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["counters"] = &l2Tpv2.Counters
-    children["statistics"] = &l2Tpv2.Statistics
-    children["tunnel"] = &l2Tpv2.Tunnel
-    children["tunnel-configurations"] = &l2Tpv2.TunnelConfigurations
-    children["counter-hist-fail"] = &l2Tpv2.CounterHistFail
-    children["classes"] = &l2Tpv2.Classes
-    children["tunnels"] = &l2Tpv2.Tunnels
-    children["sessions"] = &l2Tpv2.Sessions
-    children["session"] = &l2Tpv2.Session
-    return children
-}
-
-func (l2Tpv2 *L2Tpv2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (l2Tpv2 *L2Tpv2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (l2Tpv2 *L2Tpv2) GetYangName() string { return "l2tpv2" }
-
-func (l2Tpv2 *L2Tpv2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (l2Tpv2 *L2Tpv2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (l2Tpv2 *L2Tpv2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (l2Tpv2 *L2Tpv2) SetParent(parent types.Entity) { l2Tpv2.parent = parent }
-
-func (l2Tpv2 *L2Tpv2) GetParent() types.Entity { return l2Tpv2.parent }
-
-func (l2Tpv2 *L2Tpv2) GetParentYangName() string { return "Cisco-IOS-XR-tunnel-l2tun-oper" }
 
 // L2Tpv2_Counters
 // L2TP control messages counters
 type L2Tpv2_Counters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP forwarding messages counters.
@@ -4743,123 +2882,53 @@ type L2Tpv2_Counters struct {
     Control L2Tpv2_Counters_Control
 }
 
-func (counters *L2Tpv2_Counters) GetFilter() yfilter.YFilter { return counters.YFilter }
+func (counters *L2Tpv2_Counters) GetEntityData() *types.CommonEntityData {
+    counters.EntityData.YFilter = counters.YFilter
+    counters.EntityData.YangName = "counters"
+    counters.EntityData.BundleName = "cisco_ios_xr"
+    counters.EntityData.ParentYangName = "l2tpv2"
+    counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (counters *L2Tpv2_Counters) SetFilter(yf yfilter.YFilter) { counters.YFilter = yf }
-
-func (counters *L2Tpv2_Counters) GetGoName(yname string) string {
-    if yname == "forwarding" { return "Forwarding" }
-    if yname == "control" { return "Control" }
-    return ""
+    counters.EntityData.Children = make(map[string]types.YChild)
+    counters.EntityData.Children["forwarding"] = types.YChild{"Forwarding", &counters.Forwarding}
+    counters.EntityData.Children["control"] = types.YChild{"Control", &counters.Control}
+    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(counters.EntityData)
 }
-
-func (counters *L2Tpv2_Counters) GetSegmentPath() string {
-    return "counters"
-}
-
-func (counters *L2Tpv2_Counters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "forwarding" {
-        return &counters.Forwarding
-    }
-    if childYangName == "control" {
-        return &counters.Control
-    }
-    return nil
-}
-
-func (counters *L2Tpv2_Counters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["forwarding"] = &counters.Forwarding
-    children["control"] = &counters.Control
-    return children
-}
-
-func (counters *L2Tpv2_Counters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (counters *L2Tpv2_Counters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (counters *L2Tpv2_Counters) GetYangName() string { return "counters" }
-
-func (counters *L2Tpv2_Counters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (counters *L2Tpv2_Counters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (counters *L2Tpv2_Counters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (counters *L2Tpv2_Counters) SetParent(parent types.Entity) { counters.parent = parent }
-
-func (counters *L2Tpv2_Counters) GetParent() types.Entity { return counters.parent }
-
-func (counters *L2Tpv2_Counters) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Counters_Forwarding
 // L2TP forwarding messages counters
 type L2Tpv2_Counters_Forwarding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of class and session IDs.
     Sessions L2Tpv2_Counters_Forwarding_Sessions
 }
 
-func (forwarding *L2Tpv2_Counters_Forwarding) GetFilter() yfilter.YFilter { return forwarding.YFilter }
+func (forwarding *L2Tpv2_Counters_Forwarding) GetEntityData() *types.CommonEntityData {
+    forwarding.EntityData.YFilter = forwarding.YFilter
+    forwarding.EntityData.YangName = "forwarding"
+    forwarding.EntityData.BundleName = "cisco_ios_xr"
+    forwarding.EntityData.ParentYangName = "counters"
+    forwarding.EntityData.SegmentPath = "forwarding"
+    forwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    forwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    forwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (forwarding *L2Tpv2_Counters_Forwarding) SetFilter(yf yfilter.YFilter) { forwarding.YFilter = yf }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetGoName(yname string) string {
-    if yname == "sessions" { return "Sessions" }
-    return ""
+    forwarding.EntityData.Children = make(map[string]types.YChild)
+    forwarding.EntityData.Children["sessions"] = types.YChild{"Sessions", &forwarding.Sessions}
+    forwarding.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(forwarding.EntityData)
 }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetSegmentPath() string {
-    return "forwarding"
-}
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sessions" {
-        return &forwarding.Sessions
-    }
-    return nil
-}
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sessions"] = &forwarding.Sessions
-    return children
-}
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetYangName() string { return "forwarding" }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) SetParent(parent types.Entity) { forwarding.parent = parent }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetParent() types.Entity { return forwarding.parent }
-
-func (forwarding *L2Tpv2_Counters_Forwarding) GetParentYangName() string { return "counters" }
 
 // L2Tpv2_Counters_Forwarding_Sessions
 // List of class and session IDs
 type L2Tpv2_Counters_Forwarding_Sessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP information for a particular session. The type is slice of
@@ -4867,68 +2936,29 @@ type L2Tpv2_Counters_Forwarding_Sessions struct {
     Session []L2Tpv2_Counters_Forwarding_Sessions_Session
 }
 
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetFilter() yfilter.YFilter { return sessions.YFilter }
+func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetEntityData() *types.CommonEntityData {
+    sessions.EntityData.YFilter = sessions.YFilter
+    sessions.EntityData.YangName = "sessions"
+    sessions.EntityData.BundleName = "cisco_ios_xr"
+    sessions.EntityData.ParentYangName = "forwarding"
+    sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) SetFilter(yf yfilter.YFilter) { sessions.YFilter = yf }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    return ""
-}
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetSegmentPath() string {
-    return "sessions"
-}
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        for _, c := range sessions.Session {
-            if sessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tpv2_Counters_Forwarding_Sessions_Session{}
-        sessions.Session = append(sessions.Session, child)
-        return &sessions.Session[len(sessions.Session)-1]
-    }
-    return nil
-}
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessions.EntityData.Children = make(map[string]types.YChild)
+    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
     for i := range sessions.Session {
-        children[sessions.Session[i].GetSegmentPath()] = &sessions.Session[i]
+        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
     }
-    return children
+    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessions.EntityData)
 }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetYangName() string { return "sessions" }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) SetParent(parent types.Entity) { sessions.parent = parent }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetParent() types.Entity { return sessions.parent }
-
-func (sessions *L2Tpv2_Counters_Forwarding_Sessions) GetParentYangName() string { return "forwarding" }
 
 // L2Tpv2_Counters_Forwarding_Sessions_Session
 // L2TP information for a particular session
 type L2Tpv2_Counters_Forwarding_Sessions_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -4959,68 +2989,32 @@ type L2Tpv2_Counters_Forwarding_Sessions_Session struct {
     OutBytes interface{}
 }
 
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + "[tunnel-id='" + fmt.Sprintf("%v", session.TunnelId) + "']" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetGoName(yname string) string {
-    if yname == "tunnel-id" { return "TunnelId" }
-    if yname == "session-id" { return "SessionId" }
-    if yname == "remote-session-id" { return "RemoteSessionId" }
-    if yname == "in-packets" { return "InPackets" }
-    if yname == "out-packets" { return "OutPackets" }
-    if yname == "in-bytes" { return "InBytes" }
-    if yname == "out-bytes" { return "OutBytes" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["tunnel-id"] = types.YLeaf{"TunnelId", session.TunnelId}
+    session.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", session.SessionId}
+    session.EntityData.Leafs["remote-session-id"] = types.YLeaf{"RemoteSessionId", session.RemoteSessionId}
+    session.EntityData.Leafs["in-packets"] = types.YLeaf{"InPackets", session.InPackets}
+    session.EntityData.Leafs["out-packets"] = types.YLeaf{"OutPackets", session.OutPackets}
+    session.EntityData.Leafs["in-bytes"] = types.YLeaf{"InBytes", session.InBytes}
+    session.EntityData.Leafs["out-bytes"] = types.YLeaf{"OutBytes", session.OutBytes}
+    return &(session.EntityData)
 }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetSegmentPath() string {
-    return "session" + "[tunnel-id='" + fmt.Sprintf("%v", session.TunnelId) + "']" + "[session-id='" + fmt.Sprintf("%v", session.SessionId) + "']"
-}
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tunnel-id"] = session.TunnelId
-    leafs["session-id"] = session.SessionId
-    leafs["remote-session-id"] = session.RemoteSessionId
-    leafs["in-packets"] = session.InPackets
-    leafs["out-packets"] = session.OutPackets
-    leafs["in-bytes"] = session.InBytes
-    leafs["out-bytes"] = session.OutBytes
-    return leafs
-}
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetYangName() string { return "session" }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetParent() types.Entity { return session.parent }
-
-func (session *L2Tpv2_Counters_Forwarding_Sessions_Session) GetParentYangName() string { return "sessions" }
 
 // L2Tpv2_Counters_Control
 // L2TP control messages counters
 type L2Tpv2_Counters_Control struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control tunnel messages counters.
@@ -5030,64 +3024,27 @@ type L2Tpv2_Counters_Control struct {
     Tunnels L2Tpv2_Counters_Control_Tunnels
 }
 
-func (control *L2Tpv2_Counters_Control) GetFilter() yfilter.YFilter { return control.YFilter }
+func (control *L2Tpv2_Counters_Control) GetEntityData() *types.CommonEntityData {
+    control.EntityData.YFilter = control.YFilter
+    control.EntityData.YangName = "control"
+    control.EntityData.BundleName = "cisco_ios_xr"
+    control.EntityData.ParentYangName = "counters"
+    control.EntityData.SegmentPath = "control"
+    control.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    control.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    control.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (control *L2Tpv2_Counters_Control) SetFilter(yf yfilter.YFilter) { control.YFilter = yf }
-
-func (control *L2Tpv2_Counters_Control) GetGoName(yname string) string {
-    if yname == "tunnel-xr" { return "TunnelXr" }
-    if yname == "tunnels" { return "Tunnels" }
-    return ""
+    control.EntityData.Children = make(map[string]types.YChild)
+    control.EntityData.Children["tunnel-xr"] = types.YChild{"TunnelXr", &control.TunnelXr}
+    control.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &control.Tunnels}
+    control.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(control.EntityData)
 }
-
-func (control *L2Tpv2_Counters_Control) GetSegmentPath() string {
-    return "control"
-}
-
-func (control *L2Tpv2_Counters_Control) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel-xr" {
-        return &control.TunnelXr
-    }
-    if childYangName == "tunnels" {
-        return &control.Tunnels
-    }
-    return nil
-}
-
-func (control *L2Tpv2_Counters_Control) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tunnel-xr"] = &control.TunnelXr
-    children["tunnels"] = &control.Tunnels
-    return children
-}
-
-func (control *L2Tpv2_Counters_Control) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (control *L2Tpv2_Counters_Control) GetBundleName() string { return "cisco_ios_xr" }
-
-func (control *L2Tpv2_Counters_Control) GetYangName() string { return "control" }
-
-func (control *L2Tpv2_Counters_Control) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (control *L2Tpv2_Counters_Control) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (control *L2Tpv2_Counters_Control) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (control *L2Tpv2_Counters_Control) SetParent(parent types.Entity) { control.parent = parent }
-
-func (control *L2Tpv2_Counters_Control) GetParent() types.Entity { return control.parent }
-
-func (control *L2Tpv2_Counters_Control) GetParentYangName() string { return "counters" }
 
 // L2Tpv2_Counters_Control_TunnelXr
 // L2TP control tunnel messages counters
 type L2Tpv2_Counters_Control_TunnelXr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel authentication counters.
@@ -5097,64 +3054,27 @@ type L2Tpv2_Counters_Control_TunnelXr struct {
     Global L2Tpv2_Counters_Control_TunnelXr_Global
 }
 
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetFilter() yfilter.YFilter { return tunnelXr.YFilter }
+func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetEntityData() *types.CommonEntityData {
+    tunnelXr.EntityData.YFilter = tunnelXr.YFilter
+    tunnelXr.EntityData.YangName = "tunnel-xr"
+    tunnelXr.EntityData.BundleName = "cisco_ios_xr"
+    tunnelXr.EntityData.ParentYangName = "control"
+    tunnelXr.EntityData.SegmentPath = "tunnel-xr"
+    tunnelXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) SetFilter(yf yfilter.YFilter) { tunnelXr.YFilter = yf }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetGoName(yname string) string {
-    if yname == "authentication" { return "Authentication" }
-    if yname == "global" { return "Global" }
-    return ""
+    tunnelXr.EntityData.Children = make(map[string]types.YChild)
+    tunnelXr.EntityData.Children["authentication"] = types.YChild{"Authentication", &tunnelXr.Authentication}
+    tunnelXr.EntityData.Children["global"] = types.YChild{"Global", &tunnelXr.Global}
+    tunnelXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelXr.EntityData)
 }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetSegmentPath() string {
-    return "tunnel-xr"
-}
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authentication" {
-        return &tunnelXr.Authentication
-    }
-    if childYangName == "global" {
-        return &tunnelXr.Global
-    }
-    return nil
-}
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["authentication"] = &tunnelXr.Authentication
-    children["global"] = &tunnelXr.Global
-    return children
-}
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetYangName() string { return "tunnel-xr" }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) SetParent(parent types.Entity) { tunnelXr.parent = parent }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetParent() types.Entity { return tunnelXr.parent }
-
-func (tunnelXr *L2Tpv2_Counters_Control_TunnelXr) GetParentYangName() string { return "control" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication
 // Tunnel authentication counters
 type L2Tpv2_Counters_Control_TunnelXr_Authentication struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Nonce AVP statistics.
@@ -5185,99 +3105,34 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication struct {
     OverallStatistics L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics
 }
 
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetEntityData() *types.CommonEntityData {
+    authentication.EntityData.YFilter = authentication.YFilter
+    authentication.EntityData.YangName = "authentication"
+    authentication.EntityData.BundleName = "cisco_ios_xr"
+    authentication.EntityData.ParentYangName = "tunnel-xr"
+    authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetGoName(yname string) string {
-    if yname == "nonce-avp" { return "NonceAvp" }
-    if yname == "common-digest" { return "CommonDigest" }
-    if yname == "primary-digest" { return "PrimaryDigest" }
-    if yname == "secondary-digest" { return "SecondaryDigest" }
-    if yname == "integrity-check" { return "IntegrityCheck" }
-    if yname == "local-secret" { return "LocalSecret" }
-    if yname == "challenge-avp" { return "ChallengeAvp" }
-    if yname == "challenge-reponse" { return "ChallengeReponse" }
-    if yname == "overall-statistics" { return "OverallStatistics" }
-    return ""
+    authentication.EntityData.Children = make(map[string]types.YChild)
+    authentication.EntityData.Children["nonce-avp"] = types.YChild{"NonceAvp", &authentication.NonceAvp}
+    authentication.EntityData.Children["common-digest"] = types.YChild{"CommonDigest", &authentication.CommonDigest}
+    authentication.EntityData.Children["primary-digest"] = types.YChild{"PrimaryDigest", &authentication.PrimaryDigest}
+    authentication.EntityData.Children["secondary-digest"] = types.YChild{"SecondaryDigest", &authentication.SecondaryDigest}
+    authentication.EntityData.Children["integrity-check"] = types.YChild{"IntegrityCheck", &authentication.IntegrityCheck}
+    authentication.EntityData.Children["local-secret"] = types.YChild{"LocalSecret", &authentication.LocalSecret}
+    authentication.EntityData.Children["challenge-avp"] = types.YChild{"ChallengeAvp", &authentication.ChallengeAvp}
+    authentication.EntityData.Children["challenge-reponse"] = types.YChild{"ChallengeReponse", &authentication.ChallengeReponse}
+    authentication.EntityData.Children["overall-statistics"] = types.YChild{"OverallStatistics", &authentication.OverallStatistics}
+    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(authentication.EntityData)
 }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nonce-avp" {
-        return &authentication.NonceAvp
-    }
-    if childYangName == "common-digest" {
-        return &authentication.CommonDigest
-    }
-    if childYangName == "primary-digest" {
-        return &authentication.PrimaryDigest
-    }
-    if childYangName == "secondary-digest" {
-        return &authentication.SecondaryDigest
-    }
-    if childYangName == "integrity-check" {
-        return &authentication.IntegrityCheck
-    }
-    if childYangName == "local-secret" {
-        return &authentication.LocalSecret
-    }
-    if childYangName == "challenge-avp" {
-        return &authentication.ChallengeAvp
-    }
-    if childYangName == "challenge-reponse" {
-        return &authentication.ChallengeReponse
-    }
-    if childYangName == "overall-statistics" {
-        return &authentication.OverallStatistics
-    }
-    return nil
-}
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nonce-avp"] = &authentication.NonceAvp
-    children["common-digest"] = &authentication.CommonDigest
-    children["primary-digest"] = &authentication.PrimaryDigest
-    children["secondary-digest"] = &authentication.SecondaryDigest
-    children["integrity-check"] = &authentication.IntegrityCheck
-    children["local-secret"] = &authentication.LocalSecret
-    children["challenge-avp"] = &authentication.ChallengeAvp
-    children["challenge-reponse"] = &authentication.ChallengeReponse
-    children["overall-statistics"] = &authentication.OverallStatistics
-    return children
-}
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *L2Tpv2_Counters_Control_TunnelXr_Authentication) GetParentYangName() string { return "tunnel-xr" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp
 // Nonce AVP statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5314,76 +3169,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
     UnexpectedZlb interface{}
 }
 
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetFilter() yfilter.YFilter { return nonceAvp.YFilter }
+func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntityData() *types.CommonEntityData {
+    nonceAvp.EntityData.YFilter = nonceAvp.YFilter
+    nonceAvp.EntityData.YangName = "nonce-avp"
+    nonceAvp.EntityData.BundleName = "cisco_ios_xr"
+    nonceAvp.EntityData.ParentYangName = "authentication"
+    nonceAvp.EntityData.SegmentPath = "nonce-avp"
+    nonceAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nonceAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nonceAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) SetFilter(yf yfilter.YFilter) { nonceAvp.YFilter = yf }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    nonceAvp.EntityData.Children = make(map[string]types.YChild)
+    nonceAvp.EntityData.Leafs = make(map[string]types.YLeaf)
+    nonceAvp.EntityData.Leafs["validate"] = types.YLeaf{"Validate", nonceAvp.Validate}
+    nonceAvp.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", nonceAvp.BadHash}
+    nonceAvp.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", nonceAvp.BadLength}
+    nonceAvp.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", nonceAvp.Ignored}
+    nonceAvp.EntityData.Leafs["missing"] = types.YLeaf{"Missing", nonceAvp.Missing}
+    nonceAvp.EntityData.Leafs["passed"] = types.YLeaf{"Passed", nonceAvp.Passed}
+    nonceAvp.EntityData.Leafs["failed"] = types.YLeaf{"Failed", nonceAvp.Failed}
+    nonceAvp.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", nonceAvp.Skipped}
+    nonceAvp.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", nonceAvp.GenerateResponseFailures}
+    nonceAvp.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", nonceAvp.Unexpected}
+    nonceAvp.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", nonceAvp.UnexpectedZlb}
+    return &(nonceAvp.EntityData)
 }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetSegmentPath() string {
-    return "nonce-avp"
-}
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = nonceAvp.Validate
-    leafs["bad-hash"] = nonceAvp.BadHash
-    leafs["bad-length"] = nonceAvp.BadLength
-    leafs["ignored"] = nonceAvp.Ignored
-    leafs["missing"] = nonceAvp.Missing
-    leafs["passed"] = nonceAvp.Passed
-    leafs["failed"] = nonceAvp.Failed
-    leafs["skipped"] = nonceAvp.Skipped
-    leafs["generate-response-failures"] = nonceAvp.GenerateResponseFailures
-    leafs["unexpected"] = nonceAvp.Unexpected
-    leafs["unexpected-zlb"] = nonceAvp.UnexpectedZlb
-    return leafs
-}
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetYangName() string { return "nonce-avp" }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) SetParent(parent types.Entity) { nonceAvp.parent = parent }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetParent() types.Entity { return nonceAvp.parent }
-
-func (nonceAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest
 // Common digest statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5420,76 +3235,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
     UnexpectedZlb interface{}
 }
 
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetFilter() yfilter.YFilter { return commonDigest.YFilter }
+func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetEntityData() *types.CommonEntityData {
+    commonDigest.EntityData.YFilter = commonDigest.YFilter
+    commonDigest.EntityData.YangName = "common-digest"
+    commonDigest.EntityData.BundleName = "cisco_ios_xr"
+    commonDigest.EntityData.ParentYangName = "authentication"
+    commonDigest.EntityData.SegmentPath = "common-digest"
+    commonDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) SetFilter(yf yfilter.YFilter) { commonDigest.YFilter = yf }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    commonDigest.EntityData.Children = make(map[string]types.YChild)
+    commonDigest.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonDigest.EntityData.Leafs["validate"] = types.YLeaf{"Validate", commonDigest.Validate}
+    commonDigest.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", commonDigest.BadHash}
+    commonDigest.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", commonDigest.BadLength}
+    commonDigest.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", commonDigest.Ignored}
+    commonDigest.EntityData.Leafs["missing"] = types.YLeaf{"Missing", commonDigest.Missing}
+    commonDigest.EntityData.Leafs["passed"] = types.YLeaf{"Passed", commonDigest.Passed}
+    commonDigest.EntityData.Leafs["failed"] = types.YLeaf{"Failed", commonDigest.Failed}
+    commonDigest.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", commonDigest.Skipped}
+    commonDigest.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", commonDigest.GenerateResponseFailures}
+    commonDigest.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", commonDigest.Unexpected}
+    commonDigest.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", commonDigest.UnexpectedZlb}
+    return &(commonDigest.EntityData)
 }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetSegmentPath() string {
-    return "common-digest"
-}
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = commonDigest.Validate
-    leafs["bad-hash"] = commonDigest.BadHash
-    leafs["bad-length"] = commonDigest.BadLength
-    leafs["ignored"] = commonDigest.Ignored
-    leafs["missing"] = commonDigest.Missing
-    leafs["passed"] = commonDigest.Passed
-    leafs["failed"] = commonDigest.Failed
-    leafs["skipped"] = commonDigest.Skipped
-    leafs["generate-response-failures"] = commonDigest.GenerateResponseFailures
-    leafs["unexpected"] = commonDigest.Unexpected
-    leafs["unexpected-zlb"] = commonDigest.UnexpectedZlb
-    return leafs
-}
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetBundleName() string { return "cisco_ios_xr" }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetYangName() string { return "common-digest" }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) SetParent(parent types.Entity) { commonDigest.parent = parent }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetParent() types.Entity { return commonDigest.parent }
-
-func (commonDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest
 // Primary digest statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5526,76 +3301,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
     UnexpectedZlb interface{}
 }
 
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetFilter() yfilter.YFilter { return primaryDigest.YFilter }
+func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetEntityData() *types.CommonEntityData {
+    primaryDigest.EntityData.YFilter = primaryDigest.YFilter
+    primaryDigest.EntityData.YangName = "primary-digest"
+    primaryDigest.EntityData.BundleName = "cisco_ios_xr"
+    primaryDigest.EntityData.ParentYangName = "authentication"
+    primaryDigest.EntityData.SegmentPath = "primary-digest"
+    primaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    primaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    primaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) SetFilter(yf yfilter.YFilter) { primaryDigest.YFilter = yf }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    primaryDigest.EntityData.Children = make(map[string]types.YChild)
+    primaryDigest.EntityData.Leafs = make(map[string]types.YLeaf)
+    primaryDigest.EntityData.Leafs["validate"] = types.YLeaf{"Validate", primaryDigest.Validate}
+    primaryDigest.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", primaryDigest.BadHash}
+    primaryDigest.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", primaryDigest.BadLength}
+    primaryDigest.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", primaryDigest.Ignored}
+    primaryDigest.EntityData.Leafs["missing"] = types.YLeaf{"Missing", primaryDigest.Missing}
+    primaryDigest.EntityData.Leafs["passed"] = types.YLeaf{"Passed", primaryDigest.Passed}
+    primaryDigest.EntityData.Leafs["failed"] = types.YLeaf{"Failed", primaryDigest.Failed}
+    primaryDigest.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", primaryDigest.Skipped}
+    primaryDigest.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", primaryDigest.GenerateResponseFailures}
+    primaryDigest.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", primaryDigest.Unexpected}
+    primaryDigest.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", primaryDigest.UnexpectedZlb}
+    return &(primaryDigest.EntityData)
 }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetSegmentPath() string {
-    return "primary-digest"
-}
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = primaryDigest.Validate
-    leafs["bad-hash"] = primaryDigest.BadHash
-    leafs["bad-length"] = primaryDigest.BadLength
-    leafs["ignored"] = primaryDigest.Ignored
-    leafs["missing"] = primaryDigest.Missing
-    leafs["passed"] = primaryDigest.Passed
-    leafs["failed"] = primaryDigest.Failed
-    leafs["skipped"] = primaryDigest.Skipped
-    leafs["generate-response-failures"] = primaryDigest.GenerateResponseFailures
-    leafs["unexpected"] = primaryDigest.Unexpected
-    leafs["unexpected-zlb"] = primaryDigest.UnexpectedZlb
-    return leafs
-}
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetBundleName() string { return "cisco_ios_xr" }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetYangName() string { return "primary-digest" }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) SetParent(parent types.Entity) { primaryDigest.parent = parent }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetParent() types.Entity { return primaryDigest.parent }
-
-func (primaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest
 // Secondary digest statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5632,76 +3367,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
     UnexpectedZlb interface{}
 }
 
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetFilter() yfilter.YFilter { return secondaryDigest.YFilter }
+func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetEntityData() *types.CommonEntityData {
+    secondaryDigest.EntityData.YFilter = secondaryDigest.YFilter
+    secondaryDigest.EntityData.YangName = "secondary-digest"
+    secondaryDigest.EntityData.BundleName = "cisco_ios_xr"
+    secondaryDigest.EntityData.ParentYangName = "authentication"
+    secondaryDigest.EntityData.SegmentPath = "secondary-digest"
+    secondaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    secondaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    secondaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) SetFilter(yf yfilter.YFilter) { secondaryDigest.YFilter = yf }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    secondaryDigest.EntityData.Children = make(map[string]types.YChild)
+    secondaryDigest.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryDigest.EntityData.Leafs["validate"] = types.YLeaf{"Validate", secondaryDigest.Validate}
+    secondaryDigest.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", secondaryDigest.BadHash}
+    secondaryDigest.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", secondaryDigest.BadLength}
+    secondaryDigest.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", secondaryDigest.Ignored}
+    secondaryDigest.EntityData.Leafs["missing"] = types.YLeaf{"Missing", secondaryDigest.Missing}
+    secondaryDigest.EntityData.Leafs["passed"] = types.YLeaf{"Passed", secondaryDigest.Passed}
+    secondaryDigest.EntityData.Leafs["failed"] = types.YLeaf{"Failed", secondaryDigest.Failed}
+    secondaryDigest.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", secondaryDigest.Skipped}
+    secondaryDigest.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", secondaryDigest.GenerateResponseFailures}
+    secondaryDigest.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", secondaryDigest.Unexpected}
+    secondaryDigest.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", secondaryDigest.UnexpectedZlb}
+    return &(secondaryDigest.EntityData)
 }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetSegmentPath() string {
-    return "secondary-digest"
-}
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = secondaryDigest.Validate
-    leafs["bad-hash"] = secondaryDigest.BadHash
-    leafs["bad-length"] = secondaryDigest.BadLength
-    leafs["ignored"] = secondaryDigest.Ignored
-    leafs["missing"] = secondaryDigest.Missing
-    leafs["passed"] = secondaryDigest.Passed
-    leafs["failed"] = secondaryDigest.Failed
-    leafs["skipped"] = secondaryDigest.Skipped
-    leafs["generate-response-failures"] = secondaryDigest.GenerateResponseFailures
-    leafs["unexpected"] = secondaryDigest.Unexpected
-    leafs["unexpected-zlb"] = secondaryDigest.UnexpectedZlb
-    return leafs
-}
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetBundleName() string { return "cisco_ios_xr" }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetYangName() string { return "secondary-digest" }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) SetParent(parent types.Entity) { secondaryDigest.parent = parent }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetParent() types.Entity { return secondaryDigest.parent }
-
-func (secondaryDigest *L2Tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck
 // Integrity check statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5738,76 +3433,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
     UnexpectedZlb interface{}
 }
 
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetFilter() yfilter.YFilter { return integrityCheck.YFilter }
+func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetEntityData() *types.CommonEntityData {
+    integrityCheck.EntityData.YFilter = integrityCheck.YFilter
+    integrityCheck.EntityData.YangName = "integrity-check"
+    integrityCheck.EntityData.BundleName = "cisco_ios_xr"
+    integrityCheck.EntityData.ParentYangName = "authentication"
+    integrityCheck.EntityData.SegmentPath = "integrity-check"
+    integrityCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    integrityCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    integrityCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) SetFilter(yf yfilter.YFilter) { integrityCheck.YFilter = yf }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    integrityCheck.EntityData.Children = make(map[string]types.YChild)
+    integrityCheck.EntityData.Leafs = make(map[string]types.YLeaf)
+    integrityCheck.EntityData.Leafs["validate"] = types.YLeaf{"Validate", integrityCheck.Validate}
+    integrityCheck.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", integrityCheck.BadHash}
+    integrityCheck.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", integrityCheck.BadLength}
+    integrityCheck.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", integrityCheck.Ignored}
+    integrityCheck.EntityData.Leafs["missing"] = types.YLeaf{"Missing", integrityCheck.Missing}
+    integrityCheck.EntityData.Leafs["passed"] = types.YLeaf{"Passed", integrityCheck.Passed}
+    integrityCheck.EntityData.Leafs["failed"] = types.YLeaf{"Failed", integrityCheck.Failed}
+    integrityCheck.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", integrityCheck.Skipped}
+    integrityCheck.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", integrityCheck.GenerateResponseFailures}
+    integrityCheck.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", integrityCheck.Unexpected}
+    integrityCheck.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", integrityCheck.UnexpectedZlb}
+    return &(integrityCheck.EntityData)
 }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetSegmentPath() string {
-    return "integrity-check"
-}
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = integrityCheck.Validate
-    leafs["bad-hash"] = integrityCheck.BadHash
-    leafs["bad-length"] = integrityCheck.BadLength
-    leafs["ignored"] = integrityCheck.Ignored
-    leafs["missing"] = integrityCheck.Missing
-    leafs["passed"] = integrityCheck.Passed
-    leafs["failed"] = integrityCheck.Failed
-    leafs["skipped"] = integrityCheck.Skipped
-    leafs["generate-response-failures"] = integrityCheck.GenerateResponseFailures
-    leafs["unexpected"] = integrityCheck.Unexpected
-    leafs["unexpected-zlb"] = integrityCheck.UnexpectedZlb
-    return leafs
-}
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetBundleName() string { return "cisco_ios_xr" }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetYangName() string { return "integrity-check" }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) SetParent(parent types.Entity) { integrityCheck.parent = parent }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetParent() types.Entity { return integrityCheck.parent }
-
-func (integrityCheck *L2Tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret
 // Local secret statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5844,76 +3499,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
     UnexpectedZlb interface{}
 }
 
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetFilter() yfilter.YFilter { return localSecret.YFilter }
+func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetEntityData() *types.CommonEntityData {
+    localSecret.EntityData.YFilter = localSecret.YFilter
+    localSecret.EntityData.YangName = "local-secret"
+    localSecret.EntityData.BundleName = "cisco_ios_xr"
+    localSecret.EntityData.ParentYangName = "authentication"
+    localSecret.EntityData.SegmentPath = "local-secret"
+    localSecret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localSecret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localSecret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) SetFilter(yf yfilter.YFilter) { localSecret.YFilter = yf }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    localSecret.EntityData.Children = make(map[string]types.YChild)
+    localSecret.EntityData.Leafs = make(map[string]types.YLeaf)
+    localSecret.EntityData.Leafs["validate"] = types.YLeaf{"Validate", localSecret.Validate}
+    localSecret.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", localSecret.BadHash}
+    localSecret.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", localSecret.BadLength}
+    localSecret.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", localSecret.Ignored}
+    localSecret.EntityData.Leafs["missing"] = types.YLeaf{"Missing", localSecret.Missing}
+    localSecret.EntityData.Leafs["passed"] = types.YLeaf{"Passed", localSecret.Passed}
+    localSecret.EntityData.Leafs["failed"] = types.YLeaf{"Failed", localSecret.Failed}
+    localSecret.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", localSecret.Skipped}
+    localSecret.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", localSecret.GenerateResponseFailures}
+    localSecret.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", localSecret.Unexpected}
+    localSecret.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", localSecret.UnexpectedZlb}
+    return &(localSecret.EntityData)
 }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetSegmentPath() string {
-    return "local-secret"
-}
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = localSecret.Validate
-    leafs["bad-hash"] = localSecret.BadHash
-    leafs["bad-length"] = localSecret.BadLength
-    leafs["ignored"] = localSecret.Ignored
-    leafs["missing"] = localSecret.Missing
-    leafs["passed"] = localSecret.Passed
-    leafs["failed"] = localSecret.Failed
-    leafs["skipped"] = localSecret.Skipped
-    leafs["generate-response-failures"] = localSecret.GenerateResponseFailures
-    leafs["unexpected"] = localSecret.Unexpected
-    leafs["unexpected-zlb"] = localSecret.UnexpectedZlb
-    return leafs
-}
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetYangName() string { return "local-secret" }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) SetParent(parent types.Entity) { localSecret.parent = parent }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetParent() types.Entity { return localSecret.parent }
-
-func (localSecret *L2Tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp
 // Challenge AVP statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -5950,76 +3565,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
     UnexpectedZlb interface{}
 }
 
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetFilter() yfilter.YFilter { return challengeAvp.YFilter }
+func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetEntityData() *types.CommonEntityData {
+    challengeAvp.EntityData.YFilter = challengeAvp.YFilter
+    challengeAvp.EntityData.YangName = "challenge-avp"
+    challengeAvp.EntityData.BundleName = "cisco_ios_xr"
+    challengeAvp.EntityData.ParentYangName = "authentication"
+    challengeAvp.EntityData.SegmentPath = "challenge-avp"
+    challengeAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    challengeAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    challengeAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) SetFilter(yf yfilter.YFilter) { challengeAvp.YFilter = yf }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    challengeAvp.EntityData.Children = make(map[string]types.YChild)
+    challengeAvp.EntityData.Leafs = make(map[string]types.YLeaf)
+    challengeAvp.EntityData.Leafs["validate"] = types.YLeaf{"Validate", challengeAvp.Validate}
+    challengeAvp.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", challengeAvp.BadHash}
+    challengeAvp.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", challengeAvp.BadLength}
+    challengeAvp.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", challengeAvp.Ignored}
+    challengeAvp.EntityData.Leafs["missing"] = types.YLeaf{"Missing", challengeAvp.Missing}
+    challengeAvp.EntityData.Leafs["passed"] = types.YLeaf{"Passed", challengeAvp.Passed}
+    challengeAvp.EntityData.Leafs["failed"] = types.YLeaf{"Failed", challengeAvp.Failed}
+    challengeAvp.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", challengeAvp.Skipped}
+    challengeAvp.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", challengeAvp.GenerateResponseFailures}
+    challengeAvp.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", challengeAvp.Unexpected}
+    challengeAvp.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", challengeAvp.UnexpectedZlb}
+    return &(challengeAvp.EntityData)
 }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetSegmentPath() string {
-    return "challenge-avp"
-}
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = challengeAvp.Validate
-    leafs["bad-hash"] = challengeAvp.BadHash
-    leafs["bad-length"] = challengeAvp.BadLength
-    leafs["ignored"] = challengeAvp.Ignored
-    leafs["missing"] = challengeAvp.Missing
-    leafs["passed"] = challengeAvp.Passed
-    leafs["failed"] = challengeAvp.Failed
-    leafs["skipped"] = challengeAvp.Skipped
-    leafs["generate-response-failures"] = challengeAvp.GenerateResponseFailures
-    leafs["unexpected"] = challengeAvp.Unexpected
-    leafs["unexpected-zlb"] = challengeAvp.UnexpectedZlb
-    return leafs
-}
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetYangName() string { return "challenge-avp" }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) SetParent(parent types.Entity) { challengeAvp.parent = parent }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetParent() types.Entity { return challengeAvp.parent }
-
-func (challengeAvp *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse
 // Challenge response statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -6056,76 +3631,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
     UnexpectedZlb interface{}
 }
 
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetFilter() yfilter.YFilter { return challengeReponse.YFilter }
+func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetEntityData() *types.CommonEntityData {
+    challengeReponse.EntityData.YFilter = challengeReponse.YFilter
+    challengeReponse.EntityData.YangName = "challenge-reponse"
+    challengeReponse.EntityData.BundleName = "cisco_ios_xr"
+    challengeReponse.EntityData.ParentYangName = "authentication"
+    challengeReponse.EntityData.SegmentPath = "challenge-reponse"
+    challengeReponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    challengeReponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    challengeReponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) SetFilter(yf yfilter.YFilter) { challengeReponse.YFilter = yf }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    challengeReponse.EntityData.Children = make(map[string]types.YChild)
+    challengeReponse.EntityData.Leafs = make(map[string]types.YLeaf)
+    challengeReponse.EntityData.Leafs["validate"] = types.YLeaf{"Validate", challengeReponse.Validate}
+    challengeReponse.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", challengeReponse.BadHash}
+    challengeReponse.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", challengeReponse.BadLength}
+    challengeReponse.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", challengeReponse.Ignored}
+    challengeReponse.EntityData.Leafs["missing"] = types.YLeaf{"Missing", challengeReponse.Missing}
+    challengeReponse.EntityData.Leafs["passed"] = types.YLeaf{"Passed", challengeReponse.Passed}
+    challengeReponse.EntityData.Leafs["failed"] = types.YLeaf{"Failed", challengeReponse.Failed}
+    challengeReponse.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", challengeReponse.Skipped}
+    challengeReponse.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", challengeReponse.GenerateResponseFailures}
+    challengeReponse.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", challengeReponse.Unexpected}
+    challengeReponse.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", challengeReponse.UnexpectedZlb}
+    return &(challengeReponse.EntityData)
 }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetSegmentPath() string {
-    return "challenge-reponse"
-}
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = challengeReponse.Validate
-    leafs["bad-hash"] = challengeReponse.BadHash
-    leafs["bad-length"] = challengeReponse.BadLength
-    leafs["ignored"] = challengeReponse.Ignored
-    leafs["missing"] = challengeReponse.Missing
-    leafs["passed"] = challengeReponse.Passed
-    leafs["failed"] = challengeReponse.Failed
-    leafs["skipped"] = challengeReponse.Skipped
-    leafs["generate-response-failures"] = challengeReponse.GenerateResponseFailures
-    leafs["unexpected"] = challengeReponse.Unexpected
-    leafs["unexpected-zlb"] = challengeReponse.UnexpectedZlb
-    return leafs
-}
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetBundleName() string { return "cisco_ios_xr" }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetYangName() string { return "challenge-reponse" }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) SetParent(parent types.Entity) { challengeReponse.parent = parent }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetParent() types.Entity { return challengeReponse.parent }
-
-func (challengeReponse *L2Tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics
 // Overall statistics
 type L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Validate. The type is interface{} with range: 0..4294967295.
@@ -6162,76 +3697,36 @@ type L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
     UnexpectedZlb interface{}
 }
 
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetFilter() yfilter.YFilter { return overallStatistics.YFilter }
+func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetEntityData() *types.CommonEntityData {
+    overallStatistics.EntityData.YFilter = overallStatistics.YFilter
+    overallStatistics.EntityData.YangName = "overall-statistics"
+    overallStatistics.EntityData.BundleName = "cisco_ios_xr"
+    overallStatistics.EntityData.ParentYangName = "authentication"
+    overallStatistics.EntityData.SegmentPath = "overall-statistics"
+    overallStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    overallStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    overallStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) SetFilter(yf yfilter.YFilter) { overallStatistics.YFilter = yf }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetGoName(yname string) string {
-    if yname == "validate" { return "Validate" }
-    if yname == "bad-hash" { return "BadHash" }
-    if yname == "bad-length" { return "BadLength" }
-    if yname == "ignored" { return "Ignored" }
-    if yname == "missing" { return "Missing" }
-    if yname == "passed" { return "Passed" }
-    if yname == "failed" { return "Failed" }
-    if yname == "skipped" { return "Skipped" }
-    if yname == "generate-response-failures" { return "GenerateResponseFailures" }
-    if yname == "unexpected" { return "Unexpected" }
-    if yname == "unexpected-zlb" { return "UnexpectedZlb" }
-    return ""
+    overallStatistics.EntityData.Children = make(map[string]types.YChild)
+    overallStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    overallStatistics.EntityData.Leafs["validate"] = types.YLeaf{"Validate", overallStatistics.Validate}
+    overallStatistics.EntityData.Leafs["bad-hash"] = types.YLeaf{"BadHash", overallStatistics.BadHash}
+    overallStatistics.EntityData.Leafs["bad-length"] = types.YLeaf{"BadLength", overallStatistics.BadLength}
+    overallStatistics.EntityData.Leafs["ignored"] = types.YLeaf{"Ignored", overallStatistics.Ignored}
+    overallStatistics.EntityData.Leafs["missing"] = types.YLeaf{"Missing", overallStatistics.Missing}
+    overallStatistics.EntityData.Leafs["passed"] = types.YLeaf{"Passed", overallStatistics.Passed}
+    overallStatistics.EntityData.Leafs["failed"] = types.YLeaf{"Failed", overallStatistics.Failed}
+    overallStatistics.EntityData.Leafs["skipped"] = types.YLeaf{"Skipped", overallStatistics.Skipped}
+    overallStatistics.EntityData.Leafs["generate-response-failures"] = types.YLeaf{"GenerateResponseFailures", overallStatistics.GenerateResponseFailures}
+    overallStatistics.EntityData.Leafs["unexpected"] = types.YLeaf{"Unexpected", overallStatistics.Unexpected}
+    overallStatistics.EntityData.Leafs["unexpected-zlb"] = types.YLeaf{"UnexpectedZlb", overallStatistics.UnexpectedZlb}
+    return &(overallStatistics.EntityData)
 }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetSegmentPath() string {
-    return "overall-statistics"
-}
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["validate"] = overallStatistics.Validate
-    leafs["bad-hash"] = overallStatistics.BadHash
-    leafs["bad-length"] = overallStatistics.BadLength
-    leafs["ignored"] = overallStatistics.Ignored
-    leafs["missing"] = overallStatistics.Missing
-    leafs["passed"] = overallStatistics.Passed
-    leafs["failed"] = overallStatistics.Failed
-    leafs["skipped"] = overallStatistics.Skipped
-    leafs["generate-response-failures"] = overallStatistics.GenerateResponseFailures
-    leafs["unexpected"] = overallStatistics.Unexpected
-    leafs["unexpected-zlb"] = overallStatistics.UnexpectedZlb
-    return leafs
-}
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetYangName() string { return "overall-statistics" }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) SetParent(parent types.Entity) { overallStatistics.parent = parent }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetParent() types.Entity { return overallStatistics.parent }
-
-func (overallStatistics *L2Tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetParentYangName() string { return "authentication" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Global
 // Tunnel counters
 type L2Tpv2_Counters_Control_TunnelXr_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total transmit. The type is interface{} with range: 0..4294967295.
@@ -6259,82 +3754,33 @@ type L2Tpv2_Counters_Control_TunnelXr_Global struct {
     Drop L2Tpv2_Counters_Control_TunnelXr_Global_Drop
 }
 
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "tunnel-xr"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetGoName(yname string) string {
-    if yname == "total-transmit" { return "TotalTransmit" }
-    if yname == "total-retransmit" { return "TotalRetransmit" }
-    if yname == "total-received" { return "TotalReceived" }
-    if yname == "total-drop" { return "TotalDrop" }
-    if yname == "transmit" { return "Transmit" }
-    if yname == "retransmit" { return "Retransmit" }
-    if yname == "received" { return "Received" }
-    if yname == "drop" { return "Drop" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Children["transmit"] = types.YChild{"Transmit", &global.Transmit}
+    global.EntityData.Children["retransmit"] = types.YChild{"Retransmit", &global.Retransmit}
+    global.EntityData.Children["received"] = types.YChild{"Received", &global.Received}
+    global.EntityData.Children["drop"] = types.YChild{"Drop", &global.Drop}
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Leafs["total-transmit"] = types.YLeaf{"TotalTransmit", global.TotalTransmit}
+    global.EntityData.Leafs["total-retransmit"] = types.YLeaf{"TotalRetransmit", global.TotalRetransmit}
+    global.EntityData.Leafs["total-received"] = types.YLeaf{"TotalReceived", global.TotalReceived}
+    global.EntityData.Leafs["total-drop"] = types.YLeaf{"TotalDrop", global.TotalDrop}
+    return &(global.EntityData)
 }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "transmit" {
-        return &global.Transmit
-    }
-    if childYangName == "retransmit" {
-        return &global.Retransmit
-    }
-    if childYangName == "received" {
-        return &global.Received
-    }
-    if childYangName == "drop" {
-        return &global.Drop
-    }
-    return nil
-}
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["transmit"] = &global.Transmit
-    children["retransmit"] = &global.Retransmit
-    children["received"] = &global.Received
-    children["drop"] = &global.Drop
-    return children
-}
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-transmit"] = global.TotalTransmit
-    leafs["total-retransmit"] = global.TotalRetransmit
-    leafs["total-received"] = global.TotalReceived
-    leafs["total-drop"] = global.TotalDrop
-    return leafs
-}
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetYangName() string { return "global" }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetParent() types.Entity { return global.parent }
-
-func (global *L2Tpv2_Counters_Control_TunnelXr_Global) GetParentYangName() string { return "tunnel-xr" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Global_Transmit
 // Transmit data
 type L2Tpv2_Counters_Control_TunnelXr_Global_Transmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -6406,92 +3852,44 @@ type L2Tpv2_Counters_Control_TunnelXr_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetFilter() yfilter.YFilter { return transmit.YFilter }
+func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() *types.CommonEntityData {
+    transmit.EntityData.YFilter = transmit.YFilter
+    transmit.EntityData.YangName = "transmit"
+    transmit.EntityData.BundleName = "cisco_ios_xr"
+    transmit.EntityData.ParentYangName = "global"
+    transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) SetFilter(yf yfilter.YFilter) { transmit.YFilter = yf }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    transmit.EntityData.Children = make(map[string]types.YChild)
+    transmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    transmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", transmit.UnknownPackets}
+    transmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", transmit.ZeroLengthBodyPackets}
+    transmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", transmit.StartControlConnectionRequests}
+    transmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", transmit.StartControlConnectionReplies}
+    transmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", transmit.StartControlConnectionNotifications}
+    transmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", transmit.StopControlConnectionNotifications}
+    transmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", transmit.HelloPackets}
+    transmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", transmit.OutgoingCallRequests}
+    transmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", transmit.OutgoingCallReplies}
+    transmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", transmit.OutgoingCallConnectedPackets}
+    transmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", transmit.IncomingCallRequests}
+    transmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", transmit.IncomingCallReplies}
+    transmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", transmit.IncomingCallConnectedPackets}
+    transmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", transmit.CallDisconnectNotifyPackets}
+    transmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", transmit.WanErrorNotifyPackets}
+    transmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", transmit.SetLinkInfoPackets}
+    transmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", transmit.ServiceRelayRequests}
+    transmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", transmit.ServiceRelayReplies}
+    transmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", transmit.AcknowledgementPackets}
+    return &(transmit.EntityData)
 }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetSegmentPath() string {
-    return "transmit"
-}
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = transmit.UnknownPackets
-    leafs["zero-length-body-packets"] = transmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = transmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = transmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = transmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = transmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = transmit.HelloPackets
-    leafs["outgoing-call-requests"] = transmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = transmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = transmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = transmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = transmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = transmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = transmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = transmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = transmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = transmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = transmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = transmit.AcknowledgementPackets
-    return leafs
-}
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetYangName() string { return "transmit" }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) SetParent(parent types.Entity) { transmit.parent = parent }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetParent() types.Entity { return transmit.parent }
-
-func (transmit *L2Tpv2_Counters_Control_TunnelXr_Global_Transmit) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit
 // Re transmit data
 type L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -6563,92 +3961,44 @@ type L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetFilter() yfilter.YFilter { return retransmit.YFilter }
+func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+    retransmit.EntityData.YFilter = retransmit.YFilter
+    retransmit.EntityData.YangName = "retransmit"
+    retransmit.EntityData.BundleName = "cisco_ios_xr"
+    retransmit.EntityData.ParentYangName = "global"
+    retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) SetFilter(yf yfilter.YFilter) { retransmit.YFilter = yf }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    retransmit.EntityData.Children = make(map[string]types.YChild)
+    retransmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    retransmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", retransmit.UnknownPackets}
+    retransmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", retransmit.ZeroLengthBodyPackets}
+    retransmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", retransmit.StartControlConnectionRequests}
+    retransmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", retransmit.StartControlConnectionReplies}
+    retransmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", retransmit.StartControlConnectionNotifications}
+    retransmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", retransmit.StopControlConnectionNotifications}
+    retransmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", retransmit.HelloPackets}
+    retransmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", retransmit.OutgoingCallRequests}
+    retransmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", retransmit.OutgoingCallReplies}
+    retransmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", retransmit.OutgoingCallConnectedPackets}
+    retransmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", retransmit.IncomingCallRequests}
+    retransmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", retransmit.IncomingCallReplies}
+    retransmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", retransmit.IncomingCallConnectedPackets}
+    retransmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", retransmit.CallDisconnectNotifyPackets}
+    retransmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", retransmit.WanErrorNotifyPackets}
+    retransmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", retransmit.SetLinkInfoPackets}
+    retransmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", retransmit.ServiceRelayRequests}
+    retransmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", retransmit.ServiceRelayReplies}
+    retransmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", retransmit.AcknowledgementPackets}
+    return &(retransmit.EntityData)
 }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetSegmentPath() string {
-    return "retransmit"
-}
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = retransmit.UnknownPackets
-    leafs["zero-length-body-packets"] = retransmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = retransmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = retransmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = retransmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = retransmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = retransmit.HelloPackets
-    leafs["outgoing-call-requests"] = retransmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = retransmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = retransmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = retransmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = retransmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = retransmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = retransmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = retransmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = retransmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = retransmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = retransmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = retransmit.AcknowledgementPackets
-    return leafs
-}
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetYangName() string { return "retransmit" }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) SetParent(parent types.Entity) { retransmit.parent = parent }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetParent() types.Entity { return retransmit.parent }
-
-func (retransmit *L2Tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Global_Received
 // Received data
 type L2Tpv2_Counters_Control_TunnelXr_Global_Received struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -6720,92 +4070,44 @@ type L2Tpv2_Counters_Control_TunnelXr_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetFilter() yfilter.YFilter { return received.YFilter }
+func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetEntityData() *types.CommonEntityData {
+    received.EntityData.YFilter = received.YFilter
+    received.EntityData.YangName = "received"
+    received.EntityData.BundleName = "cisco_ios_xr"
+    received.EntityData.ParentYangName = "global"
+    received.EntityData.SegmentPath = "received"
+    received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) SetFilter(yf yfilter.YFilter) { received.YFilter = yf }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    received.EntityData.Children = make(map[string]types.YChild)
+    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", received.UnknownPackets}
+    received.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", received.ZeroLengthBodyPackets}
+    received.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", received.StartControlConnectionRequests}
+    received.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", received.StartControlConnectionReplies}
+    received.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", received.StartControlConnectionNotifications}
+    received.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", received.StopControlConnectionNotifications}
+    received.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", received.HelloPackets}
+    received.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", received.OutgoingCallRequests}
+    received.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", received.OutgoingCallReplies}
+    received.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", received.OutgoingCallConnectedPackets}
+    received.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", received.IncomingCallRequests}
+    received.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", received.IncomingCallReplies}
+    received.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", received.IncomingCallConnectedPackets}
+    received.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", received.CallDisconnectNotifyPackets}
+    received.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", received.WanErrorNotifyPackets}
+    received.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", received.SetLinkInfoPackets}
+    received.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", received.ServiceRelayRequests}
+    received.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", received.ServiceRelayReplies}
+    received.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", received.AcknowledgementPackets}
+    return &(received.EntityData)
 }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetSegmentPath() string {
-    return "received"
-}
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = received.UnknownPackets
-    leafs["zero-length-body-packets"] = received.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = received.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = received.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = received.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = received.StopControlConnectionNotifications
-    leafs["hello-packets"] = received.HelloPackets
-    leafs["outgoing-call-requests"] = received.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = received.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = received.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = received.IncomingCallRequests
-    leafs["incoming-call-replies"] = received.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = received.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = received.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = received.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = received.SetLinkInfoPackets
-    leafs["service-relay-requests"] = received.ServiceRelayRequests
-    leafs["service-relay-replies"] = received.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = received.AcknowledgementPackets
-    return leafs
-}
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetBundleName() string { return "cisco_ios_xr" }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetYangName() string { return "received" }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) SetParent(parent types.Entity) { received.parent = parent }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetParent() types.Entity { return received.parent }
-
-func (received *L2Tpv2_Counters_Control_TunnelXr_Global_Received) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_TunnelXr_Global_Drop
 // Drop data
 type L2Tpv2_Counters_Control_TunnelXr_Global_Drop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -6877,92 +4179,44 @@ type L2Tpv2_Counters_Control_TunnelXr_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetFilter() yfilter.YFilter { return drop.YFilter }
+func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.CommonEntityData {
+    drop.EntityData.YFilter = drop.YFilter
+    drop.EntityData.YangName = "drop"
+    drop.EntityData.BundleName = "cisco_ios_xr"
+    drop.EntityData.ParentYangName = "global"
+    drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) SetFilter(yf yfilter.YFilter) { drop.YFilter = yf }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    drop.EntityData.Children = make(map[string]types.YChild)
+    drop.EntityData.Leafs = make(map[string]types.YLeaf)
+    drop.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", drop.UnknownPackets}
+    drop.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", drop.ZeroLengthBodyPackets}
+    drop.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", drop.StartControlConnectionRequests}
+    drop.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", drop.StartControlConnectionReplies}
+    drop.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", drop.StartControlConnectionNotifications}
+    drop.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", drop.StopControlConnectionNotifications}
+    drop.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", drop.HelloPackets}
+    drop.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", drop.OutgoingCallRequests}
+    drop.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", drop.OutgoingCallReplies}
+    drop.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", drop.OutgoingCallConnectedPackets}
+    drop.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", drop.IncomingCallRequests}
+    drop.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", drop.IncomingCallReplies}
+    drop.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", drop.IncomingCallConnectedPackets}
+    drop.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", drop.CallDisconnectNotifyPackets}
+    drop.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", drop.WanErrorNotifyPackets}
+    drop.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", drop.SetLinkInfoPackets}
+    drop.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", drop.ServiceRelayRequests}
+    drop.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", drop.ServiceRelayReplies}
+    drop.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", drop.AcknowledgementPackets}
+    return &(drop.EntityData)
 }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetSegmentPath() string {
-    return "drop"
-}
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = drop.UnknownPackets
-    leafs["zero-length-body-packets"] = drop.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = drop.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = drop.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = drop.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = drop.StopControlConnectionNotifications
-    leafs["hello-packets"] = drop.HelloPackets
-    leafs["outgoing-call-requests"] = drop.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = drop.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = drop.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = drop.IncomingCallRequests
-    leafs["incoming-call-replies"] = drop.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = drop.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = drop.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = drop.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = drop.SetLinkInfoPackets
-    leafs["service-relay-requests"] = drop.ServiceRelayRequests
-    leafs["service-relay-replies"] = drop.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = drop.AcknowledgementPackets
-    return leafs
-}
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetYangName() string { return "drop" }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) SetParent(parent types.Entity) { drop.parent = parent }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetParent() types.Entity { return drop.parent }
-
-func (drop *L2Tpv2_Counters_Control_TunnelXr_Global_Drop) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_Tunnels
 // Table of tunnel IDs of control message counters
 type L2Tpv2_Counters_Control_Tunnels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel control message counters. The type is slice of
@@ -6970,68 +4224,29 @@ type L2Tpv2_Counters_Control_Tunnels struct {
     Tunnel []L2Tpv2_Counters_Control_Tunnels_Tunnel
 }
 
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetFilter() yfilter.YFilter { return tunnels.YFilter }
+func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "cisco_ios_xr"
+    tunnels.EntityData.ParentYangName = "control"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) SetFilter(yf yfilter.YFilter) { tunnels.YFilter = yf }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetGoName(yname string) string {
-    if yname == "tunnel" { return "Tunnel" }
-    return ""
-}
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetSegmentPath() string {
-    return "tunnels"
-}
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel" {
-        for _, c := range tunnels.Tunnel {
-            if tunnels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tpv2_Counters_Control_Tunnels_Tunnel{}
-        tunnels.Tunnel = append(tunnels.Tunnel, child)
-        return &tunnels.Tunnel[len(tunnels.Tunnel)-1]
-    }
-    return nil
-}
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnels.EntityData.Children = make(map[string]types.YChild)
+    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
     for i := range tunnels.Tunnel {
-        children[tunnels.Tunnel[i].GetSegmentPath()] = &tunnels.Tunnel[i]
+        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
     }
-    return children
+    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnels.EntityData)
 }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetYangName() string { return "tunnels" }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) SetParent(parent types.Entity) { tunnels.parent = parent }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetParent() types.Entity { return tunnels.parent }
-
-func (tunnels *L2Tpv2_Counters_Control_Tunnels) GetParentYangName() string { return "control" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel
 // L2TP tunnel control message counters
 type L2Tpv2_Counters_Control_Tunnels_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. L2TP tunnel ID. The type is interface{} with
@@ -7045,134 +4260,64 @@ type L2Tpv2_Counters_Control_Tunnels_Tunnel struct {
     Global L2Tpv2_Counters_Control_Tunnels_Tunnel_Global
 }
 
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + "[tunnel-id='" + fmt.Sprintf("%v", tunnel.TunnelId) + "']"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetGoName(yname string) string {
-    if yname == "tunnel-id" { return "TunnelId" }
-    if yname == "brief" { return "Brief" }
-    if yname == "global" { return "Global" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Children["brief"] = types.YChild{"Brief", &tunnel.Brief}
+    tunnel.EntityData.Children["global"] = types.YChild{"Global", &tunnel.Global}
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnel.EntityData.Leafs["tunnel-id"] = types.YLeaf{"TunnelId", tunnel.TunnelId}
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetSegmentPath() string {
-    return "tunnel" + "[tunnel-id='" + fmt.Sprintf("%v", tunnel.TunnelId) + "']"
-}
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "brief" {
-        return &tunnel.Brief
-    }
-    if childYangName == "global" {
-        return &tunnel.Global
-    }
-    return nil
-}
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["brief"] = &tunnel.Brief
-    children["global"] = &tunnel.Global
-    return children
-}
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tunnel-id"] = tunnel.TunnelId
-    return leafs
-}
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *L2Tpv2_Counters_Control_Tunnels_Tunnel) GetParentYangName() string { return "tunnels" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief
 // L2TP control message local and remote addresses
 type L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Remote tunnel ID. The type is interface{} with range: 0..4294967295.
     RemoteTunnelId interface{}
 
     // Local IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Remote IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteAddress interface{}
 }
 
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetFilter() yfilter.YFilter { return brief.YFilter }
+func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.CommonEntityData {
+    brief.EntityData.YFilter = brief.YFilter
+    brief.EntityData.YangName = "brief"
+    brief.EntityData.BundleName = "cisco_ios_xr"
+    brief.EntityData.ParentYangName = "tunnel"
+    brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) SetFilter(yf yfilter.YFilter) { brief.YFilter = yf }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetGoName(yname string) string {
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "remote-address" { return "RemoteAddress" }
-    return ""
+    brief.EntityData.Children = make(map[string]types.YChild)
+    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", brief.RemoteTunnelId}
+    brief.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", brief.LocalAddress}
+    brief.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", brief.RemoteAddress}
+    return &(brief.EntityData)
 }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetSegmentPath() string {
-    return "brief"
-}
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["remote-tunnel-id"] = brief.RemoteTunnelId
-    leafs["local-address"] = brief.LocalAddress
-    leafs["remote-address"] = brief.RemoteAddress
-    return leafs
-}
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetBundleName() string { return "cisco_ios_xr" }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetYangName() string { return "brief" }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) SetParent(parent types.Entity) { brief.parent = parent }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetParent() types.Entity { return brief.parent }
-
-func (brief *L2Tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetParentYangName() string { return "tunnel" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel_Global
 // Global data
 type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total transmit. The type is interface{} with range: 0..4294967295.
@@ -7200,82 +4345,33 @@ type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global struct {
     Drop L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop
 }
 
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "tunnel"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetGoName(yname string) string {
-    if yname == "total-transmit" { return "TotalTransmit" }
-    if yname == "total-retransmit" { return "TotalRetransmit" }
-    if yname == "total-received" { return "TotalReceived" }
-    if yname == "total-drop" { return "TotalDrop" }
-    if yname == "transmit" { return "Transmit" }
-    if yname == "retransmit" { return "Retransmit" }
-    if yname == "received" { return "Received" }
-    if yname == "drop" { return "Drop" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Children["transmit"] = types.YChild{"Transmit", &global.Transmit}
+    global.EntityData.Children["retransmit"] = types.YChild{"Retransmit", &global.Retransmit}
+    global.EntityData.Children["received"] = types.YChild{"Received", &global.Received}
+    global.EntityData.Children["drop"] = types.YChild{"Drop", &global.Drop}
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Leafs["total-transmit"] = types.YLeaf{"TotalTransmit", global.TotalTransmit}
+    global.EntityData.Leafs["total-retransmit"] = types.YLeaf{"TotalRetransmit", global.TotalRetransmit}
+    global.EntityData.Leafs["total-received"] = types.YLeaf{"TotalReceived", global.TotalReceived}
+    global.EntityData.Leafs["total-drop"] = types.YLeaf{"TotalDrop", global.TotalDrop}
+    return &(global.EntityData)
 }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "transmit" {
-        return &global.Transmit
-    }
-    if childYangName == "retransmit" {
-        return &global.Retransmit
-    }
-    if childYangName == "received" {
-        return &global.Received
-    }
-    if childYangName == "drop" {
-        return &global.Drop
-    }
-    return nil
-}
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["transmit"] = &global.Transmit
-    children["retransmit"] = &global.Retransmit
-    children["received"] = &global.Received
-    children["drop"] = &global.Drop
-    return children
-}
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-transmit"] = global.TotalTransmit
-    leafs["total-retransmit"] = global.TotalRetransmit
-    leafs["total-received"] = global.TotalReceived
-    leafs["total-drop"] = global.TotalDrop
-    return leafs
-}
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetYangName() string { return "global" }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetParent() types.Entity { return global.parent }
-
-func (global *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global) GetParentYangName() string { return "tunnel" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit
 // Transmit data
 type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -7347,92 +4443,44 @@ type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetFilter() yfilter.YFilter { return transmit.YFilter }
+func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityData() *types.CommonEntityData {
+    transmit.EntityData.YFilter = transmit.YFilter
+    transmit.EntityData.YangName = "transmit"
+    transmit.EntityData.BundleName = "cisco_ios_xr"
+    transmit.EntityData.ParentYangName = "global"
+    transmit.EntityData.SegmentPath = "transmit"
+    transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) SetFilter(yf yfilter.YFilter) { transmit.YFilter = yf }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    transmit.EntityData.Children = make(map[string]types.YChild)
+    transmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    transmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", transmit.UnknownPackets}
+    transmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", transmit.ZeroLengthBodyPackets}
+    transmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", transmit.StartControlConnectionRequests}
+    transmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", transmit.StartControlConnectionReplies}
+    transmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", transmit.StartControlConnectionNotifications}
+    transmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", transmit.StopControlConnectionNotifications}
+    transmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", transmit.HelloPackets}
+    transmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", transmit.OutgoingCallRequests}
+    transmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", transmit.OutgoingCallReplies}
+    transmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", transmit.OutgoingCallConnectedPackets}
+    transmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", transmit.IncomingCallRequests}
+    transmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", transmit.IncomingCallReplies}
+    transmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", transmit.IncomingCallConnectedPackets}
+    transmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", transmit.CallDisconnectNotifyPackets}
+    transmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", transmit.WanErrorNotifyPackets}
+    transmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", transmit.SetLinkInfoPackets}
+    transmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", transmit.ServiceRelayRequests}
+    transmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", transmit.ServiceRelayReplies}
+    transmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", transmit.AcknowledgementPackets}
+    return &(transmit.EntityData)
 }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetSegmentPath() string {
-    return "transmit"
-}
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = transmit.UnknownPackets
-    leafs["zero-length-body-packets"] = transmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = transmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = transmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = transmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = transmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = transmit.HelloPackets
-    leafs["outgoing-call-requests"] = transmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = transmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = transmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = transmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = transmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = transmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = transmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = transmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = transmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = transmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = transmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = transmit.AcknowledgementPackets
-    return leafs
-}
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetYangName() string { return "transmit" }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) SetParent(parent types.Entity) { transmit.parent = parent }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetParent() types.Entity { return transmit.parent }
-
-func (transmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit
 // Re transmit data
 type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -7504,92 +4552,44 @@ type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetFilter() yfilter.YFilter { return retransmit.YFilter }
+func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+    retransmit.EntityData.YFilter = retransmit.YFilter
+    retransmit.EntityData.YangName = "retransmit"
+    retransmit.EntityData.BundleName = "cisco_ios_xr"
+    retransmit.EntityData.ParentYangName = "global"
+    retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) SetFilter(yf yfilter.YFilter) { retransmit.YFilter = yf }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    retransmit.EntityData.Children = make(map[string]types.YChild)
+    retransmit.EntityData.Leafs = make(map[string]types.YLeaf)
+    retransmit.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", retransmit.UnknownPackets}
+    retransmit.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", retransmit.ZeroLengthBodyPackets}
+    retransmit.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", retransmit.StartControlConnectionRequests}
+    retransmit.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", retransmit.StartControlConnectionReplies}
+    retransmit.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", retransmit.StartControlConnectionNotifications}
+    retransmit.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", retransmit.StopControlConnectionNotifications}
+    retransmit.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", retransmit.HelloPackets}
+    retransmit.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", retransmit.OutgoingCallRequests}
+    retransmit.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", retransmit.OutgoingCallReplies}
+    retransmit.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", retransmit.OutgoingCallConnectedPackets}
+    retransmit.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", retransmit.IncomingCallRequests}
+    retransmit.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", retransmit.IncomingCallReplies}
+    retransmit.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", retransmit.IncomingCallConnectedPackets}
+    retransmit.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", retransmit.CallDisconnectNotifyPackets}
+    retransmit.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", retransmit.WanErrorNotifyPackets}
+    retransmit.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", retransmit.SetLinkInfoPackets}
+    retransmit.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", retransmit.ServiceRelayRequests}
+    retransmit.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", retransmit.ServiceRelayReplies}
+    retransmit.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", retransmit.AcknowledgementPackets}
+    return &(retransmit.EntityData)
 }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetSegmentPath() string {
-    return "retransmit"
-}
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = retransmit.UnknownPackets
-    leafs["zero-length-body-packets"] = retransmit.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = retransmit.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = retransmit.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = retransmit.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = retransmit.StopControlConnectionNotifications
-    leafs["hello-packets"] = retransmit.HelloPackets
-    leafs["outgoing-call-requests"] = retransmit.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = retransmit.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = retransmit.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = retransmit.IncomingCallRequests
-    leafs["incoming-call-replies"] = retransmit.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = retransmit.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = retransmit.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = retransmit.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = retransmit.SetLinkInfoPackets
-    leafs["service-relay-requests"] = retransmit.ServiceRelayRequests
-    leafs["service-relay-replies"] = retransmit.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = retransmit.AcknowledgementPackets
-    return leafs
-}
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetYangName() string { return "retransmit" }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) SetParent(parent types.Entity) { retransmit.parent = parent }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetParent() types.Entity { return retransmit.parent }
-
-func (retransmit *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received
 // Received data
 type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -7661,92 +4661,44 @@ type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetFilter() yfilter.YFilter { return received.YFilter }
+func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityData() *types.CommonEntityData {
+    received.EntityData.YFilter = received.YFilter
+    received.EntityData.YangName = "received"
+    received.EntityData.BundleName = "cisco_ios_xr"
+    received.EntityData.ParentYangName = "global"
+    received.EntityData.SegmentPath = "received"
+    received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) SetFilter(yf yfilter.YFilter) { received.YFilter = yf }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    received.EntityData.Children = make(map[string]types.YChild)
+    received.EntityData.Leafs = make(map[string]types.YLeaf)
+    received.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", received.UnknownPackets}
+    received.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", received.ZeroLengthBodyPackets}
+    received.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", received.StartControlConnectionRequests}
+    received.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", received.StartControlConnectionReplies}
+    received.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", received.StartControlConnectionNotifications}
+    received.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", received.StopControlConnectionNotifications}
+    received.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", received.HelloPackets}
+    received.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", received.OutgoingCallRequests}
+    received.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", received.OutgoingCallReplies}
+    received.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", received.OutgoingCallConnectedPackets}
+    received.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", received.IncomingCallRequests}
+    received.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", received.IncomingCallReplies}
+    received.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", received.IncomingCallConnectedPackets}
+    received.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", received.CallDisconnectNotifyPackets}
+    received.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", received.WanErrorNotifyPackets}
+    received.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", received.SetLinkInfoPackets}
+    received.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", received.ServiceRelayRequests}
+    received.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", received.ServiceRelayReplies}
+    received.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", received.AcknowledgementPackets}
+    return &(received.EntityData)
 }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetSegmentPath() string {
-    return "received"
-}
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = received.UnknownPackets
-    leafs["zero-length-body-packets"] = received.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = received.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = received.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = received.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = received.StopControlConnectionNotifications
-    leafs["hello-packets"] = received.HelloPackets
-    leafs["outgoing-call-requests"] = received.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = received.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = received.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = received.IncomingCallRequests
-    leafs["incoming-call-replies"] = received.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = received.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = received.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = received.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = received.SetLinkInfoPackets
-    leafs["service-relay-requests"] = received.ServiceRelayRequests
-    leafs["service-relay-replies"] = received.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = received.AcknowledgementPackets
-    return leafs
-}
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetBundleName() string { return "cisco_ios_xr" }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetYangName() string { return "received" }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) SetParent(parent types.Entity) { received.parent = parent }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetParent() types.Entity { return received.parent }
-
-func (received *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop
 // Drop data
 type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unknown packets. The type is interface{} with range: 0..4294967295.
@@ -7818,92 +4770,44 @@ type L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetFilter() yfilter.YFilter { return drop.YFilter }
+func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *types.CommonEntityData {
+    drop.EntityData.YFilter = drop.YFilter
+    drop.EntityData.YangName = "drop"
+    drop.EntityData.BundleName = "cisco_ios_xr"
+    drop.EntityData.ParentYangName = "global"
+    drop.EntityData.SegmentPath = "drop"
+    drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) SetFilter(yf yfilter.YFilter) { drop.YFilter = yf }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetGoName(yname string) string {
-    if yname == "unknown-packets" { return "UnknownPackets" }
-    if yname == "zero-length-body-packets" { return "ZeroLengthBodyPackets" }
-    if yname == "start-control-connection-requests" { return "StartControlConnectionRequests" }
-    if yname == "start-control-connection-replies" { return "StartControlConnectionReplies" }
-    if yname == "start-control-connection-notifications" { return "StartControlConnectionNotifications" }
-    if yname == "stop-control-connection-notifications" { return "StopControlConnectionNotifications" }
-    if yname == "hello-packets" { return "HelloPackets" }
-    if yname == "outgoing-call-requests" { return "OutgoingCallRequests" }
-    if yname == "outgoing-call-replies" { return "OutgoingCallReplies" }
-    if yname == "outgoing-call-connected-packets" { return "OutgoingCallConnectedPackets" }
-    if yname == "incoming-call-requests" { return "IncomingCallRequests" }
-    if yname == "incoming-call-replies" { return "IncomingCallReplies" }
-    if yname == "incoming-call-connected-packets" { return "IncomingCallConnectedPackets" }
-    if yname == "call-disconnect-notify-packets" { return "CallDisconnectNotifyPackets" }
-    if yname == "wan-error-notify-packets" { return "WanErrorNotifyPackets" }
-    if yname == "set-link-info-packets" { return "SetLinkInfoPackets" }
-    if yname == "service-relay-requests" { return "ServiceRelayRequests" }
-    if yname == "service-relay-replies" { return "ServiceRelayReplies" }
-    if yname == "acknowledgement-packets" { return "AcknowledgementPackets" }
-    return ""
+    drop.EntityData.Children = make(map[string]types.YChild)
+    drop.EntityData.Leafs = make(map[string]types.YLeaf)
+    drop.EntityData.Leafs["unknown-packets"] = types.YLeaf{"UnknownPackets", drop.UnknownPackets}
+    drop.EntityData.Leafs["zero-length-body-packets"] = types.YLeaf{"ZeroLengthBodyPackets", drop.ZeroLengthBodyPackets}
+    drop.EntityData.Leafs["start-control-connection-requests"] = types.YLeaf{"StartControlConnectionRequests", drop.StartControlConnectionRequests}
+    drop.EntityData.Leafs["start-control-connection-replies"] = types.YLeaf{"StartControlConnectionReplies", drop.StartControlConnectionReplies}
+    drop.EntityData.Leafs["start-control-connection-notifications"] = types.YLeaf{"StartControlConnectionNotifications", drop.StartControlConnectionNotifications}
+    drop.EntityData.Leafs["stop-control-connection-notifications"] = types.YLeaf{"StopControlConnectionNotifications", drop.StopControlConnectionNotifications}
+    drop.EntityData.Leafs["hello-packets"] = types.YLeaf{"HelloPackets", drop.HelloPackets}
+    drop.EntityData.Leafs["outgoing-call-requests"] = types.YLeaf{"OutgoingCallRequests", drop.OutgoingCallRequests}
+    drop.EntityData.Leafs["outgoing-call-replies"] = types.YLeaf{"OutgoingCallReplies", drop.OutgoingCallReplies}
+    drop.EntityData.Leafs["outgoing-call-connected-packets"] = types.YLeaf{"OutgoingCallConnectedPackets", drop.OutgoingCallConnectedPackets}
+    drop.EntityData.Leafs["incoming-call-requests"] = types.YLeaf{"IncomingCallRequests", drop.IncomingCallRequests}
+    drop.EntityData.Leafs["incoming-call-replies"] = types.YLeaf{"IncomingCallReplies", drop.IncomingCallReplies}
+    drop.EntityData.Leafs["incoming-call-connected-packets"] = types.YLeaf{"IncomingCallConnectedPackets", drop.IncomingCallConnectedPackets}
+    drop.EntityData.Leafs["call-disconnect-notify-packets"] = types.YLeaf{"CallDisconnectNotifyPackets", drop.CallDisconnectNotifyPackets}
+    drop.EntityData.Leafs["wan-error-notify-packets"] = types.YLeaf{"WanErrorNotifyPackets", drop.WanErrorNotifyPackets}
+    drop.EntityData.Leafs["set-link-info-packets"] = types.YLeaf{"SetLinkInfoPackets", drop.SetLinkInfoPackets}
+    drop.EntityData.Leafs["service-relay-requests"] = types.YLeaf{"ServiceRelayRequests", drop.ServiceRelayRequests}
+    drop.EntityData.Leafs["service-relay-replies"] = types.YLeaf{"ServiceRelayReplies", drop.ServiceRelayReplies}
+    drop.EntityData.Leafs["acknowledgement-packets"] = types.YLeaf{"AcknowledgementPackets", drop.AcknowledgementPackets}
+    return &(drop.EntityData)
 }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetSegmentPath() string {
-    return "drop"
-}
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-packets"] = drop.UnknownPackets
-    leafs["zero-length-body-packets"] = drop.ZeroLengthBodyPackets
-    leafs["start-control-connection-requests"] = drop.StartControlConnectionRequests
-    leafs["start-control-connection-replies"] = drop.StartControlConnectionReplies
-    leafs["start-control-connection-notifications"] = drop.StartControlConnectionNotifications
-    leafs["stop-control-connection-notifications"] = drop.StopControlConnectionNotifications
-    leafs["hello-packets"] = drop.HelloPackets
-    leafs["outgoing-call-requests"] = drop.OutgoingCallRequests
-    leafs["outgoing-call-replies"] = drop.OutgoingCallReplies
-    leafs["outgoing-call-connected-packets"] = drop.OutgoingCallConnectedPackets
-    leafs["incoming-call-requests"] = drop.IncomingCallRequests
-    leafs["incoming-call-replies"] = drop.IncomingCallReplies
-    leafs["incoming-call-connected-packets"] = drop.IncomingCallConnectedPackets
-    leafs["call-disconnect-notify-packets"] = drop.CallDisconnectNotifyPackets
-    leafs["wan-error-notify-packets"] = drop.WanErrorNotifyPackets
-    leafs["set-link-info-packets"] = drop.SetLinkInfoPackets
-    leafs["service-relay-requests"] = drop.ServiceRelayRequests
-    leafs["service-relay-replies"] = drop.ServiceRelayReplies
-    leafs["acknowledgement-packets"] = drop.AcknowledgementPackets
-    return leafs
-}
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetYangName() string { return "drop" }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) SetParent(parent types.Entity) { drop.parent = parent }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetParent() types.Entity { return drop.parent }
-
-func (drop *L2Tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetParentYangName() string { return "global" }
 
 // L2Tpv2_Statistics
 // L2TP v2 statistics information
 type L2Tpv2_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of tunnels. The type is interface{} with range: 0..4294967295.
@@ -7944,194 +4848,88 @@ type L2Tpv2_Statistics struct {
     NetioPackets interface{}
 }
 
-func (statistics *L2Tpv2_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *L2Tpv2_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "l2tpv2"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *L2Tpv2_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *L2Tpv2_Statistics) GetGoName(yname string) string {
-    if yname == "tunnels" { return "Tunnels" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "sent-packets" { return "SentPackets" }
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "average-packet-processing-time" { return "AveragePacketProcessingTime" }
-    if yname == "received-out-of-order-packets" { return "ReceivedOutOfOrderPackets" }
-    if yname == "reorder-packets" { return "ReorderPackets" }
-    if yname == "reorder-deviation-packets" { return "ReorderDeviationPackets" }
-    if yname == "incoming-dropped-packets" { return "IncomingDroppedPackets" }
-    if yname == "buffered-packets" { return "BufferedPackets" }
-    if yname == "netio-packets" { return "NetioPackets" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs["tunnels"] = types.YLeaf{"Tunnels", statistics.Tunnels}
+    statistics.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", statistics.Sessions}
+    statistics.EntityData.Leafs["sent-packets"] = types.YLeaf{"SentPackets", statistics.SentPackets}
+    statistics.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", statistics.ReceivedPackets}
+    statistics.EntityData.Leafs["average-packet-processing-time"] = types.YLeaf{"AveragePacketProcessingTime", statistics.AveragePacketProcessingTime}
+    statistics.EntityData.Leafs["received-out-of-order-packets"] = types.YLeaf{"ReceivedOutOfOrderPackets", statistics.ReceivedOutOfOrderPackets}
+    statistics.EntityData.Leafs["reorder-packets"] = types.YLeaf{"ReorderPackets", statistics.ReorderPackets}
+    statistics.EntityData.Leafs["reorder-deviation-packets"] = types.YLeaf{"ReorderDeviationPackets", statistics.ReorderDeviationPackets}
+    statistics.EntityData.Leafs["incoming-dropped-packets"] = types.YLeaf{"IncomingDroppedPackets", statistics.IncomingDroppedPackets}
+    statistics.EntityData.Leafs["buffered-packets"] = types.YLeaf{"BufferedPackets", statistics.BufferedPackets}
+    statistics.EntityData.Leafs["netio-packets"] = types.YLeaf{"NetioPackets", statistics.NetioPackets}
+    return &(statistics.EntityData)
 }
-
-func (statistics *L2Tpv2_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *L2Tpv2_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *L2Tpv2_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *L2Tpv2_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tunnels"] = statistics.Tunnels
-    leafs["sessions"] = statistics.Sessions
-    leafs["sent-packets"] = statistics.SentPackets
-    leafs["received-packets"] = statistics.ReceivedPackets
-    leafs["average-packet-processing-time"] = statistics.AveragePacketProcessingTime
-    leafs["received-out-of-order-packets"] = statistics.ReceivedOutOfOrderPackets
-    leafs["reorder-packets"] = statistics.ReorderPackets
-    leafs["reorder-deviation-packets"] = statistics.ReorderDeviationPackets
-    leafs["incoming-dropped-packets"] = statistics.IncomingDroppedPackets
-    leafs["buffered-packets"] = statistics.BufferedPackets
-    leafs["netio-packets"] = statistics.NetioPackets
-    return leafs
-}
-
-func (statistics *L2Tpv2_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *L2Tpv2_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *L2Tpv2_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *L2Tpv2_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *L2Tpv2_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *L2Tpv2_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *L2Tpv2_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *L2Tpv2_Statistics) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Tunnel
 // L2TPv2 tunnel 
 type L2Tpv2_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel accounting counters.
     Accounting L2Tpv2_Tunnel_Accounting
 }
 
-func (tunnel *L2Tpv2_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *L2Tpv2_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "l2tpv2"
+    tunnel.EntityData.SegmentPath = "tunnel"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *L2Tpv2_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *L2Tpv2_Tunnel) GetGoName(yname string) string {
-    if yname == "accounting" { return "Accounting" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Children["accounting"] = types.YChild{"Accounting", &tunnel.Accounting}
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *L2Tpv2_Tunnel) GetSegmentPath() string {
-    return "tunnel"
-}
-
-func (tunnel *L2Tpv2_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accounting" {
-        return &tunnel.Accounting
-    }
-    return nil
-}
-
-func (tunnel *L2Tpv2_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accounting"] = &tunnel.Accounting
-    return children
-}
-
-func (tunnel *L2Tpv2_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnel *L2Tpv2_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *L2Tpv2_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *L2Tpv2_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *L2Tpv2_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *L2Tpv2_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *L2Tpv2_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *L2Tpv2_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *L2Tpv2_Tunnel) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Tunnel_Accounting
 // Tunnel accounting counters
 type L2Tpv2_Tunnel_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel accounting statistics.
     Statistics L2Tpv2_Tunnel_Accounting_Statistics
 }
 
-func (accounting *L2Tpv2_Tunnel_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *L2Tpv2_Tunnel_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "tunnel"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *L2Tpv2_Tunnel_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetGoName(yname string) string {
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["statistics"] = types.YChild{"Statistics", &accounting.Statistics}
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accounting.EntityData)
 }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetSegmentPath() string {
-    return "accounting"
-}
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &accounting.Statistics
-    }
-    return nil
-}
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &accounting.Statistics
-    return children
-}
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *L2Tpv2_Tunnel_Accounting) GetParentYangName() string { return "tunnel" }
 
 // L2Tpv2_Tunnel_Accounting_Statistics
 // Tunnel accounting statistics
 type L2Tpv2_Tunnel_Accounting_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Accounting records sent successfully. The type is interface{} with range:
@@ -8192,84 +4990,40 @@ type L2Tpv2_Tunnel_Accounting_Statistics struct {
     QueueStatisticsSize interface{}
 }
 
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "accounting"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetGoName(yname string) string {
-    if yname == "records-sent-successfully" { return "RecordsSentSuccessfully" }
-    if yname == "start" { return "Start" }
-    if yname == "stop" { return "Stop" }
-    if yname == "reject" { return "Reject" }
-    if yname == "transport-failures" { return "TransportFailures" }
-    if yname == "positive-acknowledgement" { return "PositiveAcknowledgement" }
-    if yname == "negative-acknowledgement" { return "NegativeAcknowledgement" }
-    if yname == "records-checkpointed" { return "RecordsCheckpointed" }
-    if yname == "records-failed-to-checkpoint" { return "RecordsFailedToCheckpoint" }
-    if yname == "records-sent-from-queue" { return "RecordsSentFromQueue" }
-    if yname == "memory-failures" { return "MemoryFailures" }
-    if yname == "current-size" { return "CurrentSize" }
-    if yname == "records-recovered-from-checkpoint" { return "RecordsRecoveredFromCheckpoint" }
-    if yname == "records-fail-to-recover" { return "RecordsFailToRecover" }
-    if yname == "queue-statistics-size" { return "QueueStatisticsSize" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs["records-sent-successfully"] = types.YLeaf{"RecordsSentSuccessfully", statistics.RecordsSentSuccessfully}
+    statistics.EntityData.Leafs["start"] = types.YLeaf{"Start", statistics.Start}
+    statistics.EntityData.Leafs["stop"] = types.YLeaf{"Stop", statistics.Stop}
+    statistics.EntityData.Leafs["reject"] = types.YLeaf{"Reject", statistics.Reject}
+    statistics.EntityData.Leafs["transport-failures"] = types.YLeaf{"TransportFailures", statistics.TransportFailures}
+    statistics.EntityData.Leafs["positive-acknowledgement"] = types.YLeaf{"PositiveAcknowledgement", statistics.PositiveAcknowledgement}
+    statistics.EntityData.Leafs["negative-acknowledgement"] = types.YLeaf{"NegativeAcknowledgement", statistics.NegativeAcknowledgement}
+    statistics.EntityData.Leafs["records-checkpointed"] = types.YLeaf{"RecordsCheckpointed", statistics.RecordsCheckpointed}
+    statistics.EntityData.Leafs["records-failed-to-checkpoint"] = types.YLeaf{"RecordsFailedToCheckpoint", statistics.RecordsFailedToCheckpoint}
+    statistics.EntityData.Leafs["records-sent-from-queue"] = types.YLeaf{"RecordsSentFromQueue", statistics.RecordsSentFromQueue}
+    statistics.EntityData.Leafs["memory-failures"] = types.YLeaf{"MemoryFailures", statistics.MemoryFailures}
+    statistics.EntityData.Leafs["current-size"] = types.YLeaf{"CurrentSize", statistics.CurrentSize}
+    statistics.EntityData.Leafs["records-recovered-from-checkpoint"] = types.YLeaf{"RecordsRecoveredFromCheckpoint", statistics.RecordsRecoveredFromCheckpoint}
+    statistics.EntityData.Leafs["records-fail-to-recover"] = types.YLeaf{"RecordsFailToRecover", statistics.RecordsFailToRecover}
+    statistics.EntityData.Leafs["queue-statistics-size"] = types.YLeaf{"QueueStatisticsSize", statistics.QueueStatisticsSize}
+    return &(statistics.EntityData)
 }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["records-sent-successfully"] = statistics.RecordsSentSuccessfully
-    leafs["start"] = statistics.Start
-    leafs["stop"] = statistics.Stop
-    leafs["reject"] = statistics.Reject
-    leafs["transport-failures"] = statistics.TransportFailures
-    leafs["positive-acknowledgement"] = statistics.PositiveAcknowledgement
-    leafs["negative-acknowledgement"] = statistics.NegativeAcknowledgement
-    leafs["records-checkpointed"] = statistics.RecordsCheckpointed
-    leafs["records-failed-to-checkpoint"] = statistics.RecordsFailedToCheckpoint
-    leafs["records-sent-from-queue"] = statistics.RecordsSentFromQueue
-    leafs["memory-failures"] = statistics.MemoryFailures
-    leafs["current-size"] = statistics.CurrentSize
-    leafs["records-recovered-from-checkpoint"] = statistics.RecordsRecoveredFromCheckpoint
-    leafs["records-fail-to-recover"] = statistics.RecordsFailToRecover
-    leafs["queue-statistics-size"] = statistics.QueueStatisticsSize
-    return leafs
-}
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *L2Tpv2_Tunnel_Accounting_Statistics) GetParentYangName() string { return "accounting" }
 
 // L2Tpv2_TunnelConfigurations
 // List of tunnel IDs
 type L2Tpv2_TunnelConfigurations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel information. The type is slice of
@@ -8277,68 +5031,29 @@ type L2Tpv2_TunnelConfigurations struct {
     TunnelConfiguration []L2Tpv2_TunnelConfigurations_TunnelConfiguration
 }
 
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetFilter() yfilter.YFilter { return tunnelConfigurations.YFilter }
+func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetEntityData() *types.CommonEntityData {
+    tunnelConfigurations.EntityData.YFilter = tunnelConfigurations.YFilter
+    tunnelConfigurations.EntityData.YangName = "tunnel-configurations"
+    tunnelConfigurations.EntityData.BundleName = "cisco_ios_xr"
+    tunnelConfigurations.EntityData.ParentYangName = "l2tpv2"
+    tunnelConfigurations.EntityData.SegmentPath = "tunnel-configurations"
+    tunnelConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) SetFilter(yf yfilter.YFilter) { tunnelConfigurations.YFilter = yf }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetGoName(yname string) string {
-    if yname == "tunnel-configuration" { return "TunnelConfiguration" }
-    return ""
-}
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetSegmentPath() string {
-    return "tunnel-configurations"
-}
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel-configuration" {
-        for _, c := range tunnelConfigurations.TunnelConfiguration {
-            if tunnelConfigurations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tpv2_TunnelConfigurations_TunnelConfiguration{}
-        tunnelConfigurations.TunnelConfiguration = append(tunnelConfigurations.TunnelConfiguration, child)
-        return &tunnelConfigurations.TunnelConfiguration[len(tunnelConfigurations.TunnelConfiguration)-1]
-    }
-    return nil
-}
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnelConfigurations.EntityData.Children = make(map[string]types.YChild)
+    tunnelConfigurations.EntityData.Children["tunnel-configuration"] = types.YChild{"TunnelConfiguration", nil}
     for i := range tunnelConfigurations.TunnelConfiguration {
-        children[tunnelConfigurations.TunnelConfiguration[i].GetSegmentPath()] = &tunnelConfigurations.TunnelConfiguration[i]
+        tunnelConfigurations.EntityData.Children[types.GetSegmentPath(&tunnelConfigurations.TunnelConfiguration[i])] = types.YChild{"TunnelConfiguration", &tunnelConfigurations.TunnelConfiguration[i]}
     }
-    return children
+    tunnelConfigurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelConfigurations.EntityData)
 }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetYangName() string { return "tunnel-configurations" }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) SetParent(parent types.Entity) { tunnelConfigurations.parent = parent }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetParent() types.Entity { return tunnelConfigurations.parent }
-
-func (tunnelConfigurations *L2Tpv2_TunnelConfigurations) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_TunnelConfigurations_TunnelConfiguration
 // L2TP tunnel information
 type L2Tpv2_TunnelConfigurations_TunnelConfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -8352,63 +5067,28 @@ type L2Tpv2_TunnelConfigurations_TunnelConfiguration struct {
     L2TpClass L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass
 }
 
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetFilter() yfilter.YFilter { return tunnelConfiguration.YFilter }
+func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetEntityData() *types.CommonEntityData {
+    tunnelConfiguration.EntityData.YFilter = tunnelConfiguration.YFilter
+    tunnelConfiguration.EntityData.YangName = "tunnel-configuration"
+    tunnelConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    tunnelConfiguration.EntityData.ParentYangName = "tunnel-configurations"
+    tunnelConfiguration.EntityData.SegmentPath = "tunnel-configuration" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnelConfiguration.LocalTunnelId) + "']"
+    tunnelConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) SetFilter(yf yfilter.YFilter) { tunnelConfiguration.YFilter = yf }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetGoName(yname string) string {
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "l2tp-class" { return "L2TpClass" }
-    return ""
+    tunnelConfiguration.EntityData.Children = make(map[string]types.YChild)
+    tunnelConfiguration.EntityData.Children["l2tp-class"] = types.YChild{"L2TpClass", &tunnelConfiguration.L2TpClass}
+    tunnelConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelConfiguration.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", tunnelConfiguration.LocalTunnelId}
+    tunnelConfiguration.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", tunnelConfiguration.RemoteTunnelId}
+    return &(tunnelConfiguration.EntityData)
 }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetSegmentPath() string {
-    return "tunnel-configuration" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnelConfiguration.LocalTunnelId) + "']"
-}
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "l2tp-class" {
-        return &tunnelConfiguration.L2TpClass
-    }
-    return nil
-}
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["l2tp-class"] = &tunnelConfiguration.L2TpClass
-    return children
-}
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-tunnel-id"] = tunnelConfiguration.LocalTunnelId
-    leafs["remote-tunnel-id"] = tunnelConfiguration.RemoteTunnelId
-    return leafs
-}
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetYangName() string { return "tunnel-configuration" }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) SetParent(parent types.Entity) { tunnelConfiguration.parent = parent }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetParent() types.Entity { return tunnelConfiguration.parent }
-
-func (tunnelConfiguration *L2Tpv2_TunnelConfigurations_TunnelConfiguration) GetParentYangName() string { return "tunnel-configurations" }
 
 // L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass
 // L2Tp class data
 type L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP TOS. The type is interface{} with range: 0..255.
@@ -8491,102 +5171,49 @@ type L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass struct {
     IsPeerAddressChecked interface{}
 }
 
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetFilter() yfilter.YFilter { return l2TpClass.YFilter }
+func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetEntityData() *types.CommonEntityData {
+    l2TpClass.EntityData.YFilter = l2TpClass.YFilter
+    l2TpClass.EntityData.YangName = "l2tp-class"
+    l2TpClass.EntityData.BundleName = "cisco_ios_xr"
+    l2TpClass.EntityData.ParentYangName = "tunnel-configuration"
+    l2TpClass.EntityData.SegmentPath = "l2tp-class"
+    l2TpClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2TpClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2TpClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) SetFilter(yf yfilter.YFilter) { l2TpClass.YFilter = yf }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetGoName(yname string) string {
-    if yname == "ip-tos" { return "IpTos" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "receive-window-size" { return "ReceiveWindowSize" }
-    if yname == "class-name-xr" { return "ClassNameXr" }
-    if yname == "digest-hash" { return "DigestHash" }
-    if yname == "password" { return "Password" }
-    if yname == "encoded-password" { return "EncodedPassword" }
-    if yname == "host-name" { return "HostName" }
-    if yname == "accounting-method-list" { return "AccountingMethodList" }
-    if yname == "hello-timeout" { return "HelloTimeout" }
-    if yname == "setup-timeout" { return "SetupTimeout" }
-    if yname == "retransmit-minimum-timeout" { return "RetransmitMinimumTimeout" }
-    if yname == "retransmit-maximum-timeout" { return "RetransmitMaximumTimeout" }
-    if yname == "initial-retransmit-minimum-timeout" { return "InitialRetransmitMinimumTimeout" }
-    if yname == "initial-retransmit-maximum-timeout" { return "InitialRetransmitMaximumTimeout" }
-    if yname == "timeout-no-user" { return "TimeoutNoUser" }
-    if yname == "retransmit-retries" { return "RetransmitRetries" }
-    if yname == "initial-retransmit-retries" { return "InitialRetransmitRetries" }
-    if yname == "is-authentication-enabled" { return "IsAuthenticationEnabled" }
-    if yname == "is-hidden" { return "IsHidden" }
-    if yname == "is-digest-enabled" { return "IsDigestEnabled" }
-    if yname == "is-digest-check-enabled" { return "IsDigestCheckEnabled" }
-    if yname == "is-congestion-control-enabled" { return "IsCongestionControlEnabled" }
-    if yname == "is-peer-address-checked" { return "IsPeerAddressChecked" }
-    return ""
+    l2TpClass.EntityData.Children = make(map[string]types.YChild)
+    l2TpClass.EntityData.Leafs = make(map[string]types.YLeaf)
+    l2TpClass.EntityData.Leafs["ip-tos"] = types.YLeaf{"IpTos", l2TpClass.IpTos}
+    l2TpClass.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", l2TpClass.VrfName}
+    l2TpClass.EntityData.Leafs["receive-window-size"] = types.YLeaf{"ReceiveWindowSize", l2TpClass.ReceiveWindowSize}
+    l2TpClass.EntityData.Leafs["class-name-xr"] = types.YLeaf{"ClassNameXr", l2TpClass.ClassNameXr}
+    l2TpClass.EntityData.Leafs["digest-hash"] = types.YLeaf{"DigestHash", l2TpClass.DigestHash}
+    l2TpClass.EntityData.Leafs["password"] = types.YLeaf{"Password", l2TpClass.Password}
+    l2TpClass.EntityData.Leafs["encoded-password"] = types.YLeaf{"EncodedPassword", l2TpClass.EncodedPassword}
+    l2TpClass.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", l2TpClass.HostName}
+    l2TpClass.EntityData.Leafs["accounting-method-list"] = types.YLeaf{"AccountingMethodList", l2TpClass.AccountingMethodList}
+    l2TpClass.EntityData.Leafs["hello-timeout"] = types.YLeaf{"HelloTimeout", l2TpClass.HelloTimeout}
+    l2TpClass.EntityData.Leafs["setup-timeout"] = types.YLeaf{"SetupTimeout", l2TpClass.SetupTimeout}
+    l2TpClass.EntityData.Leafs["retransmit-minimum-timeout"] = types.YLeaf{"RetransmitMinimumTimeout", l2TpClass.RetransmitMinimumTimeout}
+    l2TpClass.EntityData.Leafs["retransmit-maximum-timeout"] = types.YLeaf{"RetransmitMaximumTimeout", l2TpClass.RetransmitMaximumTimeout}
+    l2TpClass.EntityData.Leafs["initial-retransmit-minimum-timeout"] = types.YLeaf{"InitialRetransmitMinimumTimeout", l2TpClass.InitialRetransmitMinimumTimeout}
+    l2TpClass.EntityData.Leafs["initial-retransmit-maximum-timeout"] = types.YLeaf{"InitialRetransmitMaximumTimeout", l2TpClass.InitialRetransmitMaximumTimeout}
+    l2TpClass.EntityData.Leafs["timeout-no-user"] = types.YLeaf{"TimeoutNoUser", l2TpClass.TimeoutNoUser}
+    l2TpClass.EntityData.Leafs["retransmit-retries"] = types.YLeaf{"RetransmitRetries", l2TpClass.RetransmitRetries}
+    l2TpClass.EntityData.Leafs["initial-retransmit-retries"] = types.YLeaf{"InitialRetransmitRetries", l2TpClass.InitialRetransmitRetries}
+    l2TpClass.EntityData.Leafs["is-authentication-enabled"] = types.YLeaf{"IsAuthenticationEnabled", l2TpClass.IsAuthenticationEnabled}
+    l2TpClass.EntityData.Leafs["is-hidden"] = types.YLeaf{"IsHidden", l2TpClass.IsHidden}
+    l2TpClass.EntityData.Leafs["is-digest-enabled"] = types.YLeaf{"IsDigestEnabled", l2TpClass.IsDigestEnabled}
+    l2TpClass.EntityData.Leafs["is-digest-check-enabled"] = types.YLeaf{"IsDigestCheckEnabled", l2TpClass.IsDigestCheckEnabled}
+    l2TpClass.EntityData.Leafs["is-congestion-control-enabled"] = types.YLeaf{"IsCongestionControlEnabled", l2TpClass.IsCongestionControlEnabled}
+    l2TpClass.EntityData.Leafs["is-peer-address-checked"] = types.YLeaf{"IsPeerAddressChecked", l2TpClass.IsPeerAddressChecked}
+    return &(l2TpClass.EntityData)
 }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetSegmentPath() string {
-    return "l2tp-class"
-}
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-tos"] = l2TpClass.IpTos
-    leafs["vrf-name"] = l2TpClass.VrfName
-    leafs["receive-window-size"] = l2TpClass.ReceiveWindowSize
-    leafs["class-name-xr"] = l2TpClass.ClassNameXr
-    leafs["digest-hash"] = l2TpClass.DigestHash
-    leafs["password"] = l2TpClass.Password
-    leafs["encoded-password"] = l2TpClass.EncodedPassword
-    leafs["host-name"] = l2TpClass.HostName
-    leafs["accounting-method-list"] = l2TpClass.AccountingMethodList
-    leafs["hello-timeout"] = l2TpClass.HelloTimeout
-    leafs["setup-timeout"] = l2TpClass.SetupTimeout
-    leafs["retransmit-minimum-timeout"] = l2TpClass.RetransmitMinimumTimeout
-    leafs["retransmit-maximum-timeout"] = l2TpClass.RetransmitMaximumTimeout
-    leafs["initial-retransmit-minimum-timeout"] = l2TpClass.InitialRetransmitMinimumTimeout
-    leafs["initial-retransmit-maximum-timeout"] = l2TpClass.InitialRetransmitMaximumTimeout
-    leafs["timeout-no-user"] = l2TpClass.TimeoutNoUser
-    leafs["retransmit-retries"] = l2TpClass.RetransmitRetries
-    leafs["initial-retransmit-retries"] = l2TpClass.InitialRetransmitRetries
-    leafs["is-authentication-enabled"] = l2TpClass.IsAuthenticationEnabled
-    leafs["is-hidden"] = l2TpClass.IsHidden
-    leafs["is-digest-enabled"] = l2TpClass.IsDigestEnabled
-    leafs["is-digest-check-enabled"] = l2TpClass.IsDigestCheckEnabled
-    leafs["is-congestion-control-enabled"] = l2TpClass.IsCongestionControlEnabled
-    leafs["is-peer-address-checked"] = l2TpClass.IsPeerAddressChecked
-    return leafs
-}
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetBundleName() string { return "cisco_ios_xr" }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetYangName() string { return "l2tp-class" }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) SetParent(parent types.Entity) { l2TpClass.parent = parent }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetParent() types.Entity { return l2TpClass.parent }
-
-func (l2TpClass *L2Tpv2_TunnelConfigurations_TunnelConfiguration_L2TpClass) GetParentYangName() string { return "tunnel-configuration" }
 
 // L2Tpv2_CounterHistFail
 // Failure events leading to disconnection
 type L2Tpv2_CounterHistFail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // sesions affected due to timeout. The type is interface{} with range:
@@ -8594,11 +5221,11 @@ type L2Tpv2_CounterHistFail struct {
     SessDownTmout interface{}
 
     // Send side counters. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     TxCounters interface{}
 
     // Receive side counters. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RxCounters interface{}
 
     // timeout events by packet. The type is slice of interface{} with range:
@@ -8606,130 +5233,58 @@ type L2Tpv2_CounterHistFail struct {
     PktTimeout []interface{}
 }
 
-func (counterHistFail *L2Tpv2_CounterHistFail) GetFilter() yfilter.YFilter { return counterHistFail.YFilter }
+func (counterHistFail *L2Tpv2_CounterHistFail) GetEntityData() *types.CommonEntityData {
+    counterHistFail.EntityData.YFilter = counterHistFail.YFilter
+    counterHistFail.EntityData.YangName = "counter-hist-fail"
+    counterHistFail.EntityData.BundleName = "cisco_ios_xr"
+    counterHistFail.EntityData.ParentYangName = "l2tpv2"
+    counterHistFail.EntityData.SegmentPath = "counter-hist-fail"
+    counterHistFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    counterHistFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (counterHistFail *L2Tpv2_CounterHistFail) SetFilter(yf yfilter.YFilter) { counterHistFail.YFilter = yf }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetGoName(yname string) string {
-    if yname == "sess-down-tmout" { return "SessDownTmout" }
-    if yname == "tx-counters" { return "TxCounters" }
-    if yname == "rx-counters" { return "RxCounters" }
-    if yname == "pkt-timeout" { return "PktTimeout" }
-    return ""
+    counterHistFail.EntityData.Children = make(map[string]types.YChild)
+    counterHistFail.EntityData.Leafs = make(map[string]types.YLeaf)
+    counterHistFail.EntityData.Leafs["sess-down-tmout"] = types.YLeaf{"SessDownTmout", counterHistFail.SessDownTmout}
+    counterHistFail.EntityData.Leafs["tx-counters"] = types.YLeaf{"TxCounters", counterHistFail.TxCounters}
+    counterHistFail.EntityData.Leafs["rx-counters"] = types.YLeaf{"RxCounters", counterHistFail.RxCounters}
+    counterHistFail.EntityData.Leafs["pkt-timeout"] = types.YLeaf{"PktTimeout", counterHistFail.PktTimeout}
+    return &(counterHistFail.EntityData)
 }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetSegmentPath() string {
-    return "counter-hist-fail"
-}
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sess-down-tmout"] = counterHistFail.SessDownTmout
-    leafs["tx-counters"] = counterHistFail.TxCounters
-    leafs["rx-counters"] = counterHistFail.RxCounters
-    leafs["pkt-timeout"] = counterHistFail.PktTimeout
-    return leafs
-}
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetYangName() string { return "counter-hist-fail" }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) SetParent(parent types.Entity) { counterHistFail.parent = parent }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetParent() types.Entity { return counterHistFail.parent }
-
-func (counterHistFail *L2Tpv2_CounterHistFail) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Classes
 // List of L2TP class names
 type L2Tpv2_Classes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP class name. The type is slice of L2Tpv2_Classes_Class.
     Class []L2Tpv2_Classes_Class
 }
 
-func (classes *L2Tpv2_Classes) GetFilter() yfilter.YFilter { return classes.YFilter }
+func (classes *L2Tpv2_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "l2tpv2"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classes *L2Tpv2_Classes) SetFilter(yf yfilter.YFilter) { classes.YFilter = yf }
-
-func (classes *L2Tpv2_Classes) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    return ""
-}
-
-func (classes *L2Tpv2_Classes) GetSegmentPath() string {
-    return "classes"
-}
-
-func (classes *L2Tpv2_Classes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class" {
-        for _, c := range classes.Class {
-            if classes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tpv2_Classes_Class{}
-        classes.Class = append(classes.Class, child)
-        return &classes.Class[len(classes.Class)-1]
-    }
-    return nil
-}
-
-func (classes *L2Tpv2_Classes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
     for i := range classes.Class {
-        children[classes.Class[i].GetSegmentPath()] = &classes.Class[i]
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
     }
-    return children
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
 }
-
-func (classes *L2Tpv2_Classes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (classes *L2Tpv2_Classes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classes *L2Tpv2_Classes) GetYangName() string { return "classes" }
-
-func (classes *L2Tpv2_Classes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classes *L2Tpv2_Classes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classes *L2Tpv2_Classes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classes *L2Tpv2_Classes) SetParent(parent types.Entity) { classes.parent = parent }
-
-func (classes *L2Tpv2_Classes) GetParent() types.Entity { return classes.parent }
-
-func (classes *L2Tpv2_Classes) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Classes_Class
 // L2TP class name
 type L2Tpv2_Classes_Class struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. L2TP class name. The type is string with length:
@@ -8816,172 +5371,79 @@ type L2Tpv2_Classes_Class struct {
     IsPeerAddressChecked interface{}
 }
 
-func (class *L2Tpv2_Classes_Class) GetFilter() yfilter.YFilter { return class.YFilter }
+func (class *L2Tpv2_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[class-name='" + fmt.Sprintf("%v", class.ClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (class *L2Tpv2_Classes_Class) SetFilter(yf yfilter.YFilter) { class.YFilter = yf }
-
-func (class *L2Tpv2_Classes_Class) GetGoName(yname string) string {
-    if yname == "class-name" { return "ClassName" }
-    if yname == "ip-tos" { return "IpTos" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "receive-window-size" { return "ReceiveWindowSize" }
-    if yname == "class-name-xr" { return "ClassNameXr" }
-    if yname == "digest-hash" { return "DigestHash" }
-    if yname == "password" { return "Password" }
-    if yname == "encoded-password" { return "EncodedPassword" }
-    if yname == "host-name" { return "HostName" }
-    if yname == "accounting-method-list" { return "AccountingMethodList" }
-    if yname == "hello-timeout" { return "HelloTimeout" }
-    if yname == "setup-timeout" { return "SetupTimeout" }
-    if yname == "retransmit-minimum-timeout" { return "RetransmitMinimumTimeout" }
-    if yname == "retransmit-maximum-timeout" { return "RetransmitMaximumTimeout" }
-    if yname == "initial-retransmit-minimum-timeout" { return "InitialRetransmitMinimumTimeout" }
-    if yname == "initial-retransmit-maximum-timeout" { return "InitialRetransmitMaximumTimeout" }
-    if yname == "timeout-no-user" { return "TimeoutNoUser" }
-    if yname == "retransmit-retries" { return "RetransmitRetries" }
-    if yname == "initial-retransmit-retries" { return "InitialRetransmitRetries" }
-    if yname == "is-authentication-enabled" { return "IsAuthenticationEnabled" }
-    if yname == "is-hidden" { return "IsHidden" }
-    if yname == "is-digest-enabled" { return "IsDigestEnabled" }
-    if yname == "is-digest-check-enabled" { return "IsDigestCheckEnabled" }
-    if yname == "is-congestion-control-enabled" { return "IsCongestionControlEnabled" }
-    if yname == "is-peer-address-checked" { return "IsPeerAddressChecked" }
-    return ""
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", class.ClassName}
+    class.EntityData.Leafs["ip-tos"] = types.YLeaf{"IpTos", class.IpTos}
+    class.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", class.VrfName}
+    class.EntityData.Leafs["receive-window-size"] = types.YLeaf{"ReceiveWindowSize", class.ReceiveWindowSize}
+    class.EntityData.Leafs["class-name-xr"] = types.YLeaf{"ClassNameXr", class.ClassNameXr}
+    class.EntityData.Leafs["digest-hash"] = types.YLeaf{"DigestHash", class.DigestHash}
+    class.EntityData.Leafs["password"] = types.YLeaf{"Password", class.Password}
+    class.EntityData.Leafs["encoded-password"] = types.YLeaf{"EncodedPassword", class.EncodedPassword}
+    class.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", class.HostName}
+    class.EntityData.Leafs["accounting-method-list"] = types.YLeaf{"AccountingMethodList", class.AccountingMethodList}
+    class.EntityData.Leafs["hello-timeout"] = types.YLeaf{"HelloTimeout", class.HelloTimeout}
+    class.EntityData.Leafs["setup-timeout"] = types.YLeaf{"SetupTimeout", class.SetupTimeout}
+    class.EntityData.Leafs["retransmit-minimum-timeout"] = types.YLeaf{"RetransmitMinimumTimeout", class.RetransmitMinimumTimeout}
+    class.EntityData.Leafs["retransmit-maximum-timeout"] = types.YLeaf{"RetransmitMaximumTimeout", class.RetransmitMaximumTimeout}
+    class.EntityData.Leafs["initial-retransmit-minimum-timeout"] = types.YLeaf{"InitialRetransmitMinimumTimeout", class.InitialRetransmitMinimumTimeout}
+    class.EntityData.Leafs["initial-retransmit-maximum-timeout"] = types.YLeaf{"InitialRetransmitMaximumTimeout", class.InitialRetransmitMaximumTimeout}
+    class.EntityData.Leafs["timeout-no-user"] = types.YLeaf{"TimeoutNoUser", class.TimeoutNoUser}
+    class.EntityData.Leafs["retransmit-retries"] = types.YLeaf{"RetransmitRetries", class.RetransmitRetries}
+    class.EntityData.Leafs["initial-retransmit-retries"] = types.YLeaf{"InitialRetransmitRetries", class.InitialRetransmitRetries}
+    class.EntityData.Leafs["is-authentication-enabled"] = types.YLeaf{"IsAuthenticationEnabled", class.IsAuthenticationEnabled}
+    class.EntityData.Leafs["is-hidden"] = types.YLeaf{"IsHidden", class.IsHidden}
+    class.EntityData.Leafs["is-digest-enabled"] = types.YLeaf{"IsDigestEnabled", class.IsDigestEnabled}
+    class.EntityData.Leafs["is-digest-check-enabled"] = types.YLeaf{"IsDigestCheckEnabled", class.IsDigestCheckEnabled}
+    class.EntityData.Leafs["is-congestion-control-enabled"] = types.YLeaf{"IsCongestionControlEnabled", class.IsCongestionControlEnabled}
+    class.EntityData.Leafs["is-peer-address-checked"] = types.YLeaf{"IsPeerAddressChecked", class.IsPeerAddressChecked}
+    return &(class.EntityData)
 }
-
-func (class *L2Tpv2_Classes_Class) GetSegmentPath() string {
-    return "class" + "[class-name='" + fmt.Sprintf("%v", class.ClassName) + "']"
-}
-
-func (class *L2Tpv2_Classes_Class) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (class *L2Tpv2_Classes_Class) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (class *L2Tpv2_Classes_Class) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class-name"] = class.ClassName
-    leafs["ip-tos"] = class.IpTos
-    leafs["vrf-name"] = class.VrfName
-    leafs["receive-window-size"] = class.ReceiveWindowSize
-    leafs["class-name-xr"] = class.ClassNameXr
-    leafs["digest-hash"] = class.DigestHash
-    leafs["password"] = class.Password
-    leafs["encoded-password"] = class.EncodedPassword
-    leafs["host-name"] = class.HostName
-    leafs["accounting-method-list"] = class.AccountingMethodList
-    leafs["hello-timeout"] = class.HelloTimeout
-    leafs["setup-timeout"] = class.SetupTimeout
-    leafs["retransmit-minimum-timeout"] = class.RetransmitMinimumTimeout
-    leafs["retransmit-maximum-timeout"] = class.RetransmitMaximumTimeout
-    leafs["initial-retransmit-minimum-timeout"] = class.InitialRetransmitMinimumTimeout
-    leafs["initial-retransmit-maximum-timeout"] = class.InitialRetransmitMaximumTimeout
-    leafs["timeout-no-user"] = class.TimeoutNoUser
-    leafs["retransmit-retries"] = class.RetransmitRetries
-    leafs["initial-retransmit-retries"] = class.InitialRetransmitRetries
-    leafs["is-authentication-enabled"] = class.IsAuthenticationEnabled
-    leafs["is-hidden"] = class.IsHidden
-    leafs["is-digest-enabled"] = class.IsDigestEnabled
-    leafs["is-digest-check-enabled"] = class.IsDigestCheckEnabled
-    leafs["is-congestion-control-enabled"] = class.IsCongestionControlEnabled
-    leafs["is-peer-address-checked"] = class.IsPeerAddressChecked
-    return leafs
-}
-
-func (class *L2Tpv2_Classes_Class) GetBundleName() string { return "cisco_ios_xr" }
-
-func (class *L2Tpv2_Classes_Class) GetYangName() string { return "class" }
-
-func (class *L2Tpv2_Classes_Class) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (class *L2Tpv2_Classes_Class) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (class *L2Tpv2_Classes_Class) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (class *L2Tpv2_Classes_Class) SetParent(parent types.Entity) { class.parent = parent }
-
-func (class *L2Tpv2_Classes_Class) GetParent() types.Entity { return class.parent }
-
-func (class *L2Tpv2_Classes_Class) GetParentYangName() string { return "classes" }
 
 // L2Tpv2_Tunnels
 // List of tunnel IDs
 type L2Tpv2_Tunnels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel  information. The type is slice of L2Tpv2_Tunnels_Tunnel.
     Tunnel []L2Tpv2_Tunnels_Tunnel
 }
 
-func (tunnels *L2Tpv2_Tunnels) GetFilter() yfilter.YFilter { return tunnels.YFilter }
+func (tunnels *L2Tpv2_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "cisco_ios_xr"
+    tunnels.EntityData.ParentYangName = "l2tpv2"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnels *L2Tpv2_Tunnels) SetFilter(yf yfilter.YFilter) { tunnels.YFilter = yf }
-
-func (tunnels *L2Tpv2_Tunnels) GetGoName(yname string) string {
-    if yname == "tunnel" { return "Tunnel" }
-    return ""
-}
-
-func (tunnels *L2Tpv2_Tunnels) GetSegmentPath() string {
-    return "tunnels"
-}
-
-func (tunnels *L2Tpv2_Tunnels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel" {
-        for _, c := range tunnels.Tunnel {
-            if tunnels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tpv2_Tunnels_Tunnel{}
-        tunnels.Tunnel = append(tunnels.Tunnel, child)
-        return &tunnels.Tunnel[len(tunnels.Tunnel)-1]
-    }
-    return nil
-}
-
-func (tunnels *L2Tpv2_Tunnels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnels.EntityData.Children = make(map[string]types.YChild)
+    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
     for i := range tunnels.Tunnel {
-        children[tunnels.Tunnel[i].GetSegmentPath()] = &tunnels.Tunnel[i]
+        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
     }
-    return children
+    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnels.EntityData)
 }
-
-func (tunnels *L2Tpv2_Tunnels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnels *L2Tpv2_Tunnels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnels *L2Tpv2_Tunnels) GetYangName() string { return "tunnels" }
-
-func (tunnels *L2Tpv2_Tunnels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnels *L2Tpv2_Tunnels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnels *L2Tpv2_Tunnels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnels *L2Tpv2_Tunnels) SetParent(parent types.Entity) { tunnels.parent = parent }
-
-func (tunnels *L2Tpv2_Tunnels) GetParent() types.Entity { return tunnels.parent }
-
-func (tunnels *L2Tpv2_Tunnels) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Tunnels_Tunnel
 // L2TP tunnel  information
 type L2Tpv2_Tunnels_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -8989,11 +5451,11 @@ type L2Tpv2_Tunnels_Tunnel struct {
     LocalTunnelId interface{}
 
     // Local tunnel address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Remote tunnel address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteAddress interface{}
 
     // Local port. The type is interface{} with range: 0..65535.
@@ -9097,120 +5559,58 @@ type L2Tpv2_Tunnels_Tunnel struct {
     RetransmitTime []interface{}
 }
 
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *L2Tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnel.LocalTunnelId) + "']"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *L2Tpv2_Tunnels_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetGoName(yname string) string {
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "remote-address" { return "RemoteAddress" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "remote-port" { return "RemotePort" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "is-pmtu-enabled" { return "IsPmtuEnabled" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "local-tunnel-name" { return "LocalTunnelName" }
-    if yname == "remote-tunnel-name" { return "RemoteTunnelName" }
-    if yname == "class-name" { return "ClassName" }
-    if yname == "active-sessions" { return "ActiveSessions" }
-    if yname == "sequence-ns" { return "SequenceNs" }
-    if yname == "sequence-nr" { return "SequenceNr" }
-    if yname == "local-window-size" { return "LocalWindowSize" }
-    if yname == "remote-window-size" { return "RemoteWindowSize" }
-    if yname == "retransmission-time" { return "RetransmissionTime" }
-    if yname == "maximum-retransmission-time" { return "MaximumRetransmissionTime" }
-    if yname == "unsent-queue-size" { return "UnsentQueueSize" }
-    if yname == "unsent-maximum-queue-size" { return "UnsentMaximumQueueSize" }
-    if yname == "resend-queue-size" { return "ResendQueueSize" }
-    if yname == "resend-maximum-queue-size" { return "ResendMaximumQueueSize" }
-    if yname == "order-queue-size" { return "OrderQueueSize" }
-    if yname == "packet-queue-check" { return "PacketQueueCheck" }
-    if yname == "digest-secrets" { return "DigestSecrets" }
-    if yname == "resends" { return "Resends" }
-    if yname == "zero-length-body-acknowledgement-sent" { return "ZeroLengthBodyAcknowledgementSent" }
-    if yname == "total-out-of-order-drop-packets" { return "TotalOutOfOrderDropPackets" }
-    if yname == "total-out-of-order-reorder-packets" { return "TotalOutOfOrderReorderPackets" }
-    if yname == "total-peer-authentication-failures" { return "TotalPeerAuthenticationFailures" }
-    if yname == "is-tunnel-up" { return "IsTunnelUp" }
-    if yname == "is-congestion-control-enabled" { return "IsCongestionControlEnabled" }
-    if yname == "retransmit-time" { return "RetransmitTime" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnel.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", tunnel.LocalTunnelId}
+    tunnel.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", tunnel.LocalAddress}
+    tunnel.EntityData.Leafs["remote-address"] = types.YLeaf{"RemoteAddress", tunnel.RemoteAddress}
+    tunnel.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", tunnel.LocalPort}
+    tunnel.EntityData.Leafs["remote-port"] = types.YLeaf{"RemotePort", tunnel.RemotePort}
+    tunnel.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", tunnel.Protocol}
+    tunnel.EntityData.Leafs["is-pmtu-enabled"] = types.YLeaf{"IsPmtuEnabled", tunnel.IsPmtuEnabled}
+    tunnel.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", tunnel.RemoteTunnelId}
+    tunnel.EntityData.Leafs["local-tunnel-name"] = types.YLeaf{"LocalTunnelName", tunnel.LocalTunnelName}
+    tunnel.EntityData.Leafs["remote-tunnel-name"] = types.YLeaf{"RemoteTunnelName", tunnel.RemoteTunnelName}
+    tunnel.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", tunnel.ClassName}
+    tunnel.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", tunnel.ActiveSessions}
+    tunnel.EntityData.Leafs["sequence-ns"] = types.YLeaf{"SequenceNs", tunnel.SequenceNs}
+    tunnel.EntityData.Leafs["sequence-nr"] = types.YLeaf{"SequenceNr", tunnel.SequenceNr}
+    tunnel.EntityData.Leafs["local-window-size"] = types.YLeaf{"LocalWindowSize", tunnel.LocalWindowSize}
+    tunnel.EntityData.Leafs["remote-window-size"] = types.YLeaf{"RemoteWindowSize", tunnel.RemoteWindowSize}
+    tunnel.EntityData.Leafs["retransmission-time"] = types.YLeaf{"RetransmissionTime", tunnel.RetransmissionTime}
+    tunnel.EntityData.Leafs["maximum-retransmission-time"] = types.YLeaf{"MaximumRetransmissionTime", tunnel.MaximumRetransmissionTime}
+    tunnel.EntityData.Leafs["unsent-queue-size"] = types.YLeaf{"UnsentQueueSize", tunnel.UnsentQueueSize}
+    tunnel.EntityData.Leafs["unsent-maximum-queue-size"] = types.YLeaf{"UnsentMaximumQueueSize", tunnel.UnsentMaximumQueueSize}
+    tunnel.EntityData.Leafs["resend-queue-size"] = types.YLeaf{"ResendQueueSize", tunnel.ResendQueueSize}
+    tunnel.EntityData.Leafs["resend-maximum-queue-size"] = types.YLeaf{"ResendMaximumQueueSize", tunnel.ResendMaximumQueueSize}
+    tunnel.EntityData.Leafs["order-queue-size"] = types.YLeaf{"OrderQueueSize", tunnel.OrderQueueSize}
+    tunnel.EntityData.Leafs["packet-queue-check"] = types.YLeaf{"PacketQueueCheck", tunnel.PacketQueueCheck}
+    tunnel.EntityData.Leafs["digest-secrets"] = types.YLeaf{"DigestSecrets", tunnel.DigestSecrets}
+    tunnel.EntityData.Leafs["resends"] = types.YLeaf{"Resends", tunnel.Resends}
+    tunnel.EntityData.Leafs["zero-length-body-acknowledgement-sent"] = types.YLeaf{"ZeroLengthBodyAcknowledgementSent", tunnel.ZeroLengthBodyAcknowledgementSent}
+    tunnel.EntityData.Leafs["total-out-of-order-drop-packets"] = types.YLeaf{"TotalOutOfOrderDropPackets", tunnel.TotalOutOfOrderDropPackets}
+    tunnel.EntityData.Leafs["total-out-of-order-reorder-packets"] = types.YLeaf{"TotalOutOfOrderReorderPackets", tunnel.TotalOutOfOrderReorderPackets}
+    tunnel.EntityData.Leafs["total-peer-authentication-failures"] = types.YLeaf{"TotalPeerAuthenticationFailures", tunnel.TotalPeerAuthenticationFailures}
+    tunnel.EntityData.Leafs["is-tunnel-up"] = types.YLeaf{"IsTunnelUp", tunnel.IsTunnelUp}
+    tunnel.EntityData.Leafs["is-congestion-control-enabled"] = types.YLeaf{"IsCongestionControlEnabled", tunnel.IsCongestionControlEnabled}
+    tunnel.EntityData.Leafs["retransmit-time"] = types.YLeaf{"RetransmitTime", tunnel.RetransmitTime}
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetSegmentPath() string {
-    return "tunnel" + "[local-tunnel-id='" + fmt.Sprintf("%v", tunnel.LocalTunnelId) + "']"
-}
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-tunnel-id"] = tunnel.LocalTunnelId
-    leafs["local-address"] = tunnel.LocalAddress
-    leafs["remote-address"] = tunnel.RemoteAddress
-    leafs["local-port"] = tunnel.LocalPort
-    leafs["remote-port"] = tunnel.RemotePort
-    leafs["protocol"] = tunnel.Protocol
-    leafs["is-pmtu-enabled"] = tunnel.IsPmtuEnabled
-    leafs["remote-tunnel-id"] = tunnel.RemoteTunnelId
-    leafs["local-tunnel-name"] = tunnel.LocalTunnelName
-    leafs["remote-tunnel-name"] = tunnel.RemoteTunnelName
-    leafs["class-name"] = tunnel.ClassName
-    leafs["active-sessions"] = tunnel.ActiveSessions
-    leafs["sequence-ns"] = tunnel.SequenceNs
-    leafs["sequence-nr"] = tunnel.SequenceNr
-    leafs["local-window-size"] = tunnel.LocalWindowSize
-    leafs["remote-window-size"] = tunnel.RemoteWindowSize
-    leafs["retransmission-time"] = tunnel.RetransmissionTime
-    leafs["maximum-retransmission-time"] = tunnel.MaximumRetransmissionTime
-    leafs["unsent-queue-size"] = tunnel.UnsentQueueSize
-    leafs["unsent-maximum-queue-size"] = tunnel.UnsentMaximumQueueSize
-    leafs["resend-queue-size"] = tunnel.ResendQueueSize
-    leafs["resend-maximum-queue-size"] = tunnel.ResendMaximumQueueSize
-    leafs["order-queue-size"] = tunnel.OrderQueueSize
-    leafs["packet-queue-check"] = tunnel.PacketQueueCheck
-    leafs["digest-secrets"] = tunnel.DigestSecrets
-    leafs["resends"] = tunnel.Resends
-    leafs["zero-length-body-acknowledgement-sent"] = tunnel.ZeroLengthBodyAcknowledgementSent
-    leafs["total-out-of-order-drop-packets"] = tunnel.TotalOutOfOrderDropPackets
-    leafs["total-out-of-order-reorder-packets"] = tunnel.TotalOutOfOrderReorderPackets
-    leafs["total-peer-authentication-failures"] = tunnel.TotalPeerAuthenticationFailures
-    leafs["is-tunnel-up"] = tunnel.IsTunnelUp
-    leafs["is-congestion-control-enabled"] = tunnel.IsCongestionControlEnabled
-    leafs["retransmit-time"] = tunnel.RetransmitTime
-    return leafs
-}
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *L2Tpv2_Tunnels_Tunnel) GetParentYangName() string { return "tunnels" }
 
 // L2Tpv2_Sessions
 // List of session IDs
 type L2Tpv2_Sessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP information for a particular session. The type is slice of
@@ -9218,68 +5618,29 @@ type L2Tpv2_Sessions struct {
     Session []L2Tpv2_Sessions_Session
 }
 
-func (sessions *L2Tpv2_Sessions) GetFilter() yfilter.YFilter { return sessions.YFilter }
+func (sessions *L2Tpv2_Sessions) GetEntityData() *types.CommonEntityData {
+    sessions.EntityData.YFilter = sessions.YFilter
+    sessions.EntityData.YangName = "sessions"
+    sessions.EntityData.BundleName = "cisco_ios_xr"
+    sessions.EntityData.ParentYangName = "l2tpv2"
+    sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessions *L2Tpv2_Sessions) SetFilter(yf yfilter.YFilter) { sessions.YFilter = yf }
-
-func (sessions *L2Tpv2_Sessions) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    return ""
-}
-
-func (sessions *L2Tpv2_Sessions) GetSegmentPath() string {
-    return "sessions"
-}
-
-func (sessions *L2Tpv2_Sessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        for _, c := range sessions.Session {
-            if sessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := L2Tpv2_Sessions_Session{}
-        sessions.Session = append(sessions.Session, child)
-        return &sessions.Session[len(sessions.Session)-1]
-    }
-    return nil
-}
-
-func (sessions *L2Tpv2_Sessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessions.EntityData.Children = make(map[string]types.YChild)
+    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
     for i := range sessions.Session {
-        children[sessions.Session[i].GetSegmentPath()] = &sessions.Session[i]
+        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
     }
-    return children
+    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessions.EntityData)
 }
-
-func (sessions *L2Tpv2_Sessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessions *L2Tpv2_Sessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessions *L2Tpv2_Sessions) GetYangName() string { return "sessions" }
-
-func (sessions *L2Tpv2_Sessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessions *L2Tpv2_Sessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessions *L2Tpv2_Sessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessions *L2Tpv2_Sessions) SetParent(parent types.Entity) { sessions.parent = parent }
-
-func (sessions *L2Tpv2_Sessions) GetParent() types.Entity { return sessions.parent }
-
-func (sessions *L2Tpv2_Sessions) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Sessions_Session
 // L2TP information for a particular session
 type L2Tpv2_Sessions_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local tunnel ID. The type is interface{} with
@@ -9291,11 +5652,11 @@ type L2Tpv2_Sessions_Session struct {
     LocalSessionId interface{}
 
     // Local session IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalIpAddress interface{}
 
     // Remote session IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteIpAddress interface{}
 
     // l2tp sh sess udp lport. The type is interface{} with range: 0..65535.
@@ -9361,105 +5722,49 @@ type L2Tpv2_Sessions_Session struct {
     SessionApplicationData L2Tpv2_Sessions_Session_SessionApplicationData
 }
 
-func (session *L2Tpv2_Sessions_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *L2Tpv2_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + "[local-tunnel-id='" + fmt.Sprintf("%v", session.LocalTunnelId) + "']" + "[local-session-id='" + fmt.Sprintf("%v", session.LocalSessionId) + "']"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *L2Tpv2_Sessions_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *L2Tpv2_Sessions_Session) GetGoName(yname string) string {
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "local-session-id" { return "LocalSessionId" }
-    if yname == "local-ip-address" { return "LocalIpAddress" }
-    if yname == "remote-ip-address" { return "RemoteIpAddress" }
-    if yname == "l2tp-sh-sess-udp-lport" { return "L2TpShSessUdpLport" }
-    if yname == "l2tp-sh-sess-udp-rport" { return "L2TpShSessUdpRport" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "call-serial-number" { return "CallSerialNumber" }
-    if yname == "local-tunnel-name" { return "LocalTunnelName" }
-    if yname == "remote-tunnel-name" { return "RemoteTunnelName" }
-    if yname == "remote-session-id" { return "RemoteSessionId" }
-    if yname == "l2tp-sh-sess-tie-breaker-enabled" { return "L2TpShSessTieBreakerEnabled" }
-    if yname == "l2tp-sh-sess-tie-breaker" { return "L2TpShSessTieBreaker" }
-    if yname == "is-session-manual" { return "IsSessionManual" }
-    if yname == "is-session-up" { return "IsSessionUp" }
-    if yname == "is-udp-checksum-enabled" { return "IsUdpChecksumEnabled" }
-    if yname == "is-sequencing-on" { return "IsSequencingOn" }
-    if yname == "is-session-state-established" { return "IsSessionStateEstablished" }
-    if yname == "is-session-locally-initiated" { return "IsSessionLocallyInitiated" }
-    if yname == "is-conditional-debug-enabled" { return "IsConditionalDebugEnabled" }
-    if yname == "unique-id" { return "UniqueId" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "session-application-data" { return "SessionApplicationData" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["session-application-data"] = types.YChild{"SessionApplicationData", &session.SessionApplicationData}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", session.LocalTunnelId}
+    session.EntityData.Leafs["local-session-id"] = types.YLeaf{"LocalSessionId", session.LocalSessionId}
+    session.EntityData.Leafs["local-ip-address"] = types.YLeaf{"LocalIpAddress", session.LocalIpAddress}
+    session.EntityData.Leafs["remote-ip-address"] = types.YLeaf{"RemoteIpAddress", session.RemoteIpAddress}
+    session.EntityData.Leafs["l2tp-sh-sess-udp-lport"] = types.YLeaf{"L2TpShSessUdpLport", session.L2TpShSessUdpLport}
+    session.EntityData.Leafs["l2tp-sh-sess-udp-rport"] = types.YLeaf{"L2TpShSessUdpRport", session.L2TpShSessUdpRport}
+    session.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", session.Protocol}
+    session.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", session.RemoteTunnelId}
+    session.EntityData.Leafs["call-serial-number"] = types.YLeaf{"CallSerialNumber", session.CallSerialNumber}
+    session.EntityData.Leafs["local-tunnel-name"] = types.YLeaf{"LocalTunnelName", session.LocalTunnelName}
+    session.EntityData.Leafs["remote-tunnel-name"] = types.YLeaf{"RemoteTunnelName", session.RemoteTunnelName}
+    session.EntityData.Leafs["remote-session-id"] = types.YLeaf{"RemoteSessionId", session.RemoteSessionId}
+    session.EntityData.Leafs["l2tp-sh-sess-tie-breaker-enabled"] = types.YLeaf{"L2TpShSessTieBreakerEnabled", session.L2TpShSessTieBreakerEnabled}
+    session.EntityData.Leafs["l2tp-sh-sess-tie-breaker"] = types.YLeaf{"L2TpShSessTieBreaker", session.L2TpShSessTieBreaker}
+    session.EntityData.Leafs["is-session-manual"] = types.YLeaf{"IsSessionManual", session.IsSessionManual}
+    session.EntityData.Leafs["is-session-up"] = types.YLeaf{"IsSessionUp", session.IsSessionUp}
+    session.EntityData.Leafs["is-udp-checksum-enabled"] = types.YLeaf{"IsUdpChecksumEnabled", session.IsUdpChecksumEnabled}
+    session.EntityData.Leafs["is-sequencing-on"] = types.YLeaf{"IsSequencingOn", session.IsSequencingOn}
+    session.EntityData.Leafs["is-session-state-established"] = types.YLeaf{"IsSessionStateEstablished", session.IsSessionStateEstablished}
+    session.EntityData.Leafs["is-session-locally-initiated"] = types.YLeaf{"IsSessionLocallyInitiated", session.IsSessionLocallyInitiated}
+    session.EntityData.Leafs["is-conditional-debug-enabled"] = types.YLeaf{"IsConditionalDebugEnabled", session.IsConditionalDebugEnabled}
+    session.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", session.UniqueId}
+    session.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", session.InterfaceName}
+    return &(session.EntityData)
 }
-
-func (session *L2Tpv2_Sessions_Session) GetSegmentPath() string {
-    return "session" + "[local-tunnel-id='" + fmt.Sprintf("%v", session.LocalTunnelId) + "']" + "[local-session-id='" + fmt.Sprintf("%v", session.LocalSessionId) + "']"
-}
-
-func (session *L2Tpv2_Sessions_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session-application-data" {
-        return &session.SessionApplicationData
-    }
-    return nil
-}
-
-func (session *L2Tpv2_Sessions_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session-application-data"] = &session.SessionApplicationData
-    return children
-}
-
-func (session *L2Tpv2_Sessions_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-tunnel-id"] = session.LocalTunnelId
-    leafs["local-session-id"] = session.LocalSessionId
-    leafs["local-ip-address"] = session.LocalIpAddress
-    leafs["remote-ip-address"] = session.RemoteIpAddress
-    leafs["l2tp-sh-sess-udp-lport"] = session.L2TpShSessUdpLport
-    leafs["l2tp-sh-sess-udp-rport"] = session.L2TpShSessUdpRport
-    leafs["protocol"] = session.Protocol
-    leafs["remote-tunnel-id"] = session.RemoteTunnelId
-    leafs["call-serial-number"] = session.CallSerialNumber
-    leafs["local-tunnel-name"] = session.LocalTunnelName
-    leafs["remote-tunnel-name"] = session.RemoteTunnelName
-    leafs["remote-session-id"] = session.RemoteSessionId
-    leafs["l2tp-sh-sess-tie-breaker-enabled"] = session.L2TpShSessTieBreakerEnabled
-    leafs["l2tp-sh-sess-tie-breaker"] = session.L2TpShSessTieBreaker
-    leafs["is-session-manual"] = session.IsSessionManual
-    leafs["is-session-up"] = session.IsSessionUp
-    leafs["is-udp-checksum-enabled"] = session.IsUdpChecksumEnabled
-    leafs["is-sequencing-on"] = session.IsSequencingOn
-    leafs["is-session-state-established"] = session.IsSessionStateEstablished
-    leafs["is-session-locally-initiated"] = session.IsSessionLocallyInitiated
-    leafs["is-conditional-debug-enabled"] = session.IsConditionalDebugEnabled
-    leafs["unique-id"] = session.UniqueId
-    leafs["interface-name"] = session.InterfaceName
-    return leafs
-}
-
-func (session *L2Tpv2_Sessions_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *L2Tpv2_Sessions_Session) GetYangName() string { return "session" }
-
-func (session *L2Tpv2_Sessions_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *L2Tpv2_Sessions_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *L2Tpv2_Sessions_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *L2Tpv2_Sessions_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *L2Tpv2_Sessions_Session) GetParent() types.Entity { return session.parent }
-
-func (session *L2Tpv2_Sessions_Session) GetParentYangName() string { return "sessions" }
 
 // L2Tpv2_Sessions_Session_SessionApplicationData
 // Session application data
 type L2Tpv2_Sessions_Session_SessionApplicationData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // l2tp sh sess app type. The type is interface{} with range: 0..4294967295.
@@ -9472,66 +5777,28 @@ type L2Tpv2_Sessions_Session_SessionApplicationData struct {
     Vpdn L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn
 }
 
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetFilter() yfilter.YFilter { return sessionApplicationData.YFilter }
+func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetEntityData() *types.CommonEntityData {
+    sessionApplicationData.EntityData.YFilter = sessionApplicationData.YFilter
+    sessionApplicationData.EntityData.YangName = "session-application-data"
+    sessionApplicationData.EntityData.BundleName = "cisco_ios_xr"
+    sessionApplicationData.EntityData.ParentYangName = "session"
+    sessionApplicationData.EntityData.SegmentPath = "session-application-data"
+    sessionApplicationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionApplicationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionApplicationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) SetFilter(yf yfilter.YFilter) { sessionApplicationData.YFilter = yf }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetGoName(yname string) string {
-    if yname == "l2tp-sh-sess-app-type" { return "L2TpShSessAppType" }
-    if yname == "xconnect" { return "Xconnect" }
-    if yname == "vpdn" { return "Vpdn" }
-    return ""
+    sessionApplicationData.EntityData.Children = make(map[string]types.YChild)
+    sessionApplicationData.EntityData.Children["xconnect"] = types.YChild{"Xconnect", &sessionApplicationData.Xconnect}
+    sessionApplicationData.EntityData.Children["vpdn"] = types.YChild{"Vpdn", &sessionApplicationData.Vpdn}
+    sessionApplicationData.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionApplicationData.EntityData.Leafs["l2tp-sh-sess-app-type"] = types.YLeaf{"L2TpShSessAppType", sessionApplicationData.L2TpShSessAppType}
+    return &(sessionApplicationData.EntityData)
 }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetSegmentPath() string {
-    return "session-application-data"
-}
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "xconnect" {
-        return &sessionApplicationData.Xconnect
-    }
-    if childYangName == "vpdn" {
-        return &sessionApplicationData.Vpdn
-    }
-    return nil
-}
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["xconnect"] = &sessionApplicationData.Xconnect
-    children["vpdn"] = &sessionApplicationData.Vpdn
-    return children
-}
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["l2tp-sh-sess-app-type"] = sessionApplicationData.L2TpShSessAppType
-    return leafs
-}
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetYangName() string { return "session-application-data" }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) SetParent(parent types.Entity) { sessionApplicationData.parent = parent }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetParent() types.Entity { return sessionApplicationData.parent }
-
-func (sessionApplicationData *L2Tpv2_Sessions_Session_SessionApplicationData) GetParentYangName() string { return "session" }
 
 // L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect
 // Xconnect data
 type L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Circuit name. The type is string.
@@ -9553,186 +5820,87 @@ type L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect struct {
     Ipv6ProtocolTunneling interface{}
 }
 
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetFilter() yfilter.YFilter { return xconnect.YFilter }
+func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetEntityData() *types.CommonEntityData {
+    xconnect.EntityData.YFilter = xconnect.YFilter
+    xconnect.EntityData.YangName = "xconnect"
+    xconnect.EntityData.BundleName = "cisco_ios_xr"
+    xconnect.EntityData.ParentYangName = "session-application-data"
+    xconnect.EntityData.SegmentPath = "xconnect"
+    xconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    xconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    xconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) SetFilter(yf yfilter.YFilter) { xconnect.YFilter = yf }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetGoName(yname string) string {
-    if yname == "circuit-name" { return "CircuitName" }
-    if yname == "sessionvc-id" { return "SessionvcId" }
-    if yname == "is-circuit-state-up" { return "IsCircuitStateUp" }
-    if yname == "is-local-circuit-state-up" { return "IsLocalCircuitStateUp" }
-    if yname == "is-remote-circuit-state-up" { return "IsRemoteCircuitStateUp" }
-    if yname == "ipv6-protocol-tunneling" { return "Ipv6ProtocolTunneling" }
-    return ""
+    xconnect.EntityData.Children = make(map[string]types.YChild)
+    xconnect.EntityData.Leafs = make(map[string]types.YLeaf)
+    xconnect.EntityData.Leafs["circuit-name"] = types.YLeaf{"CircuitName", xconnect.CircuitName}
+    xconnect.EntityData.Leafs["sessionvc-id"] = types.YLeaf{"SessionvcId", xconnect.SessionvcId}
+    xconnect.EntityData.Leafs["is-circuit-state-up"] = types.YLeaf{"IsCircuitStateUp", xconnect.IsCircuitStateUp}
+    xconnect.EntityData.Leafs["is-local-circuit-state-up"] = types.YLeaf{"IsLocalCircuitStateUp", xconnect.IsLocalCircuitStateUp}
+    xconnect.EntityData.Leafs["is-remote-circuit-state-up"] = types.YLeaf{"IsRemoteCircuitStateUp", xconnect.IsRemoteCircuitStateUp}
+    xconnect.EntityData.Leafs["ipv6-protocol-tunneling"] = types.YLeaf{"Ipv6ProtocolTunneling", xconnect.Ipv6ProtocolTunneling}
+    return &(xconnect.EntityData)
 }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetSegmentPath() string {
-    return "xconnect"
-}
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["circuit-name"] = xconnect.CircuitName
-    leafs["sessionvc-id"] = xconnect.SessionvcId
-    leafs["is-circuit-state-up"] = xconnect.IsCircuitStateUp
-    leafs["is-local-circuit-state-up"] = xconnect.IsLocalCircuitStateUp
-    leafs["is-remote-circuit-state-up"] = xconnect.IsRemoteCircuitStateUp
-    leafs["ipv6-protocol-tunneling"] = xconnect.Ipv6ProtocolTunneling
-    return leafs
-}
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetBundleName() string { return "cisco_ios_xr" }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetYangName() string { return "xconnect" }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) SetParent(parent types.Entity) { xconnect.parent = parent }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetParent() types.Entity { return xconnect.parent }
-
-func (xconnect *L2Tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetParentYangName() string { return "session-application-data" }
 
 // L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn
 // VPDN data
 type L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session username. The type is string.
     Username interface{}
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 }
 
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetFilter() yfilter.YFilter { return vpdn.YFilter }
+func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *types.CommonEntityData {
+    vpdn.EntityData.YFilter = vpdn.YFilter
+    vpdn.EntityData.YangName = "vpdn"
+    vpdn.EntityData.BundleName = "cisco_ios_xr"
+    vpdn.EntityData.ParentYangName = "session-application-data"
+    vpdn.EntityData.SegmentPath = "vpdn"
+    vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) SetFilter(yf yfilter.YFilter) { vpdn.YFilter = yf }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetGoName(yname string) string {
-    if yname == "username" { return "Username" }
-    if yname == "interface-name" { return "InterfaceName" }
-    return ""
+    vpdn.EntityData.Children = make(map[string]types.YChild)
+    vpdn.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpdn.EntityData.Leafs["username"] = types.YLeaf{"Username", vpdn.Username}
+    vpdn.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", vpdn.InterfaceName}
+    return &(vpdn.EntityData)
 }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetSegmentPath() string {
-    return "vpdn"
-}
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["username"] = vpdn.Username
-    leafs["interface-name"] = vpdn.InterfaceName
-    return leafs
-}
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetYangName() string { return "vpdn" }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) SetParent(parent types.Entity) { vpdn.parent = parent }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetParent() types.Entity { return vpdn.parent }
-
-func (vpdn *L2Tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetParentYangName() string { return "session-application-data" }
 
 // L2Tpv2_Session
 // L2TP control messages counters
 type L2Tpv2_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP session unavailable  information.
     Unavailable L2Tpv2_Session_Unavailable
 }
 
-func (session *L2Tpv2_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *L2Tpv2_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "l2tpv2"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *L2Tpv2_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *L2Tpv2_Session) GetGoName(yname string) string {
-    if yname == "unavailable" { return "Unavailable" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["unavailable"] = types.YChild{"Unavailable", &session.Unavailable}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(session.EntityData)
 }
-
-func (session *L2Tpv2_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *L2Tpv2_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "unavailable" {
-        return &session.Unavailable
-    }
-    return nil
-}
-
-func (session *L2Tpv2_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["unavailable"] = &session.Unavailable
-    return children
-}
-
-func (session *L2Tpv2_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (session *L2Tpv2_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *L2Tpv2_Session) GetYangName() string { return "session" }
-
-func (session *L2Tpv2_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *L2Tpv2_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *L2Tpv2_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *L2Tpv2_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *L2Tpv2_Session) GetParent() types.Entity { return session.parent }
-
-func (session *L2Tpv2_Session) GetParentYangName() string { return "l2tpv2" }
 
 // L2Tpv2_Session_Unavailable
 // L2TP session unavailable  information
 type L2Tpv2_Session_Unavailable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of session ID in hold database. The type is interface{} with range:
@@ -9740,49 +5908,19 @@ type L2Tpv2_Session_Unavailable struct {
     SessionsOnHold interface{}
 }
 
-func (unavailable *L2Tpv2_Session_Unavailable) GetFilter() yfilter.YFilter { return unavailable.YFilter }
+func (unavailable *L2Tpv2_Session_Unavailable) GetEntityData() *types.CommonEntityData {
+    unavailable.EntityData.YFilter = unavailable.YFilter
+    unavailable.EntityData.YangName = "unavailable"
+    unavailable.EntityData.BundleName = "cisco_ios_xr"
+    unavailable.EntityData.ParentYangName = "session"
+    unavailable.EntityData.SegmentPath = "unavailable"
+    unavailable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    unavailable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    unavailable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (unavailable *L2Tpv2_Session_Unavailable) SetFilter(yf yfilter.YFilter) { unavailable.YFilter = yf }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetGoName(yname string) string {
-    if yname == "sessions-on-hold" { return "SessionsOnHold" }
-    return ""
+    unavailable.EntityData.Children = make(map[string]types.YChild)
+    unavailable.EntityData.Leafs = make(map[string]types.YLeaf)
+    unavailable.EntityData.Leafs["sessions-on-hold"] = types.YLeaf{"SessionsOnHold", unavailable.SessionsOnHold}
+    return &(unavailable.EntityData)
 }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetSegmentPath() string {
-    return "unavailable"
-}
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sessions-on-hold"] = unavailable.SessionsOnHold
-    return leafs
-}
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetYangName() string { return "unavailable" }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (unavailable *L2Tpv2_Session_Unavailable) SetParent(parent types.Entity) { unavailable.parent = parent }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetParent() types.Entity { return unavailable.parent }
-
-func (unavailable *L2Tpv2_Session_Unavailable) GetParentYangName() string { return "session" }
 

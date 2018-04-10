@@ -13,6 +13,20 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package bgp_route_oper"))
 }
 
+// BgpOriginCode represents BGP origin code
+type BgpOriginCode string
+
+const (
+    // BGP origin code IGP
+    BgpOriginCode_origin_igp BgpOriginCode = "origin-igp"
+
+    // BGP origin code EGP
+    BgpOriginCode_origin_egp BgpOriginCode = "origin-egp"
+
+    // BGP origin code incomplete
+    BgpOriginCode_origin_incomplete BgpOriginCode = "origin-incomplete"
+)
+
 // BgpRpkiStatus represents BGP RPKI status
 type BgpRpkiStatus string
 
@@ -63,17 +77,20 @@ const (
     BgpRouteFilters_bgp_rf_pending BgpRouteFilters = "bgp-rf-pending"
 )
 
-// BgpOriginCode represents BGP origin code
-type BgpOriginCode string
+// BgpNeighborRouteFilters represents BGP neighbor route filters
+type BgpNeighborRouteFilters string
 
 const (
-    // BGP origin code IGP
-    BgpOriginCode_origin_igp BgpOriginCode = "origin-igp"
+    // BGP received routes post policy
+    BgpNeighborRouteFilters_bgp_nrf_post_received BgpNeighborRouteFilters = "bgp-nrf-post-received"
 
-    // BGP origin code EGP
-    BgpOriginCode_origin_egp BgpOriginCode = "origin-egp"
+    // BGP received routes pre policy
+    BgpNeighborRouteFilters_bgp_nrf_pre_received BgpNeighborRouteFilters = "bgp-nrf-pre-received"
 
-    // BGP origin code incomplete
-    BgpOriginCode_origin_incomplete BgpOriginCode = "origin-incomplete"
+    // BGP pre advertised pre policy
+    BgpNeighborRouteFilters_bgp_nrf_pre_advertised BgpNeighborRouteFilters = "bgp-nrf-pre-advertised"
+
+    // BGP post advertised post policy
+    BgpNeighborRouteFilters_bgp_nrf_post_advertised BgpNeighborRouteFilters = "bgp-nrf-post-advertised"
 )
 

@@ -28,15 +28,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-ntp-cfg:ntp", reflect.TypeOf(Ntp{}))
 }
 
-// NtpAccessAf represents Ntp access af
-type NtpAccessAf string
+// Ntpdscp represents Ntpdscp
+type Ntpdscp string
 
 const (
-    // IPv4
-    NtpAccessAf_ipv4 NtpAccessAf = "ipv4"
+    // Precedence Value
+    Ntpdscp_ntp_precedence Ntpdscp = "ntp-precedence"
 
-    // IPv6
-    NtpAccessAf_ipv6 NtpAccessAf = "ipv6"
+    // DSCP Value
+    Ntpdscp_ntpdscp Ntpdscp = "ntpdscp"
 )
 
 // NtpPeer represents Ntp peer
@@ -50,15 +50,15 @@ const (
     NtpPeer_server NtpPeer = "server"
 )
 
-// Ntpdscp represents Ntpdscp
-type Ntpdscp string
+// NtpAccessAf represents Ntp access af
+type NtpAccessAf string
 
 const (
-    // Precedence Value
-    Ntpdscp_ntp_precedence Ntpdscp = "ntp-precedence"
+    // IPv4
+    NtpAccessAf_ipv4 NtpAccessAf = "ipv4"
 
-    // DSCP Value
-    Ntpdscp_ntpdscp Ntpdscp = "ntpdscp"
+    // IPv6
+    NtpAccessAf_ipv6 NtpAccessAf = "ipv6"
 )
 
 // NtpAccess represents Ntp access
@@ -82,11 +82,11 @@ const (
 // NTP configuration
 // This type is a presence type.
 type Ntp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set maximum number of associations. The type is interface{} with range:
-    // -2147483648..2147483647.
+    // 0..4294967295.
     MaxAssociations interface{}
 
     // Act as NTP master clock. The type is interface{} with range: 1..15. The
@@ -114,6 +114,9 @@ type Ntp struct {
     // Configure  NTP source interface.
     Sources Ntp_Sources
 
+    // NTP drift.
+    Drift Ntp_Drift
+
     // Configure NTP Authentication keys.
     Authentication Ntp_Authentication
 
@@ -127,104 +130,39 @@ type Ntp struct {
     AccessGroupTables Ntp_AccessGroupTables
 }
 
-func (ntp *Ntp) GetFilter() yfilter.YFilter { return ntp.YFilter }
+func (ntp *Ntp) GetEntityData() *types.CommonEntityData {
+    ntp.EntityData.YFilter = ntp.YFilter
+    ntp.EntityData.YangName = "ntp"
+    ntp.EntityData.BundleName = "cisco_ios_xr"
+    ntp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-ntp-cfg"
+    ntp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-ntp-cfg:ntp"
+    ntp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ntp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ntp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ntp *Ntp) SetFilter(yf yfilter.YFilter) { ntp.YFilter = yf }
-
-func (ntp *Ntp) GetGoName(yname string) string {
-    if yname == "max-associations" { return "MaxAssociations" }
-    if yname == "master" { return "Master" }
-    if yname == "broadcast-delay" { return "BroadcastDelay" }
-    if yname == "log-internal-sync" { return "LogInternalSync" }
-    if yname == "update-calendar" { return "UpdateCalendar" }
-    if yname == "peer-vrfs" { return "PeerVrfs" }
-    if yname == "dscp-ipv4" { return "DscpIpv4" }
-    if yname == "dscp-ipv6" { return "DscpIpv6" }
-    if yname == "sources" { return "Sources" }
-    if yname == "authentication" { return "Authentication" }
-    if yname == "passive" { return "Passive" }
-    if yname == "interface-tables" { return "InterfaceTables" }
-    if yname == "access-group-tables" { return "AccessGroupTables" }
-    return ""
+    ntp.EntityData.Children = make(map[string]types.YChild)
+    ntp.EntityData.Children["peer-vrfs"] = types.YChild{"PeerVrfs", &ntp.PeerVrfs}
+    ntp.EntityData.Children["dscp-ipv4"] = types.YChild{"DscpIpv4", &ntp.DscpIpv4}
+    ntp.EntityData.Children["dscp-ipv6"] = types.YChild{"DscpIpv6", &ntp.DscpIpv6}
+    ntp.EntityData.Children["sources"] = types.YChild{"Sources", &ntp.Sources}
+    ntp.EntityData.Children["drift"] = types.YChild{"Drift", &ntp.Drift}
+    ntp.EntityData.Children["authentication"] = types.YChild{"Authentication", &ntp.Authentication}
+    ntp.EntityData.Children["passive"] = types.YChild{"Passive", &ntp.Passive}
+    ntp.EntityData.Children["interface-tables"] = types.YChild{"InterfaceTables", &ntp.InterfaceTables}
+    ntp.EntityData.Children["access-group-tables"] = types.YChild{"AccessGroupTables", &ntp.AccessGroupTables}
+    ntp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ntp.EntityData.Leafs["max-associations"] = types.YLeaf{"MaxAssociations", ntp.MaxAssociations}
+    ntp.EntityData.Leafs["master"] = types.YLeaf{"Master", ntp.Master}
+    ntp.EntityData.Leafs["broadcast-delay"] = types.YLeaf{"BroadcastDelay", ntp.BroadcastDelay}
+    ntp.EntityData.Leafs["log-internal-sync"] = types.YLeaf{"LogInternalSync", ntp.LogInternalSync}
+    ntp.EntityData.Leafs["update-calendar"] = types.YLeaf{"UpdateCalendar", ntp.UpdateCalendar}
+    return &(ntp.EntityData)
 }
-
-func (ntp *Ntp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-ntp-cfg:ntp"
-}
-
-func (ntp *Ntp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-vrfs" {
-        return &ntp.PeerVrfs
-    }
-    if childYangName == "dscp-ipv4" {
-        return &ntp.DscpIpv4
-    }
-    if childYangName == "dscp-ipv6" {
-        return &ntp.DscpIpv6
-    }
-    if childYangName == "sources" {
-        return &ntp.Sources
-    }
-    if childYangName == "authentication" {
-        return &ntp.Authentication
-    }
-    if childYangName == "passive" {
-        return &ntp.Passive
-    }
-    if childYangName == "interface-tables" {
-        return &ntp.InterfaceTables
-    }
-    if childYangName == "access-group-tables" {
-        return &ntp.AccessGroupTables
-    }
-    return nil
-}
-
-func (ntp *Ntp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["peer-vrfs"] = &ntp.PeerVrfs
-    children["dscp-ipv4"] = &ntp.DscpIpv4
-    children["dscp-ipv6"] = &ntp.DscpIpv6
-    children["sources"] = &ntp.Sources
-    children["authentication"] = &ntp.Authentication
-    children["passive"] = &ntp.Passive
-    children["interface-tables"] = &ntp.InterfaceTables
-    children["access-group-tables"] = &ntp.AccessGroupTables
-    return children
-}
-
-func (ntp *Ntp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-associations"] = ntp.MaxAssociations
-    leafs["master"] = ntp.Master
-    leafs["broadcast-delay"] = ntp.BroadcastDelay
-    leafs["log-internal-sync"] = ntp.LogInternalSync
-    leafs["update-calendar"] = ntp.UpdateCalendar
-    return leafs
-}
-
-func (ntp *Ntp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ntp *Ntp) GetYangName() string { return "ntp" }
-
-func (ntp *Ntp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ntp *Ntp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ntp *Ntp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ntp *Ntp) SetParent(parent types.Entity) { ntp.parent = parent }
-
-func (ntp *Ntp) GetParent() types.Entity { return ntp.parent }
-
-func (ntp *Ntp) GetParentYangName() string { return "Cisco-IOS-XR-ip-ntp-cfg" }
 
 // Ntp_PeerVrfs
 // Configures NTP Peers or Servers
 type Ntp_PeerVrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configures NTP Peers or Servers for a single VRF. The 'default' must also
@@ -232,74 +170,35 @@ type Ntp_PeerVrfs struct {
     PeerVrf []Ntp_PeerVrfs_PeerVrf
 }
 
-func (peerVrfs *Ntp_PeerVrfs) GetFilter() yfilter.YFilter { return peerVrfs.YFilter }
+func (peerVrfs *Ntp_PeerVrfs) GetEntityData() *types.CommonEntityData {
+    peerVrfs.EntityData.YFilter = peerVrfs.YFilter
+    peerVrfs.EntityData.YangName = "peer-vrfs"
+    peerVrfs.EntityData.BundleName = "cisco_ios_xr"
+    peerVrfs.EntityData.ParentYangName = "ntp"
+    peerVrfs.EntityData.SegmentPath = "peer-vrfs"
+    peerVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerVrfs *Ntp_PeerVrfs) SetFilter(yf yfilter.YFilter) { peerVrfs.YFilter = yf }
-
-func (peerVrfs *Ntp_PeerVrfs) GetGoName(yname string) string {
-    if yname == "peer-vrf" { return "PeerVrf" }
-    return ""
-}
-
-func (peerVrfs *Ntp_PeerVrfs) GetSegmentPath() string {
-    return "peer-vrfs"
-}
-
-func (peerVrfs *Ntp_PeerVrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-vrf" {
-        for _, c := range peerVrfs.PeerVrf {
-            if peerVrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_PeerVrfs_PeerVrf{}
-        peerVrfs.PeerVrf = append(peerVrfs.PeerVrf, child)
-        return &peerVrfs.PeerVrf[len(peerVrfs.PeerVrf)-1]
-    }
-    return nil
-}
-
-func (peerVrfs *Ntp_PeerVrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    peerVrfs.EntityData.Children = make(map[string]types.YChild)
+    peerVrfs.EntityData.Children["peer-vrf"] = types.YChild{"PeerVrf", nil}
     for i := range peerVrfs.PeerVrf {
-        children[peerVrfs.PeerVrf[i].GetSegmentPath()] = &peerVrfs.PeerVrf[i]
+        peerVrfs.EntityData.Children[types.GetSegmentPath(&peerVrfs.PeerVrf[i])] = types.YChild{"PeerVrf", &peerVrfs.PeerVrf[i]}
     }
-    return children
+    peerVrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(peerVrfs.EntityData)
 }
-
-func (peerVrfs *Ntp_PeerVrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (peerVrfs *Ntp_PeerVrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerVrfs *Ntp_PeerVrfs) GetYangName() string { return "peer-vrfs" }
-
-func (peerVrfs *Ntp_PeerVrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerVrfs *Ntp_PeerVrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerVrfs *Ntp_PeerVrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerVrfs *Ntp_PeerVrfs) SetParent(parent types.Entity) { peerVrfs.parent = parent }
-
-func (peerVrfs *Ntp_PeerVrfs) GetParent() types.Entity { return peerVrfs.parent }
-
-func (peerVrfs *Ntp_PeerVrfs) GetParentYangName() string { return "ntp" }
 
 // Ntp_PeerVrfs_PeerVrf
 // Configures NTP Peers or Servers for a single
 // VRF. The 'default' must also be specified for
 // default VRF
 type Ntp_PeerVrfs_PeerVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Configures IPv4 NTP Peers or Servers.
@@ -309,66 +208,28 @@ type Ntp_PeerVrfs_PeerVrf struct {
     PeerIpv6S Ntp_PeerVrfs_PeerVrf_PeerIpv6S
 }
 
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetFilter() yfilter.YFilter { return peerVrf.YFilter }
+func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetEntityData() *types.CommonEntityData {
+    peerVrf.EntityData.YFilter = peerVrf.YFilter
+    peerVrf.EntityData.YangName = "peer-vrf"
+    peerVrf.EntityData.BundleName = "cisco_ios_xr"
+    peerVrf.EntityData.ParentYangName = "peer-vrfs"
+    peerVrf.EntityData.SegmentPath = "peer-vrf" + "[vrf-name='" + fmt.Sprintf("%v", peerVrf.VrfName) + "']"
+    peerVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) SetFilter(yf yfilter.YFilter) { peerVrf.YFilter = yf }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "peer-ipv4s" { return "PeerIpv4S" }
-    if yname == "peer-ipv6s" { return "PeerIpv6S" }
-    return ""
+    peerVrf.EntityData.Children = make(map[string]types.YChild)
+    peerVrf.EntityData.Children["peer-ipv4s"] = types.YChild{"PeerIpv4S", &peerVrf.PeerIpv4S}
+    peerVrf.EntityData.Children["peer-ipv6s"] = types.YChild{"PeerIpv6S", &peerVrf.PeerIpv6S}
+    peerVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", peerVrf.VrfName}
+    return &(peerVrf.EntityData)
 }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetSegmentPath() string {
-    return "peer-vrf" + "[vrf-name='" + fmt.Sprintf("%v", peerVrf.VrfName) + "']"
-}
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-ipv4s" {
-        return &peerVrf.PeerIpv4S
-    }
-    if childYangName == "peer-ipv6s" {
-        return &peerVrf.PeerIpv6S
-    }
-    return nil
-}
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["peer-ipv4s"] = &peerVrf.PeerIpv4S
-    children["peer-ipv6s"] = &peerVrf.PeerIpv6S
-    return children
-}
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = peerVrf.VrfName
-    return leafs
-}
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetYangName() string { return "peer-vrf" }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) SetParent(parent types.Entity) { peerVrf.parent = parent }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetParent() types.Entity { return peerVrf.parent }
-
-func (peerVrf *Ntp_PeerVrfs_PeerVrf) GetParentYangName() string { return "peer-vrfs" }
 
 // Ntp_PeerVrfs_PeerVrf_PeerIpv4S
 // Configures IPv4 NTP Peers or Servers
 type Ntp_PeerVrfs_PeerVrf_PeerIpv4S struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure an IPv4 NTP server or peer. The type is slice of
@@ -376,73 +237,34 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4S struct {
     PeerIpv4 []Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4
 }
 
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetFilter() yfilter.YFilter { return peerIpv4S.YFilter }
+func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetEntityData() *types.CommonEntityData {
+    peerIpv4S.EntityData.YFilter = peerIpv4S.YFilter
+    peerIpv4S.EntityData.YangName = "peer-ipv4s"
+    peerIpv4S.EntityData.BundleName = "cisco_ios_xr"
+    peerIpv4S.EntityData.ParentYangName = "peer-vrf"
+    peerIpv4S.EntityData.SegmentPath = "peer-ipv4s"
+    peerIpv4S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerIpv4S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerIpv4S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) SetFilter(yf yfilter.YFilter) { peerIpv4S.YFilter = yf }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetGoName(yname string) string {
-    if yname == "peer-ipv4" { return "PeerIpv4" }
-    return ""
-}
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetSegmentPath() string {
-    return "peer-ipv4s"
-}
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-ipv4" {
-        for _, c := range peerIpv4S.PeerIpv4 {
-            if peerIpv4S.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4{}
-        peerIpv4S.PeerIpv4 = append(peerIpv4S.PeerIpv4, child)
-        return &peerIpv4S.PeerIpv4[len(peerIpv4S.PeerIpv4)-1]
-    }
-    return nil
-}
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    peerIpv4S.EntityData.Children = make(map[string]types.YChild)
+    peerIpv4S.EntityData.Children["peer-ipv4"] = types.YChild{"PeerIpv4", nil}
     for i := range peerIpv4S.PeerIpv4 {
-        children[peerIpv4S.PeerIpv4[i].GetSegmentPath()] = &peerIpv4S.PeerIpv4[i]
+        peerIpv4S.EntityData.Children[types.GetSegmentPath(&peerIpv4S.PeerIpv4[i])] = types.YChild{"PeerIpv4", &peerIpv4S.PeerIpv4[i]}
     }
-    return children
+    peerIpv4S.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(peerIpv4S.EntityData)
 }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetYangName() string { return "peer-ipv4s" }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) SetParent(parent types.Entity) { peerIpv4S.parent = parent }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetParent() types.Entity { return peerIpv4S.parent }
-
-func (peerIpv4S *Ntp_PeerVrfs_PeerVrf_PeerIpv4S) GetParentYangName() string { return "peer-vrf" }
 
 // Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4
 // Configure an IPv4 NTP server or peer
 type Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 Address of a peer. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     AddressIpv4 interface{}
 
     // Configure an IPv4 NTP server or peer. The type is slice of
@@ -450,70 +272,30 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4 struct {
     PeerTypeIpv4 []Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4
 }
 
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetFilter() yfilter.YFilter { return peerIpv4.YFilter }
+func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetEntityData() *types.CommonEntityData {
+    peerIpv4.EntityData.YFilter = peerIpv4.YFilter
+    peerIpv4.EntityData.YangName = "peer-ipv4"
+    peerIpv4.EntityData.BundleName = "cisco_ios_xr"
+    peerIpv4.EntityData.ParentYangName = "peer-ipv4s"
+    peerIpv4.EntityData.SegmentPath = "peer-ipv4" + "[address-ipv4='" + fmt.Sprintf("%v", peerIpv4.AddressIpv4) + "']"
+    peerIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) SetFilter(yf yfilter.YFilter) { peerIpv4.YFilter = yf }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetGoName(yname string) string {
-    if yname == "address-ipv4" { return "AddressIpv4" }
-    if yname == "peer-type-ipv4" { return "PeerTypeIpv4" }
-    return ""
-}
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetSegmentPath() string {
-    return "peer-ipv4" + "[address-ipv4='" + fmt.Sprintf("%v", peerIpv4.AddressIpv4) + "']"
-}
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-type-ipv4" {
-        for _, c := range peerIpv4.PeerTypeIpv4 {
-            if peerIpv4.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4{}
-        peerIpv4.PeerTypeIpv4 = append(peerIpv4.PeerTypeIpv4, child)
-        return &peerIpv4.PeerTypeIpv4[len(peerIpv4.PeerTypeIpv4)-1]
-    }
-    return nil
-}
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    peerIpv4.EntityData.Children = make(map[string]types.YChild)
+    peerIpv4.EntityData.Children["peer-type-ipv4"] = types.YChild{"PeerTypeIpv4", nil}
     for i := range peerIpv4.PeerTypeIpv4 {
-        children[peerIpv4.PeerTypeIpv4[i].GetSegmentPath()] = &peerIpv4.PeerTypeIpv4[i]
+        peerIpv4.EntityData.Children[types.GetSegmentPath(&peerIpv4.PeerTypeIpv4[i])] = types.YChild{"PeerTypeIpv4", &peerIpv4.PeerTypeIpv4[i]}
     }
-    return children
+    peerIpv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerIpv4.EntityData.Leafs["address-ipv4"] = types.YLeaf{"AddressIpv4", peerIpv4.AddressIpv4}
+    return &(peerIpv4.EntityData)
 }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address-ipv4"] = peerIpv4.AddressIpv4
-    return leafs
-}
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetYangName() string { return "peer-ipv4" }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) SetParent(parent types.Entity) { peerIpv4.parent = parent }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetParent() types.Entity { return peerIpv4.parent }
-
-func (peerIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4) GetParentYangName() string { return "peer-ipv4s" }
 
 // Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4
 // Configure an IPv4 NTP server or peer
 type Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Peer or Server. The type is NtpPeer.
@@ -535,7 +317,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4 struct {
     PreferredPeer interface{}
 
     // Source interface of this peer. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 
     // Use burst mode. The type is interface{}.
@@ -545,72 +327,34 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4 struct {
     Iburst interface{}
 }
 
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetFilter() yfilter.YFilter { return peerTypeIpv4.YFilter }
+func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetEntityData() *types.CommonEntityData {
+    peerTypeIpv4.EntityData.YFilter = peerTypeIpv4.YFilter
+    peerTypeIpv4.EntityData.YangName = "peer-type-ipv4"
+    peerTypeIpv4.EntityData.BundleName = "cisco_ios_xr"
+    peerTypeIpv4.EntityData.ParentYangName = "peer-ipv4"
+    peerTypeIpv4.EntityData.SegmentPath = "peer-type-ipv4" + "[peer-type='" + fmt.Sprintf("%v", peerTypeIpv4.PeerType) + "']"
+    peerTypeIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerTypeIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerTypeIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) SetFilter(yf yfilter.YFilter) { peerTypeIpv4.YFilter = yf }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetGoName(yname string) string {
-    if yname == "peer-type" { return "PeerType" }
-    if yname == "ntp-version" { return "NtpVersion" }
-    if yname == "authentication-key" { return "AuthenticationKey" }
-    if yname == "min-poll" { return "MinPoll" }
-    if yname == "max-poll" { return "MaxPoll" }
-    if yname == "preferred-peer" { return "PreferredPeer" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "burst" { return "Burst" }
-    if yname == "iburst" { return "Iburst" }
-    return ""
+    peerTypeIpv4.EntityData.Children = make(map[string]types.YChild)
+    peerTypeIpv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerTypeIpv4.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", peerTypeIpv4.PeerType}
+    peerTypeIpv4.EntityData.Leafs["ntp-version"] = types.YLeaf{"NtpVersion", peerTypeIpv4.NtpVersion}
+    peerTypeIpv4.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", peerTypeIpv4.AuthenticationKey}
+    peerTypeIpv4.EntityData.Leafs["min-poll"] = types.YLeaf{"MinPoll", peerTypeIpv4.MinPoll}
+    peerTypeIpv4.EntityData.Leafs["max-poll"] = types.YLeaf{"MaxPoll", peerTypeIpv4.MaxPoll}
+    peerTypeIpv4.EntityData.Leafs["preferred-peer"] = types.YLeaf{"PreferredPeer", peerTypeIpv4.PreferredPeer}
+    peerTypeIpv4.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", peerTypeIpv4.SourceInterface}
+    peerTypeIpv4.EntityData.Leafs["burst"] = types.YLeaf{"Burst", peerTypeIpv4.Burst}
+    peerTypeIpv4.EntityData.Leafs["iburst"] = types.YLeaf{"Iburst", peerTypeIpv4.Iburst}
+    return &(peerTypeIpv4.EntityData)
 }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetSegmentPath() string {
-    return "peer-type-ipv4" + "[peer-type='" + fmt.Sprintf("%v", peerTypeIpv4.PeerType) + "']"
-}
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["peer-type"] = peerTypeIpv4.PeerType
-    leafs["ntp-version"] = peerTypeIpv4.NtpVersion
-    leafs["authentication-key"] = peerTypeIpv4.AuthenticationKey
-    leafs["min-poll"] = peerTypeIpv4.MinPoll
-    leafs["max-poll"] = peerTypeIpv4.MaxPoll
-    leafs["preferred-peer"] = peerTypeIpv4.PreferredPeer
-    leafs["source-interface"] = peerTypeIpv4.SourceInterface
-    leafs["burst"] = peerTypeIpv4.Burst
-    leafs["iburst"] = peerTypeIpv4.Iburst
-    return leafs
-}
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetYangName() string { return "peer-type-ipv4" }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) SetParent(parent types.Entity) { peerTypeIpv4.parent = parent }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetParent() types.Entity { return peerTypeIpv4.parent }
-
-func (peerTypeIpv4 *Ntp_PeerVrfs_PeerVrf_PeerIpv4S_PeerIpv4_PeerTypeIpv4) GetParentYangName() string { return "peer-ipv4" }
 
 // Ntp_PeerVrfs_PeerVrf_PeerIpv6S
 // Configuration NTP Peers or Servers of IPV6
 type Ntp_PeerVrfs_PeerVrf_PeerIpv6S struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure a NTP server or peer. The type is slice of
@@ -618,73 +362,34 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6S struct {
     PeerIpv6 []Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6
 }
 
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetFilter() yfilter.YFilter { return peerIpv6S.YFilter }
+func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetEntityData() *types.CommonEntityData {
+    peerIpv6S.EntityData.YFilter = peerIpv6S.YFilter
+    peerIpv6S.EntityData.YangName = "peer-ipv6s"
+    peerIpv6S.EntityData.BundleName = "cisco_ios_xr"
+    peerIpv6S.EntityData.ParentYangName = "peer-vrf"
+    peerIpv6S.EntityData.SegmentPath = "peer-ipv6s"
+    peerIpv6S.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerIpv6S.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerIpv6S.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) SetFilter(yf yfilter.YFilter) { peerIpv6S.YFilter = yf }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetGoName(yname string) string {
-    if yname == "peer-ipv6" { return "PeerIpv6" }
-    return ""
-}
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetSegmentPath() string {
-    return "peer-ipv6s"
-}
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-ipv6" {
-        for _, c := range peerIpv6S.PeerIpv6 {
-            if peerIpv6S.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6{}
-        peerIpv6S.PeerIpv6 = append(peerIpv6S.PeerIpv6, child)
-        return &peerIpv6S.PeerIpv6[len(peerIpv6S.PeerIpv6)-1]
-    }
-    return nil
-}
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    peerIpv6S.EntityData.Children = make(map[string]types.YChild)
+    peerIpv6S.EntityData.Children["peer-ipv6"] = types.YChild{"PeerIpv6", nil}
     for i := range peerIpv6S.PeerIpv6 {
-        children[peerIpv6S.PeerIpv6[i].GetSegmentPath()] = &peerIpv6S.PeerIpv6[i]
+        peerIpv6S.EntityData.Children[types.GetSegmentPath(&peerIpv6S.PeerIpv6[i])] = types.YChild{"PeerIpv6", &peerIpv6S.PeerIpv6[i]}
     }
-    return children
+    peerIpv6S.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(peerIpv6S.EntityData)
 }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetYangName() string { return "peer-ipv6s" }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) SetParent(parent types.Entity) { peerIpv6S.parent = parent }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetParent() types.Entity { return peerIpv6S.parent }
-
-func (peerIpv6S *Ntp_PeerVrfs_PeerVrf_PeerIpv6S) GetParentYangName() string { return "peer-vrf" }
 
 // Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6
 // Configure a NTP server or peer
 type Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address of a peer. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     AddressIpv6 interface{}
 
     // Configure a NTP server or peer. The type is slice of
@@ -692,70 +397,30 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6 struct {
     PeerTypeIpv6 []Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6
 }
 
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetFilter() yfilter.YFilter { return peerIpv6.YFilter }
+func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetEntityData() *types.CommonEntityData {
+    peerIpv6.EntityData.YFilter = peerIpv6.YFilter
+    peerIpv6.EntityData.YangName = "peer-ipv6"
+    peerIpv6.EntityData.BundleName = "cisco_ios_xr"
+    peerIpv6.EntityData.ParentYangName = "peer-ipv6s"
+    peerIpv6.EntityData.SegmentPath = "peer-ipv6" + "[address-ipv6='" + fmt.Sprintf("%v", peerIpv6.AddressIpv6) + "']"
+    peerIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) SetFilter(yf yfilter.YFilter) { peerIpv6.YFilter = yf }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetGoName(yname string) string {
-    if yname == "address-ipv6" { return "AddressIpv6" }
-    if yname == "peer-type-ipv6" { return "PeerTypeIpv6" }
-    return ""
-}
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetSegmentPath() string {
-    return "peer-ipv6" + "[address-ipv6='" + fmt.Sprintf("%v", peerIpv6.AddressIpv6) + "']"
-}
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peer-type-ipv6" {
-        for _, c := range peerIpv6.PeerTypeIpv6 {
-            if peerIpv6.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6{}
-        peerIpv6.PeerTypeIpv6 = append(peerIpv6.PeerTypeIpv6, child)
-        return &peerIpv6.PeerTypeIpv6[len(peerIpv6.PeerTypeIpv6)-1]
-    }
-    return nil
-}
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    peerIpv6.EntityData.Children = make(map[string]types.YChild)
+    peerIpv6.EntityData.Children["peer-type-ipv6"] = types.YChild{"PeerTypeIpv6", nil}
     for i := range peerIpv6.PeerTypeIpv6 {
-        children[peerIpv6.PeerTypeIpv6[i].GetSegmentPath()] = &peerIpv6.PeerTypeIpv6[i]
+        peerIpv6.EntityData.Children[types.GetSegmentPath(&peerIpv6.PeerTypeIpv6[i])] = types.YChild{"PeerTypeIpv6", &peerIpv6.PeerTypeIpv6[i]}
     }
-    return children
+    peerIpv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerIpv6.EntityData.Leafs["address-ipv6"] = types.YLeaf{"AddressIpv6", peerIpv6.AddressIpv6}
+    return &(peerIpv6.EntityData)
 }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address-ipv6"] = peerIpv6.AddressIpv6
-    return leafs
-}
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetYangName() string { return "peer-ipv6" }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) SetParent(parent types.Entity) { peerIpv6.parent = parent }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetParent() types.Entity { return peerIpv6.parent }
-
-func (peerIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6) GetParentYangName() string { return "peer-ipv6s" }
 
 // Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6
 // Configure a NTP server or peer
 type Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Peer or Server. The type is NtpPeer.
@@ -777,7 +442,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6 struct {
     PreferredPeer interface{}
 
     // Source interface of this peer. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 
     // Use burst mode. The type is interface{}.
@@ -787,79 +452,40 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6 struct {
     Iburst interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     AddressIpv6 interface{}
 }
 
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetFilter() yfilter.YFilter { return peerTypeIpv6.YFilter }
+func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetEntityData() *types.CommonEntityData {
+    peerTypeIpv6.EntityData.YFilter = peerTypeIpv6.YFilter
+    peerTypeIpv6.EntityData.YangName = "peer-type-ipv6"
+    peerTypeIpv6.EntityData.BundleName = "cisco_ios_xr"
+    peerTypeIpv6.EntityData.ParentYangName = "peer-ipv6"
+    peerTypeIpv6.EntityData.SegmentPath = "peer-type-ipv6" + "[peer-type='" + fmt.Sprintf("%v", peerTypeIpv6.PeerType) + "']"
+    peerTypeIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerTypeIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerTypeIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) SetFilter(yf yfilter.YFilter) { peerTypeIpv6.YFilter = yf }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetGoName(yname string) string {
-    if yname == "peer-type" { return "PeerType" }
-    if yname == "ntp-version" { return "NtpVersion" }
-    if yname == "authentication-key" { return "AuthenticationKey" }
-    if yname == "min-poll" { return "MinPoll" }
-    if yname == "max-poll" { return "MaxPoll" }
-    if yname == "preferred-peer" { return "PreferredPeer" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "burst" { return "Burst" }
-    if yname == "iburst" { return "Iburst" }
-    if yname == "address-ipv6" { return "AddressIpv6" }
-    return ""
+    peerTypeIpv6.EntityData.Children = make(map[string]types.YChild)
+    peerTypeIpv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerTypeIpv6.EntityData.Leafs["peer-type"] = types.YLeaf{"PeerType", peerTypeIpv6.PeerType}
+    peerTypeIpv6.EntityData.Leafs["ntp-version"] = types.YLeaf{"NtpVersion", peerTypeIpv6.NtpVersion}
+    peerTypeIpv6.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", peerTypeIpv6.AuthenticationKey}
+    peerTypeIpv6.EntityData.Leafs["min-poll"] = types.YLeaf{"MinPoll", peerTypeIpv6.MinPoll}
+    peerTypeIpv6.EntityData.Leafs["max-poll"] = types.YLeaf{"MaxPoll", peerTypeIpv6.MaxPoll}
+    peerTypeIpv6.EntityData.Leafs["preferred-peer"] = types.YLeaf{"PreferredPeer", peerTypeIpv6.PreferredPeer}
+    peerTypeIpv6.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", peerTypeIpv6.SourceInterface}
+    peerTypeIpv6.EntityData.Leafs["burst"] = types.YLeaf{"Burst", peerTypeIpv6.Burst}
+    peerTypeIpv6.EntityData.Leafs["iburst"] = types.YLeaf{"Iburst", peerTypeIpv6.Iburst}
+    peerTypeIpv6.EntityData.Leafs["address-ipv6"] = types.YLeaf{"AddressIpv6", peerTypeIpv6.AddressIpv6}
+    return &(peerTypeIpv6.EntityData)
 }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetSegmentPath() string {
-    return "peer-type-ipv6" + "[peer-type='" + fmt.Sprintf("%v", peerTypeIpv6.PeerType) + "']"
-}
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["peer-type"] = peerTypeIpv6.PeerType
-    leafs["ntp-version"] = peerTypeIpv6.NtpVersion
-    leafs["authentication-key"] = peerTypeIpv6.AuthenticationKey
-    leafs["min-poll"] = peerTypeIpv6.MinPoll
-    leafs["max-poll"] = peerTypeIpv6.MaxPoll
-    leafs["preferred-peer"] = peerTypeIpv6.PreferredPeer
-    leafs["source-interface"] = peerTypeIpv6.SourceInterface
-    leafs["burst"] = peerTypeIpv6.Burst
-    leafs["iburst"] = peerTypeIpv6.Iburst
-    leafs["address-ipv6"] = peerTypeIpv6.AddressIpv6
-    return leafs
-}
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetYangName() string { return "peer-type-ipv6" }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) SetParent(parent types.Entity) { peerTypeIpv6.parent = parent }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetParent() types.Entity { return peerTypeIpv6.parent }
-
-func (peerTypeIpv6 *Ntp_PeerVrfs_PeerVrf_PeerIpv6S_PeerIpv6_PeerTypeIpv6) GetParentYangName() string { return "peer-ipv6" }
 
 // Ntp_DscpIpv4
 //  Set IP DSCP value for outgoing NTP IPV4 packets
 // This type is a presence type.
 type Ntp_DscpIpv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP
@@ -872,59 +498,28 @@ type Ntp_DscpIpv4 struct {
     DscpOrPrecedenceValue interface{}
 }
 
-func (dscpIpv4 *Ntp_DscpIpv4) GetFilter() yfilter.YFilter { return dscpIpv4.YFilter }
+func (dscpIpv4 *Ntp_DscpIpv4) GetEntityData() *types.CommonEntityData {
+    dscpIpv4.EntityData.YFilter = dscpIpv4.YFilter
+    dscpIpv4.EntityData.YangName = "dscp-ipv4"
+    dscpIpv4.EntityData.BundleName = "cisco_ios_xr"
+    dscpIpv4.EntityData.ParentYangName = "ntp"
+    dscpIpv4.EntityData.SegmentPath = "dscp-ipv4"
+    dscpIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dscpIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dscpIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dscpIpv4 *Ntp_DscpIpv4) SetFilter(yf yfilter.YFilter) { dscpIpv4.YFilter = yf }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetGoName(yname string) string {
-    if yname == "mode" { return "Mode" }
-    if yname == "dscp-or-precedence-value" { return "DscpOrPrecedenceValue" }
-    return ""
+    dscpIpv4.EntityData.Children = make(map[string]types.YChild)
+    dscpIpv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    dscpIpv4.EntityData.Leafs["mode"] = types.YLeaf{"Mode", dscpIpv4.Mode}
+    dscpIpv4.EntityData.Leafs["dscp-or-precedence-value"] = types.YLeaf{"DscpOrPrecedenceValue", dscpIpv4.DscpOrPrecedenceValue}
+    return &(dscpIpv4.EntityData)
 }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetSegmentPath() string {
-    return "dscp-ipv4"
-}
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mode"] = dscpIpv4.Mode
-    leafs["dscp-or-precedence-value"] = dscpIpv4.DscpOrPrecedenceValue
-    return leafs
-}
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetYangName() string { return "dscp-ipv4" }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dscpIpv4 *Ntp_DscpIpv4) SetParent(parent types.Entity) { dscpIpv4.parent = parent }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetParent() types.Entity { return dscpIpv4.parent }
-
-func (dscpIpv4 *Ntp_DscpIpv4) GetParentYangName() string { return "ntp" }
 
 // Ntp_DscpIpv6
 //  Set IP DSCP value for outgoing NTP IPV6 packets
 // This type is a presence type.
 type Ntp_DscpIpv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NTPPRECEDENCE(0) to specify Precedence value NTPDSCP(1) to specify DSCP
@@ -937,189 +532,148 @@ type Ntp_DscpIpv6 struct {
     DscpOrPrecedenceValue interface{}
 }
 
-func (dscpIpv6 *Ntp_DscpIpv6) GetFilter() yfilter.YFilter { return dscpIpv6.YFilter }
+func (dscpIpv6 *Ntp_DscpIpv6) GetEntityData() *types.CommonEntityData {
+    dscpIpv6.EntityData.YFilter = dscpIpv6.YFilter
+    dscpIpv6.EntityData.YangName = "dscp-ipv6"
+    dscpIpv6.EntityData.BundleName = "cisco_ios_xr"
+    dscpIpv6.EntityData.ParentYangName = "ntp"
+    dscpIpv6.EntityData.SegmentPath = "dscp-ipv6"
+    dscpIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dscpIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dscpIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dscpIpv6 *Ntp_DscpIpv6) SetFilter(yf yfilter.YFilter) { dscpIpv6.YFilter = yf }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetGoName(yname string) string {
-    if yname == "mode" { return "Mode" }
-    if yname == "dscp-or-precedence-value" { return "DscpOrPrecedenceValue" }
-    return ""
+    dscpIpv6.EntityData.Children = make(map[string]types.YChild)
+    dscpIpv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    dscpIpv6.EntityData.Leafs["mode"] = types.YLeaf{"Mode", dscpIpv6.Mode}
+    dscpIpv6.EntityData.Leafs["dscp-or-precedence-value"] = types.YLeaf{"DscpOrPrecedenceValue", dscpIpv6.DscpOrPrecedenceValue}
+    return &(dscpIpv6.EntityData)
 }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetSegmentPath() string {
-    return "dscp-ipv6"
-}
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mode"] = dscpIpv6.Mode
-    leafs["dscp-or-precedence-value"] = dscpIpv6.DscpOrPrecedenceValue
-    return leafs
-}
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetYangName() string { return "dscp-ipv6" }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dscpIpv6 *Ntp_DscpIpv6) SetParent(parent types.Entity) { dscpIpv6.parent = parent }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetParent() types.Entity { return dscpIpv6.parent }
-
-func (dscpIpv6 *Ntp_DscpIpv6) GetParentYangName() string { return "ntp" }
 
 // Ntp_Sources
 // Configure  NTP source interface
 type Ntp_Sources struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure  NTP source interface. The type is slice of Ntp_Sources_Source.
     Source []Ntp_Sources_Source
 }
 
-func (sources *Ntp_Sources) GetFilter() yfilter.YFilter { return sources.YFilter }
+func (sources *Ntp_Sources) GetEntityData() *types.CommonEntityData {
+    sources.EntityData.YFilter = sources.YFilter
+    sources.EntityData.YangName = "sources"
+    sources.EntityData.BundleName = "cisco_ios_xr"
+    sources.EntityData.ParentYangName = "ntp"
+    sources.EntityData.SegmentPath = "sources"
+    sources.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sources.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sources.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sources *Ntp_Sources) SetFilter(yf yfilter.YFilter) { sources.YFilter = yf }
-
-func (sources *Ntp_Sources) GetGoName(yname string) string {
-    if yname == "source" { return "Source" }
-    return ""
-}
-
-func (sources *Ntp_Sources) GetSegmentPath() string {
-    return "sources"
-}
-
-func (sources *Ntp_Sources) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "source" {
-        for _, c := range sources.Source {
-            if sources.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_Sources_Source{}
-        sources.Source = append(sources.Source, child)
-        return &sources.Source[len(sources.Source)-1]
-    }
-    return nil
-}
-
-func (sources *Ntp_Sources) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sources.EntityData.Children = make(map[string]types.YChild)
+    sources.EntityData.Children["source"] = types.YChild{"Source", nil}
     for i := range sources.Source {
-        children[sources.Source[i].GetSegmentPath()] = &sources.Source[i]
+        sources.EntityData.Children[types.GetSegmentPath(&sources.Source[i])] = types.YChild{"Source", &sources.Source[i]}
     }
-    return children
+    sources.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sources.EntityData)
 }
-
-func (sources *Ntp_Sources) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sources *Ntp_Sources) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sources *Ntp_Sources) GetYangName() string { return "sources" }
-
-func (sources *Ntp_Sources) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sources *Ntp_Sources) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sources *Ntp_Sources) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sources *Ntp_Sources) SetParent(parent types.Entity) { sources.parent = parent }
-
-func (sources *Ntp_Sources) GetParent() types.Entity { return sources.parent }
-
-func (sources *Ntp_Sources) GetParentYangName() string { return "ntp" }
 
 // Ntp_Sources_Source
 // Configure  NTP source interface
 type Ntp_Sources_Source struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
-    // Source Interface for NTP. The type is string with pattern: [a-zA-Z0-9./-]+.
-    // This attribute is mandatory.
+    // Source Interface for NTP. The type is string with pattern:
+    // b'[a-zA-Z0-9./-]+'. This attribute is mandatory.
     SourceInterface interface{}
 }
 
-func (source *Ntp_Sources_Source) GetFilter() yfilter.YFilter { return source.YFilter }
+func (source *Ntp_Sources_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "cisco_ios_xr"
+    source.EntityData.ParentYangName = "sources"
+    source.EntityData.SegmentPath = "source" + "[vrf-name='" + fmt.Sprintf("%v", source.VrfName) + "']"
+    source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (source *Ntp_Sources_Source) SetFilter(yf yfilter.YFilter) { source.YFilter = yf }
-
-func (source *Ntp_Sources_Source) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source-interface" { return "SourceInterface" }
-    return ""
+    source.EntityData.Children = make(map[string]types.YChild)
+    source.EntityData.Leafs = make(map[string]types.YLeaf)
+    source.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", source.VrfName}
+    source.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", source.SourceInterface}
+    return &(source.EntityData)
 }
 
-func (source *Ntp_Sources_Source) GetSegmentPath() string {
-    return "source" + "[vrf-name='" + fmt.Sprintf("%v", source.VrfName) + "']"
+// Ntp_Drift
+// NTP drift
+type Ntp_Drift struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Drift Aging Time. The type is interface{} with range: 0..65535.
+    AgingTime interface{}
+
+    // File containing drift value.
+    File Ntp_Drift_File
 }
 
-func (source *Ntp_Sources_Source) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (drift *Ntp_Drift) GetEntityData() *types.CommonEntityData {
+    drift.EntityData.YFilter = drift.YFilter
+    drift.EntityData.YangName = "drift"
+    drift.EntityData.BundleName = "cisco_ios_xr"
+    drift.EntityData.ParentYangName = "ntp"
+    drift.EntityData.SegmentPath = "drift"
+    drift.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    drift.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    drift.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    drift.EntityData.Children = make(map[string]types.YChild)
+    drift.EntityData.Children["file"] = types.YChild{"File", &drift.File}
+    drift.EntityData.Leafs = make(map[string]types.YLeaf)
+    drift.EntityData.Leafs["aging-time"] = types.YLeaf{"AgingTime", drift.AgingTime}
+    return &(drift.EntityData)
 }
 
-func (source *Ntp_Sources_Source) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// Ntp_Drift_File
+// File containing drift value
+type Ntp_Drift_File struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // PWD or disk0 etc. The type is string. The default value is PWD.
+    Location interface{}
+
+    // File containing drift value. The type is string.
+    Filename interface{}
 }
 
-func (source *Ntp_Sources_Source) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = source.VrfName
-    leafs["source-interface"] = source.SourceInterface
-    return leafs
+func (file *Ntp_Drift_File) GetEntityData() *types.CommonEntityData {
+    file.EntityData.YFilter = file.YFilter
+    file.EntityData.YangName = "file"
+    file.EntityData.BundleName = "cisco_ios_xr"
+    file.EntityData.ParentYangName = "drift"
+    file.EntityData.SegmentPath = "file"
+    file.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    file.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    file.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    file.EntityData.Children = make(map[string]types.YChild)
+    file.EntityData.Leafs = make(map[string]types.YLeaf)
+    file.EntityData.Leafs["location"] = types.YLeaf{"Location", file.Location}
+    file.EntityData.Leafs["filename"] = types.YLeaf{"Filename", file.Filename}
+    return &(file.EntityData)
 }
-
-func (source *Ntp_Sources_Source) GetBundleName() string { return "cisco_ios_xr" }
-
-func (source *Ntp_Sources_Source) GetYangName() string { return "source" }
-
-func (source *Ntp_Sources_Source) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (source *Ntp_Sources_Source) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (source *Ntp_Sources_Source) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (source *Ntp_Sources_Source) SetParent(parent types.Entity) { source.parent = parent }
-
-func (source *Ntp_Sources_Source) GetParent() types.Entity { return source.parent }
-
-func (source *Ntp_Sources_Source) GetParentYangName() string { return "sources" }
 
 // Ntp_Authentication
 // Configure NTP Authentication keys
 type Ntp_Authentication struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable NTP authentication keys. The type is interface{}.
@@ -1132,66 +686,28 @@ type Ntp_Authentication struct {
     TrustedKeies Ntp_Authentication_TrustedKeies
 }
 
-func (authentication *Ntp_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication *Ntp_Authentication) GetEntityData() *types.CommonEntityData {
+    authentication.EntityData.YFilter = authentication.YFilter
+    authentication.EntityData.YangName = "authentication"
+    authentication.EntityData.BundleName = "cisco_ios_xr"
+    authentication.EntityData.ParentYangName = "ntp"
+    authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *Ntp_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *Ntp_Authentication) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "keies" { return "Keies" }
-    if yname == "trusted-keies" { return "TrustedKeies" }
-    return ""
+    authentication.EntityData.Children = make(map[string]types.YChild)
+    authentication.EntityData.Children["keies"] = types.YChild{"Keies", &authentication.Keies}
+    authentication.EntityData.Children["trusted-keies"] = types.YChild{"TrustedKeies", &authentication.TrustedKeies}
+    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    authentication.EntityData.Leafs["enable"] = types.YLeaf{"Enable", authentication.Enable}
+    return &(authentication.EntityData)
 }
-
-func (authentication *Ntp_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *Ntp_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "keies" {
-        return &authentication.Keies
-    }
-    if childYangName == "trusted-keies" {
-        return &authentication.TrustedKeies
-    }
-    return nil
-}
-
-func (authentication *Ntp_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["keies"] = &authentication.Keies
-    children["trusted-keies"] = &authentication.TrustedKeies
-    return children
-}
-
-func (authentication *Ntp_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = authentication.Enable
-    return leafs
-}
-
-func (authentication *Ntp_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *Ntp_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *Ntp_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *Ntp_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *Ntp_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *Ntp_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *Ntp_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *Ntp_Authentication) GetParentYangName() string { return "ntp" }
 
 // Ntp_Authentication_Keies
 // Authentication Key Table
 type Ntp_Authentication_Keies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Authentication key for trusted time sources. The type is slice of
@@ -1199,68 +715,29 @@ type Ntp_Authentication_Keies struct {
     Key []Ntp_Authentication_Keies_Key
 }
 
-func (keies *Ntp_Authentication_Keies) GetFilter() yfilter.YFilter { return keies.YFilter }
+func (keies *Ntp_Authentication_Keies) GetEntityData() *types.CommonEntityData {
+    keies.EntityData.YFilter = keies.YFilter
+    keies.EntityData.YangName = "keies"
+    keies.EntityData.BundleName = "cisco_ios_xr"
+    keies.EntityData.ParentYangName = "authentication"
+    keies.EntityData.SegmentPath = "keies"
+    keies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (keies *Ntp_Authentication_Keies) SetFilter(yf yfilter.YFilter) { keies.YFilter = yf }
-
-func (keies *Ntp_Authentication_Keies) GetGoName(yname string) string {
-    if yname == "key" { return "Key" }
-    return ""
-}
-
-func (keies *Ntp_Authentication_Keies) GetSegmentPath() string {
-    return "keies"
-}
-
-func (keies *Ntp_Authentication_Keies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "key" {
-        for _, c := range keies.Key {
-            if keies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_Authentication_Keies_Key{}
-        keies.Key = append(keies.Key, child)
-        return &keies.Key[len(keies.Key)-1]
-    }
-    return nil
-}
-
-func (keies *Ntp_Authentication_Keies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    keies.EntityData.Children = make(map[string]types.YChild)
+    keies.EntityData.Children["key"] = types.YChild{"Key", nil}
     for i := range keies.Key {
-        children[keies.Key[i].GetSegmentPath()] = &keies.Key[i]
+        keies.EntityData.Children[types.GetSegmentPath(&keies.Key[i])] = types.YChild{"Key", &keies.Key[i]}
     }
-    return children
+    keies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(keies.EntityData)
 }
-
-func (keies *Ntp_Authentication_Keies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (keies *Ntp_Authentication_Keies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (keies *Ntp_Authentication_Keies) GetYangName() string { return "keies" }
-
-func (keies *Ntp_Authentication_Keies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (keies *Ntp_Authentication_Keies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (keies *Ntp_Authentication_Keies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (keies *Ntp_Authentication_Keies) SetParent(parent types.Entity) { keies.parent = parent }
-
-func (keies *Ntp_Authentication_Keies) GetParent() types.Entity { return keies.parent }
-
-func (keies *Ntp_Authentication_Keies) GetParentYangName() string { return "authentication" }
 
 // Ntp_Authentication_Keies_Key
 // Authentication key for trusted time sources
 type Ntp_Authentication_Keies_Key struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Authentication Key number. The type is interface{}
@@ -1272,58 +749,27 @@ type Ntp_Authentication_Keies_Key struct {
     AuthenticationKey interface{}
 }
 
-func (key *Ntp_Authentication_Keies_Key) GetFilter() yfilter.YFilter { return key.YFilter }
+func (key *Ntp_Authentication_Keies_Key) GetEntityData() *types.CommonEntityData {
+    key.EntityData.YFilter = key.YFilter
+    key.EntityData.YangName = "key"
+    key.EntityData.BundleName = "cisco_ios_xr"
+    key.EntityData.ParentYangName = "keies"
+    key.EntityData.SegmentPath = "key" + "[key-number='" + fmt.Sprintf("%v", key.KeyNumber) + "']"
+    key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (key *Ntp_Authentication_Keies_Key) SetFilter(yf yfilter.YFilter) { key.YFilter = yf }
-
-func (key *Ntp_Authentication_Keies_Key) GetGoName(yname string) string {
-    if yname == "key-number" { return "KeyNumber" }
-    if yname == "authentication-key" { return "AuthenticationKey" }
-    return ""
+    key.EntityData.Children = make(map[string]types.YChild)
+    key.EntityData.Leafs = make(map[string]types.YLeaf)
+    key.EntityData.Leafs["key-number"] = types.YLeaf{"KeyNumber", key.KeyNumber}
+    key.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", key.AuthenticationKey}
+    return &(key.EntityData)
 }
-
-func (key *Ntp_Authentication_Keies_Key) GetSegmentPath() string {
-    return "key" + "[key-number='" + fmt.Sprintf("%v", key.KeyNumber) + "']"
-}
-
-func (key *Ntp_Authentication_Keies_Key) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (key *Ntp_Authentication_Keies_Key) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (key *Ntp_Authentication_Keies_Key) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["key-number"] = key.KeyNumber
-    leafs["authentication-key"] = key.AuthenticationKey
-    return leafs
-}
-
-func (key *Ntp_Authentication_Keies_Key) GetBundleName() string { return "cisco_ios_xr" }
-
-func (key *Ntp_Authentication_Keies_Key) GetYangName() string { return "key" }
-
-func (key *Ntp_Authentication_Keies_Key) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (key *Ntp_Authentication_Keies_Key) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (key *Ntp_Authentication_Keies_Key) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (key *Ntp_Authentication_Keies_Key) SetParent(parent types.Entity) { key.parent = parent }
-
-func (key *Ntp_Authentication_Keies_Key) GetParent() types.Entity { return key.parent }
-
-func (key *Ntp_Authentication_Keies_Key) GetParentYangName() string { return "keies" }
 
 // Ntp_Authentication_TrustedKeies
 // Key numbers for trusted time sources
 type Ntp_Authentication_TrustedKeies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure NTP trusted key. The type is slice of
@@ -1331,68 +777,29 @@ type Ntp_Authentication_TrustedKeies struct {
     TrustedKey []Ntp_Authentication_TrustedKeies_TrustedKey
 }
 
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetFilter() yfilter.YFilter { return trustedKeies.YFilter }
+func (trustedKeies *Ntp_Authentication_TrustedKeies) GetEntityData() *types.CommonEntityData {
+    trustedKeies.EntityData.YFilter = trustedKeies.YFilter
+    trustedKeies.EntityData.YangName = "trusted-keies"
+    trustedKeies.EntityData.BundleName = "cisco_ios_xr"
+    trustedKeies.EntityData.ParentYangName = "authentication"
+    trustedKeies.EntityData.SegmentPath = "trusted-keies"
+    trustedKeies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trustedKeies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trustedKeies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trustedKeies *Ntp_Authentication_TrustedKeies) SetFilter(yf yfilter.YFilter) { trustedKeies.YFilter = yf }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetGoName(yname string) string {
-    if yname == "trusted-key" { return "TrustedKey" }
-    return ""
-}
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetSegmentPath() string {
-    return "trusted-keies"
-}
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "trusted-key" {
-        for _, c := range trustedKeies.TrustedKey {
-            if trustedKeies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_Authentication_TrustedKeies_TrustedKey{}
-        trustedKeies.TrustedKey = append(trustedKeies.TrustedKey, child)
-        return &trustedKeies.TrustedKey[len(trustedKeies.TrustedKey)-1]
-    }
-    return nil
-}
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trustedKeies.EntityData.Children = make(map[string]types.YChild)
+    trustedKeies.EntityData.Children["trusted-key"] = types.YChild{"TrustedKey", nil}
     for i := range trustedKeies.TrustedKey {
-        children[trustedKeies.TrustedKey[i].GetSegmentPath()] = &trustedKeies.TrustedKey[i]
+        trustedKeies.EntityData.Children[types.GetSegmentPath(&trustedKeies.TrustedKey[i])] = types.YChild{"TrustedKey", &trustedKeies.TrustedKey[i]}
     }
-    return children
+    trustedKeies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trustedKeies.EntityData)
 }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetYangName() string { return "trusted-keies" }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) SetParent(parent types.Entity) { trustedKeies.parent = parent }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetParent() types.Entity { return trustedKeies.parent }
-
-func (trustedKeies *Ntp_Authentication_TrustedKeies) GetParentYangName() string { return "authentication" }
 
 // Ntp_Authentication_TrustedKeies_TrustedKey
 // Configure NTP trusted key
 type Ntp_Authentication_TrustedKeies_TrustedKey struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Key number. The type is interface{} with range:
@@ -1400,112 +807,52 @@ type Ntp_Authentication_TrustedKeies_TrustedKey struct {
     KeyNumber interface{}
 }
 
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetFilter() yfilter.YFilter { return trustedKey.YFilter }
+func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetEntityData() *types.CommonEntityData {
+    trustedKey.EntityData.YFilter = trustedKey.YFilter
+    trustedKey.EntityData.YangName = "trusted-key"
+    trustedKey.EntityData.BundleName = "cisco_ios_xr"
+    trustedKey.EntityData.ParentYangName = "trusted-keies"
+    trustedKey.EntityData.SegmentPath = "trusted-key" + "[key-number='" + fmt.Sprintf("%v", trustedKey.KeyNumber) + "']"
+    trustedKey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trustedKey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trustedKey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) SetFilter(yf yfilter.YFilter) { trustedKey.YFilter = yf }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetGoName(yname string) string {
-    if yname == "key-number" { return "KeyNumber" }
-    return ""
+    trustedKey.EntityData.Children = make(map[string]types.YChild)
+    trustedKey.EntityData.Leafs = make(map[string]types.YLeaf)
+    trustedKey.EntityData.Leafs["key-number"] = types.YLeaf{"KeyNumber", trustedKey.KeyNumber}
+    return &(trustedKey.EntityData)
 }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetSegmentPath() string {
-    return "trusted-key" + "[key-number='" + fmt.Sprintf("%v", trustedKey.KeyNumber) + "']"
-}
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["key-number"] = trustedKey.KeyNumber
-    return leafs
-}
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetYangName() string { return "trusted-key" }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) SetParent(parent types.Entity) { trustedKey.parent = parent }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetParent() types.Entity { return trustedKey.parent }
-
-func (trustedKey *Ntp_Authentication_TrustedKeies_TrustedKey) GetParentYangName() string { return "trusted-keies" }
 
 // Ntp_Passive
 // Configure NTP passive associations
 type Ntp_Passive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable NTP Passive associations. The type is interface{}.
     Enable interface{}
 }
 
-func (passive *Ntp_Passive) GetFilter() yfilter.YFilter { return passive.YFilter }
+func (passive *Ntp_Passive) GetEntityData() *types.CommonEntityData {
+    passive.EntityData.YFilter = passive.YFilter
+    passive.EntityData.YangName = "passive"
+    passive.EntityData.BundleName = "cisco_ios_xr"
+    passive.EntityData.ParentYangName = "ntp"
+    passive.EntityData.SegmentPath = "passive"
+    passive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    passive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    passive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (passive *Ntp_Passive) SetFilter(yf yfilter.YFilter) { passive.YFilter = yf }
-
-func (passive *Ntp_Passive) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    passive.EntityData.Children = make(map[string]types.YChild)
+    passive.EntityData.Leafs = make(map[string]types.YLeaf)
+    passive.EntityData.Leafs["enable"] = types.YLeaf{"Enable", passive.Enable}
+    return &(passive.EntityData)
 }
-
-func (passive *Ntp_Passive) GetSegmentPath() string {
-    return "passive"
-}
-
-func (passive *Ntp_Passive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (passive *Ntp_Passive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (passive *Ntp_Passive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = passive.Enable
-    return leafs
-}
-
-func (passive *Ntp_Passive) GetBundleName() string { return "cisco_ios_xr" }
-
-func (passive *Ntp_Passive) GetYangName() string { return "passive" }
-
-func (passive *Ntp_Passive) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (passive *Ntp_Passive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (passive *Ntp_Passive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (passive *Ntp_Passive) SetParent(parent types.Entity) { passive.parent = parent }
-
-func (passive *Ntp_Passive) GetParent() types.Entity { return passive.parent }
-
-func (passive *Ntp_Passive) GetParentYangName() string { return "ntp" }
 
 // Ntp_InterfaceTables
 // NTP per interface configuration
 type Ntp_InterfaceTables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NTP per interface configuration. The type is slice of
@@ -1513,148 +860,69 @@ type Ntp_InterfaceTables struct {
     InterfaceTable []Ntp_InterfaceTables_InterfaceTable
 }
 
-func (interfaceTables *Ntp_InterfaceTables) GetFilter() yfilter.YFilter { return interfaceTables.YFilter }
+func (interfaceTables *Ntp_InterfaceTables) GetEntityData() *types.CommonEntityData {
+    interfaceTables.EntityData.YFilter = interfaceTables.YFilter
+    interfaceTables.EntityData.YangName = "interface-tables"
+    interfaceTables.EntityData.BundleName = "cisco_ios_xr"
+    interfaceTables.EntityData.ParentYangName = "ntp"
+    interfaceTables.EntityData.SegmentPath = "interface-tables"
+    interfaceTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceTables *Ntp_InterfaceTables) SetFilter(yf yfilter.YFilter) { interfaceTables.YFilter = yf }
-
-func (interfaceTables *Ntp_InterfaceTables) GetGoName(yname string) string {
-    if yname == "interface-table" { return "InterfaceTable" }
-    return ""
-}
-
-func (interfaceTables *Ntp_InterfaceTables) GetSegmentPath() string {
-    return "interface-tables"
-}
-
-func (interfaceTables *Ntp_InterfaceTables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-table" {
-        for _, c := range interfaceTables.InterfaceTable {
-            if interfaceTables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_InterfaceTables_InterfaceTable{}
-        interfaceTables.InterfaceTable = append(interfaceTables.InterfaceTable, child)
-        return &interfaceTables.InterfaceTable[len(interfaceTables.InterfaceTable)-1]
-    }
-    return nil
-}
-
-func (interfaceTables *Ntp_InterfaceTables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceTables.EntityData.Children = make(map[string]types.YChild)
+    interfaceTables.EntityData.Children["interface-table"] = types.YChild{"InterfaceTable", nil}
     for i := range interfaceTables.InterfaceTable {
-        children[interfaceTables.InterfaceTable[i].GetSegmentPath()] = &interfaceTables.InterfaceTable[i]
+        interfaceTables.EntityData.Children[types.GetSegmentPath(&interfaceTables.InterfaceTable[i])] = types.YChild{"InterfaceTable", &interfaceTables.InterfaceTable[i]}
     }
-    return children
+    interfaceTables.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceTables.EntityData)
 }
-
-func (interfaceTables *Ntp_InterfaceTables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceTables *Ntp_InterfaceTables) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceTables *Ntp_InterfaceTables) GetYangName() string { return "interface-tables" }
-
-func (interfaceTables *Ntp_InterfaceTables) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceTables *Ntp_InterfaceTables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceTables *Ntp_InterfaceTables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceTables *Ntp_InterfaceTables) SetParent(parent types.Entity) { interfaceTables.parent = parent }
-
-func (interfaceTables *Ntp_InterfaceTables) GetParent() types.Entity { return interfaceTables.parent }
-
-func (interfaceTables *Ntp_InterfaceTables) GetParentYangName() string { return "ntp" }
 
 // Ntp_InterfaceTables_InterfaceTable
 // NTP per interface configuration
 type Ntp_InterfaceTables_InterfaceTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Name of the interface. The type is slice of
-    // Ntp_InterfaceTables_InterfaceTable_Interface.
-    Interface []Ntp_InterfaceTables_InterfaceTable_Interface
+    // Ntp_InterfaceTables_InterfaceTable_Interface_.
+    Interface_ []Ntp_InterfaceTables_InterfaceTable_Interface
 }
 
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetFilter() yfilter.YFilter { return interfaceTable.YFilter }
+func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetEntityData() *types.CommonEntityData {
+    interfaceTable.EntityData.YFilter = interfaceTable.YFilter
+    interfaceTable.EntityData.YangName = "interface-table"
+    interfaceTable.EntityData.BundleName = "cisco_ios_xr"
+    interfaceTable.EntityData.ParentYangName = "interface-tables"
+    interfaceTable.EntityData.SegmentPath = "interface-table" + "[vrf-name='" + fmt.Sprintf("%v", interfaceTable.VrfName) + "']"
+    interfaceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) SetFilter(yf yfilter.YFilter) { interfaceTable.YFilter = yf }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetSegmentPath() string {
-    return "interface-table" + "[vrf-name='" + fmt.Sprintf("%v", interfaceTable.VrfName) + "']"
-}
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaceTable.Interface {
-            if interfaceTable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_InterfaceTables_InterfaceTable_Interface{}
-        interfaceTable.Interface = append(interfaceTable.Interface, child)
-        return &interfaceTable.Interface[len(interfaceTable.Interface)-1]
+    interfaceTable.EntityData.Children = make(map[string]types.YChild)
+    interfaceTable.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaceTable.Interface_ {
+        interfaceTable.EntityData.Children[types.GetSegmentPath(&interfaceTable.Interface_[i])] = types.YChild{"Interface_", &interfaceTable.Interface_[i]}
     }
-    return nil
+    interfaceTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceTable.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", interfaceTable.VrfName}
+    return &(interfaceTable.EntityData)
 }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaceTable.Interface {
-        children[interfaceTable.Interface[i].GetSegmentPath()] = &interfaceTable.Interface[i]
-    }
-    return children
-}
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = interfaceTable.VrfName
-    return leafs
-}
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetYangName() string { return "interface-table" }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) SetParent(parent types.Entity) { interfaceTable.parent = parent }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetParent() types.Entity { return interfaceTable.parent }
-
-func (interfaceTable *Ntp_InterfaceTables_InterfaceTable) GetParentYangName() string { return "interface-tables" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface
 // Name of the interface
 type Ntp_InterfaceTables_InterfaceTable_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Disable NTP. The type is interface{}.
     Disable interface{}
@@ -1666,68 +934,29 @@ type Ntp_InterfaceTables_InterfaceTable_Interface struct {
     InterfaceBroadcast Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast
 }
 
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interface-table"
+    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "disable" { return "Disable" }
-    if yname == "interface-multicast" { return "InterfaceMulticast" }
-    if yname == "interface-broadcast" { return "InterfaceBroadcast" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["interface-multicast"] = types.YChild{"InterfaceMulticast", &self.InterfaceMulticast}
+    self.EntityData.Children["interface-broadcast"] = types.YChild{"InterfaceBroadcast", &self.InterfaceBroadcast}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["disable"] = types.YLeaf{"Disable", self.Disable}
+    return &(self.EntityData)
 }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetSegmentPath() string {
-    return "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface) + "']"
-}
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-multicast" {
-        return &self.InterfaceMulticast
-    }
-    if childYangName == "interface-broadcast" {
-        return &self.InterfaceBroadcast
-    }
-    return nil
-}
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-multicast"] = &self.InterfaceMulticast
-    children["interface-broadcast"] = &self.InterfaceBroadcast
-    return children
-}
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = self.Interface
-    leafs["disable"] = self.Disable
-    return leafs
-}
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetYangName() string { return "interface" }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Ntp_InterfaceTables_InterfaceTable_Interface) GetParentYangName() string { return "interface-table" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast
 // Configure NTP multicast service
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configures multicast client peers.
@@ -1737,64 +966,27 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast struct {
     MulticastServers Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers
 }
 
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetFilter() yfilter.YFilter { return interfaceMulticast.YFilter }
+func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetEntityData() *types.CommonEntityData {
+    interfaceMulticast.EntityData.YFilter = interfaceMulticast.YFilter
+    interfaceMulticast.EntityData.YangName = "interface-multicast"
+    interfaceMulticast.EntityData.BundleName = "cisco_ios_xr"
+    interfaceMulticast.EntityData.ParentYangName = "interface"
+    interfaceMulticast.EntityData.SegmentPath = "interface-multicast"
+    interfaceMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) SetFilter(yf yfilter.YFilter) { interfaceMulticast.YFilter = yf }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetGoName(yname string) string {
-    if yname == "multicast-clients" { return "MulticastClients" }
-    if yname == "multicast-servers" { return "MulticastServers" }
-    return ""
+    interfaceMulticast.EntityData.Children = make(map[string]types.YChild)
+    interfaceMulticast.EntityData.Children["multicast-clients"] = types.YChild{"MulticastClients", &interfaceMulticast.MulticastClients}
+    interfaceMulticast.EntityData.Children["multicast-servers"] = types.YChild{"MulticastServers", &interfaceMulticast.MulticastServers}
+    interfaceMulticast.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceMulticast.EntityData)
 }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetSegmentPath() string {
-    return "interface-multicast"
-}
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "multicast-clients" {
-        return &interfaceMulticast.MulticastClients
-    }
-    if childYangName == "multicast-servers" {
-        return &interfaceMulticast.MulticastServers
-    }
-    return nil
-}
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["multicast-clients"] = &interfaceMulticast.MulticastClients
-    children["multicast-servers"] = &interfaceMulticast.MulticastServers
-    return children
-}
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetYangName() string { return "interface-multicast" }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) SetParent(parent types.Entity) { interfaceMulticast.parent = parent }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetParent() types.Entity { return interfaceMulticast.parent }
-
-func (interfaceMulticast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast) GetParentYangName() string { return "interface" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients
 // Configures multicast client peers
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Listen to NTP multicasts. The type is slice of
@@ -1802,128 +994,59 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastCl
     MulticastClient []Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient
 }
 
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetFilter() yfilter.YFilter { return multicastClients.YFilter }
+func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetEntityData() *types.CommonEntityData {
+    multicastClients.EntityData.YFilter = multicastClients.YFilter
+    multicastClients.EntityData.YangName = "multicast-clients"
+    multicastClients.EntityData.BundleName = "cisco_ios_xr"
+    multicastClients.EntityData.ParentYangName = "interface-multicast"
+    multicastClients.EntityData.SegmentPath = "multicast-clients"
+    multicastClients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastClients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastClients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) SetFilter(yf yfilter.YFilter) { multicastClients.YFilter = yf }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetGoName(yname string) string {
-    if yname == "multicast-client" { return "MulticastClient" }
-    return ""
-}
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetSegmentPath() string {
-    return "multicast-clients"
-}
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "multicast-client" {
-        for _, c := range multicastClients.MulticastClient {
-            if multicastClients.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient{}
-        multicastClients.MulticastClient = append(multicastClients.MulticastClient, child)
-        return &multicastClients.MulticastClient[len(multicastClients.MulticastClient)-1]
-    }
-    return nil
-}
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    multicastClients.EntityData.Children = make(map[string]types.YChild)
+    multicastClients.EntityData.Children["multicast-client"] = types.YChild{"MulticastClient", nil}
     for i := range multicastClients.MulticastClient {
-        children[multicastClients.MulticastClient[i].GetSegmentPath()] = &multicastClients.MulticastClient[i]
+        multicastClients.EntityData.Children[types.GetSegmentPath(&multicastClients.MulticastClient[i])] = types.YChild{"MulticastClient", &multicastClients.MulticastClient[i]}
     }
-    return children
+    multicastClients.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(multicastClients.EntityData)
 }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetYangName() string { return "multicast-clients" }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) SetParent(parent types.Entity) { multicastClients.parent = parent }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetParent() types.Entity { return multicastClients.parent }
-
-func (multicastClients *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients) GetParentYangName() string { return "interface-multicast" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient
 // Listen to NTP multicasts
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP address of a multicast group. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 }
 
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetFilter() yfilter.YFilter { return multicastClient.YFilter }
+func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetEntityData() *types.CommonEntityData {
+    multicastClient.EntityData.YFilter = multicastClient.YFilter
+    multicastClient.EntityData.YangName = "multicast-client"
+    multicastClient.EntityData.BundleName = "cisco_ios_xr"
+    multicastClient.EntityData.ParentYangName = "multicast-clients"
+    multicastClient.EntityData.SegmentPath = "multicast-client" + "[ip-address='" + fmt.Sprintf("%v", multicastClient.IpAddress) + "']"
+    multicastClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) SetFilter(yf yfilter.YFilter) { multicastClient.YFilter = yf }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetGoName(yname string) string {
-    if yname == "ip-address" { return "IpAddress" }
-    return ""
+    multicastClient.EntityData.Children = make(map[string]types.YChild)
+    multicastClient.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastClient.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", multicastClient.IpAddress}
+    return &(multicastClient.EntityData)
 }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetSegmentPath() string {
-    return "multicast-client" + "[ip-address='" + fmt.Sprintf("%v", multicastClient.IpAddress) + "']"
-}
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-address"] = multicastClient.IpAddress
-    return leafs
-}
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetYangName() string { return "multicast-client" }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) SetParent(parent types.Entity) { multicastClient.parent = parent }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetParent() types.Entity { return multicastClient.parent }
-
-func (multicastClient *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastClients_MulticastClient) GetParentYangName() string { return "multicast-clients" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers
 // Configures multicast server peers
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure NTP multicast group server peer. The type is slice of
@@ -1931,75 +1054,36 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastSe
     MulticastServer []Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer
 }
 
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetFilter() yfilter.YFilter { return multicastServers.YFilter }
+func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetEntityData() *types.CommonEntityData {
+    multicastServers.EntityData.YFilter = multicastServers.YFilter
+    multicastServers.EntityData.YangName = "multicast-servers"
+    multicastServers.EntityData.BundleName = "cisco_ios_xr"
+    multicastServers.EntityData.ParentYangName = "interface-multicast"
+    multicastServers.EntityData.SegmentPath = "multicast-servers"
+    multicastServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) SetFilter(yf yfilter.YFilter) { multicastServers.YFilter = yf }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetGoName(yname string) string {
-    if yname == "multicast-server" { return "MulticastServer" }
-    return ""
-}
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetSegmentPath() string {
-    return "multicast-servers"
-}
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "multicast-server" {
-        for _, c := range multicastServers.MulticastServer {
-            if multicastServers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer{}
-        multicastServers.MulticastServer = append(multicastServers.MulticastServer, child)
-        return &multicastServers.MulticastServer[len(multicastServers.MulticastServer)-1]
-    }
-    return nil
-}
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    multicastServers.EntityData.Children = make(map[string]types.YChild)
+    multicastServers.EntityData.Children["multicast-server"] = types.YChild{"MulticastServer", nil}
     for i := range multicastServers.MulticastServer {
-        children[multicastServers.MulticastServer[i].GetSegmentPath()] = &multicastServers.MulticastServer[i]
+        multicastServers.EntityData.Children[types.GetSegmentPath(&multicastServers.MulticastServer[i])] = types.YChild{"MulticastServer", &multicastServers.MulticastServer[i]}
     }
-    return children
+    multicastServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(multicastServers.EntityData)
 }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetYangName() string { return "multicast-servers" }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) SetParent(parent types.Entity) { multicastServers.parent = parent }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetParent() types.Entity { return multicastServers.parent }
-
-func (multicastServers *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers) GetParentYangName() string { return "interface-multicast" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer
 // Configure NTP multicast group server peer
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP address of a multicast group. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Authentication key. The type is interface{} with range: 1..65535.
@@ -2012,62 +1096,29 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastSe
     Ttl interface{}
 }
 
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetFilter() yfilter.YFilter { return multicastServer.YFilter }
+func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetEntityData() *types.CommonEntityData {
+    multicastServer.EntityData.YFilter = multicastServer.YFilter
+    multicastServer.EntityData.YangName = "multicast-server"
+    multicastServer.EntityData.BundleName = "cisco_ios_xr"
+    multicastServer.EntityData.ParentYangName = "multicast-servers"
+    multicastServer.EntityData.SegmentPath = "multicast-server" + "[ip-address='" + fmt.Sprintf("%v", multicastServer.IpAddress) + "']"
+    multicastServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) SetFilter(yf yfilter.YFilter) { multicastServer.YFilter = yf }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetGoName(yname string) string {
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "authentication-key" { return "AuthenticationKey" }
-    if yname == "version" { return "Version" }
-    if yname == "ttl" { return "Ttl" }
-    return ""
+    multicastServer.EntityData.Children = make(map[string]types.YChild)
+    multicastServer.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastServer.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", multicastServer.IpAddress}
+    multicastServer.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", multicastServer.AuthenticationKey}
+    multicastServer.EntityData.Leafs["version"] = types.YLeaf{"Version", multicastServer.Version}
+    multicastServer.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", multicastServer.Ttl}
+    return &(multicastServer.EntityData)
 }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetSegmentPath() string {
-    return "multicast-server" + "[ip-address='" + fmt.Sprintf("%v", multicastServer.IpAddress) + "']"
-}
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-address"] = multicastServer.IpAddress
-    leafs["authentication-key"] = multicastServer.AuthenticationKey
-    leafs["version"] = multicastServer.Version
-    leafs["ttl"] = multicastServer.Ttl
-    return leafs
-}
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetYangName() string { return "multicast-server" }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) SetParent(parent types.Entity) { multicastServer.parent = parent }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetParent() types.Entity { return multicastServer.parent }
-
-func (multicastServer *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastServers_MulticastServer) GetParentYangName() string { return "multicast-servers" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast
 // Configure NTP broadcast service
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Listen to NTP broadcasts. The type is interface{}.
@@ -2077,65 +1128,31 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast struct {
     Broadcast Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast
 }
 
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetFilter() yfilter.YFilter { return interfaceBroadcast.YFilter }
+func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetEntityData() *types.CommonEntityData {
+    interfaceBroadcast.EntityData.YFilter = interfaceBroadcast.YFilter
+    interfaceBroadcast.EntityData.YangName = "interface-broadcast"
+    interfaceBroadcast.EntityData.BundleName = "cisco_ios_xr"
+    interfaceBroadcast.EntityData.ParentYangName = "interface"
+    interfaceBroadcast.EntityData.SegmentPath = "interface-broadcast"
+    interfaceBroadcast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceBroadcast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceBroadcast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) SetFilter(yf yfilter.YFilter) { interfaceBroadcast.YFilter = yf }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetGoName(yname string) string {
-    if yname == "broadcast-client" { return "BroadcastClient" }
-    if yname == "broadcast" { return "Broadcast" }
-    return ""
+    interfaceBroadcast.EntityData.Children = make(map[string]types.YChild)
+    interfaceBroadcast.EntityData.Children["broadcast"] = types.YChild{"Broadcast", &interfaceBroadcast.Broadcast}
+    interfaceBroadcast.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceBroadcast.EntityData.Leafs["broadcast-client"] = types.YLeaf{"BroadcastClient", interfaceBroadcast.BroadcastClient}
+    return &(interfaceBroadcast.EntityData)
 }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetSegmentPath() string {
-    return "interface-broadcast"
-}
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "broadcast" {
-        return &interfaceBroadcast.Broadcast
-    }
-    return nil
-}
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["broadcast"] = &interfaceBroadcast.Broadcast
-    return children
-}
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["broadcast-client"] = interfaceBroadcast.BroadcastClient
-    return leafs
-}
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetYangName() string { return "interface-broadcast" }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) SetParent(parent types.Entity) { interfaceBroadcast.parent = parent }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetParent() types.Entity { return interfaceBroadcast.parent }
-
-func (interfaceBroadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast) GetParentYangName() string { return "interface" }
 
 // Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast
 // Configure NTP broadcast
 type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination broadcast IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Authentication key. The type is interface{} with range: 1..65535.
@@ -2145,60 +1162,28 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast s
     NtpVersion interface{}
 }
 
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetFilter() yfilter.YFilter { return broadcast.YFilter }
+func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetEntityData() *types.CommonEntityData {
+    broadcast.EntityData.YFilter = broadcast.YFilter
+    broadcast.EntityData.YangName = "broadcast"
+    broadcast.EntityData.BundleName = "cisco_ios_xr"
+    broadcast.EntityData.ParentYangName = "interface-broadcast"
+    broadcast.EntityData.SegmentPath = "broadcast"
+    broadcast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    broadcast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    broadcast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) SetFilter(yf yfilter.YFilter) { broadcast.YFilter = yf }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "authentication-key" { return "AuthenticationKey" }
-    if yname == "ntp-version" { return "NtpVersion" }
-    return ""
+    broadcast.EntityData.Children = make(map[string]types.YChild)
+    broadcast.EntityData.Leafs = make(map[string]types.YLeaf)
+    broadcast.EntityData.Leafs["address"] = types.YLeaf{"Address", broadcast.Address}
+    broadcast.EntityData.Leafs["authentication-key"] = types.YLeaf{"AuthenticationKey", broadcast.AuthenticationKey}
+    broadcast.EntityData.Leafs["ntp-version"] = types.YLeaf{"NtpVersion", broadcast.NtpVersion}
+    return &(broadcast.EntityData)
 }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetSegmentPath() string {
-    return "broadcast"
-}
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = broadcast.Address
-    leafs["authentication-key"] = broadcast.AuthenticationKey
-    leafs["ntp-version"] = broadcast.NtpVersion
-    return leafs
-}
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetBundleName() string { return "cisco_ios_xr" }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetYangName() string { return "broadcast" }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) SetParent(parent types.Entity) { broadcast.parent = parent }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetParent() types.Entity { return broadcast.parent }
-
-func (broadcast *Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_Broadcast) GetParentYangName() string { return "interface-broadcast" }
 
 // Ntp_AccessGroupTables
 // Control NTP access
 type Ntp_AccessGroupTables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Control NTP access. The type is slice of
@@ -2206,72 +1191,33 @@ type Ntp_AccessGroupTables struct {
     AccessGroupTable []Ntp_AccessGroupTables_AccessGroupTable
 }
 
-func (accessGroupTables *Ntp_AccessGroupTables) GetFilter() yfilter.YFilter { return accessGroupTables.YFilter }
+func (accessGroupTables *Ntp_AccessGroupTables) GetEntityData() *types.CommonEntityData {
+    accessGroupTables.EntityData.YFilter = accessGroupTables.YFilter
+    accessGroupTables.EntityData.YangName = "access-group-tables"
+    accessGroupTables.EntityData.BundleName = "cisco_ios_xr"
+    accessGroupTables.EntityData.ParentYangName = "ntp"
+    accessGroupTables.EntityData.SegmentPath = "access-group-tables"
+    accessGroupTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessGroupTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessGroupTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessGroupTables *Ntp_AccessGroupTables) SetFilter(yf yfilter.YFilter) { accessGroupTables.YFilter = yf }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetGoName(yname string) string {
-    if yname == "access-group-table" { return "AccessGroupTable" }
-    return ""
-}
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetSegmentPath() string {
-    return "access-group-tables"
-}
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-group-table" {
-        for _, c := range accessGroupTables.AccessGroupTable {
-            if accessGroupTables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_AccessGroupTables_AccessGroupTable{}
-        accessGroupTables.AccessGroupTable = append(accessGroupTables.AccessGroupTable, child)
-        return &accessGroupTables.AccessGroupTable[len(accessGroupTables.AccessGroupTable)-1]
-    }
-    return nil
-}
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessGroupTables.EntityData.Children = make(map[string]types.YChild)
+    accessGroupTables.EntityData.Children["access-group-table"] = types.YChild{"AccessGroupTable", nil}
     for i := range accessGroupTables.AccessGroupTable {
-        children[accessGroupTables.AccessGroupTable[i].GetSegmentPath()] = &accessGroupTables.AccessGroupTable[i]
+        accessGroupTables.EntityData.Children[types.GetSegmentPath(&accessGroupTables.AccessGroupTable[i])] = types.YChild{"AccessGroupTable", &accessGroupTables.AccessGroupTable[i]}
     }
-    return children
+    accessGroupTables.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accessGroupTables.EntityData)
 }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetYangName() string { return "access-group-tables" }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessGroupTables *Ntp_AccessGroupTables) SetParent(parent types.Entity) { accessGroupTables.parent = parent }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetParent() types.Entity { return accessGroupTables.parent }
-
-func (accessGroupTables *Ntp_AccessGroupTables) GetParentYangName() string { return "ntp" }
 
 // Ntp_AccessGroupTables_AccessGroupTable
 // Control NTP access
 type Ntp_AccessGroupTables_AccessGroupTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Configure NTP access address family. The type is slice of
@@ -2279,70 +1225,30 @@ type Ntp_AccessGroupTables_AccessGroupTable struct {
     AccessGroupAfTable []Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable
 }
 
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetFilter() yfilter.YFilter { return accessGroupTable.YFilter }
+func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetEntityData() *types.CommonEntityData {
+    accessGroupTable.EntityData.YFilter = accessGroupTable.YFilter
+    accessGroupTable.EntityData.YangName = "access-group-table"
+    accessGroupTable.EntityData.BundleName = "cisco_ios_xr"
+    accessGroupTable.EntityData.ParentYangName = "access-group-tables"
+    accessGroupTable.EntityData.SegmentPath = "access-group-table" + "[vrf-name='" + fmt.Sprintf("%v", accessGroupTable.VrfName) + "']"
+    accessGroupTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessGroupTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) SetFilter(yf yfilter.YFilter) { accessGroupTable.YFilter = yf }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "access-group-af-table" { return "AccessGroupAfTable" }
-    return ""
-}
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetSegmentPath() string {
-    return "access-group-table" + "[vrf-name='" + fmt.Sprintf("%v", accessGroupTable.VrfName) + "']"
-}
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-group-af-table" {
-        for _, c := range accessGroupTable.AccessGroupAfTable {
-            if accessGroupTable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable{}
-        accessGroupTable.AccessGroupAfTable = append(accessGroupTable.AccessGroupAfTable, child)
-        return &accessGroupTable.AccessGroupAfTable[len(accessGroupTable.AccessGroupAfTable)-1]
-    }
-    return nil
-}
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessGroupTable.EntityData.Children = make(map[string]types.YChild)
+    accessGroupTable.EntityData.Children["access-group-af-table"] = types.YChild{"AccessGroupAfTable", nil}
     for i := range accessGroupTable.AccessGroupAfTable {
-        children[accessGroupTable.AccessGroupAfTable[i].GetSegmentPath()] = &accessGroupTable.AccessGroupAfTable[i]
+        accessGroupTable.EntityData.Children[types.GetSegmentPath(&accessGroupTable.AccessGroupAfTable[i])] = types.YChild{"AccessGroupAfTable", &accessGroupTable.AccessGroupAfTable[i]}
     }
-    return children
+    accessGroupTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessGroupTable.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", accessGroupTable.VrfName}
+    return &(accessGroupTable.EntityData)
 }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = accessGroupTable.VrfName
-    return leafs
-}
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetYangName() string { return "access-group-table" }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) SetParent(parent types.Entity) { accessGroupTable.parent = parent }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetParent() types.Entity { return accessGroupTable.parent }
-
-func (accessGroupTable *Ntp_AccessGroupTables_AccessGroupTable) GetParentYangName() string { return "access-group-tables" }
 
 // Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable
 // Configure NTP access address family
 type Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address family. The type is NtpAccessAf.
@@ -2353,70 +1259,30 @@ type Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable struct {
     AccessGroup []Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup
 }
 
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetFilter() yfilter.YFilter { return accessGroupAfTable.YFilter }
+func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetEntityData() *types.CommonEntityData {
+    accessGroupAfTable.EntityData.YFilter = accessGroupAfTable.YFilter
+    accessGroupAfTable.EntityData.YangName = "access-group-af-table"
+    accessGroupAfTable.EntityData.BundleName = "cisco_ios_xr"
+    accessGroupAfTable.EntityData.ParentYangName = "access-group-table"
+    accessGroupAfTable.EntityData.SegmentPath = "access-group-af-table" + "[af='" + fmt.Sprintf("%v", accessGroupAfTable.Af) + "']"
+    accessGroupAfTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessGroupAfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessGroupAfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) SetFilter(yf yfilter.YFilter) { accessGroupAfTable.YFilter = yf }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetGoName(yname string) string {
-    if yname == "af" { return "Af" }
-    if yname == "access-group" { return "AccessGroup" }
-    return ""
-}
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetSegmentPath() string {
-    return "access-group-af-table" + "[af='" + fmt.Sprintf("%v", accessGroupAfTable.Af) + "']"
-}
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-group" {
-        for _, c := range accessGroupAfTable.AccessGroup {
-            if accessGroupAfTable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup{}
-        accessGroupAfTable.AccessGroup = append(accessGroupAfTable.AccessGroup, child)
-        return &accessGroupAfTable.AccessGroup[len(accessGroupAfTable.AccessGroup)-1]
-    }
-    return nil
-}
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessGroupAfTable.EntityData.Children = make(map[string]types.YChild)
+    accessGroupAfTable.EntityData.Children["access-group"] = types.YChild{"AccessGroup", nil}
     for i := range accessGroupAfTable.AccessGroup {
-        children[accessGroupAfTable.AccessGroup[i].GetSegmentPath()] = &accessGroupAfTable.AccessGroup[i]
+        accessGroupAfTable.EntityData.Children[types.GetSegmentPath(&accessGroupAfTable.AccessGroup[i])] = types.YChild{"AccessGroup", &accessGroupAfTable.AccessGroup[i]}
     }
-    return children
+    accessGroupAfTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessGroupAfTable.EntityData.Leafs["af"] = types.YLeaf{"Af", accessGroupAfTable.Af}
+    return &(accessGroupAfTable.EntityData)
 }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af"] = accessGroupAfTable.Af
-    return leafs
-}
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetYangName() string { return "access-group-af-table" }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) SetParent(parent types.Entity) { accessGroupAfTable.parent = parent }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetParent() types.Entity { return accessGroupAfTable.parent }
-
-func (accessGroupAfTable *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable) GetParentYangName() string { return "access-group-table" }
 
 // Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup
 // Configure NTP access group
 type Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Access group type. The type is NtpAccess.
@@ -2427,51 +1293,20 @@ type Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup struc
     AccessListName interface{}
 }
 
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetFilter() yfilter.YFilter { return accessGroup.YFilter }
+func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetEntityData() *types.CommonEntityData {
+    accessGroup.EntityData.YFilter = accessGroup.YFilter
+    accessGroup.EntityData.YangName = "access-group"
+    accessGroup.EntityData.BundleName = "cisco_ios_xr"
+    accessGroup.EntityData.ParentYangName = "access-group-af-table"
+    accessGroup.EntityData.SegmentPath = "access-group" + "[access-group-type='" + fmt.Sprintf("%v", accessGroup.AccessGroupType) + "']"
+    accessGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) SetFilter(yf yfilter.YFilter) { accessGroup.YFilter = yf }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetGoName(yname string) string {
-    if yname == "access-group-type" { return "AccessGroupType" }
-    if yname == "access-list-name" { return "AccessListName" }
-    return ""
+    accessGroup.EntityData.Children = make(map[string]types.YChild)
+    accessGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessGroup.EntityData.Leafs["access-group-type"] = types.YLeaf{"AccessGroupType", accessGroup.AccessGroupType}
+    accessGroup.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", accessGroup.AccessListName}
+    return &(accessGroup.EntityData)
 }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetSegmentPath() string {
-    return "access-group" + "[access-group-type='" + fmt.Sprintf("%v", accessGroup.AccessGroupType) + "']"
-}
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["access-group-type"] = accessGroup.AccessGroupType
-    leafs["access-list-name"] = accessGroup.AccessListName
-    return leafs
-}
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetYangName() string { return "access-group" }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) SetParent(parent types.Entity) { accessGroup.parent = parent }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetParent() types.Entity { return accessGroup.parent }
-
-func (accessGroup *Ntp_AccessGroupTables_AccessGroupTable_AccessGroupAfTable_AccessGroup) GetParentYangName() string { return "access-group-af-table" }
 

@@ -3,8 +3,9 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   environmental-monitoring: Environmental Monitoring Operational
-//     data space
+//   environmental-monitoring-cli: Environmental Monitoring
+//     Operational data space
+//   environmental-monitoring: environmental monitoring
 // 
 // Copyright (c) 2013-2017 by Cisco Systems, Inc.
 // All rights reserved.
@@ -21,141 +22,71 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package asr9k_sc_envmon_oper"))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-sc-envmon-oper environmental-monitoring-cli}", reflect.TypeOf(EnvironmentalMonitoringCli{}))
+    ydk.RegisterEntity("Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring-cli", reflect.TypeOf(EnvironmentalMonitoringCli{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-sc-envmon-oper environmental-monitoring}", reflect.TypeOf(EnvironmentalMonitoring{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring", reflect.TypeOf(EnvironmentalMonitoring{}))
 }
 
-// EnvironmentalMonitoring
+// EnvironmentalMonitoringCli
 // Environmental Monitoring Operational data space
-type EnvironmentalMonitoring struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of racks.
-    Racks EnvironmentalMonitoring_Racks
+    RackClis EnvironmentalMonitoringCli_RackClis
 }
 
-func (environmentalMonitoring *EnvironmentalMonitoring) GetFilter() yfilter.YFilter { return environmentalMonitoring.YFilter }
+func (environmentalMonitoringCli *EnvironmentalMonitoringCli) GetEntityData() *types.CommonEntityData {
+    environmentalMonitoringCli.EntityData.YFilter = environmentalMonitoringCli.YFilter
+    environmentalMonitoringCli.EntityData.YangName = "environmental-monitoring-cli"
+    environmentalMonitoringCli.EntityData.BundleName = "cisco_ios_xr"
+    environmentalMonitoringCli.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-sc-envmon-oper"
+    environmentalMonitoringCli.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring-cli"
+    environmentalMonitoringCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    environmentalMonitoringCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    environmentalMonitoringCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (environmentalMonitoring *EnvironmentalMonitoring) SetFilter(yf yfilter.YFilter) { environmentalMonitoring.YFilter = yf }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetGoName(yname string) string {
-    if yname == "racks" { return "Racks" }
-    return ""
+    environmentalMonitoringCli.EntityData.Children = make(map[string]types.YChild)
+    environmentalMonitoringCli.EntityData.Children["rack-clis"] = types.YChild{"RackClis", &environmentalMonitoringCli.RackClis}
+    environmentalMonitoringCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(environmentalMonitoringCli.EntityData)
 }
 
-func (environmentalMonitoring *EnvironmentalMonitoring) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring"
-}
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "racks" {
-        return &environmentalMonitoring.Racks
-    }
-    return nil
-}
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["racks"] = &environmentalMonitoring.Racks
-    return children
-}
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetBundleName() string { return "cisco_ios_xr" }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetYangName() string { return "environmental-monitoring" }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) SetParent(parent types.Entity) { environmentalMonitoring.parent = parent }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetParent() types.Entity { return environmentalMonitoring.parent }
-
-func (environmentalMonitoring *EnvironmentalMonitoring) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-sc-envmon-oper" }
-
-// EnvironmentalMonitoring_Racks
+// EnvironmentalMonitoringCli_RackClis
 // Table of racks
-type EnvironmentalMonitoring_Racks struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Number. The type is slice of EnvironmentalMonitoring_Racks_Rack.
-    Rack []EnvironmentalMonitoring_Racks_Rack
+    // Number. The type is slice of EnvironmentalMonitoringCli_RackClis_RackCli.
+    RackCli []EnvironmentalMonitoringCli_RackClis_RackCli
 }
 
-func (racks *EnvironmentalMonitoring_Racks) GetFilter() yfilter.YFilter { return racks.YFilter }
+func (rackClis *EnvironmentalMonitoringCli_RackClis) GetEntityData() *types.CommonEntityData {
+    rackClis.EntityData.YFilter = rackClis.YFilter
+    rackClis.EntityData.YangName = "rack-clis"
+    rackClis.EntityData.BundleName = "cisco_ios_xr"
+    rackClis.EntityData.ParentYangName = "environmental-monitoring-cli"
+    rackClis.EntityData.SegmentPath = "rack-clis"
+    rackClis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rackClis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rackClis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (racks *EnvironmentalMonitoring_Racks) SetFilter(yf yfilter.YFilter) { racks.YFilter = yf }
-
-func (racks *EnvironmentalMonitoring_Racks) GetGoName(yname string) string {
-    if yname == "rack" { return "Rack" }
-    return ""
-}
-
-func (racks *EnvironmentalMonitoring_Racks) GetSegmentPath() string {
-    return "racks"
-}
-
-func (racks *EnvironmentalMonitoring_Racks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rack" {
-        for _, c := range racks.Rack {
-            if racks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentalMonitoring_Racks_Rack{}
-        racks.Rack = append(racks.Rack, child)
-        return &racks.Rack[len(racks.Rack)-1]
+    rackClis.EntityData.Children = make(map[string]types.YChild)
+    rackClis.EntityData.Children["rack-cli"] = types.YChild{"RackCli", nil}
+    for i := range rackClis.RackCli {
+        rackClis.EntityData.Children[types.GetSegmentPath(&rackClis.RackCli[i])] = types.YChild{"RackCli", &rackClis.RackCli[i]}
     }
-    return nil
+    rackClis.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rackClis.EntityData)
 }
 
-func (racks *EnvironmentalMonitoring_Racks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range racks.Rack {
-        children[racks.Rack[i].GetSegmentPath()] = &racks.Rack[i]
-    }
-    return children
-}
-
-func (racks *EnvironmentalMonitoring_Racks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (racks *EnvironmentalMonitoring_Racks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (racks *EnvironmentalMonitoring_Racks) GetYangName() string { return "racks" }
-
-func (racks *EnvironmentalMonitoring_Racks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (racks *EnvironmentalMonitoring_Racks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (racks *EnvironmentalMonitoring_Racks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (racks *EnvironmentalMonitoring_Racks) SetParent(parent types.Entity) { racks.parent = parent }
-
-func (racks *EnvironmentalMonitoring_Racks) GetParent() types.Entity { return racks.parent }
-
-func (racks *EnvironmentalMonitoring_Racks) GetParentYangName() string { return "environmental-monitoring" }
-
-// EnvironmentalMonitoring_Racks_Rack
+// EnvironmentalMonitoringCli_RackClis_RackCli
 // Number
-type EnvironmentalMonitoring_Racks_Rack struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
@@ -163,1016 +94,287 @@ type EnvironmentalMonitoring_Racks_Rack struct {
     Rack interface{}
 
     // Table of slots.
-    Slots EnvironmentalMonitoring_Racks_Rack_Slots
+    SlotClis EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis
 }
 
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetFilter() yfilter.YFilter { return rack.YFilter }
+func (rackCli *EnvironmentalMonitoringCli_RackClis_RackCli) GetEntityData() *types.CommonEntityData {
+    rackCli.EntityData.YFilter = rackCli.YFilter
+    rackCli.EntityData.YangName = "rack-cli"
+    rackCli.EntityData.BundleName = "cisco_ios_xr"
+    rackCli.EntityData.ParentYangName = "rack-clis"
+    rackCli.EntityData.SegmentPath = "rack-cli" + "[rack='" + fmt.Sprintf("%v", rackCli.Rack) + "']"
+    rackCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rackCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rackCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rack *EnvironmentalMonitoring_Racks_Rack) SetFilter(yf yfilter.YFilter) { rack.YFilter = yf }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetGoName(yname string) string {
-    if yname == "rack" { return "Rack" }
-    if yname == "slots" { return "Slots" }
-    return ""
+    rackCli.EntityData.Children = make(map[string]types.YChild)
+    rackCli.EntityData.Children["slot-clis"] = types.YChild{"SlotClis", &rackCli.SlotClis}
+    rackCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    rackCli.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rackCli.Rack}
+    return &(rackCli.EntityData)
 }
 
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetSegmentPath() string {
-    return "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
-}
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slots" {
-        return &rack.Slots
-    }
-    return nil
-}
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["slots"] = &rack.Slots
-    return children
-}
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack"] = rack.Rack
-    return leafs
-}
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetYangName() string { return "rack" }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) SetParent(parent types.Entity) { rack.parent = parent }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetParent() types.Entity { return rack.parent }
-
-func (rack *EnvironmentalMonitoring_Racks_Rack) GetParentYangName() string { return "racks" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis
 // Table of slots
-type EnvironmentalMonitoring_Racks_Rack_Slots struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // Name. The type is slice of EnvironmentalMonitoring_Racks_Rack_Slots_Slot.
-    Slot []EnvironmentalMonitoring_Racks_Rack_Slots_Slot
-}
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetFilter() yfilter.YFilter { return slots.YFilter }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) SetFilter(yf yfilter.YFilter) { slots.YFilter = yf }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    return ""
-}
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetSegmentPath() string {
-    return "slots"
-}
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slot" {
-        for _, c := range slots.Slot {
-            if slots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentalMonitoring_Racks_Rack_Slots_Slot{}
-        slots.Slot = append(slots.Slot, child)
-        return &slots.Slot[len(slots.Slot)-1]
-    }
-    return nil
-}
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range slots.Slot {
-        children[slots.Slot[i].GetSegmentPath()] = &slots.Slot[i]
-    }
-    return children
-}
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetYangName() string { return "slots" }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) SetParent(parent types.Entity) { slots.parent = parent }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetParent() types.Entity { return slots.parent }
-
-func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetParentYangName() string { return "rack" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot
-// Name
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Slot name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    Slot interface{}
-
-    // Table of modules.
-    Modules EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules
-}
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetFilter() yfilter.YFilter { return slot.YFilter }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) SetFilter(yf yfilter.YFilter) { slot.YFilter = yf }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    if yname == "modules" { return "Modules" }
-    return ""
-}
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetSegmentPath() string {
-    return "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
-}
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "modules" {
-        return &slot.Modules
-    }
-    return nil
-}
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["modules"] = &slot.Modules
-    return children
-}
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slot"] = slot.Slot
-    return leafs
-}
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetYangName() string { return "slot" }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) SetParent(parent types.Entity) { slot.parent = parent }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetParent() types.Entity { return slot.parent }
-
-func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetParentYangName() string { return "slots" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules
-// Table of modules
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name. The type is slice of
-    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module.
-    Module []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module
+    // EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli.
+    SlotCli []EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli
 }
 
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetFilter() yfilter.YFilter { return modules.YFilter }
+func (slotClis *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis) GetEntityData() *types.CommonEntityData {
+    slotClis.EntityData.YFilter = slotClis.YFilter
+    slotClis.EntityData.YangName = "slot-clis"
+    slotClis.EntityData.BundleName = "cisco_ios_xr"
+    slotClis.EntityData.ParentYangName = "rack-cli"
+    slotClis.EntityData.SegmentPath = "slot-clis"
+    slotClis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slotClis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slotClis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) SetFilter(yf yfilter.YFilter) { modules.YFilter = yf }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetGoName(yname string) string {
-    if yname == "module" { return "Module" }
-    return ""
-}
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetSegmentPath() string {
-    return "modules"
-}
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "module" {
-        for _, c := range modules.Module {
-            if modules.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module{}
-        modules.Module = append(modules.Module, child)
-        return &modules.Module[len(modules.Module)-1]
+    slotClis.EntityData.Children = make(map[string]types.YChild)
+    slotClis.EntityData.Children["slot-cli"] = types.YChild{"SlotCli", nil}
+    for i := range slotClis.SlotCli {
+        slotClis.EntityData.Children[types.GetSegmentPath(&slotClis.SlotCli[i])] = types.YChild{"SlotCli", &slotClis.SlotCli[i]}
     }
-    return nil
+    slotClis.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(slotClis.EntityData)
 }
 
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range modules.Module {
-        children[modules.Module[i].GetSegmentPath()] = &modules.Module[i]
-    }
-    return children
-}
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetBundleName() string { return "cisco_ios_xr" }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetYangName() string { return "modules" }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) SetParent(parent types.Entity) { modules.parent = parent }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetParent() types.Entity { return modules.parent }
-
-func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetParentYangName() string { return "slot" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli
 // Name
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Slot name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Slot interface{}
+
+    // Table of modules.
+    ModuleClis EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis
+}
+
+func (slotCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli) GetEntityData() *types.CommonEntityData {
+    slotCli.EntityData.YFilter = slotCli.YFilter
+    slotCli.EntityData.YangName = "slot-cli"
+    slotCli.EntityData.BundleName = "cisco_ios_xr"
+    slotCli.EntityData.ParentYangName = "slot-clis"
+    slotCli.EntityData.SegmentPath = "slot-cli" + "[slot='" + fmt.Sprintf("%v", slotCli.Slot) + "']"
+    slotCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slotCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slotCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    slotCli.EntityData.Children = make(map[string]types.YChild)
+    slotCli.EntityData.Children["module-clis"] = types.YChild{"ModuleClis", &slotCli.ModuleClis}
+    slotCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    slotCli.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slotCli.Slot}
+    return &(slotCli.EntityData)
+}
+
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis
+// Table of modules
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name. The type is slice of
+    // EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli.
+    ModuleCli []EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli
+}
+
+func (moduleClis *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis) GetEntityData() *types.CommonEntityData {
+    moduleClis.EntityData.YFilter = moduleClis.YFilter
+    moduleClis.EntityData.YangName = "module-clis"
+    moduleClis.EntityData.BundleName = "cisco_ios_xr"
+    moduleClis.EntityData.ParentYangName = "slot-cli"
+    moduleClis.EntityData.SegmentPath = "module-clis"
+    moduleClis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moduleClis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moduleClis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    moduleClis.EntityData.Children = make(map[string]types.YChild)
+    moduleClis.EntityData.Children["module-cli"] = types.YChild{"ModuleCli", nil}
+    for i := range moduleClis.ModuleCli {
+        moduleClis.EntityData.Children[types.GetSegmentPath(&moduleClis.ModuleCli[i])] = types.YChild{"ModuleCli", &moduleClis.ModuleCli[i]}
+    }
+    moduleClis.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(moduleClis.EntityData)
+}
+
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli
+// Name
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Module name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Module interface{}
 
-    // Module Power Draw.
-    Power EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power
-
     // Table of sensor types.
-    SensorTypes EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes
+    SensorTypeClis EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis
+
+    // Module Power Draw.
+    PowerCli EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli
 }
 
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetFilter() yfilter.YFilter { return module.YFilter }
+func (moduleCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli) GetEntityData() *types.CommonEntityData {
+    moduleCli.EntityData.YFilter = moduleCli.YFilter
+    moduleCli.EntityData.YangName = "module-cli"
+    moduleCli.EntityData.BundleName = "cisco_ios_xr"
+    moduleCli.EntityData.ParentYangName = "module-clis"
+    moduleCli.EntityData.SegmentPath = "module-cli" + "[module='" + fmt.Sprintf("%v", moduleCli.Module) + "']"
+    moduleCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    moduleCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    moduleCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) SetFilter(yf yfilter.YFilter) { module.YFilter = yf }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetGoName(yname string) string {
-    if yname == "module" { return "Module" }
-    if yname == "power" { return "Power" }
-    if yname == "sensor-types" { return "SensorTypes" }
-    return ""
+    moduleCli.EntityData.Children = make(map[string]types.YChild)
+    moduleCli.EntityData.Children["sensor-type-clis"] = types.YChild{"SensorTypeClis", &moduleCli.SensorTypeClis}
+    moduleCli.EntityData.Children["power-cli"] = types.YChild{"PowerCli", &moduleCli.PowerCli}
+    moduleCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    moduleCli.EntityData.Leafs["module"] = types.YLeaf{"Module", moduleCli.Module}
+    return &(moduleCli.EntityData)
 }
 
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetSegmentPath() string {
-    return "module" + "[module='" + fmt.Sprintf("%v", module.Module) + "']"
-}
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "power" {
-        return &module.Power
-    }
-    if childYangName == "sensor-types" {
-        return &module.SensorTypes
-    }
-    return nil
-}
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["power"] = &module.Power
-    children["sensor-types"] = &module.SensorTypes
-    return children
-}
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["module"] = module.Module
-    return leafs
-}
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetBundleName() string { return "cisco_ios_xr" }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetYangName() string { return "module" }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) SetParent(parent types.Entity) { module.parent = parent }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetParent() types.Entity { return module.parent }
-
-func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetParentYangName() string { return "modules" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power
-// Module Power Draw
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // Detailed power bag information.
-    PowerBag EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag
-}
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetFilter() yfilter.YFilter { return power.YFilter }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) SetFilter(yf yfilter.YFilter) { power.YFilter = yf }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetGoName(yname string) string {
-    if yname == "power-bag" { return "PowerBag" }
-    return ""
-}
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetSegmentPath() string {
-    return "power"
-}
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "power-bag" {
-        return &power.PowerBag
-    }
-    return nil
-}
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["power-bag"] = &power.PowerBag
-    return children
-}
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetYangName() string { return "power" }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) SetParent(parent types.Entity) { power.parent = parent }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetParent() types.Entity { return power.parent }
-
-func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetParentYangName() string { return "module" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag
-// Detailed power bag information
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // Current Power Value of the Unit. The type is interface{} with range:
-    // -2147483648..2147483647.
-    PowerValue interface{}
-
-    // Max Power Value of the Unit. The type is interface{} with range:
-    // -2147483648..2147483647.
-    PowerMaxValue interface{}
-
-    // Unit Multiplier of Power. The type is interface{} with range:
-    // 0..4294967295.
-    PowerUnitMultiplier interface{}
-
-    // Accuracy of the Power Value. The type is interface{} with range:
-    // 0..4294967295.
-    PowerAccuracy interface{}
-
-    // Measure Caliber. The type is interface{} with range: 0..4294967295.
-    PowerMeasureCaliber interface{}
-
-    // Current Type of the Unit. The type is interface{} with range:
-    // 0..4294967295.
-    PowerCurrentType interface{}
-
-    // The Power Origin of the Unit. The type is interface{} with range:
-    // 0..4294967295.
-    PowerOrigin interface{}
-
-    // Admin Status of the Unit. The type is interface{} with range:
-    // 0..4294967295.
-    PowerAdminState interface{}
-
-    // Oper Status of the Unit. The type is interface{} with range: 0..4294967295.
-    PowerOperState interface{}
-
-    // Enter Reason for the State. The type is string with length: 0..50.
-    PowerStateEnterReason interface{}
-}
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetFilter() yfilter.YFilter { return powerBag.YFilter }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) SetFilter(yf yfilter.YFilter) { powerBag.YFilter = yf }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetGoName(yname string) string {
-    if yname == "power-value" { return "PowerValue" }
-    if yname == "power-max-value" { return "PowerMaxValue" }
-    if yname == "power-unit-multiplier" { return "PowerUnitMultiplier" }
-    if yname == "power-accuracy" { return "PowerAccuracy" }
-    if yname == "power-measure-caliber" { return "PowerMeasureCaliber" }
-    if yname == "power-current-type" { return "PowerCurrentType" }
-    if yname == "power-origin" { return "PowerOrigin" }
-    if yname == "power-admin-state" { return "PowerAdminState" }
-    if yname == "power-oper-state" { return "PowerOperState" }
-    if yname == "power-state-enter-reason" { return "PowerStateEnterReason" }
-    return ""
-}
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetSegmentPath() string {
-    return "power-bag"
-}
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["power-value"] = powerBag.PowerValue
-    leafs["power-max-value"] = powerBag.PowerMaxValue
-    leafs["power-unit-multiplier"] = powerBag.PowerUnitMultiplier
-    leafs["power-accuracy"] = powerBag.PowerAccuracy
-    leafs["power-measure-caliber"] = powerBag.PowerMeasureCaliber
-    leafs["power-current-type"] = powerBag.PowerCurrentType
-    leafs["power-origin"] = powerBag.PowerOrigin
-    leafs["power-admin-state"] = powerBag.PowerAdminState
-    leafs["power-oper-state"] = powerBag.PowerOperState
-    leafs["power-state-enter-reason"] = powerBag.PowerStateEnterReason
-    return leafs
-}
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetBundleName() string { return "cisco_ios_xr" }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetYangName() string { return "power-bag" }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) SetParent(parent types.Entity) { powerBag.parent = parent }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetParent() types.Entity { return powerBag.parent }
-
-func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetParentYangName() string { return "power" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis
 // Table of sensor types
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Type of sensor. The type is slice of
-    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType.
-    SensorType []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType
+    // EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli.
+    SensorTypeCli []EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli
 }
 
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetFilter() yfilter.YFilter { return sensorTypes.YFilter }
+func (sensorTypeClis *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis) GetEntityData() *types.CommonEntityData {
+    sensorTypeClis.EntityData.YFilter = sensorTypeClis.YFilter
+    sensorTypeClis.EntityData.YangName = "sensor-type-clis"
+    sensorTypeClis.EntityData.BundleName = "cisco_ios_xr"
+    sensorTypeClis.EntityData.ParentYangName = "module-cli"
+    sensorTypeClis.EntityData.SegmentPath = "sensor-type-clis"
+    sensorTypeClis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorTypeClis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorTypeClis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) SetFilter(yf yfilter.YFilter) { sensorTypes.YFilter = yf }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetGoName(yname string) string {
-    if yname == "sensor-type" { return "SensorType" }
-    return ""
-}
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetSegmentPath() string {
-    return "sensor-types"
-}
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-type" {
-        for _, c := range sensorTypes.SensorType {
-            if sensorTypes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType{}
-        sensorTypes.SensorType = append(sensorTypes.SensorType, child)
-        return &sensorTypes.SensorType[len(sensorTypes.SensorType)-1]
+    sensorTypeClis.EntityData.Children = make(map[string]types.YChild)
+    sensorTypeClis.EntityData.Children["sensor-type-cli"] = types.YChild{"SensorTypeCli", nil}
+    for i := range sensorTypeClis.SensorTypeCli {
+        sensorTypeClis.EntityData.Children[types.GetSegmentPath(&sensorTypeClis.SensorTypeCli[i])] = types.YChild{"SensorTypeCli", &sensorTypeClis.SensorTypeCli[i]}
     }
-    return nil
+    sensorTypeClis.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensorTypeClis.EntityData)
 }
 
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range sensorTypes.SensorType {
-        children[sensorTypes.SensorType[i].GetSegmentPath()] = &sensorTypes.SensorType[i]
-    }
-    return children
-}
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetYangName() string { return "sensor-types" }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) SetParent(parent types.Entity) { sensorTypes.parent = parent }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetParent() types.Entity { return sensorTypes.parent }
-
-func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetParentYangName() string { return "module" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli
 // Type of sensor
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor type. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    Type interface{}
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Type_ interface{}
 
     // Table of sensors.
-    SensorNames EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames
+    SensorNameClis EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis
 }
 
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetFilter() yfilter.YFilter { return sensorType.YFilter }
+func (sensorTypeCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli) GetEntityData() *types.CommonEntityData {
+    sensorTypeCli.EntityData.YFilter = sensorTypeCli.YFilter
+    sensorTypeCli.EntityData.YangName = "sensor-type-cli"
+    sensorTypeCli.EntityData.BundleName = "cisco_ios_xr"
+    sensorTypeCli.EntityData.ParentYangName = "sensor-type-clis"
+    sensorTypeCli.EntityData.SegmentPath = "sensor-type-cli" + "[type='" + fmt.Sprintf("%v", sensorTypeCli.Type_) + "']"
+    sensorTypeCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorTypeCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorTypeCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) SetFilter(yf yfilter.YFilter) { sensorType.YFilter = yf }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "sensor-names" { return "SensorNames" }
-    return ""
+    sensorTypeCli.EntityData.Children = make(map[string]types.YChild)
+    sensorTypeCli.EntityData.Children["sensor-name-clis"] = types.YChild{"SensorNameClis", &sensorTypeCli.SensorNameClis}
+    sensorTypeCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorTypeCli.EntityData.Leafs["type"] = types.YLeaf{"Type_", sensorTypeCli.Type_}
+    return &(sensorTypeCli.EntityData)
 }
 
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetSegmentPath() string {
-    return "sensor-type" + "[type='" + fmt.Sprintf("%v", sensorType.Type) + "']"
-}
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-names" {
-        return &sensorType.SensorNames
-    }
-    return nil
-}
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sensor-names"] = &sensorType.SensorNames
-    return children
-}
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = sensorType.Type
-    return leafs
-}
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetYangName() string { return "sensor-type" }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) SetParent(parent types.Entity) { sensorType.parent = parent }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetParent() types.Entity { return sensorType.parent }
-
-func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetParentYangName() string { return "sensor-types" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis
 // Table of sensors
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of sensor. The type is slice of
-    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName.
-    SensorName []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName
+    // EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli.
+    SensorNameCli []EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli
 }
 
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetFilter() yfilter.YFilter { return sensorNames.YFilter }
+func (sensorNameClis *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis) GetEntityData() *types.CommonEntityData {
+    sensorNameClis.EntityData.YFilter = sensorNameClis.YFilter
+    sensorNameClis.EntityData.YangName = "sensor-name-clis"
+    sensorNameClis.EntityData.BundleName = "cisco_ios_xr"
+    sensorNameClis.EntityData.ParentYangName = "sensor-type-cli"
+    sensorNameClis.EntityData.SegmentPath = "sensor-name-clis"
+    sensorNameClis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorNameClis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorNameClis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) SetFilter(yf yfilter.YFilter) { sensorNames.YFilter = yf }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetGoName(yname string) string {
-    if yname == "sensor-name" { return "SensorName" }
-    return ""
-}
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetSegmentPath() string {
-    return "sensor-names"
-}
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-name" {
-        for _, c := range sensorNames.SensorName {
-            if sensorNames.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName{}
-        sensorNames.SensorName = append(sensorNames.SensorName, child)
-        return &sensorNames.SensorName[len(sensorNames.SensorName)-1]
+    sensorNameClis.EntityData.Children = make(map[string]types.YChild)
+    sensorNameClis.EntityData.Children["sensor-name-cli"] = types.YChild{"SensorNameCli", nil}
+    for i := range sensorNameClis.SensorNameCli {
+        sensorNameClis.EntityData.Children[types.GetSegmentPath(&sensorNameClis.SensorNameCli[i])] = types.YChild{"SensorNameCli", &sensorNameClis.SensorNameCli[i]}
     }
-    return nil
+    sensorNameClis.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensorNameClis.EntityData)
 }
 
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range sensorNames.SensorName {
-        children[sensorNames.SensorName[i].GetSegmentPath()] = &sensorNames.SensorName[i]
-    }
-    return children
-}
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetYangName() string { return "sensor-names" }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) SetParent(parent types.Entity) { sensorNames.parent = parent }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetParent() types.Entity { return sensorNames.parent }
-
-func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetParentYangName() string { return "sensor-type" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli
 // Name of sensor
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
-    // The sensor value. The type is interface{} with range:
-    // -2147483648..2147483647.
-    ValueBrief interface{}
-
-    // The threshold information.
-    Thresholds EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds
+    // The sensor value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    ValueBriefCli interface{}
 
     // Detailed sensor information including the sensor value.
-    ValueDetailed EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed
+    ValueDetailedCli EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ValueDetailedCli
+
+    // The threshold information.
+    ThresholdClis EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis
 }
 
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetFilter() yfilter.YFilter { return sensorName.YFilter }
+func (sensorNameCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli) GetEntityData() *types.CommonEntityData {
+    sensorNameCli.EntityData.YFilter = sensorNameCli.YFilter
+    sensorNameCli.EntityData.YangName = "sensor-name-cli"
+    sensorNameCli.EntityData.BundleName = "cisco_ios_xr"
+    sensorNameCli.EntityData.ParentYangName = "sensor-name-clis"
+    sensorNameCli.EntityData.SegmentPath = "sensor-name-cli" + "[name='" + fmt.Sprintf("%v", sensorNameCli.Name) + "']"
+    sensorNameCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorNameCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorNameCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) SetFilter(yf yfilter.YFilter) { sensorName.YFilter = yf }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "value-brief" { return "ValueBrief" }
-    if yname == "thresholds" { return "Thresholds" }
-    if yname == "value-detailed" { return "ValueDetailed" }
-    return ""
+    sensorNameCli.EntityData.Children = make(map[string]types.YChild)
+    sensorNameCli.EntityData.Children["value-detailed-cli"] = types.YChild{"ValueDetailedCli", &sensorNameCli.ValueDetailedCli}
+    sensorNameCli.EntityData.Children["threshold-clis"] = types.YChild{"ThresholdClis", &sensorNameCli.ThresholdClis}
+    sensorNameCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorNameCli.EntityData.Leafs["name"] = types.YLeaf{"Name", sensorNameCli.Name}
+    sensorNameCli.EntityData.Leafs["value-brief-cli"] = types.YLeaf{"ValueBriefCli", sensorNameCli.ValueBriefCli}
+    return &(sensorNameCli.EntityData)
 }
 
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetSegmentPath() string {
-    return "sensor-name" + "[name='" + fmt.Sprintf("%v", sensorName.Name) + "']"
-}
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "thresholds" {
-        return &sensorName.Thresholds
-    }
-    if childYangName == "value-detailed" {
-        return &sensorName.ValueDetailed
-    }
-    return nil
-}
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["thresholds"] = &sensorName.Thresholds
-    children["value-detailed"] = &sensorName.ValueDetailed
-    return children
-}
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = sensorName.Name
-    leafs["value-brief"] = sensorName.ValueBrief
-    return leafs
-}
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetYangName() string { return "sensor-name" }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) SetParent(parent types.Entity) { sensorName.parent = parent }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetParent() types.Entity { return sensorName.parent }
-
-func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetParentYangName() string { return "sensor-names" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds
-// The threshold information
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // Types of thresholds. The type is slice of
-    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold.
-    Threshold []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold
-}
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetFilter() yfilter.YFilter { return thresholds.YFilter }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) SetFilter(yf yfilter.YFilter) { thresholds.YFilter = yf }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetGoName(yname string) string {
-    if yname == "threshold" { return "Threshold" }
-    return ""
-}
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetSegmentPath() string {
-    return "thresholds"
-}
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "threshold" {
-        for _, c := range thresholds.Threshold {
-            if thresholds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold{}
-        thresholds.Threshold = append(thresholds.Threshold, child)
-        return &thresholds.Threshold[len(thresholds.Threshold)-1]
-    }
-    return nil
-}
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range thresholds.Threshold {
-        children[thresholds.Threshold[i].GetSegmentPath()] = &thresholds.Threshold[i]
-    }
-    return children
-}
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetYangName() string { return "thresholds" }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) SetParent(parent types.Entity) { thresholds.parent = parent }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetParent() types.Entity { return thresholds.parent }
-
-func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetParentYangName() string { return "sensor-name" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold
-// Types of thresholds
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Threshold type. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    Type interface{}
-
-    // Threshold trap enable flag true-ENABLE, false-DISABLE. The type is bool.
-    Trap interface{}
-
-    // Threshold value for the sensor. The type is interface{} with range:
-    // -2147483648..2147483647.
-    ValueBrief interface{}
-
-    // Detailed sensor threshold information.
-    ValueDetailed EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed
-}
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetFilter() yfilter.YFilter { return threshold.YFilter }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) SetFilter(yf yfilter.YFilter) { threshold.YFilter = yf }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "trap" { return "Trap" }
-    if yname == "value-brief" { return "ValueBrief" }
-    if yname == "value-detailed" { return "ValueDetailed" }
-    return ""
-}
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetSegmentPath() string {
-    return "threshold" + "[type='" + fmt.Sprintf("%v", threshold.Type) + "']"
-}
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "value-detailed" {
-        return &threshold.ValueDetailed
-    }
-    return nil
-}
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["value-detailed"] = &threshold.ValueDetailed
-    return children
-}
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = threshold.Type
-    leafs["trap"] = threshold.Trap
-    leafs["value-brief"] = threshold.ValueBrief
-    return leafs
-}
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetYangName() string { return "threshold" }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) SetParent(parent types.Entity) { threshold.parent = parent }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetParent() types.Entity { return threshold.parent }
-
-func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetParentYangName() string { return "thresholds" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed
-// Detailed sensor threshold
-// information
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetFilter() yfilter.YFilter { return valueDetailed.YFilter }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) SetFilter(yf yfilter.YFilter) { valueDetailed.YFilter = yf }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetGoName(yname string) string {
-    if yname == "threshold-severity" { return "ThresholdSeverity" }
-    if yname == "threshold-relation" { return "ThresholdRelation" }
-    if yname == "threshold-value" { return "ThresholdValue" }
-    if yname == "threshold-evaluation" { return "ThresholdEvaluation" }
-    if yname == "threshold-notification-enabled" { return "ThresholdNotificationEnabled" }
-    return ""
-}
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetSegmentPath() string {
-    return "value-detailed"
-}
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["threshold-severity"] = valueDetailed.ThresholdSeverity
-    leafs["threshold-relation"] = valueDetailed.ThresholdRelation
-    leafs["threshold-value"] = valueDetailed.ThresholdValue
-    leafs["threshold-evaluation"] = valueDetailed.ThresholdEvaluation
-    leafs["threshold-notification-enabled"] = valueDetailed.ThresholdNotificationEnabled
-    return leafs
-}
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetBundleName() string { return "cisco_ios_xr" }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetYangName() string { return "value-detailed" }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) SetParent(parent types.Entity) { valueDetailed.parent = parent }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetParent() types.Entity { return valueDetailed.parent }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetParentYangName() string { return "threshold" }
-
-// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ValueDetailedCli
 // Detailed sensor information including
 // the sensor value
-type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed struct {
-    parent types.Entity
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ValueDetailedCli struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor valid bitmap. The type is interface{} with range: 0..4294967295.
@@ -1218,71 +420,874 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_Se
     UpdateRate interface{}
 }
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetFilter() yfilter.YFilter { return valueDetailed.YFilter }
+func (valueDetailedCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ValueDetailedCli) GetEntityData() *types.CommonEntityData {
+    valueDetailedCli.EntityData.YFilter = valueDetailedCli.YFilter
+    valueDetailedCli.EntityData.YangName = "value-detailed-cli"
+    valueDetailedCli.EntityData.BundleName = "cisco_ios_xr"
+    valueDetailedCli.EntityData.ParentYangName = "sensor-name-cli"
+    valueDetailedCli.EntityData.SegmentPath = "value-detailed-cli"
+    valueDetailedCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    valueDetailedCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    valueDetailedCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) SetFilter(yf yfilter.YFilter) { valueDetailed.YFilter = yf }
-
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetGoName(yname string) string {
-    if yname == "field-validity-bitmap" { return "FieldValidityBitmap" }
-    if yname == "device-description" { return "DeviceDescription" }
-    if yname == "units" { return "Units" }
-    if yname == "device-id" { return "DeviceId" }
-    if yname == "value" { return "Value" }
-    if yname == "alarm-type" { return "AlarmType" }
-    if yname == "data-type" { return "DataType" }
-    if yname == "scale" { return "Scale" }
-    if yname == "precision" { return "Precision" }
-    if yname == "status" { return "Status" }
-    if yname == "age-time-stamp" { return "AgeTimeStamp" }
-    if yname == "update-rate" { return "UpdateRate" }
-    return ""
+    valueDetailedCli.EntityData.Children = make(map[string]types.YChild)
+    valueDetailedCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    valueDetailedCli.EntityData.Leafs["field-validity-bitmap"] = types.YLeaf{"FieldValidityBitmap", valueDetailedCli.FieldValidityBitmap}
+    valueDetailedCli.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", valueDetailedCli.DeviceDescription}
+    valueDetailedCli.EntityData.Leafs["units"] = types.YLeaf{"Units", valueDetailedCli.Units}
+    valueDetailedCli.EntityData.Leafs["device-id"] = types.YLeaf{"DeviceId", valueDetailedCli.DeviceId}
+    valueDetailedCli.EntityData.Leafs["value"] = types.YLeaf{"Value", valueDetailedCli.Value}
+    valueDetailedCli.EntityData.Leafs["alarm-type"] = types.YLeaf{"AlarmType", valueDetailedCli.AlarmType}
+    valueDetailedCli.EntityData.Leafs["data-type"] = types.YLeaf{"DataType", valueDetailedCli.DataType}
+    valueDetailedCli.EntityData.Leafs["scale"] = types.YLeaf{"Scale", valueDetailedCli.Scale}
+    valueDetailedCli.EntityData.Leafs["precision"] = types.YLeaf{"Precision", valueDetailedCli.Precision}
+    valueDetailedCli.EntityData.Leafs["status"] = types.YLeaf{"Status", valueDetailedCli.Status}
+    valueDetailedCli.EntityData.Leafs["age-time-stamp"] = types.YLeaf{"AgeTimeStamp", valueDetailedCli.AgeTimeStamp}
+    valueDetailedCli.EntityData.Leafs["update-rate"] = types.YLeaf{"UpdateRate", valueDetailedCli.UpdateRate}
+    return &(valueDetailedCli.EntityData)
 }
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetSegmentPath() string {
-    return "value-detailed"
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis
+// The threshold information
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Types of thresholds. The type is slice of
+    // EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli.
+    ThresholdCli []EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli
 }
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (thresholdClis *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis) GetEntityData() *types.CommonEntityData {
+    thresholdClis.EntityData.YFilter = thresholdClis.YFilter
+    thresholdClis.EntityData.YangName = "threshold-clis"
+    thresholdClis.EntityData.BundleName = "cisco_ios_xr"
+    thresholdClis.EntityData.ParentYangName = "sensor-name-cli"
+    thresholdClis.EntityData.SegmentPath = "threshold-clis"
+    thresholdClis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    thresholdClis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    thresholdClis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    thresholdClis.EntityData.Children = make(map[string]types.YChild)
+    thresholdClis.EntityData.Children["threshold-cli"] = types.YChild{"ThresholdCli", nil}
+    for i := range thresholdClis.ThresholdCli {
+        thresholdClis.EntityData.Children[types.GetSegmentPath(&thresholdClis.ThresholdCli[i])] = types.YChild{"ThresholdCli", &thresholdClis.ThresholdCli[i]}
+    }
+    thresholdClis.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(thresholdClis.EntityData)
 }
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli
+// Types of thresholds
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Threshold type. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Type_ interface{}
+
+    // Threshold trap enable flag true-ENABLE, false-DISABLE. The type is bool.
+    TrapCli interface{}
+
+    // Threshold value for the sensor. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
+    ValueBriefCli interface{}
+
+    // Detailed sensor threshold information.
+    ValueDetailedCli EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli_ValueDetailedCli
 }
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["field-validity-bitmap"] = valueDetailed.FieldValidityBitmap
-    leafs["device-description"] = valueDetailed.DeviceDescription
-    leafs["units"] = valueDetailed.Units
-    leafs["device-id"] = valueDetailed.DeviceId
-    leafs["value"] = valueDetailed.Value
-    leafs["alarm-type"] = valueDetailed.AlarmType
-    leafs["data-type"] = valueDetailed.DataType
-    leafs["scale"] = valueDetailed.Scale
-    leafs["precision"] = valueDetailed.Precision
-    leafs["status"] = valueDetailed.Status
-    leafs["age-time-stamp"] = valueDetailed.AgeTimeStamp
-    leafs["update-rate"] = valueDetailed.UpdateRate
-    return leafs
+func (thresholdCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli) GetEntityData() *types.CommonEntityData {
+    thresholdCli.EntityData.YFilter = thresholdCli.YFilter
+    thresholdCli.EntityData.YangName = "threshold-cli"
+    thresholdCli.EntityData.BundleName = "cisco_ios_xr"
+    thresholdCli.EntityData.ParentYangName = "threshold-clis"
+    thresholdCli.EntityData.SegmentPath = "threshold-cli" + "[type='" + fmt.Sprintf("%v", thresholdCli.Type_) + "']"
+    thresholdCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    thresholdCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    thresholdCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    thresholdCli.EntityData.Children = make(map[string]types.YChild)
+    thresholdCli.EntityData.Children["value-detailed-cli"] = types.YChild{"ValueDetailedCli", &thresholdCli.ValueDetailedCli}
+    thresholdCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdCli.EntityData.Leafs["type"] = types.YLeaf{"Type_", thresholdCli.Type_}
+    thresholdCli.EntityData.Leafs["trap-cli"] = types.YLeaf{"TrapCli", thresholdCli.TrapCli}
+    thresholdCli.EntityData.Leafs["value-brief-cli"] = types.YLeaf{"ValueBriefCli", thresholdCli.ValueBriefCli}
+    return &(thresholdCli.EntityData)
 }
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetBundleName() string { return "cisco_ios_xr" }
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli_ValueDetailedCli
+// Detailed sensor threshold
+// information
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli_ValueDetailedCli struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetYangName() string { return "value-detailed" }
+    // Indicates minor, major, critical severities. The type is interface{} with
+    // range: 0..4294967295.
+    ThresholdSeverity interface{}
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+    // Indicates relation between sensor value and threshold. The type is
+    // interface{} with range: 0..4294967295.
+    ThresholdRelation interface{}
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+    // Value of the configured threshold. The type is interface{} with range:
+    // 0..4294967295.
+    ThresholdValue interface{}
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+    // Indicates the result of the most recent evaluation of the thresholD. The
+    // type is bool.
+    ThresholdEvaluation interface{}
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) SetParent(parent types.Entity) { valueDetailed.parent = parent }
+    // Indicates whether or not a notification should result, in case of threshold
+    // violation. The type is bool.
+    ThresholdNotificationEnabled interface{}
+}
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetParent() types.Entity { return valueDetailed.parent }
+func (valueDetailedCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_SensorTypeClis_SensorTypeCli_SensorNameClis_SensorNameCli_ThresholdClis_ThresholdCli_ValueDetailedCli) GetEntityData() *types.CommonEntityData {
+    valueDetailedCli.EntityData.YFilter = valueDetailedCli.YFilter
+    valueDetailedCli.EntityData.YangName = "value-detailed-cli"
+    valueDetailedCli.EntityData.BundleName = "cisco_ios_xr"
+    valueDetailedCli.EntityData.ParentYangName = "threshold-cli"
+    valueDetailedCli.EntityData.SegmentPath = "value-detailed-cli"
+    valueDetailedCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    valueDetailedCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    valueDetailedCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetParentYangName() string { return "sensor-name" }
+    valueDetailedCli.EntityData.Children = make(map[string]types.YChild)
+    valueDetailedCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    valueDetailedCli.EntityData.Leafs["threshold-severity"] = types.YLeaf{"ThresholdSeverity", valueDetailedCli.ThresholdSeverity}
+    valueDetailedCli.EntityData.Leafs["threshold-relation"] = types.YLeaf{"ThresholdRelation", valueDetailedCli.ThresholdRelation}
+    valueDetailedCli.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", valueDetailedCli.ThresholdValue}
+    valueDetailedCli.EntityData.Leafs["threshold-evaluation"] = types.YLeaf{"ThresholdEvaluation", valueDetailedCli.ThresholdEvaluation}
+    valueDetailedCli.EntityData.Leafs["threshold-notification-enabled"] = types.YLeaf{"ThresholdNotificationEnabled", valueDetailedCli.ThresholdNotificationEnabled}
+    return &(valueDetailedCli.EntityData)
+}
+
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli
+// Module Power Draw
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Detailed power bag information.
+    PowerBagCli EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli_PowerBagCli
+}
+
+func (powerCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli) GetEntityData() *types.CommonEntityData {
+    powerCli.EntityData.YFilter = powerCli.YFilter
+    powerCli.EntityData.YangName = "power-cli"
+    powerCli.EntityData.BundleName = "cisco_ios_xr"
+    powerCli.EntityData.ParentYangName = "module-cli"
+    powerCli.EntityData.SegmentPath = "power-cli"
+    powerCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    powerCli.EntityData.Children = make(map[string]types.YChild)
+    powerCli.EntityData.Children["power-bag-cli"] = types.YChild{"PowerBagCli", &powerCli.PowerBagCli}
+    powerCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(powerCli.EntityData)
+}
+
+// EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli_PowerBagCli
+// Detailed power bag information
+type EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli_PowerBagCli struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Current Power Value of the Unit. The type is interface{} with range:
+    // -2147483648..2147483647.
+    PowerValue interface{}
+
+    // Max Power Value of the Unit. The type is interface{} with range:
+    // -2147483648..2147483647.
+    PowerMaxValue interface{}
+
+    // Unit Multiplier of Power. The type is interface{} with range:
+    // 0..4294967295.
+    PowerUnitMultiplier interface{}
+
+    // Accuracy of the Power Value. The type is interface{} with range:
+    // 0..4294967295.
+    PowerAccuracy interface{}
+
+    // Measure Caliber. The type is interface{} with range: 0..4294967295.
+    PowerMeasureCaliber interface{}
+
+    // Current Type of the Unit. The type is interface{} with range:
+    // 0..4294967295.
+    PowerCurrentType interface{}
+
+    // The Power Origin of the Unit. The type is interface{} with range:
+    // 0..4294967295.
+    PowerOrigin interface{}
+
+    // Admin Status of the Unit. The type is interface{} with range:
+    // 0..4294967295.
+    PowerAdminState interface{}
+
+    // Oper Status of the Unit. The type is interface{} with range: 0..4294967295.
+    PowerOperState interface{}
+
+    // Enter Reason for the State. The type is string with length: 0..50.
+    PowerStateEnterReason interface{}
+}
+
+func (powerBagCli *EnvironmentalMonitoringCli_RackClis_RackCli_SlotClis_SlotCli_ModuleClis_ModuleCli_PowerCli_PowerBagCli) GetEntityData() *types.CommonEntityData {
+    powerBagCli.EntityData.YFilter = powerBagCli.YFilter
+    powerBagCli.EntityData.YangName = "power-bag-cli"
+    powerBagCli.EntityData.BundleName = "cisco_ios_xr"
+    powerBagCli.EntityData.ParentYangName = "power-cli"
+    powerBagCli.EntityData.SegmentPath = "power-bag-cli"
+    powerBagCli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerBagCli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerBagCli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    powerBagCli.EntityData.Children = make(map[string]types.YChild)
+    powerBagCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerBagCli.EntityData.Leafs["power-value"] = types.YLeaf{"PowerValue", powerBagCli.PowerValue}
+    powerBagCli.EntityData.Leafs["power-max-value"] = types.YLeaf{"PowerMaxValue", powerBagCli.PowerMaxValue}
+    powerBagCli.EntityData.Leafs["power-unit-multiplier"] = types.YLeaf{"PowerUnitMultiplier", powerBagCli.PowerUnitMultiplier}
+    powerBagCli.EntityData.Leafs["power-accuracy"] = types.YLeaf{"PowerAccuracy", powerBagCli.PowerAccuracy}
+    powerBagCli.EntityData.Leafs["power-measure-caliber"] = types.YLeaf{"PowerMeasureCaliber", powerBagCli.PowerMeasureCaliber}
+    powerBagCli.EntityData.Leafs["power-current-type"] = types.YLeaf{"PowerCurrentType", powerBagCli.PowerCurrentType}
+    powerBagCli.EntityData.Leafs["power-origin"] = types.YLeaf{"PowerOrigin", powerBagCli.PowerOrigin}
+    powerBagCli.EntityData.Leafs["power-admin-state"] = types.YLeaf{"PowerAdminState", powerBagCli.PowerAdminState}
+    powerBagCli.EntityData.Leafs["power-oper-state"] = types.YLeaf{"PowerOperState", powerBagCli.PowerOperState}
+    powerBagCli.EntityData.Leafs["power-state-enter-reason"] = types.YLeaf{"PowerStateEnterReason", powerBagCli.PowerStateEnterReason}
+    return &(powerBagCli.EntityData)
+}
+
+// EnvironmentalMonitoring
+// environmental monitoring
+type EnvironmentalMonitoring struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Table of racks.
+    Racks EnvironmentalMonitoring_Racks
+}
+
+func (environmentalMonitoring *EnvironmentalMonitoring) GetEntityData() *types.CommonEntityData {
+    environmentalMonitoring.EntityData.YFilter = environmentalMonitoring.YFilter
+    environmentalMonitoring.EntityData.YangName = "environmental-monitoring"
+    environmentalMonitoring.EntityData.BundleName = "cisco_ios_xr"
+    environmentalMonitoring.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-sc-envmon-oper"
+    environmentalMonitoring.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-sc-envmon-oper:environmental-monitoring"
+    environmentalMonitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    environmentalMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    environmentalMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    environmentalMonitoring.EntityData.Children = make(map[string]types.YChild)
+    environmentalMonitoring.EntityData.Children["racks"] = types.YChild{"Racks", &environmentalMonitoring.Racks}
+    environmentalMonitoring.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(environmentalMonitoring.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks
+// Table of racks
+type EnvironmentalMonitoring_Racks struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number. The type is slice of EnvironmentalMonitoring_Racks_Rack.
+    Rack []EnvironmentalMonitoring_Racks_Rack
+}
+
+func (racks *EnvironmentalMonitoring_Racks) GetEntityData() *types.CommonEntityData {
+    racks.EntityData.YFilter = racks.YFilter
+    racks.EntityData.YangName = "racks"
+    racks.EntityData.BundleName = "cisco_ios_xr"
+    racks.EntityData.ParentYangName = "environmental-monitoring"
+    racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    racks.EntityData.Children = make(map[string]types.YChild)
+    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
+    for i := range racks.Rack {
+        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
+    }
+    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(racks.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack
+// Number
+type EnvironmentalMonitoring_Racks_Rack struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Rack number. The type is interface{} with range:
+    // -2147483648..2147483647.
+    Rack interface{}
+
+    // Table of slots.
+    Slots EnvironmentalMonitoring_Racks_Rack_Slots
+}
+
+func (rack *EnvironmentalMonitoring_Racks_Rack) GetEntityData() *types.CommonEntityData {
+    rack.EntityData.YFilter = rack.YFilter
+    rack.EntityData.YangName = "rack"
+    rack.EntityData.BundleName = "cisco_ios_xr"
+    rack.EntityData.ParentYangName = "racks"
+    rack.EntityData.SegmentPath = "rack" + "[rack='" + fmt.Sprintf("%v", rack.Rack) + "']"
+    rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    rack.EntityData.Children = make(map[string]types.YChild)
+    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
+    rack.EntityData.Leafs = make(map[string]types.YLeaf)
+    rack.EntityData.Leafs["rack"] = types.YLeaf{"Rack", rack.Rack}
+    return &(rack.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots
+// Table of slots
+type EnvironmentalMonitoring_Racks_Rack_Slots struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name. The type is slice of EnvironmentalMonitoring_Racks_Rack_Slots_Slot.
+    Slot []EnvironmentalMonitoring_Racks_Rack_Slots_Slot
+}
+
+func (slots *EnvironmentalMonitoring_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
+    slots.EntityData.YFilter = slots.YFilter
+    slots.EntityData.YangName = "slots"
+    slots.EntityData.BundleName = "cisco_ios_xr"
+    slots.EntityData.ParentYangName = "rack"
+    slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    slots.EntityData.Children = make(map[string]types.YChild)
+    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
+    for i := range slots.Slot {
+        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
+    }
+    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(slots.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot
+// Name
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Slot name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Slot interface{}
+
+    // Table of modules.
+    Modules EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules
+}
+
+func (slot *EnvironmentalMonitoring_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
+    slot.EntityData.YFilter = slot.YFilter
+    slot.EntityData.YangName = "slot"
+    slot.EntityData.BundleName = "cisco_ios_xr"
+    slot.EntityData.ParentYangName = "slots"
+    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    slot.EntityData.Children = make(map[string]types.YChild)
+    slot.EntityData.Children["modules"] = types.YChild{"Modules", &slot.Modules}
+    slot.EntityData.Leafs = make(map[string]types.YLeaf)
+    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
+    return &(slot.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules
+// Table of modules
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name. The type is slice of
+    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module.
+    Module []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module
+}
+
+func (modules *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules) GetEntityData() *types.CommonEntityData {
+    modules.EntityData.YFilter = modules.YFilter
+    modules.EntityData.YangName = "modules"
+    modules.EntityData.BundleName = "cisco_ios_xr"
+    modules.EntityData.ParentYangName = "slot"
+    modules.EntityData.SegmentPath = "modules"
+    modules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    modules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    modules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    modules.EntityData.Children = make(map[string]types.YChild)
+    modules.EntityData.Children["module"] = types.YChild{"Module", nil}
+    for i := range modules.Module {
+        modules.EntityData.Children[types.GetSegmentPath(&modules.Module[i])] = types.YChild{"Module", &modules.Module[i]}
+    }
+    modules.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(modules.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module
+// Name
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Module name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Module interface{}
+
+    // Module Power Draw.
+    Power EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power
+
+    // Table of sensor types.
+    SensorTypes EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes
+}
+
+func (module *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module) GetEntityData() *types.CommonEntityData {
+    module.EntityData.YFilter = module.YFilter
+    module.EntityData.YangName = "module"
+    module.EntityData.BundleName = "cisco_ios_xr"
+    module.EntityData.ParentYangName = "modules"
+    module.EntityData.SegmentPath = "module" + "[module='" + fmt.Sprintf("%v", module.Module) + "']"
+    module.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    module.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    module.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    module.EntityData.Children = make(map[string]types.YChild)
+    module.EntityData.Children["power"] = types.YChild{"Power", &module.Power}
+    module.EntityData.Children["sensor-types"] = types.YChild{"SensorTypes", &module.SensorTypes}
+    module.EntityData.Leafs = make(map[string]types.YLeaf)
+    module.EntityData.Leafs["module"] = types.YLeaf{"Module", module.Module}
+    return &(module.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power
+// Module Power Draw
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Detailed power bag information.
+    PowerBag EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag
+}
+
+func (power *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power) GetEntityData() *types.CommonEntityData {
+    power.EntityData.YFilter = power.YFilter
+    power.EntityData.YangName = "power"
+    power.EntityData.BundleName = "cisco_ios_xr"
+    power.EntityData.ParentYangName = "module"
+    power.EntityData.SegmentPath = "power"
+    power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    power.EntityData.Children = make(map[string]types.YChild)
+    power.EntityData.Children["power-bag"] = types.YChild{"PowerBag", &power.PowerBag}
+    power.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(power.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag
+// Detailed power bag information
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Current Power Value of the Unit. The type is interface{} with range:
+    // -2147483648..2147483647.
+    PowerValue interface{}
+
+    // Max Power Value of the Unit. The type is interface{} with range:
+    // -2147483648..2147483647.
+    PowerMaxValue interface{}
+
+    // Unit Multiplier of Power. The type is interface{} with range:
+    // 0..4294967295.
+    PowerUnitMultiplier interface{}
+
+    // Accuracy of the Power Value. The type is interface{} with range:
+    // 0..4294967295.
+    PowerAccuracy interface{}
+
+    // Measure Caliber. The type is interface{} with range: 0..4294967295.
+    PowerMeasureCaliber interface{}
+
+    // Current Type of the Unit. The type is interface{} with range:
+    // 0..4294967295.
+    PowerCurrentType interface{}
+
+    // The Power Origin of the Unit. The type is interface{} with range:
+    // 0..4294967295.
+    PowerOrigin interface{}
+
+    // Admin Status of the Unit. The type is interface{} with range:
+    // 0..4294967295.
+    PowerAdminState interface{}
+
+    // Oper Status of the Unit. The type is interface{} with range: 0..4294967295.
+    PowerOperState interface{}
+
+    // Enter Reason for the State. The type is string with length: 0..50.
+    PowerStateEnterReason interface{}
+}
+
+func (powerBag *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_Power_PowerBag) GetEntityData() *types.CommonEntityData {
+    powerBag.EntityData.YFilter = powerBag.YFilter
+    powerBag.EntityData.YangName = "power-bag"
+    powerBag.EntityData.BundleName = "cisco_ios_xr"
+    powerBag.EntityData.ParentYangName = "power"
+    powerBag.EntityData.SegmentPath = "power-bag"
+    powerBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    powerBag.EntityData.Children = make(map[string]types.YChild)
+    powerBag.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerBag.EntityData.Leafs["power-value"] = types.YLeaf{"PowerValue", powerBag.PowerValue}
+    powerBag.EntityData.Leafs["power-max-value"] = types.YLeaf{"PowerMaxValue", powerBag.PowerMaxValue}
+    powerBag.EntityData.Leafs["power-unit-multiplier"] = types.YLeaf{"PowerUnitMultiplier", powerBag.PowerUnitMultiplier}
+    powerBag.EntityData.Leafs["power-accuracy"] = types.YLeaf{"PowerAccuracy", powerBag.PowerAccuracy}
+    powerBag.EntityData.Leafs["power-measure-caliber"] = types.YLeaf{"PowerMeasureCaliber", powerBag.PowerMeasureCaliber}
+    powerBag.EntityData.Leafs["power-current-type"] = types.YLeaf{"PowerCurrentType", powerBag.PowerCurrentType}
+    powerBag.EntityData.Leafs["power-origin"] = types.YLeaf{"PowerOrigin", powerBag.PowerOrigin}
+    powerBag.EntityData.Leafs["power-admin-state"] = types.YLeaf{"PowerAdminState", powerBag.PowerAdminState}
+    powerBag.EntityData.Leafs["power-oper-state"] = types.YLeaf{"PowerOperState", powerBag.PowerOperState}
+    powerBag.EntityData.Leafs["power-state-enter-reason"] = types.YLeaf{"PowerStateEnterReason", powerBag.PowerStateEnterReason}
+    return &(powerBag.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes
+// Table of sensor types
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Type of sensor. The type is slice of
+    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType.
+    SensorType []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType
+}
+
+func (sensorTypes *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes) GetEntityData() *types.CommonEntityData {
+    sensorTypes.EntityData.YFilter = sensorTypes.YFilter
+    sensorTypes.EntityData.YangName = "sensor-types"
+    sensorTypes.EntityData.BundleName = "cisco_ios_xr"
+    sensorTypes.EntityData.ParentYangName = "module"
+    sensorTypes.EntityData.SegmentPath = "sensor-types"
+    sensorTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensorTypes.EntityData.Children = make(map[string]types.YChild)
+    sensorTypes.EntityData.Children["sensor-type"] = types.YChild{"SensorType", nil}
+    for i := range sensorTypes.SensorType {
+        sensorTypes.EntityData.Children[types.GetSegmentPath(&sensorTypes.SensorType[i])] = types.YChild{"SensorType", &sensorTypes.SensorType[i]}
+    }
+    sensorTypes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensorTypes.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType
+// Type of sensor
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Sensor type. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Type_ interface{}
+
+    // Table of sensors.
+    SensorNames EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames
+}
+
+func (sensorType *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType) GetEntityData() *types.CommonEntityData {
+    sensorType.EntityData.YFilter = sensorType.YFilter
+    sensorType.EntityData.YangName = "sensor-type"
+    sensorType.EntityData.BundleName = "cisco_ios_xr"
+    sensorType.EntityData.ParentYangName = "sensor-types"
+    sensorType.EntityData.SegmentPath = "sensor-type" + "[type='" + fmt.Sprintf("%v", sensorType.Type_) + "']"
+    sensorType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensorType.EntityData.Children = make(map[string]types.YChild)
+    sensorType.EntityData.Children["sensor-names"] = types.YChild{"SensorNames", &sensorType.SensorNames}
+    sensorType.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorType.EntityData.Leafs["type"] = types.YLeaf{"Type_", sensorType.Type_}
+    return &(sensorType.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames
+// Table of sensors
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of sensor. The type is slice of
+    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName.
+    SensorName []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName
+}
+
+func (sensorNames *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames) GetEntityData() *types.CommonEntityData {
+    sensorNames.EntityData.YFilter = sensorNames.YFilter
+    sensorNames.EntityData.YangName = "sensor-names"
+    sensorNames.EntityData.BundleName = "cisco_ios_xr"
+    sensorNames.EntityData.ParentYangName = "sensor-type"
+    sensorNames.EntityData.SegmentPath = "sensor-names"
+    sensorNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensorNames.EntityData.Children = make(map[string]types.YChild)
+    sensorNames.EntityData.Children["sensor-name"] = types.YChild{"SensorName", nil}
+    for i := range sensorNames.SensorName {
+        sensorNames.EntityData.Children[types.GetSegmentPath(&sensorNames.SensorName[i])] = types.YChild{"SensorName", &sensorNames.SensorName[i]}
+    }
+    sensorNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensorNames.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName
+// Name of sensor
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Sensor name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Name interface{}
+
+    // The sensor value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    ValueBrief interface{}
+
+    // The threshold information.
+    Thresholds EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds
+
+    // Detailed sensor information including the sensor value.
+    ValueDetailed EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed
+}
+
+func (sensorName *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName) GetEntityData() *types.CommonEntityData {
+    sensorName.EntityData.YFilter = sensorName.YFilter
+    sensorName.EntityData.YangName = "sensor-name"
+    sensorName.EntityData.BundleName = "cisco_ios_xr"
+    sensorName.EntityData.ParentYangName = "sensor-names"
+    sensorName.EntityData.SegmentPath = "sensor-name" + "[name='" + fmt.Sprintf("%v", sensorName.Name) + "']"
+    sensorName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sensorName.EntityData.Children = make(map[string]types.YChild)
+    sensorName.EntityData.Children["thresholds"] = types.YChild{"Thresholds", &sensorName.Thresholds}
+    sensorName.EntityData.Children["value-detailed"] = types.YChild{"ValueDetailed", &sensorName.ValueDetailed}
+    sensorName.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorName.EntityData.Leafs["name"] = types.YLeaf{"Name", sensorName.Name}
+    sensorName.EntityData.Leafs["value-brief"] = types.YLeaf{"ValueBrief", sensorName.ValueBrief}
+    return &(sensorName.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds
+// The threshold information
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Types of thresholds. The type is slice of
+    // EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold.
+    Threshold []EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold
+}
+
+func (thresholds *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds) GetEntityData() *types.CommonEntityData {
+    thresholds.EntityData.YFilter = thresholds.YFilter
+    thresholds.EntityData.YangName = "thresholds"
+    thresholds.EntityData.BundleName = "cisco_ios_xr"
+    thresholds.EntityData.ParentYangName = "sensor-name"
+    thresholds.EntityData.SegmentPath = "thresholds"
+    thresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    thresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    thresholds.EntityData.Children = make(map[string]types.YChild)
+    thresholds.EntityData.Children["threshold"] = types.YChild{"Threshold", nil}
+    for i := range thresholds.Threshold {
+        thresholds.EntityData.Children[types.GetSegmentPath(&thresholds.Threshold[i])] = types.YChild{"Threshold", &thresholds.Threshold[i]}
+    }
+    thresholds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(thresholds.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold
+// Types of thresholds
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Threshold type. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Type_ interface{}
+
+    // Threshold trap enable flag true-ENABLE, false-DISABLE. The type is bool.
+    Trap interface{}
+
+    // Threshold value for the sensor. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
+    ValueBrief interface{}
+
+    // Detailed sensor threshold information.
+    ValueDetailed EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed
+}
+
+func (threshold *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold) GetEntityData() *types.CommonEntityData {
+    threshold.EntityData.YFilter = threshold.YFilter
+    threshold.EntityData.YangName = "threshold"
+    threshold.EntityData.BundleName = "cisco_ios_xr"
+    threshold.EntityData.ParentYangName = "thresholds"
+    threshold.EntityData.SegmentPath = "threshold" + "[type='" + fmt.Sprintf("%v", threshold.Type_) + "']"
+    threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    threshold.EntityData.Children = make(map[string]types.YChild)
+    threshold.EntityData.Children["value-detailed"] = types.YChild{"ValueDetailed", &threshold.ValueDetailed}
+    threshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    threshold.EntityData.Leafs["type"] = types.YLeaf{"Type_", threshold.Type_}
+    threshold.EntityData.Leafs["trap"] = types.YLeaf{"Trap", threshold.Trap}
+    threshold.EntityData.Leafs["value-brief"] = types.YLeaf{"ValueBrief", threshold.ValueBrief}
+    return &(threshold.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed
+// Detailed sensor threshold
+// information
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Indicates minor, major, critical severities. The type is interface{} with
+    // range: 0..4294967295.
+    ThresholdSeverity interface{}
+
+    // Indicates relation between sensor value and threshold. The type is
+    // interface{} with range: 0..4294967295.
+    ThresholdRelation interface{}
+
+    // Value of the configured threshold. The type is interface{} with range:
+    // 0..4294967295.
+    ThresholdValue interface{}
+
+    // Indicates the result of the most recent evaluation of the thresholD. The
+    // type is bool.
+    ThresholdEvaluation interface{}
+
+    // Indicates whether or not a notification should result, in case of threshold
+    // violation. The type is bool.
+    ThresholdNotificationEnabled interface{}
+}
+
+func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_Thresholds_Threshold_ValueDetailed) GetEntityData() *types.CommonEntityData {
+    valueDetailed.EntityData.YFilter = valueDetailed.YFilter
+    valueDetailed.EntityData.YangName = "value-detailed"
+    valueDetailed.EntityData.BundleName = "cisco_ios_xr"
+    valueDetailed.EntityData.ParentYangName = "threshold"
+    valueDetailed.EntityData.SegmentPath = "value-detailed"
+    valueDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    valueDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    valueDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    valueDetailed.EntityData.Children = make(map[string]types.YChild)
+    valueDetailed.EntityData.Leafs = make(map[string]types.YLeaf)
+    valueDetailed.EntityData.Leafs["threshold-severity"] = types.YLeaf{"ThresholdSeverity", valueDetailed.ThresholdSeverity}
+    valueDetailed.EntityData.Leafs["threshold-relation"] = types.YLeaf{"ThresholdRelation", valueDetailed.ThresholdRelation}
+    valueDetailed.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", valueDetailed.ThresholdValue}
+    valueDetailed.EntityData.Leafs["threshold-evaluation"] = types.YLeaf{"ThresholdEvaluation", valueDetailed.ThresholdEvaluation}
+    valueDetailed.EntityData.Leafs["threshold-notification-enabled"] = types.YLeaf{"ThresholdNotificationEnabled", valueDetailed.ThresholdNotificationEnabled}
+    return &(valueDetailed.EntityData)
+}
+
+// EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed
+// Detailed sensor information including
+// the sensor value
+type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sensor valid bitmap. The type is interface{} with range: 0..4294967295.
+    FieldValidityBitmap interface{}
+
+    // Device Name. The type is string with length: 0..50.
+    DeviceDescription interface{}
+
+    // Units of variable being read. The type is string with length: 0..50.
+    Units interface{}
+
+    // Identifier for this device. The type is interface{} with range:
+    // 0..4294967295.
+    DeviceId interface{}
+
+    // Current reading of sensor. The type is interface{} with range:
+    // 0..4294967295.
+    Value interface{}
+
+    // Indicates threshold violation. The type is interface{} with range:
+    // 0..4294967295.
+    AlarmType interface{}
+
+    // Sensor data type enums. The type is interface{} with range: 0..4294967295.
+    DataType interface{}
+
+    // Sensor scale enums. The type is interface{} with range: 0..4294967295.
+    Scale interface{}
+
+    // Sensor precision range. The type is interface{} with range: 0..4294967295.
+    Precision interface{}
+
+    // Sensor operation state enums. The type is interface{} with range:
+    // 0..4294967295.
+    Status interface{}
+
+    // Age of the sensor value; set to the current time if directly access the
+    // value from sensor. The type is interface{} with range: 0..4294967295.
+    AgeTimeStamp interface{}
+
+    // Sensor value update rate;set to 0 if sensor value is updated and evaluated
+    // immediately. The type is interface{} with range: 0..4294967295.
+    UpdateRate interface{}
+}
+
+func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetEntityData() *types.CommonEntityData {
+    valueDetailed.EntityData.YFilter = valueDetailed.YFilter
+    valueDetailed.EntityData.YangName = "value-detailed"
+    valueDetailed.EntityData.BundleName = "cisco_ios_xr"
+    valueDetailed.EntityData.ParentYangName = "sensor-name"
+    valueDetailed.EntityData.SegmentPath = "value-detailed"
+    valueDetailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    valueDetailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    valueDetailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    valueDetailed.EntityData.Children = make(map[string]types.YChild)
+    valueDetailed.EntityData.Leafs = make(map[string]types.YLeaf)
+    valueDetailed.EntityData.Leafs["field-validity-bitmap"] = types.YLeaf{"FieldValidityBitmap", valueDetailed.FieldValidityBitmap}
+    valueDetailed.EntityData.Leafs["device-description"] = types.YLeaf{"DeviceDescription", valueDetailed.DeviceDescription}
+    valueDetailed.EntityData.Leafs["units"] = types.YLeaf{"Units", valueDetailed.Units}
+    valueDetailed.EntityData.Leafs["device-id"] = types.YLeaf{"DeviceId", valueDetailed.DeviceId}
+    valueDetailed.EntityData.Leafs["value"] = types.YLeaf{"Value", valueDetailed.Value}
+    valueDetailed.EntityData.Leafs["alarm-type"] = types.YLeaf{"AlarmType", valueDetailed.AlarmType}
+    valueDetailed.EntityData.Leafs["data-type"] = types.YLeaf{"DataType", valueDetailed.DataType}
+    valueDetailed.EntityData.Leafs["scale"] = types.YLeaf{"Scale", valueDetailed.Scale}
+    valueDetailed.EntityData.Leafs["precision"] = types.YLeaf{"Precision", valueDetailed.Precision}
+    valueDetailed.EntityData.Leafs["status"] = types.YLeaf{"Status", valueDetailed.Status}
+    valueDetailed.EntityData.Leafs["age-time-stamp"] = types.YLeaf{"AgeTimeStamp", valueDetailed.AgeTimeStamp}
+    valueDetailed.EntityData.Leafs["update-rate"] = types.YLeaf{"UpdateRate", valueDetailed.UpdateRate}
+    return &(valueDetailed.EntityData)
+}
 

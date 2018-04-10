@@ -28,32 +28,27 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent", reflect.TypeOf(SessionRedundancyAgent{}))
 }
 
-// SergShowSessionError represents SERG Session Error Operation
-type SergShowSessionError string
+// SergShowMem represents SERG Memory Manager type
+type SergShowMem string
 
 const (
-    // Invalid Error
-    SergShowSessionError_none SergShowSessionError = "none"
+    // Standard type
+    SergShowMem_standard SergShowMem = "standard"
 
-    // Hard Error
-    SergShowSessionError_hard SergShowSessionError = "hard"
+    // Chunk type
+    SergShowMem_chunk SergShowMem = "chunk"
 
-    // Soft Error
-    SergShowSessionError_soft SergShowSessionError = "soft"
-)
+    // EDM type
+    SergShowMem_edm SergShowMem = "edm"
 
-// SergShowSlaveMode represents SERG Slave Mode
-type SergShowSlaveMode string
+    // String type
+    SergShowMem_string_ SergShowMem = "string"
 
-const (
-    // Not Configured
-    SergShowSlaveMode_none SergShowSlaveMode = "none"
+    // Static type
+    SergShowMem_static SergShowMem = "static"
 
-    // Warm Modem
-    SergShowSlaveMode_warm SergShowSlaveMode = "warm"
-
-    // Hot Mode
-    SergShowSlaveMode_hot SergShowSlaveMode = "hot"
+    // Unknown type
+    SergShowMem_unknown SergShowMem = "unknown"
 )
 
 // SergShowSoReason represents Session Redundancy Switchover Reason
@@ -77,29 +72,6 @@ const (
 
     // Unknown Switchover Reason
     SergShowSoReason_serg_show_so_reason_max SergShowSoReason = "serg-show-so-reason-max"
-)
-
-// SergShowMem represents SERG Memory Manager type
-type SergShowMem string
-
-const (
-    // Standard type
-    SergShowMem_standard SergShowMem = "standard"
-
-    // Chunk type
-    SergShowMem_chunk SergShowMem = "chunk"
-
-    // EDM type
-    SergShowMem_edm SergShowMem = "edm"
-
-    // String type
-    SergShowMem_string SergShowMem = "string"
-
-    // Static type
-    SergShowMem_static SergShowMem = "static"
-
-    // Unknown type
-    SergShowMem_unknown SergShowMem = "unknown"
 )
 
 // SergPeerStatus represents SERG Peer Status
@@ -134,32 +106,18 @@ const (
     SergPeerStatus_established SergPeerStatus = "established"
 )
 
-// SergShowImRole represents SERG Interface Management Role
-type SergShowImRole string
+// SergShowSessionError represents SERG Session Error Operation
+type SergShowSessionError string
 
 const (
-    // Not Determined
-    SergShowImRole_none SergShowImRole = "none"
+    // Invalid Error
+    SergShowSessionError_none SergShowSessionError = "none"
 
-    // Master Role
-    SergShowImRole_master SergShowImRole = "master"
+    // Hard Error
+    SergShowSessionError_hard SergShowSessionError = "hard"
 
-    // Slave Role
-    SergShowImRole_slave SergShowImRole = "slave"
-)
-
-// SergShowComp represents SERG Components
-type SergShowComp string
-
-const (
-    // SERG Agent
-    SergShowComp_serga SergShowComp = "serga"
-
-    // IPv6ND
-    SergShowComp_ipv6nd SergShowComp = "ipv6nd"
-
-    // DHCPv6
-    SergShowComp_dhcpv6 SergShowComp = "dhcpv6"
+    // Soft Error
+    SergShowSessionError_soft SergShowSessionError = "soft"
 )
 
 // SergShowSessionOperation represents SERG Session Operation
@@ -179,6 +137,34 @@ const (
     SergShowSessionOperation_in_sync SergShowSessionOperation = "in-sync"
 )
 
+// SergShowComp represents SERG Components
+type SergShowComp string
+
+const (
+    // SERG Agent
+    SergShowComp_serga SergShowComp = "serga"
+
+    // IPv6ND
+    SergShowComp_ipv6nd SergShowComp = "ipv6nd"
+
+    // DHCPv6
+    SergShowComp_dhcpv6 SergShowComp = "dhcpv6"
+)
+
+// SergShowSlaveMode represents SERG Slave Mode
+type SergShowSlaveMode string
+
+const (
+    // Not Configured
+    SergShowSlaveMode_none SergShowSlaveMode = "none"
+
+    // Warm Modem
+    SergShowSlaveMode_warm SergShowSlaveMode = "warm"
+
+    // Hot Mode
+    SergShowSlaveMode_hot SergShowSlaveMode = "hot"
+)
+
 // SergShowRole represents SERG Role
 type SergShowRole string
 
@@ -193,10 +179,24 @@ const (
     SergShowRole_slave SergShowRole = "slave"
 )
 
+// SergShowImRole represents SERG Interface Management Role
+type SergShowImRole string
+
+const (
+    // Not Determined
+    SergShowImRole_none SergShowImRole = "none"
+
+    // Master Role
+    SergShowImRole_master SergShowImRole = "master"
+
+    // Slave Role
+    SergShowImRole_slave SergShowImRole = "slave"
+)
+
 // SessionRedundancyManager
 // Session Redundancy Manager information
 type SessionRedundancyManager struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber Redundancy Manager interface table.
@@ -209,143 +209,63 @@ type SessionRedundancyManager struct {
     Summary SessionRedundancyManager_Summary
 }
 
-func (sessionRedundancyManager *SessionRedundancyManager) GetFilter() yfilter.YFilter { return sessionRedundancyManager.YFilter }
+func (sessionRedundancyManager *SessionRedundancyManager) GetEntityData() *types.CommonEntityData {
+    sessionRedundancyManager.EntityData.YFilter = sessionRedundancyManager.YFilter
+    sessionRedundancyManager.EntityData.YangName = "session-redundancy-manager"
+    sessionRedundancyManager.EntityData.BundleName = "cisco_ios_xr"
+    sessionRedundancyManager.EntityData.ParentYangName = "Cisco-IOS-XR-infra-serg-oper"
+    sessionRedundancyManager.EntityData.SegmentPath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager"
+    sessionRedundancyManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionRedundancyManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionRedundancyManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionRedundancyManager *SessionRedundancyManager) SetFilter(yf yfilter.YFilter) { sessionRedundancyManager.YFilter = yf }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "groups" { return "Groups" }
-    if yname == "summary" { return "Summary" }
-    return ""
+    sessionRedundancyManager.EntityData.Children = make(map[string]types.YChild)
+    sessionRedundancyManager.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &sessionRedundancyManager.Interfaces}
+    sessionRedundancyManager.EntityData.Children["groups"] = types.YChild{"Groups", &sessionRedundancyManager.Groups}
+    sessionRedundancyManager.EntityData.Children["summary"] = types.YChild{"Summary", &sessionRedundancyManager.Summary}
+    sessionRedundancyManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessionRedundancyManager.EntityData)
 }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager"
-}
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &sessionRedundancyManager.Interfaces
-    }
-    if childYangName == "groups" {
-        return &sessionRedundancyManager.Groups
-    }
-    if childYangName == "summary" {
-        return &sessionRedundancyManager.Summary
-    }
-    return nil
-}
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &sessionRedundancyManager.Interfaces
-    children["groups"] = &sessionRedundancyManager.Groups
-    children["summary"] = &sessionRedundancyManager.Summary
-    return children
-}
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetYangName() string { return "session-redundancy-manager" }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionRedundancyManager *SessionRedundancyManager) SetParent(parent types.Entity) { sessionRedundancyManager.parent = parent }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetParent() types.Entity { return sessionRedundancyManager.parent }
-
-func (sessionRedundancyManager *SessionRedundancyManager) GetParentYangName() string { return "Cisco-IOS-XR-infra-serg-oper" }
 
 // SessionRedundancyManager_Interfaces
 // Subscriber Redundancy Manager interface table
 type SessionRedundancyManager_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // interface redundancy manager interface. The type is slice of
-    // SessionRedundancyManager_Interfaces_Interface.
-    Interface []SessionRedundancyManager_Interfaces_Interface
+    // SessionRedundancyManager_Interfaces_Interface_.
+    Interface_ []SessionRedundancyManager_Interfaces_Interface
 }
 
-func (interfaces *SessionRedundancyManager_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *SessionRedundancyManager_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "session-redundancy-manager"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *SessionRedundancyManager_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyManager_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *SessionRedundancyManager_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *SessionRedundancyManager_Interfaces) GetParentYangName() string { return "session-redundancy-manager" }
 
 // SessionRedundancyManager_Interfaces_Interface
 // interface redundancy manager interface
 type SessionRedundancyManager_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    Interface interface{}
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Interface_ interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -363,66 +283,31 @@ type SessionRedundancyManager_Interfaces_Interface struct {
     Role interface{}
 }
 
-func (self *SessionRedundancyManager_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *SessionRedundancyManager_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *SessionRedundancyManager_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-mapping-id" { return "InterfaceMappingId" }
-    if yname == "forward-referenced" { return "ForwardReferenced" }
-    if yname == "group-id" { return "GroupId" }
-    if yname == "role" { return "Role" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface-mapping-id"] = types.YLeaf{"InterfaceMappingId", self.InterfaceMappingId}
+    self.EntityData.Leafs["forward-referenced"] = types.YLeaf{"ForwardReferenced", self.ForwardReferenced}
+    self.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", self.GroupId}
+    self.EntityData.Leafs["role"] = types.YLeaf{"Role", self.Role}
+    return &(self.EntityData)
 }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface) + "']"
-}
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = self.Interface
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface-mapping-id"] = self.InterfaceMappingId
-    leafs["forward-referenced"] = self.ForwardReferenced
-    leafs["group-id"] = self.GroupId
-    leafs["role"] = self.Role
-    return leafs
-}
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *SessionRedundancyManager_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // SessionRedundancyManager_Groups
 // Session Redundancy Manager group table
 type SessionRedundancyManager_Groups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session redundancy manager group. The type is slice of
@@ -430,72 +315,33 @@ type SessionRedundancyManager_Groups struct {
     Group []SessionRedundancyManager_Groups_Group
 }
 
-func (groups *SessionRedundancyManager_Groups) GetFilter() yfilter.YFilter { return groups.YFilter }
+func (groups *SessionRedundancyManager_Groups) GetEntityData() *types.CommonEntityData {
+    groups.EntityData.YFilter = groups.YFilter
+    groups.EntityData.YangName = "groups"
+    groups.EntityData.BundleName = "cisco_ios_xr"
+    groups.EntityData.ParentYangName = "session-redundancy-manager"
+    groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groups *SessionRedundancyManager_Groups) SetFilter(yf yfilter.YFilter) { groups.YFilter = yf }
-
-func (groups *SessionRedundancyManager_Groups) GetGoName(yname string) string {
-    if yname == "group" { return "Group" }
-    return ""
-}
-
-func (groups *SessionRedundancyManager_Groups) GetSegmentPath() string {
-    return "groups"
-}
-
-func (groups *SessionRedundancyManager_Groups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "group" {
-        for _, c := range groups.Group {
-            if groups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyManager_Groups_Group{}
-        groups.Group = append(groups.Group, child)
-        return &groups.Group[len(groups.Group)-1]
-    }
-    return nil
-}
-
-func (groups *SessionRedundancyManager_Groups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    groups.EntityData.Children = make(map[string]types.YChild)
+    groups.EntityData.Children["group"] = types.YChild{"Group", nil}
     for i := range groups.Group {
-        children[groups.Group[i].GetSegmentPath()] = &groups.Group[i]
+        groups.EntityData.Children[types.GetSegmentPath(&groups.Group[i])] = types.YChild{"Group", &groups.Group[i]}
     }
-    return children
+    groups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(groups.EntityData)
 }
-
-func (groups *SessionRedundancyManager_Groups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (groups *SessionRedundancyManager_Groups) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groups *SessionRedundancyManager_Groups) GetYangName() string { return "groups" }
-
-func (groups *SessionRedundancyManager_Groups) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groups *SessionRedundancyManager_Groups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groups *SessionRedundancyManager_Groups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groups *SessionRedundancyManager_Groups) SetParent(parent types.Entity) { groups.parent = parent }
-
-func (groups *SessionRedundancyManager_Groups) GetParent() types.Entity { return groups.parent }
-
-func (groups *SessionRedundancyManager_Groups) GetParentYangName() string { return "session-redundancy-manager" }
 
 // SessionRedundancyManager_Groups_Group
 // Session redundancy manager group
 type SessionRedundancyManager_Groups_Group struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Group interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -511,11 +357,11 @@ type SessionRedundancyManager_Groups_Group struct {
     Role interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Interface Count. The type is interface{} with range: 0..4294967295.
@@ -534,78 +380,37 @@ type SessionRedundancyManager_Groups_Group struct {
     NodeName interface{}
 }
 
-func (group *SessionRedundancyManager_Groups_Group) GetFilter() yfilter.YFilter { return group.YFilter }
+func (group *SessionRedundancyManager_Groups_Group) GetEntityData() *types.CommonEntityData {
+    group.EntityData.YFilter = group.YFilter
+    group.EntityData.YangName = "group"
+    group.EntityData.BundleName = "cisco_ios_xr"
+    group.EntityData.ParentYangName = "groups"
+    group.EntityData.SegmentPath = "group" + "[group='" + fmt.Sprintf("%v", group.Group) + "']"
+    group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (group *SessionRedundancyManager_Groups_Group) SetFilter(yf yfilter.YFilter) { group.YFilter = yf }
-
-func (group *SessionRedundancyManager_Groups_Group) GetGoName(yname string) string {
-    if yname == "group" { return "Group" }
-    if yname == "group-id" { return "GroupId" }
-    if yname == "description" { return "Description" }
-    if yname == "disabled" { return "Disabled" }
-    if yname == "role" { return "Role" }
-    if yname == "peer-ipv4-address" { return "PeerIpv4Address" }
-    if yname == "peer-ipv6-address" { return "PeerIpv6Address" }
-    if yname == "interface-count" { return "InterfaceCount" }
-    if yname == "preferred-role" { return "PreferredRole" }
-    if yname == "slave-mode" { return "SlaveMode" }
-    if yname == "object-tracking-status" { return "ObjectTrackingStatus" }
-    if yname == "node-name" { return "NodeName" }
-    return ""
+    group.EntityData.Children = make(map[string]types.YChild)
+    group.EntityData.Leafs = make(map[string]types.YLeaf)
+    group.EntityData.Leafs["group"] = types.YLeaf{"Group", group.Group}
+    group.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", group.GroupId}
+    group.EntityData.Leafs["description"] = types.YLeaf{"Description", group.Description}
+    group.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", group.Disabled}
+    group.EntityData.Leafs["role"] = types.YLeaf{"Role", group.Role}
+    group.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", group.PeerIpv4Address}
+    group.EntityData.Leafs["peer-ipv6-address"] = types.YLeaf{"PeerIpv6Address", group.PeerIpv6Address}
+    group.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", group.InterfaceCount}
+    group.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", group.PreferredRole}
+    group.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", group.SlaveMode}
+    group.EntityData.Leafs["object-tracking-status"] = types.YLeaf{"ObjectTrackingStatus", group.ObjectTrackingStatus}
+    group.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", group.NodeName}
+    return &(group.EntityData)
 }
-
-func (group *SessionRedundancyManager_Groups_Group) GetSegmentPath() string {
-    return "group" + "[group='" + fmt.Sprintf("%v", group.Group) + "']"
-}
-
-func (group *SessionRedundancyManager_Groups_Group) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (group *SessionRedundancyManager_Groups_Group) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (group *SessionRedundancyManager_Groups_Group) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group"] = group.Group
-    leafs["group-id"] = group.GroupId
-    leafs["description"] = group.Description
-    leafs["disabled"] = group.Disabled
-    leafs["role"] = group.Role
-    leafs["peer-ipv4-address"] = group.PeerIpv4Address
-    leafs["peer-ipv6-address"] = group.PeerIpv6Address
-    leafs["interface-count"] = group.InterfaceCount
-    leafs["preferred-role"] = group.PreferredRole
-    leafs["slave-mode"] = group.SlaveMode
-    leafs["object-tracking-status"] = group.ObjectTrackingStatus
-    leafs["node-name"] = group.NodeName
-    return leafs
-}
-
-func (group *SessionRedundancyManager_Groups_Group) GetBundleName() string { return "cisco_ios_xr" }
-
-func (group *SessionRedundancyManager_Groups_Group) GetYangName() string { return "group" }
-
-func (group *SessionRedundancyManager_Groups_Group) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (group *SessionRedundancyManager_Groups_Group) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (group *SessionRedundancyManager_Groups_Group) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (group *SessionRedundancyManager_Groups_Group) SetParent(parent types.Entity) { group.parent = parent }
-
-func (group *SessionRedundancyManager_Groups_Group) GetParent() types.Entity { return group.parent }
-
-func (group *SessionRedundancyManager_Groups_Group) GetParentYangName() string { return "groups" }
 
 // SessionRedundancyManager_Summary
 // Session redundancy manager summary
 type SessionRedundancyManager_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Disabled by Config. The type is bool.
@@ -630,11 +435,11 @@ type SessionRedundancyManager_Summary struct {
     VrfName interface{}
 
     // Source Interface IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv4Address interface{}
 
     // Source Interface IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv6Address interface{}
 
     // No. of Configured Groups. The type is interface{} with range:
@@ -664,146 +469,68 @@ type SessionRedundancyManager_Summary struct {
     SlaveInterfaceCount interface{}
 }
 
-func (summary *SessionRedundancyManager_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *SessionRedundancyManager_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "session-redundancy-manager"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *SessionRedundancyManager_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *SessionRedundancyManager_Summary) GetGoName(yname string) string {
-    if yname == "disabled" { return "Disabled" }
-    if yname == "active-state" { return "ActiveState" }
-    if yname == "preferred-role" { return "PreferredRole" }
-    if yname == "slave-mode" { return "SlaveMode" }
-    if yname == "hold-timer" { return "HoldTimer" }
-    if yname == "source-interface-name" { return "SourceInterfaceName" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source-interface-ipv4-address" { return "SourceInterfaceIpv4Address" }
-    if yname == "source-interface-ipv6-address" { return "SourceInterfaceIpv6Address" }
-    if yname == "group-count" { return "GroupCount" }
-    if yname == "disabled-group-count" { return "DisabledGroupCount" }
-    if yname == "master-group-count" { return "MasterGroupCount" }
-    if yname == "slave-group-count" { return "SlaveGroupCount" }
-    if yname == "interface-count" { return "InterfaceCount" }
-    if yname == "master-interface-count" { return "MasterInterfaceCount" }
-    if yname == "slave-interface-count" { return "SlaveInterfaceCount" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", summary.Disabled}
+    summary.EntityData.Leafs["active-state"] = types.YLeaf{"ActiveState", summary.ActiveState}
+    summary.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", summary.PreferredRole}
+    summary.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", summary.SlaveMode}
+    summary.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", summary.HoldTimer}
+    summary.EntityData.Leafs["source-interface-name"] = types.YLeaf{"SourceInterfaceName", summary.SourceInterfaceName}
+    summary.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", summary.VrfName}
+    summary.EntityData.Leafs["source-interface-ipv4-address"] = types.YLeaf{"SourceInterfaceIpv4Address", summary.SourceInterfaceIpv4Address}
+    summary.EntityData.Leafs["source-interface-ipv6-address"] = types.YLeaf{"SourceInterfaceIpv6Address", summary.SourceInterfaceIpv6Address}
+    summary.EntityData.Leafs["group-count"] = types.YLeaf{"GroupCount", summary.GroupCount}
+    summary.EntityData.Leafs["disabled-group-count"] = types.YLeaf{"DisabledGroupCount", summary.DisabledGroupCount}
+    summary.EntityData.Leafs["master-group-count"] = types.YLeaf{"MasterGroupCount", summary.MasterGroupCount}
+    summary.EntityData.Leafs["slave-group-count"] = types.YLeaf{"SlaveGroupCount", summary.SlaveGroupCount}
+    summary.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", summary.InterfaceCount}
+    summary.EntityData.Leafs["master-interface-count"] = types.YLeaf{"MasterInterfaceCount", summary.MasterInterfaceCount}
+    summary.EntityData.Leafs["slave-interface-count"] = types.YLeaf{"SlaveInterfaceCount", summary.SlaveInterfaceCount}
+    return &(summary.EntityData)
 }
-
-func (summary *SessionRedundancyManager_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *SessionRedundancyManager_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summary *SessionRedundancyManager_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summary *SessionRedundancyManager_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disabled"] = summary.Disabled
-    leafs["active-state"] = summary.ActiveState
-    leafs["preferred-role"] = summary.PreferredRole
-    leafs["slave-mode"] = summary.SlaveMode
-    leafs["hold-timer"] = summary.HoldTimer
-    leafs["source-interface-name"] = summary.SourceInterfaceName
-    leafs["vrf-name"] = summary.VrfName
-    leafs["source-interface-ipv4-address"] = summary.SourceInterfaceIpv4Address
-    leafs["source-interface-ipv6-address"] = summary.SourceInterfaceIpv6Address
-    leafs["group-count"] = summary.GroupCount
-    leafs["disabled-group-count"] = summary.DisabledGroupCount
-    leafs["master-group-count"] = summary.MasterGroupCount
-    leafs["slave-group-count"] = summary.SlaveGroupCount
-    leafs["interface-count"] = summary.InterfaceCount
-    leafs["master-interface-count"] = summary.MasterInterfaceCount
-    leafs["slave-interface-count"] = summary.SlaveInterfaceCount
-    return leafs
-}
-
-func (summary *SessionRedundancyManager_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *SessionRedundancyManager_Summary) GetYangName() string { return "summary" }
-
-func (summary *SessionRedundancyManager_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *SessionRedundancyManager_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *SessionRedundancyManager_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *SessionRedundancyManager_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *SessionRedundancyManager_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *SessionRedundancyManager_Summary) GetParentYangName() string { return "session-redundancy-manager" }
 
 // SessionRedundancyAgent
 // session redundancy agent
 type SessionRedundancyAgent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of nodes for which session data is collected.
     Nodes SessionRedundancyAgent_Nodes
 }
 
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetFilter() yfilter.YFilter { return sessionRedundancyAgent.YFilter }
+func (sessionRedundancyAgent *SessionRedundancyAgent) GetEntityData() *types.CommonEntityData {
+    sessionRedundancyAgent.EntityData.YFilter = sessionRedundancyAgent.YFilter
+    sessionRedundancyAgent.EntityData.YangName = "session-redundancy-agent"
+    sessionRedundancyAgent.EntityData.BundleName = "cisco_ios_xr"
+    sessionRedundancyAgent.EntityData.ParentYangName = "Cisco-IOS-XR-infra-serg-oper"
+    sessionRedundancyAgent.EntityData.SegmentPath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent"
+    sessionRedundancyAgent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionRedundancyAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionRedundancyAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionRedundancyAgent *SessionRedundancyAgent) SetFilter(yf yfilter.YFilter) { sessionRedundancyAgent.YFilter = yf }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    sessionRedundancyAgent.EntityData.Children = make(map[string]types.YChild)
+    sessionRedundancyAgent.EntityData.Children["nodes"] = types.YChild{"Nodes", &sessionRedundancyAgent.Nodes}
+    sessionRedundancyAgent.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessionRedundancyAgent.EntityData)
 }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent"
-}
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &sessionRedundancyAgent.Nodes
-    }
-    return nil
-}
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &sessionRedundancyAgent.Nodes
-    return children
-}
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetYangName() string { return "session-redundancy-agent" }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) SetParent(parent types.Entity) { sessionRedundancyAgent.parent = parent }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetParent() types.Entity { return sessionRedundancyAgent.parent }
-
-func (sessionRedundancyAgent *SessionRedundancyAgent) GetParentYangName() string { return "Cisco-IOS-XR-infra-serg-oper" }
 
 // SessionRedundancyAgent_Nodes
 // List of nodes for which session data is
 // collected
 type SessionRedundancyAgent_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session data for a particular node. The type is slice of
@@ -811,72 +538,33 @@ type SessionRedundancyAgent_Nodes struct {
     Node []SessionRedundancyAgent_Nodes_Node
 }
 
-func (nodes *SessionRedundancyAgent_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *SessionRedundancyAgent_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "session-redundancy-agent"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *SessionRedundancyAgent_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *SessionRedundancyAgent_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *SessionRedundancyAgent_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *SessionRedundancyAgent_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *SessionRedundancyAgent_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *SessionRedundancyAgent_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *SessionRedundancyAgent_Nodes) GetParentYangName() string { return "session-redundancy-agent" }
 
 // SessionRedundancyAgent_Nodes_Node
 // Session data for a particular node
 type SessionRedundancyAgent_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Data for particular subscriber group session.
@@ -901,91 +589,33 @@ type SessionRedundancyAgent_Nodes_Node struct {
     GroupSummaries SessionRedundancyAgent_Nodes_Node_GroupSummaries
 }
 
-func (node *SessionRedundancyAgent_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *SessionRedundancyAgent_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *SessionRedundancyAgent_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "group-id-xr" { return "GroupIdXr" }
-    if yname == "client-ids" { return "ClientIds" }
-    if yname == "memory" { return "Memory" }
-    if yname == "group-ids" { return "GroupIds" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "stats-global" { return "StatsGlobal" }
-    if yname == "group-summaries" { return "GroupSummaries" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["group-id-xr"] = types.YChild{"GroupIdXr", &node.GroupIdXr}
+    node.EntityData.Children["client-ids"] = types.YChild{"ClientIds", &node.ClientIds}
+    node.EntityData.Children["memory"] = types.YChild{"Memory", &node.Memory}
+    node.EntityData.Children["group-ids"] = types.YChild{"GroupIds", &node.GroupIds}
+    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
+    node.EntityData.Children["stats-global"] = types.YChild{"StatsGlobal", &node.StatsGlobal}
+    node.EntityData.Children["group-summaries"] = types.YChild{"GroupSummaries", &node.GroupSummaries}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "group-id-xr" {
-        return &node.GroupIdXr
-    }
-    if childYangName == "client-ids" {
-        return &node.ClientIds
-    }
-    if childYangName == "memory" {
-        return &node.Memory
-    }
-    if childYangName == "group-ids" {
-        return &node.GroupIds
-    }
-    if childYangName == "interfaces" {
-        return &node.Interfaces
-    }
-    if childYangName == "stats-global" {
-        return &node.StatsGlobal
-    }
-    if childYangName == "group-summaries" {
-        return &node.GroupSummaries
-    }
-    return nil
-}
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["group-id-xr"] = &node.GroupIdXr
-    children["client-ids"] = &node.ClientIds
-    children["memory"] = &node.Memory
-    children["group-ids"] = &node.GroupIds
-    children["interfaces"] = &node.Interfaces
-    children["stats-global"] = &node.StatsGlobal
-    children["group-summaries"] = &node.GroupSummaries
-    return children
-}
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *SessionRedundancyAgent_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *SessionRedundancyAgent_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIdXr
 // Data for particular subscriber group session
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Group id for subscriber group session. The type is slice of
@@ -993,72 +623,33 @@ type SessionRedundancyAgent_Nodes_Node_GroupIdXr struct {
     GroupId []SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId
 }
 
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetFilter() yfilter.YFilter { return groupIdXr.YFilter }
+func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData() *types.CommonEntityData {
+    groupIdXr.EntityData.YFilter = groupIdXr.YFilter
+    groupIdXr.EntityData.YangName = "group-id-xr"
+    groupIdXr.EntityData.BundleName = "cisco_ios_xr"
+    groupIdXr.EntityData.ParentYangName = "node"
+    groupIdXr.EntityData.SegmentPath = "group-id-xr"
+    groupIdXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupIdXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupIdXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) SetFilter(yf yfilter.YFilter) { groupIdXr.YFilter = yf }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetGoName(yname string) string {
-    if yname == "group-id" { return "GroupId" }
-    return ""
-}
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetSegmentPath() string {
-    return "group-id-xr"
-}
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "group-id" {
-        for _, c := range groupIdXr.GroupId {
-            if groupIdXr.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId{}
-        groupIdXr.GroupId = append(groupIdXr.GroupId, child)
-        return &groupIdXr.GroupId[len(groupIdXr.GroupId)-1]
-    }
-    return nil
-}
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    groupIdXr.EntityData.Children = make(map[string]types.YChild)
+    groupIdXr.EntityData.Children["group-id"] = types.YChild{"GroupId", nil}
     for i := range groupIdXr.GroupId {
-        children[groupIdXr.GroupId[i].GetSegmentPath()] = &groupIdXr.GroupId[i]
+        groupIdXr.EntityData.Children[types.GetSegmentPath(&groupIdXr.GroupId[i])] = types.YChild{"GroupId", &groupIdXr.GroupId[i]}
     }
-    return children
+    groupIdXr.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(groupIdXr.EntityData)
 }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetYangName() string { return "group-id-xr" }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) SetParent(parent types.Entity) { groupIdXr.parent = parent }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetParent() types.Entity { return groupIdXr.parent }
-
-func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId
 // Group id for subscriber group session
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -1085,94 +676,39 @@ type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     SessionSyncErrorInformation []SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation
 }
 
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetFilter() yfilter.YFilter { return groupId.YFilter }
+func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntityData() *types.CommonEntityData {
+    groupId.EntityData.YFilter = groupId.YFilter
+    groupId.EntityData.YangName = "group-id"
+    groupId.EntityData.BundleName = "cisco_ios_xr"
+    groupId.EntityData.ParentYangName = "group-id-xr"
+    groupId.EntityData.SegmentPath = "group-id" + "[group-id='" + fmt.Sprintf("%v", groupId.GroupId) + "']"
+    groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) SetFilter(yf yfilter.YFilter) { groupId.YFilter = yf }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetGoName(yname string) string {
-    if yname == "group-id" { return "GroupId" }
-    if yname == "group-id-xr" { return "GroupIdXr" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "key-index" { return "KeyIndex" }
-    if yname == "role-master" { return "RoleMaster" }
-    if yname == "negative-acknowledgement-update-all" { return "NegativeAcknowledgementUpdateAll" }
-    if yname == "session-detailed-information" { return "SessionDetailedInformation" }
-    if yname == "session-sync-error-information" { return "SessionSyncErrorInformation" }
-    return ""
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetSegmentPath() string {
-    return "group-id" + "[group-id='" + fmt.Sprintf("%v", groupId.GroupId) + "']"
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session-detailed-information" {
-        for _, c := range groupId.SessionDetailedInformation {
-            if groupId.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation{}
-        groupId.SessionDetailedInformation = append(groupId.SessionDetailedInformation, child)
-        return &groupId.SessionDetailedInformation[len(groupId.SessionDetailedInformation)-1]
-    }
-    if childYangName == "session-sync-error-information" {
-        for _, c := range groupId.SessionSyncErrorInformation {
-            if groupId.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation{}
-        groupId.SessionSyncErrorInformation = append(groupId.SessionSyncErrorInformation, child)
-        return &groupId.SessionSyncErrorInformation[len(groupId.SessionSyncErrorInformation)-1]
-    }
-    return nil
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    groupId.EntityData.Children = make(map[string]types.YChild)
+    groupId.EntityData.Children["session-detailed-information"] = types.YChild{"SessionDetailedInformation", nil}
     for i := range groupId.SessionDetailedInformation {
-        children[groupId.SessionDetailedInformation[i].GetSegmentPath()] = &groupId.SessionDetailedInformation[i]
+        groupId.EntityData.Children[types.GetSegmentPath(&groupId.SessionDetailedInformation[i])] = types.YChild{"SessionDetailedInformation", &groupId.SessionDetailedInformation[i]}
     }
+    groupId.EntityData.Children["session-sync-error-information"] = types.YChild{"SessionSyncErrorInformation", nil}
     for i := range groupId.SessionSyncErrorInformation {
-        children[groupId.SessionSyncErrorInformation[i].GetSegmentPath()] = &groupId.SessionSyncErrorInformation[i]
+        groupId.EntityData.Children[types.GetSegmentPath(&groupId.SessionSyncErrorInformation[i])] = types.YChild{"SessionSyncErrorInformation", &groupId.SessionSyncErrorInformation[i]}
     }
-    return children
+    groupId.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupId.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", groupId.GroupId}
+    groupId.EntityData.Leafs["group-id-xr"] = types.YLeaf{"GroupIdXr", groupId.GroupIdXr}
+    groupId.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", groupId.InterfaceName}
+    groupId.EntityData.Leafs["key-index"] = types.YLeaf{"KeyIndex", groupId.KeyIndex}
+    groupId.EntityData.Leafs["role-master"] = types.YLeaf{"RoleMaster", groupId.RoleMaster}
+    groupId.EntityData.Leafs["negative-acknowledgement-update-all"] = types.YLeaf{"NegativeAcknowledgementUpdateAll", groupId.NegativeAcknowledgementUpdateAll}
+    return &(groupId.EntityData)
 }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group-id"] = groupId.GroupId
-    leafs["group-id-xr"] = groupId.GroupIdXr
-    leafs["interface-name"] = groupId.InterfaceName
-    leafs["key-index"] = groupId.KeyIndex
-    leafs["role-master"] = groupId.RoleMaster
-    leafs["negative-acknowledgement-update-all"] = groupId.NegativeAcknowledgementUpdateAll
-    return leafs
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetYangName() string { return "group-id" }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) SetParent(parent types.Entity) { groupId.parent = parent }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetParent() types.Entity { return groupId.parent }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetParentYangName() string { return "group-id-xr" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation
 // More Session Information
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Component. The type is SergShowComp.
@@ -1191,64 +727,30 @@ type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformat
     MarkedForCleanup interface{}
 }
 
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetFilter() yfilter.YFilter { return sessionDetailedInformation.YFilter }
+func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetEntityData() *types.CommonEntityData {
+    sessionDetailedInformation.EntityData.YFilter = sessionDetailedInformation.YFilter
+    sessionDetailedInformation.EntityData.YangName = "session-detailed-information"
+    sessionDetailedInformation.EntityData.BundleName = "cisco_ios_xr"
+    sessionDetailedInformation.EntityData.ParentYangName = "group-id"
+    sessionDetailedInformation.EntityData.SegmentPath = "session-detailed-information"
+    sessionDetailedInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionDetailedInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionDetailedInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) SetFilter(yf yfilter.YFilter) { sessionDetailedInformation.YFilter = yf }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetGoName(yname string) string {
-    if yname == "component" { return "Component" }
-    if yname == "operation" { return "Operation" }
-    if yname == "tx-list-queue-fail" { return "TxListQueueFail" }
-    if yname == "marked-for-sweeping" { return "MarkedForSweeping" }
-    if yname == "marked-for-cleanup" { return "MarkedForCleanup" }
-    return ""
+    sessionDetailedInformation.EntityData.Children = make(map[string]types.YChild)
+    sessionDetailedInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionDetailedInformation.EntityData.Leafs["component"] = types.YLeaf{"Component", sessionDetailedInformation.Component}
+    sessionDetailedInformation.EntityData.Leafs["operation"] = types.YLeaf{"Operation", sessionDetailedInformation.Operation}
+    sessionDetailedInformation.EntityData.Leafs["tx-list-queue-fail"] = types.YLeaf{"TxListQueueFail", sessionDetailedInformation.TxListQueueFail}
+    sessionDetailedInformation.EntityData.Leafs["marked-for-sweeping"] = types.YLeaf{"MarkedForSweeping", sessionDetailedInformation.MarkedForSweeping}
+    sessionDetailedInformation.EntityData.Leafs["marked-for-cleanup"] = types.YLeaf{"MarkedForCleanup", sessionDetailedInformation.MarkedForCleanup}
+    return &(sessionDetailedInformation.EntityData)
 }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetSegmentPath() string {
-    return "session-detailed-information"
-}
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["component"] = sessionDetailedInformation.Component
-    leafs["operation"] = sessionDetailedInformation.Operation
-    leafs["tx-list-queue-fail"] = sessionDetailedInformation.TxListQueueFail
-    leafs["marked-for-sweeping"] = sessionDetailedInformation.MarkedForSweeping
-    leafs["marked-for-cleanup"] = sessionDetailedInformation.MarkedForCleanup
-    return leafs
-}
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetYangName() string { return "session-detailed-information" }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) SetParent(parent types.Entity) { sessionDetailedInformation.parent = parent }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetParent() types.Entity { return sessionDetailedInformation.parent }
-
-func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation) GetParentYangName() string { return "group-id" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation
 // Session Synchroniation Error Information
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // No. of Errors occured during Synchronization. The type is interface{} with
@@ -1262,60 +764,28 @@ type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInforma
     LastErrorType interface{}
 }
 
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetFilter() yfilter.YFilter { return sessionSyncErrorInformation.YFilter }
+func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetEntityData() *types.CommonEntityData {
+    sessionSyncErrorInformation.EntityData.YFilter = sessionSyncErrorInformation.YFilter
+    sessionSyncErrorInformation.EntityData.YangName = "session-sync-error-information"
+    sessionSyncErrorInformation.EntityData.BundleName = "cisco_ios_xr"
+    sessionSyncErrorInformation.EntityData.ParentYangName = "group-id"
+    sessionSyncErrorInformation.EntityData.SegmentPath = "session-sync-error-information"
+    sessionSyncErrorInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionSyncErrorInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionSyncErrorInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) SetFilter(yf yfilter.YFilter) { sessionSyncErrorInformation.YFilter = yf }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetGoName(yname string) string {
-    if yname == "sync-error-count" { return "SyncErrorCount" }
-    if yname == "last-error-code" { return "LastErrorCode" }
-    if yname == "last-error-type" { return "LastErrorType" }
-    return ""
+    sessionSyncErrorInformation.EntityData.Children = make(map[string]types.YChild)
+    sessionSyncErrorInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionSyncErrorInformation.EntityData.Leafs["sync-error-count"] = types.YLeaf{"SyncErrorCount", sessionSyncErrorInformation.SyncErrorCount}
+    sessionSyncErrorInformation.EntityData.Leafs["last-error-code"] = types.YLeaf{"LastErrorCode", sessionSyncErrorInformation.LastErrorCode}
+    sessionSyncErrorInformation.EntityData.Leafs["last-error-type"] = types.YLeaf{"LastErrorType", sessionSyncErrorInformation.LastErrorType}
+    return &(sessionSyncErrorInformation.EntityData)
 }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetSegmentPath() string {
-    return "session-sync-error-information"
-}
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sync-error-count"] = sessionSyncErrorInformation.SyncErrorCount
-    leafs["last-error-code"] = sessionSyncErrorInformation.LastErrorCode
-    leafs["last-error-type"] = sessionSyncErrorInformation.LastErrorType
-    return leafs
-}
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetYangName() string { return "session-sync-error-information" }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) SetParent(parent types.Entity) { sessionSyncErrorInformation.parent = parent }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetParent() types.Entity { return sessionSyncErrorInformation.parent }
-
-func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation) GetParentYangName() string { return "group-id" }
 
 // SessionRedundancyAgent_Nodes_Node_ClientIds
 // Stats Client
 type SessionRedundancyAgent_Nodes_Node_ClientIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify stats client. The type is slice of
@@ -1323,68 +793,29 @@ type SessionRedundancyAgent_Nodes_Node_ClientIds struct {
     ClientId []SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId
 }
 
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetFilter() yfilter.YFilter { return clientIds.YFilter }
+func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetEntityData() *types.CommonEntityData {
+    clientIds.EntityData.YFilter = clientIds.YFilter
+    clientIds.EntityData.YangName = "client-ids"
+    clientIds.EntityData.BundleName = "cisco_ios_xr"
+    clientIds.EntityData.ParentYangName = "node"
+    clientIds.EntityData.SegmentPath = "client-ids"
+    clientIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clientIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clientIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) SetFilter(yf yfilter.YFilter) { clientIds.YFilter = yf }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetGoName(yname string) string {
-    if yname == "client-id" { return "ClientId" }
-    return ""
-}
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetSegmentPath() string {
-    return "client-ids"
-}
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client-id" {
-        for _, c := range clientIds.ClientId {
-            if clientIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId{}
-        clientIds.ClientId = append(clientIds.ClientId, child)
-        return &clientIds.ClientId[len(clientIds.ClientId)-1]
-    }
-    return nil
-}
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clientIds.EntityData.Children = make(map[string]types.YChild)
+    clientIds.EntityData.Children["client-id"] = types.YChild{"ClientId", nil}
     for i := range clientIds.ClientId {
-        children[clientIds.ClientId[i].GetSegmentPath()] = &clientIds.ClientId[i]
+        clientIds.EntityData.Children[types.GetSegmentPath(&clientIds.ClientId[i])] = types.YChild{"ClientId", &clientIds.ClientId[i]}
     }
-    return children
+    clientIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clientIds.EntityData)
 }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetYangName() string { return "client-ids" }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) SetParent(parent types.Entity) { clientIds.parent = parent }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetParent() types.Entity { return clientIds.parent }
-
-func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId
 // Specify stats client
 type SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Client Id. The type is interface{} with range:
@@ -1568,150 +999,73 @@ type SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId struct {
     TxListDeActiveNotOk interface{}
 }
 
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetFilter() yfilter.YFilter { return clientId.YFilter }
+func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetEntityData() *types.CommonEntityData {
+    clientId.EntityData.YFilter = clientId.YFilter
+    clientId.EntityData.YangName = "client-id"
+    clientId.EntityData.BundleName = "cisco_ios_xr"
+    clientId.EntityData.ParentYangName = "client-ids"
+    clientId.EntityData.SegmentPath = "client-id" + "[stats-client-id='" + fmt.Sprintf("%v", clientId.StatsClientId) + "']"
+    clientId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clientId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clientId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) SetFilter(yf yfilter.YFilter) { clientId.YFilter = yf }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetGoName(yname string) string {
-    if yname == "stats-client-id" { return "StatsClientId" }
-    if yname == "tx-list-start-of-download-add-ok" { return "TxListStartOfDownloadAddOk" }
-    if yname == "tx-list-start-of-download-add-not-ok" { return "TxListStartOfDownloadAddNotOk" }
-    if yname == "tx-list-end-of-download-add-ok" { return "TxListEndOfDownloadAddOk" }
-    if yname == "tx-list-end-of-download-add-not-ok" { return "TxListEndOfDownloadAddNotOk" }
-    if yname == "tx-list-end-of-message-add-ok" { return "TxListEndOfMessageAddOk" }
-    if yname == "tx-list-end-of-message-add-not-ok" { return "TxListEndOfMessageAddNotOk" }
-    if yname == "tx-list-clear-all-add-ok" { return "TxListClearAllAddOk" }
-    if yname == "tx-list-clear-all-add-not-ok" { return "TxListClearAllAddNotOk" }
-    if yname == "tx-list-clear-selected-add-ok" { return "TxListClearSelectedAddOk" }
-    if yname == "tx-list-clear-selected-add-not-ok" { return "TxListClearSelectedAddNotOk" }
-    if yname == "tx-list-replay-all-add-ok" { return "TxListReplayAllAddOk" }
-    if yname == "tx-list-replay-all-add-not-ok" { return "TxListReplayAllAddNotOk" }
-    if yname == "tx-list-replay-selected-add-ok" { return "TxListReplaySelectedAddOk" }
-    if yname == "tx-list-replay-selected-add-not-ok" { return "TxListReplaySelectedAddNotOk" }
-    if yname == "tx-list-session-session-add-ok" { return "TxListSessionSessionAddOk" }
-    if yname == "tx-list-session-session-add-not-ok" { return "TxListSessionSessionAddNotOk" }
-    if yname == "tx-list-session-session-update-ok" { return "TxListSessionSessionUpdateOk" }
-    if yname == "tx-list-session-session-update-not-ok" { return "TxListSessionSessionUpdateNotOk" }
-    if yname == "tx-list-session-session-delete" { return "TxListSessionSessionDelete" }
-    if yname == "clean-call-back" { return "CleanCallBack" }
-    if yname == "tx-list-encode-session-session-ok" { return "TxListEncodeSessionSessionOk" }
-    if yname == "tx-list-encode-session-session-partial-write" { return "TxListEncodeSessionSessionPartialWrite" }
-    if yname == "last-replay-all-count" { return "LastReplayAllCount" }
-    if yname == "tx-list-receive-command-replay-all" { return "TxListReceiveCommandReplayAll" }
-    if yname == "tx-list-receive-command-replay-selected" { return "TxListReceiveCommandReplaySelected" }
-    if yname == "tx-list-receive-session-session-delete-valid" { return "TxListReceiveSessionSessionDeleteValid" }
-    if yname == "tx-list-receive-session-session-delete-invalid" { return "TxListReceiveSessionSessionDeleteInvalid" }
-    if yname == "tx-list-receive-session-session-update-valid" { return "TxListReceiveSessionSessionUpdateValid" }
-    if yname == "tx-list-receive-session-session-update-invalid" { return "TxListReceiveSessionSessionUpdateInvalid" }
-    if yname == "tx-list-receive-session-session-sod-all" { return "TxListReceiveSessionSessionSodAll" }
-    if yname == "tx-list-receive-session-session-sod-selected" { return "TxListReceiveSessionSessionSodSelected" }
-    if yname == "tx-list-receive-session-session-eod-all" { return "TxListReceiveSessionSessionEodAll" }
-    if yname == "tx-list-receive-session-session-eod-selected" { return "TxListReceiveSessionSessionEodSelected" }
-    if yname == "tx-list-receive-session-session-eoms" { return "TxListReceiveSessionSessionEoms" }
-    if yname == "tx-list-receive-session-session-clear-all" { return "TxListReceiveSessionSessionClearAll" }
-    if yname == "tx-list-receive-session-session-clear-selected" { return "TxListReceiveSessionSessionClearSelected" }
-    if yname == "tx-list-receive-session-session-neg-ack" { return "TxListReceiveSessionSessionNegAck" }
-    if yname == "tx-list-receive-session-session-neg-ack-not-ok" { return "TxListReceiveSessionSessionNegAckNotOk" }
-    if yname == "tx-list-client-registration-ok" { return "TxListClientRegistrationOk" }
-    if yname == "tx-list-client-registration-not-ok" { return "TxListClientRegistrationNotOk" }
-    if yname == "tx-list-client-de-registration" { return "TxListClientDeRegistration" }
-    if yname == "tx-list-client-connection-down" { return "TxListClientConnectionDown" }
-    if yname == "tx-list-client-cleanup" { return "TxListClientCleanup" }
-    if yname == "tx-list-active-ok" { return "TxListActiveOk" }
-    if yname == "tx-list-active-not-ok" { return "TxListActiveNotOk" }
-    if yname == "tx-list-de-active-ok" { return "TxListDeActiveOk" }
-    if yname == "tx-list-de-active-not-ok" { return "TxListDeActiveNotOk" }
-    return ""
+    clientId.EntityData.Children = make(map[string]types.YChild)
+    clientId.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientId.EntityData.Leafs["stats-client-id"] = types.YLeaf{"StatsClientId", clientId.StatsClientId}
+    clientId.EntityData.Leafs["tx-list-start-of-download-add-ok"] = types.YLeaf{"TxListStartOfDownloadAddOk", clientId.TxListStartOfDownloadAddOk}
+    clientId.EntityData.Leafs["tx-list-start-of-download-add-not-ok"] = types.YLeaf{"TxListStartOfDownloadAddNotOk", clientId.TxListStartOfDownloadAddNotOk}
+    clientId.EntityData.Leafs["tx-list-end-of-download-add-ok"] = types.YLeaf{"TxListEndOfDownloadAddOk", clientId.TxListEndOfDownloadAddOk}
+    clientId.EntityData.Leafs["tx-list-end-of-download-add-not-ok"] = types.YLeaf{"TxListEndOfDownloadAddNotOk", clientId.TxListEndOfDownloadAddNotOk}
+    clientId.EntityData.Leafs["tx-list-end-of-message-add-ok"] = types.YLeaf{"TxListEndOfMessageAddOk", clientId.TxListEndOfMessageAddOk}
+    clientId.EntityData.Leafs["tx-list-end-of-message-add-not-ok"] = types.YLeaf{"TxListEndOfMessageAddNotOk", clientId.TxListEndOfMessageAddNotOk}
+    clientId.EntityData.Leafs["tx-list-clear-all-add-ok"] = types.YLeaf{"TxListClearAllAddOk", clientId.TxListClearAllAddOk}
+    clientId.EntityData.Leafs["tx-list-clear-all-add-not-ok"] = types.YLeaf{"TxListClearAllAddNotOk", clientId.TxListClearAllAddNotOk}
+    clientId.EntityData.Leafs["tx-list-clear-selected-add-ok"] = types.YLeaf{"TxListClearSelectedAddOk", clientId.TxListClearSelectedAddOk}
+    clientId.EntityData.Leafs["tx-list-clear-selected-add-not-ok"] = types.YLeaf{"TxListClearSelectedAddNotOk", clientId.TxListClearSelectedAddNotOk}
+    clientId.EntityData.Leafs["tx-list-replay-all-add-ok"] = types.YLeaf{"TxListReplayAllAddOk", clientId.TxListReplayAllAddOk}
+    clientId.EntityData.Leafs["tx-list-replay-all-add-not-ok"] = types.YLeaf{"TxListReplayAllAddNotOk", clientId.TxListReplayAllAddNotOk}
+    clientId.EntityData.Leafs["tx-list-replay-selected-add-ok"] = types.YLeaf{"TxListReplaySelectedAddOk", clientId.TxListReplaySelectedAddOk}
+    clientId.EntityData.Leafs["tx-list-replay-selected-add-not-ok"] = types.YLeaf{"TxListReplaySelectedAddNotOk", clientId.TxListReplaySelectedAddNotOk}
+    clientId.EntityData.Leafs["tx-list-session-session-add-ok"] = types.YLeaf{"TxListSessionSessionAddOk", clientId.TxListSessionSessionAddOk}
+    clientId.EntityData.Leafs["tx-list-session-session-add-not-ok"] = types.YLeaf{"TxListSessionSessionAddNotOk", clientId.TxListSessionSessionAddNotOk}
+    clientId.EntityData.Leafs["tx-list-session-session-update-ok"] = types.YLeaf{"TxListSessionSessionUpdateOk", clientId.TxListSessionSessionUpdateOk}
+    clientId.EntityData.Leafs["tx-list-session-session-update-not-ok"] = types.YLeaf{"TxListSessionSessionUpdateNotOk", clientId.TxListSessionSessionUpdateNotOk}
+    clientId.EntityData.Leafs["tx-list-session-session-delete"] = types.YLeaf{"TxListSessionSessionDelete", clientId.TxListSessionSessionDelete}
+    clientId.EntityData.Leafs["clean-call-back"] = types.YLeaf{"CleanCallBack", clientId.CleanCallBack}
+    clientId.EntityData.Leafs["tx-list-encode-session-session-ok"] = types.YLeaf{"TxListEncodeSessionSessionOk", clientId.TxListEncodeSessionSessionOk}
+    clientId.EntityData.Leafs["tx-list-encode-session-session-partial-write"] = types.YLeaf{"TxListEncodeSessionSessionPartialWrite", clientId.TxListEncodeSessionSessionPartialWrite}
+    clientId.EntityData.Leafs["last-replay-all-count"] = types.YLeaf{"LastReplayAllCount", clientId.LastReplayAllCount}
+    clientId.EntityData.Leafs["tx-list-receive-command-replay-all"] = types.YLeaf{"TxListReceiveCommandReplayAll", clientId.TxListReceiveCommandReplayAll}
+    clientId.EntityData.Leafs["tx-list-receive-command-replay-selected"] = types.YLeaf{"TxListReceiveCommandReplaySelected", clientId.TxListReceiveCommandReplaySelected}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-delete-valid"] = types.YLeaf{"TxListReceiveSessionSessionDeleteValid", clientId.TxListReceiveSessionSessionDeleteValid}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-delete-invalid"] = types.YLeaf{"TxListReceiveSessionSessionDeleteInvalid", clientId.TxListReceiveSessionSessionDeleteInvalid}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-update-valid"] = types.YLeaf{"TxListReceiveSessionSessionUpdateValid", clientId.TxListReceiveSessionSessionUpdateValid}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-update-invalid"] = types.YLeaf{"TxListReceiveSessionSessionUpdateInvalid", clientId.TxListReceiveSessionSessionUpdateInvalid}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-sod-all"] = types.YLeaf{"TxListReceiveSessionSessionSodAll", clientId.TxListReceiveSessionSessionSodAll}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-sod-selected"] = types.YLeaf{"TxListReceiveSessionSessionSodSelected", clientId.TxListReceiveSessionSessionSodSelected}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-eod-all"] = types.YLeaf{"TxListReceiveSessionSessionEodAll", clientId.TxListReceiveSessionSessionEodAll}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-eod-selected"] = types.YLeaf{"TxListReceiveSessionSessionEodSelected", clientId.TxListReceiveSessionSessionEodSelected}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-eoms"] = types.YLeaf{"TxListReceiveSessionSessionEoms", clientId.TxListReceiveSessionSessionEoms}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-clear-all"] = types.YLeaf{"TxListReceiveSessionSessionClearAll", clientId.TxListReceiveSessionSessionClearAll}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-clear-selected"] = types.YLeaf{"TxListReceiveSessionSessionClearSelected", clientId.TxListReceiveSessionSessionClearSelected}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-neg-ack"] = types.YLeaf{"TxListReceiveSessionSessionNegAck", clientId.TxListReceiveSessionSessionNegAck}
+    clientId.EntityData.Leafs["tx-list-receive-session-session-neg-ack-not-ok"] = types.YLeaf{"TxListReceiveSessionSessionNegAckNotOk", clientId.TxListReceiveSessionSessionNegAckNotOk}
+    clientId.EntityData.Leafs["tx-list-client-registration-ok"] = types.YLeaf{"TxListClientRegistrationOk", clientId.TxListClientRegistrationOk}
+    clientId.EntityData.Leafs["tx-list-client-registration-not-ok"] = types.YLeaf{"TxListClientRegistrationNotOk", clientId.TxListClientRegistrationNotOk}
+    clientId.EntityData.Leafs["tx-list-client-de-registration"] = types.YLeaf{"TxListClientDeRegistration", clientId.TxListClientDeRegistration}
+    clientId.EntityData.Leafs["tx-list-client-connection-down"] = types.YLeaf{"TxListClientConnectionDown", clientId.TxListClientConnectionDown}
+    clientId.EntityData.Leafs["tx-list-client-cleanup"] = types.YLeaf{"TxListClientCleanup", clientId.TxListClientCleanup}
+    clientId.EntityData.Leafs["tx-list-active-ok"] = types.YLeaf{"TxListActiveOk", clientId.TxListActiveOk}
+    clientId.EntityData.Leafs["tx-list-active-not-ok"] = types.YLeaf{"TxListActiveNotOk", clientId.TxListActiveNotOk}
+    clientId.EntityData.Leafs["tx-list-de-active-ok"] = types.YLeaf{"TxListDeActiveOk", clientId.TxListDeActiveOk}
+    clientId.EntityData.Leafs["tx-list-de-active-not-ok"] = types.YLeaf{"TxListDeActiveNotOk", clientId.TxListDeActiveNotOk}
+    return &(clientId.EntityData)
 }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetSegmentPath() string {
-    return "client-id" + "[stats-client-id='" + fmt.Sprintf("%v", clientId.StatsClientId) + "']"
-}
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["stats-client-id"] = clientId.StatsClientId
-    leafs["tx-list-start-of-download-add-ok"] = clientId.TxListStartOfDownloadAddOk
-    leafs["tx-list-start-of-download-add-not-ok"] = clientId.TxListStartOfDownloadAddNotOk
-    leafs["tx-list-end-of-download-add-ok"] = clientId.TxListEndOfDownloadAddOk
-    leafs["tx-list-end-of-download-add-not-ok"] = clientId.TxListEndOfDownloadAddNotOk
-    leafs["tx-list-end-of-message-add-ok"] = clientId.TxListEndOfMessageAddOk
-    leafs["tx-list-end-of-message-add-not-ok"] = clientId.TxListEndOfMessageAddNotOk
-    leafs["tx-list-clear-all-add-ok"] = clientId.TxListClearAllAddOk
-    leafs["tx-list-clear-all-add-not-ok"] = clientId.TxListClearAllAddNotOk
-    leafs["tx-list-clear-selected-add-ok"] = clientId.TxListClearSelectedAddOk
-    leafs["tx-list-clear-selected-add-not-ok"] = clientId.TxListClearSelectedAddNotOk
-    leafs["tx-list-replay-all-add-ok"] = clientId.TxListReplayAllAddOk
-    leafs["tx-list-replay-all-add-not-ok"] = clientId.TxListReplayAllAddNotOk
-    leafs["tx-list-replay-selected-add-ok"] = clientId.TxListReplaySelectedAddOk
-    leafs["tx-list-replay-selected-add-not-ok"] = clientId.TxListReplaySelectedAddNotOk
-    leafs["tx-list-session-session-add-ok"] = clientId.TxListSessionSessionAddOk
-    leafs["tx-list-session-session-add-not-ok"] = clientId.TxListSessionSessionAddNotOk
-    leafs["tx-list-session-session-update-ok"] = clientId.TxListSessionSessionUpdateOk
-    leafs["tx-list-session-session-update-not-ok"] = clientId.TxListSessionSessionUpdateNotOk
-    leafs["tx-list-session-session-delete"] = clientId.TxListSessionSessionDelete
-    leafs["clean-call-back"] = clientId.CleanCallBack
-    leafs["tx-list-encode-session-session-ok"] = clientId.TxListEncodeSessionSessionOk
-    leafs["tx-list-encode-session-session-partial-write"] = clientId.TxListEncodeSessionSessionPartialWrite
-    leafs["last-replay-all-count"] = clientId.LastReplayAllCount
-    leafs["tx-list-receive-command-replay-all"] = clientId.TxListReceiveCommandReplayAll
-    leafs["tx-list-receive-command-replay-selected"] = clientId.TxListReceiveCommandReplaySelected
-    leafs["tx-list-receive-session-session-delete-valid"] = clientId.TxListReceiveSessionSessionDeleteValid
-    leafs["tx-list-receive-session-session-delete-invalid"] = clientId.TxListReceiveSessionSessionDeleteInvalid
-    leafs["tx-list-receive-session-session-update-valid"] = clientId.TxListReceiveSessionSessionUpdateValid
-    leafs["tx-list-receive-session-session-update-invalid"] = clientId.TxListReceiveSessionSessionUpdateInvalid
-    leafs["tx-list-receive-session-session-sod-all"] = clientId.TxListReceiveSessionSessionSodAll
-    leafs["tx-list-receive-session-session-sod-selected"] = clientId.TxListReceiveSessionSessionSodSelected
-    leafs["tx-list-receive-session-session-eod-all"] = clientId.TxListReceiveSessionSessionEodAll
-    leafs["tx-list-receive-session-session-eod-selected"] = clientId.TxListReceiveSessionSessionEodSelected
-    leafs["tx-list-receive-session-session-eoms"] = clientId.TxListReceiveSessionSessionEoms
-    leafs["tx-list-receive-session-session-clear-all"] = clientId.TxListReceiveSessionSessionClearAll
-    leafs["tx-list-receive-session-session-clear-selected"] = clientId.TxListReceiveSessionSessionClearSelected
-    leafs["tx-list-receive-session-session-neg-ack"] = clientId.TxListReceiveSessionSessionNegAck
-    leafs["tx-list-receive-session-session-neg-ack-not-ok"] = clientId.TxListReceiveSessionSessionNegAckNotOk
-    leafs["tx-list-client-registration-ok"] = clientId.TxListClientRegistrationOk
-    leafs["tx-list-client-registration-not-ok"] = clientId.TxListClientRegistrationNotOk
-    leafs["tx-list-client-de-registration"] = clientId.TxListClientDeRegistration
-    leafs["tx-list-client-connection-down"] = clientId.TxListClientConnectionDown
-    leafs["tx-list-client-cleanup"] = clientId.TxListClientCleanup
-    leafs["tx-list-active-ok"] = clientId.TxListActiveOk
-    leafs["tx-list-active-not-ok"] = clientId.TxListActiveNotOk
-    leafs["tx-list-de-active-ok"] = clientId.TxListDeActiveOk
-    leafs["tx-list-de-active-not-ok"] = clientId.TxListDeActiveNotOk
-    return leafs
-}
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetYangName() string { return "client-id" }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) SetParent(parent types.Entity) { clientId.parent = parent }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetParent() types.Entity { return clientId.parent }
-
-func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetParentYangName() string { return "client-ids" }
 
 // SessionRedundancyAgent_Nodes_Node_Memory
 // Show Memory
 type SessionRedundancyAgent_Nodes_Node_Memory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Memory Info. The type is slice of
@@ -1727,96 +1081,37 @@ type SessionRedundancyAgent_Nodes_Node_Memory struct {
     StringMemoryInfo []SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo
 }
 
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetFilter() yfilter.YFilter { return memory.YFilter }
+func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetEntityData() *types.CommonEntityData {
+    memory.EntityData.YFilter = memory.YFilter
+    memory.EntityData.YangName = "memory"
+    memory.EntityData.BundleName = "cisco_ios_xr"
+    memory.EntityData.ParentYangName = "node"
+    memory.EntityData.SegmentPath = "memory"
+    memory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) SetFilter(yf yfilter.YFilter) { memory.YFilter = yf }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetGoName(yname string) string {
-    if yname == "memory-info" { return "MemoryInfo" }
-    if yname == "edm-memory-info" { return "EdmMemoryInfo" }
-    if yname == "string-memory-info" { return "StringMemoryInfo" }
-    return ""
-}
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetSegmentPath() string {
-    return "memory"
-}
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "memory-info" {
-        for _, c := range memory.MemoryInfo {
-            if memory.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo{}
-        memory.MemoryInfo = append(memory.MemoryInfo, child)
-        return &memory.MemoryInfo[len(memory.MemoryInfo)-1]
-    }
-    if childYangName == "edm-memory-info" {
-        for _, c := range memory.EdmMemoryInfo {
-            if memory.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo{}
-        memory.EdmMemoryInfo = append(memory.EdmMemoryInfo, child)
-        return &memory.EdmMemoryInfo[len(memory.EdmMemoryInfo)-1]
-    }
-    if childYangName == "string-memory-info" {
-        for _, c := range memory.StringMemoryInfo {
-            if memory.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo{}
-        memory.StringMemoryInfo = append(memory.StringMemoryInfo, child)
-        return &memory.StringMemoryInfo[len(memory.StringMemoryInfo)-1]
-    }
-    return nil
-}
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    memory.EntityData.Children = make(map[string]types.YChild)
+    memory.EntityData.Children["memory-info"] = types.YChild{"MemoryInfo", nil}
     for i := range memory.MemoryInfo {
-        children[memory.MemoryInfo[i].GetSegmentPath()] = &memory.MemoryInfo[i]
+        memory.EntityData.Children[types.GetSegmentPath(&memory.MemoryInfo[i])] = types.YChild{"MemoryInfo", &memory.MemoryInfo[i]}
     }
+    memory.EntityData.Children["edm-memory-info"] = types.YChild{"EdmMemoryInfo", nil}
     for i := range memory.EdmMemoryInfo {
-        children[memory.EdmMemoryInfo[i].GetSegmentPath()] = &memory.EdmMemoryInfo[i]
+        memory.EntityData.Children[types.GetSegmentPath(&memory.EdmMemoryInfo[i])] = types.YChild{"EdmMemoryInfo", &memory.EdmMemoryInfo[i]}
     }
+    memory.EntityData.Children["string-memory-info"] = types.YChild{"StringMemoryInfo", nil}
     for i := range memory.StringMemoryInfo {
-        children[memory.StringMemoryInfo[i].GetSegmentPath()] = &memory.StringMemoryInfo[i]
+        memory.EntityData.Children[types.GetSegmentPath(&memory.StringMemoryInfo[i])] = types.YChild{"StringMemoryInfo", &memory.StringMemoryInfo[i]}
     }
-    return children
+    memory.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(memory.EntityData)
 }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetYangName() string { return "memory" }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) SetParent(parent types.Entity) { memory.parent = parent }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetParent() types.Entity { return memory.parent }
-
-func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo
 // Memory Info
 type SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Structure Name. The type is string.
@@ -1842,68 +1137,32 @@ type SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo struct {
     MemoryType interface{}
 }
 
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetFilter() yfilter.YFilter { return memoryInfo.YFilter }
+func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetEntityData() *types.CommonEntityData {
+    memoryInfo.EntityData.YFilter = memoryInfo.YFilter
+    memoryInfo.EntityData.YangName = "memory-info"
+    memoryInfo.EntityData.BundleName = "cisco_ios_xr"
+    memoryInfo.EntityData.ParentYangName = "memory"
+    memoryInfo.EntityData.SegmentPath = "memory-info"
+    memoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) SetFilter(yf yfilter.YFilter) { memoryInfo.YFilter = yf }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetGoName(yname string) string {
-    if yname == "structure-name" { return "StructureName" }
-    if yname == "size" { return "Size" }
-    if yname == "current-count" { return "CurrentCount" }
-    if yname == "alloc-fails" { return "AllocFails" }
-    if yname == "alloc-count" { return "AllocCount" }
-    if yname == "freed-count" { return "FreedCount" }
-    if yname == "memory-type" { return "MemoryType" }
-    return ""
+    memoryInfo.EntityData.Children = make(map[string]types.YChild)
+    memoryInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryInfo.EntityData.Leafs["structure-name"] = types.YLeaf{"StructureName", memoryInfo.StructureName}
+    memoryInfo.EntityData.Leafs["size"] = types.YLeaf{"Size", memoryInfo.Size}
+    memoryInfo.EntityData.Leafs["current-count"] = types.YLeaf{"CurrentCount", memoryInfo.CurrentCount}
+    memoryInfo.EntityData.Leafs["alloc-fails"] = types.YLeaf{"AllocFails", memoryInfo.AllocFails}
+    memoryInfo.EntityData.Leafs["alloc-count"] = types.YLeaf{"AllocCount", memoryInfo.AllocCount}
+    memoryInfo.EntityData.Leafs["freed-count"] = types.YLeaf{"FreedCount", memoryInfo.FreedCount}
+    memoryInfo.EntityData.Leafs["memory-type"] = types.YLeaf{"MemoryType", memoryInfo.MemoryType}
+    return &(memoryInfo.EntityData)
 }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetSegmentPath() string {
-    return "memory-info"
-}
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["structure-name"] = memoryInfo.StructureName
-    leafs["size"] = memoryInfo.Size
-    leafs["current-count"] = memoryInfo.CurrentCount
-    leafs["alloc-fails"] = memoryInfo.AllocFails
-    leafs["alloc-count"] = memoryInfo.AllocCount
-    leafs["freed-count"] = memoryInfo.FreedCount
-    leafs["memory-type"] = memoryInfo.MemoryType
-    return leafs
-}
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetYangName() string { return "memory-info" }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) SetParent(parent types.Entity) { memoryInfo.parent = parent }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetParent() types.Entity { return memoryInfo.parent }
-
-func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetParentYangName() string { return "memory" }
 
 // SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo
 // EDM Memory Info
 type SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Size of the block. The type is interface{} with range: 0..4294967295.
@@ -1919,62 +1178,29 @@ type SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo struct {
     Failure interface{}
 }
 
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetFilter() yfilter.YFilter { return edmMemoryInfo.YFilter }
+func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetEntityData() *types.CommonEntityData {
+    edmMemoryInfo.EntityData.YFilter = edmMemoryInfo.YFilter
+    edmMemoryInfo.EntityData.YangName = "edm-memory-info"
+    edmMemoryInfo.EntityData.BundleName = "cisco_ios_xr"
+    edmMemoryInfo.EntityData.ParentYangName = "memory"
+    edmMemoryInfo.EntityData.SegmentPath = "edm-memory-info"
+    edmMemoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    edmMemoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    edmMemoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) SetFilter(yf yfilter.YFilter) { edmMemoryInfo.YFilter = yf }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetGoName(yname string) string {
-    if yname == "size" { return "Size" }
-    if yname == "total" { return "Total" }
-    if yname == "success" { return "Success" }
-    if yname == "failure" { return "Failure" }
-    return ""
+    edmMemoryInfo.EntityData.Children = make(map[string]types.YChild)
+    edmMemoryInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    edmMemoryInfo.EntityData.Leafs["size"] = types.YLeaf{"Size", edmMemoryInfo.Size}
+    edmMemoryInfo.EntityData.Leafs["total"] = types.YLeaf{"Total", edmMemoryInfo.Total}
+    edmMemoryInfo.EntityData.Leafs["success"] = types.YLeaf{"Success", edmMemoryInfo.Success}
+    edmMemoryInfo.EntityData.Leafs["failure"] = types.YLeaf{"Failure", edmMemoryInfo.Failure}
+    return &(edmMemoryInfo.EntityData)
 }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetSegmentPath() string {
-    return "edm-memory-info"
-}
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["size"] = edmMemoryInfo.Size
-    leafs["total"] = edmMemoryInfo.Total
-    leafs["success"] = edmMemoryInfo.Success
-    leafs["failure"] = edmMemoryInfo.Failure
-    return leafs
-}
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetYangName() string { return "edm-memory-info" }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) SetParent(parent types.Entity) { edmMemoryInfo.parent = parent }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetParent() types.Entity { return edmMemoryInfo.parent }
-
-func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) GetParentYangName() string { return "memory" }
 
 // SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo
 // String Memory Info
 type SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Size of the block. The type is interface{} with range: 0..4294967295.
@@ -1990,62 +1216,29 @@ type SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo struct {
     Failure interface{}
 }
 
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetFilter() yfilter.YFilter { return stringMemoryInfo.YFilter }
+func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetEntityData() *types.CommonEntityData {
+    stringMemoryInfo.EntityData.YFilter = stringMemoryInfo.YFilter
+    stringMemoryInfo.EntityData.YangName = "string-memory-info"
+    stringMemoryInfo.EntityData.BundleName = "cisco_ios_xr"
+    stringMemoryInfo.EntityData.ParentYangName = "memory"
+    stringMemoryInfo.EntityData.SegmentPath = "string-memory-info"
+    stringMemoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stringMemoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stringMemoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) SetFilter(yf yfilter.YFilter) { stringMemoryInfo.YFilter = yf }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetGoName(yname string) string {
-    if yname == "size" { return "Size" }
-    if yname == "total" { return "Total" }
-    if yname == "success" { return "Success" }
-    if yname == "failure" { return "Failure" }
-    return ""
+    stringMemoryInfo.EntityData.Children = make(map[string]types.YChild)
+    stringMemoryInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    stringMemoryInfo.EntityData.Leafs["size"] = types.YLeaf{"Size", stringMemoryInfo.Size}
+    stringMemoryInfo.EntityData.Leafs["total"] = types.YLeaf{"Total", stringMemoryInfo.Total}
+    stringMemoryInfo.EntityData.Leafs["success"] = types.YLeaf{"Success", stringMemoryInfo.Success}
+    stringMemoryInfo.EntityData.Leafs["failure"] = types.YLeaf{"Failure", stringMemoryInfo.Failure}
+    return &(stringMemoryInfo.EntityData)
 }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetSegmentPath() string {
-    return "string-memory-info"
-}
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["size"] = stringMemoryInfo.Size
-    leafs["total"] = stringMemoryInfo.Total
-    leafs["success"] = stringMemoryInfo.Success
-    leafs["failure"] = stringMemoryInfo.Failure
-    return leafs
-}
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetYangName() string { return "string-memory-info" }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) SetParent(parent types.Entity) { stringMemoryInfo.parent = parent }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetParent() types.Entity { return stringMemoryInfo.parent }
-
-func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo) GetParentYangName() string { return "memory" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIds
 // Data for particular subscriber group 
 type SessionRedundancyAgent_Nodes_Node_GroupIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Group id for subscriber group. The type is slice of
@@ -2053,72 +1246,33 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds struct {
     GroupId []SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId
 }
 
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetFilter() yfilter.YFilter { return groupIds.YFilter }
+func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *types.CommonEntityData {
+    groupIds.EntityData.YFilter = groupIds.YFilter
+    groupIds.EntityData.YangName = "group-ids"
+    groupIds.EntityData.BundleName = "cisco_ios_xr"
+    groupIds.EntityData.ParentYangName = "node"
+    groupIds.EntityData.SegmentPath = "group-ids"
+    groupIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) SetFilter(yf yfilter.YFilter) { groupIds.YFilter = yf }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetGoName(yname string) string {
-    if yname == "group-id" { return "GroupId" }
-    return ""
-}
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetSegmentPath() string {
-    return "group-ids"
-}
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "group-id" {
-        for _, c := range groupIds.GroupId {
-            if groupIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId{}
-        groupIds.GroupId = append(groupIds.GroupId, child)
-        return &groupIds.GroupId[len(groupIds.GroupId)-1]
-    }
-    return nil
-}
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    groupIds.EntityData.Children = make(map[string]types.YChild)
+    groupIds.EntityData.Children["group-id"] = types.YChild{"GroupId", nil}
     for i := range groupIds.GroupId {
-        children[groupIds.GroupId[i].GetSegmentPath()] = &groupIds.GroupId[i]
+        groupIds.EntityData.Children[types.GetSegmentPath(&groupIds.GroupId[i])] = types.YChild{"GroupId", &groupIds.GroupId[i]}
     }
-    return children
+    groupIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(groupIds.EntityData)
 }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetYangName() string { return "group-ids" }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) SetParent(parent types.Entity) { groupIds.parent = parent }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetParent() types.Entity { return groupIds.parent }
-
-func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId
 // Group id for subscriber group
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group Id. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -2161,11 +1315,11 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     ObjectTrackingStatus interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SergPeerStatus.
@@ -2237,156 +1391,72 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     ClientSessionCount []SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount
 
     // Interface List. The type is slice of
-    // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface.
-    Interface []SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface
+    // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface_.
+    Interface_ []SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface
 }
 
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetFilter() yfilter.YFilter { return groupId.YFilter }
+func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData() *types.CommonEntityData {
+    groupId.EntityData.YFilter = groupId.YFilter
+    groupId.EntityData.YangName = "group-id"
+    groupId.EntityData.BundleName = "cisco_ios_xr"
+    groupId.EntityData.ParentYangName = "group-ids"
+    groupId.EntityData.SegmentPath = "group-id" + "[group-id='" + fmt.Sprintf("%v", groupId.GroupId) + "']"
+    groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) SetFilter(yf yfilter.YFilter) { groupId.YFilter = yf }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetGoName(yname string) string {
-    if yname == "group-id" { return "GroupId" }
-    if yname == "group-id-xr" { return "GroupIdXr" }
-    if yname == "description" { return "Description" }
-    if yname == "disabled" { return "Disabled" }
-    if yname == "init-role" { return "InitRole" }
-    if yname == "negotiating-role" { return "NegotiatingRole" }
-    if yname == "current-role" { return "CurrentRole" }
-    if yname == "slave-mode" { return "SlaveMode" }
-    if yname == "hold-timer" { return "HoldTimer" }
-    if yname == "core-tracking-object-name" { return "CoreTrackingObjectName" }
-    if yname == "core-tracking-object-status" { return "CoreTrackingObjectStatus" }
-    if yname == "access-tracking-object-name" { return "AccessTrackingObjectName" }
-    if yname == "access-tracking-object-status" { return "AccessTrackingObjectStatus" }
-    if yname == "object-tracking-status" { return "ObjectTrackingStatus" }
-    if yname == "peer-ipv4-address" { return "PeerIpv4Address" }
-    if yname == "peer-ipv6-address" { return "PeerIpv6Address" }
-    if yname == "peer-status" { return "PeerStatus" }
-    if yname == "peer-last-negotiation-time" { return "PeerLastNegotiationTime" }
-    if yname == "peer-last-up-time" { return "PeerLastUpTime" }
-    if yname == "peer-last-down-time" { return "PeerLastDownTime" }
-    if yname == "peer-init-role" { return "PeerInitRole" }
-    if yname == "peer-negotiating-role" { return "PeerNegotiatingRole" }
-    if yname == "peer-current-role" { return "PeerCurrentRole" }
-    if yname == "peer-object-tracking-status" { return "PeerObjectTrackingStatus" }
-    if yname == "last-switchover-time" { return "LastSwitchoverTime" }
-    if yname == "switchover-count" { return "SwitchoverCount" }
-    if yname == "last-switchover-reason" { return "LastSwitchoverReason" }
-    if yname == "switchover-hold-time" { return "SwitchoverHoldTime" }
-    if yname == "session-count" { return "SessionCount" }
-    if yname == "slave-update-failure-count" { return "SlaveUpdateFailureCount" }
-    if yname == "pending-session-update-count" { return "PendingSessionUpdateCount" }
-    if yname == "pending-session-delete-count" { return "PendingSessionDeleteCount" }
-    if yname == "interface-count" { return "InterfaceCount" }
-    if yname == "revertive-timer" { return "RevertiveTimer" }
-    if yname == "switchover-revert-time" { return "SwitchoverRevertTime" }
-    if yname == "client-session-count" { return "ClientSessionCount" }
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetSegmentPath() string {
-    return "group-id" + "[group-id='" + fmt.Sprintf("%v", groupId.GroupId) + "']"
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client-session-count" {
-        for _, c := range groupId.ClientSessionCount {
-            if groupId.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount{}
-        groupId.ClientSessionCount = append(groupId.ClientSessionCount, child)
-        return &groupId.ClientSessionCount[len(groupId.ClientSessionCount)-1]
-    }
-    if childYangName == "interface" {
-        for _, c := range groupId.Interface {
-            if groupId.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface{}
-        groupId.Interface = append(groupId.Interface, child)
-        return &groupId.Interface[len(groupId.Interface)-1]
-    }
-    return nil
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    groupId.EntityData.Children = make(map[string]types.YChild)
+    groupId.EntityData.Children["client-session-count"] = types.YChild{"ClientSessionCount", nil}
     for i := range groupId.ClientSessionCount {
-        children[groupId.ClientSessionCount[i].GetSegmentPath()] = &groupId.ClientSessionCount[i]
+        groupId.EntityData.Children[types.GetSegmentPath(&groupId.ClientSessionCount[i])] = types.YChild{"ClientSessionCount", &groupId.ClientSessionCount[i]}
     }
-    for i := range groupId.Interface {
-        children[groupId.Interface[i].GetSegmentPath()] = &groupId.Interface[i]
+    groupId.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range groupId.Interface_ {
+        groupId.EntityData.Children[types.GetSegmentPath(&groupId.Interface_[i])] = types.YChild{"Interface_", &groupId.Interface_[i]}
     }
-    return children
+    groupId.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupId.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", groupId.GroupId}
+    groupId.EntityData.Leafs["group-id-xr"] = types.YLeaf{"GroupIdXr", groupId.GroupIdXr}
+    groupId.EntityData.Leafs["description"] = types.YLeaf{"Description", groupId.Description}
+    groupId.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", groupId.Disabled}
+    groupId.EntityData.Leafs["init-role"] = types.YLeaf{"InitRole", groupId.InitRole}
+    groupId.EntityData.Leafs["negotiating-role"] = types.YLeaf{"NegotiatingRole", groupId.NegotiatingRole}
+    groupId.EntityData.Leafs["current-role"] = types.YLeaf{"CurrentRole", groupId.CurrentRole}
+    groupId.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", groupId.SlaveMode}
+    groupId.EntityData.Leafs["hold-timer"] = types.YLeaf{"HoldTimer", groupId.HoldTimer}
+    groupId.EntityData.Leafs["core-tracking-object-name"] = types.YLeaf{"CoreTrackingObjectName", groupId.CoreTrackingObjectName}
+    groupId.EntityData.Leafs["core-tracking-object-status"] = types.YLeaf{"CoreTrackingObjectStatus", groupId.CoreTrackingObjectStatus}
+    groupId.EntityData.Leafs["access-tracking-object-name"] = types.YLeaf{"AccessTrackingObjectName", groupId.AccessTrackingObjectName}
+    groupId.EntityData.Leafs["access-tracking-object-status"] = types.YLeaf{"AccessTrackingObjectStatus", groupId.AccessTrackingObjectStatus}
+    groupId.EntityData.Leafs["object-tracking-status"] = types.YLeaf{"ObjectTrackingStatus", groupId.ObjectTrackingStatus}
+    groupId.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", groupId.PeerIpv4Address}
+    groupId.EntityData.Leafs["peer-ipv6-address"] = types.YLeaf{"PeerIpv6Address", groupId.PeerIpv6Address}
+    groupId.EntityData.Leafs["peer-status"] = types.YLeaf{"PeerStatus", groupId.PeerStatus}
+    groupId.EntityData.Leafs["peer-last-negotiation-time"] = types.YLeaf{"PeerLastNegotiationTime", groupId.PeerLastNegotiationTime}
+    groupId.EntityData.Leafs["peer-last-up-time"] = types.YLeaf{"PeerLastUpTime", groupId.PeerLastUpTime}
+    groupId.EntityData.Leafs["peer-last-down-time"] = types.YLeaf{"PeerLastDownTime", groupId.PeerLastDownTime}
+    groupId.EntityData.Leafs["peer-init-role"] = types.YLeaf{"PeerInitRole", groupId.PeerInitRole}
+    groupId.EntityData.Leafs["peer-negotiating-role"] = types.YLeaf{"PeerNegotiatingRole", groupId.PeerNegotiatingRole}
+    groupId.EntityData.Leafs["peer-current-role"] = types.YLeaf{"PeerCurrentRole", groupId.PeerCurrentRole}
+    groupId.EntityData.Leafs["peer-object-tracking-status"] = types.YLeaf{"PeerObjectTrackingStatus", groupId.PeerObjectTrackingStatus}
+    groupId.EntityData.Leafs["last-switchover-time"] = types.YLeaf{"LastSwitchoverTime", groupId.LastSwitchoverTime}
+    groupId.EntityData.Leafs["switchover-count"] = types.YLeaf{"SwitchoverCount", groupId.SwitchoverCount}
+    groupId.EntityData.Leafs["last-switchover-reason"] = types.YLeaf{"LastSwitchoverReason", groupId.LastSwitchoverReason}
+    groupId.EntityData.Leafs["switchover-hold-time"] = types.YLeaf{"SwitchoverHoldTime", groupId.SwitchoverHoldTime}
+    groupId.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", groupId.SessionCount}
+    groupId.EntityData.Leafs["slave-update-failure-count"] = types.YLeaf{"SlaveUpdateFailureCount", groupId.SlaveUpdateFailureCount}
+    groupId.EntityData.Leafs["pending-session-update-count"] = types.YLeaf{"PendingSessionUpdateCount", groupId.PendingSessionUpdateCount}
+    groupId.EntityData.Leafs["pending-session-delete-count"] = types.YLeaf{"PendingSessionDeleteCount", groupId.PendingSessionDeleteCount}
+    groupId.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", groupId.InterfaceCount}
+    groupId.EntityData.Leafs["revertive-timer"] = types.YLeaf{"RevertiveTimer", groupId.RevertiveTimer}
+    groupId.EntityData.Leafs["switchover-revert-time"] = types.YLeaf{"SwitchoverRevertTime", groupId.SwitchoverRevertTime}
+    return &(groupId.EntityData)
 }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group-id"] = groupId.GroupId
-    leafs["group-id-xr"] = groupId.GroupIdXr
-    leafs["description"] = groupId.Description
-    leafs["disabled"] = groupId.Disabled
-    leafs["init-role"] = groupId.InitRole
-    leafs["negotiating-role"] = groupId.NegotiatingRole
-    leafs["current-role"] = groupId.CurrentRole
-    leafs["slave-mode"] = groupId.SlaveMode
-    leafs["hold-timer"] = groupId.HoldTimer
-    leafs["core-tracking-object-name"] = groupId.CoreTrackingObjectName
-    leafs["core-tracking-object-status"] = groupId.CoreTrackingObjectStatus
-    leafs["access-tracking-object-name"] = groupId.AccessTrackingObjectName
-    leafs["access-tracking-object-status"] = groupId.AccessTrackingObjectStatus
-    leafs["object-tracking-status"] = groupId.ObjectTrackingStatus
-    leafs["peer-ipv4-address"] = groupId.PeerIpv4Address
-    leafs["peer-ipv6-address"] = groupId.PeerIpv6Address
-    leafs["peer-status"] = groupId.PeerStatus
-    leafs["peer-last-negotiation-time"] = groupId.PeerLastNegotiationTime
-    leafs["peer-last-up-time"] = groupId.PeerLastUpTime
-    leafs["peer-last-down-time"] = groupId.PeerLastDownTime
-    leafs["peer-init-role"] = groupId.PeerInitRole
-    leafs["peer-negotiating-role"] = groupId.PeerNegotiatingRole
-    leafs["peer-current-role"] = groupId.PeerCurrentRole
-    leafs["peer-object-tracking-status"] = groupId.PeerObjectTrackingStatus
-    leafs["last-switchover-time"] = groupId.LastSwitchoverTime
-    leafs["switchover-count"] = groupId.SwitchoverCount
-    leafs["last-switchover-reason"] = groupId.LastSwitchoverReason
-    leafs["switchover-hold-time"] = groupId.SwitchoverHoldTime
-    leafs["session-count"] = groupId.SessionCount
-    leafs["slave-update-failure-count"] = groupId.SlaveUpdateFailureCount
-    leafs["pending-session-update-count"] = groupId.PendingSessionUpdateCount
-    leafs["pending-session-delete-count"] = groupId.PendingSessionDeleteCount
-    leafs["interface-count"] = groupId.InterfaceCount
-    leafs["revertive-timer"] = groupId.RevertiveTimer
-    leafs["switchover-revert-time"] = groupId.SwitchoverRevertTime
-    return leafs
-}
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetYangName() string { return "group-id" }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) SetParent(parent types.Entity) { groupId.parent = parent }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetParent() types.Entity { return groupId.parent }
-
-func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetParentYangName() string { return "group-ids" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount
 // Client Session Count
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Component. The type is SergShowComp.
@@ -2396,58 +1466,27 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount struc
     SessionCount interface{}
 }
 
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetFilter() yfilter.YFilter { return clientSessionCount.YFilter }
+func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetEntityData() *types.CommonEntityData {
+    clientSessionCount.EntityData.YFilter = clientSessionCount.YFilter
+    clientSessionCount.EntityData.YangName = "client-session-count"
+    clientSessionCount.EntityData.BundleName = "cisco_ios_xr"
+    clientSessionCount.EntityData.ParentYangName = "group-id"
+    clientSessionCount.EntityData.SegmentPath = "client-session-count"
+    clientSessionCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clientSessionCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clientSessionCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) SetFilter(yf yfilter.YFilter) { clientSessionCount.YFilter = yf }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetGoName(yname string) string {
-    if yname == "component" { return "Component" }
-    if yname == "session-count" { return "SessionCount" }
-    return ""
+    clientSessionCount.EntityData.Children = make(map[string]types.YChild)
+    clientSessionCount.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientSessionCount.EntityData.Leafs["component"] = types.YLeaf{"Component", clientSessionCount.Component}
+    clientSessionCount.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", clientSessionCount.SessionCount}
+    return &(clientSessionCount.EntityData)
 }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetSegmentPath() string {
-    return "client-session-count"
-}
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["component"] = clientSessionCount.Component
-    leafs["session-count"] = clientSessionCount.SessionCount
-    return leafs
-}
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetYangName() string { return "client-session-count" }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) SetParent(parent types.Entity) { clientSessionCount.parent = parent }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetParent() types.Entity { return clientSessionCount.parent }
-
-func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount) GetParentYangName() string { return "group-id" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface
 // Interface List
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface Name. The type is string.
@@ -2464,136 +1503,64 @@ type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface struct {
     SessionCount interface{}
 }
 
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "group-id"
+    self.EntityData.SegmentPath = "interface"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-synchronization-id" { return "InterfaceSynchronizationId" }
-    if yname == "forward-referenced" { return "ForwardReferenced" }
-    if yname == "session-count" { return "SessionCount" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface-synchronization-id"] = types.YLeaf{"InterfaceSynchronizationId", self.InterfaceSynchronizationId}
+    self.EntityData.Leafs["forward-referenced"] = types.YLeaf{"ForwardReferenced", self.ForwardReferenced}
+    self.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", self.SessionCount}
+    return &(self.EntityData)
 }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetSegmentPath() string {
-    return "interface"
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface-synchronization-id"] = self.InterfaceSynchronizationId
-    leafs["forward-referenced"] = self.ForwardReferenced
-    leafs["session-count"] = self.SessionCount
-    return leafs
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetYangName() string { return "interface" }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetParentYangName() string { return "group-id" }
 
 // SessionRedundancyAgent_Nodes_Node_Interfaces
 // List of interfaces
 type SessionRedundancyAgent_Nodes_Node_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify interface name. The type is slice of
-    // SessionRedundancyAgent_Nodes_Node_Interfaces_Interface.
-    Interface []SessionRedundancyAgent_Nodes_Node_Interfaces_Interface
+    // SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_.
+    Interface_ []SessionRedundancyAgent_Nodes_Node_Interfaces_Interface
 }
 
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "node"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_Interfaces_Interface
 // Specify interface name
 type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -2644,102 +1611,43 @@ type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     ClientStatus []SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus
 }
 
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-synchronization-id" { return "InterfaceSynchronizationId" }
-    if yname == "group-id" { return "GroupId" }
-    if yname == "role" { return "Role" }
-    if yname == "forward-referenced" { return "ForwardReferenced" }
-    if yname == "session-count" { return "SessionCount" }
-    if yname == "interface-enable-error-count" { return "InterfaceEnableErrorCount" }
-    if yname == "interface-disable-error-count" { return "InterfaceDisableErrorCount" }
-    if yname == "interface-caps-add-error-count" { return "InterfaceCapsAddErrorCount" }
-    if yname == "interface-caps-remove-error-count" { return "InterfaceCapsRemoveErrorCount" }
-    if yname == "interface-attribute-update-error-count" { return "InterfaceAttributeUpdateErrorCount" }
-    if yname == "interface-oper" { return "InterfaceOper" }
-    if yname == "interface-status" { return "InterfaceStatus" }
-    if yname == "client-status" { return "ClientStatus" }
-    return ""
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface) + "']"
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-oper" {
-        return &self.InterfaceOper
-    }
-    if childYangName == "interface-status" {
-        return &self.InterfaceStatus
-    }
-    if childYangName == "client-status" {
-        for _, c := range self.ClientStatus {
-            if self.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus{}
-        self.ClientStatus = append(self.ClientStatus, child)
-        return &self.ClientStatus[len(self.ClientStatus)-1]
-    }
-    return nil
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-oper"] = &self.InterfaceOper
-    children["interface-status"] = &self.InterfaceStatus
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["interface-oper"] = types.YChild{"InterfaceOper", &self.InterfaceOper}
+    self.EntityData.Children["interface-status"] = types.YChild{"InterfaceStatus", &self.InterfaceStatus}
+    self.EntityData.Children["client-status"] = types.YChild{"ClientStatus", nil}
     for i := range self.ClientStatus {
-        children[self.ClientStatus[i].GetSegmentPath()] = &self.ClientStatus[i]
+        self.EntityData.Children[types.GetSegmentPath(&self.ClientStatus[i])] = types.YChild{"ClientStatus", &self.ClientStatus[i]}
     }
-    return children
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface-synchronization-id"] = types.YLeaf{"InterfaceSynchronizationId", self.InterfaceSynchronizationId}
+    self.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", self.GroupId}
+    self.EntityData.Leafs["role"] = types.YLeaf{"Role", self.Role}
+    self.EntityData.Leafs["forward-referenced"] = types.YLeaf{"ForwardReferenced", self.ForwardReferenced}
+    self.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", self.SessionCount}
+    self.EntityData.Leafs["interface-enable-error-count"] = types.YLeaf{"InterfaceEnableErrorCount", self.InterfaceEnableErrorCount}
+    self.EntityData.Leafs["interface-disable-error-count"] = types.YLeaf{"InterfaceDisableErrorCount", self.InterfaceDisableErrorCount}
+    self.EntityData.Leafs["interface-caps-add-error-count"] = types.YLeaf{"InterfaceCapsAddErrorCount", self.InterfaceCapsAddErrorCount}
+    self.EntityData.Leafs["interface-caps-remove-error-count"] = types.YLeaf{"InterfaceCapsRemoveErrorCount", self.InterfaceCapsRemoveErrorCount}
+    self.EntityData.Leafs["interface-attribute-update-error-count"] = types.YLeaf{"InterfaceAttributeUpdateErrorCount", self.InterfaceAttributeUpdateErrorCount}
+    return &(self.EntityData)
 }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = self.Interface
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface-synchronization-id"] = self.InterfaceSynchronizationId
-    leafs["group-id"] = self.GroupId
-    leafs["role"] = self.Role
-    leafs["forward-referenced"] = self.ForwardReferenced
-    leafs["session-count"] = self.SessionCount
-    leafs["interface-enable-error-count"] = self.InterfaceEnableErrorCount
-    leafs["interface-disable-error-count"] = self.InterfaceDisableErrorCount
-    leafs["interface-caps-add-error-count"] = self.InterfaceCapsAddErrorCount
-    leafs["interface-caps-remove-error-count"] = self.InterfaceCapsRemoveErrorCount
-    leafs["interface-attribute-update-error-count"] = self.InterfaceAttributeUpdateErrorCount
-    return leafs
-}
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper
 // Interface Batch Operation
 type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational Registration Enabled. The type is bool.
@@ -2758,64 +1666,30 @@ type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper struct
     IdbOperAttrUpdate interface{}
 }
 
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetFilter() yfilter.YFilter { return interfaceOper.YFilter }
+func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetEntityData() *types.CommonEntityData {
+    interfaceOper.EntityData.YFilter = interfaceOper.YFilter
+    interfaceOper.EntityData.YangName = "interface-oper"
+    interfaceOper.EntityData.BundleName = "cisco_ios_xr"
+    interfaceOper.EntityData.ParentYangName = "interface"
+    interfaceOper.EntityData.SegmentPath = "interface-oper"
+    interfaceOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) SetFilter(yf yfilter.YFilter) { interfaceOper.YFilter = yf }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetGoName(yname string) string {
-    if yname == "idb-oper-reg-enable" { return "IdbOperRegEnable" }
-    if yname == "idb-oper-reg-disable" { return "IdbOperRegDisable" }
-    if yname == "idb-oper-caps-add" { return "IdbOperCapsAdd" }
-    if yname == "idb-oper-caps-remove" { return "IdbOperCapsRemove" }
-    if yname == "idb-oper-attr-update" { return "IdbOperAttrUpdate" }
-    return ""
+    interfaceOper.EntityData.Children = make(map[string]types.YChild)
+    interfaceOper.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceOper.EntityData.Leafs["idb-oper-reg-enable"] = types.YLeaf{"IdbOperRegEnable", interfaceOper.IdbOperRegEnable}
+    interfaceOper.EntityData.Leafs["idb-oper-reg-disable"] = types.YLeaf{"IdbOperRegDisable", interfaceOper.IdbOperRegDisable}
+    interfaceOper.EntityData.Leafs["idb-oper-caps-add"] = types.YLeaf{"IdbOperCapsAdd", interfaceOper.IdbOperCapsAdd}
+    interfaceOper.EntityData.Leafs["idb-oper-caps-remove"] = types.YLeaf{"IdbOperCapsRemove", interfaceOper.IdbOperCapsRemove}
+    interfaceOper.EntityData.Leafs["idb-oper-attr-update"] = types.YLeaf{"IdbOperAttrUpdate", interfaceOper.IdbOperAttrUpdate}
+    return &(interfaceOper.EntityData)
 }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetSegmentPath() string {
-    return "interface-oper"
-}
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["idb-oper-reg-enable"] = interfaceOper.IdbOperRegEnable
-    leafs["idb-oper-reg-disable"] = interfaceOper.IdbOperRegDisable
-    leafs["idb-oper-caps-add"] = interfaceOper.IdbOperCapsAdd
-    leafs["idb-oper-caps-remove"] = interfaceOper.IdbOperCapsRemove
-    leafs["idb-oper-attr-update"] = interfaceOper.IdbOperAttrUpdate
-    return leafs
-}
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetYangName() string { return "interface-oper" }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) SetParent(parent types.Entity) { interfaceOper.parent = parent }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetParent() types.Entity { return interfaceOper.parent }
-
-func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceOper) GetParentYangName() string { return "interface" }
 
 // SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus
 // Interface Status
 type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface Forward Referenced. The type is bool.
@@ -2843,70 +1717,33 @@ type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus stru
     IdbStatePEndRegDisable interface{}
 }
 
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetFilter() yfilter.YFilter { return interfaceStatus.YFilter }
+func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetEntityData() *types.CommonEntityData {
+    interfaceStatus.EntityData.YFilter = interfaceStatus.YFilter
+    interfaceStatus.EntityData.YangName = "interface-status"
+    interfaceStatus.EntityData.BundleName = "cisco_ios_xr"
+    interfaceStatus.EntityData.ParentYangName = "interface"
+    interfaceStatus.EntityData.SegmentPath = "interface-status"
+    interfaceStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) SetFilter(yf yfilter.YFilter) { interfaceStatus.YFilter = yf }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetGoName(yname string) string {
-    if yname == "idb-state-fwd-ref" { return "IdbStateFwdRef" }
-    if yname == "idb-state-stale" { return "IdbStateStale" }
-    if yname == "idb-state-registered" { return "IdbStateRegistered" }
-    if yname == "idb-state-caps-added" { return "IdbStateCapsAdded" }
-    if yname == "idb-state-owned-re-source" { return "IdbStateOwnedReSource" }
-    if yname == "idb-client-eoms-pending" { return "IdbClientEomsPending" }
-    if yname == "idb-state-p-end-caps-rem" { return "IdbStatePEndCapsRem" }
-    if yname == "idb-state-p-end-reg-disable" { return "IdbStatePEndRegDisable" }
-    return ""
+    interfaceStatus.EntityData.Children = make(map[string]types.YChild)
+    interfaceStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceStatus.EntityData.Leafs["idb-state-fwd-ref"] = types.YLeaf{"IdbStateFwdRef", interfaceStatus.IdbStateFwdRef}
+    interfaceStatus.EntityData.Leafs["idb-state-stale"] = types.YLeaf{"IdbStateStale", interfaceStatus.IdbStateStale}
+    interfaceStatus.EntityData.Leafs["idb-state-registered"] = types.YLeaf{"IdbStateRegistered", interfaceStatus.IdbStateRegistered}
+    interfaceStatus.EntityData.Leafs["idb-state-caps-added"] = types.YLeaf{"IdbStateCapsAdded", interfaceStatus.IdbStateCapsAdded}
+    interfaceStatus.EntityData.Leafs["idb-state-owned-re-source"] = types.YLeaf{"IdbStateOwnedReSource", interfaceStatus.IdbStateOwnedReSource}
+    interfaceStatus.EntityData.Leafs["idb-client-eoms-pending"] = types.YLeaf{"IdbClientEomsPending", interfaceStatus.IdbClientEomsPending}
+    interfaceStatus.EntityData.Leafs["idb-state-p-end-caps-rem"] = types.YLeaf{"IdbStatePEndCapsRem", interfaceStatus.IdbStatePEndCapsRem}
+    interfaceStatus.EntityData.Leafs["idb-state-p-end-reg-disable"] = types.YLeaf{"IdbStatePEndRegDisable", interfaceStatus.IdbStatePEndRegDisable}
+    return &(interfaceStatus.EntityData)
 }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetSegmentPath() string {
-    return "interface-status"
-}
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["idb-state-fwd-ref"] = interfaceStatus.IdbStateFwdRef
-    leafs["idb-state-stale"] = interfaceStatus.IdbStateStale
-    leafs["idb-state-registered"] = interfaceStatus.IdbStateRegistered
-    leafs["idb-state-caps-added"] = interfaceStatus.IdbStateCapsAdded
-    leafs["idb-state-owned-re-source"] = interfaceStatus.IdbStateOwnedReSource
-    leafs["idb-client-eoms-pending"] = interfaceStatus.IdbClientEomsPending
-    leafs["idb-state-p-end-caps-rem"] = interfaceStatus.IdbStatePEndCapsRem
-    leafs["idb-state-p-end-reg-disable"] = interfaceStatus.IdbStatePEndRegDisable
-    return leafs
-}
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetYangName() string { return "interface-status" }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) SetParent(parent types.Entity) { interfaceStatus.parent = parent }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetParent() types.Entity { return interfaceStatus.parent }
-
-func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_InterfaceStatus) GetParentYangName() string { return "interface" }
 
 // SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus
 // Interface status for each client
 type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Component. The type is SergShowComp.
@@ -2922,62 +1759,29 @@ type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus struct 
     SessionCount interface{}
 }
 
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetFilter() yfilter.YFilter { return clientStatus.YFilter }
+func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetEntityData() *types.CommonEntityData {
+    clientStatus.EntityData.YFilter = clientStatus.YFilter
+    clientStatus.EntityData.YangName = "client-status"
+    clientStatus.EntityData.BundleName = "cisco_ios_xr"
+    clientStatus.EntityData.ParentYangName = "interface"
+    clientStatus.EntityData.SegmentPath = "client-status"
+    clientStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clientStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clientStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) SetFilter(yf yfilter.YFilter) { clientStatus.YFilter = yf }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetGoName(yname string) string {
-    if yname == "component" { return "Component" }
-    if yname == "serg-show-idb-client-eoms-pending" { return "SergShowIdbClientEomsPending" }
-    if yname == "serg-show-idb-client-sync-eod-pending" { return "SergShowIdbClientSyncEodPending" }
-    if yname == "session-count" { return "SessionCount" }
-    return ""
+    clientStatus.EntityData.Children = make(map[string]types.YChild)
+    clientStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientStatus.EntityData.Leafs["component"] = types.YLeaf{"Component", clientStatus.Component}
+    clientStatus.EntityData.Leafs["serg-show-idb-client-eoms-pending"] = types.YLeaf{"SergShowIdbClientEomsPending", clientStatus.SergShowIdbClientEomsPending}
+    clientStatus.EntityData.Leafs["serg-show-idb-client-sync-eod-pending"] = types.YLeaf{"SergShowIdbClientSyncEodPending", clientStatus.SergShowIdbClientSyncEodPending}
+    clientStatus.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", clientStatus.SessionCount}
+    return &(clientStatus.EntityData)
 }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetSegmentPath() string {
-    return "client-status"
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["component"] = clientStatus.Component
-    leafs["serg-show-idb-client-eoms-pending"] = clientStatus.SergShowIdbClientEomsPending
-    leafs["serg-show-idb-client-sync-eod-pending"] = clientStatus.SergShowIdbClientSyncEodPending
-    leafs["session-count"] = clientStatus.SessionCount
-    return leafs
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetYangName() string { return "client-status" }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) SetParent(parent types.Entity) { clientStatus.parent = parent }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetParent() types.Entity { return clientStatus.parent }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus) GetParentYangName() string { return "interface" }
 
 // SessionRedundancyAgent_Nodes_Node_StatsGlobal
 // Stats Global
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source Interface Name. The type is string.
@@ -2987,11 +1791,11 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal struct {
     VrfName interface{}
 
     // Source Interface IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv4Address interface{}
 
     // Source Interface IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceInterfaceIpv6Address interface{}
 
     // Redundancy Role. The type is string.
@@ -3124,174 +1928,73 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal struct {
     TxListOverTcpStatus []SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus
 }
 
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetFilter() yfilter.YFilter { return statsGlobal.YFilter }
+func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetEntityData() *types.CommonEntityData {
+    statsGlobal.EntityData.YFilter = statsGlobal.YFilter
+    statsGlobal.EntityData.YangName = "stats-global"
+    statsGlobal.EntityData.BundleName = "cisco_ios_xr"
+    statsGlobal.EntityData.ParentYangName = "node"
+    statsGlobal.EntityData.SegmentPath = "stats-global"
+    statsGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statsGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statsGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) SetFilter(yf yfilter.YFilter) { statsGlobal.YFilter = yf }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetGoName(yname string) string {
-    if yname == "source-interface-name" { return "SourceInterfaceName" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source-interface-ipv4-address" { return "SourceInterfaceIpv4Address" }
-    if yname == "source-interface-ipv6-address" { return "SourceInterfaceIpv6Address" }
-    if yname == "redundancy-role" { return "RedundancyRole" }
-    if yname == "restart-client-sync-in-progress" { return "RestartClientSyncInProgress" }
-    if yname == "client-init-sync-time-stamp" { return "ClientInitSyncTimeStamp" }
-    if yname == "restart-peer-sync-in-progress" { return "RestartPeerSyncInProgress" }
-    if yname == "peer-init-sync-time-stamp" { return "PeerInitSyncTimeStamp" }
-    if yname == "sync-in-progress" { return "SyncInProgress" }
-    if yname == "peer-action-timer" { return "PeerActionTimer" }
-    if yname == "retry-timer-remaining" { return "RetryTimerRemaining" }
-    if yname == "tx-list-client-registration-invalid" { return "TxListClientRegistrationInvalid" }
-    if yname == "tx-list-client-de-registration-invalid" { return "TxListClientDeRegistrationInvalid" }
-    if yname == "tx-list-client-connection-up" { return "TxListClientConnectionUp" }
-    if yname == "tx-list-client-connection-down" { return "TxListClientConnectionDown" }
-    if yname == "tx-list-client-peer-done" { return "TxListClientPeerDone" }
-    if yname == "tx-list-client-message-call-back" { return "TxListClientMessageCallBack" }
-    if yname == "tx-list-client-receive-valid" { return "TxListClientReceiveValid" }
-    if yname == "tx-list-client-receive-invalid" { return "TxListClientReceiveInvalid" }
-    if yname == "tx-list-client-receive-command-valid" { return "TxListClientReceiveCommandValid" }
-    if yname == "tx-list-client-receive-command-invalid" { return "TxListClientReceiveCommandInvalid" }
-    if yname == "tx-list-client-receive-session-sessionvalid" { return "TxListClientReceiveSessionSessionvalid" }
-    if yname == "tx-list-client-receive-session-session-invalid" { return "TxListClientReceiveSessionSessionInvalid" }
-    if yname == "tx-list-peer-timer-handler" { return "TxListPeerTimerHandler" }
-    if yname == "tx-list-peer-registration-invalid" { return "TxListPeerRegistrationInvalid" }
-    if yname == "tx-list-peer-de-registration-invalid" { return "TxListPeerDeRegistrationInvalid" }
-    if yname == "tx-list-peer-message-call-back-valid" { return "TxListPeerMessageCallBackValid" }
-    if yname == "tx-list-peer-message-call-back-invalid" { return "TxListPeerMessageCallBackInvalid" }
-    if yname == "tx-list-peer-done" { return "TxListPeerDone" }
-    if yname == "tx-list-peer-cmd-connection-up-not-ok" { return "TxListPeerCmdConnectionUpNotOk" }
-    if yname == "tx-list-peer-cmd-connection-down-not-ok" { return "TxListPeerCmdConnectionDownNotOk" }
-    if yname == "tx-list-peer-session-connection-up-not-ok" { return "TxListPeerSessionConnectionUpNotOk" }
-    if yname == "tx-list-peer-session-connection-down-not-ok" { return "TxListPeerSessionConnectionDownNotOk" }
-    if yname == "intf-status-statistics" { return "IntfStatusStatistics" }
-    if yname == "tx-list-statistics" { return "TxListStatistics" }
-    if yname == "client-status" { return "ClientStatus" }
-    if yname == "opaque-memory-status" { return "OpaqueMemoryStatus" }
-    if yname == "tx-list-over-tcp-status" { return "TxListOverTcpStatus" }
-    return ""
-}
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetSegmentPath() string {
-    return "stats-global"
-}
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intf-status-statistics" {
-        return &statsGlobal.IntfStatusStatistics
-    }
-    if childYangName == "tx-list-statistics" {
-        return &statsGlobal.TxListStatistics
-    }
-    if childYangName == "client-status" {
-        for _, c := range statsGlobal.ClientStatus {
-            if statsGlobal.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus{}
-        statsGlobal.ClientStatus = append(statsGlobal.ClientStatus, child)
-        return &statsGlobal.ClientStatus[len(statsGlobal.ClientStatus)-1]
-    }
-    if childYangName == "opaque-memory-status" {
-        for _, c := range statsGlobal.OpaqueMemoryStatus {
-            if statsGlobal.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus{}
-        statsGlobal.OpaqueMemoryStatus = append(statsGlobal.OpaqueMemoryStatus, child)
-        return &statsGlobal.OpaqueMemoryStatus[len(statsGlobal.OpaqueMemoryStatus)-1]
-    }
-    if childYangName == "tx-list-over-tcp-status" {
-        for _, c := range statsGlobal.TxListOverTcpStatus {
-            if statsGlobal.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus{}
-        statsGlobal.TxListOverTcpStatus = append(statsGlobal.TxListOverTcpStatus, child)
-        return &statsGlobal.TxListOverTcpStatus[len(statsGlobal.TxListOverTcpStatus)-1]
-    }
-    return nil
-}
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["intf-status-statistics"] = &statsGlobal.IntfStatusStatistics
-    children["tx-list-statistics"] = &statsGlobal.TxListStatistics
+    statsGlobal.EntityData.Children = make(map[string]types.YChild)
+    statsGlobal.EntityData.Children["intf-status-statistics"] = types.YChild{"IntfStatusStatistics", &statsGlobal.IntfStatusStatistics}
+    statsGlobal.EntityData.Children["tx-list-statistics"] = types.YChild{"TxListStatistics", &statsGlobal.TxListStatistics}
+    statsGlobal.EntityData.Children["client-status"] = types.YChild{"ClientStatus", nil}
     for i := range statsGlobal.ClientStatus {
-        children[statsGlobal.ClientStatus[i].GetSegmentPath()] = &statsGlobal.ClientStatus[i]
+        statsGlobal.EntityData.Children[types.GetSegmentPath(&statsGlobal.ClientStatus[i])] = types.YChild{"ClientStatus", &statsGlobal.ClientStatus[i]}
     }
+    statsGlobal.EntityData.Children["opaque-memory-status"] = types.YChild{"OpaqueMemoryStatus", nil}
     for i := range statsGlobal.OpaqueMemoryStatus {
-        children[statsGlobal.OpaqueMemoryStatus[i].GetSegmentPath()] = &statsGlobal.OpaqueMemoryStatus[i]
+        statsGlobal.EntityData.Children[types.GetSegmentPath(&statsGlobal.OpaqueMemoryStatus[i])] = types.YChild{"OpaqueMemoryStatus", &statsGlobal.OpaqueMemoryStatus[i]}
     }
+    statsGlobal.EntityData.Children["tx-list-over-tcp-status"] = types.YChild{"TxListOverTcpStatus", nil}
     for i := range statsGlobal.TxListOverTcpStatus {
-        children[statsGlobal.TxListOverTcpStatus[i].GetSegmentPath()] = &statsGlobal.TxListOverTcpStatus[i]
+        statsGlobal.EntityData.Children[types.GetSegmentPath(&statsGlobal.TxListOverTcpStatus[i])] = types.YChild{"TxListOverTcpStatus", &statsGlobal.TxListOverTcpStatus[i]}
     }
-    return children
+    statsGlobal.EntityData.Leafs = make(map[string]types.YLeaf)
+    statsGlobal.EntityData.Leafs["source-interface-name"] = types.YLeaf{"SourceInterfaceName", statsGlobal.SourceInterfaceName}
+    statsGlobal.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", statsGlobal.VrfName}
+    statsGlobal.EntityData.Leafs["source-interface-ipv4-address"] = types.YLeaf{"SourceInterfaceIpv4Address", statsGlobal.SourceInterfaceIpv4Address}
+    statsGlobal.EntityData.Leafs["source-interface-ipv6-address"] = types.YLeaf{"SourceInterfaceIpv6Address", statsGlobal.SourceInterfaceIpv6Address}
+    statsGlobal.EntityData.Leafs["redundancy-role"] = types.YLeaf{"RedundancyRole", statsGlobal.RedundancyRole}
+    statsGlobal.EntityData.Leafs["restart-client-sync-in-progress"] = types.YLeaf{"RestartClientSyncInProgress", statsGlobal.RestartClientSyncInProgress}
+    statsGlobal.EntityData.Leafs["client-init-sync-time-stamp"] = types.YLeaf{"ClientInitSyncTimeStamp", statsGlobal.ClientInitSyncTimeStamp}
+    statsGlobal.EntityData.Leafs["restart-peer-sync-in-progress"] = types.YLeaf{"RestartPeerSyncInProgress", statsGlobal.RestartPeerSyncInProgress}
+    statsGlobal.EntityData.Leafs["peer-init-sync-time-stamp"] = types.YLeaf{"PeerInitSyncTimeStamp", statsGlobal.PeerInitSyncTimeStamp}
+    statsGlobal.EntityData.Leafs["sync-in-progress"] = types.YLeaf{"SyncInProgress", statsGlobal.SyncInProgress}
+    statsGlobal.EntityData.Leafs["peer-action-timer"] = types.YLeaf{"PeerActionTimer", statsGlobal.PeerActionTimer}
+    statsGlobal.EntityData.Leafs["retry-timer-remaining"] = types.YLeaf{"RetryTimerRemaining", statsGlobal.RetryTimerRemaining}
+    statsGlobal.EntityData.Leafs["tx-list-client-registration-invalid"] = types.YLeaf{"TxListClientRegistrationInvalid", statsGlobal.TxListClientRegistrationInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-client-de-registration-invalid"] = types.YLeaf{"TxListClientDeRegistrationInvalid", statsGlobal.TxListClientDeRegistrationInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-client-connection-up"] = types.YLeaf{"TxListClientConnectionUp", statsGlobal.TxListClientConnectionUp}
+    statsGlobal.EntityData.Leafs["tx-list-client-connection-down"] = types.YLeaf{"TxListClientConnectionDown", statsGlobal.TxListClientConnectionDown}
+    statsGlobal.EntityData.Leafs["tx-list-client-peer-done"] = types.YLeaf{"TxListClientPeerDone", statsGlobal.TxListClientPeerDone}
+    statsGlobal.EntityData.Leafs["tx-list-client-message-call-back"] = types.YLeaf{"TxListClientMessageCallBack", statsGlobal.TxListClientMessageCallBack}
+    statsGlobal.EntityData.Leafs["tx-list-client-receive-valid"] = types.YLeaf{"TxListClientReceiveValid", statsGlobal.TxListClientReceiveValid}
+    statsGlobal.EntityData.Leafs["tx-list-client-receive-invalid"] = types.YLeaf{"TxListClientReceiveInvalid", statsGlobal.TxListClientReceiveInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-client-receive-command-valid"] = types.YLeaf{"TxListClientReceiveCommandValid", statsGlobal.TxListClientReceiveCommandValid}
+    statsGlobal.EntityData.Leafs["tx-list-client-receive-command-invalid"] = types.YLeaf{"TxListClientReceiveCommandInvalid", statsGlobal.TxListClientReceiveCommandInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-client-receive-session-sessionvalid"] = types.YLeaf{"TxListClientReceiveSessionSessionvalid", statsGlobal.TxListClientReceiveSessionSessionvalid}
+    statsGlobal.EntityData.Leafs["tx-list-client-receive-session-session-invalid"] = types.YLeaf{"TxListClientReceiveSessionSessionInvalid", statsGlobal.TxListClientReceiveSessionSessionInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-peer-timer-handler"] = types.YLeaf{"TxListPeerTimerHandler", statsGlobal.TxListPeerTimerHandler}
+    statsGlobal.EntityData.Leafs["tx-list-peer-registration-invalid"] = types.YLeaf{"TxListPeerRegistrationInvalid", statsGlobal.TxListPeerRegistrationInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-peer-de-registration-invalid"] = types.YLeaf{"TxListPeerDeRegistrationInvalid", statsGlobal.TxListPeerDeRegistrationInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-peer-message-call-back-valid"] = types.YLeaf{"TxListPeerMessageCallBackValid", statsGlobal.TxListPeerMessageCallBackValid}
+    statsGlobal.EntityData.Leafs["tx-list-peer-message-call-back-invalid"] = types.YLeaf{"TxListPeerMessageCallBackInvalid", statsGlobal.TxListPeerMessageCallBackInvalid}
+    statsGlobal.EntityData.Leafs["tx-list-peer-done"] = types.YLeaf{"TxListPeerDone", statsGlobal.TxListPeerDone}
+    statsGlobal.EntityData.Leafs["tx-list-peer-cmd-connection-up-not-ok"] = types.YLeaf{"TxListPeerCmdConnectionUpNotOk", statsGlobal.TxListPeerCmdConnectionUpNotOk}
+    statsGlobal.EntityData.Leafs["tx-list-peer-cmd-connection-down-not-ok"] = types.YLeaf{"TxListPeerCmdConnectionDownNotOk", statsGlobal.TxListPeerCmdConnectionDownNotOk}
+    statsGlobal.EntityData.Leafs["tx-list-peer-session-connection-up-not-ok"] = types.YLeaf{"TxListPeerSessionConnectionUpNotOk", statsGlobal.TxListPeerSessionConnectionUpNotOk}
+    statsGlobal.EntityData.Leafs["tx-list-peer-session-connection-down-not-ok"] = types.YLeaf{"TxListPeerSessionConnectionDownNotOk", statsGlobal.TxListPeerSessionConnectionDownNotOk}
+    return &(statsGlobal.EntityData)
 }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-interface-name"] = statsGlobal.SourceInterfaceName
-    leafs["vrf-name"] = statsGlobal.VrfName
-    leafs["source-interface-ipv4-address"] = statsGlobal.SourceInterfaceIpv4Address
-    leafs["source-interface-ipv6-address"] = statsGlobal.SourceInterfaceIpv6Address
-    leafs["redundancy-role"] = statsGlobal.RedundancyRole
-    leafs["restart-client-sync-in-progress"] = statsGlobal.RestartClientSyncInProgress
-    leafs["client-init-sync-time-stamp"] = statsGlobal.ClientInitSyncTimeStamp
-    leafs["restart-peer-sync-in-progress"] = statsGlobal.RestartPeerSyncInProgress
-    leafs["peer-init-sync-time-stamp"] = statsGlobal.PeerInitSyncTimeStamp
-    leafs["sync-in-progress"] = statsGlobal.SyncInProgress
-    leafs["peer-action-timer"] = statsGlobal.PeerActionTimer
-    leafs["retry-timer-remaining"] = statsGlobal.RetryTimerRemaining
-    leafs["tx-list-client-registration-invalid"] = statsGlobal.TxListClientRegistrationInvalid
-    leafs["tx-list-client-de-registration-invalid"] = statsGlobal.TxListClientDeRegistrationInvalid
-    leafs["tx-list-client-connection-up"] = statsGlobal.TxListClientConnectionUp
-    leafs["tx-list-client-connection-down"] = statsGlobal.TxListClientConnectionDown
-    leafs["tx-list-client-peer-done"] = statsGlobal.TxListClientPeerDone
-    leafs["tx-list-client-message-call-back"] = statsGlobal.TxListClientMessageCallBack
-    leafs["tx-list-client-receive-valid"] = statsGlobal.TxListClientReceiveValid
-    leafs["tx-list-client-receive-invalid"] = statsGlobal.TxListClientReceiveInvalid
-    leafs["tx-list-client-receive-command-valid"] = statsGlobal.TxListClientReceiveCommandValid
-    leafs["tx-list-client-receive-command-invalid"] = statsGlobal.TxListClientReceiveCommandInvalid
-    leafs["tx-list-client-receive-session-sessionvalid"] = statsGlobal.TxListClientReceiveSessionSessionvalid
-    leafs["tx-list-client-receive-session-session-invalid"] = statsGlobal.TxListClientReceiveSessionSessionInvalid
-    leafs["tx-list-peer-timer-handler"] = statsGlobal.TxListPeerTimerHandler
-    leafs["tx-list-peer-registration-invalid"] = statsGlobal.TxListPeerRegistrationInvalid
-    leafs["tx-list-peer-de-registration-invalid"] = statsGlobal.TxListPeerDeRegistrationInvalid
-    leafs["tx-list-peer-message-call-back-valid"] = statsGlobal.TxListPeerMessageCallBackValid
-    leafs["tx-list-peer-message-call-back-invalid"] = statsGlobal.TxListPeerMessageCallBackInvalid
-    leafs["tx-list-peer-done"] = statsGlobal.TxListPeerDone
-    leafs["tx-list-peer-cmd-connection-up-not-ok"] = statsGlobal.TxListPeerCmdConnectionUpNotOk
-    leafs["tx-list-peer-cmd-connection-down-not-ok"] = statsGlobal.TxListPeerCmdConnectionDownNotOk
-    leafs["tx-list-peer-session-connection-up-not-ok"] = statsGlobal.TxListPeerSessionConnectionUpNotOk
-    leafs["tx-list-peer-session-connection-down-not-ok"] = statsGlobal.TxListPeerSessionConnectionDownNotOk
-    return leafs
-}
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetYangName() string { return "stats-global" }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) SetParent(parent types.Entity) { statsGlobal.parent = parent }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetParent() types.Entity { return statsGlobal.parent }
-
-func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics
 // intf status statistics
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // No. of interfaces pending caps remove. The type is interface{} with range:
@@ -3315,64 +2018,30 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics struct {
     GrpBoundCnt interface{}
 }
 
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetFilter() yfilter.YFilter { return intfStatusStatistics.YFilter }
+func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetEntityData() *types.CommonEntityData {
+    intfStatusStatistics.EntityData.YFilter = intfStatusStatistics.YFilter
+    intfStatusStatistics.EntityData.YangName = "intf-status-statistics"
+    intfStatusStatistics.EntityData.BundleName = "cisco_ios_xr"
+    intfStatusStatistics.EntityData.ParentYangName = "stats-global"
+    intfStatusStatistics.EntityData.SegmentPath = "intf-status-statistics"
+    intfStatusStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intfStatusStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intfStatusStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) SetFilter(yf yfilter.YFilter) { intfStatusStatistics.YFilter = yf }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetGoName(yname string) string {
-    if yname == "pend-caps-rem-cnt" { return "PendCapsRemCnt" }
-    if yname == "pend-reg-disable-cnt" { return "PendRegDisableCnt" }
-    if yname == "pend-other-batch-oper-cnt" { return "PendOtherBatchOperCnt" }
-    if yname == "non-stale-cnt" { return "NonStaleCnt" }
-    if yname == "grp-bound-cnt" { return "GrpBoundCnt" }
-    return ""
+    intfStatusStatistics.EntityData.Children = make(map[string]types.YChild)
+    intfStatusStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    intfStatusStatistics.EntityData.Leafs["pend-caps-rem-cnt"] = types.YLeaf{"PendCapsRemCnt", intfStatusStatistics.PendCapsRemCnt}
+    intfStatusStatistics.EntityData.Leafs["pend-reg-disable-cnt"] = types.YLeaf{"PendRegDisableCnt", intfStatusStatistics.PendRegDisableCnt}
+    intfStatusStatistics.EntityData.Leafs["pend-other-batch-oper-cnt"] = types.YLeaf{"PendOtherBatchOperCnt", intfStatusStatistics.PendOtherBatchOperCnt}
+    intfStatusStatistics.EntityData.Leafs["non-stale-cnt"] = types.YLeaf{"NonStaleCnt", intfStatusStatistics.NonStaleCnt}
+    intfStatusStatistics.EntityData.Leafs["grp-bound-cnt"] = types.YLeaf{"GrpBoundCnt", intfStatusStatistics.GrpBoundCnt}
+    return &(intfStatusStatistics.EntityData)
 }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetSegmentPath() string {
-    return "intf-status-statistics"
-}
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pend-caps-rem-cnt"] = intfStatusStatistics.PendCapsRemCnt
-    leafs["pend-reg-disable-cnt"] = intfStatusStatistics.PendRegDisableCnt
-    leafs["pend-other-batch-oper-cnt"] = intfStatusStatistics.PendOtherBatchOperCnt
-    leafs["non-stale-cnt"] = intfStatusStatistics.NonStaleCnt
-    leafs["grp-bound-cnt"] = intfStatusStatistics.GrpBoundCnt
-    return leafs
-}
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetYangName() string { return "intf-status-statistics" }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) SetParent(parent types.Entity) { intfStatusStatistics.parent = parent }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetParent() types.Entity { return intfStatusStatistics.parent }
-
-func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfStatusStatistics) GetParentYangName() string { return "stats-global" }
 
 // SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics
 // tx list statistics
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TxListEncodeMarkerOk. The type is interface{} with range: 0..4294967295.
@@ -3407,72 +2076,34 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics struct {
     TxListCleanNegotiation interface{}
 }
 
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetFilter() yfilter.YFilter { return txListStatistics.YFilter }
+func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetEntityData() *types.CommonEntityData {
+    txListStatistics.EntityData.YFilter = txListStatistics.YFilter
+    txListStatistics.EntityData.YangName = "tx-list-statistics"
+    txListStatistics.EntityData.BundleName = "cisco_ios_xr"
+    txListStatistics.EntityData.ParentYangName = "stats-global"
+    txListStatistics.EntityData.SegmentPath = "tx-list-statistics"
+    txListStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txListStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txListStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) SetFilter(yf yfilter.YFilter) { txListStatistics.YFilter = yf }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetGoName(yname string) string {
-    if yname == "tx-list-encode-marker-ok" { return "TxListEncodeMarkerOk" }
-    if yname == "tx-list-encode-marker-partial-write" { return "TxListEncodeMarkerPartialWrite" }
-    if yname == "tx-list-clean-marker" { return "TxListCleanMarker" }
-    if yname == "tx-list-encode-command-ok" { return "TxListEncodeCommandOk" }
-    if yname == "tx-list-encode-command-partial-write" { return "TxListEncodeCommandPartialWrite" }
-    if yname == "tx-list-clean-command" { return "TxListCleanCommand" }
-    if yname == "tx-list-encode-negotiation-ok" { return "TxListEncodeNegotiationOk" }
-    if yname == "tx-list-encode-negotiation-partial-write" { return "TxListEncodeNegotiationPartialWrite" }
-    if yname == "tx-list-clean-negotiation" { return "TxListCleanNegotiation" }
-    return ""
+    txListStatistics.EntityData.Children = make(map[string]types.YChild)
+    txListStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    txListStatistics.EntityData.Leafs["tx-list-encode-marker-ok"] = types.YLeaf{"TxListEncodeMarkerOk", txListStatistics.TxListEncodeMarkerOk}
+    txListStatistics.EntityData.Leafs["tx-list-encode-marker-partial-write"] = types.YLeaf{"TxListEncodeMarkerPartialWrite", txListStatistics.TxListEncodeMarkerPartialWrite}
+    txListStatistics.EntityData.Leafs["tx-list-clean-marker"] = types.YLeaf{"TxListCleanMarker", txListStatistics.TxListCleanMarker}
+    txListStatistics.EntityData.Leafs["tx-list-encode-command-ok"] = types.YLeaf{"TxListEncodeCommandOk", txListStatistics.TxListEncodeCommandOk}
+    txListStatistics.EntityData.Leafs["tx-list-encode-command-partial-write"] = types.YLeaf{"TxListEncodeCommandPartialWrite", txListStatistics.TxListEncodeCommandPartialWrite}
+    txListStatistics.EntityData.Leafs["tx-list-clean-command"] = types.YLeaf{"TxListCleanCommand", txListStatistics.TxListCleanCommand}
+    txListStatistics.EntityData.Leafs["tx-list-encode-negotiation-ok"] = types.YLeaf{"TxListEncodeNegotiationOk", txListStatistics.TxListEncodeNegotiationOk}
+    txListStatistics.EntityData.Leafs["tx-list-encode-negotiation-partial-write"] = types.YLeaf{"TxListEncodeNegotiationPartialWrite", txListStatistics.TxListEncodeNegotiationPartialWrite}
+    txListStatistics.EntityData.Leafs["tx-list-clean-negotiation"] = types.YLeaf{"TxListCleanNegotiation", txListStatistics.TxListCleanNegotiation}
+    return &(txListStatistics.EntityData)
 }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetSegmentPath() string {
-    return "tx-list-statistics"
-}
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tx-list-encode-marker-ok"] = txListStatistics.TxListEncodeMarkerOk
-    leafs["tx-list-encode-marker-partial-write"] = txListStatistics.TxListEncodeMarkerPartialWrite
-    leafs["tx-list-clean-marker"] = txListStatistics.TxListCleanMarker
-    leafs["tx-list-encode-command-ok"] = txListStatistics.TxListEncodeCommandOk
-    leafs["tx-list-encode-command-partial-write"] = txListStatistics.TxListEncodeCommandPartialWrite
-    leafs["tx-list-clean-command"] = txListStatistics.TxListCleanCommand
-    leafs["tx-list-encode-negotiation-ok"] = txListStatistics.TxListEncodeNegotiationOk
-    leafs["tx-list-encode-negotiation-partial-write"] = txListStatistics.TxListEncodeNegotiationPartialWrite
-    leafs["tx-list-clean-negotiation"] = txListStatistics.TxListCleanNegotiation
-    return leafs
-}
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetYangName() string { return "tx-list-statistics" }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) SetParent(parent types.Entity) { txListStatistics.parent = parent }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetParent() types.Entity { return txListStatistics.parent }
-
-func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStatistics) GetParentYangName() string { return "stats-global" }
 
 // SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus
 // Client Status
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Component. The type is SergShowComp.
@@ -3498,68 +2129,32 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus struct {
     CleanUpTimerRemaining interface{}
 }
 
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetFilter() yfilter.YFilter { return clientStatus.YFilter }
+func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetEntityData() *types.CommonEntityData {
+    clientStatus.EntityData.YFilter = clientStatus.YFilter
+    clientStatus.EntityData.YangName = "client-status"
+    clientStatus.EntityData.BundleName = "cisco_ios_xr"
+    clientStatus.EntityData.ParentYangName = "stats-global"
+    clientStatus.EntityData.SegmentPath = "client-status"
+    clientStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clientStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clientStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) SetFilter(yf yfilter.YFilter) { clientStatus.YFilter = yf }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetGoName(yname string) string {
-    if yname == "component" { return "Component" }
-    if yname == "client-connection-status" { return "ClientConnectionStatus" }
-    if yname == "client-initialization-synchronization-pending" { return "ClientInitializationSynchronizationPending" }
-    if yname == "client-synchronization-end-of-download-pending" { return "ClientSynchronizationEndOfDownloadPending" }
-    if yname == "up-time-stamp" { return "UpTimeStamp" }
-    if yname == "down-time-stamp" { return "DownTimeStamp" }
-    if yname == "clean-up-timer-remaining" { return "CleanUpTimerRemaining" }
-    return ""
+    clientStatus.EntityData.Children = make(map[string]types.YChild)
+    clientStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    clientStatus.EntityData.Leafs["component"] = types.YLeaf{"Component", clientStatus.Component}
+    clientStatus.EntityData.Leafs["client-connection-status"] = types.YLeaf{"ClientConnectionStatus", clientStatus.ClientConnectionStatus}
+    clientStatus.EntityData.Leafs["client-initialization-synchronization-pending"] = types.YLeaf{"ClientInitializationSynchronizationPending", clientStatus.ClientInitializationSynchronizationPending}
+    clientStatus.EntityData.Leafs["client-synchronization-end-of-download-pending"] = types.YLeaf{"ClientSynchronizationEndOfDownloadPending", clientStatus.ClientSynchronizationEndOfDownloadPending}
+    clientStatus.EntityData.Leafs["up-time-stamp"] = types.YLeaf{"UpTimeStamp", clientStatus.UpTimeStamp}
+    clientStatus.EntityData.Leafs["down-time-stamp"] = types.YLeaf{"DownTimeStamp", clientStatus.DownTimeStamp}
+    clientStatus.EntityData.Leafs["clean-up-timer-remaining"] = types.YLeaf{"CleanUpTimerRemaining", clientStatus.CleanUpTimerRemaining}
+    return &(clientStatus.EntityData)
 }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetSegmentPath() string {
-    return "client-status"
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["component"] = clientStatus.Component
-    leafs["client-connection-status"] = clientStatus.ClientConnectionStatus
-    leafs["client-initialization-synchronization-pending"] = clientStatus.ClientInitializationSynchronizationPending
-    leafs["client-synchronization-end-of-download-pending"] = clientStatus.ClientSynchronizationEndOfDownloadPending
-    leafs["up-time-stamp"] = clientStatus.UpTimeStamp
-    leafs["down-time-stamp"] = clientStatus.DownTimeStamp
-    leafs["clean-up-timer-remaining"] = clientStatus.CleanUpTimerRemaining
-    return leafs
-}
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetYangName() string { return "client-status" }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) SetParent(parent types.Entity) { clientStatus.parent = parent }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetParent() types.Entity { return clientStatus.parent }
-
-func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) GetParentYangName() string { return "stats-global" }
 
 // SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus
 // Opaque memory Stats
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Component. The type is SergShowComp.
@@ -3582,64 +2177,30 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus struct {
     OpaqueDataSize interface{}
 }
 
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetFilter() yfilter.YFilter { return opaqueMemoryStatus.YFilter }
+func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetEntityData() *types.CommonEntityData {
+    opaqueMemoryStatus.EntityData.YFilter = opaqueMemoryStatus.YFilter
+    opaqueMemoryStatus.EntityData.YangName = "opaque-memory-status"
+    opaqueMemoryStatus.EntityData.BundleName = "cisco_ios_xr"
+    opaqueMemoryStatus.EntityData.ParentYangName = "stats-global"
+    opaqueMemoryStatus.EntityData.SegmentPath = "opaque-memory-status"
+    opaqueMemoryStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opaqueMemoryStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opaqueMemoryStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) SetFilter(yf yfilter.YFilter) { opaqueMemoryStatus.YFilter = yf }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetGoName(yname string) string {
-    if yname == "component" { return "Component" }
-    if yname == "session-count" { return "SessionCount" }
-    if yname == "opaque-size" { return "OpaqueSize" }
-    if yname == "opaque-high-size" { return "OpaqueHighSize" }
-    if yname == "opaque-data-size" { return "OpaqueDataSize" }
-    return ""
+    opaqueMemoryStatus.EntityData.Children = make(map[string]types.YChild)
+    opaqueMemoryStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    opaqueMemoryStatus.EntityData.Leafs["component"] = types.YLeaf{"Component", opaqueMemoryStatus.Component}
+    opaqueMemoryStatus.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", opaqueMemoryStatus.SessionCount}
+    opaqueMemoryStatus.EntityData.Leafs["opaque-size"] = types.YLeaf{"OpaqueSize", opaqueMemoryStatus.OpaqueSize}
+    opaqueMemoryStatus.EntityData.Leafs["opaque-high-size"] = types.YLeaf{"OpaqueHighSize", opaqueMemoryStatus.OpaqueHighSize}
+    opaqueMemoryStatus.EntityData.Leafs["opaque-data-size"] = types.YLeaf{"OpaqueDataSize", opaqueMemoryStatus.OpaqueDataSize}
+    return &(opaqueMemoryStatus.EntityData)
 }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetSegmentPath() string {
-    return "opaque-memory-status"
-}
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["component"] = opaqueMemoryStatus.Component
-    leafs["session-count"] = opaqueMemoryStatus.SessionCount
-    leafs["opaque-size"] = opaqueMemoryStatus.OpaqueSize
-    leafs["opaque-high-size"] = opaqueMemoryStatus.OpaqueHighSize
-    leafs["opaque-data-size"] = opaqueMemoryStatus.OpaqueDataSize
-    return leafs
-}
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetYangName() string { return "opaque-memory-status" }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) SetParent(parent types.Entity) { opaqueMemoryStatus.parent = parent }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetParent() types.Entity { return opaqueMemoryStatus.parent }
-
-func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus) GetParentYangName() string { return "stats-global" }
 
 // SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus
 // TCP TxList Statistics
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Message Sent Count. The type is interface{} with range: 0..4294967295.
@@ -3720,98 +2281,47 @@ type SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus struct {
     BufferCacheMiss interface{}
 }
 
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetFilter() yfilter.YFilter { return txListOverTcpStatus.YFilter }
+func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetEntityData() *types.CommonEntityData {
+    txListOverTcpStatus.EntityData.YFilter = txListOverTcpStatus.YFilter
+    txListOverTcpStatus.EntityData.YangName = "tx-list-over-tcp-status"
+    txListOverTcpStatus.EntityData.BundleName = "cisco_ios_xr"
+    txListOverTcpStatus.EntityData.ParentYangName = "stats-global"
+    txListOverTcpStatus.EntityData.SegmentPath = "tx-list-over-tcp-status"
+    txListOverTcpStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txListOverTcpStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txListOverTcpStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) SetFilter(yf yfilter.YFilter) { txListOverTcpStatus.YFilter = yf }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetGoName(yname string) string {
-    if yname == "messages-sent" { return "MessagesSent" }
-    if yname == "bytes-sent" { return "BytesSent" }
-    if yname == "messages-received" { return "MessagesReceived" }
-    if yname == "bytes-received" { return "BytesReceived" }
-    if yname == "connect-count" { return "ConnectCount" }
-    if yname == "blocked-connect-count" { return "BlockedConnectCount" }
-    if yname == "connect-retry-count" { return "ConnectRetryCount" }
-    if yname == "remote-node-down-count" { return "RemoteNodeDownCount" }
-    if yname == "accept-count" { return "AcceptCount" }
-    if yname == "maximum-sent-message-size" { return "MaximumSentMessageSize" }
-    if yname == "maximum-received-message-size" { return "MaximumReceivedMessageSize" }
-    if yname == "peer-pause-count" { return "PeerPauseCount" }
-    if yname == "buffer-full-occurence-count" { return "BufferFullOccurenceCount" }
-    if yname == "mem-move-message-count" { return "MemMoveMessageCount" }
-    if yname == "mem-move-bytes-count" { return "MemMoveBytesCount" }
-    if yname == "socket-read-count" { return "SocketReadCount" }
-    if yname == "socket-write-count" { return "SocketWriteCount" }
-    if yname == "active-socket-count" { return "ActiveSocketCount" }
-    if yname == "maximum-requested-buffer-size" { return "MaximumRequestedBufferSize" }
-    if yname == "buffer-freed-count" { return "BufferFreedCount" }
-    if yname == "buffer-cache-hit" { return "BufferCacheHit" }
-    if yname == "buffer-cache-miss" { return "BufferCacheMiss" }
-    return ""
+    txListOverTcpStatus.EntityData.Children = make(map[string]types.YChild)
+    txListOverTcpStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    txListOverTcpStatus.EntityData.Leafs["messages-sent"] = types.YLeaf{"MessagesSent", txListOverTcpStatus.MessagesSent}
+    txListOverTcpStatus.EntityData.Leafs["bytes-sent"] = types.YLeaf{"BytesSent", txListOverTcpStatus.BytesSent}
+    txListOverTcpStatus.EntityData.Leafs["messages-received"] = types.YLeaf{"MessagesReceived", txListOverTcpStatus.MessagesReceived}
+    txListOverTcpStatus.EntityData.Leafs["bytes-received"] = types.YLeaf{"BytesReceived", txListOverTcpStatus.BytesReceived}
+    txListOverTcpStatus.EntityData.Leafs["connect-count"] = types.YLeaf{"ConnectCount", txListOverTcpStatus.ConnectCount}
+    txListOverTcpStatus.EntityData.Leafs["blocked-connect-count"] = types.YLeaf{"BlockedConnectCount", txListOverTcpStatus.BlockedConnectCount}
+    txListOverTcpStatus.EntityData.Leafs["connect-retry-count"] = types.YLeaf{"ConnectRetryCount", txListOverTcpStatus.ConnectRetryCount}
+    txListOverTcpStatus.EntityData.Leafs["remote-node-down-count"] = types.YLeaf{"RemoteNodeDownCount", txListOverTcpStatus.RemoteNodeDownCount}
+    txListOverTcpStatus.EntityData.Leafs["accept-count"] = types.YLeaf{"AcceptCount", txListOverTcpStatus.AcceptCount}
+    txListOverTcpStatus.EntityData.Leafs["maximum-sent-message-size"] = types.YLeaf{"MaximumSentMessageSize", txListOverTcpStatus.MaximumSentMessageSize}
+    txListOverTcpStatus.EntityData.Leafs["maximum-received-message-size"] = types.YLeaf{"MaximumReceivedMessageSize", txListOverTcpStatus.MaximumReceivedMessageSize}
+    txListOverTcpStatus.EntityData.Leafs["peer-pause-count"] = types.YLeaf{"PeerPauseCount", txListOverTcpStatus.PeerPauseCount}
+    txListOverTcpStatus.EntityData.Leafs["buffer-full-occurence-count"] = types.YLeaf{"BufferFullOccurenceCount", txListOverTcpStatus.BufferFullOccurenceCount}
+    txListOverTcpStatus.EntityData.Leafs["mem-move-message-count"] = types.YLeaf{"MemMoveMessageCount", txListOverTcpStatus.MemMoveMessageCount}
+    txListOverTcpStatus.EntityData.Leafs["mem-move-bytes-count"] = types.YLeaf{"MemMoveBytesCount", txListOverTcpStatus.MemMoveBytesCount}
+    txListOverTcpStatus.EntityData.Leafs["socket-read-count"] = types.YLeaf{"SocketReadCount", txListOverTcpStatus.SocketReadCount}
+    txListOverTcpStatus.EntityData.Leafs["socket-write-count"] = types.YLeaf{"SocketWriteCount", txListOverTcpStatus.SocketWriteCount}
+    txListOverTcpStatus.EntityData.Leafs["active-socket-count"] = types.YLeaf{"ActiveSocketCount", txListOverTcpStatus.ActiveSocketCount}
+    txListOverTcpStatus.EntityData.Leafs["maximum-requested-buffer-size"] = types.YLeaf{"MaximumRequestedBufferSize", txListOverTcpStatus.MaximumRequestedBufferSize}
+    txListOverTcpStatus.EntityData.Leafs["buffer-freed-count"] = types.YLeaf{"BufferFreedCount", txListOverTcpStatus.BufferFreedCount}
+    txListOverTcpStatus.EntityData.Leafs["buffer-cache-hit"] = types.YLeaf{"BufferCacheHit", txListOverTcpStatus.BufferCacheHit}
+    txListOverTcpStatus.EntityData.Leafs["buffer-cache-miss"] = types.YLeaf{"BufferCacheMiss", txListOverTcpStatus.BufferCacheMiss}
+    return &(txListOverTcpStatus.EntityData)
 }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetSegmentPath() string {
-    return "tx-list-over-tcp-status"
-}
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["messages-sent"] = txListOverTcpStatus.MessagesSent
-    leafs["bytes-sent"] = txListOverTcpStatus.BytesSent
-    leafs["messages-received"] = txListOverTcpStatus.MessagesReceived
-    leafs["bytes-received"] = txListOverTcpStatus.BytesReceived
-    leafs["connect-count"] = txListOverTcpStatus.ConnectCount
-    leafs["blocked-connect-count"] = txListOverTcpStatus.BlockedConnectCount
-    leafs["connect-retry-count"] = txListOverTcpStatus.ConnectRetryCount
-    leafs["remote-node-down-count"] = txListOverTcpStatus.RemoteNodeDownCount
-    leafs["accept-count"] = txListOverTcpStatus.AcceptCount
-    leafs["maximum-sent-message-size"] = txListOverTcpStatus.MaximumSentMessageSize
-    leafs["maximum-received-message-size"] = txListOverTcpStatus.MaximumReceivedMessageSize
-    leafs["peer-pause-count"] = txListOverTcpStatus.PeerPauseCount
-    leafs["buffer-full-occurence-count"] = txListOverTcpStatus.BufferFullOccurenceCount
-    leafs["mem-move-message-count"] = txListOverTcpStatus.MemMoveMessageCount
-    leafs["mem-move-bytes-count"] = txListOverTcpStatus.MemMoveBytesCount
-    leafs["socket-read-count"] = txListOverTcpStatus.SocketReadCount
-    leafs["socket-write-count"] = txListOverTcpStatus.SocketWriteCount
-    leafs["active-socket-count"] = txListOverTcpStatus.ActiveSocketCount
-    leafs["maximum-requested-buffer-size"] = txListOverTcpStatus.MaximumRequestedBufferSize
-    leafs["buffer-freed-count"] = txListOverTcpStatus.BufferFreedCount
-    leafs["buffer-cache-hit"] = txListOverTcpStatus.BufferCacheHit
-    leafs["buffer-cache-miss"] = txListOverTcpStatus.BufferCacheMiss
-    return leafs
-}
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetYangName() string { return "tx-list-over-tcp-status" }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) SetParent(parent types.Entity) { txListOverTcpStatus.parent = parent }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetParent() types.Entity { return txListOverTcpStatus.parent }
-
-func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus) GetParentYangName() string { return "stats-global" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupSummaries
 // Session data for a particular node
 type SessionRedundancyAgent_Nodes_Node_GroupSummaries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session redundancy agent group summary. The type is slice of
@@ -3819,72 +2329,33 @@ type SessionRedundancyAgent_Nodes_Node_GroupSummaries struct {
     GroupSummary []SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary
 }
 
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetFilter() yfilter.YFilter { return groupSummaries.YFilter }
+func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetEntityData() *types.CommonEntityData {
+    groupSummaries.EntityData.YFilter = groupSummaries.YFilter
+    groupSummaries.EntityData.YangName = "group-summaries"
+    groupSummaries.EntityData.BundleName = "cisco_ios_xr"
+    groupSummaries.EntityData.ParentYangName = "node"
+    groupSummaries.EntityData.SegmentPath = "group-summaries"
+    groupSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) SetFilter(yf yfilter.YFilter) { groupSummaries.YFilter = yf }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetGoName(yname string) string {
-    if yname == "group-summary" { return "GroupSummary" }
-    return ""
-}
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetSegmentPath() string {
-    return "group-summaries"
-}
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "group-summary" {
-        for _, c := range groupSummaries.GroupSummary {
-            if groupSummaries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary{}
-        groupSummaries.GroupSummary = append(groupSummaries.GroupSummary, child)
-        return &groupSummaries.GroupSummary[len(groupSummaries.GroupSummary)-1]
-    }
-    return nil
-}
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    groupSummaries.EntityData.Children = make(map[string]types.YChild)
+    groupSummaries.EntityData.Children["group-summary"] = types.YChild{"GroupSummary", nil}
     for i := range groupSummaries.GroupSummary {
-        children[groupSummaries.GroupSummary[i].GetSegmentPath()] = &groupSummaries.GroupSummary[i]
+        groupSummaries.EntityData.Children[types.GetSegmentPath(&groupSummaries.GroupSummary[i])] = types.YChild{"GroupSummary", &groupSummaries.GroupSummary[i]}
     }
-    return children
+    groupSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(groupSummaries.EntityData)
 }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetYangName() string { return "group-summaries" }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) SetParent(parent types.Entity) { groupSummaries.parent = parent }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetParent() types.Entity { return groupSummaries.parent }
-
-func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetParentYangName() string { return "node" }
 
 // SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary
 // Session redundancy agent group summary
 type SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. GroupId. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     GroupId interface{}
 
     // Group ID. The type is interface{} with range: 0..4294967295.
@@ -3897,11 +2368,11 @@ type SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     Disabled interface{}
 
     // Peer IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerIpv4Address interface{}
 
     // Peer IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerIpv6Address interface{}
 
     // Peer Status. The type is SergPeerStatus.
@@ -3927,73 +2398,31 @@ type SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     PendingAddSessionCount interface{}
 }
 
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetFilter() yfilter.YFilter { return groupSummary.YFilter }
+func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetEntityData() *types.CommonEntityData {
+    groupSummary.EntityData.YFilter = groupSummary.YFilter
+    groupSummary.EntityData.YangName = "group-summary"
+    groupSummary.EntityData.BundleName = "cisco_ios_xr"
+    groupSummary.EntityData.ParentYangName = "group-summaries"
+    groupSummary.EntityData.SegmentPath = "group-summary" + "[group-id='" + fmt.Sprintf("%v", groupSummary.GroupId) + "']"
+    groupSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) SetFilter(yf yfilter.YFilter) { groupSummary.YFilter = yf }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetGoName(yname string) string {
-    if yname == "group-id" { return "GroupId" }
-    if yname == "group-id-xr" { return "GroupIdXr" }
-    if yname == "role" { return "Role" }
-    if yname == "disabled" { return "Disabled" }
-    if yname == "peer-ipv4-address" { return "PeerIpv4Address" }
-    if yname == "peer-ipv6-address" { return "PeerIpv6Address" }
-    if yname == "peer-status" { return "PeerStatus" }
-    if yname == "preferred-role" { return "PreferredRole" }
-    if yname == "slave-mode" { return "SlaveMode" }
-    if yname == "object-tracking-status" { return "ObjectTrackingStatus" }
-    if yname == "interface-count" { return "InterfaceCount" }
-    if yname == "session-count" { return "SessionCount" }
-    if yname == "pending-add-session-count" { return "PendingAddSessionCount" }
-    return ""
+    groupSummary.EntityData.Children = make(map[string]types.YChild)
+    groupSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupSummary.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", groupSummary.GroupId}
+    groupSummary.EntityData.Leafs["group-id-xr"] = types.YLeaf{"GroupIdXr", groupSummary.GroupIdXr}
+    groupSummary.EntityData.Leafs["role"] = types.YLeaf{"Role", groupSummary.Role}
+    groupSummary.EntityData.Leafs["disabled"] = types.YLeaf{"Disabled", groupSummary.Disabled}
+    groupSummary.EntityData.Leafs["peer-ipv4-address"] = types.YLeaf{"PeerIpv4Address", groupSummary.PeerIpv4Address}
+    groupSummary.EntityData.Leafs["peer-ipv6-address"] = types.YLeaf{"PeerIpv6Address", groupSummary.PeerIpv6Address}
+    groupSummary.EntityData.Leafs["peer-status"] = types.YLeaf{"PeerStatus", groupSummary.PeerStatus}
+    groupSummary.EntityData.Leafs["preferred-role"] = types.YLeaf{"PreferredRole", groupSummary.PreferredRole}
+    groupSummary.EntityData.Leafs["slave-mode"] = types.YLeaf{"SlaveMode", groupSummary.SlaveMode}
+    groupSummary.EntityData.Leafs["object-tracking-status"] = types.YLeaf{"ObjectTrackingStatus", groupSummary.ObjectTrackingStatus}
+    groupSummary.EntityData.Leafs["interface-count"] = types.YLeaf{"InterfaceCount", groupSummary.InterfaceCount}
+    groupSummary.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", groupSummary.SessionCount}
+    groupSummary.EntityData.Leafs["pending-add-session-count"] = types.YLeaf{"PendingAddSessionCount", groupSummary.PendingAddSessionCount}
+    return &(groupSummary.EntityData)
 }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetSegmentPath() string {
-    return "group-summary" + "[group-id='" + fmt.Sprintf("%v", groupSummary.GroupId) + "']"
-}
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group-id"] = groupSummary.GroupId
-    leafs["group-id-xr"] = groupSummary.GroupIdXr
-    leafs["role"] = groupSummary.Role
-    leafs["disabled"] = groupSummary.Disabled
-    leafs["peer-ipv4-address"] = groupSummary.PeerIpv4Address
-    leafs["peer-ipv6-address"] = groupSummary.PeerIpv6Address
-    leafs["peer-status"] = groupSummary.PeerStatus
-    leafs["preferred-role"] = groupSummary.PreferredRole
-    leafs["slave-mode"] = groupSummary.SlaveMode
-    leafs["object-tracking-status"] = groupSummary.ObjectTrackingStatus
-    leafs["interface-count"] = groupSummary.InterfaceCount
-    leafs["session-count"] = groupSummary.SessionCount
-    leafs["pending-add-session-count"] = groupSummary.PendingAddSessionCount
-    return leafs
-}
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetYangName() string { return "group-summary" }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) SetParent(parent types.Entity) { groupSummary.parent = parent }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetParent() types.Entity { return groupSummary.parent }
-
-func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary) GetParentYangName() string { return "group-summaries" }
 

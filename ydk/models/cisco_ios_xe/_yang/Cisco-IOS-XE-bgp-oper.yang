@@ -31,6 +31,16 @@ module Cisco-IOS-XE-bgp-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-25 {
+    description
+      "Properly indicated leaf-list ordering";
+    reference "2.2.0";
+  }
+  revision 2017-05-12 {
+    description
+      "Added the BGP RD description";
+    reference "2.1.0";
+  }
   revision 2017-04-01 {
     description
       "Top level container name change. Enum name changes.";
@@ -259,6 +269,11 @@ module Cisco-IOS-XE-bgp-oper {
         "Indication of whether the neighbor was
          dyanmically configured";
     }
+    leaf as {
+      type uint32;
+      description
+        "BGP neighbor AS number";
+    }
   }
 
   grouping bgp-connection {
@@ -445,6 +460,7 @@ module Cisco-IOS-XE-bgp-oper {
     }
     leaf-list negotiated-cap {
       type string;
+      ordered-by user;
       description
         "Negotiated capabilities for neighbor session";
     }
@@ -467,6 +483,11 @@ module Cisco-IOS-XE-bgp-oper {
       description
         "BGP neighbor activity";
       uses bgp-ios-xe-oper:bgp-af-prefix-activity;
+    }
+    leaf as {
+      type uint32;
+      description
+        "BGP neighbor AS number";
     }
   }
 
@@ -583,6 +604,11 @@ module Cisco-IOS-XE-bgp-oper {
         uses bgp-ios-xe-oper:neighbor-summary;
       }
     }
+    leaf local-as {
+      type uint32;
+      description
+        "Local AS number";
+    }
   }
 
   grouping bgp-state {
@@ -618,6 +644,16 @@ module Cisco-IOS-XE-bgp-oper {
         description
           "List of BGP VRFs";
         uses bgp-route-ios-xe-oper:vrf-record;
+      }
+    }
+    container bgp-route-rds {
+      description
+        "BGP RDs";
+      list bgp-route-rd {
+        key "rd-value";
+        description
+          "List of BGP RDs";
+        uses bgp-route-ios-xe-oper:bgp-rd-record;
       }
     }
   }

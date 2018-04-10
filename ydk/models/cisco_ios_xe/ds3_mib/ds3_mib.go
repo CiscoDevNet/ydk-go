@@ -19,7 +19,7 @@ func init() {
 
 // DS3MIB
 type DS3MIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The DS3/E3 Configuration table.
@@ -84,99 +84,34 @@ type DS3MIB struct {
     Dsx3Fractable DS3MIB_Dsx3Fractable
 }
 
-func (dS3MIB *DS3MIB) GetFilter() yfilter.YFilter { return dS3MIB.YFilter }
+func (dS3MIB *DS3MIB) GetEntityData() *types.CommonEntityData {
+    dS3MIB.EntityData.YFilter = dS3MIB.YFilter
+    dS3MIB.EntityData.YangName = "DS3-MIB"
+    dS3MIB.EntityData.BundleName = "cisco_ios_xe"
+    dS3MIB.EntityData.ParentYangName = "DS3-MIB"
+    dS3MIB.EntityData.SegmentPath = "DS3-MIB:DS3-MIB"
+    dS3MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dS3MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dS3MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dS3MIB *DS3MIB) SetFilter(yf yfilter.YFilter) { dS3MIB.YFilter = yf }
-
-func (dS3MIB *DS3MIB) GetGoName(yname string) string {
-    if yname == "dsx3ConfigTable" { return "Dsx3Configtable" }
-    if yname == "dsx3CurrentTable" { return "Dsx3Currenttable" }
-    if yname == "dsx3IntervalTable" { return "Dsx3Intervaltable" }
-    if yname == "dsx3TotalTable" { return "Dsx3Totaltable" }
-    if yname == "dsx3FarEndConfigTable" { return "Dsx3Farendconfigtable" }
-    if yname == "dsx3FarEndCurrentTable" { return "Dsx3Farendcurrenttable" }
-    if yname == "dsx3FarEndIntervalTable" { return "Dsx3Farendintervaltable" }
-    if yname == "dsx3FarEndTotalTable" { return "Dsx3Farendtotaltable" }
-    if yname == "dsx3FracTable" { return "Dsx3Fractable" }
-    return ""
+    dS3MIB.EntityData.Children = make(map[string]types.YChild)
+    dS3MIB.EntityData.Children["dsx3ConfigTable"] = types.YChild{"Dsx3Configtable", &dS3MIB.Dsx3Configtable}
+    dS3MIB.EntityData.Children["dsx3CurrentTable"] = types.YChild{"Dsx3Currenttable", &dS3MIB.Dsx3Currenttable}
+    dS3MIB.EntityData.Children["dsx3IntervalTable"] = types.YChild{"Dsx3Intervaltable", &dS3MIB.Dsx3Intervaltable}
+    dS3MIB.EntityData.Children["dsx3TotalTable"] = types.YChild{"Dsx3Totaltable", &dS3MIB.Dsx3Totaltable}
+    dS3MIB.EntityData.Children["dsx3FarEndConfigTable"] = types.YChild{"Dsx3Farendconfigtable", &dS3MIB.Dsx3Farendconfigtable}
+    dS3MIB.EntityData.Children["dsx3FarEndCurrentTable"] = types.YChild{"Dsx3Farendcurrenttable", &dS3MIB.Dsx3Farendcurrenttable}
+    dS3MIB.EntityData.Children["dsx3FarEndIntervalTable"] = types.YChild{"Dsx3Farendintervaltable", &dS3MIB.Dsx3Farendintervaltable}
+    dS3MIB.EntityData.Children["dsx3FarEndTotalTable"] = types.YChild{"Dsx3Farendtotaltable", &dS3MIB.Dsx3Farendtotaltable}
+    dS3MIB.EntityData.Children["dsx3FracTable"] = types.YChild{"Dsx3Fractable", &dS3MIB.Dsx3Fractable}
+    dS3MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dS3MIB.EntityData)
 }
-
-func (dS3MIB *DS3MIB) GetSegmentPath() string {
-    return "DS3-MIB:DS3-MIB"
-}
-
-func (dS3MIB *DS3MIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3ConfigTable" {
-        return &dS3MIB.Dsx3Configtable
-    }
-    if childYangName == "dsx3CurrentTable" {
-        return &dS3MIB.Dsx3Currenttable
-    }
-    if childYangName == "dsx3IntervalTable" {
-        return &dS3MIB.Dsx3Intervaltable
-    }
-    if childYangName == "dsx3TotalTable" {
-        return &dS3MIB.Dsx3Totaltable
-    }
-    if childYangName == "dsx3FarEndConfigTable" {
-        return &dS3MIB.Dsx3Farendconfigtable
-    }
-    if childYangName == "dsx3FarEndCurrentTable" {
-        return &dS3MIB.Dsx3Farendcurrenttable
-    }
-    if childYangName == "dsx3FarEndIntervalTable" {
-        return &dS3MIB.Dsx3Farendintervaltable
-    }
-    if childYangName == "dsx3FarEndTotalTable" {
-        return &dS3MIB.Dsx3Farendtotaltable
-    }
-    if childYangName == "dsx3FracTable" {
-        return &dS3MIB.Dsx3Fractable
-    }
-    return nil
-}
-
-func (dS3MIB *DS3MIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dsx3ConfigTable"] = &dS3MIB.Dsx3Configtable
-    children["dsx3CurrentTable"] = &dS3MIB.Dsx3Currenttable
-    children["dsx3IntervalTable"] = &dS3MIB.Dsx3Intervaltable
-    children["dsx3TotalTable"] = &dS3MIB.Dsx3Totaltable
-    children["dsx3FarEndConfigTable"] = &dS3MIB.Dsx3Farendconfigtable
-    children["dsx3FarEndCurrentTable"] = &dS3MIB.Dsx3Farendcurrenttable
-    children["dsx3FarEndIntervalTable"] = &dS3MIB.Dsx3Farendintervaltable
-    children["dsx3FarEndTotalTable"] = &dS3MIB.Dsx3Farendtotaltable
-    children["dsx3FracTable"] = &dS3MIB.Dsx3Fractable
-    return children
-}
-
-func (dS3MIB *DS3MIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dS3MIB *DS3MIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dS3MIB *DS3MIB) GetYangName() string { return "DS3-MIB" }
-
-func (dS3MIB *DS3MIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dS3MIB *DS3MIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dS3MIB *DS3MIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dS3MIB *DS3MIB) SetParent(parent types.Entity) { dS3MIB.parent = parent }
-
-func (dS3MIB *DS3MIB) GetParent() types.Entity { return dS3MIB.parent }
-
-func (dS3MIB *DS3MIB) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Configtable
 // The DS3/E3 Configuration table.
 type DS3MIB_Dsx3Configtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3/E3 Configuration table. The type is slice of
@@ -184,68 +119,29 @@ type DS3MIB_Dsx3Configtable struct {
     Dsx3Configentry []DS3MIB_Dsx3Configtable_Dsx3Configentry
 }
 
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetFilter() yfilter.YFilter { return dsx3Configtable.YFilter }
+func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetEntityData() *types.CommonEntityData {
+    dsx3Configtable.EntityData.YFilter = dsx3Configtable.YFilter
+    dsx3Configtable.EntityData.YangName = "dsx3ConfigTable"
+    dsx3Configtable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Configtable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Configtable.EntityData.SegmentPath = "dsx3ConfigTable"
+    dsx3Configtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Configtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Configtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) SetFilter(yf yfilter.YFilter) { dsx3Configtable.YFilter = yf }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetGoName(yname string) string {
-    if yname == "dsx3ConfigEntry" { return "Dsx3Configentry" }
-    return ""
-}
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetSegmentPath() string {
-    return "dsx3ConfigTable"
-}
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3ConfigEntry" {
-        for _, c := range dsx3Configtable.Dsx3Configentry {
-            if dsx3Configtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Configtable_Dsx3Configentry{}
-        dsx3Configtable.Dsx3Configentry = append(dsx3Configtable.Dsx3Configentry, child)
-        return &dsx3Configtable.Dsx3Configentry[len(dsx3Configtable.Dsx3Configentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Configtable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Configtable.EntityData.Children["dsx3ConfigEntry"] = types.YChild{"Dsx3Configentry", nil}
     for i := range dsx3Configtable.Dsx3Configentry {
-        children[dsx3Configtable.Dsx3Configentry[i].GetSegmentPath()] = &dsx3Configtable.Dsx3Configentry[i]
+        dsx3Configtable.EntityData.Children[types.GetSegmentPath(&dsx3Configtable.Dsx3Configentry[i])] = types.YChild{"Dsx3Configentry", &dsx3Configtable.Dsx3Configentry[i]}
     }
-    return children
+    dsx3Configtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Configtable.EntityData)
 }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetYangName() string { return "dsx3ConfigTable" }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) SetParent(parent types.Entity) { dsx3Configtable.parent = parent }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetParent() types.Entity { return dsx3Configtable.parent }
-
-func (dsx3Configtable *DS3MIB_Dsx3Configtable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Configtable_Dsx3Configentry
 // An entry in the DS3/E3 Configuration table.
 type DS3MIB_Dsx3Configtable_Dsx3Configentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object should be made equal to ifIndex.  The
@@ -409,85 +305,38 @@ type DS3MIB_Dsx3Configtable_Dsx3Configentry struct {
     Dsx3Ds1Forremoteloop interface{}
 }
 
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetFilter() yfilter.YFilter { return dsx3Configentry.YFilter }
+func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetEntityData() *types.CommonEntityData {
+    dsx3Configentry.EntityData.YFilter = dsx3Configentry.YFilter
+    dsx3Configentry.EntityData.YangName = "dsx3ConfigEntry"
+    dsx3Configentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Configentry.EntityData.ParentYangName = "dsx3ConfigTable"
+    dsx3Configentry.EntityData.SegmentPath = "dsx3ConfigEntry" + "[dsx3LineIndex='" + fmt.Sprintf("%v", dsx3Configentry.Dsx3Lineindex) + "']"
+    dsx3Configentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Configentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Configentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) SetFilter(yf yfilter.YFilter) { dsx3Configentry.YFilter = yf }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetGoName(yname string) string {
-    if yname == "dsx3LineIndex" { return "Dsx3Lineindex" }
-    if yname == "dsx3IfIndex" { return "Dsx3Ifindex" }
-    if yname == "dsx3TimeElapsed" { return "Dsx3Timeelapsed" }
-    if yname == "dsx3ValidIntervals" { return "Dsx3Validintervals" }
-    if yname == "dsx3LineType" { return "Dsx3Linetype" }
-    if yname == "dsx3LineCoding" { return "Dsx3Linecoding" }
-    if yname == "dsx3SendCode" { return "Dsx3Sendcode" }
-    if yname == "dsx3CircuitIdentifier" { return "Dsx3Circuitidentifier" }
-    if yname == "dsx3LoopbackConfig" { return "Dsx3Loopbackconfig" }
-    if yname == "dsx3LineStatus" { return "Dsx3Linestatus" }
-    if yname == "dsx3TransmitClockSource" { return "Dsx3Transmitclocksource" }
-    if yname == "dsx3InvalidIntervals" { return "Dsx3Invalidintervals" }
-    if yname == "dsx3LineLength" { return "Dsx3Linelength" }
-    if yname == "dsx3LineStatusLastChange" { return "Dsx3Linestatuslastchange" }
-    if yname == "dsx3LineStatusChangeTrapEnable" { return "Dsx3Linestatuschangetrapenable" }
-    if yname == "dsx3LoopbackStatus" { return "Dsx3Loopbackstatus" }
-    if yname == "dsx3Channelization" { return "Dsx3Channelization" }
-    if yname == "dsx3Ds1ForRemoteLoop" { return "Dsx3Ds1Forremoteloop" }
-    return ""
+    dsx3Configentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Configentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Configentry.EntityData.Leafs["dsx3LineIndex"] = types.YLeaf{"Dsx3Lineindex", dsx3Configentry.Dsx3Lineindex}
+    dsx3Configentry.EntityData.Leafs["dsx3IfIndex"] = types.YLeaf{"Dsx3Ifindex", dsx3Configentry.Dsx3Ifindex}
+    dsx3Configentry.EntityData.Leafs["dsx3TimeElapsed"] = types.YLeaf{"Dsx3Timeelapsed", dsx3Configentry.Dsx3Timeelapsed}
+    dsx3Configentry.EntityData.Leafs["dsx3ValidIntervals"] = types.YLeaf{"Dsx3Validintervals", dsx3Configentry.Dsx3Validintervals}
+    dsx3Configentry.EntityData.Leafs["dsx3LineType"] = types.YLeaf{"Dsx3Linetype", dsx3Configentry.Dsx3Linetype}
+    dsx3Configentry.EntityData.Leafs["dsx3LineCoding"] = types.YLeaf{"Dsx3Linecoding", dsx3Configentry.Dsx3Linecoding}
+    dsx3Configentry.EntityData.Leafs["dsx3SendCode"] = types.YLeaf{"Dsx3Sendcode", dsx3Configentry.Dsx3Sendcode}
+    dsx3Configentry.EntityData.Leafs["dsx3CircuitIdentifier"] = types.YLeaf{"Dsx3Circuitidentifier", dsx3Configentry.Dsx3Circuitidentifier}
+    dsx3Configentry.EntityData.Leafs["dsx3LoopbackConfig"] = types.YLeaf{"Dsx3Loopbackconfig", dsx3Configentry.Dsx3Loopbackconfig}
+    dsx3Configentry.EntityData.Leafs["dsx3LineStatus"] = types.YLeaf{"Dsx3Linestatus", dsx3Configentry.Dsx3Linestatus}
+    dsx3Configentry.EntityData.Leafs["dsx3TransmitClockSource"] = types.YLeaf{"Dsx3Transmitclocksource", dsx3Configentry.Dsx3Transmitclocksource}
+    dsx3Configentry.EntityData.Leafs["dsx3InvalidIntervals"] = types.YLeaf{"Dsx3Invalidintervals", dsx3Configentry.Dsx3Invalidintervals}
+    dsx3Configentry.EntityData.Leafs["dsx3LineLength"] = types.YLeaf{"Dsx3Linelength", dsx3Configentry.Dsx3Linelength}
+    dsx3Configentry.EntityData.Leafs["dsx3LineStatusLastChange"] = types.YLeaf{"Dsx3Linestatuslastchange", dsx3Configentry.Dsx3Linestatuslastchange}
+    dsx3Configentry.EntityData.Leafs["dsx3LineStatusChangeTrapEnable"] = types.YLeaf{"Dsx3Linestatuschangetrapenable", dsx3Configentry.Dsx3Linestatuschangetrapenable}
+    dsx3Configentry.EntityData.Leafs["dsx3LoopbackStatus"] = types.YLeaf{"Dsx3Loopbackstatus", dsx3Configentry.Dsx3Loopbackstatus}
+    dsx3Configentry.EntityData.Leafs["dsx3Channelization"] = types.YLeaf{"Dsx3Channelization", dsx3Configentry.Dsx3Channelization}
+    dsx3Configentry.EntityData.Leafs["dsx3Ds1ForRemoteLoop"] = types.YLeaf{"Dsx3Ds1Forremoteloop", dsx3Configentry.Dsx3Ds1Forremoteloop}
+    return &(dsx3Configentry.EntityData)
 }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetSegmentPath() string {
-    return "dsx3ConfigEntry" + "[dsx3LineIndex='" + fmt.Sprintf("%v", dsx3Configentry.Dsx3Lineindex) + "']"
-}
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3LineIndex"] = dsx3Configentry.Dsx3Lineindex
-    leafs["dsx3IfIndex"] = dsx3Configentry.Dsx3Ifindex
-    leafs["dsx3TimeElapsed"] = dsx3Configentry.Dsx3Timeelapsed
-    leafs["dsx3ValidIntervals"] = dsx3Configentry.Dsx3Validintervals
-    leafs["dsx3LineType"] = dsx3Configentry.Dsx3Linetype
-    leafs["dsx3LineCoding"] = dsx3Configentry.Dsx3Linecoding
-    leafs["dsx3SendCode"] = dsx3Configentry.Dsx3Sendcode
-    leafs["dsx3CircuitIdentifier"] = dsx3Configentry.Dsx3Circuitidentifier
-    leafs["dsx3LoopbackConfig"] = dsx3Configentry.Dsx3Loopbackconfig
-    leafs["dsx3LineStatus"] = dsx3Configentry.Dsx3Linestatus
-    leafs["dsx3TransmitClockSource"] = dsx3Configentry.Dsx3Transmitclocksource
-    leafs["dsx3InvalidIntervals"] = dsx3Configentry.Dsx3Invalidintervals
-    leafs["dsx3LineLength"] = dsx3Configentry.Dsx3Linelength
-    leafs["dsx3LineStatusLastChange"] = dsx3Configentry.Dsx3Linestatuslastchange
-    leafs["dsx3LineStatusChangeTrapEnable"] = dsx3Configentry.Dsx3Linestatuschangetrapenable
-    leafs["dsx3LoopbackStatus"] = dsx3Configentry.Dsx3Loopbackstatus
-    leafs["dsx3Channelization"] = dsx3Configentry.Dsx3Channelization
-    leafs["dsx3Ds1ForRemoteLoop"] = dsx3Configentry.Dsx3Ds1Forremoteloop
-    return leafs
-}
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetYangName() string { return "dsx3ConfigEntry" }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) SetParent(parent types.Entity) { dsx3Configentry.parent = parent }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetParent() types.Entity { return dsx3Configentry.parent }
-
-func (dsx3Configentry *DS3MIB_Dsx3Configtable_Dsx3Configentry) GetParentYangName() string { return "dsx3ConfigTable" }
 
 // DS3MIB_Dsx3Configtable_Dsx3Configentry_Dsx3Channelization represents entries in the ifTable.  
 type DS3MIB_Dsx3Configtable_Dsx3Configentry_Dsx3Channelization string
@@ -591,7 +440,7 @@ const (
 // statistics being collected for the current 15
 // minute interval.
 type DS3MIB_Dsx3Currenttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3/E3 Current table. The type is slice of
@@ -599,68 +448,29 @@ type DS3MIB_Dsx3Currenttable struct {
     Dsx3Currententry []DS3MIB_Dsx3Currenttable_Dsx3Currententry
 }
 
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetFilter() yfilter.YFilter { return dsx3Currenttable.YFilter }
+func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetEntityData() *types.CommonEntityData {
+    dsx3Currenttable.EntityData.YFilter = dsx3Currenttable.YFilter
+    dsx3Currenttable.EntityData.YangName = "dsx3CurrentTable"
+    dsx3Currenttable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Currenttable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Currenttable.EntityData.SegmentPath = "dsx3CurrentTable"
+    dsx3Currenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Currenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Currenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) SetFilter(yf yfilter.YFilter) { dsx3Currenttable.YFilter = yf }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetGoName(yname string) string {
-    if yname == "dsx3CurrentEntry" { return "Dsx3Currententry" }
-    return ""
-}
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetSegmentPath() string {
-    return "dsx3CurrentTable"
-}
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3CurrentEntry" {
-        for _, c := range dsx3Currenttable.Dsx3Currententry {
-            if dsx3Currenttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Currenttable_Dsx3Currententry{}
-        dsx3Currenttable.Dsx3Currententry = append(dsx3Currenttable.Dsx3Currententry, child)
-        return &dsx3Currenttable.Dsx3Currententry[len(dsx3Currenttable.Dsx3Currententry)-1]
-    }
-    return nil
-}
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Currenttable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Currenttable.EntityData.Children["dsx3CurrentEntry"] = types.YChild{"Dsx3Currententry", nil}
     for i := range dsx3Currenttable.Dsx3Currententry {
-        children[dsx3Currenttable.Dsx3Currententry[i].GetSegmentPath()] = &dsx3Currenttable.Dsx3Currententry[i]
+        dsx3Currenttable.EntityData.Children[types.GetSegmentPath(&dsx3Currenttable.Dsx3Currententry[i])] = types.YChild{"Dsx3Currententry", &dsx3Currenttable.Dsx3Currententry[i]}
     }
-    return children
+    dsx3Currenttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Currenttable.EntityData)
 }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetYangName() string { return "dsx3CurrentTable" }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) SetParent(parent types.Entity) { dsx3Currenttable.parent = parent }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetParent() types.Entity { return dsx3Currenttable.parent }
-
-func (dsx3Currenttable *DS3MIB_Dsx3Currenttable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Currenttable_Dsx3Currententry
 // An entry in the DS3/E3 Current table.
 type DS3MIB_Dsx3Currenttable_Dsx3Currententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the
@@ -711,71 +521,31 @@ type DS3MIB_Dsx3Currenttable_Dsx3Currententry struct {
     Dsx3Currentcsess interface{}
 }
 
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetFilter() yfilter.YFilter { return dsx3Currententry.YFilter }
+func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetEntityData() *types.CommonEntityData {
+    dsx3Currententry.EntityData.YFilter = dsx3Currententry.YFilter
+    dsx3Currententry.EntityData.YangName = "dsx3CurrentEntry"
+    dsx3Currententry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Currententry.EntityData.ParentYangName = "dsx3CurrentTable"
+    dsx3Currententry.EntityData.SegmentPath = "dsx3CurrentEntry" + "[dsx3CurrentIndex='" + fmt.Sprintf("%v", dsx3Currententry.Dsx3Currentindex) + "']"
+    dsx3Currententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Currententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Currententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) SetFilter(yf yfilter.YFilter) { dsx3Currententry.YFilter = yf }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetGoName(yname string) string {
-    if yname == "dsx3CurrentIndex" { return "Dsx3Currentindex" }
-    if yname == "dsx3CurrentPESs" { return "Dsx3Currentpess" }
-    if yname == "dsx3CurrentPSESs" { return "Dsx3Currentpsess" }
-    if yname == "dsx3CurrentSEFSs" { return "Dsx3Currentsefss" }
-    if yname == "dsx3CurrentUASs" { return "Dsx3Currentuass" }
-    if yname == "dsx3CurrentLCVs" { return "Dsx3Currentlcvs" }
-    if yname == "dsx3CurrentPCVs" { return "Dsx3Currentpcvs" }
-    if yname == "dsx3CurrentLESs" { return "Dsx3Currentless" }
-    if yname == "dsx3CurrentCCVs" { return "Dsx3Currentccvs" }
-    if yname == "dsx3CurrentCESs" { return "Dsx3Currentcess" }
-    if yname == "dsx3CurrentCSESs" { return "Dsx3Currentcsess" }
-    return ""
+    dsx3Currententry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Currententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentIndex"] = types.YLeaf{"Dsx3Currentindex", dsx3Currententry.Dsx3Currentindex}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentPESs"] = types.YLeaf{"Dsx3Currentpess", dsx3Currententry.Dsx3Currentpess}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentPSESs"] = types.YLeaf{"Dsx3Currentpsess", dsx3Currententry.Dsx3Currentpsess}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentSEFSs"] = types.YLeaf{"Dsx3Currentsefss", dsx3Currententry.Dsx3Currentsefss}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentUASs"] = types.YLeaf{"Dsx3Currentuass", dsx3Currententry.Dsx3Currentuass}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentLCVs"] = types.YLeaf{"Dsx3Currentlcvs", dsx3Currententry.Dsx3Currentlcvs}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentPCVs"] = types.YLeaf{"Dsx3Currentpcvs", dsx3Currententry.Dsx3Currentpcvs}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentLESs"] = types.YLeaf{"Dsx3Currentless", dsx3Currententry.Dsx3Currentless}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentCCVs"] = types.YLeaf{"Dsx3Currentccvs", dsx3Currententry.Dsx3Currentccvs}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentCESs"] = types.YLeaf{"Dsx3Currentcess", dsx3Currententry.Dsx3Currentcess}
+    dsx3Currententry.EntityData.Leafs["dsx3CurrentCSESs"] = types.YLeaf{"Dsx3Currentcsess", dsx3Currententry.Dsx3Currentcsess}
+    return &(dsx3Currententry.EntityData)
 }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetSegmentPath() string {
-    return "dsx3CurrentEntry" + "[dsx3CurrentIndex='" + fmt.Sprintf("%v", dsx3Currententry.Dsx3Currentindex) + "']"
-}
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3CurrentIndex"] = dsx3Currententry.Dsx3Currentindex
-    leafs["dsx3CurrentPESs"] = dsx3Currententry.Dsx3Currentpess
-    leafs["dsx3CurrentPSESs"] = dsx3Currententry.Dsx3Currentpsess
-    leafs["dsx3CurrentSEFSs"] = dsx3Currententry.Dsx3Currentsefss
-    leafs["dsx3CurrentUASs"] = dsx3Currententry.Dsx3Currentuass
-    leafs["dsx3CurrentLCVs"] = dsx3Currententry.Dsx3Currentlcvs
-    leafs["dsx3CurrentPCVs"] = dsx3Currententry.Dsx3Currentpcvs
-    leafs["dsx3CurrentLESs"] = dsx3Currententry.Dsx3Currentless
-    leafs["dsx3CurrentCCVs"] = dsx3Currententry.Dsx3Currentccvs
-    leafs["dsx3CurrentCESs"] = dsx3Currententry.Dsx3Currentcess
-    leafs["dsx3CurrentCSESs"] = dsx3Currententry.Dsx3Currentcsess
-    return leafs
-}
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetYangName() string { return "dsx3CurrentEntry" }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) SetParent(parent types.Entity) { dsx3Currententry.parent = parent }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetParent() types.Entity { return dsx3Currententry.parent }
-
-func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetParentYangName() string { return "dsx3CurrentTable" }
 
 // DS3MIB_Dsx3Intervaltable
 // The DS3/E3 Interval Table contains various
@@ -787,7 +557,7 @@ func (dsx3Currententry *DS3MIB_Dsx3Currenttable_Dsx3Currententry) GetParentYangN
 // and for one specific interface (identifed by
 // dsx3IntervalIndex).
 type DS3MIB_Dsx3Intervaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3/E3 Interval table. The type is slice of
@@ -795,68 +565,29 @@ type DS3MIB_Dsx3Intervaltable struct {
     Dsx3Intervalentry []DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry
 }
 
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetFilter() yfilter.YFilter { return dsx3Intervaltable.YFilter }
+func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetEntityData() *types.CommonEntityData {
+    dsx3Intervaltable.EntityData.YFilter = dsx3Intervaltable.YFilter
+    dsx3Intervaltable.EntityData.YangName = "dsx3IntervalTable"
+    dsx3Intervaltable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Intervaltable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Intervaltable.EntityData.SegmentPath = "dsx3IntervalTable"
+    dsx3Intervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Intervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Intervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) SetFilter(yf yfilter.YFilter) { dsx3Intervaltable.YFilter = yf }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetGoName(yname string) string {
-    if yname == "dsx3IntervalEntry" { return "Dsx3Intervalentry" }
-    return ""
-}
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetSegmentPath() string {
-    return "dsx3IntervalTable"
-}
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3IntervalEntry" {
-        for _, c := range dsx3Intervaltable.Dsx3Intervalentry {
-            if dsx3Intervaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry{}
-        dsx3Intervaltable.Dsx3Intervalentry = append(dsx3Intervaltable.Dsx3Intervalentry, child)
-        return &dsx3Intervaltable.Dsx3Intervalentry[len(dsx3Intervaltable.Dsx3Intervalentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Intervaltable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Intervaltable.EntityData.Children["dsx3IntervalEntry"] = types.YChild{"Dsx3Intervalentry", nil}
     for i := range dsx3Intervaltable.Dsx3Intervalentry {
-        children[dsx3Intervaltable.Dsx3Intervalentry[i].GetSegmentPath()] = &dsx3Intervaltable.Dsx3Intervalentry[i]
+        dsx3Intervaltable.EntityData.Children[types.GetSegmentPath(&dsx3Intervaltable.Dsx3Intervalentry[i])] = types.YChild{"Dsx3Intervalentry", &dsx3Intervaltable.Dsx3Intervalentry[i]}
     }
-    return children
+    dsx3Intervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Intervaltable.EntityData)
 }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetYangName() string { return "dsx3IntervalTable" }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) SetParent(parent types.Entity) { dsx3Intervaltable.parent = parent }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetParent() types.Entity { return dsx3Intervaltable.parent }
-
-func (dsx3Intervaltable *DS3MIB_Dsx3Intervaltable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry
 // An entry in the DS3/E3 Interval table.
 type DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the
@@ -918,82 +649,40 @@ type DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry struct {
     Dsx3Intervalvaliddata interface{}
 }
 
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetFilter() yfilter.YFilter { return dsx3Intervalentry.YFilter }
+func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetEntityData() *types.CommonEntityData {
+    dsx3Intervalentry.EntityData.YFilter = dsx3Intervalentry.YFilter
+    dsx3Intervalentry.EntityData.YangName = "dsx3IntervalEntry"
+    dsx3Intervalentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Intervalentry.EntityData.ParentYangName = "dsx3IntervalTable"
+    dsx3Intervalentry.EntityData.SegmentPath = "dsx3IntervalEntry" + "[dsx3IntervalIndex='" + fmt.Sprintf("%v", dsx3Intervalentry.Dsx3Intervalindex) + "']" + "[dsx3IntervalNumber='" + fmt.Sprintf("%v", dsx3Intervalentry.Dsx3Intervalnumber) + "']"
+    dsx3Intervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Intervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Intervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) SetFilter(yf yfilter.YFilter) { dsx3Intervalentry.YFilter = yf }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetGoName(yname string) string {
-    if yname == "dsx3IntervalIndex" { return "Dsx3Intervalindex" }
-    if yname == "dsx3IntervalNumber" { return "Dsx3Intervalnumber" }
-    if yname == "dsx3IntervalPESs" { return "Dsx3Intervalpess" }
-    if yname == "dsx3IntervalPSESs" { return "Dsx3Intervalpsess" }
-    if yname == "dsx3IntervalSEFSs" { return "Dsx3Intervalsefss" }
-    if yname == "dsx3IntervalUASs" { return "Dsx3Intervaluass" }
-    if yname == "dsx3IntervalLCVs" { return "Dsx3Intervallcvs" }
-    if yname == "dsx3IntervalPCVs" { return "Dsx3Intervalpcvs" }
-    if yname == "dsx3IntervalLESs" { return "Dsx3Intervalless" }
-    if yname == "dsx3IntervalCCVs" { return "Dsx3Intervalccvs" }
-    if yname == "dsx3IntervalCESs" { return "Dsx3Intervalcess" }
-    if yname == "dsx3IntervalCSESs" { return "Dsx3Intervalcsess" }
-    if yname == "dsx3IntervalValidData" { return "Dsx3Intervalvaliddata" }
-    return ""
+    dsx3Intervalentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Intervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalIndex"] = types.YLeaf{"Dsx3Intervalindex", dsx3Intervalentry.Dsx3Intervalindex}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalNumber"] = types.YLeaf{"Dsx3Intervalnumber", dsx3Intervalentry.Dsx3Intervalnumber}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalPESs"] = types.YLeaf{"Dsx3Intervalpess", dsx3Intervalentry.Dsx3Intervalpess}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalPSESs"] = types.YLeaf{"Dsx3Intervalpsess", dsx3Intervalentry.Dsx3Intervalpsess}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalSEFSs"] = types.YLeaf{"Dsx3Intervalsefss", dsx3Intervalentry.Dsx3Intervalsefss}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalUASs"] = types.YLeaf{"Dsx3Intervaluass", dsx3Intervalentry.Dsx3Intervaluass}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalLCVs"] = types.YLeaf{"Dsx3Intervallcvs", dsx3Intervalentry.Dsx3Intervallcvs}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalPCVs"] = types.YLeaf{"Dsx3Intervalpcvs", dsx3Intervalentry.Dsx3Intervalpcvs}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalLESs"] = types.YLeaf{"Dsx3Intervalless", dsx3Intervalentry.Dsx3Intervalless}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalCCVs"] = types.YLeaf{"Dsx3Intervalccvs", dsx3Intervalentry.Dsx3Intervalccvs}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalCESs"] = types.YLeaf{"Dsx3Intervalcess", dsx3Intervalentry.Dsx3Intervalcess}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalCSESs"] = types.YLeaf{"Dsx3Intervalcsess", dsx3Intervalentry.Dsx3Intervalcsess}
+    dsx3Intervalentry.EntityData.Leafs["dsx3IntervalValidData"] = types.YLeaf{"Dsx3Intervalvaliddata", dsx3Intervalentry.Dsx3Intervalvaliddata}
+    return &(dsx3Intervalentry.EntityData)
 }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetSegmentPath() string {
-    return "dsx3IntervalEntry" + "[dsx3IntervalIndex='" + fmt.Sprintf("%v", dsx3Intervalentry.Dsx3Intervalindex) + "']" + "[dsx3IntervalNumber='" + fmt.Sprintf("%v", dsx3Intervalentry.Dsx3Intervalnumber) + "']"
-}
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3IntervalIndex"] = dsx3Intervalentry.Dsx3Intervalindex
-    leafs["dsx3IntervalNumber"] = dsx3Intervalentry.Dsx3Intervalnumber
-    leafs["dsx3IntervalPESs"] = dsx3Intervalentry.Dsx3Intervalpess
-    leafs["dsx3IntervalPSESs"] = dsx3Intervalentry.Dsx3Intervalpsess
-    leafs["dsx3IntervalSEFSs"] = dsx3Intervalentry.Dsx3Intervalsefss
-    leafs["dsx3IntervalUASs"] = dsx3Intervalentry.Dsx3Intervaluass
-    leafs["dsx3IntervalLCVs"] = dsx3Intervalentry.Dsx3Intervallcvs
-    leafs["dsx3IntervalPCVs"] = dsx3Intervalentry.Dsx3Intervalpcvs
-    leafs["dsx3IntervalLESs"] = dsx3Intervalentry.Dsx3Intervalless
-    leafs["dsx3IntervalCCVs"] = dsx3Intervalentry.Dsx3Intervalccvs
-    leafs["dsx3IntervalCESs"] = dsx3Intervalentry.Dsx3Intervalcess
-    leafs["dsx3IntervalCSESs"] = dsx3Intervalentry.Dsx3Intervalcsess
-    leafs["dsx3IntervalValidData"] = dsx3Intervalentry.Dsx3Intervalvaliddata
-    return leafs
-}
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetYangName() string { return "dsx3IntervalEntry" }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) SetParent(parent types.Entity) { dsx3Intervalentry.parent = parent }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetParent() types.Entity { return dsx3Intervalentry.parent }
-
-func (dsx3Intervalentry *DS3MIB_Dsx3Intervaltable_Dsx3Intervalentry) GetParentYangName() string { return "dsx3IntervalTable" }
 
 // DS3MIB_Dsx3Totaltable
 // The DS3/E3 Total Table contains the cumulative
 // sum of the various statistics for the 24 hour
 // period preceding the current interval.
 type DS3MIB_Dsx3Totaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3/E3 Total table. The type is slice of
@@ -1001,68 +690,29 @@ type DS3MIB_Dsx3Totaltable struct {
     Dsx3Totalentry []DS3MIB_Dsx3Totaltable_Dsx3Totalentry
 }
 
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetFilter() yfilter.YFilter { return dsx3Totaltable.YFilter }
+func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetEntityData() *types.CommonEntityData {
+    dsx3Totaltable.EntityData.YFilter = dsx3Totaltable.YFilter
+    dsx3Totaltable.EntityData.YangName = "dsx3TotalTable"
+    dsx3Totaltable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Totaltable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Totaltable.EntityData.SegmentPath = "dsx3TotalTable"
+    dsx3Totaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Totaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Totaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) SetFilter(yf yfilter.YFilter) { dsx3Totaltable.YFilter = yf }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetGoName(yname string) string {
-    if yname == "dsx3TotalEntry" { return "Dsx3Totalentry" }
-    return ""
-}
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetSegmentPath() string {
-    return "dsx3TotalTable"
-}
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3TotalEntry" {
-        for _, c := range dsx3Totaltable.Dsx3Totalentry {
-            if dsx3Totaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Totaltable_Dsx3Totalentry{}
-        dsx3Totaltable.Dsx3Totalentry = append(dsx3Totaltable.Dsx3Totalentry, child)
-        return &dsx3Totaltable.Dsx3Totalentry[len(dsx3Totaltable.Dsx3Totalentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Totaltable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Totaltable.EntityData.Children["dsx3TotalEntry"] = types.YChild{"Dsx3Totalentry", nil}
     for i := range dsx3Totaltable.Dsx3Totalentry {
-        children[dsx3Totaltable.Dsx3Totalentry[i].GetSegmentPath()] = &dsx3Totaltable.Dsx3Totalentry[i]
+        dsx3Totaltable.EntityData.Children[types.GetSegmentPath(&dsx3Totaltable.Dsx3Totalentry[i])] = types.YChild{"Dsx3Totalentry", &dsx3Totaltable.Dsx3Totalentry[i]}
     }
-    return children
+    dsx3Totaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Totaltable.EntityData)
 }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetYangName() string { return "dsx3TotalTable" }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) SetParent(parent types.Entity) { dsx3Totaltable.parent = parent }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetParent() types.Entity { return dsx3Totaltable.parent }
-
-func (dsx3Totaltable *DS3MIB_Dsx3Totaltable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Totaltable_Dsx3Totalentry
 // An entry in the DS3/E3 Total table.
 type DS3MIB_Dsx3Totaltable_Dsx3Totalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the
@@ -1129,78 +779,38 @@ type DS3MIB_Dsx3Totaltable_Dsx3Totalentry struct {
     Dsx3Totalcsess interface{}
 }
 
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetFilter() yfilter.YFilter { return dsx3Totalentry.YFilter }
+func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetEntityData() *types.CommonEntityData {
+    dsx3Totalentry.EntityData.YFilter = dsx3Totalentry.YFilter
+    dsx3Totalentry.EntityData.YangName = "dsx3TotalEntry"
+    dsx3Totalentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Totalentry.EntityData.ParentYangName = "dsx3TotalTable"
+    dsx3Totalentry.EntityData.SegmentPath = "dsx3TotalEntry" + "[dsx3TotalIndex='" + fmt.Sprintf("%v", dsx3Totalentry.Dsx3Totalindex) + "']"
+    dsx3Totalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Totalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Totalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) SetFilter(yf yfilter.YFilter) { dsx3Totalentry.YFilter = yf }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetGoName(yname string) string {
-    if yname == "dsx3TotalIndex" { return "Dsx3Totalindex" }
-    if yname == "dsx3TotalPESs" { return "Dsx3Totalpess" }
-    if yname == "dsx3TotalPSESs" { return "Dsx3Totalpsess" }
-    if yname == "dsx3TotalSEFSs" { return "Dsx3Totalsefss" }
-    if yname == "dsx3TotalUASs" { return "Dsx3Totaluass" }
-    if yname == "dsx3TotalLCVs" { return "Dsx3Totallcvs" }
-    if yname == "dsx3TotalPCVs" { return "Dsx3Totalpcvs" }
-    if yname == "dsx3TotalLESs" { return "Dsx3Totalless" }
-    if yname == "dsx3TotalCCVs" { return "Dsx3Totalccvs" }
-    if yname == "dsx3TotalCESs" { return "Dsx3Totalcess" }
-    if yname == "dsx3TotalCSESs" { return "Dsx3Totalcsess" }
-    return ""
+    dsx3Totalentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Totalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalIndex"] = types.YLeaf{"Dsx3Totalindex", dsx3Totalentry.Dsx3Totalindex}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalPESs"] = types.YLeaf{"Dsx3Totalpess", dsx3Totalentry.Dsx3Totalpess}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalPSESs"] = types.YLeaf{"Dsx3Totalpsess", dsx3Totalentry.Dsx3Totalpsess}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalSEFSs"] = types.YLeaf{"Dsx3Totalsefss", dsx3Totalentry.Dsx3Totalsefss}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalUASs"] = types.YLeaf{"Dsx3Totaluass", dsx3Totalentry.Dsx3Totaluass}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalLCVs"] = types.YLeaf{"Dsx3Totallcvs", dsx3Totalentry.Dsx3Totallcvs}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalPCVs"] = types.YLeaf{"Dsx3Totalpcvs", dsx3Totalentry.Dsx3Totalpcvs}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalLESs"] = types.YLeaf{"Dsx3Totalless", dsx3Totalentry.Dsx3Totalless}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalCCVs"] = types.YLeaf{"Dsx3Totalccvs", dsx3Totalentry.Dsx3Totalccvs}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalCESs"] = types.YLeaf{"Dsx3Totalcess", dsx3Totalentry.Dsx3Totalcess}
+    dsx3Totalentry.EntityData.Leafs["dsx3TotalCSESs"] = types.YLeaf{"Dsx3Totalcsess", dsx3Totalentry.Dsx3Totalcsess}
+    return &(dsx3Totalentry.EntityData)
 }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetSegmentPath() string {
-    return "dsx3TotalEntry" + "[dsx3TotalIndex='" + fmt.Sprintf("%v", dsx3Totalentry.Dsx3Totalindex) + "']"
-}
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3TotalIndex"] = dsx3Totalentry.Dsx3Totalindex
-    leafs["dsx3TotalPESs"] = dsx3Totalentry.Dsx3Totalpess
-    leafs["dsx3TotalPSESs"] = dsx3Totalentry.Dsx3Totalpsess
-    leafs["dsx3TotalSEFSs"] = dsx3Totalentry.Dsx3Totalsefss
-    leafs["dsx3TotalUASs"] = dsx3Totalentry.Dsx3Totaluass
-    leafs["dsx3TotalLCVs"] = dsx3Totalentry.Dsx3Totallcvs
-    leafs["dsx3TotalPCVs"] = dsx3Totalentry.Dsx3Totalpcvs
-    leafs["dsx3TotalLESs"] = dsx3Totalentry.Dsx3Totalless
-    leafs["dsx3TotalCCVs"] = dsx3Totalentry.Dsx3Totalccvs
-    leafs["dsx3TotalCESs"] = dsx3Totalentry.Dsx3Totalcess
-    leafs["dsx3TotalCSESs"] = dsx3Totalentry.Dsx3Totalcsess
-    return leafs
-}
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetYangName() string { return "dsx3TotalEntry" }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) SetParent(parent types.Entity) { dsx3Totalentry.parent = parent }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetParent() types.Entity { return dsx3Totalentry.parent }
-
-func (dsx3Totalentry *DS3MIB_Dsx3Totaltable_Dsx3Totalentry) GetParentYangName() string { return "dsx3TotalTable" }
 
 // DS3MIB_Dsx3Farendconfigtable
 // The DS3 Far End Configuration Table contains
 // configuration information reported in the C-bits
 // from the remote end.
 type DS3MIB_Dsx3Farendconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3 Far End Configuration table. The type is slice of
@@ -1208,68 +818,29 @@ type DS3MIB_Dsx3Farendconfigtable struct {
     Dsx3Farendconfigentry []DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry
 }
 
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetFilter() yfilter.YFilter { return dsx3Farendconfigtable.YFilter }
+func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetEntityData() *types.CommonEntityData {
+    dsx3Farendconfigtable.EntityData.YFilter = dsx3Farendconfigtable.YFilter
+    dsx3Farendconfigtable.EntityData.YangName = "dsx3FarEndConfigTable"
+    dsx3Farendconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendconfigtable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Farendconfigtable.EntityData.SegmentPath = "dsx3FarEndConfigTable"
+    dsx3Farendconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) SetFilter(yf yfilter.YFilter) { dsx3Farendconfigtable.YFilter = yf }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetGoName(yname string) string {
-    if yname == "dsx3FarEndConfigEntry" { return "Dsx3Farendconfigentry" }
-    return ""
-}
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetSegmentPath() string {
-    return "dsx3FarEndConfigTable"
-}
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3FarEndConfigEntry" {
-        for _, c := range dsx3Farendconfigtable.Dsx3Farendconfigentry {
-            if dsx3Farendconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry{}
-        dsx3Farendconfigtable.Dsx3Farendconfigentry = append(dsx3Farendconfigtable.Dsx3Farendconfigentry, child)
-        return &dsx3Farendconfigtable.Dsx3Farendconfigentry[len(dsx3Farendconfigtable.Dsx3Farendconfigentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Farendconfigtable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendconfigtable.EntityData.Children["dsx3FarEndConfigEntry"] = types.YChild{"Dsx3Farendconfigentry", nil}
     for i := range dsx3Farendconfigtable.Dsx3Farendconfigentry {
-        children[dsx3Farendconfigtable.Dsx3Farendconfigentry[i].GetSegmentPath()] = &dsx3Farendconfigtable.Dsx3Farendconfigentry[i]
+        dsx3Farendconfigtable.EntityData.Children[types.GetSegmentPath(&dsx3Farendconfigtable.Dsx3Farendconfigentry[i])] = types.YChild{"Dsx3Farendconfigentry", &dsx3Farendconfigtable.Dsx3Farendconfigentry[i]}
     }
-    return children
+    dsx3Farendconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Farendconfigtable.EntityData)
 }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetYangName() string { return "dsx3FarEndConfigTable" }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) SetParent(parent types.Entity) { dsx3Farendconfigtable.parent = parent }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetParent() types.Entity { return dsx3Farendconfigtable.parent }
-
-func (dsx3Farendconfigtable *DS3MIB_Dsx3Farendconfigtable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry
 // An entry in the DS3 Far End Configuration table.
 type DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the DS3
@@ -1305,61 +876,26 @@ type DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry struct {
     Dsx3Farendfacilityidcode interface{}
 }
 
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetFilter() yfilter.YFilter { return dsx3Farendconfigentry.YFilter }
+func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetEntityData() *types.CommonEntityData {
+    dsx3Farendconfigentry.EntityData.YFilter = dsx3Farendconfigentry.YFilter
+    dsx3Farendconfigentry.EntityData.YangName = "dsx3FarEndConfigEntry"
+    dsx3Farendconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendconfigentry.EntityData.ParentYangName = "dsx3FarEndConfigTable"
+    dsx3Farendconfigentry.EntityData.SegmentPath = "dsx3FarEndConfigEntry" + "[dsx3FarEndLineIndex='" + fmt.Sprintf("%v", dsx3Farendconfigentry.Dsx3Farendlineindex) + "']"
+    dsx3Farendconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) SetFilter(yf yfilter.YFilter) { dsx3Farendconfigentry.YFilter = yf }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetGoName(yname string) string {
-    if yname == "dsx3FarEndLineIndex" { return "Dsx3Farendlineindex" }
-    if yname == "dsx3FarEndEquipCode" { return "Dsx3Farendequipcode" }
-    if yname == "dsx3FarEndLocationIDCode" { return "Dsx3Farendlocationidcode" }
-    if yname == "dsx3FarEndFrameIDCode" { return "Dsx3Farendframeidcode" }
-    if yname == "dsx3FarEndUnitCode" { return "Dsx3Farendunitcode" }
-    if yname == "dsx3FarEndFacilityIDCode" { return "Dsx3Farendfacilityidcode" }
-    return ""
+    dsx3Farendconfigentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Farendconfigentry.EntityData.Leafs["dsx3FarEndLineIndex"] = types.YLeaf{"Dsx3Farendlineindex", dsx3Farendconfigentry.Dsx3Farendlineindex}
+    dsx3Farendconfigentry.EntityData.Leafs["dsx3FarEndEquipCode"] = types.YLeaf{"Dsx3Farendequipcode", dsx3Farendconfigentry.Dsx3Farendequipcode}
+    dsx3Farendconfigentry.EntityData.Leafs["dsx3FarEndLocationIDCode"] = types.YLeaf{"Dsx3Farendlocationidcode", dsx3Farendconfigentry.Dsx3Farendlocationidcode}
+    dsx3Farendconfigentry.EntityData.Leafs["dsx3FarEndFrameIDCode"] = types.YLeaf{"Dsx3Farendframeidcode", dsx3Farendconfigentry.Dsx3Farendframeidcode}
+    dsx3Farendconfigentry.EntityData.Leafs["dsx3FarEndUnitCode"] = types.YLeaf{"Dsx3Farendunitcode", dsx3Farendconfigentry.Dsx3Farendunitcode}
+    dsx3Farendconfigentry.EntityData.Leafs["dsx3FarEndFacilityIDCode"] = types.YLeaf{"Dsx3Farendfacilityidcode", dsx3Farendconfigentry.Dsx3Farendfacilityidcode}
+    return &(dsx3Farendconfigentry.EntityData)
 }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetSegmentPath() string {
-    return "dsx3FarEndConfigEntry" + "[dsx3FarEndLineIndex='" + fmt.Sprintf("%v", dsx3Farendconfigentry.Dsx3Farendlineindex) + "']"
-}
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3FarEndLineIndex"] = dsx3Farendconfigentry.Dsx3Farendlineindex
-    leafs["dsx3FarEndEquipCode"] = dsx3Farendconfigentry.Dsx3Farendequipcode
-    leafs["dsx3FarEndLocationIDCode"] = dsx3Farendconfigentry.Dsx3Farendlocationidcode
-    leafs["dsx3FarEndFrameIDCode"] = dsx3Farendconfigentry.Dsx3Farendframeidcode
-    leafs["dsx3FarEndUnitCode"] = dsx3Farendconfigentry.Dsx3Farendunitcode
-    leafs["dsx3FarEndFacilityIDCode"] = dsx3Farendconfigentry.Dsx3Farendfacilityidcode
-    return leafs
-}
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetYangName() string { return "dsx3FarEndConfigEntry" }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) SetParent(parent types.Entity) { dsx3Farendconfigentry.parent = parent }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetParent() types.Entity { return dsx3Farendconfigentry.parent }
-
-func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry) GetParentYangName() string { return "dsx3FarEndConfigTable" }
 
 // DS3MIB_Dsx3Farendcurrenttable
 // The DS3 Far End Current table contains various
@@ -1368,7 +904,7 @@ func (dsx3Farendconfigentry *DS3MIB_Dsx3Farendconfigtable_Dsx3Farendconfigentry)
 // from the far end block error code within the C-
 // bits.
 type DS3MIB_Dsx3Farendcurrenttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3 Far End Current table. The type is slice of
@@ -1376,68 +912,29 @@ type DS3MIB_Dsx3Farendcurrenttable struct {
     Dsx3Farendcurrententry []DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry
 }
 
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetFilter() yfilter.YFilter { return dsx3Farendcurrenttable.YFilter }
+func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetEntityData() *types.CommonEntityData {
+    dsx3Farendcurrenttable.EntityData.YFilter = dsx3Farendcurrenttable.YFilter
+    dsx3Farendcurrenttable.EntityData.YangName = "dsx3FarEndCurrentTable"
+    dsx3Farendcurrenttable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendcurrenttable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Farendcurrenttable.EntityData.SegmentPath = "dsx3FarEndCurrentTable"
+    dsx3Farendcurrenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendcurrenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendcurrenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) SetFilter(yf yfilter.YFilter) { dsx3Farendcurrenttable.YFilter = yf }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetGoName(yname string) string {
-    if yname == "dsx3FarEndCurrentEntry" { return "Dsx3Farendcurrententry" }
-    return ""
-}
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetSegmentPath() string {
-    return "dsx3FarEndCurrentTable"
-}
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3FarEndCurrentEntry" {
-        for _, c := range dsx3Farendcurrenttable.Dsx3Farendcurrententry {
-            if dsx3Farendcurrenttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry{}
-        dsx3Farendcurrenttable.Dsx3Farendcurrententry = append(dsx3Farendcurrenttable.Dsx3Farendcurrententry, child)
-        return &dsx3Farendcurrenttable.Dsx3Farendcurrententry[len(dsx3Farendcurrenttable.Dsx3Farendcurrententry)-1]
-    }
-    return nil
-}
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Farendcurrenttable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendcurrenttable.EntityData.Children["dsx3FarEndCurrentEntry"] = types.YChild{"Dsx3Farendcurrententry", nil}
     for i := range dsx3Farendcurrenttable.Dsx3Farendcurrententry {
-        children[dsx3Farendcurrenttable.Dsx3Farendcurrententry[i].GetSegmentPath()] = &dsx3Farendcurrenttable.Dsx3Farendcurrententry[i]
+        dsx3Farendcurrenttable.EntityData.Children[types.GetSegmentPath(&dsx3Farendcurrenttable.Dsx3Farendcurrententry[i])] = types.YChild{"Dsx3Farendcurrententry", &dsx3Farendcurrenttable.Dsx3Farendcurrententry[i]}
     }
-    return children
+    dsx3Farendcurrenttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Farendcurrenttable.EntityData)
 }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetYangName() string { return "dsx3FarEndCurrentTable" }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) SetParent(parent types.Entity) { dsx3Farendcurrenttable.parent = parent }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetParent() types.Entity { return dsx3Farendcurrenttable.parent }
-
-func (dsx3Farendcurrenttable *DS3MIB_Dsx3Farendcurrenttable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry
 // An entry in the DS3 Far End Current table.
 type DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the DS3
@@ -1485,65 +982,28 @@ type DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry struct {
     Dsx3Farendinvalidintervals interface{}
 }
 
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetFilter() yfilter.YFilter { return dsx3Farendcurrententry.YFilter }
+func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetEntityData() *types.CommonEntityData {
+    dsx3Farendcurrententry.EntityData.YFilter = dsx3Farendcurrententry.YFilter
+    dsx3Farendcurrententry.EntityData.YangName = "dsx3FarEndCurrentEntry"
+    dsx3Farendcurrententry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendcurrententry.EntityData.ParentYangName = "dsx3FarEndCurrentTable"
+    dsx3Farendcurrententry.EntityData.SegmentPath = "dsx3FarEndCurrentEntry" + "[dsx3FarEndCurrentIndex='" + fmt.Sprintf("%v", dsx3Farendcurrententry.Dsx3Farendcurrentindex) + "']"
+    dsx3Farendcurrententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendcurrententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendcurrententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) SetFilter(yf yfilter.YFilter) { dsx3Farendcurrententry.YFilter = yf }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetGoName(yname string) string {
-    if yname == "dsx3FarEndCurrentIndex" { return "Dsx3Farendcurrentindex" }
-    if yname == "dsx3FarEndTimeElapsed" { return "Dsx3Farendtimeelapsed" }
-    if yname == "dsx3FarEndValidIntervals" { return "Dsx3Farendvalidintervals" }
-    if yname == "dsx3FarEndCurrentCESs" { return "Dsx3Farendcurrentcess" }
-    if yname == "dsx3FarEndCurrentCSESs" { return "Dsx3Farendcurrentcsess" }
-    if yname == "dsx3FarEndCurrentCCVs" { return "Dsx3Farendcurrentccvs" }
-    if yname == "dsx3FarEndCurrentUASs" { return "Dsx3Farendcurrentuass" }
-    if yname == "dsx3FarEndInvalidIntervals" { return "Dsx3Farendinvalidintervals" }
-    return ""
+    dsx3Farendcurrententry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendcurrententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndCurrentIndex"] = types.YLeaf{"Dsx3Farendcurrentindex", dsx3Farendcurrententry.Dsx3Farendcurrentindex}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndTimeElapsed"] = types.YLeaf{"Dsx3Farendtimeelapsed", dsx3Farendcurrententry.Dsx3Farendtimeelapsed}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndValidIntervals"] = types.YLeaf{"Dsx3Farendvalidintervals", dsx3Farendcurrententry.Dsx3Farendvalidintervals}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndCurrentCESs"] = types.YLeaf{"Dsx3Farendcurrentcess", dsx3Farendcurrententry.Dsx3Farendcurrentcess}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndCurrentCSESs"] = types.YLeaf{"Dsx3Farendcurrentcsess", dsx3Farendcurrententry.Dsx3Farendcurrentcsess}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndCurrentCCVs"] = types.YLeaf{"Dsx3Farendcurrentccvs", dsx3Farendcurrententry.Dsx3Farendcurrentccvs}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndCurrentUASs"] = types.YLeaf{"Dsx3Farendcurrentuass", dsx3Farendcurrententry.Dsx3Farendcurrentuass}
+    dsx3Farendcurrententry.EntityData.Leafs["dsx3FarEndInvalidIntervals"] = types.YLeaf{"Dsx3Farendinvalidintervals", dsx3Farendcurrententry.Dsx3Farendinvalidintervals}
+    return &(dsx3Farendcurrententry.EntityData)
 }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetSegmentPath() string {
-    return "dsx3FarEndCurrentEntry" + "[dsx3FarEndCurrentIndex='" + fmt.Sprintf("%v", dsx3Farendcurrententry.Dsx3Farendcurrentindex) + "']"
-}
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3FarEndCurrentIndex"] = dsx3Farendcurrententry.Dsx3Farendcurrentindex
-    leafs["dsx3FarEndTimeElapsed"] = dsx3Farendcurrententry.Dsx3Farendtimeelapsed
-    leafs["dsx3FarEndValidIntervals"] = dsx3Farendcurrententry.Dsx3Farendvalidintervals
-    leafs["dsx3FarEndCurrentCESs"] = dsx3Farendcurrententry.Dsx3Farendcurrentcess
-    leafs["dsx3FarEndCurrentCSESs"] = dsx3Farendcurrententry.Dsx3Farendcurrentcsess
-    leafs["dsx3FarEndCurrentCCVs"] = dsx3Farendcurrententry.Dsx3Farendcurrentccvs
-    leafs["dsx3FarEndCurrentUASs"] = dsx3Farendcurrententry.Dsx3Farendcurrentuass
-    leafs["dsx3FarEndInvalidIntervals"] = dsx3Farendcurrententry.Dsx3Farendinvalidintervals
-    return leafs
-}
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetYangName() string { return "dsx3FarEndCurrentEntry" }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) SetParent(parent types.Entity) { dsx3Farendcurrententry.parent = parent }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetParent() types.Entity { return dsx3Farendcurrententry.parent }
-
-func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrententry) GetParentYangName() string { return "dsx3FarEndCurrentTable" }
 
 // DS3MIB_Dsx3Farendintervaltable
 // The DS3 Far End Interval Table contains various
@@ -1552,7 +1012,7 @@ func (dsx3Farendcurrententry *DS3MIB_Dsx3Farendcurrenttable_Dsx3Farendcurrentent
 // hours are broken into 96 completed 15 minute
 // intervals.
 type DS3MIB_Dsx3Farendintervaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3 Far End Interval table. The type is slice of
@@ -1560,68 +1020,29 @@ type DS3MIB_Dsx3Farendintervaltable struct {
     Dsx3Farendintervalentry []DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry
 }
 
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetFilter() yfilter.YFilter { return dsx3Farendintervaltable.YFilter }
+func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetEntityData() *types.CommonEntityData {
+    dsx3Farendintervaltable.EntityData.YFilter = dsx3Farendintervaltable.YFilter
+    dsx3Farendintervaltable.EntityData.YangName = "dsx3FarEndIntervalTable"
+    dsx3Farendintervaltable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendintervaltable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Farendintervaltable.EntityData.SegmentPath = "dsx3FarEndIntervalTable"
+    dsx3Farendintervaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendintervaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendintervaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) SetFilter(yf yfilter.YFilter) { dsx3Farendintervaltable.YFilter = yf }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetGoName(yname string) string {
-    if yname == "dsx3FarEndIntervalEntry" { return "Dsx3Farendintervalentry" }
-    return ""
-}
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetSegmentPath() string {
-    return "dsx3FarEndIntervalTable"
-}
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3FarEndIntervalEntry" {
-        for _, c := range dsx3Farendintervaltable.Dsx3Farendintervalentry {
-            if dsx3Farendintervaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry{}
-        dsx3Farendintervaltable.Dsx3Farendintervalentry = append(dsx3Farendintervaltable.Dsx3Farendintervalentry, child)
-        return &dsx3Farendintervaltable.Dsx3Farendintervalentry[len(dsx3Farendintervaltable.Dsx3Farendintervalentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Farendintervaltable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendintervaltable.EntityData.Children["dsx3FarEndIntervalEntry"] = types.YChild{"Dsx3Farendintervalentry", nil}
     for i := range dsx3Farendintervaltable.Dsx3Farendintervalentry {
-        children[dsx3Farendintervaltable.Dsx3Farendintervalentry[i].GetSegmentPath()] = &dsx3Farendintervaltable.Dsx3Farendintervalentry[i]
+        dsx3Farendintervaltable.EntityData.Children[types.GetSegmentPath(&dsx3Farendintervaltable.Dsx3Farendintervalentry[i])] = types.YChild{"Dsx3Farendintervalentry", &dsx3Farendintervaltable.Dsx3Farendintervalentry[i]}
     }
-    return children
+    dsx3Farendintervaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Farendintervaltable.EntityData)
 }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetYangName() string { return "dsx3FarEndIntervalTable" }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) SetParent(parent types.Entity) { dsx3Farendintervaltable.parent = parent }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetParent() types.Entity { return dsx3Farendintervaltable.parent }
-
-func (dsx3Farendintervaltable *DS3MIB_Dsx3Farendintervaltable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry
 // An entry in the DS3 Far End Interval table.
 type DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the DS3
@@ -1662,70 +1083,34 @@ type DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry struct {
     Dsx3Farendintervalvaliddata interface{}
 }
 
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetFilter() yfilter.YFilter { return dsx3Farendintervalentry.YFilter }
+func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetEntityData() *types.CommonEntityData {
+    dsx3Farendintervalentry.EntityData.YFilter = dsx3Farendintervalentry.YFilter
+    dsx3Farendintervalentry.EntityData.YangName = "dsx3FarEndIntervalEntry"
+    dsx3Farendintervalentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendintervalentry.EntityData.ParentYangName = "dsx3FarEndIntervalTable"
+    dsx3Farendintervalentry.EntityData.SegmentPath = "dsx3FarEndIntervalEntry" + "[dsx3FarEndIntervalIndex='" + fmt.Sprintf("%v", dsx3Farendintervalentry.Dsx3Farendintervalindex) + "']" + "[dsx3FarEndIntervalNumber='" + fmt.Sprintf("%v", dsx3Farendintervalentry.Dsx3Farendintervalnumber) + "']"
+    dsx3Farendintervalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendintervalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendintervalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) SetFilter(yf yfilter.YFilter) { dsx3Farendintervalentry.YFilter = yf }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetGoName(yname string) string {
-    if yname == "dsx3FarEndIntervalIndex" { return "Dsx3Farendintervalindex" }
-    if yname == "dsx3FarEndIntervalNumber" { return "Dsx3Farendintervalnumber" }
-    if yname == "dsx3FarEndIntervalCESs" { return "Dsx3Farendintervalcess" }
-    if yname == "dsx3FarEndIntervalCSESs" { return "Dsx3Farendintervalcsess" }
-    if yname == "dsx3FarEndIntervalCCVs" { return "Dsx3Farendintervalccvs" }
-    if yname == "dsx3FarEndIntervalUASs" { return "Dsx3Farendintervaluass" }
-    if yname == "dsx3FarEndIntervalValidData" { return "Dsx3Farendintervalvaliddata" }
-    return ""
+    dsx3Farendintervalentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendintervalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalIndex"] = types.YLeaf{"Dsx3Farendintervalindex", dsx3Farendintervalentry.Dsx3Farendintervalindex}
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalNumber"] = types.YLeaf{"Dsx3Farendintervalnumber", dsx3Farendintervalentry.Dsx3Farendintervalnumber}
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalCESs"] = types.YLeaf{"Dsx3Farendintervalcess", dsx3Farendintervalentry.Dsx3Farendintervalcess}
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalCSESs"] = types.YLeaf{"Dsx3Farendintervalcsess", dsx3Farendintervalentry.Dsx3Farendintervalcsess}
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalCCVs"] = types.YLeaf{"Dsx3Farendintervalccvs", dsx3Farendintervalentry.Dsx3Farendintervalccvs}
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalUASs"] = types.YLeaf{"Dsx3Farendintervaluass", dsx3Farendintervalentry.Dsx3Farendintervaluass}
+    dsx3Farendintervalentry.EntityData.Leafs["dsx3FarEndIntervalValidData"] = types.YLeaf{"Dsx3Farendintervalvaliddata", dsx3Farendintervalentry.Dsx3Farendintervalvaliddata}
+    return &(dsx3Farendintervalentry.EntityData)
 }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetSegmentPath() string {
-    return "dsx3FarEndIntervalEntry" + "[dsx3FarEndIntervalIndex='" + fmt.Sprintf("%v", dsx3Farendintervalentry.Dsx3Farendintervalindex) + "']" + "[dsx3FarEndIntervalNumber='" + fmt.Sprintf("%v", dsx3Farendintervalentry.Dsx3Farendintervalnumber) + "']"
-}
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3FarEndIntervalIndex"] = dsx3Farendintervalentry.Dsx3Farendintervalindex
-    leafs["dsx3FarEndIntervalNumber"] = dsx3Farendintervalentry.Dsx3Farendintervalnumber
-    leafs["dsx3FarEndIntervalCESs"] = dsx3Farendintervalentry.Dsx3Farendintervalcess
-    leafs["dsx3FarEndIntervalCSESs"] = dsx3Farendintervalentry.Dsx3Farendintervalcsess
-    leafs["dsx3FarEndIntervalCCVs"] = dsx3Farendintervalentry.Dsx3Farendintervalccvs
-    leafs["dsx3FarEndIntervalUASs"] = dsx3Farendintervalentry.Dsx3Farendintervaluass
-    leafs["dsx3FarEndIntervalValidData"] = dsx3Farendintervalentry.Dsx3Farendintervalvaliddata
-    return leafs
-}
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetYangName() string { return "dsx3FarEndIntervalEntry" }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) SetParent(parent types.Entity) { dsx3Farendintervalentry.parent = parent }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetParent() types.Entity { return dsx3Farendintervalentry.parent }
-
-func (dsx3Farendintervalentry *DS3MIB_Dsx3Farendintervaltable_Dsx3Farendintervalentry) GetParentYangName() string { return "dsx3FarEndIntervalTable" }
 
 // DS3MIB_Dsx3Farendtotaltable
 // The DS3 Far End Total Table contains the
 // cumulative sum of the various statistics for the
 // 24 hour period preceding the current interval.
 type DS3MIB_Dsx3Farendtotaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3 Far End Total table. The type is slice of
@@ -1733,68 +1118,29 @@ type DS3MIB_Dsx3Farendtotaltable struct {
     Dsx3Farendtotalentry []DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry
 }
 
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetFilter() yfilter.YFilter { return dsx3Farendtotaltable.YFilter }
+func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetEntityData() *types.CommonEntityData {
+    dsx3Farendtotaltable.EntityData.YFilter = dsx3Farendtotaltable.YFilter
+    dsx3Farendtotaltable.EntityData.YangName = "dsx3FarEndTotalTable"
+    dsx3Farendtotaltable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendtotaltable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Farendtotaltable.EntityData.SegmentPath = "dsx3FarEndTotalTable"
+    dsx3Farendtotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendtotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendtotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) SetFilter(yf yfilter.YFilter) { dsx3Farendtotaltable.YFilter = yf }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetGoName(yname string) string {
-    if yname == "dsx3FarEndTotalEntry" { return "Dsx3Farendtotalentry" }
-    return ""
-}
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetSegmentPath() string {
-    return "dsx3FarEndTotalTable"
-}
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3FarEndTotalEntry" {
-        for _, c := range dsx3Farendtotaltable.Dsx3Farendtotalentry {
-            if dsx3Farendtotaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry{}
-        dsx3Farendtotaltable.Dsx3Farendtotalentry = append(dsx3Farendtotaltable.Dsx3Farendtotalentry, child)
-        return &dsx3Farendtotaltable.Dsx3Farendtotalentry[len(dsx3Farendtotaltable.Dsx3Farendtotalentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Farendtotaltable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendtotaltable.EntityData.Children["dsx3FarEndTotalEntry"] = types.YChild{"Dsx3Farendtotalentry", nil}
     for i := range dsx3Farendtotaltable.Dsx3Farendtotalentry {
-        children[dsx3Farendtotaltable.Dsx3Farendtotalentry[i].GetSegmentPath()] = &dsx3Farendtotaltable.Dsx3Farendtotalentry[i]
+        dsx3Farendtotaltable.EntityData.Children[types.GetSegmentPath(&dsx3Farendtotaltable.Dsx3Farendtotalentry[i])] = types.YChild{"Dsx3Farendtotalentry", &dsx3Farendtotaltable.Dsx3Farendtotalentry[i]}
     }
-    return children
+    dsx3Farendtotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Farendtotaltable.EntityData)
 }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetYangName() string { return "dsx3FarEndTotalTable" }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) SetParent(parent types.Entity) { dsx3Farendtotaltable.parent = parent }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetParent() types.Entity { return dsx3Farendtotaltable.parent }
-
-func (dsx3Farendtotaltable *DS3MIB_Dsx3Farendtotaltable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry
 // An entry in the DS3 Far End Total table.
 type DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies the DS3
@@ -1829,59 +1175,25 @@ type DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry struct {
     Dsx3Farendtotaluass interface{}
 }
 
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetFilter() yfilter.YFilter { return dsx3Farendtotalentry.YFilter }
+func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetEntityData() *types.CommonEntityData {
+    dsx3Farendtotalentry.EntityData.YFilter = dsx3Farendtotalentry.YFilter
+    dsx3Farendtotalentry.EntityData.YangName = "dsx3FarEndTotalEntry"
+    dsx3Farendtotalentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Farendtotalentry.EntityData.ParentYangName = "dsx3FarEndTotalTable"
+    dsx3Farendtotalentry.EntityData.SegmentPath = "dsx3FarEndTotalEntry" + "[dsx3FarEndTotalIndex='" + fmt.Sprintf("%v", dsx3Farendtotalentry.Dsx3Farendtotalindex) + "']"
+    dsx3Farendtotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Farendtotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Farendtotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) SetFilter(yf yfilter.YFilter) { dsx3Farendtotalentry.YFilter = yf }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetGoName(yname string) string {
-    if yname == "dsx3FarEndTotalIndex" { return "Dsx3Farendtotalindex" }
-    if yname == "dsx3FarEndTotalCESs" { return "Dsx3Farendtotalcess" }
-    if yname == "dsx3FarEndTotalCSESs" { return "Dsx3Farendtotalcsess" }
-    if yname == "dsx3FarEndTotalCCVs" { return "Dsx3Farendtotalccvs" }
-    if yname == "dsx3FarEndTotalUASs" { return "Dsx3Farendtotaluass" }
-    return ""
+    dsx3Farendtotalentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Farendtotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Farendtotalentry.EntityData.Leafs["dsx3FarEndTotalIndex"] = types.YLeaf{"Dsx3Farendtotalindex", dsx3Farendtotalentry.Dsx3Farendtotalindex}
+    dsx3Farendtotalentry.EntityData.Leafs["dsx3FarEndTotalCESs"] = types.YLeaf{"Dsx3Farendtotalcess", dsx3Farendtotalentry.Dsx3Farendtotalcess}
+    dsx3Farendtotalentry.EntityData.Leafs["dsx3FarEndTotalCSESs"] = types.YLeaf{"Dsx3Farendtotalcsess", dsx3Farendtotalentry.Dsx3Farendtotalcsess}
+    dsx3Farendtotalentry.EntityData.Leafs["dsx3FarEndTotalCCVs"] = types.YLeaf{"Dsx3Farendtotalccvs", dsx3Farendtotalentry.Dsx3Farendtotalccvs}
+    dsx3Farendtotalentry.EntityData.Leafs["dsx3FarEndTotalUASs"] = types.YLeaf{"Dsx3Farendtotaluass", dsx3Farendtotalentry.Dsx3Farendtotaluass}
+    return &(dsx3Farendtotalentry.EntityData)
 }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetSegmentPath() string {
-    return "dsx3FarEndTotalEntry" + "[dsx3FarEndTotalIndex='" + fmt.Sprintf("%v", dsx3Farendtotalentry.Dsx3Farendtotalindex) + "']"
-}
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3FarEndTotalIndex"] = dsx3Farendtotalentry.Dsx3Farendtotalindex
-    leafs["dsx3FarEndTotalCESs"] = dsx3Farendtotalentry.Dsx3Farendtotalcess
-    leafs["dsx3FarEndTotalCSESs"] = dsx3Farendtotalentry.Dsx3Farendtotalcsess
-    leafs["dsx3FarEndTotalCCVs"] = dsx3Farendtotalentry.Dsx3Farendtotalccvs
-    leafs["dsx3FarEndTotalUASs"] = dsx3Farendtotalentry.Dsx3Farendtotaluass
-    return leafs
-}
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetYangName() string { return "dsx3FarEndTotalEntry" }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) SetParent(parent types.Entity) { dsx3Farendtotalentry.parent = parent }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetParent() types.Entity { return dsx3Farendtotalentry.parent }
-
-func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) GetParentYangName() string { return "dsx3FarEndTotalTable" }
 
 // DS3MIB_Dsx3Fractable
 // This table is deprecated in favour of using
@@ -1926,7 +1238,7 @@ func (dsx3Farendtotalentry *DS3MIB_Dsx3Farendtotaltable_Dsx3Farendtotalentry) Ge
 // 1 through 16.  The channels (1..16) correspond
 // directly to the equivalently numbered time-slots.
 type DS3MIB_Dsx3Fractable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the DS3 Fractional table. The type is slice of
@@ -1934,68 +1246,29 @@ type DS3MIB_Dsx3Fractable struct {
     Dsx3Fracentry []DS3MIB_Dsx3Fractable_Dsx3Fracentry
 }
 
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetFilter() yfilter.YFilter { return dsx3Fractable.YFilter }
+func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetEntityData() *types.CommonEntityData {
+    dsx3Fractable.EntityData.YFilter = dsx3Fractable.YFilter
+    dsx3Fractable.EntityData.YangName = "dsx3FracTable"
+    dsx3Fractable.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Fractable.EntityData.ParentYangName = "DS3-MIB"
+    dsx3Fractable.EntityData.SegmentPath = "dsx3FracTable"
+    dsx3Fractable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Fractable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Fractable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) SetFilter(yf yfilter.YFilter) { dsx3Fractable.YFilter = yf }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetGoName(yname string) string {
-    if yname == "dsx3FracEntry" { return "Dsx3Fracentry" }
-    return ""
-}
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetSegmentPath() string {
-    return "dsx3FracTable"
-}
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dsx3FracEntry" {
-        for _, c := range dsx3Fractable.Dsx3Fracentry {
-            if dsx3Fractable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DS3MIB_Dsx3Fractable_Dsx3Fracentry{}
-        dsx3Fractable.Dsx3Fracentry = append(dsx3Fractable.Dsx3Fracentry, child)
-        return &dsx3Fractable.Dsx3Fracentry[len(dsx3Fractable.Dsx3Fracentry)-1]
-    }
-    return nil
-}
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dsx3Fractable.EntityData.Children = make(map[string]types.YChild)
+    dsx3Fractable.EntityData.Children["dsx3FracEntry"] = types.YChild{"Dsx3Fracentry", nil}
     for i := range dsx3Fractable.Dsx3Fracentry {
-        children[dsx3Fractable.Dsx3Fracentry[i].GetSegmentPath()] = &dsx3Fractable.Dsx3Fracentry[i]
+        dsx3Fractable.EntityData.Children[types.GetSegmentPath(&dsx3Fractable.Dsx3Fracentry[i])] = types.YChild{"Dsx3Fracentry", &dsx3Fractable.Dsx3Fracentry[i]}
     }
-    return children
+    dsx3Fractable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dsx3Fractable.EntityData)
 }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetYangName() string { return "dsx3FracTable" }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) SetParent(parent types.Entity) { dsx3Fractable.parent = parent }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetParent() types.Entity { return dsx3Fractable.parent }
-
-func (dsx3Fractable *DS3MIB_Dsx3Fractable) GetParentYangName() string { return "DS3-MIB" }
 
 // DS3MIB_Dsx3Fractable_Dsx3Fracentry
 // An entry in the DS3 Fractional table.
 type DS3MIB_Dsx3Fractable_Dsx3Fracentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value which uniquely identifies  the DS3
@@ -2018,53 +1291,21 @@ type DS3MIB_Dsx3Fractable_Dsx3Fracentry struct {
     Dsx3Fracifindex interface{}
 }
 
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetFilter() yfilter.YFilter { return dsx3Fracentry.YFilter }
+func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetEntityData() *types.CommonEntityData {
+    dsx3Fracentry.EntityData.YFilter = dsx3Fracentry.YFilter
+    dsx3Fracentry.EntityData.YangName = "dsx3FracEntry"
+    dsx3Fracentry.EntityData.BundleName = "cisco_ios_xe"
+    dsx3Fracentry.EntityData.ParentYangName = "dsx3FracTable"
+    dsx3Fracentry.EntityData.SegmentPath = "dsx3FracEntry" + "[dsx3FracIndex='" + fmt.Sprintf("%v", dsx3Fracentry.Dsx3Fracindex) + "']" + "[dsx3FracNumber='" + fmt.Sprintf("%v", dsx3Fracentry.Dsx3Fracnumber) + "']"
+    dsx3Fracentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsx3Fracentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsx3Fracentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) SetFilter(yf yfilter.YFilter) { dsx3Fracentry.YFilter = yf }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetGoName(yname string) string {
-    if yname == "dsx3FracIndex" { return "Dsx3Fracindex" }
-    if yname == "dsx3FracNumber" { return "Dsx3Fracnumber" }
-    if yname == "dsx3FracIfIndex" { return "Dsx3Fracifindex" }
-    return ""
+    dsx3Fracentry.EntityData.Children = make(map[string]types.YChild)
+    dsx3Fracentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsx3Fracentry.EntityData.Leafs["dsx3FracIndex"] = types.YLeaf{"Dsx3Fracindex", dsx3Fracentry.Dsx3Fracindex}
+    dsx3Fracentry.EntityData.Leafs["dsx3FracNumber"] = types.YLeaf{"Dsx3Fracnumber", dsx3Fracentry.Dsx3Fracnumber}
+    dsx3Fracentry.EntityData.Leafs["dsx3FracIfIndex"] = types.YLeaf{"Dsx3Fracifindex", dsx3Fracentry.Dsx3Fracifindex}
+    return &(dsx3Fracentry.EntityData)
 }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetSegmentPath() string {
-    return "dsx3FracEntry" + "[dsx3FracIndex='" + fmt.Sprintf("%v", dsx3Fracentry.Dsx3Fracindex) + "']" + "[dsx3FracNumber='" + fmt.Sprintf("%v", dsx3Fracentry.Dsx3Fracnumber) + "']"
-}
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dsx3FracIndex"] = dsx3Fracentry.Dsx3Fracindex
-    leafs["dsx3FracNumber"] = dsx3Fracentry.Dsx3Fracnumber
-    leafs["dsx3FracIfIndex"] = dsx3Fracentry.Dsx3Fracifindex
-    return leafs
-}
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetYangName() string { return "dsx3FracEntry" }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) SetParent(parent types.Entity) { dsx3Fracentry.parent = parent }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetParent() types.Entity { return dsx3Fracentry.parent }
-
-func (dsx3Fracentry *DS3MIB_Dsx3Fractable_Dsx3Fracentry) GetParentYangName() string { return "dsx3FracTable" }
 

@@ -23,7 +23,7 @@ func init() {
 
 // CISCOIETFMPLSTEEXTSTD03MIB
 type CISCOIETFMPLSTEEXTSTD03MIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table allows the administrator to map a node or LSR Identifier (IP
@@ -78,74 +78,25 @@ type CISCOIETFMPLSTEEXTSTD03MIB struct {
     Cmplstunnelreverseperftable CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable
 }
 
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetFilter() yfilter.YFilter { return cISCOIETFMPLSTEEXTSTD03MIB.YFilter }
+func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetEntityData() *types.CommonEntityData {
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.YFilter = cISCOIETFMPLSTEEXTSTD03MIB.YFilter
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.YangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.SegmentPath = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) SetFilter(yf yfilter.YFilter) { cISCOIETFMPLSTEEXTSTD03MIB.YFilter = yf }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetGoName(yname string) string {
-    if yname == "cmplsNodeConfigTable" { return "Cmplsnodeconfigtable" }
-    if yname == "cmplsNodeIpMapTable" { return "Cmplsnodeipmaptable" }
-    if yname == "cmplsNodeIccMapTable" { return "Cmplsnodeiccmaptable" }
-    if yname == "cmplsTunnelExtTable" { return "Cmplstunnelexttable" }
-    if yname == "cmplsTunnelReversePerfTable" { return "Cmplstunnelreverseperftable" }
-    return ""
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Children["cmplsNodeConfigTable"] = types.YChild{"Cmplsnodeconfigtable", &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable}
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Children["cmplsNodeIpMapTable"] = types.YChild{"Cmplsnodeipmaptable", &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable}
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Children["cmplsNodeIccMapTable"] = types.YChild{"Cmplsnodeiccmaptable", &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable}
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Children["cmplsTunnelExtTable"] = types.YChild{"Cmplstunnelexttable", &cISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable}
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Children["cmplsTunnelReversePerfTable"] = types.YChild{"Cmplstunnelreverseperftable", &cISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable}
+    cISCOIETFMPLSTEEXTSTD03MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIETFMPLSTEEXTSTD03MIB.EntityData)
 }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetSegmentPath() string {
-    return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB:CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
-}
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsNodeConfigTable" {
-        return &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable
-    }
-    if childYangName == "cmplsNodeIpMapTable" {
-        return &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable
-    }
-    if childYangName == "cmplsNodeIccMapTable" {
-        return &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable
-    }
-    if childYangName == "cmplsTunnelExtTable" {
-        return &cISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable
-    }
-    if childYangName == "cmplsTunnelReversePerfTable" {
-        return &cISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable
-    }
-    return nil
-}
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cmplsNodeConfigTable"] = &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeconfigtable
-    children["cmplsNodeIpMapTable"] = &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeipmaptable
-    children["cmplsNodeIccMapTable"] = &cISCOIETFMPLSTEEXTSTD03MIB.Cmplsnodeiccmaptable
-    children["cmplsTunnelExtTable"] = &cISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelexttable
-    children["cmplsTunnelReversePerfTable"] = &cISCOIETFMPLSTEEXTSTD03MIB.Cmplstunnelreverseperftable
-    return children
-}
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) SetParent(parent types.Entity) { cISCOIETFMPLSTEEXTSTD03MIB.parent = parent }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetParent() types.Entity { return cISCOIETFMPLSTEEXTSTD03MIB.parent }
-
-func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetParentYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable
 // This table allows the administrator to map a node or
@@ -165,7 +116,7 @@ func (cISCOIETFMPLSTEEXTSTD03MIB *CISCOIETFMPLSTEEXTSTD03MIB) GetParentYangName(
 // to index (Ingress/Egress LSR identifier)
 // the existing mplsTunnelTable.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents a mapping identification for the operator
@@ -176,63 +127,24 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable struct {
     Cmplsnodeconfigentry []CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry
 }
 
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetFilter() yfilter.YFilter { return cmplsnodeconfigtable.YFilter }
+func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetEntityData() *types.CommonEntityData {
+    cmplsnodeconfigtable.EntityData.YFilter = cmplsnodeconfigtable.YFilter
+    cmplsnodeconfigtable.EntityData.YangName = "cmplsNodeConfigTable"
+    cmplsnodeconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsnodeconfigtable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cmplsnodeconfigtable.EntityData.SegmentPath = "cmplsNodeConfigTable"
+    cmplsnodeconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsnodeconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsnodeconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) SetFilter(yf yfilter.YFilter) { cmplsnodeconfigtable.YFilter = yf }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetGoName(yname string) string {
-    if yname == "cmplsNodeConfigEntry" { return "Cmplsnodeconfigentry" }
-    return ""
-}
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetSegmentPath() string {
-    return "cmplsNodeConfigTable"
-}
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsNodeConfigEntry" {
-        for _, c := range cmplsnodeconfigtable.Cmplsnodeconfigentry {
-            if cmplsnodeconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry{}
-        cmplsnodeconfigtable.Cmplsnodeconfigentry = append(cmplsnodeconfigtable.Cmplsnodeconfigentry, child)
-        return &cmplsnodeconfigtable.Cmplsnodeconfigentry[len(cmplsnodeconfigtable.Cmplsnodeconfigentry)-1]
-    }
-    return nil
-}
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmplsnodeconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cmplsnodeconfigtable.EntityData.Children["cmplsNodeConfigEntry"] = types.YChild{"Cmplsnodeconfigentry", nil}
     for i := range cmplsnodeconfigtable.Cmplsnodeconfigentry {
-        children[cmplsnodeconfigtable.Cmplsnodeconfigentry[i].GetSegmentPath()] = &cmplsnodeconfigtable.Cmplsnodeconfigentry[i]
+        cmplsnodeconfigtable.EntityData.Children[types.GetSegmentPath(&cmplsnodeconfigtable.Cmplsnodeconfigentry[i])] = types.YChild{"Cmplsnodeconfigentry", &cmplsnodeconfigtable.Cmplsnodeconfigentry[i]}
     }
-    return children
+    cmplsnodeconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmplsnodeconfigtable.EntityData)
 }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetYangName() string { return "cmplsNodeConfigTable" }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) SetParent(parent types.Entity) { cmplsnodeconfigtable.parent = parent }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetParent() types.Entity { return cmplsnodeconfigtable.parent }
-
-func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) GetParentYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry
 // An entry in this table represents a mapping
@@ -246,7 +158,7 @@ func (cmplsnodeconfigtable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable) Get
 // Note: Each entry in this table should have a unique
 // Global_ID and Node_ID combination.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object allows the administrator to assign a
@@ -281,61 +193,26 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry struct
     Cmplsnodeconfigstoragetype interface{}
 }
 
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetFilter() yfilter.YFilter { return cmplsnodeconfigentry.YFilter }
+func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetEntityData() *types.CommonEntityData {
+    cmplsnodeconfigentry.EntityData.YFilter = cmplsnodeconfigentry.YFilter
+    cmplsnodeconfigentry.EntityData.YangName = "cmplsNodeConfigEntry"
+    cmplsnodeconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsnodeconfigentry.EntityData.ParentYangName = "cmplsNodeConfigTable"
+    cmplsnodeconfigentry.EntityData.SegmentPath = "cmplsNodeConfigEntry" + "[cmplsNodeConfigLocalId='" + fmt.Sprintf("%v", cmplsnodeconfigentry.Cmplsnodeconfiglocalid) + "']"
+    cmplsnodeconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsnodeconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsnodeconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) SetFilter(yf yfilter.YFilter) { cmplsnodeconfigentry.YFilter = yf }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetGoName(yname string) string {
-    if yname == "cmplsNodeConfigLocalId" { return "Cmplsnodeconfiglocalid" }
-    if yname == "cmplsNodeConfigGlobalId" { return "Cmplsnodeconfigglobalid" }
-    if yname == "cmplsNodeConfigNodeId" { return "Cmplsnodeconfignodeid" }
-    if yname == "cmplsNodeConfigIccId" { return "Cmplsnodeconfigiccid" }
-    if yname == "cmplsNodeConfigRowStatus" { return "Cmplsnodeconfigrowstatus" }
-    if yname == "cmplsNodeConfigStorageType" { return "Cmplsnodeconfigstoragetype" }
-    return ""
+    cmplsnodeconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cmplsnodeconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmplsnodeconfigentry.EntityData.Leafs["cmplsNodeConfigLocalId"] = types.YLeaf{"Cmplsnodeconfiglocalid", cmplsnodeconfigentry.Cmplsnodeconfiglocalid}
+    cmplsnodeconfigentry.EntityData.Leafs["cmplsNodeConfigGlobalId"] = types.YLeaf{"Cmplsnodeconfigglobalid", cmplsnodeconfigentry.Cmplsnodeconfigglobalid}
+    cmplsnodeconfigentry.EntityData.Leafs["cmplsNodeConfigNodeId"] = types.YLeaf{"Cmplsnodeconfignodeid", cmplsnodeconfigentry.Cmplsnodeconfignodeid}
+    cmplsnodeconfigentry.EntityData.Leafs["cmplsNodeConfigIccId"] = types.YLeaf{"Cmplsnodeconfigiccid", cmplsnodeconfigentry.Cmplsnodeconfigiccid}
+    cmplsnodeconfigentry.EntityData.Leafs["cmplsNodeConfigRowStatus"] = types.YLeaf{"Cmplsnodeconfigrowstatus", cmplsnodeconfigentry.Cmplsnodeconfigrowstatus}
+    cmplsnodeconfigentry.EntityData.Leafs["cmplsNodeConfigStorageType"] = types.YLeaf{"Cmplsnodeconfigstoragetype", cmplsnodeconfigentry.Cmplsnodeconfigstoragetype}
+    return &(cmplsnodeconfigentry.EntityData)
 }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetSegmentPath() string {
-    return "cmplsNodeConfigEntry" + "[cmplsNodeConfigLocalId='" + fmt.Sprintf("%v", cmplsnodeconfigentry.Cmplsnodeconfiglocalid) + "']"
-}
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmplsNodeConfigLocalId"] = cmplsnodeconfigentry.Cmplsnodeconfiglocalid
-    leafs["cmplsNodeConfigGlobalId"] = cmplsnodeconfigentry.Cmplsnodeconfigglobalid
-    leafs["cmplsNodeConfigNodeId"] = cmplsnodeconfigentry.Cmplsnodeconfignodeid
-    leafs["cmplsNodeConfigIccId"] = cmplsnodeconfigentry.Cmplsnodeconfigiccid
-    leafs["cmplsNodeConfigRowStatus"] = cmplsnodeconfigentry.Cmplsnodeconfigrowstatus
-    leafs["cmplsNodeConfigStorageType"] = cmplsnodeconfigentry.Cmplsnodeconfigstoragetype
-    return leafs
-}
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetYangName() string { return "cmplsNodeConfigEntry" }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) SetParent(parent types.Entity) { cmplsnodeconfigentry.parent = parent }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetParent() types.Entity { return cmplsnodeconfigentry.parent }
-
-func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmplsnodeconfigentry) GetParentYangName() string { return "cmplsNodeConfigTable" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable
 // This read-only table allows the administrator to retrieve
@@ -351,7 +228,7 @@ func (cmplsnodeconfigentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeconfigtable_Cmpl
 // This table returns nothing when the associated entry
 // is not defined in mplsNodeConfigTable.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents a mapping of Global_Node_ID with the
@@ -363,63 +240,24 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable struct {
     Cmplsnodeipmapentry []CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry
 }
 
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetFilter() yfilter.YFilter { return cmplsnodeipmaptable.YFilter }
+func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetEntityData() *types.CommonEntityData {
+    cmplsnodeipmaptable.EntityData.YFilter = cmplsnodeipmaptable.YFilter
+    cmplsnodeipmaptable.EntityData.YangName = "cmplsNodeIpMapTable"
+    cmplsnodeipmaptable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsnodeipmaptable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cmplsnodeipmaptable.EntityData.SegmentPath = "cmplsNodeIpMapTable"
+    cmplsnodeipmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsnodeipmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsnodeipmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) SetFilter(yf yfilter.YFilter) { cmplsnodeipmaptable.YFilter = yf }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetGoName(yname string) string {
-    if yname == "cmplsNodeIpMapEntry" { return "Cmplsnodeipmapentry" }
-    return ""
-}
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetSegmentPath() string {
-    return "cmplsNodeIpMapTable"
-}
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsNodeIpMapEntry" {
-        for _, c := range cmplsnodeipmaptable.Cmplsnodeipmapentry {
-            if cmplsnodeipmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry{}
-        cmplsnodeipmaptable.Cmplsnodeipmapentry = append(cmplsnodeipmaptable.Cmplsnodeipmapentry, child)
-        return &cmplsnodeipmaptable.Cmplsnodeipmapentry[len(cmplsnodeipmaptable.Cmplsnodeipmapentry)-1]
-    }
-    return nil
-}
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmplsnodeipmaptable.EntityData.Children = make(map[string]types.YChild)
+    cmplsnodeipmaptable.EntityData.Children["cmplsNodeIpMapEntry"] = types.YChild{"Cmplsnodeipmapentry", nil}
     for i := range cmplsnodeipmaptable.Cmplsnodeipmapentry {
-        children[cmplsnodeipmaptable.Cmplsnodeipmapentry[i].GetSegmentPath()] = &cmplsnodeipmaptable.Cmplsnodeipmapentry[i]
+        cmplsnodeipmaptable.EntityData.Children[types.GetSegmentPath(&cmplsnodeipmaptable.Cmplsnodeipmapentry[i])] = types.YChild{"Cmplsnodeipmapentry", &cmplsnodeipmaptable.Cmplsnodeipmapentry[i]}
     }
-    return children
+    cmplsnodeipmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmplsnodeipmaptable.EntityData)
 }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetYangName() string { return "cmplsNodeIpMapTable" }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) SetParent(parent types.Entity) { cmplsnodeipmaptable.parent = parent }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetParent() types.Entity { return cmplsnodeipmaptable.parent }
-
-func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetParentYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry
 // An entry in this table represents a mapping of
@@ -431,7 +269,7 @@ func (cmplsnodeipmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable) GetPa
 // Note: Each entry in this table should have a unique
 // Global_ID and Node_ID combination.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates the Global_ID. The type is
@@ -447,55 +285,23 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry struct {
     Cmplsnodeipmaplocalid interface{}
 }
 
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetFilter() yfilter.YFilter { return cmplsnodeipmapentry.YFilter }
+func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetEntityData() *types.CommonEntityData {
+    cmplsnodeipmapentry.EntityData.YFilter = cmplsnodeipmapentry.YFilter
+    cmplsnodeipmapentry.EntityData.YangName = "cmplsNodeIpMapEntry"
+    cmplsnodeipmapentry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsnodeipmapentry.EntityData.ParentYangName = "cmplsNodeIpMapTable"
+    cmplsnodeipmapentry.EntityData.SegmentPath = "cmplsNodeIpMapEntry" + "[cmplsNodeIpMapGlobalId='" + fmt.Sprintf("%v", cmplsnodeipmapentry.Cmplsnodeipmapglobalid) + "']" + "[cmplsNodeIpMapNodeId='" + fmt.Sprintf("%v", cmplsnodeipmapentry.Cmplsnodeipmapnodeid) + "']"
+    cmplsnodeipmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsnodeipmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsnodeipmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) SetFilter(yf yfilter.YFilter) { cmplsnodeipmapentry.YFilter = yf }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetGoName(yname string) string {
-    if yname == "cmplsNodeIpMapGlobalId" { return "Cmplsnodeipmapglobalid" }
-    if yname == "cmplsNodeIpMapNodeId" { return "Cmplsnodeipmapnodeid" }
-    if yname == "cmplsNodeIpMapLocalId" { return "Cmplsnodeipmaplocalid" }
-    return ""
+    cmplsnodeipmapentry.EntityData.Children = make(map[string]types.YChild)
+    cmplsnodeipmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmplsnodeipmapentry.EntityData.Leafs["cmplsNodeIpMapGlobalId"] = types.YLeaf{"Cmplsnodeipmapglobalid", cmplsnodeipmapentry.Cmplsnodeipmapglobalid}
+    cmplsnodeipmapentry.EntityData.Leafs["cmplsNodeIpMapNodeId"] = types.YLeaf{"Cmplsnodeipmapnodeid", cmplsnodeipmapentry.Cmplsnodeipmapnodeid}
+    cmplsnodeipmapentry.EntityData.Leafs["cmplsNodeIpMapLocalId"] = types.YLeaf{"Cmplsnodeipmaplocalid", cmplsnodeipmapentry.Cmplsnodeipmaplocalid}
+    return &(cmplsnodeipmapentry.EntityData)
 }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetSegmentPath() string {
-    return "cmplsNodeIpMapEntry" + "[cmplsNodeIpMapGlobalId='" + fmt.Sprintf("%v", cmplsnodeipmapentry.Cmplsnodeipmapglobalid) + "']" + "[cmplsNodeIpMapNodeId='" + fmt.Sprintf("%v", cmplsnodeipmapentry.Cmplsnodeipmapnodeid) + "']"
-}
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmplsNodeIpMapGlobalId"] = cmplsnodeipmapentry.Cmplsnodeipmapglobalid
-    leafs["cmplsNodeIpMapNodeId"] = cmplsnodeipmapentry.Cmplsnodeipmapnodeid
-    leafs["cmplsNodeIpMapLocalId"] = cmplsnodeipmapentry.Cmplsnodeipmaplocalid
-    return leafs
-}
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetYangName() string { return "cmplsNodeIpMapEntry" }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) SetParent(parent types.Entity) { cmplsnodeipmapentry.parent = parent }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetParent() types.Entity { return cmplsnodeipmapentry.parent }
-
-func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsnodeipmapentry) GetParentYangName() string { return "cmplsNodeIpMapTable" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable
 // This read-only table allows the administrator to retrieve
@@ -510,7 +316,7 @@ func (cmplsnodeipmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeipmaptable_Cmplsn
 // This table returns nothing when the associated entry
 // is not defined in mplsNodeConfigTable.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents a mapping of ICC with the local
@@ -521,63 +327,24 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable struct {
     Cmplsnodeiccmapentry []CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry
 }
 
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetFilter() yfilter.YFilter { return cmplsnodeiccmaptable.YFilter }
+func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetEntityData() *types.CommonEntityData {
+    cmplsnodeiccmaptable.EntityData.YFilter = cmplsnodeiccmaptable.YFilter
+    cmplsnodeiccmaptable.EntityData.YangName = "cmplsNodeIccMapTable"
+    cmplsnodeiccmaptable.EntityData.BundleName = "cisco_ios_xe"
+    cmplsnodeiccmaptable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cmplsnodeiccmaptable.EntityData.SegmentPath = "cmplsNodeIccMapTable"
+    cmplsnodeiccmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsnodeiccmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsnodeiccmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) SetFilter(yf yfilter.YFilter) { cmplsnodeiccmaptable.YFilter = yf }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetGoName(yname string) string {
-    if yname == "cmplsNodeIccMapEntry" { return "Cmplsnodeiccmapentry" }
-    return ""
-}
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetSegmentPath() string {
-    return "cmplsNodeIccMapTable"
-}
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsNodeIccMapEntry" {
-        for _, c := range cmplsnodeiccmaptable.Cmplsnodeiccmapentry {
-            if cmplsnodeiccmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry{}
-        cmplsnodeiccmaptable.Cmplsnodeiccmapentry = append(cmplsnodeiccmaptable.Cmplsnodeiccmapentry, child)
-        return &cmplsnodeiccmaptable.Cmplsnodeiccmapentry[len(cmplsnodeiccmaptable.Cmplsnodeiccmapentry)-1]
-    }
-    return nil
-}
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmplsnodeiccmaptable.EntityData.Children = make(map[string]types.YChild)
+    cmplsnodeiccmaptable.EntityData.Children["cmplsNodeIccMapEntry"] = types.YChild{"Cmplsnodeiccmapentry", nil}
     for i := range cmplsnodeiccmaptable.Cmplsnodeiccmapentry {
-        children[cmplsnodeiccmaptable.Cmplsnodeiccmapentry[i].GetSegmentPath()] = &cmplsnodeiccmaptable.Cmplsnodeiccmapentry[i]
+        cmplsnodeiccmaptable.EntityData.Children[types.GetSegmentPath(&cmplsnodeiccmaptable.Cmplsnodeiccmapentry[i])] = types.YChild{"Cmplsnodeiccmapentry", &cmplsnodeiccmaptable.Cmplsnodeiccmapentry[i]}
     }
-    return children
+    cmplsnodeiccmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmplsnodeiccmaptable.EntityData)
 }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetYangName() string { return "cmplsNodeIccMapTable" }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) SetParent(parent types.Entity) { cmplsnodeiccmaptable.parent = parent }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetParent() types.Entity { return cmplsnodeiccmaptable.parent }
-
-func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) GetParentYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry
 // An entry in this table represents a mapping of ICC with
@@ -587,7 +354,7 @@ func (cmplsnodeiccmaptable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable) Get
 // the Local identifier is associated with ICC in
 // the mplsNodeConfigTable.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object allows the operator or service
@@ -603,53 +370,22 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry struct
     Cmplsnodeiccmaplocalid interface{}
 }
 
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetFilter() yfilter.YFilter { return cmplsnodeiccmapentry.YFilter }
+func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetEntityData() *types.CommonEntityData {
+    cmplsnodeiccmapentry.EntityData.YFilter = cmplsnodeiccmapentry.YFilter
+    cmplsnodeiccmapentry.EntityData.YangName = "cmplsNodeIccMapEntry"
+    cmplsnodeiccmapentry.EntityData.BundleName = "cisco_ios_xe"
+    cmplsnodeiccmapentry.EntityData.ParentYangName = "cmplsNodeIccMapTable"
+    cmplsnodeiccmapentry.EntityData.SegmentPath = "cmplsNodeIccMapEntry" + "[cmplsNodeIccMapIccId='" + fmt.Sprintf("%v", cmplsnodeiccmapentry.Cmplsnodeiccmapiccid) + "']"
+    cmplsnodeiccmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsnodeiccmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsnodeiccmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) SetFilter(yf yfilter.YFilter) { cmplsnodeiccmapentry.YFilter = yf }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetGoName(yname string) string {
-    if yname == "cmplsNodeIccMapIccId" { return "Cmplsnodeiccmapiccid" }
-    if yname == "cmplsNodeIccMapLocalId" { return "Cmplsnodeiccmaplocalid" }
-    return ""
+    cmplsnodeiccmapentry.EntityData.Children = make(map[string]types.YChild)
+    cmplsnodeiccmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmplsnodeiccmapentry.EntityData.Leafs["cmplsNodeIccMapIccId"] = types.YLeaf{"Cmplsnodeiccmapiccid", cmplsnodeiccmapentry.Cmplsnodeiccmapiccid}
+    cmplsnodeiccmapentry.EntityData.Leafs["cmplsNodeIccMapLocalId"] = types.YLeaf{"Cmplsnodeiccmaplocalid", cmplsnodeiccmapentry.Cmplsnodeiccmaplocalid}
+    return &(cmplsnodeiccmapentry.EntityData)
 }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetSegmentPath() string {
-    return "cmplsNodeIccMapEntry" + "[cmplsNodeIccMapIccId='" + fmt.Sprintf("%v", cmplsnodeiccmapentry.Cmplsnodeiccmapiccid) + "']"
-}
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmplsNodeIccMapIccId"] = cmplsnodeiccmapentry.Cmplsnodeiccmapiccid
-    leafs["cmplsNodeIccMapLocalId"] = cmplsnodeiccmapentry.Cmplsnodeiccmaplocalid
-    return leafs
-}
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetYangName() string { return "cmplsNodeIccMapEntry" }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) SetParent(parent types.Entity) { cmplsnodeiccmapentry.parent = parent }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetParent() types.Entity { return cmplsnodeiccmapentry.parent }
-
-func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmplsnodeiccmapentry) GetParentYangName() string { return "cmplsNodeIccMapTable" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable
 // This table represents MPLS-TP specific extensions to
@@ -679,7 +415,7 @@ func (cmplsnodeiccmapentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplsnodeiccmaptable_Cmpl
 // mplsNodeConfigTable and mplsNodeConfigLocalId is
 // used to create an entry in mplsTunnelTable.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents MPLS-TP specific additional tunnel
@@ -688,69 +424,30 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable struct {
     Cmplstunnelextentry []CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry
 }
 
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetFilter() yfilter.YFilter { return cmplstunnelexttable.YFilter }
+func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetEntityData() *types.CommonEntityData {
+    cmplstunnelexttable.EntityData.YFilter = cmplstunnelexttable.YFilter
+    cmplstunnelexttable.EntityData.YangName = "cmplsTunnelExtTable"
+    cmplstunnelexttable.EntityData.BundleName = "cisco_ios_xe"
+    cmplstunnelexttable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cmplstunnelexttable.EntityData.SegmentPath = "cmplsTunnelExtTable"
+    cmplstunnelexttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplstunnelexttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplstunnelexttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) SetFilter(yf yfilter.YFilter) { cmplstunnelexttable.YFilter = yf }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetGoName(yname string) string {
-    if yname == "cmplsTunnelExtEntry" { return "Cmplstunnelextentry" }
-    return ""
-}
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetSegmentPath() string {
-    return "cmplsTunnelExtTable"
-}
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsTunnelExtEntry" {
-        for _, c := range cmplstunnelexttable.Cmplstunnelextentry {
-            if cmplstunnelexttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry{}
-        cmplstunnelexttable.Cmplstunnelextentry = append(cmplstunnelexttable.Cmplstunnelextentry, child)
-        return &cmplstunnelexttable.Cmplstunnelextentry[len(cmplstunnelexttable.Cmplstunnelextentry)-1]
-    }
-    return nil
-}
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmplstunnelexttable.EntityData.Children = make(map[string]types.YChild)
+    cmplstunnelexttable.EntityData.Children["cmplsTunnelExtEntry"] = types.YChild{"Cmplstunnelextentry", nil}
     for i := range cmplstunnelexttable.Cmplstunnelextentry {
-        children[cmplstunnelexttable.Cmplstunnelextentry[i].GetSegmentPath()] = &cmplstunnelexttable.Cmplstunnelextentry[i]
+        cmplstunnelexttable.EntityData.Children[types.GetSegmentPath(&cmplstunnelexttable.Cmplstunnelextentry[i])] = types.YChild{"Cmplstunnelextentry", &cmplstunnelexttable.Cmplstunnelextentry[i]}
     }
-    return children
+    cmplstunnelexttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmplstunnelexttable.EntityData)
 }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetYangName() string { return "cmplsTunnelExtTable" }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) SetParent(parent types.Entity) { cmplstunnelexttable.parent = parent }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetParent() types.Entity { return cmplstunnelexttable.parent }
-
-func (cmplstunnelexttable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable) GetParentYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry
 // An entry in this table represents MPLS-TP
 // specific additional tunnel configurations.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
@@ -778,7 +475,7 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry struct {
     // tunnel is setup by configuring two tunnel entries in mplsTunnelTable.  The
     // value of zeroDotZero indicates single tunnel entry is used for
     // bidirectional tunnel setup. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cmplstunneloppositedirptr interface{}
 
     // Denotes whether or not this tunnel uses mplsTunnelOppositeDirPtr for
@@ -823,67 +520,29 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry struct {
     Cmplstunnelextdesttnlvalid interface{}
 }
 
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetFilter() yfilter.YFilter { return cmplstunnelextentry.YFilter }
+func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetEntityData() *types.CommonEntityData {
+    cmplstunnelextentry.EntityData.YFilter = cmplstunnelextentry.YFilter
+    cmplstunnelextentry.EntityData.YangName = "cmplsTunnelExtEntry"
+    cmplstunnelextentry.EntityData.BundleName = "cisco_ios_xe"
+    cmplstunnelextentry.EntityData.ParentYangName = "cmplsTunnelExtTable"
+    cmplstunnelextentry.EntityData.SegmentPath = "cmplsTunnelExtEntry" + "[mplsTunnelIndex='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelindex) + "']" + "[mplsTunnelInstance='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelinstance) + "']" + "[mplsTunnelIngressLSRId='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelingresslsrid) + "']" + "[mplsTunnelEgressLSRId='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelegresslsrid) + "']"
+    cmplstunnelextentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplstunnelextentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplstunnelextentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) SetFilter(yf yfilter.YFilter) { cmplstunnelextentry.YFilter = yf }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetGoName(yname string) string {
-    if yname == "mplsTunnelIndex" { return "Mplstunnelindex" }
-    if yname == "mplsTunnelInstance" { return "Mplstunnelinstance" }
-    if yname == "mplsTunnelIngressLSRId" { return "Mplstunnelingresslsrid" }
-    if yname == "mplsTunnelEgressLSRId" { return "Mplstunnelegresslsrid" }
-    if yname == "cmplsTunnelOppositeDirPtr" { return "Cmplstunneloppositedirptr" }
-    if yname == "cmplsTunnelExtOppositeDirTnlValid" { return "Cmplstunnelextoppositedirtnlvalid" }
-    if yname == "cmplsTunnelExtDestTnlIndex" { return "Cmplstunnelextdesttnlindex" }
-    if yname == "cmplsTunnelExtDestTnlLspIndex" { return "Cmplstunnelextdesttnllspindex" }
-    if yname == "cmplsTunnelExtDestTnlValid" { return "Cmplstunnelextdesttnlvalid" }
-    return ""
+    cmplstunnelextentry.EntityData.Children = make(map[string]types.YChild)
+    cmplstunnelextentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmplstunnelextentry.EntityData.Leafs["mplsTunnelIndex"] = types.YLeaf{"Mplstunnelindex", cmplstunnelextentry.Mplstunnelindex}
+    cmplstunnelextentry.EntityData.Leafs["mplsTunnelInstance"] = types.YLeaf{"Mplstunnelinstance", cmplstunnelextentry.Mplstunnelinstance}
+    cmplstunnelextentry.EntityData.Leafs["mplsTunnelIngressLSRId"] = types.YLeaf{"Mplstunnelingresslsrid", cmplstunnelextentry.Mplstunnelingresslsrid}
+    cmplstunnelextentry.EntityData.Leafs["mplsTunnelEgressLSRId"] = types.YLeaf{"Mplstunnelegresslsrid", cmplstunnelextentry.Mplstunnelegresslsrid}
+    cmplstunnelextentry.EntityData.Leafs["cmplsTunnelOppositeDirPtr"] = types.YLeaf{"Cmplstunneloppositedirptr", cmplstunnelextentry.Cmplstunneloppositedirptr}
+    cmplstunnelextentry.EntityData.Leafs["cmplsTunnelExtOppositeDirTnlValid"] = types.YLeaf{"Cmplstunnelextoppositedirtnlvalid", cmplstunnelextentry.Cmplstunnelextoppositedirtnlvalid}
+    cmplstunnelextentry.EntityData.Leafs["cmplsTunnelExtDestTnlIndex"] = types.YLeaf{"Cmplstunnelextdesttnlindex", cmplstunnelextentry.Cmplstunnelextdesttnlindex}
+    cmplstunnelextentry.EntityData.Leafs["cmplsTunnelExtDestTnlLspIndex"] = types.YLeaf{"Cmplstunnelextdesttnllspindex", cmplstunnelextentry.Cmplstunnelextdesttnllspindex}
+    cmplstunnelextentry.EntityData.Leafs["cmplsTunnelExtDestTnlValid"] = types.YLeaf{"Cmplstunnelextdesttnlvalid", cmplstunnelextentry.Cmplstunnelextdesttnlvalid}
+    return &(cmplstunnelextentry.EntityData)
 }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetSegmentPath() string {
-    return "cmplsTunnelExtEntry" + "[mplsTunnelIndex='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelindex) + "']" + "[mplsTunnelInstance='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelinstance) + "']" + "[mplsTunnelIngressLSRId='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelingresslsrid) + "']" + "[mplsTunnelEgressLSRId='" + fmt.Sprintf("%v", cmplstunnelextentry.Mplstunnelegresslsrid) + "']"
-}
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsTunnelIndex"] = cmplstunnelextentry.Mplstunnelindex
-    leafs["mplsTunnelInstance"] = cmplstunnelextentry.Mplstunnelinstance
-    leafs["mplsTunnelIngressLSRId"] = cmplstunnelextentry.Mplstunnelingresslsrid
-    leafs["mplsTunnelEgressLSRId"] = cmplstunnelextentry.Mplstunnelegresslsrid
-    leafs["cmplsTunnelOppositeDirPtr"] = cmplstunnelextentry.Cmplstunneloppositedirptr
-    leafs["cmplsTunnelExtOppositeDirTnlValid"] = cmplstunnelextentry.Cmplstunnelextoppositedirtnlvalid
-    leafs["cmplsTunnelExtDestTnlIndex"] = cmplstunnelextentry.Cmplstunnelextdesttnlindex
-    leafs["cmplsTunnelExtDestTnlLspIndex"] = cmplstunnelextentry.Cmplstunnelextdesttnllspindex
-    leafs["cmplsTunnelExtDestTnlValid"] = cmplstunnelextentry.Cmplstunnelextdesttnlvalid
-    return leafs
-}
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetYangName() string { return "cmplsTunnelExtEntry" }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) SetParent(parent types.Entity) { cmplstunnelextentry.parent = parent }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetParent() types.Entity { return cmplstunnelextentry.parent }
-
-func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplstunnelextentry) GetParentYangName() string { return "cmplsTunnelExtTable" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable
 // This table extends the mplsTunnelTable to provide
@@ -897,7 +556,7 @@ func (cmplstunnelextentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelexttable_Cmplst
 // to read the objects in this table will return
 // noSuchInstance.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by the LSR for every bidirectional MPLS
@@ -906,70 +565,31 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable struct {
     Cmplstunnelreverseperfentry []CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry
 }
 
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetFilter() yfilter.YFilter { return cmplstunnelreverseperftable.YFilter }
+func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetEntityData() *types.CommonEntityData {
+    cmplstunnelreverseperftable.EntityData.YFilter = cmplstunnelreverseperftable.YFilter
+    cmplstunnelreverseperftable.EntityData.YangName = "cmplsTunnelReversePerfTable"
+    cmplstunnelreverseperftable.EntityData.BundleName = "cisco_ios_xe"
+    cmplstunnelreverseperftable.EntityData.ParentYangName = "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB"
+    cmplstunnelreverseperftable.EntityData.SegmentPath = "cmplsTunnelReversePerfTable"
+    cmplstunnelreverseperftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplstunnelreverseperftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplstunnelreverseperftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) SetFilter(yf yfilter.YFilter) { cmplstunnelreverseperftable.YFilter = yf }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetGoName(yname string) string {
-    if yname == "cmplsTunnelReversePerfEntry" { return "Cmplstunnelreverseperfentry" }
-    return ""
-}
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetSegmentPath() string {
-    return "cmplsTunnelReversePerfTable"
-}
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsTunnelReversePerfEntry" {
-        for _, c := range cmplstunnelreverseperftable.Cmplstunnelreverseperfentry {
-            if cmplstunnelreverseperftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry{}
-        cmplstunnelreverseperftable.Cmplstunnelreverseperfentry = append(cmplstunnelreverseperftable.Cmplstunnelreverseperfentry, child)
-        return &cmplstunnelreverseperftable.Cmplstunnelreverseperfentry[len(cmplstunnelreverseperftable.Cmplstunnelreverseperfentry)-1]
-    }
-    return nil
-}
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cmplstunnelreverseperftable.EntityData.Children = make(map[string]types.YChild)
+    cmplstunnelreverseperftable.EntityData.Children["cmplsTunnelReversePerfEntry"] = types.YChild{"Cmplstunnelreverseperfentry", nil}
     for i := range cmplstunnelreverseperftable.Cmplstunnelreverseperfentry {
-        children[cmplstunnelreverseperftable.Cmplstunnelreverseperfentry[i].GetSegmentPath()] = &cmplstunnelreverseperftable.Cmplstunnelreverseperfentry[i]
+        cmplstunnelreverseperftable.EntityData.Children[types.GetSegmentPath(&cmplstunnelreverseperftable.Cmplstunnelreverseperfentry[i])] = types.YChild{"Cmplstunnelreverseperfentry", &cmplstunnelreverseperftable.Cmplstunnelreverseperfentry[i]}
     }
-    return children
+    cmplstunnelreverseperftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cmplstunnelreverseperftable.EntityData)
 }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetYangName() string { return "cmplsTunnelReversePerfTable" }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) SetParent(parent types.Entity) { cmplstunnelreverseperftable.parent = parent }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetParent() types.Entity { return cmplstunnelreverseperftable.parent }
-
-func (cmplstunnelreverseperftable *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable) GetParentYangName() string { return "CISCO-IETF-MPLS-TE-EXT-STD-03-MIB" }
 
 // CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry
 // An entry in this table is created by the LSR for every
 // bidirectional MPLS tunnel where packets are visible to the
 // LSR.
 type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..65535. Refers to
@@ -1028,65 +648,27 @@ type CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreversepe
     Cmplstunnelreverseperfhcbytes interface{}
 }
 
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetFilter() yfilter.YFilter { return cmplstunnelreverseperfentry.YFilter }
+func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetEntityData() *types.CommonEntityData {
+    cmplstunnelreverseperfentry.EntityData.YFilter = cmplstunnelreverseperfentry.YFilter
+    cmplstunnelreverseperfentry.EntityData.YangName = "cmplsTunnelReversePerfEntry"
+    cmplstunnelreverseperfentry.EntityData.BundleName = "cisco_ios_xe"
+    cmplstunnelreverseperfentry.EntityData.ParentYangName = "cmplsTunnelReversePerfTable"
+    cmplstunnelreverseperfentry.EntityData.SegmentPath = "cmplsTunnelReversePerfEntry" + "[mplsTunnelIndex='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelindex) + "']" + "[mplsTunnelInstance='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelinstance) + "']" + "[mplsTunnelIngressLSRId='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelingresslsrid) + "']" + "[mplsTunnelEgressLSRId='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelegresslsrid) + "']"
+    cmplstunnelreverseperfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplstunnelreverseperfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplstunnelreverseperfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) SetFilter(yf yfilter.YFilter) { cmplstunnelreverseperfentry.YFilter = yf }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetGoName(yname string) string {
-    if yname == "mplsTunnelIndex" { return "Mplstunnelindex" }
-    if yname == "mplsTunnelInstance" { return "Mplstunnelinstance" }
-    if yname == "mplsTunnelIngressLSRId" { return "Mplstunnelingresslsrid" }
-    if yname == "mplsTunnelEgressLSRId" { return "Mplstunnelegresslsrid" }
-    if yname == "cmplsTunnelReversePerfPackets" { return "Cmplstunnelreverseperfpackets" }
-    if yname == "cmplsTunnelReversePerfHCPackets" { return "Cmplstunnelreverseperfhcpackets" }
-    if yname == "cmplsTunnelReversePerfErrors" { return "Cmplstunnelreverseperferrors" }
-    if yname == "cmplsTunnelReversePerfBytes" { return "Cmplstunnelreverseperfbytes" }
-    if yname == "cmplsTunnelReversePerfHCBytes" { return "Cmplstunnelreverseperfhcbytes" }
-    return ""
+    cmplstunnelreverseperfentry.EntityData.Children = make(map[string]types.YChild)
+    cmplstunnelreverseperfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmplstunnelreverseperfentry.EntityData.Leafs["mplsTunnelIndex"] = types.YLeaf{"Mplstunnelindex", cmplstunnelreverseperfentry.Mplstunnelindex}
+    cmplstunnelreverseperfentry.EntityData.Leafs["mplsTunnelInstance"] = types.YLeaf{"Mplstunnelinstance", cmplstunnelreverseperfentry.Mplstunnelinstance}
+    cmplstunnelreverseperfentry.EntityData.Leafs["mplsTunnelIngressLSRId"] = types.YLeaf{"Mplstunnelingresslsrid", cmplstunnelreverseperfentry.Mplstunnelingresslsrid}
+    cmplstunnelreverseperfentry.EntityData.Leafs["mplsTunnelEgressLSRId"] = types.YLeaf{"Mplstunnelegresslsrid", cmplstunnelreverseperfentry.Mplstunnelegresslsrid}
+    cmplstunnelreverseperfentry.EntityData.Leafs["cmplsTunnelReversePerfPackets"] = types.YLeaf{"Cmplstunnelreverseperfpackets", cmplstunnelreverseperfentry.Cmplstunnelreverseperfpackets}
+    cmplstunnelreverseperfentry.EntityData.Leafs["cmplsTunnelReversePerfHCPackets"] = types.YLeaf{"Cmplstunnelreverseperfhcpackets", cmplstunnelreverseperfentry.Cmplstunnelreverseperfhcpackets}
+    cmplstunnelreverseperfentry.EntityData.Leafs["cmplsTunnelReversePerfErrors"] = types.YLeaf{"Cmplstunnelreverseperferrors", cmplstunnelreverseperfentry.Cmplstunnelreverseperferrors}
+    cmplstunnelreverseperfentry.EntityData.Leafs["cmplsTunnelReversePerfBytes"] = types.YLeaf{"Cmplstunnelreverseperfbytes", cmplstunnelreverseperfentry.Cmplstunnelreverseperfbytes}
+    cmplstunnelreverseperfentry.EntityData.Leafs["cmplsTunnelReversePerfHCBytes"] = types.YLeaf{"Cmplstunnelreverseperfhcbytes", cmplstunnelreverseperfentry.Cmplstunnelreverseperfhcbytes}
+    return &(cmplstunnelreverseperfentry.EntityData)
 }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetSegmentPath() string {
-    return "cmplsTunnelReversePerfEntry" + "[mplsTunnelIndex='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelindex) + "']" + "[mplsTunnelInstance='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelinstance) + "']" + "[mplsTunnelIngressLSRId='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelingresslsrid) + "']" + "[mplsTunnelEgressLSRId='" + fmt.Sprintf("%v", cmplstunnelreverseperfentry.Mplstunnelegresslsrid) + "']"
-}
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsTunnelIndex"] = cmplstunnelreverseperfentry.Mplstunnelindex
-    leafs["mplsTunnelInstance"] = cmplstunnelreverseperfentry.Mplstunnelinstance
-    leafs["mplsTunnelIngressLSRId"] = cmplstunnelreverseperfentry.Mplstunnelingresslsrid
-    leafs["mplsTunnelEgressLSRId"] = cmplstunnelreverseperfentry.Mplstunnelegresslsrid
-    leafs["cmplsTunnelReversePerfPackets"] = cmplstunnelreverseperfentry.Cmplstunnelreverseperfpackets
-    leafs["cmplsTunnelReversePerfHCPackets"] = cmplstunnelreverseperfentry.Cmplstunnelreverseperfhcpackets
-    leafs["cmplsTunnelReversePerfErrors"] = cmplstunnelreverseperfentry.Cmplstunnelreverseperferrors
-    leafs["cmplsTunnelReversePerfBytes"] = cmplstunnelreverseperfentry.Cmplstunnelreverseperfbytes
-    leafs["cmplsTunnelReversePerfHCBytes"] = cmplstunnelreverseperfentry.Cmplstunnelreverseperfhcbytes
-    return leafs
-}
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetYangName() string { return "cmplsTunnelReversePerfEntry" }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) SetParent(parent types.Entity) { cmplstunnelreverseperfentry.parent = parent }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetParent() types.Entity { return cmplstunnelreverseperfentry.parent }
-
-func (cmplstunnelreverseperfentry *CISCOIETFMPLSTEEXTSTD03MIB_Cmplstunnelreverseperftable_Cmplstunnelreverseperfentry) GetParentYangName() string { return "cmplsTunnelReversePerfTable" }
 

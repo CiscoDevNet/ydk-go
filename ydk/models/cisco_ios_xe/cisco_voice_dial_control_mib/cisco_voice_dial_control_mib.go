@@ -65,20 +65,15 @@ const (
     CvCallVolumeWMIntvlType_fromReloadStats CvCallVolumeWMIntvlType = "fromReloadStats"
 )
 
-// CvIlbcFrameMode represents              frame is packetized in 50 bytes.
-type CvIlbcFrameMode string
+// CvCallVolumeStatsIntvlType represents 3 : Hours Table: Here each entry corresponds to an hour
+type CvCallVolumeStatsIntvlType string
 
 const (
-    CvIlbcFrameMode_frameMode20 CvIlbcFrameMode = "frameMode20"
+    CvCallVolumeStatsIntvlType_secondStats CvCallVolumeStatsIntvlType = "secondStats"
 
-    CvIlbcFrameMode_frameMode30 CvIlbcFrameMode = "frameMode30"
-)
+    CvCallVolumeStatsIntvlType_minuteStats CvCallVolumeStatsIntvlType = "minuteStats"
 
-// CvAmrNbRtpEncap represents Represents GSM AMR-NB codec RTP encapsulation type.
-type CvAmrNbRtpEncap string
-
-const (
-    CvAmrNbRtpEncap_rfc3267 CvAmrNbRtpEncap = "rfc3267"
+    CvCallVolumeStatsIntvlType_hourStats CvCallVolumeStatsIntvlType = "hourStats"
 )
 
 // CvSessionProtocol represents sccp  - Skinny Call Control Protocol.
@@ -96,6 +91,22 @@ const (
     CvSessionProtocol_multicast CvSessionProtocol = "multicast"
 
     CvSessionProtocol_sccp CvSessionProtocol = "sccp"
+)
+
+// CvAmrNbRtpEncap represents Represents GSM AMR-NB codec RTP encapsulation type.
+type CvAmrNbRtpEncap string
+
+const (
+    CvAmrNbRtpEncap_rfc3267 CvAmrNbRtpEncap = "rfc3267"
+)
+
+// CvIlbcFrameMode represents              frame is packetized in 50 bytes.
+type CvIlbcFrameMode string
+
+const (
+    CvIlbcFrameMode_frameMode20 CvIlbcFrameMode = "frameMode20"
+
+    CvIlbcFrameMode_frameMode30 CvIlbcFrameMode = "frameMode30"
 )
 
 // CvCallConnectionType represents telephony  - telephony signal call connections.
@@ -117,20 +128,9 @@ const (
     CvCallConnectionType_telephony CvCallConnectionType = "telephony"
 )
 
-// CvCallVolumeStatsIntvlType represents 3 : Hours Table: Here each entry corresponds to an hour
-type CvCallVolumeStatsIntvlType string
-
-const (
-    CvCallVolumeStatsIntvlType_secondStats CvCallVolumeStatsIntvlType = "secondStats"
-
-    CvCallVolumeStatsIntvlType_minuteStats CvCallVolumeStatsIntvlType = "minuteStats"
-
-    CvCallVolumeStatsIntvlType_hourStats CvCallVolumeStatsIntvlType = "hourStats"
-)
-
 // CISCOVOICEDIALCONTROLMIB
 type CISCOVOICEDIALCONTROLMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -257,173 +257,48 @@ type CISCOVOICEDIALCONTROLMIB struct {
     Cvsipmsgratewmtable CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable
 }
 
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetFilter() yfilter.YFilter { return cISCOVOICEDIALCONTROLMIB.YFilter }
+func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetEntityData() *types.CommonEntityData {
+    cISCOVOICEDIALCONTROLMIB.EntityData.YFilter = cISCOVOICEDIALCONTROLMIB.YFilter
+    cISCOVOICEDIALCONTROLMIB.EntityData.YangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cISCOVOICEDIALCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOVOICEDIALCONTROLMIB.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cISCOVOICEDIALCONTROLMIB.EntityData.SegmentPath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB"
+    cISCOVOICEDIALCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOVOICEDIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOVOICEDIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) SetFilter(yf yfilter.YFilter) { cISCOVOICEDIALCONTROLMIB.YFilter = yf }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetGoName(yname string) string {
-    if yname == "cvGeneralConfiguration" { return "Cvgeneralconfiguration" }
-    if yname == "cvGatewayCallActive" { return "Cvgatewaycallactive" }
-    if yname == "cvCallVolume" { return "Cvcallvolume" }
-    if yname == "cvCallRateMonitor" { return "Cvcallratemonitor" }
-    if yname == "cvCallVolumeStatsHistory" { return "Cvcallvolumestatshistory" }
-    if yname == "cvPeerCfgTable" { return "Cvpeercfgtable" }
-    if yname == "cvVoicePeerCfgTable" { return "Cvvoicepeercfgtable" }
-    if yname == "cvVoIPPeerCfgTable" { return "Cvvoippeercfgtable" }
-    if yname == "cvPeerCommonCfgTable" { return "Cvpeercommoncfgtable" }
-    if yname == "cvCallActiveTable" { return "Cvcallactivetable" }
-    if yname == "cvVoIPCallActiveTable" { return "Cvvoipcallactivetable" }
-    if yname == "cvCallVolConnTable" { return "Cvcallvolconntable" }
-    if yname == "cvCallVolIfTable" { return "Cvcallvoliftable" }
-    if yname == "cvCallHistoryTable" { return "Cvcallhistorytable" }
-    if yname == "cvVoIPCallHistoryTable" { return "Cvvoipcallhistorytable" }
-    if yname == "cvCallRateStatsTable" { return "Cvcallratestatstable" }
-    if yname == "cvCallLegRateStatsTable" { return "Cvcalllegratestatstable" }
-    if yname == "cvActiveCallStatsTable" { return "Cvactivecallstatstable" }
-    if yname == "cvCallDurationStatsTable" { return "Cvcalldurationstatstable" }
-    if yname == "cvSipMsgRateStatsTable" { return "Cvsipmsgratestatstable" }
-    if yname == "cvCallRateWMTable" { return "Cvcallratewmtable" }
-    if yname == "cvCallLegRateWMTable" { return "Cvcalllegratewmtable" }
-    if yname == "cvActiveCallWMTable" { return "Cvactivecallwmtable" }
-    if yname == "cvSipMsgRateWMTable" { return "Cvsipmsgratewmtable" }
-    return ""
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvGeneralConfiguration"] = types.YChild{"Cvgeneralconfiguration", &cISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvGatewayCallActive"] = types.YChild{"Cvgatewaycallactive", &cISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallVolume"] = types.YChild{"Cvcallvolume", &cISCOVOICEDIALCONTROLMIB.Cvcallvolume}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallRateMonitor"] = types.YChild{"Cvcallratemonitor", &cISCOVOICEDIALCONTROLMIB.Cvcallratemonitor}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallVolumeStatsHistory"] = types.YChild{"Cvcallvolumestatshistory", &cISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvPeerCfgTable"] = types.YChild{"Cvpeercfgtable", &cISCOVOICEDIALCONTROLMIB.Cvpeercfgtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvVoicePeerCfgTable"] = types.YChild{"Cvvoicepeercfgtable", &cISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvVoIPPeerCfgTable"] = types.YChild{"Cvvoippeercfgtable", &cISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvPeerCommonCfgTable"] = types.YChild{"Cvpeercommoncfgtable", &cISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallActiveTable"] = types.YChild{"Cvcallactivetable", &cISCOVOICEDIALCONTROLMIB.Cvcallactivetable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvVoIPCallActiveTable"] = types.YChild{"Cvvoipcallactivetable", &cISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallVolConnTable"] = types.YChild{"Cvcallvolconntable", &cISCOVOICEDIALCONTROLMIB.Cvcallvolconntable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallVolIfTable"] = types.YChild{"Cvcallvoliftable", &cISCOVOICEDIALCONTROLMIB.Cvcallvoliftable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallHistoryTable"] = types.YChild{"Cvcallhistorytable", &cISCOVOICEDIALCONTROLMIB.Cvcallhistorytable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvVoIPCallHistoryTable"] = types.YChild{"Cvvoipcallhistorytable", &cISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallRateStatsTable"] = types.YChild{"Cvcallratestatstable", &cISCOVOICEDIALCONTROLMIB.Cvcallratestatstable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallLegRateStatsTable"] = types.YChild{"Cvcalllegratestatstable", &cISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvActiveCallStatsTable"] = types.YChild{"Cvactivecallstatstable", &cISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallDurationStatsTable"] = types.YChild{"Cvcalldurationstatstable", &cISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvSipMsgRateStatsTable"] = types.YChild{"Cvsipmsgratestatstable", &cISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallRateWMTable"] = types.YChild{"Cvcallratewmtable", &cISCOVOICEDIALCONTROLMIB.Cvcallratewmtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvCallLegRateWMTable"] = types.YChild{"Cvcalllegratewmtable", &cISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvActiveCallWMTable"] = types.YChild{"Cvactivecallwmtable", &cISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Children["cvSipMsgRateWMTable"] = types.YChild{"Cvsipmsgratewmtable", &cISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable}
+    cISCOVOICEDIALCONTROLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOVOICEDIALCONTROLMIB.EntityData)
 }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetSegmentPath() string {
-    return "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB"
-}
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvGeneralConfiguration" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration
-    }
-    if childYangName == "cvGatewayCallActive" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive
-    }
-    if childYangName == "cvCallVolume" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallvolume
-    }
-    if childYangName == "cvCallRateMonitor" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallratemonitor
-    }
-    if childYangName == "cvCallVolumeStatsHistory" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory
-    }
-    if childYangName == "cvPeerCfgTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvpeercfgtable
-    }
-    if childYangName == "cvVoicePeerCfgTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable
-    }
-    if childYangName == "cvVoIPPeerCfgTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable
-    }
-    if childYangName == "cvPeerCommonCfgTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable
-    }
-    if childYangName == "cvCallActiveTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallactivetable
-    }
-    if childYangName == "cvVoIPCallActiveTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable
-    }
-    if childYangName == "cvCallVolConnTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallvolconntable
-    }
-    if childYangName == "cvCallVolIfTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallvoliftable
-    }
-    if childYangName == "cvCallHistoryTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallhistorytable
-    }
-    if childYangName == "cvVoIPCallHistoryTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable
-    }
-    if childYangName == "cvCallRateStatsTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallratestatstable
-    }
-    if childYangName == "cvCallLegRateStatsTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable
-    }
-    if childYangName == "cvActiveCallStatsTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable
-    }
-    if childYangName == "cvCallDurationStatsTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable
-    }
-    if childYangName == "cvSipMsgRateStatsTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable
-    }
-    if childYangName == "cvCallRateWMTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcallratewmtable
-    }
-    if childYangName == "cvCallLegRateWMTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable
-    }
-    if childYangName == "cvActiveCallWMTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable
-    }
-    if childYangName == "cvSipMsgRateWMTable" {
-        return &cISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable
-    }
-    return nil
-}
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cvGeneralConfiguration"] = &cISCOVOICEDIALCONTROLMIB.Cvgeneralconfiguration
-    children["cvGatewayCallActive"] = &cISCOVOICEDIALCONTROLMIB.Cvgatewaycallactive
-    children["cvCallVolume"] = &cISCOVOICEDIALCONTROLMIB.Cvcallvolume
-    children["cvCallRateMonitor"] = &cISCOVOICEDIALCONTROLMIB.Cvcallratemonitor
-    children["cvCallVolumeStatsHistory"] = &cISCOVOICEDIALCONTROLMIB.Cvcallvolumestatshistory
-    children["cvPeerCfgTable"] = &cISCOVOICEDIALCONTROLMIB.Cvpeercfgtable
-    children["cvVoicePeerCfgTable"] = &cISCOVOICEDIALCONTROLMIB.Cvvoicepeercfgtable
-    children["cvVoIPPeerCfgTable"] = &cISCOVOICEDIALCONTROLMIB.Cvvoippeercfgtable
-    children["cvPeerCommonCfgTable"] = &cISCOVOICEDIALCONTROLMIB.Cvpeercommoncfgtable
-    children["cvCallActiveTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcallactivetable
-    children["cvVoIPCallActiveTable"] = &cISCOVOICEDIALCONTROLMIB.Cvvoipcallactivetable
-    children["cvCallVolConnTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcallvolconntable
-    children["cvCallVolIfTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcallvoliftable
-    children["cvCallHistoryTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcallhistorytable
-    children["cvVoIPCallHistoryTable"] = &cISCOVOICEDIALCONTROLMIB.Cvvoipcallhistorytable
-    children["cvCallRateStatsTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcallratestatstable
-    children["cvCallLegRateStatsTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcalllegratestatstable
-    children["cvActiveCallStatsTable"] = &cISCOVOICEDIALCONTROLMIB.Cvactivecallstatstable
-    children["cvCallDurationStatsTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcalldurationstatstable
-    children["cvSipMsgRateStatsTable"] = &cISCOVOICEDIALCONTROLMIB.Cvsipmsgratestatstable
-    children["cvCallRateWMTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcallratewmtable
-    children["cvCallLegRateWMTable"] = &cISCOVOICEDIALCONTROLMIB.Cvcalllegratewmtable
-    children["cvActiveCallWMTable"] = &cISCOVOICEDIALCONTROLMIB.Cvactivecallwmtable
-    children["cvSipMsgRateWMTable"] = &cISCOVOICEDIALCONTROLMIB.Cvsipmsgratewmtable
-    return children
-}
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) SetParent(parent types.Entity) { cISCOVOICEDIALCONTROLMIB.parent = parent }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetParent() types.Entity { return cISCOVOICEDIALCONTROLMIB.parent }
-
-func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration
 type CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates whether cvdcPoorQoVNotification (or the newer
@@ -465,61 +340,28 @@ type CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration struct {
     Cvgeneralmediapolicynotificationenable interface{}
 }
 
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetFilter() yfilter.YFilter { return cvgeneralconfiguration.YFilter }
+func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetEntityData() *types.CommonEntityData {
+    cvgeneralconfiguration.EntityData.YFilter = cvgeneralconfiguration.YFilter
+    cvgeneralconfiguration.EntityData.YangName = "cvGeneralConfiguration"
+    cvgeneralconfiguration.EntityData.BundleName = "cisco_ios_xe"
+    cvgeneralconfiguration.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvgeneralconfiguration.EntityData.SegmentPath = "cvGeneralConfiguration"
+    cvgeneralconfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvgeneralconfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvgeneralconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) SetFilter(yf yfilter.YFilter) { cvgeneralconfiguration.YFilter = yf }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetGoName(yname string) string {
-    if yname == "cvGeneralPoorQoVNotificationEnable" { return "Cvgeneralpoorqovnotificationenable" }
-    if yname == "cvGeneralFallbackNotificationEnable" { return "Cvgeneralfallbacknotificationenable" }
-    if yname == "cvGeneralDSCPPolicyNotificationEnable" { return "Cvgeneraldscppolicynotificationenable" }
-    if yname == "cvGeneralMediaPolicyNotificationEnable" { return "Cvgeneralmediapolicynotificationenable" }
-    return ""
+    cvgeneralconfiguration.EntityData.Children = make(map[string]types.YChild)
+    cvgeneralconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvgeneralconfiguration.EntityData.Leafs["cvGeneralPoorQoVNotificationEnable"] = types.YLeaf{"Cvgeneralpoorqovnotificationenable", cvgeneralconfiguration.Cvgeneralpoorqovnotificationenable}
+    cvgeneralconfiguration.EntityData.Leafs["cvGeneralFallbackNotificationEnable"] = types.YLeaf{"Cvgeneralfallbacknotificationenable", cvgeneralconfiguration.Cvgeneralfallbacknotificationenable}
+    cvgeneralconfiguration.EntityData.Leafs["cvGeneralDSCPPolicyNotificationEnable"] = types.YLeaf{"Cvgeneraldscppolicynotificationenable", cvgeneralconfiguration.Cvgeneraldscppolicynotificationenable}
+    cvgeneralconfiguration.EntityData.Leafs["cvGeneralMediaPolicyNotificationEnable"] = types.YLeaf{"Cvgeneralmediapolicynotificationenable", cvgeneralconfiguration.Cvgeneralmediapolicynotificationenable}
+    return &(cvgeneralconfiguration.EntityData)
 }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetSegmentPath() string {
-    return "cvGeneralConfiguration"
-}
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvGeneralPoorQoVNotificationEnable"] = cvgeneralconfiguration.Cvgeneralpoorqovnotificationenable
-    leafs["cvGeneralFallbackNotificationEnable"] = cvgeneralconfiguration.Cvgeneralfallbacknotificationenable
-    leafs["cvGeneralDSCPPolicyNotificationEnable"] = cvgeneralconfiguration.Cvgeneraldscppolicynotificationenable
-    leafs["cvGeneralMediaPolicyNotificationEnable"] = cvgeneralconfiguration.Cvgeneralmediapolicynotificationenable
-    return leafs
-}
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetYangName() string { return "cvGeneralConfiguration" }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) SetParent(parent types.Entity) { cvgeneralconfiguration.parent = parent }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetParent() types.Entity { return cvgeneralconfiguration.parent }
-
-func (cvgeneralconfiguration *CISCOVOICEDIALCONTROLMIB_Cvgeneralconfiguration) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive
 type CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The current number of DS0 interfaces used for the active calls. The type is
@@ -553,63 +395,29 @@ type CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive struct {
     Cvcallactiveds0Slownotifyenable interface{}
 }
 
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetFilter() yfilter.YFilter { return cvgatewaycallactive.YFilter }
+func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetEntityData() *types.CommonEntityData {
+    cvgatewaycallactive.EntityData.YFilter = cvgatewaycallactive.YFilter
+    cvgatewaycallactive.EntityData.YangName = "cvGatewayCallActive"
+    cvgatewaycallactive.EntityData.BundleName = "cisco_ios_xe"
+    cvgatewaycallactive.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvgatewaycallactive.EntityData.SegmentPath = "cvGatewayCallActive"
+    cvgatewaycallactive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvgatewaycallactive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvgatewaycallactive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) SetFilter(yf yfilter.YFilter) { cvgatewaycallactive.YFilter = yf }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetGoName(yname string) string {
-    if yname == "cvCallActiveDS0s" { return "Cvcallactiveds0S" }
-    if yname == "cvCallActiveDS0sHighThreshold" { return "Cvcallactiveds0Shighthreshold" }
-    if yname == "cvCallActiveDS0sLowThreshold" { return "Cvcallactiveds0Slowthreshold" }
-    if yname == "cvCallActiveDS0sHighNotifyEnable" { return "Cvcallactiveds0Shighnotifyenable" }
-    if yname == "cvCallActiveDS0sLowNotifyEnable" { return "Cvcallactiveds0Slownotifyenable" }
-    return ""
+    cvgatewaycallactive.EntityData.Children = make(map[string]types.YChild)
+    cvgatewaycallactive.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvgatewaycallactive.EntityData.Leafs["cvCallActiveDS0s"] = types.YLeaf{"Cvcallactiveds0S", cvgatewaycallactive.Cvcallactiveds0S}
+    cvgatewaycallactive.EntityData.Leafs["cvCallActiveDS0sHighThreshold"] = types.YLeaf{"Cvcallactiveds0Shighthreshold", cvgatewaycallactive.Cvcallactiveds0Shighthreshold}
+    cvgatewaycallactive.EntityData.Leafs["cvCallActiveDS0sLowThreshold"] = types.YLeaf{"Cvcallactiveds0Slowthreshold", cvgatewaycallactive.Cvcallactiveds0Slowthreshold}
+    cvgatewaycallactive.EntityData.Leafs["cvCallActiveDS0sHighNotifyEnable"] = types.YLeaf{"Cvcallactiveds0Shighnotifyenable", cvgatewaycallactive.Cvcallactiveds0Shighnotifyenable}
+    cvgatewaycallactive.EntityData.Leafs["cvCallActiveDS0sLowNotifyEnable"] = types.YLeaf{"Cvcallactiveds0Slownotifyenable", cvgatewaycallactive.Cvcallactiveds0Slownotifyenable}
+    return &(cvgatewaycallactive.EntityData)
 }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetSegmentPath() string {
-    return "cvGatewayCallActive"
-}
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallActiveDS0s"] = cvgatewaycallactive.Cvcallactiveds0S
-    leafs["cvCallActiveDS0sHighThreshold"] = cvgatewaycallactive.Cvcallactiveds0Shighthreshold
-    leafs["cvCallActiveDS0sLowThreshold"] = cvgatewaycallactive.Cvcallactiveds0Slowthreshold
-    leafs["cvCallActiveDS0sHighNotifyEnable"] = cvgatewaycallactive.Cvcallactiveds0Shighnotifyenable
-    leafs["cvCallActiveDS0sLowNotifyEnable"] = cvgatewaycallactive.Cvcallactiveds0Slownotifyenable
-    return leafs
-}
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetYangName() string { return "cvGatewayCallActive" }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) SetParent(parent types.Entity) { cvgatewaycallactive.parent = parent }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetParent() types.Entity { return cvgatewaycallactive.parent }
-
-func (cvgatewaycallactive *CISCOVOICEDIALCONTROLMIB_Cvgatewaycallactive) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallvolume
 type CISCOVOICEDIALCONTROLMIB_Cvcallvolume struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object represents the total number of active call legs in the voice
@@ -623,57 +431,26 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallvolume struct {
     Cvcallvolconnmaxcallconnectionlicenese interface{}
 }
 
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetFilter() yfilter.YFilter { return cvcallvolume.YFilter }
+func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetEntityData() *types.CommonEntityData {
+    cvcallvolume.EntityData.YFilter = cvcallvolume.YFilter
+    cvcallvolume.EntityData.YangName = "cvCallVolume"
+    cvcallvolume.EntityData.BundleName = "cisco_ios_xe"
+    cvcallvolume.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallvolume.EntityData.SegmentPath = "cvCallVolume"
+    cvcallvolume.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallvolume.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallvolume.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) SetFilter(yf yfilter.YFilter) { cvcallvolume.YFilter = yf }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetGoName(yname string) string {
-    if yname == "cvCallVolConnTotalActiveConnections" { return "Cvcallvolconntotalactiveconnections" }
-    if yname == "cvCallVolConnMaxCallConnectionLicenese" { return "Cvcallvolconnmaxcallconnectionlicenese" }
-    return ""
+    cvcallvolume.EntityData.Children = make(map[string]types.YChild)
+    cvcallvolume.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallvolume.EntityData.Leafs["cvCallVolConnTotalActiveConnections"] = types.YLeaf{"Cvcallvolconntotalactiveconnections", cvcallvolume.Cvcallvolconntotalactiveconnections}
+    cvcallvolume.EntityData.Leafs["cvCallVolConnMaxCallConnectionLicenese"] = types.YLeaf{"Cvcallvolconnmaxcallconnectionlicenese", cvcallvolume.Cvcallvolconnmaxcallconnectionlicenese}
+    return &(cvcallvolume.EntityData)
 }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetSegmentPath() string {
-    return "cvCallVolume"
-}
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallVolConnTotalActiveConnections"] = cvcallvolume.Cvcallvolconntotalactiveconnections
-    leafs["cvCallVolConnMaxCallConnectionLicenese"] = cvcallvolume.Cvcallvolconnmaxcallconnectionlicenese
-    return leafs
-}
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetYangName() string { return "cvCallVolume" }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) SetParent(parent types.Entity) { cvcallvolume.parent = parent }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetParent() types.Entity { return cvcallvolume.parent }
-
-func (cvcallvolume *CISCOVOICEDIALCONTROLMIB_Cvcallvolume) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor
 type CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object represents the state of call-monitoring. A value of 'true'
@@ -697,61 +474,28 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor struct {
     Cvcallratehiwatermark interface{}
 }
 
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetFilter() yfilter.YFilter { return cvcallratemonitor.YFilter }
+func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetEntityData() *types.CommonEntityData {
+    cvcallratemonitor.EntityData.YFilter = cvcallratemonitor.YFilter
+    cvcallratemonitor.EntityData.YangName = "cvCallRateMonitor"
+    cvcallratemonitor.EntityData.BundleName = "cisco_ios_xe"
+    cvcallratemonitor.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallratemonitor.EntityData.SegmentPath = "cvCallRateMonitor"
+    cvcallratemonitor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallratemonitor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallratemonitor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) SetFilter(yf yfilter.YFilter) { cvcallratemonitor.YFilter = yf }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetGoName(yname string) string {
-    if yname == "cvCallRateMonitorEnable" { return "Cvcallratemonitorenable" }
-    if yname == "cvCallRateMonitorTime" { return "Cvcallratemonitortime" }
-    if yname == "cvCallRate" { return "Cvcallrate" }
-    if yname == "cvCallRateHiWaterMark" { return "Cvcallratehiwatermark" }
-    return ""
+    cvcallratemonitor.EntityData.Children = make(map[string]types.YChild)
+    cvcallratemonitor.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallratemonitor.EntityData.Leafs["cvCallRateMonitorEnable"] = types.YLeaf{"Cvcallratemonitorenable", cvcallratemonitor.Cvcallratemonitorenable}
+    cvcallratemonitor.EntityData.Leafs["cvCallRateMonitorTime"] = types.YLeaf{"Cvcallratemonitortime", cvcallratemonitor.Cvcallratemonitortime}
+    cvcallratemonitor.EntityData.Leafs["cvCallRate"] = types.YLeaf{"Cvcallrate", cvcallratemonitor.Cvcallrate}
+    cvcallratemonitor.EntityData.Leafs["cvCallRateHiWaterMark"] = types.YLeaf{"Cvcallratehiwatermark", cvcallratemonitor.Cvcallratehiwatermark}
+    return &(cvcallratemonitor.EntityData)
 }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetSegmentPath() string {
-    return "cvCallRateMonitor"
-}
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallRateMonitorEnable"] = cvcallratemonitor.Cvcallratemonitorenable
-    leafs["cvCallRateMonitorTime"] = cvcallratemonitor.Cvcallratemonitortime
-    leafs["cvCallRate"] = cvcallratemonitor.Cvcallrate
-    leafs["cvCallRateHiWaterMark"] = cvcallratemonitor.Cvcallratehiwatermark
-    return leafs
-}
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetYangName() string { return "cvCallRateMonitor" }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) SetParent(parent types.Entity) { cvcallratemonitor.parent = parent }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetParent() types.Entity { return cvcallratemonitor.parent }
-
-func (cvcallratemonitor *CISCOVOICEDIALCONTROLMIB_Cvcallratemonitor) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory
 type CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This Object specifies the thresold duration in seconds.
@@ -767,53 +511,22 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory struct {
     Cvcallvolumewmtablesize interface{}
 }
 
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetFilter() yfilter.YFilter { return cvcallvolumestatshistory.YFilter }
+func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetEntityData() *types.CommonEntityData {
+    cvcallvolumestatshistory.EntityData.YFilter = cvcallvolumestatshistory.YFilter
+    cvcallvolumestatshistory.EntityData.YangName = "cvCallVolumeStatsHistory"
+    cvcallvolumestatshistory.EntityData.BundleName = "cisco_ios_xe"
+    cvcallvolumestatshistory.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallvolumestatshistory.EntityData.SegmentPath = "cvCallVolumeStatsHistory"
+    cvcallvolumestatshistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallvolumestatshistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallvolumestatshistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) SetFilter(yf yfilter.YFilter) { cvcallvolumestatshistory.YFilter = yf }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetGoName(yname string) string {
-    if yname == "cvCallDurationStatsThreshold" { return "Cvcalldurationstatsthreshold" }
-    if yname == "cvCallVolumeWMTableSize" { return "Cvcallvolumewmtablesize" }
-    return ""
+    cvcallvolumestatshistory.EntityData.Children = make(map[string]types.YChild)
+    cvcallvolumestatshistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallvolumestatshistory.EntityData.Leafs["cvCallDurationStatsThreshold"] = types.YLeaf{"Cvcalldurationstatsthreshold", cvcallvolumestatshistory.Cvcalldurationstatsthreshold}
+    cvcallvolumestatshistory.EntityData.Leafs["cvCallVolumeWMTableSize"] = types.YLeaf{"Cvcallvolumewmtablesize", cvcallvolumestatshistory.Cvcallvolumewmtablesize}
+    return &(cvcallvolumestatshistory.EntityData)
 }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetSegmentPath() string {
-    return "cvCallVolumeStatsHistory"
-}
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallDurationStatsThreshold"] = cvcallvolumestatshistory.Cvcalldurationstatsthreshold
-    leafs["cvCallVolumeWMTableSize"] = cvcallvolumestatshistory.Cvcallvolumewmtablesize
-    return leafs
-}
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetYangName() string { return "cvCallVolumeStatsHistory" }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) SetParent(parent types.Entity) { cvcallvolumestatshistory.parent = parent }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetParent() types.Entity { return cvcallvolumestatshistory.parent }
-
-func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistory) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable
 // The table contains the Voice Generic Peer information that
@@ -821,7 +534,7 @@ func (cvcallvolumestatshistory *CISCOVOICEDIALCONTROLMIB_Cvcallvolumestatshistor
 // ifType that is associated with the cvPeerCfgType and
 // cvPeerCfgPeerType objects.
 type CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single voice generic Peer. The creation of this entry will create an
@@ -854,63 +567,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable struct {
     Cvpeercfgentry []CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry
 }
 
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetFilter() yfilter.YFilter { return cvpeercfgtable.YFilter }
+func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetEntityData() *types.CommonEntityData {
+    cvpeercfgtable.EntityData.YFilter = cvpeercfgtable.YFilter
+    cvpeercfgtable.EntityData.YangName = "cvPeerCfgTable"
+    cvpeercfgtable.EntityData.BundleName = "cisco_ios_xe"
+    cvpeercfgtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvpeercfgtable.EntityData.SegmentPath = "cvPeerCfgTable"
+    cvpeercfgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpeercfgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpeercfgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) SetFilter(yf yfilter.YFilter) { cvpeercfgtable.YFilter = yf }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetGoName(yname string) string {
-    if yname == "cvPeerCfgEntry" { return "Cvpeercfgentry" }
-    return ""
-}
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetSegmentPath() string {
-    return "cvPeerCfgTable"
-}
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvPeerCfgEntry" {
-        for _, c := range cvpeercfgtable.Cvpeercfgentry {
-            if cvpeercfgtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry{}
-        cvpeercfgtable.Cvpeercfgentry = append(cvpeercfgtable.Cvpeercfgentry, child)
-        return &cvpeercfgtable.Cvpeercfgentry[len(cvpeercfgtable.Cvpeercfgentry)-1]
-    }
-    return nil
-}
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpeercfgtable.EntityData.Children = make(map[string]types.YChild)
+    cvpeercfgtable.EntityData.Children["cvPeerCfgEntry"] = types.YChild{"Cvpeercfgentry", nil}
     for i := range cvpeercfgtable.Cvpeercfgentry {
-        children[cvpeercfgtable.Cvpeercfgentry[i].GetSegmentPath()] = &cvpeercfgtable.Cvpeercfgentry[i]
+        cvpeercfgtable.EntityData.Children[types.GetSegmentPath(&cvpeercfgtable.Cvpeercfgentry[i])] = types.YChild{"Cvpeercfgentry", &cvpeercfgtable.Cvpeercfgentry[i]}
     }
-    return children
+    cvpeercfgtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpeercfgtable.EntityData)
 }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetYangName() string { return "cvPeerCfgTable" }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) SetParent(parent types.Entity) { cvpeercfgtable.parent = parent }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetParent() types.Entity { return cvpeercfgtable.parent }
-
-func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry
 // A single voice generic Peer. The creation of this
@@ -954,7 +628,7 @@ func (cvpeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable) GetParentYangName
 // voiceEncap/voiceOverIp specific peer entry and the peer
 // entry of IETF Dial Control MIB are deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary index that uniquely identifies a
@@ -1000,63 +674,27 @@ type CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry struct {
     Cvcallvolpeeroutgoingcalls interface{}
 }
 
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetFilter() yfilter.YFilter { return cvpeercfgentry.YFilter }
+func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetEntityData() *types.CommonEntityData {
+    cvpeercfgentry.EntityData.YFilter = cvpeercfgentry.YFilter
+    cvpeercfgentry.EntityData.YangName = "cvPeerCfgEntry"
+    cvpeercfgentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpeercfgentry.EntityData.ParentYangName = "cvPeerCfgTable"
+    cvpeercfgentry.EntityData.SegmentPath = "cvPeerCfgEntry" + "[cvPeerCfgIndex='" + fmt.Sprintf("%v", cvpeercfgentry.Cvpeercfgindex) + "']"
+    cvpeercfgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpeercfgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpeercfgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) SetFilter(yf yfilter.YFilter) { cvpeercfgentry.YFilter = yf }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetGoName(yname string) string {
-    if yname == "cvPeerCfgIndex" { return "Cvpeercfgindex" }
-    if yname == "cvPeerCfgIfIndex" { return "Cvpeercfgifindex" }
-    if yname == "cvPeerCfgType" { return "Cvpeercfgtype" }
-    if yname == "cvPeerCfgRowStatus" { return "Cvpeercfgrowstatus" }
-    if yname == "cvPeerCfgPeerType" { return "Cvpeercfgpeertype" }
-    if yname == "cvCallVolPeerIncomingCalls" { return "Cvcallvolpeerincomingcalls" }
-    if yname == "cvCallVolPeerOutgoingCalls" { return "Cvcallvolpeeroutgoingcalls" }
-    return ""
+    cvpeercfgentry.EntityData.Children = make(map[string]types.YChild)
+    cvpeercfgentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpeercfgentry.EntityData.Leafs["cvPeerCfgIndex"] = types.YLeaf{"Cvpeercfgindex", cvpeercfgentry.Cvpeercfgindex}
+    cvpeercfgentry.EntityData.Leafs["cvPeerCfgIfIndex"] = types.YLeaf{"Cvpeercfgifindex", cvpeercfgentry.Cvpeercfgifindex}
+    cvpeercfgentry.EntityData.Leafs["cvPeerCfgType"] = types.YLeaf{"Cvpeercfgtype", cvpeercfgentry.Cvpeercfgtype}
+    cvpeercfgentry.EntityData.Leafs["cvPeerCfgRowStatus"] = types.YLeaf{"Cvpeercfgrowstatus", cvpeercfgentry.Cvpeercfgrowstatus}
+    cvpeercfgentry.EntityData.Leafs["cvPeerCfgPeerType"] = types.YLeaf{"Cvpeercfgpeertype", cvpeercfgentry.Cvpeercfgpeertype}
+    cvpeercfgentry.EntityData.Leafs["cvCallVolPeerIncomingCalls"] = types.YLeaf{"Cvcallvolpeerincomingcalls", cvpeercfgentry.Cvcallvolpeerincomingcalls}
+    cvpeercfgentry.EntityData.Leafs["cvCallVolPeerOutgoingCalls"] = types.YLeaf{"Cvcallvolpeeroutgoingcalls", cvpeercfgentry.Cvcallvolpeeroutgoingcalls}
+    return &(cvpeercfgentry.EntityData)
 }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetSegmentPath() string {
-    return "cvPeerCfgEntry" + "[cvPeerCfgIndex='" + fmt.Sprintf("%v", cvpeercfgentry.Cvpeercfgindex) + "']"
-}
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvPeerCfgIndex"] = cvpeercfgentry.Cvpeercfgindex
-    leafs["cvPeerCfgIfIndex"] = cvpeercfgentry.Cvpeercfgifindex
-    leafs["cvPeerCfgType"] = cvpeercfgentry.Cvpeercfgtype
-    leafs["cvPeerCfgRowStatus"] = cvpeercfgentry.Cvpeercfgrowstatus
-    leafs["cvPeerCfgPeerType"] = cvpeercfgentry.Cvpeercfgpeertype
-    leafs["cvCallVolPeerIncomingCalls"] = cvpeercfgentry.Cvcallvolpeerincomingcalls
-    leafs["cvCallVolPeerOutgoingCalls"] = cvpeercfgentry.Cvcallvolpeeroutgoingcalls
-    return leafs
-}
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetYangName() string { return "cvPeerCfgEntry" }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) SetParent(parent types.Entity) { cvpeercfgentry.parent = parent }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetParent() types.Entity { return cvpeercfgentry.parent }
-
-func (cvpeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry) GetParentYangName() string { return "cvPeerCfgTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry_Cvpeercfgpeertype represents         calls and integrated ports for data calls.
 type CISCOVOICEDIALCONTROLMIB_Cvpeercfgtable_Cvpeercfgentry_Cvpeercfgpeertype string
@@ -1088,7 +726,7 @@ const (
 // which it will place them or perform various loopback tests
 // via interface.
 type CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single Voice specific Peer. One entry per voice encapsulation. The entry
@@ -1099,63 +737,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable struct {
     Cvvoicepeercfgentry []CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry
 }
 
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetFilter() yfilter.YFilter { return cvvoicepeercfgtable.YFilter }
+func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetEntityData() *types.CommonEntityData {
+    cvvoicepeercfgtable.EntityData.YFilter = cvvoicepeercfgtable.YFilter
+    cvvoicepeercfgtable.EntityData.YangName = "cvVoicePeerCfgTable"
+    cvvoicepeercfgtable.EntityData.BundleName = "cisco_ios_xe"
+    cvvoicepeercfgtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvvoicepeercfgtable.EntityData.SegmentPath = "cvVoicePeerCfgTable"
+    cvvoicepeercfgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoicepeercfgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoicepeercfgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) SetFilter(yf yfilter.YFilter) { cvvoicepeercfgtable.YFilter = yf }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetGoName(yname string) string {
-    if yname == "cvVoicePeerCfgEntry" { return "Cvvoicepeercfgentry" }
-    return ""
-}
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetSegmentPath() string {
-    return "cvVoicePeerCfgTable"
-}
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvVoicePeerCfgEntry" {
-        for _, c := range cvvoicepeercfgtable.Cvvoicepeercfgentry {
-            if cvvoicepeercfgtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry{}
-        cvvoicepeercfgtable.Cvvoicepeercfgentry = append(cvvoicepeercfgtable.Cvvoicepeercfgentry, child)
-        return &cvvoicepeercfgtable.Cvvoicepeercfgentry[len(cvvoicepeercfgtable.Cvvoicepeercfgentry)-1]
-    }
-    return nil
-}
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvvoicepeercfgtable.EntityData.Children = make(map[string]types.YChild)
+    cvvoicepeercfgtable.EntityData.Children["cvVoicePeerCfgEntry"] = types.YChild{"Cvvoicepeercfgentry", nil}
     for i := range cvvoicepeercfgtable.Cvvoicepeercfgentry {
-        children[cvvoicepeercfgtable.Cvvoicepeercfgentry[i].GetSegmentPath()] = &cvvoicepeercfgtable.Cvvoicepeercfgentry[i]
+        cvvoicepeercfgtable.EntityData.Children[types.GetSegmentPath(&cvvoicepeercfgtable.Cvvoicepeercfgentry[i])] = types.YChild{"Cvvoicepeercfgentry", &cvvoicepeercfgtable.Cvvoicepeercfgentry[i]}
     }
-    return children
+    cvvoicepeercfgtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvvoicepeercfgtable.EntityData)
 }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetYangName() string { return "cvVoicePeerCfgTable" }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) SetParent(parent types.Entity) { cvvoicepeercfgtable.parent = parent }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetParent() types.Entity { return cvvoicepeercfgtable.parent }
-
-func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry
 // A single Voice specific Peer. One entry per voice
@@ -1165,7 +764,7 @@ func (cvvoicepeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable) GetPare
 // This entry is deleted when its associated ifEntry is
 // deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1250,65 +849,28 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry struct {
     Cvvoicepeercfgechocancellertest interface{}
 }
 
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetFilter() yfilter.YFilter { return cvvoicepeercfgentry.YFilter }
+func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetEntityData() *types.CommonEntityData {
+    cvvoicepeercfgentry.EntityData.YFilter = cvvoicepeercfgentry.YFilter
+    cvvoicepeercfgentry.EntityData.YangName = "cvVoicePeerCfgEntry"
+    cvvoicepeercfgentry.EntityData.BundleName = "cisco_ios_xe"
+    cvvoicepeercfgentry.EntityData.ParentYangName = "cvVoicePeerCfgTable"
+    cvvoicepeercfgentry.EntityData.SegmentPath = "cvVoicePeerCfgEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvvoicepeercfgentry.Ifindex) + "']"
+    cvvoicepeercfgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoicepeercfgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoicepeercfgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) SetFilter(yf yfilter.YFilter) { cvvoicepeercfgentry.YFilter = yf }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cvVoicePeerCfgSessionTarget" { return "Cvvoicepeercfgsessiontarget" }
-    if yname == "cvVoicePeerCfgDialDigitsPrefix" { return "Cvvoicepeercfgdialdigitsprefix" }
-    if yname == "cvVoicePeerCfgDIDCallEnable" { return "Cvvoicepeercfgdidcallenable" }
-    if yname == "cvVoicePeerCfgCasGroup" { return "Cvvoicepeercfgcasgroup" }
-    if yname == "cvVoicePeerCfgRegisterE164" { return "Cvvoicepeercfgregistere164" }
-    if yname == "cvVoicePeerCfgForwardDigits" { return "Cvvoicepeercfgforwarddigits" }
-    if yname == "cvVoicePeerCfgEchoCancellerTest" { return "Cvvoicepeercfgechocancellertest" }
-    return ""
+    cvvoicepeercfgentry.EntityData.Children = make(map[string]types.YChild)
+    cvvoicepeercfgentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvvoicepeercfgentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cvvoicepeercfgentry.Ifindex}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgSessionTarget"] = types.YLeaf{"Cvvoicepeercfgsessiontarget", cvvoicepeercfgentry.Cvvoicepeercfgsessiontarget}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgDialDigitsPrefix"] = types.YLeaf{"Cvvoicepeercfgdialdigitsprefix", cvvoicepeercfgentry.Cvvoicepeercfgdialdigitsprefix}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgDIDCallEnable"] = types.YLeaf{"Cvvoicepeercfgdidcallenable", cvvoicepeercfgentry.Cvvoicepeercfgdidcallenable}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgCasGroup"] = types.YLeaf{"Cvvoicepeercfgcasgroup", cvvoicepeercfgentry.Cvvoicepeercfgcasgroup}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgRegisterE164"] = types.YLeaf{"Cvvoicepeercfgregistere164", cvvoicepeercfgentry.Cvvoicepeercfgregistere164}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgForwardDigits"] = types.YLeaf{"Cvvoicepeercfgforwarddigits", cvvoicepeercfgentry.Cvvoicepeercfgforwarddigits}
+    cvvoicepeercfgentry.EntityData.Leafs["cvVoicePeerCfgEchoCancellerTest"] = types.YLeaf{"Cvvoicepeercfgechocancellertest", cvvoicepeercfgentry.Cvvoicepeercfgechocancellertest}
+    return &(cvvoicepeercfgentry.EntityData)
 }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetSegmentPath() string {
-    return "cvVoicePeerCfgEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvvoicepeercfgentry.Ifindex) + "']"
-}
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cvvoicepeercfgentry.Ifindex
-    leafs["cvVoicePeerCfgSessionTarget"] = cvvoicepeercfgentry.Cvvoicepeercfgsessiontarget
-    leafs["cvVoicePeerCfgDialDigitsPrefix"] = cvvoicepeercfgentry.Cvvoicepeercfgdialdigitsprefix
-    leafs["cvVoicePeerCfgDIDCallEnable"] = cvvoicepeercfgentry.Cvvoicepeercfgdidcallenable
-    leafs["cvVoicePeerCfgCasGroup"] = cvvoicepeercfgentry.Cvvoicepeercfgcasgroup
-    leafs["cvVoicePeerCfgRegisterE164"] = cvvoicepeercfgentry.Cvvoicepeercfgregistere164
-    leafs["cvVoicePeerCfgForwardDigits"] = cvvoicepeercfgentry.Cvvoicepeercfgforwarddigits
-    leafs["cvVoicePeerCfgEchoCancellerTest"] = cvvoicepeercfgentry.Cvvoicepeercfgechocancellertest
-    return leafs
-}
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetYangName() string { return "cvVoicePeerCfgEntry" }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) SetParent(parent types.Entity) { cvvoicepeercfgentry.parent = parent }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetParent() types.Entity { return cvvoicepeercfgentry.parent }
-
-func (cvvoicepeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry) GetParentYangName() string { return "cvVoicePeerCfgTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry_Cvvoicepeercfgechocancellertest represents echoCancellerG168Test9   - run ITU-T G.168 Test 9.
 type CISCOVOICEDIALCONTROLMIB_Cvvoicepeercfgtable_Cvvoicepeercfgentry_Cvvoicepeercfgechocancellertest string
@@ -1347,7 +909,7 @@ const (
 // which it will place them via IP backbone with the
 // specified session protocol in cvVoIPPeerCfgSessionProtocol.
 type CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single VoIP specific Peer. One entry per VoIP encapsulation. The entry is
@@ -1358,63 +920,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable struct {
     Cvvoippeercfgentry []CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry
 }
 
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetFilter() yfilter.YFilter { return cvvoippeercfgtable.YFilter }
+func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetEntityData() *types.CommonEntityData {
+    cvvoippeercfgtable.EntityData.YFilter = cvvoippeercfgtable.YFilter
+    cvvoippeercfgtable.EntityData.YangName = "cvVoIPPeerCfgTable"
+    cvvoippeercfgtable.EntityData.BundleName = "cisco_ios_xe"
+    cvvoippeercfgtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvvoippeercfgtable.EntityData.SegmentPath = "cvVoIPPeerCfgTable"
+    cvvoippeercfgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoippeercfgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoippeercfgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) SetFilter(yf yfilter.YFilter) { cvvoippeercfgtable.YFilter = yf }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetGoName(yname string) string {
-    if yname == "cvVoIPPeerCfgEntry" { return "Cvvoippeercfgentry" }
-    return ""
-}
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetSegmentPath() string {
-    return "cvVoIPPeerCfgTable"
-}
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvVoIPPeerCfgEntry" {
-        for _, c := range cvvoippeercfgtable.Cvvoippeercfgentry {
-            if cvvoippeercfgtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry{}
-        cvvoippeercfgtable.Cvvoippeercfgentry = append(cvvoippeercfgtable.Cvvoippeercfgentry, child)
-        return &cvvoippeercfgtable.Cvvoippeercfgentry[len(cvvoippeercfgtable.Cvvoippeercfgentry)-1]
-    }
-    return nil
-}
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvvoippeercfgtable.EntityData.Children = make(map[string]types.YChild)
+    cvvoippeercfgtable.EntityData.Children["cvVoIPPeerCfgEntry"] = types.YChild{"Cvvoippeercfgentry", nil}
     for i := range cvvoippeercfgtable.Cvvoippeercfgentry {
-        children[cvvoippeercfgtable.Cvvoippeercfgentry[i].GetSegmentPath()] = &cvvoippeercfgtable.Cvvoippeercfgentry[i]
+        cvvoippeercfgtable.EntityData.Children[types.GetSegmentPath(&cvvoippeercfgtable.Cvvoippeercfgentry[i])] = types.YChild{"Cvvoippeercfgentry", &cvvoippeercfgtable.Cvvoippeercfgentry[i]}
     }
-    return children
+    cvvoippeercfgtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvvoippeercfgtable.EntityData)
 }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetYangName() string { return "cvVoIPPeerCfgTable" }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) SetParent(parent types.Entity) { cvvoippeercfgtable.parent = parent }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetParent() types.Entity { return cvvoippeercfgtable.parent }
-
-func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry
 // A single VoIP specific Peer. One entry per VoIP
@@ -1424,7 +947,7 @@ func (cvvoippeercfgtable *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable) GetParent
 // This entry is deleted when its associated ifEntry is
 // deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1649,111 +1172,51 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry struct {
     Cvvoippeercfgmediapolicynotificationenable interface{}
 }
 
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetFilter() yfilter.YFilter { return cvvoippeercfgentry.YFilter }
+func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetEntityData() *types.CommonEntityData {
+    cvvoippeercfgentry.EntityData.YFilter = cvvoippeercfgentry.YFilter
+    cvvoippeercfgentry.EntityData.YangName = "cvVoIPPeerCfgEntry"
+    cvvoippeercfgentry.EntityData.BundleName = "cisco_ios_xe"
+    cvvoippeercfgentry.EntityData.ParentYangName = "cvVoIPPeerCfgTable"
+    cvvoippeercfgentry.EntityData.SegmentPath = "cvVoIPPeerCfgEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvvoippeercfgentry.Ifindex) + "']"
+    cvvoippeercfgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoippeercfgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoippeercfgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) SetFilter(yf yfilter.YFilter) { cvvoippeercfgentry.YFilter = yf }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cvVoIPPeerCfgSessionProtocol" { return "Cvvoippeercfgsessionprotocol" }
-    if yname == "cvVoIPPeerCfgDesiredQoS" { return "Cvvoippeercfgdesiredqos" }
-    if yname == "cvVoIPPeerCfgMinAcceptableQoS" { return "Cvvoippeercfgminacceptableqos" }
-    if yname == "cvVoIPPeerCfgSessionTarget" { return "Cvvoippeercfgsessiontarget" }
-    if yname == "cvVoIPPeerCfgCoderRate" { return "Cvvoippeercfgcoderrate" }
-    if yname == "cvVoIPPeerCfgFaxRate" { return "Cvvoippeercfgfaxrate" }
-    if yname == "cvVoIPPeerCfgVADEnable" { return "Cvvoippeercfgvadenable" }
-    if yname == "cvVoIPPeerCfgExpectFactor" { return "Cvvoippeercfgexpectfactor" }
-    if yname == "cvVoIPPeerCfgIcpif" { return "Cvvoippeercfgicpif" }
-    if yname == "cvVoIPPeerCfgPoorQoVNotificationEnable" { return "Cvvoippeercfgpoorqovnotificationenable" }
-    if yname == "cvVoIPPeerCfgUDPChecksumEnable" { return "Cvvoippeercfgudpchecksumenable" }
-    if yname == "cvVoIPPeerCfgIPPrecedence" { return "Cvvoippeercfgipprecedence" }
-    if yname == "cvVoIPPeerCfgTechPrefix" { return "Cvvoippeercfgtechprefix" }
-    if yname == "cvVoIPPeerCfgDigitRelay" { return "Cvvoippeercfgdigitrelay" }
-    if yname == "cvVoIPPeerCfgCoderBytes" { return "Cvvoippeercfgcoderbytes" }
-    if yname == "cvVoIPPeerCfgFaxBytes" { return "Cvvoippeercfgfaxbytes" }
-    if yname == "cvVoIPPeerCfgInBandSignaling" { return "Cvvoippeercfginbandsignaling" }
-    if yname == "cvVoIPPeerCfgMediaSetting" { return "Cvvoippeercfgmediasetting" }
-    if yname == "cvVoIPPeerCfgDesiredQoSVideo" { return "Cvvoippeercfgdesiredqosvideo" }
-    if yname == "cvVoIPPeerCfgMinAcceptableQoSVideo" { return "Cvvoippeercfgminacceptableqosvideo" }
-    if yname == "cvVoIPPeerCfgRedirectip2ip" { return "Cvvoippeercfgredirectip2Ip" }
-    if yname == "cvVoIPPeerCfgOctetAligned" { return "Cvvoippeercfgoctetaligned" }
-    if yname == "cvVoIPPeerCfgBitRates" { return "Cvvoippeercfgbitrates" }
-    if yname == "cvVoIPPeerCfgCRC" { return "Cvvoippeercfgcrc" }
-    if yname == "cvVoIPPeerCfgCoderMode" { return "Cvvoippeercfgcodermode" }
-    if yname == "cvVoIPPeerCfgCodingMode" { return "Cvvoippeercfgcodingmode" }
-    if yname == "cvVoIPPeerCfgBitRate" { return "Cvvoippeercfgbitrate" }
-    if yname == "cvVoIPPeerCfgFrameSize" { return "Cvvoippeercfgframesize" }
-    if yname == "cvVoIPPeerCfgDSCPPolicyNotificationEnable" { return "Cvvoippeercfgdscppolicynotificationenable" }
-    if yname == "cvVoIPPeerCfgMediaPolicyNotificationEnable" { return "Cvvoippeercfgmediapolicynotificationenable" }
-    return ""
+    cvvoippeercfgentry.EntityData.Children = make(map[string]types.YChild)
+    cvvoippeercfgentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvvoippeercfgentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cvvoippeercfgentry.Ifindex}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgSessionProtocol"] = types.YLeaf{"Cvvoippeercfgsessionprotocol", cvvoippeercfgentry.Cvvoippeercfgsessionprotocol}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgDesiredQoS"] = types.YLeaf{"Cvvoippeercfgdesiredqos", cvvoippeercfgentry.Cvvoippeercfgdesiredqos}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgMinAcceptableQoS"] = types.YLeaf{"Cvvoippeercfgminacceptableqos", cvvoippeercfgentry.Cvvoippeercfgminacceptableqos}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgSessionTarget"] = types.YLeaf{"Cvvoippeercfgsessiontarget", cvvoippeercfgentry.Cvvoippeercfgsessiontarget}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgCoderRate"] = types.YLeaf{"Cvvoippeercfgcoderrate", cvvoippeercfgentry.Cvvoippeercfgcoderrate}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgFaxRate"] = types.YLeaf{"Cvvoippeercfgfaxrate", cvvoippeercfgentry.Cvvoippeercfgfaxrate}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgVADEnable"] = types.YLeaf{"Cvvoippeercfgvadenable", cvvoippeercfgentry.Cvvoippeercfgvadenable}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgExpectFactor"] = types.YLeaf{"Cvvoippeercfgexpectfactor", cvvoippeercfgentry.Cvvoippeercfgexpectfactor}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgIcpif"] = types.YLeaf{"Cvvoippeercfgicpif", cvvoippeercfgentry.Cvvoippeercfgicpif}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgPoorQoVNotificationEnable"] = types.YLeaf{"Cvvoippeercfgpoorqovnotificationenable", cvvoippeercfgentry.Cvvoippeercfgpoorqovnotificationenable}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgUDPChecksumEnable"] = types.YLeaf{"Cvvoippeercfgudpchecksumenable", cvvoippeercfgentry.Cvvoippeercfgudpchecksumenable}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgIPPrecedence"] = types.YLeaf{"Cvvoippeercfgipprecedence", cvvoippeercfgentry.Cvvoippeercfgipprecedence}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgTechPrefix"] = types.YLeaf{"Cvvoippeercfgtechprefix", cvvoippeercfgentry.Cvvoippeercfgtechprefix}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgDigitRelay"] = types.YLeaf{"Cvvoippeercfgdigitrelay", cvvoippeercfgentry.Cvvoippeercfgdigitrelay}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgCoderBytes"] = types.YLeaf{"Cvvoippeercfgcoderbytes", cvvoippeercfgentry.Cvvoippeercfgcoderbytes}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgFaxBytes"] = types.YLeaf{"Cvvoippeercfgfaxbytes", cvvoippeercfgentry.Cvvoippeercfgfaxbytes}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgInBandSignaling"] = types.YLeaf{"Cvvoippeercfginbandsignaling", cvvoippeercfgentry.Cvvoippeercfginbandsignaling}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgMediaSetting"] = types.YLeaf{"Cvvoippeercfgmediasetting", cvvoippeercfgentry.Cvvoippeercfgmediasetting}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgDesiredQoSVideo"] = types.YLeaf{"Cvvoippeercfgdesiredqosvideo", cvvoippeercfgentry.Cvvoippeercfgdesiredqosvideo}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgMinAcceptableQoSVideo"] = types.YLeaf{"Cvvoippeercfgminacceptableqosvideo", cvvoippeercfgentry.Cvvoippeercfgminacceptableqosvideo}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgRedirectip2ip"] = types.YLeaf{"Cvvoippeercfgredirectip2Ip", cvvoippeercfgentry.Cvvoippeercfgredirectip2Ip}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgOctetAligned"] = types.YLeaf{"Cvvoippeercfgoctetaligned", cvvoippeercfgentry.Cvvoippeercfgoctetaligned}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgBitRates"] = types.YLeaf{"Cvvoippeercfgbitrates", cvvoippeercfgentry.Cvvoippeercfgbitrates}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgCRC"] = types.YLeaf{"Cvvoippeercfgcrc", cvvoippeercfgentry.Cvvoippeercfgcrc}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgCoderMode"] = types.YLeaf{"Cvvoippeercfgcodermode", cvvoippeercfgentry.Cvvoippeercfgcodermode}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgCodingMode"] = types.YLeaf{"Cvvoippeercfgcodingmode", cvvoippeercfgentry.Cvvoippeercfgcodingmode}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgBitRate"] = types.YLeaf{"Cvvoippeercfgbitrate", cvvoippeercfgentry.Cvvoippeercfgbitrate}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgFrameSize"] = types.YLeaf{"Cvvoippeercfgframesize", cvvoippeercfgentry.Cvvoippeercfgframesize}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgDSCPPolicyNotificationEnable"] = types.YLeaf{"Cvvoippeercfgdscppolicynotificationenable", cvvoippeercfgentry.Cvvoippeercfgdscppolicynotificationenable}
+    cvvoippeercfgentry.EntityData.Leafs["cvVoIPPeerCfgMediaPolicyNotificationEnable"] = types.YLeaf{"Cvvoippeercfgmediapolicynotificationenable", cvvoippeercfgentry.Cvvoippeercfgmediapolicynotificationenable}
+    return &(cvvoippeercfgentry.EntityData)
 }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetSegmentPath() string {
-    return "cvVoIPPeerCfgEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvvoippeercfgentry.Ifindex) + "']"
-}
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cvvoippeercfgentry.Ifindex
-    leafs["cvVoIPPeerCfgSessionProtocol"] = cvvoippeercfgentry.Cvvoippeercfgsessionprotocol
-    leafs["cvVoIPPeerCfgDesiredQoS"] = cvvoippeercfgentry.Cvvoippeercfgdesiredqos
-    leafs["cvVoIPPeerCfgMinAcceptableQoS"] = cvvoippeercfgentry.Cvvoippeercfgminacceptableqos
-    leafs["cvVoIPPeerCfgSessionTarget"] = cvvoippeercfgentry.Cvvoippeercfgsessiontarget
-    leafs["cvVoIPPeerCfgCoderRate"] = cvvoippeercfgentry.Cvvoippeercfgcoderrate
-    leafs["cvVoIPPeerCfgFaxRate"] = cvvoippeercfgentry.Cvvoippeercfgfaxrate
-    leafs["cvVoIPPeerCfgVADEnable"] = cvvoippeercfgentry.Cvvoippeercfgvadenable
-    leafs["cvVoIPPeerCfgExpectFactor"] = cvvoippeercfgentry.Cvvoippeercfgexpectfactor
-    leafs["cvVoIPPeerCfgIcpif"] = cvvoippeercfgentry.Cvvoippeercfgicpif
-    leafs["cvVoIPPeerCfgPoorQoVNotificationEnable"] = cvvoippeercfgentry.Cvvoippeercfgpoorqovnotificationenable
-    leafs["cvVoIPPeerCfgUDPChecksumEnable"] = cvvoippeercfgentry.Cvvoippeercfgudpchecksumenable
-    leafs["cvVoIPPeerCfgIPPrecedence"] = cvvoippeercfgentry.Cvvoippeercfgipprecedence
-    leafs["cvVoIPPeerCfgTechPrefix"] = cvvoippeercfgentry.Cvvoippeercfgtechprefix
-    leafs["cvVoIPPeerCfgDigitRelay"] = cvvoippeercfgentry.Cvvoippeercfgdigitrelay
-    leafs["cvVoIPPeerCfgCoderBytes"] = cvvoippeercfgentry.Cvvoippeercfgcoderbytes
-    leafs["cvVoIPPeerCfgFaxBytes"] = cvvoippeercfgentry.Cvvoippeercfgfaxbytes
-    leafs["cvVoIPPeerCfgInBandSignaling"] = cvvoippeercfgentry.Cvvoippeercfginbandsignaling
-    leafs["cvVoIPPeerCfgMediaSetting"] = cvvoippeercfgentry.Cvvoippeercfgmediasetting
-    leafs["cvVoIPPeerCfgDesiredQoSVideo"] = cvvoippeercfgentry.Cvvoippeercfgdesiredqosvideo
-    leafs["cvVoIPPeerCfgMinAcceptableQoSVideo"] = cvvoippeercfgentry.Cvvoippeercfgminacceptableqosvideo
-    leafs["cvVoIPPeerCfgRedirectip2ip"] = cvvoippeercfgentry.Cvvoippeercfgredirectip2Ip
-    leafs["cvVoIPPeerCfgOctetAligned"] = cvvoippeercfgentry.Cvvoippeercfgoctetaligned
-    leafs["cvVoIPPeerCfgBitRates"] = cvvoippeercfgentry.Cvvoippeercfgbitrates
-    leafs["cvVoIPPeerCfgCRC"] = cvvoippeercfgentry.Cvvoippeercfgcrc
-    leafs["cvVoIPPeerCfgCoderMode"] = cvvoippeercfgentry.Cvvoippeercfgcodermode
-    leafs["cvVoIPPeerCfgCodingMode"] = cvvoippeercfgentry.Cvvoippeercfgcodingmode
-    leafs["cvVoIPPeerCfgBitRate"] = cvvoippeercfgentry.Cvvoippeercfgbitrate
-    leafs["cvVoIPPeerCfgFrameSize"] = cvvoippeercfgentry.Cvvoippeercfgframesize
-    leafs["cvVoIPPeerCfgDSCPPolicyNotificationEnable"] = cvvoippeercfgentry.Cvvoippeercfgdscppolicynotificationenable
-    leafs["cvVoIPPeerCfgMediaPolicyNotificationEnable"] = cvvoippeercfgentry.Cvvoippeercfgmediapolicynotificationenable
-    return leafs
-}
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetYangName() string { return "cvVoIPPeerCfgEntry" }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) SetParent(parent types.Entity) { cvvoippeercfgentry.parent = parent }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetParent() types.Entity { return cvvoippeercfgentry.parent }
-
-func (cvvoippeercfgentry *CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry) GetParentYangName() string { return "cvVoIPPeerCfgTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry_Cvvoippeercfgcodingmode represents                   is performed.
 type CISCOVOICEDIALCONTROLMIB_Cvvoippeercfgtable_Cvvoippeercfgentry_Cvvoippeercfgcodingmode string
@@ -1792,7 +1255,7 @@ const (
 // calls or to which it will place them or process the
 // incoming calls.
 type CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single Voice specific Peer. One entry per voice related encapsulation.
@@ -1803,63 +1266,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable struct {
     Cvpeercommoncfgentry []CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry
 }
 
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetFilter() yfilter.YFilter { return cvpeercommoncfgtable.YFilter }
+func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetEntityData() *types.CommonEntityData {
+    cvpeercommoncfgtable.EntityData.YFilter = cvpeercommoncfgtable.YFilter
+    cvpeercommoncfgtable.EntityData.YangName = "cvPeerCommonCfgTable"
+    cvpeercommoncfgtable.EntityData.BundleName = "cisco_ios_xe"
+    cvpeercommoncfgtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvpeercommoncfgtable.EntityData.SegmentPath = "cvPeerCommonCfgTable"
+    cvpeercommoncfgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpeercommoncfgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpeercommoncfgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) SetFilter(yf yfilter.YFilter) { cvpeercommoncfgtable.YFilter = yf }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetGoName(yname string) string {
-    if yname == "cvPeerCommonCfgEntry" { return "Cvpeercommoncfgentry" }
-    return ""
-}
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetSegmentPath() string {
-    return "cvPeerCommonCfgTable"
-}
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvPeerCommonCfgEntry" {
-        for _, c := range cvpeercommoncfgtable.Cvpeercommoncfgentry {
-            if cvpeercommoncfgtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry{}
-        cvpeercommoncfgtable.Cvpeercommoncfgentry = append(cvpeercommoncfgtable.Cvpeercommoncfgentry, child)
-        return &cvpeercommoncfgtable.Cvpeercommoncfgentry[len(cvpeercommoncfgtable.Cvpeercommoncfgentry)-1]
-    }
-    return nil
-}
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpeercommoncfgtable.EntityData.Children = make(map[string]types.YChild)
+    cvpeercommoncfgtable.EntityData.Children["cvPeerCommonCfgEntry"] = types.YChild{"Cvpeercommoncfgentry", nil}
     for i := range cvpeercommoncfgtable.Cvpeercommoncfgentry {
-        children[cvpeercommoncfgtable.Cvpeercommoncfgentry[i].GetSegmentPath()] = &cvpeercommoncfgtable.Cvpeercommoncfgentry[i]
+        cvpeercommoncfgtable.EntityData.Children[types.GetSegmentPath(&cvpeercommoncfgtable.Cvpeercommoncfgentry[i])] = types.YChild{"Cvpeercommoncfgentry", &cvpeercommoncfgtable.Cvpeercommoncfgentry[i]}
     }
-    return children
+    cvpeercommoncfgtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpeercommoncfgtable.EntityData)
 }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetYangName() string { return "cvPeerCommonCfgTable" }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) SetParent(parent types.Entity) { cvpeercommoncfgtable.parent = parent }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetParent() types.Entity { return cvpeercommoncfgtable.parent }
-
-func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry
 // A single Voice specific Peer. One entry per voice related
@@ -1869,7 +1293,7 @@ func (cvpeercommoncfgtable *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable) GetPa
 // This entry is deleted when its associated ifEntry is
 // deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1943,71 +1367,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry struct {
     Cvpeercommoncfgtargettrunkgrplabel interface{}
 }
 
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetFilter() yfilter.YFilter { return cvpeercommoncfgentry.YFilter }
+func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetEntityData() *types.CommonEntityData {
+    cvpeercommoncfgentry.EntityData.YFilter = cvpeercommoncfgentry.YFilter
+    cvpeercommoncfgentry.EntityData.YangName = "cvPeerCommonCfgEntry"
+    cvpeercommoncfgentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpeercommoncfgentry.EntityData.ParentYangName = "cvPeerCommonCfgTable"
+    cvpeercommoncfgentry.EntityData.SegmentPath = "cvPeerCommonCfgEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvpeercommoncfgentry.Ifindex) + "']"
+    cvpeercommoncfgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpeercommoncfgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpeercommoncfgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) SetFilter(yf yfilter.YFilter) { cvpeercommoncfgentry.YFilter = yf }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cvPeerCommonCfgIncomingDnisDigits" { return "Cvpeercommoncfgincomingdnisdigits" }
-    if yname == "cvPeerCommonCfgMaxConnections" { return "Cvpeercommoncfgmaxconnections" }
-    if yname == "cvPeerCommonCfgApplicationName" { return "Cvpeercommoncfgapplicationname" }
-    if yname == "cvPeerCommonCfgPreference" { return "Cvpeercommoncfgpreference" }
-    if yname == "cvPeerCommonCfgHuntStop" { return "Cvpeercommoncfghuntstop" }
-    if yname == "cvPeerCommonCfgDnisMappingName" { return "Cvpeercommoncfgdnismappingname" }
-    if yname == "cvPeerCommonCfgSourceCarrierId" { return "Cvpeercommoncfgsourcecarrierid" }
-    if yname == "cvPeerCommonCfgTargetCarrierId" { return "Cvpeercommoncfgtargetcarrierid" }
-    if yname == "cvPeerCommonCfgSourceTrunkGrpLabel" { return "Cvpeercommoncfgsourcetrunkgrplabel" }
-    if yname == "cvPeerCommonCfgTargetTrunkGrpLabel" { return "Cvpeercommoncfgtargettrunkgrplabel" }
-    return ""
+    cvpeercommoncfgentry.EntityData.Children = make(map[string]types.YChild)
+    cvpeercommoncfgentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpeercommoncfgentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cvpeercommoncfgentry.Ifindex}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgIncomingDnisDigits"] = types.YLeaf{"Cvpeercommoncfgincomingdnisdigits", cvpeercommoncfgentry.Cvpeercommoncfgincomingdnisdigits}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgMaxConnections"] = types.YLeaf{"Cvpeercommoncfgmaxconnections", cvpeercommoncfgentry.Cvpeercommoncfgmaxconnections}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgApplicationName"] = types.YLeaf{"Cvpeercommoncfgapplicationname", cvpeercommoncfgentry.Cvpeercommoncfgapplicationname}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgPreference"] = types.YLeaf{"Cvpeercommoncfgpreference", cvpeercommoncfgentry.Cvpeercommoncfgpreference}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgHuntStop"] = types.YLeaf{"Cvpeercommoncfghuntstop", cvpeercommoncfgentry.Cvpeercommoncfghuntstop}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgDnisMappingName"] = types.YLeaf{"Cvpeercommoncfgdnismappingname", cvpeercommoncfgentry.Cvpeercommoncfgdnismappingname}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgSourceCarrierId"] = types.YLeaf{"Cvpeercommoncfgsourcecarrierid", cvpeercommoncfgentry.Cvpeercommoncfgsourcecarrierid}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgTargetCarrierId"] = types.YLeaf{"Cvpeercommoncfgtargetcarrierid", cvpeercommoncfgentry.Cvpeercommoncfgtargetcarrierid}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgSourceTrunkGrpLabel"] = types.YLeaf{"Cvpeercommoncfgsourcetrunkgrplabel", cvpeercommoncfgentry.Cvpeercommoncfgsourcetrunkgrplabel}
+    cvpeercommoncfgentry.EntityData.Leafs["cvPeerCommonCfgTargetTrunkGrpLabel"] = types.YLeaf{"Cvpeercommoncfgtargettrunkgrplabel", cvpeercommoncfgentry.Cvpeercommoncfgtargettrunkgrplabel}
+    return &(cvpeercommoncfgentry.EntityData)
 }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetSegmentPath() string {
-    return "cvPeerCommonCfgEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvpeercommoncfgentry.Ifindex) + "']"
-}
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cvpeercommoncfgentry.Ifindex
-    leafs["cvPeerCommonCfgIncomingDnisDigits"] = cvpeercommoncfgentry.Cvpeercommoncfgincomingdnisdigits
-    leafs["cvPeerCommonCfgMaxConnections"] = cvpeercommoncfgentry.Cvpeercommoncfgmaxconnections
-    leafs["cvPeerCommonCfgApplicationName"] = cvpeercommoncfgentry.Cvpeercommoncfgapplicationname
-    leafs["cvPeerCommonCfgPreference"] = cvpeercommoncfgentry.Cvpeercommoncfgpreference
-    leafs["cvPeerCommonCfgHuntStop"] = cvpeercommoncfgentry.Cvpeercommoncfghuntstop
-    leafs["cvPeerCommonCfgDnisMappingName"] = cvpeercommoncfgentry.Cvpeercommoncfgdnismappingname
-    leafs["cvPeerCommonCfgSourceCarrierId"] = cvpeercommoncfgentry.Cvpeercommoncfgsourcecarrierid
-    leafs["cvPeerCommonCfgTargetCarrierId"] = cvpeercommoncfgentry.Cvpeercommoncfgtargetcarrierid
-    leafs["cvPeerCommonCfgSourceTrunkGrpLabel"] = cvpeercommoncfgentry.Cvpeercommoncfgsourcetrunkgrplabel
-    leafs["cvPeerCommonCfgTargetTrunkGrpLabel"] = cvpeercommoncfgentry.Cvpeercommoncfgtargettrunkgrplabel
-    return leafs
-}
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetYangName() string { return "cvPeerCommonCfgEntry" }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) SetParent(parent types.Entity) { cvpeercommoncfgentry.parent = parent }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetParent() types.Entity { return cvpeercommoncfgentry.parent }
-
-func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeercommoncfgentry) GetParentYangName() string { return "cvPeerCommonCfgTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallactivetable
 // This table is the voice extension to the call active table
@@ -2015,7 +1399,7 @@ func (cvpeercommoncfgentry *CISCOVOICEDIALCONTROLMIB_Cvpeercommoncfgtable_Cvpeer
 // call leg information that is derived from the statistics
 // of lower layer telephony interface.
 type CISCOVOICEDIALCONTROLMIB_Cvcallactivetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single voice encapsulation call leg. The call
@@ -2030,63 +1414,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallactivetable struct {
     Cvcallactiveentry []CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry
 }
 
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetFilter() yfilter.YFilter { return cvcallactivetable.YFilter }
+func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetEntityData() *types.CommonEntityData {
+    cvcallactivetable.EntityData.YFilter = cvcallactivetable.YFilter
+    cvcallactivetable.EntityData.YangName = "cvCallActiveTable"
+    cvcallactivetable.EntityData.BundleName = "cisco_ios_xe"
+    cvcallactivetable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallactivetable.EntityData.SegmentPath = "cvCallActiveTable"
+    cvcallactivetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallactivetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallactivetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) SetFilter(yf yfilter.YFilter) { cvcallactivetable.YFilter = yf }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetGoName(yname string) string {
-    if yname == "cvCallActiveEntry" { return "Cvcallactiveentry" }
-    return ""
-}
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetSegmentPath() string {
-    return "cvCallActiveTable"
-}
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallActiveEntry" {
-        for _, c := range cvcallactivetable.Cvcallactiveentry {
-            if cvcallactivetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry{}
-        cvcallactivetable.Cvcallactiveentry = append(cvcallactivetable.Cvcallactiveentry, child)
-        return &cvcallactivetable.Cvcallactiveentry[len(cvcallactivetable.Cvcallactiveentry)-1]
-    }
-    return nil
-}
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcallactivetable.EntityData.Children = make(map[string]types.YChild)
+    cvcallactivetable.EntityData.Children["cvCallActiveEntry"] = types.YChild{"Cvcallactiveentry", nil}
     for i := range cvcallactivetable.Cvcallactiveentry {
-        children[cvcallactivetable.Cvcallactiveentry[i].GetSegmentPath()] = &cvcallactivetable.Cvcallactiveentry[i]
+        cvcallactivetable.EntityData.Children[types.GetSegmentPath(&cvcallactivetable.Cvcallactiveentry[i])] = types.YChild{"Cvcallactiveentry", &cvcallactivetable.Cvcallactiveentry[i]}
     }
-    return children
+    cvcallactivetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcallactivetable.EntityData)
 }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetYangName() string { return "cvCallActiveTable" }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) SetParent(parent types.Entity) { cvcallactivetable.parent = parent }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetParent() types.Entity { return cvcallactivetable.parent }
-
-func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry
 // The information regarding a single voice encapsulation
@@ -2101,7 +1446,7 @@ func (cvcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable) GetParentYa
 // The entry is deleted when its associated call active entry
 // in the IETF Dial Control MIB is deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -2212,89 +1557,40 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry struct {
     Cvcallactivecallid interface{}
 }
 
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetFilter() yfilter.YFilter { return cvcallactiveentry.YFilter }
+func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetEntityData() *types.CommonEntityData {
+    cvcallactiveentry.EntityData.YFilter = cvcallactiveentry.YFilter
+    cvcallactiveentry.EntityData.YangName = "cvCallActiveEntry"
+    cvcallactiveentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcallactiveentry.EntityData.ParentYangName = "cvCallActiveTable"
+    cvcallactiveentry.EntityData.SegmentPath = "cvCallActiveEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", cvcallactiveentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", cvcallactiveentry.Callactiveindex) + "']"
+    cvcallactiveentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallactiveentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallactiveentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) SetFilter(yf yfilter.YFilter) { cvcallactiveentry.YFilter = yf }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetGoName(yname string) string {
-    if yname == "callActiveSetupTime" { return "Callactivesetuptime" }
-    if yname == "callActiveIndex" { return "Callactiveindex" }
-    if yname == "cvCallActiveConnectionId" { return "Cvcallactiveconnectionid" }
-    if yname == "cvCallActiveTxDuration" { return "Cvcallactivetxduration" }
-    if yname == "cvCallActiveVoiceTxDuration" { return "Cvcallactivevoicetxduration" }
-    if yname == "cvCallActiveFaxTxDuration" { return "Cvcallactivefaxtxduration" }
-    if yname == "cvCallActiveCoderTypeRate" { return "Cvcallactivecodertyperate" }
-    if yname == "cvCallActiveNoiseLevel" { return "Cvcallactivenoiselevel" }
-    if yname == "cvCallActiveACOMLevel" { return "Cvcallactiveacomlevel" }
-    if yname == "cvCallActiveOutSignalLevel" { return "Cvcallactiveoutsignallevel" }
-    if yname == "cvCallActiveInSignalLevel" { return "Cvcallactiveinsignallevel" }
-    if yname == "cvCallActiveERLLevel" { return "Cvcallactiveerllevel" }
-    if yname == "cvCallActiveSessionTarget" { return "Cvcallactivesessiontarget" }
-    if yname == "cvCallActiveImgPageCount" { return "Cvcallactiveimgpagecount" }
-    if yname == "cvCallActiveCallingName" { return "Cvcallactivecallingname" }
-    if yname == "cvCallActiveCallerIDBlock" { return "Cvcallactivecalleridblock" }
-    if yname == "cvCallActiveEcanReflectorLocation" { return "Cvcallactiveecanreflectorlocation" }
-    if yname == "cvCallActiveAccountCode" { return "Cvcallactiveaccountcode" }
-    if yname == "cvCallActiveERLLevelRev1" { return "Cvcallactiveerllevelrev1" }
-    if yname == "cvCallActiveCallId" { return "Cvcallactivecallid" }
-    return ""
+    cvcallactiveentry.EntityData.Children = make(map[string]types.YChild)
+    cvcallactiveentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallactiveentry.EntityData.Leafs["callActiveSetupTime"] = types.YLeaf{"Callactivesetuptime", cvcallactiveentry.Callactivesetuptime}
+    cvcallactiveentry.EntityData.Leafs["callActiveIndex"] = types.YLeaf{"Callactiveindex", cvcallactiveentry.Callactiveindex}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveConnectionId"] = types.YLeaf{"Cvcallactiveconnectionid", cvcallactiveentry.Cvcallactiveconnectionid}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveTxDuration"] = types.YLeaf{"Cvcallactivetxduration", cvcallactiveentry.Cvcallactivetxduration}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveVoiceTxDuration"] = types.YLeaf{"Cvcallactivevoicetxduration", cvcallactiveentry.Cvcallactivevoicetxduration}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveFaxTxDuration"] = types.YLeaf{"Cvcallactivefaxtxduration", cvcallactiveentry.Cvcallactivefaxtxduration}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveCoderTypeRate"] = types.YLeaf{"Cvcallactivecodertyperate", cvcallactiveentry.Cvcallactivecodertyperate}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveNoiseLevel"] = types.YLeaf{"Cvcallactivenoiselevel", cvcallactiveentry.Cvcallactivenoiselevel}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveACOMLevel"] = types.YLeaf{"Cvcallactiveacomlevel", cvcallactiveentry.Cvcallactiveacomlevel}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveOutSignalLevel"] = types.YLeaf{"Cvcallactiveoutsignallevel", cvcallactiveentry.Cvcallactiveoutsignallevel}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveInSignalLevel"] = types.YLeaf{"Cvcallactiveinsignallevel", cvcallactiveentry.Cvcallactiveinsignallevel}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveERLLevel"] = types.YLeaf{"Cvcallactiveerllevel", cvcallactiveentry.Cvcallactiveerllevel}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveSessionTarget"] = types.YLeaf{"Cvcallactivesessiontarget", cvcallactiveentry.Cvcallactivesessiontarget}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveImgPageCount"] = types.YLeaf{"Cvcallactiveimgpagecount", cvcallactiveentry.Cvcallactiveimgpagecount}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveCallingName"] = types.YLeaf{"Cvcallactivecallingname", cvcallactiveentry.Cvcallactivecallingname}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveCallerIDBlock"] = types.YLeaf{"Cvcallactivecalleridblock", cvcallactiveentry.Cvcallactivecalleridblock}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveEcanReflectorLocation"] = types.YLeaf{"Cvcallactiveecanreflectorlocation", cvcallactiveentry.Cvcallactiveecanreflectorlocation}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveAccountCode"] = types.YLeaf{"Cvcallactiveaccountcode", cvcallactiveentry.Cvcallactiveaccountcode}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveERLLevelRev1"] = types.YLeaf{"Cvcallactiveerllevelrev1", cvcallactiveentry.Cvcallactiveerllevelrev1}
+    cvcallactiveentry.EntityData.Leafs["cvCallActiveCallId"] = types.YLeaf{"Cvcallactivecallid", cvcallactiveentry.Cvcallactivecallid}
+    return &(cvcallactiveentry.EntityData)
 }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetSegmentPath() string {
-    return "cvCallActiveEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", cvcallactiveentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", cvcallactiveentry.Callactiveindex) + "']"
-}
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["callActiveSetupTime"] = cvcallactiveentry.Callactivesetuptime
-    leafs["callActiveIndex"] = cvcallactiveentry.Callactiveindex
-    leafs["cvCallActiveConnectionId"] = cvcallactiveentry.Cvcallactiveconnectionid
-    leafs["cvCallActiveTxDuration"] = cvcallactiveentry.Cvcallactivetxduration
-    leafs["cvCallActiveVoiceTxDuration"] = cvcallactiveentry.Cvcallactivevoicetxduration
-    leafs["cvCallActiveFaxTxDuration"] = cvcallactiveentry.Cvcallactivefaxtxduration
-    leafs["cvCallActiveCoderTypeRate"] = cvcallactiveentry.Cvcallactivecodertyperate
-    leafs["cvCallActiveNoiseLevel"] = cvcallactiveentry.Cvcallactivenoiselevel
-    leafs["cvCallActiveACOMLevel"] = cvcallactiveentry.Cvcallactiveacomlevel
-    leafs["cvCallActiveOutSignalLevel"] = cvcallactiveentry.Cvcallactiveoutsignallevel
-    leafs["cvCallActiveInSignalLevel"] = cvcallactiveentry.Cvcallactiveinsignallevel
-    leafs["cvCallActiveERLLevel"] = cvcallactiveentry.Cvcallactiveerllevel
-    leafs["cvCallActiveSessionTarget"] = cvcallactiveentry.Cvcallactivesessiontarget
-    leafs["cvCallActiveImgPageCount"] = cvcallactiveentry.Cvcallactiveimgpagecount
-    leafs["cvCallActiveCallingName"] = cvcallactiveentry.Cvcallactivecallingname
-    leafs["cvCallActiveCallerIDBlock"] = cvcallactiveentry.Cvcallactivecalleridblock
-    leafs["cvCallActiveEcanReflectorLocation"] = cvcallactiveentry.Cvcallactiveecanreflectorlocation
-    leafs["cvCallActiveAccountCode"] = cvcallactiveentry.Cvcallactiveaccountcode
-    leafs["cvCallActiveERLLevelRev1"] = cvcallactiveentry.Cvcallactiveerllevelrev1
-    leafs["cvCallActiveCallId"] = cvcallactiveentry.Cvcallactivecallid
-    return leafs
-}
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetYangName() string { return "cvCallActiveEntry" }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) SetParent(parent types.Entity) { cvcallactiveentry.parent = parent }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetParent() types.Entity { return cvcallactiveentry.parent }
-
-func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactiveentry) GetParentYangName() string { return "cvCallActiveTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable
 // This table is the VoIP extension to the call active table of
@@ -2302,7 +1598,7 @@ func (cvcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvcallactivetable_Cvcallactive
 // information about specific VoIP call destination and the
 // selected QoS for the call leg.
 type CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single VoIP call leg. The call leg entry is
@@ -2317,63 +1613,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable struct {
     Cvvoipcallactiveentry []CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry
 }
 
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetFilter() yfilter.YFilter { return cvvoipcallactivetable.YFilter }
+func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetEntityData() *types.CommonEntityData {
+    cvvoipcallactivetable.EntityData.YFilter = cvvoipcallactivetable.YFilter
+    cvvoipcallactivetable.EntityData.YangName = "cvVoIPCallActiveTable"
+    cvvoipcallactivetable.EntityData.BundleName = "cisco_ios_xe"
+    cvvoipcallactivetable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvvoipcallactivetable.EntityData.SegmentPath = "cvVoIPCallActiveTable"
+    cvvoipcallactivetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoipcallactivetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoipcallactivetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) SetFilter(yf yfilter.YFilter) { cvvoipcallactivetable.YFilter = yf }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetGoName(yname string) string {
-    if yname == "cvVoIPCallActiveEntry" { return "Cvvoipcallactiveentry" }
-    return ""
-}
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetSegmentPath() string {
-    return "cvVoIPCallActiveTable"
-}
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvVoIPCallActiveEntry" {
-        for _, c := range cvvoipcallactivetable.Cvvoipcallactiveentry {
-            if cvvoipcallactivetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry{}
-        cvvoipcallactivetable.Cvvoipcallactiveentry = append(cvvoipcallactivetable.Cvvoipcallactiveentry, child)
-        return &cvvoipcallactivetable.Cvvoipcallactiveentry[len(cvvoipcallactivetable.Cvvoipcallactiveentry)-1]
-    }
-    return nil
-}
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvvoipcallactivetable.EntityData.Children = make(map[string]types.YChild)
+    cvvoipcallactivetable.EntityData.Children["cvVoIPCallActiveEntry"] = types.YChild{"Cvvoipcallactiveentry", nil}
     for i := range cvvoipcallactivetable.Cvvoipcallactiveentry {
-        children[cvvoipcallactivetable.Cvvoipcallactiveentry[i].GetSegmentPath()] = &cvvoipcallactivetable.Cvvoipcallactiveentry[i]
+        cvvoipcallactivetable.EntityData.Children[types.GetSegmentPath(&cvvoipcallactivetable.Cvvoipcallactiveentry[i])] = types.YChild{"Cvvoipcallactiveentry", &cvvoipcallactivetable.Cvvoipcallactiveentry[i]}
     }
-    return children
+    cvvoipcallactivetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvvoipcallactivetable.EntityData)
 }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetYangName() string { return "cvVoIPCallActiveTable" }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) SetParent(parent types.Entity) { cvvoipcallactivetable.parent = parent }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetParent() types.Entity { return cvvoipcallactivetable.parent }
-
-func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry
 // The information regarding a single VoIP call leg.
@@ -2388,7 +1645,7 @@ func (cvvoipcallactivetable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable) Get
 // The entry is deleted when its associated call active entry
 // in the IETF Dial Control MIB is deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -2407,7 +1664,7 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry struct
 
     // Remote system IP address for the VoIP call. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvvoipcallactiveremoteipaddress interface{}
 
     // Remote system UDP listener port to which to transmit voice packets. The
@@ -2657,152 +1914,75 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry struct
     Cvvoipcallactivesessionid interface{}
 }
 
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetFilter() yfilter.YFilter { return cvvoipcallactiveentry.YFilter }
+func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetEntityData() *types.CommonEntityData {
+    cvvoipcallactiveentry.EntityData.YFilter = cvvoipcallactiveentry.YFilter
+    cvvoipcallactiveentry.EntityData.YangName = "cvVoIPCallActiveEntry"
+    cvvoipcallactiveentry.EntityData.BundleName = "cisco_ios_xe"
+    cvvoipcallactiveentry.EntityData.ParentYangName = "cvVoIPCallActiveTable"
+    cvvoipcallactiveentry.EntityData.SegmentPath = "cvVoIPCallActiveEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", cvvoipcallactiveentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", cvvoipcallactiveentry.Callactiveindex) + "']"
+    cvvoipcallactiveentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoipcallactiveentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoipcallactiveentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) SetFilter(yf yfilter.YFilter) { cvvoipcallactiveentry.YFilter = yf }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetGoName(yname string) string {
-    if yname == "callActiveSetupTime" { return "Callactivesetuptime" }
-    if yname == "callActiveIndex" { return "Callactiveindex" }
-    if yname == "cvVoIPCallActiveConnectionId" { return "Cvvoipcallactiveconnectionid" }
-    if yname == "cvVoIPCallActiveRemoteIPAddress" { return "Cvvoipcallactiveremoteipaddress" }
-    if yname == "cvVoIPCallActiveRemoteUDPPort" { return "Cvvoipcallactiveremoteudpport" }
-    if yname == "cvVoIPCallActiveRoundTripDelay" { return "Cvvoipcallactiveroundtripdelay" }
-    if yname == "cvVoIPCallActiveSelectedQoS" { return "Cvvoipcallactiveselectedqos" }
-    if yname == "cvVoIPCallActiveSessionProtocol" { return "Cvvoipcallactivesessionprotocol" }
-    if yname == "cvVoIPCallActiveSessionTarget" { return "Cvvoipcallactivesessiontarget" }
-    if yname == "cvVoIPCallActiveOnTimeRvPlayout" { return "Cvvoipcallactiveontimervplayout" }
-    if yname == "cvVoIPCallActiveGapFillWithSilence" { return "Cvvoipcallactivegapfillwithsilence" }
-    if yname == "cvVoIPCallActiveGapFillWithPrediction" { return "Cvvoipcallactivegapfillwithprediction" }
-    if yname == "cvVoIPCallActiveGapFillWithInterpolation" { return "Cvvoipcallactivegapfillwithinterpolation" }
-    if yname == "cvVoIPCallActiveGapFillWithRedundancy" { return "Cvvoipcallactivegapfillwithredundancy" }
-    if yname == "cvVoIPCallActiveHiWaterPlayoutDelay" { return "Cvvoipcallactivehiwaterplayoutdelay" }
-    if yname == "cvVoIPCallActiveLoWaterPlayoutDelay" { return "Cvvoipcallactivelowaterplayoutdelay" }
-    if yname == "cvVoIPCallActiveReceiveDelay" { return "Cvvoipcallactivereceivedelay" }
-    if yname == "cvVoIPCallActiveVADEnable" { return "Cvvoipcallactivevadenable" }
-    if yname == "cvVoIPCallActiveCoderTypeRate" { return "Cvvoipcallactivecodertyperate" }
-    if yname == "cvVoIPCallActiveLostPackets" { return "Cvvoipcallactivelostpackets" }
-    if yname == "cvVoIPCallActiveEarlyPackets" { return "Cvvoipcallactiveearlypackets" }
-    if yname == "cvVoIPCallActiveLatePackets" { return "Cvvoipcallactivelatepackets" }
-    if yname == "cvVoIPCallActiveUsername" { return "Cvvoipcallactiveusername" }
-    if yname == "cvVoIPCallActiveProtocolCallId" { return "Cvvoipcallactiveprotocolcallid" }
-    if yname == "cvVoIPCallActiveRemSigIPAddrT" { return "Cvvoipcallactiveremsigipaddrt" }
-    if yname == "cvVoIPCallActiveRemSigIPAddr" { return "Cvvoipcallactiveremsigipaddr" }
-    if yname == "cvVoIPCallActiveRemSigPort" { return "Cvvoipcallactiveremsigport" }
-    if yname == "cvVoIPCallActiveRemMediaIPAddrT" { return "Cvvoipcallactiveremmediaipaddrt" }
-    if yname == "cvVoIPCallActiveRemMediaIPAddr" { return "Cvvoipcallactiveremmediaipaddr" }
-    if yname == "cvVoIPCallActiveRemMediaPort" { return "Cvvoipcallactiveremmediaport" }
-    if yname == "cvVoIPCallActiveSRTPEnable" { return "Cvvoipcallactivesrtpenable" }
-    if yname == "cvVoIPCallActiveOctetAligned" { return "Cvvoipcallactiveoctetaligned" }
-    if yname == "cvVoIPCallActiveBitRates" { return "Cvvoipcallactivebitrates" }
-    if yname == "cvVoIPCallActiveModeChgPeriod" { return "Cvvoipcallactivemodechgperiod" }
-    if yname == "cvVoIPCallActiveModeChgNeighbor" { return "Cvvoipcallactivemodechgneighbor" }
-    if yname == "cvVoIPCallActiveMaxPtime" { return "Cvvoipcallactivemaxptime" }
-    if yname == "cvVoIPCallActiveCRC" { return "Cvvoipcallactivecrc" }
-    if yname == "cvVoIPCallActiveRobustSorting" { return "Cvvoipcallactiverobustsorting" }
-    if yname == "cvVoIPCallActiveEncap" { return "Cvvoipcallactiveencap" }
-    if yname == "cvVoIPCallActiveInterleaving" { return "Cvvoipcallactiveinterleaving" }
-    if yname == "cvVoIPCallActivePtime" { return "Cvvoipcallactiveptime" }
-    if yname == "cvVoIPCallActiveChannels" { return "Cvvoipcallactivechannels" }
-    if yname == "cvVoIPCallActiveCoderMode" { return "Cvvoipcallactivecodermode" }
-    if yname == "cvVoIPCallActiveCallId" { return "Cvvoipcallactivecallid" }
-    if yname == "cvVoIPCallActiveCallReferenceId" { return "Cvvoipcallactivecallreferenceid" }
-    if yname == "ccVoIPCallActivePolicyName" { return "Ccvoipcallactivepolicyname" }
-    if yname == "cvVoIPCallActiveReversedDirectionPeerAddress" { return "Cvvoipcallactivereverseddirectionpeeraddress" }
-    if yname == "cvVoIPCallActiveSessionId" { return "Cvvoipcallactivesessionid" }
-    return ""
+    cvvoipcallactiveentry.EntityData.Children = make(map[string]types.YChild)
+    cvvoipcallactiveentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvvoipcallactiveentry.EntityData.Leafs["callActiveSetupTime"] = types.YLeaf{"Callactivesetuptime", cvvoipcallactiveentry.Callactivesetuptime}
+    cvvoipcallactiveentry.EntityData.Leafs["callActiveIndex"] = types.YLeaf{"Callactiveindex", cvvoipcallactiveentry.Callactiveindex}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveConnectionId"] = types.YLeaf{"Cvvoipcallactiveconnectionid", cvvoipcallactiveentry.Cvvoipcallactiveconnectionid}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemoteIPAddress"] = types.YLeaf{"Cvvoipcallactiveremoteipaddress", cvvoipcallactiveentry.Cvvoipcallactiveremoteipaddress}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemoteUDPPort"] = types.YLeaf{"Cvvoipcallactiveremoteudpport", cvvoipcallactiveentry.Cvvoipcallactiveremoteudpport}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRoundTripDelay"] = types.YLeaf{"Cvvoipcallactiveroundtripdelay", cvvoipcallactiveentry.Cvvoipcallactiveroundtripdelay}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveSelectedQoS"] = types.YLeaf{"Cvvoipcallactiveselectedqos", cvvoipcallactiveentry.Cvvoipcallactiveselectedqos}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveSessionProtocol"] = types.YLeaf{"Cvvoipcallactivesessionprotocol", cvvoipcallactiveentry.Cvvoipcallactivesessionprotocol}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveSessionTarget"] = types.YLeaf{"Cvvoipcallactivesessiontarget", cvvoipcallactiveentry.Cvvoipcallactivesessiontarget}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveOnTimeRvPlayout"] = types.YLeaf{"Cvvoipcallactiveontimervplayout", cvvoipcallactiveentry.Cvvoipcallactiveontimervplayout}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveGapFillWithSilence"] = types.YLeaf{"Cvvoipcallactivegapfillwithsilence", cvvoipcallactiveentry.Cvvoipcallactivegapfillwithsilence}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveGapFillWithPrediction"] = types.YLeaf{"Cvvoipcallactivegapfillwithprediction", cvvoipcallactiveentry.Cvvoipcallactivegapfillwithprediction}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveGapFillWithInterpolation"] = types.YLeaf{"Cvvoipcallactivegapfillwithinterpolation", cvvoipcallactiveentry.Cvvoipcallactivegapfillwithinterpolation}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveGapFillWithRedundancy"] = types.YLeaf{"Cvvoipcallactivegapfillwithredundancy", cvvoipcallactiveentry.Cvvoipcallactivegapfillwithredundancy}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveHiWaterPlayoutDelay"] = types.YLeaf{"Cvvoipcallactivehiwaterplayoutdelay", cvvoipcallactiveentry.Cvvoipcallactivehiwaterplayoutdelay}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveLoWaterPlayoutDelay"] = types.YLeaf{"Cvvoipcallactivelowaterplayoutdelay", cvvoipcallactiveentry.Cvvoipcallactivelowaterplayoutdelay}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveReceiveDelay"] = types.YLeaf{"Cvvoipcallactivereceivedelay", cvvoipcallactiveentry.Cvvoipcallactivereceivedelay}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveVADEnable"] = types.YLeaf{"Cvvoipcallactivevadenable", cvvoipcallactiveentry.Cvvoipcallactivevadenable}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveCoderTypeRate"] = types.YLeaf{"Cvvoipcallactivecodertyperate", cvvoipcallactiveentry.Cvvoipcallactivecodertyperate}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveLostPackets"] = types.YLeaf{"Cvvoipcallactivelostpackets", cvvoipcallactiveentry.Cvvoipcallactivelostpackets}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveEarlyPackets"] = types.YLeaf{"Cvvoipcallactiveearlypackets", cvvoipcallactiveentry.Cvvoipcallactiveearlypackets}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveLatePackets"] = types.YLeaf{"Cvvoipcallactivelatepackets", cvvoipcallactiveentry.Cvvoipcallactivelatepackets}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveUsername"] = types.YLeaf{"Cvvoipcallactiveusername", cvvoipcallactiveentry.Cvvoipcallactiveusername}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveProtocolCallId"] = types.YLeaf{"Cvvoipcallactiveprotocolcallid", cvvoipcallactiveentry.Cvvoipcallactiveprotocolcallid}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemSigIPAddrT"] = types.YLeaf{"Cvvoipcallactiveremsigipaddrt", cvvoipcallactiveentry.Cvvoipcallactiveremsigipaddrt}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemSigIPAddr"] = types.YLeaf{"Cvvoipcallactiveremsigipaddr", cvvoipcallactiveentry.Cvvoipcallactiveremsigipaddr}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemSigPort"] = types.YLeaf{"Cvvoipcallactiveremsigport", cvvoipcallactiveentry.Cvvoipcallactiveremsigport}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemMediaIPAddrT"] = types.YLeaf{"Cvvoipcallactiveremmediaipaddrt", cvvoipcallactiveentry.Cvvoipcallactiveremmediaipaddrt}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemMediaIPAddr"] = types.YLeaf{"Cvvoipcallactiveremmediaipaddr", cvvoipcallactiveentry.Cvvoipcallactiveremmediaipaddr}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRemMediaPort"] = types.YLeaf{"Cvvoipcallactiveremmediaport", cvvoipcallactiveentry.Cvvoipcallactiveremmediaport}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveSRTPEnable"] = types.YLeaf{"Cvvoipcallactivesrtpenable", cvvoipcallactiveentry.Cvvoipcallactivesrtpenable}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveOctetAligned"] = types.YLeaf{"Cvvoipcallactiveoctetaligned", cvvoipcallactiveentry.Cvvoipcallactiveoctetaligned}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveBitRates"] = types.YLeaf{"Cvvoipcallactivebitrates", cvvoipcallactiveentry.Cvvoipcallactivebitrates}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveModeChgPeriod"] = types.YLeaf{"Cvvoipcallactivemodechgperiod", cvvoipcallactiveentry.Cvvoipcallactivemodechgperiod}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveModeChgNeighbor"] = types.YLeaf{"Cvvoipcallactivemodechgneighbor", cvvoipcallactiveentry.Cvvoipcallactivemodechgneighbor}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveMaxPtime"] = types.YLeaf{"Cvvoipcallactivemaxptime", cvvoipcallactiveentry.Cvvoipcallactivemaxptime}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveCRC"] = types.YLeaf{"Cvvoipcallactivecrc", cvvoipcallactiveentry.Cvvoipcallactivecrc}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveRobustSorting"] = types.YLeaf{"Cvvoipcallactiverobustsorting", cvvoipcallactiveentry.Cvvoipcallactiverobustsorting}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveEncap"] = types.YLeaf{"Cvvoipcallactiveencap", cvvoipcallactiveentry.Cvvoipcallactiveencap}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveInterleaving"] = types.YLeaf{"Cvvoipcallactiveinterleaving", cvvoipcallactiveentry.Cvvoipcallactiveinterleaving}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActivePtime"] = types.YLeaf{"Cvvoipcallactiveptime", cvvoipcallactiveentry.Cvvoipcallactiveptime}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveChannels"] = types.YLeaf{"Cvvoipcallactivechannels", cvvoipcallactiveentry.Cvvoipcallactivechannels}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveCoderMode"] = types.YLeaf{"Cvvoipcallactivecodermode", cvvoipcallactiveentry.Cvvoipcallactivecodermode}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveCallId"] = types.YLeaf{"Cvvoipcallactivecallid", cvvoipcallactiveentry.Cvvoipcallactivecallid}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveCallReferenceId"] = types.YLeaf{"Cvvoipcallactivecallreferenceid", cvvoipcallactiveentry.Cvvoipcallactivecallreferenceid}
+    cvvoipcallactiveentry.EntityData.Leafs["ccVoIPCallActivePolicyName"] = types.YLeaf{"Ccvoipcallactivepolicyname", cvvoipcallactiveentry.Ccvoipcallactivepolicyname}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveReversedDirectionPeerAddress"] = types.YLeaf{"Cvvoipcallactivereverseddirectionpeeraddress", cvvoipcallactiveentry.Cvvoipcallactivereverseddirectionpeeraddress}
+    cvvoipcallactiveentry.EntityData.Leafs["cvVoIPCallActiveSessionId"] = types.YLeaf{"Cvvoipcallactivesessionid", cvvoipcallactiveentry.Cvvoipcallactivesessionid}
+    return &(cvvoipcallactiveentry.EntityData)
 }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetSegmentPath() string {
-    return "cvVoIPCallActiveEntry" + "[callActiveSetupTime='" + fmt.Sprintf("%v", cvvoipcallactiveentry.Callactivesetuptime) + "']" + "[callActiveIndex='" + fmt.Sprintf("%v", cvvoipcallactiveentry.Callactiveindex) + "']"
-}
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["callActiveSetupTime"] = cvvoipcallactiveentry.Callactivesetuptime
-    leafs["callActiveIndex"] = cvvoipcallactiveentry.Callactiveindex
-    leafs["cvVoIPCallActiveConnectionId"] = cvvoipcallactiveentry.Cvvoipcallactiveconnectionid
-    leafs["cvVoIPCallActiveRemoteIPAddress"] = cvvoipcallactiveentry.Cvvoipcallactiveremoteipaddress
-    leafs["cvVoIPCallActiveRemoteUDPPort"] = cvvoipcallactiveentry.Cvvoipcallactiveremoteudpport
-    leafs["cvVoIPCallActiveRoundTripDelay"] = cvvoipcallactiveentry.Cvvoipcallactiveroundtripdelay
-    leafs["cvVoIPCallActiveSelectedQoS"] = cvvoipcallactiveentry.Cvvoipcallactiveselectedqos
-    leafs["cvVoIPCallActiveSessionProtocol"] = cvvoipcallactiveentry.Cvvoipcallactivesessionprotocol
-    leafs["cvVoIPCallActiveSessionTarget"] = cvvoipcallactiveentry.Cvvoipcallactivesessiontarget
-    leafs["cvVoIPCallActiveOnTimeRvPlayout"] = cvvoipcallactiveentry.Cvvoipcallactiveontimervplayout
-    leafs["cvVoIPCallActiveGapFillWithSilence"] = cvvoipcallactiveentry.Cvvoipcallactivegapfillwithsilence
-    leafs["cvVoIPCallActiveGapFillWithPrediction"] = cvvoipcallactiveentry.Cvvoipcallactivegapfillwithprediction
-    leafs["cvVoIPCallActiveGapFillWithInterpolation"] = cvvoipcallactiveentry.Cvvoipcallactivegapfillwithinterpolation
-    leafs["cvVoIPCallActiveGapFillWithRedundancy"] = cvvoipcallactiveentry.Cvvoipcallactivegapfillwithredundancy
-    leafs["cvVoIPCallActiveHiWaterPlayoutDelay"] = cvvoipcallactiveentry.Cvvoipcallactivehiwaterplayoutdelay
-    leafs["cvVoIPCallActiveLoWaterPlayoutDelay"] = cvvoipcallactiveentry.Cvvoipcallactivelowaterplayoutdelay
-    leafs["cvVoIPCallActiveReceiveDelay"] = cvvoipcallactiveentry.Cvvoipcallactivereceivedelay
-    leafs["cvVoIPCallActiveVADEnable"] = cvvoipcallactiveentry.Cvvoipcallactivevadenable
-    leafs["cvVoIPCallActiveCoderTypeRate"] = cvvoipcallactiveentry.Cvvoipcallactivecodertyperate
-    leafs["cvVoIPCallActiveLostPackets"] = cvvoipcallactiveentry.Cvvoipcallactivelostpackets
-    leafs["cvVoIPCallActiveEarlyPackets"] = cvvoipcallactiveentry.Cvvoipcallactiveearlypackets
-    leafs["cvVoIPCallActiveLatePackets"] = cvvoipcallactiveentry.Cvvoipcallactivelatepackets
-    leafs["cvVoIPCallActiveUsername"] = cvvoipcallactiveentry.Cvvoipcallactiveusername
-    leafs["cvVoIPCallActiveProtocolCallId"] = cvvoipcallactiveentry.Cvvoipcallactiveprotocolcallid
-    leafs["cvVoIPCallActiveRemSigIPAddrT"] = cvvoipcallactiveentry.Cvvoipcallactiveremsigipaddrt
-    leafs["cvVoIPCallActiveRemSigIPAddr"] = cvvoipcallactiveentry.Cvvoipcallactiveremsigipaddr
-    leafs["cvVoIPCallActiveRemSigPort"] = cvvoipcallactiveentry.Cvvoipcallactiveremsigport
-    leafs["cvVoIPCallActiveRemMediaIPAddrT"] = cvvoipcallactiveentry.Cvvoipcallactiveremmediaipaddrt
-    leafs["cvVoIPCallActiveRemMediaIPAddr"] = cvvoipcallactiveentry.Cvvoipcallactiveremmediaipaddr
-    leafs["cvVoIPCallActiveRemMediaPort"] = cvvoipcallactiveentry.Cvvoipcallactiveremmediaport
-    leafs["cvVoIPCallActiveSRTPEnable"] = cvvoipcallactiveentry.Cvvoipcallactivesrtpenable
-    leafs["cvVoIPCallActiveOctetAligned"] = cvvoipcallactiveentry.Cvvoipcallactiveoctetaligned
-    leafs["cvVoIPCallActiveBitRates"] = cvvoipcallactiveentry.Cvvoipcallactivebitrates
-    leafs["cvVoIPCallActiveModeChgPeriod"] = cvvoipcallactiveentry.Cvvoipcallactivemodechgperiod
-    leafs["cvVoIPCallActiveModeChgNeighbor"] = cvvoipcallactiveentry.Cvvoipcallactivemodechgneighbor
-    leafs["cvVoIPCallActiveMaxPtime"] = cvvoipcallactiveentry.Cvvoipcallactivemaxptime
-    leafs["cvVoIPCallActiveCRC"] = cvvoipcallactiveentry.Cvvoipcallactivecrc
-    leafs["cvVoIPCallActiveRobustSorting"] = cvvoipcallactiveentry.Cvvoipcallactiverobustsorting
-    leafs["cvVoIPCallActiveEncap"] = cvvoipcallactiveentry.Cvvoipcallactiveencap
-    leafs["cvVoIPCallActiveInterleaving"] = cvvoipcallactiveentry.Cvvoipcallactiveinterleaving
-    leafs["cvVoIPCallActivePtime"] = cvvoipcallactiveentry.Cvvoipcallactiveptime
-    leafs["cvVoIPCallActiveChannels"] = cvvoipcallactiveentry.Cvvoipcallactivechannels
-    leafs["cvVoIPCallActiveCoderMode"] = cvvoipcallactiveentry.Cvvoipcallactivecodermode
-    leafs["cvVoIPCallActiveCallId"] = cvvoipcallactiveentry.Cvvoipcallactivecallid
-    leafs["cvVoIPCallActiveCallReferenceId"] = cvvoipcallactiveentry.Cvvoipcallactivecallreferenceid
-    leafs["ccVoIPCallActivePolicyName"] = cvvoipcallactiveentry.Ccvoipcallactivepolicyname
-    leafs["cvVoIPCallActiveReversedDirectionPeerAddress"] = cvvoipcallactiveentry.Cvvoipcallactivereverseddirectionpeeraddress
-    leafs["cvVoIPCallActiveSessionId"] = cvvoipcallactiveentry.Cvvoipcallactivesessionid
-    return leafs
-}
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetYangName() string { return "cvVoIPCallActiveEntry" }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) SetParent(parent types.Entity) { cvvoipcallactiveentry.parent = parent }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetParent() types.Entity { return cvvoipcallactiveentry.parent }
-
-func (cvvoipcallactiveentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallactivetable_Cvvoipcallactiveentry) GetParentYangName() string { return "cvVoIPCallActiveTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable
 // This table represents the number of active
 // call connections for each call connection type
 // in the voice gateway.
 type CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cvCallVolConnTable indicates number of active calls for a
@@ -2811,70 +1991,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable struct {
     Cvcallvolconnentry []CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry
 }
 
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetFilter() yfilter.YFilter { return cvcallvolconntable.YFilter }
+func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetEntityData() *types.CommonEntityData {
+    cvcallvolconntable.EntityData.YFilter = cvcallvolconntable.YFilter
+    cvcallvolconntable.EntityData.YangName = "cvCallVolConnTable"
+    cvcallvolconntable.EntityData.BundleName = "cisco_ios_xe"
+    cvcallvolconntable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallvolconntable.EntityData.SegmentPath = "cvCallVolConnTable"
+    cvcallvolconntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallvolconntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallvolconntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) SetFilter(yf yfilter.YFilter) { cvcallvolconntable.YFilter = yf }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetGoName(yname string) string {
-    if yname == "cvCallVolConnEntry" { return "Cvcallvolconnentry" }
-    return ""
-}
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetSegmentPath() string {
-    return "cvCallVolConnTable"
-}
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallVolConnEntry" {
-        for _, c := range cvcallvolconntable.Cvcallvolconnentry {
-            if cvcallvolconntable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry{}
-        cvcallvolconntable.Cvcallvolconnentry = append(cvcallvolconntable.Cvcallvolconnentry, child)
-        return &cvcallvolconntable.Cvcallvolconnentry[len(cvcallvolconntable.Cvcallvolconnentry)-1]
-    }
-    return nil
-}
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcallvolconntable.EntityData.Children = make(map[string]types.YChild)
+    cvcallvolconntable.EntityData.Children["cvCallVolConnEntry"] = types.YChild{"Cvcallvolconnentry", nil}
     for i := range cvcallvolconntable.Cvcallvolconnentry {
-        children[cvcallvolconntable.Cvcallvolconnentry[i].GetSegmentPath()] = &cvcallvolconntable.Cvcallvolconnentry[i]
+        cvcallvolconntable.EntityData.Children[types.GetSegmentPath(&cvcallvolconntable.Cvcallvolconnentry[i])] = types.YChild{"Cvcallvolconnentry", &cvcallvolconntable.Cvcallvolconnentry[i]}
     }
-    return children
+    cvcallvolconntable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcallvolconntable.EntityData)
 }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetYangName() string { return "cvCallVolConnTable" }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) SetParent(parent types.Entity) { cvcallvolconntable.parent = parent }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetParent() types.Entity { return cvcallvolconntable.parent }
-
-func (cvcallvolconntable *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry
 // An entry in the cvCallVolConnTable indicates
 // number of active calls for a call connection type
 // in the voice gateway.
 type CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object represents index to the
@@ -2886,53 +2027,22 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry struct {
     Cvcallvolconnactiveconnection interface{}
 }
 
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetFilter() yfilter.YFilter { return cvcallvolconnentry.YFilter }
+func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetEntityData() *types.CommonEntityData {
+    cvcallvolconnentry.EntityData.YFilter = cvcallvolconnentry.YFilter
+    cvcallvolconnentry.EntityData.YangName = "cvCallVolConnEntry"
+    cvcallvolconnentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcallvolconnentry.EntityData.ParentYangName = "cvCallVolConnTable"
+    cvcallvolconnentry.EntityData.SegmentPath = "cvCallVolConnEntry" + "[cvCallVolConnIndex='" + fmt.Sprintf("%v", cvcallvolconnentry.Cvcallvolconnindex) + "']"
+    cvcallvolconnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallvolconnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallvolconnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) SetFilter(yf yfilter.YFilter) { cvcallvolconnentry.YFilter = yf }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetGoName(yname string) string {
-    if yname == "cvCallVolConnIndex" { return "Cvcallvolconnindex" }
-    if yname == "cvCallVolConnActiveConnection" { return "Cvcallvolconnactiveconnection" }
-    return ""
+    cvcallvolconnentry.EntityData.Children = make(map[string]types.YChild)
+    cvcallvolconnentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallvolconnentry.EntityData.Leafs["cvCallVolConnIndex"] = types.YLeaf{"Cvcallvolconnindex", cvcallvolconnentry.Cvcallvolconnindex}
+    cvcallvolconnentry.EntityData.Leafs["cvCallVolConnActiveConnection"] = types.YLeaf{"Cvcallvolconnactiveconnection", cvcallvolconnentry.Cvcallvolconnactiveconnection}
+    return &(cvcallvolconnentry.EntityData)
 }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetSegmentPath() string {
-    return "cvCallVolConnEntry" + "[cvCallVolConnIndex='" + fmt.Sprintf("%v", cvcallvolconnentry.Cvcallvolconnindex) + "']"
-}
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallVolConnIndex"] = cvcallvolconnentry.Cvcallvolconnindex
-    leafs["cvCallVolConnActiveConnection"] = cvcallvolconnentry.Cvcallvolconnactiveconnection
-    return leafs
-}
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetYangName() string { return "cvCallVolConnEntry" }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) SetParent(parent types.Entity) { cvcallvolconnentry.parent = parent }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetParent() types.Entity { return cvcallvolconnentry.parent }
-
-func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolconnentry) GetParentYangName() string { return "cvCallVolConnTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable
 // This table represents the information about
@@ -2943,7 +2053,7 @@ func (cvcallvolconnentry *CISCOVOICEDIALCONTROLMIB_Cvcallvolconntable_Cvcallvolc
 // for each of the  entries in ifTable where ifType 
 // is one of 'ethernetCsmacd' and 'softwareLoopback'.
 type CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents a row in cvCallVolIfTable and corresponds to the
@@ -2952,70 +2062,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable struct {
     Cvcallvolifentry []CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry
 }
 
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetFilter() yfilter.YFilter { return cvcallvoliftable.YFilter }
+func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetEntityData() *types.CommonEntityData {
+    cvcallvoliftable.EntityData.YFilter = cvcallvoliftable.YFilter
+    cvcallvoliftable.EntityData.YangName = "cvCallVolIfTable"
+    cvcallvoliftable.EntityData.BundleName = "cisco_ios_xe"
+    cvcallvoliftable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallvoliftable.EntityData.SegmentPath = "cvCallVolIfTable"
+    cvcallvoliftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallvoliftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallvoliftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) SetFilter(yf yfilter.YFilter) { cvcallvoliftable.YFilter = yf }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetGoName(yname string) string {
-    if yname == "cvCallVolIfEntry" { return "Cvcallvolifentry" }
-    return ""
-}
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetSegmentPath() string {
-    return "cvCallVolIfTable"
-}
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallVolIfEntry" {
-        for _, c := range cvcallvoliftable.Cvcallvolifentry {
-            if cvcallvoliftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry{}
-        cvcallvoliftable.Cvcallvolifentry = append(cvcallvoliftable.Cvcallvolifentry, child)
-        return &cvcallvoliftable.Cvcallvolifentry[len(cvcallvoliftable.Cvcallvolifentry)-1]
-    }
-    return nil
-}
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcallvoliftable.EntityData.Children = make(map[string]types.YChild)
+    cvcallvoliftable.EntityData.Children["cvCallVolIfEntry"] = types.YChild{"Cvcallvolifentry", nil}
     for i := range cvcallvoliftable.Cvcallvolifentry {
-        children[cvcallvoliftable.Cvcallvolifentry[i].GetSegmentPath()] = &cvcallvoliftable.Cvcallvolifentry[i]
+        cvcallvoliftable.EntityData.Children[types.GetSegmentPath(&cvcallvoliftable.Cvcallvolifentry[i])] = types.YChild{"Cvcallvolifentry", &cvcallvoliftable.Cvcallvolifentry[i]}
     }
-    return children
+    cvcallvoliftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcallvoliftable.EntityData)
 }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetYangName() string { return "cvCallVolIfTable" }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) SetParent(parent types.Entity) { cvcallvoliftable.parent = parent }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetParent() types.Entity { return cvcallvoliftable.parent }
-
-func (cvcallvoliftable *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry
 // Each entry represents a row in cvCallVolIfTable
 // and corresponds to the information about an IP 
 // interface in the voice gateway.
 type CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3031,55 +2102,23 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry struct {
     Cvcallvolmediaoutgoingcalls interface{}
 }
 
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetFilter() yfilter.YFilter { return cvcallvolifentry.YFilter }
+func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetEntityData() *types.CommonEntityData {
+    cvcallvolifentry.EntityData.YFilter = cvcallvolifentry.YFilter
+    cvcallvolifentry.EntityData.YangName = "cvCallVolIfEntry"
+    cvcallvolifentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcallvolifentry.EntityData.ParentYangName = "cvCallVolIfTable"
+    cvcallvolifentry.EntityData.SegmentPath = "cvCallVolIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvcallvolifentry.Ifindex) + "']"
+    cvcallvolifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallvolifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallvolifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) SetFilter(yf yfilter.YFilter) { cvcallvolifentry.YFilter = yf }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cvCallVolMediaIncomingCalls" { return "Cvcallvolmediaincomingcalls" }
-    if yname == "cvCallVolMediaOutgoingCalls" { return "Cvcallvolmediaoutgoingcalls" }
-    return ""
+    cvcallvolifentry.EntityData.Children = make(map[string]types.YChild)
+    cvcallvolifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallvolifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cvcallvolifentry.Ifindex}
+    cvcallvolifentry.EntityData.Leafs["cvCallVolMediaIncomingCalls"] = types.YLeaf{"Cvcallvolmediaincomingcalls", cvcallvolifentry.Cvcallvolmediaincomingcalls}
+    cvcallvolifentry.EntityData.Leafs["cvCallVolMediaOutgoingCalls"] = types.YLeaf{"Cvcallvolmediaoutgoingcalls", cvcallvolifentry.Cvcallvolmediaoutgoingcalls}
+    return &(cvcallvolifentry.EntityData)
 }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetSegmentPath() string {
-    return "cvCallVolIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", cvcallvolifentry.Ifindex) + "']"
-}
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cvcallvolifentry.Ifindex
-    leafs["cvCallVolMediaIncomingCalls"] = cvcallvolifentry.Cvcallvolmediaincomingcalls
-    leafs["cvCallVolMediaOutgoingCalls"] = cvcallvolifentry.Cvcallvolmediaoutgoingcalls
-    return leafs
-}
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetYangName() string { return "cvCallVolIfEntry" }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) SetParent(parent types.Entity) { cvcallvolifentry.parent = parent }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetParent() types.Entity { return cvcallvolifentry.parent }
-
-func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifentry) GetParentYangName() string { return "cvCallVolIfTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable
 // This table is the voice extension to the call history table
@@ -3087,7 +2126,7 @@ func (cvcallvolifentry *CISCOVOICEDIALCONTROLMIB_Cvcallvoliftable_Cvcallvolifent
 // call leg information such as voice packet statistics,
 // coder usage and end to end bandwidth of the call leg.
 type CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single voice encapsulation call leg. The call
@@ -3102,63 +2141,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable struct {
     Cvcallhistoryentry []CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry
 }
 
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetFilter() yfilter.YFilter { return cvcallhistorytable.YFilter }
+func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetEntityData() *types.CommonEntityData {
+    cvcallhistorytable.EntityData.YFilter = cvcallhistorytable.YFilter
+    cvcallhistorytable.EntityData.YangName = "cvCallHistoryTable"
+    cvcallhistorytable.EntityData.BundleName = "cisco_ios_xe"
+    cvcallhistorytable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallhistorytable.EntityData.SegmentPath = "cvCallHistoryTable"
+    cvcallhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) SetFilter(yf yfilter.YFilter) { cvcallhistorytable.YFilter = yf }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetGoName(yname string) string {
-    if yname == "cvCallHistoryEntry" { return "Cvcallhistoryentry" }
-    return ""
-}
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetSegmentPath() string {
-    return "cvCallHistoryTable"
-}
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallHistoryEntry" {
-        for _, c := range cvcallhistorytable.Cvcallhistoryentry {
-            if cvcallhistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry{}
-        cvcallhistorytable.Cvcallhistoryentry = append(cvcallhistorytable.Cvcallhistoryentry, child)
-        return &cvcallhistorytable.Cvcallhistoryentry[len(cvcallhistorytable.Cvcallhistoryentry)-1]
-    }
-    return nil
-}
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcallhistorytable.EntityData.Children = make(map[string]types.YChild)
+    cvcallhistorytable.EntityData.Children["cvCallHistoryEntry"] = types.YChild{"Cvcallhistoryentry", nil}
     for i := range cvcallhistorytable.Cvcallhistoryentry {
-        children[cvcallhistorytable.Cvcallhistoryentry[i].GetSegmentPath()] = &cvcallhistorytable.Cvcallhistoryentry[i]
+        cvcallhistorytable.EntityData.Children[types.GetSegmentPath(&cvcallhistorytable.Cvcallhistoryentry[i])] = types.YChild{"Cvcallhistoryentry", &cvcallhistorytable.Cvcallhistoryentry[i]}
     }
-    return children
+    cvcallhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcallhistorytable.EntityData)
 }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetYangName() string { return "cvCallHistoryTable" }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) SetParent(parent types.Entity) { cvcallhistorytable.parent = parent }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetParent() types.Entity { return cvcallhistorytable.parent }
-
-func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry
 // The information regarding a single voice encapsulation
@@ -3173,7 +2173,7 @@ func (cvcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable) GetParent
 // The entry is deleted when its associated call active entry
 // in the IETF Dial Control MIB is deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -3245,77 +2245,34 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry struct {
     Cvcallhistorycallid interface{}
 }
 
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetFilter() yfilter.YFilter { return cvcallhistoryentry.YFilter }
+func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetEntityData() *types.CommonEntityData {
+    cvcallhistoryentry.EntityData.YFilter = cvcallhistoryentry.YFilter
+    cvcallhistoryentry.EntityData.YangName = "cvCallHistoryEntry"
+    cvcallhistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcallhistoryentry.EntityData.ParentYangName = "cvCallHistoryTable"
+    cvcallhistoryentry.EntityData.SegmentPath = "cvCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", cvcallhistoryentry.Ccallhistoryindex) + "']"
+    cvcallhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) SetFilter(yf yfilter.YFilter) { cvcallhistoryentry.YFilter = yf }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetGoName(yname string) string {
-    if yname == "cCallHistoryIndex" { return "Ccallhistoryindex" }
-    if yname == "cvCallHistoryConnectionId" { return "Cvcallhistoryconnectionid" }
-    if yname == "cvCallHistoryTxDuration" { return "Cvcallhistorytxduration" }
-    if yname == "cvCallHistoryVoiceTxDuration" { return "Cvcallhistoryvoicetxduration" }
-    if yname == "cvCallHistoryFaxTxDuration" { return "Cvcallhistoryfaxtxduration" }
-    if yname == "cvCallHistoryCoderTypeRate" { return "Cvcallhistorycodertyperate" }
-    if yname == "cvCallHistoryNoiseLevel" { return "Cvcallhistorynoiselevel" }
-    if yname == "cvCallHistoryACOMLevel" { return "Cvcallhistoryacomlevel" }
-    if yname == "cvCallHistorySessionTarget" { return "Cvcallhistorysessiontarget" }
-    if yname == "cvCallHistoryImgPageCount" { return "Cvcallhistoryimgpagecount" }
-    if yname == "cvCallHistoryCallingName" { return "Cvcallhistorycallingname" }
-    if yname == "cvCallHistoryCallerIDBlock" { return "Cvcallhistorycalleridblock" }
-    if yname == "cvCallHistoryAccountCode" { return "Cvcallhistoryaccountcode" }
-    if yname == "cvCallHistoryCallId" { return "Cvcallhistorycallid" }
-    return ""
+    cvcallhistoryentry.EntityData.Children = make(map[string]types.YChild)
+    cvcallhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallhistoryentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", cvcallhistoryentry.Ccallhistoryindex}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryConnectionId"] = types.YLeaf{"Cvcallhistoryconnectionid", cvcallhistoryentry.Cvcallhistoryconnectionid}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryTxDuration"] = types.YLeaf{"Cvcallhistorytxduration", cvcallhistoryentry.Cvcallhistorytxduration}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryVoiceTxDuration"] = types.YLeaf{"Cvcallhistoryvoicetxduration", cvcallhistoryentry.Cvcallhistoryvoicetxduration}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryFaxTxDuration"] = types.YLeaf{"Cvcallhistoryfaxtxduration", cvcallhistoryentry.Cvcallhistoryfaxtxduration}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryCoderTypeRate"] = types.YLeaf{"Cvcallhistorycodertyperate", cvcallhistoryentry.Cvcallhistorycodertyperate}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryNoiseLevel"] = types.YLeaf{"Cvcallhistorynoiselevel", cvcallhistoryentry.Cvcallhistorynoiselevel}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryACOMLevel"] = types.YLeaf{"Cvcallhistoryacomlevel", cvcallhistoryentry.Cvcallhistoryacomlevel}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistorySessionTarget"] = types.YLeaf{"Cvcallhistorysessiontarget", cvcallhistoryentry.Cvcallhistorysessiontarget}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryImgPageCount"] = types.YLeaf{"Cvcallhistoryimgpagecount", cvcallhistoryentry.Cvcallhistoryimgpagecount}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryCallingName"] = types.YLeaf{"Cvcallhistorycallingname", cvcallhistoryentry.Cvcallhistorycallingname}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryCallerIDBlock"] = types.YLeaf{"Cvcallhistorycalleridblock", cvcallhistoryentry.Cvcallhistorycalleridblock}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryAccountCode"] = types.YLeaf{"Cvcallhistoryaccountcode", cvcallhistoryentry.Cvcallhistoryaccountcode}
+    cvcallhistoryentry.EntityData.Leafs["cvCallHistoryCallId"] = types.YLeaf{"Cvcallhistorycallid", cvcallhistoryentry.Cvcallhistorycallid}
+    return &(cvcallhistoryentry.EntityData)
 }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetSegmentPath() string {
-    return "cvCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", cvcallhistoryentry.Ccallhistoryindex) + "']"
-}
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cCallHistoryIndex"] = cvcallhistoryentry.Ccallhistoryindex
-    leafs["cvCallHistoryConnectionId"] = cvcallhistoryentry.Cvcallhistoryconnectionid
-    leafs["cvCallHistoryTxDuration"] = cvcallhistoryentry.Cvcallhistorytxduration
-    leafs["cvCallHistoryVoiceTxDuration"] = cvcallhistoryentry.Cvcallhistoryvoicetxduration
-    leafs["cvCallHistoryFaxTxDuration"] = cvcallhistoryentry.Cvcallhistoryfaxtxduration
-    leafs["cvCallHistoryCoderTypeRate"] = cvcallhistoryentry.Cvcallhistorycodertyperate
-    leafs["cvCallHistoryNoiseLevel"] = cvcallhistoryentry.Cvcallhistorynoiselevel
-    leafs["cvCallHistoryACOMLevel"] = cvcallhistoryentry.Cvcallhistoryacomlevel
-    leafs["cvCallHistorySessionTarget"] = cvcallhistoryentry.Cvcallhistorysessiontarget
-    leafs["cvCallHistoryImgPageCount"] = cvcallhistoryentry.Cvcallhistoryimgpagecount
-    leafs["cvCallHistoryCallingName"] = cvcallhistoryentry.Cvcallhistorycallingname
-    leafs["cvCallHistoryCallerIDBlock"] = cvcallhistoryentry.Cvcallhistorycalleridblock
-    leafs["cvCallHistoryAccountCode"] = cvcallhistoryentry.Cvcallhistoryaccountcode
-    leafs["cvCallHistoryCallId"] = cvcallhistoryentry.Cvcallhistorycallid
-    return leafs
-}
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetYangName() string { return "cvCallHistoryEntry" }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) SetParent(parent types.Entity) { cvcallhistoryentry.parent = parent }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetParent() types.Entity { return cvcallhistoryentry.parent }
-
-func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhistoryentry) GetParentYangName() string { return "cvCallHistoryTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable
 // This table is the VoIP extension to the call history table
@@ -3323,7 +2280,7 @@ func (cvcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvcallhistorytable_Cvcallhist
 // information about specific VoIP call destination and the
 // selected QoS for the call leg.
 type CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single VoIP call leg. The call leg entry is
@@ -3338,63 +2295,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable struct {
     Cvvoipcallhistoryentry []CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry
 }
 
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetFilter() yfilter.YFilter { return cvvoipcallhistorytable.YFilter }
+func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetEntityData() *types.CommonEntityData {
+    cvvoipcallhistorytable.EntityData.YFilter = cvvoipcallhistorytable.YFilter
+    cvvoipcallhistorytable.EntityData.YangName = "cvVoIPCallHistoryTable"
+    cvvoipcallhistorytable.EntityData.BundleName = "cisco_ios_xe"
+    cvvoipcallhistorytable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvvoipcallhistorytable.EntityData.SegmentPath = "cvVoIPCallHistoryTable"
+    cvvoipcallhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoipcallhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoipcallhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) SetFilter(yf yfilter.YFilter) { cvvoipcallhistorytable.YFilter = yf }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetGoName(yname string) string {
-    if yname == "cvVoIPCallHistoryEntry" { return "Cvvoipcallhistoryentry" }
-    return ""
-}
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetSegmentPath() string {
-    return "cvVoIPCallHistoryTable"
-}
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvVoIPCallHistoryEntry" {
-        for _, c := range cvvoipcallhistorytable.Cvvoipcallhistoryentry {
-            if cvvoipcallhistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry{}
-        cvvoipcallhistorytable.Cvvoipcallhistoryentry = append(cvvoipcallhistorytable.Cvvoipcallhistoryentry, child)
-        return &cvvoipcallhistorytable.Cvvoipcallhistoryentry[len(cvvoipcallhistorytable.Cvvoipcallhistoryentry)-1]
-    }
-    return nil
-}
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvvoipcallhistorytable.EntityData.Children = make(map[string]types.YChild)
+    cvvoipcallhistorytable.EntityData.Children["cvVoIPCallHistoryEntry"] = types.YChild{"Cvvoipcallhistoryentry", nil}
     for i := range cvvoipcallhistorytable.Cvvoipcallhistoryentry {
-        children[cvvoipcallhistorytable.Cvvoipcallhistoryentry[i].GetSegmentPath()] = &cvvoipcallhistorytable.Cvvoipcallhistoryentry[i]
+        cvvoipcallhistorytable.EntityData.Children[types.GetSegmentPath(&cvvoipcallhistorytable.Cvvoipcallhistoryentry[i])] = types.YChild{"Cvvoipcallhistoryentry", &cvvoipcallhistorytable.Cvvoipcallhistoryentry[i]}
     }
-    return children
+    cvvoipcallhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvvoipcallhistorytable.EntityData)
 }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetYangName() string { return "cvVoIPCallHistoryTable" }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) SetParent(parent types.Entity) { cvvoipcallhistorytable.parent = parent }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetParent() types.Entity { return cvvoipcallhistorytable.parent }
-
-func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry
 // The information regarding a single VoIP call leg.
@@ -3409,7 +2327,7 @@ func (cvvoipcallhistorytable *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable) G
 // The entry is deleted when its associated call history
 // entry in the IETF Dial Control MIB is deleted.
 type CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -3422,7 +2340,7 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry stru
     Cvvoipcallhistoryconnectionid interface{}
 
     // Remote system IP address for the call. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvvoipcallhistoryremoteipaddress interface{}
 
     // Remote system UDP listener port to which to transmit voice packets for the
@@ -3689,147 +2607,69 @@ type CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry stru
     Cvvoipcallhistorysessionid interface{}
 }
 
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetFilter() yfilter.YFilter { return cvvoipcallhistoryentry.YFilter }
+func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetEntityData() *types.CommonEntityData {
+    cvvoipcallhistoryentry.EntityData.YFilter = cvvoipcallhistoryentry.YFilter
+    cvvoipcallhistoryentry.EntityData.YangName = "cvVoIPCallHistoryEntry"
+    cvvoipcallhistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    cvvoipcallhistoryentry.EntityData.ParentYangName = "cvVoIPCallHistoryTable"
+    cvvoipcallhistoryentry.EntityData.SegmentPath = "cvVoIPCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", cvvoipcallhistoryentry.Ccallhistoryindex) + "']"
+    cvvoipcallhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvvoipcallhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvvoipcallhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) SetFilter(yf yfilter.YFilter) { cvvoipcallhistoryentry.YFilter = yf }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetGoName(yname string) string {
-    if yname == "cCallHistoryIndex" { return "Ccallhistoryindex" }
-    if yname == "cvVoIPCallHistoryConnectionId" { return "Cvvoipcallhistoryconnectionid" }
-    if yname == "cvVoIPCallHistoryRemoteIPAddress" { return "Cvvoipcallhistoryremoteipaddress" }
-    if yname == "cvVoIPCallHistoryRemoteUDPPort" { return "Cvvoipcallhistoryremoteudpport" }
-    if yname == "cvVoIPCallHistoryRoundTripDelay" { return "Cvvoipcallhistoryroundtripdelay" }
-    if yname == "cvVoIPCallHistorySelectedQoS" { return "Cvvoipcallhistoryselectedqos" }
-    if yname == "cvVoIPCallHistorySessionProtocol" { return "Cvvoipcallhistorysessionprotocol" }
-    if yname == "cvVoIPCallHistorySessionTarget" { return "Cvvoipcallhistorysessiontarget" }
-    if yname == "cvVoIPCallHistoryOnTimeRvPlayout" { return "Cvvoipcallhistoryontimervplayout" }
-    if yname == "cvVoIPCallHistoryGapFillWithSilence" { return "Cvvoipcallhistorygapfillwithsilence" }
-    if yname == "cvVoIPCallHistoryGapFillWithPrediction" { return "Cvvoipcallhistorygapfillwithprediction" }
-    if yname == "cvVoIPCallHistoryGapFillWithInterpolation" { return "Cvvoipcallhistorygapfillwithinterpolation" }
-    if yname == "cvVoIPCallHistoryGapFillWithRedundancy" { return "Cvvoipcallhistorygapfillwithredundancy" }
-    if yname == "cvVoIPCallHistoryHiWaterPlayoutDelay" { return "Cvvoipcallhistoryhiwaterplayoutdelay" }
-    if yname == "cvVoIPCallHistoryLoWaterPlayoutDelay" { return "Cvvoipcallhistorylowaterplayoutdelay" }
-    if yname == "cvVoIPCallHistoryReceiveDelay" { return "Cvvoipcallhistoryreceivedelay" }
-    if yname == "cvVoIPCallHistoryVADEnable" { return "Cvvoipcallhistoryvadenable" }
-    if yname == "cvVoIPCallHistoryCoderTypeRate" { return "Cvvoipcallhistorycodertyperate" }
-    if yname == "cvVoIPCallHistoryIcpif" { return "Cvvoipcallhistoryicpif" }
-    if yname == "cvVoIPCallHistoryLostPackets" { return "Cvvoipcallhistorylostpackets" }
-    if yname == "cvVoIPCallHistoryEarlyPackets" { return "Cvvoipcallhistoryearlypackets" }
-    if yname == "cvVoIPCallHistoryLatePackets" { return "Cvvoipcallhistorylatepackets" }
-    if yname == "cvVoIPCallHistoryUsername" { return "Cvvoipcallhistoryusername" }
-    if yname == "cvVoIPCallHistoryProtocolCallId" { return "Cvvoipcallhistoryprotocolcallid" }
-    if yname == "cvVoIPCallHistoryRemSigIPAddrT" { return "Cvvoipcallhistoryremsigipaddrt" }
-    if yname == "cvVoIPCallHistoryRemSigIPAddr" { return "Cvvoipcallhistoryremsigipaddr" }
-    if yname == "cvVoIPCallHistoryRemSigPort" { return "Cvvoipcallhistoryremsigport" }
-    if yname == "cvVoIPCallHistoryRemMediaIPAddrT" { return "Cvvoipcallhistoryremmediaipaddrt" }
-    if yname == "cvVoIPCallHistoryRemMediaIPAddr" { return "Cvvoipcallhistoryremmediaipaddr" }
-    if yname == "cvVoIPCallHistoryRemMediaPort" { return "Cvvoipcallhistoryremmediaport" }
-    if yname == "cvVoIPCallHistorySRTPEnable" { return "Cvvoipcallhistorysrtpenable" }
-    if yname == "cvVoIPCallHistoryFallbackIcpif" { return "Cvvoipcallhistoryfallbackicpif" }
-    if yname == "cvVoIPCallHistoryFallbackLoss" { return "Cvvoipcallhistoryfallbackloss" }
-    if yname == "cvVoIPCallHistoryFallbackDelay" { return "Cvvoipcallhistoryfallbackdelay" }
-    if yname == "cvVoIPCallHistoryOctetAligned" { return "Cvvoipcallhistoryoctetaligned" }
-    if yname == "cvVoIPCallHistoryBitRates" { return "Cvvoipcallhistorybitrates" }
-    if yname == "cvVoIPCallHistoryModeChgPeriod" { return "Cvvoipcallhistorymodechgperiod" }
-    if yname == "cvVoIPCallHistoryModeChgNeighbor" { return "Cvvoipcallhistorymodechgneighbor" }
-    if yname == "cvVoIPCallHistoryMaxPtime" { return "Cvvoipcallhistorymaxptime" }
-    if yname == "cvVoIPCallHistoryCRC" { return "Cvvoipcallhistorycrc" }
-    if yname == "cvVoIPCallHistoryRobustSorting" { return "Cvvoipcallhistoryrobustsorting" }
-    if yname == "cvVoIPCallHistoryEncap" { return "Cvvoipcallhistoryencap" }
-    if yname == "cvVoIPCallHistoryInterleaving" { return "Cvvoipcallhistoryinterleaving" }
-    if yname == "cvVoIPCallHistoryPtime" { return "Cvvoipcallhistoryptime" }
-    if yname == "cvVoIPCallHistoryChannels" { return "Cvvoipcallhistorychannels" }
-    if yname == "cvVoIPCallHistoryCoderMode" { return "Cvvoipcallhistorycodermode" }
-    if yname == "cvVoIPCallHistoryCallId" { return "Cvvoipcallhistorycallid" }
-    if yname == "cvVoIPCallHistoryCallReferenceId" { return "Cvvoipcallhistorycallreferenceid" }
-    if yname == "cvVoIPCallHistorySessionId" { return "Cvvoipcallhistorysessionid" }
-    return ""
+    cvvoipcallhistoryentry.EntityData.Children = make(map[string]types.YChild)
+    cvvoipcallhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvvoipcallhistoryentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", cvvoipcallhistoryentry.Ccallhistoryindex}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryConnectionId"] = types.YLeaf{"Cvvoipcallhistoryconnectionid", cvvoipcallhistoryentry.Cvvoipcallhistoryconnectionid}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemoteIPAddress"] = types.YLeaf{"Cvvoipcallhistoryremoteipaddress", cvvoipcallhistoryentry.Cvvoipcallhistoryremoteipaddress}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemoteUDPPort"] = types.YLeaf{"Cvvoipcallhistoryremoteudpport", cvvoipcallhistoryentry.Cvvoipcallhistoryremoteudpport}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRoundTripDelay"] = types.YLeaf{"Cvvoipcallhistoryroundtripdelay", cvvoipcallhistoryentry.Cvvoipcallhistoryroundtripdelay}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistorySelectedQoS"] = types.YLeaf{"Cvvoipcallhistoryselectedqos", cvvoipcallhistoryentry.Cvvoipcallhistoryselectedqos}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistorySessionProtocol"] = types.YLeaf{"Cvvoipcallhistorysessionprotocol", cvvoipcallhistoryentry.Cvvoipcallhistorysessionprotocol}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistorySessionTarget"] = types.YLeaf{"Cvvoipcallhistorysessiontarget", cvvoipcallhistoryentry.Cvvoipcallhistorysessiontarget}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryOnTimeRvPlayout"] = types.YLeaf{"Cvvoipcallhistoryontimervplayout", cvvoipcallhistoryentry.Cvvoipcallhistoryontimervplayout}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryGapFillWithSilence"] = types.YLeaf{"Cvvoipcallhistorygapfillwithsilence", cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithsilence}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryGapFillWithPrediction"] = types.YLeaf{"Cvvoipcallhistorygapfillwithprediction", cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithprediction}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryGapFillWithInterpolation"] = types.YLeaf{"Cvvoipcallhistorygapfillwithinterpolation", cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithinterpolation}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryGapFillWithRedundancy"] = types.YLeaf{"Cvvoipcallhistorygapfillwithredundancy", cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithredundancy}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryHiWaterPlayoutDelay"] = types.YLeaf{"Cvvoipcallhistoryhiwaterplayoutdelay", cvvoipcallhistoryentry.Cvvoipcallhistoryhiwaterplayoutdelay}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryLoWaterPlayoutDelay"] = types.YLeaf{"Cvvoipcallhistorylowaterplayoutdelay", cvvoipcallhistoryentry.Cvvoipcallhistorylowaterplayoutdelay}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryReceiveDelay"] = types.YLeaf{"Cvvoipcallhistoryreceivedelay", cvvoipcallhistoryentry.Cvvoipcallhistoryreceivedelay}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryVADEnable"] = types.YLeaf{"Cvvoipcallhistoryvadenable", cvvoipcallhistoryentry.Cvvoipcallhistoryvadenable}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryCoderTypeRate"] = types.YLeaf{"Cvvoipcallhistorycodertyperate", cvvoipcallhistoryentry.Cvvoipcallhistorycodertyperate}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryIcpif"] = types.YLeaf{"Cvvoipcallhistoryicpif", cvvoipcallhistoryentry.Cvvoipcallhistoryicpif}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryLostPackets"] = types.YLeaf{"Cvvoipcallhistorylostpackets", cvvoipcallhistoryentry.Cvvoipcallhistorylostpackets}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryEarlyPackets"] = types.YLeaf{"Cvvoipcallhistoryearlypackets", cvvoipcallhistoryentry.Cvvoipcallhistoryearlypackets}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryLatePackets"] = types.YLeaf{"Cvvoipcallhistorylatepackets", cvvoipcallhistoryentry.Cvvoipcallhistorylatepackets}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryUsername"] = types.YLeaf{"Cvvoipcallhistoryusername", cvvoipcallhistoryentry.Cvvoipcallhistoryusername}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryProtocolCallId"] = types.YLeaf{"Cvvoipcallhistoryprotocolcallid", cvvoipcallhistoryentry.Cvvoipcallhistoryprotocolcallid}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemSigIPAddrT"] = types.YLeaf{"Cvvoipcallhistoryremsigipaddrt", cvvoipcallhistoryentry.Cvvoipcallhistoryremsigipaddrt}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemSigIPAddr"] = types.YLeaf{"Cvvoipcallhistoryremsigipaddr", cvvoipcallhistoryentry.Cvvoipcallhistoryremsigipaddr}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemSigPort"] = types.YLeaf{"Cvvoipcallhistoryremsigport", cvvoipcallhistoryentry.Cvvoipcallhistoryremsigport}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemMediaIPAddrT"] = types.YLeaf{"Cvvoipcallhistoryremmediaipaddrt", cvvoipcallhistoryentry.Cvvoipcallhistoryremmediaipaddrt}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemMediaIPAddr"] = types.YLeaf{"Cvvoipcallhistoryremmediaipaddr", cvvoipcallhistoryentry.Cvvoipcallhistoryremmediaipaddr}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRemMediaPort"] = types.YLeaf{"Cvvoipcallhistoryremmediaport", cvvoipcallhistoryentry.Cvvoipcallhistoryremmediaport}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistorySRTPEnable"] = types.YLeaf{"Cvvoipcallhistorysrtpenable", cvvoipcallhistoryentry.Cvvoipcallhistorysrtpenable}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryFallbackIcpif"] = types.YLeaf{"Cvvoipcallhistoryfallbackicpif", cvvoipcallhistoryentry.Cvvoipcallhistoryfallbackicpif}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryFallbackLoss"] = types.YLeaf{"Cvvoipcallhistoryfallbackloss", cvvoipcallhistoryentry.Cvvoipcallhistoryfallbackloss}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryFallbackDelay"] = types.YLeaf{"Cvvoipcallhistoryfallbackdelay", cvvoipcallhistoryentry.Cvvoipcallhistoryfallbackdelay}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryOctetAligned"] = types.YLeaf{"Cvvoipcallhistoryoctetaligned", cvvoipcallhistoryentry.Cvvoipcallhistoryoctetaligned}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryBitRates"] = types.YLeaf{"Cvvoipcallhistorybitrates", cvvoipcallhistoryentry.Cvvoipcallhistorybitrates}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryModeChgPeriod"] = types.YLeaf{"Cvvoipcallhistorymodechgperiod", cvvoipcallhistoryentry.Cvvoipcallhistorymodechgperiod}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryModeChgNeighbor"] = types.YLeaf{"Cvvoipcallhistorymodechgneighbor", cvvoipcallhistoryentry.Cvvoipcallhistorymodechgneighbor}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryMaxPtime"] = types.YLeaf{"Cvvoipcallhistorymaxptime", cvvoipcallhistoryentry.Cvvoipcallhistorymaxptime}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryCRC"] = types.YLeaf{"Cvvoipcallhistorycrc", cvvoipcallhistoryentry.Cvvoipcallhistorycrc}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryRobustSorting"] = types.YLeaf{"Cvvoipcallhistoryrobustsorting", cvvoipcallhistoryentry.Cvvoipcallhistoryrobustsorting}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryEncap"] = types.YLeaf{"Cvvoipcallhistoryencap", cvvoipcallhistoryentry.Cvvoipcallhistoryencap}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryInterleaving"] = types.YLeaf{"Cvvoipcallhistoryinterleaving", cvvoipcallhistoryentry.Cvvoipcallhistoryinterleaving}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryPtime"] = types.YLeaf{"Cvvoipcallhistoryptime", cvvoipcallhistoryentry.Cvvoipcallhistoryptime}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryChannels"] = types.YLeaf{"Cvvoipcallhistorychannels", cvvoipcallhistoryentry.Cvvoipcallhistorychannels}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryCoderMode"] = types.YLeaf{"Cvvoipcallhistorycodermode", cvvoipcallhistoryentry.Cvvoipcallhistorycodermode}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryCallId"] = types.YLeaf{"Cvvoipcallhistorycallid", cvvoipcallhistoryentry.Cvvoipcallhistorycallid}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistoryCallReferenceId"] = types.YLeaf{"Cvvoipcallhistorycallreferenceid", cvvoipcallhistoryentry.Cvvoipcallhistorycallreferenceid}
+    cvvoipcallhistoryentry.EntityData.Leafs["cvVoIPCallHistorySessionId"] = types.YLeaf{"Cvvoipcallhistorysessionid", cvvoipcallhistoryentry.Cvvoipcallhistorysessionid}
+    return &(cvvoipcallhistoryentry.EntityData)
 }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetSegmentPath() string {
-    return "cvVoIPCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", cvvoipcallhistoryentry.Ccallhistoryindex) + "']"
-}
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cCallHistoryIndex"] = cvvoipcallhistoryentry.Ccallhistoryindex
-    leafs["cvVoIPCallHistoryConnectionId"] = cvvoipcallhistoryentry.Cvvoipcallhistoryconnectionid
-    leafs["cvVoIPCallHistoryRemoteIPAddress"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremoteipaddress
-    leafs["cvVoIPCallHistoryRemoteUDPPort"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremoteudpport
-    leafs["cvVoIPCallHistoryRoundTripDelay"] = cvvoipcallhistoryentry.Cvvoipcallhistoryroundtripdelay
-    leafs["cvVoIPCallHistorySelectedQoS"] = cvvoipcallhistoryentry.Cvvoipcallhistoryselectedqos
-    leafs["cvVoIPCallHistorySessionProtocol"] = cvvoipcallhistoryentry.Cvvoipcallhistorysessionprotocol
-    leafs["cvVoIPCallHistorySessionTarget"] = cvvoipcallhistoryentry.Cvvoipcallhistorysessiontarget
-    leafs["cvVoIPCallHistoryOnTimeRvPlayout"] = cvvoipcallhistoryentry.Cvvoipcallhistoryontimervplayout
-    leafs["cvVoIPCallHistoryGapFillWithSilence"] = cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithsilence
-    leafs["cvVoIPCallHistoryGapFillWithPrediction"] = cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithprediction
-    leafs["cvVoIPCallHistoryGapFillWithInterpolation"] = cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithinterpolation
-    leafs["cvVoIPCallHistoryGapFillWithRedundancy"] = cvvoipcallhistoryentry.Cvvoipcallhistorygapfillwithredundancy
-    leafs["cvVoIPCallHistoryHiWaterPlayoutDelay"] = cvvoipcallhistoryentry.Cvvoipcallhistoryhiwaterplayoutdelay
-    leafs["cvVoIPCallHistoryLoWaterPlayoutDelay"] = cvvoipcallhistoryentry.Cvvoipcallhistorylowaterplayoutdelay
-    leafs["cvVoIPCallHistoryReceiveDelay"] = cvvoipcallhistoryentry.Cvvoipcallhistoryreceivedelay
-    leafs["cvVoIPCallHistoryVADEnable"] = cvvoipcallhistoryentry.Cvvoipcallhistoryvadenable
-    leafs["cvVoIPCallHistoryCoderTypeRate"] = cvvoipcallhistoryentry.Cvvoipcallhistorycodertyperate
-    leafs["cvVoIPCallHistoryIcpif"] = cvvoipcallhistoryentry.Cvvoipcallhistoryicpif
-    leafs["cvVoIPCallHistoryLostPackets"] = cvvoipcallhistoryentry.Cvvoipcallhistorylostpackets
-    leafs["cvVoIPCallHistoryEarlyPackets"] = cvvoipcallhistoryentry.Cvvoipcallhistoryearlypackets
-    leafs["cvVoIPCallHistoryLatePackets"] = cvvoipcallhistoryentry.Cvvoipcallhistorylatepackets
-    leafs["cvVoIPCallHistoryUsername"] = cvvoipcallhistoryentry.Cvvoipcallhistoryusername
-    leafs["cvVoIPCallHistoryProtocolCallId"] = cvvoipcallhistoryentry.Cvvoipcallhistoryprotocolcallid
-    leafs["cvVoIPCallHistoryRemSigIPAddrT"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremsigipaddrt
-    leafs["cvVoIPCallHistoryRemSigIPAddr"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremsigipaddr
-    leafs["cvVoIPCallHistoryRemSigPort"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremsigport
-    leafs["cvVoIPCallHistoryRemMediaIPAddrT"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremmediaipaddrt
-    leafs["cvVoIPCallHistoryRemMediaIPAddr"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremmediaipaddr
-    leafs["cvVoIPCallHistoryRemMediaPort"] = cvvoipcallhistoryentry.Cvvoipcallhistoryremmediaport
-    leafs["cvVoIPCallHistorySRTPEnable"] = cvvoipcallhistoryentry.Cvvoipcallhistorysrtpenable
-    leafs["cvVoIPCallHistoryFallbackIcpif"] = cvvoipcallhistoryentry.Cvvoipcallhistoryfallbackicpif
-    leafs["cvVoIPCallHistoryFallbackLoss"] = cvvoipcallhistoryentry.Cvvoipcallhistoryfallbackloss
-    leafs["cvVoIPCallHistoryFallbackDelay"] = cvvoipcallhistoryentry.Cvvoipcallhistoryfallbackdelay
-    leafs["cvVoIPCallHistoryOctetAligned"] = cvvoipcallhistoryentry.Cvvoipcallhistoryoctetaligned
-    leafs["cvVoIPCallHistoryBitRates"] = cvvoipcallhistoryentry.Cvvoipcallhistorybitrates
-    leafs["cvVoIPCallHistoryModeChgPeriod"] = cvvoipcallhistoryentry.Cvvoipcallhistorymodechgperiod
-    leafs["cvVoIPCallHistoryModeChgNeighbor"] = cvvoipcallhistoryentry.Cvvoipcallhistorymodechgneighbor
-    leafs["cvVoIPCallHistoryMaxPtime"] = cvvoipcallhistoryentry.Cvvoipcallhistorymaxptime
-    leafs["cvVoIPCallHistoryCRC"] = cvvoipcallhistoryentry.Cvvoipcallhistorycrc
-    leafs["cvVoIPCallHistoryRobustSorting"] = cvvoipcallhistoryentry.Cvvoipcallhistoryrobustsorting
-    leafs["cvVoIPCallHistoryEncap"] = cvvoipcallhistoryentry.Cvvoipcallhistoryencap
-    leafs["cvVoIPCallHistoryInterleaving"] = cvvoipcallhistoryentry.Cvvoipcallhistoryinterleaving
-    leafs["cvVoIPCallHistoryPtime"] = cvvoipcallhistoryentry.Cvvoipcallhistoryptime
-    leafs["cvVoIPCallHistoryChannels"] = cvvoipcallhistoryentry.Cvvoipcallhistorychannels
-    leafs["cvVoIPCallHistoryCoderMode"] = cvvoipcallhistoryentry.Cvvoipcallhistorycodermode
-    leafs["cvVoIPCallHistoryCallId"] = cvvoipcallhistoryentry.Cvvoipcallhistorycallid
-    leafs["cvVoIPCallHistoryCallReferenceId"] = cvvoipcallhistoryentry.Cvvoipcallhistorycallreferenceid
-    leafs["cvVoIPCallHistorySessionId"] = cvvoipcallhistoryentry.Cvvoipcallhistorysessionid
-    return leafs
-}
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetYangName() string { return "cvVoIPCallHistoryEntry" }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) SetParent(parent types.Entity) { cvvoipcallhistoryentry.parent = parent }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetParent() types.Entity { return cvvoipcallhistoryentry.parent }
-
-func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cvvoipcallhistoryentry) GetParentYangName() string { return "cvVoIPCallHistoryTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable
 // This table represents voice call rate measurement in various
@@ -3839,7 +2679,7 @@ func (cvvoipcallhistoryentry *CISCOVOICEDIALCONTROLMIB_Cvvoipcallhistorytable_Cv
 // Each interval may contain one or more entries to allow for
 // detailed measurement to be collected.
 type CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvCallRateStatsTable This entry is created at
@@ -3849,70 +2689,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable struct {
     Cvcallratestatsentry []CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry
 }
 
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetFilter() yfilter.YFilter { return cvcallratestatstable.YFilter }
+func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetEntityData() *types.CommonEntityData {
+    cvcallratestatstable.EntityData.YFilter = cvcallratestatstable.YFilter
+    cvcallratestatstable.EntityData.YangName = "cvCallRateStatsTable"
+    cvcallratestatstable.EntityData.BundleName = "cisco_ios_xe"
+    cvcallratestatstable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallratestatstable.EntityData.SegmentPath = "cvCallRateStatsTable"
+    cvcallratestatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallratestatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallratestatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) SetFilter(yf yfilter.YFilter) { cvcallratestatstable.YFilter = yf }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetGoName(yname string) string {
-    if yname == "cvCallRateStatsEntry" { return "Cvcallratestatsentry" }
-    return ""
-}
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetSegmentPath() string {
-    return "cvCallRateStatsTable"
-}
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallRateStatsEntry" {
-        for _, c := range cvcallratestatstable.Cvcallratestatsentry {
-            if cvcallratestatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry{}
-        cvcallratestatstable.Cvcallratestatsentry = append(cvcallratestatstable.Cvcallratestatsentry, child)
-        return &cvcallratestatstable.Cvcallratestatsentry[len(cvcallratestatstable.Cvcallratestatsentry)-1]
-    }
-    return nil
-}
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcallratestatstable.EntityData.Children = make(map[string]types.YChild)
+    cvcallratestatstable.EntityData.Children["cvCallRateStatsEntry"] = types.YChild{"Cvcallratestatsentry", nil}
     for i := range cvcallratestatstable.Cvcallratestatsentry {
-        children[cvcallratestatstable.Cvcallratestatsentry[i].GetSegmentPath()] = &cvcallratestatstable.Cvcallratestatsentry[i]
+        cvcallratestatstable.EntityData.Children[types.GetSegmentPath(&cvcallratestatstable.Cvcallratestatsentry[i])] = types.YChild{"Cvcallratestatsentry", &cvcallratestatstable.Cvcallratestatsentry[i]}
     }
-    return children
+    cvcallratestatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcallratestatstable.EntityData)
 }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetYangName() string { return "cvCallRateStatsTable" }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) SetParent(parent types.Entity) { cvcallratestatstable.parent = parent }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetParent() types.Entity { return cvcallratestatstable.parent }
-
-func (cvcallratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry
 // This is a conceptual-row in cvCallRateStatsTable
 // This entry is created at the system initialization and is
 // updated at every epoch based on CvCallVolumeStatsIntvlType
 type CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in Call Rate Table to select
@@ -3938,57 +2739,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry struct {
     Cvcallratestatsavgval interface{}
 }
 
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetFilter() yfilter.YFilter { return cvcallratestatsentry.YFilter }
+func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetEntityData() *types.CommonEntityData {
+    cvcallratestatsentry.EntityData.YFilter = cvcallratestatsentry.YFilter
+    cvcallratestatsentry.EntityData.YangName = "cvCallRateStatsEntry"
+    cvcallratestatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcallratestatsentry.EntityData.ParentYangName = "cvCallRateStatsTable"
+    cvcallratestatsentry.EntityData.SegmentPath = "cvCallRateStatsEntry" + "[cvCallRateStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvcallratestatsentry.Cvcallratestatsintvldurunits) + "']" + "[cvCallRateStatsIntvlDur='" + fmt.Sprintf("%v", cvcallratestatsentry.Cvcallratestatsintvldur) + "']"
+    cvcallratestatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallratestatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallratestatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) SetFilter(yf yfilter.YFilter) { cvcallratestatsentry.YFilter = yf }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetGoName(yname string) string {
-    if yname == "cvCallRateStatsIntvlDurUnits" { return "Cvcallratestatsintvldurunits" }
-    if yname == "cvCallRateStatsIntvlDur" { return "Cvcallratestatsintvldur" }
-    if yname == "cvCallRateStatsMaxVal" { return "Cvcallratestatsmaxval" }
-    if yname == "cvCallRateStatsAvgVal" { return "Cvcallratestatsavgval" }
-    return ""
+    cvcallratestatsentry.EntityData.Children = make(map[string]types.YChild)
+    cvcallratestatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallratestatsentry.EntityData.Leafs["cvCallRateStatsIntvlDurUnits"] = types.YLeaf{"Cvcallratestatsintvldurunits", cvcallratestatsentry.Cvcallratestatsintvldurunits}
+    cvcallratestatsentry.EntityData.Leafs["cvCallRateStatsIntvlDur"] = types.YLeaf{"Cvcallratestatsintvldur", cvcallratestatsentry.Cvcallratestatsintvldur}
+    cvcallratestatsentry.EntityData.Leafs["cvCallRateStatsMaxVal"] = types.YLeaf{"Cvcallratestatsmaxval", cvcallratestatsentry.Cvcallratestatsmaxval}
+    cvcallratestatsentry.EntityData.Leafs["cvCallRateStatsAvgVal"] = types.YLeaf{"Cvcallratestatsavgval", cvcallratestatsentry.Cvcallratestatsavgval}
+    return &(cvcallratestatsentry.EntityData)
 }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetSegmentPath() string {
-    return "cvCallRateStatsEntry" + "[cvCallRateStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvcallratestatsentry.Cvcallratestatsintvldurunits) + "']" + "[cvCallRateStatsIntvlDur='" + fmt.Sprintf("%v", cvcallratestatsentry.Cvcallratestatsintvldur) + "']"
-}
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallRateStatsIntvlDurUnits"] = cvcallratestatsentry.Cvcallratestatsintvldurunits
-    leafs["cvCallRateStatsIntvlDur"] = cvcallratestatsentry.Cvcallratestatsintvldur
-    leafs["cvCallRateStatsMaxVal"] = cvcallratestatsentry.Cvcallratestatsmaxval
-    leafs["cvCallRateStatsAvgVal"] = cvcallratestatsentry.Cvcallratestatsavgval
-    return leafs
-}
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetYangName() string { return "cvCallRateStatsEntry" }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) SetParent(parent types.Entity) { cvcallratestatsentry.parent = parent }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetParent() types.Entity { return cvcallratestatsentry.parent }
-
-func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcallratestatsentry) GetParentYangName() string { return "cvCallRateStatsTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable
 // cvCallLegRateStatsTable table represents voice call leg rate
@@ -3997,7 +2765,7 @@ func (cvcallratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcallratestatstable_Cvcall
 // Each interval may contain one or more entries to allow for
 // detailed measurement to be collected.
 type CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvCallLegRateStatsTable This entry is created
@@ -4007,70 +2775,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable struct {
     Cvcalllegratestatsentry []CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry
 }
 
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetFilter() yfilter.YFilter { return cvcalllegratestatstable.YFilter }
+func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetEntityData() *types.CommonEntityData {
+    cvcalllegratestatstable.EntityData.YFilter = cvcalllegratestatstable.YFilter
+    cvcalllegratestatstable.EntityData.YangName = "cvCallLegRateStatsTable"
+    cvcalllegratestatstable.EntityData.BundleName = "cisco_ios_xe"
+    cvcalllegratestatstable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcalllegratestatstable.EntityData.SegmentPath = "cvCallLegRateStatsTable"
+    cvcalllegratestatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcalllegratestatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcalllegratestatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) SetFilter(yf yfilter.YFilter) { cvcalllegratestatstable.YFilter = yf }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetGoName(yname string) string {
-    if yname == "cvCallLegRateStatsEntry" { return "Cvcalllegratestatsentry" }
-    return ""
-}
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetSegmentPath() string {
-    return "cvCallLegRateStatsTable"
-}
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallLegRateStatsEntry" {
-        for _, c := range cvcalllegratestatstable.Cvcalllegratestatsentry {
-            if cvcalllegratestatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry{}
-        cvcalllegratestatstable.Cvcalllegratestatsentry = append(cvcalllegratestatstable.Cvcalllegratestatsentry, child)
-        return &cvcalllegratestatstable.Cvcalllegratestatsentry[len(cvcalllegratestatstable.Cvcalllegratestatsentry)-1]
-    }
-    return nil
-}
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcalllegratestatstable.EntityData.Children = make(map[string]types.YChild)
+    cvcalllegratestatstable.EntityData.Children["cvCallLegRateStatsEntry"] = types.YChild{"Cvcalllegratestatsentry", nil}
     for i := range cvcalllegratestatstable.Cvcalllegratestatsentry {
-        children[cvcalllegratestatstable.Cvcalllegratestatsentry[i].GetSegmentPath()] = &cvcalllegratestatstable.Cvcalllegratestatsentry[i]
+        cvcalllegratestatstable.EntityData.Children[types.GetSegmentPath(&cvcalllegratestatstable.Cvcalllegratestatsentry[i])] = types.YChild{"Cvcalllegratestatsentry", &cvcalllegratestatstable.Cvcalllegratestatsentry[i]}
     }
-    return children
+    cvcalllegratestatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcalllegratestatstable.EntityData)
 }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetYangName() string { return "cvCallLegRateStatsTable" }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) SetParent(parent types.Entity) { cvcalllegratestatstable.parent = parent }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetParent() types.Entity { return cvcalllegratestatstable.parent }
-
-func (cvcalllegratestatstable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry
 // This is a conceptual-row in cvCallLegRateStatsTable
 // This entry is created at the system initialization and is
 // updated at every epoch based on CvCallVolumeStatsIntvlType
 type CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in Call Leg Rate Table to
@@ -4096,57 +2825,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry st
     Cvcalllegratestatsavgval interface{}
 }
 
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetFilter() yfilter.YFilter { return cvcalllegratestatsentry.YFilter }
+func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetEntityData() *types.CommonEntityData {
+    cvcalllegratestatsentry.EntityData.YFilter = cvcalllegratestatsentry.YFilter
+    cvcalllegratestatsentry.EntityData.YangName = "cvCallLegRateStatsEntry"
+    cvcalllegratestatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcalllegratestatsentry.EntityData.ParentYangName = "cvCallLegRateStatsTable"
+    cvcalllegratestatsentry.EntityData.SegmentPath = "cvCallLegRateStatsEntry" + "[cvCallLegRateStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvcalllegratestatsentry.Cvcalllegratestatsintvldurunits) + "']" + "[cvCallLegRateStatsIntvlDur='" + fmt.Sprintf("%v", cvcalllegratestatsentry.Cvcalllegratestatsintvldur) + "']"
+    cvcalllegratestatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcalllegratestatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcalllegratestatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) SetFilter(yf yfilter.YFilter) { cvcalllegratestatsentry.YFilter = yf }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetGoName(yname string) string {
-    if yname == "cvCallLegRateStatsIntvlDurUnits" { return "Cvcalllegratestatsintvldurunits" }
-    if yname == "cvCallLegRateStatsIntvlDur" { return "Cvcalllegratestatsintvldur" }
-    if yname == "cvCallLegRateStatsMaxVal" { return "Cvcalllegratestatsmaxval" }
-    if yname == "cvCallLegRateStatsAvgVal" { return "Cvcalllegratestatsavgval" }
-    return ""
+    cvcalllegratestatsentry.EntityData.Children = make(map[string]types.YChild)
+    cvcalllegratestatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcalllegratestatsentry.EntityData.Leafs["cvCallLegRateStatsIntvlDurUnits"] = types.YLeaf{"Cvcalllegratestatsintvldurunits", cvcalllegratestatsentry.Cvcalllegratestatsintvldurunits}
+    cvcalllegratestatsentry.EntityData.Leafs["cvCallLegRateStatsIntvlDur"] = types.YLeaf{"Cvcalllegratestatsintvldur", cvcalllegratestatsentry.Cvcalllegratestatsintvldur}
+    cvcalllegratestatsentry.EntityData.Leafs["cvCallLegRateStatsMaxVal"] = types.YLeaf{"Cvcalllegratestatsmaxval", cvcalllegratestatsentry.Cvcalllegratestatsmaxval}
+    cvcalllegratestatsentry.EntityData.Leafs["cvCallLegRateStatsAvgVal"] = types.YLeaf{"Cvcalllegratestatsavgval", cvcalllegratestatsentry.Cvcalllegratestatsavgval}
+    return &(cvcalllegratestatsentry.EntityData)
 }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetSegmentPath() string {
-    return "cvCallLegRateStatsEntry" + "[cvCallLegRateStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvcalllegratestatsentry.Cvcalllegratestatsintvldurunits) + "']" + "[cvCallLegRateStatsIntvlDur='" + fmt.Sprintf("%v", cvcalllegratestatsentry.Cvcalllegratestatsintvldur) + "']"
-}
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallLegRateStatsIntvlDurUnits"] = cvcalllegratestatsentry.Cvcalllegratestatsintvldurunits
-    leafs["cvCallLegRateStatsIntvlDur"] = cvcalllegratestatsentry.Cvcalllegratestatsintvldur
-    leafs["cvCallLegRateStatsMaxVal"] = cvcalllegratestatsentry.Cvcalllegratestatsmaxval
-    leafs["cvCallLegRateStatsAvgVal"] = cvcalllegratestatsentry.Cvcalllegratestatsavgval
-    return leafs
-}
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetYangName() string { return "cvCallLegRateStatsEntry" }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) SetParent(parent types.Entity) { cvcalllegratestatsentry.parent = parent }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetParent() types.Entity { return cvcalllegratestatsentry.parent }
-
-func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_Cvcalllegratestatsentry) GetParentYangName() string { return "cvCallLegRateStatsTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable
 // This table represents the active voice calls in various
@@ -4156,7 +2852,7 @@ func (cvcalllegratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratestatstable_
 // Each interval may contain one or more entries to allow for
 // detailed measurement to be collected.
 type CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvActiveCallStatsTable This entry is created at
@@ -4166,70 +2862,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable struct {
     Cvactivecallstatsentry []CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry
 }
 
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetFilter() yfilter.YFilter { return cvactivecallstatstable.YFilter }
+func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetEntityData() *types.CommonEntityData {
+    cvactivecallstatstable.EntityData.YFilter = cvactivecallstatstable.YFilter
+    cvactivecallstatstable.EntityData.YangName = "cvActiveCallStatsTable"
+    cvactivecallstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cvactivecallstatstable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvactivecallstatstable.EntityData.SegmentPath = "cvActiveCallStatsTable"
+    cvactivecallstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvactivecallstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvactivecallstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) SetFilter(yf yfilter.YFilter) { cvactivecallstatstable.YFilter = yf }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetGoName(yname string) string {
-    if yname == "cvActiveCallStatsEntry" { return "Cvactivecallstatsentry" }
-    return ""
-}
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetSegmentPath() string {
-    return "cvActiveCallStatsTable"
-}
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvActiveCallStatsEntry" {
-        for _, c := range cvactivecallstatstable.Cvactivecallstatsentry {
-            if cvactivecallstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry{}
-        cvactivecallstatstable.Cvactivecallstatsentry = append(cvactivecallstatstable.Cvactivecallstatsentry, child)
-        return &cvactivecallstatstable.Cvactivecallstatsentry[len(cvactivecallstatstable.Cvactivecallstatsentry)-1]
-    }
-    return nil
-}
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvactivecallstatstable.EntityData.Children = make(map[string]types.YChild)
+    cvactivecallstatstable.EntityData.Children["cvActiveCallStatsEntry"] = types.YChild{"Cvactivecallstatsentry", nil}
     for i := range cvactivecallstatstable.Cvactivecallstatsentry {
-        children[cvactivecallstatstable.Cvactivecallstatsentry[i].GetSegmentPath()] = &cvactivecallstatstable.Cvactivecallstatsentry[i]
+        cvactivecallstatstable.EntityData.Children[types.GetSegmentPath(&cvactivecallstatstable.Cvactivecallstatsentry[i])] = types.YChild{"Cvactivecallstatsentry", &cvactivecallstatstable.Cvactivecallstatsentry[i]}
     }
-    return children
+    cvactivecallstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvactivecallstatstable.EntityData)
 }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetYangName() string { return "cvActiveCallStatsTable" }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) SetParent(parent types.Entity) { cvactivecallstatstable.parent = parent }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetParent() types.Entity { return cvactivecallstatstable.parent }
-
-func (cvactivecallstatstable *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry
 // This is a conceptual-row in cvActiveCallStatsTable
 // This entry is created at the system initialization and is
 // updated at every epoch based on CvCallVolumeStatsIntvlType
 type CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in Active Call Rate Table
@@ -4255,57 +2912,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry stru
     Cvactivecallstatsavgval interface{}
 }
 
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetFilter() yfilter.YFilter { return cvactivecallstatsentry.YFilter }
+func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetEntityData() *types.CommonEntityData {
+    cvactivecallstatsentry.EntityData.YFilter = cvactivecallstatsentry.YFilter
+    cvactivecallstatsentry.EntityData.YangName = "cvActiveCallStatsEntry"
+    cvactivecallstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cvactivecallstatsentry.EntityData.ParentYangName = "cvActiveCallStatsTable"
+    cvactivecallstatsentry.EntityData.SegmentPath = "cvActiveCallStatsEntry" + "[cvActiveCallStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvactivecallstatsentry.Cvactivecallstatsintvldurunits) + "']" + "[cvActiveCallStatsIntvlDur='" + fmt.Sprintf("%v", cvactivecallstatsentry.Cvactivecallstatsintvldur) + "']"
+    cvactivecallstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvactivecallstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvactivecallstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) SetFilter(yf yfilter.YFilter) { cvactivecallstatsentry.YFilter = yf }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetGoName(yname string) string {
-    if yname == "cvActiveCallStatsIntvlDurUnits" { return "Cvactivecallstatsintvldurunits" }
-    if yname == "cvActiveCallStatsIntvlDur" { return "Cvactivecallstatsintvldur" }
-    if yname == "cvActiveCallStatsMaxVal" { return "Cvactivecallstatsmaxval" }
-    if yname == "cvActiveCallStatsAvgVal" { return "Cvactivecallstatsavgval" }
-    return ""
+    cvactivecallstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cvactivecallstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvactivecallstatsentry.EntityData.Leafs["cvActiveCallStatsIntvlDurUnits"] = types.YLeaf{"Cvactivecallstatsintvldurunits", cvactivecallstatsentry.Cvactivecallstatsintvldurunits}
+    cvactivecallstatsentry.EntityData.Leafs["cvActiveCallStatsIntvlDur"] = types.YLeaf{"Cvactivecallstatsintvldur", cvactivecallstatsentry.Cvactivecallstatsintvldur}
+    cvactivecallstatsentry.EntityData.Leafs["cvActiveCallStatsMaxVal"] = types.YLeaf{"Cvactivecallstatsmaxval", cvactivecallstatsentry.Cvactivecallstatsmaxval}
+    cvactivecallstatsentry.EntityData.Leafs["cvActiveCallStatsAvgVal"] = types.YLeaf{"Cvactivecallstatsavgval", cvactivecallstatsentry.Cvactivecallstatsavgval}
+    return &(cvactivecallstatsentry.EntityData)
 }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetSegmentPath() string {
-    return "cvActiveCallStatsEntry" + "[cvActiveCallStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvactivecallstatsentry.Cvactivecallstatsintvldurunits) + "']" + "[cvActiveCallStatsIntvlDur='" + fmt.Sprintf("%v", cvactivecallstatsentry.Cvactivecallstatsintvldur) + "']"
-}
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvActiveCallStatsIntvlDurUnits"] = cvactivecallstatsentry.Cvactivecallstatsintvldurunits
-    leafs["cvActiveCallStatsIntvlDur"] = cvactivecallstatsentry.Cvactivecallstatsintvldur
-    leafs["cvActiveCallStatsMaxVal"] = cvactivecallstatsentry.Cvactivecallstatsmaxval
-    leafs["cvActiveCallStatsAvgVal"] = cvactivecallstatsentry.Cvactivecallstatsavgval
-    return leafs
-}
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetYangName() string { return "cvActiveCallStatsEntry" }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) SetParent(parent types.Entity) { cvactivecallstatsentry.parent = parent }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetParent() types.Entity { return cvactivecallstatsentry.parent }
-
-func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cvactivecallstatsentry) GetParentYangName() string { return "cvActiveCallStatsTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable
 // This table represents the number of calls below a specific
@@ -4318,7 +2942,7 @@ func (cvactivecallstatsentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallstatstable_Cv
 // Each interval may contain one or more entries to allow for 
 // detailed measurement to be collected.
 type CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvCallDurationStatsTable This entry is created
@@ -4328,70 +2952,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable struct {
     Cvcalldurationstatsentry []CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry
 }
 
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetFilter() yfilter.YFilter { return cvcalldurationstatstable.YFilter }
+func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetEntityData() *types.CommonEntityData {
+    cvcalldurationstatstable.EntityData.YFilter = cvcalldurationstatstable.YFilter
+    cvcalldurationstatstable.EntityData.YangName = "cvCallDurationStatsTable"
+    cvcalldurationstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cvcalldurationstatstable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcalldurationstatstable.EntityData.SegmentPath = "cvCallDurationStatsTable"
+    cvcalldurationstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcalldurationstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcalldurationstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) SetFilter(yf yfilter.YFilter) { cvcalldurationstatstable.YFilter = yf }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetGoName(yname string) string {
-    if yname == "cvCallDurationStatsEntry" { return "Cvcalldurationstatsentry" }
-    return ""
-}
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetSegmentPath() string {
-    return "cvCallDurationStatsTable"
-}
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallDurationStatsEntry" {
-        for _, c := range cvcalldurationstatstable.Cvcalldurationstatsentry {
-            if cvcalldurationstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry{}
-        cvcalldurationstatstable.Cvcalldurationstatsentry = append(cvcalldurationstatstable.Cvcalldurationstatsentry, child)
-        return &cvcalldurationstatstable.Cvcalldurationstatsentry[len(cvcalldurationstatstable.Cvcalldurationstatsentry)-1]
-    }
-    return nil
-}
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcalldurationstatstable.EntityData.Children = make(map[string]types.YChild)
+    cvcalldurationstatstable.EntityData.Children["cvCallDurationStatsEntry"] = types.YChild{"Cvcalldurationstatsentry", nil}
     for i := range cvcalldurationstatstable.Cvcalldurationstatsentry {
-        children[cvcalldurationstatstable.Cvcalldurationstatsentry[i].GetSegmentPath()] = &cvcalldurationstatstable.Cvcalldurationstatsentry[i]
+        cvcalldurationstatstable.EntityData.Children[types.GetSegmentPath(&cvcalldurationstatstable.Cvcalldurationstatsentry[i])] = types.YChild{"Cvcalldurationstatsentry", &cvcalldurationstatstable.Cvcalldurationstatsentry[i]}
     }
-    return children
+    cvcalldurationstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcalldurationstatstable.EntityData)
 }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetYangName() string { return "cvCallDurationStatsTable" }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) SetParent(parent types.Entity) { cvcalldurationstatstable.parent = parent }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetParent() types.Entity { return cvcalldurationstatstable.parent }
-
-func (cvcalldurationstatstable *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry
 // This is a conceptual-row in cvCallDurationStatsTable
 // This entry is created at the system initialization and is
 // updated at every epoch based on CvCallVolumeStatsIntvlType
 type CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in Call Duration Table to
@@ -4417,57 +3002,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry 
     Cvcalldurationstatsavgval interface{}
 }
 
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetFilter() yfilter.YFilter { return cvcalldurationstatsentry.YFilter }
+func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetEntityData() *types.CommonEntityData {
+    cvcalldurationstatsentry.EntityData.YFilter = cvcalldurationstatsentry.YFilter
+    cvcalldurationstatsentry.EntityData.YangName = "cvCallDurationStatsEntry"
+    cvcalldurationstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcalldurationstatsentry.EntityData.ParentYangName = "cvCallDurationStatsTable"
+    cvcalldurationstatsentry.EntityData.SegmentPath = "cvCallDurationStatsEntry" + "[cvCallDurationStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvcalldurationstatsentry.Cvcalldurationstatsintvldurunits) + "']" + "[cvCallDurationStatsIntvlDur='" + fmt.Sprintf("%v", cvcalldurationstatsentry.Cvcalldurationstatsintvldur) + "']"
+    cvcalldurationstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcalldurationstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcalldurationstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) SetFilter(yf yfilter.YFilter) { cvcalldurationstatsentry.YFilter = yf }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetGoName(yname string) string {
-    if yname == "cvCallDurationStatsIntvlDurUnits" { return "Cvcalldurationstatsintvldurunits" }
-    if yname == "cvCallDurationStatsIntvlDur" { return "Cvcalldurationstatsintvldur" }
-    if yname == "cvCallDurationStatsMaxVal" { return "Cvcalldurationstatsmaxval" }
-    if yname == "cvCallDurationStatsAvgVal" { return "Cvcalldurationstatsavgval" }
-    return ""
+    cvcalldurationstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cvcalldurationstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcalldurationstatsentry.EntityData.Leafs["cvCallDurationStatsIntvlDurUnits"] = types.YLeaf{"Cvcalldurationstatsintvldurunits", cvcalldurationstatsentry.Cvcalldurationstatsintvldurunits}
+    cvcalldurationstatsentry.EntityData.Leafs["cvCallDurationStatsIntvlDur"] = types.YLeaf{"Cvcalldurationstatsintvldur", cvcalldurationstatsentry.Cvcalldurationstatsintvldur}
+    cvcalldurationstatsentry.EntityData.Leafs["cvCallDurationStatsMaxVal"] = types.YLeaf{"Cvcalldurationstatsmaxval", cvcalldurationstatsentry.Cvcalldurationstatsmaxval}
+    cvcalldurationstatsentry.EntityData.Leafs["cvCallDurationStatsAvgVal"] = types.YLeaf{"Cvcalldurationstatsavgval", cvcalldurationstatsentry.Cvcalldurationstatsavgval}
+    return &(cvcalldurationstatsentry.EntityData)
 }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetSegmentPath() string {
-    return "cvCallDurationStatsEntry" + "[cvCallDurationStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvcalldurationstatsentry.Cvcalldurationstatsintvldurunits) + "']" + "[cvCallDurationStatsIntvlDur='" + fmt.Sprintf("%v", cvcalldurationstatsentry.Cvcalldurationstatsintvldur) + "']"
-}
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallDurationStatsIntvlDurUnits"] = cvcalldurationstatsentry.Cvcalldurationstatsintvldurunits
-    leafs["cvCallDurationStatsIntvlDur"] = cvcalldurationstatsentry.Cvcalldurationstatsintvldur
-    leafs["cvCallDurationStatsMaxVal"] = cvcalldurationstatsentry.Cvcalldurationstatsmaxval
-    leafs["cvCallDurationStatsAvgVal"] = cvcalldurationstatsentry.Cvcalldurationstatsavgval
-    return leafs
-}
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetYangName() string { return "cvCallDurationStatsEntry" }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) SetParent(parent types.Entity) { cvcalldurationstatsentry.parent = parent }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetParent() types.Entity { return cvcalldurationstatsentry.parent }
-
-func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstable_Cvcalldurationstatsentry) GetParentYangName() string { return "cvCallDurationStatsTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable
 // This table represents the SIP message rate measurement in
@@ -4477,7 +3029,7 @@ func (cvcalldurationstatsentry *CISCOVOICEDIALCONTROLMIB_Cvcalldurationstatstabl
 // Each interval may contain one or more entries to allow for
 // detailed measurement to be collected
 type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvSipMsgRateStatsTable This entry is created at
@@ -4487,70 +3039,31 @@ type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable struct {
     Cvsipmsgratestatsentry []CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry
 }
 
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetFilter() yfilter.YFilter { return cvsipmsgratestatstable.YFilter }
+func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetEntityData() *types.CommonEntityData {
+    cvsipmsgratestatstable.EntityData.YFilter = cvsipmsgratestatstable.YFilter
+    cvsipmsgratestatstable.EntityData.YangName = "cvSipMsgRateStatsTable"
+    cvsipmsgratestatstable.EntityData.BundleName = "cisco_ios_xe"
+    cvsipmsgratestatstable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvsipmsgratestatstable.EntityData.SegmentPath = "cvSipMsgRateStatsTable"
+    cvsipmsgratestatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvsipmsgratestatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvsipmsgratestatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) SetFilter(yf yfilter.YFilter) { cvsipmsgratestatstable.YFilter = yf }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetGoName(yname string) string {
-    if yname == "cvSipMsgRateStatsEntry" { return "Cvsipmsgratestatsentry" }
-    return ""
-}
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetSegmentPath() string {
-    return "cvSipMsgRateStatsTable"
-}
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvSipMsgRateStatsEntry" {
-        for _, c := range cvsipmsgratestatstable.Cvsipmsgratestatsentry {
-            if cvsipmsgratestatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry{}
-        cvsipmsgratestatstable.Cvsipmsgratestatsentry = append(cvsipmsgratestatstable.Cvsipmsgratestatsentry, child)
-        return &cvsipmsgratestatstable.Cvsipmsgratestatsentry[len(cvsipmsgratestatstable.Cvsipmsgratestatsentry)-1]
-    }
-    return nil
-}
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvsipmsgratestatstable.EntityData.Children = make(map[string]types.YChild)
+    cvsipmsgratestatstable.EntityData.Children["cvSipMsgRateStatsEntry"] = types.YChild{"Cvsipmsgratestatsentry", nil}
     for i := range cvsipmsgratestatstable.Cvsipmsgratestatsentry {
-        children[cvsipmsgratestatstable.Cvsipmsgratestatsentry[i].GetSegmentPath()] = &cvsipmsgratestatstable.Cvsipmsgratestatsentry[i]
+        cvsipmsgratestatstable.EntityData.Children[types.GetSegmentPath(&cvsipmsgratestatstable.Cvsipmsgratestatsentry[i])] = types.YChild{"Cvsipmsgratestatsentry", &cvsipmsgratestatstable.Cvsipmsgratestatsentry[i]}
     }
-    return children
+    cvsipmsgratestatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvsipmsgratestatstable.EntityData)
 }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetYangName() string { return "cvSipMsgRateStatsTable" }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) SetParent(parent types.Entity) { cvsipmsgratestatstable.parent = parent }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetParent() types.Entity { return cvsipmsgratestatstable.parent }
-
-func (cvsipmsgratestatstable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry
 // This is a conceptual-row in cvSipMsgRateStatsTable
 // This entry is created at the system initialization and is
 // updated at every epoch based on CvCallVolumeStatsIntvlType
 type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in SIP Message Rate Table to
@@ -4576,57 +3089,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry stru
     Cvsipmsgratestatsavgval interface{}
 }
 
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetFilter() yfilter.YFilter { return cvsipmsgratestatsentry.YFilter }
+func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetEntityData() *types.CommonEntityData {
+    cvsipmsgratestatsentry.EntityData.YFilter = cvsipmsgratestatsentry.YFilter
+    cvsipmsgratestatsentry.EntityData.YangName = "cvSipMsgRateStatsEntry"
+    cvsipmsgratestatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cvsipmsgratestatsentry.EntityData.ParentYangName = "cvSipMsgRateStatsTable"
+    cvsipmsgratestatsentry.EntityData.SegmentPath = "cvSipMsgRateStatsEntry" + "[cvSipMsgRateStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvsipmsgratestatsentry.Cvsipmsgratestatsintvldurunits) + "']" + "[cvSipMsgRateStatsIntvlDur='" + fmt.Sprintf("%v", cvsipmsgratestatsentry.Cvsipmsgratestatsintvldur) + "']"
+    cvsipmsgratestatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvsipmsgratestatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvsipmsgratestatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) SetFilter(yf yfilter.YFilter) { cvsipmsgratestatsentry.YFilter = yf }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetGoName(yname string) string {
-    if yname == "cvSipMsgRateStatsIntvlDurUnits" { return "Cvsipmsgratestatsintvldurunits" }
-    if yname == "cvSipMsgRateStatsIntvlDur" { return "Cvsipmsgratestatsintvldur" }
-    if yname == "cvSipMsgRateStatsMaxVal" { return "Cvsipmsgratestatsmaxval" }
-    if yname == "cvSipMsgRateStatsAvgVal" { return "Cvsipmsgratestatsavgval" }
-    return ""
+    cvsipmsgratestatsentry.EntityData.Children = make(map[string]types.YChild)
+    cvsipmsgratestatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvsipmsgratestatsentry.EntityData.Leafs["cvSipMsgRateStatsIntvlDurUnits"] = types.YLeaf{"Cvsipmsgratestatsintvldurunits", cvsipmsgratestatsentry.Cvsipmsgratestatsintvldurunits}
+    cvsipmsgratestatsentry.EntityData.Leafs["cvSipMsgRateStatsIntvlDur"] = types.YLeaf{"Cvsipmsgratestatsintvldur", cvsipmsgratestatsentry.Cvsipmsgratestatsintvldur}
+    cvsipmsgratestatsentry.EntityData.Leafs["cvSipMsgRateStatsMaxVal"] = types.YLeaf{"Cvsipmsgratestatsmaxval", cvsipmsgratestatsentry.Cvsipmsgratestatsmaxval}
+    cvsipmsgratestatsentry.EntityData.Leafs["cvSipMsgRateStatsAvgVal"] = types.YLeaf{"Cvsipmsgratestatsavgval", cvsipmsgratestatsentry.Cvsipmsgratestatsavgval}
+    return &(cvsipmsgratestatsentry.EntityData)
 }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetSegmentPath() string {
-    return "cvSipMsgRateStatsEntry" + "[cvSipMsgRateStatsIntvlDurUnits='" + fmt.Sprintf("%v", cvsipmsgratestatsentry.Cvsipmsgratestatsintvldurunits) + "']" + "[cvSipMsgRateStatsIntvlDur='" + fmt.Sprintf("%v", cvsipmsgratestatsentry.Cvsipmsgratestatsintvldur) + "']"
-}
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvSipMsgRateStatsIntvlDurUnits"] = cvsipmsgratestatsentry.Cvsipmsgratestatsintvldurunits
-    leafs["cvSipMsgRateStatsIntvlDur"] = cvsipmsgratestatsentry.Cvsipmsgratestatsintvldur
-    leafs["cvSipMsgRateStatsMaxVal"] = cvsipmsgratestatsentry.Cvsipmsgratestatsmaxval
-    leafs["cvSipMsgRateStatsAvgVal"] = cvsipmsgratestatsentry.Cvsipmsgratestatsavgval
-    return leafs
-}
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetYangName() string { return "cvSipMsgRateStatsEntry" }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) SetParent(parent types.Entity) { cvsipmsgratestatsentry.parent = parent }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetParent() types.Entity { return cvsipmsgratestatsentry.parent }
-
-func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cvsipmsgratestatsentry) GetParentYangName() string { return "cvSipMsgRateStatsTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable
 // This table represents high watermarks achieved
@@ -4636,7 +3116,7 @@ func (cvsipmsgratestatsentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratestatstable_Cv
 // Each interval may contain one or more entries to allow for 
 // detailed measurement to be collected
 type CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvCallRateWMTable This entry is created at the
@@ -4648,63 +3128,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable struct {
     Cvcallratewmentry []CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry
 }
 
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetFilter() yfilter.YFilter { return cvcallratewmtable.YFilter }
+func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetEntityData() *types.CommonEntityData {
+    cvcallratewmtable.EntityData.YFilter = cvcallratewmtable.YFilter
+    cvcallratewmtable.EntityData.YangName = "cvCallRateWMTable"
+    cvcallratewmtable.EntityData.BundleName = "cisco_ios_xe"
+    cvcallratewmtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcallratewmtable.EntityData.SegmentPath = "cvCallRateWMTable"
+    cvcallratewmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallratewmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallratewmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) SetFilter(yf yfilter.YFilter) { cvcallratewmtable.YFilter = yf }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetGoName(yname string) string {
-    if yname == "cvCallRateWMEntry" { return "Cvcallratewmentry" }
-    return ""
-}
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetSegmentPath() string {
-    return "cvCallRateWMTable"
-}
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallRateWMEntry" {
-        for _, c := range cvcallratewmtable.Cvcallratewmentry {
-            if cvcallratewmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry{}
-        cvcallratewmtable.Cvcallratewmentry = append(cvcallratewmtable.Cvcallratewmentry, child)
-        return &cvcallratewmtable.Cvcallratewmentry[len(cvcallratewmtable.Cvcallratewmentry)-1]
-    }
-    return nil
-}
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcallratewmtable.EntityData.Children = make(map[string]types.YChild)
+    cvcallratewmtable.EntityData.Children["cvCallRateWMEntry"] = types.YChild{"Cvcallratewmentry", nil}
     for i := range cvcallratewmtable.Cvcallratewmentry {
-        children[cvcallratewmtable.Cvcallratewmentry[i].GetSegmentPath()] = &cvcallratewmtable.Cvcallratewmentry[i]
+        cvcallratewmtable.EntityData.Children[types.GetSegmentPath(&cvcallratewmtable.Cvcallratewmentry[i])] = types.YChild{"Cvcallratewmentry", &cvcallratewmtable.Cvcallratewmentry[i]}
     }
-    return children
+    cvcallratewmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcallratewmtable.EntityData)
 }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetYangName() string { return "cvCallRateWMTable" }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) SetParent(parent types.Entity) { cvcallratewmtable.parent = parent }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetParent() types.Entity { return cvcallratewmtable.parent }
-
-func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry
 // This is a conceptual-row in cvCallRateWMTable
@@ -4715,7 +3156,7 @@ func (cvcallratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable) GetParentYa
 // These entries are reinitialised/added/deleted  if
 // cvCallVolumeWMTableSize is changed
 type CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in call rate Water mark Table
@@ -4740,57 +3181,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry struct {
     Cvcallratewmts interface{}
 }
 
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetFilter() yfilter.YFilter { return cvcallratewmentry.YFilter }
+func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetEntityData() *types.CommonEntityData {
+    cvcallratewmentry.EntityData.YFilter = cvcallratewmentry.YFilter
+    cvcallratewmentry.EntityData.YangName = "cvCallRateWMEntry"
+    cvcallratewmentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcallratewmentry.EntityData.ParentYangName = "cvCallRateWMTable"
+    cvcallratewmentry.EntityData.SegmentPath = "cvCallRateWMEntry" + "[cvCallRateWMIntvlDurUnits='" + fmt.Sprintf("%v", cvcallratewmentry.Cvcallratewmintvldurunits) + "']" + "[cvCallRateWMIndex='" + fmt.Sprintf("%v", cvcallratewmentry.Cvcallratewmindex) + "']"
+    cvcallratewmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcallratewmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcallratewmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) SetFilter(yf yfilter.YFilter) { cvcallratewmentry.YFilter = yf }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetGoName(yname string) string {
-    if yname == "cvCallRateWMIntvlDurUnits" { return "Cvcallratewmintvldurunits" }
-    if yname == "cvCallRateWMIndex" { return "Cvcallratewmindex" }
-    if yname == "cvCallRateWMValue" { return "Cvcallratewmvalue" }
-    if yname == "cvCallRateWMts" { return "Cvcallratewmts" }
-    return ""
+    cvcallratewmentry.EntityData.Children = make(map[string]types.YChild)
+    cvcallratewmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcallratewmentry.EntityData.Leafs["cvCallRateWMIntvlDurUnits"] = types.YLeaf{"Cvcallratewmintvldurunits", cvcallratewmentry.Cvcallratewmintvldurunits}
+    cvcallratewmentry.EntityData.Leafs["cvCallRateWMIndex"] = types.YLeaf{"Cvcallratewmindex", cvcallratewmentry.Cvcallratewmindex}
+    cvcallratewmentry.EntityData.Leafs["cvCallRateWMValue"] = types.YLeaf{"Cvcallratewmvalue", cvcallratewmentry.Cvcallratewmvalue}
+    cvcallratewmentry.EntityData.Leafs["cvCallRateWMts"] = types.YLeaf{"Cvcallratewmts", cvcallratewmentry.Cvcallratewmts}
+    return &(cvcallratewmentry.EntityData)
 }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetSegmentPath() string {
-    return "cvCallRateWMEntry" + "[cvCallRateWMIntvlDurUnits='" + fmt.Sprintf("%v", cvcallratewmentry.Cvcallratewmintvldurunits) + "']" + "[cvCallRateWMIndex='" + fmt.Sprintf("%v", cvcallratewmentry.Cvcallratewmindex) + "']"
-}
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallRateWMIntvlDurUnits"] = cvcallratewmentry.Cvcallratewmintvldurunits
-    leafs["cvCallRateWMIndex"] = cvcallratewmentry.Cvcallratewmindex
-    leafs["cvCallRateWMValue"] = cvcallratewmentry.Cvcallratewmvalue
-    leafs["cvCallRateWMts"] = cvcallratewmentry.Cvcallratewmts
-    return leafs
-}
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetYangName() string { return "cvCallRateWMEntry" }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) SetParent(parent types.Entity) { cvcallratewmentry.parent = parent }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetParent() types.Entity { return cvcallratewmentry.parent }
-
-func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewmentry) GetParentYangName() string { return "cvCallRateWMTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable
 // cvCallLegRateWMTable table represents high watermarks achieved
@@ -4800,7 +3208,7 @@ func (cvcallratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcallratewmtable_Cvcallratewm
 // Each interval may contain one or more entries to allow for 
 // detailed measurement to be collected
 type CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvCallLegRateWMTable This entry is created at
@@ -4812,63 +3220,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable struct {
     Cvcalllegratewmentry []CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry
 }
 
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetFilter() yfilter.YFilter { return cvcalllegratewmtable.YFilter }
+func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetEntityData() *types.CommonEntityData {
+    cvcalllegratewmtable.EntityData.YFilter = cvcalllegratewmtable.YFilter
+    cvcalllegratewmtable.EntityData.YangName = "cvCallLegRateWMTable"
+    cvcalllegratewmtable.EntityData.BundleName = "cisco_ios_xe"
+    cvcalllegratewmtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvcalllegratewmtable.EntityData.SegmentPath = "cvCallLegRateWMTable"
+    cvcalllegratewmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcalllegratewmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcalllegratewmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) SetFilter(yf yfilter.YFilter) { cvcalllegratewmtable.YFilter = yf }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetGoName(yname string) string {
-    if yname == "cvCallLegRateWMEntry" { return "Cvcalllegratewmentry" }
-    return ""
-}
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetSegmentPath() string {
-    return "cvCallLegRateWMTable"
-}
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvCallLegRateWMEntry" {
-        for _, c := range cvcalllegratewmtable.Cvcalllegratewmentry {
-            if cvcalllegratewmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry{}
-        cvcalllegratewmtable.Cvcalllegratewmentry = append(cvcalllegratewmtable.Cvcalllegratewmentry, child)
-        return &cvcalllegratewmtable.Cvcalllegratewmentry[len(cvcalllegratewmtable.Cvcalllegratewmentry)-1]
-    }
-    return nil
-}
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvcalllegratewmtable.EntityData.Children = make(map[string]types.YChild)
+    cvcalllegratewmtable.EntityData.Children["cvCallLegRateWMEntry"] = types.YChild{"Cvcalllegratewmentry", nil}
     for i := range cvcalllegratewmtable.Cvcalllegratewmentry {
-        children[cvcalllegratewmtable.Cvcalllegratewmentry[i].GetSegmentPath()] = &cvcalllegratewmtable.Cvcalllegratewmentry[i]
+        cvcalllegratewmtable.EntityData.Children[types.GetSegmentPath(&cvcalllegratewmtable.Cvcalllegratewmentry[i])] = types.YChild{"Cvcalllegratewmentry", &cvcalllegratewmtable.Cvcalllegratewmentry[i]}
     }
-    return children
+    cvcalllegratewmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvcalllegratewmtable.EntityData)
 }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetYangName() string { return "cvCallLegRateWMTable" }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) SetParent(parent types.Entity) { cvcalllegratewmtable.parent = parent }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetParent() types.Entity { return cvcalllegratewmtable.parent }
-
-func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry
 // This is a conceptual-row in cvCallLegRateWMTable
@@ -4879,7 +3248,7 @@ func (cvcalllegratewmtable *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable) GetPa
 // These entries are reinitialised/added/deleted  if
 // cvCallVolumeWMTableSize is changed
 type CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in call leg rate Water mark
@@ -4904,57 +3273,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry struct {
     Cvcalllegratewmts interface{}
 }
 
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetFilter() yfilter.YFilter { return cvcalllegratewmentry.YFilter }
+func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetEntityData() *types.CommonEntityData {
+    cvcalllegratewmentry.EntityData.YFilter = cvcalllegratewmentry.YFilter
+    cvcalllegratewmentry.EntityData.YangName = "cvCallLegRateWMEntry"
+    cvcalllegratewmentry.EntityData.BundleName = "cisco_ios_xe"
+    cvcalllegratewmentry.EntityData.ParentYangName = "cvCallLegRateWMTable"
+    cvcalllegratewmentry.EntityData.SegmentPath = "cvCallLegRateWMEntry" + "[cvCallLegRateWMIntvlDurUnits='" + fmt.Sprintf("%v", cvcalllegratewmentry.Cvcalllegratewmintvldurunits) + "']" + "[cvCallLegRateWMIndex='" + fmt.Sprintf("%v", cvcalllegratewmentry.Cvcalllegratewmindex) + "']"
+    cvcalllegratewmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvcalllegratewmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvcalllegratewmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) SetFilter(yf yfilter.YFilter) { cvcalllegratewmentry.YFilter = yf }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetGoName(yname string) string {
-    if yname == "cvCallLegRateWMIntvlDurUnits" { return "Cvcalllegratewmintvldurunits" }
-    if yname == "cvCallLegRateWMIndex" { return "Cvcalllegratewmindex" }
-    if yname == "cvCallLegRateWMValue" { return "Cvcalllegratewmvalue" }
-    if yname == "cvCallLegRateWMts" { return "Cvcalllegratewmts" }
-    return ""
+    cvcalllegratewmentry.EntityData.Children = make(map[string]types.YChild)
+    cvcalllegratewmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvcalllegratewmentry.EntityData.Leafs["cvCallLegRateWMIntvlDurUnits"] = types.YLeaf{"Cvcalllegratewmintvldurunits", cvcalllegratewmentry.Cvcalllegratewmintvldurunits}
+    cvcalllegratewmentry.EntityData.Leafs["cvCallLegRateWMIndex"] = types.YLeaf{"Cvcalllegratewmindex", cvcalllegratewmentry.Cvcalllegratewmindex}
+    cvcalllegratewmentry.EntityData.Leafs["cvCallLegRateWMValue"] = types.YLeaf{"Cvcalllegratewmvalue", cvcalllegratewmentry.Cvcalllegratewmvalue}
+    cvcalllegratewmentry.EntityData.Leafs["cvCallLegRateWMts"] = types.YLeaf{"Cvcalllegratewmts", cvcalllegratewmentry.Cvcalllegratewmts}
+    return &(cvcalllegratewmentry.EntityData)
 }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetSegmentPath() string {
-    return "cvCallLegRateWMEntry" + "[cvCallLegRateWMIntvlDurUnits='" + fmt.Sprintf("%v", cvcalllegratewmentry.Cvcalllegratewmintvldurunits) + "']" + "[cvCallLegRateWMIndex='" + fmt.Sprintf("%v", cvcalllegratewmentry.Cvcalllegratewmindex) + "']"
-}
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvCallLegRateWMIntvlDurUnits"] = cvcalllegratewmentry.Cvcalllegratewmintvldurunits
-    leafs["cvCallLegRateWMIndex"] = cvcalllegratewmentry.Cvcalllegratewmindex
-    leafs["cvCallLegRateWMValue"] = cvcalllegratewmentry.Cvcalllegratewmvalue
-    leafs["cvCallLegRateWMts"] = cvcalllegratewmentry.Cvcalllegratewmts
-    return leafs
-}
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetYangName() string { return "cvCallLegRateWMEntry" }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) SetParent(parent types.Entity) { cvcalllegratewmentry.parent = parent }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetParent() types.Entity { return cvcalllegratewmentry.parent }
-
-func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcalllegratewmentry) GetParentYangName() string { return "cvCallLegRateWMTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable
 // This table represents high watermarks achieved
@@ -4964,7 +3300,7 @@ func (cvcalllegratewmentry *CISCOVOICEDIALCONTROLMIB_Cvcalllegratewmtable_Cvcall
 // Each interval may contain one or more entries to allow 
 // for detailed measurement to be collected.
 type CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvActiveCallWMTable This entry is created at
@@ -4976,63 +3312,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable struct {
     Cvactivecallwmentry []CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry
 }
 
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetFilter() yfilter.YFilter { return cvactivecallwmtable.YFilter }
+func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetEntityData() *types.CommonEntityData {
+    cvactivecallwmtable.EntityData.YFilter = cvactivecallwmtable.YFilter
+    cvactivecallwmtable.EntityData.YangName = "cvActiveCallWMTable"
+    cvactivecallwmtable.EntityData.BundleName = "cisco_ios_xe"
+    cvactivecallwmtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvactivecallwmtable.EntityData.SegmentPath = "cvActiveCallWMTable"
+    cvactivecallwmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvactivecallwmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvactivecallwmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) SetFilter(yf yfilter.YFilter) { cvactivecallwmtable.YFilter = yf }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetGoName(yname string) string {
-    if yname == "cvActiveCallWMEntry" { return "Cvactivecallwmentry" }
-    return ""
-}
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetSegmentPath() string {
-    return "cvActiveCallWMTable"
-}
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvActiveCallWMEntry" {
-        for _, c := range cvactivecallwmtable.Cvactivecallwmentry {
-            if cvactivecallwmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry{}
-        cvactivecallwmtable.Cvactivecallwmentry = append(cvactivecallwmtable.Cvactivecallwmentry, child)
-        return &cvactivecallwmtable.Cvactivecallwmentry[len(cvactivecallwmtable.Cvactivecallwmentry)-1]
-    }
-    return nil
-}
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvactivecallwmtable.EntityData.Children = make(map[string]types.YChild)
+    cvactivecallwmtable.EntityData.Children["cvActiveCallWMEntry"] = types.YChild{"Cvactivecallwmentry", nil}
     for i := range cvactivecallwmtable.Cvactivecallwmentry {
-        children[cvactivecallwmtable.Cvactivecallwmentry[i].GetSegmentPath()] = &cvactivecallwmtable.Cvactivecallwmentry[i]
+        cvactivecallwmtable.EntityData.Children[types.GetSegmentPath(&cvactivecallwmtable.Cvactivecallwmentry[i])] = types.YChild{"Cvactivecallwmentry", &cvactivecallwmtable.Cvactivecallwmentry[i]}
     }
-    return children
+    cvactivecallwmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvactivecallwmtable.EntityData)
 }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetYangName() string { return "cvActiveCallWMTable" }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) SetParent(parent types.Entity) { cvactivecallwmtable.parent = parent }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetParent() types.Entity { return cvactivecallwmtable.parent }
-
-func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry
 // This is a conceptual-row in cvActiveCallWMTable
@@ -5043,7 +3340,7 @@ func (cvactivecallwmtable *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable) GetPare
 // These entries are reinitialised/added/deleted  if
 // cvCallVolumeWMTableSize is changed
 type CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in active call Water mark Table
@@ -5068,57 +3365,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry struct {
     Cvactivecallwmts interface{}
 }
 
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetFilter() yfilter.YFilter { return cvactivecallwmentry.YFilter }
+func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetEntityData() *types.CommonEntityData {
+    cvactivecallwmentry.EntityData.YFilter = cvactivecallwmentry.YFilter
+    cvactivecallwmentry.EntityData.YangName = "cvActiveCallWMEntry"
+    cvactivecallwmentry.EntityData.BundleName = "cisco_ios_xe"
+    cvactivecallwmentry.EntityData.ParentYangName = "cvActiveCallWMTable"
+    cvactivecallwmentry.EntityData.SegmentPath = "cvActiveCallWMEntry" + "[cvActiveCallWMIntvlDurUnits='" + fmt.Sprintf("%v", cvactivecallwmentry.Cvactivecallwmintvldurunits) + "']" + "[cvActiveCallWMIndex='" + fmt.Sprintf("%v", cvactivecallwmentry.Cvactivecallwmindex) + "']"
+    cvactivecallwmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvactivecallwmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvactivecallwmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) SetFilter(yf yfilter.YFilter) { cvactivecallwmentry.YFilter = yf }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetGoName(yname string) string {
-    if yname == "cvActiveCallWMIntvlDurUnits" { return "Cvactivecallwmintvldurunits" }
-    if yname == "cvActiveCallWMIndex" { return "Cvactivecallwmindex" }
-    if yname == "cvActiveCallWMValue" { return "Cvactivecallwmvalue" }
-    if yname == "cvActiveCallWMts" { return "Cvactivecallwmts" }
-    return ""
+    cvactivecallwmentry.EntityData.Children = make(map[string]types.YChild)
+    cvactivecallwmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvactivecallwmentry.EntityData.Leafs["cvActiveCallWMIntvlDurUnits"] = types.YLeaf{"Cvactivecallwmintvldurunits", cvactivecallwmentry.Cvactivecallwmintvldurunits}
+    cvactivecallwmentry.EntityData.Leafs["cvActiveCallWMIndex"] = types.YLeaf{"Cvactivecallwmindex", cvactivecallwmentry.Cvactivecallwmindex}
+    cvactivecallwmentry.EntityData.Leafs["cvActiveCallWMValue"] = types.YLeaf{"Cvactivecallwmvalue", cvactivecallwmentry.Cvactivecallwmvalue}
+    cvactivecallwmentry.EntityData.Leafs["cvActiveCallWMts"] = types.YLeaf{"Cvactivecallwmts", cvactivecallwmentry.Cvactivecallwmts}
+    return &(cvactivecallwmentry.EntityData)
 }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetSegmentPath() string {
-    return "cvActiveCallWMEntry" + "[cvActiveCallWMIntvlDurUnits='" + fmt.Sprintf("%v", cvactivecallwmentry.Cvactivecallwmintvldurunits) + "']" + "[cvActiveCallWMIndex='" + fmt.Sprintf("%v", cvactivecallwmentry.Cvactivecallwmindex) + "']"
-}
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvActiveCallWMIntvlDurUnits"] = cvactivecallwmentry.Cvactivecallwmintvldurunits
-    leafs["cvActiveCallWMIndex"] = cvactivecallwmentry.Cvactivecallwmindex
-    leafs["cvActiveCallWMValue"] = cvactivecallwmentry.Cvactivecallwmvalue
-    leafs["cvActiveCallWMts"] = cvactivecallwmentry.Cvactivecallwmts
-    return leafs
-}
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetYangName() string { return "cvActiveCallWMEntry" }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) SetParent(parent types.Entity) { cvactivecallwmentry.parent = parent }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetParent() types.Entity { return cvactivecallwmentry.parent }
-
-func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactivecallwmentry) GetParentYangName() string { return "cvActiveCallWMTable" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable
 // This table represents of high watermarks achieved
@@ -5128,7 +3392,7 @@ func (cvactivecallwmentry *CISCOVOICEDIALCONTROLMIB_Cvactivecallwmtable_Cvactive
 // Each interval may contain one or more entries to allow for
 // detailed measurement to be collected
 type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is a conceptual-row in cvSipMsgRateWMTable. This entry is created at
@@ -5140,63 +3404,24 @@ type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable struct {
     Cvsipmsgratewmentry []CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry
 }
 
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetFilter() yfilter.YFilter { return cvsipmsgratewmtable.YFilter }
+func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetEntityData() *types.CommonEntityData {
+    cvsipmsgratewmtable.EntityData.YFilter = cvsipmsgratewmtable.YFilter
+    cvsipmsgratewmtable.EntityData.YangName = "cvSipMsgRateWMTable"
+    cvsipmsgratewmtable.EntityData.BundleName = "cisco_ios_xe"
+    cvsipmsgratewmtable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
+    cvsipmsgratewmtable.EntityData.SegmentPath = "cvSipMsgRateWMTable"
+    cvsipmsgratewmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvsipmsgratewmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvsipmsgratewmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) SetFilter(yf yfilter.YFilter) { cvsipmsgratewmtable.YFilter = yf }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetGoName(yname string) string {
-    if yname == "cvSipMsgRateWMEntry" { return "Cvsipmsgratewmentry" }
-    return ""
-}
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetSegmentPath() string {
-    return "cvSipMsgRateWMTable"
-}
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvSipMsgRateWMEntry" {
-        for _, c := range cvsipmsgratewmtable.Cvsipmsgratewmentry {
-            if cvsipmsgratewmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry{}
-        cvsipmsgratewmtable.Cvsipmsgratewmentry = append(cvsipmsgratewmtable.Cvsipmsgratewmentry, child)
-        return &cvsipmsgratewmtable.Cvsipmsgratewmentry[len(cvsipmsgratewmtable.Cvsipmsgratewmentry)-1]
-    }
-    return nil
-}
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvsipmsgratewmtable.EntityData.Children = make(map[string]types.YChild)
+    cvsipmsgratewmtable.EntityData.Children["cvSipMsgRateWMEntry"] = types.YChild{"Cvsipmsgratewmentry", nil}
     for i := range cvsipmsgratewmtable.Cvsipmsgratewmentry {
-        children[cvsipmsgratewmtable.Cvsipmsgratewmentry[i].GetSegmentPath()] = &cvsipmsgratewmtable.Cvsipmsgratewmentry[i]
+        cvsipmsgratewmtable.EntityData.Children[types.GetSegmentPath(&cvsipmsgratewmtable.Cvsipmsgratewmentry[i])] = types.YChild{"Cvsipmsgratewmentry", &cvsipmsgratewmtable.Cvsipmsgratewmentry[i]}
     }
-    return children
+    cvsipmsgratewmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvsipmsgratewmtable.EntityData)
 }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetYangName() string { return "cvSipMsgRateWMTable" }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) SetParent(parent types.Entity) { cvsipmsgratewmtable.parent = parent }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetParent() types.Entity { return cvsipmsgratewmtable.parent }
-
-func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetParentYangName() string { return "CISCO-VOICE-DIAL-CONTROL-MIB" }
 
 // CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry
 // This is a conceptual-row in cvSipMsgRateWMTable.
@@ -5207,7 +3432,7 @@ func (cvsipmsgratewmtable *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable) GetPare
 // These entries are reinitialised/added/deleted if
 // cvCallVolumeWMTableSize is changed
 type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Object indexes in SIP Message rate Water mark
@@ -5232,55 +3457,22 @@ type CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry struct {
     Cvsipmsgratewmts interface{}
 }
 
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetFilter() yfilter.YFilter { return cvsipmsgratewmentry.YFilter }
+func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetEntityData() *types.CommonEntityData {
+    cvsipmsgratewmentry.EntityData.YFilter = cvsipmsgratewmentry.YFilter
+    cvsipmsgratewmentry.EntityData.YangName = "cvSipMsgRateWMEntry"
+    cvsipmsgratewmentry.EntityData.BundleName = "cisco_ios_xe"
+    cvsipmsgratewmentry.EntityData.ParentYangName = "cvSipMsgRateWMTable"
+    cvsipmsgratewmentry.EntityData.SegmentPath = "cvSipMsgRateWMEntry" + "[cvSipMsgRateWMIntvlDurUnits='" + fmt.Sprintf("%v", cvsipmsgratewmentry.Cvsipmsgratewmintvldurunits) + "']" + "[cvSipMsgRateWMIndex='" + fmt.Sprintf("%v", cvsipmsgratewmentry.Cvsipmsgratewmindex) + "']"
+    cvsipmsgratewmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvsipmsgratewmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvsipmsgratewmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) SetFilter(yf yfilter.YFilter) { cvsipmsgratewmentry.YFilter = yf }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetGoName(yname string) string {
-    if yname == "cvSipMsgRateWMIntvlDurUnits" { return "Cvsipmsgratewmintvldurunits" }
-    if yname == "cvSipMsgRateWMIndex" { return "Cvsipmsgratewmindex" }
-    if yname == "cvSipMsgRateWMValue" { return "Cvsipmsgratewmvalue" }
-    if yname == "cvSipMsgRateWMts" { return "Cvsipmsgratewmts" }
-    return ""
+    cvsipmsgratewmentry.EntityData.Children = make(map[string]types.YChild)
+    cvsipmsgratewmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvsipmsgratewmentry.EntityData.Leafs["cvSipMsgRateWMIntvlDurUnits"] = types.YLeaf{"Cvsipmsgratewmintvldurunits", cvsipmsgratewmentry.Cvsipmsgratewmintvldurunits}
+    cvsipmsgratewmentry.EntityData.Leafs["cvSipMsgRateWMIndex"] = types.YLeaf{"Cvsipmsgratewmindex", cvsipmsgratewmentry.Cvsipmsgratewmindex}
+    cvsipmsgratewmentry.EntityData.Leafs["cvSipMsgRateWMValue"] = types.YLeaf{"Cvsipmsgratewmvalue", cvsipmsgratewmentry.Cvsipmsgratewmvalue}
+    cvsipmsgratewmentry.EntityData.Leafs["cvSipMsgRateWMts"] = types.YLeaf{"Cvsipmsgratewmts", cvsipmsgratewmentry.Cvsipmsgratewmts}
+    return &(cvsipmsgratewmentry.EntityData)
 }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetSegmentPath() string {
-    return "cvSipMsgRateWMEntry" + "[cvSipMsgRateWMIntvlDurUnits='" + fmt.Sprintf("%v", cvsipmsgratewmentry.Cvsipmsgratewmintvldurunits) + "']" + "[cvSipMsgRateWMIndex='" + fmt.Sprintf("%v", cvsipmsgratewmentry.Cvsipmsgratewmindex) + "']"
-}
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvSipMsgRateWMIntvlDurUnits"] = cvsipmsgratewmentry.Cvsipmsgratewmintvldurunits
-    leafs["cvSipMsgRateWMIndex"] = cvsipmsgratewmentry.Cvsipmsgratewmindex
-    leafs["cvSipMsgRateWMValue"] = cvsipmsgratewmentry.Cvsipmsgratewmvalue
-    leafs["cvSipMsgRateWMts"] = cvsipmsgratewmentry.Cvsipmsgratewmts
-    return leafs
-}
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetYangName() string { return "cvSipMsgRateWMEntry" }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) SetParent(parent types.Entity) { cvsipmsgratewmentry.parent = parent }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetParent() types.Entity { return cvsipmsgratewmentry.parent }
-
-func (cvsipmsgratewmentry *CISCOVOICEDIALCONTROLMIB_Cvsipmsgratewmtable_Cvsipmsgratewmentry) GetParentYangName() string { return "cvSipMsgRateWMTable" }
 

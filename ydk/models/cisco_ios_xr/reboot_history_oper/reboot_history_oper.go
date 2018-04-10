@@ -27,149 +27,70 @@ func init() {
 // RebootHistory
 // Reboot History information
 type RebootHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of RebootHistory_Node.
     Node []RebootHistory_Node
 }
 
-func (rebootHistory *RebootHistory) GetFilter() yfilter.YFilter { return rebootHistory.YFilter }
+func (rebootHistory *RebootHistory) GetEntityData() *types.CommonEntityData {
+    rebootHistory.EntityData.YFilter = rebootHistory.YFilter
+    rebootHistory.EntityData.YangName = "reboot-history"
+    rebootHistory.EntityData.BundleName = "cisco_ios_xr"
+    rebootHistory.EntityData.ParentYangName = "Cisco-IOS-XR-reboot-history-oper"
+    rebootHistory.EntityData.SegmentPath = "Cisco-IOS-XR-reboot-history-oper:reboot-history"
+    rebootHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rebootHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rebootHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rebootHistory *RebootHistory) SetFilter(yf yfilter.YFilter) { rebootHistory.YFilter = yf }
-
-func (rebootHistory *RebootHistory) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (rebootHistory *RebootHistory) GetSegmentPath() string {
-    return "Cisco-IOS-XR-reboot-history-oper:reboot-history"
-}
-
-func (rebootHistory *RebootHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range rebootHistory.Node {
-            if rebootHistory.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RebootHistory_Node{}
-        rebootHistory.Node = append(rebootHistory.Node, child)
-        return &rebootHistory.Node[len(rebootHistory.Node)-1]
-    }
-    return nil
-}
-
-func (rebootHistory *RebootHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rebootHistory.EntityData.Children = make(map[string]types.YChild)
+    rebootHistory.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range rebootHistory.Node {
-        children[rebootHistory.Node[i].GetSegmentPath()] = &rebootHistory.Node[i]
+        rebootHistory.EntityData.Children[types.GetSegmentPath(&rebootHistory.Node[i])] = types.YChild{"Node", &rebootHistory.Node[i]}
     }
-    return children
+    rebootHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rebootHistory.EntityData)
 }
-
-func (rebootHistory *RebootHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rebootHistory *RebootHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rebootHistory *RebootHistory) GetYangName() string { return "reboot-history" }
-
-func (rebootHistory *RebootHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rebootHistory *RebootHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rebootHistory *RebootHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rebootHistory *RebootHistory) SetParent(parent types.Entity) { rebootHistory.parent = parent }
-
-func (rebootHistory *RebootHistory) GetParent() types.Entity { return rebootHistory.parent }
-
-func (rebootHistory *RebootHistory) GetParentYangName() string { return "Cisco-IOS-XR-reboot-history-oper" }
 
 // RebootHistory_Node
 // Node ID
 type RebootHistory_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Last Reboots. The type is slice of RebootHistory_Node_RebootHistory.
-    RebootHistory []RebootHistory_Node_RebootHistory
+    RebootHistory []RebootHistory_Node_RebootHistory_
 }
 
-func (node *RebootHistory_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *RebootHistory_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "reboot-history"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *RebootHistory_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *RebootHistory_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "reboot-history" { return "RebootHistory" }
-    return ""
-}
-
-func (node *RebootHistory_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *RebootHistory_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "reboot-history" {
-        for _, c := range node.RebootHistory {
-            if node.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RebootHistory_Node_RebootHistory{}
-        node.RebootHistory = append(node.RebootHistory, child)
-        return &node.RebootHistory[len(node.RebootHistory)-1]
-    }
-    return nil
-}
-
-func (node *RebootHistory_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["reboot-history"] = types.YChild{"RebootHistory", nil}
     for i := range node.RebootHistory {
-        children[node.RebootHistory[i].GetSegmentPath()] = &node.RebootHistory[i]
+        node.EntityData.Children[types.GetSegmentPath(&node.RebootHistory[i])] = types.YChild{"RebootHistory", &node.RebootHistory[i]}
     }
-    return children
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
 
-func (node *RebootHistory_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *RebootHistory_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *RebootHistory_Node) GetYangName() string { return "node" }
-
-func (node *RebootHistory_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *RebootHistory_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *RebootHistory_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *RebootHistory_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *RebootHistory_Node) GetParent() types.Entity { return node.parent }
-
-func (node *RebootHistory_Node) GetParentYangName() string { return "reboot-history" }
-
-// RebootHistory_Node_RebootHistory
+// RebootHistory_Node_RebootHistory_
 // Last Reboots
-type RebootHistory_Node_RebootHistory struct {
-    parent types.Entity
+type RebootHistory_Node_RebootHistory_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number count. The type is interface{} with range: 0..4294967295.
@@ -185,55 +106,22 @@ type RebootHistory_Node_RebootHistory struct {
     Reason interface{}
 }
 
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetFilter() yfilter.YFilter { return rebootHistory.YFilter }
+func (rebootHistory_ *RebootHistory_Node_RebootHistory_) GetEntityData() *types.CommonEntityData {
+    rebootHistory_.EntityData.YFilter = rebootHistory_.YFilter
+    rebootHistory_.EntityData.YangName = "reboot-history"
+    rebootHistory_.EntityData.BundleName = "cisco_ios_xr"
+    rebootHistory_.EntityData.ParentYangName = "node"
+    rebootHistory_.EntityData.SegmentPath = "reboot-history"
+    rebootHistory_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rebootHistory_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rebootHistory_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rebootHistory *RebootHistory_Node_RebootHistory) SetFilter(yf yfilter.YFilter) { rebootHistory.YFilter = yf }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetGoName(yname string) string {
-    if yname == "no" { return "No" }
-    if yname == "time" { return "Time" }
-    if yname == "cause-code" { return "CauseCode" }
-    if yname == "reason" { return "Reason" }
-    return ""
+    rebootHistory_.EntityData.Children = make(map[string]types.YChild)
+    rebootHistory_.EntityData.Leafs = make(map[string]types.YLeaf)
+    rebootHistory_.EntityData.Leafs["no"] = types.YLeaf{"No", rebootHistory_.No}
+    rebootHistory_.EntityData.Leafs["time"] = types.YLeaf{"Time", rebootHistory_.Time}
+    rebootHistory_.EntityData.Leafs["cause-code"] = types.YLeaf{"CauseCode", rebootHistory_.CauseCode}
+    rebootHistory_.EntityData.Leafs["reason"] = types.YLeaf{"Reason", rebootHistory_.Reason}
+    return &(rebootHistory_.EntityData)
 }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetSegmentPath() string {
-    return "reboot-history"
-}
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["no"] = rebootHistory.No
-    leafs["time"] = rebootHistory.Time
-    leafs["cause-code"] = rebootHistory.CauseCode
-    leafs["reason"] = rebootHistory.Reason
-    return leafs
-}
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetYangName() string { return "reboot-history" }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) SetParent(parent types.Entity) { rebootHistory.parent = parent }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetParent() types.Entity { return rebootHistory.parent }
-
-func (rebootHistory *RebootHistory_Node_RebootHistory) GetParentYangName() string { return "node" }
 

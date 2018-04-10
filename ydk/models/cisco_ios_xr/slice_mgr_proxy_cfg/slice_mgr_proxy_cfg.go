@@ -27,7 +27,7 @@ func init() {
 // NodePath
 // Node act path
 type NodePath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node (Physical location of the node in R_S_I format). The type is slice of
@@ -35,69 +35,30 @@ type NodePath struct {
     Node []NodePath_Node
 }
 
-func (nodePath *NodePath) GetFilter() yfilter.YFilter { return nodePath.YFilter }
+func (nodePath *NodePath) GetEntityData() *types.CommonEntityData {
+    nodePath.EntityData.YFilter = nodePath.YFilter
+    nodePath.EntityData.YangName = "node-path"
+    nodePath.EntityData.BundleName = "cisco_ios_xr"
+    nodePath.EntityData.ParentYangName = "Cisco-IOS-XR-slice-mgr-proxy-cfg"
+    nodePath.EntityData.SegmentPath = "Cisco-IOS-XR-slice-mgr-proxy-cfg:node-path"
+    nodePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodePath *NodePath) SetFilter(yf yfilter.YFilter) { nodePath.YFilter = yf }
-
-func (nodePath *NodePath) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodePath *NodePath) GetSegmentPath() string {
-    return "Cisco-IOS-XR-slice-mgr-proxy-cfg:node-path"
-}
-
-func (nodePath *NodePath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodePath.Node {
-            if nodePath.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NodePath_Node{}
-        nodePath.Node = append(nodePath.Node, child)
-        return &nodePath.Node[len(nodePath.Node)-1]
-    }
-    return nil
-}
-
-func (nodePath *NodePath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodePath.EntityData.Children = make(map[string]types.YChild)
+    nodePath.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodePath.Node {
-        children[nodePath.Node[i].GetSegmentPath()] = &nodePath.Node[i]
+        nodePath.EntityData.Children[types.GetSegmentPath(&nodePath.Node[i])] = types.YChild{"Node", &nodePath.Node[i]}
     }
-    return children
+    nodePath.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodePath.EntityData)
 }
-
-func (nodePath *NodePath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodePath *NodePath) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodePath *NodePath) GetYangName() string { return "node-path" }
-
-func (nodePath *NodePath) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodePath *NodePath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodePath *NodePath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodePath *NodePath) SetParent(parent types.Entity) { nodePath.parent = parent }
-
-func (nodePath *NodePath) GetParent() types.Entity { return nodePath.parent }
-
-func (nodePath *NodePath) GetParentYangName() string { return "Cisco-IOS-XR-slice-mgr-proxy-cfg" }
 
 // NodePath_Node
 // Node (Physical location of the node in R_S_I
 // format)
 type NodePath_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location in R_S_I format. The type is string.
@@ -107,61 +68,27 @@ type NodePath_Node struct {
     SliceIds NodePath_Node_SliceIds
 }
 
-func (node *NodePath_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *NodePath_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "node-path"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *NodePath_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *NodePath_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "slice-ids" { return "SliceIds" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["slice-ids"] = types.YChild{"SliceIds", &node.SliceIds}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *NodePath_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *NodePath_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slice-ids" {
-        return &node.SliceIds
-    }
-    return nil
-}
-
-func (node *NodePath_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["slice-ids"] = &node.SliceIds
-    return children
-}
-
-func (node *NodePath_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *NodePath_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *NodePath_Node) GetYangName() string { return "node" }
-
-func (node *NodePath_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *NodePath_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *NodePath_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *NodePath_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *NodePath_Node) GetParent() types.Entity { return node.parent }
-
-func (node *NodePath_Node) GetParentYangName() string { return "node-path" }
 
 // NodePath_Node_SliceIds
 // Slice
 type NodePath_Node_SliceIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Slice Id on which configuration will be applied. The type is slice of
@@ -169,69 +96,30 @@ type NodePath_Node_SliceIds struct {
     SliceId []NodePath_Node_SliceIds_SliceId
 }
 
-func (sliceIds *NodePath_Node_SliceIds) GetFilter() yfilter.YFilter { return sliceIds.YFilter }
+func (sliceIds *NodePath_Node_SliceIds) GetEntityData() *types.CommonEntityData {
+    sliceIds.EntityData.YFilter = sliceIds.YFilter
+    sliceIds.EntityData.YangName = "slice-ids"
+    sliceIds.EntityData.BundleName = "cisco_ios_xr"
+    sliceIds.EntityData.ParentYangName = "node"
+    sliceIds.EntityData.SegmentPath = "slice-ids"
+    sliceIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sliceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sliceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sliceIds *NodePath_Node_SliceIds) SetFilter(yf yfilter.YFilter) { sliceIds.YFilter = yf }
-
-func (sliceIds *NodePath_Node_SliceIds) GetGoName(yname string) string {
-    if yname == "slice-id" { return "SliceId" }
-    return ""
-}
-
-func (sliceIds *NodePath_Node_SliceIds) GetSegmentPath() string {
-    return "slice-ids"
-}
-
-func (sliceIds *NodePath_Node_SliceIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slice-id" {
-        for _, c := range sliceIds.SliceId {
-            if sliceIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NodePath_Node_SliceIds_SliceId{}
-        sliceIds.SliceId = append(sliceIds.SliceId, child)
-        return &sliceIds.SliceId[len(sliceIds.SliceId)-1]
-    }
-    return nil
-}
-
-func (sliceIds *NodePath_Node_SliceIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sliceIds.EntityData.Children = make(map[string]types.YChild)
+    sliceIds.EntityData.Children["slice-id"] = types.YChild{"SliceId", nil}
     for i := range sliceIds.SliceId {
-        children[sliceIds.SliceId[i].GetSegmentPath()] = &sliceIds.SliceId[i]
+        sliceIds.EntityData.Children[types.GetSegmentPath(&sliceIds.SliceId[i])] = types.YChild{"SliceId", &sliceIds.SliceId[i]}
     }
-    return children
+    sliceIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sliceIds.EntityData)
 }
-
-func (sliceIds *NodePath_Node_SliceIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sliceIds *NodePath_Node_SliceIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sliceIds *NodePath_Node_SliceIds) GetYangName() string { return "slice-ids" }
-
-func (sliceIds *NodePath_Node_SliceIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sliceIds *NodePath_Node_SliceIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sliceIds *NodePath_Node_SliceIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sliceIds *NodePath_Node_SliceIds) SetParent(parent types.Entity) { sliceIds.parent = parent }
-
-func (sliceIds *NodePath_Node_SliceIds) GetParent() types.Entity { return sliceIds.parent }
-
-func (sliceIds *NodePath_Node_SliceIds) GetParentYangName() string { return "node" }
 
 // NodePath_Node_SliceIds_SliceId
 // Slice Id on which configuration will be
 // applied
 type NodePath_Node_SliceIds_SliceId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier for this slice. The type is
@@ -251,55 +139,22 @@ type NodePath_Node_SliceIds_SliceId struct {
     Mode interface{}
 }
 
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetFilter() yfilter.YFilter { return sliceId.YFilter }
+func (sliceId *NodePath_Node_SliceIds_SliceId) GetEntityData() *types.CommonEntityData {
+    sliceId.EntityData.YFilter = sliceId.YFilter
+    sliceId.EntityData.YangName = "slice-id"
+    sliceId.EntityData.BundleName = "cisco_ios_xr"
+    sliceId.EntityData.ParentYangName = "slice-ids"
+    sliceId.EntityData.SegmentPath = "slice-id" + "[slice-id='" + fmt.Sprintf("%v", sliceId.SliceId) + "']"
+    sliceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sliceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sliceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sliceId *NodePath_Node_SliceIds_SliceId) SetFilter(yf yfilter.YFilter) { sliceId.YFilter = yf }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetGoName(yname string) string {
-    if yname == "slice-id" { return "SliceId" }
-    if yname == "state" { return "State" }
-    if yname == "breakout" { return "Breakout" }
-    if yname == "mode" { return "Mode" }
-    return ""
+    sliceId.EntityData.Children = make(map[string]types.YChild)
+    sliceId.EntityData.Leafs = make(map[string]types.YLeaf)
+    sliceId.EntityData.Leafs["slice-id"] = types.YLeaf{"SliceId", sliceId.SliceId}
+    sliceId.EntityData.Leafs["state"] = types.YLeaf{"State", sliceId.State}
+    sliceId.EntityData.Leafs["breakout"] = types.YLeaf{"Breakout", sliceId.Breakout}
+    sliceId.EntityData.Leafs["mode"] = types.YLeaf{"Mode", sliceId.Mode}
+    return &(sliceId.EntityData)
 }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetSegmentPath() string {
-    return "slice-id" + "[slice-id='" + fmt.Sprintf("%v", sliceId.SliceId) + "']"
-}
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slice-id"] = sliceId.SliceId
-    leafs["state"] = sliceId.State
-    leafs["breakout"] = sliceId.Breakout
-    leafs["mode"] = sliceId.Mode
-    return leafs
-}
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetYangName() string { return "slice-id" }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) SetParent(parent types.Entity) { sliceId.parent = parent }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetParent() types.Entity { return sliceId.parent }
-
-func (sliceId *NodePath_Node_SliceIds_SliceId) GetParentYangName() string { return "slice-ids" }
 

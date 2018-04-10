@@ -31,56 +31,26 @@ func init() {
 // FastShutdown
 // Fast Shutdown configuration
 type FastShutdown struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable Fast Shutdown for all Ethernet interfaces. The type is interface{}.
     Ethernet interface{}
 }
 
-func (fastShutdown *FastShutdown) GetFilter() yfilter.YFilter { return fastShutdown.YFilter }
+func (fastShutdown *FastShutdown) GetEntityData() *types.CommonEntityData {
+    fastShutdown.EntityData.YFilter = fastShutdown.YFilter
+    fastShutdown.EntityData.YangName = "fast-shutdown"
+    fastShutdown.EntityData.BundleName = "cisco_ios_xr"
+    fastShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-mdrv-lib-cfg"
+    fastShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-mdrv-lib-cfg:fast-shutdown"
+    fastShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fastShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fastShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fastShutdown *FastShutdown) SetFilter(yf yfilter.YFilter) { fastShutdown.YFilter = yf }
-
-func (fastShutdown *FastShutdown) GetGoName(yname string) string {
-    if yname == "ethernet" { return "Ethernet" }
-    return ""
+    fastShutdown.EntityData.Children = make(map[string]types.YChild)
+    fastShutdown.EntityData.Leafs = make(map[string]types.YLeaf)
+    fastShutdown.EntityData.Leafs["ethernet"] = types.YLeaf{"Ethernet", fastShutdown.Ethernet}
+    return &(fastShutdown.EntityData)
 }
-
-func (fastShutdown *FastShutdown) GetSegmentPath() string {
-    return "Cisco-IOS-XR-mdrv-lib-cfg:fast-shutdown"
-}
-
-func (fastShutdown *FastShutdown) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fastShutdown *FastShutdown) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fastShutdown *FastShutdown) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ethernet"] = fastShutdown.Ethernet
-    return leafs
-}
-
-func (fastShutdown *FastShutdown) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fastShutdown *FastShutdown) GetYangName() string { return "fast-shutdown" }
-
-func (fastShutdown *FastShutdown) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fastShutdown *FastShutdown) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fastShutdown *FastShutdown) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fastShutdown *FastShutdown) SetParent(parent types.Entity) { fastShutdown.parent = parent }
-
-func (fastShutdown *FastShutdown) GetParent() types.Entity { return fastShutdown.parent }
-
-func (fastShutdown *FastShutdown) GetParentYangName() string { return "Cisco-IOS-XR-mdrv-lib-cfg" }
 

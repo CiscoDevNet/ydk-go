@@ -41,7 +41,7 @@ const (
 // Ipv4AclAndPrefixList
 // IPv4 ACL configuration data
 type Ipv4AclAndPrefixList struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of access lists.  Entries in this table and the
@@ -56,139 +56,59 @@ type Ipv4AclAndPrefixList struct {
     LogUpdate Ipv4AclAndPrefixList_LogUpdate
 }
 
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetFilter() yfilter.YFilter { return ipv4AclAndPrefixList.YFilter }
+func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetEntityData() *types.CommonEntityData {
+    ipv4AclAndPrefixList.EntityData.YFilter = ipv4AclAndPrefixList.YFilter
+    ipv4AclAndPrefixList.EntityData.YangName = "ipv4-acl-and-prefix-list"
+    ipv4AclAndPrefixList.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AclAndPrefixList.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-acl-cfg"
+    ipv4AclAndPrefixList.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-acl-cfg:ipv4-acl-and-prefix-list"
+    ipv4AclAndPrefixList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AclAndPrefixList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AclAndPrefixList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) SetFilter(yf yfilter.YFilter) { ipv4AclAndPrefixList.YFilter = yf }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetGoName(yname string) string {
-    if yname == "accesses" { return "Accesses" }
-    if yname == "prefixes" { return "Prefixes" }
-    if yname == "log-update" { return "LogUpdate" }
-    return ""
+    ipv4AclAndPrefixList.EntityData.Children = make(map[string]types.YChild)
+    ipv4AclAndPrefixList.EntityData.Children["accesses"] = types.YChild{"Accesses", &ipv4AclAndPrefixList.Accesses}
+    ipv4AclAndPrefixList.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &ipv4AclAndPrefixList.Prefixes}
+    ipv4AclAndPrefixList.EntityData.Children["log-update"] = types.YChild{"LogUpdate", &ipv4AclAndPrefixList.LogUpdate}
+    ipv4AclAndPrefixList.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4AclAndPrefixList.EntityData)
 }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-acl-cfg:ipv4-acl-and-prefix-list"
-}
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accesses" {
-        return &ipv4AclAndPrefixList.Accesses
-    }
-    if childYangName == "prefixes" {
-        return &ipv4AclAndPrefixList.Prefixes
-    }
-    if childYangName == "log-update" {
-        return &ipv4AclAndPrefixList.LogUpdate
-    }
-    return nil
-}
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accesses"] = &ipv4AclAndPrefixList.Accesses
-    children["prefixes"] = &ipv4AclAndPrefixList.Prefixes
-    children["log-update"] = &ipv4AclAndPrefixList.LogUpdate
-    return children
-}
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetYangName() string { return "ipv4-acl-and-prefix-list" }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) SetParent(parent types.Entity) { ipv4AclAndPrefixList.parent = parent }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetParent() types.Entity { return ipv4AclAndPrefixList.parent }
-
-func (ipv4AclAndPrefixList *Ipv4AclAndPrefixList) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-acl-cfg" }
 
 // Ipv4AclAndPrefixList_Accesses
 // Table of access lists.  Entries in this table
 // and the AccessListExistenceTable table must be
 // kept consistent
 type Ipv4AclAndPrefixList_Accesses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An ACL. The type is slice of Ipv4AclAndPrefixList_Accesses_Access.
     Access []Ipv4AclAndPrefixList_Accesses_Access
 }
 
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetFilter() yfilter.YFilter { return accesses.YFilter }
+func (accesses *Ipv4AclAndPrefixList_Accesses) GetEntityData() *types.CommonEntityData {
+    accesses.EntityData.YFilter = accesses.YFilter
+    accesses.EntityData.YangName = "accesses"
+    accesses.EntityData.BundleName = "cisco_ios_xr"
+    accesses.EntityData.ParentYangName = "ipv4-acl-and-prefix-list"
+    accesses.EntityData.SegmentPath = "accesses"
+    accesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accesses *Ipv4AclAndPrefixList_Accesses) SetFilter(yf yfilter.YFilter) { accesses.YFilter = yf }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetGoName(yname string) string {
-    if yname == "access" { return "Access" }
-    return ""
-}
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetSegmentPath() string {
-    return "accesses"
-}
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access" {
-        for _, c := range accesses.Access {
-            if accesses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4AclAndPrefixList_Accesses_Access{}
-        accesses.Access = append(accesses.Access, child)
-        return &accesses.Access[len(accesses.Access)-1]
-    }
-    return nil
-}
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accesses.EntityData.Children = make(map[string]types.YChild)
+    accesses.EntityData.Children["access"] = types.YChild{"Access", nil}
     for i := range accesses.Access {
-        children[accesses.Access[i].GetSegmentPath()] = &accesses.Access[i]
+        accesses.EntityData.Children[types.GetSegmentPath(&accesses.Access[i])] = types.YChild{"Access", &accesses.Access[i]}
     }
-    return children
+    accesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accesses.EntityData)
 }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetYangName() string { return "accesses" }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) SetParent(parent types.Entity) { accesses.parent = parent }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetParent() types.Entity { return accesses.parent }
-
-func (accesses *Ipv4AclAndPrefixList_Accesses) GetParentYangName() string { return "ipv4-acl-and-prefix-list" }
 
 // Ipv4AclAndPrefixList_Accesses_Access
 // An ACL
 type Ipv4AclAndPrefixList_Accesses_Access struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Access list name - 64 characters max. The type is
@@ -199,61 +119,27 @@ type Ipv4AclAndPrefixList_Accesses_Access struct {
     AccessListEntries Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries
 }
 
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetFilter() yfilter.YFilter { return access.YFilter }
+func (access *Ipv4AclAndPrefixList_Accesses_Access) GetEntityData() *types.CommonEntityData {
+    access.EntityData.YFilter = access.YFilter
+    access.EntityData.YangName = "access"
+    access.EntityData.BundleName = "cisco_ios_xr"
+    access.EntityData.ParentYangName = "accesses"
+    access.EntityData.SegmentPath = "access" + "[access-list-name='" + fmt.Sprintf("%v", access.AccessListName) + "']"
+    access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (access *Ipv4AclAndPrefixList_Accesses_Access) SetFilter(yf yfilter.YFilter) { access.YFilter = yf }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetGoName(yname string) string {
-    if yname == "access-list-name" { return "AccessListName" }
-    if yname == "access-list-entries" { return "AccessListEntries" }
-    return ""
+    access.EntityData.Children = make(map[string]types.YChild)
+    access.EntityData.Children["access-list-entries"] = types.YChild{"AccessListEntries", &access.AccessListEntries}
+    access.EntityData.Leafs = make(map[string]types.YLeaf)
+    access.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", access.AccessListName}
+    return &(access.EntityData)
 }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetSegmentPath() string {
-    return "access" + "[access-list-name='" + fmt.Sprintf("%v", access.AccessListName) + "']"
-}
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-list-entries" {
-        return &access.AccessListEntries
-    }
-    return nil
-}
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["access-list-entries"] = &access.AccessListEntries
-    return children
-}
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["access-list-name"] = access.AccessListName
-    return leafs
-}
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetBundleName() string { return "cisco_ios_xr" }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetYangName() string { return "access" }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) SetParent(parent types.Entity) { access.parent = parent }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetParent() types.Entity { return access.parent }
-
-func (access *Ipv4AclAndPrefixList_Accesses_Access) GetParentYangName() string { return "accesses" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries
 // ACL entry table; contains list of ACEs
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An ACL entry; either a description (remark) or an ACE to match against. The
@@ -262,69 +148,30 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries struct {
     AccessListEntry []Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry
 }
 
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetFilter() yfilter.YFilter { return accessListEntries.YFilter }
+func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetEntityData() *types.CommonEntityData {
+    accessListEntries.EntityData.YFilter = accessListEntries.YFilter
+    accessListEntries.EntityData.YangName = "access-list-entries"
+    accessListEntries.EntityData.BundleName = "cisco_ios_xr"
+    accessListEntries.EntityData.ParentYangName = "access"
+    accessListEntries.EntityData.SegmentPath = "access-list-entries"
+    accessListEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) SetFilter(yf yfilter.YFilter) { accessListEntries.YFilter = yf }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetGoName(yname string) string {
-    if yname == "access-list-entry" { return "AccessListEntry" }
-    return ""
-}
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetSegmentPath() string {
-    return "access-list-entries"
-}
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-list-entry" {
-        for _, c := range accessListEntries.AccessListEntry {
-            if accessListEntries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry{}
-        accessListEntries.AccessListEntry = append(accessListEntries.AccessListEntry, child)
-        return &accessListEntries.AccessListEntry[len(accessListEntries.AccessListEntry)-1]
-    }
-    return nil
-}
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessListEntries.EntityData.Children = make(map[string]types.YChild)
+    accessListEntries.EntityData.Children["access-list-entry"] = types.YChild{"AccessListEntry", nil}
     for i := range accessListEntries.AccessListEntry {
-        children[accessListEntries.AccessListEntry[i].GetSegmentPath()] = &accessListEntries.AccessListEntry[i]
+        accessListEntries.EntityData.Children[types.GetSegmentPath(&accessListEntries.AccessListEntry[i])] = types.YChild{"AccessListEntry", &accessListEntries.AccessListEntry[i]}
     }
-    return children
+    accessListEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accessListEntries.EntityData)
 }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetYangName() string { return "access-list-entries" }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) SetParent(parent types.Entity) { accessListEntries.parent = parent }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetParent() types.Entity { return accessListEntries.parent }
-
-func (accessListEntries *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries) GetParentYangName() string { return "access" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry
 // An ACL entry; either a description (remark)
 // or an ACE to match against
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sequence number for this entry. The type is
@@ -347,8 +194,9 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     // Ipv4AclProtocolNumber, or int with range: 0..255.
     Protocol2 interface{}
 
-    // Fragment flags, such as dont-fragment, is-fragment, first-fragment and
-    // last-fragment. The type is Ipv4AclFragFlags.
+    // Fragment flags, such as dont-fragment, is-fragment, first-fragment, and
+    // last-fragment. The type is one of the following types: enumeration
+    // Ipv4AclFragFlags, or int with range: 1..9.
     FragmentType interface{}
 
     // Counter name. The type is string.
@@ -440,161 +288,67 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     Dscp Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp
 }
 
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetFilter() yfilter.YFilter { return accessListEntry.YFilter }
+func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetEntityData() *types.CommonEntityData {
+    accessListEntry.EntityData.YFilter = accessListEntry.YFilter
+    accessListEntry.EntityData.YangName = "access-list-entry"
+    accessListEntry.EntityData.BundleName = "cisco_ios_xr"
+    accessListEntry.EntityData.ParentYangName = "access-list-entries"
+    accessListEntry.EntityData.SegmentPath = "access-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", accessListEntry.SequenceNumber) + "']"
+    accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) SetFilter(yf yfilter.YFilter) { accessListEntry.YFilter = yf }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetGoName(yname string) string {
-    if yname == "sequence-number" { return "SequenceNumber" }
-    if yname == "grant" { return "Grant" }
-    if yname == "protocol-operator" { return "ProtocolOperator" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "protocol2" { return "Protocol2" }
-    if yname == "fragment-type" { return "FragmentType" }
-    if yname == "counter-name" { return "CounterName" }
-    if yname == "igmp-message-type" { return "IgmpMessageType" }
-    if yname == "precedence" { return "Precedence" }
-    if yname == "log-option" { return "LogOption" }
-    if yname == "capture" { return "Capture" }
-    if yname == "icmp-off" { return "IcmpOff" }
-    if yname == "qos-group" { return "QosGroup" }
-    if yname == "set-ttl" { return "SetTtl" }
-    if yname == "fragments" { return "Fragments" }
-    if yname == "remark" { return "Remark" }
-    if yname == "source-prefix-group" { return "SourcePrefixGroup" }
-    if yname == "destination-prefix-group" { return "DestinationPrefixGroup" }
-    if yname == "source-port-group" { return "SourcePortGroup" }
-    if yname == "destination-port-group" { return "DestinationPortGroup" }
-    if yname == "sequence-str" { return "SequenceStr" }
-    if yname == "source-network" { return "SourceNetwork" }
-    if yname == "destination-network" { return "DestinationNetwork" }
-    if yname == "source-port" { return "SourcePort" }
-    if yname == "destination-port" { return "DestinationPort" }
-    if yname == "icmp" { return "Icmp" }
-    if yname == "tcp" { return "Tcp" }
-    if yname == "packet-length" { return "PacketLength" }
-    if yname == "time-to-live" { return "TimeToLive" }
-    if yname == "fragment-offset" { return "FragmentOffset" }
-    if yname == "next-hop" { return "NextHop" }
-    if yname == "dscp" { return "Dscp" }
-    return ""
+    accessListEntry.EntityData.Children = make(map[string]types.YChild)
+    accessListEntry.EntityData.Children["source-network"] = types.YChild{"SourceNetwork", &accessListEntry.SourceNetwork}
+    accessListEntry.EntityData.Children["destination-network"] = types.YChild{"DestinationNetwork", &accessListEntry.DestinationNetwork}
+    accessListEntry.EntityData.Children["source-port"] = types.YChild{"SourcePort", &accessListEntry.SourcePort}
+    accessListEntry.EntityData.Children["destination-port"] = types.YChild{"DestinationPort", &accessListEntry.DestinationPort}
+    accessListEntry.EntityData.Children["icmp"] = types.YChild{"Icmp", &accessListEntry.Icmp}
+    accessListEntry.EntityData.Children["tcp"] = types.YChild{"Tcp", &accessListEntry.Tcp}
+    accessListEntry.EntityData.Children["packet-length"] = types.YChild{"PacketLength", &accessListEntry.PacketLength}
+    accessListEntry.EntityData.Children["time-to-live"] = types.YChild{"TimeToLive", &accessListEntry.TimeToLive}
+    accessListEntry.EntityData.Children["fragment-offset"] = types.YChild{"FragmentOffset", &accessListEntry.FragmentOffset}
+    accessListEntry.EntityData.Children["next-hop"] = types.YChild{"NextHop", &accessListEntry.NextHop}
+    accessListEntry.EntityData.Children["dscp"] = types.YChild{"Dscp", &accessListEntry.Dscp}
+    accessListEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListEntry.EntityData.Leafs["sequence-number"] = types.YLeaf{"SequenceNumber", accessListEntry.SequenceNumber}
+    accessListEntry.EntityData.Leafs["grant"] = types.YLeaf{"Grant", accessListEntry.Grant}
+    accessListEntry.EntityData.Leafs["protocol-operator"] = types.YLeaf{"ProtocolOperator", accessListEntry.ProtocolOperator}
+    accessListEntry.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", accessListEntry.Protocol}
+    accessListEntry.EntityData.Leafs["protocol2"] = types.YLeaf{"Protocol2", accessListEntry.Protocol2}
+    accessListEntry.EntityData.Leafs["fragment-type"] = types.YLeaf{"FragmentType", accessListEntry.FragmentType}
+    accessListEntry.EntityData.Leafs["counter-name"] = types.YLeaf{"CounterName", accessListEntry.CounterName}
+    accessListEntry.EntityData.Leafs["igmp-message-type"] = types.YLeaf{"IgmpMessageType", accessListEntry.IgmpMessageType}
+    accessListEntry.EntityData.Leafs["precedence"] = types.YLeaf{"Precedence", accessListEntry.Precedence}
+    accessListEntry.EntityData.Leafs["log-option"] = types.YLeaf{"LogOption", accessListEntry.LogOption}
+    accessListEntry.EntityData.Leafs["capture"] = types.YLeaf{"Capture", accessListEntry.Capture}
+    accessListEntry.EntityData.Leafs["icmp-off"] = types.YLeaf{"IcmpOff", accessListEntry.IcmpOff}
+    accessListEntry.EntityData.Leafs["qos-group"] = types.YLeaf{"QosGroup", accessListEntry.QosGroup}
+    accessListEntry.EntityData.Leafs["set-ttl"] = types.YLeaf{"SetTtl", accessListEntry.SetTtl}
+    accessListEntry.EntityData.Leafs["fragments"] = types.YLeaf{"Fragments", accessListEntry.Fragments}
+    accessListEntry.EntityData.Leafs["remark"] = types.YLeaf{"Remark", accessListEntry.Remark}
+    accessListEntry.EntityData.Leafs["source-prefix-group"] = types.YLeaf{"SourcePrefixGroup", accessListEntry.SourcePrefixGroup}
+    accessListEntry.EntityData.Leafs["destination-prefix-group"] = types.YLeaf{"DestinationPrefixGroup", accessListEntry.DestinationPrefixGroup}
+    accessListEntry.EntityData.Leafs["source-port-group"] = types.YLeaf{"SourcePortGroup", accessListEntry.SourcePortGroup}
+    accessListEntry.EntityData.Leafs["destination-port-group"] = types.YLeaf{"DestinationPortGroup", accessListEntry.DestinationPortGroup}
+    accessListEntry.EntityData.Leafs["sequence-str"] = types.YLeaf{"SequenceStr", accessListEntry.SequenceStr}
+    return &(accessListEntry.EntityData)
 }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetSegmentPath() string {
-    return "access-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", accessListEntry.SequenceNumber) + "']"
-}
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "source-network" {
-        return &accessListEntry.SourceNetwork
-    }
-    if childYangName == "destination-network" {
-        return &accessListEntry.DestinationNetwork
-    }
-    if childYangName == "source-port" {
-        return &accessListEntry.SourcePort
-    }
-    if childYangName == "destination-port" {
-        return &accessListEntry.DestinationPort
-    }
-    if childYangName == "icmp" {
-        return &accessListEntry.Icmp
-    }
-    if childYangName == "tcp" {
-        return &accessListEntry.Tcp
-    }
-    if childYangName == "packet-length" {
-        return &accessListEntry.PacketLength
-    }
-    if childYangName == "time-to-live" {
-        return &accessListEntry.TimeToLive
-    }
-    if childYangName == "fragment-offset" {
-        return &accessListEntry.FragmentOffset
-    }
-    if childYangName == "next-hop" {
-        return &accessListEntry.NextHop
-    }
-    if childYangName == "dscp" {
-        return &accessListEntry.Dscp
-    }
-    return nil
-}
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["source-network"] = &accessListEntry.SourceNetwork
-    children["destination-network"] = &accessListEntry.DestinationNetwork
-    children["source-port"] = &accessListEntry.SourcePort
-    children["destination-port"] = &accessListEntry.DestinationPort
-    children["icmp"] = &accessListEntry.Icmp
-    children["tcp"] = &accessListEntry.Tcp
-    children["packet-length"] = &accessListEntry.PacketLength
-    children["time-to-live"] = &accessListEntry.TimeToLive
-    children["fragment-offset"] = &accessListEntry.FragmentOffset
-    children["next-hop"] = &accessListEntry.NextHop
-    children["dscp"] = &accessListEntry.Dscp
-    return children
-}
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sequence-number"] = accessListEntry.SequenceNumber
-    leafs["grant"] = accessListEntry.Grant
-    leafs["protocol-operator"] = accessListEntry.ProtocolOperator
-    leafs["protocol"] = accessListEntry.Protocol
-    leafs["protocol2"] = accessListEntry.Protocol2
-    leafs["fragment-type"] = accessListEntry.FragmentType
-    leafs["counter-name"] = accessListEntry.CounterName
-    leafs["igmp-message-type"] = accessListEntry.IgmpMessageType
-    leafs["precedence"] = accessListEntry.Precedence
-    leafs["log-option"] = accessListEntry.LogOption
-    leafs["capture"] = accessListEntry.Capture
-    leafs["icmp-off"] = accessListEntry.IcmpOff
-    leafs["qos-group"] = accessListEntry.QosGroup
-    leafs["set-ttl"] = accessListEntry.SetTtl
-    leafs["fragments"] = accessListEntry.Fragments
-    leafs["remark"] = accessListEntry.Remark
-    leafs["source-prefix-group"] = accessListEntry.SourcePrefixGroup
-    leafs["destination-prefix-group"] = accessListEntry.DestinationPrefixGroup
-    leafs["source-port-group"] = accessListEntry.SourcePortGroup
-    leafs["destination-port-group"] = accessListEntry.DestinationPortGroup
-    leafs["sequence-str"] = accessListEntry.SequenceStr
-    return leafs
-}
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetYangName() string { return "access-list-entry" }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) SetParent(parent types.Entity) { accessListEntry.parent = parent }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetParent() types.Entity { return accessListEntry.parent }
-
-func (accessListEntry *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry) GetParentYangName() string { return "access-list-entries" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork
 // Source network settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source IPv4 address to match, leave unspecified for any. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Wildcard bits to apply to source address  (if specified), leave unspecified
     // for no  wildcarding. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceWildCardBits interface{}
 
     // Prefix length to apply to source address  (if specified), leave unspecified
@@ -602,70 +356,38 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
     SourcePrefixLength interface{}
 }
 
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetFilter() yfilter.YFilter { return sourceNetwork.YFilter }
+func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetEntityData() *types.CommonEntityData {
+    sourceNetwork.EntityData.YFilter = sourceNetwork.YFilter
+    sourceNetwork.EntityData.YangName = "source-network"
+    sourceNetwork.EntityData.BundleName = "cisco_ios_xr"
+    sourceNetwork.EntityData.ParentYangName = "access-list-entry"
+    sourceNetwork.EntityData.SegmentPath = "source-network"
+    sourceNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sourceNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sourceNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) SetFilter(yf yfilter.YFilter) { sourceNetwork.YFilter = yf }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetGoName(yname string) string {
-    if yname == "source-address" { return "SourceAddress" }
-    if yname == "source-wild-card-bits" { return "SourceWildCardBits" }
-    if yname == "source-prefix-length" { return "SourcePrefixLength" }
-    return ""
+    sourceNetwork.EntityData.Children = make(map[string]types.YChild)
+    sourceNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceNetwork.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", sourceNetwork.SourceAddress}
+    sourceNetwork.EntityData.Leafs["source-wild-card-bits"] = types.YLeaf{"SourceWildCardBits", sourceNetwork.SourceWildCardBits}
+    sourceNetwork.EntityData.Leafs["source-prefix-length"] = types.YLeaf{"SourcePrefixLength", sourceNetwork.SourcePrefixLength}
+    return &(sourceNetwork.EntityData)
 }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetSegmentPath() string {
-    return "source-network"
-}
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-address"] = sourceNetwork.SourceAddress
-    leafs["source-wild-card-bits"] = sourceNetwork.SourceWildCardBits
-    leafs["source-prefix-length"] = sourceNetwork.SourcePrefixLength
-    return leafs
-}
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetYangName() string { return "source-network" }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) SetParent(parent types.Entity) { sourceNetwork.parent = parent }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetParent() types.Entity { return sourceNetwork.parent }
-
-func (sourceNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork
 // Destination network settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination IPv4 address to match (if a protocol was specified), leave
     // unspecified for any. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Wildcard bits to apply to destination address (if specified), leave
     // unspecified for no  wildcarding. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationWildCardBits interface{}
 
     // Prefix length to apply to destination address  (if specified), leave
@@ -673,60 +395,28 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
     DestinationPrefixLength interface{}
 }
 
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetFilter() yfilter.YFilter { return destinationNetwork.YFilter }
+func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetEntityData() *types.CommonEntityData {
+    destinationNetwork.EntityData.YFilter = destinationNetwork.YFilter
+    destinationNetwork.EntityData.YangName = "destination-network"
+    destinationNetwork.EntityData.BundleName = "cisco_ios_xr"
+    destinationNetwork.EntityData.ParentYangName = "access-list-entry"
+    destinationNetwork.EntityData.SegmentPath = "destination-network"
+    destinationNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) SetFilter(yf yfilter.YFilter) { destinationNetwork.YFilter = yf }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetGoName(yname string) string {
-    if yname == "destination-address" { return "DestinationAddress" }
-    if yname == "destination-wild-card-bits" { return "DestinationWildCardBits" }
-    if yname == "destination-prefix-length" { return "DestinationPrefixLength" }
-    return ""
+    destinationNetwork.EntityData.Children = make(map[string]types.YChild)
+    destinationNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationNetwork.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", destinationNetwork.DestinationAddress}
+    destinationNetwork.EntityData.Leafs["destination-wild-card-bits"] = types.YLeaf{"DestinationWildCardBits", destinationNetwork.DestinationWildCardBits}
+    destinationNetwork.EntityData.Leafs["destination-prefix-length"] = types.YLeaf{"DestinationPrefixLength", destinationNetwork.DestinationPrefixLength}
+    return &(destinationNetwork.EntityData)
 }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetSegmentPath() string {
-    return "destination-network"
-}
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-address"] = destinationNetwork.DestinationAddress
-    leafs["destination-wild-card-bits"] = destinationNetwork.DestinationWildCardBits
-    leafs["destination-prefix-length"] = destinationNetwork.DestinationPrefixLength
-    return leafs
-}
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetYangName() string { return "destination-network" }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) SetParent(parent types.Entity) { destinationNetwork.parent = parent }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetParent() types.Entity { return destinationNetwork.parent }
-
-func (destinationNetwork *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort
 // Source port settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source comparison operator . Leave unspecified  if no source port
@@ -744,60 +434,28 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
     SecondSourcePort interface{}
 }
 
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetFilter() yfilter.YFilter { return sourcePort.YFilter }
+func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetEntityData() *types.CommonEntityData {
+    sourcePort.EntityData.YFilter = sourcePort.YFilter
+    sourcePort.EntityData.YangName = "source-port"
+    sourcePort.EntityData.BundleName = "cisco_ios_xr"
+    sourcePort.EntityData.ParentYangName = "access-list-entry"
+    sourcePort.EntityData.SegmentPath = "source-port"
+    sourcePort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sourcePort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sourcePort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) SetFilter(yf yfilter.YFilter) { sourcePort.YFilter = yf }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetGoName(yname string) string {
-    if yname == "source-operator" { return "SourceOperator" }
-    if yname == "first-source-port" { return "FirstSourcePort" }
-    if yname == "second-source-port" { return "SecondSourcePort" }
-    return ""
+    sourcePort.EntityData.Children = make(map[string]types.YChild)
+    sourcePort.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourcePort.EntityData.Leafs["source-operator"] = types.YLeaf{"SourceOperator", sourcePort.SourceOperator}
+    sourcePort.EntityData.Leafs["first-source-port"] = types.YLeaf{"FirstSourcePort", sourcePort.FirstSourcePort}
+    sourcePort.EntityData.Leafs["second-source-port"] = types.YLeaf{"SecondSourcePort", sourcePort.SecondSourcePort}
+    return &(sourcePort.EntityData)
 }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetSegmentPath() string {
-    return "source-port"
-}
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-operator"] = sourcePort.SourceOperator
-    leafs["first-source-port"] = sourcePort.FirstSourcePort
-    leafs["second-source-port"] = sourcePort.SecondSourcePort
-    return leafs
-}
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetYangName() string { return "source-port" }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) SetParent(parent types.Entity) { sourcePort.parent = parent }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetParent() types.Entity { return sourcePort.parent }
-
-func (sourcePort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_SourcePort) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort
 // Destination port settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination comparison operator. Leave  unspecified if no destination port
@@ -815,60 +473,28 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
     SecondDestinationPort interface{}
 }
 
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetFilter() yfilter.YFilter { return destinationPort.YFilter }
+func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetEntityData() *types.CommonEntityData {
+    destinationPort.EntityData.YFilter = destinationPort.YFilter
+    destinationPort.EntityData.YangName = "destination-port"
+    destinationPort.EntityData.BundleName = "cisco_ios_xr"
+    destinationPort.EntityData.ParentYangName = "access-list-entry"
+    destinationPort.EntityData.SegmentPath = "destination-port"
+    destinationPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) SetFilter(yf yfilter.YFilter) { destinationPort.YFilter = yf }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetGoName(yname string) string {
-    if yname == "destination-operator" { return "DestinationOperator" }
-    if yname == "first-destination-port" { return "FirstDestinationPort" }
-    if yname == "second-destination-port" { return "SecondDestinationPort" }
-    return ""
+    destinationPort.EntityData.Children = make(map[string]types.YChild)
+    destinationPort.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationPort.EntityData.Leafs["destination-operator"] = types.YLeaf{"DestinationOperator", destinationPort.DestinationOperator}
+    destinationPort.EntityData.Leafs["first-destination-port"] = types.YLeaf{"FirstDestinationPort", destinationPort.FirstDestinationPort}
+    destinationPort.EntityData.Leafs["second-destination-port"] = types.YLeaf{"SecondDestinationPort", destinationPort.SecondDestinationPort}
+    return &(destinationPort.EntityData)
 }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetSegmentPath() string {
-    return "destination-port"
-}
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-operator"] = destinationPort.DestinationOperator
-    leafs["first-destination-port"] = destinationPort.FirstDestinationPort
-    leafs["second-destination-port"] = destinationPort.SecondDestinationPort
-    return leafs
-}
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetYangName() string { return "destination-port" }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) SetParent(parent types.Entity) { destinationPort.parent = parent }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetParent() types.Entity { return destinationPort.parent }
-
-func (destinationPort *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DestinationPort) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp
 // ICMP settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Well known ICMP message code types to match,  leave unspecified if ICMP
@@ -877,56 +503,26 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp
     IcmpTypeCode interface{}
 }
 
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetFilter() yfilter.YFilter { return icmp.YFilter }
+func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetEntityData() *types.CommonEntityData {
+    icmp.EntityData.YFilter = icmp.YFilter
+    icmp.EntityData.YangName = "icmp"
+    icmp.EntityData.BundleName = "cisco_ios_xr"
+    icmp.EntityData.ParentYangName = "access-list-entry"
+    icmp.EntityData.SegmentPath = "icmp"
+    icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) SetFilter(yf yfilter.YFilter) { icmp.YFilter = yf }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetGoName(yname string) string {
-    if yname == "icmp-type-code" { return "IcmpTypeCode" }
-    return ""
+    icmp.EntityData.Children = make(map[string]types.YChild)
+    icmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmp.EntityData.Leafs["icmp-type-code"] = types.YLeaf{"IcmpTypeCode", icmp.IcmpTypeCode}
+    return &(icmp.EntityData)
 }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetSegmentPath() string {
-    return "icmp"
-}
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icmp-type-code"] = icmp.IcmpTypeCode
-    return leafs
-}
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetYangName() string { return "icmp" }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) SetParent(parent types.Entity) { icmp.parent = parent }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetParent() types.Entity { return icmp.parent }
-
-func (icmp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp
 // TCP settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TCP Bits match operator. Leave unspecified if  flexible comparison of TCP
@@ -944,60 +540,28 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp 
     TcpBitsMask interface{}
 }
 
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetFilter() yfilter.YFilter { return tcp.YFilter }
+func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetEntityData() *types.CommonEntityData {
+    tcp.EntityData.YFilter = tcp.YFilter
+    tcp.EntityData.YangName = "tcp"
+    tcp.EntityData.BundleName = "cisco_ios_xr"
+    tcp.EntityData.ParentYangName = "access-list-entry"
+    tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) SetFilter(yf yfilter.YFilter) { tcp.YFilter = yf }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetGoName(yname string) string {
-    if yname == "tcp-bits-match-operator" { return "TcpBitsMatchOperator" }
-    if yname == "tcp-bits" { return "TcpBits" }
-    if yname == "tcp-bits-mask" { return "TcpBitsMask" }
-    return ""
+    tcp.EntityData.Children = make(map[string]types.YChild)
+    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcp.EntityData.Leafs["tcp-bits-match-operator"] = types.YLeaf{"TcpBitsMatchOperator", tcp.TcpBitsMatchOperator}
+    tcp.EntityData.Leafs["tcp-bits"] = types.YLeaf{"TcpBits", tcp.TcpBits}
+    tcp.EntityData.Leafs["tcp-bits-mask"] = types.YLeaf{"TcpBitsMask", tcp.TcpBitsMask}
+    return &(tcp.EntityData)
 }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetSegmentPath() string {
-    return "tcp"
-}
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tcp-bits-match-operator"] = tcp.TcpBitsMatchOperator
-    leafs["tcp-bits"] = tcp.TcpBits
-    leafs["tcp-bits-mask"] = tcp.TcpBitsMask
-    return leafs
-}
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetYangName() string { return "tcp" }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) SetParent(parent types.Entity) { tcp.parent = parent }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetParent() types.Entity { return tcp.parent }
-
-func (tcp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength
 // Packet length settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Packet length operator applicable if Packet  length is to be compared.
@@ -1016,60 +580,28 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Pack
     PacketLengthMax interface{}
 }
 
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetFilter() yfilter.YFilter { return packetLength.YFilter }
+func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetEntityData() *types.CommonEntityData {
+    packetLength.EntityData.YFilter = packetLength.YFilter
+    packetLength.EntityData.YangName = "packet-length"
+    packetLength.EntityData.BundleName = "cisco_ios_xr"
+    packetLength.EntityData.ParentYangName = "access-list-entry"
+    packetLength.EntityData.SegmentPath = "packet-length"
+    packetLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) SetFilter(yf yfilter.YFilter) { packetLength.YFilter = yf }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetGoName(yname string) string {
-    if yname == "packet-length-operator" { return "PacketLengthOperator" }
-    if yname == "packet-length-min" { return "PacketLengthMin" }
-    if yname == "packet-length-max" { return "PacketLengthMax" }
-    return ""
+    packetLength.EntityData.Children = make(map[string]types.YChild)
+    packetLength.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetLength.EntityData.Leafs["packet-length-operator"] = types.YLeaf{"PacketLengthOperator", packetLength.PacketLengthOperator}
+    packetLength.EntityData.Leafs["packet-length-min"] = types.YLeaf{"PacketLengthMin", packetLength.PacketLengthMin}
+    packetLength.EntityData.Leafs["packet-length-max"] = types.YLeaf{"PacketLengthMax", packetLength.PacketLengthMax}
+    return &(packetLength.EntityData)
 }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetSegmentPath() string {
-    return "packet-length"
-}
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["packet-length-operator"] = packetLength.PacketLengthOperator
-    leafs["packet-length-min"] = packetLength.PacketLengthMin
-    leafs["packet-length-max"] = packetLength.PacketLengthMax
-    return leafs
-}
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetYangName() string { return "packet-length" }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) SetParent(parent types.Entity) { packetLength.parent = parent }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetParent() types.Entity { return packetLength.parent }
-
-func (packetLength *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_PacketLength) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive
 // TTL settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TTL operator is applicable if TTL is to be  compared. Leave unspecified if
@@ -1077,7 +609,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Time
     TimeToLiveOperator interface{}
 
     // TTL value for comparison OR Minimum TTL value  for TTL range comparision,
-    // leave unspecified if TTL classification is not required. The type is
+    // leave unspecified if  TTL classification is not required. The type is
     // interface{} with range: 0..255.
     TimeToLiveMin interface{}
 
@@ -1087,134 +619,70 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Time
     TimeToLiveMax interface{}
 }
 
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetFilter() yfilter.YFilter { return timeToLive.YFilter }
+func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetEntityData() *types.CommonEntityData {
+    timeToLive.EntityData.YFilter = timeToLive.YFilter
+    timeToLive.EntityData.YangName = "time-to-live"
+    timeToLive.EntityData.BundleName = "cisco_ios_xr"
+    timeToLive.EntityData.ParentYangName = "access-list-entry"
+    timeToLive.EntityData.SegmentPath = "time-to-live"
+    timeToLive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timeToLive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timeToLive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) SetFilter(yf yfilter.YFilter) { timeToLive.YFilter = yf }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetGoName(yname string) string {
-    if yname == "time-to-live-operator" { return "TimeToLiveOperator" }
-    if yname == "time-to-live-min" { return "TimeToLiveMin" }
-    if yname == "time-to-live-max" { return "TimeToLiveMax" }
-    return ""
+    timeToLive.EntityData.Children = make(map[string]types.YChild)
+    timeToLive.EntityData.Leafs = make(map[string]types.YLeaf)
+    timeToLive.EntityData.Leafs["time-to-live-operator"] = types.YLeaf{"TimeToLiveOperator", timeToLive.TimeToLiveOperator}
+    timeToLive.EntityData.Leafs["time-to-live-min"] = types.YLeaf{"TimeToLiveMin", timeToLive.TimeToLiveMin}
+    timeToLive.EntityData.Leafs["time-to-live-max"] = types.YLeaf{"TimeToLiveMax", timeToLive.TimeToLiveMax}
+    return &(timeToLive.EntityData)
 }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetSegmentPath() string {
-    return "time-to-live"
-}
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-to-live-operator"] = timeToLive.TimeToLiveOperator
-    leafs["time-to-live-min"] = timeToLive.TimeToLiveMin
-    leafs["time-to-live-max"] = timeToLive.TimeToLiveMax
-    return leafs
-}
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetYangName() string { return "time-to-live" }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) SetParent(parent types.Entity) { timeToLive.parent = parent }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetParent() types.Entity { return timeToLive.parent }
-
-func (timeToLive *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_TimeToLive) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset
 // Fragment-offset settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Fragment-offset operator if fragment-offset is to be compared. Leave
-    // unspecified if fragment-offset classification is not required. The type is
-    // Ipv4AclOperatorEnum.
+    // Fragment-offset operator is applicable if fragment-offset is to be
+    // compared. Leave unspecified if fragment-offset classification is not
+    // required. The type is Ipv4AclOperatorEnum.
     FragmentOffsetOperator interface{}
 
-    // Fragment-offset value for comparison or first  fragment-offset value for
-    // fragment-offset range  comparision, leave unspecified if fragment-offset
+    // Fragment-offset value for comparison OR first fragment-offset value for
+    // fragment-offset range comparision, leave unspecified if fragment-offset
     // classification is not required. The type is interface{} with range:
     // 0..8191.
     FragmentOffset1 interface{}
 
-    // Second fragment-offset value for comparion,  leave unspecified if
+    // Second fragment-offset value for comparion, leave unspecified if
     // fragment-offset comparison is not to be performed or if only the first
-    // fragment-offset should be considered. The type is interface{} with range:
-    // 0..8191.
+    // fragment-offset value should be considered. The type is interface{} with
+    // range: 0..8191.
     FragmentOffset2 interface{}
 }
 
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetFilter() yfilter.YFilter { return fragmentOffset.YFilter }
+func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetEntityData() *types.CommonEntityData {
+    fragmentOffset.EntityData.YFilter = fragmentOffset.YFilter
+    fragmentOffset.EntityData.YangName = "fragment-offset"
+    fragmentOffset.EntityData.BundleName = "cisco_ios_xr"
+    fragmentOffset.EntityData.ParentYangName = "access-list-entry"
+    fragmentOffset.EntityData.SegmentPath = "fragment-offset"
+    fragmentOffset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fragmentOffset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fragmentOffset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) SetFilter(yf yfilter.YFilter) { fragmentOffset.YFilter = yf }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetGoName(yname string) string {
-    if yname == "fragment-offset-operator" { return "FragmentOffsetOperator" }
-    if yname == "fragment-offset-1" { return "FragmentOffset1" }
-    if yname == "fragment-offset-2" { return "FragmentOffset2" }
-    return ""
+    fragmentOffset.EntityData.Children = make(map[string]types.YChild)
+    fragmentOffset.EntityData.Leafs = make(map[string]types.YLeaf)
+    fragmentOffset.EntityData.Leafs["fragment-offset-operator"] = types.YLeaf{"FragmentOffsetOperator", fragmentOffset.FragmentOffsetOperator}
+    fragmentOffset.EntityData.Leafs["fragment-offset-1"] = types.YLeaf{"FragmentOffset1", fragmentOffset.FragmentOffset1}
+    fragmentOffset.EntityData.Leafs["fragment-offset-2"] = types.YLeaf{"FragmentOffset2", fragmentOffset.FragmentOffset2}
+    return &(fragmentOffset.EntityData)
 }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetSegmentPath() string {
-    return "fragment-offset"
-}
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fragment-offset-operator"] = fragmentOffset.FragmentOffsetOperator
-    leafs["fragment-offset-1"] = fragmentOffset.FragmentOffset1
-    leafs["fragment-offset-2"] = fragmentOffset.FragmentOffset2
-    return leafs
-}
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetYangName() string { return "fragment-offset" }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) SetParent(parent types.Entity) { fragmentOffset.parent = parent }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetParent() types.Entity { return fragmentOffset.parent }
-
-func (fragmentOffset *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_FragmentOffset) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop
 // Next-hop settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The nexthop type. The type is NextHopType.
@@ -1230,75 +698,33 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     NextHop3 Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3
 }
 
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetFilter() yfilter.YFilter { return nextHop.YFilter }
+func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetEntityData() *types.CommonEntityData {
+    nextHop.EntityData.YFilter = nextHop.YFilter
+    nextHop.EntityData.YangName = "next-hop"
+    nextHop.EntityData.BundleName = "cisco_ios_xr"
+    nextHop.EntityData.ParentYangName = "access-list-entry"
+    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) SetFilter(yf yfilter.YFilter) { nextHop.YFilter = yf }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetGoName(yname string) string {
-    if yname == "next-hop-type" { return "NextHopType" }
-    if yname == "next-hop-1" { return "NextHop1" }
-    if yname == "next-hop-2" { return "NextHop2" }
-    if yname == "next-hop-3" { return "NextHop3" }
-    return ""
+    nextHop.EntityData.Children = make(map[string]types.YChild)
+    nextHop.EntityData.Children["next-hop-1"] = types.YChild{"NextHop1", &nextHop.NextHop1}
+    nextHop.EntityData.Children["next-hop-2"] = types.YChild{"NextHop2", &nextHop.NextHop2}
+    nextHop.EntityData.Children["next-hop-3"] = types.YChild{"NextHop3", &nextHop.NextHop3}
+    nextHop.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHop.EntityData.Leafs["next-hop-type"] = types.YLeaf{"NextHopType", nextHop.NextHopType}
+    return &(nextHop.EntityData)
 }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetSegmentPath() string {
-    return "next-hop"
-}
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "next-hop-1" {
-        return &nextHop.NextHop1
-    }
-    if childYangName == "next-hop-2" {
-        return &nextHop.NextHop2
-    }
-    if childYangName == "next-hop-3" {
-        return &nextHop.NextHop3
-    }
-    return nil
-}
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["next-hop-1"] = &nextHop.NextHop1
-    children["next-hop-2"] = &nextHop.NextHop2
-    children["next-hop-3"] = &nextHop.NextHop3
-    return children
-}
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["next-hop-type"] = nextHop.NextHopType
-    return leafs
-}
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetYangName() string { return "next-hop" }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) SetParent(parent types.Entity) { nextHop.parent = parent }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetParent() types.Entity { return nextHop.parent }
-
-func (nextHop *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1
 // The first next-hop settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The IPv4 address of the next-hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string.
@@ -1308,64 +734,32 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     TrackName interface{}
 }
 
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetFilter() yfilter.YFilter { return nextHop1.YFilter }
+func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetEntityData() *types.CommonEntityData {
+    nextHop1.EntityData.YFilter = nextHop1.YFilter
+    nextHop1.EntityData.YangName = "next-hop-1"
+    nextHop1.EntityData.BundleName = "cisco_ios_xr"
+    nextHop1.EntityData.ParentYangName = "next-hop"
+    nextHop1.EntityData.SegmentPath = "next-hop-1"
+    nextHop1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHop1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHop1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) SetFilter(yf yfilter.YFilter) { nextHop1.YFilter = yf }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetGoName(yname string) string {
-    if yname == "next-hop" { return "NextHop" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "track-name" { return "TrackName" }
-    return ""
+    nextHop1.EntityData.Children = make(map[string]types.YChild)
+    nextHop1.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHop1.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", nextHop1.NextHop}
+    nextHop1.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", nextHop1.VrfName}
+    nextHop1.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", nextHop1.TrackName}
+    return &(nextHop1.EntityData)
 }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetSegmentPath() string {
-    return "next-hop-1"
-}
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["next-hop"] = nextHop1.NextHop
-    leafs["vrf-name"] = nextHop1.VrfName
-    leafs["track-name"] = nextHop1.TrackName
-    return leafs
-}
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetYangName() string { return "next-hop-1" }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) SetParent(parent types.Entity) { nextHop1.parent = parent }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetParent() types.Entity { return nextHop1.parent }
-
-func (nextHop1 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop1) GetParentYangName() string { return "next-hop" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2
 // The second next-hop settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The IPv4 address of the next-hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string.
@@ -1375,64 +769,32 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     TrackName interface{}
 }
 
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetFilter() yfilter.YFilter { return nextHop2.YFilter }
+func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetEntityData() *types.CommonEntityData {
+    nextHop2.EntityData.YFilter = nextHop2.YFilter
+    nextHop2.EntityData.YangName = "next-hop-2"
+    nextHop2.EntityData.BundleName = "cisco_ios_xr"
+    nextHop2.EntityData.ParentYangName = "next-hop"
+    nextHop2.EntityData.SegmentPath = "next-hop-2"
+    nextHop2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHop2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHop2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) SetFilter(yf yfilter.YFilter) { nextHop2.YFilter = yf }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetGoName(yname string) string {
-    if yname == "next-hop" { return "NextHop" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "track-name" { return "TrackName" }
-    return ""
+    nextHop2.EntityData.Children = make(map[string]types.YChild)
+    nextHop2.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHop2.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", nextHop2.NextHop}
+    nextHop2.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", nextHop2.VrfName}
+    nextHop2.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", nextHop2.TrackName}
+    return &(nextHop2.EntityData)
 }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetSegmentPath() string {
-    return "next-hop-2"
-}
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["next-hop"] = nextHop2.NextHop
-    leafs["vrf-name"] = nextHop2.VrfName
-    leafs["track-name"] = nextHop2.TrackName
-    return leafs
-}
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetYangName() string { return "next-hop-2" }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) SetParent(parent types.Entity) { nextHop2.parent = parent }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetParent() types.Entity { return nextHop2.parent }
-
-func (nextHop2 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop2) GetParentYangName() string { return "next-hop" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3
 // The third next-hop settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The IPv4 address of the next-hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string.
@@ -1442,60 +804,28 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     TrackName interface{}
 }
 
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetFilter() yfilter.YFilter { return nextHop3.YFilter }
+func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetEntityData() *types.CommonEntityData {
+    nextHop3.EntityData.YFilter = nextHop3.YFilter
+    nextHop3.EntityData.YangName = "next-hop-3"
+    nextHop3.EntityData.BundleName = "cisco_ios_xr"
+    nextHop3.EntityData.ParentYangName = "next-hop"
+    nextHop3.EntityData.SegmentPath = "next-hop-3"
+    nextHop3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHop3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHop3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) SetFilter(yf yfilter.YFilter) { nextHop3.YFilter = yf }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetGoName(yname string) string {
-    if yname == "next-hop" { return "NextHop" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "track-name" { return "TrackName" }
-    return ""
+    nextHop3.EntityData.Children = make(map[string]types.YChild)
+    nextHop3.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHop3.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", nextHop3.NextHop}
+    nextHop3.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", nextHop3.VrfName}
+    nextHop3.EntityData.Leafs["track-name"] = types.YLeaf{"TrackName", nextHop3.TrackName}
+    return &(nextHop3.EntityData)
 }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetSegmentPath() string {
-    return "next-hop-3"
-}
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["next-hop"] = nextHop3.NextHop
-    leafs["vrf-name"] = nextHop3.VrfName
-    leafs["track-name"] = nextHop3.TrackName
-    return leafs
-}
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetYangName() string { return "next-hop-3" }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) SetParent(parent types.Entity) { nextHop3.parent = parent }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetParent() types.Entity { return nextHop3.parent }
-
-func (nextHop3 *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_NextHop_NextHop3) GetParentYangName() string { return "next-hop" }
 
 // Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp
 // DSCP settings.
 type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DSCP operator is applicable only when DSCP  range is configured. Leave
@@ -1516,62 +846,30 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp
     DscpMax interface{}
 }
 
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetFilter() yfilter.YFilter { return dscp.YFilter }
+func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetEntityData() *types.CommonEntityData {
+    dscp.EntityData.YFilter = dscp.YFilter
+    dscp.EntityData.YangName = "dscp"
+    dscp.EntityData.BundleName = "cisco_ios_xr"
+    dscp.EntityData.ParentYangName = "access-list-entry"
+    dscp.EntityData.SegmentPath = "dscp"
+    dscp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dscp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dscp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) SetFilter(yf yfilter.YFilter) { dscp.YFilter = yf }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetGoName(yname string) string {
-    if yname == "dscp-operator" { return "DscpOperator" }
-    if yname == "dscp-min" { return "DscpMin" }
-    if yname == "dscp-max" { return "DscpMax" }
-    return ""
+    dscp.EntityData.Children = make(map[string]types.YChild)
+    dscp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dscp.EntityData.Leafs["dscp-operator"] = types.YLeaf{"DscpOperator", dscp.DscpOperator}
+    dscp.EntityData.Leafs["dscp-min"] = types.YLeaf{"DscpMin", dscp.DscpMin}
+    dscp.EntityData.Leafs["dscp-max"] = types.YLeaf{"DscpMax", dscp.DscpMax}
+    return &(dscp.EntityData)
 }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetSegmentPath() string {
-    return "dscp"
-}
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dscp-operator"] = dscp.DscpOperator
-    leafs["dscp-min"] = dscp.DscpMin
-    leafs["dscp-max"] = dscp.DscpMax
-    return leafs
-}
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetYangName() string { return "dscp" }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) SetParent(parent types.Entity) { dscp.parent = parent }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetParent() types.Entity { return dscp.parent }
-
-func (dscp *Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp) GetParentYangName() string { return "access-list-entry" }
 
 // Ipv4AclAndPrefixList_Prefixes
 // Table of ACL prefix lists.  Entries in this
 // table and the PrefixListExistenceTable table
 // must be kept consistent
 type Ipv4AclAndPrefixList_Prefixes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of a prefix list. The type is slice of
@@ -1579,68 +877,29 @@ type Ipv4AclAndPrefixList_Prefixes struct {
     Prefix []Ipv4AclAndPrefixList_Prefixes_Prefix
 }
 
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetFilter() yfilter.YFilter { return prefixes.YFilter }
+func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetEntityData() *types.CommonEntityData {
+    prefixes.EntityData.YFilter = prefixes.YFilter
+    prefixes.EntityData.YangName = "prefixes"
+    prefixes.EntityData.BundleName = "cisco_ios_xr"
+    prefixes.EntityData.ParentYangName = "ipv4-acl-and-prefix-list"
+    prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) SetFilter(yf yfilter.YFilter) { prefixes.YFilter = yf }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    return ""
-}
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetSegmentPath() string {
-    return "prefixes"
-}
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefix" {
-        for _, c := range prefixes.Prefix {
-            if prefixes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4AclAndPrefixList_Prefixes_Prefix{}
-        prefixes.Prefix = append(prefixes.Prefix, child)
-        return &prefixes.Prefix[len(prefixes.Prefix)-1]
-    }
-    return nil
-}
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    prefixes.EntityData.Children = make(map[string]types.YChild)
+    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
     for i := range prefixes.Prefix {
-        children[prefixes.Prefix[i].GetSegmentPath()] = &prefixes.Prefix[i]
+        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
     }
-    return children
+    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(prefixes.EntityData)
 }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetYangName() string { return "prefixes" }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) SetParent(parent types.Entity) { prefixes.parent = parent }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetParent() types.Entity { return prefixes.parent }
-
-func (prefixes *Ipv4AclAndPrefixList_Prefixes) GetParentYangName() string { return "ipv4-acl-and-prefix-list" }
 
 // Ipv4AclAndPrefixList_Prefixes_Prefix
 // Name of a prefix list
 type Ipv4AclAndPrefixList_Prefixes_Prefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Prefix list name - max 32 characters. The type is
@@ -1651,62 +910,28 @@ type Ipv4AclAndPrefixList_Prefixes_Prefix struct {
     PrefixListEntries Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries
 }
 
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetFilter() yfilter.YFilter { return prefix.YFilter }
+func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefixes"
+    prefix.EntityData.SegmentPath = "prefix" + "[prefix-list-name='" + fmt.Sprintf("%v", prefix.PrefixListName) + "']"
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) SetFilter(yf yfilter.YFilter) { prefix.YFilter = yf }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetGoName(yname string) string {
-    if yname == "prefix-list-name" { return "PrefixListName" }
-    if yname == "prefix-list-entries" { return "PrefixListEntries" }
-    return ""
+    prefix.EntityData.Children = make(map[string]types.YChild)
+    prefix.EntityData.Children["prefix-list-entries"] = types.YChild{"PrefixListEntries", &prefix.PrefixListEntries}
+    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefix.EntityData.Leafs["prefix-list-name"] = types.YLeaf{"PrefixListName", prefix.PrefixListName}
+    return &(prefix.EntityData)
 }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetSegmentPath() string {
-    return "prefix" + "[prefix-list-name='" + fmt.Sprintf("%v", prefix.PrefixListName) + "']"
-}
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefix-list-entries" {
-        return &prefix.PrefixListEntries
-    }
-    return nil
-}
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["prefix-list-entries"] = &prefix.PrefixListEntries
-    return children
-}
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-list-name"] = prefix.PrefixListName
-    return leafs
-}
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetYangName() string { return "prefix" }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) SetParent(parent types.Entity) { prefix.parent = parent }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetParent() types.Entity { return prefix.parent }
-
-func (prefix *Ipv4AclAndPrefixList_Prefixes_Prefix) GetParentYangName() string { return "prefixes" }
 
 // Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries
 // Sequence of entries forming a prefix list
 // This type is a presence type.
 type Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A prefix list entry; either a description (remark) or a prefix to match
@@ -1715,69 +940,30 @@ type Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries struct {
     PrefixListEntry []Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry
 }
 
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetFilter() yfilter.YFilter { return prefixListEntries.YFilter }
+func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetEntityData() *types.CommonEntityData {
+    prefixListEntries.EntityData.YFilter = prefixListEntries.YFilter
+    prefixListEntries.EntityData.YangName = "prefix-list-entries"
+    prefixListEntries.EntityData.BundleName = "cisco_ios_xr"
+    prefixListEntries.EntityData.ParentYangName = "prefix"
+    prefixListEntries.EntityData.SegmentPath = "prefix-list-entries"
+    prefixListEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) SetFilter(yf yfilter.YFilter) { prefixListEntries.YFilter = yf }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetGoName(yname string) string {
-    if yname == "prefix-list-entry" { return "PrefixListEntry" }
-    return ""
-}
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetSegmentPath() string {
-    return "prefix-list-entries"
-}
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefix-list-entry" {
-        for _, c := range prefixListEntries.PrefixListEntry {
-            if prefixListEntries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry{}
-        prefixListEntries.PrefixListEntry = append(prefixListEntries.PrefixListEntry, child)
-        return &prefixListEntries.PrefixListEntry[len(prefixListEntries.PrefixListEntry)-1]
-    }
-    return nil
-}
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    prefixListEntries.EntityData.Children = make(map[string]types.YChild)
+    prefixListEntries.EntityData.Children["prefix-list-entry"] = types.YChild{"PrefixListEntry", nil}
     for i := range prefixListEntries.PrefixListEntry {
-        children[prefixListEntries.PrefixListEntry[i].GetSegmentPath()] = &prefixListEntries.PrefixListEntry[i]
+        prefixListEntries.EntityData.Children[types.GetSegmentPath(&prefixListEntries.PrefixListEntry[i])] = types.YChild{"PrefixListEntry", &prefixListEntries.PrefixListEntry[i]}
     }
-    return children
+    prefixListEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(prefixListEntries.EntityData)
 }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetYangName() string { return "prefix-list-entries" }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) SetParent(parent types.Entity) { prefixListEntries.parent = parent }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetParent() types.Entity { return prefixListEntries.parent }
-
-func (prefixListEntries *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries) GetParentYangName() string { return "prefix" }
 
 // Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry
 // A prefix list entry; either a description
 // (remark) or a prefix to match against
 type Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sequence number of prefix list. The type is
@@ -1789,11 +975,11 @@ type Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry stru
     Grant interface{}
 
     // IPv4 address prefix to match. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Mask of IPv4 address prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Netmask interface{}
 
     // Set to perform an exact prefix length match. Item is mutually exclusive
@@ -1825,76 +1011,36 @@ type Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry stru
     Remark interface{}
 }
 
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetFilter() yfilter.YFilter { return prefixListEntry.YFilter }
+func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetEntityData() *types.CommonEntityData {
+    prefixListEntry.EntityData.YFilter = prefixListEntry.YFilter
+    prefixListEntry.EntityData.YangName = "prefix-list-entry"
+    prefixListEntry.EntityData.BundleName = "cisco_ios_xr"
+    prefixListEntry.EntityData.ParentYangName = "prefix-list-entries"
+    prefixListEntry.EntityData.SegmentPath = "prefix-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", prefixListEntry.SequenceNumber) + "']"
+    prefixListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) SetFilter(yf yfilter.YFilter) { prefixListEntry.YFilter = yf }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetGoName(yname string) string {
-    if yname == "sequence-number" { return "SequenceNumber" }
-    if yname == "grant" { return "Grant" }
-    if yname == "prefix" { return "Prefix" }
-    if yname == "netmask" { return "Netmask" }
-    if yname == "match-exact-length" { return "MatchExactLength" }
-    if yname == "exact-prefix-length" { return "ExactPrefixLength" }
-    if yname == "match-max-length" { return "MatchMaxLength" }
-    if yname == "max-prefix-length" { return "MaxPrefixLength" }
-    if yname == "match-min-length" { return "MatchMinLength" }
-    if yname == "min-prefix-length" { return "MinPrefixLength" }
-    if yname == "remark" { return "Remark" }
-    return ""
+    prefixListEntry.EntityData.Children = make(map[string]types.YChild)
+    prefixListEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefixListEntry.EntityData.Leafs["sequence-number"] = types.YLeaf{"SequenceNumber", prefixListEntry.SequenceNumber}
+    prefixListEntry.EntityData.Leafs["grant"] = types.YLeaf{"Grant", prefixListEntry.Grant}
+    prefixListEntry.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefixListEntry.Prefix}
+    prefixListEntry.EntityData.Leafs["netmask"] = types.YLeaf{"Netmask", prefixListEntry.Netmask}
+    prefixListEntry.EntityData.Leafs["match-exact-length"] = types.YLeaf{"MatchExactLength", prefixListEntry.MatchExactLength}
+    prefixListEntry.EntityData.Leafs["exact-prefix-length"] = types.YLeaf{"ExactPrefixLength", prefixListEntry.ExactPrefixLength}
+    prefixListEntry.EntityData.Leafs["match-max-length"] = types.YLeaf{"MatchMaxLength", prefixListEntry.MatchMaxLength}
+    prefixListEntry.EntityData.Leafs["max-prefix-length"] = types.YLeaf{"MaxPrefixLength", prefixListEntry.MaxPrefixLength}
+    prefixListEntry.EntityData.Leafs["match-min-length"] = types.YLeaf{"MatchMinLength", prefixListEntry.MatchMinLength}
+    prefixListEntry.EntityData.Leafs["min-prefix-length"] = types.YLeaf{"MinPrefixLength", prefixListEntry.MinPrefixLength}
+    prefixListEntry.EntityData.Leafs["remark"] = types.YLeaf{"Remark", prefixListEntry.Remark}
+    return &(prefixListEntry.EntityData)
 }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetSegmentPath() string {
-    return "prefix-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", prefixListEntry.SequenceNumber) + "']"
-}
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sequence-number"] = prefixListEntry.SequenceNumber
-    leafs["grant"] = prefixListEntry.Grant
-    leafs["prefix"] = prefixListEntry.Prefix
-    leafs["netmask"] = prefixListEntry.Netmask
-    leafs["match-exact-length"] = prefixListEntry.MatchExactLength
-    leafs["exact-prefix-length"] = prefixListEntry.ExactPrefixLength
-    leafs["match-max-length"] = prefixListEntry.MatchMaxLength
-    leafs["max-prefix-length"] = prefixListEntry.MaxPrefixLength
-    leafs["match-min-length"] = prefixListEntry.MatchMinLength
-    leafs["min-prefix-length"] = prefixListEntry.MinPrefixLength
-    leafs["remark"] = prefixListEntry.Remark
-    return leafs
-}
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetYangName() string { return "prefix-list-entry" }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) SetParent(parent types.Entity) { prefixListEntry.parent = parent }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetParent() types.Entity { return prefixListEntry.parent }
-
-func (prefixListEntry *Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry) GetParentYangName() string { return "prefix-list-entries" }
 
 // Ipv4AclAndPrefixList_LogUpdate
 // Control access lists log updates
 type Ipv4AclAndPrefixList_LogUpdate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Log update threshold (number of hits). The type is interface{} with range:
@@ -1906,51 +1052,20 @@ type Ipv4AclAndPrefixList_LogUpdate struct {
     Rate interface{}
 }
 
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetFilter() yfilter.YFilter { return logUpdate.YFilter }
+func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetEntityData() *types.CommonEntityData {
+    logUpdate.EntityData.YFilter = logUpdate.YFilter
+    logUpdate.EntityData.YangName = "log-update"
+    logUpdate.EntityData.BundleName = "cisco_ios_xr"
+    logUpdate.EntityData.ParentYangName = "ipv4-acl-and-prefix-list"
+    logUpdate.EntityData.SegmentPath = "log-update"
+    logUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    logUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    logUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) SetFilter(yf yfilter.YFilter) { logUpdate.YFilter = yf }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetGoName(yname string) string {
-    if yname == "threshold" { return "Threshold" }
-    if yname == "rate" { return "Rate" }
-    return ""
+    logUpdate.EntityData.Children = make(map[string]types.YChild)
+    logUpdate.EntityData.Leafs = make(map[string]types.YLeaf)
+    logUpdate.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", logUpdate.Threshold}
+    logUpdate.EntityData.Leafs["rate"] = types.YLeaf{"Rate", logUpdate.Rate}
+    return &(logUpdate.EntityData)
 }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetSegmentPath() string {
-    return "log-update"
-}
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["threshold"] = logUpdate.Threshold
-    leafs["rate"] = logUpdate.Rate
-    return leafs
-}
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetYangName() string { return "log-update" }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) SetParent(parent types.Entity) { logUpdate.parent = parent }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetParent() types.Entity { return logUpdate.parent }
-
-func (logUpdate *Ipv4AclAndPrefixList_LogUpdate) GetParentYangName() string { return "ipv4-acl-and-prefix-list" }
 

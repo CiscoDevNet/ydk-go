@@ -21,7 +21,7 @@ func init() {
 
 // ATMMIB
 type ATMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -66,103 +66,34 @@ type ATMMIB struct {
     Aal5Vcctable ATMMIB_Aal5Vcctable
 }
 
-func (aTMMIB *ATMMIB) GetFilter() yfilter.YFilter { return aTMMIB.YFilter }
+func (aTMMIB *ATMMIB) GetEntityData() *types.CommonEntityData {
+    aTMMIB.EntityData.YFilter = aTMMIB.YFilter
+    aTMMIB.EntityData.YangName = "ATM-MIB"
+    aTMMIB.EntityData.BundleName = "cisco_ios_xe"
+    aTMMIB.EntityData.ParentYangName = "ATM-MIB"
+    aTMMIB.EntityData.SegmentPath = "ATM-MIB:ATM-MIB"
+    aTMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aTMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aTMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (aTMMIB *ATMMIB) SetFilter(yf yfilter.YFilter) { aTMMIB.YFilter = yf }
-
-func (aTMMIB *ATMMIB) GetGoName(yname string) string {
-    if yname == "atmMIBObjects" { return "Atmmibobjects" }
-    if yname == "atmInterfaceConfTable" { return "Atminterfaceconftable" }
-    if yname == "atmInterfaceDs3PlcpTable" { return "Atminterfaceds3Plcptable" }
-    if yname == "atmInterfaceTCTable" { return "Atminterfacetctable" }
-    if yname == "atmTrafficDescrParamTable" { return "Atmtrafficdescrparamtable" }
-    if yname == "atmVplTable" { return "Atmvpltable" }
-    if yname == "atmVclTable" { return "Atmvcltable" }
-    if yname == "atmVpCrossConnectTable" { return "Atmvpcrossconnecttable" }
-    if yname == "atmVcCrossConnectTable" { return "Atmvccrossconnecttable" }
-    if yname == "aal5VccTable" { return "Aal5Vcctable" }
-    return ""
+    aTMMIB.EntityData.Children = make(map[string]types.YChild)
+    aTMMIB.EntityData.Children["atmMIBObjects"] = types.YChild{"Atmmibobjects", &aTMMIB.Atmmibobjects}
+    aTMMIB.EntityData.Children["atmInterfaceConfTable"] = types.YChild{"Atminterfaceconftable", &aTMMIB.Atminterfaceconftable}
+    aTMMIB.EntityData.Children["atmInterfaceDs3PlcpTable"] = types.YChild{"Atminterfaceds3Plcptable", &aTMMIB.Atminterfaceds3Plcptable}
+    aTMMIB.EntityData.Children["atmInterfaceTCTable"] = types.YChild{"Atminterfacetctable", &aTMMIB.Atminterfacetctable}
+    aTMMIB.EntityData.Children["atmTrafficDescrParamTable"] = types.YChild{"Atmtrafficdescrparamtable", &aTMMIB.Atmtrafficdescrparamtable}
+    aTMMIB.EntityData.Children["atmVplTable"] = types.YChild{"Atmvpltable", &aTMMIB.Atmvpltable}
+    aTMMIB.EntityData.Children["atmVclTable"] = types.YChild{"Atmvcltable", &aTMMIB.Atmvcltable}
+    aTMMIB.EntityData.Children["atmVpCrossConnectTable"] = types.YChild{"Atmvpcrossconnecttable", &aTMMIB.Atmvpcrossconnecttable}
+    aTMMIB.EntityData.Children["atmVcCrossConnectTable"] = types.YChild{"Atmvccrossconnecttable", &aTMMIB.Atmvccrossconnecttable}
+    aTMMIB.EntityData.Children["aal5VccTable"] = types.YChild{"Aal5Vcctable", &aTMMIB.Aal5Vcctable}
+    aTMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(aTMMIB.EntityData)
 }
-
-func (aTMMIB *ATMMIB) GetSegmentPath() string {
-    return "ATM-MIB:ATM-MIB"
-}
-
-func (aTMMIB *ATMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmMIBObjects" {
-        return &aTMMIB.Atmmibobjects
-    }
-    if childYangName == "atmInterfaceConfTable" {
-        return &aTMMIB.Atminterfaceconftable
-    }
-    if childYangName == "atmInterfaceDs3PlcpTable" {
-        return &aTMMIB.Atminterfaceds3Plcptable
-    }
-    if childYangName == "atmInterfaceTCTable" {
-        return &aTMMIB.Atminterfacetctable
-    }
-    if childYangName == "atmTrafficDescrParamTable" {
-        return &aTMMIB.Atmtrafficdescrparamtable
-    }
-    if childYangName == "atmVplTable" {
-        return &aTMMIB.Atmvpltable
-    }
-    if childYangName == "atmVclTable" {
-        return &aTMMIB.Atmvcltable
-    }
-    if childYangName == "atmVpCrossConnectTable" {
-        return &aTMMIB.Atmvpcrossconnecttable
-    }
-    if childYangName == "atmVcCrossConnectTable" {
-        return &aTMMIB.Atmvccrossconnecttable
-    }
-    if childYangName == "aal5VccTable" {
-        return &aTMMIB.Aal5Vcctable
-    }
-    return nil
-}
-
-func (aTMMIB *ATMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["atmMIBObjects"] = &aTMMIB.Atmmibobjects
-    children["atmInterfaceConfTable"] = &aTMMIB.Atminterfaceconftable
-    children["atmInterfaceDs3PlcpTable"] = &aTMMIB.Atminterfaceds3Plcptable
-    children["atmInterfaceTCTable"] = &aTMMIB.Atminterfacetctable
-    children["atmTrafficDescrParamTable"] = &aTMMIB.Atmtrafficdescrparamtable
-    children["atmVplTable"] = &aTMMIB.Atmvpltable
-    children["atmVclTable"] = &aTMMIB.Atmvcltable
-    children["atmVpCrossConnectTable"] = &aTMMIB.Atmvpcrossconnecttable
-    children["atmVcCrossConnectTable"] = &aTMMIB.Atmvccrossconnecttable
-    children["aal5VccTable"] = &aTMMIB.Aal5Vcctable
-    return children
-}
-
-func (aTMMIB *ATMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (aTMMIB *ATMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (aTMMIB *ATMMIB) GetYangName() string { return "ATM-MIB" }
-
-func (aTMMIB *ATMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (aTMMIB *ATMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (aTMMIB *ATMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (aTMMIB *ATMMIB) SetParent(parent types.Entity) { aTMMIB.parent = parent }
-
-func (aTMMIB *ATMMIB) GetParent() types.Entity { return aTMMIB.parent }
-
-func (aTMMIB *ATMMIB) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atmmibobjects
 type ATMMIB_Atmmibobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object contains an appropriate value to be used for
@@ -200,62 +131,30 @@ type ATMMIB_Atmmibobjects struct {
     Atmtrafficdescrparamindexnext interface{}
 }
 
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetFilter() yfilter.YFilter { return atmmibobjects.YFilter }
+func (atmmibobjects *ATMMIB_Atmmibobjects) GetEntityData() *types.CommonEntityData {
+    atmmibobjects.EntityData.YFilter = atmmibobjects.YFilter
+    atmmibobjects.EntityData.YangName = "atmMIBObjects"
+    atmmibobjects.EntityData.BundleName = "cisco_ios_xe"
+    atmmibobjects.EntityData.ParentYangName = "ATM-MIB"
+    atmmibobjects.EntityData.SegmentPath = "atmMIBObjects"
+    atmmibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmmibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmmibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmmibobjects *ATMMIB_Atmmibobjects) SetFilter(yf yfilter.YFilter) { atmmibobjects.YFilter = yf }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetGoName(yname string) string {
-    if yname == "atmVpCrossConnectIndexNext" { return "Atmvpcrossconnectindexnext" }
-    if yname == "atmVcCrossConnectIndexNext" { return "Atmvccrossconnectindexnext" }
-    if yname == "atmTrafficDescrParamIndexNext" { return "Atmtrafficdescrparamindexnext" }
-    return ""
+    atmmibobjects.EntityData.Children = make(map[string]types.YChild)
+    atmmibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmmibobjects.EntityData.Leafs["atmVpCrossConnectIndexNext"] = types.YLeaf{"Atmvpcrossconnectindexnext", atmmibobjects.Atmvpcrossconnectindexnext}
+    atmmibobjects.EntityData.Leafs["atmVcCrossConnectIndexNext"] = types.YLeaf{"Atmvccrossconnectindexnext", atmmibobjects.Atmvccrossconnectindexnext}
+    atmmibobjects.EntityData.Leafs["atmTrafficDescrParamIndexNext"] = types.YLeaf{"Atmtrafficdescrparamindexnext", atmmibobjects.Atmtrafficdescrparamindexnext}
+    return &(atmmibobjects.EntityData)
 }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetSegmentPath() string {
-    return "atmMIBObjects"
-}
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["atmVpCrossConnectIndexNext"] = atmmibobjects.Atmvpcrossconnectindexnext
-    leafs["atmVcCrossConnectIndexNext"] = atmmibobjects.Atmvccrossconnectindexnext
-    leafs["atmTrafficDescrParamIndexNext"] = atmmibobjects.Atmtrafficdescrparamindexnext
-    return leafs
-}
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetYangName() string { return "atmMIBObjects" }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) SetParent(parent types.Entity) { atmmibobjects.parent = parent }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetParent() types.Entity { return atmmibobjects.parent }
-
-func (atmmibobjects *ATMMIB_Atmmibobjects) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atminterfaceconftable
 // This table contains ATM local interface
 // configuration parameters, one entry per ATM
 // interface port.
 type ATMMIB_Atminterfaceconftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains ATM interface configuration parameters and state
@@ -264,70 +163,31 @@ type ATMMIB_Atminterfaceconftable struct {
     Atminterfaceconfentry []ATMMIB_Atminterfaceconftable_Atminterfaceconfentry
 }
 
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetFilter() yfilter.YFilter { return atminterfaceconftable.YFilter }
+func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetEntityData() *types.CommonEntityData {
+    atminterfaceconftable.EntityData.YFilter = atminterfaceconftable.YFilter
+    atminterfaceconftable.EntityData.YangName = "atmInterfaceConfTable"
+    atminterfaceconftable.EntityData.BundleName = "cisco_ios_xe"
+    atminterfaceconftable.EntityData.ParentYangName = "ATM-MIB"
+    atminterfaceconftable.EntityData.SegmentPath = "atmInterfaceConfTable"
+    atminterfaceconftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atminterfaceconftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atminterfaceconftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) SetFilter(yf yfilter.YFilter) { atminterfaceconftable.YFilter = yf }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetGoName(yname string) string {
-    if yname == "atmInterfaceConfEntry" { return "Atminterfaceconfentry" }
-    return ""
-}
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetSegmentPath() string {
-    return "atmInterfaceConfTable"
-}
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmInterfaceConfEntry" {
-        for _, c := range atminterfaceconftable.Atminterfaceconfentry {
-            if atminterfaceconftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atminterfaceconftable_Atminterfaceconfentry{}
-        atminterfaceconftable.Atminterfaceconfentry = append(atminterfaceconftable.Atminterfaceconfentry, child)
-        return &atminterfaceconftable.Atminterfaceconfentry[len(atminterfaceconftable.Atminterfaceconfentry)-1]
-    }
-    return nil
-}
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atminterfaceconftable.EntityData.Children = make(map[string]types.YChild)
+    atminterfaceconftable.EntityData.Children["atmInterfaceConfEntry"] = types.YChild{"Atminterfaceconfentry", nil}
     for i := range atminterfaceconftable.Atminterfaceconfentry {
-        children[atminterfaceconftable.Atminterfaceconfentry[i].GetSegmentPath()] = &atminterfaceconftable.Atminterfaceconfentry[i]
+        atminterfaceconftable.EntityData.Children[types.GetSegmentPath(&atminterfaceconftable.Atminterfaceconfentry[i])] = types.YChild{"Atminterfaceconfentry", &atminterfaceconftable.Atminterfaceconfentry[i]}
     }
-    return children
+    atminterfaceconftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atminterfaceconftable.EntityData)
 }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetYangName() string { return "atmInterfaceConfTable" }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) SetParent(parent types.Entity) { atminterfaceconftable.parent = parent }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetParent() types.Entity { return atminterfaceconftable.parent }
-
-func (atminterfaceconftable *ATMMIB_Atminterfaceconftable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atminterfaceconftable_Atminterfaceconfentry
 // This list contains ATM interface configuration
 // parameters and state variables and is indexed
 // by ifIndex values of ATM interfaces.
 type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -398,7 +258,7 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     // of this object may be obtained in different ways, e.g., by manual
     // configuration, or through ILMI interaction with the neighbor system. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Atminterfacemyneighboripaddress interface{}
 
     // The textual name of the interface on the neighbor system on the far end of
@@ -592,143 +452,67 @@ type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry struct {
     Atmintfcurrentlyoamfailingpvcls interface{}
 }
 
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetFilter() yfilter.YFilter { return atminterfaceconfentry.YFilter }
+func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetEntityData() *types.CommonEntityData {
+    atminterfaceconfentry.EntityData.YFilter = atminterfaceconfentry.YFilter
+    atminterfaceconfentry.EntityData.YangName = "atmInterfaceConfEntry"
+    atminterfaceconfentry.EntityData.BundleName = "cisco_ios_xe"
+    atminterfaceconfentry.EntityData.ParentYangName = "atmInterfaceConfTable"
+    atminterfaceconfentry.EntityData.SegmentPath = "atmInterfaceConfEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfaceconfentry.Ifindex) + "']"
+    atminterfaceconfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atminterfaceconfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atminterfaceconfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) SetFilter(yf yfilter.YFilter) { atminterfaceconfentry.YFilter = yf }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "atmInterfaceMaxVpcs" { return "Atminterfacemaxvpcs" }
-    if yname == "atmInterfaceMaxVccs" { return "Atminterfacemaxvccs" }
-    if yname == "atmInterfaceConfVpcs" { return "Atminterfaceconfvpcs" }
-    if yname == "atmInterfaceConfVccs" { return "Atminterfaceconfvccs" }
-    if yname == "atmInterfaceMaxActiveVpiBits" { return "Atminterfacemaxactivevpibits" }
-    if yname == "atmInterfaceMaxActiveVciBits" { return "Atminterfacemaxactivevcibits" }
-    if yname == "atmInterfaceIlmiVpi" { return "Atminterfaceilmivpi" }
-    if yname == "atmInterfaceIlmiVci" { return "Atminterfaceilmivci" }
-    if yname == "atmInterfaceAddressType" { return "Atminterfaceaddresstype" }
-    if yname == "atmInterfaceAdminAddress" { return "Atminterfaceadminaddress" }
-    if yname == "atmInterfaceMyNeighborIpAddress" { return "Atminterfacemyneighboripaddress" }
-    if yname == "atmInterfaceMyNeighborIfName" { return "Atminterfacemyneighborifname" }
-    if yname == "atmInterfaceCurrentMaxVpiBits" { return "Atminterfacecurrentmaxvpibits" }
-    if yname == "atmInterfaceCurrentMaxVciBits" { return "Atminterfacecurrentmaxvcibits" }
-    if yname == "atmInterfaceSubscrAddress" { return "Atminterfacesubscraddress" }
-    if yname == "atmIntfPvcFailures" { return "Atmintfpvcfailures" }
-    if yname == "atmIntfCurrentlyFailingPVcls" { return "Atmintfcurrentlyfailingpvcls" }
-    if yname == "atmIntfPvcFailuresTrapEnable" { return "Atmintfpvcfailurestrapenable" }
-    if yname == "atmIntfPvcNotificationInterval" { return "Atmintfpvcnotificationinterval" }
-    if yname == "atmPreviouslyFailedPVclInterval" { return "Atmpreviouslyfailedpvclinterval" }
-    if yname == "catmIntfCurrentlyDownToUpPVcls" { return "Catmintfcurrentlydowntouppvcls" }
-    if yname == "catmIntfOAMFailedPVcls" { return "Catmintfoamfailedpvcls" }
-    if yname == "catmIntfCurrentOAMFailingPVcls" { return "Catmintfcurrentoamfailingpvcls" }
-    if yname == "catmIntfSegCCOAMFailedPVcls" { return "Catmintfsegccoamfailedpvcls" }
-    if yname == "catmIntfCurSegCCOAMFailingPVcls" { return "Catmintfcursegccoamfailingpvcls" }
-    if yname == "catmIntfEndCCOAMFailedPVcls" { return "Catmintfendccoamfailedpvcls" }
-    if yname == "catmIntfCurEndCCOAMFailingPVcls" { return "Catmintfcurendccoamfailingpvcls" }
-    if yname == "catmIntfAISRDIOAMFailedPVcls" { return "Catmintfaisrdioamfailedpvcls" }
-    if yname == "catmIntfCurAISRDIOAMFailingPVcls" { return "Catmintfcuraisrdioamfailingpvcls" }
-    if yname == "catmIntfAnyOAMFailedPVcls" { return "Catmintfanyoamfailedpvcls" }
-    if yname == "catmIntfCurAnyOAMFailingPVcls" { return "Catmintfcuranyoamfailingpvcls" }
-    if yname == "catmIntfTypeOfOAMFailure" { return "Catmintftypeofoamfailure" }
-    if yname == "catmIntfOAMRcovedPVcls" { return "Catmintfoamrcovedpvcls" }
-    if yname == "catmIntfCurrentOAMRcovingPVcls" { return "Catmintfcurrentoamrcovingpvcls" }
-    if yname == "catmIntfSegCCOAMRcovedPVcls" { return "Catmintfsegccoamrcovedpvcls" }
-    if yname == "catmIntfCurSegCCOAMRcovingPVcls" { return "Catmintfcursegccoamrcovingpvcls" }
-    if yname == "catmIntfEndCCOAMRcovedPVcls" { return "Catmintfendccoamrcovedpvcls" }
-    if yname == "catmIntfCurEndCCOAMRcovingPVcls" { return "Catmintfcurendccoamrcovingpvcls" }
-    if yname == "catmIntfAISRDIOAMRcovedPVcls" { return "Catmintfaisrdioamrcovedpvcls" }
-    if yname == "catmIntfCurAISRDIOAMRcovingPVcls" { return "Catmintfcuraisrdioamrcovingpvcls" }
-    if yname == "catmIntfAnyOAMRcovedPVcls" { return "Catmintfanyoamrcovedpvcls" }
-    if yname == "catmIntfCurAnyOAMRcovingPVcls" { return "Catmintfcuranyoamrcovingpvcls" }
-    if yname == "catmIntfTypeOfOAMRecover" { return "Catmintftypeofoamrecover" }
-    if yname == "atmIntfCurrentlyDownToUpPVcls" { return "Atmintfcurrentlydowntouppvcls" }
-    if yname == "atmIntfOAMFailedPVcls" { return "Atmintfoamfailedpvcls" }
-    if yname == "atmIntfCurrentlyOAMFailingPVcls" { return "Atmintfcurrentlyoamfailingpvcls" }
-    return ""
+    atminterfaceconfentry.EntityData.Children = make(map[string]types.YChild)
+    atminterfaceconfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atminterfaceconfentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atminterfaceconfentry.Ifindex}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxVpcs"] = types.YLeaf{"Atminterfacemaxvpcs", atminterfaceconfentry.Atminterfacemaxvpcs}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxVccs"] = types.YLeaf{"Atminterfacemaxvccs", atminterfaceconfentry.Atminterfacemaxvccs}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceConfVpcs"] = types.YLeaf{"Atminterfaceconfvpcs", atminterfaceconfentry.Atminterfaceconfvpcs}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceConfVccs"] = types.YLeaf{"Atminterfaceconfvccs", atminterfaceconfentry.Atminterfaceconfvccs}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxActiveVpiBits"] = types.YLeaf{"Atminterfacemaxactivevpibits", atminterfaceconfentry.Atminterfacemaxactivevpibits}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMaxActiveVciBits"] = types.YLeaf{"Atminterfacemaxactivevcibits", atminterfaceconfentry.Atminterfacemaxactivevcibits}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceIlmiVpi"] = types.YLeaf{"Atminterfaceilmivpi", atminterfaceconfentry.Atminterfaceilmivpi}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceIlmiVci"] = types.YLeaf{"Atminterfaceilmivci", atminterfaceconfentry.Atminterfaceilmivci}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceAddressType"] = types.YLeaf{"Atminterfaceaddresstype", atminterfaceconfentry.Atminterfaceaddresstype}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceAdminAddress"] = types.YLeaf{"Atminterfaceadminaddress", atminterfaceconfentry.Atminterfaceadminaddress}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMyNeighborIpAddress"] = types.YLeaf{"Atminterfacemyneighboripaddress", atminterfaceconfentry.Atminterfacemyneighboripaddress}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceMyNeighborIfName"] = types.YLeaf{"Atminterfacemyneighborifname", atminterfaceconfentry.Atminterfacemyneighborifname}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceCurrentMaxVpiBits"] = types.YLeaf{"Atminterfacecurrentmaxvpibits", atminterfaceconfentry.Atminterfacecurrentmaxvpibits}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceCurrentMaxVciBits"] = types.YLeaf{"Atminterfacecurrentmaxvcibits", atminterfaceconfentry.Atminterfacecurrentmaxvcibits}
+    atminterfaceconfentry.EntityData.Leafs["atmInterfaceSubscrAddress"] = types.YLeaf{"Atminterfacesubscraddress", atminterfaceconfentry.Atminterfacesubscraddress}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfPvcFailures"] = types.YLeaf{"Atmintfpvcfailures", atminterfaceconfentry.Atmintfpvcfailures}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfCurrentlyFailingPVcls"] = types.YLeaf{"Atmintfcurrentlyfailingpvcls", atminterfaceconfentry.Atmintfcurrentlyfailingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfPvcFailuresTrapEnable"] = types.YLeaf{"Atmintfpvcfailurestrapenable", atminterfaceconfentry.Atmintfpvcfailurestrapenable}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfPvcNotificationInterval"] = types.YLeaf{"Atmintfpvcnotificationinterval", atminterfaceconfentry.Atmintfpvcnotificationinterval}
+    atminterfaceconfentry.EntityData.Leafs["atmPreviouslyFailedPVclInterval"] = types.YLeaf{"Atmpreviouslyfailedpvclinterval", atminterfaceconfentry.Atmpreviouslyfailedpvclinterval}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurrentlyDownToUpPVcls"] = types.YLeaf{"Catmintfcurrentlydowntouppvcls", atminterfaceconfentry.Catmintfcurrentlydowntouppvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfOAMFailedPVcls"] = types.YLeaf{"Catmintfoamfailedpvcls", atminterfaceconfentry.Catmintfoamfailedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurrentOAMFailingPVcls"] = types.YLeaf{"Catmintfcurrentoamfailingpvcls", atminterfaceconfentry.Catmintfcurrentoamfailingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfSegCCOAMFailedPVcls"] = types.YLeaf{"Catmintfsegccoamfailedpvcls", atminterfaceconfentry.Catmintfsegccoamfailedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurSegCCOAMFailingPVcls"] = types.YLeaf{"Catmintfcursegccoamfailingpvcls", atminterfaceconfentry.Catmintfcursegccoamfailingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfEndCCOAMFailedPVcls"] = types.YLeaf{"Catmintfendccoamfailedpvcls", atminterfaceconfentry.Catmintfendccoamfailedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurEndCCOAMFailingPVcls"] = types.YLeaf{"Catmintfcurendccoamfailingpvcls", atminterfaceconfentry.Catmintfcurendccoamfailingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfAISRDIOAMFailedPVcls"] = types.YLeaf{"Catmintfaisrdioamfailedpvcls", atminterfaceconfentry.Catmintfaisrdioamfailedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAISRDIOAMFailingPVcls"] = types.YLeaf{"Catmintfcuraisrdioamfailingpvcls", atminterfaceconfentry.Catmintfcuraisrdioamfailingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfAnyOAMFailedPVcls"] = types.YLeaf{"Catmintfanyoamfailedpvcls", atminterfaceconfentry.Catmintfanyoamfailedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAnyOAMFailingPVcls"] = types.YLeaf{"Catmintfcuranyoamfailingpvcls", atminterfaceconfentry.Catmintfcuranyoamfailingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfTypeOfOAMFailure"] = types.YLeaf{"Catmintftypeofoamfailure", atminterfaceconfentry.Catmintftypeofoamfailure}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfOAMRcovedPVcls"] = types.YLeaf{"Catmintfoamrcovedpvcls", atminterfaceconfentry.Catmintfoamrcovedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurrentOAMRcovingPVcls"] = types.YLeaf{"Catmintfcurrentoamrcovingpvcls", atminterfaceconfentry.Catmintfcurrentoamrcovingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfSegCCOAMRcovedPVcls"] = types.YLeaf{"Catmintfsegccoamrcovedpvcls", atminterfaceconfentry.Catmintfsegccoamrcovedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurSegCCOAMRcovingPVcls"] = types.YLeaf{"Catmintfcursegccoamrcovingpvcls", atminterfaceconfentry.Catmintfcursegccoamrcovingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfEndCCOAMRcovedPVcls"] = types.YLeaf{"Catmintfendccoamrcovedpvcls", atminterfaceconfentry.Catmintfendccoamrcovedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurEndCCOAMRcovingPVcls"] = types.YLeaf{"Catmintfcurendccoamrcovingpvcls", atminterfaceconfentry.Catmintfcurendccoamrcovingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfAISRDIOAMRcovedPVcls"] = types.YLeaf{"Catmintfaisrdioamrcovedpvcls", atminterfaceconfentry.Catmintfaisrdioamrcovedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAISRDIOAMRcovingPVcls"] = types.YLeaf{"Catmintfcuraisrdioamrcovingpvcls", atminterfaceconfentry.Catmintfcuraisrdioamrcovingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfAnyOAMRcovedPVcls"] = types.YLeaf{"Catmintfanyoamrcovedpvcls", atminterfaceconfentry.Catmintfanyoamrcovedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfCurAnyOAMRcovingPVcls"] = types.YLeaf{"Catmintfcuranyoamrcovingpvcls", atminterfaceconfentry.Catmintfcuranyoamrcovingpvcls}
+    atminterfaceconfentry.EntityData.Leafs["catmIntfTypeOfOAMRecover"] = types.YLeaf{"Catmintftypeofoamrecover", atminterfaceconfentry.Catmintftypeofoamrecover}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfCurrentlyDownToUpPVcls"] = types.YLeaf{"Atmintfcurrentlydowntouppvcls", atminterfaceconfentry.Atmintfcurrentlydowntouppvcls}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfOAMFailedPVcls"] = types.YLeaf{"Atmintfoamfailedpvcls", atminterfaceconfentry.Atmintfoamfailedpvcls}
+    atminterfaceconfentry.EntityData.Leafs["atmIntfCurrentlyOAMFailingPVcls"] = types.YLeaf{"Atmintfcurrentlyoamfailingpvcls", atminterfaceconfentry.Atmintfcurrentlyoamfailingpvcls}
+    return &(atminterfaceconfentry.EntityData)
 }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetSegmentPath() string {
-    return "atmInterfaceConfEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfaceconfentry.Ifindex) + "']"
-}
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = atminterfaceconfentry.Ifindex
-    leafs["atmInterfaceMaxVpcs"] = atminterfaceconfentry.Atminterfacemaxvpcs
-    leafs["atmInterfaceMaxVccs"] = atminterfaceconfentry.Atminterfacemaxvccs
-    leafs["atmInterfaceConfVpcs"] = atminterfaceconfentry.Atminterfaceconfvpcs
-    leafs["atmInterfaceConfVccs"] = atminterfaceconfentry.Atminterfaceconfvccs
-    leafs["atmInterfaceMaxActiveVpiBits"] = atminterfaceconfentry.Atminterfacemaxactivevpibits
-    leafs["atmInterfaceMaxActiveVciBits"] = atminterfaceconfentry.Atminterfacemaxactivevcibits
-    leafs["atmInterfaceIlmiVpi"] = atminterfaceconfentry.Atminterfaceilmivpi
-    leafs["atmInterfaceIlmiVci"] = atminterfaceconfentry.Atminterfaceilmivci
-    leafs["atmInterfaceAddressType"] = atminterfaceconfentry.Atminterfaceaddresstype
-    leafs["atmInterfaceAdminAddress"] = atminterfaceconfentry.Atminterfaceadminaddress
-    leafs["atmInterfaceMyNeighborIpAddress"] = atminterfaceconfentry.Atminterfacemyneighboripaddress
-    leafs["atmInterfaceMyNeighborIfName"] = atminterfaceconfentry.Atminterfacemyneighborifname
-    leafs["atmInterfaceCurrentMaxVpiBits"] = atminterfaceconfentry.Atminterfacecurrentmaxvpibits
-    leafs["atmInterfaceCurrentMaxVciBits"] = atminterfaceconfentry.Atminterfacecurrentmaxvcibits
-    leafs["atmInterfaceSubscrAddress"] = atminterfaceconfentry.Atminterfacesubscraddress
-    leafs["atmIntfPvcFailures"] = atminterfaceconfentry.Atmintfpvcfailures
-    leafs["atmIntfCurrentlyFailingPVcls"] = atminterfaceconfentry.Atmintfcurrentlyfailingpvcls
-    leafs["atmIntfPvcFailuresTrapEnable"] = atminterfaceconfentry.Atmintfpvcfailurestrapenable
-    leafs["atmIntfPvcNotificationInterval"] = atminterfaceconfentry.Atmintfpvcnotificationinterval
-    leafs["atmPreviouslyFailedPVclInterval"] = atminterfaceconfentry.Atmpreviouslyfailedpvclinterval
-    leafs["catmIntfCurrentlyDownToUpPVcls"] = atminterfaceconfentry.Catmintfcurrentlydowntouppvcls
-    leafs["catmIntfOAMFailedPVcls"] = atminterfaceconfentry.Catmintfoamfailedpvcls
-    leafs["catmIntfCurrentOAMFailingPVcls"] = atminterfaceconfentry.Catmintfcurrentoamfailingpvcls
-    leafs["catmIntfSegCCOAMFailedPVcls"] = atminterfaceconfentry.Catmintfsegccoamfailedpvcls
-    leafs["catmIntfCurSegCCOAMFailingPVcls"] = atminterfaceconfentry.Catmintfcursegccoamfailingpvcls
-    leafs["catmIntfEndCCOAMFailedPVcls"] = atminterfaceconfentry.Catmintfendccoamfailedpvcls
-    leafs["catmIntfCurEndCCOAMFailingPVcls"] = atminterfaceconfentry.Catmintfcurendccoamfailingpvcls
-    leafs["catmIntfAISRDIOAMFailedPVcls"] = atminterfaceconfentry.Catmintfaisrdioamfailedpvcls
-    leafs["catmIntfCurAISRDIOAMFailingPVcls"] = atminterfaceconfentry.Catmintfcuraisrdioamfailingpvcls
-    leafs["catmIntfAnyOAMFailedPVcls"] = atminterfaceconfentry.Catmintfanyoamfailedpvcls
-    leafs["catmIntfCurAnyOAMFailingPVcls"] = atminterfaceconfentry.Catmintfcuranyoamfailingpvcls
-    leafs["catmIntfTypeOfOAMFailure"] = atminterfaceconfentry.Catmintftypeofoamfailure
-    leafs["catmIntfOAMRcovedPVcls"] = atminterfaceconfentry.Catmintfoamrcovedpvcls
-    leafs["catmIntfCurrentOAMRcovingPVcls"] = atminterfaceconfentry.Catmintfcurrentoamrcovingpvcls
-    leafs["catmIntfSegCCOAMRcovedPVcls"] = atminterfaceconfentry.Catmintfsegccoamrcovedpvcls
-    leafs["catmIntfCurSegCCOAMRcovingPVcls"] = atminterfaceconfentry.Catmintfcursegccoamrcovingpvcls
-    leafs["catmIntfEndCCOAMRcovedPVcls"] = atminterfaceconfentry.Catmintfendccoamrcovedpvcls
-    leafs["catmIntfCurEndCCOAMRcovingPVcls"] = atminterfaceconfentry.Catmintfcurendccoamrcovingpvcls
-    leafs["catmIntfAISRDIOAMRcovedPVcls"] = atminterfaceconfentry.Catmintfaisrdioamrcovedpvcls
-    leafs["catmIntfCurAISRDIOAMRcovingPVcls"] = atminterfaceconfentry.Catmintfcuraisrdioamrcovingpvcls
-    leafs["catmIntfAnyOAMRcovedPVcls"] = atminterfaceconfentry.Catmintfanyoamrcovedpvcls
-    leafs["catmIntfCurAnyOAMRcovingPVcls"] = atminterfaceconfentry.Catmintfcuranyoamrcovingpvcls
-    leafs["catmIntfTypeOfOAMRecover"] = atminterfaceconfentry.Catmintftypeofoamrecover
-    leafs["atmIntfCurrentlyDownToUpPVcls"] = atminterfaceconfentry.Atmintfcurrentlydowntouppvcls
-    leafs["atmIntfOAMFailedPVcls"] = atminterfaceconfentry.Atmintfoamfailedpvcls
-    leafs["atmIntfCurrentlyOAMFailingPVcls"] = atminterfaceconfentry.Atmintfcurrentlyoamfailingpvcls
-    return leafs
-}
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetYangName() string { return "atmInterfaceConfEntry" }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) SetParent(parent types.Entity) { atminterfaceconfentry.parent = parent }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetParent() types.Entity { return atminterfaceconfentry.parent }
-
-func (atminterfaceconfentry *ATMMIB_Atminterfaceconftable_Atminterfaceconfentry) GetParentYangName() string { return "atmInterfaceConfTable" }
 
 // ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype represents for use at this ATM interface.
 type ATMMIB_Atminterfaceconftable_Atminterfaceconfentry_Atminterfaceaddresstype string
@@ -748,7 +532,7 @@ const (
 // parameters and state variables, one entry per
 // ATM interface port.
 type ATMMIB_Atminterfaceds3Plcptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains DS3 PLCP parameters and state variables at the ATM
@@ -757,70 +541,31 @@ type ATMMIB_Atminterfaceds3Plcptable struct {
     Atminterfaceds3Plcpentry []ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry
 }
 
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetFilter() yfilter.YFilter { return atminterfaceds3Plcptable.YFilter }
+func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetEntityData() *types.CommonEntityData {
+    atminterfaceds3Plcptable.EntityData.YFilter = atminterfaceds3Plcptable.YFilter
+    atminterfaceds3Plcptable.EntityData.YangName = "atmInterfaceDs3PlcpTable"
+    atminterfaceds3Plcptable.EntityData.BundleName = "cisco_ios_xe"
+    atminterfaceds3Plcptable.EntityData.ParentYangName = "ATM-MIB"
+    atminterfaceds3Plcptable.EntityData.SegmentPath = "atmInterfaceDs3PlcpTable"
+    atminterfaceds3Plcptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atminterfaceds3Plcptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atminterfaceds3Plcptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) SetFilter(yf yfilter.YFilter) { atminterfaceds3Plcptable.YFilter = yf }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetGoName(yname string) string {
-    if yname == "atmInterfaceDs3PlcpEntry" { return "Atminterfaceds3Plcpentry" }
-    return ""
-}
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetSegmentPath() string {
-    return "atmInterfaceDs3PlcpTable"
-}
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmInterfaceDs3PlcpEntry" {
-        for _, c := range atminterfaceds3Plcptable.Atminterfaceds3Plcpentry {
-            if atminterfaceds3Plcptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry{}
-        atminterfaceds3Plcptable.Atminterfaceds3Plcpentry = append(atminterfaceds3Plcptable.Atminterfaceds3Plcpentry, child)
-        return &atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[len(atminterfaceds3Plcptable.Atminterfaceds3Plcpentry)-1]
-    }
-    return nil
-}
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atminterfaceds3Plcptable.EntityData.Children = make(map[string]types.YChild)
+    atminterfaceds3Plcptable.EntityData.Children["atmInterfaceDs3PlcpEntry"] = types.YChild{"Atminterfaceds3Plcpentry", nil}
     for i := range atminterfaceds3Plcptable.Atminterfaceds3Plcpentry {
-        children[atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[i].GetSegmentPath()] = &atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[i]
+        atminterfaceds3Plcptable.EntityData.Children[types.GetSegmentPath(&atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[i])] = types.YChild{"Atminterfaceds3Plcpentry", &atminterfaceds3Plcptable.Atminterfaceds3Plcpentry[i]}
     }
-    return children
+    atminterfaceds3Plcptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atminterfaceds3Plcptable.EntityData)
 }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetYangName() string { return "atmInterfaceDs3PlcpTable" }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) SetParent(parent types.Entity) { atminterfaceds3Plcptable.parent = parent }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetParent() types.Entity { return atminterfaceds3Plcptable.parent }
-
-func (atminterfaceds3Plcptable *ATMMIB_Atminterfaceds3Plcptable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry
 // This list contains DS3 PLCP parameters and
 // state variables at the ATM interface and is
 // indexed by the ifIndex value of the ATM interface.
 type ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -846,57 +591,24 @@ type ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry struct {
     Atminterfaceds3Plcpuass interface{}
 }
 
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetFilter() yfilter.YFilter { return atminterfaceds3Plcpentry.YFilter }
+func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetEntityData() *types.CommonEntityData {
+    atminterfaceds3Plcpentry.EntityData.YFilter = atminterfaceds3Plcpentry.YFilter
+    atminterfaceds3Plcpentry.EntityData.YangName = "atmInterfaceDs3PlcpEntry"
+    atminterfaceds3Plcpentry.EntityData.BundleName = "cisco_ios_xe"
+    atminterfaceds3Plcpentry.EntityData.ParentYangName = "atmInterfaceDs3PlcpTable"
+    atminterfaceds3Plcpentry.EntityData.SegmentPath = "atmInterfaceDs3PlcpEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfaceds3Plcpentry.Ifindex) + "']"
+    atminterfaceds3Plcpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atminterfaceds3Plcpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atminterfaceds3Plcpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) SetFilter(yf yfilter.YFilter) { atminterfaceds3Plcpentry.YFilter = yf }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "atmInterfaceDs3PlcpSEFSs" { return "Atminterfaceds3Plcpsefss" }
-    if yname == "atmInterfaceDs3PlcpAlarmState" { return "Atminterfaceds3Plcpalarmstate" }
-    if yname == "atmInterfaceDs3PlcpUASs" { return "Atminterfaceds3Plcpuass" }
-    return ""
+    atminterfaceds3Plcpentry.EntityData.Children = make(map[string]types.YChild)
+    atminterfaceds3Plcpentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atminterfaceds3Plcpentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atminterfaceds3Plcpentry.Ifindex}
+    atminterfaceds3Plcpentry.EntityData.Leafs["atmInterfaceDs3PlcpSEFSs"] = types.YLeaf{"Atminterfaceds3Plcpsefss", atminterfaceds3Plcpentry.Atminterfaceds3Plcpsefss}
+    atminterfaceds3Plcpentry.EntityData.Leafs["atmInterfaceDs3PlcpAlarmState"] = types.YLeaf{"Atminterfaceds3Plcpalarmstate", atminterfaceds3Plcpentry.Atminterfaceds3Plcpalarmstate}
+    atminterfaceds3Plcpentry.EntityData.Leafs["atmInterfaceDs3PlcpUASs"] = types.YLeaf{"Atminterfaceds3Plcpuass", atminterfaceds3Plcpentry.Atminterfaceds3Plcpuass}
+    return &(atminterfaceds3Plcpentry.EntityData)
 }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetSegmentPath() string {
-    return "atmInterfaceDs3PlcpEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfaceds3Plcpentry.Ifindex) + "']"
-}
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = atminterfaceds3Plcpentry.Ifindex
-    leafs["atmInterfaceDs3PlcpSEFSs"] = atminterfaceds3Plcpentry.Atminterfaceds3Plcpsefss
-    leafs["atmInterfaceDs3PlcpAlarmState"] = atminterfaceds3Plcpentry.Atminterfaceds3Plcpalarmstate
-    leafs["atmInterfaceDs3PlcpUASs"] = atminterfaceds3Plcpentry.Atminterfaceds3Plcpuass
-    return leafs
-}
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetYangName() string { return "atmInterfaceDs3PlcpEntry" }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) SetParent(parent types.Entity) { atminterfaceds3Plcpentry.parent = parent }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetParent() types.Entity { return atminterfaceds3Plcpentry.parent }
-
-func (atminterfaceds3Plcpentry *ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry) GetParentYangName() string { return "atmInterfaceDs3PlcpTable" }
 
 // ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate represents for more than 10 seconds.
 type ATMMIB_Atminterfaceds3Plcptable_Atminterfaceds3Plcpentry_Atminterfaceds3Plcpalarmstate string
@@ -914,7 +626,7 @@ const (
 // Sublayer parameters and state variables,
 // one entry per ATM interface port.
 type ATMMIB_Atminterfacetctable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains TC Sublayer parameters and state variables at the ATM
@@ -923,70 +635,31 @@ type ATMMIB_Atminterfacetctable struct {
     Atminterfacetcentry []ATMMIB_Atminterfacetctable_Atminterfacetcentry
 }
 
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetFilter() yfilter.YFilter { return atminterfacetctable.YFilter }
+func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetEntityData() *types.CommonEntityData {
+    atminterfacetctable.EntityData.YFilter = atminterfacetctable.YFilter
+    atminterfacetctable.EntityData.YangName = "atmInterfaceTCTable"
+    atminterfacetctable.EntityData.BundleName = "cisco_ios_xe"
+    atminterfacetctable.EntityData.ParentYangName = "ATM-MIB"
+    atminterfacetctable.EntityData.SegmentPath = "atmInterfaceTCTable"
+    atminterfacetctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atminterfacetctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atminterfacetctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) SetFilter(yf yfilter.YFilter) { atminterfacetctable.YFilter = yf }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetGoName(yname string) string {
-    if yname == "atmInterfaceTCEntry" { return "Atminterfacetcentry" }
-    return ""
-}
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetSegmentPath() string {
-    return "atmInterfaceTCTable"
-}
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmInterfaceTCEntry" {
-        for _, c := range atminterfacetctable.Atminterfacetcentry {
-            if atminterfacetctable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atminterfacetctable_Atminterfacetcentry{}
-        atminterfacetctable.Atminterfacetcentry = append(atminterfacetctable.Atminterfacetcentry, child)
-        return &atminterfacetctable.Atminterfacetcentry[len(atminterfacetctable.Atminterfacetcentry)-1]
-    }
-    return nil
-}
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atminterfacetctable.EntityData.Children = make(map[string]types.YChild)
+    atminterfacetctable.EntityData.Children["atmInterfaceTCEntry"] = types.YChild{"Atminterfacetcentry", nil}
     for i := range atminterfacetctable.Atminterfacetcentry {
-        children[atminterfacetctable.Atminterfacetcentry[i].GetSegmentPath()] = &atminterfacetctable.Atminterfacetcentry[i]
+        atminterfacetctable.EntityData.Children[types.GetSegmentPath(&atminterfacetctable.Atminterfacetcentry[i])] = types.YChild{"Atminterfacetcentry", &atminterfacetctable.Atminterfacetcentry[i]}
     }
-    return children
+    atminterfacetctable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atminterfacetctable.EntityData)
 }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetYangName() string { return "atmInterfaceTCTable" }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) SetParent(parent types.Entity) { atminterfacetctable.parent = parent }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetParent() types.Entity { return atminterfacetctable.parent }
-
-func (atminterfacetctable *ATMMIB_Atminterfacetctable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atminterfacetctable_Atminterfacetcentry
 // This list contains TC Sublayer parameters
 // and state variables at the ATM interface and is
 // indexed by the ifIndex value of the ATM interface.
 type ATMMIB_Atminterfacetctable_Atminterfacetcentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1007,55 +680,23 @@ type ATMMIB_Atminterfacetctable_Atminterfacetcentry struct {
     Atminterfacetcalarmstate interface{}
 }
 
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetFilter() yfilter.YFilter { return atminterfacetcentry.YFilter }
+func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetEntityData() *types.CommonEntityData {
+    atminterfacetcentry.EntityData.YFilter = atminterfacetcentry.YFilter
+    atminterfacetcentry.EntityData.YangName = "atmInterfaceTCEntry"
+    atminterfacetcentry.EntityData.BundleName = "cisco_ios_xe"
+    atminterfacetcentry.EntityData.ParentYangName = "atmInterfaceTCTable"
+    atminterfacetcentry.EntityData.SegmentPath = "atmInterfaceTCEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfacetcentry.Ifindex) + "']"
+    atminterfacetcentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atminterfacetcentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atminterfacetcentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) SetFilter(yf yfilter.YFilter) { atminterfacetcentry.YFilter = yf }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "atmInterfaceOCDEvents" { return "Atminterfaceocdevents" }
-    if yname == "atmInterfaceTCAlarmState" { return "Atminterfacetcalarmstate" }
-    return ""
+    atminterfacetcentry.EntityData.Children = make(map[string]types.YChild)
+    atminterfacetcentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atminterfacetcentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atminterfacetcentry.Ifindex}
+    atminterfacetcentry.EntityData.Leafs["atmInterfaceOCDEvents"] = types.YLeaf{"Atminterfaceocdevents", atminterfacetcentry.Atminterfaceocdevents}
+    atminterfacetcentry.EntityData.Leafs["atmInterfaceTCAlarmState"] = types.YLeaf{"Atminterfacetcalarmstate", atminterfacetcentry.Atminterfacetcalarmstate}
+    return &(atminterfacetcentry.EntityData)
 }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetSegmentPath() string {
-    return "atmInterfaceTCEntry" + "[ifIndex='" + fmt.Sprintf("%v", atminterfacetcentry.Ifindex) + "']"
-}
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = atminterfacetcentry.Ifindex
-    leafs["atmInterfaceOCDEvents"] = atminterfacetcentry.Atminterfaceocdevents
-    leafs["atmInterfaceTCAlarmState"] = atminterfacetcentry.Atminterfacetcalarmstate
-    return leafs
-}
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetYangName() string { return "atmInterfaceTCEntry" }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) SetParent(parent types.Entity) { atminterfacetcentry.parent = parent }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetParent() types.Entity { return atminterfacetcentry.parent }
-
-func (atminterfacetcentry *ATMMIB_Atminterfacetctable_Atminterfacetcentry) GetParentYangName() string { return "atmInterfaceTCTable" }
 
 // ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate represents maintenance state.
 type ATMMIB_Atminterfacetctable_Atminterfacetcentry_Atminterfacetcalarmstate string
@@ -1070,7 +711,7 @@ const (
 // This table contains information on ATM traffic
 // descriptor type and the associated parameters.
 type ATMMIB_Atmtrafficdescrparamtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains ATM traffic descriptor type and the associated
@@ -1079,69 +720,30 @@ type ATMMIB_Atmtrafficdescrparamtable struct {
     Atmtrafficdescrparamentry []ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry
 }
 
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetFilter() yfilter.YFilter { return atmtrafficdescrparamtable.YFilter }
+func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetEntityData() *types.CommonEntityData {
+    atmtrafficdescrparamtable.EntityData.YFilter = atmtrafficdescrparamtable.YFilter
+    atmtrafficdescrparamtable.EntityData.YangName = "atmTrafficDescrParamTable"
+    atmtrafficdescrparamtable.EntityData.BundleName = "cisco_ios_xe"
+    atmtrafficdescrparamtable.EntityData.ParentYangName = "ATM-MIB"
+    atmtrafficdescrparamtable.EntityData.SegmentPath = "atmTrafficDescrParamTable"
+    atmtrafficdescrparamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmtrafficdescrparamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmtrafficdescrparamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) SetFilter(yf yfilter.YFilter) { atmtrafficdescrparamtable.YFilter = yf }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetGoName(yname string) string {
-    if yname == "atmTrafficDescrParamEntry" { return "Atmtrafficdescrparamentry" }
-    return ""
-}
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetSegmentPath() string {
-    return "atmTrafficDescrParamTable"
-}
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmTrafficDescrParamEntry" {
-        for _, c := range atmtrafficdescrparamtable.Atmtrafficdescrparamentry {
-            if atmtrafficdescrparamtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry{}
-        atmtrafficdescrparamtable.Atmtrafficdescrparamentry = append(atmtrafficdescrparamtable.Atmtrafficdescrparamentry, child)
-        return &atmtrafficdescrparamtable.Atmtrafficdescrparamentry[len(atmtrafficdescrparamtable.Atmtrafficdescrparamentry)-1]
-    }
-    return nil
-}
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atmtrafficdescrparamtable.EntityData.Children = make(map[string]types.YChild)
+    atmtrafficdescrparamtable.EntityData.Children["atmTrafficDescrParamEntry"] = types.YChild{"Atmtrafficdescrparamentry", nil}
     for i := range atmtrafficdescrparamtable.Atmtrafficdescrparamentry {
-        children[atmtrafficdescrparamtable.Atmtrafficdescrparamentry[i].GetSegmentPath()] = &atmtrafficdescrparamtable.Atmtrafficdescrparamentry[i]
+        atmtrafficdescrparamtable.EntityData.Children[types.GetSegmentPath(&atmtrafficdescrparamtable.Atmtrafficdescrparamentry[i])] = types.YChild{"Atmtrafficdescrparamentry", &atmtrafficdescrparamtable.Atmtrafficdescrparamentry[i]}
     }
-    return children
+    atmtrafficdescrparamtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atmtrafficdescrparamtable.EntityData)
 }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetYangName() string { return "atmTrafficDescrParamTable" }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) SetParent(parent types.Entity) { atmtrafficdescrparamtable.parent = parent }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetParent() types.Entity { return atmtrafficdescrparamtable.parent }
-
-func (atmtrafficdescrparamtable *ATMMIB_Atmtrafficdescrparamtable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry
 // This list contains ATM traffic descriptor
 // type and the associated parameters.
 type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object is used by the virtual link table
@@ -1157,7 +759,7 @@ type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
     // the corresponding instances of the objects:     atmTrafficDescrParam1    
     // atmTrafficDescrParam2     atmTrafficDescrParam3     atmTrafficDescrParam4  
     // atmTrafficDescrParam5. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Atmtrafficdescrtype interface{}
 
     // The first parameter of the ATM traffic descriptor used according to the
@@ -1211,71 +813,31 @@ type ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry struct {
     Atmtrafficframediscard interface{}
 }
 
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetFilter() yfilter.YFilter { return atmtrafficdescrparamentry.YFilter }
+func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetEntityData() *types.CommonEntityData {
+    atmtrafficdescrparamentry.EntityData.YFilter = atmtrafficdescrparamentry.YFilter
+    atmtrafficdescrparamentry.EntityData.YangName = "atmTrafficDescrParamEntry"
+    atmtrafficdescrparamentry.EntityData.BundleName = "cisco_ios_xe"
+    atmtrafficdescrparamentry.EntityData.ParentYangName = "atmTrafficDescrParamTable"
+    atmtrafficdescrparamentry.EntityData.SegmentPath = "atmTrafficDescrParamEntry" + "[atmTrafficDescrParamIndex='" + fmt.Sprintf("%v", atmtrafficdescrparamentry.Atmtrafficdescrparamindex) + "']"
+    atmtrafficdescrparamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmtrafficdescrparamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmtrafficdescrparamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) SetFilter(yf yfilter.YFilter) { atmtrafficdescrparamentry.YFilter = yf }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetGoName(yname string) string {
-    if yname == "atmTrafficDescrParamIndex" { return "Atmtrafficdescrparamindex" }
-    if yname == "atmTrafficDescrType" { return "Atmtrafficdescrtype" }
-    if yname == "atmTrafficDescrParam1" { return "Atmtrafficdescrparam1" }
-    if yname == "atmTrafficDescrParam2" { return "Atmtrafficdescrparam2" }
-    if yname == "atmTrafficDescrParam3" { return "Atmtrafficdescrparam3" }
-    if yname == "atmTrafficDescrParam4" { return "Atmtrafficdescrparam4" }
-    if yname == "atmTrafficDescrParam5" { return "Atmtrafficdescrparam5" }
-    if yname == "atmTrafficQoSClass" { return "Atmtrafficqosclass" }
-    if yname == "atmTrafficDescrRowStatus" { return "Atmtrafficdescrrowstatus" }
-    if yname == "atmServiceCategory" { return "Atmservicecategory" }
-    if yname == "atmTrafficFrameDiscard" { return "Atmtrafficframediscard" }
-    return ""
+    atmtrafficdescrparamentry.EntityData.Children = make(map[string]types.YChild)
+    atmtrafficdescrparamentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParamIndex"] = types.YLeaf{"Atmtrafficdescrparamindex", atmtrafficdescrparamentry.Atmtrafficdescrparamindex}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrType"] = types.YLeaf{"Atmtrafficdescrtype", atmtrafficdescrparamentry.Atmtrafficdescrtype}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam1"] = types.YLeaf{"Atmtrafficdescrparam1", atmtrafficdescrparamentry.Atmtrafficdescrparam1}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam2"] = types.YLeaf{"Atmtrafficdescrparam2", atmtrafficdescrparamentry.Atmtrafficdescrparam2}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam3"] = types.YLeaf{"Atmtrafficdescrparam3", atmtrafficdescrparamentry.Atmtrafficdescrparam3}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam4"] = types.YLeaf{"Atmtrafficdescrparam4", atmtrafficdescrparamentry.Atmtrafficdescrparam4}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrParam5"] = types.YLeaf{"Atmtrafficdescrparam5", atmtrafficdescrparamentry.Atmtrafficdescrparam5}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficQoSClass"] = types.YLeaf{"Atmtrafficqosclass", atmtrafficdescrparamentry.Atmtrafficqosclass}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficDescrRowStatus"] = types.YLeaf{"Atmtrafficdescrrowstatus", atmtrafficdescrparamentry.Atmtrafficdescrrowstatus}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmServiceCategory"] = types.YLeaf{"Atmservicecategory", atmtrafficdescrparamentry.Atmservicecategory}
+    atmtrafficdescrparamentry.EntityData.Leafs["atmTrafficFrameDiscard"] = types.YLeaf{"Atmtrafficframediscard", atmtrafficdescrparamentry.Atmtrafficframediscard}
+    return &(atmtrafficdescrparamentry.EntityData)
 }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetSegmentPath() string {
-    return "atmTrafficDescrParamEntry" + "[atmTrafficDescrParamIndex='" + fmt.Sprintf("%v", atmtrafficdescrparamentry.Atmtrafficdescrparamindex) + "']"
-}
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["atmTrafficDescrParamIndex"] = atmtrafficdescrparamentry.Atmtrafficdescrparamindex
-    leafs["atmTrafficDescrType"] = atmtrafficdescrparamentry.Atmtrafficdescrtype
-    leafs["atmTrafficDescrParam1"] = atmtrafficdescrparamentry.Atmtrafficdescrparam1
-    leafs["atmTrafficDescrParam2"] = atmtrafficdescrparamentry.Atmtrafficdescrparam2
-    leafs["atmTrafficDescrParam3"] = atmtrafficdescrparamentry.Atmtrafficdescrparam3
-    leafs["atmTrafficDescrParam4"] = atmtrafficdescrparamentry.Atmtrafficdescrparam4
-    leafs["atmTrafficDescrParam5"] = atmtrafficdescrparamentry.Atmtrafficdescrparam5
-    leafs["atmTrafficQoSClass"] = atmtrafficdescrparamentry.Atmtrafficqosclass
-    leafs["atmTrafficDescrRowStatus"] = atmtrafficdescrparamentry.Atmtrafficdescrrowstatus
-    leafs["atmServiceCategory"] = atmtrafficdescrparamentry.Atmservicecategory
-    leafs["atmTrafficFrameDiscard"] = atmtrafficdescrparamentry.Atmtrafficframediscard
-    return leafs
-}
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetYangName() string { return "atmTrafficDescrParamEntry" }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) SetParent(parent types.Entity) { atmtrafficdescrparamentry.parent = parent }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetParent() types.Entity { return atmtrafficdescrparamentry.parent }
-
-func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdescrparamentry) GetParentYangName() string { return "atmTrafficDescrParamTable" }
 
 // ATMMIB_Atmvpltable
 // The Virtual Path Link (VPL) table.  A
@@ -1285,7 +847,7 @@ func (atmtrafficdescrparamentry *ATMMIB_Atmtrafficdescrparamtable_Atmtrafficdesc
 // Entries are not present in this table for
 // the VPIs used by entries in the atmVclTable.
 type ATMMIB_Atmvpltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the VPL table.  This entry is used to model a bi-directional
@@ -1327,63 +889,24 @@ type ATMMIB_Atmvpltable struct {
     Atmvplentry []ATMMIB_Atmvpltable_Atmvplentry
 }
 
-func (atmvpltable *ATMMIB_Atmvpltable) GetFilter() yfilter.YFilter { return atmvpltable.YFilter }
+func (atmvpltable *ATMMIB_Atmvpltable) GetEntityData() *types.CommonEntityData {
+    atmvpltable.EntityData.YFilter = atmvpltable.YFilter
+    atmvpltable.EntityData.YangName = "atmVplTable"
+    atmvpltable.EntityData.BundleName = "cisco_ios_xe"
+    atmvpltable.EntityData.ParentYangName = "ATM-MIB"
+    atmvpltable.EntityData.SegmentPath = "atmVplTable"
+    atmvpltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvpltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvpltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvpltable *ATMMIB_Atmvpltable) SetFilter(yf yfilter.YFilter) { atmvpltable.YFilter = yf }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetGoName(yname string) string {
-    if yname == "atmVplEntry" { return "Atmvplentry" }
-    return ""
-}
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetSegmentPath() string {
-    return "atmVplTable"
-}
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmVplEntry" {
-        for _, c := range atmvpltable.Atmvplentry {
-            if atmvpltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atmvpltable_Atmvplentry{}
-        atmvpltable.Atmvplentry = append(atmvpltable.Atmvplentry, child)
-        return &atmvpltable.Atmvplentry[len(atmvpltable.Atmvplentry)-1]
-    }
-    return nil
-}
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atmvpltable.EntityData.Children = make(map[string]types.YChild)
+    atmvpltable.EntityData.Children["atmVplEntry"] = types.YChild{"Atmvplentry", nil}
     for i := range atmvpltable.Atmvplentry {
-        children[atmvpltable.Atmvplentry[i].GetSegmentPath()] = &atmvpltable.Atmvplentry[i]
+        atmvpltable.EntityData.Children[types.GetSegmentPath(&atmvpltable.Atmvplentry[i])] = types.YChild{"Atmvplentry", &atmvpltable.Atmvplentry[i]}
     }
-    return children
+    atmvpltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atmvpltable.EntityData)
 }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetYangName() string { return "atmVplTable" }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvpltable *ATMMIB_Atmvpltable) SetParent(parent types.Entity) { atmvpltable.parent = parent }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetParent() types.Entity { return atmvpltable.parent }
-
-func (atmvpltable *ATMMIB_Atmvpltable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atmvpltable_Atmvplentry
 // An entry in the VPL table.  This entry is
@@ -1462,7 +985,7 @@ func (atmvpltable *ATMMIB_Atmvpltable) GetParentYangName() string { return "ATM-
 // destroy(6), and the agent may release all
 // associated resources.
 type ATMMIB_Atmvpltable_Atmvplentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1524,71 +1047,31 @@ type ATMMIB_Atmvpltable_Atmvplentry struct {
     Atmvplconnkind interface{}
 }
 
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetFilter() yfilter.YFilter { return atmvplentry.YFilter }
+func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetEntityData() *types.CommonEntityData {
+    atmvplentry.EntityData.YFilter = atmvplentry.YFilter
+    atmvplentry.EntityData.YangName = "atmVplEntry"
+    atmvplentry.EntityData.BundleName = "cisco_ios_xe"
+    atmvplentry.EntityData.ParentYangName = "atmVplTable"
+    atmvplentry.EntityData.SegmentPath = "atmVplEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmvplentry.Ifindex) + "']" + "[atmVplVpi='" + fmt.Sprintf("%v", atmvplentry.Atmvplvpi) + "']"
+    atmvplentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvplentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvplentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) SetFilter(yf yfilter.YFilter) { atmvplentry.YFilter = yf }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "atmVplVpi" { return "Atmvplvpi" }
-    if yname == "atmVplAdminStatus" { return "Atmvpladminstatus" }
-    if yname == "atmVplOperStatus" { return "Atmvploperstatus" }
-    if yname == "atmVplLastChange" { return "Atmvpllastchange" }
-    if yname == "atmVplReceiveTrafficDescrIndex" { return "Atmvplreceivetrafficdescrindex" }
-    if yname == "atmVplTransmitTrafficDescrIndex" { return "Atmvpltransmittrafficdescrindex" }
-    if yname == "atmVplCrossConnectIdentifier" { return "Atmvplcrossconnectidentifier" }
-    if yname == "atmVplRowStatus" { return "Atmvplrowstatus" }
-    if yname == "atmVplCastType" { return "Atmvplcasttype" }
-    if yname == "atmVplConnKind" { return "Atmvplconnkind" }
-    return ""
+    atmvplentry.EntityData.Children = make(map[string]types.YChild)
+    atmvplentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmvplentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmvplentry.Ifindex}
+    atmvplentry.EntityData.Leafs["atmVplVpi"] = types.YLeaf{"Atmvplvpi", atmvplentry.Atmvplvpi}
+    atmvplentry.EntityData.Leafs["atmVplAdminStatus"] = types.YLeaf{"Atmvpladminstatus", atmvplentry.Atmvpladminstatus}
+    atmvplentry.EntityData.Leafs["atmVplOperStatus"] = types.YLeaf{"Atmvploperstatus", atmvplentry.Atmvploperstatus}
+    atmvplentry.EntityData.Leafs["atmVplLastChange"] = types.YLeaf{"Atmvpllastchange", atmvplentry.Atmvpllastchange}
+    atmvplentry.EntityData.Leafs["atmVplReceiveTrafficDescrIndex"] = types.YLeaf{"Atmvplreceivetrafficdescrindex", atmvplentry.Atmvplreceivetrafficdescrindex}
+    atmvplentry.EntityData.Leafs["atmVplTransmitTrafficDescrIndex"] = types.YLeaf{"Atmvpltransmittrafficdescrindex", atmvplentry.Atmvpltransmittrafficdescrindex}
+    atmvplentry.EntityData.Leafs["atmVplCrossConnectIdentifier"] = types.YLeaf{"Atmvplcrossconnectidentifier", atmvplentry.Atmvplcrossconnectidentifier}
+    atmvplentry.EntityData.Leafs["atmVplRowStatus"] = types.YLeaf{"Atmvplrowstatus", atmvplentry.Atmvplrowstatus}
+    atmvplentry.EntityData.Leafs["atmVplCastType"] = types.YLeaf{"Atmvplcasttype", atmvplentry.Atmvplcasttype}
+    atmvplentry.EntityData.Leafs["atmVplConnKind"] = types.YLeaf{"Atmvplconnkind", atmvplentry.Atmvplconnkind}
+    return &(atmvplentry.EntityData)
 }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetSegmentPath() string {
-    return "atmVplEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmvplentry.Ifindex) + "']" + "[atmVplVpi='" + fmt.Sprintf("%v", atmvplentry.Atmvplvpi) + "']"
-}
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = atmvplentry.Ifindex
-    leafs["atmVplVpi"] = atmvplentry.Atmvplvpi
-    leafs["atmVplAdminStatus"] = atmvplentry.Atmvpladminstatus
-    leafs["atmVplOperStatus"] = atmvplentry.Atmvploperstatus
-    leafs["atmVplLastChange"] = atmvplentry.Atmvpllastchange
-    leafs["atmVplReceiveTrafficDescrIndex"] = atmvplentry.Atmvplreceivetrafficdescrindex
-    leafs["atmVplTransmitTrafficDescrIndex"] = atmvplentry.Atmvpltransmittrafficdescrindex
-    leafs["atmVplCrossConnectIdentifier"] = atmvplentry.Atmvplcrossconnectidentifier
-    leafs["atmVplRowStatus"] = atmvplentry.Atmvplrowstatus
-    leafs["atmVplCastType"] = atmvplentry.Atmvplcasttype
-    leafs["atmVplConnKind"] = atmvplentry.Atmvplconnkind
-    return leafs
-}
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetYangName() string { return "atmVplEntry" }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) SetParent(parent types.Entity) { atmvplentry.parent = parent }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetParent() types.Entity { return atmvplentry.parent }
-
-func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetParentYangName() string { return "atmVplTable" }
 
 // ATMMIB_Atmvcltable
 // The Virtual Channel Link (VCL) table.  A
@@ -1596,7 +1079,7 @@ func (atmvplentry *ATMMIB_Atmvpltable_Atmvplentry) GetParentYangName() string { 
 // in this table. This table can be used for
 // PVCs, SVCs and Soft PVCs.
 type ATMMIB_Atmvcltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the VCL table. This entry is used to model a bi-directional
@@ -1639,63 +1122,24 @@ type ATMMIB_Atmvcltable struct {
     Atmvclentry []ATMMIB_Atmvcltable_Atmvclentry
 }
 
-func (atmvcltable *ATMMIB_Atmvcltable) GetFilter() yfilter.YFilter { return atmvcltable.YFilter }
+func (atmvcltable *ATMMIB_Atmvcltable) GetEntityData() *types.CommonEntityData {
+    atmvcltable.EntityData.YFilter = atmvcltable.YFilter
+    atmvcltable.EntityData.YangName = "atmVclTable"
+    atmvcltable.EntityData.BundleName = "cisco_ios_xe"
+    atmvcltable.EntityData.ParentYangName = "ATM-MIB"
+    atmvcltable.EntityData.SegmentPath = "atmVclTable"
+    atmvcltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvcltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvcltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvcltable *ATMMIB_Atmvcltable) SetFilter(yf yfilter.YFilter) { atmvcltable.YFilter = yf }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetGoName(yname string) string {
-    if yname == "atmVclEntry" { return "Atmvclentry" }
-    return ""
-}
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetSegmentPath() string {
-    return "atmVclTable"
-}
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmVclEntry" {
-        for _, c := range atmvcltable.Atmvclentry {
-            if atmvcltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atmvcltable_Atmvclentry{}
-        atmvcltable.Atmvclentry = append(atmvcltable.Atmvclentry, child)
-        return &atmvcltable.Atmvclentry[len(atmvcltable.Atmvclentry)-1]
-    }
-    return nil
-}
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atmvcltable.EntityData.Children = make(map[string]types.YChild)
+    atmvcltable.EntityData.Children["atmVclEntry"] = types.YChild{"Atmvclentry", nil}
     for i := range atmvcltable.Atmvclentry {
-        children[atmvcltable.Atmvclentry[i].GetSegmentPath()] = &atmvcltable.Atmvclentry[i]
+        atmvcltable.EntityData.Children[types.GetSegmentPath(&atmvcltable.Atmvclentry[i])] = types.YChild{"Atmvclentry", &atmvcltable.Atmvclentry[i]}
     }
-    return children
+    atmvcltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atmvcltable.EntityData)
 }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetYangName() string { return "atmVclTable" }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvcltable *ATMMIB_Atmvcltable) SetParent(parent types.Entity) { atmvcltable.parent = parent }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetParent() types.Entity { return atmvcltable.parent }
-
-func (atmvcltable *ATMMIB_Atmvcltable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atmvcltable_Atmvclentry
 // An entry in the VCL table. This entry is
@@ -1776,7 +1220,7 @@ func (atmvcltable *ATMMIB_Atmvcltable) GetParentYangName() string { return "ATM-
 // destroy(6), and the agent may release all
 // associated resources.
 type ATMMIB_Atmvcltable_Atmvclentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1984,129 +1428,60 @@ type ATMMIB_Atmvcltable_Atmvclentry struct {
     Catmxvcloamoutf5Rdi interface{}
 }
 
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetFilter() yfilter.YFilter { return atmvclentry.YFilter }
+func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetEntityData() *types.CommonEntityData {
+    atmvclentry.EntityData.YFilter = atmvclentry.YFilter
+    atmvclentry.EntityData.YangName = "atmVclEntry"
+    atmvclentry.EntityData.BundleName = "cisco_ios_xe"
+    atmvclentry.EntityData.ParentYangName = "atmVclTable"
+    atmvclentry.EntityData.SegmentPath = "atmVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmvclentry.Atmvclvci) + "']"
+    atmvclentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvclentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvclentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) SetFilter(yf yfilter.YFilter) { atmvclentry.YFilter = yf }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "atmVclVpi" { return "Atmvclvpi" }
-    if yname == "atmVclVci" { return "Atmvclvci" }
-    if yname == "atmVclAdminStatus" { return "Atmvcladminstatus" }
-    if yname == "atmVclOperStatus" { return "Atmvcloperstatus" }
-    if yname == "atmVclLastChange" { return "Atmvcllastchange" }
-    if yname == "atmVclReceiveTrafficDescrIndex" { return "Atmvclreceivetrafficdescrindex" }
-    if yname == "atmVclTransmitTrafficDescrIndex" { return "Atmvcltransmittrafficdescrindex" }
-    if yname == "atmVccAalType" { return "Atmvccaaltype" }
-    if yname == "atmVccAal5CpcsTransmitSduSize" { return "Atmvccaal5Cpcstransmitsdusize" }
-    if yname == "atmVccAal5CpcsReceiveSduSize" { return "Atmvccaal5Cpcsreceivesdusize" }
-    if yname == "atmVccAal5EncapsType" { return "Atmvccaal5Encapstype" }
-    if yname == "atmVclCrossConnectIdentifier" { return "Atmvclcrossconnectidentifier" }
-    if yname == "atmVclRowStatus" { return "Atmvclrowstatus" }
-    if yname == "atmVclCastType" { return "Atmvclcasttype" }
-    if yname == "atmVclConnKind" { return "Atmvclconnkind" }
-    if yname == "catmxVclOamLoopbackFreq" { return "Catmxvcloamloopbackfreq" }
-    if yname == "catmxVclOamRetryFreq" { return "Catmxvcloamretryfreq" }
-    if yname == "catmxVclOamUpRetryCount" { return "Catmxvcloamupretrycount" }
-    if yname == "catmxVclOamDownRetryCount" { return "Catmxvcloamdownretrycount" }
-    if yname == "catmxVclOamEndCCActCount" { return "Catmxvcloamendccactcount" }
-    if yname == "catmxVclOamEndCCDeActCount" { return "Catmxvcloamendccdeactcount" }
-    if yname == "catmxVclOamEndCCRetryFreq" { return "Catmxvcloamendccretryfreq" }
-    if yname == "catmxVclOamSegCCActCount" { return "Catmxvcloamsegccactcount" }
-    if yname == "catmxVclOamSegCCDeActCount" { return "Catmxvcloamsegccdeactcount" }
-    if yname == "catmxVclOamSegCCRetryFreq" { return "Catmxvcloamsegccretryfreq" }
-    if yname == "catmxVclOamManage" { return "Catmxvcloammanage" }
-    if yname == "catmxVclOamLoopBkStatus" { return "Catmxvcloamloopbkstatus" }
-    if yname == "catmxVclOamVcState" { return "Catmxvcloamvcstate" }
-    if yname == "catmxVclOamEndCCStatus" { return "Catmxvcloamendccstatus" }
-    if yname == "catmxVclOamSegCCStatus" { return "Catmxvcloamsegccstatus" }
-    if yname == "catmxVclOamEndCCVcState" { return "Catmxvcloamendccvcstate" }
-    if yname == "catmxVclOamSegCCVcState" { return "Catmxvcloamsegccvcstate" }
-    if yname == "catmxVclOamCellsReceived" { return "Catmxvcloamcellsreceived" }
-    if yname == "catmxVclOamCellsSent" { return "Catmxvcloamcellssent" }
-    if yname == "catmxVclOamCellsDropped" { return "Catmxvcloamcellsdropped" }
-    if yname == "catmxVclOamInF5ais" { return "Catmxvcloaminf5Ais" }
-    if yname == "catmxVclOamOutF5ais" { return "Catmxvcloamoutf5Ais" }
-    if yname == "catmxVclOamInF5rdi" { return "Catmxvcloaminf5Rdi" }
-    if yname == "catmxVclOamOutF5rdi" { return "Catmxvcloamoutf5Rdi" }
-    return ""
+    atmvclentry.EntityData.Children = make(map[string]types.YChild)
+    atmvclentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmvclentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", atmvclentry.Ifindex}
+    atmvclentry.EntityData.Leafs["atmVclVpi"] = types.YLeaf{"Atmvclvpi", atmvclentry.Atmvclvpi}
+    atmvclentry.EntityData.Leafs["atmVclVci"] = types.YLeaf{"Atmvclvci", atmvclentry.Atmvclvci}
+    atmvclentry.EntityData.Leafs["atmVclAdminStatus"] = types.YLeaf{"Atmvcladminstatus", atmvclentry.Atmvcladminstatus}
+    atmvclentry.EntityData.Leafs["atmVclOperStatus"] = types.YLeaf{"Atmvcloperstatus", atmvclentry.Atmvcloperstatus}
+    atmvclentry.EntityData.Leafs["atmVclLastChange"] = types.YLeaf{"Atmvcllastchange", atmvclentry.Atmvcllastchange}
+    atmvclentry.EntityData.Leafs["atmVclReceiveTrafficDescrIndex"] = types.YLeaf{"Atmvclreceivetrafficdescrindex", atmvclentry.Atmvclreceivetrafficdescrindex}
+    atmvclentry.EntityData.Leafs["atmVclTransmitTrafficDescrIndex"] = types.YLeaf{"Atmvcltransmittrafficdescrindex", atmvclentry.Atmvcltransmittrafficdescrindex}
+    atmvclentry.EntityData.Leafs["atmVccAalType"] = types.YLeaf{"Atmvccaaltype", atmvclentry.Atmvccaaltype}
+    atmvclentry.EntityData.Leafs["atmVccAal5CpcsTransmitSduSize"] = types.YLeaf{"Atmvccaal5Cpcstransmitsdusize", atmvclentry.Atmvccaal5Cpcstransmitsdusize}
+    atmvclentry.EntityData.Leafs["atmVccAal5CpcsReceiveSduSize"] = types.YLeaf{"Atmvccaal5Cpcsreceivesdusize", atmvclentry.Atmvccaal5Cpcsreceivesdusize}
+    atmvclentry.EntityData.Leafs["atmVccAal5EncapsType"] = types.YLeaf{"Atmvccaal5Encapstype", atmvclentry.Atmvccaal5Encapstype}
+    atmvclentry.EntityData.Leafs["atmVclCrossConnectIdentifier"] = types.YLeaf{"Atmvclcrossconnectidentifier", atmvclentry.Atmvclcrossconnectidentifier}
+    atmvclentry.EntityData.Leafs["atmVclRowStatus"] = types.YLeaf{"Atmvclrowstatus", atmvclentry.Atmvclrowstatus}
+    atmvclentry.EntityData.Leafs["atmVclCastType"] = types.YLeaf{"Atmvclcasttype", atmvclentry.Atmvclcasttype}
+    atmvclentry.EntityData.Leafs["atmVclConnKind"] = types.YLeaf{"Atmvclconnkind", atmvclentry.Atmvclconnkind}
+    atmvclentry.EntityData.Leafs["catmxVclOamLoopbackFreq"] = types.YLeaf{"Catmxvcloamloopbackfreq", atmvclentry.Catmxvcloamloopbackfreq}
+    atmvclentry.EntityData.Leafs["catmxVclOamRetryFreq"] = types.YLeaf{"Catmxvcloamretryfreq", atmvclentry.Catmxvcloamretryfreq}
+    atmvclentry.EntityData.Leafs["catmxVclOamUpRetryCount"] = types.YLeaf{"Catmxvcloamupretrycount", atmvclentry.Catmxvcloamupretrycount}
+    atmvclentry.EntityData.Leafs["catmxVclOamDownRetryCount"] = types.YLeaf{"Catmxvcloamdownretrycount", atmvclentry.Catmxvcloamdownretrycount}
+    atmvclentry.EntityData.Leafs["catmxVclOamEndCCActCount"] = types.YLeaf{"Catmxvcloamendccactcount", atmvclentry.Catmxvcloamendccactcount}
+    atmvclentry.EntityData.Leafs["catmxVclOamEndCCDeActCount"] = types.YLeaf{"Catmxvcloamendccdeactcount", atmvclentry.Catmxvcloamendccdeactcount}
+    atmvclentry.EntityData.Leafs["catmxVclOamEndCCRetryFreq"] = types.YLeaf{"Catmxvcloamendccretryfreq", atmvclentry.Catmxvcloamendccretryfreq}
+    atmvclentry.EntityData.Leafs["catmxVclOamSegCCActCount"] = types.YLeaf{"Catmxvcloamsegccactcount", atmvclentry.Catmxvcloamsegccactcount}
+    atmvclentry.EntityData.Leafs["catmxVclOamSegCCDeActCount"] = types.YLeaf{"Catmxvcloamsegccdeactcount", atmvclentry.Catmxvcloamsegccdeactcount}
+    atmvclentry.EntityData.Leafs["catmxVclOamSegCCRetryFreq"] = types.YLeaf{"Catmxvcloamsegccretryfreq", atmvclentry.Catmxvcloamsegccretryfreq}
+    atmvclentry.EntityData.Leafs["catmxVclOamManage"] = types.YLeaf{"Catmxvcloammanage", atmvclentry.Catmxvcloammanage}
+    atmvclentry.EntityData.Leafs["catmxVclOamLoopBkStatus"] = types.YLeaf{"Catmxvcloamloopbkstatus", atmvclentry.Catmxvcloamloopbkstatus}
+    atmvclentry.EntityData.Leafs["catmxVclOamVcState"] = types.YLeaf{"Catmxvcloamvcstate", atmvclentry.Catmxvcloamvcstate}
+    atmvclentry.EntityData.Leafs["catmxVclOamEndCCStatus"] = types.YLeaf{"Catmxvcloamendccstatus", atmvclentry.Catmxvcloamendccstatus}
+    atmvclentry.EntityData.Leafs["catmxVclOamSegCCStatus"] = types.YLeaf{"Catmxvcloamsegccstatus", atmvclentry.Catmxvcloamsegccstatus}
+    atmvclentry.EntityData.Leafs["catmxVclOamEndCCVcState"] = types.YLeaf{"Catmxvcloamendccvcstate", atmvclentry.Catmxvcloamendccvcstate}
+    atmvclentry.EntityData.Leafs["catmxVclOamSegCCVcState"] = types.YLeaf{"Catmxvcloamsegccvcstate", atmvclentry.Catmxvcloamsegccvcstate}
+    atmvclentry.EntityData.Leafs["catmxVclOamCellsReceived"] = types.YLeaf{"Catmxvcloamcellsreceived", atmvclentry.Catmxvcloamcellsreceived}
+    atmvclentry.EntityData.Leafs["catmxVclOamCellsSent"] = types.YLeaf{"Catmxvcloamcellssent", atmvclentry.Catmxvcloamcellssent}
+    atmvclentry.EntityData.Leafs["catmxVclOamCellsDropped"] = types.YLeaf{"Catmxvcloamcellsdropped", atmvclentry.Catmxvcloamcellsdropped}
+    atmvclentry.EntityData.Leafs["catmxVclOamInF5ais"] = types.YLeaf{"Catmxvcloaminf5Ais", atmvclentry.Catmxvcloaminf5Ais}
+    atmvclentry.EntityData.Leafs["catmxVclOamOutF5ais"] = types.YLeaf{"Catmxvcloamoutf5Ais", atmvclentry.Catmxvcloamoutf5Ais}
+    atmvclentry.EntityData.Leafs["catmxVclOamInF5rdi"] = types.YLeaf{"Catmxvcloaminf5Rdi", atmvclentry.Catmxvcloaminf5Rdi}
+    atmvclentry.EntityData.Leafs["catmxVclOamOutF5rdi"] = types.YLeaf{"Catmxvcloamoutf5Rdi", atmvclentry.Catmxvcloamoutf5Rdi}
+    return &(atmvclentry.EntityData)
 }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetSegmentPath() string {
-    return "atmVclEntry" + "[ifIndex='" + fmt.Sprintf("%v", atmvclentry.Ifindex) + "']" + "[atmVclVpi='" + fmt.Sprintf("%v", atmvclentry.Atmvclvpi) + "']" + "[atmVclVci='" + fmt.Sprintf("%v", atmvclentry.Atmvclvci) + "']"
-}
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = atmvclentry.Ifindex
-    leafs["atmVclVpi"] = atmvclentry.Atmvclvpi
-    leafs["atmVclVci"] = atmvclentry.Atmvclvci
-    leafs["atmVclAdminStatus"] = atmvclentry.Atmvcladminstatus
-    leafs["atmVclOperStatus"] = atmvclentry.Atmvcloperstatus
-    leafs["atmVclLastChange"] = atmvclentry.Atmvcllastchange
-    leafs["atmVclReceiveTrafficDescrIndex"] = atmvclentry.Atmvclreceivetrafficdescrindex
-    leafs["atmVclTransmitTrafficDescrIndex"] = atmvclentry.Atmvcltransmittrafficdescrindex
-    leafs["atmVccAalType"] = atmvclentry.Atmvccaaltype
-    leafs["atmVccAal5CpcsTransmitSduSize"] = atmvclentry.Atmvccaal5Cpcstransmitsdusize
-    leafs["atmVccAal5CpcsReceiveSduSize"] = atmvclentry.Atmvccaal5Cpcsreceivesdusize
-    leafs["atmVccAal5EncapsType"] = atmvclentry.Atmvccaal5Encapstype
-    leafs["atmVclCrossConnectIdentifier"] = atmvclentry.Atmvclcrossconnectidentifier
-    leafs["atmVclRowStatus"] = atmvclentry.Atmvclrowstatus
-    leafs["atmVclCastType"] = atmvclentry.Atmvclcasttype
-    leafs["atmVclConnKind"] = atmvclentry.Atmvclconnkind
-    leafs["catmxVclOamLoopbackFreq"] = atmvclentry.Catmxvcloamloopbackfreq
-    leafs["catmxVclOamRetryFreq"] = atmvclentry.Catmxvcloamretryfreq
-    leafs["catmxVclOamUpRetryCount"] = atmvclentry.Catmxvcloamupretrycount
-    leafs["catmxVclOamDownRetryCount"] = atmvclentry.Catmxvcloamdownretrycount
-    leafs["catmxVclOamEndCCActCount"] = atmvclentry.Catmxvcloamendccactcount
-    leafs["catmxVclOamEndCCDeActCount"] = atmvclentry.Catmxvcloamendccdeactcount
-    leafs["catmxVclOamEndCCRetryFreq"] = atmvclentry.Catmxvcloamendccretryfreq
-    leafs["catmxVclOamSegCCActCount"] = atmvclentry.Catmxvcloamsegccactcount
-    leafs["catmxVclOamSegCCDeActCount"] = atmvclentry.Catmxvcloamsegccdeactcount
-    leafs["catmxVclOamSegCCRetryFreq"] = atmvclentry.Catmxvcloamsegccretryfreq
-    leafs["catmxVclOamManage"] = atmvclentry.Catmxvcloammanage
-    leafs["catmxVclOamLoopBkStatus"] = atmvclentry.Catmxvcloamloopbkstatus
-    leafs["catmxVclOamVcState"] = atmvclentry.Catmxvcloamvcstate
-    leafs["catmxVclOamEndCCStatus"] = atmvclentry.Catmxvcloamendccstatus
-    leafs["catmxVclOamSegCCStatus"] = atmvclentry.Catmxvcloamsegccstatus
-    leafs["catmxVclOamEndCCVcState"] = atmvclentry.Catmxvcloamendccvcstate
-    leafs["catmxVclOamSegCCVcState"] = atmvclentry.Catmxvcloamsegccvcstate
-    leafs["catmxVclOamCellsReceived"] = atmvclentry.Catmxvcloamcellsreceived
-    leafs["catmxVclOamCellsSent"] = atmvclentry.Catmxvcloamcellssent
-    leafs["catmxVclOamCellsDropped"] = atmvclentry.Catmxvcloamcellsdropped
-    leafs["catmxVclOamInF5ais"] = atmvclentry.Catmxvcloaminf5Ais
-    leafs["catmxVclOamOutF5ais"] = atmvclentry.Catmxvcloamoutf5Ais
-    leafs["catmxVclOamInF5rdi"] = atmvclentry.Catmxvcloaminf5Rdi
-    leafs["catmxVclOamOutF5rdi"] = atmvclentry.Catmxvcloamoutf5Rdi
-    return leafs
-}
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetYangName() string { return "atmVclEntry" }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) SetParent(parent types.Entity) { atmvclentry.parent = parent }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetParent() types.Entity { return atmvclentry.parent }
-
-func (atmvclentry *ATMMIB_Atmvcltable_Atmvclentry) GetParentYangName() string { return "atmVclTable" }
 
 // ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype represents LAN Emulation specification.
 type ATMMIB_Atmvcltable_Atmvclentry_Atmvccaal5Encapstype string
@@ -2189,7 +1564,7 @@ const (
 // Each VPL must have its atmConnKind set
 // to pvc(1).
 type ATMMIB_Atmvpcrossconnecttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the ATM VP Cross Connect table. This entry is used to model a
@@ -2255,63 +1630,24 @@ type ATMMIB_Atmvpcrossconnecttable struct {
     Atmvpcrossconnectentry []ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry
 }
 
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetFilter() yfilter.YFilter { return atmvpcrossconnecttable.YFilter }
+func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetEntityData() *types.CommonEntityData {
+    atmvpcrossconnecttable.EntityData.YFilter = atmvpcrossconnecttable.YFilter
+    atmvpcrossconnecttable.EntityData.YangName = "atmVpCrossConnectTable"
+    atmvpcrossconnecttable.EntityData.BundleName = "cisco_ios_xe"
+    atmvpcrossconnecttable.EntityData.ParentYangName = "ATM-MIB"
+    atmvpcrossconnecttable.EntityData.SegmentPath = "atmVpCrossConnectTable"
+    atmvpcrossconnecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvpcrossconnecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvpcrossconnecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) SetFilter(yf yfilter.YFilter) { atmvpcrossconnecttable.YFilter = yf }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetGoName(yname string) string {
-    if yname == "atmVpCrossConnectEntry" { return "Atmvpcrossconnectentry" }
-    return ""
-}
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetSegmentPath() string {
-    return "atmVpCrossConnectTable"
-}
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmVpCrossConnectEntry" {
-        for _, c := range atmvpcrossconnecttable.Atmvpcrossconnectentry {
-            if atmvpcrossconnecttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry{}
-        atmvpcrossconnecttable.Atmvpcrossconnectentry = append(atmvpcrossconnecttable.Atmvpcrossconnectentry, child)
-        return &atmvpcrossconnecttable.Atmvpcrossconnectentry[len(atmvpcrossconnecttable.Atmvpcrossconnectentry)-1]
-    }
-    return nil
-}
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atmvpcrossconnecttable.EntityData.Children = make(map[string]types.YChild)
+    atmvpcrossconnecttable.EntityData.Children["atmVpCrossConnectEntry"] = types.YChild{"Atmvpcrossconnectentry", nil}
     for i := range atmvpcrossconnecttable.Atmvpcrossconnectentry {
-        children[atmvpcrossconnecttable.Atmvpcrossconnectentry[i].GetSegmentPath()] = &atmvpcrossconnecttable.Atmvpcrossconnectentry[i]
+        atmvpcrossconnecttable.EntityData.Children[types.GetSegmentPath(&atmvpcrossconnecttable.Atmvpcrossconnectentry[i])] = types.YChild{"Atmvpcrossconnectentry", &atmvpcrossconnecttable.Atmvpcrossconnectentry[i]}
     }
-    return children
+    atmvpcrossconnecttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atmvpcrossconnecttable.EntityData)
 }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetYangName() string { return "atmVpCrossConnectTable" }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) SetParent(parent types.Entity) { atmvpcrossconnecttable.parent = parent }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetParent() types.Entity { return atmvpcrossconnecttable.parent }
-
-func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry
 // An entry in the ATM VP Cross Connect table.
@@ -2436,7 +1772,7 @@ func (atmvpcrossconnecttable *ATMMIB_Atmvpcrossconnecttable) GetParentYangName()
 // before those parameter values may by changed
 // for individual VPLs.
 type ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique value to identify this VP cross-connect.
@@ -2501,71 +1837,31 @@ type ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry struct {
     Atmvpcrossconnectrowstatus interface{}
 }
 
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetFilter() yfilter.YFilter { return atmvpcrossconnectentry.YFilter }
+func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetEntityData() *types.CommonEntityData {
+    atmvpcrossconnectentry.EntityData.YFilter = atmvpcrossconnectentry.YFilter
+    atmvpcrossconnectentry.EntityData.YangName = "atmVpCrossConnectEntry"
+    atmvpcrossconnectentry.EntityData.BundleName = "cisco_ios_xe"
+    atmvpcrossconnectentry.EntityData.ParentYangName = "atmVpCrossConnectTable"
+    atmvpcrossconnectentry.EntityData.SegmentPath = "atmVpCrossConnectEntry" + "[atmVpCrossConnectIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectindex) + "']" + "[atmVpCrossConnectLowIfIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectlowifindex) + "']" + "[atmVpCrossConnectLowVpi='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectlowvpi) + "']" + "[atmVpCrossConnectHighIfIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnecthighifindex) + "']" + "[atmVpCrossConnectHighVpi='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnecthighvpi) + "']"
+    atmvpcrossconnectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvpcrossconnectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvpcrossconnectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) SetFilter(yf yfilter.YFilter) { atmvpcrossconnectentry.YFilter = yf }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetGoName(yname string) string {
-    if yname == "atmVpCrossConnectIndex" { return "Atmvpcrossconnectindex" }
-    if yname == "atmVpCrossConnectLowIfIndex" { return "Atmvpcrossconnectlowifindex" }
-    if yname == "atmVpCrossConnectLowVpi" { return "Atmvpcrossconnectlowvpi" }
-    if yname == "atmVpCrossConnectHighIfIndex" { return "Atmvpcrossconnecthighifindex" }
-    if yname == "atmVpCrossConnectHighVpi" { return "Atmvpcrossconnecthighvpi" }
-    if yname == "atmVpCrossConnectAdminStatus" { return "Atmvpcrossconnectadminstatus" }
-    if yname == "atmVpCrossConnectL2HOperStatus" { return "Atmvpcrossconnectl2Hoperstatus" }
-    if yname == "atmVpCrossConnectH2LOperStatus" { return "Atmvpcrossconnecth2Loperstatus" }
-    if yname == "atmVpCrossConnectL2HLastChange" { return "Atmvpcrossconnectl2Hlastchange" }
-    if yname == "atmVpCrossConnectH2LLastChange" { return "Atmvpcrossconnecth2Llastchange" }
-    if yname == "atmVpCrossConnectRowStatus" { return "Atmvpcrossconnectrowstatus" }
-    return ""
+    atmvpcrossconnectentry.EntityData.Children = make(map[string]types.YChild)
+    atmvpcrossconnectentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectIndex"] = types.YLeaf{"Atmvpcrossconnectindex", atmvpcrossconnectentry.Atmvpcrossconnectindex}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectLowIfIndex"] = types.YLeaf{"Atmvpcrossconnectlowifindex", atmvpcrossconnectentry.Atmvpcrossconnectlowifindex}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectLowVpi"] = types.YLeaf{"Atmvpcrossconnectlowvpi", atmvpcrossconnectentry.Atmvpcrossconnectlowvpi}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectHighIfIndex"] = types.YLeaf{"Atmvpcrossconnecthighifindex", atmvpcrossconnectentry.Atmvpcrossconnecthighifindex}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectHighVpi"] = types.YLeaf{"Atmvpcrossconnecthighvpi", atmvpcrossconnectentry.Atmvpcrossconnecthighvpi}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectAdminStatus"] = types.YLeaf{"Atmvpcrossconnectadminstatus", atmvpcrossconnectentry.Atmvpcrossconnectadminstatus}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectL2HOperStatus"] = types.YLeaf{"Atmvpcrossconnectl2Hoperstatus", atmvpcrossconnectentry.Atmvpcrossconnectl2Hoperstatus}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectH2LOperStatus"] = types.YLeaf{"Atmvpcrossconnecth2Loperstatus", atmvpcrossconnectentry.Atmvpcrossconnecth2Loperstatus}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectL2HLastChange"] = types.YLeaf{"Atmvpcrossconnectl2Hlastchange", atmvpcrossconnectentry.Atmvpcrossconnectl2Hlastchange}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectH2LLastChange"] = types.YLeaf{"Atmvpcrossconnecth2Llastchange", atmvpcrossconnectentry.Atmvpcrossconnecth2Llastchange}
+    atmvpcrossconnectentry.EntityData.Leafs["atmVpCrossConnectRowStatus"] = types.YLeaf{"Atmvpcrossconnectrowstatus", atmvpcrossconnectentry.Atmvpcrossconnectrowstatus}
+    return &(atmvpcrossconnectentry.EntityData)
 }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetSegmentPath() string {
-    return "atmVpCrossConnectEntry" + "[atmVpCrossConnectIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectindex) + "']" + "[atmVpCrossConnectLowIfIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectlowifindex) + "']" + "[atmVpCrossConnectLowVpi='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnectlowvpi) + "']" + "[atmVpCrossConnectHighIfIndex='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnecthighifindex) + "']" + "[atmVpCrossConnectHighVpi='" + fmt.Sprintf("%v", atmvpcrossconnectentry.Atmvpcrossconnecthighvpi) + "']"
-}
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["atmVpCrossConnectIndex"] = atmvpcrossconnectentry.Atmvpcrossconnectindex
-    leafs["atmVpCrossConnectLowIfIndex"] = atmvpcrossconnectentry.Atmvpcrossconnectlowifindex
-    leafs["atmVpCrossConnectLowVpi"] = atmvpcrossconnectentry.Atmvpcrossconnectlowvpi
-    leafs["atmVpCrossConnectHighIfIndex"] = atmvpcrossconnectentry.Atmvpcrossconnecthighifindex
-    leafs["atmVpCrossConnectHighVpi"] = atmvpcrossconnectentry.Atmvpcrossconnecthighvpi
-    leafs["atmVpCrossConnectAdminStatus"] = atmvpcrossconnectentry.Atmvpcrossconnectadminstatus
-    leafs["atmVpCrossConnectL2HOperStatus"] = atmvpcrossconnectentry.Atmvpcrossconnectl2Hoperstatus
-    leafs["atmVpCrossConnectH2LOperStatus"] = atmvpcrossconnectentry.Atmvpcrossconnecth2Loperstatus
-    leafs["atmVpCrossConnectL2HLastChange"] = atmvpcrossconnectentry.Atmvpcrossconnectl2Hlastchange
-    leafs["atmVpCrossConnectH2LLastChange"] = atmvpcrossconnectentry.Atmvpcrossconnecth2Llastchange
-    leafs["atmVpCrossConnectRowStatus"] = atmvpcrossconnectentry.Atmvpcrossconnectrowstatus
-    return leafs
-}
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetYangName() string { return "atmVpCrossConnectEntry" }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) SetParent(parent types.Entity) { atmvpcrossconnectentry.parent = parent }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetParent() types.Entity { return atmvpcrossconnectentry.parent }
-
-func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectentry) GetParentYangName() string { return "atmVpCrossConnectTable" }
 
 // ATMMIB_Atmvccrossconnecttable
 // The ATM VC Cross Connect table for PVCs.
@@ -2574,7 +1870,7 @@ func (atmvpcrossconnectentry *ATMMIB_Atmvpcrossconnecttable_Atmvpcrossconnectent
 // Each VCL must have its atmConnKind set
 // to pvc(1).
 type ATMMIB_Atmvccrossconnecttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the ATM VC Cross Connect table. This entry is used to model a
@@ -2640,63 +1936,24 @@ type ATMMIB_Atmvccrossconnecttable struct {
     Atmvccrossconnectentry []ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry
 }
 
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetFilter() yfilter.YFilter { return atmvccrossconnecttable.YFilter }
+func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetEntityData() *types.CommonEntityData {
+    atmvccrossconnecttable.EntityData.YFilter = atmvccrossconnecttable.YFilter
+    atmvccrossconnecttable.EntityData.YangName = "atmVcCrossConnectTable"
+    atmvccrossconnecttable.EntityData.BundleName = "cisco_ios_xe"
+    atmvccrossconnecttable.EntityData.ParentYangName = "ATM-MIB"
+    atmvccrossconnecttable.EntityData.SegmentPath = "atmVcCrossConnectTable"
+    atmvccrossconnecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvccrossconnecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvccrossconnecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) SetFilter(yf yfilter.YFilter) { atmvccrossconnecttable.YFilter = yf }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetGoName(yname string) string {
-    if yname == "atmVcCrossConnectEntry" { return "Atmvccrossconnectentry" }
-    return ""
-}
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetSegmentPath() string {
-    return "atmVcCrossConnectTable"
-}
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "atmVcCrossConnectEntry" {
-        for _, c := range atmvccrossconnecttable.Atmvccrossconnectentry {
-            if atmvccrossconnecttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry{}
-        atmvccrossconnecttable.Atmvccrossconnectentry = append(atmvccrossconnecttable.Atmvccrossconnectentry, child)
-        return &atmvccrossconnecttable.Atmvccrossconnectentry[len(atmvccrossconnecttable.Atmvccrossconnectentry)-1]
-    }
-    return nil
-}
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    atmvccrossconnecttable.EntityData.Children = make(map[string]types.YChild)
+    atmvccrossconnecttable.EntityData.Children["atmVcCrossConnectEntry"] = types.YChild{"Atmvccrossconnectentry", nil}
     for i := range atmvccrossconnecttable.Atmvccrossconnectentry {
-        children[atmvccrossconnecttable.Atmvccrossconnectentry[i].GetSegmentPath()] = &atmvccrossconnecttable.Atmvccrossconnectentry[i]
+        atmvccrossconnecttable.EntityData.Children[types.GetSegmentPath(&atmvccrossconnecttable.Atmvccrossconnectentry[i])] = types.YChild{"Atmvccrossconnectentry", &atmvccrossconnecttable.Atmvccrossconnectentry[i]}
     }
-    return children
+    atmvccrossconnecttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(atmvccrossconnecttable.EntityData)
 }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetYangName() string { return "atmVcCrossConnectTable" }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) SetParent(parent types.Entity) { atmvccrossconnecttable.parent = parent }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetParent() types.Entity { return atmvccrossconnecttable.parent }
-
-func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry
 // An entry in the ATM VC Cross Connect table.
@@ -2822,7 +2079,7 @@ func (atmvccrossconnecttable *ATMMIB_Atmvccrossconnecttable) GetParentYangName()
 // before those parameter values may by changed
 // for individual VCLs.
 type ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique value to identify this VC cross-connect.
@@ -2897,81 +2154,39 @@ type ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry struct {
     Atmvccrossconnectrowstatus interface{}
 }
 
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetFilter() yfilter.YFilter { return atmvccrossconnectentry.YFilter }
+func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetEntityData() *types.CommonEntityData {
+    atmvccrossconnectentry.EntityData.YFilter = atmvccrossconnectentry.YFilter
+    atmvccrossconnectentry.EntityData.YangName = "atmVcCrossConnectEntry"
+    atmvccrossconnectentry.EntityData.BundleName = "cisco_ios_xe"
+    atmvccrossconnectentry.EntityData.ParentYangName = "atmVcCrossConnectTable"
+    atmvccrossconnectentry.EntityData.SegmentPath = "atmVcCrossConnectEntry" + "[atmVcCrossConnectIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectindex) + "']" + "[atmVcCrossConnectLowIfIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowifindex) + "']" + "[atmVcCrossConnectLowVpi='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowvpi) + "']" + "[atmVcCrossConnectLowVci='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowvci) + "']" + "[atmVcCrossConnectHighIfIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighifindex) + "']" + "[atmVcCrossConnectHighVpi='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighvpi) + "']" + "[atmVcCrossConnectHighVci='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighvci) + "']"
+    atmvccrossconnectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    atmvccrossconnectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    atmvccrossconnectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) SetFilter(yf yfilter.YFilter) { atmvccrossconnectentry.YFilter = yf }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetGoName(yname string) string {
-    if yname == "atmVcCrossConnectIndex" { return "Atmvccrossconnectindex" }
-    if yname == "atmVcCrossConnectLowIfIndex" { return "Atmvccrossconnectlowifindex" }
-    if yname == "atmVcCrossConnectLowVpi" { return "Atmvccrossconnectlowvpi" }
-    if yname == "atmVcCrossConnectLowVci" { return "Atmvccrossconnectlowvci" }
-    if yname == "atmVcCrossConnectHighIfIndex" { return "Atmvccrossconnecthighifindex" }
-    if yname == "atmVcCrossConnectHighVpi" { return "Atmvccrossconnecthighvpi" }
-    if yname == "atmVcCrossConnectHighVci" { return "Atmvccrossconnecthighvci" }
-    if yname == "atmVcCrossConnectAdminStatus" { return "Atmvccrossconnectadminstatus" }
-    if yname == "atmVcCrossConnectL2HOperStatus" { return "Atmvccrossconnectl2Hoperstatus" }
-    if yname == "atmVcCrossConnectH2LOperStatus" { return "Atmvccrossconnecth2Loperstatus" }
-    if yname == "atmVcCrossConnectL2HLastChange" { return "Atmvccrossconnectl2Hlastchange" }
-    if yname == "atmVcCrossConnectH2LLastChange" { return "Atmvccrossconnecth2Llastchange" }
-    if yname == "atmVcCrossConnectRowStatus" { return "Atmvccrossconnectrowstatus" }
-    return ""
+    atmvccrossconnectentry.EntityData.Children = make(map[string]types.YChild)
+    atmvccrossconnectentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectIndex"] = types.YLeaf{"Atmvccrossconnectindex", atmvccrossconnectentry.Atmvccrossconnectindex}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectLowIfIndex"] = types.YLeaf{"Atmvccrossconnectlowifindex", atmvccrossconnectentry.Atmvccrossconnectlowifindex}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectLowVpi"] = types.YLeaf{"Atmvccrossconnectlowvpi", atmvccrossconnectentry.Atmvccrossconnectlowvpi}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectLowVci"] = types.YLeaf{"Atmvccrossconnectlowvci", atmvccrossconnectentry.Atmvccrossconnectlowvci}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectHighIfIndex"] = types.YLeaf{"Atmvccrossconnecthighifindex", atmvccrossconnectentry.Atmvccrossconnecthighifindex}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectHighVpi"] = types.YLeaf{"Atmvccrossconnecthighvpi", atmvccrossconnectentry.Atmvccrossconnecthighvpi}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectHighVci"] = types.YLeaf{"Atmvccrossconnecthighvci", atmvccrossconnectentry.Atmvccrossconnecthighvci}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectAdminStatus"] = types.YLeaf{"Atmvccrossconnectadminstatus", atmvccrossconnectentry.Atmvccrossconnectadminstatus}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectL2HOperStatus"] = types.YLeaf{"Atmvccrossconnectl2Hoperstatus", atmvccrossconnectentry.Atmvccrossconnectl2Hoperstatus}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectH2LOperStatus"] = types.YLeaf{"Atmvccrossconnecth2Loperstatus", atmvccrossconnectentry.Atmvccrossconnecth2Loperstatus}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectL2HLastChange"] = types.YLeaf{"Atmvccrossconnectl2Hlastchange", atmvccrossconnectentry.Atmvccrossconnectl2Hlastchange}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectH2LLastChange"] = types.YLeaf{"Atmvccrossconnecth2Llastchange", atmvccrossconnectentry.Atmvccrossconnecth2Llastchange}
+    atmvccrossconnectentry.EntityData.Leafs["atmVcCrossConnectRowStatus"] = types.YLeaf{"Atmvccrossconnectrowstatus", atmvccrossconnectentry.Atmvccrossconnectrowstatus}
+    return &(atmvccrossconnectentry.EntityData)
 }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetSegmentPath() string {
-    return "atmVcCrossConnectEntry" + "[atmVcCrossConnectIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectindex) + "']" + "[atmVcCrossConnectLowIfIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowifindex) + "']" + "[atmVcCrossConnectLowVpi='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowvpi) + "']" + "[atmVcCrossConnectLowVci='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnectlowvci) + "']" + "[atmVcCrossConnectHighIfIndex='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighifindex) + "']" + "[atmVcCrossConnectHighVpi='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighvpi) + "']" + "[atmVcCrossConnectHighVci='" + fmt.Sprintf("%v", atmvccrossconnectentry.Atmvccrossconnecthighvci) + "']"
-}
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["atmVcCrossConnectIndex"] = atmvccrossconnectentry.Atmvccrossconnectindex
-    leafs["atmVcCrossConnectLowIfIndex"] = atmvccrossconnectentry.Atmvccrossconnectlowifindex
-    leafs["atmVcCrossConnectLowVpi"] = atmvccrossconnectentry.Atmvccrossconnectlowvpi
-    leafs["atmVcCrossConnectLowVci"] = atmvccrossconnectentry.Atmvccrossconnectlowvci
-    leafs["atmVcCrossConnectHighIfIndex"] = atmvccrossconnectentry.Atmvccrossconnecthighifindex
-    leafs["atmVcCrossConnectHighVpi"] = atmvccrossconnectentry.Atmvccrossconnecthighvpi
-    leafs["atmVcCrossConnectHighVci"] = atmvccrossconnectentry.Atmvccrossconnecthighvci
-    leafs["atmVcCrossConnectAdminStatus"] = atmvccrossconnectentry.Atmvccrossconnectadminstatus
-    leafs["atmVcCrossConnectL2HOperStatus"] = atmvccrossconnectentry.Atmvccrossconnectl2Hoperstatus
-    leafs["atmVcCrossConnectH2LOperStatus"] = atmvccrossconnectentry.Atmvccrossconnecth2Loperstatus
-    leafs["atmVcCrossConnectL2HLastChange"] = atmvccrossconnectentry.Atmvccrossconnectl2Hlastchange
-    leafs["atmVcCrossConnectH2LLastChange"] = atmvccrossconnectentry.Atmvccrossconnecth2Llastchange
-    leafs["atmVcCrossConnectRowStatus"] = atmvccrossconnectentry.Atmvccrossconnectrowstatus
-    return leafs
-}
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetYangName() string { return "atmVcCrossConnectEntry" }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) SetParent(parent types.Entity) { atmvccrossconnectentry.parent = parent }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetParent() types.Entity { return atmvccrossconnectentry.parent }
-
-func (atmvccrossconnectentry *ATMMIB_Atmvccrossconnecttable_Atmvccrossconnectentry) GetParentYangName() string { return "atmVcCrossConnectTable" }
 
 // ATMMIB_Aal5Vcctable
 // This table contains AAL5 VCC performance
 // parameters.
 type ATMMIB_Aal5Vcctable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This list contains the AAL5 VCC performance parameters and is indexed by
@@ -2980,63 +2195,24 @@ type ATMMIB_Aal5Vcctable struct {
     Aal5Vccentry []ATMMIB_Aal5Vcctable_Aal5Vccentry
 }
 
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetFilter() yfilter.YFilter { return aal5Vcctable.YFilter }
+func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetEntityData() *types.CommonEntityData {
+    aal5Vcctable.EntityData.YFilter = aal5Vcctable.YFilter
+    aal5Vcctable.EntityData.YangName = "aal5VccTable"
+    aal5Vcctable.EntityData.BundleName = "cisco_ios_xe"
+    aal5Vcctable.EntityData.ParentYangName = "ATM-MIB"
+    aal5Vcctable.EntityData.SegmentPath = "aal5VccTable"
+    aal5Vcctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aal5Vcctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aal5Vcctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) SetFilter(yf yfilter.YFilter) { aal5Vcctable.YFilter = yf }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetGoName(yname string) string {
-    if yname == "aal5VccEntry" { return "Aal5Vccentry" }
-    return ""
-}
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetSegmentPath() string {
-    return "aal5VccTable"
-}
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "aal5VccEntry" {
-        for _, c := range aal5Vcctable.Aal5Vccentry {
-            if aal5Vcctable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ATMMIB_Aal5Vcctable_Aal5Vccentry{}
-        aal5Vcctable.Aal5Vccentry = append(aal5Vcctable.Aal5Vccentry, child)
-        return &aal5Vcctable.Aal5Vccentry[len(aal5Vcctable.Aal5Vccentry)-1]
-    }
-    return nil
-}
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    aal5Vcctable.EntityData.Children = make(map[string]types.YChild)
+    aal5Vcctable.EntityData.Children["aal5VccEntry"] = types.YChild{"Aal5Vccentry", nil}
     for i := range aal5Vcctable.Aal5Vccentry {
-        children[aal5Vcctable.Aal5Vccentry[i].GetSegmentPath()] = &aal5Vcctable.Aal5Vccentry[i]
+        aal5Vcctable.EntityData.Children[types.GetSegmentPath(&aal5Vcctable.Aal5Vccentry[i])] = types.YChild{"Aal5Vccentry", &aal5Vcctable.Aal5Vccentry[i]}
     }
-    return children
+    aal5Vcctable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(aal5Vcctable.EntityData)
 }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetYangName() string { return "aal5VccTable" }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) SetParent(parent types.Entity) { aal5Vcctable.parent = parent }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetParent() types.Entity { return aal5Vcctable.parent }
-
-func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetParentYangName() string { return "ATM-MIB" }
 
 // ATMMIB_Aal5Vcctable_Aal5Vccentry
 // This list contains the AAL5 VCC
@@ -3044,7 +2220,7 @@ func (aal5Vcctable *ATMMIB_Aal5Vcctable) GetParentYangName() string { return "AT
 // by ifIndex values of AAL5 interfaces
 // and the associated VPI/VCI values.
 type ATMMIB_Aal5Vcctable_Aal5Vccentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3147,91 +2323,40 @@ type ATMMIB_Aal5Vcctable_Aal5Vccentry struct {
     Caal5Vccextoutf5Oamcells interface{}
 }
 
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetFilter() yfilter.YFilter { return aal5Vccentry.YFilter }
+func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetEntityData() *types.CommonEntityData {
+    aal5Vccentry.EntityData.YFilter = aal5Vccentry.YFilter
+    aal5Vccentry.EntityData.YangName = "aal5VccEntry"
+    aal5Vccentry.EntityData.BundleName = "cisco_ios_xe"
+    aal5Vccentry.EntityData.ParentYangName = "aal5VccTable"
+    aal5Vccentry.EntityData.SegmentPath = "aal5VccEntry" + "[ifIndex='" + fmt.Sprintf("%v", aal5Vccentry.Ifindex) + "']" + "[aal5VccVpi='" + fmt.Sprintf("%v", aal5Vccentry.Aal5Vccvpi) + "']" + "[aal5VccVci='" + fmt.Sprintf("%v", aal5Vccentry.Aal5Vccvci) + "']"
+    aal5Vccentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    aal5Vccentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    aal5Vccentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) SetFilter(yf yfilter.YFilter) { aal5Vccentry.YFilter = yf }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "aal5VccVpi" { return "Aal5Vccvpi" }
-    if yname == "aal5VccVci" { return "Aal5Vccvci" }
-    if yname == "aal5VccCrcErrors" { return "Aal5Vcccrcerrors" }
-    if yname == "aal5VccSarTimeOuts" { return "Aal5Vccsartimeouts" }
-    if yname == "aal5VccOverSizedSDUs" { return "Aal5Vccoversizedsdus" }
-    if yname == "cAal5VccInPkts" { return "Caal5Vccinpkts" }
-    if yname == "cAal5VccOutPkts" { return "Caal5Vccoutpkts" }
-    if yname == "cAal5VccInOctets" { return "Caal5Vccinoctets" }
-    if yname == "cAal5VccOutOctets" { return "Caal5Vccoutoctets" }
-    if yname == "cAal5VccInDroppedPkts" { return "Caal5Vccindroppedpkts" }
-    if yname == "cAal5VccOutDroppedPkts" { return "Caal5Vccoutdroppedpkts" }
-    if yname == "cAal5VccInDroppedOctets" { return "Caal5Vccindroppedoctets" }
-    if yname == "cAal5VccOutDroppedOctets" { return "Caal5Vccoutdroppedoctets" }
-    if yname == "cAal5VccHCInPkts" { return "Caal5Vcchcinpkts" }
-    if yname == "cAal5VccHCOutPkts" { return "Caal5Vcchcoutpkts" }
-    if yname == "cAal5VccHCInOctets" { return "Caal5Vcchcinoctets" }
-    if yname == "cAal5VccHCOutOctets" { return "Caal5Vcchcoutoctets" }
-    if yname == "cAal5VccExtCompEnabled" { return "Caal5Vccextcompenabled" }
-    if yname == "cAal5VccExtVoice" { return "Caal5Vccextvoice" }
-    if yname == "cAal5VccExtInF5OamCells" { return "Caal5Vccextinf5Oamcells" }
-    if yname == "cAal5VccExtOutF5OamCells" { return "Caal5Vccextoutf5Oamcells" }
-    return ""
+    aal5Vccentry.EntityData.Children = make(map[string]types.YChild)
+    aal5Vccentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    aal5Vccentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", aal5Vccentry.Ifindex}
+    aal5Vccentry.EntityData.Leafs["aal5VccVpi"] = types.YLeaf{"Aal5Vccvpi", aal5Vccentry.Aal5Vccvpi}
+    aal5Vccentry.EntityData.Leafs["aal5VccVci"] = types.YLeaf{"Aal5Vccvci", aal5Vccentry.Aal5Vccvci}
+    aal5Vccentry.EntityData.Leafs["aal5VccCrcErrors"] = types.YLeaf{"Aal5Vcccrcerrors", aal5Vccentry.Aal5Vcccrcerrors}
+    aal5Vccentry.EntityData.Leafs["aal5VccSarTimeOuts"] = types.YLeaf{"Aal5Vccsartimeouts", aal5Vccentry.Aal5Vccsartimeouts}
+    aal5Vccentry.EntityData.Leafs["aal5VccOverSizedSDUs"] = types.YLeaf{"Aal5Vccoversizedsdus", aal5Vccentry.Aal5Vccoversizedsdus}
+    aal5Vccentry.EntityData.Leafs["cAal5VccInPkts"] = types.YLeaf{"Caal5Vccinpkts", aal5Vccentry.Caal5Vccinpkts}
+    aal5Vccentry.EntityData.Leafs["cAal5VccOutPkts"] = types.YLeaf{"Caal5Vccoutpkts", aal5Vccentry.Caal5Vccoutpkts}
+    aal5Vccentry.EntityData.Leafs["cAal5VccInOctets"] = types.YLeaf{"Caal5Vccinoctets", aal5Vccentry.Caal5Vccinoctets}
+    aal5Vccentry.EntityData.Leafs["cAal5VccOutOctets"] = types.YLeaf{"Caal5Vccoutoctets", aal5Vccentry.Caal5Vccoutoctets}
+    aal5Vccentry.EntityData.Leafs["cAal5VccInDroppedPkts"] = types.YLeaf{"Caal5Vccindroppedpkts", aal5Vccentry.Caal5Vccindroppedpkts}
+    aal5Vccentry.EntityData.Leafs["cAal5VccOutDroppedPkts"] = types.YLeaf{"Caal5Vccoutdroppedpkts", aal5Vccentry.Caal5Vccoutdroppedpkts}
+    aal5Vccentry.EntityData.Leafs["cAal5VccInDroppedOctets"] = types.YLeaf{"Caal5Vccindroppedoctets", aal5Vccentry.Caal5Vccindroppedoctets}
+    aal5Vccentry.EntityData.Leafs["cAal5VccOutDroppedOctets"] = types.YLeaf{"Caal5Vccoutdroppedoctets", aal5Vccentry.Caal5Vccoutdroppedoctets}
+    aal5Vccentry.EntityData.Leafs["cAal5VccHCInPkts"] = types.YLeaf{"Caal5Vcchcinpkts", aal5Vccentry.Caal5Vcchcinpkts}
+    aal5Vccentry.EntityData.Leafs["cAal5VccHCOutPkts"] = types.YLeaf{"Caal5Vcchcoutpkts", aal5Vccentry.Caal5Vcchcoutpkts}
+    aal5Vccentry.EntityData.Leafs["cAal5VccHCInOctets"] = types.YLeaf{"Caal5Vcchcinoctets", aal5Vccentry.Caal5Vcchcinoctets}
+    aal5Vccentry.EntityData.Leafs["cAal5VccHCOutOctets"] = types.YLeaf{"Caal5Vcchcoutoctets", aal5Vccentry.Caal5Vcchcoutoctets}
+    aal5Vccentry.EntityData.Leafs["cAal5VccExtCompEnabled"] = types.YLeaf{"Caal5Vccextcompenabled", aal5Vccentry.Caal5Vccextcompenabled}
+    aal5Vccentry.EntityData.Leafs["cAal5VccExtVoice"] = types.YLeaf{"Caal5Vccextvoice", aal5Vccentry.Caal5Vccextvoice}
+    aal5Vccentry.EntityData.Leafs["cAal5VccExtInF5OamCells"] = types.YLeaf{"Caal5Vccextinf5Oamcells", aal5Vccentry.Caal5Vccextinf5Oamcells}
+    aal5Vccentry.EntityData.Leafs["cAal5VccExtOutF5OamCells"] = types.YLeaf{"Caal5Vccextoutf5Oamcells", aal5Vccentry.Caal5Vccextoutf5Oamcells}
+    return &(aal5Vccentry.EntityData)
 }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetSegmentPath() string {
-    return "aal5VccEntry" + "[ifIndex='" + fmt.Sprintf("%v", aal5Vccentry.Ifindex) + "']" + "[aal5VccVpi='" + fmt.Sprintf("%v", aal5Vccentry.Aal5Vccvpi) + "']" + "[aal5VccVci='" + fmt.Sprintf("%v", aal5Vccentry.Aal5Vccvci) + "']"
-}
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = aal5Vccentry.Ifindex
-    leafs["aal5VccVpi"] = aal5Vccentry.Aal5Vccvpi
-    leafs["aal5VccVci"] = aal5Vccentry.Aal5Vccvci
-    leafs["aal5VccCrcErrors"] = aal5Vccentry.Aal5Vcccrcerrors
-    leafs["aal5VccSarTimeOuts"] = aal5Vccentry.Aal5Vccsartimeouts
-    leafs["aal5VccOverSizedSDUs"] = aal5Vccentry.Aal5Vccoversizedsdus
-    leafs["cAal5VccInPkts"] = aal5Vccentry.Caal5Vccinpkts
-    leafs["cAal5VccOutPkts"] = aal5Vccentry.Caal5Vccoutpkts
-    leafs["cAal5VccInOctets"] = aal5Vccentry.Caal5Vccinoctets
-    leafs["cAal5VccOutOctets"] = aal5Vccentry.Caal5Vccoutoctets
-    leafs["cAal5VccInDroppedPkts"] = aal5Vccentry.Caal5Vccindroppedpkts
-    leafs["cAal5VccOutDroppedPkts"] = aal5Vccentry.Caal5Vccoutdroppedpkts
-    leafs["cAal5VccInDroppedOctets"] = aal5Vccentry.Caal5Vccindroppedoctets
-    leafs["cAal5VccOutDroppedOctets"] = aal5Vccentry.Caal5Vccoutdroppedoctets
-    leafs["cAal5VccHCInPkts"] = aal5Vccentry.Caal5Vcchcinpkts
-    leafs["cAal5VccHCOutPkts"] = aal5Vccentry.Caal5Vcchcoutpkts
-    leafs["cAal5VccHCInOctets"] = aal5Vccentry.Caal5Vcchcinoctets
-    leafs["cAal5VccHCOutOctets"] = aal5Vccentry.Caal5Vcchcoutoctets
-    leafs["cAal5VccExtCompEnabled"] = aal5Vccentry.Caal5Vccextcompenabled
-    leafs["cAal5VccExtVoice"] = aal5Vccentry.Caal5Vccextvoice
-    leafs["cAal5VccExtInF5OamCells"] = aal5Vccentry.Caal5Vccextinf5Oamcells
-    leafs["cAal5VccExtOutF5OamCells"] = aal5Vccentry.Caal5Vccextoutf5Oamcells
-    return leafs
-}
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetYangName() string { return "aal5VccEntry" }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) SetParent(parent types.Entity) { aal5Vccentry.parent = parent }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetParent() types.Entity { return aal5Vccentry.parent }
-
-func (aal5Vccentry *ATMMIB_Aal5Vcctable_Aal5Vccentry) GetParentYangName() string { return "aal5VccTable" }
 

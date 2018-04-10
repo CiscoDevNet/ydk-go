@@ -92,7 +92,7 @@ const (
 // InterfaceDampening
 // Interface dampening data
 type InterfaceDampening struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The interface list for which dampening info is available.
@@ -102,200 +102,90 @@ type InterfaceDampening struct {
     Nodes InterfaceDampening_Nodes
 }
 
-func (interfaceDampening *InterfaceDampening) GetFilter() yfilter.YFilter { return interfaceDampening.YFilter }
+func (interfaceDampening *InterfaceDampening) GetEntityData() *types.CommonEntityData {
+    interfaceDampening.EntityData.YFilter = interfaceDampening.YFilter
+    interfaceDampening.EntityData.YangName = "interface-dampening"
+    interfaceDampening.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDampening.EntityData.ParentYangName = "Cisco-IOS-XR-ifmgr-oper"
+    interfaceDampening.EntityData.SegmentPath = "Cisco-IOS-XR-ifmgr-oper:interface-dampening"
+    interfaceDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceDampening *InterfaceDampening) SetFilter(yf yfilter.YFilter) { interfaceDampening.YFilter = yf }
-
-func (interfaceDampening *InterfaceDampening) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    interfaceDampening.EntityData.Children = make(map[string]types.YChild)
+    interfaceDampening.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &interfaceDampening.Interfaces}
+    interfaceDampening.EntityData.Children["nodes"] = types.YChild{"Nodes", &interfaceDampening.Nodes}
+    interfaceDampening.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceDampening.EntityData)
 }
-
-func (interfaceDampening *InterfaceDampening) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ifmgr-oper:interface-dampening"
-}
-
-func (interfaceDampening *InterfaceDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &interfaceDampening.Interfaces
-    }
-    if childYangName == "nodes" {
-        return &interfaceDampening.Nodes
-    }
-    return nil
-}
-
-func (interfaceDampening *InterfaceDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &interfaceDampening.Interfaces
-    children["nodes"] = &interfaceDampening.Nodes
-    return children
-}
-
-func (interfaceDampening *InterfaceDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceDampening *InterfaceDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceDampening *InterfaceDampening) GetYangName() string { return "interface-dampening" }
-
-func (interfaceDampening *InterfaceDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceDampening *InterfaceDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceDampening *InterfaceDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceDampening *InterfaceDampening) SetParent(parent types.Entity) { interfaceDampening.parent = parent }
-
-func (interfaceDampening *InterfaceDampening) GetParent() types.Entity { return interfaceDampening.parent }
-
-func (interfaceDampening *InterfaceDampening) GetParentYangName() string { return "Cisco-IOS-XR-ifmgr-oper" }
 
 // InterfaceDampening_Interfaces
 // The interface list for which dampening info is
 // available
 type InterfaceDampening_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The interface for which dampening info is being queried. The type is slice
-    // of InterfaceDampening_Interfaces_Interface.
-    Interface []InterfaceDampening_Interfaces_Interface
+    // of InterfaceDampening_Interfaces_Interface_.
+    Interface_ []InterfaceDampening_Interfaces_Interface
 }
 
-func (interfaces *InterfaceDampening_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *InterfaceDampening_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "interface-dampening"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *InterfaceDampening_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *InterfaceDampening_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *InterfaceDampening_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *InterfaceDampening_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *InterfaceDampening_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *InterfaceDampening_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *InterfaceDampening_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *InterfaceDampening_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *InterfaceDampening_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *InterfaceDampening_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *InterfaceDampening_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *InterfaceDampening_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *InterfaceDampening_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *InterfaceDampening_Interfaces) GetParentYangName() string { return "interface-dampening" }
 
 // InterfaceDampening_Interfaces_Interface
 // The interface for which dampening info is being
 // queried
 type InterfaceDampening_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Dampening info for the interface.
     IfDampening InterfaceDampening_Interfaces_Interface_IfDampening
 }
 
-func (self *InterfaceDampening_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *InterfaceDampening_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *InterfaceDampening_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "if-dampening" { return "IfDampening" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["if-dampening"] = types.YChild{"IfDampening", &self.IfDampening}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    return &(self.EntityData)
 }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *InterfaceDampening_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "if-dampening" {
-        return &self.IfDampening
-    }
-    return nil
-}
-
-func (self *InterfaceDampening_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["if-dampening"] = &self.IfDampening
-    return children
-}
-
-func (self *InterfaceDampening_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    return leafs
-}
-
-func (self *InterfaceDampening_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *InterfaceDampening_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *InterfaceDampening_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // InterfaceDampening_Interfaces_Interface_IfDampening
 // Dampening info for the interface
 type InterfaceDampening_Interfaces_Interface_IfDampening struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of times the state has changed. The type is interface{} with
@@ -330,96 +220,45 @@ type InterfaceDampening_Interfaces_Interface_IfDampening struct {
     RestartPenalty interface{}
 
     // Interface dampening.
-    InterfaceDampening InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening
+    InterfaceDampening InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening_
 
     // Dampening information for capsulations. The type is slice of
     // InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation.
     Capsulation []InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation
 }
 
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetFilter() yfilter.YFilter { return ifDampening.YFilter }
+func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetEntityData() *types.CommonEntityData {
+    ifDampening.EntityData.YFilter = ifDampening.YFilter
+    ifDampening.EntityData.YangName = "if-dampening"
+    ifDampening.EntityData.BundleName = "cisco_ios_xr"
+    ifDampening.EntityData.ParentYangName = "interface"
+    ifDampening.EntityData.SegmentPath = "if-dampening"
+    ifDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) SetFilter(yf yfilter.YFilter) { ifDampening.YFilter = yf }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetGoName(yname string) string {
-    if yname == "state-transition-count" { return "StateTransitionCount" }
-    if yname == "last-state-transition-time" { return "LastStateTransitionTime" }
-    if yname == "is-dampening-enabled" { return "IsDampeningEnabled" }
-    if yname == "half-life" { return "HalfLife" }
-    if yname == "reuse-threshold" { return "ReuseThreshold" }
-    if yname == "suppress-threshold" { return "SuppressThreshold" }
-    if yname == "maximum-suppress-time" { return "MaximumSuppressTime" }
-    if yname == "restart-penalty" { return "RestartPenalty" }
-    if yname == "interface-dampening" { return "InterfaceDampening" }
-    if yname == "capsulation" { return "Capsulation" }
-    return ""
-}
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetSegmentPath() string {
-    return "if-dampening"
-}
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-dampening" {
-        return &ifDampening.InterfaceDampening
-    }
-    if childYangName == "capsulation" {
-        for _, c := range ifDampening.Capsulation {
-            if ifDampening.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation{}
-        ifDampening.Capsulation = append(ifDampening.Capsulation, child)
-        return &ifDampening.Capsulation[len(ifDampening.Capsulation)-1]
-    }
-    return nil
-}
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-dampening"] = &ifDampening.InterfaceDampening
+    ifDampening.EntityData.Children = make(map[string]types.YChild)
+    ifDampening.EntityData.Children["interface-dampening"] = types.YChild{"InterfaceDampening", &ifDampening.InterfaceDampening}
+    ifDampening.EntityData.Children["capsulation"] = types.YChild{"Capsulation", nil}
     for i := range ifDampening.Capsulation {
-        children[ifDampening.Capsulation[i].GetSegmentPath()] = &ifDampening.Capsulation[i]
+        ifDampening.EntityData.Children[types.GetSegmentPath(&ifDampening.Capsulation[i])] = types.YChild{"Capsulation", &ifDampening.Capsulation[i]}
     }
-    return children
+    ifDampening.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifDampening.EntityData.Leafs["state-transition-count"] = types.YLeaf{"StateTransitionCount", ifDampening.StateTransitionCount}
+    ifDampening.EntityData.Leafs["last-state-transition-time"] = types.YLeaf{"LastStateTransitionTime", ifDampening.LastStateTransitionTime}
+    ifDampening.EntityData.Leafs["is-dampening-enabled"] = types.YLeaf{"IsDampeningEnabled", ifDampening.IsDampeningEnabled}
+    ifDampening.EntityData.Leafs["half-life"] = types.YLeaf{"HalfLife", ifDampening.HalfLife}
+    ifDampening.EntityData.Leafs["reuse-threshold"] = types.YLeaf{"ReuseThreshold", ifDampening.ReuseThreshold}
+    ifDampening.EntityData.Leafs["suppress-threshold"] = types.YLeaf{"SuppressThreshold", ifDampening.SuppressThreshold}
+    ifDampening.EntityData.Leafs["maximum-suppress-time"] = types.YLeaf{"MaximumSuppressTime", ifDampening.MaximumSuppressTime}
+    ifDampening.EntityData.Leafs["restart-penalty"] = types.YLeaf{"RestartPenalty", ifDampening.RestartPenalty}
+    return &(ifDampening.EntityData)
 }
 
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["state-transition-count"] = ifDampening.StateTransitionCount
-    leafs["last-state-transition-time"] = ifDampening.LastStateTransitionTime
-    leafs["is-dampening-enabled"] = ifDampening.IsDampeningEnabled
-    leafs["half-life"] = ifDampening.HalfLife
-    leafs["reuse-threshold"] = ifDampening.ReuseThreshold
-    leafs["suppress-threshold"] = ifDampening.SuppressThreshold
-    leafs["maximum-suppress-time"] = ifDampening.MaximumSuppressTime
-    leafs["restart-penalty"] = ifDampening.RestartPenalty
-    return leafs
-}
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetYangName() string { return "if-dampening" }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) SetParent(parent types.Entity) { ifDampening.parent = parent }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetParent() types.Entity { return ifDampening.parent }
-
-func (ifDampening *InterfaceDampening_Interfaces_Interface_IfDampening) GetParentYangName() string { return "interface" }
-
-// InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening
+// InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening_
 // Interface dampening
-type InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening struct {
-    parent types.Entity
+type InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening penalty of the interface. The type is interface{} with range:
@@ -441,64 +280,30 @@ type InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening stru
     State interface{}
 }
 
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetFilter() yfilter.YFilter { return interfaceDampening.YFilter }
+func (interfaceDampening_ *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening_) GetEntityData() *types.CommonEntityData {
+    interfaceDampening_.EntityData.YFilter = interfaceDampening_.YFilter
+    interfaceDampening_.EntityData.YangName = "interface-dampening"
+    interfaceDampening_.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDampening_.EntityData.ParentYangName = "if-dampening"
+    interfaceDampening_.EntityData.SegmentPath = "interface-dampening"
+    interfaceDampening_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDampening_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDampening_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) SetFilter(yf yfilter.YFilter) { interfaceDampening.YFilter = yf }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetGoName(yname string) string {
-    if yname == "penalty" { return "Penalty" }
-    if yname == "is-suppressed-enabled" { return "IsSuppressedEnabled" }
-    if yname == "seconds-remaining" { return "SecondsRemaining" }
-    if yname == "flaps" { return "Flaps" }
-    if yname == "state" { return "State" }
-    return ""
+    interfaceDampening_.EntityData.Children = make(map[string]types.YChild)
+    interfaceDampening_.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceDampening_.EntityData.Leafs["penalty"] = types.YLeaf{"Penalty", interfaceDampening_.Penalty}
+    interfaceDampening_.EntityData.Leafs["is-suppressed-enabled"] = types.YLeaf{"IsSuppressedEnabled", interfaceDampening_.IsSuppressedEnabled}
+    interfaceDampening_.EntityData.Leafs["seconds-remaining"] = types.YLeaf{"SecondsRemaining", interfaceDampening_.SecondsRemaining}
+    interfaceDampening_.EntityData.Leafs["flaps"] = types.YLeaf{"Flaps", interfaceDampening_.Flaps}
+    interfaceDampening_.EntityData.Leafs["state"] = types.YLeaf{"State", interfaceDampening_.State}
+    return &(interfaceDampening_.EntityData)
 }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetSegmentPath() string {
-    return "interface-dampening"
-}
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["penalty"] = interfaceDampening.Penalty
-    leafs["is-suppressed-enabled"] = interfaceDampening.IsSuppressedEnabled
-    leafs["seconds-remaining"] = interfaceDampening.SecondsRemaining
-    leafs["flaps"] = interfaceDampening.Flaps
-    leafs["state"] = interfaceDampening.State
-    return leafs
-}
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetYangName() string { return "interface-dampening" }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) SetParent(parent types.Entity) { interfaceDampening.parent = parent }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetParent() types.Entity { return interfaceDampening.parent }
-
-func (interfaceDampening *InterfaceDampening_Interfaces_Interface_IfDampening_InterfaceDampening) GetParentYangName() string { return "if-dampening" }
 
 // InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation
 // Dampening information for capsulations
 type InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Capsulation number. The type is string.
@@ -508,61 +313,27 @@ type InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation struct {
     CapsulationDampening InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening
 }
 
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetFilter() yfilter.YFilter { return capsulation.YFilter }
+func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetEntityData() *types.CommonEntityData {
+    capsulation.EntityData.YFilter = capsulation.YFilter
+    capsulation.EntityData.YangName = "capsulation"
+    capsulation.EntityData.BundleName = "cisco_ios_xr"
+    capsulation.EntityData.ParentYangName = "if-dampening"
+    capsulation.EntityData.SegmentPath = "capsulation"
+    capsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) SetFilter(yf yfilter.YFilter) { capsulation.YFilter = yf }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetGoName(yname string) string {
-    if yname == "capsulation-number" { return "CapsulationNumber" }
-    if yname == "capsulation-dampening" { return "CapsulationDampening" }
-    return ""
+    capsulation.EntityData.Children = make(map[string]types.YChild)
+    capsulation.EntityData.Children["capsulation-dampening"] = types.YChild{"CapsulationDampening", &capsulation.CapsulationDampening}
+    capsulation.EntityData.Leafs = make(map[string]types.YLeaf)
+    capsulation.EntityData.Leafs["capsulation-number"] = types.YLeaf{"CapsulationNumber", capsulation.CapsulationNumber}
+    return &(capsulation.EntityData)
 }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetSegmentPath() string {
-    return "capsulation"
-}
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "capsulation-dampening" {
-        return &capsulation.CapsulationDampening
-    }
-    return nil
-}
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["capsulation-dampening"] = &capsulation.CapsulationDampening
-    return children
-}
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["capsulation-number"] = capsulation.CapsulationNumber
-    return leafs
-}
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetYangName() string { return "capsulation" }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) SetParent(parent types.Entity) { capsulation.parent = parent }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetParent() types.Entity { return capsulation.parent }
-
-func (capsulation *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation) GetParentYangName() string { return "if-dampening" }
 
 // InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening
 // Capsulation dampening
 type InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening penalty of the interface. The type is interface{} with range:
@@ -584,64 +355,30 @@ type InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_Capsulation
     State interface{}
 }
 
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetFilter() yfilter.YFilter { return capsulationDampening.YFilter }
+func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetEntityData() *types.CommonEntityData {
+    capsulationDampening.EntityData.YFilter = capsulationDampening.YFilter
+    capsulationDampening.EntityData.YangName = "capsulation-dampening"
+    capsulationDampening.EntityData.BundleName = "cisco_ios_xr"
+    capsulationDampening.EntityData.ParentYangName = "capsulation"
+    capsulationDampening.EntityData.SegmentPath = "capsulation-dampening"
+    capsulationDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsulationDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsulationDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) SetFilter(yf yfilter.YFilter) { capsulationDampening.YFilter = yf }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetGoName(yname string) string {
-    if yname == "penalty" { return "Penalty" }
-    if yname == "is-suppressed-enabled" { return "IsSuppressedEnabled" }
-    if yname == "seconds-remaining" { return "SecondsRemaining" }
-    if yname == "flaps" { return "Flaps" }
-    if yname == "state" { return "State" }
-    return ""
+    capsulationDampening.EntityData.Children = make(map[string]types.YChild)
+    capsulationDampening.EntityData.Leafs = make(map[string]types.YLeaf)
+    capsulationDampening.EntityData.Leafs["penalty"] = types.YLeaf{"Penalty", capsulationDampening.Penalty}
+    capsulationDampening.EntityData.Leafs["is-suppressed-enabled"] = types.YLeaf{"IsSuppressedEnabled", capsulationDampening.IsSuppressedEnabled}
+    capsulationDampening.EntityData.Leafs["seconds-remaining"] = types.YLeaf{"SecondsRemaining", capsulationDampening.SecondsRemaining}
+    capsulationDampening.EntityData.Leafs["flaps"] = types.YLeaf{"Flaps", capsulationDampening.Flaps}
+    capsulationDampening.EntityData.Leafs["state"] = types.YLeaf{"State", capsulationDampening.State}
+    return &(capsulationDampening.EntityData)
 }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetSegmentPath() string {
-    return "capsulation-dampening"
-}
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["penalty"] = capsulationDampening.Penalty
-    leafs["is-suppressed-enabled"] = capsulationDampening.IsSuppressedEnabled
-    leafs["seconds-remaining"] = capsulationDampening.SecondsRemaining
-    leafs["flaps"] = capsulationDampening.Flaps
-    leafs["state"] = capsulationDampening.State
-    return leafs
-}
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetYangName() string { return "capsulation-dampening" }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) SetParent(parent types.Entity) { capsulationDampening.parent = parent }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetParent() types.Entity { return capsulationDampening.parent }
-
-func (capsulationDampening *InterfaceDampening_Interfaces_Interface_IfDampening_Capsulation_CapsulationDampening) GetParentYangName() string { return "capsulation" }
 
 // InterfaceDampening_Nodes
 // The location of the interface(s) being queried
 type InterfaceDampening_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The location of the interface(s) being queried. The type is slice of
@@ -649,193 +386,87 @@ type InterfaceDampening_Nodes struct {
     Node []InterfaceDampening_Nodes_Node
 }
 
-func (nodes *InterfaceDampening_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *InterfaceDampening_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "interface-dampening"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *InterfaceDampening_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *InterfaceDampening_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *InterfaceDampening_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *InterfaceDampening_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *InterfaceDampening_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *InterfaceDampening_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *InterfaceDampening_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *InterfaceDampening_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *InterfaceDampening_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *InterfaceDampening_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *InterfaceDampening_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *InterfaceDampening_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *InterfaceDampening_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *InterfaceDampening_Nodes) GetParentYangName() string { return "interface-dampening" }
 
 // InterfaceDampening_Nodes_Node
 // The location of the interface(s) being queried
 type InterfaceDampening_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The location of the interface(s). The type is
-    // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // string with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Show details for the interfaces.
     Show InterfaceDampening_Nodes_Node_Show
 }
 
-func (node *InterfaceDampening_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *InterfaceDampening_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *InterfaceDampening_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *InterfaceDampening_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "show" { return "Show" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["show"] = types.YChild{"Show", &node.Show}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *InterfaceDampening_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *InterfaceDampening_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "show" {
-        return &node.Show
-    }
-    return nil
-}
-
-func (node *InterfaceDampening_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["show"] = &node.Show
-    return children
-}
-
-func (node *InterfaceDampening_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *InterfaceDampening_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *InterfaceDampening_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *InterfaceDampening_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *InterfaceDampening_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *InterfaceDampening_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *InterfaceDampening_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *InterfaceDampening_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *InterfaceDampening_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // InterfaceDampening_Nodes_Node_Show
 // Show details for the interfaces
 type InterfaceDampening_Nodes_Node_Show struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening information of the interface(s) being queried.
     Dampening InterfaceDampening_Nodes_Node_Show_Dampening
 }
 
-func (show *InterfaceDampening_Nodes_Node_Show) GetFilter() yfilter.YFilter { return show.YFilter }
+func (show *InterfaceDampening_Nodes_Node_Show) GetEntityData() *types.CommonEntityData {
+    show.EntityData.YFilter = show.YFilter
+    show.EntityData.YangName = "show"
+    show.EntityData.BundleName = "cisco_ios_xr"
+    show.EntityData.ParentYangName = "node"
+    show.EntityData.SegmentPath = "show"
+    show.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    show.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    show.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (show *InterfaceDampening_Nodes_Node_Show) SetFilter(yf yfilter.YFilter) { show.YFilter = yf }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetGoName(yname string) string {
-    if yname == "dampening" { return "Dampening" }
-    return ""
+    show.EntityData.Children = make(map[string]types.YChild)
+    show.EntityData.Children["dampening"] = types.YChild{"Dampening", &show.Dampening}
+    show.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(show.EntityData)
 }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetSegmentPath() string {
-    return "show"
-}
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dampening" {
-        return &show.Dampening
-    }
-    return nil
-}
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dampening"] = &show.Dampening
-    return children
-}
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetBundleName() string { return "cisco_ios_xr" }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetYangName() string { return "show" }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (show *InterfaceDampening_Nodes_Node_Show) SetParent(parent types.Entity) { show.parent = parent }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetParent() types.Entity { return show.parent }
-
-func (show *InterfaceDampening_Nodes_Node_Show) GetParentYangName() string { return "node" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening
 // Dampening information of the interface(s)
 // being queried
 type InterfaceDampening_Nodes_Node_Show_Dampening struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface handle for which dampening info queried.
@@ -845,65 +476,28 @@ type InterfaceDampening_Nodes_Node_Show_Dampening struct {
     Interfaces InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces
 }
 
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetFilter() yfilter.YFilter { return dampening.YFilter }
+func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetEntityData() *types.CommonEntityData {
+    dampening.EntityData.YFilter = dampening.YFilter
+    dampening.EntityData.YangName = "dampening"
+    dampening.EntityData.BundleName = "cisco_ios_xr"
+    dampening.EntityData.ParentYangName = "show"
+    dampening.EntityData.SegmentPath = "dampening"
+    dampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) SetFilter(yf yfilter.YFilter) { dampening.YFilter = yf }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetGoName(yname string) string {
-    if yname == "if-handles" { return "IfHandles" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    dampening.EntityData.Children = make(map[string]types.YChild)
+    dampening.EntityData.Children["if-handles"] = types.YChild{"IfHandles", &dampening.IfHandles}
+    dampening.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &dampening.Interfaces}
+    dampening.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dampening.EntityData)
 }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetSegmentPath() string {
-    return "dampening"
-}
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "if-handles" {
-        return &dampening.IfHandles
-    }
-    if childYangName == "interfaces" {
-        return &dampening.Interfaces
-    }
-    return nil
-}
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["if-handles"] = &dampening.IfHandles
-    children["interfaces"] = &dampening.Interfaces
-    return children
-}
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetYangName() string { return "dampening" }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) SetParent(parent types.Entity) { dampening.parent = parent }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetParent() types.Entity { return dampening.parent }
-
-func (dampening *InterfaceDampening_Nodes_Node_Show_Dampening) GetParentYangName() string { return "show" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles
 // Interface handle for which dampening info
 // queried
 type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening info for the interface handle. The type is slice of
@@ -911,72 +505,33 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles struct {
     IfHandle []InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle
 }
 
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetFilter() yfilter.YFilter { return ifHandles.YFilter }
+func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetEntityData() *types.CommonEntityData {
+    ifHandles.EntityData.YFilter = ifHandles.YFilter
+    ifHandles.EntityData.YangName = "if-handles"
+    ifHandles.EntityData.BundleName = "cisco_ios_xr"
+    ifHandles.EntityData.ParentYangName = "dampening"
+    ifHandles.EntityData.SegmentPath = "if-handles"
+    ifHandles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifHandles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifHandles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) SetFilter(yf yfilter.YFilter) { ifHandles.YFilter = yf }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetGoName(yname string) string {
-    if yname == "if-handle" { return "IfHandle" }
-    return ""
-}
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetSegmentPath() string {
-    return "if-handles"
-}
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "if-handle" {
-        for _, c := range ifHandles.IfHandle {
-            if ifHandles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle{}
-        ifHandles.IfHandle = append(ifHandles.IfHandle, child)
-        return &ifHandles.IfHandle[len(ifHandles.IfHandle)-1]
-    }
-    return nil
-}
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ifHandles.EntityData.Children = make(map[string]types.YChild)
+    ifHandles.EntityData.Children["if-handle"] = types.YChild{"IfHandle", nil}
     for i := range ifHandles.IfHandle {
-        children[ifHandles.IfHandle[i].GetSegmentPath()] = &ifHandles.IfHandle[i]
+        ifHandles.EntityData.Children[types.GetSegmentPath(&ifHandles.IfHandle[i])] = types.YChild{"IfHandle", &ifHandles.IfHandle[i]}
     }
-    return children
+    ifHandles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ifHandles.EntityData)
 }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetYangName() string { return "if-handles" }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) SetParent(parent types.Entity) { ifHandles.parent = parent }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetParent() types.Entity { return ifHandles.parent }
-
-func (ifHandles *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles) GetParentYangName() string { return "dampening" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle
 // Dampening info for the interface handle
 type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface handle. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceHandleName interface{}
 
     // The number of times the state has changed. The type is interface{} with
@@ -1011,98 +566,46 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle struct {
     RestartPenalty interface{}
 
     // Interface dampening.
-    InterfaceDampening InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening
+    InterfaceDampening InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening_
 
     // Dampening information for capsulations. The type is slice of
     // InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation.
     Capsulation []InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation
 }
 
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetFilter() yfilter.YFilter { return ifHandle.YFilter }
+func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetEntityData() *types.CommonEntityData {
+    ifHandle.EntityData.YFilter = ifHandle.YFilter
+    ifHandle.EntityData.YangName = "if-handle"
+    ifHandle.EntityData.BundleName = "cisco_ios_xr"
+    ifHandle.EntityData.ParentYangName = "if-handles"
+    ifHandle.EntityData.SegmentPath = "if-handle" + "[interface-handle-name='" + fmt.Sprintf("%v", ifHandle.InterfaceHandleName) + "']"
+    ifHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) SetFilter(yf yfilter.YFilter) { ifHandle.YFilter = yf }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetGoName(yname string) string {
-    if yname == "interface-handle-name" { return "InterfaceHandleName" }
-    if yname == "state-transition-count" { return "StateTransitionCount" }
-    if yname == "last-state-transition-time" { return "LastStateTransitionTime" }
-    if yname == "is-dampening-enabled" { return "IsDampeningEnabled" }
-    if yname == "half-life" { return "HalfLife" }
-    if yname == "reuse-threshold" { return "ReuseThreshold" }
-    if yname == "suppress-threshold" { return "SuppressThreshold" }
-    if yname == "maximum-suppress-time" { return "MaximumSuppressTime" }
-    if yname == "restart-penalty" { return "RestartPenalty" }
-    if yname == "interface-dampening" { return "InterfaceDampening" }
-    if yname == "capsulation" { return "Capsulation" }
-    return ""
-}
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetSegmentPath() string {
-    return "if-handle" + "[interface-handle-name='" + fmt.Sprintf("%v", ifHandle.InterfaceHandleName) + "']"
-}
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-dampening" {
-        return &ifHandle.InterfaceDampening
-    }
-    if childYangName == "capsulation" {
-        for _, c := range ifHandle.Capsulation {
-            if ifHandle.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation{}
-        ifHandle.Capsulation = append(ifHandle.Capsulation, child)
-        return &ifHandle.Capsulation[len(ifHandle.Capsulation)-1]
-    }
-    return nil
-}
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-dampening"] = &ifHandle.InterfaceDampening
+    ifHandle.EntityData.Children = make(map[string]types.YChild)
+    ifHandle.EntityData.Children["interface-dampening"] = types.YChild{"InterfaceDampening", &ifHandle.InterfaceDampening}
+    ifHandle.EntityData.Children["capsulation"] = types.YChild{"Capsulation", nil}
     for i := range ifHandle.Capsulation {
-        children[ifHandle.Capsulation[i].GetSegmentPath()] = &ifHandle.Capsulation[i]
+        ifHandle.EntityData.Children[types.GetSegmentPath(&ifHandle.Capsulation[i])] = types.YChild{"Capsulation", &ifHandle.Capsulation[i]}
     }
-    return children
+    ifHandle.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifHandle.EntityData.Leafs["interface-handle-name"] = types.YLeaf{"InterfaceHandleName", ifHandle.InterfaceHandleName}
+    ifHandle.EntityData.Leafs["state-transition-count"] = types.YLeaf{"StateTransitionCount", ifHandle.StateTransitionCount}
+    ifHandle.EntityData.Leafs["last-state-transition-time"] = types.YLeaf{"LastStateTransitionTime", ifHandle.LastStateTransitionTime}
+    ifHandle.EntityData.Leafs["is-dampening-enabled"] = types.YLeaf{"IsDampeningEnabled", ifHandle.IsDampeningEnabled}
+    ifHandle.EntityData.Leafs["half-life"] = types.YLeaf{"HalfLife", ifHandle.HalfLife}
+    ifHandle.EntityData.Leafs["reuse-threshold"] = types.YLeaf{"ReuseThreshold", ifHandle.ReuseThreshold}
+    ifHandle.EntityData.Leafs["suppress-threshold"] = types.YLeaf{"SuppressThreshold", ifHandle.SuppressThreshold}
+    ifHandle.EntityData.Leafs["maximum-suppress-time"] = types.YLeaf{"MaximumSuppressTime", ifHandle.MaximumSuppressTime}
+    ifHandle.EntityData.Leafs["restart-penalty"] = types.YLeaf{"RestartPenalty", ifHandle.RestartPenalty}
+    return &(ifHandle.EntityData)
 }
 
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-handle-name"] = ifHandle.InterfaceHandleName
-    leafs["state-transition-count"] = ifHandle.StateTransitionCount
-    leafs["last-state-transition-time"] = ifHandle.LastStateTransitionTime
-    leafs["is-dampening-enabled"] = ifHandle.IsDampeningEnabled
-    leafs["half-life"] = ifHandle.HalfLife
-    leafs["reuse-threshold"] = ifHandle.ReuseThreshold
-    leafs["suppress-threshold"] = ifHandle.SuppressThreshold
-    leafs["maximum-suppress-time"] = ifHandle.MaximumSuppressTime
-    leafs["restart-penalty"] = ifHandle.RestartPenalty
-    return leafs
-}
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetYangName() string { return "if-handle" }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) SetParent(parent types.Entity) { ifHandle.parent = parent }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetParent() types.Entity { return ifHandle.parent }
-
-func (ifHandle *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle) GetParentYangName() string { return "if-handles" }
-
-// InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening
+// InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening_
 // Interface dampening
-type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening struct {
-    parent types.Entity
+type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening penalty of the interface. The type is interface{} with range:
@@ -1124,64 +627,30 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDa
     State interface{}
 }
 
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetFilter() yfilter.YFilter { return interfaceDampening.YFilter }
+func (interfaceDampening_ *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening_) GetEntityData() *types.CommonEntityData {
+    interfaceDampening_.EntityData.YFilter = interfaceDampening_.YFilter
+    interfaceDampening_.EntityData.YangName = "interface-dampening"
+    interfaceDampening_.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDampening_.EntityData.ParentYangName = "if-handle"
+    interfaceDampening_.EntityData.SegmentPath = "interface-dampening"
+    interfaceDampening_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDampening_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDampening_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) SetFilter(yf yfilter.YFilter) { interfaceDampening.YFilter = yf }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetGoName(yname string) string {
-    if yname == "penalty" { return "Penalty" }
-    if yname == "is-suppressed-enabled" { return "IsSuppressedEnabled" }
-    if yname == "seconds-remaining" { return "SecondsRemaining" }
-    if yname == "flaps" { return "Flaps" }
-    if yname == "state" { return "State" }
-    return ""
+    interfaceDampening_.EntityData.Children = make(map[string]types.YChild)
+    interfaceDampening_.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceDampening_.EntityData.Leafs["penalty"] = types.YLeaf{"Penalty", interfaceDampening_.Penalty}
+    interfaceDampening_.EntityData.Leafs["is-suppressed-enabled"] = types.YLeaf{"IsSuppressedEnabled", interfaceDampening_.IsSuppressedEnabled}
+    interfaceDampening_.EntityData.Leafs["seconds-remaining"] = types.YLeaf{"SecondsRemaining", interfaceDampening_.SecondsRemaining}
+    interfaceDampening_.EntityData.Leafs["flaps"] = types.YLeaf{"Flaps", interfaceDampening_.Flaps}
+    interfaceDampening_.EntityData.Leafs["state"] = types.YLeaf{"State", interfaceDampening_.State}
+    return &(interfaceDampening_.EntityData)
 }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetSegmentPath() string {
-    return "interface-dampening"
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["penalty"] = interfaceDampening.Penalty
-    leafs["is-suppressed-enabled"] = interfaceDampening.IsSuppressedEnabled
-    leafs["seconds-remaining"] = interfaceDampening.SecondsRemaining
-    leafs["flaps"] = interfaceDampening.Flaps
-    leafs["state"] = interfaceDampening.State
-    return leafs
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetYangName() string { return "interface-dampening" }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) SetParent(parent types.Entity) { interfaceDampening.parent = parent }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetParent() types.Entity { return interfaceDampening.parent }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_InterfaceDampening) GetParentYangName() string { return "if-handle" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation
 // Dampening information for capsulations
 type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Capsulation number. The type is string.
@@ -1191,61 +660,27 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation
     CapsulationDampening InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening
 }
 
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetFilter() yfilter.YFilter { return capsulation.YFilter }
+func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetEntityData() *types.CommonEntityData {
+    capsulation.EntityData.YFilter = capsulation.YFilter
+    capsulation.EntityData.YangName = "capsulation"
+    capsulation.EntityData.BundleName = "cisco_ios_xr"
+    capsulation.EntityData.ParentYangName = "if-handle"
+    capsulation.EntityData.SegmentPath = "capsulation"
+    capsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) SetFilter(yf yfilter.YFilter) { capsulation.YFilter = yf }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetGoName(yname string) string {
-    if yname == "capsulation-number" { return "CapsulationNumber" }
-    if yname == "capsulation-dampening" { return "CapsulationDampening" }
-    return ""
+    capsulation.EntityData.Children = make(map[string]types.YChild)
+    capsulation.EntityData.Children["capsulation-dampening"] = types.YChild{"CapsulationDampening", &capsulation.CapsulationDampening}
+    capsulation.EntityData.Leafs = make(map[string]types.YLeaf)
+    capsulation.EntityData.Leafs["capsulation-number"] = types.YLeaf{"CapsulationNumber", capsulation.CapsulationNumber}
+    return &(capsulation.EntityData)
 }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetSegmentPath() string {
-    return "capsulation"
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "capsulation-dampening" {
-        return &capsulation.CapsulationDampening
-    }
-    return nil
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["capsulation-dampening"] = &capsulation.CapsulationDampening
-    return children
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["capsulation-number"] = capsulation.CapsulationNumber
-    return leafs
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetYangName() string { return "capsulation" }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) SetParent(parent types.Entity) { capsulation.parent = parent }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetParent() types.Entity { return capsulation.parent }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation) GetParentYangName() string { return "if-handle" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening
 // Capsulation dampening
 type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening penalty of the interface. The type is interface{} with range:
@@ -1267,138 +702,65 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation
     State interface{}
 }
 
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetFilter() yfilter.YFilter { return capsulationDampening.YFilter }
+func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetEntityData() *types.CommonEntityData {
+    capsulationDampening.EntityData.YFilter = capsulationDampening.YFilter
+    capsulationDampening.EntityData.YangName = "capsulation-dampening"
+    capsulationDampening.EntityData.BundleName = "cisco_ios_xr"
+    capsulationDampening.EntityData.ParentYangName = "capsulation"
+    capsulationDampening.EntityData.SegmentPath = "capsulation-dampening"
+    capsulationDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsulationDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsulationDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) SetFilter(yf yfilter.YFilter) { capsulationDampening.YFilter = yf }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetGoName(yname string) string {
-    if yname == "penalty" { return "Penalty" }
-    if yname == "is-suppressed-enabled" { return "IsSuppressedEnabled" }
-    if yname == "seconds-remaining" { return "SecondsRemaining" }
-    if yname == "flaps" { return "Flaps" }
-    if yname == "state" { return "State" }
-    return ""
+    capsulationDampening.EntityData.Children = make(map[string]types.YChild)
+    capsulationDampening.EntityData.Leafs = make(map[string]types.YLeaf)
+    capsulationDampening.EntityData.Leafs["penalty"] = types.YLeaf{"Penalty", capsulationDampening.Penalty}
+    capsulationDampening.EntityData.Leafs["is-suppressed-enabled"] = types.YLeaf{"IsSuppressedEnabled", capsulationDampening.IsSuppressedEnabled}
+    capsulationDampening.EntityData.Leafs["seconds-remaining"] = types.YLeaf{"SecondsRemaining", capsulationDampening.SecondsRemaining}
+    capsulationDampening.EntityData.Leafs["flaps"] = types.YLeaf{"Flaps", capsulationDampening.Flaps}
+    capsulationDampening.EntityData.Leafs["state"] = types.YLeaf{"State", capsulationDampening.State}
+    return &(capsulationDampening.EntityData)
 }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetSegmentPath() string {
-    return "capsulation-dampening"
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["penalty"] = capsulationDampening.Penalty
-    leafs["is-suppressed-enabled"] = capsulationDampening.IsSuppressedEnabled
-    leafs["seconds-remaining"] = capsulationDampening.SecondsRemaining
-    leafs["flaps"] = capsulationDampening.Flaps
-    leafs["state"] = capsulationDampening.State
-    return leafs
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetYangName() string { return "capsulation-dampening" }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) SetParent(parent types.Entity) { capsulationDampening.parent = parent }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetParent() types.Entity { return capsulationDampening.parent }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle_Capsulation_CapsulationDampening) GetParentYangName() string { return "capsulation" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces
 // Table of interfaces for which dampening info
 // can be queried
 type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening info for the interface. The type is slice of
-    // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface.
-    Interface []InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface
+    // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_.
+    Interface_ []InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface
 }
 
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "dampening"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces) GetParentYangName() string { return "dampening" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface
 // Dampening info for the interface
 type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // The number of times the state has changed. The type is interface{} with
@@ -1433,98 +795,46 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface struct {
     RestartPenalty interface{}
 
     // Interface dampening.
-    InterfaceDampening InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening
+    InterfaceDampening InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening_
 
     // Dampening information for capsulations. The type is slice of
     // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation.
     Capsulation []InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation
 }
 
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "state-transition-count" { return "StateTransitionCount" }
-    if yname == "last-state-transition-time" { return "LastStateTransitionTime" }
-    if yname == "is-dampening-enabled" { return "IsDampeningEnabled" }
-    if yname == "half-life" { return "HalfLife" }
-    if yname == "reuse-threshold" { return "ReuseThreshold" }
-    if yname == "suppress-threshold" { return "SuppressThreshold" }
-    if yname == "maximum-suppress-time" { return "MaximumSuppressTime" }
-    if yname == "restart-penalty" { return "RestartPenalty" }
-    if yname == "interface-dampening" { return "InterfaceDampening" }
-    if yname == "capsulation" { return "Capsulation" }
-    return ""
-}
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-dampening" {
-        return &self.InterfaceDampening
-    }
-    if childYangName == "capsulation" {
-        for _, c := range self.Capsulation {
-            if self.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation{}
-        self.Capsulation = append(self.Capsulation, child)
-        return &self.Capsulation[len(self.Capsulation)-1]
-    }
-    return nil
-}
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-dampening"] = &self.InterfaceDampening
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["interface-dampening"] = types.YChild{"InterfaceDampening", &self.InterfaceDampening}
+    self.EntityData.Children["capsulation"] = types.YChild{"Capsulation", nil}
     for i := range self.Capsulation {
-        children[self.Capsulation[i].GetSegmentPath()] = &self.Capsulation[i]
+        self.EntityData.Children[types.GetSegmentPath(&self.Capsulation[i])] = types.YChild{"Capsulation", &self.Capsulation[i]}
     }
-    return children
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["state-transition-count"] = types.YLeaf{"StateTransitionCount", self.StateTransitionCount}
+    self.EntityData.Leafs["last-state-transition-time"] = types.YLeaf{"LastStateTransitionTime", self.LastStateTransitionTime}
+    self.EntityData.Leafs["is-dampening-enabled"] = types.YLeaf{"IsDampeningEnabled", self.IsDampeningEnabled}
+    self.EntityData.Leafs["half-life"] = types.YLeaf{"HalfLife", self.HalfLife}
+    self.EntityData.Leafs["reuse-threshold"] = types.YLeaf{"ReuseThreshold", self.ReuseThreshold}
+    self.EntityData.Leafs["suppress-threshold"] = types.YLeaf{"SuppressThreshold", self.SuppressThreshold}
+    self.EntityData.Leafs["maximum-suppress-time"] = types.YLeaf{"MaximumSuppressTime", self.MaximumSuppressTime}
+    self.EntityData.Leafs["restart-penalty"] = types.YLeaf{"RestartPenalty", self.RestartPenalty}
+    return &(self.EntityData)
 }
 
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["state-transition-count"] = self.StateTransitionCount
-    leafs["last-state-transition-time"] = self.LastStateTransitionTime
-    leafs["is-dampening-enabled"] = self.IsDampeningEnabled
-    leafs["half-life"] = self.HalfLife
-    leafs["reuse-threshold"] = self.ReuseThreshold
-    leafs["suppress-threshold"] = self.SuppressThreshold
-    leafs["maximum-suppress-time"] = self.MaximumSuppressTime
-    leafs["restart-penalty"] = self.RestartPenalty
-    return leafs
-}
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
-
-// InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening
+// InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening_
 // Interface dampening
-type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening struct {
-    parent types.Entity
+type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening penalty of the interface. The type is interface{} with range:
@@ -1546,64 +856,30 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Interface
     State interface{}
 }
 
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetFilter() yfilter.YFilter { return interfaceDampening.YFilter }
+func (interfaceDampening_ *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening_) GetEntityData() *types.CommonEntityData {
+    interfaceDampening_.EntityData.YFilter = interfaceDampening_.YFilter
+    interfaceDampening_.EntityData.YangName = "interface-dampening"
+    interfaceDampening_.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDampening_.EntityData.ParentYangName = "interface"
+    interfaceDampening_.EntityData.SegmentPath = "interface-dampening"
+    interfaceDampening_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDampening_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDampening_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) SetFilter(yf yfilter.YFilter) { interfaceDampening.YFilter = yf }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetGoName(yname string) string {
-    if yname == "penalty" { return "Penalty" }
-    if yname == "is-suppressed-enabled" { return "IsSuppressedEnabled" }
-    if yname == "seconds-remaining" { return "SecondsRemaining" }
-    if yname == "flaps" { return "Flaps" }
-    if yname == "state" { return "State" }
-    return ""
+    interfaceDampening_.EntityData.Children = make(map[string]types.YChild)
+    interfaceDampening_.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceDampening_.EntityData.Leafs["penalty"] = types.YLeaf{"Penalty", interfaceDampening_.Penalty}
+    interfaceDampening_.EntityData.Leafs["is-suppressed-enabled"] = types.YLeaf{"IsSuppressedEnabled", interfaceDampening_.IsSuppressedEnabled}
+    interfaceDampening_.EntityData.Leafs["seconds-remaining"] = types.YLeaf{"SecondsRemaining", interfaceDampening_.SecondsRemaining}
+    interfaceDampening_.EntityData.Leafs["flaps"] = types.YLeaf{"Flaps", interfaceDampening_.Flaps}
+    interfaceDampening_.EntityData.Leafs["state"] = types.YLeaf{"State", interfaceDampening_.State}
+    return &(interfaceDampening_.EntityData)
 }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetSegmentPath() string {
-    return "interface-dampening"
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["penalty"] = interfaceDampening.Penalty
-    leafs["is-suppressed-enabled"] = interfaceDampening.IsSuppressedEnabled
-    leafs["seconds-remaining"] = interfaceDampening.SecondsRemaining
-    leafs["flaps"] = interfaceDampening.Flaps
-    leafs["state"] = interfaceDampening.State
-    return leafs
-}
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetYangName() string { return "interface-dampening" }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) SetParent(parent types.Entity) { interfaceDampening.parent = parent }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetParent() types.Entity { return interfaceDampening.parent }
-
-func (interfaceDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_InterfaceDampening) GetParentYangName() string { return "interface" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation
 // Dampening information for capsulations
 type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Capsulation number. The type is string.
@@ -1613,61 +889,27 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulati
     CapsulationDampening InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening
 }
 
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetFilter() yfilter.YFilter { return capsulation.YFilter }
+func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetEntityData() *types.CommonEntityData {
+    capsulation.EntityData.YFilter = capsulation.YFilter
+    capsulation.EntityData.YangName = "capsulation"
+    capsulation.EntityData.BundleName = "cisco_ios_xr"
+    capsulation.EntityData.ParentYangName = "interface"
+    capsulation.EntityData.SegmentPath = "capsulation"
+    capsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) SetFilter(yf yfilter.YFilter) { capsulation.YFilter = yf }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetGoName(yname string) string {
-    if yname == "capsulation-number" { return "CapsulationNumber" }
-    if yname == "capsulation-dampening" { return "CapsulationDampening" }
-    return ""
+    capsulation.EntityData.Children = make(map[string]types.YChild)
+    capsulation.EntityData.Children["capsulation-dampening"] = types.YChild{"CapsulationDampening", &capsulation.CapsulationDampening}
+    capsulation.EntityData.Leafs = make(map[string]types.YLeaf)
+    capsulation.EntityData.Leafs["capsulation-number"] = types.YLeaf{"CapsulationNumber", capsulation.CapsulationNumber}
+    return &(capsulation.EntityData)
 }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetSegmentPath() string {
-    return "capsulation"
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "capsulation-dampening" {
-        return &capsulation.CapsulationDampening
-    }
-    return nil
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["capsulation-dampening"] = &capsulation.CapsulationDampening
-    return children
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["capsulation-number"] = capsulation.CapsulationNumber
-    return leafs
-}
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetYangName() string { return "capsulation" }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) SetParent(parent types.Entity) { capsulation.parent = parent }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetParent() types.Entity { return capsulation.parent }
-
-func (capsulation *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation) GetParentYangName() string { return "interface" }
 
 // InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening
 // Capsulation dampening
 type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dampening penalty of the interface. The type is interface{} with range:
@@ -1689,123 +931,56 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulati
     State interface{}
 }
 
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetFilter() yfilter.YFilter { return capsulationDampening.YFilter }
+func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetEntityData() *types.CommonEntityData {
+    capsulationDampening.EntityData.YFilter = capsulationDampening.YFilter
+    capsulationDampening.EntityData.YangName = "capsulation-dampening"
+    capsulationDampening.EntityData.BundleName = "cisco_ios_xr"
+    capsulationDampening.EntityData.ParentYangName = "capsulation"
+    capsulationDampening.EntityData.SegmentPath = "capsulation-dampening"
+    capsulationDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsulationDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsulationDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) SetFilter(yf yfilter.YFilter) { capsulationDampening.YFilter = yf }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetGoName(yname string) string {
-    if yname == "penalty" { return "Penalty" }
-    if yname == "is-suppressed-enabled" { return "IsSuppressedEnabled" }
-    if yname == "seconds-remaining" { return "SecondsRemaining" }
-    if yname == "flaps" { return "Flaps" }
-    if yname == "state" { return "State" }
-    return ""
+    capsulationDampening.EntityData.Children = make(map[string]types.YChild)
+    capsulationDampening.EntityData.Leafs = make(map[string]types.YLeaf)
+    capsulationDampening.EntityData.Leafs["penalty"] = types.YLeaf{"Penalty", capsulationDampening.Penalty}
+    capsulationDampening.EntityData.Leafs["is-suppressed-enabled"] = types.YLeaf{"IsSuppressedEnabled", capsulationDampening.IsSuppressedEnabled}
+    capsulationDampening.EntityData.Leafs["seconds-remaining"] = types.YLeaf{"SecondsRemaining", capsulationDampening.SecondsRemaining}
+    capsulationDampening.EntityData.Leafs["flaps"] = types.YLeaf{"Flaps", capsulationDampening.Flaps}
+    capsulationDampening.EntityData.Leafs["state"] = types.YLeaf{"State", capsulationDampening.State}
+    return &(capsulationDampening.EntityData)
 }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetSegmentPath() string {
-    return "capsulation-dampening"
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["penalty"] = capsulationDampening.Penalty
-    leafs["is-suppressed-enabled"] = capsulationDampening.IsSuppressedEnabled
-    leafs["seconds-remaining"] = capsulationDampening.SecondsRemaining
-    leafs["flaps"] = capsulationDampening.Flaps
-    leafs["state"] = capsulationDampening.State
-    return leafs
-}
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetYangName() string { return "capsulation-dampening" }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) SetParent(parent types.Entity) { capsulationDampening.parent = parent }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetParent() types.Entity { return capsulationDampening.parent }
-
-func (capsulationDampening *InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface_Capsulation_CapsulationDampening) GetParentYangName() string { return "capsulation" }
 
 // InterfaceProperties
 // interface properties
 type InterfaceProperties struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational data for interfaces.
     DataNodes InterfaceProperties_DataNodes
 }
 
-func (interfaceProperties *InterfaceProperties) GetFilter() yfilter.YFilter { return interfaceProperties.YFilter }
+func (interfaceProperties *InterfaceProperties) GetEntityData() *types.CommonEntityData {
+    interfaceProperties.EntityData.YFilter = interfaceProperties.YFilter
+    interfaceProperties.EntityData.YangName = "interface-properties"
+    interfaceProperties.EntityData.BundleName = "cisco_ios_xr"
+    interfaceProperties.EntityData.ParentYangName = "Cisco-IOS-XR-ifmgr-oper"
+    interfaceProperties.EntityData.SegmentPath = "Cisco-IOS-XR-ifmgr-oper:interface-properties"
+    interfaceProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceProperties *InterfaceProperties) SetFilter(yf yfilter.YFilter) { interfaceProperties.YFilter = yf }
-
-func (interfaceProperties *InterfaceProperties) GetGoName(yname string) string {
-    if yname == "data-nodes" { return "DataNodes" }
-    return ""
+    interfaceProperties.EntityData.Children = make(map[string]types.YChild)
+    interfaceProperties.EntityData.Children["data-nodes"] = types.YChild{"DataNodes", &interfaceProperties.DataNodes}
+    interfaceProperties.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceProperties.EntityData)
 }
-
-func (interfaceProperties *InterfaceProperties) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ifmgr-oper:interface-properties"
-}
-
-func (interfaceProperties *InterfaceProperties) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "data-nodes" {
-        return &interfaceProperties.DataNodes
-    }
-    return nil
-}
-
-func (interfaceProperties *InterfaceProperties) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["data-nodes"] = &interfaceProperties.DataNodes
-    return children
-}
-
-func (interfaceProperties *InterfaceProperties) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceProperties *InterfaceProperties) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceProperties *InterfaceProperties) GetYangName() string { return "interface-properties" }
-
-func (interfaceProperties *InterfaceProperties) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceProperties *InterfaceProperties) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceProperties *InterfaceProperties) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceProperties *InterfaceProperties) SetParent(parent types.Entity) { interfaceProperties.parent = parent }
-
-func (interfaceProperties *InterfaceProperties) GetParent() types.Entity { return interfaceProperties.parent }
-
-func (interfaceProperties *InterfaceProperties) GetParentYangName() string { return "Cisco-IOS-XR-ifmgr-oper" }
 
 // InterfaceProperties_DataNodes
 // Operational data for interfaces
 type InterfaceProperties_DataNodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The location of a (D)RP in the same LR as the interface being queried. The
@@ -1813,73 +988,34 @@ type InterfaceProperties_DataNodes struct {
     DataNode []InterfaceProperties_DataNodes_DataNode
 }
 
-func (dataNodes *InterfaceProperties_DataNodes) GetFilter() yfilter.YFilter { return dataNodes.YFilter }
+func (dataNodes *InterfaceProperties_DataNodes) GetEntityData() *types.CommonEntityData {
+    dataNodes.EntityData.YFilter = dataNodes.YFilter
+    dataNodes.EntityData.YangName = "data-nodes"
+    dataNodes.EntityData.BundleName = "cisco_ios_xr"
+    dataNodes.EntityData.ParentYangName = "interface-properties"
+    dataNodes.EntityData.SegmentPath = "data-nodes"
+    dataNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dataNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dataNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dataNodes *InterfaceProperties_DataNodes) SetFilter(yf yfilter.YFilter) { dataNodes.YFilter = yf }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetGoName(yname string) string {
-    if yname == "data-node" { return "DataNode" }
-    return ""
-}
-
-func (dataNodes *InterfaceProperties_DataNodes) GetSegmentPath() string {
-    return "data-nodes"
-}
-
-func (dataNodes *InterfaceProperties_DataNodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "data-node" {
-        for _, c := range dataNodes.DataNode {
-            if dataNodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceProperties_DataNodes_DataNode{}
-        dataNodes.DataNode = append(dataNodes.DataNode, child)
-        return &dataNodes.DataNode[len(dataNodes.DataNode)-1]
-    }
-    return nil
-}
-
-func (dataNodes *InterfaceProperties_DataNodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dataNodes.EntityData.Children = make(map[string]types.YChild)
+    dataNodes.EntityData.Children["data-node"] = types.YChild{"DataNode", nil}
     for i := range dataNodes.DataNode {
-        children[dataNodes.DataNode[i].GetSegmentPath()] = &dataNodes.DataNode[i]
+        dataNodes.EntityData.Children[types.GetSegmentPath(&dataNodes.DataNode[i])] = types.YChild{"DataNode", &dataNodes.DataNode[i]}
     }
-    return children
+    dataNodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dataNodes.EntityData)
 }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dataNodes *InterfaceProperties_DataNodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetYangName() string { return "data-nodes" }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dataNodes *InterfaceProperties_DataNodes) SetParent(parent types.Entity) { dataNodes.parent = parent }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetParent() types.Entity { return dataNodes.parent }
-
-func (dataNodes *InterfaceProperties_DataNodes) GetParentYangName() string { return "interface-properties" }
 
 // InterfaceProperties_DataNodes_DataNode
 // The location of a (D)RP in the same LR as the
 // interface being queried
 type InterfaceProperties_DataNodes_DataNode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The location of the (D)RP. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     DataNodeName interface{}
 
     // Location-specific view of interface operational data.
@@ -1892,72 +1028,30 @@ type InterfaceProperties_DataNodes_DataNode struct {
     SystemView InterfaceProperties_DataNodes_DataNode_SystemView
 }
 
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetFilter() yfilter.YFilter { return dataNode.YFilter }
+func (dataNode *InterfaceProperties_DataNodes_DataNode) GetEntityData() *types.CommonEntityData {
+    dataNode.EntityData.YFilter = dataNode.YFilter
+    dataNode.EntityData.YangName = "data-node"
+    dataNode.EntityData.BundleName = "cisco_ios_xr"
+    dataNode.EntityData.ParentYangName = "data-nodes"
+    dataNode.EntityData.SegmentPath = "data-node" + "[data-node-name='" + fmt.Sprintf("%v", dataNode.DataNodeName) + "']"
+    dataNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dataNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dataNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dataNode *InterfaceProperties_DataNodes_DataNode) SetFilter(yf yfilter.YFilter) { dataNode.YFilter = yf }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetGoName(yname string) string {
-    if yname == "data-node-name" { return "DataNodeName" }
-    if yname == "locationviews" { return "Locationviews" }
-    if yname == "pq-node-locations" { return "PqNodeLocations" }
-    if yname == "system-view" { return "SystemView" }
-    return ""
+    dataNode.EntityData.Children = make(map[string]types.YChild)
+    dataNode.EntityData.Children["locationviews"] = types.YChild{"Locationviews", &dataNode.Locationviews}
+    dataNode.EntityData.Children["pq-node-locations"] = types.YChild{"PqNodeLocations", &dataNode.PqNodeLocations}
+    dataNode.EntityData.Children["system-view"] = types.YChild{"SystemView", &dataNode.SystemView}
+    dataNode.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataNode.EntityData.Leafs["data-node-name"] = types.YLeaf{"DataNodeName", dataNode.DataNodeName}
+    return &(dataNode.EntityData)
 }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetSegmentPath() string {
-    return "data-node" + "[data-node-name='" + fmt.Sprintf("%v", dataNode.DataNodeName) + "']"
-}
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "locationviews" {
-        return &dataNode.Locationviews
-    }
-    if childYangName == "pq-node-locations" {
-        return &dataNode.PqNodeLocations
-    }
-    if childYangName == "system-view" {
-        return &dataNode.SystemView
-    }
-    return nil
-}
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["locationviews"] = &dataNode.Locationviews
-    children["pq-node-locations"] = &dataNode.PqNodeLocations
-    children["system-view"] = &dataNode.SystemView
-    return children
-}
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["data-node-name"] = dataNode.DataNodeName
-    return leafs
-}
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetYangName() string { return "data-node" }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) SetParent(parent types.Entity) { dataNode.parent = parent }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetParent() types.Entity { return dataNode.parent }
-
-func (dataNode *InterfaceProperties_DataNodes_DataNode) GetParentYangName() string { return "data-nodes" }
 
 // InterfaceProperties_DataNodes_DataNode_Locationviews
 // Location-specific view of interface
 // operational data
 type InterfaceProperties_DataNodes_DataNode_Locationviews struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational data for all interfaces and controllers on a particular node.
@@ -1966,219 +1060,107 @@ type InterfaceProperties_DataNodes_DataNode_Locationviews struct {
     Locationview []InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview
 }
 
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetFilter() yfilter.YFilter { return locationviews.YFilter }
+func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetEntityData() *types.CommonEntityData {
+    locationviews.EntityData.YFilter = locationviews.YFilter
+    locationviews.EntityData.YangName = "locationviews"
+    locationviews.EntityData.BundleName = "cisco_ios_xr"
+    locationviews.EntityData.ParentYangName = "data-node"
+    locationviews.EntityData.SegmentPath = "locationviews"
+    locationviews.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locationviews.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locationviews.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) SetFilter(yf yfilter.YFilter) { locationviews.YFilter = yf }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetGoName(yname string) string {
-    if yname == "locationview" { return "Locationview" }
-    return ""
-}
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetSegmentPath() string {
-    return "locationviews"
-}
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "locationview" {
-        for _, c := range locationviews.Locationview {
-            if locationviews.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview{}
-        locationviews.Locationview = append(locationviews.Locationview, child)
-        return &locationviews.Locationview[len(locationviews.Locationview)-1]
-    }
-    return nil
-}
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    locationviews.EntityData.Children = make(map[string]types.YChild)
+    locationviews.EntityData.Children["locationview"] = types.YChild{"Locationview", nil}
     for i := range locationviews.Locationview {
-        children[locationviews.Locationview[i].GetSegmentPath()] = &locationviews.Locationview[i]
+        locationviews.EntityData.Children[types.GetSegmentPath(&locationviews.Locationview[i])] = types.YChild{"Locationview", &locationviews.Locationview[i]}
     }
-    return children
+    locationviews.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(locationviews.EntityData)
 }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetBundleName() string { return "cisco_ios_xr" }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetYangName() string { return "locationviews" }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) SetParent(parent types.Entity) { locationviews.parent = parent }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetParent() types.Entity { return locationviews.parent }
-
-func (locationviews *InterfaceProperties_DataNodes_DataNode_Locationviews) GetParentYangName() string { return "data-node" }
 
 // InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview
 // Operational data for all interfaces and
 // controllers on a particular node
 type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The location to filter on. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     LocationviewName interface{}
 
     // Operational data for all interfaces and controllers.
     Interfaces InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces
 }
 
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetFilter() yfilter.YFilter { return locationview.YFilter }
+func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetEntityData() *types.CommonEntityData {
+    locationview.EntityData.YFilter = locationview.YFilter
+    locationview.EntityData.YangName = "locationview"
+    locationview.EntityData.BundleName = "cisco_ios_xr"
+    locationview.EntityData.ParentYangName = "locationviews"
+    locationview.EntityData.SegmentPath = "locationview" + "[locationview-name='" + fmt.Sprintf("%v", locationview.LocationviewName) + "']"
+    locationview.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locationview.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locationview.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) SetFilter(yf yfilter.YFilter) { locationview.YFilter = yf }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetGoName(yname string) string {
-    if yname == "locationview-name" { return "LocationviewName" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    locationview.EntityData.Children = make(map[string]types.YChild)
+    locationview.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &locationview.Interfaces}
+    locationview.EntityData.Leafs = make(map[string]types.YLeaf)
+    locationview.EntityData.Leafs["locationview-name"] = types.YLeaf{"LocationviewName", locationview.LocationviewName}
+    return &(locationview.EntityData)
 }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetSegmentPath() string {
-    return "locationview" + "[locationview-name='" + fmt.Sprintf("%v", locationview.LocationviewName) + "']"
-}
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &locationview.Interfaces
-    }
-    return nil
-}
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &locationview.Interfaces
-    return children
-}
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["locationview-name"] = locationview.LocationviewName
-    return leafs
-}
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetBundleName() string { return "cisco_ios_xr" }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetYangName() string { return "locationview" }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) SetParent(parent types.Entity) { locationview.parent = parent }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetParent() types.Entity { return locationview.parent }
-
-func (locationview *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview) GetParentYangName() string { return "locationviews" }
 
 // InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces
 // Operational data for all interfaces and
 // controllers
 type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The operational attributes for a particular interface. The type is slice of
-    // InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface.
-    Interface []InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface
+    // InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface_.
+    Interface_ []InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface
 }
 
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "locationview"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces) GetParentYangName() string { return "locationview" }
 
 // InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface
 // The operational attributes for a particular
 // interface
 type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     ParentInterface interface{}
 
     // Interface type. The type is string.
-    Type interface{}
+    Type_ interface{}
 
     // Operational state. The type is ImStateEnum.
     State interface{}
@@ -2216,83 +1198,40 @@ type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interface
     Bandwidth interface{}
 }
 
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "parent-interface" { return "ParentInterface" }
-    if yname == "type" { return "Type" }
-    if yname == "state" { return "State" }
-    if yname == "actual-state" { return "ActualState" }
-    if yname == "line-state" { return "LineState" }
-    if yname == "actual-line-state" { return "ActualLineState" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "encapsulation-type-string" { return "EncapsulationTypeString" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "sub-interface-mtu-overhead" { return "SubInterfaceMtuOverhead" }
-    if yname == "l2-transport" { return "L2Transport" }
-    if yname == "bandwidth" { return "Bandwidth" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["parent-interface"] = types.YLeaf{"ParentInterface", self.ParentInterface}
+    self.EntityData.Leafs["type"] = types.YLeaf{"Type_", self.Type_}
+    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
+    self.EntityData.Leafs["actual-state"] = types.YLeaf{"ActualState", self.ActualState}
+    self.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", self.LineState}
+    self.EntityData.Leafs["actual-line-state"] = types.YLeaf{"ActualLineState", self.ActualLineState}
+    self.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", self.Encapsulation}
+    self.EntityData.Leafs["encapsulation-type-string"] = types.YLeaf{"EncapsulationTypeString", self.EncapsulationTypeString}
+    self.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", self.Mtu}
+    self.EntityData.Leafs["sub-interface-mtu-overhead"] = types.YLeaf{"SubInterfaceMtuOverhead", self.SubInterfaceMtuOverhead}
+    self.EntityData.Leafs["l2-transport"] = types.YLeaf{"L2Transport", self.L2Transport}
+    self.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", self.Bandwidth}
+    return &(self.EntityData)
 }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface"] = self.Interface
-    leafs["parent-interface"] = self.ParentInterface
-    leafs["type"] = self.Type
-    leafs["state"] = self.State
-    leafs["actual-state"] = self.ActualState
-    leafs["line-state"] = self.LineState
-    leafs["actual-line-state"] = self.ActualLineState
-    leafs["encapsulation"] = self.Encapsulation
-    leafs["encapsulation-type-string"] = self.EncapsulationTypeString
-    leafs["mtu"] = self.Mtu
-    leafs["sub-interface-mtu-overhead"] = self.SubInterfaceMtuOverhead
-    leafs["l2-transport"] = self.L2Transport
-    leafs["bandwidth"] = self.Bandwidth
-    return leafs
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // InterfaceProperties_DataNodes_DataNode_PqNodeLocations
 // Partially qualified Location-specific view of
 // interface operational data
 type InterfaceProperties_DataNodes_DataNode_PqNodeLocations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational data for all interfaces and controllers on a particular
@@ -2301,220 +1240,108 @@ type InterfaceProperties_DataNodes_DataNode_PqNodeLocations struct {
     PqNodeLocation []InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation
 }
 
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetFilter() yfilter.YFilter { return pqNodeLocations.YFilter }
+func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetEntityData() *types.CommonEntityData {
+    pqNodeLocations.EntityData.YFilter = pqNodeLocations.YFilter
+    pqNodeLocations.EntityData.YangName = "pq-node-locations"
+    pqNodeLocations.EntityData.BundleName = "cisco_ios_xr"
+    pqNodeLocations.EntityData.ParentYangName = "data-node"
+    pqNodeLocations.EntityData.SegmentPath = "pq-node-locations"
+    pqNodeLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pqNodeLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pqNodeLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) SetFilter(yf yfilter.YFilter) { pqNodeLocations.YFilter = yf }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetGoName(yname string) string {
-    if yname == "pq-node-location" { return "PqNodeLocation" }
-    return ""
-}
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetSegmentPath() string {
-    return "pq-node-locations"
-}
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pq-node-location" {
-        for _, c := range pqNodeLocations.PqNodeLocation {
-            if pqNodeLocations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation{}
-        pqNodeLocations.PqNodeLocation = append(pqNodeLocations.PqNodeLocation, child)
-        return &pqNodeLocations.PqNodeLocation[len(pqNodeLocations.PqNodeLocation)-1]
-    }
-    return nil
-}
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pqNodeLocations.EntityData.Children = make(map[string]types.YChild)
+    pqNodeLocations.EntityData.Children["pq-node-location"] = types.YChild{"PqNodeLocation", nil}
     for i := range pqNodeLocations.PqNodeLocation {
-        children[pqNodeLocations.PqNodeLocation[i].GetSegmentPath()] = &pqNodeLocations.PqNodeLocation[i]
+        pqNodeLocations.EntityData.Children[types.GetSegmentPath(&pqNodeLocations.PqNodeLocation[i])] = types.YChild{"PqNodeLocation", &pqNodeLocations.PqNodeLocation[i]}
     }
-    return children
+    pqNodeLocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pqNodeLocations.EntityData)
 }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetYangName() string { return "pq-node-locations" }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) SetParent(parent types.Entity) { pqNodeLocations.parent = parent }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetParent() types.Entity { return pqNodeLocations.parent }
-
-func (pqNodeLocations *InterfaceProperties_DataNodes_DataNode_PqNodeLocations) GetParentYangName() string { return "data-node" }
 
 // InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation
 // Operational data for all interfaces and
 // controllers on a particular pq_node
 type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The partially qualified location to filter on. The
     // type is string with pattern:
-    // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
+    // b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
     PqNodeName interface{}
 
     // Operational data for all interfaces and controllers.
     Interfaces InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces
 }
 
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetFilter() yfilter.YFilter { return pqNodeLocation.YFilter }
+func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetEntityData() *types.CommonEntityData {
+    pqNodeLocation.EntityData.YFilter = pqNodeLocation.YFilter
+    pqNodeLocation.EntityData.YangName = "pq-node-location"
+    pqNodeLocation.EntityData.BundleName = "cisco_ios_xr"
+    pqNodeLocation.EntityData.ParentYangName = "pq-node-locations"
+    pqNodeLocation.EntityData.SegmentPath = "pq-node-location" + "[pq-node-name='" + fmt.Sprintf("%v", pqNodeLocation.PqNodeName) + "']"
+    pqNodeLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pqNodeLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pqNodeLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) SetFilter(yf yfilter.YFilter) { pqNodeLocation.YFilter = yf }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetGoName(yname string) string {
-    if yname == "pq-node-name" { return "PqNodeName" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    pqNodeLocation.EntityData.Children = make(map[string]types.YChild)
+    pqNodeLocation.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &pqNodeLocation.Interfaces}
+    pqNodeLocation.EntityData.Leafs = make(map[string]types.YLeaf)
+    pqNodeLocation.EntityData.Leafs["pq-node-name"] = types.YLeaf{"PqNodeName", pqNodeLocation.PqNodeName}
+    return &(pqNodeLocation.EntityData)
 }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetSegmentPath() string {
-    return "pq-node-location" + "[pq-node-name='" + fmt.Sprintf("%v", pqNodeLocation.PqNodeName) + "']"
-}
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &pqNodeLocation.Interfaces
-    }
-    return nil
-}
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &pqNodeLocation.Interfaces
-    return children
-}
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pq-node-name"] = pqNodeLocation.PqNodeName
-    return leafs
-}
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetYangName() string { return "pq-node-location" }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) SetParent(parent types.Entity) { pqNodeLocation.parent = parent }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetParent() types.Entity { return pqNodeLocation.parent }
-
-func (pqNodeLocation *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation) GetParentYangName() string { return "pq-node-locations" }
 
 // InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces
 // Operational data for all interfaces and
 // controllers
 type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The operational attributes for a particular interface. The type is slice of
-    // InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface.
-    Interface []InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface
+    // InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface_.
+    Interface_ []InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface
 }
 
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "pq-node-location"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces) GetParentYangName() string { return "pq-node-location" }
 
 // InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface
 // The operational attributes for a particular
 // interface
 type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     ParentInterface interface{}
 
     // Interface type. The type is string.
-    Type interface{}
+    Type_ interface{}
 
     // Operational state. The type is ImStateEnum.
     State interface{}
@@ -2552,226 +1379,111 @@ type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Inter
     Bandwidth interface{}
 }
 
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "parent-interface" { return "ParentInterface" }
-    if yname == "type" { return "Type" }
-    if yname == "state" { return "State" }
-    if yname == "actual-state" { return "ActualState" }
-    if yname == "line-state" { return "LineState" }
-    if yname == "actual-line-state" { return "ActualLineState" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "encapsulation-type-string" { return "EncapsulationTypeString" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "sub-interface-mtu-overhead" { return "SubInterfaceMtuOverhead" }
-    if yname == "l2-transport" { return "L2Transport" }
-    if yname == "bandwidth" { return "Bandwidth" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["parent-interface"] = types.YLeaf{"ParentInterface", self.ParentInterface}
+    self.EntityData.Leafs["type"] = types.YLeaf{"Type_", self.Type_}
+    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
+    self.EntityData.Leafs["actual-state"] = types.YLeaf{"ActualState", self.ActualState}
+    self.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", self.LineState}
+    self.EntityData.Leafs["actual-line-state"] = types.YLeaf{"ActualLineState", self.ActualLineState}
+    self.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", self.Encapsulation}
+    self.EntityData.Leafs["encapsulation-type-string"] = types.YLeaf{"EncapsulationTypeString", self.EncapsulationTypeString}
+    self.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", self.Mtu}
+    self.EntityData.Leafs["sub-interface-mtu-overhead"] = types.YLeaf{"SubInterfaceMtuOverhead", self.SubInterfaceMtuOverhead}
+    self.EntityData.Leafs["l2-transport"] = types.YLeaf{"L2Transport", self.L2Transport}
+    self.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", self.Bandwidth}
+    return &(self.EntityData)
 }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface"] = self.Interface
-    leafs["parent-interface"] = self.ParentInterface
-    leafs["type"] = self.Type
-    leafs["state"] = self.State
-    leafs["actual-state"] = self.ActualState
-    leafs["line-state"] = self.LineState
-    leafs["actual-line-state"] = self.ActualLineState
-    leafs["encapsulation"] = self.Encapsulation
-    leafs["encapsulation-type-string"] = self.EncapsulationTypeString
-    leafs["mtu"] = self.Mtu
-    leafs["sub-interface-mtu-overhead"] = self.SubInterfaceMtuOverhead
-    leafs["l2-transport"] = self.L2Transport
-    leafs["bandwidth"] = self.Bandwidth
-    return leafs
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // InterfaceProperties_DataNodes_DataNode_SystemView
 // System-wide view of interface operational data
 type InterfaceProperties_DataNodes_DataNode_SystemView struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational data for all interfaces and controllers.
     Interfaces InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces
 }
 
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetFilter() yfilter.YFilter { return systemView.YFilter }
+func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetEntityData() *types.CommonEntityData {
+    systemView.EntityData.YFilter = systemView.YFilter
+    systemView.EntityData.YangName = "system-view"
+    systemView.EntityData.BundleName = "cisco_ios_xr"
+    systemView.EntityData.ParentYangName = "data-node"
+    systemView.EntityData.SegmentPath = "system-view"
+    systemView.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    systemView.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    systemView.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) SetFilter(yf yfilter.YFilter) { systemView.YFilter = yf }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    systemView.EntityData.Children = make(map[string]types.YChild)
+    systemView.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &systemView.Interfaces}
+    systemView.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(systemView.EntityData)
 }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetSegmentPath() string {
-    return "system-view"
-}
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &systemView.Interfaces
-    }
-    return nil
-}
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &systemView.Interfaces
-    return children
-}
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetBundleName() string { return "cisco_ios_xr" }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetYangName() string { return "system-view" }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) SetParent(parent types.Entity) { systemView.parent = parent }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetParent() types.Entity { return systemView.parent }
-
-func (systemView *InterfaceProperties_DataNodes_DataNode_SystemView) GetParentYangName() string { return "data-node" }
 
 // InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces
 // Operational data for all interfaces and
 // controllers
 type InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The operational attributes for a particular interface. The type is slice of
-    // InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface.
-    Interface []InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface
+    // InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface_.
+    Interface_ []InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface
 }
 
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "system-view"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces) GetParentYangName() string { return "system-view" }
 
 // InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface
 // The operational attributes for a particular
 // interface
 type InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
-    // Parent Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     ParentInterface interface{}
 
     // Interface type. The type is string.
-    Type interface{}
+    Type_ interface{}
 
     // Operational state. The type is ImStateEnum.
     State interface{}
@@ -2809,75 +1521,32 @@ type InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface stru
     Bandwidth interface{}
 }
 
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "parent-interface" { return "ParentInterface" }
-    if yname == "type" { return "Type" }
-    if yname == "state" { return "State" }
-    if yname == "actual-state" { return "ActualState" }
-    if yname == "line-state" { return "LineState" }
-    if yname == "actual-line-state" { return "ActualLineState" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "encapsulation-type-string" { return "EncapsulationTypeString" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "sub-interface-mtu-overhead" { return "SubInterfaceMtuOverhead" }
-    if yname == "l2-transport" { return "L2Transport" }
-    if yname == "bandwidth" { return "Bandwidth" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["parent-interface"] = types.YLeaf{"ParentInterface", self.ParentInterface}
+    self.EntityData.Leafs["type"] = types.YLeaf{"Type_", self.Type_}
+    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
+    self.EntityData.Leafs["actual-state"] = types.YLeaf{"ActualState", self.ActualState}
+    self.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", self.LineState}
+    self.EntityData.Leafs["actual-line-state"] = types.YLeaf{"ActualLineState", self.ActualLineState}
+    self.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", self.Encapsulation}
+    self.EntityData.Leafs["encapsulation-type-string"] = types.YLeaf{"EncapsulationTypeString", self.EncapsulationTypeString}
+    self.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", self.Mtu}
+    self.EntityData.Leafs["sub-interface-mtu-overhead"] = types.YLeaf{"SubInterfaceMtuOverhead", self.SubInterfaceMtuOverhead}
+    self.EntityData.Leafs["l2-transport"] = types.YLeaf{"L2Transport", self.L2Transport}
+    self.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", self.Bandwidth}
+    return &(self.EntityData)
 }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface"] = self.Interface
-    leafs["parent-interface"] = self.ParentInterface
-    leafs["type"] = self.Type
-    leafs["state"] = self.State
-    leafs["actual-state"] = self.ActualState
-    leafs["line-state"] = self.LineState
-    leafs["actual-line-state"] = self.ActualLineState
-    leafs["encapsulation"] = self.Encapsulation
-    leafs["encapsulation-type-string"] = self.EncapsulationTypeString
-    leafs["mtu"] = self.Mtu
-    leafs["sub-interface-mtu-overhead"] = self.SubInterfaceMtuOverhead
-    leafs["l2-transport"] = self.L2Transport
-    leafs["bandwidth"] = self.Bandwidth
-    return leafs
-}
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 

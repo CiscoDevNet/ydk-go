@@ -33,6 +33,16 @@ module Cisco-IOS-XE-umbrella {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Added Two GE Interface";
+  }
+
   revision 2017-08-30 {
     description
       "Initial revision";
@@ -123,8 +133,63 @@ module Cisco-IOS-XE-umbrella {
   /////////////////////////////////////////////////////////
   // native / interface
   /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FastEthernet" {
+    uses config-interface-umbrella-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:GigabitEthernet" {
     uses config-interface-umbrella-grouping;
-  } //augment
+  }
 
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:LISP" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Loopback" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Tunnel" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Virtual-Template" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Vlan" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:vasileft" {
+    uses config-interface-umbrella-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:vasiright" {
+    uses config-interface-umbrella-grouping;
+  }
 } //module

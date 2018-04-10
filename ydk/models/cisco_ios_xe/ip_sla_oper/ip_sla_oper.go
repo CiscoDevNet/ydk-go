@@ -19,26 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-ip-sla-oper:ip-sla-stats", reflect.TypeOf(IpSlaStats{}))
 }
 
-// TtlType represents IP SLA time-to-live type
-type TtlType string
-
-const (
-    TtlType_ttl_finite TtlType = "ttl-finite"
-
-    TtlType_ttl_forever TtlType = "ttl-forever"
-)
-
-// RttType represents IP SLA RTT type
-type RttType string
-
-const (
-    RttType_rtt_known RttType = "rtt-known"
-
-    RttType_rtt_unknown RttType = "rtt-unknown"
-
-    RttType_rtt_could_not_find RttType = "rtt-could-not-find"
-)
-
 // SlaOperType represents IP SLA operational type
 type SlaOperType string
 
@@ -66,6 +46,8 @@ const (
     SlaOperType_oper_type_pong SlaOperType = "oper-type-pong"
 
     SlaOperType_oper_type_path_jitter SlaOperType = "oper-type-path-jitter"
+
+    SlaOperType_oper_type_icmp_echo SlaOperType = "oper-type-icmp-echo"
 )
 
 // SlaReturnCode represents IP SLA return code
@@ -100,10 +82,30 @@ const (
     AccuracyType_accuracy_microseconds AccuracyType = "accuracy-microseconds"
 )
 
+// RttType represents IP SLA RTT type
+type RttType string
+
+const (
+    RttType_rtt_known RttType = "rtt-known"
+
+    RttType_rtt_unknown RttType = "rtt-unknown"
+
+    RttType_rtt_could_not_find RttType = "rtt-could-not-find"
+)
+
+// TtlType represents IP SLA time-to-live type
+type TtlType string
+
+const (
+    TtlType_ttl_finite TtlType = "ttl-finite"
+
+    TtlType_ttl_forever TtlType = "ttl-forever"
+)
+
 // IpSlaStats
 // Data nodes for All IP SLA Statistics
 type IpSlaStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of IP SLA operations with statistics info. The type is slice of
@@ -111,68 +113,29 @@ type IpSlaStats struct {
     SlaOperEntry []IpSlaStats_SlaOperEntry
 }
 
-func (ipSlaStats *IpSlaStats) GetFilter() yfilter.YFilter { return ipSlaStats.YFilter }
+func (ipSlaStats *IpSlaStats) GetEntityData() *types.CommonEntityData {
+    ipSlaStats.EntityData.YFilter = ipSlaStats.YFilter
+    ipSlaStats.EntityData.YangName = "ip-sla-stats"
+    ipSlaStats.EntityData.BundleName = "cisco_ios_xe"
+    ipSlaStats.EntityData.ParentYangName = "Cisco-IOS-XE-ip-sla-oper"
+    ipSlaStats.EntityData.SegmentPath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats"
+    ipSlaStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipSlaStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipSlaStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipSlaStats *IpSlaStats) SetFilter(yf yfilter.YFilter) { ipSlaStats.YFilter = yf }
-
-func (ipSlaStats *IpSlaStats) GetGoName(yname string) string {
-    if yname == "sla-oper-entry" { return "SlaOperEntry" }
-    return ""
-}
-
-func (ipSlaStats *IpSlaStats) GetSegmentPath() string {
-    return "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats"
-}
-
-func (ipSlaStats *IpSlaStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sla-oper-entry" {
-        for _, c := range ipSlaStats.SlaOperEntry {
-            if ipSlaStats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpSlaStats_SlaOperEntry{}
-        ipSlaStats.SlaOperEntry = append(ipSlaStats.SlaOperEntry, child)
-        return &ipSlaStats.SlaOperEntry[len(ipSlaStats.SlaOperEntry)-1]
-    }
-    return nil
-}
-
-func (ipSlaStats *IpSlaStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipSlaStats.EntityData.Children = make(map[string]types.YChild)
+    ipSlaStats.EntityData.Children["sla-oper-entry"] = types.YChild{"SlaOperEntry", nil}
     for i := range ipSlaStats.SlaOperEntry {
-        children[ipSlaStats.SlaOperEntry[i].GetSegmentPath()] = &ipSlaStats.SlaOperEntry[i]
+        ipSlaStats.EntityData.Children[types.GetSegmentPath(&ipSlaStats.SlaOperEntry[i])] = types.YChild{"SlaOperEntry", &ipSlaStats.SlaOperEntry[i]}
     }
-    return children
+    ipSlaStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipSlaStats.EntityData)
 }
-
-func (ipSlaStats *IpSlaStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipSlaStats *IpSlaStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipSlaStats *IpSlaStats) GetYangName() string { return "ip-sla-stats" }
-
-func (ipSlaStats *IpSlaStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipSlaStats *IpSlaStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipSlaStats *IpSlaStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipSlaStats *IpSlaStats) SetParent(parent types.Entity) { ipSlaStats.parent = parent }
-
-func (ipSlaStats *IpSlaStats) GetParent() types.Entity { return ipSlaStats.parent }
-
-func (ipSlaStats *IpSlaStats) GetParentYangName() string { return "Cisco-IOS-XE-ip-sla-oper" }
 
 // IpSlaStats_SlaOperEntry
 // The list of IP SLA operations with statistics info
 type IpSlaStats_SlaOperEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Entry unique identifier. The type is interface{}
@@ -192,7 +155,7 @@ type IpSlaStats_SlaOperEntry struct {
     FailureCount interface{}
 
     // Latest start time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     LatestOperStartTime interface{}
 
     // RTT information.
@@ -205,81 +168,34 @@ type IpSlaStats_SlaOperEntry struct {
     Stats IpSlaStats_SlaOperEntry_Stats
 }
 
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetFilter() yfilter.YFilter { return slaOperEntry.YFilter }
+func (slaOperEntry *IpSlaStats_SlaOperEntry) GetEntityData() *types.CommonEntityData {
+    slaOperEntry.EntityData.YFilter = slaOperEntry.YFilter
+    slaOperEntry.EntityData.YangName = "sla-oper-entry"
+    slaOperEntry.EntityData.BundleName = "cisco_ios_xe"
+    slaOperEntry.EntityData.ParentYangName = "ip-sla-stats"
+    slaOperEntry.EntityData.SegmentPath = "sla-oper-entry" + "[oper-id='" + fmt.Sprintf("%v", slaOperEntry.OperId) + "']"
+    slaOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    slaOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    slaOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (slaOperEntry *IpSlaStats_SlaOperEntry) SetFilter(yf yfilter.YFilter) { slaOperEntry.YFilter = yf }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetGoName(yname string) string {
-    if yname == "oper-id" { return "OperId" }
-    if yname == "oper-type" { return "OperType" }
-    if yname == "latest-return-code" { return "LatestReturnCode" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "failure-count" { return "FailureCount" }
-    if yname == "latest-oper-start-time" { return "LatestOperStartTime" }
-    if yname == "rtt-info" { return "RttInfo" }
-    if yname == "measure-stats" { return "MeasureStats" }
-    if yname == "stats" { return "Stats" }
-    return ""
+    slaOperEntry.EntityData.Children = make(map[string]types.YChild)
+    slaOperEntry.EntityData.Children["rtt-info"] = types.YChild{"RttInfo", &slaOperEntry.RttInfo}
+    slaOperEntry.EntityData.Children["measure-stats"] = types.YChild{"MeasureStats", &slaOperEntry.MeasureStats}
+    slaOperEntry.EntityData.Children["stats"] = types.YChild{"Stats", &slaOperEntry.Stats}
+    slaOperEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    slaOperEntry.EntityData.Leafs["oper-id"] = types.YLeaf{"OperId", slaOperEntry.OperId}
+    slaOperEntry.EntityData.Leafs["oper-type"] = types.YLeaf{"OperType", slaOperEntry.OperType}
+    slaOperEntry.EntityData.Leafs["latest-return-code"] = types.YLeaf{"LatestReturnCode", slaOperEntry.LatestReturnCode}
+    slaOperEntry.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", slaOperEntry.SuccessCount}
+    slaOperEntry.EntityData.Leafs["failure-count"] = types.YLeaf{"FailureCount", slaOperEntry.FailureCount}
+    slaOperEntry.EntityData.Leafs["latest-oper-start-time"] = types.YLeaf{"LatestOperStartTime", slaOperEntry.LatestOperStartTime}
+    return &(slaOperEntry.EntityData)
 }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetSegmentPath() string {
-    return "sla-oper-entry" + "[oper-id='" + fmt.Sprintf("%v", slaOperEntry.OperId) + "']"
-}
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rtt-info" {
-        return &slaOperEntry.RttInfo
-    }
-    if childYangName == "measure-stats" {
-        return &slaOperEntry.MeasureStats
-    }
-    if childYangName == "stats" {
-        return &slaOperEntry.Stats
-    }
-    return nil
-}
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rtt-info"] = &slaOperEntry.RttInfo
-    children["measure-stats"] = &slaOperEntry.MeasureStats
-    children["stats"] = &slaOperEntry.Stats
-    return children
-}
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["oper-id"] = slaOperEntry.OperId
-    leafs["oper-type"] = slaOperEntry.OperType
-    leafs["latest-return-code"] = slaOperEntry.LatestReturnCode
-    leafs["success-count"] = slaOperEntry.SuccessCount
-    leafs["failure-count"] = slaOperEntry.FailureCount
-    leafs["latest-oper-start-time"] = slaOperEntry.LatestOperStartTime
-    return leafs
-}
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetYangName() string { return "sla-oper-entry" }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) SetParent(parent types.Entity) { slaOperEntry.parent = parent }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetParent() types.Entity { return slaOperEntry.parent }
-
-func (slaOperEntry *IpSlaStats_SlaOperEntry) GetParentYangName() string { return "ip-sla-stats" }
 
 // IpSlaStats_SlaOperEntry_RttInfo
 // RTT information
 type IpSlaStats_SlaOperEntry_RttInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The last Round Trip Time recorded for this SLA.
@@ -289,64 +205,27 @@ type IpSlaStats_SlaOperEntry_RttInfo struct {
     TimeToLive IpSlaStats_SlaOperEntry_RttInfo_TimeToLive
 }
 
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetFilter() yfilter.YFilter { return rttInfo.YFilter }
+func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetEntityData() *types.CommonEntityData {
+    rttInfo.EntityData.YFilter = rttInfo.YFilter
+    rttInfo.EntityData.YangName = "rtt-info"
+    rttInfo.EntityData.BundleName = "cisco_ios_xe"
+    rttInfo.EntityData.ParentYangName = "sla-oper-entry"
+    rttInfo.EntityData.SegmentPath = "rtt-info"
+    rttInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) SetFilter(yf yfilter.YFilter) { rttInfo.YFilter = yf }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetGoName(yname string) string {
-    if yname == "latest-rtt" { return "LatestRtt" }
-    if yname == "time-to-live" { return "TimeToLive" }
-    return ""
+    rttInfo.EntityData.Children = make(map[string]types.YChild)
+    rttInfo.EntityData.Children["latest-rtt"] = types.YChild{"LatestRtt", &rttInfo.LatestRtt}
+    rttInfo.EntityData.Children["time-to-live"] = types.YChild{"TimeToLive", &rttInfo.TimeToLive}
+    rttInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttInfo.EntityData)
 }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetSegmentPath() string {
-    return "rtt-info"
-}
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "latest-rtt" {
-        return &rttInfo.LatestRtt
-    }
-    if childYangName == "time-to-live" {
-        return &rttInfo.TimeToLive
-    }
-    return nil
-}
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["latest-rtt"] = &rttInfo.LatestRtt
-    children["time-to-live"] = &rttInfo.TimeToLive
-    return children
-}
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetYangName() string { return "rtt-info" }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) SetParent(parent types.Entity) { rttInfo.parent = parent }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetParent() types.Entity { return rttInfo.parent }
-
-func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetParentYangName() string { return "sla-oper-entry" }
 
 // IpSlaStats_SlaOperEntry_RttInfo_LatestRtt
 // The last Round Trip Time recorded for this SLA
 type IpSlaStats_SlaOperEntry_RttInfo_LatestRtt struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Round trip time value. The type is interface{} with range:
@@ -360,60 +239,28 @@ type IpSlaStats_SlaOperEntry_RttInfo_LatestRtt struct {
     CouldNotFind interface{}
 }
 
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetFilter() yfilter.YFilter { return latestRtt.YFilter }
+func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetEntityData() *types.CommonEntityData {
+    latestRtt.EntityData.YFilter = latestRtt.YFilter
+    latestRtt.EntityData.YangName = "latest-rtt"
+    latestRtt.EntityData.BundleName = "cisco_ios_xe"
+    latestRtt.EntityData.ParentYangName = "rtt-info"
+    latestRtt.EntityData.SegmentPath = "latest-rtt"
+    latestRtt.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    latestRtt.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    latestRtt.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) SetFilter(yf yfilter.YFilter) { latestRtt.YFilter = yf }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetGoName(yname string) string {
-    if yname == "rtt" { return "Rtt" }
-    if yname == "unknown" { return "Unknown" }
-    if yname == "could-not-find" { return "CouldNotFind" }
-    return ""
+    latestRtt.EntityData.Children = make(map[string]types.YChild)
+    latestRtt.EntityData.Leafs = make(map[string]types.YLeaf)
+    latestRtt.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", latestRtt.Rtt}
+    latestRtt.EntityData.Leafs["unknown"] = types.YLeaf{"Unknown", latestRtt.Unknown}
+    latestRtt.EntityData.Leafs["could-not-find"] = types.YLeaf{"CouldNotFind", latestRtt.CouldNotFind}
+    return &(latestRtt.EntityData)
 }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetSegmentPath() string {
-    return "latest-rtt"
-}
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rtt"] = latestRtt.Rtt
-    leafs["unknown"] = latestRtt.Unknown
-    leafs["could-not-find"] = latestRtt.CouldNotFind
-    return leafs
-}
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetBundleName() string { return "cisco_ios_xe" }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetYangName() string { return "latest-rtt" }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) SetParent(parent types.Entity) { latestRtt.parent = parent }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetParent() types.Entity { return latestRtt.parent }
-
-func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetParentYangName() string { return "rtt-info" }
 
 // IpSlaStats_SlaOperEntry_RttInfo_TimeToLive
 // Time-to-live for the SLA operation
 type IpSlaStats_SlaOperEntry_RttInfo_TimeToLive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time to live value. The type is interface{} with range:
@@ -424,62 +271,31 @@ type IpSlaStats_SlaOperEntry_RttInfo_TimeToLive struct {
     Forever interface{}
 }
 
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetFilter() yfilter.YFilter { return timeToLive.YFilter }
+func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetEntityData() *types.CommonEntityData {
+    timeToLive.EntityData.YFilter = timeToLive.YFilter
+    timeToLive.EntityData.YangName = "time-to-live"
+    timeToLive.EntityData.BundleName = "cisco_ios_xe"
+    timeToLive.EntityData.ParentYangName = "rtt-info"
+    timeToLive.EntityData.SegmentPath = "time-to-live"
+    timeToLive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    timeToLive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    timeToLive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) SetFilter(yf yfilter.YFilter) { timeToLive.YFilter = yf }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetGoName(yname string) string {
-    if yname == "ttl" { return "Ttl" }
-    if yname == "forever" { return "Forever" }
-    return ""
+    timeToLive.EntityData.Children = make(map[string]types.YChild)
+    timeToLive.EntityData.Leafs = make(map[string]types.YLeaf)
+    timeToLive.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", timeToLive.Ttl}
+    timeToLive.EntityData.Leafs["forever"] = types.YLeaf{"Forever", timeToLive.Forever}
+    return &(timeToLive.EntityData)
 }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetSegmentPath() string {
-    return "time-to-live"
-}
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ttl"] = timeToLive.Ttl
-    leafs["forever"] = timeToLive.Forever
-    return leafs
-}
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetBundleName() string { return "cisco_ios_xe" }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetYangName() string { return "time-to-live" }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) SetParent(parent types.Entity) { timeToLive.parent = parent }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetParent() types.Entity { return timeToLive.parent }
-
-func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetParentYangName() string { return "rtt-info" }
 
 // IpSlaStats_SlaOperEntry_MeasureStats
 // Measured statistics
 type IpSlaStats_SlaOperEntry_MeasureStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interval start time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     IntvStartTime interface{}
 
     // Initial count. The type is interface{} with range: 0..4294967295.
@@ -492,62 +308,29 @@ type IpSlaStats_SlaOperEntry_MeasureStats struct {
     Valid interface{}
 }
 
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetFilter() yfilter.YFilter { return measureStats.YFilter }
+func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetEntityData() *types.CommonEntityData {
+    measureStats.EntityData.YFilter = measureStats.YFilter
+    measureStats.EntityData.YangName = "measure-stats"
+    measureStats.EntityData.BundleName = "cisco_ios_xe"
+    measureStats.EntityData.ParentYangName = "sla-oper-entry"
+    measureStats.EntityData.SegmentPath = "measure-stats"
+    measureStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    measureStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    measureStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) SetFilter(yf yfilter.YFilter) { measureStats.YFilter = yf }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetGoName(yname string) string {
-    if yname == "intv-start-time" { return "IntvStartTime" }
-    if yname == "init-count" { return "InitCount" }
-    if yname == "complete-count" { return "CompleteCount" }
-    if yname == "valid" { return "Valid" }
-    return ""
+    measureStats.EntityData.Children = make(map[string]types.YChild)
+    measureStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    measureStats.EntityData.Leafs["intv-start-time"] = types.YLeaf{"IntvStartTime", measureStats.IntvStartTime}
+    measureStats.EntityData.Leafs["init-count"] = types.YLeaf{"InitCount", measureStats.InitCount}
+    measureStats.EntityData.Leafs["complete-count"] = types.YLeaf{"CompleteCount", measureStats.CompleteCount}
+    measureStats.EntityData.Leafs["valid"] = types.YLeaf{"Valid", measureStats.Valid}
+    return &(measureStats.EntityData)
 }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetSegmentPath() string {
-    return "measure-stats"
-}
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["intv-start-time"] = measureStats.IntvStartTime
-    leafs["init-count"] = measureStats.InitCount
-    leafs["complete-count"] = measureStats.CompleteCount
-    leafs["valid"] = measureStats.Valid
-    return leafs
-}
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetYangName() string { return "measure-stats" }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) SetParent(parent types.Entity) { measureStats.parent = parent }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetParent() types.Entity { return measureStats.parent }
-
-func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetParentYangName() string { return "sla-oper-entry" }
 
 // IpSlaStats_SlaOperEntry_Stats
 // Statistics
 type IpSlaStats_SlaOperEntry_Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RTT value.
@@ -572,89 +355,32 @@ type IpSlaStats_SlaOperEntry_Stats struct {
     VoiceScore IpSlaStats_SlaOperEntry_Stats_VoiceScore
 }
 
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetFilter() yfilter.YFilter { return stats.YFilter }
+func (stats *IpSlaStats_SlaOperEntry_Stats) GetEntityData() *types.CommonEntityData {
+    stats.EntityData.YFilter = stats.YFilter
+    stats.EntityData.YangName = "stats"
+    stats.EntityData.BundleName = "cisco_ios_xe"
+    stats.EntityData.ParentYangName = "sla-oper-entry"
+    stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    stats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    stats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (stats *IpSlaStats_SlaOperEntry_Stats) SetFilter(yf yfilter.YFilter) { stats.YFilter = yf }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetGoName(yname string) string {
-    if yname == "rtt" { return "Rtt" }
-    if yname == "oneway-latency" { return "OnewayLatency" }
-    if yname == "jitter" { return "Jitter" }
-    if yname == "over-threshold" { return "OverThreshold" }
-    if yname == "packet-loss" { return "PacketLoss" }
-    if yname == "icmp-packet-loss" { return "IcmpPacketLoss" }
-    if yname == "voice-score" { return "VoiceScore" }
-    return ""
+    stats.EntityData.Children = make(map[string]types.YChild)
+    stats.EntityData.Children["rtt"] = types.YChild{"Rtt", &stats.Rtt}
+    stats.EntityData.Children["oneway-latency"] = types.YChild{"OnewayLatency", &stats.OnewayLatency}
+    stats.EntityData.Children["jitter"] = types.YChild{"Jitter", &stats.Jitter}
+    stats.EntityData.Children["over-threshold"] = types.YChild{"OverThreshold", &stats.OverThreshold}
+    stats.EntityData.Children["packet-loss"] = types.YChild{"PacketLoss", &stats.PacketLoss}
+    stats.EntityData.Children["icmp-packet-loss"] = types.YChild{"IcmpPacketLoss", &stats.IcmpPacketLoss}
+    stats.EntityData.Children["voice-score"] = types.YChild{"VoiceScore", &stats.VoiceScore}
+    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(stats.EntityData)
 }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetSegmentPath() string {
-    return "stats"
-}
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rtt" {
-        return &stats.Rtt
-    }
-    if childYangName == "oneway-latency" {
-        return &stats.OnewayLatency
-    }
-    if childYangName == "jitter" {
-        return &stats.Jitter
-    }
-    if childYangName == "over-threshold" {
-        return &stats.OverThreshold
-    }
-    if childYangName == "packet-loss" {
-        return &stats.PacketLoss
-    }
-    if childYangName == "icmp-packet-loss" {
-        return &stats.IcmpPacketLoss
-    }
-    if childYangName == "voice-score" {
-        return &stats.VoiceScore
-    }
-    return nil
-}
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rtt"] = &stats.Rtt
-    children["oneway-latency"] = &stats.OnewayLatency
-    children["jitter"] = &stats.Jitter
-    children["over-threshold"] = &stats.OverThreshold
-    children["packet-loss"] = &stats.PacketLoss
-    children["icmp-packet-loss"] = &stats.IcmpPacketLoss
-    children["voice-score"] = &stats.VoiceScore
-    return children
-}
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetYangName() string { return "stats" }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) SetParent(parent types.Entity) { stats.parent = parent }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetParent() types.Entity { return stats.parent }
-
-func (stats *IpSlaStats_SlaOperEntry_Stats) GetParentYangName() string { return "sla-oper-entry" }
 
 // IpSlaStats_SlaOperEntry_Stats_Rtt
 // RTT value
 type IpSlaStats_SlaOperEntry_Stats_Rtt struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RTT count. The type is interface{} with range: 0..4294967295.
@@ -664,61 +390,27 @@ type IpSlaStats_SlaOperEntry_Stats_Rtt struct {
     SlaTimeValues IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues
 }
 
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetFilter() yfilter.YFilter { return rtt.YFilter }
+func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetEntityData() *types.CommonEntityData {
+    rtt.EntityData.YFilter = rtt.YFilter
+    rtt.EntityData.YangName = "rtt"
+    rtt.EntityData.BundleName = "cisco_ios_xe"
+    rtt.EntityData.ParentYangName = "stats"
+    rtt.EntityData.SegmentPath = "rtt"
+    rtt.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rtt.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rtt.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) SetFilter(yf yfilter.YFilter) { rtt.YFilter = yf }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetGoName(yname string) string {
-    if yname == "rtt-count" { return "RttCount" }
-    if yname == "sla-time-values" { return "SlaTimeValues" }
-    return ""
+    rtt.EntityData.Children = make(map[string]types.YChild)
+    rtt.EntityData.Children["sla-time-values"] = types.YChild{"SlaTimeValues", &rtt.SlaTimeValues}
+    rtt.EntityData.Leafs = make(map[string]types.YLeaf)
+    rtt.EntityData.Leafs["rtt-count"] = types.YLeaf{"RttCount", rtt.RttCount}
+    return &(rtt.EntityData)
 }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetSegmentPath() string {
-    return "rtt"
-}
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sla-time-values" {
-        return &rtt.SlaTimeValues
-    }
-    return nil
-}
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sla-time-values"] = &rtt.SlaTimeValues
-    return children
-}
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rtt-count"] = rtt.RttCount
-    return leafs
-}
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetYangName() string { return "rtt" }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) SetParent(parent types.Entity) { rtt.parent = parent }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetParent() types.Entity { return rtt.parent }
-
-func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetParentYangName() string { return "stats" }
 
 // IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues
 // Timing information
 type IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum value reading. The type is interface{} with range: 0..4294967295.
@@ -734,62 +426,29 @@ type IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues struct {
     Accuracy interface{}
 }
 
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetFilter() yfilter.YFilter { return slaTimeValues.YFilter }
+func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetEntityData() *types.CommonEntityData {
+    slaTimeValues.EntityData.YFilter = slaTimeValues.YFilter
+    slaTimeValues.EntityData.YangName = "sla-time-values"
+    slaTimeValues.EntityData.BundleName = "cisco_ios_xe"
+    slaTimeValues.EntityData.ParentYangName = "rtt"
+    slaTimeValues.EntityData.SegmentPath = "sla-time-values"
+    slaTimeValues.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    slaTimeValues.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    slaTimeValues.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) SetFilter(yf yfilter.YFilter) { slaTimeValues.YFilter = yf }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetGoName(yname string) string {
-    if yname == "min" { return "Min" }
-    if yname == "avg" { return "Avg" }
-    if yname == "max" { return "Max" }
-    if yname == "accuracy" { return "Accuracy" }
-    return ""
+    slaTimeValues.EntityData.Children = make(map[string]types.YChild)
+    slaTimeValues.EntityData.Leafs = make(map[string]types.YLeaf)
+    slaTimeValues.EntityData.Leafs["min"] = types.YLeaf{"Min", slaTimeValues.Min}
+    slaTimeValues.EntityData.Leafs["avg"] = types.YLeaf{"Avg", slaTimeValues.Avg}
+    slaTimeValues.EntityData.Leafs["max"] = types.YLeaf{"Max", slaTimeValues.Max}
+    slaTimeValues.EntityData.Leafs["accuracy"] = types.YLeaf{"Accuracy", slaTimeValues.Accuracy}
+    return &(slaTimeValues.EntityData)
 }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetSegmentPath() string {
-    return "sla-time-values"
-}
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min"] = slaTimeValues.Min
-    leafs["avg"] = slaTimeValues.Avg
-    leafs["max"] = slaTimeValues.Max
-    leafs["accuracy"] = slaTimeValues.Accuracy
-    return leafs
-}
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetBundleName() string { return "cisco_ios_xe" }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetYangName() string { return "sla-time-values" }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) SetParent(parent types.Entity) { slaTimeValues.parent = parent }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetParent() types.Entity { return slaTimeValues.parent }
-
-func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetParentYangName() string { return "rtt" }
 
 // IpSlaStats_SlaOperEntry_Stats_OnewayLatency
 // Latency information
 type IpSlaStats_SlaOperEntry_Stats_OnewayLatency struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sample count. The type is interface{} with range: 0..4294967295.
@@ -802,66 +461,28 @@ type IpSlaStats_SlaOperEntry_Stats_OnewayLatency struct {
     Ds IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds
 }
 
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetFilter() yfilter.YFilter { return onewayLatency.YFilter }
+func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetEntityData() *types.CommonEntityData {
+    onewayLatency.EntityData.YFilter = onewayLatency.YFilter
+    onewayLatency.EntityData.YangName = "oneway-latency"
+    onewayLatency.EntityData.BundleName = "cisco_ios_xe"
+    onewayLatency.EntityData.ParentYangName = "stats"
+    onewayLatency.EntityData.SegmentPath = "oneway-latency"
+    onewayLatency.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    onewayLatency.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    onewayLatency.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) SetFilter(yf yfilter.YFilter) { onewayLatency.YFilter = yf }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetGoName(yname string) string {
-    if yname == "sample-count" { return "SampleCount" }
-    if yname == "sd" { return "Sd" }
-    if yname == "ds" { return "Ds" }
-    return ""
+    onewayLatency.EntityData.Children = make(map[string]types.YChild)
+    onewayLatency.EntityData.Children["sd"] = types.YChild{"Sd", &onewayLatency.Sd}
+    onewayLatency.EntityData.Children["ds"] = types.YChild{"Ds", &onewayLatency.Ds}
+    onewayLatency.EntityData.Leafs = make(map[string]types.YLeaf)
+    onewayLatency.EntityData.Leafs["sample-count"] = types.YLeaf{"SampleCount", onewayLatency.SampleCount}
+    return &(onewayLatency.EntityData)
 }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetSegmentPath() string {
-    return "oneway-latency"
-}
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sd" {
-        return &onewayLatency.Sd
-    }
-    if childYangName == "ds" {
-        return &onewayLatency.Ds
-    }
-    return nil
-}
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sd"] = &onewayLatency.Sd
-    children["ds"] = &onewayLatency.Ds
-    return children
-}
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sample-count"] = onewayLatency.SampleCount
-    return leafs
-}
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetBundleName() string { return "cisco_ios_xe" }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetYangName() string { return "oneway-latency" }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) SetParent(parent types.Entity) { onewayLatency.parent = parent }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetParent() types.Entity { return onewayLatency.parent }
-
-func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetParentYangName() string { return "stats" }
 
 // IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd
 // Source to Destination for the one-way latency
 type IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum value reading. The type is interface{} with range: 0..4294967295.
@@ -877,62 +498,29 @@ type IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd struct {
     Accuracy interface{}
 }
 
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetFilter() yfilter.YFilter { return sd.YFilter }
+func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetEntityData() *types.CommonEntityData {
+    sd.EntityData.YFilter = sd.YFilter
+    sd.EntityData.YangName = "sd"
+    sd.EntityData.BundleName = "cisco_ios_xe"
+    sd.EntityData.ParentYangName = "oneway-latency"
+    sd.EntityData.SegmentPath = "sd"
+    sd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) SetFilter(yf yfilter.YFilter) { sd.YFilter = yf }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetGoName(yname string) string {
-    if yname == "min" { return "Min" }
-    if yname == "avg" { return "Avg" }
-    if yname == "max" { return "Max" }
-    if yname == "accuracy" { return "Accuracy" }
-    return ""
+    sd.EntityData.Children = make(map[string]types.YChild)
+    sd.EntityData.Leafs = make(map[string]types.YLeaf)
+    sd.EntityData.Leafs["min"] = types.YLeaf{"Min", sd.Min}
+    sd.EntityData.Leafs["avg"] = types.YLeaf{"Avg", sd.Avg}
+    sd.EntityData.Leafs["max"] = types.YLeaf{"Max", sd.Max}
+    sd.EntityData.Leafs["accuracy"] = types.YLeaf{"Accuracy", sd.Accuracy}
+    return &(sd.EntityData)
 }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetSegmentPath() string {
-    return "sd"
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min"] = sd.Min
-    leafs["avg"] = sd.Avg
-    leafs["max"] = sd.Max
-    leafs["accuracy"] = sd.Accuracy
-    return leafs
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetYangName() string { return "sd" }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) SetParent(parent types.Entity) { sd.parent = parent }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetParent() types.Entity { return sd.parent }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetParentYangName() string { return "oneway-latency" }
 
 // IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds
 // Destination to Source for the one-way latency
 type IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum value reading. The type is interface{} with range: 0..4294967295.
@@ -948,62 +536,29 @@ type IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds struct {
     Accuracy interface{}
 }
 
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetFilter() yfilter.YFilter { return ds.YFilter }
+func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetEntityData() *types.CommonEntityData {
+    ds.EntityData.YFilter = ds.YFilter
+    ds.EntityData.YangName = "ds"
+    ds.EntityData.BundleName = "cisco_ios_xe"
+    ds.EntityData.ParentYangName = "oneway-latency"
+    ds.EntityData.SegmentPath = "ds"
+    ds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) SetFilter(yf yfilter.YFilter) { ds.YFilter = yf }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetGoName(yname string) string {
-    if yname == "min" { return "Min" }
-    if yname == "avg" { return "Avg" }
-    if yname == "max" { return "Max" }
-    if yname == "accuracy" { return "Accuracy" }
-    return ""
+    ds.EntityData.Children = make(map[string]types.YChild)
+    ds.EntityData.Leafs = make(map[string]types.YLeaf)
+    ds.EntityData.Leafs["min"] = types.YLeaf{"Min", ds.Min}
+    ds.EntityData.Leafs["avg"] = types.YLeaf{"Avg", ds.Avg}
+    ds.EntityData.Leafs["max"] = types.YLeaf{"Max", ds.Max}
+    ds.EntityData.Leafs["accuracy"] = types.YLeaf{"Accuracy", ds.Accuracy}
+    return &(ds.EntityData)
 }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetSegmentPath() string {
-    return "ds"
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min"] = ds.Min
-    leafs["avg"] = ds.Avg
-    leafs["max"] = ds.Max
-    leafs["accuracy"] = ds.Accuracy
-    return leafs
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetYangName() string { return "ds" }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) SetParent(parent types.Entity) { ds.parent = parent }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetParent() types.Entity { return ds.parent }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetParentYangName() string { return "oneway-latency" }
 
 // IpSlaStats_SlaOperEntry_Stats_Jitter
 // Jitter information
 type IpSlaStats_SlaOperEntry_Stats_Jitter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sample count. The type is interface{} with range: 0..4294967295.
@@ -1019,68 +574,29 @@ type IpSlaStats_SlaOperEntry_Stats_Jitter struct {
     Ds IpSlaStats_SlaOperEntry_Stats_Jitter_Ds
 }
 
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetFilter() yfilter.YFilter { return jitter.YFilter }
+func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetEntityData() *types.CommonEntityData {
+    jitter.EntityData.YFilter = jitter.YFilter
+    jitter.EntityData.YangName = "jitter"
+    jitter.EntityData.BundleName = "cisco_ios_xe"
+    jitter.EntityData.ParentYangName = "stats"
+    jitter.EntityData.SegmentPath = "jitter"
+    jitter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    jitter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    jitter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) SetFilter(yf yfilter.YFilter) { jitter.YFilter = yf }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetGoName(yname string) string {
-    if yname == "sd-sample-count" { return "SdSampleCount" }
-    if yname == "ds-sample-count" { return "DsSampleCount" }
-    if yname == "sd" { return "Sd" }
-    if yname == "ds" { return "Ds" }
-    return ""
+    jitter.EntityData.Children = make(map[string]types.YChild)
+    jitter.EntityData.Children["sd"] = types.YChild{"Sd", &jitter.Sd}
+    jitter.EntityData.Children["ds"] = types.YChild{"Ds", &jitter.Ds}
+    jitter.EntityData.Leafs = make(map[string]types.YLeaf)
+    jitter.EntityData.Leafs["sd-sample-count"] = types.YLeaf{"SdSampleCount", jitter.SdSampleCount}
+    jitter.EntityData.Leafs["ds-sample-count"] = types.YLeaf{"DsSampleCount", jitter.DsSampleCount}
+    return &(jitter.EntityData)
 }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetSegmentPath() string {
-    return "jitter"
-}
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sd" {
-        return &jitter.Sd
-    }
-    if childYangName == "ds" {
-        return &jitter.Ds
-    }
-    return nil
-}
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sd"] = &jitter.Sd
-    children["ds"] = &jitter.Ds
-    return children
-}
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sd-sample-count"] = jitter.SdSampleCount
-    leafs["ds-sample-count"] = jitter.DsSampleCount
-    return leafs
-}
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetBundleName() string { return "cisco_ios_xe" }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetYangName() string { return "jitter" }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) SetParent(parent types.Entity) { jitter.parent = parent }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetParent() types.Entity { return jitter.parent }
-
-func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetParentYangName() string { return "stats" }
 
 // IpSlaStats_SlaOperEntry_Stats_Jitter_Sd
 // Source to Destination for the jitter
 type IpSlaStats_SlaOperEntry_Stats_Jitter_Sd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum value reading. The type is interface{} with range: 0..4294967295.
@@ -1096,62 +612,29 @@ type IpSlaStats_SlaOperEntry_Stats_Jitter_Sd struct {
     Accuracy interface{}
 }
 
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetFilter() yfilter.YFilter { return sd.YFilter }
+func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetEntityData() *types.CommonEntityData {
+    sd.EntityData.YFilter = sd.YFilter
+    sd.EntityData.YangName = "sd"
+    sd.EntityData.BundleName = "cisco_ios_xe"
+    sd.EntityData.ParentYangName = "jitter"
+    sd.EntityData.SegmentPath = "sd"
+    sd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) SetFilter(yf yfilter.YFilter) { sd.YFilter = yf }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetGoName(yname string) string {
-    if yname == "min" { return "Min" }
-    if yname == "avg" { return "Avg" }
-    if yname == "max" { return "Max" }
-    if yname == "accuracy" { return "Accuracy" }
-    return ""
+    sd.EntityData.Children = make(map[string]types.YChild)
+    sd.EntityData.Leafs = make(map[string]types.YLeaf)
+    sd.EntityData.Leafs["min"] = types.YLeaf{"Min", sd.Min}
+    sd.EntityData.Leafs["avg"] = types.YLeaf{"Avg", sd.Avg}
+    sd.EntityData.Leafs["max"] = types.YLeaf{"Max", sd.Max}
+    sd.EntityData.Leafs["accuracy"] = types.YLeaf{"Accuracy", sd.Accuracy}
+    return &(sd.EntityData)
 }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetSegmentPath() string {
-    return "sd"
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min"] = sd.Min
-    leafs["avg"] = sd.Avg
-    leafs["max"] = sd.Max
-    leafs["accuracy"] = sd.Accuracy
-    return leafs
-}
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetYangName() string { return "sd" }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) SetParent(parent types.Entity) { sd.parent = parent }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetParent() types.Entity { return sd.parent }
-
-func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetParentYangName() string { return "jitter" }
 
 // IpSlaStats_SlaOperEntry_Stats_Jitter_Ds
 // Destination to Source for the jitter
 type IpSlaStats_SlaOperEntry_Stats_Jitter_Ds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum value reading. The type is interface{} with range: 0..4294967295.
@@ -1167,62 +650,29 @@ type IpSlaStats_SlaOperEntry_Stats_Jitter_Ds struct {
     Accuracy interface{}
 }
 
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetFilter() yfilter.YFilter { return ds.YFilter }
+func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetEntityData() *types.CommonEntityData {
+    ds.EntityData.YFilter = ds.YFilter
+    ds.EntityData.YangName = "ds"
+    ds.EntityData.BundleName = "cisco_ios_xe"
+    ds.EntityData.ParentYangName = "jitter"
+    ds.EntityData.SegmentPath = "ds"
+    ds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) SetFilter(yf yfilter.YFilter) { ds.YFilter = yf }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetGoName(yname string) string {
-    if yname == "min" { return "Min" }
-    if yname == "avg" { return "Avg" }
-    if yname == "max" { return "Max" }
-    if yname == "accuracy" { return "Accuracy" }
-    return ""
+    ds.EntityData.Children = make(map[string]types.YChild)
+    ds.EntityData.Leafs = make(map[string]types.YLeaf)
+    ds.EntityData.Leafs["min"] = types.YLeaf{"Min", ds.Min}
+    ds.EntityData.Leafs["avg"] = types.YLeaf{"Avg", ds.Avg}
+    ds.EntityData.Leafs["max"] = types.YLeaf{"Max", ds.Max}
+    ds.EntityData.Leafs["accuracy"] = types.YLeaf{"Accuracy", ds.Accuracy}
+    return &(ds.EntityData)
 }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetSegmentPath() string {
-    return "ds"
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min"] = ds.Min
-    leafs["avg"] = ds.Avg
-    leafs["max"] = ds.Max
-    leafs["accuracy"] = ds.Accuracy
-    return leafs
-}
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetYangName() string { return "ds" }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) SetParent(parent types.Entity) { ds.parent = parent }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetParent() types.Entity { return ds.parent }
-
-func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetParentYangName() string { return "jitter" }
 
 // IpSlaStats_SlaOperEntry_Stats_OverThreshold
 // Over threshold information
 type IpSlaStats_SlaOperEntry_Stats_OverThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Round Trip Time (RTT) over threshold count (the number of times that the
@@ -1235,58 +685,27 @@ type IpSlaStats_SlaOperEntry_Stats_OverThreshold struct {
     Percent interface{}
 }
 
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetFilter() yfilter.YFilter { return overThreshold.YFilter }
+func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetEntityData() *types.CommonEntityData {
+    overThreshold.EntityData.YFilter = overThreshold.YFilter
+    overThreshold.EntityData.YangName = "over-threshold"
+    overThreshold.EntityData.BundleName = "cisco_ios_xe"
+    overThreshold.EntityData.ParentYangName = "stats"
+    overThreshold.EntityData.SegmentPath = "over-threshold"
+    overThreshold.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    overThreshold.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    overThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) SetFilter(yf yfilter.YFilter) { overThreshold.YFilter = yf }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetGoName(yname string) string {
-    if yname == "rtt-count" { return "RttCount" }
-    if yname == "percent" { return "Percent" }
-    return ""
+    overThreshold.EntityData.Children = make(map[string]types.YChild)
+    overThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    overThreshold.EntityData.Leafs["rtt-count"] = types.YLeaf{"RttCount", overThreshold.RttCount}
+    overThreshold.EntityData.Leafs["percent"] = types.YLeaf{"Percent", overThreshold.Percent}
+    return &(overThreshold.EntityData)
 }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetSegmentPath() string {
-    return "over-threshold"
-}
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rtt-count"] = overThreshold.RttCount
-    leafs["percent"] = overThreshold.Percent
-    return leafs
-}
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetBundleName() string { return "cisco_ios_xe" }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetYangName() string { return "over-threshold" }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) SetParent(parent types.Entity) { overThreshold.parent = parent }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetParent() types.Entity { return overThreshold.parent }
-
-func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetParentYangName() string { return "stats" }
 
 // IpSlaStats_SlaOperEntry_Stats_PacketLoss
 // Packet loss information
 type IpSlaStats_SlaOperEntry_Stats_PacketLoss struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unprocessed packet count. The type is interface{} with range:
@@ -1322,78 +741,34 @@ type IpSlaStats_SlaOperEntry_Stats_PacketLoss struct {
     DsLoss IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss
 }
 
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetFilter() yfilter.YFilter { return packetLoss.YFilter }
+func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetEntityData() *types.CommonEntityData {
+    packetLoss.EntityData.YFilter = packetLoss.YFilter
+    packetLoss.EntityData.YangName = "packet-loss"
+    packetLoss.EntityData.BundleName = "cisco_ios_xe"
+    packetLoss.EntityData.ParentYangName = "stats"
+    packetLoss.EntityData.SegmentPath = "packet-loss"
+    packetLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    packetLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    packetLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) SetFilter(yf yfilter.YFilter) { packetLoss.YFilter = yf }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetGoName(yname string) string {
-    if yname == "unprocessed-packets" { return "UnprocessedPackets" }
-    if yname == "sd-count" { return "SdCount" }
-    if yname == "ds-count" { return "DsCount" }
-    if yname == "out-of-sequence" { return "OutOfSequence" }
-    if yname == "drops" { return "Drops" }
-    if yname == "late-arrivals" { return "LateArrivals" }
-    if yname == "skipped-packets" { return "SkippedPackets" }
-    if yname == "sd-loss" { return "SdLoss" }
-    if yname == "ds-loss" { return "DsLoss" }
-    return ""
+    packetLoss.EntityData.Children = make(map[string]types.YChild)
+    packetLoss.EntityData.Children["sd-loss"] = types.YChild{"SdLoss", &packetLoss.SdLoss}
+    packetLoss.EntityData.Children["ds-loss"] = types.YChild{"DsLoss", &packetLoss.DsLoss}
+    packetLoss.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetLoss.EntityData.Leafs["unprocessed-packets"] = types.YLeaf{"UnprocessedPackets", packetLoss.UnprocessedPackets}
+    packetLoss.EntityData.Leafs["sd-count"] = types.YLeaf{"SdCount", packetLoss.SdCount}
+    packetLoss.EntityData.Leafs["ds-count"] = types.YLeaf{"DsCount", packetLoss.DsCount}
+    packetLoss.EntityData.Leafs["out-of-sequence"] = types.YLeaf{"OutOfSequence", packetLoss.OutOfSequence}
+    packetLoss.EntityData.Leafs["drops"] = types.YLeaf{"Drops", packetLoss.Drops}
+    packetLoss.EntityData.Leafs["late-arrivals"] = types.YLeaf{"LateArrivals", packetLoss.LateArrivals}
+    packetLoss.EntityData.Leafs["skipped-packets"] = types.YLeaf{"SkippedPackets", packetLoss.SkippedPackets}
+    return &(packetLoss.EntityData)
 }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetSegmentPath() string {
-    return "packet-loss"
-}
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sd-loss" {
-        return &packetLoss.SdLoss
-    }
-    if childYangName == "ds-loss" {
-        return &packetLoss.DsLoss
-    }
-    return nil
-}
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sd-loss"] = &packetLoss.SdLoss
-    children["ds-loss"] = &packetLoss.DsLoss
-    return children
-}
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unprocessed-packets"] = packetLoss.UnprocessedPackets
-    leafs["sd-count"] = packetLoss.SdCount
-    leafs["ds-count"] = packetLoss.DsCount
-    leafs["out-of-sequence"] = packetLoss.OutOfSequence
-    leafs["drops"] = packetLoss.Drops
-    leafs["late-arrivals"] = packetLoss.LateArrivals
-    leafs["skipped-packets"] = packetLoss.SkippedPackets
-    return leafs
-}
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetBundleName() string { return "cisco_ios_xe" }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetYangName() string { return "packet-loss" }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) SetParent(parent types.Entity) { packetLoss.parent = parent }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetParent() types.Entity { return packetLoss.parent }
-
-func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetParentYangName() string { return "stats" }
 
 // IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss
 // Source to Destination packet loss details
 type IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Loss period count. The type is interface{} with range: 0..4294967295.
@@ -1416,64 +791,30 @@ type IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss struct {
     InterLossPeriodLenMax interface{}
 }
 
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetFilter() yfilter.YFilter { return sdLoss.YFilter }
+func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetEntityData() *types.CommonEntityData {
+    sdLoss.EntityData.YFilter = sdLoss.YFilter
+    sdLoss.EntityData.YangName = "sd-loss"
+    sdLoss.EntityData.BundleName = "cisco_ios_xe"
+    sdLoss.EntityData.ParentYangName = "packet-loss"
+    sdLoss.EntityData.SegmentPath = "sd-loss"
+    sdLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sdLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sdLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) SetFilter(yf yfilter.YFilter) { sdLoss.YFilter = yf }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetGoName(yname string) string {
-    if yname == "loss-period-count" { return "LossPeriodCount" }
-    if yname == "loss-period-len-min" { return "LossPeriodLenMin" }
-    if yname == "loss-period-len-max" { return "LossPeriodLenMax" }
-    if yname == "inter-loss-period-len-min" { return "InterLossPeriodLenMin" }
-    if yname == "inter-loss-period-len-max" { return "InterLossPeriodLenMax" }
-    return ""
+    sdLoss.EntityData.Children = make(map[string]types.YChild)
+    sdLoss.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdLoss.EntityData.Leafs["loss-period-count"] = types.YLeaf{"LossPeriodCount", sdLoss.LossPeriodCount}
+    sdLoss.EntityData.Leafs["loss-period-len-min"] = types.YLeaf{"LossPeriodLenMin", sdLoss.LossPeriodLenMin}
+    sdLoss.EntityData.Leafs["loss-period-len-max"] = types.YLeaf{"LossPeriodLenMax", sdLoss.LossPeriodLenMax}
+    sdLoss.EntityData.Leafs["inter-loss-period-len-min"] = types.YLeaf{"InterLossPeriodLenMin", sdLoss.InterLossPeriodLenMin}
+    sdLoss.EntityData.Leafs["inter-loss-period-len-max"] = types.YLeaf{"InterLossPeriodLenMax", sdLoss.InterLossPeriodLenMax}
+    return &(sdLoss.EntityData)
 }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetSegmentPath() string {
-    return "sd-loss"
-}
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["loss-period-count"] = sdLoss.LossPeriodCount
-    leafs["loss-period-len-min"] = sdLoss.LossPeriodLenMin
-    leafs["loss-period-len-max"] = sdLoss.LossPeriodLenMax
-    leafs["inter-loss-period-len-min"] = sdLoss.InterLossPeriodLenMin
-    leafs["inter-loss-period-len-max"] = sdLoss.InterLossPeriodLenMax
-    return leafs
-}
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetYangName() string { return "sd-loss" }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) SetParent(parent types.Entity) { sdLoss.parent = parent }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetParent() types.Entity { return sdLoss.parent }
-
-func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetParentYangName() string { return "packet-loss" }
 
 // IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss
 // Destination to Source packet loss details
 type IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Loss period count. The type is interface{} with range: 0..4294967295.
@@ -1496,64 +837,30 @@ type IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss struct {
     InterLossPeriodLenMax interface{}
 }
 
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetFilter() yfilter.YFilter { return dsLoss.YFilter }
+func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetEntityData() *types.CommonEntityData {
+    dsLoss.EntityData.YFilter = dsLoss.YFilter
+    dsLoss.EntityData.YangName = "ds-loss"
+    dsLoss.EntityData.BundleName = "cisco_ios_xe"
+    dsLoss.EntityData.ParentYangName = "packet-loss"
+    dsLoss.EntityData.SegmentPath = "ds-loss"
+    dsLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dsLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dsLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) SetFilter(yf yfilter.YFilter) { dsLoss.YFilter = yf }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetGoName(yname string) string {
-    if yname == "loss-period-count" { return "LossPeriodCount" }
-    if yname == "loss-period-len-min" { return "LossPeriodLenMin" }
-    if yname == "loss-period-len-max" { return "LossPeriodLenMax" }
-    if yname == "inter-loss-period-len-min" { return "InterLossPeriodLenMin" }
-    if yname == "inter-loss-period-len-max" { return "InterLossPeriodLenMax" }
-    return ""
+    dsLoss.EntityData.Children = make(map[string]types.YChild)
+    dsLoss.EntityData.Leafs = make(map[string]types.YLeaf)
+    dsLoss.EntityData.Leafs["loss-period-count"] = types.YLeaf{"LossPeriodCount", dsLoss.LossPeriodCount}
+    dsLoss.EntityData.Leafs["loss-period-len-min"] = types.YLeaf{"LossPeriodLenMin", dsLoss.LossPeriodLenMin}
+    dsLoss.EntityData.Leafs["loss-period-len-max"] = types.YLeaf{"LossPeriodLenMax", dsLoss.LossPeriodLenMax}
+    dsLoss.EntityData.Leafs["inter-loss-period-len-min"] = types.YLeaf{"InterLossPeriodLenMin", dsLoss.InterLossPeriodLenMin}
+    dsLoss.EntityData.Leafs["inter-loss-period-len-max"] = types.YLeaf{"InterLossPeriodLenMax", dsLoss.InterLossPeriodLenMax}
+    return &(dsLoss.EntityData)
 }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetSegmentPath() string {
-    return "ds-loss"
-}
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["loss-period-count"] = dsLoss.LossPeriodCount
-    leafs["loss-period-len-min"] = dsLoss.LossPeriodLenMin
-    leafs["loss-period-len-max"] = dsLoss.LossPeriodLenMax
-    leafs["inter-loss-period-len-min"] = dsLoss.InterLossPeriodLenMin
-    leafs["inter-loss-period-len-max"] = dsLoss.InterLossPeriodLenMax
-    return leafs
-}
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetYangName() string { return "ds-loss" }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) SetParent(parent types.Entity) { dsLoss.parent = parent }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetParent() types.Entity { return dsLoss.parent }
-
-func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetParentYangName() string { return "packet-loss" }
 
 // IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss
 // ICMP packet loss information
 type IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Late arrival packet count. The type is interface{} with range:
@@ -1606,80 +913,38 @@ type IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss struct {
     InterLossPeriodLenMax interface{}
 }
 
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetFilter() yfilter.YFilter { return icmpPacketLoss.YFilter }
+func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetEntityData() *types.CommonEntityData {
+    icmpPacketLoss.EntityData.YFilter = icmpPacketLoss.YFilter
+    icmpPacketLoss.EntityData.YangName = "icmp-packet-loss"
+    icmpPacketLoss.EntityData.BundleName = "cisco_ios_xe"
+    icmpPacketLoss.EntityData.ParentYangName = "stats"
+    icmpPacketLoss.EntityData.SegmentPath = "icmp-packet-loss"
+    icmpPacketLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icmpPacketLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icmpPacketLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) SetFilter(yf yfilter.YFilter) { icmpPacketLoss.YFilter = yf }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetGoName(yname string) string {
-    if yname == "late-arrivals" { return "LateArrivals" }
-    if yname == "out-of-sequence" { return "OutOfSequence" }
-    if yname == "out-of-sequence-sd" { return "OutOfSequenceSd" }
-    if yname == "out-of-sequence-ds" { return "OutOfSequenceDs" }
-    if yname == "out-of-sequence-both" { return "OutOfSequenceBoth" }
-    if yname == "skipped-packets" { return "SkippedPackets" }
-    if yname == "unprocessed-packets" { return "UnprocessedPackets" }
-    if yname == "packet-loss" { return "PacketLoss" }
-    if yname == "loss-period-count" { return "LossPeriodCount" }
-    if yname == "loss-period-len-min" { return "LossPeriodLenMin" }
-    if yname == "loss-period-len-max" { return "LossPeriodLenMax" }
-    if yname == "inter-loss-period-len-min" { return "InterLossPeriodLenMin" }
-    if yname == "inter-loss-period-len-max" { return "InterLossPeriodLenMax" }
-    return ""
+    icmpPacketLoss.EntityData.Children = make(map[string]types.YChild)
+    icmpPacketLoss.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmpPacketLoss.EntityData.Leafs["late-arrivals"] = types.YLeaf{"LateArrivals", icmpPacketLoss.LateArrivals}
+    icmpPacketLoss.EntityData.Leafs["out-of-sequence"] = types.YLeaf{"OutOfSequence", icmpPacketLoss.OutOfSequence}
+    icmpPacketLoss.EntityData.Leafs["out-of-sequence-sd"] = types.YLeaf{"OutOfSequenceSd", icmpPacketLoss.OutOfSequenceSd}
+    icmpPacketLoss.EntityData.Leafs["out-of-sequence-ds"] = types.YLeaf{"OutOfSequenceDs", icmpPacketLoss.OutOfSequenceDs}
+    icmpPacketLoss.EntityData.Leafs["out-of-sequence-both"] = types.YLeaf{"OutOfSequenceBoth", icmpPacketLoss.OutOfSequenceBoth}
+    icmpPacketLoss.EntityData.Leafs["skipped-packets"] = types.YLeaf{"SkippedPackets", icmpPacketLoss.SkippedPackets}
+    icmpPacketLoss.EntityData.Leafs["unprocessed-packets"] = types.YLeaf{"UnprocessedPackets", icmpPacketLoss.UnprocessedPackets}
+    icmpPacketLoss.EntityData.Leafs["packet-loss"] = types.YLeaf{"PacketLoss", icmpPacketLoss.PacketLoss}
+    icmpPacketLoss.EntityData.Leafs["loss-period-count"] = types.YLeaf{"LossPeriodCount", icmpPacketLoss.LossPeriodCount}
+    icmpPacketLoss.EntityData.Leafs["loss-period-len-min"] = types.YLeaf{"LossPeriodLenMin", icmpPacketLoss.LossPeriodLenMin}
+    icmpPacketLoss.EntityData.Leafs["loss-period-len-max"] = types.YLeaf{"LossPeriodLenMax", icmpPacketLoss.LossPeriodLenMax}
+    icmpPacketLoss.EntityData.Leafs["inter-loss-period-len-min"] = types.YLeaf{"InterLossPeriodLenMin", icmpPacketLoss.InterLossPeriodLenMin}
+    icmpPacketLoss.EntityData.Leafs["inter-loss-period-len-max"] = types.YLeaf{"InterLossPeriodLenMax", icmpPacketLoss.InterLossPeriodLenMax}
+    return &(icmpPacketLoss.EntityData)
 }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetSegmentPath() string {
-    return "icmp-packet-loss"
-}
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["late-arrivals"] = icmpPacketLoss.LateArrivals
-    leafs["out-of-sequence"] = icmpPacketLoss.OutOfSequence
-    leafs["out-of-sequence-sd"] = icmpPacketLoss.OutOfSequenceSd
-    leafs["out-of-sequence-ds"] = icmpPacketLoss.OutOfSequenceDs
-    leafs["out-of-sequence-both"] = icmpPacketLoss.OutOfSequenceBoth
-    leafs["skipped-packets"] = icmpPacketLoss.SkippedPackets
-    leafs["unprocessed-packets"] = icmpPacketLoss.UnprocessedPackets
-    leafs["packet-loss"] = icmpPacketLoss.PacketLoss
-    leafs["loss-period-count"] = icmpPacketLoss.LossPeriodCount
-    leafs["loss-period-len-min"] = icmpPacketLoss.LossPeriodLenMin
-    leafs["loss-period-len-max"] = icmpPacketLoss.LossPeriodLenMax
-    leafs["inter-loss-period-len-min"] = icmpPacketLoss.InterLossPeriodLenMin
-    leafs["inter-loss-period-len-max"] = icmpPacketLoss.InterLossPeriodLenMax
-    return leafs
-}
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetYangName() string { return "icmp-packet-loss" }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) SetParent(parent types.Entity) { icmpPacketLoss.parent = parent }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetParent() types.Entity { return icmpPacketLoss.parent }
-
-func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetParentYangName() string { return "stats" }
 
 // IpSlaStats_SlaOperEntry_Stats_VoiceScore
 // Voice score information
 type IpSlaStats_SlaOperEntry_Stats_VoiceScore struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Calculated planning impairment factor. The type is interface{} with range:
@@ -1690,51 +955,20 @@ type IpSlaStats_SlaOperEntry_Stats_VoiceScore struct {
     Mos interface{}
 }
 
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetFilter() yfilter.YFilter { return voiceScore.YFilter }
+func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetEntityData() *types.CommonEntityData {
+    voiceScore.EntityData.YFilter = voiceScore.YFilter
+    voiceScore.EntityData.YangName = "voice-score"
+    voiceScore.EntityData.BundleName = "cisco_ios_xe"
+    voiceScore.EntityData.ParentYangName = "stats"
+    voiceScore.EntityData.SegmentPath = "voice-score"
+    voiceScore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    voiceScore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    voiceScore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) SetFilter(yf yfilter.YFilter) { voiceScore.YFilter = yf }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetGoName(yname string) string {
-    if yname == "icpif" { return "Icpif" }
-    if yname == "mos" { return "Mos" }
-    return ""
+    voiceScore.EntityData.Children = make(map[string]types.YChild)
+    voiceScore.EntityData.Leafs = make(map[string]types.YLeaf)
+    voiceScore.EntityData.Leafs["icpif"] = types.YLeaf{"Icpif", voiceScore.Icpif}
+    voiceScore.EntityData.Leafs["mos"] = types.YLeaf{"Mos", voiceScore.Mos}
+    return &(voiceScore.EntityData)
 }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetSegmentPath() string {
-    return "voice-score"
-}
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icpif"] = voiceScore.Icpif
-    leafs["mos"] = voiceScore.Mos
-    return leafs
-}
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetBundleName() string { return "cisco_ios_xe" }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetYangName() string { return "voice-score" }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) SetParent(parent types.Entity) { voiceScore.parent = parent }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetParent() types.Entity { return voiceScore.parent }
-
-func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetParentYangName() string { return "stats" }
 

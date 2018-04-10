@@ -22,65 +22,32 @@ func init() {
 
 // CISCOOSPFTRAPMIB
 type CISCOOSPFTRAPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Cospftrapcontrol CISCOOSPFTRAPMIB_Cospftrapcontrol
 }
 
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetFilter() yfilter.YFilter { return cISCOOSPFTRAPMIB.YFilter }
+func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOOSPFTRAPMIB.EntityData.YFilter = cISCOOSPFTRAPMIB.YFilter
+    cISCOOSPFTRAPMIB.EntityData.YangName = "CISCO-OSPF-TRAP-MIB"
+    cISCOOSPFTRAPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOOSPFTRAPMIB.EntityData.ParentYangName = "CISCO-OSPF-TRAP-MIB"
+    cISCOOSPFTRAPMIB.EntityData.SegmentPath = "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB"
+    cISCOOSPFTRAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOOSPFTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOOSPFTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) SetFilter(yf yfilter.YFilter) { cISCOOSPFTRAPMIB.YFilter = yf }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetGoName(yname string) string {
-    if yname == "cospfTrapControl" { return "Cospftrapcontrol" }
-    return ""
+    cISCOOSPFTRAPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOOSPFTRAPMIB.EntityData.Children["cospfTrapControl"] = types.YChild{"Cospftrapcontrol", &cISCOOSPFTRAPMIB.Cospftrapcontrol}
+    cISCOOSPFTRAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOOSPFTRAPMIB.EntityData)
 }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetSegmentPath() string {
-    return "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB"
-}
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cospfTrapControl" {
-        return &cISCOOSPFTRAPMIB.Cospftrapcontrol
-    }
-    return nil
-}
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cospfTrapControl"] = &cISCOOSPFTRAPMIB.Cospftrapcontrol
-    return children
-}
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetYangName() string { return "CISCO-OSPF-TRAP-MIB" }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) SetParent(parent types.Entity) { cISCOOSPFTRAPMIB.parent = parent }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetParent() types.Entity { return cISCOOSPFTRAPMIB.parent }
-
-func (cISCOOSPFTRAPMIB *CISCOOSPFTRAPMIB) GetParentYangName() string { return "CISCO-OSPF-TRAP-MIB" }
 
 // CISCOOSPFTRAPMIB_Cospftrapcontrol
 type CISCOOSPFTRAPMIB_Cospftrapcontrol struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An octet string serving as a bit  map  for the trap events defined by the
@@ -105,61 +72,28 @@ type CISCOOSPFTRAPMIB_Cospftrapcontrol struct {
     // neighbor instance. When the last value of a trap using this object is
     // needed, but no traps of that type have been sent, this value pertaining to
     // this object should be returned as 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cospfpacketsrc interface{}
 }
 
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetFilter() yfilter.YFilter { return cospftrapcontrol.YFilter }
+func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetEntityData() *types.CommonEntityData {
+    cospftrapcontrol.EntityData.YFilter = cospftrapcontrol.YFilter
+    cospftrapcontrol.EntityData.YangName = "cospfTrapControl"
+    cospftrapcontrol.EntityData.BundleName = "cisco_ios_xe"
+    cospftrapcontrol.EntityData.ParentYangName = "CISCO-OSPF-TRAP-MIB"
+    cospftrapcontrol.EntityData.SegmentPath = "cospfTrapControl"
+    cospftrapcontrol.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cospftrapcontrol.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cospftrapcontrol.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) SetFilter(yf yfilter.YFilter) { cospftrapcontrol.YFilter = yf }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetGoName(yname string) string {
-    if yname == "cospfSetTrap" { return "Cospfsettrap" }
-    if yname == "cospfConfigErrorType" { return "Cospfconfigerrortype" }
-    if yname == "cospfPacketType" { return "Cospfpackettype" }
-    if yname == "cospfPacketSrc" { return "Cospfpacketsrc" }
-    return ""
+    cospftrapcontrol.EntityData.Children = make(map[string]types.YChild)
+    cospftrapcontrol.EntityData.Leafs = make(map[string]types.YLeaf)
+    cospftrapcontrol.EntityData.Leafs["cospfSetTrap"] = types.YLeaf{"Cospfsettrap", cospftrapcontrol.Cospfsettrap}
+    cospftrapcontrol.EntityData.Leafs["cospfConfigErrorType"] = types.YLeaf{"Cospfconfigerrortype", cospftrapcontrol.Cospfconfigerrortype}
+    cospftrapcontrol.EntityData.Leafs["cospfPacketType"] = types.YLeaf{"Cospfpackettype", cospftrapcontrol.Cospfpackettype}
+    cospftrapcontrol.EntityData.Leafs["cospfPacketSrc"] = types.YLeaf{"Cospfpacketsrc", cospftrapcontrol.Cospfpacketsrc}
+    return &(cospftrapcontrol.EntityData)
 }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetSegmentPath() string {
-    return "cospfTrapControl"
-}
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cospfSetTrap"] = cospftrapcontrol.Cospfsettrap
-    leafs["cospfConfigErrorType"] = cospftrapcontrol.Cospfconfigerrortype
-    leafs["cospfPacketType"] = cospftrapcontrol.Cospfpackettype
-    leafs["cospfPacketSrc"] = cospftrapcontrol.Cospfpacketsrc
-    return leafs
-}
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetYangName() string { return "cospfTrapControl" }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) SetParent(parent types.Entity) { cospftrapcontrol.parent = parent }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetParent() types.Entity { return cospftrapcontrol.parent }
-
-func (cospftrapcontrol *CISCOOSPFTRAPMIB_Cospftrapcontrol) GetParentYangName() string { return "CISCO-OSPF-TRAP-MIB" }
 
 // CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype represents to this object should be returned as noError.
 type CISCOOSPFTRAPMIB_Cospftrapcontrol_Cospfconfigerrortype string

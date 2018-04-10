@@ -22,7 +22,7 @@ func init() {
 // MemoryStatistics
 // Data nodes for All Memory Pool Statistics.
 type MemoryStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of software memory pools in the system. The type is slice of
@@ -30,68 +30,29 @@ type MemoryStatistics struct {
     MemoryStatistic []MemoryStatistics_MemoryStatistic
 }
 
-func (memoryStatistics *MemoryStatistics) GetFilter() yfilter.YFilter { return memoryStatistics.YFilter }
+func (memoryStatistics *MemoryStatistics) GetEntityData() *types.CommonEntityData {
+    memoryStatistics.EntityData.YFilter = memoryStatistics.YFilter
+    memoryStatistics.EntityData.YangName = "memory-statistics"
+    memoryStatistics.EntityData.BundleName = "cisco_ios_xe"
+    memoryStatistics.EntityData.ParentYangName = "Cisco-IOS-XE-memory-oper"
+    memoryStatistics.EntityData.SegmentPath = "Cisco-IOS-XE-memory-oper:memory-statistics"
+    memoryStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    memoryStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    memoryStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (memoryStatistics *MemoryStatistics) SetFilter(yf yfilter.YFilter) { memoryStatistics.YFilter = yf }
-
-func (memoryStatistics *MemoryStatistics) GetGoName(yname string) string {
-    if yname == "memory-statistic" { return "MemoryStatistic" }
-    return ""
-}
-
-func (memoryStatistics *MemoryStatistics) GetSegmentPath() string {
-    return "Cisco-IOS-XE-memory-oper:memory-statistics"
-}
-
-func (memoryStatistics *MemoryStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "memory-statistic" {
-        for _, c := range memoryStatistics.MemoryStatistic {
-            if memoryStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MemoryStatistics_MemoryStatistic{}
-        memoryStatistics.MemoryStatistic = append(memoryStatistics.MemoryStatistic, child)
-        return &memoryStatistics.MemoryStatistic[len(memoryStatistics.MemoryStatistic)-1]
-    }
-    return nil
-}
-
-func (memoryStatistics *MemoryStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    memoryStatistics.EntityData.Children = make(map[string]types.YChild)
+    memoryStatistics.EntityData.Children["memory-statistic"] = types.YChild{"MemoryStatistic", nil}
     for i := range memoryStatistics.MemoryStatistic {
-        children[memoryStatistics.MemoryStatistic[i].GetSegmentPath()] = &memoryStatistics.MemoryStatistic[i]
+        memoryStatistics.EntityData.Children[types.GetSegmentPath(&memoryStatistics.MemoryStatistic[i])] = types.YChild{"MemoryStatistic", &memoryStatistics.MemoryStatistic[i]}
     }
-    return children
+    memoryStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(memoryStatistics.EntityData)
 }
-
-func (memoryStatistics *MemoryStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (memoryStatistics *MemoryStatistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (memoryStatistics *MemoryStatistics) GetYangName() string { return "memory-statistics" }
-
-func (memoryStatistics *MemoryStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (memoryStatistics *MemoryStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (memoryStatistics *MemoryStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (memoryStatistics *MemoryStatistics) SetParent(parent types.Entity) { memoryStatistics.parent = parent }
-
-func (memoryStatistics *MemoryStatistics) GetParent() types.Entity { return memoryStatistics.parent }
-
-func (memoryStatistics *MemoryStatistics) GetParentYangName() string { return "Cisco-IOS-XE-memory-oper" }
 
 // MemoryStatistics_MemoryStatistic
 // The list of software memory pools in the system.
 type MemoryStatistics_MemoryStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the memory pool. The type is string.
@@ -118,59 +79,24 @@ type MemoryStatistics_MemoryStatistic struct {
     HighestUsage interface{}
 }
 
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetFilter() yfilter.YFilter { return memoryStatistic.YFilter }
+func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetEntityData() *types.CommonEntityData {
+    memoryStatistic.EntityData.YFilter = memoryStatistic.YFilter
+    memoryStatistic.EntityData.YangName = "memory-statistic"
+    memoryStatistic.EntityData.BundleName = "cisco_ios_xe"
+    memoryStatistic.EntityData.ParentYangName = "memory-statistics"
+    memoryStatistic.EntityData.SegmentPath = "memory-statistic" + "[name='" + fmt.Sprintf("%v", memoryStatistic.Name) + "']"
+    memoryStatistic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    memoryStatistic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    memoryStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) SetFilter(yf yfilter.YFilter) { memoryStatistic.YFilter = yf }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "total-memory" { return "TotalMemory" }
-    if yname == "used-memory" { return "UsedMemory" }
-    if yname == "free-memory" { return "FreeMemory" }
-    if yname == "lowest-usage" { return "LowestUsage" }
-    if yname == "highest-usage" { return "HighestUsage" }
-    return ""
+    memoryStatistic.EntityData.Children = make(map[string]types.YChild)
+    memoryStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryStatistic.EntityData.Leafs["name"] = types.YLeaf{"Name", memoryStatistic.Name}
+    memoryStatistic.EntityData.Leafs["total-memory"] = types.YLeaf{"TotalMemory", memoryStatistic.TotalMemory}
+    memoryStatistic.EntityData.Leafs["used-memory"] = types.YLeaf{"UsedMemory", memoryStatistic.UsedMemory}
+    memoryStatistic.EntityData.Leafs["free-memory"] = types.YLeaf{"FreeMemory", memoryStatistic.FreeMemory}
+    memoryStatistic.EntityData.Leafs["lowest-usage"] = types.YLeaf{"LowestUsage", memoryStatistic.LowestUsage}
+    memoryStatistic.EntityData.Leafs["highest-usage"] = types.YLeaf{"HighestUsage", memoryStatistic.HighestUsage}
+    return &(memoryStatistic.EntityData)
 }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetSegmentPath() string {
-    return "memory-statistic" + "[name='" + fmt.Sprintf("%v", memoryStatistic.Name) + "']"
-}
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = memoryStatistic.Name
-    leafs["total-memory"] = memoryStatistic.TotalMemory
-    leafs["used-memory"] = memoryStatistic.UsedMemory
-    leafs["free-memory"] = memoryStatistic.FreeMemory
-    leafs["lowest-usage"] = memoryStatistic.LowestUsage
-    leafs["highest-usage"] = memoryStatistic.HighestUsage
-    return leafs
-}
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetBundleName() string { return "cisco_ios_xe" }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetYangName() string { return "memory-statistic" }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) SetParent(parent types.Entity) { memoryStatistic.parent = parent }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetParent() types.Entity { return memoryStatistic.parent }
-
-func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetParentYangName() string { return "memory-statistics" }
 

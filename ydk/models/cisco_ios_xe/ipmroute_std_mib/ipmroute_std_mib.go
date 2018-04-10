@@ -20,7 +20,7 @@ func init() {
 
 // IPMROUTESTDMIB
 type IPMROUTESTDMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -49,83 +49,30 @@ type IPMROUTESTDMIB struct {
     Ipmroutescopenametable IPMROUTESTDMIB_Ipmroutescopenametable
 }
 
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetFilter() yfilter.YFilter { return iPMROUTESTDMIB.YFilter }
+func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetEntityData() *types.CommonEntityData {
+    iPMROUTESTDMIB.EntityData.YFilter = iPMROUTESTDMIB.YFilter
+    iPMROUTESTDMIB.EntityData.YangName = "IPMROUTE-STD-MIB"
+    iPMROUTESTDMIB.EntityData.BundleName = "cisco_ios_xe"
+    iPMROUTESTDMIB.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    iPMROUTESTDMIB.EntityData.SegmentPath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB"
+    iPMROUTESTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iPMROUTESTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iPMROUTESTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) SetFilter(yf yfilter.YFilter) { iPMROUTESTDMIB.YFilter = yf }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetGoName(yname string) string {
-    if yname == "ipMRoute" { return "Ipmroute" }
-    if yname == "ipMRouteTable" { return "Ipmroutetable" }
-    if yname == "ipMRouteNextHopTable" { return "Ipmroutenexthoptable" }
-    if yname == "ipMRouteInterfaceTable" { return "Ipmrouteinterfacetable" }
-    if yname == "ipMRouteBoundaryTable" { return "Ipmrouteboundarytable" }
-    if yname == "ipMRouteScopeNameTable" { return "Ipmroutescopenametable" }
-    return ""
+    iPMROUTESTDMIB.EntityData.Children = make(map[string]types.YChild)
+    iPMROUTESTDMIB.EntityData.Children["ipMRoute"] = types.YChild{"Ipmroute", &iPMROUTESTDMIB.Ipmroute}
+    iPMROUTESTDMIB.EntityData.Children["ipMRouteTable"] = types.YChild{"Ipmroutetable", &iPMROUTESTDMIB.Ipmroutetable}
+    iPMROUTESTDMIB.EntityData.Children["ipMRouteNextHopTable"] = types.YChild{"Ipmroutenexthoptable", &iPMROUTESTDMIB.Ipmroutenexthoptable}
+    iPMROUTESTDMIB.EntityData.Children["ipMRouteInterfaceTable"] = types.YChild{"Ipmrouteinterfacetable", &iPMROUTESTDMIB.Ipmrouteinterfacetable}
+    iPMROUTESTDMIB.EntityData.Children["ipMRouteBoundaryTable"] = types.YChild{"Ipmrouteboundarytable", &iPMROUTESTDMIB.Ipmrouteboundarytable}
+    iPMROUTESTDMIB.EntityData.Children["ipMRouteScopeNameTable"] = types.YChild{"Ipmroutescopenametable", &iPMROUTESTDMIB.Ipmroutescopenametable}
+    iPMROUTESTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iPMROUTESTDMIB.EntityData)
 }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetSegmentPath() string {
-    return "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB"
-}
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipMRoute" {
-        return &iPMROUTESTDMIB.Ipmroute
-    }
-    if childYangName == "ipMRouteTable" {
-        return &iPMROUTESTDMIB.Ipmroutetable
-    }
-    if childYangName == "ipMRouteNextHopTable" {
-        return &iPMROUTESTDMIB.Ipmroutenexthoptable
-    }
-    if childYangName == "ipMRouteInterfaceTable" {
-        return &iPMROUTESTDMIB.Ipmrouteinterfacetable
-    }
-    if childYangName == "ipMRouteBoundaryTable" {
-        return &iPMROUTESTDMIB.Ipmrouteboundarytable
-    }
-    if childYangName == "ipMRouteScopeNameTable" {
-        return &iPMROUTESTDMIB.Ipmroutescopenametable
-    }
-    return nil
-}
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipMRoute"] = &iPMROUTESTDMIB.Ipmroute
-    children["ipMRouteTable"] = &iPMROUTESTDMIB.Ipmroutetable
-    children["ipMRouteNextHopTable"] = &iPMROUTESTDMIB.Ipmroutenexthoptable
-    children["ipMRouteInterfaceTable"] = &iPMROUTESTDMIB.Ipmrouteinterfacetable
-    children["ipMRouteBoundaryTable"] = &iPMROUTESTDMIB.Ipmrouteboundarytable
-    children["ipMRouteScopeNameTable"] = &iPMROUTESTDMIB.Ipmroutescopenametable
-    return children
-}
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetYangName() string { return "IPMROUTE-STD-MIB" }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) SetParent(parent types.Entity) { iPMROUTESTDMIB.parent = parent }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetParent() types.Entity { return iPMROUTESTDMIB.parent }
-
-func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmroute
 type IPMROUTESTDMIB_Ipmroute struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The enabled status of IP Multicast routing on this router. The type is
@@ -138,53 +85,22 @@ type IPMROUTESTDMIB_Ipmroute struct {
     Ipmrouteentrycount interface{}
 }
 
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetFilter() yfilter.YFilter { return ipmroute.YFilter }
+func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetEntityData() *types.CommonEntityData {
+    ipmroute.EntityData.YFilter = ipmroute.YFilter
+    ipmroute.EntityData.YangName = "ipMRoute"
+    ipmroute.EntityData.BundleName = "cisco_ios_xe"
+    ipmroute.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    ipmroute.EntityData.SegmentPath = "ipMRoute"
+    ipmroute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmroute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmroute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) SetFilter(yf yfilter.YFilter) { ipmroute.YFilter = yf }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetGoName(yname string) string {
-    if yname == "ipMRouteEnable" { return "Ipmrouteenable" }
-    if yname == "ipMRouteEntryCount" { return "Ipmrouteentrycount" }
-    return ""
+    ipmroute.EntityData.Children = make(map[string]types.YChild)
+    ipmroute.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipmroute.EntityData.Leafs["ipMRouteEnable"] = types.YLeaf{"Ipmrouteenable", ipmroute.Ipmrouteenable}
+    ipmroute.EntityData.Leafs["ipMRouteEntryCount"] = types.YLeaf{"Ipmrouteentrycount", ipmroute.Ipmrouteentrycount}
+    return &(ipmroute.EntityData)
 }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetSegmentPath() string {
-    return "ipMRoute"
-}
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteEnable"] = ipmroute.Ipmrouteenable
-    leafs["ipMRouteEntryCount"] = ipmroute.Ipmrouteentrycount
-    return leafs
-}
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetYangName() string { return "ipMRoute" }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) SetParent(parent types.Entity) { ipmroute.parent = parent }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetParent() types.Entity { return ipmroute.parent }
-
-func (ipmroute *IPMROUTESTDMIB_Ipmroute) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmroute_Ipmrouteenable represents The enabled status of IP Multicast routing on this router.
 type IPMROUTESTDMIB_Ipmroute_Ipmrouteenable string
@@ -200,7 +116,7 @@ const (
 // information for IP datagrams sent by particular sources to
 // the IP multicast groups known to this router.
 type IPMROUTESTDMIB_Ipmroutetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) containing the multicast routing information for
@@ -211,63 +127,24 @@ type IPMROUTESTDMIB_Ipmroutetable struct {
     Ipmrouteentry []IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry
 }
 
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetFilter() yfilter.YFilter { return ipmroutetable.YFilter }
+func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetEntityData() *types.CommonEntityData {
+    ipmroutetable.EntityData.YFilter = ipmroutetable.YFilter
+    ipmroutetable.EntityData.YangName = "ipMRouteTable"
+    ipmroutetable.EntityData.BundleName = "cisco_ios_xe"
+    ipmroutetable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    ipmroutetable.EntityData.SegmentPath = "ipMRouteTable"
+    ipmroutetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmroutetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmroutetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) SetFilter(yf yfilter.YFilter) { ipmroutetable.YFilter = yf }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetGoName(yname string) string {
-    if yname == "ipMRouteEntry" { return "Ipmrouteentry" }
-    return ""
-}
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetSegmentPath() string {
-    return "ipMRouteTable"
-}
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipMRouteEntry" {
-        for _, c := range ipmroutetable.Ipmrouteentry {
-            if ipmroutetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry{}
-        ipmroutetable.Ipmrouteentry = append(ipmroutetable.Ipmrouteentry, child)
-        return &ipmroutetable.Ipmrouteentry[len(ipmroutetable.Ipmrouteentry)-1]
-    }
-    return nil
-}
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipmroutetable.EntityData.Children = make(map[string]types.YChild)
+    ipmroutetable.EntityData.Children["ipMRouteEntry"] = types.YChild{"Ipmrouteentry", nil}
     for i := range ipmroutetable.Ipmrouteentry {
-        children[ipmroutetable.Ipmrouteentry[i].GetSegmentPath()] = &ipmroutetable.Ipmrouteentry[i]
+        ipmroutetable.EntityData.Children[types.GetSegmentPath(&ipmroutetable.Ipmrouteentry[i])] = types.YChild{"Ipmrouteentry", &ipmroutetable.Ipmrouteentry[i]}
     }
-    return children
+    ipmroutetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipmroutetable.EntityData)
 }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetYangName() string { return "ipMRouteTable" }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) SetParent(parent types.Entity) { ipmroutetable.parent = parent }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetParent() types.Entity { return ipmroutetable.parent }
-
-func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry
 // An entry (conceptual row) containing the multicast routing
@@ -276,34 +153,34 @@ func (ipmroutetable *IPMROUTESTDMIB_Ipmroutetable) GetParentYangName() string { 
 // Discontinuities in counters in this entry can be detected by
 // observing the value of ipMRouteUpTime.
 type IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains multicast routing information. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutegroup interface{}
 
     // This attribute is a key. The network address which when combined with the
     // corresponding value of ipMRouteSourceMask identifies the sources for which
     // this entry contains multicast routing information. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutesource interface{}
 
     // This attribute is a key. The network mask which when combined with the
     // corresponding value of ipMRouteSource identifies the sources for which this
     // entry contains multicast routing information. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutesourcemask interface{}
 
     // The address of the upstream neighbor (e.g., RPF neighbor) from which IP
     // datagrams from these sources to this multicast address are received, or
     // 0.0.0.0 if the upstream neighbor is unknown (e.g., in CBT). The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmrouteupstreamneighbor interface{}
 
     // The value of ifIndex for the interface on which IP datagrams sent by these
@@ -354,13 +231,13 @@ type IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry struct {
     // The address portion of the route used to find the upstream or parent
     // interface for this multicast forwarding entry. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutertaddress interface{}
 
     // The mask associated with the route used to find the upstream or parent
     // interface for this multicast forwarding entry. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutertmask interface{}
 
     // The reason the given route was placed in the (logical) multicast Routing
@@ -484,123 +361,57 @@ type IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry struct {
     Ciscoipmroutemetric2 interface{}
 }
 
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetFilter() yfilter.YFilter { return ipmrouteentry.YFilter }
+func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetEntityData() *types.CommonEntityData {
+    ipmrouteentry.EntityData.YFilter = ipmrouteentry.YFilter
+    ipmrouteentry.EntityData.YangName = "ipMRouteEntry"
+    ipmrouteentry.EntityData.BundleName = "cisco_ios_xe"
+    ipmrouteentry.EntityData.ParentYangName = "ipMRouteTable"
+    ipmrouteentry.EntityData.SegmentPath = "ipMRouteEntry" + "[ipMRouteGroup='" + fmt.Sprintf("%v", ipmrouteentry.Ipmroutegroup) + "']" + "[ipMRouteSource='" + fmt.Sprintf("%v", ipmrouteentry.Ipmroutesource) + "']" + "[ipMRouteSourceMask='" + fmt.Sprintf("%v", ipmrouteentry.Ipmroutesourcemask) + "']"
+    ipmrouteentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmrouteentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmrouteentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) SetFilter(yf yfilter.YFilter) { ipmrouteentry.YFilter = yf }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetGoName(yname string) string {
-    if yname == "ipMRouteGroup" { return "Ipmroutegroup" }
-    if yname == "ipMRouteSource" { return "Ipmroutesource" }
-    if yname == "ipMRouteSourceMask" { return "Ipmroutesourcemask" }
-    if yname == "ipMRouteUpstreamNeighbor" { return "Ipmrouteupstreamneighbor" }
-    if yname == "ipMRouteInIfIndex" { return "Ipmrouteinifindex" }
-    if yname == "ipMRouteUpTime" { return "Ipmrouteuptime" }
-    if yname == "ipMRouteExpiryTime" { return "Ipmrouteexpirytime" }
-    if yname == "ipMRoutePkts" { return "Ipmroutepkts" }
-    if yname == "ipMRouteDifferentInIfPackets" { return "Ipmroutedifferentinifpackets" }
-    if yname == "ipMRouteOctets" { return "Ipmrouteoctets" }
-    if yname == "ipMRouteProtocol" { return "Ipmrouteprotocol" }
-    if yname == "ipMRouteRtProto" { return "Ipmroutertproto" }
-    if yname == "ipMRouteRtAddress" { return "Ipmroutertaddress" }
-    if yname == "ipMRouteRtMask" { return "Ipmroutertmask" }
-    if yname == "ipMRouteRtType" { return "Ipmrouterttype" }
-    if yname == "ipMRouteHCOctets" { return "Ipmroutehcoctets" }
-    if yname == "ciscoIpMRoutePruneFlag" { return "Ciscoipmroutepruneflag" }
-    if yname == "ciscoIpMRouteSparseFlag" { return "Ciscoipmroutesparseflag" }
-    if yname == "ciscoIpMRouteConnectedFlag" { return "Ciscoipmrouteconnectedflag" }
-    if yname == "ciscoIpMRouteLocalFlag" { return "Ciscoipmroutelocalflag" }
-    if yname == "ciscoIpMRouteRegisterFlag" { return "Ciscoipmrouteregisterflag" }
-    if yname == "ciscoIpMRouteRpFlag" { return "Ciscoipmrouterpflag" }
-    if yname == "ciscoIpMRouteSptFlag" { return "Ciscoipmroutesptflag" }
-    if yname == "ciscoIpMRouteBps" { return "Ciscoipmroutebps" }
-    if yname == "ciscoIpMRouteMetric" { return "Ciscoipmroutemetric" }
-    if yname == "ciscoIpMRouteMetricPreference" { return "Ciscoipmroutemetricpreference" }
-    if yname == "ciscoIpMRouteInLimit" { return "Ciscoipmrouteinlimit" }
-    if yname == "ciscoIpMRouteLastUsed" { return "Ciscoipmroutelastused" }
-    if yname == "ciscoIpMRouteInLimit2" { return "Ciscoipmrouteinlimit2" }
-    if yname == "ciscoIpMRouteJoinFlag" { return "Ciscoipmroutejoinflag" }
-    if yname == "ciscoIpMRouteMsdpFlag" { return "Ciscoipmroutemsdpflag" }
-    if yname == "ciscoIpMRouteProxyJoinFlag" { return "Ciscoipmrouteproxyjoinflag" }
-    if yname == "ciscoIpMRoutePkts" { return "Ciscoipmroutepkts" }
-    if yname == "ciscoIpMRouteDifferentInIfPkts" { return "Ciscoipmroutedifferentinifpkts" }
-    if yname == "ciscoIpMRouteOctets" { return "Ciscoipmrouteoctets" }
-    if yname == "ciscoIpMRouteBps2" { return "Ciscoipmroutebps2" }
-    if yname == "ciscoIpMRouteMetric2" { return "Ciscoipmroutemetric2" }
-    return ""
+    ipmrouteentry.EntityData.Children = make(map[string]types.YChild)
+    ipmrouteentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipmrouteentry.EntityData.Leafs["ipMRouteGroup"] = types.YLeaf{"Ipmroutegroup", ipmrouteentry.Ipmroutegroup}
+    ipmrouteentry.EntityData.Leafs["ipMRouteSource"] = types.YLeaf{"Ipmroutesource", ipmrouteentry.Ipmroutesource}
+    ipmrouteentry.EntityData.Leafs["ipMRouteSourceMask"] = types.YLeaf{"Ipmroutesourcemask", ipmrouteentry.Ipmroutesourcemask}
+    ipmrouteentry.EntityData.Leafs["ipMRouteUpstreamNeighbor"] = types.YLeaf{"Ipmrouteupstreamneighbor", ipmrouteentry.Ipmrouteupstreamneighbor}
+    ipmrouteentry.EntityData.Leafs["ipMRouteInIfIndex"] = types.YLeaf{"Ipmrouteinifindex", ipmrouteentry.Ipmrouteinifindex}
+    ipmrouteentry.EntityData.Leafs["ipMRouteUpTime"] = types.YLeaf{"Ipmrouteuptime", ipmrouteentry.Ipmrouteuptime}
+    ipmrouteentry.EntityData.Leafs["ipMRouteExpiryTime"] = types.YLeaf{"Ipmrouteexpirytime", ipmrouteentry.Ipmrouteexpirytime}
+    ipmrouteentry.EntityData.Leafs["ipMRoutePkts"] = types.YLeaf{"Ipmroutepkts", ipmrouteentry.Ipmroutepkts}
+    ipmrouteentry.EntityData.Leafs["ipMRouteDifferentInIfPackets"] = types.YLeaf{"Ipmroutedifferentinifpackets", ipmrouteentry.Ipmroutedifferentinifpackets}
+    ipmrouteentry.EntityData.Leafs["ipMRouteOctets"] = types.YLeaf{"Ipmrouteoctets", ipmrouteentry.Ipmrouteoctets}
+    ipmrouteentry.EntityData.Leafs["ipMRouteProtocol"] = types.YLeaf{"Ipmrouteprotocol", ipmrouteentry.Ipmrouteprotocol}
+    ipmrouteentry.EntityData.Leafs["ipMRouteRtProto"] = types.YLeaf{"Ipmroutertproto", ipmrouteentry.Ipmroutertproto}
+    ipmrouteentry.EntityData.Leafs["ipMRouteRtAddress"] = types.YLeaf{"Ipmroutertaddress", ipmrouteentry.Ipmroutertaddress}
+    ipmrouteentry.EntityData.Leafs["ipMRouteRtMask"] = types.YLeaf{"Ipmroutertmask", ipmrouteentry.Ipmroutertmask}
+    ipmrouteentry.EntityData.Leafs["ipMRouteRtType"] = types.YLeaf{"Ipmrouterttype", ipmrouteentry.Ipmrouterttype}
+    ipmrouteentry.EntityData.Leafs["ipMRouteHCOctets"] = types.YLeaf{"Ipmroutehcoctets", ipmrouteentry.Ipmroutehcoctets}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRoutePruneFlag"] = types.YLeaf{"Ciscoipmroutepruneflag", ipmrouteentry.Ciscoipmroutepruneflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteSparseFlag"] = types.YLeaf{"Ciscoipmroutesparseflag", ipmrouteentry.Ciscoipmroutesparseflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteConnectedFlag"] = types.YLeaf{"Ciscoipmrouteconnectedflag", ipmrouteentry.Ciscoipmrouteconnectedflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteLocalFlag"] = types.YLeaf{"Ciscoipmroutelocalflag", ipmrouteentry.Ciscoipmroutelocalflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteRegisterFlag"] = types.YLeaf{"Ciscoipmrouteregisterflag", ipmrouteentry.Ciscoipmrouteregisterflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteRpFlag"] = types.YLeaf{"Ciscoipmrouterpflag", ipmrouteentry.Ciscoipmrouterpflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteSptFlag"] = types.YLeaf{"Ciscoipmroutesptflag", ipmrouteentry.Ciscoipmroutesptflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteBps"] = types.YLeaf{"Ciscoipmroutebps", ipmrouteentry.Ciscoipmroutebps}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteMetric"] = types.YLeaf{"Ciscoipmroutemetric", ipmrouteentry.Ciscoipmroutemetric}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteMetricPreference"] = types.YLeaf{"Ciscoipmroutemetricpreference", ipmrouteentry.Ciscoipmroutemetricpreference}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteInLimit"] = types.YLeaf{"Ciscoipmrouteinlimit", ipmrouteentry.Ciscoipmrouteinlimit}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteLastUsed"] = types.YLeaf{"Ciscoipmroutelastused", ipmrouteentry.Ciscoipmroutelastused}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteInLimit2"] = types.YLeaf{"Ciscoipmrouteinlimit2", ipmrouteentry.Ciscoipmrouteinlimit2}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteJoinFlag"] = types.YLeaf{"Ciscoipmroutejoinflag", ipmrouteentry.Ciscoipmroutejoinflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteMsdpFlag"] = types.YLeaf{"Ciscoipmroutemsdpflag", ipmrouteentry.Ciscoipmroutemsdpflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteProxyJoinFlag"] = types.YLeaf{"Ciscoipmrouteproxyjoinflag", ipmrouteentry.Ciscoipmrouteproxyjoinflag}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRoutePkts"] = types.YLeaf{"Ciscoipmroutepkts", ipmrouteentry.Ciscoipmroutepkts}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteDifferentInIfPkts"] = types.YLeaf{"Ciscoipmroutedifferentinifpkts", ipmrouteentry.Ciscoipmroutedifferentinifpkts}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteOctets"] = types.YLeaf{"Ciscoipmrouteoctets", ipmrouteentry.Ciscoipmrouteoctets}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteBps2"] = types.YLeaf{"Ciscoipmroutebps2", ipmrouteentry.Ciscoipmroutebps2}
+    ipmrouteentry.EntityData.Leafs["ciscoIpMRouteMetric2"] = types.YLeaf{"Ciscoipmroutemetric2", ipmrouteentry.Ciscoipmroutemetric2}
+    return &(ipmrouteentry.EntityData)
 }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetSegmentPath() string {
-    return "ipMRouteEntry" + "[ipMRouteGroup='" + fmt.Sprintf("%v", ipmrouteentry.Ipmroutegroup) + "']" + "[ipMRouteSource='" + fmt.Sprintf("%v", ipmrouteentry.Ipmroutesource) + "']" + "[ipMRouteSourceMask='" + fmt.Sprintf("%v", ipmrouteentry.Ipmroutesourcemask) + "']"
-}
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteGroup"] = ipmrouteentry.Ipmroutegroup
-    leafs["ipMRouteSource"] = ipmrouteentry.Ipmroutesource
-    leafs["ipMRouteSourceMask"] = ipmrouteentry.Ipmroutesourcemask
-    leafs["ipMRouteUpstreamNeighbor"] = ipmrouteentry.Ipmrouteupstreamneighbor
-    leafs["ipMRouteInIfIndex"] = ipmrouteentry.Ipmrouteinifindex
-    leafs["ipMRouteUpTime"] = ipmrouteentry.Ipmrouteuptime
-    leafs["ipMRouteExpiryTime"] = ipmrouteentry.Ipmrouteexpirytime
-    leafs["ipMRoutePkts"] = ipmrouteentry.Ipmroutepkts
-    leafs["ipMRouteDifferentInIfPackets"] = ipmrouteentry.Ipmroutedifferentinifpackets
-    leafs["ipMRouteOctets"] = ipmrouteentry.Ipmrouteoctets
-    leafs["ipMRouteProtocol"] = ipmrouteentry.Ipmrouteprotocol
-    leafs["ipMRouteRtProto"] = ipmrouteentry.Ipmroutertproto
-    leafs["ipMRouteRtAddress"] = ipmrouteentry.Ipmroutertaddress
-    leafs["ipMRouteRtMask"] = ipmrouteentry.Ipmroutertmask
-    leafs["ipMRouteRtType"] = ipmrouteentry.Ipmrouterttype
-    leafs["ipMRouteHCOctets"] = ipmrouteentry.Ipmroutehcoctets
-    leafs["ciscoIpMRoutePruneFlag"] = ipmrouteentry.Ciscoipmroutepruneflag
-    leafs["ciscoIpMRouteSparseFlag"] = ipmrouteentry.Ciscoipmroutesparseflag
-    leafs["ciscoIpMRouteConnectedFlag"] = ipmrouteentry.Ciscoipmrouteconnectedflag
-    leafs["ciscoIpMRouteLocalFlag"] = ipmrouteentry.Ciscoipmroutelocalflag
-    leafs["ciscoIpMRouteRegisterFlag"] = ipmrouteentry.Ciscoipmrouteregisterflag
-    leafs["ciscoIpMRouteRpFlag"] = ipmrouteentry.Ciscoipmrouterpflag
-    leafs["ciscoIpMRouteSptFlag"] = ipmrouteentry.Ciscoipmroutesptflag
-    leafs["ciscoIpMRouteBps"] = ipmrouteentry.Ciscoipmroutebps
-    leafs["ciscoIpMRouteMetric"] = ipmrouteentry.Ciscoipmroutemetric
-    leafs["ciscoIpMRouteMetricPreference"] = ipmrouteentry.Ciscoipmroutemetricpreference
-    leafs["ciscoIpMRouteInLimit"] = ipmrouteentry.Ciscoipmrouteinlimit
-    leafs["ciscoIpMRouteLastUsed"] = ipmrouteentry.Ciscoipmroutelastused
-    leafs["ciscoIpMRouteInLimit2"] = ipmrouteentry.Ciscoipmrouteinlimit2
-    leafs["ciscoIpMRouteJoinFlag"] = ipmrouteentry.Ciscoipmroutejoinflag
-    leafs["ciscoIpMRouteMsdpFlag"] = ipmrouteentry.Ciscoipmroutemsdpflag
-    leafs["ciscoIpMRouteProxyJoinFlag"] = ipmrouteentry.Ciscoipmrouteproxyjoinflag
-    leafs["ciscoIpMRoutePkts"] = ipmrouteentry.Ciscoipmroutepkts
-    leafs["ciscoIpMRouteDifferentInIfPkts"] = ipmrouteentry.Ciscoipmroutedifferentinifpkts
-    leafs["ciscoIpMRouteOctets"] = ipmrouteentry.Ciscoipmrouteoctets
-    leafs["ciscoIpMRouteBps2"] = ipmrouteentry.Ciscoipmroutebps2
-    leafs["ciscoIpMRouteMetric2"] = ipmrouteentry.Ciscoipmroutemetric2
-    return leafs
-}
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetYangName() string { return "ipMRouteEntry" }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) SetParent(parent types.Entity) { ipmrouteentry.parent = parent }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetParent() types.Entity { return ipmrouteentry.parent }
-
-func (ipmrouteentry *IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry) GetParentYangName() string { return "ipMRouteTable" }
 
 // IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry_Ipmrouterttype represents routing protocol, such as DVMRP or Multiprotocol BGP.
 type IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry_Ipmrouterttype string
@@ -618,7 +429,7 @@ const (
 // outgoing interfaces for particular sources sending to a
 // particular multicast group address.
 type IPMROUTESTDMIB_Ipmroutenexthoptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the list of next-hops on outgoing interfaces
@@ -629,63 +440,24 @@ type IPMROUTESTDMIB_Ipmroutenexthoptable struct {
     Ipmroutenexthopentry []IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry
 }
 
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetFilter() yfilter.YFilter { return ipmroutenexthoptable.YFilter }
+func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetEntityData() *types.CommonEntityData {
+    ipmroutenexthoptable.EntityData.YFilter = ipmroutenexthoptable.YFilter
+    ipmroutenexthoptable.EntityData.YangName = "ipMRouteNextHopTable"
+    ipmroutenexthoptable.EntityData.BundleName = "cisco_ios_xe"
+    ipmroutenexthoptable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    ipmroutenexthoptable.EntityData.SegmentPath = "ipMRouteNextHopTable"
+    ipmroutenexthoptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmroutenexthoptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmroutenexthoptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) SetFilter(yf yfilter.YFilter) { ipmroutenexthoptable.YFilter = yf }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetGoName(yname string) string {
-    if yname == "ipMRouteNextHopEntry" { return "Ipmroutenexthopentry" }
-    return ""
-}
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetSegmentPath() string {
-    return "ipMRouteNextHopTable"
-}
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipMRouteNextHopEntry" {
-        for _, c := range ipmroutenexthoptable.Ipmroutenexthopentry {
-            if ipmroutenexthoptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry{}
-        ipmroutenexthoptable.Ipmroutenexthopentry = append(ipmroutenexthoptable.Ipmroutenexthopentry, child)
-        return &ipmroutenexthoptable.Ipmroutenexthopentry[len(ipmroutenexthoptable.Ipmroutenexthopentry)-1]
-    }
-    return nil
-}
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipmroutenexthoptable.EntityData.Children = make(map[string]types.YChild)
+    ipmroutenexthoptable.EntityData.Children["ipMRouteNextHopEntry"] = types.YChild{"Ipmroutenexthopentry", nil}
     for i := range ipmroutenexthoptable.Ipmroutenexthopentry {
-        children[ipmroutenexthoptable.Ipmroutenexthopentry[i].GetSegmentPath()] = &ipmroutenexthoptable.Ipmroutenexthopentry[i]
+        ipmroutenexthoptable.EntityData.Children[types.GetSegmentPath(&ipmroutenexthoptable.Ipmroutenexthopentry[i])] = types.YChild{"Ipmroutenexthopentry", &ipmroutenexthoptable.Ipmroutenexthopentry[i]}
     }
-    return children
+    ipmroutenexthoptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipmroutenexthoptable.EntityData)
 }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetYangName() string { return "ipMRouteNextHopTable" }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) SetParent(parent types.Entity) { ipmroutenexthoptable.parent = parent }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetParent() types.Entity { return ipmroutenexthoptable.parent }
-
-func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry
 // An entry (conceptual row) in the list of next-hops on
@@ -694,27 +466,27 @@ func (ipmroutenexthoptable *IPMROUTESTDMIB_Ipmroutenexthoptable) GetParentYangNa
 // routed.  Discontinuities in counters in this entry can be
 // detected by observing the value of ipMRouteUpTime.
 type IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP multicast group for which this entry
     // specifies a next-hop on an outgoing interface. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutenexthopgroup interface{}
 
     // This attribute is a key. The network address which when combined with the
     // corresponding value of ipMRouteNextHopSourceMask identifies the sources for
     // which this entry specifies a next-hop on an outgoing interface. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutenexthopsource interface{}
 
     // This attribute is a key. The network mask which when combined with the
     // corresponding value of ipMRouteNextHopSource identifies the sources for
     // which this entry specifies a next-hop on an outgoing interface. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutenexthopsourcemask interface{}
 
     // This attribute is a key. The ifIndex value of the interface for the
@@ -726,7 +498,7 @@ type IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry struct {
     // entry.  For most interfaces, this is identical to ipMRouteNextHopGroup.
     // NBMA interfaces, however, may have multiple next-hop addresses out a single
     // outgoing interface. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutenexthopaddress interface{}
 
     // An indication of whether the outgoing interface and next- hop represented
@@ -778,77 +550,34 @@ type IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry struct {
     Ciscoipmroutenexthoppkts interface{}
 }
 
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetFilter() yfilter.YFilter { return ipmroutenexthopentry.YFilter }
+func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetEntityData() *types.CommonEntityData {
+    ipmroutenexthopentry.EntityData.YFilter = ipmroutenexthopentry.YFilter
+    ipmroutenexthopentry.EntityData.YangName = "ipMRouteNextHopEntry"
+    ipmroutenexthopentry.EntityData.BundleName = "cisco_ios_xe"
+    ipmroutenexthopentry.EntityData.ParentYangName = "ipMRouteNextHopTable"
+    ipmroutenexthopentry.EntityData.SegmentPath = "ipMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopgroup) + "']" + "[ipMRouteNextHopSource='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopsource) + "']" + "[ipMRouteNextHopSourceMask='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopsourcemask) + "']" + "[ipMRouteNextHopIfIndex='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopifindex) + "']" + "[ipMRouteNextHopAddress='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopaddress) + "']"
+    ipmroutenexthopentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmroutenexthopentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmroutenexthopentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) SetFilter(yf yfilter.YFilter) { ipmroutenexthopentry.YFilter = yf }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetGoName(yname string) string {
-    if yname == "ipMRouteNextHopGroup" { return "Ipmroutenexthopgroup" }
-    if yname == "ipMRouteNextHopSource" { return "Ipmroutenexthopsource" }
-    if yname == "ipMRouteNextHopSourceMask" { return "Ipmroutenexthopsourcemask" }
-    if yname == "ipMRouteNextHopIfIndex" { return "Ipmroutenexthopifindex" }
-    if yname == "ipMRouteNextHopAddress" { return "Ipmroutenexthopaddress" }
-    if yname == "ipMRouteNextHopState" { return "Ipmroutenexthopstate" }
-    if yname == "ipMRouteNextHopUpTime" { return "Ipmroutenexthopuptime" }
-    if yname == "ipMRouteNextHopExpiryTime" { return "Ipmroutenexthopexpirytime" }
-    if yname == "ipMRouteNextHopClosestMemberHops" { return "Ipmroutenexthopclosestmemberhops" }
-    if yname == "ipMRouteNextHopProtocol" { return "Ipmroutenexthopprotocol" }
-    if yname == "ipMRouteNextHopPkts" { return "Ipmroutenexthoppkts" }
-    if yname == "ciscoIpMRouteNextHopOutLimit" { return "Ciscoipmroutenexthopoutlimit" }
-    if yname == "ciscoIpMRouteNextHopMacHdr" { return "Ciscoipmroutenexthopmachdr" }
-    if yname == "ciscoIpMRouteNextHopPkts" { return "Ciscoipmroutenexthoppkts" }
-    return ""
+    ipmroutenexthopentry.EntityData.Children = make(map[string]types.YChild)
+    ipmroutenexthopentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopGroup"] = types.YLeaf{"Ipmroutenexthopgroup", ipmroutenexthopentry.Ipmroutenexthopgroup}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopSource"] = types.YLeaf{"Ipmroutenexthopsource", ipmroutenexthopentry.Ipmroutenexthopsource}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopSourceMask"] = types.YLeaf{"Ipmroutenexthopsourcemask", ipmroutenexthopentry.Ipmroutenexthopsourcemask}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopIfIndex"] = types.YLeaf{"Ipmroutenexthopifindex", ipmroutenexthopentry.Ipmroutenexthopifindex}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopAddress"] = types.YLeaf{"Ipmroutenexthopaddress", ipmroutenexthopentry.Ipmroutenexthopaddress}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopState"] = types.YLeaf{"Ipmroutenexthopstate", ipmroutenexthopentry.Ipmroutenexthopstate}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopUpTime"] = types.YLeaf{"Ipmroutenexthopuptime", ipmroutenexthopentry.Ipmroutenexthopuptime}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopExpiryTime"] = types.YLeaf{"Ipmroutenexthopexpirytime", ipmroutenexthopentry.Ipmroutenexthopexpirytime}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopClosestMemberHops"] = types.YLeaf{"Ipmroutenexthopclosestmemberhops", ipmroutenexthopentry.Ipmroutenexthopclosestmemberhops}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopProtocol"] = types.YLeaf{"Ipmroutenexthopprotocol", ipmroutenexthopentry.Ipmroutenexthopprotocol}
+    ipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopPkts"] = types.YLeaf{"Ipmroutenexthoppkts", ipmroutenexthopentry.Ipmroutenexthoppkts}
+    ipmroutenexthopentry.EntityData.Leafs["ciscoIpMRouteNextHopOutLimit"] = types.YLeaf{"Ciscoipmroutenexthopoutlimit", ipmroutenexthopentry.Ciscoipmroutenexthopoutlimit}
+    ipmroutenexthopentry.EntityData.Leafs["ciscoIpMRouteNextHopMacHdr"] = types.YLeaf{"Ciscoipmroutenexthopmachdr", ipmroutenexthopentry.Ciscoipmroutenexthopmachdr}
+    ipmroutenexthopentry.EntityData.Leafs["ciscoIpMRouteNextHopPkts"] = types.YLeaf{"Ciscoipmroutenexthoppkts", ipmroutenexthopentry.Ciscoipmroutenexthoppkts}
+    return &(ipmroutenexthopentry.EntityData)
 }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetSegmentPath() string {
-    return "ipMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopgroup) + "']" + "[ipMRouteNextHopSource='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopsource) + "']" + "[ipMRouteNextHopSourceMask='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopsourcemask) + "']" + "[ipMRouteNextHopIfIndex='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopifindex) + "']" + "[ipMRouteNextHopAddress='" + fmt.Sprintf("%v", ipmroutenexthopentry.Ipmroutenexthopaddress) + "']"
-}
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteNextHopGroup"] = ipmroutenexthopentry.Ipmroutenexthopgroup
-    leafs["ipMRouteNextHopSource"] = ipmroutenexthopentry.Ipmroutenexthopsource
-    leafs["ipMRouteNextHopSourceMask"] = ipmroutenexthopentry.Ipmroutenexthopsourcemask
-    leafs["ipMRouteNextHopIfIndex"] = ipmroutenexthopentry.Ipmroutenexthopifindex
-    leafs["ipMRouteNextHopAddress"] = ipmroutenexthopentry.Ipmroutenexthopaddress
-    leafs["ipMRouteNextHopState"] = ipmroutenexthopentry.Ipmroutenexthopstate
-    leafs["ipMRouteNextHopUpTime"] = ipmroutenexthopentry.Ipmroutenexthopuptime
-    leafs["ipMRouteNextHopExpiryTime"] = ipmroutenexthopentry.Ipmroutenexthopexpirytime
-    leafs["ipMRouteNextHopClosestMemberHops"] = ipmroutenexthopentry.Ipmroutenexthopclosestmemberhops
-    leafs["ipMRouteNextHopProtocol"] = ipmroutenexthopentry.Ipmroutenexthopprotocol
-    leafs["ipMRouteNextHopPkts"] = ipmroutenexthopentry.Ipmroutenexthoppkts
-    leafs["ciscoIpMRouteNextHopOutLimit"] = ipmroutenexthopentry.Ciscoipmroutenexthopoutlimit
-    leafs["ciscoIpMRouteNextHopMacHdr"] = ipmroutenexthopentry.Ciscoipmroutenexthopmachdr
-    leafs["ciscoIpMRouteNextHopPkts"] = ipmroutenexthopentry.Ciscoipmroutenexthoppkts
-    return leafs
-}
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetYangName() string { return "ipMRouteNextHopEntry" }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) SetParent(parent types.Entity) { ipmroutenexthopentry.parent = parent }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetParent() types.Entity { return ipmroutenexthopentry.parent }
-
-func (ipmroutenexthopentry *IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry) GetParentYangName() string { return "ipMRouteNextHopTable" }
 
 // IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry_Ipmroutenexthopstate represents not.
 type IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry_Ipmroutenexthopstate string
@@ -863,7 +592,7 @@ const (
 // The (conceptual) table containing multicast routing
 // information specific to interfaces.
 type IPMROUTESTDMIB_Ipmrouteinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) containing the multicast routing information for
@@ -872,69 +601,30 @@ type IPMROUTESTDMIB_Ipmrouteinterfacetable struct {
     Ipmrouteinterfaceentry []IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry
 }
 
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetFilter() yfilter.YFilter { return ipmrouteinterfacetable.YFilter }
+func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetEntityData() *types.CommonEntityData {
+    ipmrouteinterfacetable.EntityData.YFilter = ipmrouteinterfacetable.YFilter
+    ipmrouteinterfacetable.EntityData.YangName = "ipMRouteInterfaceTable"
+    ipmrouteinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    ipmrouteinterfacetable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    ipmrouteinterfacetable.EntityData.SegmentPath = "ipMRouteInterfaceTable"
+    ipmrouteinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmrouteinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmrouteinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) SetFilter(yf yfilter.YFilter) { ipmrouteinterfacetable.YFilter = yf }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetGoName(yname string) string {
-    if yname == "ipMRouteInterfaceEntry" { return "Ipmrouteinterfaceentry" }
-    return ""
-}
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetSegmentPath() string {
-    return "ipMRouteInterfaceTable"
-}
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipMRouteInterfaceEntry" {
-        for _, c := range ipmrouteinterfacetable.Ipmrouteinterfaceentry {
-            if ipmrouteinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry{}
-        ipmrouteinterfacetable.Ipmrouteinterfaceentry = append(ipmrouteinterfacetable.Ipmrouteinterfaceentry, child)
-        return &ipmrouteinterfacetable.Ipmrouteinterfaceentry[len(ipmrouteinterfacetable.Ipmrouteinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipmrouteinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    ipmrouteinterfacetable.EntityData.Children["ipMRouteInterfaceEntry"] = types.YChild{"Ipmrouteinterfaceentry", nil}
     for i := range ipmrouteinterfacetable.Ipmrouteinterfaceentry {
-        children[ipmrouteinterfacetable.Ipmrouteinterfaceentry[i].GetSegmentPath()] = &ipmrouteinterfacetable.Ipmrouteinterfaceentry[i]
+        ipmrouteinterfacetable.EntityData.Children[types.GetSegmentPath(&ipmrouteinterfacetable.Ipmrouteinterfaceentry[i])] = types.YChild{"Ipmrouteinterfaceentry", &ipmrouteinterfacetable.Ipmrouteinterfaceentry[i]}
     }
-    return children
+    ipmrouteinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipmrouteinterfacetable.EntityData)
 }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetYangName() string { return "ipMRouteInterfaceTable" }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) SetParent(parent types.Entity) { ipmrouteinterfacetable.parent = parent }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetParent() types.Entity { return ipmrouteinterfacetable.parent }
-
-func (ipmrouteinterfacetable *IPMROUTESTDMIB_Ipmrouteinterfacetable) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry
 // An entry (conceptual row) containing the multicast routing
 // information for a particular interface.
 type IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex value of the interface for which this
@@ -1011,83 +701,40 @@ type IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry struct {
     Ciscoipmrouteifhcoutmcastpkts interface{}
 }
 
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetFilter() yfilter.YFilter { return ipmrouteinterfaceentry.YFilter }
+func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetEntityData() *types.CommonEntityData {
+    ipmrouteinterfaceentry.EntityData.YFilter = ipmrouteinterfaceentry.YFilter
+    ipmrouteinterfaceentry.EntityData.YangName = "ipMRouteInterfaceEntry"
+    ipmrouteinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    ipmrouteinterfaceentry.EntityData.ParentYangName = "ipMRouteInterfaceTable"
+    ipmrouteinterfaceentry.EntityData.SegmentPath = "ipMRouteInterfaceEntry" + "[ipMRouteInterfaceIfIndex='" + fmt.Sprintf("%v", ipmrouteinterfaceentry.Ipmrouteinterfaceifindex) + "']"
+    ipmrouteinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmrouteinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmrouteinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) SetFilter(yf yfilter.YFilter) { ipmrouteinterfaceentry.YFilter = yf }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetGoName(yname string) string {
-    if yname == "ipMRouteInterfaceIfIndex" { return "Ipmrouteinterfaceifindex" }
-    if yname == "ipMRouteInterfaceTtl" { return "Ipmrouteinterfacettl" }
-    if yname == "ipMRouteInterfaceProtocol" { return "Ipmrouteinterfaceprotocol" }
-    if yname == "ipMRouteInterfaceRateLimit" { return "Ipmrouteinterfaceratelimit" }
-    if yname == "ipMRouteInterfaceInMcastOctets" { return "Ipmrouteinterfaceinmcastoctets" }
-    if yname == "ipMRouteInterfaceOutMcastOctets" { return "Ipmrouteinterfaceoutmcastoctets" }
-    if yname == "ipMRouteInterfaceHCInMcastOctets" { return "Ipmrouteinterfacehcinmcastoctets" }
-    if yname == "ipMRouteInterfaceHCOutMcastOctets" { return "Ipmrouteinterfacehcoutmcastoctets" }
-    if yname == "ciscoIpMRouteIfInMcastOctets" { return "Ciscoipmrouteifinmcastoctets" }
-    if yname == "ciscoIpMRouteIfOutMcastOctets" { return "Ciscoipmrouteifoutmcastoctets" }
-    if yname == "ciscoIpMRouteIfInMcastPkts" { return "Ciscoipmrouteifinmcastpkts" }
-    if yname == "ciscoIpMRouteIfHCInMcastPkts" { return "Ciscoipmrouteifhcinmcastpkts" }
-    if yname == "ciscoIpMRouteIfOutMcastPkts" { return "Ciscoipmrouteifoutmcastpkts" }
-    if yname == "ciscoIpMRouteIfHCOutMcastPkts" { return "Ciscoipmrouteifhcoutmcastpkts" }
-    return ""
+    ipmrouteinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    ipmrouteinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceIfIndex"] = types.YLeaf{"Ipmrouteinterfaceifindex", ipmrouteinterfaceentry.Ipmrouteinterfaceifindex}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceTtl"] = types.YLeaf{"Ipmrouteinterfacettl", ipmrouteinterfaceentry.Ipmrouteinterfacettl}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceProtocol"] = types.YLeaf{"Ipmrouteinterfaceprotocol", ipmrouteinterfaceentry.Ipmrouteinterfaceprotocol}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceRateLimit"] = types.YLeaf{"Ipmrouteinterfaceratelimit", ipmrouteinterfaceentry.Ipmrouteinterfaceratelimit}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceInMcastOctets"] = types.YLeaf{"Ipmrouteinterfaceinmcastoctets", ipmrouteinterfaceentry.Ipmrouteinterfaceinmcastoctets}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceOutMcastOctets"] = types.YLeaf{"Ipmrouteinterfaceoutmcastoctets", ipmrouteinterfaceentry.Ipmrouteinterfaceoutmcastoctets}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceHCInMcastOctets"] = types.YLeaf{"Ipmrouteinterfacehcinmcastoctets", ipmrouteinterfaceentry.Ipmrouteinterfacehcinmcastoctets}
+    ipmrouteinterfaceentry.EntityData.Leafs["ipMRouteInterfaceHCOutMcastOctets"] = types.YLeaf{"Ipmrouteinterfacehcoutmcastoctets", ipmrouteinterfaceentry.Ipmrouteinterfacehcoutmcastoctets}
+    ipmrouteinterfaceentry.EntityData.Leafs["ciscoIpMRouteIfInMcastOctets"] = types.YLeaf{"Ciscoipmrouteifinmcastoctets", ipmrouteinterfaceentry.Ciscoipmrouteifinmcastoctets}
+    ipmrouteinterfaceentry.EntityData.Leafs["ciscoIpMRouteIfOutMcastOctets"] = types.YLeaf{"Ciscoipmrouteifoutmcastoctets", ipmrouteinterfaceentry.Ciscoipmrouteifoutmcastoctets}
+    ipmrouteinterfaceentry.EntityData.Leafs["ciscoIpMRouteIfInMcastPkts"] = types.YLeaf{"Ciscoipmrouteifinmcastpkts", ipmrouteinterfaceentry.Ciscoipmrouteifinmcastpkts}
+    ipmrouteinterfaceentry.EntityData.Leafs["ciscoIpMRouteIfHCInMcastPkts"] = types.YLeaf{"Ciscoipmrouteifhcinmcastpkts", ipmrouteinterfaceentry.Ciscoipmrouteifhcinmcastpkts}
+    ipmrouteinterfaceentry.EntityData.Leafs["ciscoIpMRouteIfOutMcastPkts"] = types.YLeaf{"Ciscoipmrouteifoutmcastpkts", ipmrouteinterfaceentry.Ciscoipmrouteifoutmcastpkts}
+    ipmrouteinterfaceentry.EntityData.Leafs["ciscoIpMRouteIfHCOutMcastPkts"] = types.YLeaf{"Ciscoipmrouteifhcoutmcastpkts", ipmrouteinterfaceentry.Ciscoipmrouteifhcoutmcastpkts}
+    return &(ipmrouteinterfaceentry.EntityData)
 }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetSegmentPath() string {
-    return "ipMRouteInterfaceEntry" + "[ipMRouteInterfaceIfIndex='" + fmt.Sprintf("%v", ipmrouteinterfaceentry.Ipmrouteinterfaceifindex) + "']"
-}
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteInterfaceIfIndex"] = ipmrouteinterfaceentry.Ipmrouteinterfaceifindex
-    leafs["ipMRouteInterfaceTtl"] = ipmrouteinterfaceentry.Ipmrouteinterfacettl
-    leafs["ipMRouteInterfaceProtocol"] = ipmrouteinterfaceentry.Ipmrouteinterfaceprotocol
-    leafs["ipMRouteInterfaceRateLimit"] = ipmrouteinterfaceentry.Ipmrouteinterfaceratelimit
-    leafs["ipMRouteInterfaceInMcastOctets"] = ipmrouteinterfaceentry.Ipmrouteinterfaceinmcastoctets
-    leafs["ipMRouteInterfaceOutMcastOctets"] = ipmrouteinterfaceentry.Ipmrouteinterfaceoutmcastoctets
-    leafs["ipMRouteInterfaceHCInMcastOctets"] = ipmrouteinterfaceentry.Ipmrouteinterfacehcinmcastoctets
-    leafs["ipMRouteInterfaceHCOutMcastOctets"] = ipmrouteinterfaceentry.Ipmrouteinterfacehcoutmcastoctets
-    leafs["ciscoIpMRouteIfInMcastOctets"] = ipmrouteinterfaceentry.Ciscoipmrouteifinmcastoctets
-    leafs["ciscoIpMRouteIfOutMcastOctets"] = ipmrouteinterfaceentry.Ciscoipmrouteifoutmcastoctets
-    leafs["ciscoIpMRouteIfInMcastPkts"] = ipmrouteinterfaceentry.Ciscoipmrouteifinmcastpkts
-    leafs["ciscoIpMRouteIfHCInMcastPkts"] = ipmrouteinterfaceentry.Ciscoipmrouteifhcinmcastpkts
-    leafs["ciscoIpMRouteIfOutMcastPkts"] = ipmrouteinterfaceentry.Ciscoipmrouteifoutmcastpkts
-    leafs["ciscoIpMRouteIfHCOutMcastPkts"] = ipmrouteinterfaceentry.Ciscoipmrouteifhcoutmcastpkts
-    return leafs
-}
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetYangName() string { return "ipMRouteInterfaceEntry" }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) SetParent(parent types.Entity) { ipmrouteinterfaceentry.parent = parent }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetParent() types.Entity { return ipmrouteinterfaceentry.parent }
-
-func (ipmrouteinterfaceentry *IPMROUTESTDMIB_Ipmrouteinterfacetable_Ipmrouteinterfaceentry) GetParentYangName() string { return "ipMRouteInterfaceTable" }
 
 // IPMROUTESTDMIB_Ipmrouteboundarytable
 // The (conceptual) table listing the router's scoped
 // multicast address boundaries.
 type IPMROUTESTDMIB_Ipmrouteboundarytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the ipMRouteBoundaryTable representing a
@@ -1096,69 +743,30 @@ type IPMROUTESTDMIB_Ipmrouteboundarytable struct {
     Ipmrouteboundaryentry []IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry
 }
 
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetFilter() yfilter.YFilter { return ipmrouteboundarytable.YFilter }
+func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetEntityData() *types.CommonEntityData {
+    ipmrouteboundarytable.EntityData.YFilter = ipmrouteboundarytable.YFilter
+    ipmrouteboundarytable.EntityData.YangName = "ipMRouteBoundaryTable"
+    ipmrouteboundarytable.EntityData.BundleName = "cisco_ios_xe"
+    ipmrouteboundarytable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    ipmrouteboundarytable.EntityData.SegmentPath = "ipMRouteBoundaryTable"
+    ipmrouteboundarytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmrouteboundarytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmrouteboundarytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) SetFilter(yf yfilter.YFilter) { ipmrouteboundarytable.YFilter = yf }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetGoName(yname string) string {
-    if yname == "ipMRouteBoundaryEntry" { return "Ipmrouteboundaryentry" }
-    return ""
-}
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetSegmentPath() string {
-    return "ipMRouteBoundaryTable"
-}
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipMRouteBoundaryEntry" {
-        for _, c := range ipmrouteboundarytable.Ipmrouteboundaryentry {
-            if ipmrouteboundarytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry{}
-        ipmrouteboundarytable.Ipmrouteboundaryentry = append(ipmrouteboundarytable.Ipmrouteboundaryentry, child)
-        return &ipmrouteboundarytable.Ipmrouteboundaryentry[len(ipmrouteboundarytable.Ipmrouteboundaryentry)-1]
-    }
-    return nil
-}
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipmrouteboundarytable.EntityData.Children = make(map[string]types.YChild)
+    ipmrouteboundarytable.EntityData.Children["ipMRouteBoundaryEntry"] = types.YChild{"Ipmrouteboundaryentry", nil}
     for i := range ipmrouteboundarytable.Ipmrouteboundaryentry {
-        children[ipmrouteboundarytable.Ipmrouteboundaryentry[i].GetSegmentPath()] = &ipmrouteboundarytable.Ipmrouteboundaryentry[i]
+        ipmrouteboundarytable.EntityData.Children[types.GetSegmentPath(&ipmrouteboundarytable.Ipmrouteboundaryentry[i])] = types.YChild{"Ipmrouteboundaryentry", &ipmrouteboundarytable.Ipmrouteboundaryentry[i]}
     }
-    return children
+    ipmrouteboundarytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipmrouteboundarytable.EntityData)
 }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetYangName() string { return "ipMRouteBoundaryTable" }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) SetParent(parent types.Entity) { ipmrouteboundarytable.parent = parent }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetParent() types.Entity { return ipmrouteboundarytable.parent }
-
-func (ipmrouteboundarytable *IPMROUTESTDMIB_Ipmrouteboundarytable) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry
 // An entry (conceptual row) in the ipMRouteBoundaryTable
 // representing a scoped boundary.
 type IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IfIndex value for the interface to which this
@@ -1172,14 +780,14 @@ type IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry struct {
     // range for which the scoped boundary exists.  Scoped addresses must come
     // from the range 239.x.x.x as specified in RFC 2365. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmrouteboundaryaddress interface{}
 
     // This attribute is a key. The group address mask which when combined with
     // the corresponding value of ipMRouteBoundaryAddress identifies the group
     // range for which the scoped boundary exists. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmrouteboundaryaddressmask interface{}
 
     // The status of this row, by which new entries may be created, or old entries
@@ -1187,62 +795,29 @@ type IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry struct {
     Ipmrouteboundarystatus interface{}
 }
 
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetFilter() yfilter.YFilter { return ipmrouteboundaryentry.YFilter }
+func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetEntityData() *types.CommonEntityData {
+    ipmrouteboundaryentry.EntityData.YFilter = ipmrouteboundaryentry.YFilter
+    ipmrouteboundaryentry.EntityData.YangName = "ipMRouteBoundaryEntry"
+    ipmrouteboundaryentry.EntityData.BundleName = "cisco_ios_xe"
+    ipmrouteboundaryentry.EntityData.ParentYangName = "ipMRouteBoundaryTable"
+    ipmrouteboundaryentry.EntityData.SegmentPath = "ipMRouteBoundaryEntry" + "[ipMRouteBoundaryIfIndex='" + fmt.Sprintf("%v", ipmrouteboundaryentry.Ipmrouteboundaryifindex) + "']" + "[ipMRouteBoundaryAddress='" + fmt.Sprintf("%v", ipmrouteboundaryentry.Ipmrouteboundaryaddress) + "']" + "[ipMRouteBoundaryAddressMask='" + fmt.Sprintf("%v", ipmrouteboundaryentry.Ipmrouteboundaryaddressmask) + "']"
+    ipmrouteboundaryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmrouteboundaryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmrouteboundaryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) SetFilter(yf yfilter.YFilter) { ipmrouteboundaryentry.YFilter = yf }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetGoName(yname string) string {
-    if yname == "ipMRouteBoundaryIfIndex" { return "Ipmrouteboundaryifindex" }
-    if yname == "ipMRouteBoundaryAddress" { return "Ipmrouteboundaryaddress" }
-    if yname == "ipMRouteBoundaryAddressMask" { return "Ipmrouteboundaryaddressmask" }
-    if yname == "ipMRouteBoundaryStatus" { return "Ipmrouteboundarystatus" }
-    return ""
+    ipmrouteboundaryentry.EntityData.Children = make(map[string]types.YChild)
+    ipmrouteboundaryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipmrouteboundaryentry.EntityData.Leafs["ipMRouteBoundaryIfIndex"] = types.YLeaf{"Ipmrouteboundaryifindex", ipmrouteboundaryentry.Ipmrouteboundaryifindex}
+    ipmrouteboundaryentry.EntityData.Leafs["ipMRouteBoundaryAddress"] = types.YLeaf{"Ipmrouteboundaryaddress", ipmrouteboundaryentry.Ipmrouteboundaryaddress}
+    ipmrouteboundaryentry.EntityData.Leafs["ipMRouteBoundaryAddressMask"] = types.YLeaf{"Ipmrouteboundaryaddressmask", ipmrouteboundaryentry.Ipmrouteboundaryaddressmask}
+    ipmrouteboundaryentry.EntityData.Leafs["ipMRouteBoundaryStatus"] = types.YLeaf{"Ipmrouteboundarystatus", ipmrouteboundaryentry.Ipmrouteboundarystatus}
+    return &(ipmrouteboundaryentry.EntityData)
 }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetSegmentPath() string {
-    return "ipMRouteBoundaryEntry" + "[ipMRouteBoundaryIfIndex='" + fmt.Sprintf("%v", ipmrouteboundaryentry.Ipmrouteboundaryifindex) + "']" + "[ipMRouteBoundaryAddress='" + fmt.Sprintf("%v", ipmrouteboundaryentry.Ipmrouteboundaryaddress) + "']" + "[ipMRouteBoundaryAddressMask='" + fmt.Sprintf("%v", ipmrouteboundaryentry.Ipmrouteboundaryaddressmask) + "']"
-}
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteBoundaryIfIndex"] = ipmrouteboundaryentry.Ipmrouteboundaryifindex
-    leafs["ipMRouteBoundaryAddress"] = ipmrouteboundaryentry.Ipmrouteboundaryaddress
-    leafs["ipMRouteBoundaryAddressMask"] = ipmrouteboundaryentry.Ipmrouteboundaryaddressmask
-    leafs["ipMRouteBoundaryStatus"] = ipmrouteboundaryentry.Ipmrouteboundarystatus
-    return leafs
-}
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetYangName() string { return "ipMRouteBoundaryEntry" }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) SetParent(parent types.Entity) { ipmrouteboundaryentry.parent = parent }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetParent() types.Entity { return ipmrouteboundaryentry.parent }
-
-func (ipmrouteboundaryentry *IPMROUTESTDMIB_Ipmrouteboundarytable_Ipmrouteboundaryentry) GetParentYangName() string { return "ipMRouteBoundaryTable" }
 
 // IPMROUTESTDMIB_Ipmroutescopenametable
 // The (conceptual) table listing the multicast scope names.
 type IPMROUTESTDMIB_Ipmroutescopenametable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the ipMRouteScopeNameTable representing a
@@ -1251,82 +826,43 @@ type IPMROUTESTDMIB_Ipmroutescopenametable struct {
     Ipmroutescopenameentry []IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry
 }
 
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetFilter() yfilter.YFilter { return ipmroutescopenametable.YFilter }
+func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetEntityData() *types.CommonEntityData {
+    ipmroutescopenametable.EntityData.YFilter = ipmroutescopenametable.YFilter
+    ipmroutescopenametable.EntityData.YangName = "ipMRouteScopeNameTable"
+    ipmroutescopenametable.EntityData.BundleName = "cisco_ios_xe"
+    ipmroutescopenametable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
+    ipmroutescopenametable.EntityData.SegmentPath = "ipMRouteScopeNameTable"
+    ipmroutescopenametable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmroutescopenametable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmroutescopenametable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) SetFilter(yf yfilter.YFilter) { ipmroutescopenametable.YFilter = yf }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetGoName(yname string) string {
-    if yname == "ipMRouteScopeNameEntry" { return "Ipmroutescopenameentry" }
-    return ""
-}
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetSegmentPath() string {
-    return "ipMRouteScopeNameTable"
-}
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipMRouteScopeNameEntry" {
-        for _, c := range ipmroutescopenametable.Ipmroutescopenameentry {
-            if ipmroutescopenametable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry{}
-        ipmroutescopenametable.Ipmroutescopenameentry = append(ipmroutescopenametable.Ipmroutescopenameentry, child)
-        return &ipmroutescopenametable.Ipmroutescopenameentry[len(ipmroutescopenametable.Ipmroutescopenameentry)-1]
-    }
-    return nil
-}
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipmroutescopenametable.EntityData.Children = make(map[string]types.YChild)
+    ipmroutescopenametable.EntityData.Children["ipMRouteScopeNameEntry"] = types.YChild{"Ipmroutescopenameentry", nil}
     for i := range ipmroutescopenametable.Ipmroutescopenameentry {
-        children[ipmroutescopenametable.Ipmroutescopenameentry[i].GetSegmentPath()] = &ipmroutescopenametable.Ipmroutescopenameentry[i]
+        ipmroutescopenametable.EntityData.Children[types.GetSegmentPath(&ipmroutescopenametable.Ipmroutescopenameentry[i])] = types.YChild{"Ipmroutescopenameentry", &ipmroutescopenametable.Ipmroutescopenameentry[i]}
     }
-    return children
+    ipmroutescopenametable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipmroutescopenametable.EntityData)
 }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetYangName() string { return "ipMRouteScopeNameTable" }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) SetParent(parent types.Entity) { ipmroutescopenametable.parent = parent }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetParent() types.Entity { return ipmroutescopenametable.parent }
-
-func (ipmroutescopenametable *IPMROUTESTDMIB_Ipmroutescopenametable) GetParentYangName() string { return "IPMROUTE-STD-MIB" }
 
 // IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry
 // An entry (conceptual row) in the ipMRouteScopeNameTable
 // representing a multicast scope name.
 type IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The group address which when combined with the
     // corresponding value of ipMRouteScopeNameAddressMask identifies the group
     // range associated with the multicast scope.  Scoped addresses must come from
     // the range 239.x.x.x. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutescopenameaddress interface{}
 
     // This attribute is a key. The group address mask which when combined with
     // the corresponding value of ipMRouteScopeNameAddress identifies the group
     // range associated with the multicast scope. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipmroutescopenameaddressmask interface{}
 
     // This attribute is a key. The RFC 1766-style language tag associated with
@@ -1351,59 +887,24 @@ type IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry struct {
     Ipmroutescopenamestatus interface{}
 }
 
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetFilter() yfilter.YFilter { return ipmroutescopenameentry.YFilter }
+func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetEntityData() *types.CommonEntityData {
+    ipmroutescopenameentry.EntityData.YFilter = ipmroutescopenameentry.YFilter
+    ipmroutescopenameentry.EntityData.YangName = "ipMRouteScopeNameEntry"
+    ipmroutescopenameentry.EntityData.BundleName = "cisco_ios_xe"
+    ipmroutescopenameentry.EntityData.ParentYangName = "ipMRouteScopeNameTable"
+    ipmroutescopenameentry.EntityData.SegmentPath = "ipMRouteScopeNameEntry" + "[ipMRouteScopeNameAddress='" + fmt.Sprintf("%v", ipmroutescopenameentry.Ipmroutescopenameaddress) + "']" + "[ipMRouteScopeNameAddressMask='" + fmt.Sprintf("%v", ipmroutescopenameentry.Ipmroutescopenameaddressmask) + "']" + "[ipMRouteScopeNameLanguage='" + fmt.Sprintf("%v", ipmroutescopenameentry.Ipmroutescopenamelanguage) + "']"
+    ipmroutescopenameentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipmroutescopenameentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipmroutescopenameentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) SetFilter(yf yfilter.YFilter) { ipmroutescopenameentry.YFilter = yf }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetGoName(yname string) string {
-    if yname == "ipMRouteScopeNameAddress" { return "Ipmroutescopenameaddress" }
-    if yname == "ipMRouteScopeNameAddressMask" { return "Ipmroutescopenameaddressmask" }
-    if yname == "ipMRouteScopeNameLanguage" { return "Ipmroutescopenamelanguage" }
-    if yname == "ipMRouteScopeNameString" { return "Ipmroutescopenamestring" }
-    if yname == "ipMRouteScopeNameDefault" { return "Ipmroutescopenamedefault" }
-    if yname == "ipMRouteScopeNameStatus" { return "Ipmroutescopenamestatus" }
-    return ""
+    ipmroutescopenameentry.EntityData.Children = make(map[string]types.YChild)
+    ipmroutescopenameentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipmroutescopenameentry.EntityData.Leafs["ipMRouteScopeNameAddress"] = types.YLeaf{"Ipmroutescopenameaddress", ipmroutescopenameentry.Ipmroutescopenameaddress}
+    ipmroutescopenameentry.EntityData.Leafs["ipMRouteScopeNameAddressMask"] = types.YLeaf{"Ipmroutescopenameaddressmask", ipmroutescopenameentry.Ipmroutescopenameaddressmask}
+    ipmroutescopenameentry.EntityData.Leafs["ipMRouteScopeNameLanguage"] = types.YLeaf{"Ipmroutescopenamelanguage", ipmroutescopenameentry.Ipmroutescopenamelanguage}
+    ipmroutescopenameentry.EntityData.Leafs["ipMRouteScopeNameString"] = types.YLeaf{"Ipmroutescopenamestring", ipmroutescopenameentry.Ipmroutescopenamestring}
+    ipmroutescopenameentry.EntityData.Leafs["ipMRouteScopeNameDefault"] = types.YLeaf{"Ipmroutescopenamedefault", ipmroutescopenameentry.Ipmroutescopenamedefault}
+    ipmroutescopenameentry.EntityData.Leafs["ipMRouteScopeNameStatus"] = types.YLeaf{"Ipmroutescopenamestatus", ipmroutescopenameentry.Ipmroutescopenamestatus}
+    return &(ipmroutescopenameentry.EntityData)
 }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetSegmentPath() string {
-    return "ipMRouteScopeNameEntry" + "[ipMRouteScopeNameAddress='" + fmt.Sprintf("%v", ipmroutescopenameentry.Ipmroutescopenameaddress) + "']" + "[ipMRouteScopeNameAddressMask='" + fmt.Sprintf("%v", ipmroutescopenameentry.Ipmroutescopenameaddressmask) + "']" + "[ipMRouteScopeNameLanguage='" + fmt.Sprintf("%v", ipmroutescopenameentry.Ipmroutescopenamelanguage) + "']"
-}
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteScopeNameAddress"] = ipmroutescopenameentry.Ipmroutescopenameaddress
-    leafs["ipMRouteScopeNameAddressMask"] = ipmroutescopenameentry.Ipmroutescopenameaddressmask
-    leafs["ipMRouteScopeNameLanguage"] = ipmroutescopenameentry.Ipmroutescopenamelanguage
-    leafs["ipMRouteScopeNameString"] = ipmroutescopenameentry.Ipmroutescopenamestring
-    leafs["ipMRouteScopeNameDefault"] = ipmroutescopenameentry.Ipmroutescopenamedefault
-    leafs["ipMRouteScopeNameStatus"] = ipmroutescopenameentry.Ipmroutescopenamestatus
-    return leafs
-}
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetYangName() string { return "ipMRouteScopeNameEntry" }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) SetParent(parent types.Entity) { ipmroutescopenameentry.parent = parent }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetParent() types.Entity { return ipmroutescopenameentry.parent }
-
-func (ipmroutescopenameentry *IPMROUTESTDMIB_Ipmroutescopenametable_Ipmroutescopenameentry) GetParentYangName() string { return "ipMRouteScopeNameTable" }
 

@@ -29,7 +29,7 @@ const (
 
 // RSVPMIB
 type RSVPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -61,93 +61,32 @@ type RSVPMIB struct {
     Rsvpnbrtable RSVPMIB_Rsvpnbrtable
 }
 
-func (rSVPMIB *RSVPMIB) GetFilter() yfilter.YFilter { return rSVPMIB.YFilter }
+func (rSVPMIB *RSVPMIB) GetEntityData() *types.CommonEntityData {
+    rSVPMIB.EntityData.YFilter = rSVPMIB.YFilter
+    rSVPMIB.EntityData.YangName = "RSVP-MIB"
+    rSVPMIB.EntityData.BundleName = "cisco_ios_xe"
+    rSVPMIB.EntityData.ParentYangName = "RSVP-MIB"
+    rSVPMIB.EntityData.SegmentPath = "RSVP-MIB:RSVP-MIB"
+    rSVPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rSVPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rSVPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rSVPMIB *RSVPMIB) SetFilter(yf yfilter.YFilter) { rSVPMIB.YFilter = yf }
-
-func (rSVPMIB *RSVPMIB) GetGoName(yname string) string {
-    if yname == "rsvpGenObjects" { return "Rsvpgenobjects" }
-    if yname == "rsvpSessionTable" { return "Rsvpsessiontable" }
-    if yname == "rsvpSenderTable" { return "Rsvpsendertable" }
-    if yname == "rsvpSenderOutInterfaceTable" { return "Rsvpsenderoutinterfacetable" }
-    if yname == "rsvpResvTable" { return "Rsvpresvtable" }
-    if yname == "rsvpResvFwdTable" { return "Rsvpresvfwdtable" }
-    if yname == "rsvpIfTable" { return "Rsvpiftable" }
-    if yname == "rsvpNbrTable" { return "Rsvpnbrtable" }
-    return ""
+    rSVPMIB.EntityData.Children = make(map[string]types.YChild)
+    rSVPMIB.EntityData.Children["rsvpGenObjects"] = types.YChild{"Rsvpgenobjects", &rSVPMIB.Rsvpgenobjects}
+    rSVPMIB.EntityData.Children["rsvpSessionTable"] = types.YChild{"Rsvpsessiontable", &rSVPMIB.Rsvpsessiontable}
+    rSVPMIB.EntityData.Children["rsvpSenderTable"] = types.YChild{"Rsvpsendertable", &rSVPMIB.Rsvpsendertable}
+    rSVPMIB.EntityData.Children["rsvpSenderOutInterfaceTable"] = types.YChild{"Rsvpsenderoutinterfacetable", &rSVPMIB.Rsvpsenderoutinterfacetable}
+    rSVPMIB.EntityData.Children["rsvpResvTable"] = types.YChild{"Rsvpresvtable", &rSVPMIB.Rsvpresvtable}
+    rSVPMIB.EntityData.Children["rsvpResvFwdTable"] = types.YChild{"Rsvpresvfwdtable", &rSVPMIB.Rsvpresvfwdtable}
+    rSVPMIB.EntityData.Children["rsvpIfTable"] = types.YChild{"Rsvpiftable", &rSVPMIB.Rsvpiftable}
+    rSVPMIB.EntityData.Children["rsvpNbrTable"] = types.YChild{"Rsvpnbrtable", &rSVPMIB.Rsvpnbrtable}
+    rSVPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rSVPMIB.EntityData)
 }
-
-func (rSVPMIB *RSVPMIB) GetSegmentPath() string {
-    return "RSVP-MIB:RSVP-MIB"
-}
-
-func (rSVPMIB *RSVPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpGenObjects" {
-        return &rSVPMIB.Rsvpgenobjects
-    }
-    if childYangName == "rsvpSessionTable" {
-        return &rSVPMIB.Rsvpsessiontable
-    }
-    if childYangName == "rsvpSenderTable" {
-        return &rSVPMIB.Rsvpsendertable
-    }
-    if childYangName == "rsvpSenderOutInterfaceTable" {
-        return &rSVPMIB.Rsvpsenderoutinterfacetable
-    }
-    if childYangName == "rsvpResvTable" {
-        return &rSVPMIB.Rsvpresvtable
-    }
-    if childYangName == "rsvpResvFwdTable" {
-        return &rSVPMIB.Rsvpresvfwdtable
-    }
-    if childYangName == "rsvpIfTable" {
-        return &rSVPMIB.Rsvpiftable
-    }
-    if childYangName == "rsvpNbrTable" {
-        return &rSVPMIB.Rsvpnbrtable
-    }
-    return nil
-}
-
-func (rSVPMIB *RSVPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rsvpGenObjects"] = &rSVPMIB.Rsvpgenobjects
-    children["rsvpSessionTable"] = &rSVPMIB.Rsvpsessiontable
-    children["rsvpSenderTable"] = &rSVPMIB.Rsvpsendertable
-    children["rsvpSenderOutInterfaceTable"] = &rSVPMIB.Rsvpsenderoutinterfacetable
-    children["rsvpResvTable"] = &rSVPMIB.Rsvpresvtable
-    children["rsvpResvFwdTable"] = &rSVPMIB.Rsvpresvfwdtable
-    children["rsvpIfTable"] = &rSVPMIB.Rsvpiftable
-    children["rsvpNbrTable"] = &rSVPMIB.Rsvpnbrtable
-    return children
-}
-
-func (rSVPMIB *RSVPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rSVPMIB *RSVPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rSVPMIB *RSVPMIB) GetYangName() string { return "RSVP-MIB" }
-
-func (rSVPMIB *RSVPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rSVPMIB *RSVPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rSVPMIB *RSVPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rSVPMIB *RSVPMIB) SetParent(parent types.Entity) { rSVPMIB.parent = parent }
-
-func (rSVPMIB *RSVPMIB) GetParent() types.Entity { return rSVPMIB.parent }
-
-func (rSVPMIB *RSVPMIB) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpgenobjects
 type RSVPMIB_Rsvpgenobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object	keeps a	count of the number of bad RSVP	packets	received. The
@@ -195,65 +134,31 @@ type RSVPMIB_Rsvpgenobjects struct {
     Rsvpsessionnewindex interface{}
 }
 
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetFilter() yfilter.YFilter { return rsvpgenobjects.YFilter }
+func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetEntityData() *types.CommonEntityData {
+    rsvpgenobjects.EntityData.YFilter = rsvpgenobjects.YFilter
+    rsvpgenobjects.EntityData.YangName = "rsvpGenObjects"
+    rsvpgenobjects.EntityData.BundleName = "cisco_ios_xe"
+    rsvpgenobjects.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpgenobjects.EntityData.SegmentPath = "rsvpGenObjects"
+    rsvpgenobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpgenobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpgenobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) SetFilter(yf yfilter.YFilter) { rsvpgenobjects.YFilter = yf }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetGoName(yname string) string {
-    if yname == "rsvpBadPackets" { return "Rsvpbadpackets" }
-    if yname == "rsvpSenderNewIndex" { return "Rsvpsendernewindex" }
-    if yname == "rsvpResvNewIndex" { return "Rsvpresvnewindex" }
-    if yname == "rsvpResvFwdNewIndex" { return "Rsvpresvfwdnewindex" }
-    if yname == "rsvpSessionNewIndex" { return "Rsvpsessionnewindex" }
-    return ""
+    rsvpgenobjects.EntityData.Children = make(map[string]types.YChild)
+    rsvpgenobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpgenobjects.EntityData.Leafs["rsvpBadPackets"] = types.YLeaf{"Rsvpbadpackets", rsvpgenobjects.Rsvpbadpackets}
+    rsvpgenobjects.EntityData.Leafs["rsvpSenderNewIndex"] = types.YLeaf{"Rsvpsendernewindex", rsvpgenobjects.Rsvpsendernewindex}
+    rsvpgenobjects.EntityData.Leafs["rsvpResvNewIndex"] = types.YLeaf{"Rsvpresvnewindex", rsvpgenobjects.Rsvpresvnewindex}
+    rsvpgenobjects.EntityData.Leafs["rsvpResvFwdNewIndex"] = types.YLeaf{"Rsvpresvfwdnewindex", rsvpgenobjects.Rsvpresvfwdnewindex}
+    rsvpgenobjects.EntityData.Leafs["rsvpSessionNewIndex"] = types.YLeaf{"Rsvpsessionnewindex", rsvpgenobjects.Rsvpsessionnewindex}
+    return &(rsvpgenobjects.EntityData)
 }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetSegmentPath() string {
-    return "rsvpGenObjects"
-}
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rsvpBadPackets"] = rsvpgenobjects.Rsvpbadpackets
-    leafs["rsvpSenderNewIndex"] = rsvpgenobjects.Rsvpsendernewindex
-    leafs["rsvpResvNewIndex"] = rsvpgenobjects.Rsvpresvnewindex
-    leafs["rsvpResvFwdNewIndex"] = rsvpgenobjects.Rsvpresvfwdnewindex
-    leafs["rsvpSessionNewIndex"] = rsvpgenobjects.Rsvpsessionnewindex
-    return leafs
-}
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetYangName() string { return "rsvpGenObjects" }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) SetParent(parent types.Entity) { rsvpgenobjects.parent = parent }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetParent() types.Entity { return rsvpgenobjects.parent }
-
-func (rsvpgenobjects *RSVPMIB_Rsvpgenobjects) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpsessiontable
 // A table  of	 all  sessions	seen  by  a  given
 // system.
 type RSVPMIB_Rsvpsessiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single session seen by a given system. The type is slice of
@@ -261,68 +166,29 @@ type RSVPMIB_Rsvpsessiontable struct {
     Rsvpsessionentry []RSVPMIB_Rsvpsessiontable_Rsvpsessionentry
 }
 
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetFilter() yfilter.YFilter { return rsvpsessiontable.YFilter }
+func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetEntityData() *types.CommonEntityData {
+    rsvpsessiontable.EntityData.YFilter = rsvpsessiontable.YFilter
+    rsvpsessiontable.EntityData.YangName = "rsvpSessionTable"
+    rsvpsessiontable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpsessiontable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpsessiontable.EntityData.SegmentPath = "rsvpSessionTable"
+    rsvpsessiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpsessiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpsessiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) SetFilter(yf yfilter.YFilter) { rsvpsessiontable.YFilter = yf }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetGoName(yname string) string {
-    if yname == "rsvpSessionEntry" { return "Rsvpsessionentry" }
-    return ""
-}
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetSegmentPath() string {
-    return "rsvpSessionTable"
-}
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpSessionEntry" {
-        for _, c := range rsvpsessiontable.Rsvpsessionentry {
-            if rsvpsessiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpsessiontable_Rsvpsessionentry{}
-        rsvpsessiontable.Rsvpsessionentry = append(rsvpsessiontable.Rsvpsessionentry, child)
-        return &rsvpsessiontable.Rsvpsessionentry[len(rsvpsessiontable.Rsvpsessionentry)-1]
-    }
-    return nil
-}
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpsessiontable.EntityData.Children = make(map[string]types.YChild)
+    rsvpsessiontable.EntityData.Children["rsvpSessionEntry"] = types.YChild{"Rsvpsessionentry", nil}
     for i := range rsvpsessiontable.Rsvpsessionentry {
-        children[rsvpsessiontable.Rsvpsessionentry[i].GetSegmentPath()] = &rsvpsessiontable.Rsvpsessionentry[i]
+        rsvpsessiontable.EntityData.Children[types.GetSegmentPath(&rsvpsessiontable.Rsvpsessionentry[i])] = types.YChild{"Rsvpsessionentry", &rsvpsessiontable.Rsvpsessionentry[i]}
     }
-    return children
+    rsvpsessiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpsessiontable.EntityData)
 }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetYangName() string { return "rsvpSessionTable" }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) SetParent(parent types.Entity) { rsvpsessiontable.parent = parent }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetParent() types.Entity { return rsvpsessiontable.parent }
-
-func (rsvpsessiontable *RSVPMIB_Rsvpsessiontable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpsessiontable_Rsvpsessionentry
 // A single session seen by a given system.
 type RSVPMIB_Rsvpsessiontable_Rsvpsessionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The	number of this session.	 This is for  SNMP
@@ -372,73 +238,35 @@ type RSVPMIB_Rsvpsessiontable_Rsvpsessionentry struct {
     Rsvpsessionrequests interface{}
 }
 
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetFilter() yfilter.YFilter { return rsvpsessionentry.YFilter }
+func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetEntityData() *types.CommonEntityData {
+    rsvpsessionentry.EntityData.YFilter = rsvpsessionentry.YFilter
+    rsvpsessionentry.EntityData.YangName = "rsvpSessionEntry"
+    rsvpsessionentry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpsessionentry.EntityData.ParentYangName = "rsvpSessionTable"
+    rsvpsessionentry.EntityData.SegmentPath = "rsvpSessionEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsessionentry.Rsvpsessionnumber) + "']"
+    rsvpsessionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpsessionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpsessionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) SetFilter(yf yfilter.YFilter) { rsvpsessionentry.YFilter = yf }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetGoName(yname string) string {
-    if yname == "rsvpSessionNumber" { return "Rsvpsessionnumber" }
-    if yname == "rsvpSessionType" { return "Rsvpsessiontype" }
-    if yname == "rsvpSessionDestAddr" { return "Rsvpsessiondestaddr" }
-    if yname == "rsvpSessionDestAddrLength" { return "Rsvpsessiondestaddrlength" }
-    if yname == "rsvpSessionProtocol" { return "Rsvpsessionprotocol" }
-    if yname == "rsvpSessionPort" { return "Rsvpsessionport" }
-    if yname == "rsvpSessionSenders" { return "Rsvpsessionsenders" }
-    if yname == "rsvpSessionReceivers" { return "Rsvpsessionreceivers" }
-    if yname == "rsvpSessionRequests" { return "Rsvpsessionrequests" }
-    return ""
+    rsvpsessionentry.EntityData.Children = make(map[string]types.YChild)
+    rsvpsessionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpsessionentry.Rsvpsessionnumber}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionType"] = types.YLeaf{"Rsvpsessiontype", rsvpsessionentry.Rsvpsessiontype}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionDestAddr"] = types.YLeaf{"Rsvpsessiondestaddr", rsvpsessionentry.Rsvpsessiondestaddr}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionDestAddrLength"] = types.YLeaf{"Rsvpsessiondestaddrlength", rsvpsessionentry.Rsvpsessiondestaddrlength}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionProtocol"] = types.YLeaf{"Rsvpsessionprotocol", rsvpsessionentry.Rsvpsessionprotocol}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionPort"] = types.YLeaf{"Rsvpsessionport", rsvpsessionentry.Rsvpsessionport}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionSenders"] = types.YLeaf{"Rsvpsessionsenders", rsvpsessionentry.Rsvpsessionsenders}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionReceivers"] = types.YLeaf{"Rsvpsessionreceivers", rsvpsessionentry.Rsvpsessionreceivers}
+    rsvpsessionentry.EntityData.Leafs["rsvpSessionRequests"] = types.YLeaf{"Rsvpsessionrequests", rsvpsessionentry.Rsvpsessionrequests}
+    return &(rsvpsessionentry.EntityData)
 }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetSegmentPath() string {
-    return "rsvpSessionEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsessionentry.Rsvpsessionnumber) + "']"
-}
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rsvpSessionNumber"] = rsvpsessionentry.Rsvpsessionnumber
-    leafs["rsvpSessionType"] = rsvpsessionentry.Rsvpsessiontype
-    leafs["rsvpSessionDestAddr"] = rsvpsessionentry.Rsvpsessiondestaddr
-    leafs["rsvpSessionDestAddrLength"] = rsvpsessionentry.Rsvpsessiondestaddrlength
-    leafs["rsvpSessionProtocol"] = rsvpsessionentry.Rsvpsessionprotocol
-    leafs["rsvpSessionPort"] = rsvpsessionentry.Rsvpsessionport
-    leafs["rsvpSessionSenders"] = rsvpsessionentry.Rsvpsessionsenders
-    leafs["rsvpSessionReceivers"] = rsvpsessionentry.Rsvpsessionreceivers
-    leafs["rsvpSessionRequests"] = rsvpsessionentry.Rsvpsessionrequests
-    return leafs
-}
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetYangName() string { return "rsvpSessionEntry" }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) SetParent(parent types.Entity) { rsvpsessionentry.parent = parent }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetParent() types.Entity { return rsvpsessionentry.parent }
-
-func (rsvpsessionentry *RSVPMIB_Rsvpsessiontable_Rsvpsessionentry) GetParentYangName() string { return "rsvpSessionTable" }
 
 // RSVPMIB_Rsvpsendertable
 // Information	describing the	state  information
 // displayed by	senders	in PATH	messages.
 type RSVPMIB_Rsvpsendertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	describing the	state  information displayed by	a single
@@ -447,69 +275,30 @@ type RSVPMIB_Rsvpsendertable struct {
     Rsvpsenderentry []RSVPMIB_Rsvpsendertable_Rsvpsenderentry
 }
 
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetFilter() yfilter.YFilter { return rsvpsendertable.YFilter }
+func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetEntityData() *types.CommonEntityData {
+    rsvpsendertable.EntityData.YFilter = rsvpsendertable.YFilter
+    rsvpsendertable.EntityData.YangName = "rsvpSenderTable"
+    rsvpsendertable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpsendertable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpsendertable.EntityData.SegmentPath = "rsvpSenderTable"
+    rsvpsendertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpsendertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpsendertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) SetFilter(yf yfilter.YFilter) { rsvpsendertable.YFilter = yf }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetGoName(yname string) string {
-    if yname == "rsvpSenderEntry" { return "Rsvpsenderentry" }
-    return ""
-}
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetSegmentPath() string {
-    return "rsvpSenderTable"
-}
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpSenderEntry" {
-        for _, c := range rsvpsendertable.Rsvpsenderentry {
-            if rsvpsendertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpsendertable_Rsvpsenderentry{}
-        rsvpsendertable.Rsvpsenderentry = append(rsvpsendertable.Rsvpsenderentry, child)
-        return &rsvpsendertable.Rsvpsenderentry[len(rsvpsendertable.Rsvpsenderentry)-1]
-    }
-    return nil
-}
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpsendertable.EntityData.Children = make(map[string]types.YChild)
+    rsvpsendertable.EntityData.Children["rsvpSenderEntry"] = types.YChild{"Rsvpsenderentry", nil}
     for i := range rsvpsendertable.Rsvpsenderentry {
-        children[rsvpsendertable.Rsvpsenderentry[i].GetSegmentPath()] = &rsvpsendertable.Rsvpsenderentry[i]
+        rsvpsendertable.EntityData.Children[types.GetSegmentPath(&rsvpsendertable.Rsvpsenderentry[i])] = types.YChild{"Rsvpsenderentry", &rsvpsendertable.Rsvpsenderentry[i]}
     }
-    return children
+    rsvpsendertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpsendertable.EntityData)
 }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetYangName() string { return "rsvpSenderTable" }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) SetParent(parent types.Entity) { rsvpsendertable.parent = parent }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetParent() types.Entity { return rsvpsendertable.parent }
-
-func (rsvpsendertable *RSVPMIB_Rsvpsendertable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpsendertable_Rsvpsenderentry
 // Information	describing the	state  information
 // displayed by	a single sender's PATH message.
 type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
@@ -809,148 +598,73 @@ type RSVPMIB_Rsvpsendertable_Rsvpsenderentry struct {
     Rsvpsenderttl interface{}
 }
 
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetFilter() yfilter.YFilter { return rsvpsenderentry.YFilter }
+func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetEntityData() *types.CommonEntityData {
+    rsvpsenderentry.EntityData.YFilter = rsvpsenderentry.YFilter
+    rsvpsenderentry.EntityData.YangName = "rsvpSenderEntry"
+    rsvpsenderentry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpsenderentry.EntityData.ParentYangName = "rsvpSenderTable"
+    rsvpsenderentry.EntityData.SegmentPath = "rsvpSenderEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsenderentry.Rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + fmt.Sprintf("%v", rsvpsenderentry.Rsvpsendernumber) + "']"
+    rsvpsenderentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpsenderentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpsenderentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) SetFilter(yf yfilter.YFilter) { rsvpsenderentry.YFilter = yf }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetGoName(yname string) string {
-    if yname == "rsvpSessionNumber" { return "Rsvpsessionnumber" }
-    if yname == "rsvpSenderNumber" { return "Rsvpsendernumber" }
-    if yname == "rsvpSenderType" { return "Rsvpsendertype" }
-    if yname == "rsvpSenderDestAddr" { return "Rsvpsenderdestaddr" }
-    if yname == "rsvpSenderAddr" { return "Rsvpsenderaddr" }
-    if yname == "rsvpSenderDestAddrLength" { return "Rsvpsenderdestaddrlength" }
-    if yname == "rsvpSenderAddrLength" { return "Rsvpsenderaddrlength" }
-    if yname == "rsvpSenderProtocol" { return "Rsvpsenderprotocol" }
-    if yname == "rsvpSenderDestPort" { return "Rsvpsenderdestport" }
-    if yname == "rsvpSenderPort" { return "Rsvpsenderport" }
-    if yname == "rsvpSenderFlowId" { return "Rsvpsenderflowid" }
-    if yname == "rsvpSenderHopAddr" { return "Rsvpsenderhopaddr" }
-    if yname == "rsvpSenderHopLih" { return "Rsvpsenderhoplih" }
-    if yname == "rsvpSenderInterface" { return "Rsvpsenderinterface" }
-    if yname == "rsvpSenderTSpecRate" { return "Rsvpsendertspecrate" }
-    if yname == "rsvpSenderTSpecPeakRate" { return "Rsvpsendertspecpeakrate" }
-    if yname == "rsvpSenderTSpecBurst" { return "Rsvpsendertspecburst" }
-    if yname == "rsvpSenderTSpecMinTU" { return "Rsvpsendertspecmintu" }
-    if yname == "rsvpSenderTSpecMaxTU" { return "Rsvpsendertspecmaxtu" }
-    if yname == "rsvpSenderInterval" { return "Rsvpsenderinterval" }
-    if yname == "rsvpSenderRSVPHop" { return "Rsvpsenderrsvphop" }
-    if yname == "rsvpSenderLastChange" { return "Rsvpsenderlastchange" }
-    if yname == "rsvpSenderPolicy" { return "Rsvpsenderpolicy" }
-    if yname == "rsvpSenderAdspecBreak" { return "Rsvpsenderadspecbreak" }
-    if yname == "rsvpSenderAdspecHopCount" { return "Rsvpsenderadspechopcount" }
-    if yname == "rsvpSenderAdspecPathBw" { return "Rsvpsenderadspecpathbw" }
-    if yname == "rsvpSenderAdspecMinLatency" { return "Rsvpsenderadspecminlatency" }
-    if yname == "rsvpSenderAdspecMtu" { return "Rsvpsenderadspecmtu" }
-    if yname == "rsvpSenderAdspecGuaranteedSvc" { return "Rsvpsenderadspecguaranteedsvc" }
-    if yname == "rsvpSenderAdspecGuaranteedBreak" { return "Rsvpsenderadspecguaranteedbreak" }
-    if yname == "rsvpSenderAdspecGuaranteedCtot" { return "Rsvpsenderadspecguaranteedctot" }
-    if yname == "rsvpSenderAdspecGuaranteedDtot" { return "Rsvpsenderadspecguaranteeddtot" }
-    if yname == "rsvpSenderAdspecGuaranteedCsum" { return "Rsvpsenderadspecguaranteedcsum" }
-    if yname == "rsvpSenderAdspecGuaranteedDsum" { return "Rsvpsenderadspecguaranteeddsum" }
-    if yname == "rsvpSenderAdspecGuaranteedHopCount" { return "Rsvpsenderadspecguaranteedhopcount" }
-    if yname == "rsvpSenderAdspecGuaranteedPathBw" { return "Rsvpsenderadspecguaranteedpathbw" }
-    if yname == "rsvpSenderAdspecGuaranteedMinLatency" { return "Rsvpsenderadspecguaranteedminlatency" }
-    if yname == "rsvpSenderAdspecGuaranteedMtu" { return "Rsvpsenderadspecguaranteedmtu" }
-    if yname == "rsvpSenderAdspecCtrlLoadSvc" { return "Rsvpsenderadspecctrlloadsvc" }
-    if yname == "rsvpSenderAdspecCtrlLoadBreak" { return "Rsvpsenderadspecctrlloadbreak" }
-    if yname == "rsvpSenderAdspecCtrlLoadHopCount" { return "Rsvpsenderadspecctrlloadhopcount" }
-    if yname == "rsvpSenderAdspecCtrlLoadPathBw" { return "Rsvpsenderadspecctrlloadpathbw" }
-    if yname == "rsvpSenderAdspecCtrlLoadMinLatency" { return "Rsvpsenderadspecctrlloadminlatency" }
-    if yname == "rsvpSenderAdspecCtrlLoadMtu" { return "Rsvpsenderadspecctrlloadmtu" }
-    if yname == "rsvpSenderStatus" { return "Rsvpsenderstatus" }
-    if yname == "rsvpSenderTTL" { return "Rsvpsenderttl" }
-    return ""
+    rsvpsenderentry.EntityData.Children = make(map[string]types.YChild)
+    rsvpsenderentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpsenderentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpsenderentry.Rsvpsessionnumber}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderNumber"] = types.YLeaf{"Rsvpsendernumber", rsvpsenderentry.Rsvpsendernumber}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderType"] = types.YLeaf{"Rsvpsendertype", rsvpsenderentry.Rsvpsendertype}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderDestAddr"] = types.YLeaf{"Rsvpsenderdestaddr", rsvpsenderentry.Rsvpsenderdestaddr}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAddr"] = types.YLeaf{"Rsvpsenderaddr", rsvpsenderentry.Rsvpsenderaddr}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderDestAddrLength"] = types.YLeaf{"Rsvpsenderdestaddrlength", rsvpsenderentry.Rsvpsenderdestaddrlength}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAddrLength"] = types.YLeaf{"Rsvpsenderaddrlength", rsvpsenderentry.Rsvpsenderaddrlength}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderProtocol"] = types.YLeaf{"Rsvpsenderprotocol", rsvpsenderentry.Rsvpsenderprotocol}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderDestPort"] = types.YLeaf{"Rsvpsenderdestport", rsvpsenderentry.Rsvpsenderdestport}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderPort"] = types.YLeaf{"Rsvpsenderport", rsvpsenderentry.Rsvpsenderport}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderFlowId"] = types.YLeaf{"Rsvpsenderflowid", rsvpsenderentry.Rsvpsenderflowid}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderHopAddr"] = types.YLeaf{"Rsvpsenderhopaddr", rsvpsenderentry.Rsvpsenderhopaddr}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderHopLih"] = types.YLeaf{"Rsvpsenderhoplih", rsvpsenderentry.Rsvpsenderhoplih}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderInterface"] = types.YLeaf{"Rsvpsenderinterface", rsvpsenderentry.Rsvpsenderinterface}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecRate"] = types.YLeaf{"Rsvpsendertspecrate", rsvpsenderentry.Rsvpsendertspecrate}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecPeakRate"] = types.YLeaf{"Rsvpsendertspecpeakrate", rsvpsenderentry.Rsvpsendertspecpeakrate}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecBurst"] = types.YLeaf{"Rsvpsendertspecburst", rsvpsenderentry.Rsvpsendertspecburst}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecMinTU"] = types.YLeaf{"Rsvpsendertspecmintu", rsvpsenderentry.Rsvpsendertspecmintu}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderTSpecMaxTU"] = types.YLeaf{"Rsvpsendertspecmaxtu", rsvpsenderentry.Rsvpsendertspecmaxtu}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderInterval"] = types.YLeaf{"Rsvpsenderinterval", rsvpsenderentry.Rsvpsenderinterval}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderRSVPHop"] = types.YLeaf{"Rsvpsenderrsvphop", rsvpsenderentry.Rsvpsenderrsvphop}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderLastChange"] = types.YLeaf{"Rsvpsenderlastchange", rsvpsenderentry.Rsvpsenderlastchange}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderPolicy"] = types.YLeaf{"Rsvpsenderpolicy", rsvpsenderentry.Rsvpsenderpolicy}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecBreak"] = types.YLeaf{"Rsvpsenderadspecbreak", rsvpsenderentry.Rsvpsenderadspecbreak}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecHopCount"] = types.YLeaf{"Rsvpsenderadspechopcount", rsvpsenderentry.Rsvpsenderadspechopcount}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecPathBw"] = types.YLeaf{"Rsvpsenderadspecpathbw", rsvpsenderentry.Rsvpsenderadspecpathbw}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecMinLatency"] = types.YLeaf{"Rsvpsenderadspecminlatency", rsvpsenderentry.Rsvpsenderadspecminlatency}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecMtu"] = types.YLeaf{"Rsvpsenderadspecmtu", rsvpsenderentry.Rsvpsenderadspecmtu}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedSvc"] = types.YLeaf{"Rsvpsenderadspecguaranteedsvc", rsvpsenderentry.Rsvpsenderadspecguaranteedsvc}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedBreak"] = types.YLeaf{"Rsvpsenderadspecguaranteedbreak", rsvpsenderentry.Rsvpsenderadspecguaranteedbreak}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedCtot"] = types.YLeaf{"Rsvpsenderadspecguaranteedctot", rsvpsenderentry.Rsvpsenderadspecguaranteedctot}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedDtot"] = types.YLeaf{"Rsvpsenderadspecguaranteeddtot", rsvpsenderentry.Rsvpsenderadspecguaranteeddtot}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedCsum"] = types.YLeaf{"Rsvpsenderadspecguaranteedcsum", rsvpsenderentry.Rsvpsenderadspecguaranteedcsum}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedDsum"] = types.YLeaf{"Rsvpsenderadspecguaranteeddsum", rsvpsenderentry.Rsvpsenderadspecguaranteeddsum}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedHopCount"] = types.YLeaf{"Rsvpsenderadspecguaranteedhopcount", rsvpsenderentry.Rsvpsenderadspecguaranteedhopcount}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedPathBw"] = types.YLeaf{"Rsvpsenderadspecguaranteedpathbw", rsvpsenderentry.Rsvpsenderadspecguaranteedpathbw}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedMinLatency"] = types.YLeaf{"Rsvpsenderadspecguaranteedminlatency", rsvpsenderentry.Rsvpsenderadspecguaranteedminlatency}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecGuaranteedMtu"] = types.YLeaf{"Rsvpsenderadspecguaranteedmtu", rsvpsenderentry.Rsvpsenderadspecguaranteedmtu}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadSvc"] = types.YLeaf{"Rsvpsenderadspecctrlloadsvc", rsvpsenderentry.Rsvpsenderadspecctrlloadsvc}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadBreak"] = types.YLeaf{"Rsvpsenderadspecctrlloadbreak", rsvpsenderentry.Rsvpsenderadspecctrlloadbreak}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadHopCount"] = types.YLeaf{"Rsvpsenderadspecctrlloadhopcount", rsvpsenderentry.Rsvpsenderadspecctrlloadhopcount}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadPathBw"] = types.YLeaf{"Rsvpsenderadspecctrlloadpathbw", rsvpsenderentry.Rsvpsenderadspecctrlloadpathbw}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadMinLatency"] = types.YLeaf{"Rsvpsenderadspecctrlloadminlatency", rsvpsenderentry.Rsvpsenderadspecctrlloadminlatency}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderAdspecCtrlLoadMtu"] = types.YLeaf{"Rsvpsenderadspecctrlloadmtu", rsvpsenderentry.Rsvpsenderadspecctrlloadmtu}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderStatus"] = types.YLeaf{"Rsvpsenderstatus", rsvpsenderentry.Rsvpsenderstatus}
+    rsvpsenderentry.EntityData.Leafs["rsvpSenderTTL"] = types.YLeaf{"Rsvpsenderttl", rsvpsenderentry.Rsvpsenderttl}
+    return &(rsvpsenderentry.EntityData)
 }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetSegmentPath() string {
-    return "rsvpSenderEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsenderentry.Rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + fmt.Sprintf("%v", rsvpsenderentry.Rsvpsendernumber) + "']"
-}
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rsvpSessionNumber"] = rsvpsenderentry.Rsvpsessionnumber
-    leafs["rsvpSenderNumber"] = rsvpsenderentry.Rsvpsendernumber
-    leafs["rsvpSenderType"] = rsvpsenderentry.Rsvpsendertype
-    leafs["rsvpSenderDestAddr"] = rsvpsenderentry.Rsvpsenderdestaddr
-    leafs["rsvpSenderAddr"] = rsvpsenderentry.Rsvpsenderaddr
-    leafs["rsvpSenderDestAddrLength"] = rsvpsenderentry.Rsvpsenderdestaddrlength
-    leafs["rsvpSenderAddrLength"] = rsvpsenderentry.Rsvpsenderaddrlength
-    leafs["rsvpSenderProtocol"] = rsvpsenderentry.Rsvpsenderprotocol
-    leafs["rsvpSenderDestPort"] = rsvpsenderentry.Rsvpsenderdestport
-    leafs["rsvpSenderPort"] = rsvpsenderentry.Rsvpsenderport
-    leafs["rsvpSenderFlowId"] = rsvpsenderentry.Rsvpsenderflowid
-    leafs["rsvpSenderHopAddr"] = rsvpsenderentry.Rsvpsenderhopaddr
-    leafs["rsvpSenderHopLih"] = rsvpsenderentry.Rsvpsenderhoplih
-    leafs["rsvpSenderInterface"] = rsvpsenderentry.Rsvpsenderinterface
-    leafs["rsvpSenderTSpecRate"] = rsvpsenderentry.Rsvpsendertspecrate
-    leafs["rsvpSenderTSpecPeakRate"] = rsvpsenderentry.Rsvpsendertspecpeakrate
-    leafs["rsvpSenderTSpecBurst"] = rsvpsenderentry.Rsvpsendertspecburst
-    leafs["rsvpSenderTSpecMinTU"] = rsvpsenderentry.Rsvpsendertspecmintu
-    leafs["rsvpSenderTSpecMaxTU"] = rsvpsenderentry.Rsvpsendertspecmaxtu
-    leafs["rsvpSenderInterval"] = rsvpsenderentry.Rsvpsenderinterval
-    leafs["rsvpSenderRSVPHop"] = rsvpsenderentry.Rsvpsenderrsvphop
-    leafs["rsvpSenderLastChange"] = rsvpsenderentry.Rsvpsenderlastchange
-    leafs["rsvpSenderPolicy"] = rsvpsenderentry.Rsvpsenderpolicy
-    leafs["rsvpSenderAdspecBreak"] = rsvpsenderentry.Rsvpsenderadspecbreak
-    leafs["rsvpSenderAdspecHopCount"] = rsvpsenderentry.Rsvpsenderadspechopcount
-    leafs["rsvpSenderAdspecPathBw"] = rsvpsenderentry.Rsvpsenderadspecpathbw
-    leafs["rsvpSenderAdspecMinLatency"] = rsvpsenderentry.Rsvpsenderadspecminlatency
-    leafs["rsvpSenderAdspecMtu"] = rsvpsenderentry.Rsvpsenderadspecmtu
-    leafs["rsvpSenderAdspecGuaranteedSvc"] = rsvpsenderentry.Rsvpsenderadspecguaranteedsvc
-    leafs["rsvpSenderAdspecGuaranteedBreak"] = rsvpsenderentry.Rsvpsenderadspecguaranteedbreak
-    leafs["rsvpSenderAdspecGuaranteedCtot"] = rsvpsenderentry.Rsvpsenderadspecguaranteedctot
-    leafs["rsvpSenderAdspecGuaranteedDtot"] = rsvpsenderentry.Rsvpsenderadspecguaranteeddtot
-    leafs["rsvpSenderAdspecGuaranteedCsum"] = rsvpsenderentry.Rsvpsenderadspecguaranteedcsum
-    leafs["rsvpSenderAdspecGuaranteedDsum"] = rsvpsenderentry.Rsvpsenderadspecguaranteeddsum
-    leafs["rsvpSenderAdspecGuaranteedHopCount"] = rsvpsenderentry.Rsvpsenderadspecguaranteedhopcount
-    leafs["rsvpSenderAdspecGuaranteedPathBw"] = rsvpsenderentry.Rsvpsenderadspecguaranteedpathbw
-    leafs["rsvpSenderAdspecGuaranteedMinLatency"] = rsvpsenderentry.Rsvpsenderadspecguaranteedminlatency
-    leafs["rsvpSenderAdspecGuaranteedMtu"] = rsvpsenderentry.Rsvpsenderadspecguaranteedmtu
-    leafs["rsvpSenderAdspecCtrlLoadSvc"] = rsvpsenderentry.Rsvpsenderadspecctrlloadsvc
-    leafs["rsvpSenderAdspecCtrlLoadBreak"] = rsvpsenderentry.Rsvpsenderadspecctrlloadbreak
-    leafs["rsvpSenderAdspecCtrlLoadHopCount"] = rsvpsenderentry.Rsvpsenderadspecctrlloadhopcount
-    leafs["rsvpSenderAdspecCtrlLoadPathBw"] = rsvpsenderentry.Rsvpsenderadspecctrlloadpathbw
-    leafs["rsvpSenderAdspecCtrlLoadMinLatency"] = rsvpsenderentry.Rsvpsenderadspecctrlloadminlatency
-    leafs["rsvpSenderAdspecCtrlLoadMtu"] = rsvpsenderentry.Rsvpsenderadspecctrlloadmtu
-    leafs["rsvpSenderStatus"] = rsvpsenderentry.Rsvpsenderstatus
-    leafs["rsvpSenderTTL"] = rsvpsenderentry.Rsvpsenderttl
-    return leafs
-}
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetYangName() string { return "rsvpSenderEntry" }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) SetParent(parent types.Entity) { rsvpsenderentry.parent = parent }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetParent() types.Entity { return rsvpsenderentry.parent }
-
-func (rsvpsenderentry *RSVPMIB_Rsvpsendertable_Rsvpsenderentry) GetParentYangName() string { return "rsvpSenderTable" }
 
 // RSVPMIB_Rsvpsenderoutinterfacetable
 // List of outgoing interfaces	that PATH messages
 // use.	 The  ifIndex  is the ifIndex value of the
 // egress interface.
 type RSVPMIB_Rsvpsenderoutinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of outgoing interfaces	that a	particular PATH	message	has. The type is
@@ -958,69 +672,30 @@ type RSVPMIB_Rsvpsenderoutinterfacetable struct {
     Rsvpsenderoutinterfaceentry []RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry
 }
 
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetFilter() yfilter.YFilter { return rsvpsenderoutinterfacetable.YFilter }
+func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetEntityData() *types.CommonEntityData {
+    rsvpsenderoutinterfacetable.EntityData.YFilter = rsvpsenderoutinterfacetable.YFilter
+    rsvpsenderoutinterfacetable.EntityData.YangName = "rsvpSenderOutInterfaceTable"
+    rsvpsenderoutinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpsenderoutinterfacetable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpsenderoutinterfacetable.EntityData.SegmentPath = "rsvpSenderOutInterfaceTable"
+    rsvpsenderoutinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpsenderoutinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpsenderoutinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) SetFilter(yf yfilter.YFilter) { rsvpsenderoutinterfacetable.YFilter = yf }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetGoName(yname string) string {
-    if yname == "rsvpSenderOutInterfaceEntry" { return "Rsvpsenderoutinterfaceentry" }
-    return ""
-}
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetSegmentPath() string {
-    return "rsvpSenderOutInterfaceTable"
-}
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpSenderOutInterfaceEntry" {
-        for _, c := range rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry {
-            if rsvpsenderoutinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry{}
-        rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry = append(rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry, child)
-        return &rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[len(rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpsenderoutinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    rsvpsenderoutinterfacetable.EntityData.Children["rsvpSenderOutInterfaceEntry"] = types.YChild{"Rsvpsenderoutinterfaceentry", nil}
     for i := range rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry {
-        children[rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[i].GetSegmentPath()] = &rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[i]
+        rsvpsenderoutinterfacetable.EntityData.Children[types.GetSegmentPath(&rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[i])] = types.YChild{"Rsvpsenderoutinterfaceentry", &rsvpsenderoutinterfacetable.Rsvpsenderoutinterfaceentry[i]}
     }
-    return children
+    rsvpsenderoutinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpsenderoutinterfacetable.EntityData)
 }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetYangName() string { return "rsvpSenderOutInterfaceTable" }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) SetParent(parent types.Entity) { rsvpsenderoutinterfacetable.parent = parent }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetParent() types.Entity { return rsvpsenderoutinterfacetable.parent }
-
-func (rsvpsenderoutinterfacetable *RSVPMIB_Rsvpsenderoutinterfacetable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry
 // List of outgoing interfaces	that a	particular
 // PATH	message	has.
 type RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
@@ -1040,63 +715,30 @@ type RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry struct {
     Rsvpsenderoutinterfacestatus interface{}
 }
 
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetFilter() yfilter.YFilter { return rsvpsenderoutinterfaceentry.YFilter }
+func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetEntityData() *types.CommonEntityData {
+    rsvpsenderoutinterfaceentry.EntityData.YFilter = rsvpsenderoutinterfaceentry.YFilter
+    rsvpsenderoutinterfaceentry.EntityData.YangName = "rsvpSenderOutInterfaceEntry"
+    rsvpsenderoutinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpsenderoutinterfaceentry.EntityData.ParentYangName = "rsvpSenderOutInterfaceTable"
+    rsvpsenderoutinterfaceentry.EntityData.SegmentPath = "rsvpSenderOutInterfaceEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Rsvpsendernumber) + "']" + "[ifIndex='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Ifindex) + "']"
+    rsvpsenderoutinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpsenderoutinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpsenderoutinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) SetFilter(yf yfilter.YFilter) { rsvpsenderoutinterfaceentry.YFilter = yf }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetGoName(yname string) string {
-    if yname == "rsvpSessionNumber" { return "Rsvpsessionnumber" }
-    if yname == "rsvpSenderNumber" { return "Rsvpsendernumber" }
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "rsvpSenderOutInterfaceStatus" { return "Rsvpsenderoutinterfacestatus" }
-    return ""
+    rsvpsenderoutinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    rsvpsenderoutinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpsenderoutinterfaceentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpsenderoutinterfaceentry.Rsvpsessionnumber}
+    rsvpsenderoutinterfaceentry.EntityData.Leafs["rsvpSenderNumber"] = types.YLeaf{"Rsvpsendernumber", rsvpsenderoutinterfaceentry.Rsvpsendernumber}
+    rsvpsenderoutinterfaceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", rsvpsenderoutinterfaceentry.Ifindex}
+    rsvpsenderoutinterfaceentry.EntityData.Leafs["rsvpSenderOutInterfaceStatus"] = types.YLeaf{"Rsvpsenderoutinterfacestatus", rsvpsenderoutinterfaceentry.Rsvpsenderoutinterfacestatus}
+    return &(rsvpsenderoutinterfaceentry.EntityData)
 }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetSegmentPath() string {
-    return "rsvpSenderOutInterfaceEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Rsvpsessionnumber) + "']" + "[rsvpSenderNumber='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Rsvpsendernumber) + "']" + "[ifIndex='" + fmt.Sprintf("%v", rsvpsenderoutinterfaceentry.Ifindex) + "']"
-}
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rsvpSessionNumber"] = rsvpsenderoutinterfaceentry.Rsvpsessionnumber
-    leafs["rsvpSenderNumber"] = rsvpsenderoutinterfaceentry.Rsvpsendernumber
-    leafs["ifIndex"] = rsvpsenderoutinterfaceentry.Ifindex
-    leafs["rsvpSenderOutInterfaceStatus"] = rsvpsenderoutinterfaceentry.Rsvpsenderoutinterfacestatus
-    return leafs
-}
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetYangName() string { return "rsvpSenderOutInterfaceEntry" }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) SetParent(parent types.Entity) { rsvpsenderoutinterfaceentry.parent = parent }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetParent() types.Entity { return rsvpsenderoutinterfaceentry.parent }
-
-func (rsvpsenderoutinterfaceentry *RSVPMIB_Rsvpsenderoutinterfacetable_Rsvpsenderoutinterfaceentry) GetParentYangName() string { return "rsvpSenderOutInterfaceTable" }
 
 // RSVPMIB_Rsvpresvtable
 // Information	describing the	state  information
 // displayed by	receivers in RESV messages.
 type RSVPMIB_Rsvpresvtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	describing the	state  information displayed  by  a single
@@ -1105,70 +747,31 @@ type RSVPMIB_Rsvpresvtable struct {
     Rsvpresventry []RSVPMIB_Rsvpresvtable_Rsvpresventry
 }
 
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetFilter() yfilter.YFilter { return rsvpresvtable.YFilter }
+func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetEntityData() *types.CommonEntityData {
+    rsvpresvtable.EntityData.YFilter = rsvpresvtable.YFilter
+    rsvpresvtable.EntityData.YangName = "rsvpResvTable"
+    rsvpresvtable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpresvtable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpresvtable.EntityData.SegmentPath = "rsvpResvTable"
+    rsvpresvtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpresvtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpresvtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) SetFilter(yf yfilter.YFilter) { rsvpresvtable.YFilter = yf }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetGoName(yname string) string {
-    if yname == "rsvpResvEntry" { return "Rsvpresventry" }
-    return ""
-}
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetSegmentPath() string {
-    return "rsvpResvTable"
-}
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpResvEntry" {
-        for _, c := range rsvpresvtable.Rsvpresventry {
-            if rsvpresvtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpresvtable_Rsvpresventry{}
-        rsvpresvtable.Rsvpresventry = append(rsvpresvtable.Rsvpresventry, child)
-        return &rsvpresvtable.Rsvpresventry[len(rsvpresvtable.Rsvpresventry)-1]
-    }
-    return nil
-}
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpresvtable.EntityData.Children = make(map[string]types.YChild)
+    rsvpresvtable.EntityData.Children["rsvpResvEntry"] = types.YChild{"Rsvpresventry", nil}
     for i := range rsvpresvtable.Rsvpresventry {
-        children[rsvpresvtable.Rsvpresventry[i].GetSegmentPath()] = &rsvpresvtable.Rsvpresventry[i]
+        rsvpresvtable.EntityData.Children[types.GetSegmentPath(&rsvpresvtable.Rsvpresventry[i])] = types.YChild{"Rsvpresventry", &rsvpresvtable.Rsvpresventry[i]}
     }
-    return children
+    rsvpresvtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpresvtable.EntityData)
 }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetYangName() string { return "rsvpResvTable" }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) SetParent(parent types.Entity) { rsvpresvtable.parent = parent }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetParent() types.Entity { return rsvpresvtable.parent }
-
-func (rsvpresvtable *RSVPMIB_Rsvpresvtable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpresvtable_Rsvpresventry
 // Information	describing the	state  information
 // displayed  by  a single receiver's RESV message
 // concerning a	single sender.
 type RSVPMIB_Rsvpresvtable_Rsvpresventry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
@@ -1344,117 +947,57 @@ type RSVPMIB_Rsvpresvtable_Rsvpresventry struct {
     Rsvpresvflowid interface{}
 }
 
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetFilter() yfilter.YFilter { return rsvpresventry.YFilter }
+func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetEntityData() *types.CommonEntityData {
+    rsvpresventry.EntityData.YFilter = rsvpresventry.YFilter
+    rsvpresventry.EntityData.YangName = "rsvpResvEntry"
+    rsvpresventry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpresventry.EntityData.ParentYangName = "rsvpResvTable"
+    rsvpresventry.EntityData.SegmentPath = "rsvpResvEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpresventry.Rsvpsessionnumber) + "']" + "[rsvpResvNumber='" + fmt.Sprintf("%v", rsvpresventry.Rsvpresvnumber) + "']"
+    rsvpresventry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpresventry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpresventry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) SetFilter(yf yfilter.YFilter) { rsvpresventry.YFilter = yf }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetGoName(yname string) string {
-    if yname == "rsvpSessionNumber" { return "Rsvpsessionnumber" }
-    if yname == "rsvpResvNumber" { return "Rsvpresvnumber" }
-    if yname == "rsvpResvType" { return "Rsvpresvtype" }
-    if yname == "rsvpResvDestAddr" { return "Rsvpresvdestaddr" }
-    if yname == "rsvpResvSenderAddr" { return "Rsvpresvsenderaddr" }
-    if yname == "rsvpResvDestAddrLength" { return "Rsvpresvdestaddrlength" }
-    if yname == "rsvpResvSenderAddrLength" { return "Rsvpresvsenderaddrlength" }
-    if yname == "rsvpResvProtocol" { return "Rsvpresvprotocol" }
-    if yname == "rsvpResvDestPort" { return "Rsvpresvdestport" }
-    if yname == "rsvpResvPort" { return "Rsvpresvport" }
-    if yname == "rsvpResvHopAddr" { return "Rsvpresvhopaddr" }
-    if yname == "rsvpResvHopLih" { return "Rsvpresvhoplih" }
-    if yname == "rsvpResvInterface" { return "Rsvpresvinterface" }
-    if yname == "rsvpResvService" { return "Rsvpresvservice" }
-    if yname == "rsvpResvTSpecRate" { return "Rsvpresvtspecrate" }
-    if yname == "rsvpResvTSpecPeakRate" { return "Rsvpresvtspecpeakrate" }
-    if yname == "rsvpResvTSpecBurst" { return "Rsvpresvtspecburst" }
-    if yname == "rsvpResvTSpecMinTU" { return "Rsvpresvtspecmintu" }
-    if yname == "rsvpResvTSpecMaxTU" { return "Rsvpresvtspecmaxtu" }
-    if yname == "rsvpResvRSpecRate" { return "Rsvpresvrspecrate" }
-    if yname == "rsvpResvRSpecSlack" { return "Rsvpresvrspecslack" }
-    if yname == "rsvpResvInterval" { return "Rsvpresvinterval" }
-    if yname == "rsvpResvScope" { return "Rsvpresvscope" }
-    if yname == "rsvpResvShared" { return "Rsvpresvshared" }
-    if yname == "rsvpResvExplicit" { return "Rsvpresvexplicit" }
-    if yname == "rsvpResvRSVPHop" { return "Rsvpresvrsvphop" }
-    if yname == "rsvpResvLastChange" { return "Rsvpresvlastchange" }
-    if yname == "rsvpResvPolicy" { return "Rsvpresvpolicy" }
-    if yname == "rsvpResvStatus" { return "Rsvpresvstatus" }
-    if yname == "rsvpResvTTL" { return "Rsvpresvttl" }
-    if yname == "rsvpResvFlowId" { return "Rsvpresvflowid" }
-    return ""
+    rsvpresventry.EntityData.Children = make(map[string]types.YChild)
+    rsvpresventry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpresventry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpresventry.Rsvpsessionnumber}
+    rsvpresventry.EntityData.Leafs["rsvpResvNumber"] = types.YLeaf{"Rsvpresvnumber", rsvpresventry.Rsvpresvnumber}
+    rsvpresventry.EntityData.Leafs["rsvpResvType"] = types.YLeaf{"Rsvpresvtype", rsvpresventry.Rsvpresvtype}
+    rsvpresventry.EntityData.Leafs["rsvpResvDestAddr"] = types.YLeaf{"Rsvpresvdestaddr", rsvpresventry.Rsvpresvdestaddr}
+    rsvpresventry.EntityData.Leafs["rsvpResvSenderAddr"] = types.YLeaf{"Rsvpresvsenderaddr", rsvpresventry.Rsvpresvsenderaddr}
+    rsvpresventry.EntityData.Leafs["rsvpResvDestAddrLength"] = types.YLeaf{"Rsvpresvdestaddrlength", rsvpresventry.Rsvpresvdestaddrlength}
+    rsvpresventry.EntityData.Leafs["rsvpResvSenderAddrLength"] = types.YLeaf{"Rsvpresvsenderaddrlength", rsvpresventry.Rsvpresvsenderaddrlength}
+    rsvpresventry.EntityData.Leafs["rsvpResvProtocol"] = types.YLeaf{"Rsvpresvprotocol", rsvpresventry.Rsvpresvprotocol}
+    rsvpresventry.EntityData.Leafs["rsvpResvDestPort"] = types.YLeaf{"Rsvpresvdestport", rsvpresventry.Rsvpresvdestport}
+    rsvpresventry.EntityData.Leafs["rsvpResvPort"] = types.YLeaf{"Rsvpresvport", rsvpresventry.Rsvpresvport}
+    rsvpresventry.EntityData.Leafs["rsvpResvHopAddr"] = types.YLeaf{"Rsvpresvhopaddr", rsvpresventry.Rsvpresvhopaddr}
+    rsvpresventry.EntityData.Leafs["rsvpResvHopLih"] = types.YLeaf{"Rsvpresvhoplih", rsvpresventry.Rsvpresvhoplih}
+    rsvpresventry.EntityData.Leafs["rsvpResvInterface"] = types.YLeaf{"Rsvpresvinterface", rsvpresventry.Rsvpresvinterface}
+    rsvpresventry.EntityData.Leafs["rsvpResvService"] = types.YLeaf{"Rsvpresvservice", rsvpresventry.Rsvpresvservice}
+    rsvpresventry.EntityData.Leafs["rsvpResvTSpecRate"] = types.YLeaf{"Rsvpresvtspecrate", rsvpresventry.Rsvpresvtspecrate}
+    rsvpresventry.EntityData.Leafs["rsvpResvTSpecPeakRate"] = types.YLeaf{"Rsvpresvtspecpeakrate", rsvpresventry.Rsvpresvtspecpeakrate}
+    rsvpresventry.EntityData.Leafs["rsvpResvTSpecBurst"] = types.YLeaf{"Rsvpresvtspecburst", rsvpresventry.Rsvpresvtspecburst}
+    rsvpresventry.EntityData.Leafs["rsvpResvTSpecMinTU"] = types.YLeaf{"Rsvpresvtspecmintu", rsvpresventry.Rsvpresvtspecmintu}
+    rsvpresventry.EntityData.Leafs["rsvpResvTSpecMaxTU"] = types.YLeaf{"Rsvpresvtspecmaxtu", rsvpresventry.Rsvpresvtspecmaxtu}
+    rsvpresventry.EntityData.Leafs["rsvpResvRSpecRate"] = types.YLeaf{"Rsvpresvrspecrate", rsvpresventry.Rsvpresvrspecrate}
+    rsvpresventry.EntityData.Leafs["rsvpResvRSpecSlack"] = types.YLeaf{"Rsvpresvrspecslack", rsvpresventry.Rsvpresvrspecslack}
+    rsvpresventry.EntityData.Leafs["rsvpResvInterval"] = types.YLeaf{"Rsvpresvinterval", rsvpresventry.Rsvpresvinterval}
+    rsvpresventry.EntityData.Leafs["rsvpResvScope"] = types.YLeaf{"Rsvpresvscope", rsvpresventry.Rsvpresvscope}
+    rsvpresventry.EntityData.Leafs["rsvpResvShared"] = types.YLeaf{"Rsvpresvshared", rsvpresventry.Rsvpresvshared}
+    rsvpresventry.EntityData.Leafs["rsvpResvExplicit"] = types.YLeaf{"Rsvpresvexplicit", rsvpresventry.Rsvpresvexplicit}
+    rsvpresventry.EntityData.Leafs["rsvpResvRSVPHop"] = types.YLeaf{"Rsvpresvrsvphop", rsvpresventry.Rsvpresvrsvphop}
+    rsvpresventry.EntityData.Leafs["rsvpResvLastChange"] = types.YLeaf{"Rsvpresvlastchange", rsvpresventry.Rsvpresvlastchange}
+    rsvpresventry.EntityData.Leafs["rsvpResvPolicy"] = types.YLeaf{"Rsvpresvpolicy", rsvpresventry.Rsvpresvpolicy}
+    rsvpresventry.EntityData.Leafs["rsvpResvStatus"] = types.YLeaf{"Rsvpresvstatus", rsvpresventry.Rsvpresvstatus}
+    rsvpresventry.EntityData.Leafs["rsvpResvTTL"] = types.YLeaf{"Rsvpresvttl", rsvpresventry.Rsvpresvttl}
+    rsvpresventry.EntityData.Leafs["rsvpResvFlowId"] = types.YLeaf{"Rsvpresvflowid", rsvpresventry.Rsvpresvflowid}
+    return &(rsvpresventry.EntityData)
 }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetSegmentPath() string {
-    return "rsvpResvEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpresventry.Rsvpsessionnumber) + "']" + "[rsvpResvNumber='" + fmt.Sprintf("%v", rsvpresventry.Rsvpresvnumber) + "']"
-}
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rsvpSessionNumber"] = rsvpresventry.Rsvpsessionnumber
-    leafs["rsvpResvNumber"] = rsvpresventry.Rsvpresvnumber
-    leafs["rsvpResvType"] = rsvpresventry.Rsvpresvtype
-    leafs["rsvpResvDestAddr"] = rsvpresventry.Rsvpresvdestaddr
-    leafs["rsvpResvSenderAddr"] = rsvpresventry.Rsvpresvsenderaddr
-    leafs["rsvpResvDestAddrLength"] = rsvpresventry.Rsvpresvdestaddrlength
-    leafs["rsvpResvSenderAddrLength"] = rsvpresventry.Rsvpresvsenderaddrlength
-    leafs["rsvpResvProtocol"] = rsvpresventry.Rsvpresvprotocol
-    leafs["rsvpResvDestPort"] = rsvpresventry.Rsvpresvdestport
-    leafs["rsvpResvPort"] = rsvpresventry.Rsvpresvport
-    leafs["rsvpResvHopAddr"] = rsvpresventry.Rsvpresvhopaddr
-    leafs["rsvpResvHopLih"] = rsvpresventry.Rsvpresvhoplih
-    leafs["rsvpResvInterface"] = rsvpresventry.Rsvpresvinterface
-    leafs["rsvpResvService"] = rsvpresventry.Rsvpresvservice
-    leafs["rsvpResvTSpecRate"] = rsvpresventry.Rsvpresvtspecrate
-    leafs["rsvpResvTSpecPeakRate"] = rsvpresventry.Rsvpresvtspecpeakrate
-    leafs["rsvpResvTSpecBurst"] = rsvpresventry.Rsvpresvtspecburst
-    leafs["rsvpResvTSpecMinTU"] = rsvpresventry.Rsvpresvtspecmintu
-    leafs["rsvpResvTSpecMaxTU"] = rsvpresventry.Rsvpresvtspecmaxtu
-    leafs["rsvpResvRSpecRate"] = rsvpresventry.Rsvpresvrspecrate
-    leafs["rsvpResvRSpecSlack"] = rsvpresventry.Rsvpresvrspecslack
-    leafs["rsvpResvInterval"] = rsvpresventry.Rsvpresvinterval
-    leafs["rsvpResvScope"] = rsvpresventry.Rsvpresvscope
-    leafs["rsvpResvShared"] = rsvpresventry.Rsvpresvshared
-    leafs["rsvpResvExplicit"] = rsvpresventry.Rsvpresvexplicit
-    leafs["rsvpResvRSVPHop"] = rsvpresventry.Rsvpresvrsvphop
-    leafs["rsvpResvLastChange"] = rsvpresventry.Rsvpresvlastchange
-    leafs["rsvpResvPolicy"] = rsvpresventry.Rsvpresvpolicy
-    leafs["rsvpResvStatus"] = rsvpresventry.Rsvpresvstatus
-    leafs["rsvpResvTTL"] = rsvpresventry.Rsvpresvttl
-    leafs["rsvpResvFlowId"] = rsvpresventry.Rsvpresvflowid
-    return leafs
-}
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetYangName() string { return "rsvpResvEntry" }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) SetParent(parent types.Entity) { rsvpresventry.parent = parent }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetParent() types.Entity { return rsvpresventry.parent }
-
-func (rsvpresventry *RSVPMIB_Rsvpresvtable_Rsvpresventry) GetParentYangName() string { return "rsvpResvTable" }
 
 // RSVPMIB_Rsvpresvfwdtable
 // Information	describing the	state  information
 // displayed upstream in RESV messages.
 type RSVPMIB_Rsvpresvfwdtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	describing the	state  information displayed   upstream	  in  
@@ -1463,70 +1006,31 @@ type RSVPMIB_Rsvpresvfwdtable struct {
     Rsvpresvfwdentry []RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry
 }
 
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetFilter() yfilter.YFilter { return rsvpresvfwdtable.YFilter }
+func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetEntityData() *types.CommonEntityData {
+    rsvpresvfwdtable.EntityData.YFilter = rsvpresvfwdtable.YFilter
+    rsvpresvfwdtable.EntityData.YangName = "rsvpResvFwdTable"
+    rsvpresvfwdtable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpresvfwdtable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpresvfwdtable.EntityData.SegmentPath = "rsvpResvFwdTable"
+    rsvpresvfwdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpresvfwdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpresvfwdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) SetFilter(yf yfilter.YFilter) { rsvpresvfwdtable.YFilter = yf }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetGoName(yname string) string {
-    if yname == "rsvpResvFwdEntry" { return "Rsvpresvfwdentry" }
-    return ""
-}
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetSegmentPath() string {
-    return "rsvpResvFwdTable"
-}
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpResvFwdEntry" {
-        for _, c := range rsvpresvfwdtable.Rsvpresvfwdentry {
-            if rsvpresvfwdtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry{}
-        rsvpresvfwdtable.Rsvpresvfwdentry = append(rsvpresvfwdtable.Rsvpresvfwdentry, child)
-        return &rsvpresvfwdtable.Rsvpresvfwdentry[len(rsvpresvfwdtable.Rsvpresvfwdentry)-1]
-    }
-    return nil
-}
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpresvfwdtable.EntityData.Children = make(map[string]types.YChild)
+    rsvpresvfwdtable.EntityData.Children["rsvpResvFwdEntry"] = types.YChild{"Rsvpresvfwdentry", nil}
     for i := range rsvpresvfwdtable.Rsvpresvfwdentry {
-        children[rsvpresvfwdtable.Rsvpresvfwdentry[i].GetSegmentPath()] = &rsvpresvfwdtable.Rsvpresvfwdentry[i]
+        rsvpresvfwdtable.EntityData.Children[types.GetSegmentPath(&rsvpresvfwdtable.Rsvpresvfwdentry[i])] = types.YChild{"Rsvpresvfwdentry", &rsvpresvfwdtable.Rsvpresvfwdentry[i]}
     }
-    return children
+    rsvpresvfwdtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpresvfwdtable.EntityData)
 }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetYangName() string { return "rsvpResvFwdTable" }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) SetParent(parent types.Entity) { rsvpresvfwdtable.parent = parent }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetParent() types.Entity { return rsvpresvfwdtable.parent }
-
-func (rsvpresvfwdtable *RSVPMIB_Rsvpresvfwdtable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry
 // Information	describing the	state  information
 // displayed   upstream	  in   an   RESV   message
 // concerning a	single sender.
 type RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
@@ -1699,117 +1203,57 @@ type RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry struct {
     Rsvpresvfwdflowid interface{}
 }
 
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetFilter() yfilter.YFilter { return rsvpresvfwdentry.YFilter }
+func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetEntityData() *types.CommonEntityData {
+    rsvpresvfwdentry.EntityData.YFilter = rsvpresvfwdentry.YFilter
+    rsvpresvfwdentry.EntityData.YangName = "rsvpResvFwdEntry"
+    rsvpresvfwdentry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpresvfwdentry.EntityData.ParentYangName = "rsvpResvFwdTable"
+    rsvpresvfwdentry.EntityData.SegmentPath = "rsvpResvFwdEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpresvfwdentry.Rsvpsessionnumber) + "']" + "[rsvpResvFwdNumber='" + fmt.Sprintf("%v", rsvpresvfwdentry.Rsvpresvfwdnumber) + "']"
+    rsvpresvfwdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpresvfwdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpresvfwdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) SetFilter(yf yfilter.YFilter) { rsvpresvfwdentry.YFilter = yf }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetGoName(yname string) string {
-    if yname == "rsvpSessionNumber" { return "Rsvpsessionnumber" }
-    if yname == "rsvpResvFwdNumber" { return "Rsvpresvfwdnumber" }
-    if yname == "rsvpResvFwdType" { return "Rsvpresvfwdtype" }
-    if yname == "rsvpResvFwdDestAddr" { return "Rsvpresvfwddestaddr" }
-    if yname == "rsvpResvFwdSenderAddr" { return "Rsvpresvfwdsenderaddr" }
-    if yname == "rsvpResvFwdDestAddrLength" { return "Rsvpresvfwddestaddrlength" }
-    if yname == "rsvpResvFwdSenderAddrLength" { return "Rsvpresvfwdsenderaddrlength" }
-    if yname == "rsvpResvFwdProtocol" { return "Rsvpresvfwdprotocol" }
-    if yname == "rsvpResvFwdDestPort" { return "Rsvpresvfwddestport" }
-    if yname == "rsvpResvFwdPort" { return "Rsvpresvfwdport" }
-    if yname == "rsvpResvFwdHopAddr" { return "Rsvpresvfwdhopaddr" }
-    if yname == "rsvpResvFwdHopLih" { return "Rsvpresvfwdhoplih" }
-    if yname == "rsvpResvFwdInterface" { return "Rsvpresvfwdinterface" }
-    if yname == "rsvpResvFwdService" { return "Rsvpresvfwdservice" }
-    if yname == "rsvpResvFwdTSpecRate" { return "Rsvpresvfwdtspecrate" }
-    if yname == "rsvpResvFwdTSpecPeakRate" { return "Rsvpresvfwdtspecpeakrate" }
-    if yname == "rsvpResvFwdTSpecBurst" { return "Rsvpresvfwdtspecburst" }
-    if yname == "rsvpResvFwdTSpecMinTU" { return "Rsvpresvfwdtspecmintu" }
-    if yname == "rsvpResvFwdTSpecMaxTU" { return "Rsvpresvfwdtspecmaxtu" }
-    if yname == "rsvpResvFwdRSpecRate" { return "Rsvpresvfwdrspecrate" }
-    if yname == "rsvpResvFwdRSpecSlack" { return "Rsvpresvfwdrspecslack" }
-    if yname == "rsvpResvFwdInterval" { return "Rsvpresvfwdinterval" }
-    if yname == "rsvpResvFwdScope" { return "Rsvpresvfwdscope" }
-    if yname == "rsvpResvFwdShared" { return "Rsvpresvfwdshared" }
-    if yname == "rsvpResvFwdExplicit" { return "Rsvpresvfwdexplicit" }
-    if yname == "rsvpResvFwdRSVPHop" { return "Rsvpresvfwdrsvphop" }
-    if yname == "rsvpResvFwdLastChange" { return "Rsvpresvfwdlastchange" }
-    if yname == "rsvpResvFwdPolicy" { return "Rsvpresvfwdpolicy" }
-    if yname == "rsvpResvFwdStatus" { return "Rsvpresvfwdstatus" }
-    if yname == "rsvpResvFwdTTL" { return "Rsvpresvfwdttl" }
-    if yname == "rsvpResvFwdFlowId" { return "Rsvpresvfwdflowid" }
-    return ""
+    rsvpresvfwdentry.EntityData.Children = make(map[string]types.YChild)
+    rsvpresvfwdentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpresvfwdentry.EntityData.Leafs["rsvpSessionNumber"] = types.YLeaf{"Rsvpsessionnumber", rsvpresvfwdentry.Rsvpsessionnumber}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdNumber"] = types.YLeaf{"Rsvpresvfwdnumber", rsvpresvfwdentry.Rsvpresvfwdnumber}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdType"] = types.YLeaf{"Rsvpresvfwdtype", rsvpresvfwdentry.Rsvpresvfwdtype}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdDestAddr"] = types.YLeaf{"Rsvpresvfwddestaddr", rsvpresvfwdentry.Rsvpresvfwddestaddr}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdSenderAddr"] = types.YLeaf{"Rsvpresvfwdsenderaddr", rsvpresvfwdentry.Rsvpresvfwdsenderaddr}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdDestAddrLength"] = types.YLeaf{"Rsvpresvfwddestaddrlength", rsvpresvfwdentry.Rsvpresvfwddestaddrlength}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdSenderAddrLength"] = types.YLeaf{"Rsvpresvfwdsenderaddrlength", rsvpresvfwdentry.Rsvpresvfwdsenderaddrlength}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdProtocol"] = types.YLeaf{"Rsvpresvfwdprotocol", rsvpresvfwdentry.Rsvpresvfwdprotocol}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdDestPort"] = types.YLeaf{"Rsvpresvfwddestport", rsvpresvfwdentry.Rsvpresvfwddestport}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdPort"] = types.YLeaf{"Rsvpresvfwdport", rsvpresvfwdentry.Rsvpresvfwdport}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdHopAddr"] = types.YLeaf{"Rsvpresvfwdhopaddr", rsvpresvfwdentry.Rsvpresvfwdhopaddr}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdHopLih"] = types.YLeaf{"Rsvpresvfwdhoplih", rsvpresvfwdentry.Rsvpresvfwdhoplih}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdInterface"] = types.YLeaf{"Rsvpresvfwdinterface", rsvpresvfwdentry.Rsvpresvfwdinterface}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdService"] = types.YLeaf{"Rsvpresvfwdservice", rsvpresvfwdentry.Rsvpresvfwdservice}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecRate"] = types.YLeaf{"Rsvpresvfwdtspecrate", rsvpresvfwdentry.Rsvpresvfwdtspecrate}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecPeakRate"] = types.YLeaf{"Rsvpresvfwdtspecpeakrate", rsvpresvfwdentry.Rsvpresvfwdtspecpeakrate}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecBurst"] = types.YLeaf{"Rsvpresvfwdtspecburst", rsvpresvfwdentry.Rsvpresvfwdtspecburst}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecMinTU"] = types.YLeaf{"Rsvpresvfwdtspecmintu", rsvpresvfwdentry.Rsvpresvfwdtspecmintu}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTSpecMaxTU"] = types.YLeaf{"Rsvpresvfwdtspecmaxtu", rsvpresvfwdentry.Rsvpresvfwdtspecmaxtu}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdRSpecRate"] = types.YLeaf{"Rsvpresvfwdrspecrate", rsvpresvfwdentry.Rsvpresvfwdrspecrate}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdRSpecSlack"] = types.YLeaf{"Rsvpresvfwdrspecslack", rsvpresvfwdentry.Rsvpresvfwdrspecslack}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdInterval"] = types.YLeaf{"Rsvpresvfwdinterval", rsvpresvfwdentry.Rsvpresvfwdinterval}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdScope"] = types.YLeaf{"Rsvpresvfwdscope", rsvpresvfwdentry.Rsvpresvfwdscope}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdShared"] = types.YLeaf{"Rsvpresvfwdshared", rsvpresvfwdentry.Rsvpresvfwdshared}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdExplicit"] = types.YLeaf{"Rsvpresvfwdexplicit", rsvpresvfwdentry.Rsvpresvfwdexplicit}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdRSVPHop"] = types.YLeaf{"Rsvpresvfwdrsvphop", rsvpresvfwdentry.Rsvpresvfwdrsvphop}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdLastChange"] = types.YLeaf{"Rsvpresvfwdlastchange", rsvpresvfwdentry.Rsvpresvfwdlastchange}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdPolicy"] = types.YLeaf{"Rsvpresvfwdpolicy", rsvpresvfwdentry.Rsvpresvfwdpolicy}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdStatus"] = types.YLeaf{"Rsvpresvfwdstatus", rsvpresvfwdentry.Rsvpresvfwdstatus}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdTTL"] = types.YLeaf{"Rsvpresvfwdttl", rsvpresvfwdentry.Rsvpresvfwdttl}
+    rsvpresvfwdentry.EntityData.Leafs["rsvpResvFwdFlowId"] = types.YLeaf{"Rsvpresvfwdflowid", rsvpresvfwdentry.Rsvpresvfwdflowid}
+    return &(rsvpresvfwdentry.EntityData)
 }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetSegmentPath() string {
-    return "rsvpResvFwdEntry" + "[rsvpSessionNumber='" + fmt.Sprintf("%v", rsvpresvfwdentry.Rsvpsessionnumber) + "']" + "[rsvpResvFwdNumber='" + fmt.Sprintf("%v", rsvpresvfwdentry.Rsvpresvfwdnumber) + "']"
-}
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rsvpSessionNumber"] = rsvpresvfwdentry.Rsvpsessionnumber
-    leafs["rsvpResvFwdNumber"] = rsvpresvfwdentry.Rsvpresvfwdnumber
-    leafs["rsvpResvFwdType"] = rsvpresvfwdentry.Rsvpresvfwdtype
-    leafs["rsvpResvFwdDestAddr"] = rsvpresvfwdentry.Rsvpresvfwddestaddr
-    leafs["rsvpResvFwdSenderAddr"] = rsvpresvfwdentry.Rsvpresvfwdsenderaddr
-    leafs["rsvpResvFwdDestAddrLength"] = rsvpresvfwdentry.Rsvpresvfwddestaddrlength
-    leafs["rsvpResvFwdSenderAddrLength"] = rsvpresvfwdentry.Rsvpresvfwdsenderaddrlength
-    leafs["rsvpResvFwdProtocol"] = rsvpresvfwdentry.Rsvpresvfwdprotocol
-    leafs["rsvpResvFwdDestPort"] = rsvpresvfwdentry.Rsvpresvfwddestport
-    leafs["rsvpResvFwdPort"] = rsvpresvfwdentry.Rsvpresvfwdport
-    leafs["rsvpResvFwdHopAddr"] = rsvpresvfwdentry.Rsvpresvfwdhopaddr
-    leafs["rsvpResvFwdHopLih"] = rsvpresvfwdentry.Rsvpresvfwdhoplih
-    leafs["rsvpResvFwdInterface"] = rsvpresvfwdentry.Rsvpresvfwdinterface
-    leafs["rsvpResvFwdService"] = rsvpresvfwdentry.Rsvpresvfwdservice
-    leafs["rsvpResvFwdTSpecRate"] = rsvpresvfwdentry.Rsvpresvfwdtspecrate
-    leafs["rsvpResvFwdTSpecPeakRate"] = rsvpresvfwdentry.Rsvpresvfwdtspecpeakrate
-    leafs["rsvpResvFwdTSpecBurst"] = rsvpresvfwdentry.Rsvpresvfwdtspecburst
-    leafs["rsvpResvFwdTSpecMinTU"] = rsvpresvfwdentry.Rsvpresvfwdtspecmintu
-    leafs["rsvpResvFwdTSpecMaxTU"] = rsvpresvfwdentry.Rsvpresvfwdtspecmaxtu
-    leafs["rsvpResvFwdRSpecRate"] = rsvpresvfwdentry.Rsvpresvfwdrspecrate
-    leafs["rsvpResvFwdRSpecSlack"] = rsvpresvfwdentry.Rsvpresvfwdrspecslack
-    leafs["rsvpResvFwdInterval"] = rsvpresvfwdentry.Rsvpresvfwdinterval
-    leafs["rsvpResvFwdScope"] = rsvpresvfwdentry.Rsvpresvfwdscope
-    leafs["rsvpResvFwdShared"] = rsvpresvfwdentry.Rsvpresvfwdshared
-    leafs["rsvpResvFwdExplicit"] = rsvpresvfwdentry.Rsvpresvfwdexplicit
-    leafs["rsvpResvFwdRSVPHop"] = rsvpresvfwdentry.Rsvpresvfwdrsvphop
-    leafs["rsvpResvFwdLastChange"] = rsvpresvfwdentry.Rsvpresvfwdlastchange
-    leafs["rsvpResvFwdPolicy"] = rsvpresvfwdentry.Rsvpresvfwdpolicy
-    leafs["rsvpResvFwdStatus"] = rsvpresvfwdentry.Rsvpresvfwdstatus
-    leafs["rsvpResvFwdTTL"] = rsvpresvfwdentry.Rsvpresvfwdttl
-    leafs["rsvpResvFwdFlowId"] = rsvpresvfwdentry.Rsvpresvfwdflowid
-    return leafs
-}
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetYangName() string { return "rsvpResvFwdEntry" }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) SetParent(parent types.Entity) { rsvpresvfwdentry.parent = parent }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetParent() types.Entity { return rsvpresvfwdentry.parent }
-
-func (rsvpresvfwdentry *RSVPMIB_Rsvpresvfwdtable_Rsvpresvfwdentry) GetParentYangName() string { return "rsvpResvFwdTable" }
 
 // RSVPMIB_Rsvpiftable
 // The	RSVP-specific attributes of  the  system's
 // interfaces.
 type RSVPMIB_Rsvpiftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The	RSVP-specific attributes of  the  a  given interface. The type is slice
@@ -1817,69 +1261,30 @@ type RSVPMIB_Rsvpiftable struct {
     Rsvpifentry []RSVPMIB_Rsvpiftable_Rsvpifentry
 }
 
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetFilter() yfilter.YFilter { return rsvpiftable.YFilter }
+func (rsvpiftable *RSVPMIB_Rsvpiftable) GetEntityData() *types.CommonEntityData {
+    rsvpiftable.EntityData.YFilter = rsvpiftable.YFilter
+    rsvpiftable.EntityData.YangName = "rsvpIfTable"
+    rsvpiftable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpiftable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpiftable.EntityData.SegmentPath = "rsvpIfTable"
+    rsvpiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpiftable *RSVPMIB_Rsvpiftable) SetFilter(yf yfilter.YFilter) { rsvpiftable.YFilter = yf }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetGoName(yname string) string {
-    if yname == "rsvpIfEntry" { return "Rsvpifentry" }
-    return ""
-}
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetSegmentPath() string {
-    return "rsvpIfTable"
-}
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpIfEntry" {
-        for _, c := range rsvpiftable.Rsvpifentry {
-            if rsvpiftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpiftable_Rsvpifentry{}
-        rsvpiftable.Rsvpifentry = append(rsvpiftable.Rsvpifentry, child)
-        return &rsvpiftable.Rsvpifentry[len(rsvpiftable.Rsvpifentry)-1]
-    }
-    return nil
-}
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpiftable.EntityData.Children = make(map[string]types.YChild)
+    rsvpiftable.EntityData.Children["rsvpIfEntry"] = types.YChild{"Rsvpifentry", nil}
     for i := range rsvpiftable.Rsvpifentry {
-        children[rsvpiftable.Rsvpifentry[i].GetSegmentPath()] = &rsvpiftable.Rsvpifentry[i]
+        rsvpiftable.EntityData.Children[types.GetSegmentPath(&rsvpiftable.Rsvpifentry[i])] = types.YChild{"Rsvpifentry", &rsvpiftable.Rsvpifentry[i]}
     }
-    return children
+    rsvpiftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpiftable.EntityData)
 }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetYangName() string { return "rsvpIfTable" }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) SetParent(parent types.Entity) { rsvpiftable.parent = parent }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetParent() types.Entity { return rsvpiftable.parent }
-
-func (rsvpiftable *RSVPMIB_Rsvpiftable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpiftable_Rsvpifentry
 // The	RSVP-specific attributes of  the  a  given
 // interface.
 type RSVPMIB_Rsvpiftable_Rsvpifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1938,79 +1343,38 @@ type RSVPMIB_Rsvpiftable_Rsvpifentry struct {
     Rsvpifstatus interface{}
 }
 
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetFilter() yfilter.YFilter { return rsvpifentry.YFilter }
+func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetEntityData() *types.CommonEntityData {
+    rsvpifentry.EntityData.YFilter = rsvpifentry.YFilter
+    rsvpifentry.EntityData.YangName = "rsvpIfEntry"
+    rsvpifentry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpifentry.EntityData.ParentYangName = "rsvpIfTable"
+    rsvpifentry.EntityData.SegmentPath = "rsvpIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", rsvpifentry.Ifindex) + "']"
+    rsvpifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) SetFilter(yf yfilter.YFilter) { rsvpifentry.YFilter = yf }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "rsvpIfUdpNbrs" { return "Rsvpifudpnbrs" }
-    if yname == "rsvpIfIpNbrs" { return "Rsvpifipnbrs" }
-    if yname == "rsvpIfNbrs" { return "Rsvpifnbrs" }
-    if yname == "rsvpIfRefreshBlockadeMultiple" { return "Rsvpifrefreshblockademultiple" }
-    if yname == "rsvpIfRefreshMultiple" { return "Rsvpifrefreshmultiple" }
-    if yname == "rsvpIfTTL" { return "Rsvpifttl" }
-    if yname == "rsvpIfRefreshInterval" { return "Rsvpifrefreshinterval" }
-    if yname == "rsvpIfRouteDelay" { return "Rsvpifroutedelay" }
-    if yname == "rsvpIfEnabled" { return "Rsvpifenabled" }
-    if yname == "rsvpIfUdpRequired" { return "Rsvpifudprequired" }
-    if yname == "rsvpIfStatus" { return "Rsvpifstatus" }
-    return ""
+    rsvpifentry.EntityData.Children = make(map[string]types.YChild)
+    rsvpifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", rsvpifentry.Ifindex}
+    rsvpifentry.EntityData.Leafs["rsvpIfUdpNbrs"] = types.YLeaf{"Rsvpifudpnbrs", rsvpifentry.Rsvpifudpnbrs}
+    rsvpifentry.EntityData.Leafs["rsvpIfIpNbrs"] = types.YLeaf{"Rsvpifipnbrs", rsvpifentry.Rsvpifipnbrs}
+    rsvpifentry.EntityData.Leafs["rsvpIfNbrs"] = types.YLeaf{"Rsvpifnbrs", rsvpifentry.Rsvpifnbrs}
+    rsvpifentry.EntityData.Leafs["rsvpIfRefreshBlockadeMultiple"] = types.YLeaf{"Rsvpifrefreshblockademultiple", rsvpifentry.Rsvpifrefreshblockademultiple}
+    rsvpifentry.EntityData.Leafs["rsvpIfRefreshMultiple"] = types.YLeaf{"Rsvpifrefreshmultiple", rsvpifentry.Rsvpifrefreshmultiple}
+    rsvpifentry.EntityData.Leafs["rsvpIfTTL"] = types.YLeaf{"Rsvpifttl", rsvpifentry.Rsvpifttl}
+    rsvpifentry.EntityData.Leafs["rsvpIfRefreshInterval"] = types.YLeaf{"Rsvpifrefreshinterval", rsvpifentry.Rsvpifrefreshinterval}
+    rsvpifentry.EntityData.Leafs["rsvpIfRouteDelay"] = types.YLeaf{"Rsvpifroutedelay", rsvpifentry.Rsvpifroutedelay}
+    rsvpifentry.EntityData.Leafs["rsvpIfEnabled"] = types.YLeaf{"Rsvpifenabled", rsvpifentry.Rsvpifenabled}
+    rsvpifentry.EntityData.Leafs["rsvpIfUdpRequired"] = types.YLeaf{"Rsvpifudprequired", rsvpifentry.Rsvpifudprequired}
+    rsvpifentry.EntityData.Leafs["rsvpIfStatus"] = types.YLeaf{"Rsvpifstatus", rsvpifentry.Rsvpifstatus}
+    return &(rsvpifentry.EntityData)
 }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetSegmentPath() string {
-    return "rsvpIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", rsvpifentry.Ifindex) + "']"
-}
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = rsvpifentry.Ifindex
-    leafs["rsvpIfUdpNbrs"] = rsvpifentry.Rsvpifudpnbrs
-    leafs["rsvpIfIpNbrs"] = rsvpifentry.Rsvpifipnbrs
-    leafs["rsvpIfNbrs"] = rsvpifentry.Rsvpifnbrs
-    leafs["rsvpIfRefreshBlockadeMultiple"] = rsvpifentry.Rsvpifrefreshblockademultiple
-    leafs["rsvpIfRefreshMultiple"] = rsvpifentry.Rsvpifrefreshmultiple
-    leafs["rsvpIfTTL"] = rsvpifentry.Rsvpifttl
-    leafs["rsvpIfRefreshInterval"] = rsvpifentry.Rsvpifrefreshinterval
-    leafs["rsvpIfRouteDelay"] = rsvpifentry.Rsvpifroutedelay
-    leafs["rsvpIfEnabled"] = rsvpifentry.Rsvpifenabled
-    leafs["rsvpIfUdpRequired"] = rsvpifentry.Rsvpifudprequired
-    leafs["rsvpIfStatus"] = rsvpifentry.Rsvpifstatus
-    return leafs
-}
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetYangName() string { return "rsvpIfEntry" }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) SetParent(parent types.Entity) { rsvpifentry.parent = parent }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetParent() types.Entity { return rsvpifentry.parent }
-
-func (rsvpifentry *RSVPMIB_Rsvpiftable_Rsvpifentry) GetParentYangName() string { return "rsvpIfTable" }
 
 // RSVPMIB_Rsvpnbrtable
 // Information	describing  the	 Neighbors  of	an
 // RSVP	system.
 type RSVPMIB_Rsvpnbrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information	  describing   a    single    RSVP Neighbor. The type is slice
@@ -2018,69 +1382,30 @@ type RSVPMIB_Rsvpnbrtable struct {
     Rsvpnbrentry []RSVPMIB_Rsvpnbrtable_Rsvpnbrentry
 }
 
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetFilter() yfilter.YFilter { return rsvpnbrtable.YFilter }
+func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetEntityData() *types.CommonEntityData {
+    rsvpnbrtable.EntityData.YFilter = rsvpnbrtable.YFilter
+    rsvpnbrtable.EntityData.YangName = "rsvpNbrTable"
+    rsvpnbrtable.EntityData.BundleName = "cisco_ios_xe"
+    rsvpnbrtable.EntityData.ParentYangName = "RSVP-MIB"
+    rsvpnbrtable.EntityData.SegmentPath = "rsvpNbrTable"
+    rsvpnbrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpnbrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpnbrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) SetFilter(yf yfilter.YFilter) { rsvpnbrtable.YFilter = yf }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetGoName(yname string) string {
-    if yname == "rsvpNbrEntry" { return "Rsvpnbrentry" }
-    return ""
-}
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetSegmentPath() string {
-    return "rsvpNbrTable"
-}
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rsvpNbrEntry" {
-        for _, c := range rsvpnbrtable.Rsvpnbrentry {
-            if rsvpnbrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RSVPMIB_Rsvpnbrtable_Rsvpnbrentry{}
-        rsvpnbrtable.Rsvpnbrentry = append(rsvpnbrtable.Rsvpnbrentry, child)
-        return &rsvpnbrtable.Rsvpnbrentry[len(rsvpnbrtable.Rsvpnbrentry)-1]
-    }
-    return nil
-}
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rsvpnbrtable.EntityData.Children = make(map[string]types.YChild)
+    rsvpnbrtable.EntityData.Children["rsvpNbrEntry"] = types.YChild{"Rsvpnbrentry", nil}
     for i := range rsvpnbrtable.Rsvpnbrentry {
-        children[rsvpnbrtable.Rsvpnbrentry[i].GetSegmentPath()] = &rsvpnbrtable.Rsvpnbrentry[i]
+        rsvpnbrtable.EntityData.Children[types.GetSegmentPath(&rsvpnbrtable.Rsvpnbrentry[i])] = types.YChild{"Rsvpnbrentry", &rsvpnbrtable.Rsvpnbrentry[i]}
     }
-    return children
+    rsvpnbrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rsvpnbrtable.EntityData)
 }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetYangName() string { return "rsvpNbrTable" }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) SetParent(parent types.Entity) { rsvpnbrtable.parent = parent }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetParent() types.Entity { return rsvpnbrtable.parent }
-
-func (rsvpnbrtable *RSVPMIB_Rsvpnbrtable) GetParentYangName() string { return "RSVP-MIB" }
 
 // RSVPMIB_Rsvpnbrtable_Rsvpnbrentry
 // Information	  describing   a    single    RSVP
 // Neighbor.
 type RSVPMIB_Rsvpnbrtable_Rsvpnbrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2103,55 +1428,22 @@ type RSVPMIB_Rsvpnbrtable_Rsvpnbrentry struct {
     Rsvpnbrstatus interface{}
 }
 
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetFilter() yfilter.YFilter { return rsvpnbrentry.YFilter }
+func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetEntityData() *types.CommonEntityData {
+    rsvpnbrentry.EntityData.YFilter = rsvpnbrentry.YFilter
+    rsvpnbrentry.EntityData.YangName = "rsvpNbrEntry"
+    rsvpnbrentry.EntityData.BundleName = "cisco_ios_xe"
+    rsvpnbrentry.EntityData.ParentYangName = "rsvpNbrTable"
+    rsvpnbrentry.EntityData.SegmentPath = "rsvpNbrEntry" + "[ifIndex='" + fmt.Sprintf("%v", rsvpnbrentry.Ifindex) + "']" + "[rsvpNbrAddress='" + fmt.Sprintf("%v", rsvpnbrentry.Rsvpnbraddress) + "']"
+    rsvpnbrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rsvpnbrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rsvpnbrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) SetFilter(yf yfilter.YFilter) { rsvpnbrentry.YFilter = yf }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "rsvpNbrAddress" { return "Rsvpnbraddress" }
-    if yname == "rsvpNbrProtocol" { return "Rsvpnbrprotocol" }
-    if yname == "rsvpNbrStatus" { return "Rsvpnbrstatus" }
-    return ""
+    rsvpnbrentry.EntityData.Children = make(map[string]types.YChild)
+    rsvpnbrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rsvpnbrentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", rsvpnbrentry.Ifindex}
+    rsvpnbrentry.EntityData.Leafs["rsvpNbrAddress"] = types.YLeaf{"Rsvpnbraddress", rsvpnbrentry.Rsvpnbraddress}
+    rsvpnbrentry.EntityData.Leafs["rsvpNbrProtocol"] = types.YLeaf{"Rsvpnbrprotocol", rsvpnbrentry.Rsvpnbrprotocol}
+    rsvpnbrentry.EntityData.Leafs["rsvpNbrStatus"] = types.YLeaf{"Rsvpnbrstatus", rsvpnbrentry.Rsvpnbrstatus}
+    return &(rsvpnbrentry.EntityData)
 }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetSegmentPath() string {
-    return "rsvpNbrEntry" + "[ifIndex='" + fmt.Sprintf("%v", rsvpnbrentry.Ifindex) + "']" + "[rsvpNbrAddress='" + fmt.Sprintf("%v", rsvpnbrentry.Rsvpnbraddress) + "']"
-}
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = rsvpnbrentry.Ifindex
-    leafs["rsvpNbrAddress"] = rsvpnbrentry.Rsvpnbraddress
-    leafs["rsvpNbrProtocol"] = rsvpnbrentry.Rsvpnbrprotocol
-    leafs["rsvpNbrStatus"] = rsvpnbrentry.Rsvpnbrstatus
-    return leafs
-}
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetYangName() string { return "rsvpNbrEntry" }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) SetParent(parent types.Entity) { rsvpnbrentry.parent = parent }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetParent() types.Entity { return rsvpnbrentry.parent }
-
-func (rsvpnbrentry *RSVPMIB_Rsvpnbrtable_Rsvpnbrentry) GetParentYangName() string { return "rsvpNbrTable" }
 

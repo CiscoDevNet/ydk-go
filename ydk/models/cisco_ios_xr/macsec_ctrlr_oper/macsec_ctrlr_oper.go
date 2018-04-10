@@ -55,66 +55,33 @@ const (
 // MacsecCtrlrOper
 // Macsec controller data
 type MacsecCtrlrOper struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // All Macsec Controller Port operational data.
     MacsecCtrlrPorts MacsecCtrlrOper_MacsecCtrlrPorts
 }
 
-func (macsecCtrlrOper *MacsecCtrlrOper) GetFilter() yfilter.YFilter { return macsecCtrlrOper.YFilter }
+func (macsecCtrlrOper *MacsecCtrlrOper) GetEntityData() *types.CommonEntityData {
+    macsecCtrlrOper.EntityData.YFilter = macsecCtrlrOper.YFilter
+    macsecCtrlrOper.EntityData.YangName = "macsec-ctrlr-oper"
+    macsecCtrlrOper.EntityData.BundleName = "cisco_ios_xr"
+    macsecCtrlrOper.EntityData.ParentYangName = "Cisco-IOS-XR-macsec-ctrlr-oper"
+    macsecCtrlrOper.EntityData.SegmentPath = "Cisco-IOS-XR-macsec-ctrlr-oper:macsec-ctrlr-oper"
+    macsecCtrlrOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macsecCtrlrOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macsecCtrlrOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macsecCtrlrOper *MacsecCtrlrOper) SetFilter(yf yfilter.YFilter) { macsecCtrlrOper.YFilter = yf }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetGoName(yname string) string {
-    if yname == "macsec-ctrlr-ports" { return "MacsecCtrlrPorts" }
-    return ""
+    macsecCtrlrOper.EntityData.Children = make(map[string]types.YChild)
+    macsecCtrlrOper.EntityData.Children["macsec-ctrlr-ports"] = types.YChild{"MacsecCtrlrPorts", &macsecCtrlrOper.MacsecCtrlrPorts}
+    macsecCtrlrOper.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(macsecCtrlrOper.EntityData)
 }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetSegmentPath() string {
-    return "Cisco-IOS-XR-macsec-ctrlr-oper:macsec-ctrlr-oper"
-}
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "macsec-ctrlr-ports" {
-        return &macsecCtrlrOper.MacsecCtrlrPorts
-    }
-    return nil
-}
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["macsec-ctrlr-ports"] = &macsecCtrlrOper.MacsecCtrlrPorts
-    return children
-}
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetYangName() string { return "macsec-ctrlr-oper" }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) SetParent(parent types.Entity) { macsecCtrlrOper.parent = parent }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetParent() types.Entity { return macsecCtrlrOper.parent }
-
-func (macsecCtrlrOper *MacsecCtrlrOper) GetParentYangName() string { return "Cisco-IOS-XR-macsec-ctrlr-oper" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts
 // All Macsec Controller Port operational data
 type MacsecCtrlrOper_MacsecCtrlrPorts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Controller name. The type is slice of
@@ -122,133 +89,60 @@ type MacsecCtrlrOper_MacsecCtrlrPorts struct {
     MacsecCtrlrPort []MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort
 }
 
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetFilter() yfilter.YFilter { return macsecCtrlrPorts.YFilter }
+func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetEntityData() *types.CommonEntityData {
+    macsecCtrlrPorts.EntityData.YFilter = macsecCtrlrPorts.YFilter
+    macsecCtrlrPorts.EntityData.YangName = "macsec-ctrlr-ports"
+    macsecCtrlrPorts.EntityData.BundleName = "cisco_ios_xr"
+    macsecCtrlrPorts.EntityData.ParentYangName = "macsec-ctrlr-oper"
+    macsecCtrlrPorts.EntityData.SegmentPath = "macsec-ctrlr-ports"
+    macsecCtrlrPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macsecCtrlrPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macsecCtrlrPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) SetFilter(yf yfilter.YFilter) { macsecCtrlrPorts.YFilter = yf }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetGoName(yname string) string {
-    if yname == "macsec-ctrlr-port" { return "MacsecCtrlrPort" }
-    return ""
-}
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetSegmentPath() string {
-    return "macsec-ctrlr-ports"
-}
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "macsec-ctrlr-port" {
-        for _, c := range macsecCtrlrPorts.MacsecCtrlrPort {
-            if macsecCtrlrPorts.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort{}
-        macsecCtrlrPorts.MacsecCtrlrPort = append(macsecCtrlrPorts.MacsecCtrlrPort, child)
-        return &macsecCtrlrPorts.MacsecCtrlrPort[len(macsecCtrlrPorts.MacsecCtrlrPort)-1]
-    }
-    return nil
-}
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    macsecCtrlrPorts.EntityData.Children = make(map[string]types.YChild)
+    macsecCtrlrPorts.EntityData.Children["macsec-ctrlr-port"] = types.YChild{"MacsecCtrlrPort", nil}
     for i := range macsecCtrlrPorts.MacsecCtrlrPort {
-        children[macsecCtrlrPorts.MacsecCtrlrPort[i].GetSegmentPath()] = &macsecCtrlrPorts.MacsecCtrlrPort[i]
+        macsecCtrlrPorts.EntityData.Children[types.GetSegmentPath(&macsecCtrlrPorts.MacsecCtrlrPort[i])] = types.YChild{"MacsecCtrlrPort", &macsecCtrlrPorts.MacsecCtrlrPort[i]}
     }
-    return children
+    macsecCtrlrPorts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(macsecCtrlrPorts.EntityData)
 }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetYangName() string { return "macsec-ctrlr-ports" }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) SetParent(parent types.Entity) { macsecCtrlrPorts.parent = parent }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetParent() types.Entity { return macsecCtrlrPorts.parent }
-
-func (macsecCtrlrPorts *MacsecCtrlrOper_MacsecCtrlrPorts) GetParentYangName() string { return "macsec-ctrlr-oper" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort
 // Controller name
 type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     Name interface{}
 
     // Macsec Controller operational data.
     MacsecCtrlrInfo MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo
 }
 
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetFilter() yfilter.YFilter { return macsecCtrlrPort.YFilter }
+func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetEntityData() *types.CommonEntityData {
+    macsecCtrlrPort.EntityData.YFilter = macsecCtrlrPort.YFilter
+    macsecCtrlrPort.EntityData.YangName = "macsec-ctrlr-port"
+    macsecCtrlrPort.EntityData.BundleName = "cisco_ios_xr"
+    macsecCtrlrPort.EntityData.ParentYangName = "macsec-ctrlr-ports"
+    macsecCtrlrPort.EntityData.SegmentPath = "macsec-ctrlr-port" + "[name='" + fmt.Sprintf("%v", macsecCtrlrPort.Name) + "']"
+    macsecCtrlrPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macsecCtrlrPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macsecCtrlrPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) SetFilter(yf yfilter.YFilter) { macsecCtrlrPort.YFilter = yf }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "macsec-ctrlr-info" { return "MacsecCtrlrInfo" }
-    return ""
+    macsecCtrlrPort.EntityData.Children = make(map[string]types.YChild)
+    macsecCtrlrPort.EntityData.Children["macsec-ctrlr-info"] = types.YChild{"MacsecCtrlrInfo", &macsecCtrlrPort.MacsecCtrlrInfo}
+    macsecCtrlrPort.EntityData.Leafs = make(map[string]types.YLeaf)
+    macsecCtrlrPort.EntityData.Leafs["name"] = types.YLeaf{"Name", macsecCtrlrPort.Name}
+    return &(macsecCtrlrPort.EntityData)
 }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetSegmentPath() string {
-    return "macsec-ctrlr-port" + "[name='" + fmt.Sprintf("%v", macsecCtrlrPort.Name) + "']"
-}
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "macsec-ctrlr-info" {
-        return &macsecCtrlrPort.MacsecCtrlrInfo
-    }
-    return nil
-}
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["macsec-ctrlr-info"] = &macsecCtrlrPort.MacsecCtrlrInfo
-    return children
-}
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = macsecCtrlrPort.Name
-    return leafs
-}
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetYangName() string { return "macsec-ctrlr-port" }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) SetParent(parent types.Entity) { macsecCtrlrPort.parent = parent }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetParent() types.Entity { return macsecCtrlrPort.parent }
-
-func (macsecCtrlrPort *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort) GetParentYangName() string { return "macsec-ctrlr-ports" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo
 // Macsec Controller operational data
 type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // State. The type is MacsecCtrlrState.
@@ -270,72 +164,31 @@ type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo struct {
     DecryptScStatus MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus
 }
 
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetFilter() yfilter.YFilter { return macsecCtrlrInfo.YFilter }
+func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetEntityData() *types.CommonEntityData {
+    macsecCtrlrInfo.EntityData.YFilter = macsecCtrlrInfo.YFilter
+    macsecCtrlrInfo.EntityData.YangName = "macsec-ctrlr-info"
+    macsecCtrlrInfo.EntityData.BundleName = "cisco_ios_xr"
+    macsecCtrlrInfo.EntityData.ParentYangName = "macsec-ctrlr-port"
+    macsecCtrlrInfo.EntityData.SegmentPath = "macsec-ctrlr-info"
+    macsecCtrlrInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macsecCtrlrInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macsecCtrlrInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) SetFilter(yf yfilter.YFilter) { macsecCtrlrInfo.YFilter = yf }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetGoName(yname string) string {
-    if yname == "state" { return "State" }
-    if yname == "replay-window-size" { return "ReplayWindowSize" }
-    if yname == "must-secure" { return "MustSecure" }
-    if yname == "secure-mode" { return "SecureMode" }
-    if yname == "encrypt-sc-status" { return "EncryptScStatus" }
-    if yname == "decrypt-sc-status" { return "DecryptScStatus" }
-    return ""
+    macsecCtrlrInfo.EntityData.Children = make(map[string]types.YChild)
+    macsecCtrlrInfo.EntityData.Children["encrypt-sc-status"] = types.YChild{"EncryptScStatus", &macsecCtrlrInfo.EncryptScStatus}
+    macsecCtrlrInfo.EntityData.Children["decrypt-sc-status"] = types.YChild{"DecryptScStatus", &macsecCtrlrInfo.DecryptScStatus}
+    macsecCtrlrInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    macsecCtrlrInfo.EntityData.Leafs["state"] = types.YLeaf{"State", macsecCtrlrInfo.State}
+    macsecCtrlrInfo.EntityData.Leafs["replay-window-size"] = types.YLeaf{"ReplayWindowSize", macsecCtrlrInfo.ReplayWindowSize}
+    macsecCtrlrInfo.EntityData.Leafs["must-secure"] = types.YLeaf{"MustSecure", macsecCtrlrInfo.MustSecure}
+    macsecCtrlrInfo.EntityData.Leafs["secure-mode"] = types.YLeaf{"SecureMode", macsecCtrlrInfo.SecureMode}
+    return &(macsecCtrlrInfo.EntityData)
 }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetSegmentPath() string {
-    return "macsec-ctrlr-info"
-}
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "encrypt-sc-status" {
-        return &macsecCtrlrInfo.EncryptScStatus
-    }
-    if childYangName == "decrypt-sc-status" {
-        return &macsecCtrlrInfo.DecryptScStatus
-    }
-    return nil
-}
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["encrypt-sc-status"] = &macsecCtrlrInfo.EncryptScStatus
-    children["decrypt-sc-status"] = &macsecCtrlrInfo.DecryptScStatus
-    return children
-}
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["state"] = macsecCtrlrInfo.State
-    leafs["replay-window-size"] = macsecCtrlrInfo.ReplayWindowSize
-    leafs["must-secure"] = macsecCtrlrInfo.MustSecure
-    leafs["secure-mode"] = macsecCtrlrInfo.SecureMode
-    return leafs
-}
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetYangName() string { return "macsec-ctrlr-info" }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) SetParent(parent types.Entity) { macsecCtrlrInfo.parent = parent }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetParent() types.Entity { return macsecCtrlrInfo.parent }
-
-func (macsecCtrlrInfo *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo) GetParentYangName() string { return "macsec-ctrlr-port" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus
 // Encrypt Secure Channel Status
 type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Protection Enabled. The type is bool.
@@ -363,80 +216,35 @@ type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScS
     ActiveAssociation []MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation
 }
 
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetFilter() yfilter.YFilter { return encryptScStatus.YFilter }
+func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetEntityData() *types.CommonEntityData {
+    encryptScStatus.EntityData.YFilter = encryptScStatus.YFilter
+    encryptScStatus.EntityData.YangName = "encrypt-sc-status"
+    encryptScStatus.EntityData.BundleName = "cisco_ios_xr"
+    encryptScStatus.EntityData.ParentYangName = "macsec-ctrlr-info"
+    encryptScStatus.EntityData.SegmentPath = "encrypt-sc-status"
+    encryptScStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    encryptScStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    encryptScStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) SetFilter(yf yfilter.YFilter) { encryptScStatus.YFilter = yf }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetGoName(yname string) string {
-    if yname == "protection-enabled" { return "ProtectionEnabled" }
-    if yname == "secure-channel-id" { return "SecureChannelId" }
-    if yname == "confidentiality-offset" { return "ConfidentialityOffset" }
-    if yname == "cipher-suite" { return "CipherSuite" }
-    if yname == "max-packet-number" { return "MaxPacketNumber" }
-    if yname == "recent-packet-number" { return "RecentPacketNumber" }
-    if yname == "active-association" { return "ActiveAssociation" }
-    return ""
-}
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetSegmentPath() string {
-    return "encrypt-sc-status"
-}
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "active-association" {
-        for _, c := range encryptScStatus.ActiveAssociation {
-            if encryptScStatus.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation{}
-        encryptScStatus.ActiveAssociation = append(encryptScStatus.ActiveAssociation, child)
-        return &encryptScStatus.ActiveAssociation[len(encryptScStatus.ActiveAssociation)-1]
-    }
-    return nil
-}
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    encryptScStatus.EntityData.Children = make(map[string]types.YChild)
+    encryptScStatus.EntityData.Children["active-association"] = types.YChild{"ActiveAssociation", nil}
     for i := range encryptScStatus.ActiveAssociation {
-        children[encryptScStatus.ActiveAssociation[i].GetSegmentPath()] = &encryptScStatus.ActiveAssociation[i]
+        encryptScStatus.EntityData.Children[types.GetSegmentPath(&encryptScStatus.ActiveAssociation[i])] = types.YChild{"ActiveAssociation", &encryptScStatus.ActiveAssociation[i]}
     }
-    return children
+    encryptScStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    encryptScStatus.EntityData.Leafs["protection-enabled"] = types.YLeaf{"ProtectionEnabled", encryptScStatus.ProtectionEnabled}
+    encryptScStatus.EntityData.Leafs["secure-channel-id"] = types.YLeaf{"SecureChannelId", encryptScStatus.SecureChannelId}
+    encryptScStatus.EntityData.Leafs["confidentiality-offset"] = types.YLeaf{"ConfidentialityOffset", encryptScStatus.ConfidentialityOffset}
+    encryptScStatus.EntityData.Leafs["cipher-suite"] = types.YLeaf{"CipherSuite", encryptScStatus.CipherSuite}
+    encryptScStatus.EntityData.Leafs["max-packet-number"] = types.YLeaf{"MaxPacketNumber", encryptScStatus.MaxPacketNumber}
+    encryptScStatus.EntityData.Leafs["recent-packet-number"] = types.YLeaf{"RecentPacketNumber", encryptScStatus.RecentPacketNumber}
+    return &(encryptScStatus.EntityData)
 }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["protection-enabled"] = encryptScStatus.ProtectionEnabled
-    leafs["secure-channel-id"] = encryptScStatus.SecureChannelId
-    leafs["confidentiality-offset"] = encryptScStatus.ConfidentialityOffset
-    leafs["cipher-suite"] = encryptScStatus.CipherSuite
-    leafs["max-packet-number"] = encryptScStatus.MaxPacketNumber
-    leafs["recent-packet-number"] = encryptScStatus.RecentPacketNumber
-    return leafs
-}
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetYangName() string { return "encrypt-sc-status" }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) SetParent(parent types.Entity) { encryptScStatus.parent = parent }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetParent() types.Entity { return encryptScStatus.parent }
-
-func (encryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus) GetParentYangName() string { return "macsec-ctrlr-info" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation
 // Active Associations
 type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Association Number. The type is interface{} with range: 0..255.
@@ -446,58 +254,27 @@ type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScS
     ShortSecureChannelId interface{}
 }
 
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetFilter() yfilter.YFilter { return activeAssociation.YFilter }
+func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetEntityData() *types.CommonEntityData {
+    activeAssociation.EntityData.YFilter = activeAssociation.YFilter
+    activeAssociation.EntityData.YangName = "active-association"
+    activeAssociation.EntityData.BundleName = "cisco_ios_xr"
+    activeAssociation.EntityData.ParentYangName = "encrypt-sc-status"
+    activeAssociation.EntityData.SegmentPath = "active-association"
+    activeAssociation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activeAssociation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activeAssociation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) SetFilter(yf yfilter.YFilter) { activeAssociation.YFilter = yf }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetGoName(yname string) string {
-    if yname == "association-number" { return "AssociationNumber" }
-    if yname == "short-secure-channel-id" { return "ShortSecureChannelId" }
-    return ""
+    activeAssociation.EntityData.Children = make(map[string]types.YChild)
+    activeAssociation.EntityData.Leafs = make(map[string]types.YLeaf)
+    activeAssociation.EntityData.Leafs["association-number"] = types.YLeaf{"AssociationNumber", activeAssociation.AssociationNumber}
+    activeAssociation.EntityData.Leafs["short-secure-channel-id"] = types.YLeaf{"ShortSecureChannelId", activeAssociation.ShortSecureChannelId}
+    return &(activeAssociation.EntityData)
 }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetSegmentPath() string {
-    return "active-association"
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["association-number"] = activeAssociation.AssociationNumber
-    leafs["short-secure-channel-id"] = activeAssociation.ShortSecureChannelId
-    return leafs
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetYangName() string { return "active-association" }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) SetParent(parent types.Entity) { activeAssociation.parent = parent }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetParent() types.Entity { return activeAssociation.parent }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_EncryptScStatus_ActiveAssociation) GetParentYangName() string { return "encrypt-sc-status" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus
 // Decrypt Secure Channel Status
 type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Protection Enabled. The type is bool.
@@ -525,80 +302,35 @@ type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScS
     ActiveAssociation []MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation
 }
 
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetFilter() yfilter.YFilter { return decryptScStatus.YFilter }
+func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetEntityData() *types.CommonEntityData {
+    decryptScStatus.EntityData.YFilter = decryptScStatus.YFilter
+    decryptScStatus.EntityData.YangName = "decrypt-sc-status"
+    decryptScStatus.EntityData.BundleName = "cisco_ios_xr"
+    decryptScStatus.EntityData.ParentYangName = "macsec-ctrlr-info"
+    decryptScStatus.EntityData.SegmentPath = "decrypt-sc-status"
+    decryptScStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    decryptScStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    decryptScStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) SetFilter(yf yfilter.YFilter) { decryptScStatus.YFilter = yf }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetGoName(yname string) string {
-    if yname == "protection-enabled" { return "ProtectionEnabled" }
-    if yname == "secure-channel-id" { return "SecureChannelId" }
-    if yname == "confidentiality-offset" { return "ConfidentialityOffset" }
-    if yname == "cipher-suite" { return "CipherSuite" }
-    if yname == "max-packet-number" { return "MaxPacketNumber" }
-    if yname == "recent-packet-number" { return "RecentPacketNumber" }
-    if yname == "active-association" { return "ActiveAssociation" }
-    return ""
-}
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetSegmentPath() string {
-    return "decrypt-sc-status"
-}
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "active-association" {
-        for _, c := range decryptScStatus.ActiveAssociation {
-            if decryptScStatus.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation{}
-        decryptScStatus.ActiveAssociation = append(decryptScStatus.ActiveAssociation, child)
-        return &decryptScStatus.ActiveAssociation[len(decryptScStatus.ActiveAssociation)-1]
-    }
-    return nil
-}
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    decryptScStatus.EntityData.Children = make(map[string]types.YChild)
+    decryptScStatus.EntityData.Children["active-association"] = types.YChild{"ActiveAssociation", nil}
     for i := range decryptScStatus.ActiveAssociation {
-        children[decryptScStatus.ActiveAssociation[i].GetSegmentPath()] = &decryptScStatus.ActiveAssociation[i]
+        decryptScStatus.EntityData.Children[types.GetSegmentPath(&decryptScStatus.ActiveAssociation[i])] = types.YChild{"ActiveAssociation", &decryptScStatus.ActiveAssociation[i]}
     }
-    return children
+    decryptScStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    decryptScStatus.EntityData.Leafs["protection-enabled"] = types.YLeaf{"ProtectionEnabled", decryptScStatus.ProtectionEnabled}
+    decryptScStatus.EntityData.Leafs["secure-channel-id"] = types.YLeaf{"SecureChannelId", decryptScStatus.SecureChannelId}
+    decryptScStatus.EntityData.Leafs["confidentiality-offset"] = types.YLeaf{"ConfidentialityOffset", decryptScStatus.ConfidentialityOffset}
+    decryptScStatus.EntityData.Leafs["cipher-suite"] = types.YLeaf{"CipherSuite", decryptScStatus.CipherSuite}
+    decryptScStatus.EntityData.Leafs["max-packet-number"] = types.YLeaf{"MaxPacketNumber", decryptScStatus.MaxPacketNumber}
+    decryptScStatus.EntityData.Leafs["recent-packet-number"] = types.YLeaf{"RecentPacketNumber", decryptScStatus.RecentPacketNumber}
+    return &(decryptScStatus.EntityData)
 }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["protection-enabled"] = decryptScStatus.ProtectionEnabled
-    leafs["secure-channel-id"] = decryptScStatus.SecureChannelId
-    leafs["confidentiality-offset"] = decryptScStatus.ConfidentialityOffset
-    leafs["cipher-suite"] = decryptScStatus.CipherSuite
-    leafs["max-packet-number"] = decryptScStatus.MaxPacketNumber
-    leafs["recent-packet-number"] = decryptScStatus.RecentPacketNumber
-    return leafs
-}
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetYangName() string { return "decrypt-sc-status" }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) SetParent(parent types.Entity) { decryptScStatus.parent = parent }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetParent() types.Entity { return decryptScStatus.parent }
-
-func (decryptScStatus *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus) GetParentYangName() string { return "macsec-ctrlr-info" }
 
 // MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation
 // Active Associations
 type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Association Number. The type is interface{} with range: 0..255.
@@ -608,51 +340,20 @@ type MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScS
     ShortSecureChannelId interface{}
 }
 
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetFilter() yfilter.YFilter { return activeAssociation.YFilter }
+func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetEntityData() *types.CommonEntityData {
+    activeAssociation.EntityData.YFilter = activeAssociation.YFilter
+    activeAssociation.EntityData.YangName = "active-association"
+    activeAssociation.EntityData.BundleName = "cisco_ios_xr"
+    activeAssociation.EntityData.ParentYangName = "decrypt-sc-status"
+    activeAssociation.EntityData.SegmentPath = "active-association"
+    activeAssociation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    activeAssociation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    activeAssociation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) SetFilter(yf yfilter.YFilter) { activeAssociation.YFilter = yf }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetGoName(yname string) string {
-    if yname == "association-number" { return "AssociationNumber" }
-    if yname == "short-secure-channel-id" { return "ShortSecureChannelId" }
-    return ""
+    activeAssociation.EntityData.Children = make(map[string]types.YChild)
+    activeAssociation.EntityData.Leafs = make(map[string]types.YLeaf)
+    activeAssociation.EntityData.Leafs["association-number"] = types.YLeaf{"AssociationNumber", activeAssociation.AssociationNumber}
+    activeAssociation.EntityData.Leafs["short-secure-channel-id"] = types.YLeaf{"ShortSecureChannelId", activeAssociation.ShortSecureChannelId}
+    return &(activeAssociation.EntityData)
 }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetSegmentPath() string {
-    return "active-association"
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["association-number"] = activeAssociation.AssociationNumber
-    leafs["short-secure-channel-id"] = activeAssociation.ShortSecureChannelId
-    return leafs
-}
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetYangName() string { return "active-association" }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) SetParent(parent types.Entity) { activeAssociation.parent = parent }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetParent() types.Entity { return activeAssociation.parent }
-
-func (activeAssociation *MacsecCtrlrOper_MacsecCtrlrPorts_MacsecCtrlrPort_MacsecCtrlrInfo_DecryptScStatus_ActiveAssociation) GetParentYangName() string { return "decrypt-sc-status" }
 

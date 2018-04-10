@@ -27,7 +27,7 @@ func init() {
 // Redundancy
 // Redundancy show information
 type Redundancy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Location show information.
@@ -37,136 +37,60 @@ type Redundancy struct {
     Summary Redundancy_Summary
 }
 
-func (redundancy *Redundancy) GetFilter() yfilter.YFilter { return redundancy.YFilter }
+func (redundancy *Redundancy) GetEntityData() *types.CommonEntityData {
+    redundancy.EntityData.YFilter = redundancy.YFilter
+    redundancy.EntityData.YangName = "redundancy"
+    redundancy.EntityData.BundleName = "cisco_ios_xr"
+    redundancy.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rmf-oper"
+    redundancy.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rmf-oper:redundancy"
+    redundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    redundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    redundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (redundancy *Redundancy) SetFilter(yf yfilter.YFilter) { redundancy.YFilter = yf }
-
-func (redundancy *Redundancy) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    if yname == "summary" { return "Summary" }
-    return ""
+    redundancy.EntityData.Children = make(map[string]types.YChild)
+    redundancy.EntityData.Children["nodes"] = types.YChild{"Nodes", &redundancy.Nodes}
+    redundancy.EntityData.Children["summary"] = types.YChild{"Summary", &redundancy.Summary}
+    redundancy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(redundancy.EntityData)
 }
-
-func (redundancy *Redundancy) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-rmf-oper:redundancy"
-}
-
-func (redundancy *Redundancy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &redundancy.Nodes
-    }
-    if childYangName == "summary" {
-        return &redundancy.Summary
-    }
-    return nil
-}
-
-func (redundancy *Redundancy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &redundancy.Nodes
-    children["summary"] = &redundancy.Summary
-    return children
-}
-
-func (redundancy *Redundancy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (redundancy *Redundancy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (redundancy *Redundancy) GetYangName() string { return "redundancy" }
-
-func (redundancy *Redundancy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (redundancy *Redundancy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (redundancy *Redundancy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (redundancy *Redundancy) SetParent(parent types.Entity) { redundancy.parent = parent }
-
-func (redundancy *Redundancy) GetParent() types.Entity { return redundancy.parent }
-
-func (redundancy *Redundancy) GetParentYangName() string { return "Cisco-IOS-XR-infra-rmf-oper" }
 
 // Redundancy_Nodes
 // Location show information
 type Redundancy_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Redundancy Node Information. The type is slice of Redundancy_Nodes_Node.
     Node []Redundancy_Nodes_Node
 }
 
-func (nodes *Redundancy_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Redundancy_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "redundancy"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Redundancy_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Redundancy_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Redundancy_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Redundancy_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Redundancy_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Redundancy_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Redundancy_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Redundancy_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Redundancy_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Redundancy_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Redundancy_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Redundancy_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Redundancy_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Redundancy_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Redundancy_Nodes) GetParentYangName() string { return "redundancy" }
 
 // Redundancy_Nodes_Node
 // Redundancy Node Information
 type Redundancy_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node Location. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Reload and boot logs. The type is string.
@@ -182,72 +106,34 @@ type Redundancy_Nodes_Node struct {
     ErrLog interface{}
 
     // Row information.
-    Redundancy Redundancy_Nodes_Node_Redundancy
+    Redundancy Redundancy_Nodes_Node_Redundancy_
 }
 
-func (node *Redundancy_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Redundancy_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Redundancy_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Redundancy_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-id" { return "NodeId" }
-    if yname == "log" { return "Log" }
-    if yname == "active-reboot-reason" { return "ActiveRebootReason" }
-    if yname == "standby-reboot-reason" { return "StandbyRebootReason" }
-    if yname == "err-log" { return "ErrLog" }
-    if yname == "redundancy" { return "Redundancy" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["redundancy"] = types.YChild{"Redundancy", &node.Redundancy}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    node.EntityData.Leafs["log"] = types.YLeaf{"Log", node.Log}
+    node.EntityData.Leafs["active-reboot-reason"] = types.YLeaf{"ActiveRebootReason", node.ActiveRebootReason}
+    node.EntityData.Leafs["standby-reboot-reason"] = types.YLeaf{"StandbyRebootReason", node.StandbyRebootReason}
+    node.EntityData.Leafs["err-log"] = types.YLeaf{"ErrLog", node.ErrLog}
+    return &(node.EntityData)
 }
 
-func (node *Redundancy_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
-}
-
-func (node *Redundancy_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "redundancy" {
-        return &node.Redundancy
-    }
-    return nil
-}
-
-func (node *Redundancy_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["redundancy"] = &node.Redundancy
-    return children
-}
-
-func (node *Redundancy_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-id"] = node.NodeId
-    leafs["log"] = node.Log
-    leafs["active-reboot-reason"] = node.ActiveRebootReason
-    leafs["standby-reboot-reason"] = node.StandbyRebootReason
-    leafs["err-log"] = node.ErrLog
-    return leafs
-}
-
-func (node *Redundancy_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Redundancy_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Redundancy_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Redundancy_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Redundancy_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Redundancy_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Redundancy_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Redundancy_Nodes_Node) GetParentYangName() string { return "nodes" }
-
-// Redundancy_Nodes_Node_Redundancy
+// Redundancy_Nodes_Node_Redundancy_
 // Row information
-type Redundancy_Nodes_Node_Redundancy struct {
-    parent types.Entity
+type Redundancy_Nodes_Node_Redundancy_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Active node name R/S/I. The type is string.
@@ -262,80 +148,38 @@ type Redundancy_Nodes_Node_Redundancy struct {
     // NSR state Configured/Not Configured. The type is string.
     NsrState interface{}
 
-    // groupinfo. The type is slice of Redundancy_Nodes_Node_Redundancy_Groupinfo.
-    Groupinfo []Redundancy_Nodes_Node_Redundancy_Groupinfo
+    // groupinfo. The type is slice of
+    // Redundancy_Nodes_Node_Redundancy__Groupinfo.
+    Groupinfo []Redundancy_Nodes_Node_Redundancy__Groupinfo
 }
 
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetFilter() yfilter.YFilter { return redundancy.YFilter }
+func (redundancy_ *Redundancy_Nodes_Node_Redundancy_) GetEntityData() *types.CommonEntityData {
+    redundancy_.EntityData.YFilter = redundancy_.YFilter
+    redundancy_.EntityData.YangName = "redundancy"
+    redundancy_.EntityData.BundleName = "cisco_ios_xr"
+    redundancy_.EntityData.ParentYangName = "node"
+    redundancy_.EntityData.SegmentPath = "redundancy"
+    redundancy_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    redundancy_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    redundancy_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (redundancy *Redundancy_Nodes_Node_Redundancy) SetFilter(yf yfilter.YFilter) { redundancy.YFilter = yf }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetGoName(yname string) string {
-    if yname == "active" { return "Active" }
-    if yname == "standby" { return "Standby" }
-    if yname == "ha-state" { return "HaState" }
-    if yname == "nsr-state" { return "NsrState" }
-    if yname == "groupinfo" { return "Groupinfo" }
-    return ""
-}
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetSegmentPath() string {
-    return "redundancy"
-}
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "groupinfo" {
-        for _, c := range redundancy.Groupinfo {
-            if redundancy.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Redundancy_Nodes_Node_Redundancy_Groupinfo{}
-        redundancy.Groupinfo = append(redundancy.Groupinfo, child)
-        return &redundancy.Groupinfo[len(redundancy.Groupinfo)-1]
+    redundancy_.EntityData.Children = make(map[string]types.YChild)
+    redundancy_.EntityData.Children["groupinfo"] = types.YChild{"Groupinfo", nil}
+    for i := range redundancy_.Groupinfo {
+        redundancy_.EntityData.Children[types.GetSegmentPath(&redundancy_.Groupinfo[i])] = types.YChild{"Groupinfo", &redundancy_.Groupinfo[i]}
     }
-    return nil
+    redundancy_.EntityData.Leafs = make(map[string]types.YLeaf)
+    redundancy_.EntityData.Leafs["active"] = types.YLeaf{"Active", redundancy_.Active}
+    redundancy_.EntityData.Leafs["standby"] = types.YLeaf{"Standby", redundancy_.Standby}
+    redundancy_.EntityData.Leafs["ha-state"] = types.YLeaf{"HaState", redundancy_.HaState}
+    redundancy_.EntityData.Leafs["nsr-state"] = types.YLeaf{"NsrState", redundancy_.NsrState}
+    return &(redundancy_.EntityData)
 }
 
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range redundancy.Groupinfo {
-        children[redundancy.Groupinfo[i].GetSegmentPath()] = &redundancy.Groupinfo[i]
-    }
-    return children
-}
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active"] = redundancy.Active
-    leafs["standby"] = redundancy.Standby
-    leafs["ha-state"] = redundancy.HaState
-    leafs["nsr-state"] = redundancy.NsrState
-    return leafs
-}
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetYangName() string { return "redundancy" }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) SetParent(parent types.Entity) { redundancy.parent = parent }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetParent() types.Entity { return redundancy.parent }
-
-func (redundancy *Redundancy_Nodes_Node_Redundancy) GetParentYangName() string { return "node" }
-
-// Redundancy_Nodes_Node_Redundancy_Groupinfo
+// Redundancy_Nodes_Node_Redundancy__Groupinfo
 // groupinfo
-type Redundancy_Nodes_Node_Redundancy_Groupinfo struct {
-    parent types.Entity
+type Redundancy_Nodes_Node_Redundancy__Groupinfo struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Active. The type is string.
@@ -351,62 +195,29 @@ type Redundancy_Nodes_Node_Redundancy_Groupinfo struct {
     NsrState interface{}
 }
 
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetFilter() yfilter.YFilter { return groupinfo.YFilter }
+func (groupinfo *Redundancy_Nodes_Node_Redundancy__Groupinfo) GetEntityData() *types.CommonEntityData {
+    groupinfo.EntityData.YFilter = groupinfo.YFilter
+    groupinfo.EntityData.YangName = "groupinfo"
+    groupinfo.EntityData.BundleName = "cisco_ios_xr"
+    groupinfo.EntityData.ParentYangName = "redundancy"
+    groupinfo.EntityData.SegmentPath = "groupinfo"
+    groupinfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) SetFilter(yf yfilter.YFilter) { groupinfo.YFilter = yf }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetGoName(yname string) string {
-    if yname == "active" { return "Active" }
-    if yname == "standby" { return "Standby" }
-    if yname == "ha-state" { return "HaState" }
-    if yname == "nsr-state" { return "NsrState" }
-    return ""
+    groupinfo.EntityData.Children = make(map[string]types.YChild)
+    groupinfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupinfo.EntityData.Leafs["active"] = types.YLeaf{"Active", groupinfo.Active}
+    groupinfo.EntityData.Leafs["standby"] = types.YLeaf{"Standby", groupinfo.Standby}
+    groupinfo.EntityData.Leafs["ha-state"] = types.YLeaf{"HaState", groupinfo.HaState}
+    groupinfo.EntityData.Leafs["nsr-state"] = types.YLeaf{"NsrState", groupinfo.NsrState}
+    return &(groupinfo.EntityData)
 }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetSegmentPath() string {
-    return "groupinfo"
-}
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active"] = groupinfo.Active
-    leafs["standby"] = groupinfo.Standby
-    leafs["ha-state"] = groupinfo.HaState
-    leafs["nsr-state"] = groupinfo.NsrState
-    return leafs
-}
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetYangName() string { return "groupinfo" }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) SetParent(parent types.Entity) { groupinfo.parent = parent }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetParent() types.Entity { return groupinfo.parent }
-
-func (groupinfo *Redundancy_Nodes_Node_Redundancy_Groupinfo) GetParentYangName() string { return "redundancy" }
 
 // Redundancy_Summary
 // Redundancy Summary of Nodes
 type Redundancy_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Error Log. The type is string.
@@ -416,70 +227,30 @@ type Redundancy_Summary struct {
     RedPair []Redundancy_Summary_RedPair
 }
 
-func (summary *Redundancy_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Redundancy_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "redundancy"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Redundancy_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Redundancy_Summary) GetGoName(yname string) string {
-    if yname == "err-log" { return "ErrLog" }
-    if yname == "red-pair" { return "RedPair" }
-    return ""
-}
-
-func (summary *Redundancy_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Redundancy_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "red-pair" {
-        for _, c := range summary.RedPair {
-            if summary.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Redundancy_Summary_RedPair{}
-        summary.RedPair = append(summary.RedPair, child)
-        return &summary.RedPair[len(summary.RedPair)-1]
-    }
-    return nil
-}
-
-func (summary *Redundancy_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["red-pair"] = types.YChild{"RedPair", nil}
     for i := range summary.RedPair {
-        children[summary.RedPair[i].GetSegmentPath()] = &summary.RedPair[i]
+        summary.EntityData.Children[types.GetSegmentPath(&summary.RedPair[i])] = types.YChild{"RedPair", &summary.RedPair[i]}
     }
-    return children
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["err-log"] = types.YLeaf{"ErrLog", summary.ErrLog}
+    return &(summary.EntityData)
 }
-
-func (summary *Redundancy_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["err-log"] = summary.ErrLog
-    return leafs
-}
-
-func (summary *Redundancy_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Redundancy_Summary) GetYangName() string { return "summary" }
-
-func (summary *Redundancy_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Redundancy_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Redundancy_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Redundancy_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Redundancy_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Redundancy_Summary) GetParentYangName() string { return "redundancy" }
 
 // Redundancy_Summary_RedPair
 // Redundancy Pair
 type Redundancy_Summary_RedPair struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Active node name R/S/I. The type is string.
@@ -498,76 +269,33 @@ type Redundancy_Summary_RedPair struct {
     Groupinfo []Redundancy_Summary_RedPair_Groupinfo
 }
 
-func (redPair *Redundancy_Summary_RedPair) GetFilter() yfilter.YFilter { return redPair.YFilter }
+func (redPair *Redundancy_Summary_RedPair) GetEntityData() *types.CommonEntityData {
+    redPair.EntityData.YFilter = redPair.YFilter
+    redPair.EntityData.YangName = "red-pair"
+    redPair.EntityData.BundleName = "cisco_ios_xr"
+    redPair.EntityData.ParentYangName = "summary"
+    redPair.EntityData.SegmentPath = "red-pair"
+    redPair.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    redPair.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    redPair.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (redPair *Redundancy_Summary_RedPair) SetFilter(yf yfilter.YFilter) { redPair.YFilter = yf }
-
-func (redPair *Redundancy_Summary_RedPair) GetGoName(yname string) string {
-    if yname == "active" { return "Active" }
-    if yname == "standby" { return "Standby" }
-    if yname == "ha-state" { return "HaState" }
-    if yname == "nsr-state" { return "NsrState" }
-    if yname == "groupinfo" { return "Groupinfo" }
-    return ""
-}
-
-func (redPair *Redundancy_Summary_RedPair) GetSegmentPath() string {
-    return "red-pair"
-}
-
-func (redPair *Redundancy_Summary_RedPair) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "groupinfo" {
-        for _, c := range redPair.Groupinfo {
-            if redPair.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Redundancy_Summary_RedPair_Groupinfo{}
-        redPair.Groupinfo = append(redPair.Groupinfo, child)
-        return &redPair.Groupinfo[len(redPair.Groupinfo)-1]
-    }
-    return nil
-}
-
-func (redPair *Redundancy_Summary_RedPair) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    redPair.EntityData.Children = make(map[string]types.YChild)
+    redPair.EntityData.Children["groupinfo"] = types.YChild{"Groupinfo", nil}
     for i := range redPair.Groupinfo {
-        children[redPair.Groupinfo[i].GetSegmentPath()] = &redPair.Groupinfo[i]
+        redPair.EntityData.Children[types.GetSegmentPath(&redPair.Groupinfo[i])] = types.YChild{"Groupinfo", &redPair.Groupinfo[i]}
     }
-    return children
+    redPair.EntityData.Leafs = make(map[string]types.YLeaf)
+    redPair.EntityData.Leafs["active"] = types.YLeaf{"Active", redPair.Active}
+    redPair.EntityData.Leafs["standby"] = types.YLeaf{"Standby", redPair.Standby}
+    redPair.EntityData.Leafs["ha-state"] = types.YLeaf{"HaState", redPair.HaState}
+    redPair.EntityData.Leafs["nsr-state"] = types.YLeaf{"NsrState", redPair.NsrState}
+    return &(redPair.EntityData)
 }
-
-func (redPair *Redundancy_Summary_RedPair) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active"] = redPair.Active
-    leafs["standby"] = redPair.Standby
-    leafs["ha-state"] = redPair.HaState
-    leafs["nsr-state"] = redPair.NsrState
-    return leafs
-}
-
-func (redPair *Redundancy_Summary_RedPair) GetBundleName() string { return "cisco_ios_xr" }
-
-func (redPair *Redundancy_Summary_RedPair) GetYangName() string { return "red-pair" }
-
-func (redPair *Redundancy_Summary_RedPair) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (redPair *Redundancy_Summary_RedPair) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (redPair *Redundancy_Summary_RedPair) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (redPair *Redundancy_Summary_RedPair) SetParent(parent types.Entity) { redPair.parent = parent }
-
-func (redPair *Redundancy_Summary_RedPair) GetParent() types.Entity { return redPair.parent }
-
-func (redPair *Redundancy_Summary_RedPair) GetParentYangName() string { return "summary" }
 
 // Redundancy_Summary_RedPair_Groupinfo
 // groupinfo
 type Redundancy_Summary_RedPair_Groupinfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Active. The type is string.
@@ -583,55 +311,22 @@ type Redundancy_Summary_RedPair_Groupinfo struct {
     NsrState interface{}
 }
 
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetFilter() yfilter.YFilter { return groupinfo.YFilter }
+func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetEntityData() *types.CommonEntityData {
+    groupinfo.EntityData.YFilter = groupinfo.YFilter
+    groupinfo.EntityData.YangName = "groupinfo"
+    groupinfo.EntityData.BundleName = "cisco_ios_xr"
+    groupinfo.EntityData.ParentYangName = "red-pair"
+    groupinfo.EntityData.SegmentPath = "groupinfo"
+    groupinfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    groupinfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    groupinfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) SetFilter(yf yfilter.YFilter) { groupinfo.YFilter = yf }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetGoName(yname string) string {
-    if yname == "active" { return "Active" }
-    if yname == "standby" { return "Standby" }
-    if yname == "ha-state" { return "HaState" }
-    if yname == "nsr-state" { return "NsrState" }
-    return ""
+    groupinfo.EntityData.Children = make(map[string]types.YChild)
+    groupinfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    groupinfo.EntityData.Leafs["active"] = types.YLeaf{"Active", groupinfo.Active}
+    groupinfo.EntityData.Leafs["standby"] = types.YLeaf{"Standby", groupinfo.Standby}
+    groupinfo.EntityData.Leafs["ha-state"] = types.YLeaf{"HaState", groupinfo.HaState}
+    groupinfo.EntityData.Leafs["nsr-state"] = types.YLeaf{"NsrState", groupinfo.NsrState}
+    return &(groupinfo.EntityData)
 }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetSegmentPath() string {
-    return "groupinfo"
-}
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active"] = groupinfo.Active
-    leafs["standby"] = groupinfo.Standby
-    leafs["ha-state"] = groupinfo.HaState
-    leafs["nsr-state"] = groupinfo.NsrState
-    return leafs
-}
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetYangName() string { return "groupinfo" }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) SetParent(parent types.Entity) { groupinfo.parent = parent }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetParent() types.Entity { return groupinfo.parent }
-
-func (groupinfo *Redundancy_Summary_RedPair_Groupinfo) GetParentYangName() string { return "red-pair" }
 

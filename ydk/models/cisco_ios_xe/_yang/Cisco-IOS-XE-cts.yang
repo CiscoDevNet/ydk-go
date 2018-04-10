@@ -37,6 +37,24 @@ module Cisco-IOS-XE-cts {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description 
+      "Add 100GE interface";
+  }
+
+  revision 2017-09-14 {
+    description 
+      "This revision has changes for new 2gig interface addition";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
   revision 2017-06-29 {
     description
       "This revison fix the problem in cts roll-based enforcement";
@@ -768,11 +786,27 @@ module Cisco-IOS-XE-cts {
     uses config-interface-cts-manual-role-based-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-cts-manual-role-based-grouping;
+  }
+  
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-cts-manual-role-based-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
     uses config-interface-cts-manual-role-based-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-cts-manual-role-based-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-cts-manual-role-based-enforcement-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-cts-manual-role-based-enforcement-grouping;
   }
 

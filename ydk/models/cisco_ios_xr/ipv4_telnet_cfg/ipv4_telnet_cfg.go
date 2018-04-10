@@ -30,232 +30,106 @@ func init() {
 // Ipv6Telnet
 // IPv6 telnet configuration
 type Ipv6Telnet struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Telnet client configuration.
     Client Ipv6Telnet_Client
 }
 
-func (ipv6Telnet *Ipv6Telnet) GetFilter() yfilter.YFilter { return ipv6Telnet.YFilter }
+func (ipv6Telnet *Ipv6Telnet) GetEntityData() *types.CommonEntityData {
+    ipv6Telnet.EntityData.YFilter = ipv6Telnet.YFilter
+    ipv6Telnet.EntityData.YangName = "ipv6-telnet"
+    ipv6Telnet.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Telnet.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-telnet-cfg"
+    ipv6Telnet.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet"
+    ipv6Telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Telnet *Ipv6Telnet) SetFilter(yf yfilter.YFilter) { ipv6Telnet.YFilter = yf }
-
-func (ipv6Telnet *Ipv6Telnet) GetGoName(yname string) string {
-    if yname == "client" { return "Client" }
-    return ""
+    ipv6Telnet.EntityData.Children = make(map[string]types.YChild)
+    ipv6Telnet.EntityData.Children["client"] = types.YChild{"Client", &ipv6Telnet.Client}
+    ipv6Telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Telnet.EntityData)
 }
-
-func (ipv6Telnet *Ipv6Telnet) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-telnet-cfg:ipv6-telnet"
-}
-
-func (ipv6Telnet *Ipv6Telnet) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        return &ipv6Telnet.Client
-    }
-    return nil
-}
-
-func (ipv6Telnet *Ipv6Telnet) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["client"] = &ipv6Telnet.Client
-    return children
-}
-
-func (ipv6Telnet *Ipv6Telnet) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Telnet *Ipv6Telnet) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Telnet *Ipv6Telnet) GetYangName() string { return "ipv6-telnet" }
-
-func (ipv6Telnet *Ipv6Telnet) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Telnet *Ipv6Telnet) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Telnet *Ipv6Telnet) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Telnet *Ipv6Telnet) SetParent(parent types.Entity) { ipv6Telnet.parent = parent }
-
-func (ipv6Telnet *Ipv6Telnet) GetParent() types.Entity { return ipv6Telnet.parent }
-
-func (ipv6Telnet *Ipv6Telnet) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-telnet-cfg" }
 
 // Ipv6Telnet_Client
 // Telnet client configuration
 type Ipv6Telnet_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 }
 
-func (client *Ipv6Telnet_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *Ipv6Telnet_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "ipv6-telnet"
+    client.EntityData.SegmentPath = "client"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *Ipv6Telnet_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *Ipv6Telnet_Client) GetGoName(yname string) string {
-    if yname == "source-interface" { return "SourceInterface" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", client.SourceInterface}
+    return &(client.EntityData)
 }
-
-func (client *Ipv6Telnet_Client) GetSegmentPath() string {
-    return "client"
-}
-
-func (client *Ipv6Telnet_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (client *Ipv6Telnet_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (client *Ipv6Telnet_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-interface"] = client.SourceInterface
-    return leafs
-}
-
-func (client *Ipv6Telnet_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *Ipv6Telnet_Client) GetYangName() string { return "client" }
-
-func (client *Ipv6Telnet_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *Ipv6Telnet_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *Ipv6Telnet_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *Ipv6Telnet_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *Ipv6Telnet_Client) GetParent() types.Entity { return client.parent }
-
-func (client *Ipv6Telnet_Client) GetParentYangName() string { return "ipv6-telnet" }
 
 // Ipv4Telnet
 // ipv4 telnet
 type Ipv4Telnet struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Telnet client configuration.
     Client Ipv4Telnet_Client
 }
 
-func (ipv4Telnet *Ipv4Telnet) GetFilter() yfilter.YFilter { return ipv4Telnet.YFilter }
+func (ipv4Telnet *Ipv4Telnet) GetEntityData() *types.CommonEntityData {
+    ipv4Telnet.EntityData.YFilter = ipv4Telnet.YFilter
+    ipv4Telnet.EntityData.YangName = "ipv4-telnet"
+    ipv4Telnet.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Telnet.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-telnet-cfg"
+    ipv4Telnet.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet"
+    ipv4Telnet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Telnet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Telnet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Telnet *Ipv4Telnet) SetFilter(yf yfilter.YFilter) { ipv4Telnet.YFilter = yf }
-
-func (ipv4Telnet *Ipv4Telnet) GetGoName(yname string) string {
-    if yname == "client" { return "Client" }
-    return ""
+    ipv4Telnet.EntityData.Children = make(map[string]types.YChild)
+    ipv4Telnet.EntityData.Children["client"] = types.YChild{"Client", &ipv4Telnet.Client}
+    ipv4Telnet.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4Telnet.EntityData)
 }
-
-func (ipv4Telnet *Ipv4Telnet) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet"
-}
-
-func (ipv4Telnet *Ipv4Telnet) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        return &ipv4Telnet.Client
-    }
-    return nil
-}
-
-func (ipv4Telnet *Ipv4Telnet) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["client"] = &ipv4Telnet.Client
-    return children
-}
-
-func (ipv4Telnet *Ipv4Telnet) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4Telnet *Ipv4Telnet) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Telnet *Ipv4Telnet) GetYangName() string { return "ipv4-telnet" }
-
-func (ipv4Telnet *Ipv4Telnet) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Telnet *Ipv4Telnet) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Telnet *Ipv4Telnet) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Telnet *Ipv4Telnet) SetParent(parent types.Entity) { ipv4Telnet.parent = parent }
-
-func (ipv4Telnet *Ipv4Telnet) GetParent() types.Entity { return ipv4Telnet.parent }
-
-func (ipv4Telnet *Ipv4Telnet) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-telnet-cfg" }
 
 // Ipv4Telnet_Client
 // Telnet client configuration
 type Ipv4Telnet_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 }
 
-func (client *Ipv4Telnet_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *Ipv4Telnet_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "ipv4-telnet"
+    client.EntityData.SegmentPath = "client"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *Ipv4Telnet_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *Ipv4Telnet_Client) GetGoName(yname string) string {
-    if yname == "source-interface" { return "SourceInterface" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", client.SourceInterface}
+    return &(client.EntityData)
 }
-
-func (client *Ipv4Telnet_Client) GetSegmentPath() string {
-    return "client"
-}
-
-func (client *Ipv4Telnet_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (client *Ipv4Telnet_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (client *Ipv4Telnet_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-interface"] = client.SourceInterface
-    return leafs
-}
-
-func (client *Ipv4Telnet_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *Ipv4Telnet_Client) GetYangName() string { return "client" }
-
-func (client *Ipv4Telnet_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *Ipv4Telnet_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *Ipv4Telnet_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *Ipv4Telnet_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *Ipv4Telnet_Client) GetParent() types.Entity { return client.parent }
-
-func (client *Ipv4Telnet_Client) GetParentYangName() string { return "ipv4-telnet" }
 

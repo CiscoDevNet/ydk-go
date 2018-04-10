@@ -1,5 +1,7 @@
-// This module contains a collection of YANG definitions for
-// monitoring BFD neighbours.Copyright (c) 2016-2017 by Cisco Systems, Inc.All rights reserved.
+// This module contains a collection of YANG definitions
+// for BFD neighbor monitoring.
+// Copyright (c) 2016-2018 by Cisco Systems, Inc.
+// All rights reserved.
 package bfd_oper
 
 import (
@@ -17,32 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-bfd-oper:bfd-state", reflect.TypeOf(BfdState{}))
 }
 
-// BfdRemoteStateType represents BFD remote state type
-type BfdRemoteStateType string
-
-const (
-    BfdRemoteStateType_up BfdRemoteStateType = "up"
-
-    BfdRemoteStateType_down BfdRemoteStateType = "down"
-
-    BfdRemoteStateType_init BfdRemoteStateType = "init"
-
-    BfdRemoteStateType_admindown BfdRemoteStateType = "admindown"
-
-    BfdRemoteStateType_invalid BfdRemoteStateType = "invalid"
-)
-
-// BfdLspType represents BFD lsp type
-type BfdLspType string
-
-const (
-    BfdLspType_working BfdLspType = "working"
-
-    BfdLspType_protect BfdLspType = "protect"
-
-    BfdLspType_unknown BfdLspType = "unknown"
-)
-
 // BfdOperSessionType represents BFD session type
 type BfdOperSessionType string
 
@@ -58,6 +34,21 @@ const (
     BfdOperSessionType_ipv4_multihop BfdOperSessionType = "ipv4-multihop"
 
     BfdOperSessionType_ipv6_multihop BfdOperSessionType = "ipv6-multihop"
+)
+
+// BfdRemoteStateType represents BFD remote state type
+type BfdRemoteStateType string
+
+const (
+    BfdRemoteStateType_remote_up BfdRemoteStateType = "remote-up"
+
+    BfdRemoteStateType_remote_down BfdRemoteStateType = "remote-down"
+
+    BfdRemoteStateType_remote_init BfdRemoteStateType = "remote-init"
+
+    BfdRemoteStateType_remote_admindown BfdRemoteStateType = "remote-admindown"
+
+    BfdRemoteStateType_remote_invalid BfdRemoteStateType = "remote-invalid"
 )
 
 // BfdStateType represents BFD state type
@@ -77,983 +68,528 @@ const (
     BfdStateType_invalid BfdStateType = "invalid"
 )
 
+// BfdLspType represents BFD LSP type
+type BfdLspType string
+
+const (
+    BfdLspType_working BfdLspType = "working"
+
+    BfdLspType_protect BfdLspType = "protect"
+
+    BfdLspType_unknown BfdLspType = "unknown"
+)
+
 // BfdState
-// Data nodes for BFD neighbors.
+// BFD neighbor information
 type BfdState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    
+    // BFD neighbor session information.
     Sessions BfdState_Sessions
 }
 
-func (bfdState *BfdState) GetFilter() yfilter.YFilter { return bfdState.YFilter }
+func (bfdState *BfdState) GetEntityData() *types.CommonEntityData {
+    bfdState.EntityData.YFilter = bfdState.YFilter
+    bfdState.EntityData.YangName = "bfd-state"
+    bfdState.EntityData.BundleName = "cisco_ios_xe"
+    bfdState.EntityData.ParentYangName = "Cisco-IOS-XE-bfd-oper"
+    bfdState.EntityData.SegmentPath = "Cisco-IOS-XE-bfd-oper:bfd-state"
+    bfdState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdState *BfdState) SetFilter(yf yfilter.YFilter) { bfdState.YFilter = yf }
-
-func (bfdState *BfdState) GetGoName(yname string) string {
-    if yname == "sessions" { return "Sessions" }
-    return ""
+    bfdState.EntityData.Children = make(map[string]types.YChild)
+    bfdState.EntityData.Children["sessions"] = types.YChild{"Sessions", &bfdState.Sessions}
+    bfdState.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bfdState.EntityData)
 }
-
-func (bfdState *BfdState) GetSegmentPath() string {
-    return "Cisco-IOS-XE-bfd-oper:bfd-state"
-}
-
-func (bfdState *BfdState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sessions" {
-        return &bfdState.Sessions
-    }
-    return nil
-}
-
-func (bfdState *BfdState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sessions"] = &bfdState.Sessions
-    return children
-}
-
-func (bfdState *BfdState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bfdState *BfdState) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdState *BfdState) GetYangName() string { return "bfd-state" }
-
-func (bfdState *BfdState) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdState *BfdState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdState *BfdState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdState *BfdState) SetParent(parent types.Entity) { bfdState.parent = parent }
-
-func (bfdState *BfdState) GetParent() types.Entity { return bfdState.parent }
-
-func (bfdState *BfdState) GetParentYangName() string { return "Cisco-IOS-XE-bfd-oper" }
 
 // BfdState_Sessions
+// BFD neighbor session information
 type BfdState_Sessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is slice of BfdState_Sessions_Session.
+    // List of BFD sessions. The type is slice of BfdState_Sessions_Session.
     Session []BfdState_Sessions_Session
 }
 
-func (sessions *BfdState_Sessions) GetFilter() yfilter.YFilter { return sessions.YFilter }
+func (sessions *BfdState_Sessions) GetEntityData() *types.CommonEntityData {
+    sessions.EntityData.YFilter = sessions.YFilter
+    sessions.EntityData.YangName = "sessions"
+    sessions.EntityData.BundleName = "cisco_ios_xe"
+    sessions.EntityData.ParentYangName = "bfd-state"
+    sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sessions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sessions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sessions *BfdState_Sessions) SetFilter(yf yfilter.YFilter) { sessions.YFilter = yf }
-
-func (sessions *BfdState_Sessions) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    return ""
-}
-
-func (sessions *BfdState_Sessions) GetSegmentPath() string {
-    return "sessions"
-}
-
-func (sessions *BfdState_Sessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        for _, c := range sessions.Session {
-            if sessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BfdState_Sessions_Session{}
-        sessions.Session = append(sessions.Session, child)
-        return &sessions.Session[len(sessions.Session)-1]
-    }
-    return nil
-}
-
-func (sessions *BfdState_Sessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessions.EntityData.Children = make(map[string]types.YChild)
+    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
     for i := range sessions.Session {
-        children[sessions.Session[i].GetSegmentPath()] = &sessions.Session[i]
+        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
     }
-    return children
+    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessions.EntityData)
 }
-
-func (sessions *BfdState_Sessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessions *BfdState_Sessions) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sessions *BfdState_Sessions) GetYangName() string { return "sessions" }
-
-func (sessions *BfdState_Sessions) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sessions *BfdState_Sessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sessions *BfdState_Sessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sessions *BfdState_Sessions) SetParent(parent types.Entity) { sessions.parent = parent }
-
-func (sessions *BfdState_Sessions) GetParent() types.Entity { return sessions.parent }
-
-func (sessions *BfdState_Sessions) GetParentYangName() string { return "bfd-state" }
 
 // BfdState_Sessions_Session
+// List of BFD sessions
 type BfdState_Sessions_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session type. The type is BfdOperSessionType.
-    Type interface{}
+    Type_ interface{}
 
-    
+    // BFD tunnel path information.
     BfdTunnelPaths BfdState_Sessions_Session_BfdTunnelPaths
 
-    
+    // BFD circuit information.
     BfdCircuits BfdState_Sessions_Session_BfdCircuits
 
-    
+    // BFD neighbor information.
     BfdNbrs BfdState_Sessions_Session_BfdNbrs
 
-    
+    // Multi hop neighbors for multi hop neighbor scenario  for global VRF (no
+    // VRF).
     BfdMhopNbrs BfdState_Sessions_Session_BfdMhopNbrs
 
-    
+    // Multi hop neighbors for multi hop neighbor scenario with non-global VRF.
     BfdMhopVrfNbrs BfdState_Sessions_Session_BfdMhopVrfNbrs
 }
 
-func (session *BfdState_Sessions_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *BfdState_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xe"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + "[type='" + fmt.Sprintf("%v", session.Type_) + "']"
+    session.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (session *BfdState_Sessions_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *BfdState_Sessions_Session) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "bfd-tunnel-paths" { return "BfdTunnelPaths" }
-    if yname == "bfd-circuits" { return "BfdCircuits" }
-    if yname == "bfd-nbrs" { return "BfdNbrs" }
-    if yname == "bfd-mhop-nbrs" { return "BfdMhopNbrs" }
-    if yname == "bfd-mhop-vrf-nbrs" { return "BfdMhopVrfNbrs" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["bfd-tunnel-paths"] = types.YChild{"BfdTunnelPaths", &session.BfdTunnelPaths}
+    session.EntityData.Children["bfd-circuits"] = types.YChild{"BfdCircuits", &session.BfdCircuits}
+    session.EntityData.Children["bfd-nbrs"] = types.YChild{"BfdNbrs", &session.BfdNbrs}
+    session.EntityData.Children["bfd-mhop-nbrs"] = types.YChild{"BfdMhopNbrs", &session.BfdMhopNbrs}
+    session.EntityData.Children["bfd-mhop-vrf-nbrs"] = types.YChild{"BfdMhopVrfNbrs", &session.BfdMhopVrfNbrs}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["type"] = types.YLeaf{"Type_", session.Type_}
+    return &(session.EntityData)
 }
-
-func (session *BfdState_Sessions_Session) GetSegmentPath() string {
-    return "session" + "[type='" + fmt.Sprintf("%v", session.Type) + "']"
-}
-
-func (session *BfdState_Sessions_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bfd-tunnel-paths" {
-        return &session.BfdTunnelPaths
-    }
-    if childYangName == "bfd-circuits" {
-        return &session.BfdCircuits
-    }
-    if childYangName == "bfd-nbrs" {
-        return &session.BfdNbrs
-    }
-    if childYangName == "bfd-mhop-nbrs" {
-        return &session.BfdMhopNbrs
-    }
-    if childYangName == "bfd-mhop-vrf-nbrs" {
-        return &session.BfdMhopVrfNbrs
-    }
-    return nil
-}
-
-func (session *BfdState_Sessions_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bfd-tunnel-paths"] = &session.BfdTunnelPaths
-    children["bfd-circuits"] = &session.BfdCircuits
-    children["bfd-nbrs"] = &session.BfdNbrs
-    children["bfd-mhop-nbrs"] = &session.BfdMhopNbrs
-    children["bfd-mhop-vrf-nbrs"] = &session.BfdMhopVrfNbrs
-    return children
-}
-
-func (session *BfdState_Sessions_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = session.Type
-    return leafs
-}
-
-func (session *BfdState_Sessions_Session) GetBundleName() string { return "cisco_ios_xe" }
-
-func (session *BfdState_Sessions_Session) GetYangName() string { return "session" }
-
-func (session *BfdState_Sessions_Session) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (session *BfdState_Sessions_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (session *BfdState_Sessions_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (session *BfdState_Sessions_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *BfdState_Sessions_Session) GetParent() types.Entity { return session.parent }
-
-func (session *BfdState_Sessions_Session) GetParentYangName() string { return "sessions" }
 
 // BfdState_Sessions_Session_BfdTunnelPaths
+// BFD tunnel path information
 type BfdState_Sessions_Session_BfdTunnelPaths struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel Path. The type is slice of
+    // List of BFD tunnel paths. The type is slice of
     // BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath.
     BfdTunnelPath []BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath
 }
 
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetFilter() yfilter.YFilter { return bfdTunnelPaths.YFilter }
+func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetEntityData() *types.CommonEntityData {
+    bfdTunnelPaths.EntityData.YFilter = bfdTunnelPaths.YFilter
+    bfdTunnelPaths.EntityData.YangName = "bfd-tunnel-paths"
+    bfdTunnelPaths.EntityData.BundleName = "cisco_ios_xe"
+    bfdTunnelPaths.EntityData.ParentYangName = "session"
+    bfdTunnelPaths.EntityData.SegmentPath = "bfd-tunnel-paths"
+    bfdTunnelPaths.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdTunnelPaths.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdTunnelPaths.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) SetFilter(yf yfilter.YFilter) { bfdTunnelPaths.YFilter = yf }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetGoName(yname string) string {
-    if yname == "bfd-tunnel-path" { return "BfdTunnelPath" }
-    return ""
-}
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetSegmentPath() string {
-    return "bfd-tunnel-paths"
-}
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bfd-tunnel-path" {
-        for _, c := range bfdTunnelPaths.BfdTunnelPath {
-            if bfdTunnelPaths.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath{}
-        bfdTunnelPaths.BfdTunnelPath = append(bfdTunnelPaths.BfdTunnelPath, child)
-        return &bfdTunnelPaths.BfdTunnelPath[len(bfdTunnelPaths.BfdTunnelPath)-1]
-    }
-    return nil
-}
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bfdTunnelPaths.EntityData.Children = make(map[string]types.YChild)
+    bfdTunnelPaths.EntityData.Children["bfd-tunnel-path"] = types.YChild{"BfdTunnelPath", nil}
     for i := range bfdTunnelPaths.BfdTunnelPath {
-        children[bfdTunnelPaths.BfdTunnelPath[i].GetSegmentPath()] = &bfdTunnelPaths.BfdTunnelPath[i]
+        bfdTunnelPaths.EntityData.Children[types.GetSegmentPath(&bfdTunnelPaths.BfdTunnelPath[i])] = types.YChild{"BfdTunnelPath", &bfdTunnelPaths.BfdTunnelPath[i]}
     }
-    return children
+    bfdTunnelPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bfdTunnelPaths.EntityData)
 }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetYangName() string { return "bfd-tunnel-paths" }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) SetParent(parent types.Entity) { bfdTunnelPaths.parent = parent }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetParent() types.Entity { return bfdTunnelPaths.parent }
-
-func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetParentYangName() string { return "session" }
 
 // BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath
-// Tunnel Path
+// List of BFD tunnel paths
 type BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The type is string.
-    Interface interface{}
+    // This attribute is a key. Associated interface. The type is string.
+    Interface_ interface{}
 
-    // This attribute is a key. The type is BfdLspType.
+    // This attribute is a key. LSP type. The type is BfdLspType.
     LspType interface{}
 
-    // local-discriminator. The type is interface{} with range: 0..4294967295.
+    // Local discriminator. The type is interface{} with range: 0..4294967295.
     Ld interface{}
 
-    // remote-discriminator. The type is interface{} with range: 0..4294967295.
+    // Remote discriminator. The type is interface{} with range: 0..4294967295.
     Rd interface{}
 
-    // Remote Heard. RH state of BFD version '0'   is also mapped to up/down. .
-    // The type is BfdRemoteStateType.
+    // Remote Heard. RH state of BFD version '0'  is also mapped to up/down. The
+    // type is BfdRemoteStateType.
     RemoteState interface{}
 
     // BFD state. The type is BfdStateType.
     State interface{}
 }
 
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetFilter() yfilter.YFilter { return bfdTunnelPath.YFilter }
+func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetEntityData() *types.CommonEntityData {
+    bfdTunnelPath.EntityData.YFilter = bfdTunnelPath.YFilter
+    bfdTunnelPath.EntityData.YangName = "bfd-tunnel-path"
+    bfdTunnelPath.EntityData.BundleName = "cisco_ios_xe"
+    bfdTunnelPath.EntityData.ParentYangName = "bfd-tunnel-paths"
+    bfdTunnelPath.EntityData.SegmentPath = "bfd-tunnel-path" + "[interface='" + fmt.Sprintf("%v", bfdTunnelPath.Interface_) + "']" + "[lsp-type='" + fmt.Sprintf("%v", bfdTunnelPath.LspType) + "']"
+    bfdTunnelPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdTunnelPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdTunnelPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) SetFilter(yf yfilter.YFilter) { bfdTunnelPath.YFilter = yf }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "lsp-type" { return "LspType" }
-    if yname == "ld" { return "Ld" }
-    if yname == "rd" { return "Rd" }
-    if yname == "remote-state" { return "RemoteState" }
-    if yname == "state" { return "State" }
-    return ""
+    bfdTunnelPath.EntityData.Children = make(map[string]types.YChild)
+    bfdTunnelPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    bfdTunnelPath.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", bfdTunnelPath.Interface_}
+    bfdTunnelPath.EntityData.Leafs["lsp-type"] = types.YLeaf{"LspType", bfdTunnelPath.LspType}
+    bfdTunnelPath.EntityData.Leafs["ld"] = types.YLeaf{"Ld", bfdTunnelPath.Ld}
+    bfdTunnelPath.EntityData.Leafs["rd"] = types.YLeaf{"Rd", bfdTunnelPath.Rd}
+    bfdTunnelPath.EntityData.Leafs["remote-state"] = types.YLeaf{"RemoteState", bfdTunnelPath.RemoteState}
+    bfdTunnelPath.EntityData.Leafs["state"] = types.YLeaf{"State", bfdTunnelPath.State}
+    return &(bfdTunnelPath.EntityData)
 }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetSegmentPath() string {
-    return "bfd-tunnel-path" + "[interface='" + fmt.Sprintf("%v", bfdTunnelPath.Interface) + "']" + "[lsp-type='" + fmt.Sprintf("%v", bfdTunnelPath.LspType) + "']"
-}
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = bfdTunnelPath.Interface
-    leafs["lsp-type"] = bfdTunnelPath.LspType
-    leafs["ld"] = bfdTunnelPath.Ld
-    leafs["rd"] = bfdTunnelPath.Rd
-    leafs["remote-state"] = bfdTunnelPath.RemoteState
-    leafs["state"] = bfdTunnelPath.State
-    return leafs
-}
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetYangName() string { return "bfd-tunnel-path" }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) SetParent(parent types.Entity) { bfdTunnelPath.parent = parent }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetParent() types.Entity { return bfdTunnelPath.parent }
-
-func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) GetParentYangName() string { return "bfd-tunnel-paths" }
 
 // BfdState_Sessions_Session_BfdCircuits
+// BFD circuit information
 type BfdState_Sessions_Session_BfdCircuits struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD circuit. The type is slice of
+    // List of BFD circuits. The type is slice of
     // BfdState_Sessions_Session_BfdCircuits_BfdCircuit.
     BfdCircuit []BfdState_Sessions_Session_BfdCircuits_BfdCircuit
 }
 
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetFilter() yfilter.YFilter { return bfdCircuits.YFilter }
+func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetEntityData() *types.CommonEntityData {
+    bfdCircuits.EntityData.YFilter = bfdCircuits.YFilter
+    bfdCircuits.EntityData.YangName = "bfd-circuits"
+    bfdCircuits.EntityData.BundleName = "cisco_ios_xe"
+    bfdCircuits.EntityData.ParentYangName = "session"
+    bfdCircuits.EntityData.SegmentPath = "bfd-circuits"
+    bfdCircuits.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdCircuits.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) SetFilter(yf yfilter.YFilter) { bfdCircuits.YFilter = yf }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetGoName(yname string) string {
-    if yname == "bfd-circuit" { return "BfdCircuit" }
-    return ""
-}
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetSegmentPath() string {
-    return "bfd-circuits"
-}
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bfd-circuit" {
-        for _, c := range bfdCircuits.BfdCircuit {
-            if bfdCircuits.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BfdState_Sessions_Session_BfdCircuits_BfdCircuit{}
-        bfdCircuits.BfdCircuit = append(bfdCircuits.BfdCircuit, child)
-        return &bfdCircuits.BfdCircuit[len(bfdCircuits.BfdCircuit)-1]
-    }
-    return nil
-}
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bfdCircuits.EntityData.Children = make(map[string]types.YChild)
+    bfdCircuits.EntityData.Children["bfd-circuit"] = types.YChild{"BfdCircuit", nil}
     for i := range bfdCircuits.BfdCircuit {
-        children[bfdCircuits.BfdCircuit[i].GetSegmentPath()] = &bfdCircuits.BfdCircuit[i]
+        bfdCircuits.EntityData.Children[types.GetSegmentPath(&bfdCircuits.BfdCircuit[i])] = types.YChild{"BfdCircuit", &bfdCircuits.BfdCircuit[i]}
     }
-    return children
+    bfdCircuits.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bfdCircuits.EntityData)
 }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetYangName() string { return "bfd-circuits" }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) SetParent(parent types.Entity) { bfdCircuits.parent = parent }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetParent() types.Entity { return bfdCircuits.parent }
-
-func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetParentYangName() string { return "session" }
 
 // BfdState_Sessions_Session_BfdCircuits_BfdCircuit
-// BFD circuit
+// List of BFD circuits
 type BfdState_Sessions_Session_BfdCircuits_BfdCircuit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The type is string.
-    Interface interface{}
+    // This attribute is a key. Associated interface. The type is string.
+    Interface_ interface{}
 
-    // This attribute is a key. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Virtual circuit identifier. The type is
+    // interface{} with range: 0..4294967295.
     Vcid interface{}
 
-    // local-discriminator. The type is interface{} with range: 0..4294967295.
+    // Local discriminator. The type is interface{} with range: 0..4294967295.
     Ld interface{}
 
-    // remote-discriminator. The type is interface{} with range: 0..4294967295.
+    // Remote discriminator. The type is interface{} with range: 0..4294967295.
     Rd interface{}
 
-    // Remote Heard. RH state of BFD version '0'   is also mapped to up/down. .
-    // The type is BfdRemoteStateType.
+    // Remote Heard. RH state of BFD version '0'  is also mapped to up/down. The
+    // type is BfdRemoteStateType.
     RemoteState interface{}
 
     // BFD state. The type is BfdStateType.
     State interface{}
 }
 
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetFilter() yfilter.YFilter { return bfdCircuit.YFilter }
+func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetEntityData() *types.CommonEntityData {
+    bfdCircuit.EntityData.YFilter = bfdCircuit.YFilter
+    bfdCircuit.EntityData.YangName = "bfd-circuit"
+    bfdCircuit.EntityData.BundleName = "cisco_ios_xe"
+    bfdCircuit.EntityData.ParentYangName = "bfd-circuits"
+    bfdCircuit.EntityData.SegmentPath = "bfd-circuit" + "[interface='" + fmt.Sprintf("%v", bfdCircuit.Interface_) + "']" + "[vcid='" + fmt.Sprintf("%v", bfdCircuit.Vcid) + "']"
+    bfdCircuit.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdCircuit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) SetFilter(yf yfilter.YFilter) { bfdCircuit.YFilter = yf }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "vcid" { return "Vcid" }
-    if yname == "ld" { return "Ld" }
-    if yname == "rd" { return "Rd" }
-    if yname == "remote-state" { return "RemoteState" }
-    if yname == "state" { return "State" }
-    return ""
+    bfdCircuit.EntityData.Children = make(map[string]types.YChild)
+    bfdCircuit.EntityData.Leafs = make(map[string]types.YLeaf)
+    bfdCircuit.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", bfdCircuit.Interface_}
+    bfdCircuit.EntityData.Leafs["vcid"] = types.YLeaf{"Vcid", bfdCircuit.Vcid}
+    bfdCircuit.EntityData.Leafs["ld"] = types.YLeaf{"Ld", bfdCircuit.Ld}
+    bfdCircuit.EntityData.Leafs["rd"] = types.YLeaf{"Rd", bfdCircuit.Rd}
+    bfdCircuit.EntityData.Leafs["remote-state"] = types.YLeaf{"RemoteState", bfdCircuit.RemoteState}
+    bfdCircuit.EntityData.Leafs["state"] = types.YLeaf{"State", bfdCircuit.State}
+    return &(bfdCircuit.EntityData)
 }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetSegmentPath() string {
-    return "bfd-circuit" + "[interface='" + fmt.Sprintf("%v", bfdCircuit.Interface) + "']" + "[vcid='" + fmt.Sprintf("%v", bfdCircuit.Vcid) + "']"
-}
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = bfdCircuit.Interface
-    leafs["vcid"] = bfdCircuit.Vcid
-    leafs["ld"] = bfdCircuit.Ld
-    leafs["rd"] = bfdCircuit.Rd
-    leafs["remote-state"] = bfdCircuit.RemoteState
-    leafs["state"] = bfdCircuit.State
-    return leafs
-}
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetYangName() string { return "bfd-circuit" }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) SetParent(parent types.Entity) { bfdCircuit.parent = parent }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetParent() types.Entity { return bfdCircuit.parent }
-
-func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetParentYangName() string { return "bfd-circuits" }
 
 // BfdState_Sessions_Session_BfdNbrs
+// BFD neighbor information
 type BfdState_Sessions_Session_BfdNbrs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This is for directly connected neighbor case. The type is slice of
+    // List of BFD neighbors. The type is slice of
     // BfdState_Sessions_Session_BfdNbrs_BfdNbr.
     BfdNbr []BfdState_Sessions_Session_BfdNbrs_BfdNbr
 }
 
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetFilter() yfilter.YFilter { return bfdNbrs.YFilter }
+func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetEntityData() *types.CommonEntityData {
+    bfdNbrs.EntityData.YFilter = bfdNbrs.YFilter
+    bfdNbrs.EntityData.YangName = "bfd-nbrs"
+    bfdNbrs.EntityData.BundleName = "cisco_ios_xe"
+    bfdNbrs.EntityData.ParentYangName = "session"
+    bfdNbrs.EntityData.SegmentPath = "bfd-nbrs"
+    bfdNbrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdNbrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdNbrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) SetFilter(yf yfilter.YFilter) { bfdNbrs.YFilter = yf }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetGoName(yname string) string {
-    if yname == "bfd-nbr" { return "BfdNbr" }
-    return ""
-}
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetSegmentPath() string {
-    return "bfd-nbrs"
-}
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bfd-nbr" {
-        for _, c := range bfdNbrs.BfdNbr {
-            if bfdNbrs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BfdState_Sessions_Session_BfdNbrs_BfdNbr{}
-        bfdNbrs.BfdNbr = append(bfdNbrs.BfdNbr, child)
-        return &bfdNbrs.BfdNbr[len(bfdNbrs.BfdNbr)-1]
-    }
-    return nil
-}
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bfdNbrs.EntityData.Children = make(map[string]types.YChild)
+    bfdNbrs.EntityData.Children["bfd-nbr"] = types.YChild{"BfdNbr", nil}
     for i := range bfdNbrs.BfdNbr {
-        children[bfdNbrs.BfdNbr[i].GetSegmentPath()] = &bfdNbrs.BfdNbr[i]
+        bfdNbrs.EntityData.Children[types.GetSegmentPath(&bfdNbrs.BfdNbr[i])] = types.YChild{"BfdNbr", &bfdNbrs.BfdNbr[i]}
     }
-    return children
+    bfdNbrs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bfdNbrs.EntityData)
 }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetYangName() string { return "bfd-nbrs" }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) SetParent(parent types.Entity) { bfdNbrs.parent = parent }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetParent() types.Entity { return bfdNbrs.parent }
-
-func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetParentYangName() string { return "session" }
 
 // BfdState_Sessions_Session_BfdNbrs_BfdNbr
-// This is for directly connected neighbor case
+// List of BFD neighbors
 type BfdState_Sessions_Session_BfdNbrs_BfdNbr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The type is one of the following types: string
-    // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // This attribute is a key. Neighbor IP address. The type is one of the
+    // following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
-    // This attribute is a key. The type is string.
-    Interface interface{}
+    // This attribute is a key. Interface. The type is string.
+    Interface_ interface{}
 
-    // local-discriminator. The type is interface{} with range: 0..4294967295.
+    // Local discriminator. The type is interface{} with range: 0..4294967295.
     Ld interface{}
 
-    // remote-discriminator. The type is interface{} with range: 0..4294967295.
+    // Remote discriminator. The type is interface{} with range: 0..4294967295.
     Rd interface{}
 
-    // Remote Heard. RH state of BFD version '0'   is also mapped to up/down. .
-    // The type is BfdRemoteStateType.
+    // Remote Heard. RH state of BFD version '0'  is also mapped to up/down. The
+    // type is BfdRemoteStateType.
     RemoteState interface{}
 
     // BFD state. The type is BfdStateType.
     State interface{}
 }
 
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetFilter() yfilter.YFilter { return bfdNbr.YFilter }
+func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetEntityData() *types.CommonEntityData {
+    bfdNbr.EntityData.YFilter = bfdNbr.YFilter
+    bfdNbr.EntityData.YangName = "bfd-nbr"
+    bfdNbr.EntityData.BundleName = "cisco_ios_xe"
+    bfdNbr.EntityData.ParentYangName = "bfd-nbrs"
+    bfdNbr.EntityData.SegmentPath = "bfd-nbr" + "[ip='" + fmt.Sprintf("%v", bfdNbr.Ip) + "']" + "[interface='" + fmt.Sprintf("%v", bfdNbr.Interface_) + "']"
+    bfdNbr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdNbr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdNbr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) SetFilter(yf yfilter.YFilter) { bfdNbr.YFilter = yf }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetGoName(yname string) string {
-    if yname == "ip" { return "Ip" }
-    if yname == "interface" { return "Interface" }
-    if yname == "ld" { return "Ld" }
-    if yname == "rd" { return "Rd" }
-    if yname == "remote-state" { return "RemoteState" }
-    if yname == "state" { return "State" }
-    return ""
+    bfdNbr.EntityData.Children = make(map[string]types.YChild)
+    bfdNbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bfdNbr.EntityData.Leafs["ip"] = types.YLeaf{"Ip", bfdNbr.Ip}
+    bfdNbr.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", bfdNbr.Interface_}
+    bfdNbr.EntityData.Leafs["ld"] = types.YLeaf{"Ld", bfdNbr.Ld}
+    bfdNbr.EntityData.Leafs["rd"] = types.YLeaf{"Rd", bfdNbr.Rd}
+    bfdNbr.EntityData.Leafs["remote-state"] = types.YLeaf{"RemoteState", bfdNbr.RemoteState}
+    bfdNbr.EntityData.Leafs["state"] = types.YLeaf{"State", bfdNbr.State}
+    return &(bfdNbr.EntityData)
 }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetSegmentPath() string {
-    return "bfd-nbr" + "[ip='" + fmt.Sprintf("%v", bfdNbr.Ip) + "']" + "[interface='" + fmt.Sprintf("%v", bfdNbr.Interface) + "']"
-}
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip"] = bfdNbr.Ip
-    leafs["interface"] = bfdNbr.Interface
-    leafs["ld"] = bfdNbr.Ld
-    leafs["rd"] = bfdNbr.Rd
-    leafs["remote-state"] = bfdNbr.RemoteState
-    leafs["state"] = bfdNbr.State
-    return leafs
-}
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetYangName() string { return "bfd-nbr" }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) SetParent(parent types.Entity) { bfdNbr.parent = parent }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetParent() types.Entity { return bfdNbr.parent }
-
-func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetParentYangName() string { return "bfd-nbrs" }
 
 // BfdState_Sessions_Session_BfdMhopNbrs
+// Multi hop neighbors for multi hop neighbor scenario 
+// for global VRF (no VRF)
 type BfdState_Sessions_Session_BfdMhopNbrs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This is for multi hop neighbor scenario  for global VRF (no VRF). The type
-    // is slice of BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr.
+    // List of MHOP neighbors. The type is slice of
+    // BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr.
     BfdMhopNbr []BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr
 }
 
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetFilter() yfilter.YFilter { return bfdMhopNbrs.YFilter }
+func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetEntityData() *types.CommonEntityData {
+    bfdMhopNbrs.EntityData.YFilter = bfdMhopNbrs.YFilter
+    bfdMhopNbrs.EntityData.YangName = "bfd-mhop-nbrs"
+    bfdMhopNbrs.EntityData.BundleName = "cisco_ios_xe"
+    bfdMhopNbrs.EntityData.ParentYangName = "session"
+    bfdMhopNbrs.EntityData.SegmentPath = "bfd-mhop-nbrs"
+    bfdMhopNbrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdMhopNbrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdMhopNbrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) SetFilter(yf yfilter.YFilter) { bfdMhopNbrs.YFilter = yf }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetGoName(yname string) string {
-    if yname == "bfd-mhop-nbr" { return "BfdMhopNbr" }
-    return ""
-}
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetSegmentPath() string {
-    return "bfd-mhop-nbrs"
-}
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bfd-mhop-nbr" {
-        for _, c := range bfdMhopNbrs.BfdMhopNbr {
-            if bfdMhopNbrs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr{}
-        bfdMhopNbrs.BfdMhopNbr = append(bfdMhopNbrs.BfdMhopNbr, child)
-        return &bfdMhopNbrs.BfdMhopNbr[len(bfdMhopNbrs.BfdMhopNbr)-1]
-    }
-    return nil
-}
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bfdMhopNbrs.EntityData.Children = make(map[string]types.YChild)
+    bfdMhopNbrs.EntityData.Children["bfd-mhop-nbr"] = types.YChild{"BfdMhopNbr", nil}
     for i := range bfdMhopNbrs.BfdMhopNbr {
-        children[bfdMhopNbrs.BfdMhopNbr[i].GetSegmentPath()] = &bfdMhopNbrs.BfdMhopNbr[i]
+        bfdMhopNbrs.EntityData.Children[types.GetSegmentPath(&bfdMhopNbrs.BfdMhopNbr[i])] = types.YChild{"BfdMhopNbr", &bfdMhopNbrs.BfdMhopNbr[i]}
     }
-    return children
+    bfdMhopNbrs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bfdMhopNbrs.EntityData)
 }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetYangName() string { return "bfd-mhop-nbrs" }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) SetParent(parent types.Entity) { bfdMhopNbrs.parent = parent }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetParent() types.Entity { return bfdMhopNbrs.parent }
-
-func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetParentYangName() string { return "session" }
 
 // BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr
-// This is for multi hop neighbor scenario 
-// for global VRF (no VRF).
+// List of MHOP neighbors
 type BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The type is one of the following types: string
-    // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // This attribute is a key. Neighbor IP address. The type is one of the
+    // following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
-    // local-discriminator. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Source IP address. The type is one of the
+    // following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // or string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    SrcIp interface{}
+
+    // Local discriminator. The type is interface{} with range: 0..4294967295.
     Ld interface{}
 
-    // remote-discriminator. The type is interface{} with range: 0..4294967295.
+    // Remote discriminator. The type is interface{} with range: 0..4294967295.
     Rd interface{}
 
-    // Remote Heard. RH state of BFD version '0'   is also mapped to up/down. .
-    // The type is BfdRemoteStateType.
+    // Remote Heard. RH state of BFD version '0'  is also mapped to up/down. The
+    // type is BfdRemoteStateType.
     RemoteState interface{}
 
     // BFD state. The type is BfdStateType.
     State interface{}
 }
 
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetFilter() yfilter.YFilter { return bfdMhopNbr.YFilter }
+func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetEntityData() *types.CommonEntityData {
+    bfdMhopNbr.EntityData.YFilter = bfdMhopNbr.YFilter
+    bfdMhopNbr.EntityData.YangName = "bfd-mhop-nbr"
+    bfdMhopNbr.EntityData.BundleName = "cisco_ios_xe"
+    bfdMhopNbr.EntityData.ParentYangName = "bfd-mhop-nbrs"
+    bfdMhopNbr.EntityData.SegmentPath = "bfd-mhop-nbr" + "[ip='" + fmt.Sprintf("%v", bfdMhopNbr.Ip) + "']" + "[src-ip='" + fmt.Sprintf("%v", bfdMhopNbr.SrcIp) + "']"
+    bfdMhopNbr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdMhopNbr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdMhopNbr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) SetFilter(yf yfilter.YFilter) { bfdMhopNbr.YFilter = yf }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetGoName(yname string) string {
-    if yname == "ip" { return "Ip" }
-    if yname == "ld" { return "Ld" }
-    if yname == "rd" { return "Rd" }
-    if yname == "remote-state" { return "RemoteState" }
-    if yname == "state" { return "State" }
-    return ""
+    bfdMhopNbr.EntityData.Children = make(map[string]types.YChild)
+    bfdMhopNbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bfdMhopNbr.EntityData.Leafs["ip"] = types.YLeaf{"Ip", bfdMhopNbr.Ip}
+    bfdMhopNbr.EntityData.Leafs["src-ip"] = types.YLeaf{"SrcIp", bfdMhopNbr.SrcIp}
+    bfdMhopNbr.EntityData.Leafs["ld"] = types.YLeaf{"Ld", bfdMhopNbr.Ld}
+    bfdMhopNbr.EntityData.Leafs["rd"] = types.YLeaf{"Rd", bfdMhopNbr.Rd}
+    bfdMhopNbr.EntityData.Leafs["remote-state"] = types.YLeaf{"RemoteState", bfdMhopNbr.RemoteState}
+    bfdMhopNbr.EntityData.Leafs["state"] = types.YLeaf{"State", bfdMhopNbr.State}
+    return &(bfdMhopNbr.EntityData)
 }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetSegmentPath() string {
-    return "bfd-mhop-nbr" + "[ip='" + fmt.Sprintf("%v", bfdMhopNbr.Ip) + "']"
-}
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip"] = bfdMhopNbr.Ip
-    leafs["ld"] = bfdMhopNbr.Ld
-    leafs["rd"] = bfdMhopNbr.Rd
-    leafs["remote-state"] = bfdMhopNbr.RemoteState
-    leafs["state"] = bfdMhopNbr.State
-    return leafs
-}
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetYangName() string { return "bfd-mhop-nbr" }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) SetParent(parent types.Entity) { bfdMhopNbr.parent = parent }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetParent() types.Entity { return bfdMhopNbr.parent }
-
-func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetParentYangName() string { return "bfd-mhop-nbrs" }
 
 // BfdState_Sessions_Session_BfdMhopVrfNbrs
+// Multi hop neighbors for multi hop neighbor scenario
+// with non-global VRF
 type BfdState_Sessions_Session_BfdMhopVrfNbrs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This is for multi hop neighbor scenario  for non-global VRF. The type is
-    // slice of BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr.
+    // List of multi hop neighbors. The type is slice of
+    // BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr.
     BfdMhopVrfNbr []BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr
 }
 
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetFilter() yfilter.YFilter { return bfdMhopVrfNbrs.YFilter }
+func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetEntityData() *types.CommonEntityData {
+    bfdMhopVrfNbrs.EntityData.YFilter = bfdMhopVrfNbrs.YFilter
+    bfdMhopVrfNbrs.EntityData.YangName = "bfd-mhop-vrf-nbrs"
+    bfdMhopVrfNbrs.EntityData.BundleName = "cisco_ios_xe"
+    bfdMhopVrfNbrs.EntityData.ParentYangName = "session"
+    bfdMhopVrfNbrs.EntityData.SegmentPath = "bfd-mhop-vrf-nbrs"
+    bfdMhopVrfNbrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdMhopVrfNbrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdMhopVrfNbrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) SetFilter(yf yfilter.YFilter) { bfdMhopVrfNbrs.YFilter = yf }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetGoName(yname string) string {
-    if yname == "bfd-mhop-vrf-nbr" { return "BfdMhopVrfNbr" }
-    return ""
-}
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetSegmentPath() string {
-    return "bfd-mhop-vrf-nbrs"
-}
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bfd-mhop-vrf-nbr" {
-        for _, c := range bfdMhopVrfNbrs.BfdMhopVrfNbr {
-            if bfdMhopVrfNbrs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr{}
-        bfdMhopVrfNbrs.BfdMhopVrfNbr = append(bfdMhopVrfNbrs.BfdMhopVrfNbr, child)
-        return &bfdMhopVrfNbrs.BfdMhopVrfNbr[len(bfdMhopVrfNbrs.BfdMhopVrfNbr)-1]
-    }
-    return nil
-}
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bfdMhopVrfNbrs.EntityData.Children = make(map[string]types.YChild)
+    bfdMhopVrfNbrs.EntityData.Children["bfd-mhop-vrf-nbr"] = types.YChild{"BfdMhopVrfNbr", nil}
     for i := range bfdMhopVrfNbrs.BfdMhopVrfNbr {
-        children[bfdMhopVrfNbrs.BfdMhopVrfNbr[i].GetSegmentPath()] = &bfdMhopVrfNbrs.BfdMhopVrfNbr[i]
+        bfdMhopVrfNbrs.EntityData.Children[types.GetSegmentPath(&bfdMhopVrfNbrs.BfdMhopVrfNbr[i])] = types.YChild{"BfdMhopVrfNbr", &bfdMhopVrfNbrs.BfdMhopVrfNbr[i]}
     }
-    return children
+    bfdMhopVrfNbrs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bfdMhopVrfNbrs.EntityData)
 }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetYangName() string { return "bfd-mhop-vrf-nbrs" }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) SetParent(parent types.Entity) { bfdMhopVrfNbrs.parent = parent }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetParent() types.Entity { return bfdMhopVrfNbrs.parent }
-
-func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetParentYangName() string { return "session" }
 
 // BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr
-// This is for multi hop neighbor scenario 
-// for non-global VRF.
+// List of multi hop neighbors
 type BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. The type is one of the following types: string
-    // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // This attribute is a key. Neighbor IP address. The type is one of the
+    // following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ip interface{}
 
-    // This attribute is a key. The type is string.
+    // This attribute is a key. Neighbor VFR. The type is string.
     Vrf interface{}
 
-    // local-discriminator. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Source IP address. The type is one of the
+    // following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // or string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    SrcIp interface{}
+
+    // Local discriminator. The type is interface{} with range: 0..4294967295.
     Ld interface{}
 
-    // remote-discriminator. The type is interface{} with range: 0..4294967295.
+    // Remote discriminator. The type is interface{} with range: 0..4294967295.
     Rd interface{}
 
-    // Remote Heard. RH state of BFD version '0'   is also mapped to up/down. .
-    // The type is BfdRemoteStateType.
+    // Remote Heard. RH state of BFD version '0'  is also mapped to up/down. The
+    // type is BfdRemoteStateType.
     RemoteState interface{}
 
     // BFD state. The type is BfdStateType.
     State interface{}
 }
 
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetFilter() yfilter.YFilter { return bfdMhopVrfNbr.YFilter }
+func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetEntityData() *types.CommonEntityData {
+    bfdMhopVrfNbr.EntityData.YFilter = bfdMhopVrfNbr.YFilter
+    bfdMhopVrfNbr.EntityData.YangName = "bfd-mhop-vrf-nbr"
+    bfdMhopVrfNbr.EntityData.BundleName = "cisco_ios_xe"
+    bfdMhopVrfNbr.EntityData.ParentYangName = "bfd-mhop-vrf-nbrs"
+    bfdMhopVrfNbr.EntityData.SegmentPath = "bfd-mhop-vrf-nbr" + "[ip='" + fmt.Sprintf("%v", bfdMhopVrfNbr.Ip) + "']" + "[vrf='" + fmt.Sprintf("%v", bfdMhopVrfNbr.Vrf) + "']" + "[src-ip='" + fmt.Sprintf("%v", bfdMhopVrfNbr.SrcIp) + "']"
+    bfdMhopVrfNbr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bfdMhopVrfNbr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bfdMhopVrfNbr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) SetFilter(yf yfilter.YFilter) { bfdMhopVrfNbr.YFilter = yf }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetGoName(yname string) string {
-    if yname == "ip" { return "Ip" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "ld" { return "Ld" }
-    if yname == "rd" { return "Rd" }
-    if yname == "remote-state" { return "RemoteState" }
-    if yname == "state" { return "State" }
-    return ""
+    bfdMhopVrfNbr.EntityData.Children = make(map[string]types.YChild)
+    bfdMhopVrfNbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    bfdMhopVrfNbr.EntityData.Leafs["ip"] = types.YLeaf{"Ip", bfdMhopVrfNbr.Ip}
+    bfdMhopVrfNbr.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", bfdMhopVrfNbr.Vrf}
+    bfdMhopVrfNbr.EntityData.Leafs["src-ip"] = types.YLeaf{"SrcIp", bfdMhopVrfNbr.SrcIp}
+    bfdMhopVrfNbr.EntityData.Leafs["ld"] = types.YLeaf{"Ld", bfdMhopVrfNbr.Ld}
+    bfdMhopVrfNbr.EntityData.Leafs["rd"] = types.YLeaf{"Rd", bfdMhopVrfNbr.Rd}
+    bfdMhopVrfNbr.EntityData.Leafs["remote-state"] = types.YLeaf{"RemoteState", bfdMhopVrfNbr.RemoteState}
+    bfdMhopVrfNbr.EntityData.Leafs["state"] = types.YLeaf{"State", bfdMhopVrfNbr.State}
+    return &(bfdMhopVrfNbr.EntityData)
 }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetSegmentPath() string {
-    return "bfd-mhop-vrf-nbr" + "[ip='" + fmt.Sprintf("%v", bfdMhopVrfNbr.Ip) + "']" + "[vrf='" + fmt.Sprintf("%v", bfdMhopVrfNbr.Vrf) + "']"
-}
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip"] = bfdMhopVrfNbr.Ip
-    leafs["vrf"] = bfdMhopVrfNbr.Vrf
-    leafs["ld"] = bfdMhopVrfNbr.Ld
-    leafs["rd"] = bfdMhopVrfNbr.Rd
-    leafs["remote-state"] = bfdMhopVrfNbr.RemoteState
-    leafs["state"] = bfdMhopVrfNbr.State
-    return leafs
-}
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetYangName() string { return "bfd-mhop-vrf-nbr" }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) SetParent(parent types.Entity) { bfdMhopVrfNbr.parent = parent }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetParent() types.Entity { return bfdMhopVrfNbr.parent }
-
-func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) GetParentYangName() string { return "bfd-mhop-vrf-nbrs" }
 

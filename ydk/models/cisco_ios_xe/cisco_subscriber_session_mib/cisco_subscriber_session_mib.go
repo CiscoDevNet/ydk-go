@@ -214,7 +214,7 @@ func init() {
 
 // CISCOSUBSCRIBERSESSIONMIB
 type CISCOSUBSCRIBERSESSIONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -279,113 +279,36 @@ type CISCOSUBSCRIBERSESSIONMIB struct {
     Csubjobreporttable CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable
 }
 
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetFilter() yfilter.YFilter { return cISCOSUBSCRIBERSESSIONMIB.YFilter }
+func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetEntityData() *types.CommonEntityData {
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.YFilter = cISCOSUBSCRIBERSESSIONMIB.YFilter
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.YangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.SegmentPath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB"
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) SetFilter(yf yfilter.YFilter) { cISCOSUBSCRIBERSESSIONMIB.YFilter = yf }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetGoName(yname string) string {
-    if yname == "csubJob" { return "Csubjob" }
-    if yname == "csubAggThresh" { return "Csubaggthresh" }
-    if yname == "csubSessionTable" { return "Csubsessiontable" }
-    if yname == "csubSessionByTypeTable" { return "Csubsessionbytypetable" }
-    if yname == "csubAggStatsTable" { return "Csubaggstatstable" }
-    if yname == "csubAggStatsIntTable" { return "Csubaggstatsinttable" }
-    if yname == "csubAggStatsThreshTable" { return "Csubaggstatsthreshtable" }
-    if yname == "csubJobTable" { return "Csubjobtable" }
-    if yname == "csubJobMatchParamsTable" { return "Csubjobmatchparamstable" }
-    if yname == "csubJobQueryParamsTable" { return "Csubjobqueryparamstable" }
-    if yname == "csubJobQueueTable" { return "Csubjobqueuetable" }
-    if yname == "csubJobReportTable" { return "Csubjobreporttable" }
-    return ""
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubJob"] = types.YChild{"Csubjob", &cISCOSUBSCRIBERSESSIONMIB.Csubjob}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubAggThresh"] = types.YChild{"Csubaggthresh", &cISCOSUBSCRIBERSESSIONMIB.Csubaggthresh}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubSessionTable"] = types.YChild{"Csubsessiontable", &cISCOSUBSCRIBERSESSIONMIB.Csubsessiontable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubSessionByTypeTable"] = types.YChild{"Csubsessionbytypetable", &cISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubAggStatsTable"] = types.YChild{"Csubaggstatstable", &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubAggStatsIntTable"] = types.YChild{"Csubaggstatsinttable", &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubAggStatsThreshTable"] = types.YChild{"Csubaggstatsthreshtable", &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubJobTable"] = types.YChild{"Csubjobtable", &cISCOSUBSCRIBERSESSIONMIB.Csubjobtable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubJobMatchParamsTable"] = types.YChild{"Csubjobmatchparamstable", &cISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubJobQueryParamsTable"] = types.YChild{"Csubjobqueryparamstable", &cISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubJobQueueTable"] = types.YChild{"Csubjobqueuetable", &cISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Children["csubJobReportTable"] = types.YChild{"Csubjobreporttable", &cISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable}
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOSUBSCRIBERSESSIONMIB.EntityData)
 }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetSegmentPath() string {
-    return "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB"
-}
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubJob" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubjob
-    }
-    if childYangName == "csubAggThresh" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubaggthresh
-    }
-    if childYangName == "csubSessionTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubsessiontable
-    }
-    if childYangName == "csubSessionByTypeTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable
-    }
-    if childYangName == "csubAggStatsTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable
-    }
-    if childYangName == "csubAggStatsIntTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable
-    }
-    if childYangName == "csubAggStatsThreshTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable
-    }
-    if childYangName == "csubJobTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubjobtable
-    }
-    if childYangName == "csubJobMatchParamsTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable
-    }
-    if childYangName == "csubJobQueryParamsTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable
-    }
-    if childYangName == "csubJobQueueTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable
-    }
-    if childYangName == "csubJobReportTable" {
-        return &cISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable
-    }
-    return nil
-}
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["csubJob"] = &cISCOSUBSCRIBERSESSIONMIB.Csubjob
-    children["csubAggThresh"] = &cISCOSUBSCRIBERSESSIONMIB.Csubaggthresh
-    children["csubSessionTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubsessiontable
-    children["csubSessionByTypeTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubsessionbytypetable
-    children["csubAggStatsTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatstable
-    children["csubAggStatsIntTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatsinttable
-    children["csubAggStatsThreshTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubaggstatsthreshtable
-    children["csubJobTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubjobtable
-    children["csubJobMatchParamsTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubjobmatchparamstable
-    children["csubJobQueryParamsTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubjobqueryparamstable
-    children["csubJobQueueTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubjobqueuetable
-    children["csubJobReportTable"] = &cISCOSUBSCRIBERSESSIONMIB.Csubjobreporttable
-    return children
-}
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) SetParent(parent types.Entity) { cISCOSUBSCRIBERSESSIONMIB.parent = parent }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetParent() types.Entity { return cISCOSUBSCRIBERSESSIONMIB.parent }
-
-func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjob
 type CISCOSUBSCRIBERSESSIONMIB_Csubjob struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies whether the system generates a csubJobFinishedNotify
@@ -428,65 +351,30 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjob struct {
     Csubjobcount interface{}
 }
 
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetFilter() yfilter.YFilter { return csubjob.YFilter }
+func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetEntityData() *types.CommonEntityData {
+    csubjob.EntityData.YFilter = csubjob.YFilter
+    csubjob.EntityData.YangName = "csubJob"
+    csubjob.EntityData.BundleName = "cisco_ios_xe"
+    csubjob.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubjob.EntityData.SegmentPath = "csubJob"
+    csubjob.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjob.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjob.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) SetFilter(yf yfilter.YFilter) { csubjob.YFilter = yf }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetGoName(yname string) string {
-    if yname == "csubJobFinishedNotifyEnable" { return "Csubjobfinishednotifyenable" }
-    if yname == "csubJobIndexedAttributes" { return "Csubjobindexedattributes" }
-    if yname == "csubJobIdNext" { return "Csubjobidnext" }
-    if yname == "csubJobMaxNumber" { return "Csubjobmaxnumber" }
-    if yname == "csubJobMaxLife" { return "Csubjobmaxlife" }
-    if yname == "csubJobCount" { return "Csubjobcount" }
-    return ""
+    csubjob.EntityData.Children = make(map[string]types.YChild)
+    csubjob.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubjob.EntityData.Leafs["csubJobFinishedNotifyEnable"] = types.YLeaf{"Csubjobfinishednotifyenable", csubjob.Csubjobfinishednotifyenable}
+    csubjob.EntityData.Leafs["csubJobIndexedAttributes"] = types.YLeaf{"Csubjobindexedattributes", csubjob.Csubjobindexedattributes}
+    csubjob.EntityData.Leafs["csubJobIdNext"] = types.YLeaf{"Csubjobidnext", csubjob.Csubjobidnext}
+    csubjob.EntityData.Leafs["csubJobMaxNumber"] = types.YLeaf{"Csubjobmaxnumber", csubjob.Csubjobmaxnumber}
+    csubjob.EntityData.Leafs["csubJobMaxLife"] = types.YLeaf{"Csubjobmaxlife", csubjob.Csubjobmaxlife}
+    csubjob.EntityData.Leafs["csubJobCount"] = types.YLeaf{"Csubjobcount", csubjob.Csubjobcount}
+    return &(csubjob.EntityData)
 }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetSegmentPath() string {
-    return "csubJob"
-}
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubJobFinishedNotifyEnable"] = csubjob.Csubjobfinishednotifyenable
-    leafs["csubJobIndexedAttributes"] = csubjob.Csubjobindexedattributes
-    leafs["csubJobIdNext"] = csubjob.Csubjobidnext
-    leafs["csubJobMaxNumber"] = csubjob.Csubjobmaxnumber
-    leafs["csubJobMaxLife"] = csubjob.Csubjobmaxlife
-    leafs["csubJobCount"] = csubjob.Csubjobcount
-    return leafs
-}
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetYangName() string { return "csubJob" }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) SetParent(parent types.Entity) { csubjob.parent = parent }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetParent() types.Entity { return csubjob.parent }
-
-func (csubjob *CISCOSUBSCRIBERSESSIONMIB_Csubjob) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object enables or disables the generation of any of the csubAggStats*
@@ -494,51 +382,21 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh struct {
     Csubaggstatsthreshnotifenable interface{}
 }
 
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetFilter() yfilter.YFilter { return csubaggthresh.YFilter }
+func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetEntityData() *types.CommonEntityData {
+    csubaggthresh.EntityData.YFilter = csubaggthresh.YFilter
+    csubaggthresh.EntityData.YangName = "csubAggThresh"
+    csubaggthresh.EntityData.BundleName = "cisco_ios_xe"
+    csubaggthresh.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubaggthresh.EntityData.SegmentPath = "csubAggThresh"
+    csubaggthresh.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggthresh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggthresh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) SetFilter(yf yfilter.YFilter) { csubaggthresh.YFilter = yf }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetGoName(yname string) string {
-    if yname == "csubAggStatsThreshNotifEnable" { return "Csubaggstatsthreshnotifenable" }
-    return ""
+    csubaggthresh.EntityData.Children = make(map[string]types.YChild)
+    csubaggthresh.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubaggthresh.EntityData.Leafs["csubAggStatsThreshNotifEnable"] = types.YLeaf{"Csubaggstatsthreshnotifenable", csubaggthresh.Csubaggstatsthreshnotifenable}
+    return &(csubaggthresh.EntityData)
 }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetSegmentPath() string {
-    return "csubAggThresh"
-}
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubAggStatsThreshNotifEnable"] = csubaggthresh.Csubaggstatsthreshnotifenable
-    return leafs
-}
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetYangName() string { return "csubAggThresh" }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) SetParent(parent types.Entity) { csubaggthresh.parent = parent }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetParent() types.Entity { return csubaggthresh.parent }
-
-func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable
 // This table describes a list of subscriber sessions currently
@@ -548,7 +406,7 @@ func (csubaggthresh *CISCOSUBSCRIBERSESSIONMIB_Csubaggthresh) GetParentYangName(
 // containing a row for each interface having an interface type
 // describing a subscriber session.
 type CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry contains data describing a subscriber sessions, including its
@@ -563,63 +421,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable struct {
     Csubsessionentry []CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry
 }
 
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetFilter() yfilter.YFilter { return csubsessiontable.YFilter }
+func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetEntityData() *types.CommonEntityData {
+    csubsessiontable.EntityData.YFilter = csubsessiontable.YFilter
+    csubsessiontable.EntityData.YangName = "csubSessionTable"
+    csubsessiontable.EntityData.BundleName = "cisco_ios_xe"
+    csubsessiontable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubsessiontable.EntityData.SegmentPath = "csubSessionTable"
+    csubsessiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubsessiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubsessiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) SetFilter(yf yfilter.YFilter) { csubsessiontable.YFilter = yf }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetGoName(yname string) string {
-    if yname == "csubSessionEntry" { return "Csubsessionentry" }
-    return ""
-}
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetSegmentPath() string {
-    return "csubSessionTable"
-}
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubSessionEntry" {
-        for _, c := range csubsessiontable.Csubsessionentry {
-            if csubsessiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry{}
-        csubsessiontable.Csubsessionentry = append(csubsessiontable.Csubsessionentry, child)
-        return &csubsessiontable.Csubsessionentry[len(csubsessiontable.Csubsessionentry)-1]
-    }
-    return nil
-}
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubsessiontable.EntityData.Children = make(map[string]types.YChild)
+    csubsessiontable.EntityData.Children["csubSessionEntry"] = types.YChild{"Csubsessionentry", nil}
     for i := range csubsessiontable.Csubsessionentry {
-        children[csubsessiontable.Csubsessionentry[i].GetSegmentPath()] = &csubsessiontable.Csubsessionentry[i]
+        csubsessiontable.EntityData.Children[types.GetSegmentPath(&csubsessiontable.Csubsessionentry[i])] = types.YChild{"Csubsessionentry", &csubsessiontable.Csubsessionentry[i]}
     }
-    return children
+    csubsessiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubsessiontable.EntityData)
 }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetYangName() string { return "csubSessionTable" }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) SetParent(parent types.Entity) { csubsessiontable.parent = parent }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetParent() types.Entity { return csubsessiontable.parent }
-
-func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry
 // This entry contains data describing a subscriber sessions,
@@ -637,7 +456,7 @@ func (csubsessiontable *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable) GetParentYan
 // session.  Likewise, the system destroys an entry when it
 // terminates the corresponding subscriber session.
 type CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -737,7 +556,7 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry struct {
     // This object indicates the MAC address of the subscriber.  This column is
     // valid only if the 'macAddress' bit of the corresponding instance of
     // csubSessionAvailableIdentities is '1'. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Csubsessionmacaddress interface{}
 
     // This object indicates the VRF originating the subscriber session.  This
@@ -899,125 +718,58 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry struct {
     Csubsessionnativeipmask2 interface{}
 }
 
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetFilter() yfilter.YFilter { return csubsessionentry.YFilter }
+func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetEntityData() *types.CommonEntityData {
+    csubsessionentry.EntityData.YFilter = csubsessionentry.YFilter
+    csubsessionentry.EntityData.YangName = "csubSessionEntry"
+    csubsessionentry.EntityData.BundleName = "cisco_ios_xe"
+    csubsessionentry.EntityData.ParentYangName = "csubSessionTable"
+    csubsessionentry.EntityData.SegmentPath = "csubSessionEntry" + "[ifIndex='" + fmt.Sprintf("%v", csubsessionentry.Ifindex) + "']"
+    csubsessionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubsessionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubsessionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) SetFilter(yf yfilter.YFilter) { csubsessionentry.YFilter = yf }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "csubSessionType" { return "Csubsessiontype" }
-    if yname == "csubSessionIpAddrAssignment" { return "Csubsessionipaddrassignment" }
-    if yname == "csubSessionState" { return "Csubsessionstate" }
-    if yname == "csubSessionAuthenticated" { return "Csubsessionauthenticated" }
-    if yname == "csubSessionRedundancyMode" { return "Csubsessionredundancymode" }
-    if yname == "csubSessionCreationTime" { return "Csubsessioncreationtime" }
-    if yname == "csubSessionDerivedCfg" { return "Csubsessionderivedcfg" }
-    if yname == "csubSessionAvailableIdentities" { return "Csubsessionavailableidentities" }
-    if yname == "csubSessionSubscriberLabel" { return "Csubsessionsubscriberlabel" }
-    if yname == "csubSessionMacAddress" { return "Csubsessionmacaddress" }
-    if yname == "csubSessionNativeVrf" { return "Csubsessionnativevrf" }
-    if yname == "csubSessionNativeIpAddrType" { return "Csubsessionnativeipaddrtype" }
-    if yname == "csubSessionNativeIpAddr" { return "Csubsessionnativeipaddr" }
-    if yname == "csubSessionNativeIpMask" { return "Csubsessionnativeipmask" }
-    if yname == "csubSessionDomainVrf" { return "Csubsessiondomainvrf" }
-    if yname == "csubSessionDomainIpAddrType" { return "Csubsessiondomainipaddrtype" }
-    if yname == "csubSessionDomainIpAddr" { return "Csubsessiondomainipaddr" }
-    if yname == "csubSessionDomainIpMask" { return "Csubsessiondomainipmask" }
-    if yname == "csubSessionPbhk" { return "Csubsessionpbhk" }
-    if yname == "csubSessionRemoteId" { return "Csubsessionremoteid" }
-    if yname == "csubSessionCircuitId" { return "Csubsessioncircuitid" }
-    if yname == "csubSessionNasPort" { return "Csubsessionnasport" }
-    if yname == "csubSessionDomain" { return "Csubsessiondomain" }
-    if yname == "csubSessionUsername" { return "Csubsessionusername" }
-    if yname == "csubSessionAcctSessionId" { return "Csubsessionacctsessionid" }
-    if yname == "csubSessionDnis" { return "Csubsessiondnis" }
-    if yname == "csubSessionMedia" { return "Csubsessionmedia" }
-    if yname == "csubSessionMlpNegotiated" { return "Csubsessionmlpnegotiated" }
-    if yname == "csubSessionProtocol" { return "Csubsessionprotocol" }
-    if yname == "csubSessionDhcpClass" { return "Csubsessiondhcpclass" }
-    if yname == "csubSessionTunnelName" { return "Csubsessiontunnelname" }
-    if yname == "csubSessionLocationIdentifier" { return "Csubsessionlocationidentifier" }
-    if yname == "csubSessionServiceIdentifier" { return "Csubsessionserviceidentifier" }
-    if yname == "csubSessionLastChanged" { return "Csubsessionlastchanged" }
-    if yname == "csubSessionNativeIpAddrType2" { return "Csubsessionnativeipaddrtype2" }
-    if yname == "csubSessionNativeIpAddr2" { return "Csubsessionnativeipaddr2" }
-    if yname == "csubSessionNativeIpMask2" { return "Csubsessionnativeipmask2" }
-    return ""
+    csubsessionentry.EntityData.Children = make(map[string]types.YChild)
+    csubsessionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubsessionentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csubsessionentry.Ifindex}
+    csubsessionentry.EntityData.Leafs["csubSessionType"] = types.YLeaf{"Csubsessiontype", csubsessionentry.Csubsessiontype}
+    csubsessionentry.EntityData.Leafs["csubSessionIpAddrAssignment"] = types.YLeaf{"Csubsessionipaddrassignment", csubsessionentry.Csubsessionipaddrassignment}
+    csubsessionentry.EntityData.Leafs["csubSessionState"] = types.YLeaf{"Csubsessionstate", csubsessionentry.Csubsessionstate}
+    csubsessionentry.EntityData.Leafs["csubSessionAuthenticated"] = types.YLeaf{"Csubsessionauthenticated", csubsessionentry.Csubsessionauthenticated}
+    csubsessionentry.EntityData.Leafs["csubSessionRedundancyMode"] = types.YLeaf{"Csubsessionredundancymode", csubsessionentry.Csubsessionredundancymode}
+    csubsessionentry.EntityData.Leafs["csubSessionCreationTime"] = types.YLeaf{"Csubsessioncreationtime", csubsessionentry.Csubsessioncreationtime}
+    csubsessionentry.EntityData.Leafs["csubSessionDerivedCfg"] = types.YLeaf{"Csubsessionderivedcfg", csubsessionentry.Csubsessionderivedcfg}
+    csubsessionentry.EntityData.Leafs["csubSessionAvailableIdentities"] = types.YLeaf{"Csubsessionavailableidentities", csubsessionentry.Csubsessionavailableidentities}
+    csubsessionentry.EntityData.Leafs["csubSessionSubscriberLabel"] = types.YLeaf{"Csubsessionsubscriberlabel", csubsessionentry.Csubsessionsubscriberlabel}
+    csubsessionentry.EntityData.Leafs["csubSessionMacAddress"] = types.YLeaf{"Csubsessionmacaddress", csubsessionentry.Csubsessionmacaddress}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeVrf"] = types.YLeaf{"Csubsessionnativevrf", csubsessionentry.Csubsessionnativevrf}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeIpAddrType"] = types.YLeaf{"Csubsessionnativeipaddrtype", csubsessionentry.Csubsessionnativeipaddrtype}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeIpAddr"] = types.YLeaf{"Csubsessionnativeipaddr", csubsessionentry.Csubsessionnativeipaddr}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeIpMask"] = types.YLeaf{"Csubsessionnativeipmask", csubsessionentry.Csubsessionnativeipmask}
+    csubsessionentry.EntityData.Leafs["csubSessionDomainVrf"] = types.YLeaf{"Csubsessiondomainvrf", csubsessionentry.Csubsessiondomainvrf}
+    csubsessionentry.EntityData.Leafs["csubSessionDomainIpAddrType"] = types.YLeaf{"Csubsessiondomainipaddrtype", csubsessionentry.Csubsessiondomainipaddrtype}
+    csubsessionentry.EntityData.Leafs["csubSessionDomainIpAddr"] = types.YLeaf{"Csubsessiondomainipaddr", csubsessionentry.Csubsessiondomainipaddr}
+    csubsessionentry.EntityData.Leafs["csubSessionDomainIpMask"] = types.YLeaf{"Csubsessiondomainipmask", csubsessionentry.Csubsessiondomainipmask}
+    csubsessionentry.EntityData.Leafs["csubSessionPbhk"] = types.YLeaf{"Csubsessionpbhk", csubsessionentry.Csubsessionpbhk}
+    csubsessionentry.EntityData.Leafs["csubSessionRemoteId"] = types.YLeaf{"Csubsessionremoteid", csubsessionentry.Csubsessionremoteid}
+    csubsessionentry.EntityData.Leafs["csubSessionCircuitId"] = types.YLeaf{"Csubsessioncircuitid", csubsessionentry.Csubsessioncircuitid}
+    csubsessionentry.EntityData.Leafs["csubSessionNasPort"] = types.YLeaf{"Csubsessionnasport", csubsessionentry.Csubsessionnasport}
+    csubsessionentry.EntityData.Leafs["csubSessionDomain"] = types.YLeaf{"Csubsessiondomain", csubsessionentry.Csubsessiondomain}
+    csubsessionentry.EntityData.Leafs["csubSessionUsername"] = types.YLeaf{"Csubsessionusername", csubsessionentry.Csubsessionusername}
+    csubsessionentry.EntityData.Leafs["csubSessionAcctSessionId"] = types.YLeaf{"Csubsessionacctsessionid", csubsessionentry.Csubsessionacctsessionid}
+    csubsessionentry.EntityData.Leafs["csubSessionDnis"] = types.YLeaf{"Csubsessiondnis", csubsessionentry.Csubsessiondnis}
+    csubsessionentry.EntityData.Leafs["csubSessionMedia"] = types.YLeaf{"Csubsessionmedia", csubsessionentry.Csubsessionmedia}
+    csubsessionentry.EntityData.Leafs["csubSessionMlpNegotiated"] = types.YLeaf{"Csubsessionmlpnegotiated", csubsessionentry.Csubsessionmlpnegotiated}
+    csubsessionentry.EntityData.Leafs["csubSessionProtocol"] = types.YLeaf{"Csubsessionprotocol", csubsessionentry.Csubsessionprotocol}
+    csubsessionentry.EntityData.Leafs["csubSessionDhcpClass"] = types.YLeaf{"Csubsessiondhcpclass", csubsessionentry.Csubsessiondhcpclass}
+    csubsessionentry.EntityData.Leafs["csubSessionTunnelName"] = types.YLeaf{"Csubsessiontunnelname", csubsessionentry.Csubsessiontunnelname}
+    csubsessionentry.EntityData.Leafs["csubSessionLocationIdentifier"] = types.YLeaf{"Csubsessionlocationidentifier", csubsessionentry.Csubsessionlocationidentifier}
+    csubsessionentry.EntityData.Leafs["csubSessionServiceIdentifier"] = types.YLeaf{"Csubsessionserviceidentifier", csubsessionentry.Csubsessionserviceidentifier}
+    csubsessionentry.EntityData.Leafs["csubSessionLastChanged"] = types.YLeaf{"Csubsessionlastchanged", csubsessionentry.Csubsessionlastchanged}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeIpAddrType2"] = types.YLeaf{"Csubsessionnativeipaddrtype2", csubsessionentry.Csubsessionnativeipaddrtype2}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeIpAddr2"] = types.YLeaf{"Csubsessionnativeipaddr2", csubsessionentry.Csubsessionnativeipaddr2}
+    csubsessionentry.EntityData.Leafs["csubSessionNativeIpMask2"] = types.YLeaf{"Csubsessionnativeipmask2", csubsessionentry.Csubsessionnativeipmask2}
+    return &(csubsessionentry.EntityData)
 }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetSegmentPath() string {
-    return "csubSessionEntry" + "[ifIndex='" + fmt.Sprintf("%v", csubsessionentry.Ifindex) + "']"
-}
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csubsessionentry.Ifindex
-    leafs["csubSessionType"] = csubsessionentry.Csubsessiontype
-    leafs["csubSessionIpAddrAssignment"] = csubsessionentry.Csubsessionipaddrassignment
-    leafs["csubSessionState"] = csubsessionentry.Csubsessionstate
-    leafs["csubSessionAuthenticated"] = csubsessionentry.Csubsessionauthenticated
-    leafs["csubSessionRedundancyMode"] = csubsessionentry.Csubsessionredundancymode
-    leafs["csubSessionCreationTime"] = csubsessionentry.Csubsessioncreationtime
-    leafs["csubSessionDerivedCfg"] = csubsessionentry.Csubsessionderivedcfg
-    leafs["csubSessionAvailableIdentities"] = csubsessionentry.Csubsessionavailableidentities
-    leafs["csubSessionSubscriberLabel"] = csubsessionentry.Csubsessionsubscriberlabel
-    leafs["csubSessionMacAddress"] = csubsessionentry.Csubsessionmacaddress
-    leafs["csubSessionNativeVrf"] = csubsessionentry.Csubsessionnativevrf
-    leafs["csubSessionNativeIpAddrType"] = csubsessionentry.Csubsessionnativeipaddrtype
-    leafs["csubSessionNativeIpAddr"] = csubsessionentry.Csubsessionnativeipaddr
-    leafs["csubSessionNativeIpMask"] = csubsessionentry.Csubsessionnativeipmask
-    leafs["csubSessionDomainVrf"] = csubsessionentry.Csubsessiondomainvrf
-    leafs["csubSessionDomainIpAddrType"] = csubsessionentry.Csubsessiondomainipaddrtype
-    leafs["csubSessionDomainIpAddr"] = csubsessionentry.Csubsessiondomainipaddr
-    leafs["csubSessionDomainIpMask"] = csubsessionentry.Csubsessiondomainipmask
-    leafs["csubSessionPbhk"] = csubsessionentry.Csubsessionpbhk
-    leafs["csubSessionRemoteId"] = csubsessionentry.Csubsessionremoteid
-    leafs["csubSessionCircuitId"] = csubsessionentry.Csubsessioncircuitid
-    leafs["csubSessionNasPort"] = csubsessionentry.Csubsessionnasport
-    leafs["csubSessionDomain"] = csubsessionentry.Csubsessiondomain
-    leafs["csubSessionUsername"] = csubsessionentry.Csubsessionusername
-    leafs["csubSessionAcctSessionId"] = csubsessionentry.Csubsessionacctsessionid
-    leafs["csubSessionDnis"] = csubsessionentry.Csubsessiondnis
-    leafs["csubSessionMedia"] = csubsessionentry.Csubsessionmedia
-    leafs["csubSessionMlpNegotiated"] = csubsessionentry.Csubsessionmlpnegotiated
-    leafs["csubSessionProtocol"] = csubsessionentry.Csubsessionprotocol
-    leafs["csubSessionDhcpClass"] = csubsessionentry.Csubsessiondhcpclass
-    leafs["csubSessionTunnelName"] = csubsessionentry.Csubsessiontunnelname
-    leafs["csubSessionLocationIdentifier"] = csubsessionentry.Csubsessionlocationidentifier
-    leafs["csubSessionServiceIdentifier"] = csubsessionentry.Csubsessionserviceidentifier
-    leafs["csubSessionLastChanged"] = csubsessionentry.Csubsessionlastchanged
-    leafs["csubSessionNativeIpAddrType2"] = csubsessionentry.Csubsessionnativeipaddrtype2
-    leafs["csubSessionNativeIpAddr2"] = csubsessionentry.Csubsessionnativeipaddr2
-    leafs["csubSessionNativeIpMask2"] = csubsessionentry.Csubsessionnativeipmask2
-    return leafs
-}
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetYangName() string { return "csubSessionEntry" }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) SetParent(parent types.Entity) { csubsessionentry.parent = parent }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetParent() types.Entity { return csubsessionentry.parent }
-
-func (csubsessionentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry) GetParentYangName() string { return "csubSessionTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry_Csubsessionipaddrassignment represents         profile.
 type CISCOSUBSCRIBERSESSIONMIB_Csubsessiontable_Csubsessionentry_Csubsessionipaddrassignment string
@@ -1048,7 +800,7 @@ const (
 // sessions first by the subscriber session's type and second by
 // the ifIndex assigned to the subscriber session.
 type CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry identifies a subscriber session.  An entry exists for a
@@ -1062,63 +814,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable struct {
     Csubsessionbytypeentry []CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry
 }
 
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetFilter() yfilter.YFilter { return csubsessionbytypetable.YFilter }
+func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetEntityData() *types.CommonEntityData {
+    csubsessionbytypetable.EntityData.YFilter = csubsessionbytypetable.YFilter
+    csubsessionbytypetable.EntityData.YangName = "csubSessionByTypeTable"
+    csubsessionbytypetable.EntityData.BundleName = "cisco_ios_xe"
+    csubsessionbytypetable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubsessionbytypetable.EntityData.SegmentPath = "csubSessionByTypeTable"
+    csubsessionbytypetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubsessionbytypetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubsessionbytypetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) SetFilter(yf yfilter.YFilter) { csubsessionbytypetable.YFilter = yf }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetGoName(yname string) string {
-    if yname == "csubSessionByTypeEntry" { return "Csubsessionbytypeentry" }
-    return ""
-}
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetSegmentPath() string {
-    return "csubSessionByTypeTable"
-}
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubSessionByTypeEntry" {
-        for _, c := range csubsessionbytypetable.Csubsessionbytypeentry {
-            if csubsessionbytypetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry{}
-        csubsessionbytypetable.Csubsessionbytypeentry = append(csubsessionbytypetable.Csubsessionbytypeentry, child)
-        return &csubsessionbytypetable.Csubsessionbytypeentry[len(csubsessionbytypetable.Csubsessionbytypeentry)-1]
-    }
-    return nil
-}
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubsessionbytypetable.EntityData.Children = make(map[string]types.YChild)
+    csubsessionbytypetable.EntityData.Children["csubSessionByTypeEntry"] = types.YChild{"Csubsessionbytypeentry", nil}
     for i := range csubsessionbytypetable.Csubsessionbytypeentry {
-        children[csubsessionbytypetable.Csubsessionbytypeentry[i].GetSegmentPath()] = &csubsessionbytypetable.Csubsessionbytypeentry[i]
+        csubsessionbytypetable.EntityData.Children[types.GetSegmentPath(&csubsessionbytypetable.Csubsessionbytypeentry[i])] = types.YChild{"Csubsessionbytypeentry", &csubsessionbytypetable.Csubsessionbytypeentry[i]}
     }
-    return children
+    csubsessionbytypetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubsessionbytypetable.EntityData)
 }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetYangName() string { return "csubSessionByTypeTable" }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) SetParent(parent types.Entity) { csubsessionbytypetable.parent = parent }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetParent() types.Entity { return csubsessionbytypetable.parent }
-
-func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry
 // This entry identifies a subscriber session.
@@ -1135,7 +848,7 @@ func (csubsessionbytypetable *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable) 
 // session.  Likewise, the system destroys an entry when it
 // terminates the corresponding subscriber session.
 type CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates the type of the subscriber
@@ -1147,60 +860,29 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry str
     Csubsessionifindex interface{}
 }
 
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetFilter() yfilter.YFilter { return csubsessionbytypeentry.YFilter }
+func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetEntityData() *types.CommonEntityData {
+    csubsessionbytypeentry.EntityData.YFilter = csubsessionbytypeentry.YFilter
+    csubsessionbytypeentry.EntityData.YangName = "csubSessionByTypeEntry"
+    csubsessionbytypeentry.EntityData.BundleName = "cisco_ios_xe"
+    csubsessionbytypeentry.EntityData.ParentYangName = "csubSessionByTypeTable"
+    csubsessionbytypeentry.EntityData.SegmentPath = "csubSessionByTypeEntry" + "[csubSessionByType='" + fmt.Sprintf("%v", csubsessionbytypeentry.Csubsessionbytype) + "']" + "[csubSessionIfIndex='" + fmt.Sprintf("%v", csubsessionbytypeentry.Csubsessionifindex) + "']"
+    csubsessionbytypeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubsessionbytypeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubsessionbytypeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) SetFilter(yf yfilter.YFilter) { csubsessionbytypeentry.YFilter = yf }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetGoName(yname string) string {
-    if yname == "csubSessionByType" { return "Csubsessionbytype" }
-    if yname == "csubSessionIfIndex" { return "Csubsessionifindex" }
-    return ""
+    csubsessionbytypeentry.EntityData.Children = make(map[string]types.YChild)
+    csubsessionbytypeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubsessionbytypeentry.EntityData.Leafs["csubSessionByType"] = types.YLeaf{"Csubsessionbytype", csubsessionbytypeentry.Csubsessionbytype}
+    csubsessionbytypeentry.EntityData.Leafs["csubSessionIfIndex"] = types.YLeaf{"Csubsessionifindex", csubsessionbytypeentry.Csubsessionifindex}
+    return &(csubsessionbytypeentry.EntityData)
 }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetSegmentPath() string {
-    return "csubSessionByTypeEntry" + "[csubSessionByType='" + fmt.Sprintf("%v", csubsessionbytypeentry.Csubsessionbytype) + "']" + "[csubSessionIfIndex='" + fmt.Sprintf("%v", csubsessionbytypeentry.Csubsessionifindex) + "']"
-}
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubSessionByType"] = csubsessionbytypeentry.Csubsessionbytype
-    leafs["csubSessionIfIndex"] = csubsessionbytypeentry.Csubsessionifindex
-    return leafs
-}
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetYangName() string { return "csubSessionByTypeEntry" }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) SetParent(parent types.Entity) { csubsessionbytypeentry.parent = parent }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetParent() types.Entity { return csubsessionbytypeentry.parent }
-
-func (csubsessionbytypeentry *CISCOSUBSCRIBERSESSIONMIB_Csubsessionbytypetable_Csubsessionbytypeentry) GetParentYangName() string { return "csubSessionByTypeTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable
 // This table contains sets of aggregated statistics relating to
 // subscriber sessions, where each set has a unique scope of
 // aggregation.
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry contains a set of aggregated statistics relating to those
@@ -1257,63 +939,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable struct {
     Csubaggstatsentry []CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry
 }
 
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetFilter() yfilter.YFilter { return csubaggstatstable.YFilter }
+func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetEntityData() *types.CommonEntityData {
+    csubaggstatstable.EntityData.YFilter = csubaggstatstable.YFilter
+    csubaggstatstable.EntityData.YangName = "csubAggStatsTable"
+    csubaggstatstable.EntityData.BundleName = "cisco_ios_xe"
+    csubaggstatstable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubaggstatstable.EntityData.SegmentPath = "csubAggStatsTable"
+    csubaggstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) SetFilter(yf yfilter.YFilter) { csubaggstatstable.YFilter = yf }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetGoName(yname string) string {
-    if yname == "csubAggStatsEntry" { return "Csubaggstatsentry" }
-    return ""
-}
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetSegmentPath() string {
-    return "csubAggStatsTable"
-}
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubAggStatsEntry" {
-        for _, c := range csubaggstatstable.Csubaggstatsentry {
-            if csubaggstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry{}
-        csubaggstatstable.Csubaggstatsentry = append(csubaggstatstable.Csubaggstatsentry, child)
-        return &csubaggstatstable.Csubaggstatsentry[len(csubaggstatstable.Csubaggstatsentry)-1]
-    }
-    return nil
-}
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubaggstatstable.EntityData.Children = make(map[string]types.YChild)
+    csubaggstatstable.EntityData.Children["csubAggStatsEntry"] = types.YChild{"Csubaggstatsentry", nil}
     for i := range csubaggstatstable.Csubaggstatsentry {
-        children[csubaggstatstable.Csubaggstatsentry[i].GetSegmentPath()] = &csubaggstatstable.Csubaggstatsentry[i]
+        csubaggstatstable.EntityData.Children[types.GetSegmentPath(&csubaggstatstable.Csubaggstatsentry[i])] = types.YChild{"Csubaggstatsentry", &csubaggstatstable.Csubaggstatsentry[i]}
     }
-    return children
+    csubaggstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubaggstatstable.EntityData)
 }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetYangName() string { return "csubAggStatsTable" }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) SetParent(parent types.Entity) { csubaggstatstable.parent = parent }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetParent() types.Entity { return csubaggstatstable.parent }
-
-func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry
 // An entry contains a set of aggregated statistics relating to
@@ -1397,7 +1040,7 @@ func (csubaggstatstable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable) GetParentY
 // those nodes.  Likewise, the system destroys these entries 
 // upon removal of the physical entity.
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates format of the
@@ -1675,121 +1318,56 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry struct {
     Csubaggstatsdiscontinuitytime interface{}
 }
 
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetFilter() yfilter.YFilter { return csubaggstatsentry.YFilter }
+func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetEntityData() *types.CommonEntityData {
+    csubaggstatsentry.EntityData.YFilter = csubaggstatsentry.YFilter
+    csubaggstatsentry.EntityData.YangName = "csubAggStatsEntry"
+    csubaggstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    csubaggstatsentry.EntityData.ParentYangName = "csubAggStatsTable"
+    csubaggstatsentry.EntityData.SegmentPath = "csubAggStatsEntry" + "[csubAggStatsPointType='" + fmt.Sprintf("%v", csubaggstatsentry.Csubaggstatspointtype) + "']" + "[csubAggStatsPoint='" + fmt.Sprintf("%v", csubaggstatsentry.Csubaggstatspoint) + "']" + "[csubAggStatsSessionType='" + fmt.Sprintf("%v", csubaggstatsentry.Csubaggstatssessiontype) + "']"
+    csubaggstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) SetFilter(yf yfilter.YFilter) { csubaggstatsentry.YFilter = yf }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetGoName(yname string) string {
-    if yname == "csubAggStatsPointType" { return "Csubaggstatspointtype" }
-    if yname == "csubAggStatsPoint" { return "Csubaggstatspoint" }
-    if yname == "csubAggStatsSessionType" { return "Csubaggstatssessiontype" }
-    if yname == "csubAggStatsPendingSessions" { return "Csubaggstatspendingsessions" }
-    if yname == "csubAggStatsUpSessions" { return "Csubaggstatsupsessions" }
-    if yname == "csubAggStatsAuthSessions" { return "Csubaggstatsauthsessions" }
-    if yname == "csubAggStatsUnAuthSessions" { return "Csubaggstatsunauthsessions" }
-    if yname == "csubAggStatsLightWeightSessions" { return "Csubaggstatslightweightsessions" }
-    if yname == "csubAggStatsRedSessions" { return "Csubaggstatsredsessions" }
-    if yname == "csubAggStatsHighUpSessions" { return "Csubaggstatshighupsessions" }
-    if yname == "csubAggStatsAvgSessionUptime" { return "Csubaggstatsavgsessionuptime" }
-    if yname == "csubAggStatsAvgSessionRPM" { return "Csubaggstatsavgsessionrpm" }
-    if yname == "csubAggStatsAvgSessionRPH" { return "Csubaggstatsavgsessionrph" }
-    if yname == "csubAggStatsThrottleEngagements" { return "Csubaggstatsthrottleengagements" }
-    if yname == "csubAggStatsTotalCreatedSessions" { return "Csubaggstatstotalcreatedsessions" }
-    if yname == "csubAggStatsTotalFailedSessions" { return "Csubaggstatstotalfailedsessions" }
-    if yname == "csubAggStatsTotalUpSessions" { return "Csubaggstatstotalupsessions" }
-    if yname == "csubAggStatsTotalAuthSessions" { return "Csubaggstatstotalauthsessions" }
-    if yname == "csubAggStatsTotalDiscSessions" { return "Csubaggstatstotaldiscsessions" }
-    if yname == "csubAggStatsTotalLightWeightSessions" { return "Csubaggstatstotallightweightsessions" }
-    if yname == "csubAggStatsTotalFlowsUp" { return "Csubaggstatstotalflowsup" }
-    if yname == "csubAggStatsDayCreatedSessions" { return "Csubaggstatsdaycreatedsessions" }
-    if yname == "csubAggStatsDayFailedSessions" { return "Csubaggstatsdayfailedsessions" }
-    if yname == "csubAggStatsDayUpSessions" { return "Csubaggstatsdayupsessions" }
-    if yname == "csubAggStatsDayAuthSessions" { return "Csubaggstatsdayauthsessions" }
-    if yname == "csubAggStatsDayDiscSessions" { return "Csubaggstatsdaydiscsessions" }
-    if yname == "csubAggStatsCurrTimeElapsed" { return "Csubaggstatscurrtimeelapsed" }
-    if yname == "csubAggStatsCurrValidIntervals" { return "Csubaggstatscurrvalidintervals" }
-    if yname == "csubAggStatsCurrInvalidIntervals" { return "Csubaggstatscurrinvalidintervals" }
-    if yname == "csubAggStatsCurrFlowsUp" { return "Csubaggstatscurrflowsup" }
-    if yname == "csubAggStatsCurrCreatedSessions" { return "Csubaggstatscurrcreatedsessions" }
-    if yname == "csubAggStatsCurrFailedSessions" { return "Csubaggstatscurrfailedsessions" }
-    if yname == "csubAggStatsCurrUpSessions" { return "Csubaggstatscurrupsessions" }
-    if yname == "csubAggStatsCurrAuthSessions" { return "Csubaggstatscurrauthsessions" }
-    if yname == "csubAggStatsCurrDiscSessions" { return "Csubaggstatscurrdiscsessions" }
-    if yname == "csubAggStatsDiscontinuityTime" { return "Csubaggstatsdiscontinuitytime" }
-    return ""
+    csubaggstatsentry.EntityData.Children = make(map[string]types.YChild)
+    csubaggstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsPointType"] = types.YLeaf{"Csubaggstatspointtype", csubaggstatsentry.Csubaggstatspointtype}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsPoint"] = types.YLeaf{"Csubaggstatspoint", csubaggstatsentry.Csubaggstatspoint}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsSessionType"] = types.YLeaf{"Csubaggstatssessiontype", csubaggstatsentry.Csubaggstatssessiontype}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsPendingSessions"] = types.YLeaf{"Csubaggstatspendingsessions", csubaggstatsentry.Csubaggstatspendingsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsUpSessions"] = types.YLeaf{"Csubaggstatsupsessions", csubaggstatsentry.Csubaggstatsupsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsAuthSessions"] = types.YLeaf{"Csubaggstatsauthsessions", csubaggstatsentry.Csubaggstatsauthsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsUnAuthSessions"] = types.YLeaf{"Csubaggstatsunauthsessions", csubaggstatsentry.Csubaggstatsunauthsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsLightWeightSessions"] = types.YLeaf{"Csubaggstatslightweightsessions", csubaggstatsentry.Csubaggstatslightweightsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsRedSessions"] = types.YLeaf{"Csubaggstatsredsessions", csubaggstatsentry.Csubaggstatsredsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsHighUpSessions"] = types.YLeaf{"Csubaggstatshighupsessions", csubaggstatsentry.Csubaggstatshighupsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsAvgSessionUptime"] = types.YLeaf{"Csubaggstatsavgsessionuptime", csubaggstatsentry.Csubaggstatsavgsessionuptime}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsAvgSessionRPM"] = types.YLeaf{"Csubaggstatsavgsessionrpm", csubaggstatsentry.Csubaggstatsavgsessionrpm}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsAvgSessionRPH"] = types.YLeaf{"Csubaggstatsavgsessionrph", csubaggstatsentry.Csubaggstatsavgsessionrph}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsThrottleEngagements"] = types.YLeaf{"Csubaggstatsthrottleengagements", csubaggstatsentry.Csubaggstatsthrottleengagements}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalCreatedSessions"] = types.YLeaf{"Csubaggstatstotalcreatedsessions", csubaggstatsentry.Csubaggstatstotalcreatedsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalFailedSessions"] = types.YLeaf{"Csubaggstatstotalfailedsessions", csubaggstatsentry.Csubaggstatstotalfailedsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalUpSessions"] = types.YLeaf{"Csubaggstatstotalupsessions", csubaggstatsentry.Csubaggstatstotalupsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalAuthSessions"] = types.YLeaf{"Csubaggstatstotalauthsessions", csubaggstatsentry.Csubaggstatstotalauthsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalDiscSessions"] = types.YLeaf{"Csubaggstatstotaldiscsessions", csubaggstatsentry.Csubaggstatstotaldiscsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalLightWeightSessions"] = types.YLeaf{"Csubaggstatstotallightweightsessions", csubaggstatsentry.Csubaggstatstotallightweightsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsTotalFlowsUp"] = types.YLeaf{"Csubaggstatstotalflowsup", csubaggstatsentry.Csubaggstatstotalflowsup}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsDayCreatedSessions"] = types.YLeaf{"Csubaggstatsdaycreatedsessions", csubaggstatsentry.Csubaggstatsdaycreatedsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsDayFailedSessions"] = types.YLeaf{"Csubaggstatsdayfailedsessions", csubaggstatsentry.Csubaggstatsdayfailedsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsDayUpSessions"] = types.YLeaf{"Csubaggstatsdayupsessions", csubaggstatsentry.Csubaggstatsdayupsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsDayAuthSessions"] = types.YLeaf{"Csubaggstatsdayauthsessions", csubaggstatsentry.Csubaggstatsdayauthsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsDayDiscSessions"] = types.YLeaf{"Csubaggstatsdaydiscsessions", csubaggstatsentry.Csubaggstatsdaydiscsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrTimeElapsed"] = types.YLeaf{"Csubaggstatscurrtimeelapsed", csubaggstatsentry.Csubaggstatscurrtimeelapsed}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrValidIntervals"] = types.YLeaf{"Csubaggstatscurrvalidintervals", csubaggstatsentry.Csubaggstatscurrvalidintervals}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrInvalidIntervals"] = types.YLeaf{"Csubaggstatscurrinvalidintervals", csubaggstatsentry.Csubaggstatscurrinvalidintervals}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrFlowsUp"] = types.YLeaf{"Csubaggstatscurrflowsup", csubaggstatsentry.Csubaggstatscurrflowsup}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrCreatedSessions"] = types.YLeaf{"Csubaggstatscurrcreatedsessions", csubaggstatsentry.Csubaggstatscurrcreatedsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrFailedSessions"] = types.YLeaf{"Csubaggstatscurrfailedsessions", csubaggstatsentry.Csubaggstatscurrfailedsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrUpSessions"] = types.YLeaf{"Csubaggstatscurrupsessions", csubaggstatsentry.Csubaggstatscurrupsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrAuthSessions"] = types.YLeaf{"Csubaggstatscurrauthsessions", csubaggstatsentry.Csubaggstatscurrauthsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsCurrDiscSessions"] = types.YLeaf{"Csubaggstatscurrdiscsessions", csubaggstatsentry.Csubaggstatscurrdiscsessions}
+    csubaggstatsentry.EntityData.Leafs["csubAggStatsDiscontinuityTime"] = types.YLeaf{"Csubaggstatsdiscontinuitytime", csubaggstatsentry.Csubaggstatsdiscontinuitytime}
+    return &(csubaggstatsentry.EntityData)
 }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetSegmentPath() string {
-    return "csubAggStatsEntry" + "[csubAggStatsPointType='" + fmt.Sprintf("%v", csubaggstatsentry.Csubaggstatspointtype) + "']" + "[csubAggStatsPoint='" + fmt.Sprintf("%v", csubaggstatsentry.Csubaggstatspoint) + "']" + "[csubAggStatsSessionType='" + fmt.Sprintf("%v", csubaggstatsentry.Csubaggstatssessiontype) + "']"
-}
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubAggStatsPointType"] = csubaggstatsentry.Csubaggstatspointtype
-    leafs["csubAggStatsPoint"] = csubaggstatsentry.Csubaggstatspoint
-    leafs["csubAggStatsSessionType"] = csubaggstatsentry.Csubaggstatssessiontype
-    leafs["csubAggStatsPendingSessions"] = csubaggstatsentry.Csubaggstatspendingsessions
-    leafs["csubAggStatsUpSessions"] = csubaggstatsentry.Csubaggstatsupsessions
-    leafs["csubAggStatsAuthSessions"] = csubaggstatsentry.Csubaggstatsauthsessions
-    leafs["csubAggStatsUnAuthSessions"] = csubaggstatsentry.Csubaggstatsunauthsessions
-    leafs["csubAggStatsLightWeightSessions"] = csubaggstatsentry.Csubaggstatslightweightsessions
-    leafs["csubAggStatsRedSessions"] = csubaggstatsentry.Csubaggstatsredsessions
-    leafs["csubAggStatsHighUpSessions"] = csubaggstatsentry.Csubaggstatshighupsessions
-    leafs["csubAggStatsAvgSessionUptime"] = csubaggstatsentry.Csubaggstatsavgsessionuptime
-    leafs["csubAggStatsAvgSessionRPM"] = csubaggstatsentry.Csubaggstatsavgsessionrpm
-    leafs["csubAggStatsAvgSessionRPH"] = csubaggstatsentry.Csubaggstatsavgsessionrph
-    leafs["csubAggStatsThrottleEngagements"] = csubaggstatsentry.Csubaggstatsthrottleengagements
-    leafs["csubAggStatsTotalCreatedSessions"] = csubaggstatsentry.Csubaggstatstotalcreatedsessions
-    leafs["csubAggStatsTotalFailedSessions"] = csubaggstatsentry.Csubaggstatstotalfailedsessions
-    leafs["csubAggStatsTotalUpSessions"] = csubaggstatsentry.Csubaggstatstotalupsessions
-    leafs["csubAggStatsTotalAuthSessions"] = csubaggstatsentry.Csubaggstatstotalauthsessions
-    leafs["csubAggStatsTotalDiscSessions"] = csubaggstatsentry.Csubaggstatstotaldiscsessions
-    leafs["csubAggStatsTotalLightWeightSessions"] = csubaggstatsentry.Csubaggstatstotallightweightsessions
-    leafs["csubAggStatsTotalFlowsUp"] = csubaggstatsentry.Csubaggstatstotalflowsup
-    leafs["csubAggStatsDayCreatedSessions"] = csubaggstatsentry.Csubaggstatsdaycreatedsessions
-    leafs["csubAggStatsDayFailedSessions"] = csubaggstatsentry.Csubaggstatsdayfailedsessions
-    leafs["csubAggStatsDayUpSessions"] = csubaggstatsentry.Csubaggstatsdayupsessions
-    leafs["csubAggStatsDayAuthSessions"] = csubaggstatsentry.Csubaggstatsdayauthsessions
-    leafs["csubAggStatsDayDiscSessions"] = csubaggstatsentry.Csubaggstatsdaydiscsessions
-    leafs["csubAggStatsCurrTimeElapsed"] = csubaggstatsentry.Csubaggstatscurrtimeelapsed
-    leafs["csubAggStatsCurrValidIntervals"] = csubaggstatsentry.Csubaggstatscurrvalidintervals
-    leafs["csubAggStatsCurrInvalidIntervals"] = csubaggstatsentry.Csubaggstatscurrinvalidintervals
-    leafs["csubAggStatsCurrFlowsUp"] = csubaggstatsentry.Csubaggstatscurrflowsup
-    leafs["csubAggStatsCurrCreatedSessions"] = csubaggstatsentry.Csubaggstatscurrcreatedsessions
-    leafs["csubAggStatsCurrFailedSessions"] = csubaggstatsentry.Csubaggstatscurrfailedsessions
-    leafs["csubAggStatsCurrUpSessions"] = csubaggstatsentry.Csubaggstatscurrupsessions
-    leafs["csubAggStatsCurrAuthSessions"] = csubaggstatsentry.Csubaggstatscurrauthsessions
-    leafs["csubAggStatsCurrDiscSessions"] = csubaggstatsentry.Csubaggstatscurrdiscsessions
-    leafs["csubAggStatsDiscontinuityTime"] = csubaggstatsentry.Csubaggstatsdiscontinuitytime
-    return leafs
-}
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetYangName() string { return "csubAggStatsEntry" }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) SetParent(parent types.Entity) { csubaggstatsentry.parent = parent }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetParent() types.Entity { return csubaggstatsentry.parent }
-
-func (csubaggstatsentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry) GetParentYangName() string { return "csubAggStatsTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry_Csubaggstatspointtype represents     'interface'                InterfaceIndex
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatstable_Csubaggstatsentry_Csubaggstatspointtype string
@@ -1815,7 +1393,7 @@ const (
 // least one interval for the 'scope of aggregation' that contains
 // all subscriber sessions maintained by the system.
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry contains the aggregated subscriber session performance data
@@ -1827,63 +1405,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable struct {
     Csubaggstatsintentry []CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry
 }
 
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetFilter() yfilter.YFilter { return csubaggstatsinttable.YFilter }
+func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetEntityData() *types.CommonEntityData {
+    csubaggstatsinttable.EntityData.YFilter = csubaggstatsinttable.YFilter
+    csubaggstatsinttable.EntityData.YangName = "csubAggStatsIntTable"
+    csubaggstatsinttable.EntityData.BundleName = "cisco_ios_xe"
+    csubaggstatsinttable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubaggstatsinttable.EntityData.SegmentPath = "csubAggStatsIntTable"
+    csubaggstatsinttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggstatsinttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggstatsinttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) SetFilter(yf yfilter.YFilter) { csubaggstatsinttable.YFilter = yf }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetGoName(yname string) string {
-    if yname == "csubAggStatsIntEntry" { return "Csubaggstatsintentry" }
-    return ""
-}
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetSegmentPath() string {
-    return "csubAggStatsIntTable"
-}
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubAggStatsIntEntry" {
-        for _, c := range csubaggstatsinttable.Csubaggstatsintentry {
-            if csubaggstatsinttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry{}
-        csubaggstatsinttable.Csubaggstatsintentry = append(csubaggstatsinttable.Csubaggstatsintentry, child)
-        return &csubaggstatsinttable.Csubaggstatsintentry[len(csubaggstatsinttable.Csubaggstatsintentry)-1]
-    }
-    return nil
-}
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubaggstatsinttable.EntityData.Children = make(map[string]types.YChild)
+    csubaggstatsinttable.EntityData.Children["csubAggStatsIntEntry"] = types.YChild{"Csubaggstatsintentry", nil}
     for i := range csubaggstatsinttable.Csubaggstatsintentry {
-        children[csubaggstatsinttable.Csubaggstatsintentry[i].GetSegmentPath()] = &csubaggstatsinttable.Csubaggstatsintentry[i]
+        csubaggstatsinttable.EntityData.Children[types.GetSegmentPath(&csubaggstatsinttable.Csubaggstatsintentry[i])] = types.YChild{"Csubaggstatsintentry", &csubaggstatsinttable.Csubaggstatsintentry[i]}
     }
-    return children
+    csubaggstatsinttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubaggstatsinttable.EntityData)
 }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetYangName() string { return "csubAggStatsIntTable" }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) SetParent(parent types.Entity) { csubaggstatsinttable.parent = parent }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetParent() types.Entity { return csubaggstatsinttable.parent }
-
-func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry
 // An entry contains the aggregated subscriber session performance
@@ -1892,7 +1431,7 @@ func (csubaggstatsinttable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable) GetP
 // 'scope of aggregation', see the descriptive text associated with
 // the csubAggStatsEntry.
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is Csubaggstatspointtype. Refers to
@@ -1950,74 +1489,35 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry struct 
     Csubaggstatsintdiscsessions interface{}
 }
 
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetFilter() yfilter.YFilter { return csubaggstatsintentry.YFilter }
+func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetEntityData() *types.CommonEntityData {
+    csubaggstatsintentry.EntityData.YFilter = csubaggstatsintentry.YFilter
+    csubaggstatsintentry.EntityData.YangName = "csubAggStatsIntEntry"
+    csubaggstatsintentry.EntityData.BundleName = "cisco_ios_xe"
+    csubaggstatsintentry.EntityData.ParentYangName = "csubAggStatsIntTable"
+    csubaggstatsintentry.EntityData.SegmentPath = "csubAggStatsIntEntry" + "[csubAggStatsPointType='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatspointtype) + "']" + "[csubAggStatsPoint='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatspoint) + "']" + "[csubAggStatsSessionType='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatssessiontype) + "']" + "[csubAggStatsIntNumber='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatsintnumber) + "']"
+    csubaggstatsintentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggstatsintentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggstatsintentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) SetFilter(yf yfilter.YFilter) { csubaggstatsintentry.YFilter = yf }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetGoName(yname string) string {
-    if yname == "csubAggStatsPointType" { return "Csubaggstatspointtype" }
-    if yname == "csubAggStatsPoint" { return "Csubaggstatspoint" }
-    if yname == "csubAggStatsSessionType" { return "Csubaggstatssessiontype" }
-    if yname == "csubAggStatsIntNumber" { return "Csubaggstatsintnumber" }
-    if yname == "csubAggStatsIntValid" { return "Csubaggstatsintvalid" }
-    if yname == "csubAggStatsIntCreatedSessions" { return "Csubaggstatsintcreatedsessions" }
-    if yname == "csubAggStatsIntFailedSessions" { return "Csubaggstatsintfailedsessions" }
-    if yname == "csubAggStatsIntUpSessions" { return "Csubaggstatsintupsessions" }
-    if yname == "csubAggStatsIntAuthSessions" { return "Csubaggstatsintauthsessions" }
-    if yname == "csubAggStatsIntDiscSessions" { return "Csubaggstatsintdiscsessions" }
-    return ""
+    csubaggstatsintentry.EntityData.Children = make(map[string]types.YChild)
+    csubaggstatsintentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsPointType"] = types.YLeaf{"Csubaggstatspointtype", csubaggstatsintentry.Csubaggstatspointtype}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsPoint"] = types.YLeaf{"Csubaggstatspoint", csubaggstatsintentry.Csubaggstatspoint}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsSessionType"] = types.YLeaf{"Csubaggstatssessiontype", csubaggstatsintentry.Csubaggstatssessiontype}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntNumber"] = types.YLeaf{"Csubaggstatsintnumber", csubaggstatsintentry.Csubaggstatsintnumber}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntValid"] = types.YLeaf{"Csubaggstatsintvalid", csubaggstatsintentry.Csubaggstatsintvalid}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntCreatedSessions"] = types.YLeaf{"Csubaggstatsintcreatedsessions", csubaggstatsintentry.Csubaggstatsintcreatedsessions}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntFailedSessions"] = types.YLeaf{"Csubaggstatsintfailedsessions", csubaggstatsintentry.Csubaggstatsintfailedsessions}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntUpSessions"] = types.YLeaf{"Csubaggstatsintupsessions", csubaggstatsintentry.Csubaggstatsintupsessions}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntAuthSessions"] = types.YLeaf{"Csubaggstatsintauthsessions", csubaggstatsintentry.Csubaggstatsintauthsessions}
+    csubaggstatsintentry.EntityData.Leafs["csubAggStatsIntDiscSessions"] = types.YLeaf{"Csubaggstatsintdiscsessions", csubaggstatsintentry.Csubaggstatsintdiscsessions}
+    return &(csubaggstatsintentry.EntityData)
 }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetSegmentPath() string {
-    return "csubAggStatsIntEntry" + "[csubAggStatsPointType='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatspointtype) + "']" + "[csubAggStatsPoint='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatspoint) + "']" + "[csubAggStatsSessionType='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatssessiontype) + "']" + "[csubAggStatsIntNumber='" + fmt.Sprintf("%v", csubaggstatsintentry.Csubaggstatsintnumber) + "']"
-}
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubAggStatsPointType"] = csubaggstatsintentry.Csubaggstatspointtype
-    leafs["csubAggStatsPoint"] = csubaggstatsintentry.Csubaggstatspoint
-    leafs["csubAggStatsSessionType"] = csubaggstatsintentry.Csubaggstatssessiontype
-    leafs["csubAggStatsIntNumber"] = csubaggstatsintentry.Csubaggstatsintnumber
-    leafs["csubAggStatsIntValid"] = csubaggstatsintentry.Csubaggstatsintvalid
-    leafs["csubAggStatsIntCreatedSessions"] = csubaggstatsintentry.Csubaggstatsintcreatedsessions
-    leafs["csubAggStatsIntFailedSessions"] = csubaggstatsintentry.Csubaggstatsintfailedsessions
-    leafs["csubAggStatsIntUpSessions"] = csubaggstatsintentry.Csubaggstatsintupsessions
-    leafs["csubAggStatsIntAuthSessions"] = csubaggstatsintentry.Csubaggstatsintauthsessions
-    leafs["csubAggStatsIntDiscSessions"] = csubaggstatsintentry.Csubaggstatsintdiscsessions
-    return leafs
-}
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetYangName() string { return "csubAggStatsIntEntry" }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) SetParent(parent types.Entity) { csubaggstatsintentry.parent = parent }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetParent() types.Entity { return csubaggstatsintentry.parent }
-
-func (csubaggstatsintentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsinttable_Csubaggstatsintentry) GetParentYangName() string { return "csubAggStatsIntTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable
 // Please enter the Table Description here.
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in this table exists for each row in the csubAggStatsTable. Each row
@@ -2027,63 +1527,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable struct {
     Csubaggstatsthreshentry []CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry
 }
 
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetFilter() yfilter.YFilter { return csubaggstatsthreshtable.YFilter }
+func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetEntityData() *types.CommonEntityData {
+    csubaggstatsthreshtable.EntityData.YFilter = csubaggstatsthreshtable.YFilter
+    csubaggstatsthreshtable.EntityData.YangName = "csubAggStatsThreshTable"
+    csubaggstatsthreshtable.EntityData.BundleName = "cisco_ios_xe"
+    csubaggstatsthreshtable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubaggstatsthreshtable.EntityData.SegmentPath = "csubAggStatsThreshTable"
+    csubaggstatsthreshtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggstatsthreshtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggstatsthreshtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) SetFilter(yf yfilter.YFilter) { csubaggstatsthreshtable.YFilter = yf }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetGoName(yname string) string {
-    if yname == "csubAggStatsThreshEntry" { return "Csubaggstatsthreshentry" }
-    return ""
-}
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetSegmentPath() string {
-    return "csubAggStatsThreshTable"
-}
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubAggStatsThreshEntry" {
-        for _, c := range csubaggstatsthreshtable.Csubaggstatsthreshentry {
-            if csubaggstatsthreshtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry{}
-        csubaggstatsthreshtable.Csubaggstatsthreshentry = append(csubaggstatsthreshtable.Csubaggstatsthreshentry, child)
-        return &csubaggstatsthreshtable.Csubaggstatsthreshentry[len(csubaggstatsthreshtable.Csubaggstatsthreshentry)-1]
-    }
-    return nil
-}
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubaggstatsthreshtable.EntityData.Children = make(map[string]types.YChild)
+    csubaggstatsthreshtable.EntityData.Children["csubAggStatsThreshEntry"] = types.YChild{"Csubaggstatsthreshentry", nil}
     for i := range csubaggstatsthreshtable.Csubaggstatsthreshentry {
-        children[csubaggstatsthreshtable.Csubaggstatsthreshentry[i].GetSegmentPath()] = &csubaggstatsthreshtable.Csubaggstatsthreshentry[i]
+        csubaggstatsthreshtable.EntityData.Children[types.GetSegmentPath(&csubaggstatsthreshtable.Csubaggstatsthreshentry[i])] = types.YChild{"Csubaggstatsthreshentry", &csubaggstatsthreshtable.Csubaggstatsthreshentry[i]}
     }
-    return children
+    csubaggstatsthreshtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubaggstatsthreshtable.EntityData)
 }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetYangName() string { return "csubAggStatsThreshTable" }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) SetParent(parent types.Entity) { csubaggstatsthreshtable.parent = parent }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetParent() types.Entity { return csubaggstatsthreshtable.parent }
-
-func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry
 // A row in this table exists for each row in the
@@ -2091,7 +1552,7 @@ func (csubaggstatsthreshtable *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable
 // Each row defines the set of thresholds and evaluation attributes
 // for an aggregation point.
 type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This threshold, if non-zero, indicates the rising
@@ -2133,63 +1594,30 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry s
     Csubsessionthreshevalinterval interface{}
 }
 
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetFilter() yfilter.YFilter { return csubaggstatsthreshentry.YFilter }
+func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetEntityData() *types.CommonEntityData {
+    csubaggstatsthreshentry.EntityData.YFilter = csubaggstatsthreshentry.YFilter
+    csubaggstatsthreshentry.EntityData.YangName = "csubAggStatsThreshEntry"
+    csubaggstatsthreshentry.EntityData.BundleName = "cisco_ios_xe"
+    csubaggstatsthreshentry.EntityData.ParentYangName = "csubAggStatsThreshTable"
+    csubaggstatsthreshentry.EntityData.SegmentPath = "csubAggStatsThreshEntry" + "[csubSessionRisingThresh='" + fmt.Sprintf("%v", csubaggstatsthreshentry.Csubsessionrisingthresh) + "']"
+    csubaggstatsthreshentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubaggstatsthreshentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubaggstatsthreshentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) SetFilter(yf yfilter.YFilter) { csubaggstatsthreshentry.YFilter = yf }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetGoName(yname string) string {
-    if yname == "csubSessionRisingThresh" { return "Csubsessionrisingthresh" }
-    if yname == "csubSessionFallingThresh" { return "Csubsessionfallingthresh" }
-    if yname == "csubSessionDeltaPercentFallingThresh" { return "Csubsessiondeltapercentfallingthresh" }
-    if yname == "csubSessionThreshEvalInterval" { return "Csubsessionthreshevalinterval" }
-    return ""
+    csubaggstatsthreshentry.EntityData.Children = make(map[string]types.YChild)
+    csubaggstatsthreshentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubaggstatsthreshentry.EntityData.Leafs["csubSessionRisingThresh"] = types.YLeaf{"Csubsessionrisingthresh", csubaggstatsthreshentry.Csubsessionrisingthresh}
+    csubaggstatsthreshentry.EntityData.Leafs["csubSessionFallingThresh"] = types.YLeaf{"Csubsessionfallingthresh", csubaggstatsthreshentry.Csubsessionfallingthresh}
+    csubaggstatsthreshentry.EntityData.Leafs["csubSessionDeltaPercentFallingThresh"] = types.YLeaf{"Csubsessiondeltapercentfallingthresh", csubaggstatsthreshentry.Csubsessiondeltapercentfallingthresh}
+    csubaggstatsthreshentry.EntityData.Leafs["csubSessionThreshEvalInterval"] = types.YLeaf{"Csubsessionthreshevalinterval", csubaggstatsthreshentry.Csubsessionthreshevalinterval}
+    return &(csubaggstatsthreshentry.EntityData)
 }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetSegmentPath() string {
-    return "csubAggStatsThreshEntry" + "[csubSessionRisingThresh='" + fmt.Sprintf("%v", csubaggstatsthreshentry.Csubsessionrisingthresh) + "']"
-}
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubSessionRisingThresh"] = csubaggstatsthreshentry.Csubsessionrisingthresh
-    leafs["csubSessionFallingThresh"] = csubaggstatsthreshentry.Csubsessionfallingthresh
-    leafs["csubSessionDeltaPercentFallingThresh"] = csubaggstatsthreshentry.Csubsessiondeltapercentfallingthresh
-    leafs["csubSessionThreshEvalInterval"] = csubaggstatsthreshentry.Csubsessionthreshevalinterval
-    return leafs
-}
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetYangName() string { return "csubAggStatsThreshEntry" }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) SetParent(parent types.Entity) { csubaggstatsthreshentry.parent = parent }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetParent() types.Entity { return csubaggstatsthreshentry.parent }
-
-func (csubaggstatsthreshentry *CISCOSUBSCRIBERSESSIONMIB_Csubaggstatsthreshtable_Csubaggstatsthreshentry) GetParentYangName() string { return "csubAggStatsThreshTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobtable
 // This table contains the subscriber session jobs submitted by
 // the EMS/NMS.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describing a subscriber session job.  At this time, subscriber
@@ -2241,63 +1669,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobtable struct {
     Csubjobentry []CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry
 }
 
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetFilter() yfilter.YFilter { return csubjobtable.YFilter }
+func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetEntityData() *types.CommonEntityData {
+    csubjobtable.EntityData.YFilter = csubjobtable.YFilter
+    csubjobtable.EntityData.YangName = "csubJobTable"
+    csubjobtable.EntityData.BundleName = "cisco_ios_xe"
+    csubjobtable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubjobtable.EntityData.SegmentPath = "csubJobTable"
+    csubjobtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) SetFilter(yf yfilter.YFilter) { csubjobtable.YFilter = yf }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetGoName(yname string) string {
-    if yname == "csubJobEntry" { return "Csubjobentry" }
-    return ""
-}
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetSegmentPath() string {
-    return "csubJobTable"
-}
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubJobEntry" {
-        for _, c := range csubjobtable.Csubjobentry {
-            if csubjobtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry{}
-        csubjobtable.Csubjobentry = append(csubjobtable.Csubjobentry, child)
-        return &csubjobtable.Csubjobentry[len(csubjobtable.Csubjobentry)-1]
-    }
-    return nil
-}
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubjobtable.EntityData.Children = make(map[string]types.YChild)
+    csubjobtable.EntityData.Children["csubJobEntry"] = types.YChild{"Csubjobentry", nil}
     for i := range csubjobtable.Csubjobentry {
-        children[csubjobtable.Csubjobentry[i].GetSegmentPath()] = &csubjobtable.Csubjobentry[i]
+        csubjobtable.EntityData.Children[types.GetSegmentPath(&csubjobtable.Csubjobentry[i])] = types.YChild{"Csubjobentry", &csubjobtable.Csubjobentry[i]}
     }
-    return children
+    csubjobtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubjobtable.EntityData)
 }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetYangName() string { return "csubJobTable" }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) SetParent(parent types.Entity) { csubjobtable.parent = parent }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetParent() types.Entity { return csubjobtable.parent }
-
-func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry
 // An entry describing a subscriber session job.  At this time,
@@ -2372,7 +1761,7 @@ func (csubjobtable *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable) GetParentYangName() 
 //     after reading it.  It can do this by setting the
 //     corresponding instance of csubJobControl to 'release'.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates an arbitrary, positive
@@ -2479,67 +1868,29 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry struct {
     Csubjobfinishedreason interface{}
 }
 
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetFilter() yfilter.YFilter { return csubjobentry.YFilter }
+func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetEntityData() *types.CommonEntityData {
+    csubjobentry.EntityData.YFilter = csubjobentry.YFilter
+    csubjobentry.EntityData.YangName = "csubJobEntry"
+    csubjobentry.EntityData.BundleName = "cisco_ios_xe"
+    csubjobentry.EntityData.ParentYangName = "csubJobTable"
+    csubjobentry.EntityData.SegmentPath = "csubJobEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobentry.Csubjobid) + "']"
+    csubjobentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) SetFilter(yf yfilter.YFilter) { csubjobentry.YFilter = yf }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetGoName(yname string) string {
-    if yname == "csubJobId" { return "Csubjobid" }
-    if yname == "csubJobStatus" { return "Csubjobstatus" }
-    if yname == "csubJobStorage" { return "Csubjobstorage" }
-    if yname == "csubJobType" { return "Csubjobtype" }
-    if yname == "csubJobControl" { return "Csubjobcontrol" }
-    if yname == "csubJobState" { return "Csubjobstate" }
-    if yname == "csubJobStartedTime" { return "Csubjobstartedtime" }
-    if yname == "csubJobFinishedTime" { return "Csubjobfinishedtime" }
-    if yname == "csubJobFinishedReason" { return "Csubjobfinishedreason" }
-    return ""
+    csubjobentry.EntityData.Children = make(map[string]types.YChild)
+    csubjobentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubjobentry.EntityData.Leafs["csubJobId"] = types.YLeaf{"Csubjobid", csubjobentry.Csubjobid}
+    csubjobentry.EntityData.Leafs["csubJobStatus"] = types.YLeaf{"Csubjobstatus", csubjobentry.Csubjobstatus}
+    csubjobentry.EntityData.Leafs["csubJobStorage"] = types.YLeaf{"Csubjobstorage", csubjobentry.Csubjobstorage}
+    csubjobentry.EntityData.Leafs["csubJobType"] = types.YLeaf{"Csubjobtype", csubjobentry.Csubjobtype}
+    csubjobentry.EntityData.Leafs["csubJobControl"] = types.YLeaf{"Csubjobcontrol", csubjobentry.Csubjobcontrol}
+    csubjobentry.EntityData.Leafs["csubJobState"] = types.YLeaf{"Csubjobstate", csubjobentry.Csubjobstate}
+    csubjobentry.EntityData.Leafs["csubJobStartedTime"] = types.YLeaf{"Csubjobstartedtime", csubjobentry.Csubjobstartedtime}
+    csubjobentry.EntityData.Leafs["csubJobFinishedTime"] = types.YLeaf{"Csubjobfinishedtime", csubjobentry.Csubjobfinishedtime}
+    csubjobentry.EntityData.Leafs["csubJobFinishedReason"] = types.YLeaf{"Csubjobfinishedreason", csubjobentry.Csubjobfinishedreason}
+    return &(csubjobentry.EntityData)
 }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetSegmentPath() string {
-    return "csubJobEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobentry.Csubjobid) + "']"
-}
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubJobId"] = csubjobentry.Csubjobid
-    leafs["csubJobStatus"] = csubjobentry.Csubjobstatus
-    leafs["csubJobStorage"] = csubjobentry.Csubjobstorage
-    leafs["csubJobType"] = csubjobentry.Csubjobtype
-    leafs["csubJobControl"] = csubjobentry.Csubjobcontrol
-    leafs["csubJobState"] = csubjobentry.Csubjobstate
-    leafs["csubJobStartedTime"] = csubjobentry.Csubjobstartedtime
-    leafs["csubJobFinishedTime"] = csubjobentry.Csubjobfinishedtime
-    leafs["csubJobFinishedReason"] = csubjobentry.Csubjobfinishedreason
-    return leafs
-}
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetYangName() string { return "csubJobEntry" }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) SetParent(parent types.Entity) { csubjobentry.parent = parent }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetParent() types.Entity { return csubjobentry.parent }
-
-func (csubjobentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry) GetParentYangName() string { return "csubJobTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry_Csubjobcontrol represents When read, this column is always 'noop'.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobtable_Csubjobentry_Csubjobcontrol string
@@ -2603,7 +1954,7 @@ const (
 // csubJobTable, containing a row for each job having a
 // csubJobType of 'query' or 'clear'.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describes a set of subscriber session match criteria. The set
@@ -2623,63 +1974,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable struct {
     Csubjobmatchparamsentry []CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry
 }
 
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetFilter() yfilter.YFilter { return csubjobmatchparamstable.YFilter }
+func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetEntityData() *types.CommonEntityData {
+    csubjobmatchparamstable.EntityData.YFilter = csubjobmatchparamstable.YFilter
+    csubjobmatchparamstable.EntityData.YangName = "csubJobMatchParamsTable"
+    csubjobmatchparamstable.EntityData.BundleName = "cisco_ios_xe"
+    csubjobmatchparamstable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubjobmatchparamstable.EntityData.SegmentPath = "csubJobMatchParamsTable"
+    csubjobmatchparamstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobmatchparamstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobmatchparamstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) SetFilter(yf yfilter.YFilter) { csubjobmatchparamstable.YFilter = yf }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetGoName(yname string) string {
-    if yname == "csubJobMatchParamsEntry" { return "Csubjobmatchparamsentry" }
-    return ""
-}
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetSegmentPath() string {
-    return "csubJobMatchParamsTable"
-}
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubJobMatchParamsEntry" {
-        for _, c := range csubjobmatchparamstable.Csubjobmatchparamsentry {
-            if csubjobmatchparamstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry{}
-        csubjobmatchparamstable.Csubjobmatchparamsentry = append(csubjobmatchparamstable.Csubjobmatchparamsentry, child)
-        return &csubjobmatchparamstable.Csubjobmatchparamsentry[len(csubjobmatchparamstable.Csubjobmatchparamsentry)-1]
-    }
-    return nil
-}
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubjobmatchparamstable.EntityData.Children = make(map[string]types.YChild)
+    csubjobmatchparamstable.EntityData.Children["csubJobMatchParamsEntry"] = types.YChild{"Csubjobmatchparamsentry", nil}
     for i := range csubjobmatchparamstable.Csubjobmatchparamsentry {
-        children[csubjobmatchparamstable.Csubjobmatchparamsentry[i].GetSegmentPath()] = &csubjobmatchparamstable.Csubjobmatchparamsentry[i]
+        csubjobmatchparamstable.EntityData.Children[types.GetSegmentPath(&csubjobmatchparamstable.Csubjobmatchparamsentry[i])] = types.YChild{"Csubjobmatchparamsentry", &csubjobmatchparamstable.Csubjobmatchparamsentry[i]}
     }
-    return children
+    csubjobmatchparamstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubjobmatchparamstable.EntityData)
 }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetYangName() string { return "csubJobMatchParamsTable" }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) SetParent(parent types.Entity) { csubjobmatchparamstable.parent = parent }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetParent() types.Entity { return csubjobmatchparamstable.parent }
-
-func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry
 // An entry describes a set of subscriber session match criteria.
@@ -2705,7 +2017,7 @@ func (csubjobmatchparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable
 // 2)  The EMS/NMS sets the corresponding instance of csubJobType
 //     to 'noop'.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -2764,7 +2076,7 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry s
     // subscriber sessions in the process of executing a subscriber session job. 
     // This value is valid only if the 'macAddress' bit of the corresponding
     // instance of csubJobMatchIdentities is '1'. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Csubjobmatchmacaddress interface{}
 
     // This object specifies the native VRF the system matches against subscriber
@@ -2942,111 +2254,51 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry s
     Csubjobmatchredundancymode interface{}
 }
 
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetFilter() yfilter.YFilter { return csubjobmatchparamsentry.YFilter }
+func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetEntityData() *types.CommonEntityData {
+    csubjobmatchparamsentry.EntityData.YFilter = csubjobmatchparamsentry.YFilter
+    csubjobmatchparamsentry.EntityData.YangName = "csubJobMatchParamsEntry"
+    csubjobmatchparamsentry.EntityData.BundleName = "cisco_ios_xe"
+    csubjobmatchparamsentry.EntityData.ParentYangName = "csubJobMatchParamsTable"
+    csubjobmatchparamsentry.EntityData.SegmentPath = "csubJobMatchParamsEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobmatchparamsentry.Csubjobid) + "']"
+    csubjobmatchparamsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobmatchparamsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobmatchparamsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) SetFilter(yf yfilter.YFilter) { csubjobmatchparamsentry.YFilter = yf }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetGoName(yname string) string {
-    if yname == "csubJobId" { return "Csubjobid" }
-    if yname == "csubJobMatchIdentities" { return "Csubjobmatchidentities" }
-    if yname == "csubJobMatchOtherParams" { return "Csubjobmatchotherparams" }
-    if yname == "csubJobMatchSubscriberLabel" { return "Csubjobmatchsubscriberlabel" }
-    if yname == "csubJobMatchMacAddress" { return "Csubjobmatchmacaddress" }
-    if yname == "csubJobMatchNativeVrf" { return "Csubjobmatchnativevrf" }
-    if yname == "csubJobMatchNativeIpAddrType" { return "Csubjobmatchnativeipaddrtype" }
-    if yname == "csubJobMatchNativeIpAddr" { return "Csubjobmatchnativeipaddr" }
-    if yname == "csubJobMatchNativeIpMask" { return "Csubjobmatchnativeipmask" }
-    if yname == "csubJobMatchDomainVrf" { return "Csubjobmatchdomainvrf" }
-    if yname == "csubJobMatchDomainIpAddrType" { return "Csubjobmatchdomainipaddrtype" }
-    if yname == "csubJobMatchDomainIpAddr" { return "Csubjobmatchdomainipaddr" }
-    if yname == "csubJobMatchDomainIpMask" { return "Csubjobmatchdomainipmask" }
-    if yname == "csubJobMatchPbhk" { return "Csubjobmatchpbhk" }
-    if yname == "csubJobMatchRemoteId" { return "Csubjobmatchremoteid" }
-    if yname == "csubJobMatchCircuitId" { return "Csubjobmatchcircuitid" }
-    if yname == "csubJobMatchNasPort" { return "Csubjobmatchnasport" }
-    if yname == "csubJobMatchDomain" { return "Csubjobmatchdomain" }
-    if yname == "csubJobMatchUsername" { return "Csubjobmatchusername" }
-    if yname == "csubJobMatchAcctSessionId" { return "Csubjobmatchacctsessionid" }
-    if yname == "csubJobMatchDnis" { return "Csubjobmatchdnis" }
-    if yname == "csubJobMatchMedia" { return "Csubjobmatchmedia" }
-    if yname == "csubJobMatchMlpNegotiated" { return "Csubjobmatchmlpnegotiated" }
-    if yname == "csubJobMatchProtocol" { return "Csubjobmatchprotocol" }
-    if yname == "csubJobMatchServiceName" { return "Csubjobmatchservicename" }
-    if yname == "csubJobMatchDhcpClass" { return "Csubjobmatchdhcpclass" }
-    if yname == "csubJobMatchTunnelName" { return "Csubjobmatchtunnelname" }
-    if yname == "csubJobMatchDanglingDuration" { return "Csubjobmatchdanglingduration" }
-    if yname == "csubJobMatchState" { return "Csubjobmatchstate" }
-    if yname == "csubJobMatchAuthenticated" { return "Csubjobmatchauthenticated" }
-    if yname == "csubJobMatchRedundancyMode" { return "Csubjobmatchredundancymode" }
-    return ""
+    csubjobmatchparamsentry.EntityData.Children = make(map[string]types.YChild)
+    csubjobmatchparamsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobId"] = types.YLeaf{"Csubjobid", csubjobmatchparamsentry.Csubjobid}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchIdentities"] = types.YLeaf{"Csubjobmatchidentities", csubjobmatchparamsentry.Csubjobmatchidentities}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchOtherParams"] = types.YLeaf{"Csubjobmatchotherparams", csubjobmatchparamsentry.Csubjobmatchotherparams}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchSubscriberLabel"] = types.YLeaf{"Csubjobmatchsubscriberlabel", csubjobmatchparamsentry.Csubjobmatchsubscriberlabel}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchMacAddress"] = types.YLeaf{"Csubjobmatchmacaddress", csubjobmatchparamsentry.Csubjobmatchmacaddress}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchNativeVrf"] = types.YLeaf{"Csubjobmatchnativevrf", csubjobmatchparamsentry.Csubjobmatchnativevrf}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchNativeIpAddrType"] = types.YLeaf{"Csubjobmatchnativeipaddrtype", csubjobmatchparamsentry.Csubjobmatchnativeipaddrtype}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchNativeIpAddr"] = types.YLeaf{"Csubjobmatchnativeipaddr", csubjobmatchparamsentry.Csubjobmatchnativeipaddr}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchNativeIpMask"] = types.YLeaf{"Csubjobmatchnativeipmask", csubjobmatchparamsentry.Csubjobmatchnativeipmask}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDomainVrf"] = types.YLeaf{"Csubjobmatchdomainvrf", csubjobmatchparamsentry.Csubjobmatchdomainvrf}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDomainIpAddrType"] = types.YLeaf{"Csubjobmatchdomainipaddrtype", csubjobmatchparamsentry.Csubjobmatchdomainipaddrtype}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDomainIpAddr"] = types.YLeaf{"Csubjobmatchdomainipaddr", csubjobmatchparamsentry.Csubjobmatchdomainipaddr}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDomainIpMask"] = types.YLeaf{"Csubjobmatchdomainipmask", csubjobmatchparamsentry.Csubjobmatchdomainipmask}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchPbhk"] = types.YLeaf{"Csubjobmatchpbhk", csubjobmatchparamsentry.Csubjobmatchpbhk}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchRemoteId"] = types.YLeaf{"Csubjobmatchremoteid", csubjobmatchparamsentry.Csubjobmatchremoteid}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchCircuitId"] = types.YLeaf{"Csubjobmatchcircuitid", csubjobmatchparamsentry.Csubjobmatchcircuitid}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchNasPort"] = types.YLeaf{"Csubjobmatchnasport", csubjobmatchparamsentry.Csubjobmatchnasport}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDomain"] = types.YLeaf{"Csubjobmatchdomain", csubjobmatchparamsentry.Csubjobmatchdomain}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchUsername"] = types.YLeaf{"Csubjobmatchusername", csubjobmatchparamsentry.Csubjobmatchusername}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchAcctSessionId"] = types.YLeaf{"Csubjobmatchacctsessionid", csubjobmatchparamsentry.Csubjobmatchacctsessionid}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDnis"] = types.YLeaf{"Csubjobmatchdnis", csubjobmatchparamsentry.Csubjobmatchdnis}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchMedia"] = types.YLeaf{"Csubjobmatchmedia", csubjobmatchparamsentry.Csubjobmatchmedia}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchMlpNegotiated"] = types.YLeaf{"Csubjobmatchmlpnegotiated", csubjobmatchparamsentry.Csubjobmatchmlpnegotiated}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchProtocol"] = types.YLeaf{"Csubjobmatchprotocol", csubjobmatchparamsentry.Csubjobmatchprotocol}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchServiceName"] = types.YLeaf{"Csubjobmatchservicename", csubjobmatchparamsentry.Csubjobmatchservicename}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDhcpClass"] = types.YLeaf{"Csubjobmatchdhcpclass", csubjobmatchparamsentry.Csubjobmatchdhcpclass}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchTunnelName"] = types.YLeaf{"Csubjobmatchtunnelname", csubjobmatchparamsentry.Csubjobmatchtunnelname}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchDanglingDuration"] = types.YLeaf{"Csubjobmatchdanglingduration", csubjobmatchparamsentry.Csubjobmatchdanglingduration}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchState"] = types.YLeaf{"Csubjobmatchstate", csubjobmatchparamsentry.Csubjobmatchstate}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchAuthenticated"] = types.YLeaf{"Csubjobmatchauthenticated", csubjobmatchparamsentry.Csubjobmatchauthenticated}
+    csubjobmatchparamsentry.EntityData.Leafs["csubJobMatchRedundancyMode"] = types.YLeaf{"Csubjobmatchredundancymode", csubjobmatchparamsentry.Csubjobmatchredundancymode}
+    return &(csubjobmatchparamsentry.EntityData)
 }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetSegmentPath() string {
-    return "csubJobMatchParamsEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobmatchparamsentry.Csubjobid) + "']"
-}
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubJobId"] = csubjobmatchparamsentry.Csubjobid
-    leafs["csubJobMatchIdentities"] = csubjobmatchparamsentry.Csubjobmatchidentities
-    leafs["csubJobMatchOtherParams"] = csubjobmatchparamsentry.Csubjobmatchotherparams
-    leafs["csubJobMatchSubscriberLabel"] = csubjobmatchparamsentry.Csubjobmatchsubscriberlabel
-    leafs["csubJobMatchMacAddress"] = csubjobmatchparamsentry.Csubjobmatchmacaddress
-    leafs["csubJobMatchNativeVrf"] = csubjobmatchparamsentry.Csubjobmatchnativevrf
-    leafs["csubJobMatchNativeIpAddrType"] = csubjobmatchparamsentry.Csubjobmatchnativeipaddrtype
-    leafs["csubJobMatchNativeIpAddr"] = csubjobmatchparamsentry.Csubjobmatchnativeipaddr
-    leafs["csubJobMatchNativeIpMask"] = csubjobmatchparamsentry.Csubjobmatchnativeipmask
-    leafs["csubJobMatchDomainVrf"] = csubjobmatchparamsentry.Csubjobmatchdomainvrf
-    leafs["csubJobMatchDomainIpAddrType"] = csubjobmatchparamsentry.Csubjobmatchdomainipaddrtype
-    leafs["csubJobMatchDomainIpAddr"] = csubjobmatchparamsentry.Csubjobmatchdomainipaddr
-    leafs["csubJobMatchDomainIpMask"] = csubjobmatchparamsentry.Csubjobmatchdomainipmask
-    leafs["csubJobMatchPbhk"] = csubjobmatchparamsentry.Csubjobmatchpbhk
-    leafs["csubJobMatchRemoteId"] = csubjobmatchparamsentry.Csubjobmatchremoteid
-    leafs["csubJobMatchCircuitId"] = csubjobmatchparamsentry.Csubjobmatchcircuitid
-    leafs["csubJobMatchNasPort"] = csubjobmatchparamsentry.Csubjobmatchnasport
-    leafs["csubJobMatchDomain"] = csubjobmatchparamsentry.Csubjobmatchdomain
-    leafs["csubJobMatchUsername"] = csubjobmatchparamsentry.Csubjobmatchusername
-    leafs["csubJobMatchAcctSessionId"] = csubjobmatchparamsentry.Csubjobmatchacctsessionid
-    leafs["csubJobMatchDnis"] = csubjobmatchparamsentry.Csubjobmatchdnis
-    leafs["csubJobMatchMedia"] = csubjobmatchparamsentry.Csubjobmatchmedia
-    leafs["csubJobMatchMlpNegotiated"] = csubjobmatchparamsentry.Csubjobmatchmlpnegotiated
-    leafs["csubJobMatchProtocol"] = csubjobmatchparamsentry.Csubjobmatchprotocol
-    leafs["csubJobMatchServiceName"] = csubjobmatchparamsentry.Csubjobmatchservicename
-    leafs["csubJobMatchDhcpClass"] = csubjobmatchparamsentry.Csubjobmatchdhcpclass
-    leafs["csubJobMatchTunnelName"] = csubjobmatchparamsentry.Csubjobmatchtunnelname
-    leafs["csubJobMatchDanglingDuration"] = csubjobmatchparamsentry.Csubjobmatchdanglingduration
-    leafs["csubJobMatchState"] = csubjobmatchparamsentry.Csubjobmatchstate
-    leafs["csubJobMatchAuthenticated"] = csubjobmatchparamsentry.Csubjobmatchauthenticated
-    leafs["csubJobMatchRedundancyMode"] = csubjobmatchparamsentry.Csubjobmatchredundancymode
-    return leafs
-}
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetYangName() string { return "csubJobMatchParamsEntry" }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) SetParent(parent types.Entity) { csubjobmatchparamsentry.parent = parent }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetParent() types.Entity { return csubjobmatchparamsentry.parent }
-
-func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable_Csubjobmatchparamsentry) GetParentYangName() string { return "csubJobMatchParamsTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable
 // This table contains subscriber session job parameters
@@ -3056,7 +2308,7 @@ func (csubjobmatchparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobmatchparamstable
 // csubJobTable, containing a row for each job having a
 // csubJobType of 'query'.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describes a set of subscriber session query parameters.  The
@@ -3070,63 +2322,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable struct {
     Csubjobqueryparamsentry []CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry
 }
 
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetFilter() yfilter.YFilter { return csubjobqueryparamstable.YFilter }
+func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetEntityData() *types.CommonEntityData {
+    csubjobqueryparamstable.EntityData.YFilter = csubjobqueryparamstable.YFilter
+    csubjobqueryparamstable.EntityData.YangName = "csubJobQueryParamsTable"
+    csubjobqueryparamstable.EntityData.BundleName = "cisco_ios_xe"
+    csubjobqueryparamstable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubjobqueryparamstable.EntityData.SegmentPath = "csubJobQueryParamsTable"
+    csubjobqueryparamstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobqueryparamstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobqueryparamstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) SetFilter(yf yfilter.YFilter) { csubjobqueryparamstable.YFilter = yf }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetGoName(yname string) string {
-    if yname == "csubJobQueryParamsEntry" { return "Csubjobqueryparamsentry" }
-    return ""
-}
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetSegmentPath() string {
-    return "csubJobQueryParamsTable"
-}
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubJobQueryParamsEntry" {
-        for _, c := range csubjobqueryparamstable.Csubjobqueryparamsentry {
-            if csubjobqueryparamstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry{}
-        csubjobqueryparamstable.Csubjobqueryparamsentry = append(csubjobqueryparamstable.Csubjobqueryparamsentry, child)
-        return &csubjobqueryparamstable.Csubjobqueryparamsentry[len(csubjobqueryparamstable.Csubjobqueryparamsentry)-1]
-    }
-    return nil
-}
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubjobqueryparamstable.EntityData.Children = make(map[string]types.YChild)
+    csubjobqueryparamstable.EntityData.Children["csubJobQueryParamsEntry"] = types.YChild{"Csubjobqueryparamsentry", nil}
     for i := range csubjobqueryparamstable.Csubjobqueryparamsentry {
-        children[csubjobqueryparamstable.Csubjobqueryparamsentry[i].GetSegmentPath()] = &csubjobqueryparamstable.Csubjobqueryparamsentry[i]
+        csubjobqueryparamstable.EntityData.Children[types.GetSegmentPath(&csubjobqueryparamstable.Csubjobqueryparamsentry[i])] = types.YChild{"Csubjobqueryparamsentry", &csubjobqueryparamstable.Csubjobqueryparamsentry[i]}
     }
-    return children
+    csubjobqueryparamstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubjobqueryparamstable.EntityData)
 }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetYangName() string { return "csubJobQueryParamsTable" }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) SetParent(parent types.Entity) { csubjobqueryparamstable.parent = parent }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetParent() types.Entity { return csubjobqueryparamstable.parent }
-
-func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry
 // An entry describes a set of subscriber session query
@@ -3142,7 +2355,7 @@ func (csubjobqueryparamstable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable
 // 2)  The EMS/NMS sets the corresponding instance of csubJobType to
 //     'noop' or 'clear'.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -3179,65 +2392,31 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry s
     Csubjobqueryresultingreportsize interface{}
 }
 
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetFilter() yfilter.YFilter { return csubjobqueryparamsentry.YFilter }
+func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetEntityData() *types.CommonEntityData {
+    csubjobqueryparamsentry.EntityData.YFilter = csubjobqueryparamsentry.YFilter
+    csubjobqueryparamsentry.EntityData.YangName = "csubJobQueryParamsEntry"
+    csubjobqueryparamsentry.EntityData.BundleName = "cisco_ios_xe"
+    csubjobqueryparamsentry.EntityData.ParentYangName = "csubJobQueryParamsTable"
+    csubjobqueryparamsentry.EntityData.SegmentPath = "csubJobQueryParamsEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobqueryparamsentry.Csubjobid) + "']"
+    csubjobqueryparamsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobqueryparamsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobqueryparamsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) SetFilter(yf yfilter.YFilter) { csubjobqueryparamsentry.YFilter = yf }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetGoName(yname string) string {
-    if yname == "csubJobId" { return "Csubjobid" }
-    if yname == "csubJobQuerySortKey1" { return "Csubjobquerysortkey1" }
-    if yname == "csubJobQuerySortKey2" { return "Csubjobquerysortkey2" }
-    if yname == "csubJobQuerySortKey3" { return "Csubjobquerysortkey3" }
-    if yname == "csubJobQueryResultingReportSize" { return "Csubjobqueryresultingreportsize" }
-    return ""
+    csubjobqueryparamsentry.EntityData.Children = make(map[string]types.YChild)
+    csubjobqueryparamsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubjobqueryparamsentry.EntityData.Leafs["csubJobId"] = types.YLeaf{"Csubjobid", csubjobqueryparamsentry.Csubjobid}
+    csubjobqueryparamsentry.EntityData.Leafs["csubJobQuerySortKey1"] = types.YLeaf{"Csubjobquerysortkey1", csubjobqueryparamsentry.Csubjobquerysortkey1}
+    csubjobqueryparamsentry.EntityData.Leafs["csubJobQuerySortKey2"] = types.YLeaf{"Csubjobquerysortkey2", csubjobqueryparamsentry.Csubjobquerysortkey2}
+    csubjobqueryparamsentry.EntityData.Leafs["csubJobQuerySortKey3"] = types.YLeaf{"Csubjobquerysortkey3", csubjobqueryparamsentry.Csubjobquerysortkey3}
+    csubjobqueryparamsentry.EntityData.Leafs["csubJobQueryResultingReportSize"] = types.YLeaf{"Csubjobqueryresultingreportsize", csubjobqueryparamsentry.Csubjobqueryresultingreportsize}
+    return &(csubjobqueryparamsentry.EntityData)
 }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetSegmentPath() string {
-    return "csubJobQueryParamsEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobqueryparamsentry.Csubjobid) + "']"
-}
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubJobId"] = csubjobqueryparamsentry.Csubjobid
-    leafs["csubJobQuerySortKey1"] = csubjobqueryparamsentry.Csubjobquerysortkey1
-    leafs["csubJobQuerySortKey2"] = csubjobqueryparamsentry.Csubjobquerysortkey2
-    leafs["csubJobQuerySortKey3"] = csubjobqueryparamsentry.Csubjobquerysortkey3
-    leafs["csubJobQueryResultingReportSize"] = csubjobqueryparamsentry.Csubjobqueryresultingreportsize
-    return leafs
-}
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetYangName() string { return "csubJobQueryParamsEntry" }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) SetParent(parent types.Entity) { csubjobqueryparamsentry.parent = parent }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetParent() types.Entity { return csubjobqueryparamsentry.parent }
-
-func (csubjobqueryparamsentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueryparamstable_Csubjobqueryparamsentry) GetParentYangName() string { return "csubJobQueryParamsTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable
 // This table lists the subscriber session jobs currently pending
 // in the subscriber session job queue.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describing an subscriber session job in the subscriber session job
@@ -3254,63 +2433,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable struct {
     Csubjobqueueentry []CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry
 }
 
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetFilter() yfilter.YFilter { return csubjobqueuetable.YFilter }
+func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetEntityData() *types.CommonEntityData {
+    csubjobqueuetable.EntityData.YFilter = csubjobqueuetable.YFilter
+    csubjobqueuetable.EntityData.YangName = "csubJobQueueTable"
+    csubjobqueuetable.EntityData.BundleName = "cisco_ios_xe"
+    csubjobqueuetable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubjobqueuetable.EntityData.SegmentPath = "csubJobQueueTable"
+    csubjobqueuetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobqueuetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobqueuetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) SetFilter(yf yfilter.YFilter) { csubjobqueuetable.YFilter = yf }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetGoName(yname string) string {
-    if yname == "csubJobQueueEntry" { return "Csubjobqueueentry" }
-    return ""
-}
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetSegmentPath() string {
-    return "csubJobQueueTable"
-}
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubJobQueueEntry" {
-        for _, c := range csubjobqueuetable.Csubjobqueueentry {
-            if csubjobqueuetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry{}
-        csubjobqueuetable.Csubjobqueueentry = append(csubjobqueuetable.Csubjobqueueentry, child)
-        return &csubjobqueuetable.Csubjobqueueentry[len(csubjobqueuetable.Csubjobqueueentry)-1]
-    }
-    return nil
-}
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubjobqueuetable.EntityData.Children = make(map[string]types.YChild)
+    csubjobqueuetable.EntityData.Children["csubJobQueueEntry"] = types.YChild{"Csubjobqueueentry", nil}
     for i := range csubjobqueuetable.Csubjobqueueentry {
-        children[csubjobqueuetable.Csubjobqueueentry[i].GetSegmentPath()] = &csubjobqueuetable.Csubjobqueueentry[i]
+        csubjobqueuetable.EntityData.Children[types.GetSegmentPath(&csubjobqueuetable.Csubjobqueueentry[i])] = types.YChild{"Csubjobqueueentry", &csubjobqueuetable.Csubjobqueueentry[i]}
     }
-    return children
+    csubjobqueuetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubjobqueuetable.EntityData)
 }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetYangName() string { return "csubJobQueueTable" }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) SetParent(parent types.Entity) { csubjobqueuetable.parent = parent }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetParent() types.Entity { return csubjobqueuetable.parent }
-
-func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry
 // An entry describing an subscriber session job in the
@@ -3330,7 +2470,7 @@ func (csubjobqueuetable *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable) GetParentY
 // 2)  The EMS/NMS has set an instance of csubJobControl to 'abort'
 //     for a job that was on the queue.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates an positive, integer-value
@@ -3347,53 +2487,22 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry struct {
     Csubjobqueuejobid interface{}
 }
 
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetFilter() yfilter.YFilter { return csubjobqueueentry.YFilter }
+func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetEntityData() *types.CommonEntityData {
+    csubjobqueueentry.EntityData.YFilter = csubjobqueueentry.YFilter
+    csubjobqueueentry.EntityData.YangName = "csubJobQueueEntry"
+    csubjobqueueentry.EntityData.BundleName = "cisco_ios_xe"
+    csubjobqueueentry.EntityData.ParentYangName = "csubJobQueueTable"
+    csubjobqueueentry.EntityData.SegmentPath = "csubJobQueueEntry" + "[csubJobQueueNumber='" + fmt.Sprintf("%v", csubjobqueueentry.Csubjobqueuenumber) + "']"
+    csubjobqueueentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobqueueentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobqueueentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) SetFilter(yf yfilter.YFilter) { csubjobqueueentry.YFilter = yf }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetGoName(yname string) string {
-    if yname == "csubJobQueueNumber" { return "Csubjobqueuenumber" }
-    if yname == "csubJobQueueJobId" { return "Csubjobqueuejobid" }
-    return ""
+    csubjobqueueentry.EntityData.Children = make(map[string]types.YChild)
+    csubjobqueueentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubjobqueueentry.EntityData.Leafs["csubJobQueueNumber"] = types.YLeaf{"Csubjobqueuenumber", csubjobqueueentry.Csubjobqueuenumber}
+    csubjobqueueentry.EntityData.Leafs["csubJobQueueJobId"] = types.YLeaf{"Csubjobqueuejobid", csubjobqueueentry.Csubjobqueuejobid}
+    return &(csubjobqueueentry.EntityData)
 }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetSegmentPath() string {
-    return "csubJobQueueEntry" + "[csubJobQueueNumber='" + fmt.Sprintf("%v", csubjobqueueentry.Csubjobqueuenumber) + "']"
-}
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubJobQueueNumber"] = csubjobqueueentry.Csubjobqueuenumber
-    leafs["csubJobQueueJobId"] = csubjobqueueentry.Csubjobqueuejobid
-    return leafs
-}
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetYangName() string { return "csubJobQueueEntry" }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) SetParent(parent types.Entity) { csubjobqueueentry.parent = parent }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetParent() types.Entity { return csubjobqueueentry.parent }
-
-func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueueentry) GetParentYangName() string { return "csubJobQueueTable" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable
 // This table contains the reports corresponding to subscriber
@@ -3403,7 +2512,7 @@ func (csubjobqueueentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobqueuetable_Csubjobqueu
 // This table has an expansion dependent relationship on the
 // csubJobTable, containing zero or more rows for each job.
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describes a subscriber session that satisfied the match criteria
@@ -3423,63 +2532,24 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable struct {
     Csubjobreportentry []CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry
 }
 
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetFilter() yfilter.YFilter { return csubjobreporttable.YFilter }
+func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetEntityData() *types.CommonEntityData {
+    csubjobreporttable.EntityData.YFilter = csubjobreporttable.YFilter
+    csubjobreporttable.EntityData.YangName = "csubJobReportTable"
+    csubjobreporttable.EntityData.BundleName = "cisco_ios_xe"
+    csubjobreporttable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
+    csubjobreporttable.EntityData.SegmentPath = "csubJobReportTable"
+    csubjobreporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobreporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobreporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) SetFilter(yf yfilter.YFilter) { csubjobreporttable.YFilter = yf }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetGoName(yname string) string {
-    if yname == "csubJobReportEntry" { return "Csubjobreportentry" }
-    return ""
-}
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetSegmentPath() string {
-    return "csubJobReportTable"
-}
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csubJobReportEntry" {
-        for _, c := range csubjobreporttable.Csubjobreportentry {
-            if csubjobreporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry{}
-        csubjobreporttable.Csubjobreportentry = append(csubjobreporttable.Csubjobreportentry, child)
-        return &csubjobreporttable.Csubjobreportentry[len(csubjobreporttable.Csubjobreportentry)-1]
-    }
-    return nil
-}
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csubjobreporttable.EntityData.Children = make(map[string]types.YChild)
+    csubjobreporttable.EntityData.Children["csubJobReportEntry"] = types.YChild{"Csubjobreportentry", nil}
     for i := range csubjobreporttable.Csubjobreportentry {
-        children[csubjobreporttable.Csubjobreportentry[i].GetSegmentPath()] = &csubjobreporttable.Csubjobreportentry[i]
+        csubjobreporttable.EntityData.Children[types.GetSegmentPath(&csubjobreporttable.Csubjobreportentry[i])] = types.YChild{"Csubjobreportentry", &csubjobreporttable.Csubjobreportentry[i]}
     }
-    return children
+    csubjobreporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csubjobreporttable.EntityData)
 }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetYangName() string { return "csubJobReportTable" }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) SetParent(parent types.Entity) { csubjobreporttable.parent = parent }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetParent() types.Entity { return csubjobreporttable.parent }
-
-func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetParentYangName() string { return "CISCO-SUBSCRIBER-SESSION-MIB" }
 
 // CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry
 // An entry describes a subscriber session that satisfied the
@@ -3506,7 +2576,7 @@ func (csubjobreporttable *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable) GetParen
 //     session job (i.e., has set the corresponding instance of
 //     csubJobControl to 'start').
 type CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -3529,53 +2599,21 @@ type CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry struct {
     Csubjobreportsession interface{}
 }
 
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetFilter() yfilter.YFilter { return csubjobreportentry.YFilter }
+func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetEntityData() *types.CommonEntityData {
+    csubjobreportentry.EntityData.YFilter = csubjobreportentry.YFilter
+    csubjobreportentry.EntityData.YangName = "csubJobReportEntry"
+    csubjobreportentry.EntityData.BundleName = "cisco_ios_xe"
+    csubjobreportentry.EntityData.ParentYangName = "csubJobReportTable"
+    csubjobreportentry.EntityData.SegmentPath = "csubJobReportEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobreportentry.Csubjobid) + "']" + "[csubJobReportId='" + fmt.Sprintf("%v", csubjobreportentry.Csubjobreportid) + "']"
+    csubjobreportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csubjobreportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csubjobreportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) SetFilter(yf yfilter.YFilter) { csubjobreportentry.YFilter = yf }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetGoName(yname string) string {
-    if yname == "csubJobId" { return "Csubjobid" }
-    if yname == "csubJobReportId" { return "Csubjobreportid" }
-    if yname == "csubJobReportSession" { return "Csubjobreportsession" }
-    return ""
+    csubjobreportentry.EntityData.Children = make(map[string]types.YChild)
+    csubjobreportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csubjobreportentry.EntityData.Leafs["csubJobId"] = types.YLeaf{"Csubjobid", csubjobreportentry.Csubjobid}
+    csubjobreportentry.EntityData.Leafs["csubJobReportId"] = types.YLeaf{"Csubjobreportid", csubjobreportentry.Csubjobreportid}
+    csubjobreportentry.EntityData.Leafs["csubJobReportSession"] = types.YLeaf{"Csubjobreportsession", csubjobreportentry.Csubjobreportsession}
+    return &(csubjobreportentry.EntityData)
 }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetSegmentPath() string {
-    return "csubJobReportEntry" + "[csubJobId='" + fmt.Sprintf("%v", csubjobreportentry.Csubjobid) + "']" + "[csubJobReportId='" + fmt.Sprintf("%v", csubjobreportentry.Csubjobreportid) + "']"
-}
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csubJobId"] = csubjobreportentry.Csubjobid
-    leafs["csubJobReportId"] = csubjobreportentry.Csubjobreportid
-    leafs["csubJobReportSession"] = csubjobreportentry.Csubjobreportsession
-    return leafs
-}
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetYangName() string { return "csubJobReportEntry" }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) SetParent(parent types.Entity) { csubjobreportentry.parent = parent }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetParent() types.Entity { return csubjobreportentry.parent }
-
-func (csubjobreportentry *CISCOSUBSCRIBERSESSIONMIB_Csubjobreporttable_Csubjobreportentry) GetParentYangName() string { return "csubJobReportTable" }
 

@@ -24,65 +24,32 @@ func init() {
 
 // OSPFTRAPMIB
 type OSPFTRAPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Ospftrapcontrol OSPFTRAPMIB_Ospftrapcontrol
 }
 
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetFilter() yfilter.YFilter { return oSPFTRAPMIB.YFilter }
+func (oSPFTRAPMIB *OSPFTRAPMIB) GetEntityData() *types.CommonEntityData {
+    oSPFTRAPMIB.EntityData.YFilter = oSPFTRAPMIB.YFilter
+    oSPFTRAPMIB.EntityData.YangName = "OSPF-TRAP-MIB"
+    oSPFTRAPMIB.EntityData.BundleName = "cisco_ios_xe"
+    oSPFTRAPMIB.EntityData.ParentYangName = "OSPF-TRAP-MIB"
+    oSPFTRAPMIB.EntityData.SegmentPath = "OSPF-TRAP-MIB:OSPF-TRAP-MIB"
+    oSPFTRAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    oSPFTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    oSPFTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (oSPFTRAPMIB *OSPFTRAPMIB) SetFilter(yf yfilter.YFilter) { oSPFTRAPMIB.YFilter = yf }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetGoName(yname string) string {
-    if yname == "ospfTrapControl" { return "Ospftrapcontrol" }
-    return ""
+    oSPFTRAPMIB.EntityData.Children = make(map[string]types.YChild)
+    oSPFTRAPMIB.EntityData.Children["ospfTrapControl"] = types.YChild{"Ospftrapcontrol", &oSPFTRAPMIB.Ospftrapcontrol}
+    oSPFTRAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(oSPFTRAPMIB.EntityData)
 }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetSegmentPath() string {
-    return "OSPF-TRAP-MIB:OSPF-TRAP-MIB"
-}
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfTrapControl" {
-        return &oSPFTRAPMIB.Ospftrapcontrol
-    }
-    return nil
-}
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ospfTrapControl"] = &oSPFTRAPMIB.Ospftrapcontrol
-    return children
-}
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetYangName() string { return "OSPF-TRAP-MIB" }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) SetParent(parent types.Entity) { oSPFTRAPMIB.parent = parent }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetParent() types.Entity { return oSPFTRAPMIB.parent }
-
-func (oSPFTRAPMIB *OSPFTRAPMIB) GetParentYangName() string { return "OSPF-TRAP-MIB" }
 
 // OSPFTRAPMIB_Ospftrapcontrol
 type OSPFTRAPMIB_Ospftrapcontrol struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A 4-octet string serving as a bit map for the trap events defined by the
@@ -109,61 +76,28 @@ type OSPFTRAPMIB_Ospftrapcontrol struct {
     // instance.  When the last value of a trap using this object is needed, but
     // no traps of that type have been sent, this value pertaining to this object
     // should be returned as 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfpacketsrc interface{}
 }
 
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetFilter() yfilter.YFilter { return ospftrapcontrol.YFilter }
+func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetEntityData() *types.CommonEntityData {
+    ospftrapcontrol.EntityData.YFilter = ospftrapcontrol.YFilter
+    ospftrapcontrol.EntityData.YangName = "ospfTrapControl"
+    ospftrapcontrol.EntityData.BundleName = "cisco_ios_xe"
+    ospftrapcontrol.EntityData.ParentYangName = "OSPF-TRAP-MIB"
+    ospftrapcontrol.EntityData.SegmentPath = "ospfTrapControl"
+    ospftrapcontrol.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospftrapcontrol.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospftrapcontrol.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) SetFilter(yf yfilter.YFilter) { ospftrapcontrol.YFilter = yf }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetGoName(yname string) string {
-    if yname == "ospfSetTrap" { return "Ospfsettrap" }
-    if yname == "ospfConfigErrorType" { return "Ospfconfigerrortype" }
-    if yname == "ospfPacketType" { return "Ospfpackettype" }
-    if yname == "ospfPacketSrc" { return "Ospfpacketsrc" }
-    return ""
+    ospftrapcontrol.EntityData.Children = make(map[string]types.YChild)
+    ospftrapcontrol.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospftrapcontrol.EntityData.Leafs["ospfSetTrap"] = types.YLeaf{"Ospfsettrap", ospftrapcontrol.Ospfsettrap}
+    ospftrapcontrol.EntityData.Leafs["ospfConfigErrorType"] = types.YLeaf{"Ospfconfigerrortype", ospftrapcontrol.Ospfconfigerrortype}
+    ospftrapcontrol.EntityData.Leafs["ospfPacketType"] = types.YLeaf{"Ospfpackettype", ospftrapcontrol.Ospfpackettype}
+    ospftrapcontrol.EntityData.Leafs["ospfPacketSrc"] = types.YLeaf{"Ospfpacketsrc", ospftrapcontrol.Ospfpacketsrc}
+    return &(ospftrapcontrol.EntityData)
 }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetSegmentPath() string {
-    return "ospfTrapControl"
-}
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfSetTrap"] = ospftrapcontrol.Ospfsettrap
-    leafs["ospfConfigErrorType"] = ospftrapcontrol.Ospfconfigerrortype
-    leafs["ospfPacketType"] = ospftrapcontrol.Ospfpackettype
-    leafs["ospfPacketSrc"] = ospftrapcontrol.Ospfpacketsrc
-    return leafs
-}
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetYangName() string { return "ospfTrapControl" }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) SetParent(parent types.Entity) { ospftrapcontrol.parent = parent }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetParent() types.Entity { return ospftrapcontrol.parent }
-
-func (ospftrapcontrol *OSPFTRAPMIB_Ospftrapcontrol) GetParentYangName() string { return "OSPF-TRAP-MIB" }
 
 // OSPFTRAPMIB_Ospftrapcontrol_Ospfconfigerrortype represents noError.
 type OSPFTRAPMIB_Ospftrapcontrol_Ospfconfigerrortype string

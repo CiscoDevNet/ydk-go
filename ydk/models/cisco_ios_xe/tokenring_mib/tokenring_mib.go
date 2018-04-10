@@ -16,27 +16,6 @@ func init() {
     ydk.RegisterEntity("TOKENRING-MIB:TOKENRING-MIB", reflect.TypeOf(TOKENRINGMIB{}))
 }
 
-type Dot5Chipsettitms380 struct {
-}
-
-func (id Dot5Chipsettitms380) String() string {
-	return "TOKENRING-MIB:dot5ChipSetTItms380"
-}
-
-type Dot5Chipsettitms380C16 struct {
-}
-
-func (id Dot5Chipsettitms380C16) String() string {
-	return "TOKENRING-MIB:dot5ChipSetTItms380c16"
-}
-
-type Dot5Chipsetibm16 struct {
-}
-
-func (id Dot5Chipsetibm16) String() string {
-	return "TOKENRING-MIB:dot5ChipSetIBM16"
-}
-
 type Dot5Testinsertfunc struct {
 }
 
@@ -51,9 +30,30 @@ func (id Dot5Testfullduplexloopback) String() string {
 	return "TOKENRING-MIB:dot5TestFullDuplexLoopBack"
 }
 
+type Dot5Chipsetibm16 struct {
+}
+
+func (id Dot5Chipsetibm16) String() string {
+	return "TOKENRING-MIB:dot5ChipSetIBM16"
+}
+
+type Dot5Chipsettitms380 struct {
+}
+
+func (id Dot5Chipsettitms380) String() string {
+	return "TOKENRING-MIB:dot5ChipSetTItms380"
+}
+
+type Dot5Chipsettitms380C16 struct {
+}
+
+func (id Dot5Chipsettitms380C16) String() string {
+	return "TOKENRING-MIB:dot5ChipSetTItms380c16"
+}
+
 // TOKENRINGMIB
 type TOKENRINGMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains Token Ring interface parameters and state variables,
@@ -73,71 +73,30 @@ type TOKENRINGMIB struct {
     Dot5Timertable TOKENRINGMIB_Dot5Timertable
 }
 
-func (tOKENRINGMIB *TOKENRINGMIB) GetFilter() yfilter.YFilter { return tOKENRINGMIB.YFilter }
+func (tOKENRINGMIB *TOKENRINGMIB) GetEntityData() *types.CommonEntityData {
+    tOKENRINGMIB.EntityData.YFilter = tOKENRINGMIB.YFilter
+    tOKENRINGMIB.EntityData.YangName = "TOKENRING-MIB"
+    tOKENRINGMIB.EntityData.BundleName = "cisco_ios_xe"
+    tOKENRINGMIB.EntityData.ParentYangName = "TOKENRING-MIB"
+    tOKENRINGMIB.EntityData.SegmentPath = "TOKENRING-MIB:TOKENRING-MIB"
+    tOKENRINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tOKENRINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tOKENRINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tOKENRINGMIB *TOKENRINGMIB) SetFilter(yf yfilter.YFilter) { tOKENRINGMIB.YFilter = yf }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetGoName(yname string) string {
-    if yname == "dot5Table" { return "Dot5Table" }
-    if yname == "dot5StatsTable" { return "Dot5Statstable" }
-    if yname == "dot5TimerTable" { return "Dot5Timertable" }
-    return ""
+    tOKENRINGMIB.EntityData.Children = make(map[string]types.YChild)
+    tOKENRINGMIB.EntityData.Children["dot5Table"] = types.YChild{"Dot5Table", &tOKENRINGMIB.Dot5Table}
+    tOKENRINGMIB.EntityData.Children["dot5StatsTable"] = types.YChild{"Dot5Statstable", &tOKENRINGMIB.Dot5Statstable}
+    tOKENRINGMIB.EntityData.Children["dot5TimerTable"] = types.YChild{"Dot5Timertable", &tOKENRINGMIB.Dot5Timertable}
+    tOKENRINGMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tOKENRINGMIB.EntityData)
 }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetSegmentPath() string {
-    return "TOKENRING-MIB:TOKENRING-MIB"
-}
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot5Table" {
-        return &tOKENRINGMIB.Dot5Table
-    }
-    if childYangName == "dot5StatsTable" {
-        return &tOKENRINGMIB.Dot5Statstable
-    }
-    if childYangName == "dot5TimerTable" {
-        return &tOKENRINGMIB.Dot5Timertable
-    }
-    return nil
-}
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dot5Table"] = &tOKENRINGMIB.Dot5Table
-    children["dot5StatsTable"] = &tOKENRINGMIB.Dot5Statstable
-    children["dot5TimerTable"] = &tOKENRINGMIB.Dot5Timertable
-    return children
-}
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetYangName() string { return "TOKENRING-MIB" }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tOKENRINGMIB *TOKENRINGMIB) SetParent(parent types.Entity) { tOKENRINGMIB.parent = parent }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetParent() types.Entity { return tOKENRINGMIB.parent }
-
-func (tOKENRINGMIB *TOKENRINGMIB) GetParentYangName() string { return "TOKENRING-MIB" }
 
 // TOKENRINGMIB_Dot5Table
 // This table contains Token Ring interface
 // parameters and state variables, one entry
 // per 802.5 interface.
 type TOKENRINGMIB_Dot5Table struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of Token Ring status and parameter values for an 802.5 interface.
@@ -145,69 +104,30 @@ type TOKENRINGMIB_Dot5Table struct {
     Dot5Entry []TOKENRINGMIB_Dot5Table_Dot5Entry
 }
 
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetFilter() yfilter.YFilter { return dot5Table.YFilter }
+func (dot5Table *TOKENRINGMIB_Dot5Table) GetEntityData() *types.CommonEntityData {
+    dot5Table.EntityData.YFilter = dot5Table.YFilter
+    dot5Table.EntityData.YangName = "dot5Table"
+    dot5Table.EntityData.BundleName = "cisco_ios_xe"
+    dot5Table.EntityData.ParentYangName = "TOKENRING-MIB"
+    dot5Table.EntityData.SegmentPath = "dot5Table"
+    dot5Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot5Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot5Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot5Table *TOKENRINGMIB_Dot5Table) SetFilter(yf yfilter.YFilter) { dot5Table.YFilter = yf }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetGoName(yname string) string {
-    if yname == "dot5Entry" { return "Dot5Entry" }
-    return ""
-}
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetSegmentPath() string {
-    return "dot5Table"
-}
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot5Entry" {
-        for _, c := range dot5Table.Dot5Entry {
-            if dot5Table.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGMIB_Dot5Table_Dot5Entry{}
-        dot5Table.Dot5Entry = append(dot5Table.Dot5Entry, child)
-        return &dot5Table.Dot5Entry[len(dot5Table.Dot5Entry)-1]
-    }
-    return nil
-}
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot5Table.EntityData.Children = make(map[string]types.YChild)
+    dot5Table.EntityData.Children["dot5Entry"] = types.YChild{"Dot5Entry", nil}
     for i := range dot5Table.Dot5Entry {
-        children[dot5Table.Dot5Entry[i].GetSegmentPath()] = &dot5Table.Dot5Entry[i]
+        dot5Table.EntityData.Children[types.GetSegmentPath(&dot5Table.Dot5Entry[i])] = types.YChild{"Dot5Entry", &dot5Table.Dot5Entry[i]}
     }
-    return children
+    dot5Table.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot5Table.EntityData)
 }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetYangName() string { return "dot5Table" }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) SetParent(parent types.Entity) { dot5Table.parent = parent }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetParent() types.Entity { return dot5Table.parent }
-
-func (dot5Table *TOKENRINGMIB_Dot5Table) GetParentYangName() string { return "TOKENRING-MIB" }
 
 // TOKENRINGMIB_Dot5Table_Dot5Entry
 // A list of Token Ring status and parameter
 // values for an 802.5 interface.
 type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object identifies the 802.5
@@ -265,7 +185,7 @@ type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
     Dot5Ringspeed interface{}
 
     // The MAC-address of the up stream neighbor station in the ring. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot5Upstream interface{}
 
     // If this object has a value of true(1) then this interface will participate
@@ -277,7 +197,7 @@ type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
 
     // The bit mask of all Token Ring functional addresses for which this
     // interface will accept frames. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot5Functional interface{}
 
     // The value of MIB-II's sysUpTime object at which the local system last
@@ -286,69 +206,30 @@ type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
     Dot5Lastbeaconsent interface{}
 }
 
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetFilter() yfilter.YFilter { return dot5Entry.YFilter }
+func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetEntityData() *types.CommonEntityData {
+    dot5Entry.EntityData.YFilter = dot5Entry.YFilter
+    dot5Entry.EntityData.YangName = "dot5Entry"
+    dot5Entry.EntityData.BundleName = "cisco_ios_xe"
+    dot5Entry.EntityData.ParentYangName = "dot5Table"
+    dot5Entry.EntityData.SegmentPath = "dot5Entry" + "[dot5IfIndex='" + fmt.Sprintf("%v", dot5Entry.Dot5Ifindex) + "']"
+    dot5Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot5Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot5Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) SetFilter(yf yfilter.YFilter) { dot5Entry.YFilter = yf }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetGoName(yname string) string {
-    if yname == "dot5IfIndex" { return "Dot5Ifindex" }
-    if yname == "dot5Commands" { return "Dot5Commands" }
-    if yname == "dot5RingStatus" { return "Dot5Ringstatus" }
-    if yname == "dot5RingState" { return "Dot5Ringstate" }
-    if yname == "dot5RingOpenStatus" { return "Dot5Ringopenstatus" }
-    if yname == "dot5RingSpeed" { return "Dot5Ringspeed" }
-    if yname == "dot5UpStream" { return "Dot5Upstream" }
-    if yname == "dot5ActMonParticipate" { return "Dot5Actmonparticipate" }
-    if yname == "dot5Functional" { return "Dot5Functional" }
-    if yname == "dot5LastBeaconSent" { return "Dot5Lastbeaconsent" }
-    return ""
+    dot5Entry.EntityData.Children = make(map[string]types.YChild)
+    dot5Entry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot5Entry.EntityData.Leafs["dot5IfIndex"] = types.YLeaf{"Dot5Ifindex", dot5Entry.Dot5Ifindex}
+    dot5Entry.EntityData.Leafs["dot5Commands"] = types.YLeaf{"Dot5Commands", dot5Entry.Dot5Commands}
+    dot5Entry.EntityData.Leafs["dot5RingStatus"] = types.YLeaf{"Dot5Ringstatus", dot5Entry.Dot5Ringstatus}
+    dot5Entry.EntityData.Leafs["dot5RingState"] = types.YLeaf{"Dot5Ringstate", dot5Entry.Dot5Ringstate}
+    dot5Entry.EntityData.Leafs["dot5RingOpenStatus"] = types.YLeaf{"Dot5Ringopenstatus", dot5Entry.Dot5Ringopenstatus}
+    dot5Entry.EntityData.Leafs["dot5RingSpeed"] = types.YLeaf{"Dot5Ringspeed", dot5Entry.Dot5Ringspeed}
+    dot5Entry.EntityData.Leafs["dot5UpStream"] = types.YLeaf{"Dot5Upstream", dot5Entry.Dot5Upstream}
+    dot5Entry.EntityData.Leafs["dot5ActMonParticipate"] = types.YLeaf{"Dot5Actmonparticipate", dot5Entry.Dot5Actmonparticipate}
+    dot5Entry.EntityData.Leafs["dot5Functional"] = types.YLeaf{"Dot5Functional", dot5Entry.Dot5Functional}
+    dot5Entry.EntityData.Leafs["dot5LastBeaconSent"] = types.YLeaf{"Dot5Lastbeaconsent", dot5Entry.Dot5Lastbeaconsent}
+    return &(dot5Entry.EntityData)
 }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetSegmentPath() string {
-    return "dot5Entry" + "[dot5IfIndex='" + fmt.Sprintf("%v", dot5Entry.Dot5Ifindex) + "']"
-}
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot5IfIndex"] = dot5Entry.Dot5Ifindex
-    leafs["dot5Commands"] = dot5Entry.Dot5Commands
-    leafs["dot5RingStatus"] = dot5Entry.Dot5Ringstatus
-    leafs["dot5RingState"] = dot5Entry.Dot5Ringstate
-    leafs["dot5RingOpenStatus"] = dot5Entry.Dot5Ringopenstatus
-    leafs["dot5RingSpeed"] = dot5Entry.Dot5Ringspeed
-    leafs["dot5UpStream"] = dot5Entry.Dot5Upstream
-    leafs["dot5ActMonParticipate"] = dot5Entry.Dot5Actmonparticipate
-    leafs["dot5Functional"] = dot5Entry.Dot5Functional
-    leafs["dot5LastBeaconSent"] = dot5Entry.Dot5Lastbeaconsent
-    return leafs
-}
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetYangName() string { return "dot5Entry" }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) SetParent(parent types.Entity) { dot5Entry.parent = parent }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetParent() types.Entity { return dot5Entry.parent }
-
-func (dot5Entry *TOKENRINGMIB_Dot5Table_Dot5Entry) GetParentYangName() string { return "dot5Table" }
 
 // TOKENRINGMIB_Dot5Table_Dot5Entry_Dot5Actmonparticipate represents the interface is opened.
 type TOKENRINGMIB_Dot5Table_Dot5Entry_Dot5Actmonparticipate string
@@ -441,7 +322,7 @@ const (
 // to prevent loss of significance, in order
 // to maintain 32-bit counters in software.
 type TOKENRINGMIB_Dot5Statstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry contains the 802.5 statistics for a particular interface. The type
@@ -449,69 +330,30 @@ type TOKENRINGMIB_Dot5Statstable struct {
     Dot5Statsentry []TOKENRINGMIB_Dot5Statstable_Dot5Statsentry
 }
 
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetFilter() yfilter.YFilter { return dot5Statstable.YFilter }
+func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetEntityData() *types.CommonEntityData {
+    dot5Statstable.EntityData.YFilter = dot5Statstable.YFilter
+    dot5Statstable.EntityData.YangName = "dot5StatsTable"
+    dot5Statstable.EntityData.BundleName = "cisco_ios_xe"
+    dot5Statstable.EntityData.ParentYangName = "TOKENRING-MIB"
+    dot5Statstable.EntityData.SegmentPath = "dot5StatsTable"
+    dot5Statstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot5Statstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot5Statstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) SetFilter(yf yfilter.YFilter) { dot5Statstable.YFilter = yf }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetGoName(yname string) string {
-    if yname == "dot5StatsEntry" { return "Dot5Statsentry" }
-    return ""
-}
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetSegmentPath() string {
-    return "dot5StatsTable"
-}
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot5StatsEntry" {
-        for _, c := range dot5Statstable.Dot5Statsentry {
-            if dot5Statstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGMIB_Dot5Statstable_Dot5Statsentry{}
-        dot5Statstable.Dot5Statsentry = append(dot5Statstable.Dot5Statsentry, child)
-        return &dot5Statstable.Dot5Statsentry[len(dot5Statstable.Dot5Statsentry)-1]
-    }
-    return nil
-}
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot5Statstable.EntityData.Children = make(map[string]types.YChild)
+    dot5Statstable.EntityData.Children["dot5StatsEntry"] = types.YChild{"Dot5Statsentry", nil}
     for i := range dot5Statstable.Dot5Statsentry {
-        children[dot5Statstable.Dot5Statsentry[i].GetSegmentPath()] = &dot5Statstable.Dot5Statsentry[i]
+        dot5Statstable.EntityData.Children[types.GetSegmentPath(&dot5Statstable.Dot5Statsentry[i])] = types.YChild{"Dot5Statsentry", &dot5Statstable.Dot5Statsentry[i]}
     }
-    return children
+    dot5Statstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot5Statstable.EntityData)
 }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetYangName() string { return "dot5StatsTable" }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) SetParent(parent types.Entity) { dot5Statstable.parent = parent }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetParent() types.Entity { return dot5Statstable.parent }
-
-func (dot5Statstable *TOKENRINGMIB_Dot5Statstable) GetParentYangName() string { return "TOKENRING-MIB" }
 
 // TOKENRINGMIB_Dot5Statstable_Dot5Statsentry
 // An entry contains the 802.5 statistics
 // for a particular interface.
 type TOKENRINGMIB_Dot5Statstable_Dot5Statsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object identifies the 802.5
@@ -620,94 +462,46 @@ type TOKENRINGMIB_Dot5Statstable_Dot5Statsentry struct {
     Dot5Statsfreqerrors interface{}
 }
 
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetFilter() yfilter.YFilter { return dot5Statsentry.YFilter }
+func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetEntityData() *types.CommonEntityData {
+    dot5Statsentry.EntityData.YFilter = dot5Statsentry.YFilter
+    dot5Statsentry.EntityData.YangName = "dot5StatsEntry"
+    dot5Statsentry.EntityData.BundleName = "cisco_ios_xe"
+    dot5Statsentry.EntityData.ParentYangName = "dot5StatsTable"
+    dot5Statsentry.EntityData.SegmentPath = "dot5StatsEntry" + "[dot5StatsIfIndex='" + fmt.Sprintf("%v", dot5Statsentry.Dot5Statsifindex) + "']"
+    dot5Statsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot5Statsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot5Statsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) SetFilter(yf yfilter.YFilter) { dot5Statsentry.YFilter = yf }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetGoName(yname string) string {
-    if yname == "dot5StatsIfIndex" { return "Dot5Statsifindex" }
-    if yname == "dot5StatsLineErrors" { return "Dot5Statslineerrors" }
-    if yname == "dot5StatsBurstErrors" { return "Dot5Statsbursterrors" }
-    if yname == "dot5StatsACErrors" { return "Dot5Statsacerrors" }
-    if yname == "dot5StatsAbortTransErrors" { return "Dot5Statsaborttranserrors" }
-    if yname == "dot5StatsInternalErrors" { return "Dot5Statsinternalerrors" }
-    if yname == "dot5StatsLostFrameErrors" { return "Dot5Statslostframeerrors" }
-    if yname == "dot5StatsReceiveCongestions" { return "Dot5Statsreceivecongestions" }
-    if yname == "dot5StatsFrameCopiedErrors" { return "Dot5Statsframecopiederrors" }
-    if yname == "dot5StatsTokenErrors" { return "Dot5Statstokenerrors" }
-    if yname == "dot5StatsSoftErrors" { return "Dot5Statssofterrors" }
-    if yname == "dot5StatsHardErrors" { return "Dot5Statsharderrors" }
-    if yname == "dot5StatsSignalLoss" { return "Dot5Statssignalloss" }
-    if yname == "dot5StatsTransmitBeacons" { return "Dot5Statstransmitbeacons" }
-    if yname == "dot5StatsRecoverys" { return "Dot5Statsrecoverys" }
-    if yname == "dot5StatsLobeWires" { return "Dot5Statslobewires" }
-    if yname == "dot5StatsRemoves" { return "Dot5Statsremoves" }
-    if yname == "dot5StatsSingles" { return "Dot5Statssingles" }
-    if yname == "dot5StatsFreqErrors" { return "Dot5Statsfreqerrors" }
-    return ""
+    dot5Statsentry.EntityData.Children = make(map[string]types.YChild)
+    dot5Statsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot5Statsentry.EntityData.Leafs["dot5StatsIfIndex"] = types.YLeaf{"Dot5Statsifindex", dot5Statsentry.Dot5Statsifindex}
+    dot5Statsentry.EntityData.Leafs["dot5StatsLineErrors"] = types.YLeaf{"Dot5Statslineerrors", dot5Statsentry.Dot5Statslineerrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsBurstErrors"] = types.YLeaf{"Dot5Statsbursterrors", dot5Statsentry.Dot5Statsbursterrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsACErrors"] = types.YLeaf{"Dot5Statsacerrors", dot5Statsentry.Dot5Statsacerrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsAbortTransErrors"] = types.YLeaf{"Dot5Statsaborttranserrors", dot5Statsentry.Dot5Statsaborttranserrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsInternalErrors"] = types.YLeaf{"Dot5Statsinternalerrors", dot5Statsentry.Dot5Statsinternalerrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsLostFrameErrors"] = types.YLeaf{"Dot5Statslostframeerrors", dot5Statsentry.Dot5Statslostframeerrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsReceiveCongestions"] = types.YLeaf{"Dot5Statsreceivecongestions", dot5Statsentry.Dot5Statsreceivecongestions}
+    dot5Statsentry.EntityData.Leafs["dot5StatsFrameCopiedErrors"] = types.YLeaf{"Dot5Statsframecopiederrors", dot5Statsentry.Dot5Statsframecopiederrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsTokenErrors"] = types.YLeaf{"Dot5Statstokenerrors", dot5Statsentry.Dot5Statstokenerrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsSoftErrors"] = types.YLeaf{"Dot5Statssofterrors", dot5Statsentry.Dot5Statssofterrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsHardErrors"] = types.YLeaf{"Dot5Statsharderrors", dot5Statsentry.Dot5Statsharderrors}
+    dot5Statsentry.EntityData.Leafs["dot5StatsSignalLoss"] = types.YLeaf{"Dot5Statssignalloss", dot5Statsentry.Dot5Statssignalloss}
+    dot5Statsentry.EntityData.Leafs["dot5StatsTransmitBeacons"] = types.YLeaf{"Dot5Statstransmitbeacons", dot5Statsentry.Dot5Statstransmitbeacons}
+    dot5Statsentry.EntityData.Leafs["dot5StatsRecoverys"] = types.YLeaf{"Dot5Statsrecoverys", dot5Statsentry.Dot5Statsrecoverys}
+    dot5Statsentry.EntityData.Leafs["dot5StatsLobeWires"] = types.YLeaf{"Dot5Statslobewires", dot5Statsentry.Dot5Statslobewires}
+    dot5Statsentry.EntityData.Leafs["dot5StatsRemoves"] = types.YLeaf{"Dot5Statsremoves", dot5Statsentry.Dot5Statsremoves}
+    dot5Statsentry.EntityData.Leafs["dot5StatsSingles"] = types.YLeaf{"Dot5Statssingles", dot5Statsentry.Dot5Statssingles}
+    dot5Statsentry.EntityData.Leafs["dot5StatsFreqErrors"] = types.YLeaf{"Dot5Statsfreqerrors", dot5Statsentry.Dot5Statsfreqerrors}
+    return &(dot5Statsentry.EntityData)
 }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetSegmentPath() string {
-    return "dot5StatsEntry" + "[dot5StatsIfIndex='" + fmt.Sprintf("%v", dot5Statsentry.Dot5Statsifindex) + "']"
-}
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot5StatsIfIndex"] = dot5Statsentry.Dot5Statsifindex
-    leafs["dot5StatsLineErrors"] = dot5Statsentry.Dot5Statslineerrors
-    leafs["dot5StatsBurstErrors"] = dot5Statsentry.Dot5Statsbursterrors
-    leafs["dot5StatsACErrors"] = dot5Statsentry.Dot5Statsacerrors
-    leafs["dot5StatsAbortTransErrors"] = dot5Statsentry.Dot5Statsaborttranserrors
-    leafs["dot5StatsInternalErrors"] = dot5Statsentry.Dot5Statsinternalerrors
-    leafs["dot5StatsLostFrameErrors"] = dot5Statsentry.Dot5Statslostframeerrors
-    leafs["dot5StatsReceiveCongestions"] = dot5Statsentry.Dot5Statsreceivecongestions
-    leafs["dot5StatsFrameCopiedErrors"] = dot5Statsentry.Dot5Statsframecopiederrors
-    leafs["dot5StatsTokenErrors"] = dot5Statsentry.Dot5Statstokenerrors
-    leafs["dot5StatsSoftErrors"] = dot5Statsentry.Dot5Statssofterrors
-    leafs["dot5StatsHardErrors"] = dot5Statsentry.Dot5Statsharderrors
-    leafs["dot5StatsSignalLoss"] = dot5Statsentry.Dot5Statssignalloss
-    leafs["dot5StatsTransmitBeacons"] = dot5Statsentry.Dot5Statstransmitbeacons
-    leafs["dot5StatsRecoverys"] = dot5Statsentry.Dot5Statsrecoverys
-    leafs["dot5StatsLobeWires"] = dot5Statsentry.Dot5Statslobewires
-    leafs["dot5StatsRemoves"] = dot5Statsentry.Dot5Statsremoves
-    leafs["dot5StatsSingles"] = dot5Statsentry.Dot5Statssingles
-    leafs["dot5StatsFreqErrors"] = dot5Statsentry.Dot5Statsfreqerrors
-    return leafs
-}
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetYangName() string { return "dot5StatsEntry" }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) SetParent(parent types.Entity) { dot5Statsentry.parent = parent }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetParent() types.Entity { return dot5Statsentry.parent }
-
-func (dot5Statsentry *TOKENRINGMIB_Dot5Statstable_Dot5Statsentry) GetParentYangName() string { return "dot5StatsTable" }
 
 // TOKENRINGMIB_Dot5Timertable
 // This table contains Token Ring interface
 // timer values, one entry per 802.5
 // interface.
 type TOKENRINGMIB_Dot5Timertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of Token Ring timer values for an 802.5 interface. The type is slice
@@ -715,69 +509,30 @@ type TOKENRINGMIB_Dot5Timertable struct {
     Dot5Timerentry []TOKENRINGMIB_Dot5Timertable_Dot5Timerentry
 }
 
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetFilter() yfilter.YFilter { return dot5Timertable.YFilter }
+func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetEntityData() *types.CommonEntityData {
+    dot5Timertable.EntityData.YFilter = dot5Timertable.YFilter
+    dot5Timertable.EntityData.YangName = "dot5TimerTable"
+    dot5Timertable.EntityData.BundleName = "cisco_ios_xe"
+    dot5Timertable.EntityData.ParentYangName = "TOKENRING-MIB"
+    dot5Timertable.EntityData.SegmentPath = "dot5TimerTable"
+    dot5Timertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot5Timertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot5Timertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) SetFilter(yf yfilter.YFilter) { dot5Timertable.YFilter = yf }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetGoName(yname string) string {
-    if yname == "dot5TimerEntry" { return "Dot5Timerentry" }
-    return ""
-}
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetSegmentPath() string {
-    return "dot5TimerTable"
-}
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot5TimerEntry" {
-        for _, c := range dot5Timertable.Dot5Timerentry {
-            if dot5Timertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGMIB_Dot5Timertable_Dot5Timerentry{}
-        dot5Timertable.Dot5Timerentry = append(dot5Timertable.Dot5Timerentry, child)
-        return &dot5Timertable.Dot5Timerentry[len(dot5Timertable.Dot5Timerentry)-1]
-    }
-    return nil
-}
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot5Timertable.EntityData.Children = make(map[string]types.YChild)
+    dot5Timertable.EntityData.Children["dot5TimerEntry"] = types.YChild{"Dot5Timerentry", nil}
     for i := range dot5Timertable.Dot5Timerentry {
-        children[dot5Timertable.Dot5Timerentry[i].GetSegmentPath()] = &dot5Timertable.Dot5Timerentry[i]
+        dot5Timertable.EntityData.Children[types.GetSegmentPath(&dot5Timertable.Dot5Timerentry[i])] = types.YChild{"Dot5Timerentry", &dot5Timertable.Dot5Timerentry[i]}
     }
-    return children
+    dot5Timertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot5Timertable.EntityData)
 }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetYangName() string { return "dot5TimerTable" }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) SetParent(parent types.Entity) { dot5Timertable.parent = parent }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetParent() types.Entity { return dot5Timertable.parent }
-
-func (dot5Timertable *TOKENRINGMIB_Dot5Timertable) GetParentYangName() string { return "TOKENRING-MIB" }
 
 // TOKENRINGMIB_Dot5Timertable_Dot5Timerentry
 // A list of Token Ring timer values for an
 // 802.5 interface.
 type TOKENRINGMIB_Dot5Timertable_Dot5Timerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object identifies the 802.5
@@ -843,69 +598,29 @@ type TOKENRINGMIB_Dot5Timertable_Dot5Timerentry struct {
     Dot5Timerbeaconreceive interface{}
 }
 
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetFilter() yfilter.YFilter { return dot5Timerentry.YFilter }
+func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetEntityData() *types.CommonEntityData {
+    dot5Timerentry.EntityData.YFilter = dot5Timerentry.YFilter
+    dot5Timerentry.EntityData.YangName = "dot5TimerEntry"
+    dot5Timerentry.EntityData.BundleName = "cisco_ios_xe"
+    dot5Timerentry.EntityData.ParentYangName = "dot5TimerTable"
+    dot5Timerentry.EntityData.SegmentPath = "dot5TimerEntry" + "[dot5TimerIfIndex='" + fmt.Sprintf("%v", dot5Timerentry.Dot5Timerifindex) + "']"
+    dot5Timerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot5Timerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot5Timerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) SetFilter(yf yfilter.YFilter) { dot5Timerentry.YFilter = yf }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetGoName(yname string) string {
-    if yname == "dot5TimerIfIndex" { return "Dot5Timerifindex" }
-    if yname == "dot5TimerReturnRepeat" { return "Dot5Timerreturnrepeat" }
-    if yname == "dot5TimerHolding" { return "Dot5Timerholding" }
-    if yname == "dot5TimerQueuePDU" { return "Dot5Timerqueuepdu" }
-    if yname == "dot5TimerValidTransmit" { return "Dot5Timervalidtransmit" }
-    if yname == "dot5TimerNoToken" { return "Dot5Timernotoken" }
-    if yname == "dot5TimerActiveMon" { return "Dot5Timeractivemon" }
-    if yname == "dot5TimerStandbyMon" { return "Dot5Timerstandbymon" }
-    if yname == "dot5TimerErrorReport" { return "Dot5Timererrorreport" }
-    if yname == "dot5TimerBeaconTransmit" { return "Dot5Timerbeacontransmit" }
-    if yname == "dot5TimerBeaconReceive" { return "Dot5Timerbeaconreceive" }
-    return ""
+    dot5Timerentry.EntityData.Children = make(map[string]types.YChild)
+    dot5Timerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot5Timerentry.EntityData.Leafs["dot5TimerIfIndex"] = types.YLeaf{"Dot5Timerifindex", dot5Timerentry.Dot5Timerifindex}
+    dot5Timerentry.EntityData.Leafs["dot5TimerReturnRepeat"] = types.YLeaf{"Dot5Timerreturnrepeat", dot5Timerentry.Dot5Timerreturnrepeat}
+    dot5Timerentry.EntityData.Leafs["dot5TimerHolding"] = types.YLeaf{"Dot5Timerholding", dot5Timerentry.Dot5Timerholding}
+    dot5Timerentry.EntityData.Leafs["dot5TimerQueuePDU"] = types.YLeaf{"Dot5Timerqueuepdu", dot5Timerentry.Dot5Timerqueuepdu}
+    dot5Timerentry.EntityData.Leafs["dot5TimerValidTransmit"] = types.YLeaf{"Dot5Timervalidtransmit", dot5Timerentry.Dot5Timervalidtransmit}
+    dot5Timerentry.EntityData.Leafs["dot5TimerNoToken"] = types.YLeaf{"Dot5Timernotoken", dot5Timerentry.Dot5Timernotoken}
+    dot5Timerentry.EntityData.Leafs["dot5TimerActiveMon"] = types.YLeaf{"Dot5Timeractivemon", dot5Timerentry.Dot5Timeractivemon}
+    dot5Timerentry.EntityData.Leafs["dot5TimerStandbyMon"] = types.YLeaf{"Dot5Timerstandbymon", dot5Timerentry.Dot5Timerstandbymon}
+    dot5Timerentry.EntityData.Leafs["dot5TimerErrorReport"] = types.YLeaf{"Dot5Timererrorreport", dot5Timerentry.Dot5Timererrorreport}
+    dot5Timerentry.EntityData.Leafs["dot5TimerBeaconTransmit"] = types.YLeaf{"Dot5Timerbeacontransmit", dot5Timerentry.Dot5Timerbeacontransmit}
+    dot5Timerentry.EntityData.Leafs["dot5TimerBeaconReceive"] = types.YLeaf{"Dot5Timerbeaconreceive", dot5Timerentry.Dot5Timerbeaconreceive}
+    return &(dot5Timerentry.EntityData)
 }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetSegmentPath() string {
-    return "dot5TimerEntry" + "[dot5TimerIfIndex='" + fmt.Sprintf("%v", dot5Timerentry.Dot5Timerifindex) + "']"
-}
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot5TimerIfIndex"] = dot5Timerentry.Dot5Timerifindex
-    leafs["dot5TimerReturnRepeat"] = dot5Timerentry.Dot5Timerreturnrepeat
-    leafs["dot5TimerHolding"] = dot5Timerentry.Dot5Timerholding
-    leafs["dot5TimerQueuePDU"] = dot5Timerentry.Dot5Timerqueuepdu
-    leafs["dot5TimerValidTransmit"] = dot5Timerentry.Dot5Timervalidtransmit
-    leafs["dot5TimerNoToken"] = dot5Timerentry.Dot5Timernotoken
-    leafs["dot5TimerActiveMon"] = dot5Timerentry.Dot5Timeractivemon
-    leafs["dot5TimerStandbyMon"] = dot5Timerentry.Dot5Timerstandbymon
-    leafs["dot5TimerErrorReport"] = dot5Timerentry.Dot5Timererrorreport
-    leafs["dot5TimerBeaconTransmit"] = dot5Timerentry.Dot5Timerbeacontransmit
-    leafs["dot5TimerBeaconReceive"] = dot5Timerentry.Dot5Timerbeaconreceive
-    return leafs
-}
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetYangName() string { return "dot5TimerEntry" }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) SetParent(parent types.Entity) { dot5Timerentry.parent = parent }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetParent() types.Entity { return dot5Timerentry.parent }
-
-func (dot5Timerentry *TOKENRINGMIB_Dot5Timertable_Dot5Timerentry) GetParentYangName() string { return "dot5TimerTable" }
 

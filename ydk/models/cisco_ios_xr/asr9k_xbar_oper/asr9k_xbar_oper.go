@@ -27,66 +27,33 @@ func init() {
 // CrossBarStats
 // Crossbar stats operational data
 type CrossBarStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of Nodes.
     Nodes CrossBarStats_Nodes
 }
 
-func (crossBarStats *CrossBarStats) GetFilter() yfilter.YFilter { return crossBarStats.YFilter }
+func (crossBarStats *CrossBarStats) GetEntityData() *types.CommonEntityData {
+    crossBarStats.EntityData.YFilter = crossBarStats.YFilter
+    crossBarStats.EntityData.YangName = "cross-bar-stats"
+    crossBarStats.EntityData.BundleName = "cisco_ios_xr"
+    crossBarStats.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-xbar-oper"
+    crossBarStats.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-xbar-oper:cross-bar-stats"
+    crossBarStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    crossBarStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    crossBarStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (crossBarStats *CrossBarStats) SetFilter(yf yfilter.YFilter) { crossBarStats.YFilter = yf }
-
-func (crossBarStats *CrossBarStats) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    crossBarStats.EntityData.Children = make(map[string]types.YChild)
+    crossBarStats.EntityData.Children["nodes"] = types.YChild{"Nodes", &crossBarStats.Nodes}
+    crossBarStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(crossBarStats.EntityData)
 }
-
-func (crossBarStats *CrossBarStats) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-xbar-oper:cross-bar-stats"
-}
-
-func (crossBarStats *CrossBarStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &crossBarStats.Nodes
-    }
-    return nil
-}
-
-func (crossBarStats *CrossBarStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &crossBarStats.Nodes
-    return children
-}
-
-func (crossBarStats *CrossBarStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (crossBarStats *CrossBarStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (crossBarStats *CrossBarStats) GetYangName() string { return "cross-bar-stats" }
-
-func (crossBarStats *CrossBarStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (crossBarStats *CrossBarStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (crossBarStats *CrossBarStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (crossBarStats *CrossBarStats) SetParent(parent types.Entity) { crossBarStats.parent = parent }
-
-func (crossBarStats *CrossBarStats) GetParent() types.Entity { return crossBarStats.parent }
-
-func (crossBarStats *CrossBarStats) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-xbar-oper" }
 
 // CrossBarStats_Nodes
 // Table of Nodes
 type CrossBarStats_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular node. The type is slice of
@@ -94,133 +61,60 @@ type CrossBarStats_Nodes struct {
     Node []CrossBarStats_Nodes_Node
 }
 
-func (nodes *CrossBarStats_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *CrossBarStats_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "cross-bar-stats"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *CrossBarStats_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *CrossBarStats_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *CrossBarStats_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *CrossBarStats_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CrossBarStats_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *CrossBarStats_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *CrossBarStats_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *CrossBarStats_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *CrossBarStats_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *CrossBarStats_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *CrossBarStats_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *CrossBarStats_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *CrossBarStats_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *CrossBarStats_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *CrossBarStats_Nodes) GetParentYangName() string { return "cross-bar-stats" }
 
 // CrossBarStats_Nodes_Node
 // Information about a particular node
 type CrossBarStats_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Table of stats information.
     CrossBarTable CrossBarStats_Nodes_Node_CrossBarTable
 }
 
-func (node *CrossBarStats_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *CrossBarStats_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *CrossBarStats_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *CrossBarStats_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "cross-bar-table" { return "CrossBarTable" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["cross-bar-table"] = types.YChild{"CrossBarTable", &node.CrossBarTable}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *CrossBarStats_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *CrossBarStats_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cross-bar-table" {
-        return &node.CrossBarTable
-    }
-    return nil
-}
-
-func (node *CrossBarStats_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cross-bar-table"] = &node.CrossBarTable
-    return children
-}
-
-func (node *CrossBarStats_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *CrossBarStats_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *CrossBarStats_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *CrossBarStats_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *CrossBarStats_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *CrossBarStats_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *CrossBarStats_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *CrossBarStats_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *CrossBarStats_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable
 // Table of stats information
 type CrossBarStats_Nodes_Node_CrossBarTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of packet stats.
@@ -230,64 +124,27 @@ type CrossBarStats_Nodes_Node_CrossBarTable struct {
     Sm15Stats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats
 }
 
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetFilter() yfilter.YFilter { return crossBarTable.YFilter }
+func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetEntityData() *types.CommonEntityData {
+    crossBarTable.EntityData.YFilter = crossBarTable.YFilter
+    crossBarTable.EntityData.YangName = "cross-bar-table"
+    crossBarTable.EntityData.BundleName = "cisco_ios_xr"
+    crossBarTable.EntityData.ParentYangName = "node"
+    crossBarTable.EntityData.SegmentPath = "cross-bar-table"
+    crossBarTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    crossBarTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    crossBarTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) SetFilter(yf yfilter.YFilter) { crossBarTable.YFilter = yf }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetGoName(yname string) string {
-    if yname == "pkt-stats" { return "PktStats" }
-    if yname == "sm15-stats" { return "Sm15Stats" }
-    return ""
+    crossBarTable.EntityData.Children = make(map[string]types.YChild)
+    crossBarTable.EntityData.Children["pkt-stats"] = types.YChild{"PktStats", &crossBarTable.PktStats}
+    crossBarTable.EntityData.Children["sm15-stats"] = types.YChild{"Sm15Stats", &crossBarTable.Sm15Stats}
+    crossBarTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(crossBarTable.EntityData)
 }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetSegmentPath() string {
-    return "cross-bar-table"
-}
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pkt-stats" {
-        return &crossBarTable.PktStats
-    }
-    if childYangName == "sm15-stats" {
-        return &crossBarTable.Sm15Stats
-    }
-    return nil
-}
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pkt-stats"] = &crossBarTable.PktStats
-    children["sm15-stats"] = &crossBarTable.Sm15Stats
-    return children
-}
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetYangName() string { return "cross-bar-table" }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) SetParent(parent types.Entity) { crossBarTable.parent = parent }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetParent() types.Entity { return crossBarTable.parent }
-
-func (crossBarTable *CrossBarStats_Nodes_Node_CrossBarTable) GetParentYangName() string { return "node" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_PktStats
 // Table of packet stats
 type CrossBarStats_Nodes_Node_CrossBarTable_PktStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Stats information for a particular asic type and port. The type is slice of
@@ -295,75 +152,36 @@ type CrossBarStats_Nodes_Node_CrossBarTable_PktStats struct {
     PktStat []CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat
 }
 
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetFilter() yfilter.YFilter { return pktStats.YFilter }
+func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetEntityData() *types.CommonEntityData {
+    pktStats.EntityData.YFilter = pktStats.YFilter
+    pktStats.EntityData.YangName = "pkt-stats"
+    pktStats.EntityData.BundleName = "cisco_ios_xr"
+    pktStats.EntityData.ParentYangName = "cross-bar-table"
+    pktStats.EntityData.SegmentPath = "pkt-stats"
+    pktStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pktStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pktStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) SetFilter(yf yfilter.YFilter) { pktStats.YFilter = yf }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetGoName(yname string) string {
-    if yname == "pkt-stat" { return "PktStat" }
-    return ""
-}
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetSegmentPath() string {
-    return "pkt-stats"
-}
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pkt-stat" {
-        for _, c := range pktStats.PktStat {
-            if pktStats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat{}
-        pktStats.PktStat = append(pktStats.PktStat, child)
-        return &pktStats.PktStat[len(pktStats.PktStat)-1]
-    }
-    return nil
-}
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pktStats.EntityData.Children = make(map[string]types.YChild)
+    pktStats.EntityData.Children["pkt-stat"] = types.YChild{"PktStat", nil}
     for i := range pktStats.PktStat {
-        children[pktStats.PktStat[i].GetSegmentPath()] = &pktStats.PktStat[i]
+        pktStats.EntityData.Children[types.GetSegmentPath(&pktStats.PktStat[i])] = types.YChild{"PktStat", &pktStats.PktStat[i]}
     }
-    return children
+    pktStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pktStats.EntityData)
 }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetYangName() string { return "pkt-stats" }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) SetParent(parent types.Entity) { pktStats.parent = parent }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetParent() types.Entity { return pktStats.parent }
-
-func (pktStats *CrossBarStats_Nodes_Node_CrossBarTable_PktStats) GetParentYangName() string { return "cross-bar-table" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat
 // Stats information for a particular asic type
 // and port
 type CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Asic ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Asic ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AsicId interface{}
 
-    // Port. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Port. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Port interface{}
 
     // The type is interface{} with range: 0..18446744073709551615.
@@ -502,148 +320,72 @@ type CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat struct {
     FpoedbUncorrectableEccErrorCountLow interface{}
 }
 
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetFilter() yfilter.YFilter { return pktStat.YFilter }
+func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetEntityData() *types.CommonEntityData {
+    pktStat.EntityData.YFilter = pktStat.YFilter
+    pktStat.EntityData.YangName = "pkt-stat"
+    pktStat.EntityData.BundleName = "cisco_ios_xr"
+    pktStat.EntityData.ParentYangName = "pkt-stats"
+    pktStat.EntityData.SegmentPath = "pkt-stat"
+    pktStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pktStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pktStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) SetFilter(yf yfilter.YFilter) { pktStat.YFilter = yf }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetGoName(yname string) string {
-    if yname == "asic-id" { return "AsicId" }
-    if yname == "port" { return "Port" }
-    if yname == "internal-error-count" { return "InternalErrorCount" }
-    if yname == "input-buffer-queued-packet-count-high" { return "InputBufferQueuedPacketCountHigh" }
-    if yname == "ingress-packet-count-since-last-read-high" { return "IngressPacketCountSinceLastReadHigh" }
-    if yname == "ingress-channel-utilization-count-high" { return "IngressChannelUtilizationCountHigh" }
-    if yname == "input-buffer-back-pressure-count-high" { return "InputBufferBackPressureCountHigh" }
-    if yname == "xbar-timeout-drop-count-high" { return "XbarTimeoutDropCountHigh" }
-    if yname == "holdrop-count-high" { return "HoldropCountHigh" }
-    if yname == "null-fpoe-drop-count-high" { return "NullFpoeDropCountHigh" }
-    if yname == "diagnostic-packet-count-high" { return "DiagnosticPacketCountHigh" }
-    if yname == "input-buffer-correctable-ecc-error-count-high" { return "InputBufferCorrectableEccErrorCountHigh" }
-    if yname == "input-buffer-uncorrectable-ecc-error-count-high" { return "InputBufferUncorrectableEccErrorCountHigh" }
-    if yname == "header-crc-error-count-high" { return "HeaderCrcErrorCountHigh" }
-    if yname == "short-input-header-error-count-high" { return "ShortInputHeaderErrorCountHigh" }
-    if yname == "packet-crc-error-count-high" { return "PacketCrcErrorCountHigh" }
-    if yname == "short-packet-error-count-high" { return "ShortPacketErrorCountHigh" }
-    if yname == "output-buffer-queued-packet-count-high" { return "OutputBufferQueuedPacketCountHigh" }
-    if yname == "egress-packet-count-since-last-read-high" { return "EgressPacketCountSinceLastReadHigh" }
-    if yname == "egress-channel-utilization-count-high" { return "EgressChannelUtilizationCountHigh" }
-    if yname == "output-buffer-back-pressure-count-high" { return "OutputBufferBackPressureCountHigh" }
-    if yname == "output-buffer-correctable-ecc-error-count-high" { return "OutputBufferCorrectableEccErrorCountHigh" }
-    if yname == "output-buffer-uncorrectable-ecc-error-count-high" { return "OutputBufferUncorrectableEccErrorCountHigh" }
-    if yname == "fpoedb-correctable-ecc-error-count-high" { return "FpoedbCorrectableEccErrorCountHigh" }
-    if yname == "fpoedb-uncorrectable-ecc-error-count-high" { return "FpoedbUncorrectableEccErrorCountHigh" }
-    if yname == "input-buffer-queued-packet-count-low" { return "InputBufferQueuedPacketCountLow" }
-    if yname == "ingress-packet-count-since-last-read-low" { return "IngressPacketCountSinceLastReadLow" }
-    if yname == "ingress-channel-utilization-count-low" { return "IngressChannelUtilizationCountLow" }
-    if yname == "input-buffer-back-pressure-count-low" { return "InputBufferBackPressureCountLow" }
-    if yname == "xbar-timeout-drop-count-low" { return "XbarTimeoutDropCountLow" }
-    if yname == "holdrop-count-low" { return "HoldropCountLow" }
-    if yname == "null-fpoe-drop-count-low" { return "NullFpoeDropCountLow" }
-    if yname == "diagnostic-packet-count-low" { return "DiagnosticPacketCountLow" }
-    if yname == "input-buffer-correctable-ecc-error-count-low" { return "InputBufferCorrectableEccErrorCountLow" }
-    if yname == "input-buffer-uncorrectable-ecc-error-count-low" { return "InputBufferUncorrectableEccErrorCountLow" }
-    if yname == "header-crc-error-count-low" { return "HeaderCrcErrorCountLow" }
-    if yname == "short-input-header-error-count-low" { return "ShortInputHeaderErrorCountLow" }
-    if yname == "packet-crc-error-count-low" { return "PacketCrcErrorCountLow" }
-    if yname == "short-packet-error-count-low" { return "ShortPacketErrorCountLow" }
-    if yname == "output-buffer-queued-packet-count-low" { return "OutputBufferQueuedPacketCountLow" }
-    if yname == "egress-packet-count-since-last-read-low" { return "EgressPacketCountSinceLastReadLow" }
-    if yname == "egress-channel-utilization-count-low" { return "EgressChannelUtilizationCountLow" }
-    if yname == "output-buffer-back-pressure-count-low" { return "OutputBufferBackPressureCountLow" }
-    if yname == "output-buffer-correctable-ecc-error-count-low" { return "OutputBufferCorrectableEccErrorCountLow" }
-    if yname == "output-buffer-uncorrectable-ecc-error-count-low" { return "OutputBufferUncorrectableEccErrorCountLow" }
-    if yname == "fpoedb-correctable-ecc-error-count-low" { return "FpoedbCorrectableEccErrorCountLow" }
-    if yname == "fpoedb-uncorrectable-ecc-error-count-low" { return "FpoedbUncorrectableEccErrorCountLow" }
-    return ""
+    pktStat.EntityData.Children = make(map[string]types.YChild)
+    pktStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    pktStat.EntityData.Leafs["asic-id"] = types.YLeaf{"AsicId", pktStat.AsicId}
+    pktStat.EntityData.Leafs["port"] = types.YLeaf{"Port", pktStat.Port}
+    pktStat.EntityData.Leafs["internal-error-count"] = types.YLeaf{"InternalErrorCount", pktStat.InternalErrorCount}
+    pktStat.EntityData.Leafs["input-buffer-queued-packet-count-high"] = types.YLeaf{"InputBufferQueuedPacketCountHigh", pktStat.InputBufferQueuedPacketCountHigh}
+    pktStat.EntityData.Leafs["ingress-packet-count-since-last-read-high"] = types.YLeaf{"IngressPacketCountSinceLastReadHigh", pktStat.IngressPacketCountSinceLastReadHigh}
+    pktStat.EntityData.Leafs["ingress-channel-utilization-count-high"] = types.YLeaf{"IngressChannelUtilizationCountHigh", pktStat.IngressChannelUtilizationCountHigh}
+    pktStat.EntityData.Leafs["input-buffer-back-pressure-count-high"] = types.YLeaf{"InputBufferBackPressureCountHigh", pktStat.InputBufferBackPressureCountHigh}
+    pktStat.EntityData.Leafs["xbar-timeout-drop-count-high"] = types.YLeaf{"XbarTimeoutDropCountHigh", pktStat.XbarTimeoutDropCountHigh}
+    pktStat.EntityData.Leafs["holdrop-count-high"] = types.YLeaf{"HoldropCountHigh", pktStat.HoldropCountHigh}
+    pktStat.EntityData.Leafs["null-fpoe-drop-count-high"] = types.YLeaf{"NullFpoeDropCountHigh", pktStat.NullFpoeDropCountHigh}
+    pktStat.EntityData.Leafs["diagnostic-packet-count-high"] = types.YLeaf{"DiagnosticPacketCountHigh", pktStat.DiagnosticPacketCountHigh}
+    pktStat.EntityData.Leafs["input-buffer-correctable-ecc-error-count-high"] = types.YLeaf{"InputBufferCorrectableEccErrorCountHigh", pktStat.InputBufferCorrectableEccErrorCountHigh}
+    pktStat.EntityData.Leafs["input-buffer-uncorrectable-ecc-error-count-high"] = types.YLeaf{"InputBufferUncorrectableEccErrorCountHigh", pktStat.InputBufferUncorrectableEccErrorCountHigh}
+    pktStat.EntityData.Leafs["header-crc-error-count-high"] = types.YLeaf{"HeaderCrcErrorCountHigh", pktStat.HeaderCrcErrorCountHigh}
+    pktStat.EntityData.Leafs["short-input-header-error-count-high"] = types.YLeaf{"ShortInputHeaderErrorCountHigh", pktStat.ShortInputHeaderErrorCountHigh}
+    pktStat.EntityData.Leafs["packet-crc-error-count-high"] = types.YLeaf{"PacketCrcErrorCountHigh", pktStat.PacketCrcErrorCountHigh}
+    pktStat.EntityData.Leafs["short-packet-error-count-high"] = types.YLeaf{"ShortPacketErrorCountHigh", pktStat.ShortPacketErrorCountHigh}
+    pktStat.EntityData.Leafs["output-buffer-queued-packet-count-high"] = types.YLeaf{"OutputBufferQueuedPacketCountHigh", pktStat.OutputBufferQueuedPacketCountHigh}
+    pktStat.EntityData.Leafs["egress-packet-count-since-last-read-high"] = types.YLeaf{"EgressPacketCountSinceLastReadHigh", pktStat.EgressPacketCountSinceLastReadHigh}
+    pktStat.EntityData.Leafs["egress-channel-utilization-count-high"] = types.YLeaf{"EgressChannelUtilizationCountHigh", pktStat.EgressChannelUtilizationCountHigh}
+    pktStat.EntityData.Leafs["output-buffer-back-pressure-count-high"] = types.YLeaf{"OutputBufferBackPressureCountHigh", pktStat.OutputBufferBackPressureCountHigh}
+    pktStat.EntityData.Leafs["output-buffer-correctable-ecc-error-count-high"] = types.YLeaf{"OutputBufferCorrectableEccErrorCountHigh", pktStat.OutputBufferCorrectableEccErrorCountHigh}
+    pktStat.EntityData.Leafs["output-buffer-uncorrectable-ecc-error-count-high"] = types.YLeaf{"OutputBufferUncorrectableEccErrorCountHigh", pktStat.OutputBufferUncorrectableEccErrorCountHigh}
+    pktStat.EntityData.Leafs["fpoedb-correctable-ecc-error-count-high"] = types.YLeaf{"FpoedbCorrectableEccErrorCountHigh", pktStat.FpoedbCorrectableEccErrorCountHigh}
+    pktStat.EntityData.Leafs["fpoedb-uncorrectable-ecc-error-count-high"] = types.YLeaf{"FpoedbUncorrectableEccErrorCountHigh", pktStat.FpoedbUncorrectableEccErrorCountHigh}
+    pktStat.EntityData.Leafs["input-buffer-queued-packet-count-low"] = types.YLeaf{"InputBufferQueuedPacketCountLow", pktStat.InputBufferQueuedPacketCountLow}
+    pktStat.EntityData.Leafs["ingress-packet-count-since-last-read-low"] = types.YLeaf{"IngressPacketCountSinceLastReadLow", pktStat.IngressPacketCountSinceLastReadLow}
+    pktStat.EntityData.Leafs["ingress-channel-utilization-count-low"] = types.YLeaf{"IngressChannelUtilizationCountLow", pktStat.IngressChannelUtilizationCountLow}
+    pktStat.EntityData.Leafs["input-buffer-back-pressure-count-low"] = types.YLeaf{"InputBufferBackPressureCountLow", pktStat.InputBufferBackPressureCountLow}
+    pktStat.EntityData.Leafs["xbar-timeout-drop-count-low"] = types.YLeaf{"XbarTimeoutDropCountLow", pktStat.XbarTimeoutDropCountLow}
+    pktStat.EntityData.Leafs["holdrop-count-low"] = types.YLeaf{"HoldropCountLow", pktStat.HoldropCountLow}
+    pktStat.EntityData.Leafs["null-fpoe-drop-count-low"] = types.YLeaf{"NullFpoeDropCountLow", pktStat.NullFpoeDropCountLow}
+    pktStat.EntityData.Leafs["diagnostic-packet-count-low"] = types.YLeaf{"DiagnosticPacketCountLow", pktStat.DiagnosticPacketCountLow}
+    pktStat.EntityData.Leafs["input-buffer-correctable-ecc-error-count-low"] = types.YLeaf{"InputBufferCorrectableEccErrorCountLow", pktStat.InputBufferCorrectableEccErrorCountLow}
+    pktStat.EntityData.Leafs["input-buffer-uncorrectable-ecc-error-count-low"] = types.YLeaf{"InputBufferUncorrectableEccErrorCountLow", pktStat.InputBufferUncorrectableEccErrorCountLow}
+    pktStat.EntityData.Leafs["header-crc-error-count-low"] = types.YLeaf{"HeaderCrcErrorCountLow", pktStat.HeaderCrcErrorCountLow}
+    pktStat.EntityData.Leafs["short-input-header-error-count-low"] = types.YLeaf{"ShortInputHeaderErrorCountLow", pktStat.ShortInputHeaderErrorCountLow}
+    pktStat.EntityData.Leafs["packet-crc-error-count-low"] = types.YLeaf{"PacketCrcErrorCountLow", pktStat.PacketCrcErrorCountLow}
+    pktStat.EntityData.Leafs["short-packet-error-count-low"] = types.YLeaf{"ShortPacketErrorCountLow", pktStat.ShortPacketErrorCountLow}
+    pktStat.EntityData.Leafs["output-buffer-queued-packet-count-low"] = types.YLeaf{"OutputBufferQueuedPacketCountLow", pktStat.OutputBufferQueuedPacketCountLow}
+    pktStat.EntityData.Leafs["egress-packet-count-since-last-read-low"] = types.YLeaf{"EgressPacketCountSinceLastReadLow", pktStat.EgressPacketCountSinceLastReadLow}
+    pktStat.EntityData.Leafs["egress-channel-utilization-count-low"] = types.YLeaf{"EgressChannelUtilizationCountLow", pktStat.EgressChannelUtilizationCountLow}
+    pktStat.EntityData.Leafs["output-buffer-back-pressure-count-low"] = types.YLeaf{"OutputBufferBackPressureCountLow", pktStat.OutputBufferBackPressureCountLow}
+    pktStat.EntityData.Leafs["output-buffer-correctable-ecc-error-count-low"] = types.YLeaf{"OutputBufferCorrectableEccErrorCountLow", pktStat.OutputBufferCorrectableEccErrorCountLow}
+    pktStat.EntityData.Leafs["output-buffer-uncorrectable-ecc-error-count-low"] = types.YLeaf{"OutputBufferUncorrectableEccErrorCountLow", pktStat.OutputBufferUncorrectableEccErrorCountLow}
+    pktStat.EntityData.Leafs["fpoedb-correctable-ecc-error-count-low"] = types.YLeaf{"FpoedbCorrectableEccErrorCountLow", pktStat.FpoedbCorrectableEccErrorCountLow}
+    pktStat.EntityData.Leafs["fpoedb-uncorrectable-ecc-error-count-low"] = types.YLeaf{"FpoedbUncorrectableEccErrorCountLow", pktStat.FpoedbUncorrectableEccErrorCountLow}
+    return &(pktStat.EntityData)
 }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetSegmentPath() string {
-    return "pkt-stat"
-}
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["asic-id"] = pktStat.AsicId
-    leafs["port"] = pktStat.Port
-    leafs["internal-error-count"] = pktStat.InternalErrorCount
-    leafs["input-buffer-queued-packet-count-high"] = pktStat.InputBufferQueuedPacketCountHigh
-    leafs["ingress-packet-count-since-last-read-high"] = pktStat.IngressPacketCountSinceLastReadHigh
-    leafs["ingress-channel-utilization-count-high"] = pktStat.IngressChannelUtilizationCountHigh
-    leafs["input-buffer-back-pressure-count-high"] = pktStat.InputBufferBackPressureCountHigh
-    leafs["xbar-timeout-drop-count-high"] = pktStat.XbarTimeoutDropCountHigh
-    leafs["holdrop-count-high"] = pktStat.HoldropCountHigh
-    leafs["null-fpoe-drop-count-high"] = pktStat.NullFpoeDropCountHigh
-    leafs["diagnostic-packet-count-high"] = pktStat.DiagnosticPacketCountHigh
-    leafs["input-buffer-correctable-ecc-error-count-high"] = pktStat.InputBufferCorrectableEccErrorCountHigh
-    leafs["input-buffer-uncorrectable-ecc-error-count-high"] = pktStat.InputBufferUncorrectableEccErrorCountHigh
-    leafs["header-crc-error-count-high"] = pktStat.HeaderCrcErrorCountHigh
-    leafs["short-input-header-error-count-high"] = pktStat.ShortInputHeaderErrorCountHigh
-    leafs["packet-crc-error-count-high"] = pktStat.PacketCrcErrorCountHigh
-    leafs["short-packet-error-count-high"] = pktStat.ShortPacketErrorCountHigh
-    leafs["output-buffer-queued-packet-count-high"] = pktStat.OutputBufferQueuedPacketCountHigh
-    leafs["egress-packet-count-since-last-read-high"] = pktStat.EgressPacketCountSinceLastReadHigh
-    leafs["egress-channel-utilization-count-high"] = pktStat.EgressChannelUtilizationCountHigh
-    leafs["output-buffer-back-pressure-count-high"] = pktStat.OutputBufferBackPressureCountHigh
-    leafs["output-buffer-correctable-ecc-error-count-high"] = pktStat.OutputBufferCorrectableEccErrorCountHigh
-    leafs["output-buffer-uncorrectable-ecc-error-count-high"] = pktStat.OutputBufferUncorrectableEccErrorCountHigh
-    leafs["fpoedb-correctable-ecc-error-count-high"] = pktStat.FpoedbCorrectableEccErrorCountHigh
-    leafs["fpoedb-uncorrectable-ecc-error-count-high"] = pktStat.FpoedbUncorrectableEccErrorCountHigh
-    leafs["input-buffer-queued-packet-count-low"] = pktStat.InputBufferQueuedPacketCountLow
-    leafs["ingress-packet-count-since-last-read-low"] = pktStat.IngressPacketCountSinceLastReadLow
-    leafs["ingress-channel-utilization-count-low"] = pktStat.IngressChannelUtilizationCountLow
-    leafs["input-buffer-back-pressure-count-low"] = pktStat.InputBufferBackPressureCountLow
-    leafs["xbar-timeout-drop-count-low"] = pktStat.XbarTimeoutDropCountLow
-    leafs["holdrop-count-low"] = pktStat.HoldropCountLow
-    leafs["null-fpoe-drop-count-low"] = pktStat.NullFpoeDropCountLow
-    leafs["diagnostic-packet-count-low"] = pktStat.DiagnosticPacketCountLow
-    leafs["input-buffer-correctable-ecc-error-count-low"] = pktStat.InputBufferCorrectableEccErrorCountLow
-    leafs["input-buffer-uncorrectable-ecc-error-count-low"] = pktStat.InputBufferUncorrectableEccErrorCountLow
-    leafs["header-crc-error-count-low"] = pktStat.HeaderCrcErrorCountLow
-    leafs["short-input-header-error-count-low"] = pktStat.ShortInputHeaderErrorCountLow
-    leafs["packet-crc-error-count-low"] = pktStat.PacketCrcErrorCountLow
-    leafs["short-packet-error-count-low"] = pktStat.ShortPacketErrorCountLow
-    leafs["output-buffer-queued-packet-count-low"] = pktStat.OutputBufferQueuedPacketCountLow
-    leafs["egress-packet-count-since-last-read-low"] = pktStat.EgressPacketCountSinceLastReadLow
-    leafs["egress-channel-utilization-count-low"] = pktStat.EgressChannelUtilizationCountLow
-    leafs["output-buffer-back-pressure-count-low"] = pktStat.OutputBufferBackPressureCountLow
-    leafs["output-buffer-correctable-ecc-error-count-low"] = pktStat.OutputBufferCorrectableEccErrorCountLow
-    leafs["output-buffer-uncorrectable-ecc-error-count-low"] = pktStat.OutputBufferUncorrectableEccErrorCountLow
-    leafs["fpoedb-correctable-ecc-error-count-low"] = pktStat.FpoedbCorrectableEccErrorCountLow
-    leafs["fpoedb-uncorrectable-ecc-error-count-low"] = pktStat.FpoedbUncorrectableEccErrorCountLow
-    return leafs
-}
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetYangName() string { return "pkt-stat" }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) SetParent(parent types.Entity) { pktStat.parent = parent }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetParent() types.Entity { return pktStat.parent }
-
-func (pktStat *CrossBarStats_Nodes_Node_CrossBarTable_PktStats_PktStat) GetParentYangName() string { return "pkt-stats" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats
 // Table of packet stats for SM15
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Stats information for a particular asic type and port. The type is slice of
@@ -651,75 +393,36 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats struct {
     Sm15Stat []CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat
 }
 
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetFilter() yfilter.YFilter { return sm15Stats.YFilter }
+func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetEntityData() *types.CommonEntityData {
+    sm15Stats.EntityData.YFilter = sm15Stats.YFilter
+    sm15Stats.EntityData.YangName = "sm15-stats"
+    sm15Stats.EntityData.BundleName = "cisco_ios_xr"
+    sm15Stats.EntityData.ParentYangName = "cross-bar-table"
+    sm15Stats.EntityData.SegmentPath = "sm15-stats"
+    sm15Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sm15Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sm15Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) SetFilter(yf yfilter.YFilter) { sm15Stats.YFilter = yf }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetGoName(yname string) string {
-    if yname == "sm15-stat" { return "Sm15Stat" }
-    return ""
-}
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetSegmentPath() string {
-    return "sm15-stats"
-}
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sm15-stat" {
-        for _, c := range sm15Stats.Sm15Stat {
-            if sm15Stats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat{}
-        sm15Stats.Sm15Stat = append(sm15Stats.Sm15Stat, child)
-        return &sm15Stats.Sm15Stat[len(sm15Stats.Sm15Stat)-1]
-    }
-    return nil
-}
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sm15Stats.EntityData.Children = make(map[string]types.YChild)
+    sm15Stats.EntityData.Children["sm15-stat"] = types.YChild{"Sm15Stat", nil}
     for i := range sm15Stats.Sm15Stat {
-        children[sm15Stats.Sm15Stat[i].GetSegmentPath()] = &sm15Stats.Sm15Stat[i]
+        sm15Stats.EntityData.Children[types.GetSegmentPath(&sm15Stats.Sm15Stat[i])] = types.YChild{"Sm15Stat", &sm15Stats.Sm15Stat[i]}
     }
-    return children
+    sm15Stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sm15Stats.EntityData)
 }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetYangName() string { return "sm15-stats" }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) SetParent(parent types.Entity) { sm15Stats.parent = parent }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetParent() types.Entity { return sm15Stats.parent }
-
-func (sm15Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats) GetParentYangName() string { return "cross-bar-table" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat
 // Stats information for a particular asic type
 // and port
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Asic ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Asic ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AsicId interface{}
 
-    // Port. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Port. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Port interface{}
 
     // internal err cnt. The type is interface{} with range:
@@ -766,125 +469,41 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat struct {
     PeCcStats CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats
 }
 
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetFilter() yfilter.YFilter { return sm15Stat.YFilter }
+func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetEntityData() *types.CommonEntityData {
+    sm15Stat.EntityData.YFilter = sm15Stat.YFilter
+    sm15Stat.EntityData.YangName = "sm15-stat"
+    sm15Stat.EntityData.BundleName = "cisco_ios_xr"
+    sm15Stat.EntityData.ParentYangName = "sm15-stats"
+    sm15Stat.EntityData.SegmentPath = "sm15-stat"
+    sm15Stat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sm15Stat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sm15Stat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) SetFilter(yf yfilter.YFilter) { sm15Stat.YFilter = yf }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetGoName(yname string) string {
-    if yname == "asic-id" { return "AsicId" }
-    if yname == "port" { return "Port" }
-    if yname == "internal-err-cnt" { return "InternalErrCnt" }
-    if yname == "ua0-stats" { return "Ua0Stats" }
-    if yname == "ua1-stats" { return "Ua1Stats" }
-    if yname == "ua2-stats" { return "Ua2Stats" }
-    if yname == "ma-stats" { return "MaStats" }
-    if yname == "ca-stats" { return "CaStats" }
-    if yname == "pi-stats" { return "PiStats" }
-    if yname == "pe-stats" { return "PeStats" }
-    if yname == "pi-uc-stats" { return "PiUcStats" }
-    if yname == "pi-mc-stats" { return "PiMcStats" }
-    if yname == "pi-cc-stats" { return "PiCcStats" }
-    if yname == "pe-uc-stats" { return "PeUcStats" }
-    if yname == "pe-mc-stats" { return "PeMcStats" }
-    if yname == "pe-cc-stats" { return "PeCcStats" }
-    return ""
+    sm15Stat.EntityData.Children = make(map[string]types.YChild)
+    sm15Stat.EntityData.Children["ua0-stats"] = types.YChild{"Ua0Stats", &sm15Stat.Ua0Stats}
+    sm15Stat.EntityData.Children["ua1-stats"] = types.YChild{"Ua1Stats", &sm15Stat.Ua1Stats}
+    sm15Stat.EntityData.Children["ua2-stats"] = types.YChild{"Ua2Stats", &sm15Stat.Ua2Stats}
+    sm15Stat.EntityData.Children["ma-stats"] = types.YChild{"MaStats", &sm15Stat.MaStats}
+    sm15Stat.EntityData.Children["ca-stats"] = types.YChild{"CaStats", &sm15Stat.CaStats}
+    sm15Stat.EntityData.Children["pi-stats"] = types.YChild{"PiStats", &sm15Stat.PiStats}
+    sm15Stat.EntityData.Children["pe-stats"] = types.YChild{"PeStats", &sm15Stat.PeStats}
+    sm15Stat.EntityData.Children["pi-uc-stats"] = types.YChild{"PiUcStats", &sm15Stat.PiUcStats}
+    sm15Stat.EntityData.Children["pi-mc-stats"] = types.YChild{"PiMcStats", &sm15Stat.PiMcStats}
+    sm15Stat.EntityData.Children["pi-cc-stats"] = types.YChild{"PiCcStats", &sm15Stat.PiCcStats}
+    sm15Stat.EntityData.Children["pe-uc-stats"] = types.YChild{"PeUcStats", &sm15Stat.PeUcStats}
+    sm15Stat.EntityData.Children["pe-mc-stats"] = types.YChild{"PeMcStats", &sm15Stat.PeMcStats}
+    sm15Stat.EntityData.Children["pe-cc-stats"] = types.YChild{"PeCcStats", &sm15Stat.PeCcStats}
+    sm15Stat.EntityData.Leafs = make(map[string]types.YLeaf)
+    sm15Stat.EntityData.Leafs["asic-id"] = types.YLeaf{"AsicId", sm15Stat.AsicId}
+    sm15Stat.EntityData.Leafs["port"] = types.YLeaf{"Port", sm15Stat.Port}
+    sm15Stat.EntityData.Leafs["internal-err-cnt"] = types.YLeaf{"InternalErrCnt", sm15Stat.InternalErrCnt}
+    return &(sm15Stat.EntityData)
 }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetSegmentPath() string {
-    return "sm15-stat"
-}
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ua0-stats" {
-        return &sm15Stat.Ua0Stats
-    }
-    if childYangName == "ua1-stats" {
-        return &sm15Stat.Ua1Stats
-    }
-    if childYangName == "ua2-stats" {
-        return &sm15Stat.Ua2Stats
-    }
-    if childYangName == "ma-stats" {
-        return &sm15Stat.MaStats
-    }
-    if childYangName == "ca-stats" {
-        return &sm15Stat.CaStats
-    }
-    if childYangName == "pi-stats" {
-        return &sm15Stat.PiStats
-    }
-    if childYangName == "pe-stats" {
-        return &sm15Stat.PeStats
-    }
-    if childYangName == "pi-uc-stats" {
-        return &sm15Stat.PiUcStats
-    }
-    if childYangName == "pi-mc-stats" {
-        return &sm15Stat.PiMcStats
-    }
-    if childYangName == "pi-cc-stats" {
-        return &sm15Stat.PiCcStats
-    }
-    if childYangName == "pe-uc-stats" {
-        return &sm15Stat.PeUcStats
-    }
-    if childYangName == "pe-mc-stats" {
-        return &sm15Stat.PeMcStats
-    }
-    if childYangName == "pe-cc-stats" {
-        return &sm15Stat.PeCcStats
-    }
-    return nil
-}
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ua0-stats"] = &sm15Stat.Ua0Stats
-    children["ua1-stats"] = &sm15Stat.Ua1Stats
-    children["ua2-stats"] = &sm15Stat.Ua2Stats
-    children["ma-stats"] = &sm15Stat.MaStats
-    children["ca-stats"] = &sm15Stat.CaStats
-    children["pi-stats"] = &sm15Stat.PiStats
-    children["pe-stats"] = &sm15Stat.PeStats
-    children["pi-uc-stats"] = &sm15Stat.PiUcStats
-    children["pi-mc-stats"] = &sm15Stat.PiMcStats
-    children["pi-cc-stats"] = &sm15Stat.PiCcStats
-    children["pe-uc-stats"] = &sm15Stat.PeUcStats
-    children["pe-mc-stats"] = &sm15Stat.PeMcStats
-    children["pe-cc-stats"] = &sm15Stat.PeCcStats
-    return children
-}
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["asic-id"] = sm15Stat.AsicId
-    leafs["port"] = sm15Stat.Port
-    leafs["internal-err-cnt"] = sm15Stat.InternalErrCnt
-    return leafs
-}
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetYangName() string { return "sm15-stat" }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) SetParent(parent types.Entity) { sm15Stat.parent = parent }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetParent() types.Entity { return sm15Stat.parent }
-
-func (sm15Stat *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat) GetParentYangName() string { return "sm15-stats" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats
 // ua0 stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DEST DROP PKT CNT. The type is interface{} with range:
@@ -917,70 +536,33 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats struct {
     AckWaitCnt interface{}
 }
 
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetFilter() yfilter.YFilter { return ua0Stats.YFilter }
+func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetEntityData() *types.CommonEntityData {
+    ua0Stats.EntityData.YFilter = ua0Stats.YFilter
+    ua0Stats.EntityData.YangName = "ua0-stats"
+    ua0Stats.EntityData.BundleName = "cisco_ios_xr"
+    ua0Stats.EntityData.ParentYangName = "sm15-stat"
+    ua0Stats.EntityData.SegmentPath = "ua0-stats"
+    ua0Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ua0Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ua0Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) SetFilter(yf yfilter.YFilter) { ua0Stats.YFilter = yf }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetGoName(yname string) string {
-    if yname == "dest-drop-pkt-cnt" { return "DestDropPktCnt" }
-    if yname == "src-dest-pkt-cnt" { return "SrcDestPktCnt" }
-    if yname == "dest-src-pkt-cnt" { return "DestSrcPktCnt" }
-    if yname == "rcv-pkt-cnt" { return "RcvPktCnt" }
-    if yname == "tx-pkt-cnt" { return "TxPktCnt" }
-    if yname == "rx-drop-pkt-cnt" { return "RxDropPktCnt" }
-    if yname == "rx-fabric-to-cnt" { return "RxFabricToCnt" }
-    if yname == "ack-wait-cnt" { return "AckWaitCnt" }
-    return ""
+    ua0Stats.EntityData.Children = make(map[string]types.YChild)
+    ua0Stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    ua0Stats.EntityData.Leafs["dest-drop-pkt-cnt"] = types.YLeaf{"DestDropPktCnt", ua0Stats.DestDropPktCnt}
+    ua0Stats.EntityData.Leafs["src-dest-pkt-cnt"] = types.YLeaf{"SrcDestPktCnt", ua0Stats.SrcDestPktCnt}
+    ua0Stats.EntityData.Leafs["dest-src-pkt-cnt"] = types.YLeaf{"DestSrcPktCnt", ua0Stats.DestSrcPktCnt}
+    ua0Stats.EntityData.Leafs["rcv-pkt-cnt"] = types.YLeaf{"RcvPktCnt", ua0Stats.RcvPktCnt}
+    ua0Stats.EntityData.Leafs["tx-pkt-cnt"] = types.YLeaf{"TxPktCnt", ua0Stats.TxPktCnt}
+    ua0Stats.EntityData.Leafs["rx-drop-pkt-cnt"] = types.YLeaf{"RxDropPktCnt", ua0Stats.RxDropPktCnt}
+    ua0Stats.EntityData.Leafs["rx-fabric-to-cnt"] = types.YLeaf{"RxFabricToCnt", ua0Stats.RxFabricToCnt}
+    ua0Stats.EntityData.Leafs["ack-wait-cnt"] = types.YLeaf{"AckWaitCnt", ua0Stats.AckWaitCnt}
+    return &(ua0Stats.EntityData)
 }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetSegmentPath() string {
-    return "ua0-stats"
-}
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dest-drop-pkt-cnt"] = ua0Stats.DestDropPktCnt
-    leafs["src-dest-pkt-cnt"] = ua0Stats.SrcDestPktCnt
-    leafs["dest-src-pkt-cnt"] = ua0Stats.DestSrcPktCnt
-    leafs["rcv-pkt-cnt"] = ua0Stats.RcvPktCnt
-    leafs["tx-pkt-cnt"] = ua0Stats.TxPktCnt
-    leafs["rx-drop-pkt-cnt"] = ua0Stats.RxDropPktCnt
-    leafs["rx-fabric-to-cnt"] = ua0Stats.RxFabricToCnt
-    leafs["ack-wait-cnt"] = ua0Stats.AckWaitCnt
-    return leafs
-}
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetYangName() string { return "ua0-stats" }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) SetParent(parent types.Entity) { ua0Stats.parent = parent }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetParent() types.Entity { return ua0Stats.parent }
-
-func (ua0Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua0Stats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats
 // ua1 stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DEST DROP PKT CNT. The type is interface{} with range:
@@ -1013,70 +595,33 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats struct {
     AckWaitCnt interface{}
 }
 
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetFilter() yfilter.YFilter { return ua1Stats.YFilter }
+func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetEntityData() *types.CommonEntityData {
+    ua1Stats.EntityData.YFilter = ua1Stats.YFilter
+    ua1Stats.EntityData.YangName = "ua1-stats"
+    ua1Stats.EntityData.BundleName = "cisco_ios_xr"
+    ua1Stats.EntityData.ParentYangName = "sm15-stat"
+    ua1Stats.EntityData.SegmentPath = "ua1-stats"
+    ua1Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ua1Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ua1Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) SetFilter(yf yfilter.YFilter) { ua1Stats.YFilter = yf }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetGoName(yname string) string {
-    if yname == "dest-drop-pkt-cnt" { return "DestDropPktCnt" }
-    if yname == "src-dest-pkt-cnt" { return "SrcDestPktCnt" }
-    if yname == "dest-src-pkt-cnt" { return "DestSrcPktCnt" }
-    if yname == "rcv-pkt-cnt" { return "RcvPktCnt" }
-    if yname == "tx-pkt-cnt" { return "TxPktCnt" }
-    if yname == "rx-drop-pkt-cnt" { return "RxDropPktCnt" }
-    if yname == "rx-fabric-to-cnt" { return "RxFabricToCnt" }
-    if yname == "ack-wait-cnt" { return "AckWaitCnt" }
-    return ""
+    ua1Stats.EntityData.Children = make(map[string]types.YChild)
+    ua1Stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    ua1Stats.EntityData.Leafs["dest-drop-pkt-cnt"] = types.YLeaf{"DestDropPktCnt", ua1Stats.DestDropPktCnt}
+    ua1Stats.EntityData.Leafs["src-dest-pkt-cnt"] = types.YLeaf{"SrcDestPktCnt", ua1Stats.SrcDestPktCnt}
+    ua1Stats.EntityData.Leafs["dest-src-pkt-cnt"] = types.YLeaf{"DestSrcPktCnt", ua1Stats.DestSrcPktCnt}
+    ua1Stats.EntityData.Leafs["rcv-pkt-cnt"] = types.YLeaf{"RcvPktCnt", ua1Stats.RcvPktCnt}
+    ua1Stats.EntityData.Leafs["tx-pkt-cnt"] = types.YLeaf{"TxPktCnt", ua1Stats.TxPktCnt}
+    ua1Stats.EntityData.Leafs["rx-drop-pkt-cnt"] = types.YLeaf{"RxDropPktCnt", ua1Stats.RxDropPktCnt}
+    ua1Stats.EntityData.Leafs["rx-fabric-to-cnt"] = types.YLeaf{"RxFabricToCnt", ua1Stats.RxFabricToCnt}
+    ua1Stats.EntityData.Leafs["ack-wait-cnt"] = types.YLeaf{"AckWaitCnt", ua1Stats.AckWaitCnt}
+    return &(ua1Stats.EntityData)
 }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetSegmentPath() string {
-    return "ua1-stats"
-}
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dest-drop-pkt-cnt"] = ua1Stats.DestDropPktCnt
-    leafs["src-dest-pkt-cnt"] = ua1Stats.SrcDestPktCnt
-    leafs["dest-src-pkt-cnt"] = ua1Stats.DestSrcPktCnt
-    leafs["rcv-pkt-cnt"] = ua1Stats.RcvPktCnt
-    leafs["tx-pkt-cnt"] = ua1Stats.TxPktCnt
-    leafs["rx-drop-pkt-cnt"] = ua1Stats.RxDropPktCnt
-    leafs["rx-fabric-to-cnt"] = ua1Stats.RxFabricToCnt
-    leafs["ack-wait-cnt"] = ua1Stats.AckWaitCnt
-    return leafs
-}
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetYangName() string { return "ua1-stats" }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) SetParent(parent types.Entity) { ua1Stats.parent = parent }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetParent() types.Entity { return ua1Stats.parent }
-
-func (ua1Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua1Stats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats
 // ua2 stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DEST DROP PKT CNT. The type is interface{} with range:
@@ -1109,70 +654,33 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats struct {
     AckWaitCnt interface{}
 }
 
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetFilter() yfilter.YFilter { return ua2Stats.YFilter }
+func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetEntityData() *types.CommonEntityData {
+    ua2Stats.EntityData.YFilter = ua2Stats.YFilter
+    ua2Stats.EntityData.YangName = "ua2-stats"
+    ua2Stats.EntityData.BundleName = "cisco_ios_xr"
+    ua2Stats.EntityData.ParentYangName = "sm15-stat"
+    ua2Stats.EntityData.SegmentPath = "ua2-stats"
+    ua2Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ua2Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ua2Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) SetFilter(yf yfilter.YFilter) { ua2Stats.YFilter = yf }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetGoName(yname string) string {
-    if yname == "dest-drop-pkt-cnt" { return "DestDropPktCnt" }
-    if yname == "src-dest-pkt-cnt" { return "SrcDestPktCnt" }
-    if yname == "dest-src-pkt-cnt" { return "DestSrcPktCnt" }
-    if yname == "rcv-pkt-cnt" { return "RcvPktCnt" }
-    if yname == "tx-pkt-cnt" { return "TxPktCnt" }
-    if yname == "rx-drop-pkt-cnt" { return "RxDropPktCnt" }
-    if yname == "rx-fabric-to-cnt" { return "RxFabricToCnt" }
-    if yname == "ack-wait-cnt" { return "AckWaitCnt" }
-    return ""
+    ua2Stats.EntityData.Children = make(map[string]types.YChild)
+    ua2Stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    ua2Stats.EntityData.Leafs["dest-drop-pkt-cnt"] = types.YLeaf{"DestDropPktCnt", ua2Stats.DestDropPktCnt}
+    ua2Stats.EntityData.Leafs["src-dest-pkt-cnt"] = types.YLeaf{"SrcDestPktCnt", ua2Stats.SrcDestPktCnt}
+    ua2Stats.EntityData.Leafs["dest-src-pkt-cnt"] = types.YLeaf{"DestSrcPktCnt", ua2Stats.DestSrcPktCnt}
+    ua2Stats.EntityData.Leafs["rcv-pkt-cnt"] = types.YLeaf{"RcvPktCnt", ua2Stats.RcvPktCnt}
+    ua2Stats.EntityData.Leafs["tx-pkt-cnt"] = types.YLeaf{"TxPktCnt", ua2Stats.TxPktCnt}
+    ua2Stats.EntityData.Leafs["rx-drop-pkt-cnt"] = types.YLeaf{"RxDropPktCnt", ua2Stats.RxDropPktCnt}
+    ua2Stats.EntityData.Leafs["rx-fabric-to-cnt"] = types.YLeaf{"RxFabricToCnt", ua2Stats.RxFabricToCnt}
+    ua2Stats.EntityData.Leafs["ack-wait-cnt"] = types.YLeaf{"AckWaitCnt", ua2Stats.AckWaitCnt}
+    return &(ua2Stats.EntityData)
 }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetSegmentPath() string {
-    return "ua2-stats"
-}
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dest-drop-pkt-cnt"] = ua2Stats.DestDropPktCnt
-    leafs["src-dest-pkt-cnt"] = ua2Stats.SrcDestPktCnt
-    leafs["dest-src-pkt-cnt"] = ua2Stats.DestSrcPktCnt
-    leafs["rcv-pkt-cnt"] = ua2Stats.RcvPktCnt
-    leafs["tx-pkt-cnt"] = ua2Stats.TxPktCnt
-    leafs["rx-drop-pkt-cnt"] = ua2Stats.RxDropPktCnt
-    leafs["rx-fabric-to-cnt"] = ua2Stats.RxFabricToCnt
-    leafs["ack-wait-cnt"] = ua2Stats.AckWaitCnt
-    return leafs
-}
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetYangName() string { return "ua2-stats" }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) SetParent(parent types.Entity) { ua2Stats.parent = parent }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetParent() types.Entity { return ua2Stats.parent }
-
-func (ua2Stats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_Ua2Stats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats
 // ma stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DEST DROP PKT CNT. The type is interface{} with range:
@@ -1209,72 +717,34 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats struct {
     RxHolToCnt interface{}
 }
 
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetFilter() yfilter.YFilter { return maStats.YFilter }
+func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetEntityData() *types.CommonEntityData {
+    maStats.EntityData.YFilter = maStats.YFilter
+    maStats.EntityData.YangName = "ma-stats"
+    maStats.EntityData.BundleName = "cisco_ios_xr"
+    maStats.EntityData.ParentYangName = "sm15-stat"
+    maStats.EntityData.SegmentPath = "ma-stats"
+    maStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    maStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    maStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) SetFilter(yf yfilter.YFilter) { maStats.YFilter = yf }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetGoName(yname string) string {
-    if yname == "dest-drop-pkt-cnt" { return "DestDropPktCnt" }
-    if yname == "src-dest-pkt-cnt" { return "SrcDestPktCnt" }
-    if yname == "dest-src-pkt-cnt" { return "DestSrcPktCnt" }
-    if yname == "rcv-pkt-cnt" { return "RcvPktCnt" }
-    if yname == "tx-pkt-cnt" { return "TxPktCnt" }
-    if yname == "rx-drop-pkt-cnt" { return "RxDropPktCnt" }
-    if yname == "rx-re-transmit-cnt" { return "RxReTransmitCnt" }
-    if yname == "rx-fabric-to-cnt" { return "RxFabricToCnt" }
-    if yname == "rx-hol-to-cnt" { return "RxHolToCnt" }
-    return ""
+    maStats.EntityData.Children = make(map[string]types.YChild)
+    maStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    maStats.EntityData.Leafs["dest-drop-pkt-cnt"] = types.YLeaf{"DestDropPktCnt", maStats.DestDropPktCnt}
+    maStats.EntityData.Leafs["src-dest-pkt-cnt"] = types.YLeaf{"SrcDestPktCnt", maStats.SrcDestPktCnt}
+    maStats.EntityData.Leafs["dest-src-pkt-cnt"] = types.YLeaf{"DestSrcPktCnt", maStats.DestSrcPktCnt}
+    maStats.EntityData.Leafs["rcv-pkt-cnt"] = types.YLeaf{"RcvPktCnt", maStats.RcvPktCnt}
+    maStats.EntityData.Leafs["tx-pkt-cnt"] = types.YLeaf{"TxPktCnt", maStats.TxPktCnt}
+    maStats.EntityData.Leafs["rx-drop-pkt-cnt"] = types.YLeaf{"RxDropPktCnt", maStats.RxDropPktCnt}
+    maStats.EntityData.Leafs["rx-re-transmit-cnt"] = types.YLeaf{"RxReTransmitCnt", maStats.RxReTransmitCnt}
+    maStats.EntityData.Leafs["rx-fabric-to-cnt"] = types.YLeaf{"RxFabricToCnt", maStats.RxFabricToCnt}
+    maStats.EntityData.Leafs["rx-hol-to-cnt"] = types.YLeaf{"RxHolToCnt", maStats.RxHolToCnt}
+    return &(maStats.EntityData)
 }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetSegmentPath() string {
-    return "ma-stats"
-}
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dest-drop-pkt-cnt"] = maStats.DestDropPktCnt
-    leafs["src-dest-pkt-cnt"] = maStats.SrcDestPktCnt
-    leafs["dest-src-pkt-cnt"] = maStats.DestSrcPktCnt
-    leafs["rcv-pkt-cnt"] = maStats.RcvPktCnt
-    leafs["tx-pkt-cnt"] = maStats.TxPktCnt
-    leafs["rx-drop-pkt-cnt"] = maStats.RxDropPktCnt
-    leafs["rx-re-transmit-cnt"] = maStats.RxReTransmitCnt
-    leafs["rx-fabric-to-cnt"] = maStats.RxFabricToCnt
-    leafs["rx-hol-to-cnt"] = maStats.RxHolToCnt
-    return leafs
-}
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetYangName() string { return "ma-stats" }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) SetParent(parent types.Entity) { maStats.parent = parent }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetParent() types.Entity { return maStats.parent }
-
-func (maStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_MaStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats
 // ca stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DEST DROP PKT CNT. The type is interface{} with range:
@@ -1300,66 +770,31 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats struct {
     RxDropPktCnt interface{}
 }
 
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetFilter() yfilter.YFilter { return caStats.YFilter }
+func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetEntityData() *types.CommonEntityData {
+    caStats.EntityData.YFilter = caStats.YFilter
+    caStats.EntityData.YangName = "ca-stats"
+    caStats.EntityData.BundleName = "cisco_ios_xr"
+    caStats.EntityData.ParentYangName = "sm15-stat"
+    caStats.EntityData.SegmentPath = "ca-stats"
+    caStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    caStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    caStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) SetFilter(yf yfilter.YFilter) { caStats.YFilter = yf }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetGoName(yname string) string {
-    if yname == "dest-drop-pkt-cnt" { return "DestDropPktCnt" }
-    if yname == "src-dest-pkt-cnt" { return "SrcDestPktCnt" }
-    if yname == "dest-src-pkt-cnt" { return "DestSrcPktCnt" }
-    if yname == "rcv-pkt-cnt" { return "RcvPktCnt" }
-    if yname == "tx-pkt-cnt" { return "TxPktCnt" }
-    if yname == "rx-drop-pkt-cnt" { return "RxDropPktCnt" }
-    return ""
+    caStats.EntityData.Children = make(map[string]types.YChild)
+    caStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    caStats.EntityData.Leafs["dest-drop-pkt-cnt"] = types.YLeaf{"DestDropPktCnt", caStats.DestDropPktCnt}
+    caStats.EntityData.Leafs["src-dest-pkt-cnt"] = types.YLeaf{"SrcDestPktCnt", caStats.SrcDestPktCnt}
+    caStats.EntityData.Leafs["dest-src-pkt-cnt"] = types.YLeaf{"DestSrcPktCnt", caStats.DestSrcPktCnt}
+    caStats.EntityData.Leafs["rcv-pkt-cnt"] = types.YLeaf{"RcvPktCnt", caStats.RcvPktCnt}
+    caStats.EntityData.Leafs["tx-pkt-cnt"] = types.YLeaf{"TxPktCnt", caStats.TxPktCnt}
+    caStats.EntityData.Leafs["rx-drop-pkt-cnt"] = types.YLeaf{"RxDropPktCnt", caStats.RxDropPktCnt}
+    return &(caStats.EntityData)
 }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetSegmentPath() string {
-    return "ca-stats"
-}
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dest-drop-pkt-cnt"] = caStats.DestDropPktCnt
-    leafs["src-dest-pkt-cnt"] = caStats.SrcDestPktCnt
-    leafs["dest-src-pkt-cnt"] = caStats.DestSrcPktCnt
-    leafs["rcv-pkt-cnt"] = caStats.RcvPktCnt
-    leafs["tx-pkt-cnt"] = caStats.TxPktCnt
-    leafs["rx-drop-pkt-cnt"] = caStats.RxDropPktCnt
-    return leafs
-}
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetYangName() string { return "ca-stats" }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) SetParent(parent types.Entity) { caStats.parent = parent }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetParent() types.Entity { return caStats.parent }
-
-func (caStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_CaStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats
 // pi stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TOTAL RATE1 CNT. The type is interface{} with range:
@@ -1379,62 +814,29 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats struct {
     TotalCalcRate interface{}
 }
 
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetFilter() yfilter.YFilter { return piStats.YFilter }
+func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetEntityData() *types.CommonEntityData {
+    piStats.EntityData.YFilter = piStats.YFilter
+    piStats.EntityData.YangName = "pi-stats"
+    piStats.EntityData.BundleName = "cisco_ios_xr"
+    piStats.EntityData.ParentYangName = "sm15-stat"
+    piStats.EntityData.SegmentPath = "pi-stats"
+    piStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) SetFilter(yf yfilter.YFilter) { piStats.YFilter = yf }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetGoName(yname string) string {
-    if yname == "total-rate1-cnt" { return "TotalRate1Cnt" }
-    if yname == "total-rate2-cnt" { return "TotalRate2Cnt" }
-    if yname == "total-rate3-cnt" { return "TotalRate3Cnt" }
-    if yname == "total-calc-rate" { return "TotalCalcRate" }
-    return ""
+    piStats.EntityData.Children = make(map[string]types.YChild)
+    piStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    piStats.EntityData.Leafs["total-rate1-cnt"] = types.YLeaf{"TotalRate1Cnt", piStats.TotalRate1Cnt}
+    piStats.EntityData.Leafs["total-rate2-cnt"] = types.YLeaf{"TotalRate2Cnt", piStats.TotalRate2Cnt}
+    piStats.EntityData.Leafs["total-rate3-cnt"] = types.YLeaf{"TotalRate3Cnt", piStats.TotalRate3Cnt}
+    piStats.EntityData.Leafs["total-calc-rate"] = types.YLeaf{"TotalCalcRate", piStats.TotalCalcRate}
+    return &(piStats.EntityData)
 }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetSegmentPath() string {
-    return "pi-stats"
-}
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-rate1-cnt"] = piStats.TotalRate1Cnt
-    leafs["total-rate2-cnt"] = piStats.TotalRate2Cnt
-    leafs["total-rate3-cnt"] = piStats.TotalRate3Cnt
-    leafs["total-calc-rate"] = piStats.TotalCalcRate
-    return leafs
-}
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetYangName() string { return "pi-stats" }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) SetParent(parent types.Entity) { piStats.parent = parent }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetParent() types.Entity { return piStats.parent }
-
-func (piStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats
 // pe stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TOTAL RATE1 CNT. The type is interface{} with range:
@@ -1458,64 +860,30 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats struct {
     Mc2UcPreemptCnt interface{}
 }
 
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetFilter() yfilter.YFilter { return peStats.YFilter }
+func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetEntityData() *types.CommonEntityData {
+    peStats.EntityData.YFilter = peStats.YFilter
+    peStats.EntityData.YangName = "pe-stats"
+    peStats.EntityData.BundleName = "cisco_ios_xr"
+    peStats.EntityData.ParentYangName = "sm15-stat"
+    peStats.EntityData.SegmentPath = "pe-stats"
+    peStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) SetFilter(yf yfilter.YFilter) { peStats.YFilter = yf }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetGoName(yname string) string {
-    if yname == "total-rate1-cnt" { return "TotalRate1Cnt" }
-    if yname == "total-rate2-cnt" { return "TotalRate2Cnt" }
-    if yname == "total-rate3-cnt" { return "TotalRate3Cnt" }
-    if yname == "total-calc-rate" { return "TotalCalcRate" }
-    if yname == "mc2uc-preempt-cnt" { return "Mc2UcPreemptCnt" }
-    return ""
+    peStats.EntityData.Children = make(map[string]types.YChild)
+    peStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    peStats.EntityData.Leafs["total-rate1-cnt"] = types.YLeaf{"TotalRate1Cnt", peStats.TotalRate1Cnt}
+    peStats.EntityData.Leafs["total-rate2-cnt"] = types.YLeaf{"TotalRate2Cnt", peStats.TotalRate2Cnt}
+    peStats.EntityData.Leafs["total-rate3-cnt"] = types.YLeaf{"TotalRate3Cnt", peStats.TotalRate3Cnt}
+    peStats.EntityData.Leafs["total-calc-rate"] = types.YLeaf{"TotalCalcRate", peStats.TotalCalcRate}
+    peStats.EntityData.Leafs["mc2uc-preempt-cnt"] = types.YLeaf{"Mc2UcPreemptCnt", peStats.Mc2UcPreemptCnt}
+    return &(peStats.EntityData)
 }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetSegmentPath() string {
-    return "pe-stats"
-}
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-rate1-cnt"] = peStats.TotalRate1Cnt
-    leafs["total-rate2-cnt"] = peStats.TotalRate2Cnt
-    leafs["total-rate3-cnt"] = peStats.TotalRate3Cnt
-    leafs["total-calc-rate"] = peStats.TotalCalcRate
-    leafs["mc2uc-preempt-cnt"] = peStats.Mc2UcPreemptCnt
-    return leafs
-}
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetYangName() string { return "pe-stats" }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) SetParent(parent types.Entity) { peStats.parent = parent }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetParent() types.Entity { return peStats.parent }
-
-func (peStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats
 // pi uc stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PKT RCV CNT. The type is interface{} with range: 0..18446744073709551615.
@@ -1659,126 +1027,61 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats struct 
     CrcStompPktCnt interface{}
 }
 
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetFilter() yfilter.YFilter { return piUcStats.YFilter }
+func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetEntityData() *types.CommonEntityData {
+    piUcStats.EntityData.YFilter = piUcStats.YFilter
+    piUcStats.EntityData.YangName = "pi-uc-stats"
+    piUcStats.EntityData.BundleName = "cisco_ios_xr"
+    piUcStats.EntityData.ParentYangName = "sm15-stat"
+    piUcStats.EntityData.SegmentPath = "pi-uc-stats"
+    piUcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piUcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piUcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) SetFilter(yf yfilter.YFilter) { piUcStats.YFilter = yf }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetGoName(yname string) string {
-    if yname == "pkt-rcv-cnt" { return "PktRcvCnt" }
-    if yname == "pkt-seq-err-cnt" { return "PktSeqErrCnt" }
-    if yname == "in-coming-pkt-err-cnt" { return "InComingPktErrCnt" }
-    if yname == "min-pkt-len-err-cnt" { return "MinPktLenErrCnt" }
-    if yname == "max-pkt-len-err-cnt" { return "MaxPktLenErrCnt" }
-    if yname == "line-err-drp-pkt" { return "LineErrDrpPkt" }
-    if yname == "pkt-crc-err-cnt" { return "PktCrcErrCnt" }
-    if yname == "pkt-cfh-crc-err-cnt" { return "PktCfhCrcErrCnt" }
-    if yname == "line-s-written-in-mem0" { return "LineSWrittenInMem0" }
-    if yname == "line-s-written-in-mem1" { return "LineSWrittenInMem1" }
-    if yname == "line-s-written-in-mem2" { return "LineSWrittenInMem2" }
-    if yname == "tail-drp-pkt-cnt" { return "TailDrpPktCnt" }
-    if yname == "uc0-data-mem-ecc-1bit-err-cnt" { return "Uc0DataMemEcc1BitErrCnt" }
-    if yname == "uc1-data-mem-ecc-1bit-err-cnt" { return "Uc1DataMemEcc1BitErrCnt" }
-    if yname == "uc2-data-mem-ecc-1bit-err-cnt" { return "Uc2DataMemEcc1BitErrCnt" }
-    if yname == "uc0-data-mem-ecc-2bit-err-cnt" { return "Uc0DataMemEcc2BitErrCnt" }
-    if yname == "uc1-data-mem-ecc-2bit-err-cnt" { return "Uc1DataMemEcc2BitErrCnt" }
-    if yname == "uc2-data-mem-ecc-2bit-err-cnt" { return "Uc2DataMemEcc2BitErrCnt" }
-    if yname == "diag-pkt-cnt" { return "DiagPktCnt" }
-    if yname == "pkt-sent-to-disabled-port-cnt" { return "PktSentToDisabledPortCnt" }
-    if yname == "pkt-null-poe-sent-ua0-cnt" { return "PktNullPoeSentUa0Cnt" }
-    if yname == "pkt-null-poe-sent-ua1-cnt" { return "PktNullPoeSentUa1Cnt" }
-    if yname == "pkt-null-poe-sent-ua2-cnt" { return "PktNullPoeSentUa2Cnt" }
-    if yname == "pkt-fpoe-addr-rng-hit-cnt" { return "PktFpoeAddrRngHitCnt" }
-    if yname == "fpoe-mem-ecc-1bit-err-cnt" { return "FpoeMemEcc1BitErrCnt" }
-    if yname == "fpoe-mem-ecc-2bit-err-cnt" { return "FpoeMemEcc2BitErrCnt" }
-    if yname == "pkts-sent-to-ux0-cnt" { return "PktsSentToUx0Cnt" }
-    if yname == "pkts-sent-to-ux1-cnt" { return "PktsSentToUx1Cnt" }
-    if yname == "pkts-sent-to-ux2-cnt" { return "PktsSentToUx2Cnt" }
-    if yname == "cpp-head-drop-pkt-cnt" { return "CppHeadDropPktCnt" }
-    if yname == "tr-head-drop-pkt-cnt" { return "TrHeadDropPktCnt" }
-    if yname == "tr-pkt-sent-to-ux" { return "TrPktSentToUx" }
-    if yname == "stop-thrsh-hit-cnt" { return "StopThrshHitCnt" }
-    if yname == "rate-cnt" { return "RateCnt" }
-    if yname == "calc-rate" { return "CalcRate" }
-    if yname == "crc-stomp-pkt-cnt" { return "CrcStompPktCnt" }
-    return ""
+    piUcStats.EntityData.Children = make(map[string]types.YChild)
+    piUcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    piUcStats.EntityData.Leafs["pkt-rcv-cnt"] = types.YLeaf{"PktRcvCnt", piUcStats.PktRcvCnt}
+    piUcStats.EntityData.Leafs["pkt-seq-err-cnt"] = types.YLeaf{"PktSeqErrCnt", piUcStats.PktSeqErrCnt}
+    piUcStats.EntityData.Leafs["in-coming-pkt-err-cnt"] = types.YLeaf{"InComingPktErrCnt", piUcStats.InComingPktErrCnt}
+    piUcStats.EntityData.Leafs["min-pkt-len-err-cnt"] = types.YLeaf{"MinPktLenErrCnt", piUcStats.MinPktLenErrCnt}
+    piUcStats.EntityData.Leafs["max-pkt-len-err-cnt"] = types.YLeaf{"MaxPktLenErrCnt", piUcStats.MaxPktLenErrCnt}
+    piUcStats.EntityData.Leafs["line-err-drp-pkt"] = types.YLeaf{"LineErrDrpPkt", piUcStats.LineErrDrpPkt}
+    piUcStats.EntityData.Leafs["pkt-crc-err-cnt"] = types.YLeaf{"PktCrcErrCnt", piUcStats.PktCrcErrCnt}
+    piUcStats.EntityData.Leafs["pkt-cfh-crc-err-cnt"] = types.YLeaf{"PktCfhCrcErrCnt", piUcStats.PktCfhCrcErrCnt}
+    piUcStats.EntityData.Leafs["line-s-written-in-mem0"] = types.YLeaf{"LineSWrittenInMem0", piUcStats.LineSWrittenInMem0}
+    piUcStats.EntityData.Leafs["line-s-written-in-mem1"] = types.YLeaf{"LineSWrittenInMem1", piUcStats.LineSWrittenInMem1}
+    piUcStats.EntityData.Leafs["line-s-written-in-mem2"] = types.YLeaf{"LineSWrittenInMem2", piUcStats.LineSWrittenInMem2}
+    piUcStats.EntityData.Leafs["tail-drp-pkt-cnt"] = types.YLeaf{"TailDrpPktCnt", piUcStats.TailDrpPktCnt}
+    piUcStats.EntityData.Leafs["uc0-data-mem-ecc-1bit-err-cnt"] = types.YLeaf{"Uc0DataMemEcc1BitErrCnt", piUcStats.Uc0DataMemEcc1BitErrCnt}
+    piUcStats.EntityData.Leafs["uc1-data-mem-ecc-1bit-err-cnt"] = types.YLeaf{"Uc1DataMemEcc1BitErrCnt", piUcStats.Uc1DataMemEcc1BitErrCnt}
+    piUcStats.EntityData.Leafs["uc2-data-mem-ecc-1bit-err-cnt"] = types.YLeaf{"Uc2DataMemEcc1BitErrCnt", piUcStats.Uc2DataMemEcc1BitErrCnt}
+    piUcStats.EntityData.Leafs["uc0-data-mem-ecc-2bit-err-cnt"] = types.YLeaf{"Uc0DataMemEcc2BitErrCnt", piUcStats.Uc0DataMemEcc2BitErrCnt}
+    piUcStats.EntityData.Leafs["uc1-data-mem-ecc-2bit-err-cnt"] = types.YLeaf{"Uc1DataMemEcc2BitErrCnt", piUcStats.Uc1DataMemEcc2BitErrCnt}
+    piUcStats.EntityData.Leafs["uc2-data-mem-ecc-2bit-err-cnt"] = types.YLeaf{"Uc2DataMemEcc2BitErrCnt", piUcStats.Uc2DataMemEcc2BitErrCnt}
+    piUcStats.EntityData.Leafs["diag-pkt-cnt"] = types.YLeaf{"DiagPktCnt", piUcStats.DiagPktCnt}
+    piUcStats.EntityData.Leafs["pkt-sent-to-disabled-port-cnt"] = types.YLeaf{"PktSentToDisabledPortCnt", piUcStats.PktSentToDisabledPortCnt}
+    piUcStats.EntityData.Leafs["pkt-null-poe-sent-ua0-cnt"] = types.YLeaf{"PktNullPoeSentUa0Cnt", piUcStats.PktNullPoeSentUa0Cnt}
+    piUcStats.EntityData.Leafs["pkt-null-poe-sent-ua1-cnt"] = types.YLeaf{"PktNullPoeSentUa1Cnt", piUcStats.PktNullPoeSentUa1Cnt}
+    piUcStats.EntityData.Leafs["pkt-null-poe-sent-ua2-cnt"] = types.YLeaf{"PktNullPoeSentUa2Cnt", piUcStats.PktNullPoeSentUa2Cnt}
+    piUcStats.EntityData.Leafs["pkt-fpoe-addr-rng-hit-cnt"] = types.YLeaf{"PktFpoeAddrRngHitCnt", piUcStats.PktFpoeAddrRngHitCnt}
+    piUcStats.EntityData.Leafs["fpoe-mem-ecc-1bit-err-cnt"] = types.YLeaf{"FpoeMemEcc1BitErrCnt", piUcStats.FpoeMemEcc1BitErrCnt}
+    piUcStats.EntityData.Leafs["fpoe-mem-ecc-2bit-err-cnt"] = types.YLeaf{"FpoeMemEcc2BitErrCnt", piUcStats.FpoeMemEcc2BitErrCnt}
+    piUcStats.EntityData.Leafs["pkts-sent-to-ux0-cnt"] = types.YLeaf{"PktsSentToUx0Cnt", piUcStats.PktsSentToUx0Cnt}
+    piUcStats.EntityData.Leafs["pkts-sent-to-ux1-cnt"] = types.YLeaf{"PktsSentToUx1Cnt", piUcStats.PktsSentToUx1Cnt}
+    piUcStats.EntityData.Leafs["pkts-sent-to-ux2-cnt"] = types.YLeaf{"PktsSentToUx2Cnt", piUcStats.PktsSentToUx2Cnt}
+    piUcStats.EntityData.Leafs["cpp-head-drop-pkt-cnt"] = types.YLeaf{"CppHeadDropPktCnt", piUcStats.CppHeadDropPktCnt}
+    piUcStats.EntityData.Leafs["tr-head-drop-pkt-cnt"] = types.YLeaf{"TrHeadDropPktCnt", piUcStats.TrHeadDropPktCnt}
+    piUcStats.EntityData.Leafs["tr-pkt-sent-to-ux"] = types.YLeaf{"TrPktSentToUx", piUcStats.TrPktSentToUx}
+    piUcStats.EntityData.Leafs["stop-thrsh-hit-cnt"] = types.YLeaf{"StopThrshHitCnt", piUcStats.StopThrshHitCnt}
+    piUcStats.EntityData.Leafs["rate-cnt"] = types.YLeaf{"RateCnt", piUcStats.RateCnt}
+    piUcStats.EntityData.Leafs["calc-rate"] = types.YLeaf{"CalcRate", piUcStats.CalcRate}
+    piUcStats.EntityData.Leafs["crc-stomp-pkt-cnt"] = types.YLeaf{"CrcStompPktCnt", piUcStats.CrcStompPktCnt}
+    return &(piUcStats.EntityData)
 }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetSegmentPath() string {
-    return "pi-uc-stats"
-}
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pkt-rcv-cnt"] = piUcStats.PktRcvCnt
-    leafs["pkt-seq-err-cnt"] = piUcStats.PktSeqErrCnt
-    leafs["in-coming-pkt-err-cnt"] = piUcStats.InComingPktErrCnt
-    leafs["min-pkt-len-err-cnt"] = piUcStats.MinPktLenErrCnt
-    leafs["max-pkt-len-err-cnt"] = piUcStats.MaxPktLenErrCnt
-    leafs["line-err-drp-pkt"] = piUcStats.LineErrDrpPkt
-    leafs["pkt-crc-err-cnt"] = piUcStats.PktCrcErrCnt
-    leafs["pkt-cfh-crc-err-cnt"] = piUcStats.PktCfhCrcErrCnt
-    leafs["line-s-written-in-mem0"] = piUcStats.LineSWrittenInMem0
-    leafs["line-s-written-in-mem1"] = piUcStats.LineSWrittenInMem1
-    leafs["line-s-written-in-mem2"] = piUcStats.LineSWrittenInMem2
-    leafs["tail-drp-pkt-cnt"] = piUcStats.TailDrpPktCnt
-    leafs["uc0-data-mem-ecc-1bit-err-cnt"] = piUcStats.Uc0DataMemEcc1BitErrCnt
-    leafs["uc1-data-mem-ecc-1bit-err-cnt"] = piUcStats.Uc1DataMemEcc1BitErrCnt
-    leafs["uc2-data-mem-ecc-1bit-err-cnt"] = piUcStats.Uc2DataMemEcc1BitErrCnt
-    leafs["uc0-data-mem-ecc-2bit-err-cnt"] = piUcStats.Uc0DataMemEcc2BitErrCnt
-    leafs["uc1-data-mem-ecc-2bit-err-cnt"] = piUcStats.Uc1DataMemEcc2BitErrCnt
-    leafs["uc2-data-mem-ecc-2bit-err-cnt"] = piUcStats.Uc2DataMemEcc2BitErrCnt
-    leafs["diag-pkt-cnt"] = piUcStats.DiagPktCnt
-    leafs["pkt-sent-to-disabled-port-cnt"] = piUcStats.PktSentToDisabledPortCnt
-    leafs["pkt-null-poe-sent-ua0-cnt"] = piUcStats.PktNullPoeSentUa0Cnt
-    leafs["pkt-null-poe-sent-ua1-cnt"] = piUcStats.PktNullPoeSentUa1Cnt
-    leafs["pkt-null-poe-sent-ua2-cnt"] = piUcStats.PktNullPoeSentUa2Cnt
-    leafs["pkt-fpoe-addr-rng-hit-cnt"] = piUcStats.PktFpoeAddrRngHitCnt
-    leafs["fpoe-mem-ecc-1bit-err-cnt"] = piUcStats.FpoeMemEcc1BitErrCnt
-    leafs["fpoe-mem-ecc-2bit-err-cnt"] = piUcStats.FpoeMemEcc2BitErrCnt
-    leafs["pkts-sent-to-ux0-cnt"] = piUcStats.PktsSentToUx0Cnt
-    leafs["pkts-sent-to-ux1-cnt"] = piUcStats.PktsSentToUx1Cnt
-    leafs["pkts-sent-to-ux2-cnt"] = piUcStats.PktsSentToUx2Cnt
-    leafs["cpp-head-drop-pkt-cnt"] = piUcStats.CppHeadDropPktCnt
-    leafs["tr-head-drop-pkt-cnt"] = piUcStats.TrHeadDropPktCnt
-    leafs["tr-pkt-sent-to-ux"] = piUcStats.TrPktSentToUx
-    leafs["stop-thrsh-hit-cnt"] = piUcStats.StopThrshHitCnt
-    leafs["rate-cnt"] = piUcStats.RateCnt
-    leafs["calc-rate"] = piUcStats.CalcRate
-    leafs["crc-stomp-pkt-cnt"] = piUcStats.CrcStompPktCnt
-    return leafs
-}
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetYangName() string { return "pi-uc-stats" }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) SetParent(parent types.Entity) { piUcStats.parent = parent }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetParent() types.Entity { return piUcStats.parent }
-
-func (piUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiUcStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats
 // pi mc stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PKT RCV CNT. The type is interface{} with range: 0..18446744073709551615.
@@ -1910,120 +1213,58 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats struct 
     CrcStompPktCnt interface{}
 }
 
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetFilter() yfilter.YFilter { return piMcStats.YFilter }
+func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetEntityData() *types.CommonEntityData {
+    piMcStats.EntityData.YFilter = piMcStats.YFilter
+    piMcStats.EntityData.YangName = "pi-mc-stats"
+    piMcStats.EntityData.BundleName = "cisco_ios_xr"
+    piMcStats.EntityData.ParentYangName = "sm15-stat"
+    piMcStats.EntityData.SegmentPath = "pi-mc-stats"
+    piMcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piMcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piMcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) SetFilter(yf yfilter.YFilter) { piMcStats.YFilter = yf }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetGoName(yname string) string {
-    if yname == "pkt-rcv-cnt" { return "PktRcvCnt" }
-    if yname == "pkt-seq-err-cnt" { return "PktSeqErrCnt" }
-    if yname == "in-coming-pkt-err-cnt" { return "InComingPktErrCnt" }
-    if yname == "min-pkt-len-err-cnt" { return "MinPktLenErrCnt" }
-    if yname == "max-pkt-len-err-cnt" { return "MaxPktLenErrCnt" }
-    if yname == "line-err-drp-pkt" { return "LineErrDrpPkt" }
-    if yname == "pkt-crc-err-cnt" { return "PktCrcErrCnt" }
-    if yname == "pkt-cfh-crc-err-cnt" { return "PktCfhCrcErrCnt" }
-    if yname == "line-s-written-in-mem" { return "LineSWrittenInMem" }
-    if yname == "tail-drp-pkt-cnt" { return "TailDrpPktCnt" }
-    if yname == "data-mem0-ecc-1bit-err-cnt" { return "DataMem0Ecc1BitErrCnt" }
-    if yname == "data-mem1-ecc-1bit-err-cnt" { return "DataMem1Ecc1BitErrCnt" }
-    if yname == "data-mem2-ecc-1bit-err-cnt" { return "DataMem2Ecc1BitErrCnt" }
-    if yname == "data-mem0-ecc-2bit-err-cnt" { return "DataMem0Ecc2BitErrCnt" }
-    if yname == "data-mem1-ecc-2bit-err-cnt" { return "DataMem1Ecc2BitErrCnt" }
-    if yname == "data-mem2-ecc-2bit-err-cnt" { return "DataMem2Ecc2BitErrCnt" }
-    if yname == "diag-pkt-cnt" { return "DiagPktCnt" }
-    if yname == "pkt-sent-to-disabled-port" { return "PktSentToDisabledPort" }
-    if yname == "pkt-fpoe-match-hit-cnt" { return "PktFpoeMatchHitCnt" }
-    if yname == "pkt-null-poe-sent-cnt" { return "PktNullPoeSentCnt" }
-    if yname == "pkt-fpoe-addr-rng-hit-cnt" { return "PktFpoeAddrRngHitCnt" }
-    if yname == "di-hdr-len-err-pkt-cnt" { return "DiHdrLenErrPktCnt" }
-    if yname == "di-err-pkt-cnt" { return "DiErrPktCnt" }
-    if yname == "fpoe-mem-ecc-1bit-err-cnt" { return "FpoeMemEcc1BitErrCnt" }
-    if yname == "fpoe-mem-ecc-2bit-err-cnt" { return "FpoeMemEcc2BitErrCnt" }
-    if yname == "pkts-sent-to-mx-cnt" { return "PktsSentToMxCnt" }
-    if yname == "cpp-head-drop-pkt-from-ma-cnt" { return "CppHeadDropPktFromMaCnt" }
-    if yname == "tr-head-drop-pkt-from-ma-cnt" { return "TrHeadDropPktFromMaCnt" }
-    if yname == "tr-pkt-sent-to-mx" { return "TrPktSentToMx" }
-    if yname == "stop-thrsh-hit-cnt" { return "StopThrshHitCnt" }
-    if yname == "rate-cnt" { return "RateCnt" }
-    if yname == "calc-rate" { return "CalcRate" }
-    if yname == "crc-stomp-pkt-cnt" { return "CrcStompPktCnt" }
-    return ""
+    piMcStats.EntityData.Children = make(map[string]types.YChild)
+    piMcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    piMcStats.EntityData.Leafs["pkt-rcv-cnt"] = types.YLeaf{"PktRcvCnt", piMcStats.PktRcvCnt}
+    piMcStats.EntityData.Leafs["pkt-seq-err-cnt"] = types.YLeaf{"PktSeqErrCnt", piMcStats.PktSeqErrCnt}
+    piMcStats.EntityData.Leafs["in-coming-pkt-err-cnt"] = types.YLeaf{"InComingPktErrCnt", piMcStats.InComingPktErrCnt}
+    piMcStats.EntityData.Leafs["min-pkt-len-err-cnt"] = types.YLeaf{"MinPktLenErrCnt", piMcStats.MinPktLenErrCnt}
+    piMcStats.EntityData.Leafs["max-pkt-len-err-cnt"] = types.YLeaf{"MaxPktLenErrCnt", piMcStats.MaxPktLenErrCnt}
+    piMcStats.EntityData.Leafs["line-err-drp-pkt"] = types.YLeaf{"LineErrDrpPkt", piMcStats.LineErrDrpPkt}
+    piMcStats.EntityData.Leafs["pkt-crc-err-cnt"] = types.YLeaf{"PktCrcErrCnt", piMcStats.PktCrcErrCnt}
+    piMcStats.EntityData.Leafs["pkt-cfh-crc-err-cnt"] = types.YLeaf{"PktCfhCrcErrCnt", piMcStats.PktCfhCrcErrCnt}
+    piMcStats.EntityData.Leafs["line-s-written-in-mem"] = types.YLeaf{"LineSWrittenInMem", piMcStats.LineSWrittenInMem}
+    piMcStats.EntityData.Leafs["tail-drp-pkt-cnt"] = types.YLeaf{"TailDrpPktCnt", piMcStats.TailDrpPktCnt}
+    piMcStats.EntityData.Leafs["data-mem0-ecc-1bit-err-cnt"] = types.YLeaf{"DataMem0Ecc1BitErrCnt", piMcStats.DataMem0Ecc1BitErrCnt}
+    piMcStats.EntityData.Leafs["data-mem1-ecc-1bit-err-cnt"] = types.YLeaf{"DataMem1Ecc1BitErrCnt", piMcStats.DataMem1Ecc1BitErrCnt}
+    piMcStats.EntityData.Leafs["data-mem2-ecc-1bit-err-cnt"] = types.YLeaf{"DataMem2Ecc1BitErrCnt", piMcStats.DataMem2Ecc1BitErrCnt}
+    piMcStats.EntityData.Leafs["data-mem0-ecc-2bit-err-cnt"] = types.YLeaf{"DataMem0Ecc2BitErrCnt", piMcStats.DataMem0Ecc2BitErrCnt}
+    piMcStats.EntityData.Leafs["data-mem1-ecc-2bit-err-cnt"] = types.YLeaf{"DataMem1Ecc2BitErrCnt", piMcStats.DataMem1Ecc2BitErrCnt}
+    piMcStats.EntityData.Leafs["data-mem2-ecc-2bit-err-cnt"] = types.YLeaf{"DataMem2Ecc2BitErrCnt", piMcStats.DataMem2Ecc2BitErrCnt}
+    piMcStats.EntityData.Leafs["diag-pkt-cnt"] = types.YLeaf{"DiagPktCnt", piMcStats.DiagPktCnt}
+    piMcStats.EntityData.Leafs["pkt-sent-to-disabled-port"] = types.YLeaf{"PktSentToDisabledPort", piMcStats.PktSentToDisabledPort}
+    piMcStats.EntityData.Leafs["pkt-fpoe-match-hit-cnt"] = types.YLeaf{"PktFpoeMatchHitCnt", piMcStats.PktFpoeMatchHitCnt}
+    piMcStats.EntityData.Leafs["pkt-null-poe-sent-cnt"] = types.YLeaf{"PktNullPoeSentCnt", piMcStats.PktNullPoeSentCnt}
+    piMcStats.EntityData.Leafs["pkt-fpoe-addr-rng-hit-cnt"] = types.YLeaf{"PktFpoeAddrRngHitCnt", piMcStats.PktFpoeAddrRngHitCnt}
+    piMcStats.EntityData.Leafs["di-hdr-len-err-pkt-cnt"] = types.YLeaf{"DiHdrLenErrPktCnt", piMcStats.DiHdrLenErrPktCnt}
+    piMcStats.EntityData.Leafs["di-err-pkt-cnt"] = types.YLeaf{"DiErrPktCnt", piMcStats.DiErrPktCnt}
+    piMcStats.EntityData.Leafs["fpoe-mem-ecc-1bit-err-cnt"] = types.YLeaf{"FpoeMemEcc1BitErrCnt", piMcStats.FpoeMemEcc1BitErrCnt}
+    piMcStats.EntityData.Leafs["fpoe-mem-ecc-2bit-err-cnt"] = types.YLeaf{"FpoeMemEcc2BitErrCnt", piMcStats.FpoeMemEcc2BitErrCnt}
+    piMcStats.EntityData.Leafs["pkts-sent-to-mx-cnt"] = types.YLeaf{"PktsSentToMxCnt", piMcStats.PktsSentToMxCnt}
+    piMcStats.EntityData.Leafs["cpp-head-drop-pkt-from-ma-cnt"] = types.YLeaf{"CppHeadDropPktFromMaCnt", piMcStats.CppHeadDropPktFromMaCnt}
+    piMcStats.EntityData.Leafs["tr-head-drop-pkt-from-ma-cnt"] = types.YLeaf{"TrHeadDropPktFromMaCnt", piMcStats.TrHeadDropPktFromMaCnt}
+    piMcStats.EntityData.Leafs["tr-pkt-sent-to-mx"] = types.YLeaf{"TrPktSentToMx", piMcStats.TrPktSentToMx}
+    piMcStats.EntityData.Leafs["stop-thrsh-hit-cnt"] = types.YLeaf{"StopThrshHitCnt", piMcStats.StopThrshHitCnt}
+    piMcStats.EntityData.Leafs["rate-cnt"] = types.YLeaf{"RateCnt", piMcStats.RateCnt}
+    piMcStats.EntityData.Leafs["calc-rate"] = types.YLeaf{"CalcRate", piMcStats.CalcRate}
+    piMcStats.EntityData.Leafs["crc-stomp-pkt-cnt"] = types.YLeaf{"CrcStompPktCnt", piMcStats.CrcStompPktCnt}
+    return &(piMcStats.EntityData)
 }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetSegmentPath() string {
-    return "pi-mc-stats"
-}
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pkt-rcv-cnt"] = piMcStats.PktRcvCnt
-    leafs["pkt-seq-err-cnt"] = piMcStats.PktSeqErrCnt
-    leafs["in-coming-pkt-err-cnt"] = piMcStats.InComingPktErrCnt
-    leafs["min-pkt-len-err-cnt"] = piMcStats.MinPktLenErrCnt
-    leafs["max-pkt-len-err-cnt"] = piMcStats.MaxPktLenErrCnt
-    leafs["line-err-drp-pkt"] = piMcStats.LineErrDrpPkt
-    leafs["pkt-crc-err-cnt"] = piMcStats.PktCrcErrCnt
-    leafs["pkt-cfh-crc-err-cnt"] = piMcStats.PktCfhCrcErrCnt
-    leafs["line-s-written-in-mem"] = piMcStats.LineSWrittenInMem
-    leafs["tail-drp-pkt-cnt"] = piMcStats.TailDrpPktCnt
-    leafs["data-mem0-ecc-1bit-err-cnt"] = piMcStats.DataMem0Ecc1BitErrCnt
-    leafs["data-mem1-ecc-1bit-err-cnt"] = piMcStats.DataMem1Ecc1BitErrCnt
-    leafs["data-mem2-ecc-1bit-err-cnt"] = piMcStats.DataMem2Ecc1BitErrCnt
-    leafs["data-mem0-ecc-2bit-err-cnt"] = piMcStats.DataMem0Ecc2BitErrCnt
-    leafs["data-mem1-ecc-2bit-err-cnt"] = piMcStats.DataMem1Ecc2BitErrCnt
-    leafs["data-mem2-ecc-2bit-err-cnt"] = piMcStats.DataMem2Ecc2BitErrCnt
-    leafs["diag-pkt-cnt"] = piMcStats.DiagPktCnt
-    leafs["pkt-sent-to-disabled-port"] = piMcStats.PktSentToDisabledPort
-    leafs["pkt-fpoe-match-hit-cnt"] = piMcStats.PktFpoeMatchHitCnt
-    leafs["pkt-null-poe-sent-cnt"] = piMcStats.PktNullPoeSentCnt
-    leafs["pkt-fpoe-addr-rng-hit-cnt"] = piMcStats.PktFpoeAddrRngHitCnt
-    leafs["di-hdr-len-err-pkt-cnt"] = piMcStats.DiHdrLenErrPktCnt
-    leafs["di-err-pkt-cnt"] = piMcStats.DiErrPktCnt
-    leafs["fpoe-mem-ecc-1bit-err-cnt"] = piMcStats.FpoeMemEcc1BitErrCnt
-    leafs["fpoe-mem-ecc-2bit-err-cnt"] = piMcStats.FpoeMemEcc2BitErrCnt
-    leafs["pkts-sent-to-mx-cnt"] = piMcStats.PktsSentToMxCnt
-    leafs["cpp-head-drop-pkt-from-ma-cnt"] = piMcStats.CppHeadDropPktFromMaCnt
-    leafs["tr-head-drop-pkt-from-ma-cnt"] = piMcStats.TrHeadDropPktFromMaCnt
-    leafs["tr-pkt-sent-to-mx"] = piMcStats.TrPktSentToMx
-    leafs["stop-thrsh-hit-cnt"] = piMcStats.StopThrshHitCnt
-    leafs["rate-cnt"] = piMcStats.RateCnt
-    leafs["calc-rate"] = piMcStats.CalcRate
-    leafs["crc-stomp-pkt-cnt"] = piMcStats.CrcStompPktCnt
-    return leafs
-}
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetYangName() string { return "pi-mc-stats" }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) SetParent(parent types.Entity) { piMcStats.parent = parent }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetParent() types.Entity { return piMcStats.parent }
-
-func (piMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiMcStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats
 // pi cc stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IN0 ECC SERR CNT. The type is interface{} with range:
@@ -2131,114 +1372,55 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats struct 
     CalcRate interface{}
 }
 
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetFilter() yfilter.YFilter { return piCcStats.YFilter }
+func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetEntityData() *types.CommonEntityData {
+    piCcStats.EntityData.YFilter = piCcStats.YFilter
+    piCcStats.EntityData.YangName = "pi-cc-stats"
+    piCcStats.EntityData.BundleName = "cisco_ios_xr"
+    piCcStats.EntityData.ParentYangName = "sm15-stat"
+    piCcStats.EntityData.SegmentPath = "pi-cc-stats"
+    piCcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    piCcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    piCcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) SetFilter(yf yfilter.YFilter) { piCcStats.YFilter = yf }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetGoName(yname string) string {
-    if yname == "in0-ecc-serr-cnt" { return "In0EccSerrCnt" }
-    if yname == "in0-ecc-derr-cnt" { return "In0EccDerrCnt" }
-    if yname == "in1-ecc-serr-cnt" { return "In1EccSerrCnt" }
-    if yname == "in1-ecc-derr-cnt" { return "In1EccDerrCnt" }
-    if yname == "data-mem-ecc-serr-cnt" { return "DataMemEccSerrCnt" }
-    if yname == "data-mem-ecc-derr-cnt" { return "DataMemEccDerrCnt" }
-    if yname == "data-mem-ovf0-cnt" { return "DataMemOvf0Cnt" }
-    if yname == "data-mem-ovf1-cnt" { return "DataMemOvf1Cnt" }
-    if yname == "fpoe-mem-ecc-serr-cnt" { return "FpoeMemEccSerrCnt" }
-    if yname == "fpoe-mem-ecc-derr-cnt" { return "FpoeMemEccDerrCnt" }
-    if yname == "null-poe-cnt" { return "NullPoeCnt" }
-    if yname == "shut-ack-cnt" { return "ShutAckCnt" }
-    if yname == "in0-fnc-err-cnt" { return "In0FncErrCnt" }
-    if yname == "in1-fnc-err-cnt" { return "In1FncErrCnt" }
-    if yname == "in0-drop-cnt" { return "In0DropCnt" }
-    if yname == "in1-drop-cnt" { return "In1DropCnt" }
-    if yname == "in0-cong-cnt" { return "In0CongCnt" }
-    if yname == "in1-cong-cnt" { return "In1CongCnt" }
-    if yname == "in0-shut-cnt" { return "In0ShutCnt" }
-    if yname == "in1-shut-cnt" { return "In1ShutCnt" }
-    if yname == "tail-drop-msg-cnt" { return "TailDropMsgCnt" }
-    if yname == "in0-pkt-cnt" { return "In0PktCnt" }
-    if yname == "in1-pkt-cnt" { return "In1PktCnt" }
-    if yname == "dmem-rd-cnt" { return "DmemRdCnt" }
-    if yname == "in-dmem0-cnt" { return "InDmem0Cnt" }
-    if yname == "in-dmem1-cnt" { return "InDmem1Cnt" }
-    if yname == "out-pkt-cnt" { return "OutPktCnt" }
-    if yname == "stop-thrsh-hit-cnt" { return "StopThrshHitCnt" }
-    if yname == "rate-cnt" { return "RateCnt" }
-    if yname == "calc-rate" { return "CalcRate" }
-    return ""
+    piCcStats.EntityData.Children = make(map[string]types.YChild)
+    piCcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    piCcStats.EntityData.Leafs["in0-ecc-serr-cnt"] = types.YLeaf{"In0EccSerrCnt", piCcStats.In0EccSerrCnt}
+    piCcStats.EntityData.Leafs["in0-ecc-derr-cnt"] = types.YLeaf{"In0EccDerrCnt", piCcStats.In0EccDerrCnt}
+    piCcStats.EntityData.Leafs["in1-ecc-serr-cnt"] = types.YLeaf{"In1EccSerrCnt", piCcStats.In1EccSerrCnt}
+    piCcStats.EntityData.Leafs["in1-ecc-derr-cnt"] = types.YLeaf{"In1EccDerrCnt", piCcStats.In1EccDerrCnt}
+    piCcStats.EntityData.Leafs["data-mem-ecc-serr-cnt"] = types.YLeaf{"DataMemEccSerrCnt", piCcStats.DataMemEccSerrCnt}
+    piCcStats.EntityData.Leafs["data-mem-ecc-derr-cnt"] = types.YLeaf{"DataMemEccDerrCnt", piCcStats.DataMemEccDerrCnt}
+    piCcStats.EntityData.Leafs["data-mem-ovf0-cnt"] = types.YLeaf{"DataMemOvf0Cnt", piCcStats.DataMemOvf0Cnt}
+    piCcStats.EntityData.Leafs["data-mem-ovf1-cnt"] = types.YLeaf{"DataMemOvf1Cnt", piCcStats.DataMemOvf1Cnt}
+    piCcStats.EntityData.Leafs["fpoe-mem-ecc-serr-cnt"] = types.YLeaf{"FpoeMemEccSerrCnt", piCcStats.FpoeMemEccSerrCnt}
+    piCcStats.EntityData.Leafs["fpoe-mem-ecc-derr-cnt"] = types.YLeaf{"FpoeMemEccDerrCnt", piCcStats.FpoeMemEccDerrCnt}
+    piCcStats.EntityData.Leafs["null-poe-cnt"] = types.YLeaf{"NullPoeCnt", piCcStats.NullPoeCnt}
+    piCcStats.EntityData.Leafs["shut-ack-cnt"] = types.YLeaf{"ShutAckCnt", piCcStats.ShutAckCnt}
+    piCcStats.EntityData.Leafs["in0-fnc-err-cnt"] = types.YLeaf{"In0FncErrCnt", piCcStats.In0FncErrCnt}
+    piCcStats.EntityData.Leafs["in1-fnc-err-cnt"] = types.YLeaf{"In1FncErrCnt", piCcStats.In1FncErrCnt}
+    piCcStats.EntityData.Leafs["in0-drop-cnt"] = types.YLeaf{"In0DropCnt", piCcStats.In0DropCnt}
+    piCcStats.EntityData.Leafs["in1-drop-cnt"] = types.YLeaf{"In1DropCnt", piCcStats.In1DropCnt}
+    piCcStats.EntityData.Leafs["in0-cong-cnt"] = types.YLeaf{"In0CongCnt", piCcStats.In0CongCnt}
+    piCcStats.EntityData.Leafs["in1-cong-cnt"] = types.YLeaf{"In1CongCnt", piCcStats.In1CongCnt}
+    piCcStats.EntityData.Leafs["in0-shut-cnt"] = types.YLeaf{"In0ShutCnt", piCcStats.In0ShutCnt}
+    piCcStats.EntityData.Leafs["in1-shut-cnt"] = types.YLeaf{"In1ShutCnt", piCcStats.In1ShutCnt}
+    piCcStats.EntityData.Leafs["tail-drop-msg-cnt"] = types.YLeaf{"TailDropMsgCnt", piCcStats.TailDropMsgCnt}
+    piCcStats.EntityData.Leafs["in0-pkt-cnt"] = types.YLeaf{"In0PktCnt", piCcStats.In0PktCnt}
+    piCcStats.EntityData.Leafs["in1-pkt-cnt"] = types.YLeaf{"In1PktCnt", piCcStats.In1PktCnt}
+    piCcStats.EntityData.Leafs["dmem-rd-cnt"] = types.YLeaf{"DmemRdCnt", piCcStats.DmemRdCnt}
+    piCcStats.EntityData.Leafs["in-dmem0-cnt"] = types.YLeaf{"InDmem0Cnt", piCcStats.InDmem0Cnt}
+    piCcStats.EntityData.Leafs["in-dmem1-cnt"] = types.YLeaf{"InDmem1Cnt", piCcStats.InDmem1Cnt}
+    piCcStats.EntityData.Leafs["out-pkt-cnt"] = types.YLeaf{"OutPktCnt", piCcStats.OutPktCnt}
+    piCcStats.EntityData.Leafs["stop-thrsh-hit-cnt"] = types.YLeaf{"StopThrshHitCnt", piCcStats.StopThrshHitCnt}
+    piCcStats.EntityData.Leafs["rate-cnt"] = types.YLeaf{"RateCnt", piCcStats.RateCnt}
+    piCcStats.EntityData.Leafs["calc-rate"] = types.YLeaf{"CalcRate", piCcStats.CalcRate}
+    return &(piCcStats.EntityData)
 }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetSegmentPath() string {
-    return "pi-cc-stats"
-}
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in0-ecc-serr-cnt"] = piCcStats.In0EccSerrCnt
-    leafs["in0-ecc-derr-cnt"] = piCcStats.In0EccDerrCnt
-    leafs["in1-ecc-serr-cnt"] = piCcStats.In1EccSerrCnt
-    leafs["in1-ecc-derr-cnt"] = piCcStats.In1EccDerrCnt
-    leafs["data-mem-ecc-serr-cnt"] = piCcStats.DataMemEccSerrCnt
-    leafs["data-mem-ecc-derr-cnt"] = piCcStats.DataMemEccDerrCnt
-    leafs["data-mem-ovf0-cnt"] = piCcStats.DataMemOvf0Cnt
-    leafs["data-mem-ovf1-cnt"] = piCcStats.DataMemOvf1Cnt
-    leafs["fpoe-mem-ecc-serr-cnt"] = piCcStats.FpoeMemEccSerrCnt
-    leafs["fpoe-mem-ecc-derr-cnt"] = piCcStats.FpoeMemEccDerrCnt
-    leafs["null-poe-cnt"] = piCcStats.NullPoeCnt
-    leafs["shut-ack-cnt"] = piCcStats.ShutAckCnt
-    leafs["in0-fnc-err-cnt"] = piCcStats.In0FncErrCnt
-    leafs["in1-fnc-err-cnt"] = piCcStats.In1FncErrCnt
-    leafs["in0-drop-cnt"] = piCcStats.In0DropCnt
-    leafs["in1-drop-cnt"] = piCcStats.In1DropCnt
-    leafs["in0-cong-cnt"] = piCcStats.In0CongCnt
-    leafs["in1-cong-cnt"] = piCcStats.In1CongCnt
-    leafs["in0-shut-cnt"] = piCcStats.In0ShutCnt
-    leafs["in1-shut-cnt"] = piCcStats.In1ShutCnt
-    leafs["tail-drop-msg-cnt"] = piCcStats.TailDropMsgCnt
-    leafs["in0-pkt-cnt"] = piCcStats.In0PktCnt
-    leafs["in1-pkt-cnt"] = piCcStats.In1PktCnt
-    leafs["dmem-rd-cnt"] = piCcStats.DmemRdCnt
-    leafs["in-dmem0-cnt"] = piCcStats.InDmem0Cnt
-    leafs["in-dmem1-cnt"] = piCcStats.InDmem1Cnt
-    leafs["out-pkt-cnt"] = piCcStats.OutPktCnt
-    leafs["stop-thrsh-hit-cnt"] = piCcStats.StopThrshHitCnt
-    leafs["rate-cnt"] = piCcStats.RateCnt
-    leafs["calc-rate"] = piCcStats.CalcRate
-    return leafs
-}
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetYangName() string { return "pi-cc-stats" }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) SetParent(parent types.Entity) { piCcStats.parent = parent }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetParent() types.Entity { return piCcStats.parent }
-
-func (piCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PiCcStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats
 // pe uc stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IN PKT UC0 CNT. The type is interface{} with range:
@@ -2364,116 +1546,56 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats struct 
     CalcRate interface{}
 }
 
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetFilter() yfilter.YFilter { return peUcStats.YFilter }
+func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetEntityData() *types.CommonEntityData {
+    peUcStats.EntityData.YFilter = peUcStats.YFilter
+    peUcStats.EntityData.YangName = "pe-uc-stats"
+    peUcStats.EntityData.BundleName = "cisco_ios_xr"
+    peUcStats.EntityData.ParentYangName = "sm15-stat"
+    peUcStats.EntityData.SegmentPath = "pe-uc-stats"
+    peUcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peUcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peUcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) SetFilter(yf yfilter.YFilter) { peUcStats.YFilter = yf }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetGoName(yname string) string {
-    if yname == "in-pkt-uc0-cnt" { return "InPktUc0Cnt" }
-    if yname == "in-pkt-uc1-cnt" { return "InPktUc1Cnt" }
-    if yname == "in-pkt-uc2-cnt" { return "InPktUc2Cnt" }
-    if yname == "in-full-line-uc0-cnt" { return "InFullLineUc0Cnt" }
-    if yname == "in-full-line-uc1-cnt" { return "InFullLineUc1Cnt" }
-    if yname == "in-full-line-uc2-cnt" { return "InFullLineUc2Cnt" }
-    if yname == "pkt-trunc-eop-uc0-cnt" { return "PktTruncEopUc0Cnt" }
-    if yname == "pkt-trunc-eop-uc1-cnt" { return "PktTruncEopUc1Cnt" }
-    if yname == "pkt-trunc-eop-uc2-cnt" { return "PktTruncEopUc2Cnt" }
-    if yname == "pkt-sop-drop-uc0-cnt" { return "PktSopDropUc0Cnt" }
-    if yname == "pkt-sop-drop-uc1-cnt" { return "PktSopDropUc1Cnt" }
-    if yname == "pkt-sop-drop-uc2-cnt" { return "PktSopDropUc2Cnt" }
-    if yname == "pkt-ecc-err-drop-uc-cnt" { return "PktEccErrDropUcCnt" }
-    if yname == "pkt-ecc-trunc-cnt-uc-cnt" { return "PktEccTruncCntUcCnt" }
-    if yname == "ecc-1bit-err-uc0-0-cnt" { return "Ecc1BitErrUc00Cnt" }
-    if yname == "ecc-1bit-err-uc0-1-cnt" { return "Ecc1BitErrUc01Cnt" }
-    if yname == "ecc-1bit-err-uc1-0-cnt" { return "Ecc1BitErrUc10Cnt" }
-    if yname == "ecc-1bit-err-uc1-1-cnt" { return "Ecc1BitErrUc11Cnt" }
-    if yname == "ecc-1bit-err-uc2-0-cnt" { return "Ecc1BitErrUc20Cnt" }
-    if yname == "ecc-1bit-err-uc2-1-cnt" { return "Ecc1BitErrUc21Cnt" }
-    if yname == "ecc-2bit-err-uc0-0-cnt" { return "Ecc2BitErrUc00Cnt" }
-    if yname == "ecc-2bit-err-uc0-1-cnt" { return "Ecc2BitErrUc01Cnt" }
-    if yname == "ecc-2bit-err-uc1-0-cnt" { return "Ecc2BitErrUc10Cnt" }
-    if yname == "ecc-2bit-err-uc1-1-cnt" { return "Ecc2BitErrUc11Cnt" }
-    if yname == "ecc-2bit-err-uc2-0-cnt" { return "Ecc2BitErrUc20Cnt" }
-    if yname == "ecc-2bit-err-uc2-1-cnt" { return "Ecc2BitErrUc21Cnt" }
-    if yname == "out-pkt-uc-cnt" { return "OutPktUcCnt" }
-    if yname == "fe-uc-sop-eop-pack-cnt" { return "FeUcSopEopPackCnt" }
-    if yname == "fc-uc-0-1-trans-cnt" { return "FcUc01TransCnt" }
-    if yname == "rate-cnt" { return "RateCnt" }
-    if yname == "calc-rate" { return "CalcRate" }
-    return ""
+    peUcStats.EntityData.Children = make(map[string]types.YChild)
+    peUcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    peUcStats.EntityData.Leafs["in-pkt-uc0-cnt"] = types.YLeaf{"InPktUc0Cnt", peUcStats.InPktUc0Cnt}
+    peUcStats.EntityData.Leafs["in-pkt-uc1-cnt"] = types.YLeaf{"InPktUc1Cnt", peUcStats.InPktUc1Cnt}
+    peUcStats.EntityData.Leafs["in-pkt-uc2-cnt"] = types.YLeaf{"InPktUc2Cnt", peUcStats.InPktUc2Cnt}
+    peUcStats.EntityData.Leafs["in-full-line-uc0-cnt"] = types.YLeaf{"InFullLineUc0Cnt", peUcStats.InFullLineUc0Cnt}
+    peUcStats.EntityData.Leafs["in-full-line-uc1-cnt"] = types.YLeaf{"InFullLineUc1Cnt", peUcStats.InFullLineUc1Cnt}
+    peUcStats.EntityData.Leafs["in-full-line-uc2-cnt"] = types.YLeaf{"InFullLineUc2Cnt", peUcStats.InFullLineUc2Cnt}
+    peUcStats.EntityData.Leafs["pkt-trunc-eop-uc0-cnt"] = types.YLeaf{"PktTruncEopUc0Cnt", peUcStats.PktTruncEopUc0Cnt}
+    peUcStats.EntityData.Leafs["pkt-trunc-eop-uc1-cnt"] = types.YLeaf{"PktTruncEopUc1Cnt", peUcStats.PktTruncEopUc1Cnt}
+    peUcStats.EntityData.Leafs["pkt-trunc-eop-uc2-cnt"] = types.YLeaf{"PktTruncEopUc2Cnt", peUcStats.PktTruncEopUc2Cnt}
+    peUcStats.EntityData.Leafs["pkt-sop-drop-uc0-cnt"] = types.YLeaf{"PktSopDropUc0Cnt", peUcStats.PktSopDropUc0Cnt}
+    peUcStats.EntityData.Leafs["pkt-sop-drop-uc1-cnt"] = types.YLeaf{"PktSopDropUc1Cnt", peUcStats.PktSopDropUc1Cnt}
+    peUcStats.EntityData.Leafs["pkt-sop-drop-uc2-cnt"] = types.YLeaf{"PktSopDropUc2Cnt", peUcStats.PktSopDropUc2Cnt}
+    peUcStats.EntityData.Leafs["pkt-ecc-err-drop-uc-cnt"] = types.YLeaf{"PktEccErrDropUcCnt", peUcStats.PktEccErrDropUcCnt}
+    peUcStats.EntityData.Leafs["pkt-ecc-trunc-cnt-uc-cnt"] = types.YLeaf{"PktEccTruncCntUcCnt", peUcStats.PktEccTruncCntUcCnt}
+    peUcStats.EntityData.Leafs["ecc-1bit-err-uc0-0-cnt"] = types.YLeaf{"Ecc1BitErrUc00Cnt", peUcStats.Ecc1BitErrUc00Cnt}
+    peUcStats.EntityData.Leafs["ecc-1bit-err-uc0-1-cnt"] = types.YLeaf{"Ecc1BitErrUc01Cnt", peUcStats.Ecc1BitErrUc01Cnt}
+    peUcStats.EntityData.Leafs["ecc-1bit-err-uc1-0-cnt"] = types.YLeaf{"Ecc1BitErrUc10Cnt", peUcStats.Ecc1BitErrUc10Cnt}
+    peUcStats.EntityData.Leafs["ecc-1bit-err-uc1-1-cnt"] = types.YLeaf{"Ecc1BitErrUc11Cnt", peUcStats.Ecc1BitErrUc11Cnt}
+    peUcStats.EntityData.Leafs["ecc-1bit-err-uc2-0-cnt"] = types.YLeaf{"Ecc1BitErrUc20Cnt", peUcStats.Ecc1BitErrUc20Cnt}
+    peUcStats.EntityData.Leafs["ecc-1bit-err-uc2-1-cnt"] = types.YLeaf{"Ecc1BitErrUc21Cnt", peUcStats.Ecc1BitErrUc21Cnt}
+    peUcStats.EntityData.Leafs["ecc-2bit-err-uc0-0-cnt"] = types.YLeaf{"Ecc2BitErrUc00Cnt", peUcStats.Ecc2BitErrUc00Cnt}
+    peUcStats.EntityData.Leafs["ecc-2bit-err-uc0-1-cnt"] = types.YLeaf{"Ecc2BitErrUc01Cnt", peUcStats.Ecc2BitErrUc01Cnt}
+    peUcStats.EntityData.Leafs["ecc-2bit-err-uc1-0-cnt"] = types.YLeaf{"Ecc2BitErrUc10Cnt", peUcStats.Ecc2BitErrUc10Cnt}
+    peUcStats.EntityData.Leafs["ecc-2bit-err-uc1-1-cnt"] = types.YLeaf{"Ecc2BitErrUc11Cnt", peUcStats.Ecc2BitErrUc11Cnt}
+    peUcStats.EntityData.Leafs["ecc-2bit-err-uc2-0-cnt"] = types.YLeaf{"Ecc2BitErrUc20Cnt", peUcStats.Ecc2BitErrUc20Cnt}
+    peUcStats.EntityData.Leafs["ecc-2bit-err-uc2-1-cnt"] = types.YLeaf{"Ecc2BitErrUc21Cnt", peUcStats.Ecc2BitErrUc21Cnt}
+    peUcStats.EntityData.Leafs["out-pkt-uc-cnt"] = types.YLeaf{"OutPktUcCnt", peUcStats.OutPktUcCnt}
+    peUcStats.EntityData.Leafs["fe-uc-sop-eop-pack-cnt"] = types.YLeaf{"FeUcSopEopPackCnt", peUcStats.FeUcSopEopPackCnt}
+    peUcStats.EntityData.Leafs["fc-uc-0-1-trans-cnt"] = types.YLeaf{"FcUc01TransCnt", peUcStats.FcUc01TransCnt}
+    peUcStats.EntityData.Leafs["rate-cnt"] = types.YLeaf{"RateCnt", peUcStats.RateCnt}
+    peUcStats.EntityData.Leafs["calc-rate"] = types.YLeaf{"CalcRate", peUcStats.CalcRate}
+    return &(peUcStats.EntityData)
 }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetSegmentPath() string {
-    return "pe-uc-stats"
-}
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in-pkt-uc0-cnt"] = peUcStats.InPktUc0Cnt
-    leafs["in-pkt-uc1-cnt"] = peUcStats.InPktUc1Cnt
-    leafs["in-pkt-uc2-cnt"] = peUcStats.InPktUc2Cnt
-    leafs["in-full-line-uc0-cnt"] = peUcStats.InFullLineUc0Cnt
-    leafs["in-full-line-uc1-cnt"] = peUcStats.InFullLineUc1Cnt
-    leafs["in-full-line-uc2-cnt"] = peUcStats.InFullLineUc2Cnt
-    leafs["pkt-trunc-eop-uc0-cnt"] = peUcStats.PktTruncEopUc0Cnt
-    leafs["pkt-trunc-eop-uc1-cnt"] = peUcStats.PktTruncEopUc1Cnt
-    leafs["pkt-trunc-eop-uc2-cnt"] = peUcStats.PktTruncEopUc2Cnt
-    leafs["pkt-sop-drop-uc0-cnt"] = peUcStats.PktSopDropUc0Cnt
-    leafs["pkt-sop-drop-uc1-cnt"] = peUcStats.PktSopDropUc1Cnt
-    leafs["pkt-sop-drop-uc2-cnt"] = peUcStats.PktSopDropUc2Cnt
-    leafs["pkt-ecc-err-drop-uc-cnt"] = peUcStats.PktEccErrDropUcCnt
-    leafs["pkt-ecc-trunc-cnt-uc-cnt"] = peUcStats.PktEccTruncCntUcCnt
-    leafs["ecc-1bit-err-uc0-0-cnt"] = peUcStats.Ecc1BitErrUc00Cnt
-    leafs["ecc-1bit-err-uc0-1-cnt"] = peUcStats.Ecc1BitErrUc01Cnt
-    leafs["ecc-1bit-err-uc1-0-cnt"] = peUcStats.Ecc1BitErrUc10Cnt
-    leafs["ecc-1bit-err-uc1-1-cnt"] = peUcStats.Ecc1BitErrUc11Cnt
-    leafs["ecc-1bit-err-uc2-0-cnt"] = peUcStats.Ecc1BitErrUc20Cnt
-    leafs["ecc-1bit-err-uc2-1-cnt"] = peUcStats.Ecc1BitErrUc21Cnt
-    leafs["ecc-2bit-err-uc0-0-cnt"] = peUcStats.Ecc2BitErrUc00Cnt
-    leafs["ecc-2bit-err-uc0-1-cnt"] = peUcStats.Ecc2BitErrUc01Cnt
-    leafs["ecc-2bit-err-uc1-0-cnt"] = peUcStats.Ecc2BitErrUc10Cnt
-    leafs["ecc-2bit-err-uc1-1-cnt"] = peUcStats.Ecc2BitErrUc11Cnt
-    leafs["ecc-2bit-err-uc2-0-cnt"] = peUcStats.Ecc2BitErrUc20Cnt
-    leafs["ecc-2bit-err-uc2-1-cnt"] = peUcStats.Ecc2BitErrUc21Cnt
-    leafs["out-pkt-uc-cnt"] = peUcStats.OutPktUcCnt
-    leafs["fe-uc-sop-eop-pack-cnt"] = peUcStats.FeUcSopEopPackCnt
-    leafs["fc-uc-0-1-trans-cnt"] = peUcStats.FcUc01TransCnt
-    leafs["rate-cnt"] = peUcStats.RateCnt
-    leafs["calc-rate"] = peUcStats.CalcRate
-    return leafs
-}
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetYangName() string { return "pe-uc-stats" }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) SetParent(parent types.Entity) { peUcStats.parent = parent }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetParent() types.Entity { return peUcStats.parent }
-
-func (peUcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeUcStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats
 // pe mc stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IN PKT MC CNT. The type is interface{} with range: 0..18446744073709551615.
@@ -2542,88 +1664,42 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats struct 
     CalcRate interface{}
 }
 
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetFilter() yfilter.YFilter { return peMcStats.YFilter }
+func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetEntityData() *types.CommonEntityData {
+    peMcStats.EntityData.YFilter = peMcStats.YFilter
+    peMcStats.EntityData.YangName = "pe-mc-stats"
+    peMcStats.EntityData.BundleName = "cisco_ios_xr"
+    peMcStats.EntityData.ParentYangName = "sm15-stat"
+    peMcStats.EntityData.SegmentPath = "pe-mc-stats"
+    peMcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peMcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peMcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) SetFilter(yf yfilter.YFilter) { peMcStats.YFilter = yf }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetGoName(yname string) string {
-    if yname == "in-pkt-mc-cnt" { return "InPktMcCnt" }
-    if yname == "in-full-line-mc-cnt" { return "InFullLineMcCnt" }
-    if yname == "pkt-trunc-eop-mc-cnt" { return "PktTruncEopMcCnt" }
-    if yname == "pkt-sop-drop-mc-cnt" { return "PktSopDropMcCnt" }
-    if yname == "pkt-ecc-err-drop-mc-cnt" { return "PktEccErrDropMcCnt" }
-    if yname == "pkt-ecc-err-trunc-cnt-mc-cnt" { return "PktEccErrTruncCntMcCnt" }
-    if yname == "ecc-1bit-err-mc0-cnt" { return "Ecc1BitErrMc0Cnt" }
-    if yname == "ecc-1bit-err-mc1-cnt" { return "Ecc1BitErrMc1Cnt" }
-    if yname == "ecc-1bit-err-mc2-cnt" { return "Ecc1BitErrMc2Cnt" }
-    if yname == "ecc-2bit-err-mc0-cnt" { return "Ecc2BitErrMc0Cnt" }
-    if yname == "ecc-2bit-err-mc1-cnt" { return "Ecc2BitErrMc1Cnt" }
-    if yname == "ecc-2bit-err-mc2-cnt" { return "Ecc2BitErrMc2Cnt" }
-    if yname == "out-pkt-mc-cnt" { return "OutPktMcCnt" }
-    if yname == "fe-mc-sop-eop-pack-cnt" { return "FeMcSopEopPackCnt" }
-    if yname == "fc-mc-0-1-trans-cnt" { return "FcMc01TransCnt" }
-    if yname == "rate-cnt" { return "RateCnt" }
-    if yname == "calc-rate" { return "CalcRate" }
-    return ""
+    peMcStats.EntityData.Children = make(map[string]types.YChild)
+    peMcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    peMcStats.EntityData.Leafs["in-pkt-mc-cnt"] = types.YLeaf{"InPktMcCnt", peMcStats.InPktMcCnt}
+    peMcStats.EntityData.Leafs["in-full-line-mc-cnt"] = types.YLeaf{"InFullLineMcCnt", peMcStats.InFullLineMcCnt}
+    peMcStats.EntityData.Leafs["pkt-trunc-eop-mc-cnt"] = types.YLeaf{"PktTruncEopMcCnt", peMcStats.PktTruncEopMcCnt}
+    peMcStats.EntityData.Leafs["pkt-sop-drop-mc-cnt"] = types.YLeaf{"PktSopDropMcCnt", peMcStats.PktSopDropMcCnt}
+    peMcStats.EntityData.Leafs["pkt-ecc-err-drop-mc-cnt"] = types.YLeaf{"PktEccErrDropMcCnt", peMcStats.PktEccErrDropMcCnt}
+    peMcStats.EntityData.Leafs["pkt-ecc-err-trunc-cnt-mc-cnt"] = types.YLeaf{"PktEccErrTruncCntMcCnt", peMcStats.PktEccErrTruncCntMcCnt}
+    peMcStats.EntityData.Leafs["ecc-1bit-err-mc0-cnt"] = types.YLeaf{"Ecc1BitErrMc0Cnt", peMcStats.Ecc1BitErrMc0Cnt}
+    peMcStats.EntityData.Leafs["ecc-1bit-err-mc1-cnt"] = types.YLeaf{"Ecc1BitErrMc1Cnt", peMcStats.Ecc1BitErrMc1Cnt}
+    peMcStats.EntityData.Leafs["ecc-1bit-err-mc2-cnt"] = types.YLeaf{"Ecc1BitErrMc2Cnt", peMcStats.Ecc1BitErrMc2Cnt}
+    peMcStats.EntityData.Leafs["ecc-2bit-err-mc0-cnt"] = types.YLeaf{"Ecc2BitErrMc0Cnt", peMcStats.Ecc2BitErrMc0Cnt}
+    peMcStats.EntityData.Leafs["ecc-2bit-err-mc1-cnt"] = types.YLeaf{"Ecc2BitErrMc1Cnt", peMcStats.Ecc2BitErrMc1Cnt}
+    peMcStats.EntityData.Leafs["ecc-2bit-err-mc2-cnt"] = types.YLeaf{"Ecc2BitErrMc2Cnt", peMcStats.Ecc2BitErrMc2Cnt}
+    peMcStats.EntityData.Leafs["out-pkt-mc-cnt"] = types.YLeaf{"OutPktMcCnt", peMcStats.OutPktMcCnt}
+    peMcStats.EntityData.Leafs["fe-mc-sop-eop-pack-cnt"] = types.YLeaf{"FeMcSopEopPackCnt", peMcStats.FeMcSopEopPackCnt}
+    peMcStats.EntityData.Leafs["fc-mc-0-1-trans-cnt"] = types.YLeaf{"FcMc01TransCnt", peMcStats.FcMc01TransCnt}
+    peMcStats.EntityData.Leafs["rate-cnt"] = types.YLeaf{"RateCnt", peMcStats.RateCnt}
+    peMcStats.EntityData.Leafs["calc-rate"] = types.YLeaf{"CalcRate", peMcStats.CalcRate}
+    return &(peMcStats.EntityData)
 }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetSegmentPath() string {
-    return "pe-mc-stats"
-}
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in-pkt-mc-cnt"] = peMcStats.InPktMcCnt
-    leafs["in-full-line-mc-cnt"] = peMcStats.InFullLineMcCnt
-    leafs["pkt-trunc-eop-mc-cnt"] = peMcStats.PktTruncEopMcCnt
-    leafs["pkt-sop-drop-mc-cnt"] = peMcStats.PktSopDropMcCnt
-    leafs["pkt-ecc-err-drop-mc-cnt"] = peMcStats.PktEccErrDropMcCnt
-    leafs["pkt-ecc-err-trunc-cnt-mc-cnt"] = peMcStats.PktEccErrTruncCntMcCnt
-    leafs["ecc-1bit-err-mc0-cnt"] = peMcStats.Ecc1BitErrMc0Cnt
-    leafs["ecc-1bit-err-mc1-cnt"] = peMcStats.Ecc1BitErrMc1Cnt
-    leafs["ecc-1bit-err-mc2-cnt"] = peMcStats.Ecc1BitErrMc2Cnt
-    leafs["ecc-2bit-err-mc0-cnt"] = peMcStats.Ecc2BitErrMc0Cnt
-    leafs["ecc-2bit-err-mc1-cnt"] = peMcStats.Ecc2BitErrMc1Cnt
-    leafs["ecc-2bit-err-mc2-cnt"] = peMcStats.Ecc2BitErrMc2Cnt
-    leafs["out-pkt-mc-cnt"] = peMcStats.OutPktMcCnt
-    leafs["fe-mc-sop-eop-pack-cnt"] = peMcStats.FeMcSopEopPackCnt
-    leafs["fc-mc-0-1-trans-cnt"] = peMcStats.FcMc01TransCnt
-    leafs["rate-cnt"] = peMcStats.RateCnt
-    leafs["calc-rate"] = peMcStats.CalcRate
-    return leafs
-}
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetYangName() string { return "pe-mc-stats" }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) SetParent(parent types.Entity) { peMcStats.parent = parent }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetParent() types.Entity { return peMcStats.parent }
-
-func (peMcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeMcStats) GetParentYangName() string { return "sm15-stat" }
 
 // CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats
 // pe cc stats
 type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IN PKT CNT. The type is interface{} with range: 0..18446744073709551615.
@@ -2687,79 +1763,34 @@ type CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats struct 
     CalcRate interface{}
 }
 
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetFilter() yfilter.YFilter { return peCcStats.YFilter }
+func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetEntityData() *types.CommonEntityData {
+    peCcStats.EntityData.YFilter = peCcStats.YFilter
+    peCcStats.EntityData.YangName = "pe-cc-stats"
+    peCcStats.EntityData.BundleName = "cisco_ios_xr"
+    peCcStats.EntityData.ParentYangName = "sm15-stat"
+    peCcStats.EntityData.SegmentPath = "pe-cc-stats"
+    peCcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peCcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peCcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) SetFilter(yf yfilter.YFilter) { peCcStats.YFilter = yf }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetGoName(yname string) string {
-    if yname == "in-pkt-cnt" { return "InPktCnt" }
-    if yname == "out-path0-pkt-cnt" { return "OutPath0PktCnt" }
-    if yname == "out-path1-pkt-cnt" { return "OutPath1PktCnt" }
-    if yname == "xbar-ecc-drop-pkt-cnt" { return "XbarEccDropPktCnt" }
-    if yname == "mem0-drop-pkt-cnt" { return "Mem0DropPktCnt" }
-    if yname == "mem1-drop-pkt-cnt" { return "Mem1DropPktCnt" }
-    if yname == "congn-pkt-cnt" { return "CongnPktCnt" }
-    if yname == "xbar-ecc-single-err-cnt" { return "XbarEccSingleErrCnt" }
-    if yname == "xbar-ecc-double-err-cnt" { return "XbarEccDoubleErrCnt" }
-    if yname == "mem0-ecc-single-err-cnt" { return "Mem0EccSingleErrCnt" }
-    if yname == "mem0-ecc-double-err-cnt" { return "Mem0EccDoubleErrCnt" }
-    if yname == "mem1-ecc-single-err-cnt" { return "Mem1EccSingleErrCnt" }
-    if yname == "mem1-ecc-double-err-cnt" { return "Mem1EccDoubleErrCnt" }
-    if yname == "fc-cc-0-1-trans-cnt" { return "FcCc01TransCnt" }
-    if yname == "rate-cnt" { return "RateCnt" }
-    if yname == "calc-rate" { return "CalcRate" }
-    return ""
+    peCcStats.EntityData.Children = make(map[string]types.YChild)
+    peCcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    peCcStats.EntityData.Leafs["in-pkt-cnt"] = types.YLeaf{"InPktCnt", peCcStats.InPktCnt}
+    peCcStats.EntityData.Leafs["out-path0-pkt-cnt"] = types.YLeaf{"OutPath0PktCnt", peCcStats.OutPath0PktCnt}
+    peCcStats.EntityData.Leafs["out-path1-pkt-cnt"] = types.YLeaf{"OutPath1PktCnt", peCcStats.OutPath1PktCnt}
+    peCcStats.EntityData.Leafs["xbar-ecc-drop-pkt-cnt"] = types.YLeaf{"XbarEccDropPktCnt", peCcStats.XbarEccDropPktCnt}
+    peCcStats.EntityData.Leafs["mem0-drop-pkt-cnt"] = types.YLeaf{"Mem0DropPktCnt", peCcStats.Mem0DropPktCnt}
+    peCcStats.EntityData.Leafs["mem1-drop-pkt-cnt"] = types.YLeaf{"Mem1DropPktCnt", peCcStats.Mem1DropPktCnt}
+    peCcStats.EntityData.Leafs["congn-pkt-cnt"] = types.YLeaf{"CongnPktCnt", peCcStats.CongnPktCnt}
+    peCcStats.EntityData.Leafs["xbar-ecc-single-err-cnt"] = types.YLeaf{"XbarEccSingleErrCnt", peCcStats.XbarEccSingleErrCnt}
+    peCcStats.EntityData.Leafs["xbar-ecc-double-err-cnt"] = types.YLeaf{"XbarEccDoubleErrCnt", peCcStats.XbarEccDoubleErrCnt}
+    peCcStats.EntityData.Leafs["mem0-ecc-single-err-cnt"] = types.YLeaf{"Mem0EccSingleErrCnt", peCcStats.Mem0EccSingleErrCnt}
+    peCcStats.EntityData.Leafs["mem0-ecc-double-err-cnt"] = types.YLeaf{"Mem0EccDoubleErrCnt", peCcStats.Mem0EccDoubleErrCnt}
+    peCcStats.EntityData.Leafs["mem1-ecc-single-err-cnt"] = types.YLeaf{"Mem1EccSingleErrCnt", peCcStats.Mem1EccSingleErrCnt}
+    peCcStats.EntityData.Leafs["mem1-ecc-double-err-cnt"] = types.YLeaf{"Mem1EccDoubleErrCnt", peCcStats.Mem1EccDoubleErrCnt}
+    peCcStats.EntityData.Leafs["fc-cc-0-1-trans-cnt"] = types.YLeaf{"FcCc01TransCnt", peCcStats.FcCc01TransCnt}
+    peCcStats.EntityData.Leafs["rate-cnt"] = types.YLeaf{"RateCnt", peCcStats.RateCnt}
+    peCcStats.EntityData.Leafs["calc-rate"] = types.YLeaf{"CalcRate", peCcStats.CalcRate}
+    return &(peCcStats.EntityData)
 }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetSegmentPath() string {
-    return "pe-cc-stats"
-}
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in-pkt-cnt"] = peCcStats.InPktCnt
-    leafs["out-path0-pkt-cnt"] = peCcStats.OutPath0PktCnt
-    leafs["out-path1-pkt-cnt"] = peCcStats.OutPath1PktCnt
-    leafs["xbar-ecc-drop-pkt-cnt"] = peCcStats.XbarEccDropPktCnt
-    leafs["mem0-drop-pkt-cnt"] = peCcStats.Mem0DropPktCnt
-    leafs["mem1-drop-pkt-cnt"] = peCcStats.Mem1DropPktCnt
-    leafs["congn-pkt-cnt"] = peCcStats.CongnPktCnt
-    leafs["xbar-ecc-single-err-cnt"] = peCcStats.XbarEccSingleErrCnt
-    leafs["xbar-ecc-double-err-cnt"] = peCcStats.XbarEccDoubleErrCnt
-    leafs["mem0-ecc-single-err-cnt"] = peCcStats.Mem0EccSingleErrCnt
-    leafs["mem0-ecc-double-err-cnt"] = peCcStats.Mem0EccDoubleErrCnt
-    leafs["mem1-ecc-single-err-cnt"] = peCcStats.Mem1EccSingleErrCnt
-    leafs["mem1-ecc-double-err-cnt"] = peCcStats.Mem1EccDoubleErrCnt
-    leafs["fc-cc-0-1-trans-cnt"] = peCcStats.FcCc01TransCnt
-    leafs["rate-cnt"] = peCcStats.RateCnt
-    leafs["calc-rate"] = peCcStats.CalcRate
-    return leafs
-}
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetYangName() string { return "pe-cc-stats" }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) SetParent(parent types.Entity) { peCcStats.parent = parent }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetParent() types.Entity { return peCcStats.parent }
-
-func (peCcStats *CrossBarStats_Nodes_Node_CrossBarTable_Sm15Stats_Sm15Stat_PeCcStats) GetParentYangName() string { return "sm15-stat" }
 

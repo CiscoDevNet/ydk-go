@@ -21,7 +21,7 @@ func init() {
 
 // CISCOPIMMIB
 type CISCOPIMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -31,63 +31,26 @@ type CISCOPIMMIB struct {
     Ciscopimmibnotificationobjects CISCOPIMMIB_Ciscopimmibnotificationobjects
 }
 
-func (cISCOPIMMIB *CISCOPIMMIB) GetFilter() yfilter.YFilter { return cISCOPIMMIB.YFilter }
+func (cISCOPIMMIB *CISCOPIMMIB) GetEntityData() *types.CommonEntityData {
+    cISCOPIMMIB.EntityData.YFilter = cISCOPIMMIB.YFilter
+    cISCOPIMMIB.EntityData.YangName = "CISCO-PIM-MIB"
+    cISCOPIMMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOPIMMIB.EntityData.ParentYangName = "CISCO-PIM-MIB"
+    cISCOPIMMIB.EntityData.SegmentPath = "CISCO-PIM-MIB:CISCO-PIM-MIB"
+    cISCOPIMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOPIMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOPIMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOPIMMIB *CISCOPIMMIB) SetFilter(yf yfilter.YFilter) { cISCOPIMMIB.YFilter = yf }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetGoName(yname string) string {
-    if yname == "cpim" { return "Cpim" }
-    if yname == "ciscoPimMIBNotificationObjects" { return "Ciscopimmibnotificationobjects" }
-    return ""
+    cISCOPIMMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOPIMMIB.EntityData.Children["cpim"] = types.YChild{"Cpim", &cISCOPIMMIB.Cpim}
+    cISCOPIMMIB.EntityData.Children["ciscoPimMIBNotificationObjects"] = types.YChild{"Ciscopimmibnotificationobjects", &cISCOPIMMIB.Ciscopimmibnotificationobjects}
+    cISCOPIMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOPIMMIB.EntityData)
 }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetSegmentPath() string {
-    return "CISCO-PIM-MIB:CISCO-PIM-MIB"
-}
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpim" {
-        return &cISCOPIMMIB.Cpim
-    }
-    if childYangName == "ciscoPimMIBNotificationObjects" {
-        return &cISCOPIMMIB.Ciscopimmibnotificationobjects
-    }
-    return nil
-}
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cpim"] = &cISCOPIMMIB.Cpim
-    children["ciscoPimMIBNotificationObjects"] = &cISCOPIMMIB.Ciscopimmibnotificationobjects
-    return children
-}
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetYangName() string { return "CISCO-PIM-MIB" }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOPIMMIB *CISCOPIMMIB) SetParent(parent types.Entity) { cISCOPIMMIB.parent = parent }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetParent() types.Entity { return cISCOPIMMIB.parent }
-
-func (cISCOPIMMIB *CISCOPIMMIB) GetParentYangName() string { return "CISCO-PIM-MIB" }
 
 // CISCOPIMMIB_Cpim
 type CISCOPIMMIB_Cpim struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A count of the number of invalid PIM Register messages received by this
@@ -150,67 +113,29 @@ type CISCOPIMMIB_Cpim struct {
     Cpimlasterrorrp interface{}
 }
 
-func (cpim *CISCOPIMMIB_Cpim) GetFilter() yfilter.YFilter { return cpim.YFilter }
+func (cpim *CISCOPIMMIB_Cpim) GetEntityData() *types.CommonEntityData {
+    cpim.EntityData.YFilter = cpim.YFilter
+    cpim.EntityData.YangName = "cpim"
+    cpim.EntityData.BundleName = "cisco_ios_xe"
+    cpim.EntityData.ParentYangName = "CISCO-PIM-MIB"
+    cpim.EntityData.SegmentPath = "cpim"
+    cpim.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpim.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpim.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpim *CISCOPIMMIB_Cpim) SetFilter(yf yfilter.YFilter) { cpim.YFilter = yf }
-
-func (cpim *CISCOPIMMIB_Cpim) GetGoName(yname string) string {
-    if yname == "cpimInvalidRegisterMsgsRcvd" { return "Cpiminvalidregistermsgsrcvd" }
-    if yname == "cpimInvalidJoinPruneMsgsRcvd" { return "Cpiminvalidjoinprunemsgsrcvd" }
-    if yname == "cpimLastErrorType" { return "Cpimlasterrortype" }
-    if yname == "cpimLastErrorOriginType" { return "Cpimlasterrororigintype" }
-    if yname == "cpimLastErrorOrigin" { return "Cpimlasterrororigin" }
-    if yname == "cpimLastErrorGroupType" { return "Cpimlasterrorgrouptype" }
-    if yname == "cpimLastErrorGroup" { return "Cpimlasterrorgroup" }
-    if yname == "cpimLastErrorRPType" { return "Cpimlasterrorrptype" }
-    if yname == "cpimLastErrorRP" { return "Cpimlasterrorrp" }
-    return ""
+    cpim.EntityData.Children = make(map[string]types.YChild)
+    cpim.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpim.EntityData.Leafs["cpimInvalidRegisterMsgsRcvd"] = types.YLeaf{"Cpiminvalidregistermsgsrcvd", cpim.Cpiminvalidregistermsgsrcvd}
+    cpim.EntityData.Leafs["cpimInvalidJoinPruneMsgsRcvd"] = types.YLeaf{"Cpiminvalidjoinprunemsgsrcvd", cpim.Cpiminvalidjoinprunemsgsrcvd}
+    cpim.EntityData.Leafs["cpimLastErrorType"] = types.YLeaf{"Cpimlasterrortype", cpim.Cpimlasterrortype}
+    cpim.EntityData.Leafs["cpimLastErrorOriginType"] = types.YLeaf{"Cpimlasterrororigintype", cpim.Cpimlasterrororigintype}
+    cpim.EntityData.Leafs["cpimLastErrorOrigin"] = types.YLeaf{"Cpimlasterrororigin", cpim.Cpimlasterrororigin}
+    cpim.EntityData.Leafs["cpimLastErrorGroupType"] = types.YLeaf{"Cpimlasterrorgrouptype", cpim.Cpimlasterrorgrouptype}
+    cpim.EntityData.Leafs["cpimLastErrorGroup"] = types.YLeaf{"Cpimlasterrorgroup", cpim.Cpimlasterrorgroup}
+    cpim.EntityData.Leafs["cpimLastErrorRPType"] = types.YLeaf{"Cpimlasterrorrptype", cpim.Cpimlasterrorrptype}
+    cpim.EntityData.Leafs["cpimLastErrorRP"] = types.YLeaf{"Cpimlasterrorrp", cpim.Cpimlasterrorrp}
+    return &(cpim.EntityData)
 }
-
-func (cpim *CISCOPIMMIB_Cpim) GetSegmentPath() string {
-    return "cpim"
-}
-
-func (cpim *CISCOPIMMIB_Cpim) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpim *CISCOPIMMIB_Cpim) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpim *CISCOPIMMIB_Cpim) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cpimInvalidRegisterMsgsRcvd"] = cpim.Cpiminvalidregistermsgsrcvd
-    leafs["cpimInvalidJoinPruneMsgsRcvd"] = cpim.Cpiminvalidjoinprunemsgsrcvd
-    leafs["cpimLastErrorType"] = cpim.Cpimlasterrortype
-    leafs["cpimLastErrorOriginType"] = cpim.Cpimlasterrororigintype
-    leafs["cpimLastErrorOrigin"] = cpim.Cpimlasterrororigin
-    leafs["cpimLastErrorGroupType"] = cpim.Cpimlasterrorgrouptype
-    leafs["cpimLastErrorGroup"] = cpim.Cpimlasterrorgroup
-    leafs["cpimLastErrorRPType"] = cpim.Cpimlasterrorrptype
-    leafs["cpimLastErrorRP"] = cpim.Cpimlasterrorrp
-    return leafs
-}
-
-func (cpim *CISCOPIMMIB_Cpim) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpim *CISCOPIMMIB_Cpim) GetYangName() string { return "cpim" }
-
-func (cpim *CISCOPIMMIB_Cpim) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpim *CISCOPIMMIB_Cpim) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpim *CISCOPIMMIB_Cpim) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpim *CISCOPIMMIB_Cpim) SetParent(parent types.Entity) { cpim.parent = parent }
-
-func (cpim *CISCOPIMMIB_Cpim) GetParent() types.Entity { return cpim.parent }
-
-func (cpim *CISCOPIMMIB_Cpim) GetParentYangName() string { return "CISCO-PIM-MIB" }
 
 // CISCOPIMMIB_Cpim_Cpimlasterrortype represents this device.
 type CISCOPIMMIB_Cpim_Cpimlasterrortype string
@@ -225,7 +150,7 @@ const (
 
 // CISCOPIMMIB_Ciscopimmibnotificationobjects
 type CISCOPIMMIB_Ciscopimmibnotificationobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Describes the operation that resulted in generation of cpimRPMappingChange
@@ -240,51 +165,21 @@ type CISCOPIMMIB_Ciscopimmibnotificationobjects struct {
     Cpimrpmappingchangetype interface{}
 }
 
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetFilter() yfilter.YFilter { return ciscopimmibnotificationobjects.YFilter }
+func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetEntityData() *types.CommonEntityData {
+    ciscopimmibnotificationobjects.EntityData.YFilter = ciscopimmibnotificationobjects.YFilter
+    ciscopimmibnotificationobjects.EntityData.YangName = "ciscoPimMIBNotificationObjects"
+    ciscopimmibnotificationobjects.EntityData.BundleName = "cisco_ios_xe"
+    ciscopimmibnotificationobjects.EntityData.ParentYangName = "CISCO-PIM-MIB"
+    ciscopimmibnotificationobjects.EntityData.SegmentPath = "ciscoPimMIBNotificationObjects"
+    ciscopimmibnotificationobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscopimmibnotificationobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscopimmibnotificationobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) SetFilter(yf yfilter.YFilter) { ciscopimmibnotificationobjects.YFilter = yf }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetGoName(yname string) string {
-    if yname == "cpimRPMappingChangeType" { return "Cpimrpmappingchangetype" }
-    return ""
+    ciscopimmibnotificationobjects.EntityData.Children = make(map[string]types.YChild)
+    ciscopimmibnotificationobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscopimmibnotificationobjects.EntityData.Leafs["cpimRPMappingChangeType"] = types.YLeaf{"Cpimrpmappingchangetype", ciscopimmibnotificationobjects.Cpimrpmappingchangetype}
+    return &(ciscopimmibnotificationobjects.EntityData)
 }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetSegmentPath() string {
-    return "ciscoPimMIBNotificationObjects"
-}
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cpimRPMappingChangeType"] = ciscopimmibnotificationobjects.Cpimrpmappingchangetype
-    return leafs
-}
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetYangName() string { return "ciscoPimMIBNotificationObjects" }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) SetParent(parent types.Entity) { ciscopimmibnotificationobjects.parent = parent }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetParent() types.Entity { return ciscopimmibnotificationobjects.parent }
-
-func (ciscopimmibnotificationobjects *CISCOPIMMIB_Ciscopimmibnotificationobjects) GetParentYangName() string { return "CISCO-PIM-MIB" }
 
 // CISCOPIMMIB_Ciscopimmibnotificationobjects_Cpimrpmappingchangetype represents   that generated after modification.
 type CISCOPIMMIB_Ciscopimmibnotificationobjects_Cpimrpmappingchangetype string

@@ -79,7 +79,7 @@ const (
 // Clock
 // Configure time-of-day clock
 type Clock struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure summer (daylight savings) time.
@@ -89,65 +89,28 @@ type Clock struct {
     TimeZone Clock_TimeZone
 }
 
-func (clock *Clock) GetFilter() yfilter.YFilter { return clock.YFilter }
+func (clock *Clock) GetEntityData() *types.CommonEntityData {
+    clock.EntityData.YFilter = clock.YFilter
+    clock.EntityData.YangName = "clock"
+    clock.EntityData.BundleName = "cisco_ios_xr"
+    clock.EntityData.ParentYangName = "Cisco-IOS-XR-infra-infra-clock-cfg"
+    clock.EntityData.SegmentPath = "Cisco-IOS-XR-infra-infra-clock-cfg:clock"
+    clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clock *Clock) SetFilter(yf yfilter.YFilter) { clock.YFilter = yf }
-
-func (clock *Clock) GetGoName(yname string) string {
-    if yname == "summer-time" { return "SummerTime" }
-    if yname == "time-zone" { return "TimeZone" }
-    return ""
+    clock.EntityData.Children = make(map[string]types.YChild)
+    clock.EntityData.Children["summer-time"] = types.YChild{"SummerTime", &clock.SummerTime}
+    clock.EntityData.Children["time-zone"] = types.YChild{"TimeZone", &clock.TimeZone}
+    clock.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clock.EntityData)
 }
-
-func (clock *Clock) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-infra-clock-cfg:clock"
-}
-
-func (clock *Clock) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summer-time" {
-        return &clock.SummerTime
-    }
-    if childYangName == "time-zone" {
-        return &clock.TimeZone
-    }
-    return nil
-}
-
-func (clock *Clock) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["summer-time"] = &clock.SummerTime
-    children["time-zone"] = &clock.TimeZone
-    return children
-}
-
-func (clock *Clock) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clock *Clock) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clock *Clock) GetYangName() string { return "clock" }
-
-func (clock *Clock) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clock *Clock) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clock *Clock) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clock *Clock) SetParent(parent types.Entity) { clock.parent = parent }
-
-func (clock *Clock) GetParent() types.Entity { return clock.parent }
-
-func (clock *Clock) GetParentYangName() string { return "Cisco-IOS-XR-infra-infra-clock-cfg" }
 
 // Clock_SummerTime
 // Configure summer (daylight savings) time
 // This type is a presence type.
 type Clock_SummerTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of time zone in summer. The type is string. This attribute is
@@ -200,81 +163,39 @@ type Clock_SummerTime struct {
     Offset interface{}
 }
 
-func (summerTime *Clock_SummerTime) GetFilter() yfilter.YFilter { return summerTime.YFilter }
+func (summerTime *Clock_SummerTime) GetEntityData() *types.CommonEntityData {
+    summerTime.EntityData.YFilter = summerTime.YFilter
+    summerTime.EntityData.YangName = "summer-time"
+    summerTime.EntityData.BundleName = "cisco_ios_xr"
+    summerTime.EntityData.ParentYangName = "clock"
+    summerTime.EntityData.SegmentPath = "summer-time"
+    summerTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summerTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summerTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summerTime *Clock_SummerTime) SetFilter(yf yfilter.YFilter) { summerTime.YFilter = yf }
-
-func (summerTime *Clock_SummerTime) GetGoName(yname string) string {
-    if yname == "time-zone-name" { return "TimeZoneName" }
-    if yname == "mode" { return "Mode" }
-    if yname == "start-week-number-or-start-date" { return "StartWeekNumberOrStartDate" }
-    if yname == "start-weekday-or-start-year" { return "StartWeekdayOrStartYear" }
-    if yname == "start-month" { return "StartMonth" }
-    if yname == "start-hour" { return "StartHour" }
-    if yname == "start-minute" { return "StartMinute" }
-    if yname == "end-week-number-or-end-date" { return "EndWeekNumberOrEndDate" }
-    if yname == "end-weekday-or-end-year" { return "EndWeekdayOrEndYear" }
-    if yname == "end-month" { return "EndMonth" }
-    if yname == "end-hour" { return "EndHour" }
-    if yname == "end-minute" { return "EndMinute" }
-    if yname == "offset" { return "Offset" }
-    return ""
+    summerTime.EntityData.Children = make(map[string]types.YChild)
+    summerTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    summerTime.EntityData.Leafs["time-zone-name"] = types.YLeaf{"TimeZoneName", summerTime.TimeZoneName}
+    summerTime.EntityData.Leafs["mode"] = types.YLeaf{"Mode", summerTime.Mode}
+    summerTime.EntityData.Leafs["start-week-number-or-start-date"] = types.YLeaf{"StartWeekNumberOrStartDate", summerTime.StartWeekNumberOrStartDate}
+    summerTime.EntityData.Leafs["start-weekday-or-start-year"] = types.YLeaf{"StartWeekdayOrStartYear", summerTime.StartWeekdayOrStartYear}
+    summerTime.EntityData.Leafs["start-month"] = types.YLeaf{"StartMonth", summerTime.StartMonth}
+    summerTime.EntityData.Leafs["start-hour"] = types.YLeaf{"StartHour", summerTime.StartHour}
+    summerTime.EntityData.Leafs["start-minute"] = types.YLeaf{"StartMinute", summerTime.StartMinute}
+    summerTime.EntityData.Leafs["end-week-number-or-end-date"] = types.YLeaf{"EndWeekNumberOrEndDate", summerTime.EndWeekNumberOrEndDate}
+    summerTime.EntityData.Leafs["end-weekday-or-end-year"] = types.YLeaf{"EndWeekdayOrEndYear", summerTime.EndWeekdayOrEndYear}
+    summerTime.EntityData.Leafs["end-month"] = types.YLeaf{"EndMonth", summerTime.EndMonth}
+    summerTime.EntityData.Leafs["end-hour"] = types.YLeaf{"EndHour", summerTime.EndHour}
+    summerTime.EntityData.Leafs["end-minute"] = types.YLeaf{"EndMinute", summerTime.EndMinute}
+    summerTime.EntityData.Leafs["offset"] = types.YLeaf{"Offset", summerTime.Offset}
+    return &(summerTime.EntityData)
 }
-
-func (summerTime *Clock_SummerTime) GetSegmentPath() string {
-    return "summer-time"
-}
-
-func (summerTime *Clock_SummerTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summerTime *Clock_SummerTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summerTime *Clock_SummerTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-zone-name"] = summerTime.TimeZoneName
-    leafs["mode"] = summerTime.Mode
-    leafs["start-week-number-or-start-date"] = summerTime.StartWeekNumberOrStartDate
-    leafs["start-weekday-or-start-year"] = summerTime.StartWeekdayOrStartYear
-    leafs["start-month"] = summerTime.StartMonth
-    leafs["start-hour"] = summerTime.StartHour
-    leafs["start-minute"] = summerTime.StartMinute
-    leafs["end-week-number-or-end-date"] = summerTime.EndWeekNumberOrEndDate
-    leafs["end-weekday-or-end-year"] = summerTime.EndWeekdayOrEndYear
-    leafs["end-month"] = summerTime.EndMonth
-    leafs["end-hour"] = summerTime.EndHour
-    leafs["end-minute"] = summerTime.EndMinute
-    leafs["offset"] = summerTime.Offset
-    return leafs
-}
-
-func (summerTime *Clock_SummerTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summerTime *Clock_SummerTime) GetYangName() string { return "summer-time" }
-
-func (summerTime *Clock_SummerTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summerTime *Clock_SummerTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summerTime *Clock_SummerTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summerTime *Clock_SummerTime) SetParent(parent types.Entity) { summerTime.parent = parent }
-
-func (summerTime *Clock_SummerTime) GetParent() types.Entity { return summerTime.parent }
-
-func (summerTime *Clock_SummerTime) GetParentYangName() string { return "clock" }
 
 // Clock_TimeZone
 // Configure time zone
 // This type is a presence type.
 type Clock_TimeZone struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of time zone. The type is string. This attribute is mandatory.
@@ -289,53 +210,21 @@ type Clock_TimeZone struct {
     MinuteOffset interface{}
 }
 
-func (timeZone *Clock_TimeZone) GetFilter() yfilter.YFilter { return timeZone.YFilter }
+func (timeZone *Clock_TimeZone) GetEntityData() *types.CommonEntityData {
+    timeZone.EntityData.YFilter = timeZone.YFilter
+    timeZone.EntityData.YangName = "time-zone"
+    timeZone.EntityData.BundleName = "cisco_ios_xr"
+    timeZone.EntityData.ParentYangName = "clock"
+    timeZone.EntityData.SegmentPath = "time-zone"
+    timeZone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timeZone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timeZone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timeZone *Clock_TimeZone) SetFilter(yf yfilter.YFilter) { timeZone.YFilter = yf }
-
-func (timeZone *Clock_TimeZone) GetGoName(yname string) string {
-    if yname == "time-zone-name" { return "TimeZoneName" }
-    if yname == "hour-offset" { return "HourOffset" }
-    if yname == "minute-offset" { return "MinuteOffset" }
-    return ""
+    timeZone.EntityData.Children = make(map[string]types.YChild)
+    timeZone.EntityData.Leafs = make(map[string]types.YLeaf)
+    timeZone.EntityData.Leafs["time-zone-name"] = types.YLeaf{"TimeZoneName", timeZone.TimeZoneName}
+    timeZone.EntityData.Leafs["hour-offset"] = types.YLeaf{"HourOffset", timeZone.HourOffset}
+    timeZone.EntityData.Leafs["minute-offset"] = types.YLeaf{"MinuteOffset", timeZone.MinuteOffset}
+    return &(timeZone.EntityData)
 }
-
-func (timeZone *Clock_TimeZone) GetSegmentPath() string {
-    return "time-zone"
-}
-
-func (timeZone *Clock_TimeZone) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timeZone *Clock_TimeZone) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timeZone *Clock_TimeZone) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-zone-name"] = timeZone.TimeZoneName
-    leafs["hour-offset"] = timeZone.HourOffset
-    leafs["minute-offset"] = timeZone.MinuteOffset
-    return leafs
-}
-
-func (timeZone *Clock_TimeZone) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timeZone *Clock_TimeZone) GetYangName() string { return "time-zone" }
-
-func (timeZone *Clock_TimeZone) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timeZone *Clock_TimeZone) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timeZone *Clock_TimeZone) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timeZone *Clock_TimeZone) SetParent(parent types.Entity) { timeZone.parent = parent }
-
-func (timeZone *Clock_TimeZone) GetParent() types.Entity { return timeZone.parent }
-
-func (timeZone *Clock_TimeZone) GetParentYangName() string { return "clock" }
 

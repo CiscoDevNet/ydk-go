@@ -53,7 +53,7 @@ func init() {
 
 // CISCOENTITYEXTMIB
 type CISCOENTITYEXTMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The ceExtPhysicalProcessorTable extends the ENTITY-MIB entPhysicalTable for
@@ -67,71 +67,30 @@ type CISCOENTITYEXTMIB struct {
     Ceextentityledtable CISCOENTITYEXTMIB_Ceextentityledtable
 }
 
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetFilter() yfilter.YFilter { return cISCOENTITYEXTMIB.YFilter }
+func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetEntityData() *types.CommonEntityData {
+    cISCOENTITYEXTMIB.EntityData.YFilter = cISCOENTITYEXTMIB.YFilter
+    cISCOENTITYEXTMIB.EntityData.YangName = "CISCO-ENTITY-EXT-MIB"
+    cISCOENTITYEXTMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOENTITYEXTMIB.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
+    cISCOENTITYEXTMIB.EntityData.SegmentPath = "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB"
+    cISCOENTITYEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOENTITYEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOENTITYEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) SetFilter(yf yfilter.YFilter) { cISCOENTITYEXTMIB.YFilter = yf }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetGoName(yname string) string {
-    if yname == "ceExtPhysicalProcessorTable" { return "Ceextphysicalprocessortable" }
-    if yname == "ceExtConfigRegTable" { return "Ceextconfigregtable" }
-    if yname == "ceExtEntityLEDTable" { return "Ceextentityledtable" }
-    return ""
+    cISCOENTITYEXTMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOENTITYEXTMIB.EntityData.Children["ceExtPhysicalProcessorTable"] = types.YChild{"Ceextphysicalprocessortable", &cISCOENTITYEXTMIB.Ceextphysicalprocessortable}
+    cISCOENTITYEXTMIB.EntityData.Children["ceExtConfigRegTable"] = types.YChild{"Ceextconfigregtable", &cISCOENTITYEXTMIB.Ceextconfigregtable}
+    cISCOENTITYEXTMIB.EntityData.Children["ceExtEntityLEDTable"] = types.YChild{"Ceextentityledtable", &cISCOENTITYEXTMIB.Ceextentityledtable}
+    cISCOENTITYEXTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOENTITYEXTMIB.EntityData)
 }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetSegmentPath() string {
-    return "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB"
-}
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceExtPhysicalProcessorTable" {
-        return &cISCOENTITYEXTMIB.Ceextphysicalprocessortable
-    }
-    if childYangName == "ceExtConfigRegTable" {
-        return &cISCOENTITYEXTMIB.Ceextconfigregtable
-    }
-    if childYangName == "ceExtEntityLEDTable" {
-        return &cISCOENTITYEXTMIB.Ceextentityledtable
-    }
-    return nil
-}
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ceExtPhysicalProcessorTable"] = &cISCOENTITYEXTMIB.Ceextphysicalprocessortable
-    children["ceExtConfigRegTable"] = &cISCOENTITYEXTMIB.Ceextconfigregtable
-    children["ceExtEntityLEDTable"] = &cISCOENTITYEXTMIB.Ceextentityledtable
-    return children
-}
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetYangName() string { return "CISCO-ENTITY-EXT-MIB" }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) SetParent(parent types.Entity) { cISCOENTITYEXTMIB.parent = parent }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetParent() types.Entity { return cISCOENTITYEXTMIB.parent }
-
-func (cISCOENTITYEXTMIB *CISCOENTITYEXTMIB) GetParentYangName() string { return "CISCO-ENTITY-EXT-MIB" }
 
 // CISCOENTITYEXTMIB_Ceextphysicalprocessortable
 // The ceExtPhysicalProcessorTable extends
 // the ENTITY-MIB entPhysicalTable for modules
 // (Non FRUs(Field Replacable Units) or FRUs).
 type CISCOENTITYEXTMIB_Ceextphysicalprocessortable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A ceExtPhysicalProcessorTable entry extends a corresponding
@@ -149,63 +108,24 @@ type CISCOENTITYEXTMIB_Ceextphysicalprocessortable struct {
     Ceextphysicalprocessorentry []CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry
 }
 
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetFilter() yfilter.YFilter { return ceextphysicalprocessortable.YFilter }
+func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetEntityData() *types.CommonEntityData {
+    ceextphysicalprocessortable.EntityData.YFilter = ceextphysicalprocessortable.YFilter
+    ceextphysicalprocessortable.EntityData.YangName = "ceExtPhysicalProcessorTable"
+    ceextphysicalprocessortable.EntityData.BundleName = "cisco_ios_xe"
+    ceextphysicalprocessortable.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
+    ceextphysicalprocessortable.EntityData.SegmentPath = "ceExtPhysicalProcessorTable"
+    ceextphysicalprocessortable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceextphysicalprocessortable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceextphysicalprocessortable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) SetFilter(yf yfilter.YFilter) { ceextphysicalprocessortable.YFilter = yf }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetGoName(yname string) string {
-    if yname == "ceExtPhysicalProcessorEntry" { return "Ceextphysicalprocessorentry" }
-    return ""
-}
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetSegmentPath() string {
-    return "ceExtPhysicalProcessorTable"
-}
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceExtPhysicalProcessorEntry" {
-        for _, c := range ceextphysicalprocessortable.Ceextphysicalprocessorentry {
-            if ceextphysicalprocessortable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry{}
-        ceextphysicalprocessortable.Ceextphysicalprocessorentry = append(ceextphysicalprocessortable.Ceextphysicalprocessorentry, child)
-        return &ceextphysicalprocessortable.Ceextphysicalprocessorentry[len(ceextphysicalprocessortable.Ceextphysicalprocessorentry)-1]
-    }
-    return nil
-}
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceextphysicalprocessortable.EntityData.Children = make(map[string]types.YChild)
+    ceextphysicalprocessortable.EntityData.Children["ceExtPhysicalProcessorEntry"] = types.YChild{"Ceextphysicalprocessorentry", nil}
     for i := range ceextphysicalprocessortable.Ceextphysicalprocessorentry {
-        children[ceextphysicalprocessortable.Ceextphysicalprocessorentry[i].GetSegmentPath()] = &ceextphysicalprocessortable.Ceextphysicalprocessorentry[i]
+        ceextphysicalprocessortable.EntityData.Children[types.GetSegmentPath(&ceextphysicalprocessortable.Ceextphysicalprocessorentry[i])] = types.YChild{"Ceextphysicalprocessorentry", &ceextphysicalprocessortable.Ceextphysicalprocessorentry[i]}
     }
-    return children
+    ceextphysicalprocessortable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceextphysicalprocessortable.EntityData)
 }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetYangName() string { return "ceExtPhysicalProcessorTable" }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) SetParent(parent types.Entity) { ceextphysicalprocessortable.parent = parent }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetParent() types.Entity { return ceextphysicalprocessortable.parent }
-
-func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable) GetParentYangName() string { return "CISCO-ENTITY-EXT-MIB" }
 
 // CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry
 // A ceExtPhysicalProcessorTable entry extends
@@ -231,7 +151,7 @@ func (ceextphysicalprocessortable *CISCOENTITYEXTMIB_Ceextphysicalprocessortable
 // 
 // Entries are removed when the module is reset or removed.
 type CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -266,67 +186,32 @@ type CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry s
     Ceexthcprocessorram interface{}
 }
 
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetFilter() yfilter.YFilter { return ceextphysicalprocessorentry.YFilter }
+func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetEntityData() *types.CommonEntityData {
+    ceextphysicalprocessorentry.EntityData.YFilter = ceextphysicalprocessorentry.YFilter
+    ceextphysicalprocessorentry.EntityData.YangName = "ceExtPhysicalProcessorEntry"
+    ceextphysicalprocessorentry.EntityData.BundleName = "cisco_ios_xe"
+    ceextphysicalprocessorentry.EntityData.ParentYangName = "ceExtPhysicalProcessorTable"
+    ceextphysicalprocessorentry.EntityData.SegmentPath = "ceExtPhysicalProcessorEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceextphysicalprocessorentry.Entphysicalindex) + "']"
+    ceextphysicalprocessorentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceextphysicalprocessorentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceextphysicalprocessorentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) SetFilter(yf yfilter.YFilter) { ceextphysicalprocessorentry.YFilter = yf }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "ceExtProcessorRam" { return "Ceextprocessorram" }
-    if yname == "ceExtNVRAMSize" { return "Ceextnvramsize" }
-    if yname == "ceExtNVRAMUsed" { return "Ceextnvramused" }
-    if yname == "ceExtProcessorRamOverflow" { return "Ceextprocessorramoverflow" }
-    if yname == "ceExtHCProcessorRam" { return "Ceexthcprocessorram" }
-    return ""
+    ceextphysicalprocessorentry.EntityData.Children = make(map[string]types.YChild)
+    ceextphysicalprocessorentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceextphysicalprocessorentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceextphysicalprocessorentry.Entphysicalindex}
+    ceextphysicalprocessorentry.EntityData.Leafs["ceExtProcessorRam"] = types.YLeaf{"Ceextprocessorram", ceextphysicalprocessorentry.Ceextprocessorram}
+    ceextphysicalprocessorentry.EntityData.Leafs["ceExtNVRAMSize"] = types.YLeaf{"Ceextnvramsize", ceextphysicalprocessorentry.Ceextnvramsize}
+    ceextphysicalprocessorentry.EntityData.Leafs["ceExtNVRAMUsed"] = types.YLeaf{"Ceextnvramused", ceextphysicalprocessorentry.Ceextnvramused}
+    ceextphysicalprocessorentry.EntityData.Leafs["ceExtProcessorRamOverflow"] = types.YLeaf{"Ceextprocessorramoverflow", ceextphysicalprocessorentry.Ceextprocessorramoverflow}
+    ceextphysicalprocessorentry.EntityData.Leafs["ceExtHCProcessorRam"] = types.YLeaf{"Ceexthcprocessorram", ceextphysicalprocessorentry.Ceexthcprocessorram}
+    return &(ceextphysicalprocessorentry.EntityData)
 }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetSegmentPath() string {
-    return "ceExtPhysicalProcessorEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceextphysicalprocessorentry.Entphysicalindex) + "']"
-}
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = ceextphysicalprocessorentry.Entphysicalindex
-    leafs["ceExtProcessorRam"] = ceextphysicalprocessorentry.Ceextprocessorram
-    leafs["ceExtNVRAMSize"] = ceextphysicalprocessorentry.Ceextnvramsize
-    leafs["ceExtNVRAMUsed"] = ceextphysicalprocessorentry.Ceextnvramused
-    leafs["ceExtProcessorRamOverflow"] = ceextphysicalprocessorentry.Ceextprocessorramoverflow
-    leafs["ceExtHCProcessorRam"] = ceextphysicalprocessorentry.Ceexthcprocessorram
-    return leafs
-}
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetYangName() string { return "ceExtPhysicalProcessorEntry" }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) SetParent(parent types.Entity) { ceextphysicalprocessorentry.parent = parent }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetParent() types.Entity { return ceextphysicalprocessorentry.parent }
-
-func (ceextphysicalprocessorentry *CISCOENTITYEXTMIB_Ceextphysicalprocessortable_Ceextphysicalprocessorentry) GetParentYangName() string { return "ceExtPhysicalProcessorTable" }
 
 // CISCOENTITYEXTMIB_Ceextconfigregtable
 // The ceExtConfigRegTable extends
 // the ENTITY-MIB entPhysicalTable.
 type CISCOENTITYEXTMIB_Ceextconfigregtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A ceExtConfigRegTable entry extends a corresponding entPhysicalTable entry
@@ -337,63 +222,24 @@ type CISCOENTITYEXTMIB_Ceextconfigregtable struct {
     Ceextconfigregentry []CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry
 }
 
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetFilter() yfilter.YFilter { return ceextconfigregtable.YFilter }
+func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetEntityData() *types.CommonEntityData {
+    ceextconfigregtable.EntityData.YFilter = ceextconfigregtable.YFilter
+    ceextconfigregtable.EntityData.YangName = "ceExtConfigRegTable"
+    ceextconfigregtable.EntityData.BundleName = "cisco_ios_xe"
+    ceextconfigregtable.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
+    ceextconfigregtable.EntityData.SegmentPath = "ceExtConfigRegTable"
+    ceextconfigregtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceextconfigregtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceextconfigregtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) SetFilter(yf yfilter.YFilter) { ceextconfigregtable.YFilter = yf }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetGoName(yname string) string {
-    if yname == "ceExtConfigRegEntry" { return "Ceextconfigregentry" }
-    return ""
-}
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetSegmentPath() string {
-    return "ceExtConfigRegTable"
-}
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceExtConfigRegEntry" {
-        for _, c := range ceextconfigregtable.Ceextconfigregentry {
-            if ceextconfigregtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry{}
-        ceextconfigregtable.Ceextconfigregentry = append(ceextconfigregtable.Ceextconfigregentry, child)
-        return &ceextconfigregtable.Ceextconfigregentry[len(ceextconfigregtable.Ceextconfigregentry)-1]
-    }
-    return nil
-}
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceextconfigregtable.EntityData.Children = make(map[string]types.YChild)
+    ceextconfigregtable.EntityData.Children["ceExtConfigRegEntry"] = types.YChild{"Ceextconfigregentry", nil}
     for i := range ceextconfigregtable.Ceextconfigregentry {
-        children[ceextconfigregtable.Ceextconfigregentry[i].GetSegmentPath()] = &ceextconfigregtable.Ceextconfigregentry[i]
+        ceextconfigregtable.EntityData.Children[types.GetSegmentPath(&ceextconfigregtable.Ceextconfigregentry[i])] = types.YChild{"Ceextconfigregentry", &ceextconfigregtable.Ceextconfigregentry[i]}
     }
-    return children
+    ceextconfigregtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceextconfigregtable.EntityData)
 }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetYangName() string { return "ceExtConfigRegTable" }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) SetParent(parent types.Entity) { ceextconfigregtable.parent = parent }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetParent() types.Entity { return ceextconfigregtable.parent }
-
-func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetParentYangName() string { return "CISCO-ENTITY-EXT-MIB" }
 
 // CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry
 // A ceExtConfigRegTable entry extends
@@ -406,7 +252,7 @@ func (ceextconfigregtable *CISCOENTITYEXTMIB_Ceextconfigregtable) GetParentYangN
 // Entries are removed when the module is reset or 
 // removed.
 type CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -432,64 +278,30 @@ type CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry struct {
     Ceextkickstartimagelist interface{}
 }
 
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetFilter() yfilter.YFilter { return ceextconfigregentry.YFilter }
+func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetEntityData() *types.CommonEntityData {
+    ceextconfigregentry.EntityData.YFilter = ceextconfigregentry.YFilter
+    ceextconfigregentry.EntityData.YangName = "ceExtConfigRegEntry"
+    ceextconfigregentry.EntityData.BundleName = "cisco_ios_xe"
+    ceextconfigregentry.EntityData.ParentYangName = "ceExtConfigRegTable"
+    ceextconfigregentry.EntityData.SegmentPath = "ceExtConfigRegEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceextconfigregentry.Entphysicalindex) + "']"
+    ceextconfigregentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceextconfigregentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceextconfigregentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) SetFilter(yf yfilter.YFilter) { ceextconfigregentry.YFilter = yf }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "ceExtConfigRegister" { return "Ceextconfigregister" }
-    if yname == "ceExtConfigRegNext" { return "Ceextconfigregnext" }
-    if yname == "ceExtSysBootImageList" { return "Ceextsysbootimagelist" }
-    if yname == "ceExtKickstartImageList" { return "Ceextkickstartimagelist" }
-    return ""
+    ceextconfigregentry.EntityData.Children = make(map[string]types.YChild)
+    ceextconfigregentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceextconfigregentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceextconfigregentry.Entphysicalindex}
+    ceextconfigregentry.EntityData.Leafs["ceExtConfigRegister"] = types.YLeaf{"Ceextconfigregister", ceextconfigregentry.Ceextconfigregister}
+    ceextconfigregentry.EntityData.Leafs["ceExtConfigRegNext"] = types.YLeaf{"Ceextconfigregnext", ceextconfigregentry.Ceextconfigregnext}
+    ceextconfigregentry.EntityData.Leafs["ceExtSysBootImageList"] = types.YLeaf{"Ceextsysbootimagelist", ceextconfigregentry.Ceextsysbootimagelist}
+    ceextconfigregentry.EntityData.Leafs["ceExtKickstartImageList"] = types.YLeaf{"Ceextkickstartimagelist", ceextconfigregentry.Ceextkickstartimagelist}
+    return &(ceextconfigregentry.EntityData)
 }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetSegmentPath() string {
-    return "ceExtConfigRegEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceextconfigregentry.Entphysicalindex) + "']"
-}
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = ceextconfigregentry.Entphysicalindex
-    leafs["ceExtConfigRegister"] = ceextconfigregentry.Ceextconfigregister
-    leafs["ceExtConfigRegNext"] = ceextconfigregentry.Ceextconfigregnext
-    leafs["ceExtSysBootImageList"] = ceextconfigregentry.Ceextsysbootimagelist
-    leafs["ceExtKickstartImageList"] = ceextconfigregentry.Ceextkickstartimagelist
-    return leafs
-}
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetYangName() string { return "ceExtConfigRegEntry" }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) SetParent(parent types.Entity) { ceextconfigregentry.parent = parent }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetParent() types.Entity { return ceextconfigregentry.parent }
-
-func (ceextconfigregentry *CISCOENTITYEXTMIB_Ceextconfigregtable_Ceextconfigregentry) GetParentYangName() string { return "ceExtConfigRegTable" }
 
 // CISCOENTITYEXTMIB_Ceextentityledtable
 // A table containing information of LED on an entity.
 type CISCOENTITYEXTMIB_Ceextentityledtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the ceExtEntityLEDTable, containing
@@ -498,70 +310,31 @@ type CISCOENTITYEXTMIB_Ceextentityledtable struct {
     Ceextentityledentry []CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry
 }
 
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetFilter() yfilter.YFilter { return ceextentityledtable.YFilter }
+func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetEntityData() *types.CommonEntityData {
+    ceextentityledtable.EntityData.YFilter = ceextentityledtable.YFilter
+    ceextentityledtable.EntityData.YangName = "ceExtEntityLEDTable"
+    ceextentityledtable.EntityData.BundleName = "cisco_ios_xe"
+    ceextentityledtable.EntityData.ParentYangName = "CISCO-ENTITY-EXT-MIB"
+    ceextentityledtable.EntityData.SegmentPath = "ceExtEntityLEDTable"
+    ceextentityledtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceextentityledtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceextentityledtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) SetFilter(yf yfilter.YFilter) { ceextentityledtable.YFilter = yf }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetGoName(yname string) string {
-    if yname == "ceExtEntityLEDEntry" { return "Ceextentityledentry" }
-    return ""
-}
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetSegmentPath() string {
-    return "ceExtEntityLEDTable"
-}
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceExtEntityLEDEntry" {
-        for _, c := range ceextentityledtable.Ceextentityledentry {
-            if ceextentityledtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry{}
-        ceextentityledtable.Ceextentityledentry = append(ceextentityledtable.Ceextentityledentry, child)
-        return &ceextentityledtable.Ceextentityledentry[len(ceextentityledtable.Ceextentityledentry)-1]
-    }
-    return nil
-}
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceextentityledtable.EntityData.Children = make(map[string]types.YChild)
+    ceextentityledtable.EntityData.Children["ceExtEntityLEDEntry"] = types.YChild{"Ceextentityledentry", nil}
     for i := range ceextentityledtable.Ceextentityledentry {
-        children[ceextentityledtable.Ceextentityledentry[i].GetSegmentPath()] = &ceextentityledtable.Ceextentityledentry[i]
+        ceextentityledtable.EntityData.Children[types.GetSegmentPath(&ceextentityledtable.Ceextentityledentry[i])] = types.YChild{"Ceextentityledentry", &ceextentityledtable.Ceextentityledentry[i]}
     }
-    return children
+    ceextentityledtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceextentityledtable.EntityData)
 }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetYangName() string { return "ceExtEntityLEDTable" }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) SetParent(parent types.Entity) { ceextentityledtable.parent = parent }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetParent() types.Entity { return ceextentityledtable.parent }
-
-func (ceextentityledtable *CISCOENTITYEXTMIB_Ceextentityledtable) GetParentYangName() string { return "CISCO-ENTITY-EXT-MIB" }
 
 // CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry
 // An entry (conceptual row) in the ceExtEntityLEDTable,
 // containing information about an LED on an entity, identified by 
 // entPhysicalIndex.
 type CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -581,55 +354,23 @@ type CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry struct {
     Ceextentityledcolor interface{}
 }
 
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetFilter() yfilter.YFilter { return ceextentityledentry.YFilter }
+func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetEntityData() *types.CommonEntityData {
+    ceextentityledentry.EntityData.YFilter = ceextentityledentry.YFilter
+    ceextentityledentry.EntityData.YangName = "ceExtEntityLEDEntry"
+    ceextentityledentry.EntityData.BundleName = "cisco_ios_xe"
+    ceextentityledentry.EntityData.ParentYangName = "ceExtEntityLEDTable"
+    ceextentityledentry.EntityData.SegmentPath = "ceExtEntityLEDEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceextentityledentry.Entphysicalindex) + "']" + "[ceExtEntityLEDType='" + fmt.Sprintf("%v", ceextentityledentry.Ceextentityledtype) + "']"
+    ceextentityledentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceextentityledentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceextentityledentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) SetFilter(yf yfilter.YFilter) { ceextentityledentry.YFilter = yf }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "ceExtEntityLEDType" { return "Ceextentityledtype" }
-    if yname == "ceExtEntityLEDColor" { return "Ceextentityledcolor" }
-    return ""
+    ceextentityledentry.EntityData.Children = make(map[string]types.YChild)
+    ceextentityledentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceextentityledentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", ceextentityledentry.Entphysicalindex}
+    ceextentityledentry.EntityData.Leafs["ceExtEntityLEDType"] = types.YLeaf{"Ceextentityledtype", ceextentityledentry.Ceextentityledtype}
+    ceextentityledentry.EntityData.Leafs["ceExtEntityLEDColor"] = types.YLeaf{"Ceextentityledcolor", ceextentityledentry.Ceextentityledcolor}
+    return &(ceextentityledentry.EntityData)
 }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetSegmentPath() string {
-    return "ceExtEntityLEDEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", ceextentityledentry.Entphysicalindex) + "']" + "[ceExtEntityLEDType='" + fmt.Sprintf("%v", ceextentityledentry.Ceextentityledtype) + "']"
-}
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = ceextentityledentry.Entphysicalindex
-    leafs["ceExtEntityLEDType"] = ceextentityledentry.Ceextentityledtype
-    leafs["ceExtEntityLEDColor"] = ceextentityledentry.Ceextentityledcolor
-    return leafs
-}
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetYangName() string { return "ceExtEntityLEDEntry" }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) SetParent(parent types.Entity) { ceextentityledentry.parent = parent }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetParent() types.Entity { return ceextentityledentry.parent }
-
-func (ceextentityledentry *CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry) GetParentYangName() string { return "ceExtEntityLEDTable" }
 
 // CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry_Ceextentityledcolor represents The color of the LED.
 type CISCOENTITYEXTMIB_Ceextentityledtable_Ceextentityledentry_Ceextentityledcolor string

@@ -55,7 +55,7 @@ const (
 // Ipv4Network
 // IPv4 network operational data
 type Ipv4Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node-specific IPv4 network operational data.
@@ -65,64 +65,27 @@ type Ipv4Network struct {
     Interfaces Ipv4Network_Interfaces
 }
 
-func (ipv4Network *Ipv4Network) GetFilter() yfilter.YFilter { return ipv4Network.YFilter }
+func (ipv4Network *Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-io-oper"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-io-oper:ipv4-network"
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Network *Ipv4Network) SetFilter(yf yfilter.YFilter) { ipv4Network.YFilter = yf }
-
-func (ipv4Network *Ipv4Network) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    if yname == "Cisco-IOS-XR-ipv4-ma-oper:interfaces" { return "Interfaces" }
-    return ""
+    ipv4Network.EntityData.Children = make(map[string]types.YChild)
+    ipv4Network.EntityData.Children["nodes"] = types.YChild{"Nodes", &ipv4Network.Nodes}
+    ipv4Network.EntityData.Children["Cisco-IOS-XR-ipv4-ma-oper:interfaces"] = types.YChild{"Interfaces", &ipv4Network.Interfaces}
+    ipv4Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4Network.EntityData)
 }
-
-func (ipv4Network *Ipv4Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-io-oper:ipv4-network"
-}
-
-func (ipv4Network *Ipv4Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &ipv4Network.Nodes
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-ma-oper:interfaces" {
-        return &ipv4Network.Interfaces
-    }
-    return nil
-}
-
-func (ipv4Network *Ipv4Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &ipv4Network.Nodes
-    children["Cisco-IOS-XR-ipv4-ma-oper:interfaces"] = &ipv4Network.Interfaces
-    return children
-}
-
-func (ipv4Network *Ipv4Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4Network *Ipv4Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Network *Ipv4Network) GetYangName() string { return "ipv4-network" }
-
-func (ipv4Network *Ipv4Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Network *Ipv4Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Network *Ipv4Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Network *Ipv4Network) SetParent(parent types.Entity) { ipv4Network.parent = parent }
-
-func (ipv4Network *Ipv4Network) GetParent() types.Entity { return ipv4Network.parent }
-
-func (ipv4Network *Ipv4Network) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-io-oper" }
 
 // Ipv4Network_Nodes
 // Node-specific IPv4 network operational data
 type Ipv4Network_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 network operational data for a particular node. The type is slice of
@@ -130,73 +93,34 @@ type Ipv4Network_Nodes struct {
     Node []Ipv4Network_Nodes_Node
 }
 
-func (nodes *Ipv4Network_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Ipv4Network_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "ipv4-network"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Ipv4Network_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Ipv4Network_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Ipv4Network_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Ipv4Network_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Ipv4Network_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Ipv4Network_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Ipv4Network_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Ipv4Network_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Ipv4Network_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Ipv4Network_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Ipv4Network_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Ipv4Network_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Ipv4Network_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Ipv4Network_Nodes) GetParentYangName() string { return "ipv4-network" }
 
 // Ipv4Network_Nodes_Node
 // IPv4 network operational data for a particular
 // node
 type Ipv4Network_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IPv4 network operational interface data.
@@ -206,66 +130,28 @@ type Ipv4Network_Nodes_Node struct {
     Statistics Ipv4Network_Nodes_Node_Statistics
 }
 
-func (node *Ipv4Network_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Ipv4Network_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Ipv4Network_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Ipv4Network_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "interface-data" { return "InterfaceData" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["interface-data"] = types.YChild{"InterfaceData", &node.InterfaceData}
+    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Ipv4Network_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Ipv4Network_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-data" {
-        return &node.InterfaceData
-    }
-    if childYangName == "statistics" {
-        return &node.Statistics
-    }
-    return nil
-}
-
-func (node *Ipv4Network_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-data"] = &node.InterfaceData
-    children["statistics"] = &node.Statistics
-    return children
-}
-
-func (node *Ipv4Network_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Ipv4Network_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Ipv4Network_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Ipv4Network_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Ipv4Network_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Ipv4Network_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Ipv4Network_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Ipv4Network_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Ipv4Network_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Ipv4Network_Nodes_Node_InterfaceData
 // IPv4 network operational interface data
 type Ipv4Network_Nodes_Node_InterfaceData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF specific IPv4 network operational interface data.
@@ -275,65 +161,28 @@ type Ipv4Network_Nodes_Node_InterfaceData struct {
     Summary Ipv4Network_Nodes_Node_InterfaceData_Summary
 }
 
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetFilter() yfilter.YFilter { return interfaceData.YFilter }
+func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetEntityData() *types.CommonEntityData {
+    interfaceData.EntityData.YFilter = interfaceData.YFilter
+    interfaceData.EntityData.YangName = "interface-data"
+    interfaceData.EntityData.BundleName = "cisco_ios_xr"
+    interfaceData.EntityData.ParentYangName = "node"
+    interfaceData.EntityData.SegmentPath = "interface-data"
+    interfaceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) SetFilter(yf yfilter.YFilter) { interfaceData.YFilter = yf }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetGoName(yname string) string {
-    if yname == "vrfs" { return "Vrfs" }
-    if yname == "summary" { return "Summary" }
-    return ""
+    interfaceData.EntityData.Children = make(map[string]types.YChild)
+    interfaceData.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &interfaceData.Vrfs}
+    interfaceData.EntityData.Children["summary"] = types.YChild{"Summary", &interfaceData.Summary}
+    interfaceData.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceData.EntityData)
 }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetSegmentPath() string {
-    return "interface-data"
-}
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrfs" {
-        return &interfaceData.Vrfs
-    }
-    if childYangName == "summary" {
-        return &interfaceData.Summary
-    }
-    return nil
-}
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vrfs"] = &interfaceData.Vrfs
-    children["summary"] = &interfaceData.Summary
-    return children
-}
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetYangName() string { return "interface-data" }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) SetParent(parent types.Entity) { interfaceData.parent = parent }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetParent() types.Entity { return interfaceData.parent }
-
-func (interfaceData *Ipv4Network_Nodes_Node_InterfaceData) GetParentYangName() string { return "node" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs
 // VRF specific IPv4 network operational
 // interface data
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF name of an interface belong to. The type is slice of
@@ -341,72 +190,33 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs struct {
     Vrf []Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf
 }
 
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "interface-data"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs) GetParentYangName() string { return "interface-data" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf
 // VRF name of an interface belong to
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Brief interface IPv4 network operational data for a node.
@@ -416,67 +226,29 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf struct {
     Details Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details
 }
 
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "briefs" { return "Briefs" }
-    if yname == "details" { return "Details" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["briefs"] = types.YChild{"Briefs", &vrf.Briefs}
+    vrf.EntityData.Children["details"] = types.YChild{"Details", &vrf.Details}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "briefs" {
-        return &vrf.Briefs
-    }
-    if childYangName == "details" {
-        return &vrf.Details
-    }
-    return nil
-}
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["briefs"] = &vrf.Briefs
-    children["details"] = &vrf.Details
-    return children
-}
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs
 // Brief interface IPv4 network operational
 // data for a node
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Brief interface IPv4 network operational data for an interface. The type is
@@ -484,77 +256,38 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs struct {
     Brief []Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief
 }
 
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetFilter() yfilter.YFilter { return briefs.YFilter }
+func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetEntityData() *types.CommonEntityData {
+    briefs.EntityData.YFilter = briefs.YFilter
+    briefs.EntityData.YangName = "briefs"
+    briefs.EntityData.BundleName = "cisco_ios_xr"
+    briefs.EntityData.ParentYangName = "vrf"
+    briefs.EntityData.SegmentPath = "briefs"
+    briefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    briefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    briefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) SetFilter(yf yfilter.YFilter) { briefs.YFilter = yf }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetGoName(yname string) string {
-    if yname == "brief" { return "Brief" }
-    return ""
-}
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetSegmentPath() string {
-    return "briefs"
-}
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "brief" {
-        for _, c := range briefs.Brief {
-            if briefs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief{}
-        briefs.Brief = append(briefs.Brief, child)
-        return &briefs.Brief[len(briefs.Brief)-1]
-    }
-    return nil
-}
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    briefs.EntityData.Children = make(map[string]types.YChild)
+    briefs.EntityData.Children["brief"] = types.YChild{"Brief", nil}
     for i := range briefs.Brief {
-        children[briefs.Brief[i].GetSegmentPath()] = &briefs.Brief[i]
+        briefs.EntityData.Children[types.GetSegmentPath(&briefs.Brief[i])] = types.YChild{"Brief", &briefs.Brief[i]}
     }
-    return children
+    briefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(briefs.EntityData)
 }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetYangName() string { return "briefs" }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) SetParent(parent types.Entity) { briefs.parent = parent }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetParent() types.Entity { return briefs.parent }
-
-func (briefs *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs) GetParentYangName() string { return "vrf" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief
 // Brief interface IPv4 network operational
 // data for an interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -567,65 +300,31 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief struct {
     LineState interface{}
 }
 
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetFilter() yfilter.YFilter { return brief.YFilter }
+func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetEntityData() *types.CommonEntityData {
+    brief.EntityData.YFilter = brief.YFilter
+    brief.EntityData.YangName = "brief"
+    brief.EntityData.BundleName = "cisco_ios_xr"
+    brief.EntityData.ParentYangName = "briefs"
+    brief.EntityData.SegmentPath = "brief" + "[interface-name='" + fmt.Sprintf("%v", brief.InterfaceName) + "']"
+    brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) SetFilter(yf yfilter.YFilter) { brief.YFilter = yf }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "primary-address" { return "PrimaryAddress" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "line-state" { return "LineState" }
-    return ""
+    brief.EntityData.Children = make(map[string]types.YChild)
+    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", brief.InterfaceName}
+    brief.EntityData.Leafs["primary-address"] = types.YLeaf{"PrimaryAddress", brief.PrimaryAddress}
+    brief.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", brief.VrfId}
+    brief.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", brief.VrfName}
+    brief.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", brief.LineState}
+    return &(brief.EntityData)
 }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetSegmentPath() string {
-    return "brief" + "[interface-name='" + fmt.Sprintf("%v", brief.InterfaceName) + "']"
-}
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = brief.InterfaceName
-    leafs["primary-address"] = brief.PrimaryAddress
-    leafs["vrf-id"] = brief.VrfId
-    leafs["vrf-name"] = brief.VrfName
-    leafs["line-state"] = brief.LineState
-    return leafs
-}
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetBundleName() string { return "cisco_ios_xr" }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetYangName() string { return "brief" }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) SetParent(parent types.Entity) { brief.parent = parent }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetParent() types.Entity { return brief.parent }
-
-func (brief *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief) GetParentYangName() string { return "briefs" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details
 // Detail interface IPv4 network operational
 // data for a node
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Detail interface IPv4 network operational data for an interface. The type
@@ -633,77 +332,38 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details struct {
     Detail []Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail
 }
 
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetFilter() yfilter.YFilter { return details.YFilter }
+func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetEntityData() *types.CommonEntityData {
+    details.EntityData.YFilter = details.YFilter
+    details.EntityData.YangName = "details"
+    details.EntityData.BundleName = "cisco_ios_xr"
+    details.EntityData.ParentYangName = "vrf"
+    details.EntityData.SegmentPath = "details"
+    details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) SetFilter(yf yfilter.YFilter) { details.YFilter = yf }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetGoName(yname string) string {
-    if yname == "detail" { return "Detail" }
-    return ""
-}
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetSegmentPath() string {
-    return "details"
-}
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "detail" {
-        for _, c := range details.Detail {
-            if details.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail{}
-        details.Detail = append(details.Detail, child)
-        return &details.Detail[len(details.Detail)-1]
-    }
-    return nil
-}
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    details.EntityData.Children = make(map[string]types.YChild)
+    details.EntityData.Children["detail"] = types.YChild{"Detail", nil}
     for i := range details.Detail {
-        children[details.Detail[i].GetSegmentPath()] = &details.Detail[i]
+        details.EntityData.Children[types.GetSegmentPath(&details.Detail[i])] = types.YChild{"Detail", &details.Detail[i]}
     }
-    return children
+    details.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(details.EntityData)
 }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetBundleName() string { return "cisco_ios_xr" }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetYangName() string { return "details" }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) SetParent(parent types.Entity) { details.parent = parent }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetParent() types.Entity { return details.parent }
-
-func (details *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details) GetParentYangName() string { return "vrf" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail
 // Detail interface IPv4 network operational
 // data for an interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -792,166 +452,60 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     SecondaryAddress []Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress
 }
 
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetFilter() yfilter.YFilter { return detail.YFilter }
+func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetEntityData() *types.CommonEntityData {
+    detail.EntityData.YFilter = detail.YFilter
+    detail.EntityData.YangName = "detail"
+    detail.EntityData.BundleName = "cisco_ios_xr"
+    detail.EntityData.ParentYangName = "details"
+    detail.EntityData.SegmentPath = "detail" + "[interface-name='" + fmt.Sprintf("%v", detail.InterfaceName) + "']"
+    detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) SetFilter(yf yfilter.YFilter) { detail.YFilter = yf }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "primary-address" { return "PrimaryAddress" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "line-state" { return "LineState" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "route-tag" { return "RouteTag" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "unreachable" { return "Unreachable" }
-    if yname == "redirect" { return "Redirect" }
-    if yname == "direct-broadcast" { return "DirectBroadcast" }
-    if yname == "mask-reply" { return "MaskReply" }
-    if yname == "rg-id-exists" { return "RgIdExists" }
-    if yname == "mlacp-active" { return "MlacpActive" }
-    if yname == "unnumbered-interface-name" { return "UnnumberedInterfaceName" }
-    if yname == "proxy-arp-disabled" { return "ProxyArpDisabled" }
-    if yname == "flow-tag-src" { return "FlowTagSrc" }
-    if yname == "flow-tag-dst" { return "FlowTagDst" }
-    if yname == "acl" { return "Acl" }
-    if yname == "multi-acl" { return "MultiAcl" }
-    if yname == "helper-address" { return "HelperAddress" }
-    if yname == "rpf" { return "Rpf" }
-    if yname == "bgp-pa" { return "BgpPa" }
-    if yname == "pub-utime" { return "PubUtime" }
-    if yname == "idb-utime" { return "IdbUtime" }
-    if yname == "caps-utime" { return "CapsUtime" }
-    if yname == "fwd-en-utime" { return "FwdEnUtime" }
-    if yname == "fwd-dis-utime" { return "FwdDisUtime" }
-    if yname == "multicast-group" { return "MulticastGroup" }
-    if yname == "secondary-address" { return "SecondaryAddress" }
-    return ""
-}
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetSegmentPath() string {
-    return "detail" + "[interface-name='" + fmt.Sprintf("%v", detail.InterfaceName) + "']"
-}
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "acl" {
-        return &detail.Acl
-    }
-    if childYangName == "multi-acl" {
-        return &detail.MultiAcl
-    }
-    if childYangName == "helper-address" {
-        return &detail.HelperAddress
-    }
-    if childYangName == "rpf" {
-        return &detail.Rpf
-    }
-    if childYangName == "bgp-pa" {
-        return &detail.BgpPa
-    }
-    if childYangName == "pub-utime" {
-        return &detail.PubUtime
-    }
-    if childYangName == "idb-utime" {
-        return &detail.IdbUtime
-    }
-    if childYangName == "caps-utime" {
-        return &detail.CapsUtime
-    }
-    if childYangName == "fwd-en-utime" {
-        return &detail.FwdEnUtime
-    }
-    if childYangName == "fwd-dis-utime" {
-        return &detail.FwdDisUtime
-    }
-    if childYangName == "multicast-group" {
-        for _, c := range detail.MulticastGroup {
-            if detail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup{}
-        detail.MulticastGroup = append(detail.MulticastGroup, child)
-        return &detail.MulticastGroup[len(detail.MulticastGroup)-1]
-    }
-    if childYangName == "secondary-address" {
-        for _, c := range detail.SecondaryAddress {
-            if detail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress{}
-        detail.SecondaryAddress = append(detail.SecondaryAddress, child)
-        return &detail.SecondaryAddress[len(detail.SecondaryAddress)-1]
-    }
-    return nil
-}
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["acl"] = &detail.Acl
-    children["multi-acl"] = &detail.MultiAcl
-    children["helper-address"] = &detail.HelperAddress
-    children["rpf"] = &detail.Rpf
-    children["bgp-pa"] = &detail.BgpPa
-    children["pub-utime"] = &detail.PubUtime
-    children["idb-utime"] = &detail.IdbUtime
-    children["caps-utime"] = &detail.CapsUtime
-    children["fwd-en-utime"] = &detail.FwdEnUtime
-    children["fwd-dis-utime"] = &detail.FwdDisUtime
+    detail.EntityData.Children = make(map[string]types.YChild)
+    detail.EntityData.Children["acl"] = types.YChild{"Acl", &detail.Acl}
+    detail.EntityData.Children["multi-acl"] = types.YChild{"MultiAcl", &detail.MultiAcl}
+    detail.EntityData.Children["helper-address"] = types.YChild{"HelperAddress", &detail.HelperAddress}
+    detail.EntityData.Children["rpf"] = types.YChild{"Rpf", &detail.Rpf}
+    detail.EntityData.Children["bgp-pa"] = types.YChild{"BgpPa", &detail.BgpPa}
+    detail.EntityData.Children["pub-utime"] = types.YChild{"PubUtime", &detail.PubUtime}
+    detail.EntityData.Children["idb-utime"] = types.YChild{"IdbUtime", &detail.IdbUtime}
+    detail.EntityData.Children["caps-utime"] = types.YChild{"CapsUtime", &detail.CapsUtime}
+    detail.EntityData.Children["fwd-en-utime"] = types.YChild{"FwdEnUtime", &detail.FwdEnUtime}
+    detail.EntityData.Children["fwd-dis-utime"] = types.YChild{"FwdDisUtime", &detail.FwdDisUtime}
+    detail.EntityData.Children["multicast-group"] = types.YChild{"MulticastGroup", nil}
     for i := range detail.MulticastGroup {
-        children[detail.MulticastGroup[i].GetSegmentPath()] = &detail.MulticastGroup[i]
+        detail.EntityData.Children[types.GetSegmentPath(&detail.MulticastGroup[i])] = types.YChild{"MulticastGroup", &detail.MulticastGroup[i]}
     }
+    detail.EntityData.Children["secondary-address"] = types.YChild{"SecondaryAddress", nil}
     for i := range detail.SecondaryAddress {
-        children[detail.SecondaryAddress[i].GetSegmentPath()] = &detail.SecondaryAddress[i]
+        detail.EntityData.Children[types.GetSegmentPath(&detail.SecondaryAddress[i])] = types.YChild{"SecondaryAddress", &detail.SecondaryAddress[i]}
     }
-    return children
+    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", detail.InterfaceName}
+    detail.EntityData.Leafs["primary-address"] = types.YLeaf{"PrimaryAddress", detail.PrimaryAddress}
+    detail.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", detail.VrfId}
+    detail.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", detail.LineState}
+    detail.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", detail.PrefixLength}
+    detail.EntityData.Leafs["route-tag"] = types.YLeaf{"RouteTag", detail.RouteTag}
+    detail.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", detail.Mtu}
+    detail.EntityData.Leafs["unreachable"] = types.YLeaf{"Unreachable", detail.Unreachable}
+    detail.EntityData.Leafs["redirect"] = types.YLeaf{"Redirect", detail.Redirect}
+    detail.EntityData.Leafs["direct-broadcast"] = types.YLeaf{"DirectBroadcast", detail.DirectBroadcast}
+    detail.EntityData.Leafs["mask-reply"] = types.YLeaf{"MaskReply", detail.MaskReply}
+    detail.EntityData.Leafs["rg-id-exists"] = types.YLeaf{"RgIdExists", detail.RgIdExists}
+    detail.EntityData.Leafs["mlacp-active"] = types.YLeaf{"MlacpActive", detail.MlacpActive}
+    detail.EntityData.Leafs["unnumbered-interface-name"] = types.YLeaf{"UnnumberedInterfaceName", detail.UnnumberedInterfaceName}
+    detail.EntityData.Leafs["proxy-arp-disabled"] = types.YLeaf{"ProxyArpDisabled", detail.ProxyArpDisabled}
+    detail.EntityData.Leafs["flow-tag-src"] = types.YLeaf{"FlowTagSrc", detail.FlowTagSrc}
+    detail.EntityData.Leafs["flow-tag-dst"] = types.YLeaf{"FlowTagDst", detail.FlowTagDst}
+    return &(detail.EntityData)
 }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = detail.InterfaceName
-    leafs["primary-address"] = detail.PrimaryAddress
-    leafs["vrf-id"] = detail.VrfId
-    leafs["line-state"] = detail.LineState
-    leafs["prefix-length"] = detail.PrefixLength
-    leafs["route-tag"] = detail.RouteTag
-    leafs["mtu"] = detail.Mtu
-    leafs["unreachable"] = detail.Unreachable
-    leafs["redirect"] = detail.Redirect
-    leafs["direct-broadcast"] = detail.DirectBroadcast
-    leafs["mask-reply"] = detail.MaskReply
-    leafs["rg-id-exists"] = detail.RgIdExists
-    leafs["mlacp-active"] = detail.MlacpActive
-    leafs["unnumbered-interface-name"] = detail.UnnumberedInterfaceName
-    leafs["proxy-arp-disabled"] = detail.ProxyArpDisabled
-    leafs["flow-tag-src"] = detail.FlowTagSrc
-    leafs["flow-tag-dst"] = detail.FlowTagDst
-    return leafs
-}
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetYangName() string { return "detail" }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) SetParent(parent types.Entity) { detail.parent = parent }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetParent() types.Entity { return detail.parent }
-
-func (detail *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetParentYangName() string { return "details" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl
 // ACLs configured on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ACL applied to incoming packets. The type is string.
@@ -967,62 +521,29 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl struct {
     CommonOutBound interface{}
 }
 
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetFilter() yfilter.YFilter { return acl.YFilter }
+func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetEntityData() *types.CommonEntityData {
+    acl.EntityData.YFilter = acl.YFilter
+    acl.EntityData.YangName = "acl"
+    acl.EntityData.BundleName = "cisco_ios_xr"
+    acl.EntityData.ParentYangName = "detail"
+    acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) SetFilter(yf yfilter.YFilter) { acl.YFilter = yf }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    if yname == "common-in-bound" { return "CommonInBound" }
-    if yname == "common-out-bound" { return "CommonOutBound" }
-    return ""
+    acl.EntityData.Children = make(map[string]types.YChild)
+    acl.EntityData.Leafs = make(map[string]types.YLeaf)
+    acl.EntityData.Leafs["inbound"] = types.YLeaf{"Inbound", acl.Inbound}
+    acl.EntityData.Leafs["outbound"] = types.YLeaf{"Outbound", acl.Outbound}
+    acl.EntityData.Leafs["common-in-bound"] = types.YLeaf{"CommonInBound", acl.CommonInBound}
+    acl.EntityData.Leafs["common-out-bound"] = types.YLeaf{"CommonOutBound", acl.CommonOutBound}
+    return &(acl.EntityData)
 }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetSegmentPath() string {
-    return "acl"
-}
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["inbound"] = acl.Inbound
-    leafs["outbound"] = acl.Outbound
-    leafs["common-in-bound"] = acl.CommonInBound
-    leafs["common-out-bound"] = acl.CommonOutBound
-    return leafs
-}
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetYangName() string { return "acl" }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) SetParent(parent types.Entity) { acl.parent = parent }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetParent() types.Entity { return acl.parent }
-
-func (acl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Acl) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl
 // Multi ACLs configured on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inbound ACLs. The type is slice of
@@ -1038,264 +559,115 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl struc
     Common []Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common
 }
 
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetFilter() yfilter.YFilter { return multiAcl.YFilter }
+func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetEntityData() *types.CommonEntityData {
+    multiAcl.EntityData.YFilter = multiAcl.YFilter
+    multiAcl.EntityData.YangName = "multi-acl"
+    multiAcl.EntityData.BundleName = "cisco_ios_xr"
+    multiAcl.EntityData.ParentYangName = "detail"
+    multiAcl.EntityData.SegmentPath = "multi-acl"
+    multiAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multiAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multiAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) SetFilter(yf yfilter.YFilter) { multiAcl.YFilter = yf }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    if yname == "common" { return "Common" }
-    return ""
-}
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetSegmentPath() string {
-    return "multi-acl"
-}
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "inbound" {
-        for _, c := range multiAcl.Inbound {
-            if multiAcl.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound{}
-        multiAcl.Inbound = append(multiAcl.Inbound, child)
-        return &multiAcl.Inbound[len(multiAcl.Inbound)-1]
-    }
-    if childYangName == "outbound" {
-        for _, c := range multiAcl.Outbound {
-            if multiAcl.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound{}
-        multiAcl.Outbound = append(multiAcl.Outbound, child)
-        return &multiAcl.Outbound[len(multiAcl.Outbound)-1]
-    }
-    if childYangName == "common" {
-        for _, c := range multiAcl.Common {
-            if multiAcl.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common{}
-        multiAcl.Common = append(multiAcl.Common, child)
-        return &multiAcl.Common[len(multiAcl.Common)-1]
-    }
-    return nil
-}
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    multiAcl.EntityData.Children = make(map[string]types.YChild)
+    multiAcl.EntityData.Children["inbound"] = types.YChild{"Inbound", nil}
     for i := range multiAcl.Inbound {
-        children[multiAcl.Inbound[i].GetSegmentPath()] = &multiAcl.Inbound[i]
+        multiAcl.EntityData.Children[types.GetSegmentPath(&multiAcl.Inbound[i])] = types.YChild{"Inbound", &multiAcl.Inbound[i]}
     }
+    multiAcl.EntityData.Children["outbound"] = types.YChild{"Outbound", nil}
     for i := range multiAcl.Outbound {
-        children[multiAcl.Outbound[i].GetSegmentPath()] = &multiAcl.Outbound[i]
+        multiAcl.EntityData.Children[types.GetSegmentPath(&multiAcl.Outbound[i])] = types.YChild{"Outbound", &multiAcl.Outbound[i]}
     }
+    multiAcl.EntityData.Children["common"] = types.YChild{"Common", nil}
     for i := range multiAcl.Common {
-        children[multiAcl.Common[i].GetSegmentPath()] = &multiAcl.Common[i]
+        multiAcl.EntityData.Children[types.GetSegmentPath(&multiAcl.Common[i])] = types.YChild{"Common", &multiAcl.Common[i]}
     }
-    return children
+    multiAcl.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(multiAcl.EntityData)
 }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetYangName() string { return "multi-acl" }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) SetParent(parent types.Entity) { multiAcl.parent = parent }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetParent() types.Entity { return multiAcl.parent }
-
-func (multiAcl *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound
 // Inbound ACLs
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is string.
     Entry interface{}
 }
 
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "multi-acl"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetGoName(yname string) string {
-    if yname == "entry" { return "Entry" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["entry"] = types.YLeaf{"Entry", inbound.Entry}
+    return &(inbound.EntityData)
 }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entry"] = inbound.Entry
-    return leafs
-}
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Inbound) GetParentYangName() string { return "multi-acl" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound
 // Outbound ACLs
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is string.
     Entry interface{}
 }
 
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "multi-acl"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetGoName(yname string) string {
-    if yname == "entry" { return "Entry" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["entry"] = types.YLeaf{"Entry", outbound.Entry}
+    return &(outbound.EntityData)
 }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entry"] = outbound.Entry
-    return leafs
-}
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Outbound) GetParentYangName() string { return "multi-acl" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common
 // Common ACLs
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is string.
     Entry interface{}
 }
 
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetFilter() yfilter.YFilter { return common.YFilter }
+func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetEntityData() *types.CommonEntityData {
+    common.EntityData.YFilter = common.YFilter
+    common.EntityData.YangName = "common"
+    common.EntityData.BundleName = "cisco_ios_xr"
+    common.EntityData.ParentYangName = "multi-acl"
+    common.EntityData.SegmentPath = "common"
+    common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) SetFilter(yf yfilter.YFilter) { common.YFilter = yf }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetGoName(yname string) string {
-    if yname == "entry" { return "Entry" }
-    return ""
+    common.EntityData.Children = make(map[string]types.YChild)
+    common.EntityData.Leafs = make(map[string]types.YLeaf)
+    common.EntityData.Leafs["entry"] = types.YLeaf{"Entry", common.Entry}
+    return &(common.EntityData)
 }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetSegmentPath() string {
-    return "common"
-}
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entry"] = common.Entry
-    return leafs
-}
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetBundleName() string { return "cisco_ios_xr" }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetYangName() string { return "common" }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) SetParent(parent types.Entity) { common.parent = parent }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetParent() types.Entity { return common.parent }
-
-func (common *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAcl_Common) GetParentYangName() string { return "multi-acl" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress
 // Helper Addresses configured on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Helper address. The type is slice of
@@ -1303,125 +675,56 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress 
     AddressArray []Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray
 }
 
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetFilter() yfilter.YFilter { return helperAddress.YFilter }
+func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetEntityData() *types.CommonEntityData {
+    helperAddress.EntityData.YFilter = helperAddress.YFilter
+    helperAddress.EntityData.YangName = "helper-address"
+    helperAddress.EntityData.BundleName = "cisco_ios_xr"
+    helperAddress.EntityData.ParentYangName = "detail"
+    helperAddress.EntityData.SegmentPath = "helper-address"
+    helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) SetFilter(yf yfilter.YFilter) { helperAddress.YFilter = yf }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetGoName(yname string) string {
-    if yname == "address-array" { return "AddressArray" }
-    return ""
-}
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetSegmentPath() string {
-    return "helper-address"
-}
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "address-array" {
-        for _, c := range helperAddress.AddressArray {
-            if helperAddress.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray{}
-        helperAddress.AddressArray = append(helperAddress.AddressArray, child)
-        return &helperAddress.AddressArray[len(helperAddress.AddressArray)-1]
-    }
-    return nil
-}
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    helperAddress.EntityData.Children = make(map[string]types.YChild)
+    helperAddress.EntityData.Children["address-array"] = types.YChild{"AddressArray", nil}
     for i := range helperAddress.AddressArray {
-        children[helperAddress.AddressArray[i].GetSegmentPath()] = &helperAddress.AddressArray[i]
+        helperAddress.EntityData.Children[types.GetSegmentPath(&helperAddress.AddressArray[i])] = types.YChild{"AddressArray", &helperAddress.AddressArray[i]}
     }
-    return children
+    helperAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(helperAddress.EntityData)
 }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetYangName() string { return "helper-address" }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) SetParent(parent types.Entity) { helperAddress.parent = parent }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetParent() types.Entity { return helperAddress.parent }
-
-func (helperAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray
 // Helper address
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Entry interface{}
 }
 
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetFilter() yfilter.YFilter { return addressArray.YFilter }
+func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetEntityData() *types.CommonEntityData {
+    addressArray.EntityData.YFilter = addressArray.YFilter
+    addressArray.EntityData.YangName = "address-array"
+    addressArray.EntityData.BundleName = "cisco_ios_xr"
+    addressArray.EntityData.ParentYangName = "helper-address"
+    addressArray.EntityData.SegmentPath = "address-array"
+    addressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) SetFilter(yf yfilter.YFilter) { addressArray.YFilter = yf }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetGoName(yname string) string {
-    if yname == "entry" { return "Entry" }
-    return ""
+    addressArray.EntityData.Children = make(map[string]types.YChild)
+    addressArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressArray.EntityData.Leafs["entry"] = types.YLeaf{"Entry", addressArray.Entry}
+    return &(addressArray.EntityData)
 }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetSegmentPath() string {
-    return "address-array"
-}
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entry"] = addressArray.Entry
-    return leafs
-}
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetYangName() string { return "address-array" }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) SetParent(parent types.Entity) { addressArray.parent = parent }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetParent() types.Entity { return addressArray.parent }
-
-func (addressArray *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_HelperAddress_AddressArray) GetParentYangName() string { return "helper-address" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf
 // RPF config on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable RPF config. The type is bool.
@@ -1437,62 +740,29 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf struct {
     Mode interface{}
 }
 
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetFilter() yfilter.YFilter { return rpf.YFilter }
+func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetEntityData() *types.CommonEntityData {
+    rpf.EntityData.YFilter = rpf.YFilter
+    rpf.EntityData.YangName = "rpf"
+    rpf.EntityData.BundleName = "cisco_ios_xr"
+    rpf.EntityData.ParentYangName = "detail"
+    rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) SetFilter(yf yfilter.YFilter) { rpf.YFilter = yf }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "allow-default-route" { return "AllowDefaultRoute" }
-    if yname == "allow-self-ping" { return "AllowSelfPing" }
-    if yname == "mode" { return "Mode" }
-    return ""
+    rpf.EntityData.Children = make(map[string]types.YChild)
+    rpf.EntityData.Leafs = make(map[string]types.YLeaf)
+    rpf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpf.Enable}
+    rpf.EntityData.Leafs["allow-default-route"] = types.YLeaf{"AllowDefaultRoute", rpf.AllowDefaultRoute}
+    rpf.EntityData.Leafs["allow-self-ping"] = types.YLeaf{"AllowSelfPing", rpf.AllowSelfPing}
+    rpf.EntityData.Leafs["mode"] = types.YLeaf{"Mode", rpf.Mode}
+    return &(rpf.EntityData)
 }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetSegmentPath() string {
-    return "rpf"
-}
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = rpf.Enable
-    leafs["allow-default-route"] = rpf.AllowDefaultRoute
-    leafs["allow-self-ping"] = rpf.AllowSelfPing
-    leafs["mode"] = rpf.Mode
-    return leafs
-}
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetYangName() string { return "rpf" }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) SetParent(parent types.Entity) { rpf.parent = parent }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetParent() types.Entity { return rpf.parent }
-
-func (rpf *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Rpf) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa
 // BGP PA config on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // BGP PA input config.
@@ -1502,64 +772,27 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa struct {
     Output Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output
 }
 
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetFilter() yfilter.YFilter { return bgpPa.YFilter }
+func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetEntityData() *types.CommonEntityData {
+    bgpPa.EntityData.YFilter = bgpPa.YFilter
+    bgpPa.EntityData.YangName = "bgp-pa"
+    bgpPa.EntityData.BundleName = "cisco_ios_xr"
+    bgpPa.EntityData.ParentYangName = "detail"
+    bgpPa.EntityData.SegmentPath = "bgp-pa"
+    bgpPa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgpPa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgpPa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) SetFilter(yf yfilter.YFilter) { bgpPa.YFilter = yf }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    bgpPa.EntityData.Children = make(map[string]types.YChild)
+    bgpPa.EntityData.Children["input"] = types.YChild{"Input", &bgpPa.Input}
+    bgpPa.EntityData.Children["output"] = types.YChild{"Output", &bgpPa.Output}
+    bgpPa.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpPa.EntityData)
 }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetSegmentPath() string {
-    return "bgp-pa"
-}
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &bgpPa.Input
-    }
-    if childYangName == "output" {
-        return &bgpPa.Output
-    }
-    return nil
-}
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &bgpPa.Input
-    children["output"] = &bgpPa.Output
-    return children
-}
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetYangName() string { return "bgp-pa" }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) SetParent(parent types.Entity) { bgpPa.parent = parent }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetParent() types.Entity { return bgpPa.parent }
-
-func (bgpPa *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input
 // BGP PA input config
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable BGP PA for ingress/egress. The type is bool.
@@ -1572,60 +805,28 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input st
     Destination interface{}
 }
 
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "bgp-pa"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "source" { return "Source" }
-    if yname == "destination" { return "Destination" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["enable"] = types.YLeaf{"Enable", input.Enable}
+    input.EntityData.Leafs["source"] = types.YLeaf{"Source", input.Source}
+    input.EntityData.Leafs["destination"] = types.YLeaf{"Destination", input.Destination}
+    return &(input.EntityData)
 }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = input.Enable
-    leafs["source"] = input.Source
-    leafs["destination"] = input.Destination
-    return leafs
-}
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetYangName() string { return "input" }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Input) GetParentYangName() string { return "bgp-pa" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output
 // BGP PA output config
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable BGP PA for ingress/egress. The type is bool.
@@ -1638,376 +839,169 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output s
     Destination interface{}
 }
 
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "bgp-pa"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "source" { return "Source" }
-    if yname == "destination" { return "Destination" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["enable"] = types.YLeaf{"Enable", output.Enable}
+    output.EntityData.Leafs["source"] = types.YLeaf{"Source", output.Source}
+    output.EntityData.Leafs["destination"] = types.YLeaf{"Destination", output.Destination}
+    return &(output.EntityData)
 }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = output.Enable
-    leafs["source"] = output.Source
-    leafs["destination"] = output.Destination
-    return leafs
-}
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetYangName() string { return "output" }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa_Output) GetParentYangName() string { return "bgp-pa" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime
 // Address Publish Time
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetFilter() yfilter.YFilter { return pubUtime.YFilter }
+func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetEntityData() *types.CommonEntityData {
+    pubUtime.EntityData.YFilter = pubUtime.YFilter
+    pubUtime.EntityData.YangName = "pub-utime"
+    pubUtime.EntityData.BundleName = "cisco_ios_xr"
+    pubUtime.EntityData.ParentYangName = "detail"
+    pubUtime.EntityData.SegmentPath = "pub-utime"
+    pubUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pubUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pubUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) SetFilter(yf yfilter.YFilter) { pubUtime.YFilter = yf }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetGoName(yname string) string {
-    return ""
+    pubUtime.EntityData.Children = make(map[string]types.YChild)
+    pubUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pubUtime.EntityData)
 }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetSegmentPath() string {
-    return "pub-utime"
-}
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetYangName() string { return "pub-utime" }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) SetParent(parent types.Entity) { pubUtime.parent = parent }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetParent() types.Entity { return pubUtime.parent }
-
-func (pubUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_PubUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime
 // IDB Create Time
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetFilter() yfilter.YFilter { return idbUtime.YFilter }
+func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetEntityData() *types.CommonEntityData {
+    idbUtime.EntityData.YFilter = idbUtime.YFilter
+    idbUtime.EntityData.YangName = "idb-utime"
+    idbUtime.EntityData.BundleName = "cisco_ios_xr"
+    idbUtime.EntityData.ParentYangName = "detail"
+    idbUtime.EntityData.SegmentPath = "idb-utime"
+    idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) SetFilter(yf yfilter.YFilter) { idbUtime.YFilter = yf }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetGoName(yname string) string {
-    return ""
+    idbUtime.EntityData.Children = make(map[string]types.YChild)
+    idbUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(idbUtime.EntityData)
 }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetSegmentPath() string {
-    return "idb-utime"
-}
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetYangName() string { return "idb-utime" }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) SetParent(parent types.Entity) { idbUtime.parent = parent }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetParent() types.Entity { return idbUtime.parent }
-
-func (idbUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime
 // CAPS Add Time
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetFilter() yfilter.YFilter { return capsUtime.YFilter }
+func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetEntityData() *types.CommonEntityData {
+    capsUtime.EntityData.YFilter = capsUtime.YFilter
+    capsUtime.EntityData.YangName = "caps-utime"
+    capsUtime.EntityData.BundleName = "cisco_ios_xr"
+    capsUtime.EntityData.ParentYangName = "detail"
+    capsUtime.EntityData.SegmentPath = "caps-utime"
+    capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) SetFilter(yf yfilter.YFilter) { capsUtime.YFilter = yf }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetGoName(yname string) string {
-    return ""
+    capsUtime.EntityData.Children = make(map[string]types.YChild)
+    capsUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(capsUtime.EntityData)
 }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetSegmentPath() string {
-    return "caps-utime"
-}
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetYangName() string { return "caps-utime" }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) SetParent(parent types.Entity) { capsUtime.parent = parent }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetParent() types.Entity { return capsUtime.parent }
-
-func (capsUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime
 // FWD ENABLE Time
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetFilter() yfilter.YFilter { return fwdEnUtime.YFilter }
+func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetEntityData() *types.CommonEntityData {
+    fwdEnUtime.EntityData.YFilter = fwdEnUtime.YFilter
+    fwdEnUtime.EntityData.YangName = "fwd-en-utime"
+    fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdEnUtime.EntityData.ParentYangName = "detail"
+    fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
+    fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) SetFilter(yf yfilter.YFilter) { fwdEnUtime.YFilter = yf }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetGoName(yname string) string {
-    return ""
+    fwdEnUtime.EntityData.Children = make(map[string]types.YChild)
+    fwdEnUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fwdEnUtime.EntityData)
 }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetSegmentPath() string {
-    return "fwd-en-utime"
-}
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetYangName() string { return "fwd-en-utime" }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) SetParent(parent types.Entity) { fwdEnUtime.parent = parent }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetParent() types.Entity { return fwdEnUtime.parent }
-
-func (fwdEnUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime
 // FWD DISABLE Time
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetFilter() yfilter.YFilter { return fwdDisUtime.YFilter }
+func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetEntityData() *types.CommonEntityData {
+    fwdDisUtime.EntityData.YFilter = fwdDisUtime.YFilter
+    fwdDisUtime.EntityData.YangName = "fwd-dis-utime"
+    fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdDisUtime.EntityData.ParentYangName = "detail"
+    fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
+    fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) SetFilter(yf yfilter.YFilter) { fwdDisUtime.YFilter = yf }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetGoName(yname string) string {
-    return ""
+    fwdDisUtime.EntityData.Children = make(map[string]types.YChild)
+    fwdDisUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fwdDisUtime.EntityData)
 }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetSegmentPath() string {
-    return "fwd-dis-utime"
-}
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetYangName() string { return "fwd-dis-utime" }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) SetParent(parent types.Entity) { fwdDisUtime.parent = parent }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetParent() types.Entity { return fwdDisUtime.parent }
-
-func (fwdDisUtime *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup
 // Multicast groups joined on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address of multicast group. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     GroupAddress interface{}
 }
 
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetFilter() yfilter.YFilter { return multicastGroup.YFilter }
+func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetEntityData() *types.CommonEntityData {
+    multicastGroup.EntityData.YFilter = multicastGroup.YFilter
+    multicastGroup.EntityData.YangName = "multicast-group"
+    multicastGroup.EntityData.BundleName = "cisco_ios_xr"
+    multicastGroup.EntityData.ParentYangName = "detail"
+    multicastGroup.EntityData.SegmentPath = "multicast-group"
+    multicastGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) SetFilter(yf yfilter.YFilter) { multicastGroup.YFilter = yf }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetGoName(yname string) string {
-    if yname == "group-address" { return "GroupAddress" }
-    return ""
+    multicastGroup.EntityData.Children = make(map[string]types.YChild)
+    multicastGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastGroup.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", multicastGroup.GroupAddress}
+    return &(multicastGroup.EntityData)
 }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetSegmentPath() string {
-    return "multicast-group"
-}
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group-address"] = multicastGroup.GroupAddress
-    return leafs
-}
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetYangName() string { return "multicast-group" }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) SetParent(parent types.Entity) { multicastGroup.parent = parent }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetParent() types.Entity { return multicastGroup.parent }
-
-func (multicastGroup *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress
 // Secondary addresses on the interface
 type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Prefix length of address. The type is interface{} with range:
@@ -2019,61 +1013,29 @@ type Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddre
     RouteTag interface{}
 }
 
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetFilter() yfilter.YFilter { return secondaryAddress.YFilter }
+func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetEntityData() *types.CommonEntityData {
+    secondaryAddress.EntityData.YFilter = secondaryAddress.YFilter
+    secondaryAddress.EntityData.YangName = "secondary-address"
+    secondaryAddress.EntityData.BundleName = "cisco_ios_xr"
+    secondaryAddress.EntityData.ParentYangName = "detail"
+    secondaryAddress.EntityData.SegmentPath = "secondary-address"
+    secondaryAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    secondaryAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    secondaryAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) SetFilter(yf yfilter.YFilter) { secondaryAddress.YFilter = yf }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "route-tag" { return "RouteTag" }
-    return ""
+    secondaryAddress.EntityData.Children = make(map[string]types.YChild)
+    secondaryAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryAddress.EntityData.Leafs["address"] = types.YLeaf{"Address", secondaryAddress.Address}
+    secondaryAddress.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", secondaryAddress.PrefixLength}
+    secondaryAddress.EntityData.Leafs["route-tag"] = types.YLeaf{"RouteTag", secondaryAddress.RouteTag}
+    return &(secondaryAddress.EntityData)
 }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetSegmentPath() string {
-    return "secondary-address"
-}
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = secondaryAddress.Address
-    leafs["prefix-length"] = secondaryAddress.PrefixLength
-    leafs["route-tag"] = secondaryAddress.RouteTag
-    return leafs
-}
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetYangName() string { return "secondary-address" }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) SetParent(parent types.Entity) { secondaryAddress.parent = parent }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetParent() types.Entity { return secondaryAddress.parent }
-
-func (secondaryAddress *Ipv4Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_SecondaryAddress) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Summary
 // Summary of IPv4 network operational interface
 // data on a node
 type Ipv4Network_Nodes_Node_InterfaceData_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of interfaces (up,down) with basecaps up. The type is interface{}
@@ -2093,76 +1055,30 @@ type Ipv4Network_Nodes_Node_InterfaceData_Summary struct {
     IfShutdownDown Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown
 }
 
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "interface-data"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetGoName(yname string) string {
-    if yname == "if-up-down-basecaps-up" { return "IfUpDownBasecapsUp" }
-    if yname == "if-up-up" { return "IfUpUp" }
-    if yname == "if-up-down" { return "IfUpDown" }
-    if yname == "if-down-down" { return "IfDownDown" }
-    if yname == "if-shutdown-down" { return "IfShutdownDown" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["if-up-up"] = types.YChild{"IfUpUp", &summary.IfUpUp}
+    summary.EntityData.Children["if-up-down"] = types.YChild{"IfUpDown", &summary.IfUpDown}
+    summary.EntityData.Children["if-down-down"] = types.YChild{"IfDownDown", &summary.IfDownDown}
+    summary.EntityData.Children["if-shutdown-down"] = types.YChild{"IfShutdownDown", &summary.IfShutdownDown}
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["if-up-down-basecaps-up"] = types.YLeaf{"IfUpDownBasecapsUp", summary.IfUpDownBasecapsUp}
+    return &(summary.EntityData)
 }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "if-up-up" {
-        return &summary.IfUpUp
-    }
-    if childYangName == "if-up-down" {
-        return &summary.IfUpDown
-    }
-    if childYangName == "if-down-down" {
-        return &summary.IfDownDown
-    }
-    if childYangName == "if-shutdown-down" {
-        return &summary.IfShutdownDown
-    }
-    return nil
-}
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["if-up-up"] = &summary.IfUpUp
-    children["if-up-down"] = &summary.IfUpDown
-    children["if-down-down"] = &summary.IfDownDown
-    children["if-shutdown-down"] = &summary.IfShutdownDown
-    return children
-}
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["if-up-down-basecaps-up"] = summary.IfUpDownBasecapsUp
-    return leafs
-}
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetYangName() string { return "summary" }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Ipv4Network_Nodes_Node_InterfaceData_Summary) GetParentYangName() string { return "interface-data" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp
 // Number of interfaces (up,up)
 type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of interfaces with explicit addresses. The type is interface{} with
@@ -2178,60 +1094,28 @@ type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp struct {
     IpUnassigned interface{}
 }
 
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetFilter() yfilter.YFilter { return ifUpUp.YFilter }
+func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetEntityData() *types.CommonEntityData {
+    ifUpUp.EntityData.YFilter = ifUpUp.YFilter
+    ifUpUp.EntityData.YangName = "if-up-up"
+    ifUpUp.EntityData.BundleName = "cisco_ios_xr"
+    ifUpUp.EntityData.ParentYangName = "summary"
+    ifUpUp.EntityData.SegmentPath = "if-up-up"
+    ifUpUp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifUpUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifUpUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) SetFilter(yf yfilter.YFilter) { ifUpUp.YFilter = yf }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetGoName(yname string) string {
-    if yname == "ip-assigned" { return "IpAssigned" }
-    if yname == "ip-unnumbered" { return "IpUnnumbered" }
-    if yname == "ip-unassigned" { return "IpUnassigned" }
-    return ""
+    ifUpUp.EntityData.Children = make(map[string]types.YChild)
+    ifUpUp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifUpUp.EntityData.Leafs["ip-assigned"] = types.YLeaf{"IpAssigned", ifUpUp.IpAssigned}
+    ifUpUp.EntityData.Leafs["ip-unnumbered"] = types.YLeaf{"IpUnnumbered", ifUpUp.IpUnnumbered}
+    ifUpUp.EntityData.Leafs["ip-unassigned"] = types.YLeaf{"IpUnassigned", ifUpUp.IpUnassigned}
+    return &(ifUpUp.EntityData)
 }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetSegmentPath() string {
-    return "if-up-up"
-}
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-assigned"] = ifUpUp.IpAssigned
-    leafs["ip-unnumbered"] = ifUpUp.IpUnnumbered
-    leafs["ip-unassigned"] = ifUpUp.IpUnassigned
-    return leafs
-}
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetYangName() string { return "if-up-up" }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) SetParent(parent types.Entity) { ifUpUp.parent = parent }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetParent() types.Entity { return ifUpUp.parent }
-
-func (ifUpUp *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpUp) GetParentYangName() string { return "summary" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown
 // Number of interfaces (up,down)
 type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of interfaces with explicit addresses. The type is interface{} with
@@ -2247,60 +1131,28 @@ type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown struct {
     IpUnassigned interface{}
 }
 
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetFilter() yfilter.YFilter { return ifUpDown.YFilter }
+func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetEntityData() *types.CommonEntityData {
+    ifUpDown.EntityData.YFilter = ifUpDown.YFilter
+    ifUpDown.EntityData.YangName = "if-up-down"
+    ifUpDown.EntityData.BundleName = "cisco_ios_xr"
+    ifUpDown.EntityData.ParentYangName = "summary"
+    ifUpDown.EntityData.SegmentPath = "if-up-down"
+    ifUpDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifUpDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifUpDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) SetFilter(yf yfilter.YFilter) { ifUpDown.YFilter = yf }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetGoName(yname string) string {
-    if yname == "ip-assigned" { return "IpAssigned" }
-    if yname == "ip-unnumbered" { return "IpUnnumbered" }
-    if yname == "ip-unassigned" { return "IpUnassigned" }
-    return ""
+    ifUpDown.EntityData.Children = make(map[string]types.YChild)
+    ifUpDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifUpDown.EntityData.Leafs["ip-assigned"] = types.YLeaf{"IpAssigned", ifUpDown.IpAssigned}
+    ifUpDown.EntityData.Leafs["ip-unnumbered"] = types.YLeaf{"IpUnnumbered", ifUpDown.IpUnnumbered}
+    ifUpDown.EntityData.Leafs["ip-unassigned"] = types.YLeaf{"IpUnassigned", ifUpDown.IpUnassigned}
+    return &(ifUpDown.EntityData)
 }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetSegmentPath() string {
-    return "if-up-down"
-}
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-assigned"] = ifUpDown.IpAssigned
-    leafs["ip-unnumbered"] = ifUpDown.IpUnnumbered
-    leafs["ip-unassigned"] = ifUpDown.IpUnassigned
-    return leafs
-}
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetYangName() string { return "if-up-down" }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) SetParent(parent types.Entity) { ifUpDown.parent = parent }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetParent() types.Entity { return ifUpDown.parent }
-
-func (ifUpDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfUpDown) GetParentYangName() string { return "summary" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown
 // Number of interfaces (down,down)
 type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of interfaces with explicit addresses. The type is interface{} with
@@ -2316,60 +1168,28 @@ type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown struct {
     IpUnassigned interface{}
 }
 
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetFilter() yfilter.YFilter { return ifDownDown.YFilter }
+func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetEntityData() *types.CommonEntityData {
+    ifDownDown.EntityData.YFilter = ifDownDown.YFilter
+    ifDownDown.EntityData.YangName = "if-down-down"
+    ifDownDown.EntityData.BundleName = "cisco_ios_xr"
+    ifDownDown.EntityData.ParentYangName = "summary"
+    ifDownDown.EntityData.SegmentPath = "if-down-down"
+    ifDownDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifDownDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifDownDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) SetFilter(yf yfilter.YFilter) { ifDownDown.YFilter = yf }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetGoName(yname string) string {
-    if yname == "ip-assigned" { return "IpAssigned" }
-    if yname == "ip-unnumbered" { return "IpUnnumbered" }
-    if yname == "ip-unassigned" { return "IpUnassigned" }
-    return ""
+    ifDownDown.EntityData.Children = make(map[string]types.YChild)
+    ifDownDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifDownDown.EntityData.Leafs["ip-assigned"] = types.YLeaf{"IpAssigned", ifDownDown.IpAssigned}
+    ifDownDown.EntityData.Leafs["ip-unnumbered"] = types.YLeaf{"IpUnnumbered", ifDownDown.IpUnnumbered}
+    ifDownDown.EntityData.Leafs["ip-unassigned"] = types.YLeaf{"IpUnassigned", ifDownDown.IpUnassigned}
+    return &(ifDownDown.EntityData)
 }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetSegmentPath() string {
-    return "if-down-down"
-}
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-assigned"] = ifDownDown.IpAssigned
-    leafs["ip-unnumbered"] = ifDownDown.IpUnnumbered
-    leafs["ip-unassigned"] = ifDownDown.IpUnassigned
-    return leafs
-}
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetYangName() string { return "if-down-down" }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) SetParent(parent types.Entity) { ifDownDown.parent = parent }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetParent() types.Entity { return ifDownDown.parent }
-
-func (ifDownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfDownDown) GetParentYangName() string { return "summary" }
 
 // Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown
 // Number of interfaces (shutdown,down)
 type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of interfaces with explicit addresses. The type is interface{} with
@@ -2385,120 +1205,55 @@ type Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown struct {
     IpUnassigned interface{}
 }
 
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetFilter() yfilter.YFilter { return ifShutdownDown.YFilter }
+func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetEntityData() *types.CommonEntityData {
+    ifShutdownDown.EntityData.YFilter = ifShutdownDown.YFilter
+    ifShutdownDown.EntityData.YangName = "if-shutdown-down"
+    ifShutdownDown.EntityData.BundleName = "cisco_ios_xr"
+    ifShutdownDown.EntityData.ParentYangName = "summary"
+    ifShutdownDown.EntityData.SegmentPath = "if-shutdown-down"
+    ifShutdownDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifShutdownDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifShutdownDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) SetFilter(yf yfilter.YFilter) { ifShutdownDown.YFilter = yf }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetGoName(yname string) string {
-    if yname == "ip-assigned" { return "IpAssigned" }
-    if yname == "ip-unnumbered" { return "IpUnnumbered" }
-    if yname == "ip-unassigned" { return "IpUnassigned" }
-    return ""
+    ifShutdownDown.EntityData.Children = make(map[string]types.YChild)
+    ifShutdownDown.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifShutdownDown.EntityData.Leafs["ip-assigned"] = types.YLeaf{"IpAssigned", ifShutdownDown.IpAssigned}
+    ifShutdownDown.EntityData.Leafs["ip-unnumbered"] = types.YLeaf{"IpUnnumbered", ifShutdownDown.IpUnnumbered}
+    ifShutdownDown.EntityData.Leafs["ip-unassigned"] = types.YLeaf{"IpUnassigned", ifShutdownDown.IpUnassigned}
+    return &(ifShutdownDown.EntityData)
 }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetSegmentPath() string {
-    return "if-shutdown-down"
-}
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-assigned"] = ifShutdownDown.IpAssigned
-    leafs["ip-unnumbered"] = ifShutdownDown.IpUnnumbered
-    leafs["ip-unassigned"] = ifShutdownDown.IpUnassigned
-    return leafs
-}
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetYangName() string { return "if-shutdown-down" }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) SetParent(parent types.Entity) { ifShutdownDown.parent = parent }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetParent() types.Entity { return ifShutdownDown.parent }
-
-func (ifShutdownDown *Ipv4Network_Nodes_Node_InterfaceData_Summary_IfShutdownDown) GetParentYangName() string { return "summary" }
 
 // Ipv4Network_Nodes_Node_Statistics
 // Statistical IPv4 network operational data for
 // a node
 type Ipv4Network_Nodes_Node_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Traffic statistics for a node.
     Traffic Ipv4Network_Nodes_Node_Statistics_Traffic
 }
 
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Ipv4Network_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "node"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Ipv4Network_Nodes_Node_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetGoName(yname string) string {
-    if yname == "traffic" { return "Traffic" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["traffic"] = types.YChild{"Traffic", &statistics.Traffic}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "traffic" {
-        return &statistics.Traffic
-    }
-    return nil
-}
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["traffic"] = &statistics.Traffic
-    return children
-}
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Ipv4Network_Nodes_Node_Statistics) GetParentYangName() string { return "node" }
 
 // Ipv4Network_Nodes_Node_Statistics_Traffic
 // Traffic statistics for a node
 type Ipv4Network_Nodes_Node_Statistics_Traffic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 Network Stats.
@@ -2508,64 +1263,27 @@ type Ipv4Network_Nodes_Node_Statistics_Traffic struct {
     IcmpStats Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats
 }
 
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetFilter() yfilter.YFilter { return traffic.YFilter }
+func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetEntityData() *types.CommonEntityData {
+    traffic.EntityData.YFilter = traffic.YFilter
+    traffic.EntityData.YangName = "traffic"
+    traffic.EntityData.BundleName = "cisco_ios_xr"
+    traffic.EntityData.ParentYangName = "statistics"
+    traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) SetFilter(yf yfilter.YFilter) { traffic.YFilter = yf }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetGoName(yname string) string {
-    if yname == "ipv4-stats" { return "Ipv4Stats" }
-    if yname == "icmp-stats" { return "IcmpStats" }
-    return ""
+    traffic.EntityData.Children = make(map[string]types.YChild)
+    traffic.EntityData.Children["ipv4-stats"] = types.YChild{"Ipv4Stats", &traffic.Ipv4Stats}
+    traffic.EntityData.Children["icmp-stats"] = types.YChild{"IcmpStats", &traffic.IcmpStats}
+    traffic.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(traffic.EntityData)
 }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetSegmentPath() string {
-    return "traffic"
-}
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-stats" {
-        return &traffic.Ipv4Stats
-    }
-    if childYangName == "icmp-stats" {
-        return &traffic.IcmpStats
-    }
-    return nil
-}
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-stats"] = &traffic.Ipv4Stats
-    children["icmp-stats"] = &traffic.IcmpStats
-    return children
-}
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetYangName() string { return "traffic" }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) SetParent(parent types.Entity) { traffic.parent = parent }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetParent() types.Entity { return traffic.parent }
-
-func (traffic *Ipv4Network_Nodes_Node_Statistics_Traffic) GetParentYangName() string { return "statistics" }
 
 // Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats
 // IPv4 Network Stats
 type Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Input Packets. The type is interface{} with range: 0..4294967295.
@@ -2711,144 +1429,70 @@ type Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats struct {
     LispDecapError interface{}
 }
 
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetFilter() yfilter.YFilter { return ipv4Stats.YFilter }
+func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetEntityData() *types.CommonEntityData {
+    ipv4Stats.EntityData.YFilter = ipv4Stats.YFilter
+    ipv4Stats.EntityData.YangName = "ipv4-stats"
+    ipv4Stats.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Stats.EntityData.ParentYangName = "traffic"
+    ipv4Stats.EntityData.SegmentPath = "ipv4-stats"
+    ipv4Stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) SetFilter(yf yfilter.YFilter) { ipv4Stats.YFilter = yf }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetGoName(yname string) string {
-    if yname == "input-packets" { return "InputPackets" }
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "format-errors" { return "FormatErrors" }
-    if yname == "bad-hop-count" { return "BadHopCount" }
-    if yname == "bad-source-address" { return "BadSourceAddress" }
-    if yname == "bad-header" { return "BadHeader" }
-    if yname == "no-protocol" { return "NoProtocol" }
-    if yname == "no-gateway" { return "NoGateway" }
-    if yname == "reassemble-input" { return "ReassembleInput" }
-    if yname == "reassembled" { return "Reassembled" }
-    if yname == "reassemble-timeout" { return "ReassembleTimeout" }
-    if yname == "reassemble-max-drop" { return "ReassembleMaxDrop" }
-    if yname == "reassemble-failed" { return "ReassembleFailed" }
-    if yname == "options-present" { return "OptionsPresent" }
-    if yname == "bad-option" { return "BadOption" }
-    if yname == "unknown-option" { return "UnknownOption" }
-    if yname == "bad-security-option" { return "BadSecurityOption" }
-    if yname == "basic-security-option" { return "BasicSecurityOption" }
-    if yname == "extended-security-option" { return "ExtendedSecurityOption" }
-    if yname == "cipso-option" { return "CipsoOption" }
-    if yname == "strict-source-route-option" { return "StrictSourceRouteOption" }
-    if yname == "loose-source-route-option" { return "LooseSourceRouteOption" }
-    if yname == "record-route-option" { return "RecordRouteOption" }
-    if yname == "sid-option" { return "SidOption" }
-    if yname == "timestamp-option" { return "TimestampOption" }
-    if yname == "router-alert-option" { return "RouterAlertOption" }
-    if yname == "noop-option" { return "NoopOption" }
-    if yname == "end-option" { return "EndOption" }
-    if yname == "packets-output" { return "PacketsOutput" }
-    if yname == "packets-forwarded" { return "PacketsForwarded" }
-    if yname == "packets-fragmented" { return "PacketsFragmented" }
-    if yname == "fragment-count" { return "FragmentCount" }
-    if yname == "encapsulation-failed" { return "EncapsulationFailed" }
-    if yname == "no-router" { return "NoRouter" }
-    if yname == "packet-too-big" { return "PacketTooBig" }
-    if yname == "multicast-in" { return "MulticastIn" }
-    if yname == "multicast-out" { return "MulticastOut" }
-    if yname == "broadcast-in" { return "BroadcastIn" }
-    if yname == "broadcast-out" { return "BroadcastOut" }
-    if yname == "lisp-v4-encap" { return "LispV4Encap" }
-    if yname == "lisp-v4-decap" { return "LispV4Decap" }
-    if yname == "lisp-v6-encap" { return "LispV6Encap" }
-    if yname == "lisp-v6-decap" { return "LispV6Decap" }
-    if yname == "lisp-encap-error" { return "LispEncapError" }
-    if yname == "lisp-decap-error" { return "LispDecapError" }
-    return ""
+    ipv4Stats.EntityData.Children = make(map[string]types.YChild)
+    ipv4Stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Stats.EntityData.Leafs["input-packets"] = types.YLeaf{"InputPackets", ipv4Stats.InputPackets}
+    ipv4Stats.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", ipv4Stats.ReceivedPackets}
+    ipv4Stats.EntityData.Leafs["format-errors"] = types.YLeaf{"FormatErrors", ipv4Stats.FormatErrors}
+    ipv4Stats.EntityData.Leafs["bad-hop-count"] = types.YLeaf{"BadHopCount", ipv4Stats.BadHopCount}
+    ipv4Stats.EntityData.Leafs["bad-source-address"] = types.YLeaf{"BadSourceAddress", ipv4Stats.BadSourceAddress}
+    ipv4Stats.EntityData.Leafs["bad-header"] = types.YLeaf{"BadHeader", ipv4Stats.BadHeader}
+    ipv4Stats.EntityData.Leafs["no-protocol"] = types.YLeaf{"NoProtocol", ipv4Stats.NoProtocol}
+    ipv4Stats.EntityData.Leafs["no-gateway"] = types.YLeaf{"NoGateway", ipv4Stats.NoGateway}
+    ipv4Stats.EntityData.Leafs["reassemble-input"] = types.YLeaf{"ReassembleInput", ipv4Stats.ReassembleInput}
+    ipv4Stats.EntityData.Leafs["reassembled"] = types.YLeaf{"Reassembled", ipv4Stats.Reassembled}
+    ipv4Stats.EntityData.Leafs["reassemble-timeout"] = types.YLeaf{"ReassembleTimeout", ipv4Stats.ReassembleTimeout}
+    ipv4Stats.EntityData.Leafs["reassemble-max-drop"] = types.YLeaf{"ReassembleMaxDrop", ipv4Stats.ReassembleMaxDrop}
+    ipv4Stats.EntityData.Leafs["reassemble-failed"] = types.YLeaf{"ReassembleFailed", ipv4Stats.ReassembleFailed}
+    ipv4Stats.EntityData.Leafs["options-present"] = types.YLeaf{"OptionsPresent", ipv4Stats.OptionsPresent}
+    ipv4Stats.EntityData.Leafs["bad-option"] = types.YLeaf{"BadOption", ipv4Stats.BadOption}
+    ipv4Stats.EntityData.Leafs["unknown-option"] = types.YLeaf{"UnknownOption", ipv4Stats.UnknownOption}
+    ipv4Stats.EntityData.Leafs["bad-security-option"] = types.YLeaf{"BadSecurityOption", ipv4Stats.BadSecurityOption}
+    ipv4Stats.EntityData.Leafs["basic-security-option"] = types.YLeaf{"BasicSecurityOption", ipv4Stats.BasicSecurityOption}
+    ipv4Stats.EntityData.Leafs["extended-security-option"] = types.YLeaf{"ExtendedSecurityOption", ipv4Stats.ExtendedSecurityOption}
+    ipv4Stats.EntityData.Leafs["cipso-option"] = types.YLeaf{"CipsoOption", ipv4Stats.CipsoOption}
+    ipv4Stats.EntityData.Leafs["strict-source-route-option"] = types.YLeaf{"StrictSourceRouteOption", ipv4Stats.StrictSourceRouteOption}
+    ipv4Stats.EntityData.Leafs["loose-source-route-option"] = types.YLeaf{"LooseSourceRouteOption", ipv4Stats.LooseSourceRouteOption}
+    ipv4Stats.EntityData.Leafs["record-route-option"] = types.YLeaf{"RecordRouteOption", ipv4Stats.RecordRouteOption}
+    ipv4Stats.EntityData.Leafs["sid-option"] = types.YLeaf{"SidOption", ipv4Stats.SidOption}
+    ipv4Stats.EntityData.Leafs["timestamp-option"] = types.YLeaf{"TimestampOption", ipv4Stats.TimestampOption}
+    ipv4Stats.EntityData.Leafs["router-alert-option"] = types.YLeaf{"RouterAlertOption", ipv4Stats.RouterAlertOption}
+    ipv4Stats.EntityData.Leafs["noop-option"] = types.YLeaf{"NoopOption", ipv4Stats.NoopOption}
+    ipv4Stats.EntityData.Leafs["end-option"] = types.YLeaf{"EndOption", ipv4Stats.EndOption}
+    ipv4Stats.EntityData.Leafs["packets-output"] = types.YLeaf{"PacketsOutput", ipv4Stats.PacketsOutput}
+    ipv4Stats.EntityData.Leafs["packets-forwarded"] = types.YLeaf{"PacketsForwarded", ipv4Stats.PacketsForwarded}
+    ipv4Stats.EntityData.Leafs["packets-fragmented"] = types.YLeaf{"PacketsFragmented", ipv4Stats.PacketsFragmented}
+    ipv4Stats.EntityData.Leafs["fragment-count"] = types.YLeaf{"FragmentCount", ipv4Stats.FragmentCount}
+    ipv4Stats.EntityData.Leafs["encapsulation-failed"] = types.YLeaf{"EncapsulationFailed", ipv4Stats.EncapsulationFailed}
+    ipv4Stats.EntityData.Leafs["no-router"] = types.YLeaf{"NoRouter", ipv4Stats.NoRouter}
+    ipv4Stats.EntityData.Leafs["packet-too-big"] = types.YLeaf{"PacketTooBig", ipv4Stats.PacketTooBig}
+    ipv4Stats.EntityData.Leafs["multicast-in"] = types.YLeaf{"MulticastIn", ipv4Stats.MulticastIn}
+    ipv4Stats.EntityData.Leafs["multicast-out"] = types.YLeaf{"MulticastOut", ipv4Stats.MulticastOut}
+    ipv4Stats.EntityData.Leafs["broadcast-in"] = types.YLeaf{"BroadcastIn", ipv4Stats.BroadcastIn}
+    ipv4Stats.EntityData.Leafs["broadcast-out"] = types.YLeaf{"BroadcastOut", ipv4Stats.BroadcastOut}
+    ipv4Stats.EntityData.Leafs["lisp-v4-encap"] = types.YLeaf{"LispV4Encap", ipv4Stats.LispV4Encap}
+    ipv4Stats.EntityData.Leafs["lisp-v4-decap"] = types.YLeaf{"LispV4Decap", ipv4Stats.LispV4Decap}
+    ipv4Stats.EntityData.Leafs["lisp-v6-encap"] = types.YLeaf{"LispV6Encap", ipv4Stats.LispV6Encap}
+    ipv4Stats.EntityData.Leafs["lisp-v6-decap"] = types.YLeaf{"LispV6Decap", ipv4Stats.LispV6Decap}
+    ipv4Stats.EntityData.Leafs["lisp-encap-error"] = types.YLeaf{"LispEncapError", ipv4Stats.LispEncapError}
+    ipv4Stats.EntityData.Leafs["lisp-decap-error"] = types.YLeaf{"LispDecapError", ipv4Stats.LispDecapError}
+    return &(ipv4Stats.EntityData)
 }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetSegmentPath() string {
-    return "ipv4-stats"
-}
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input-packets"] = ipv4Stats.InputPackets
-    leafs["received-packets"] = ipv4Stats.ReceivedPackets
-    leafs["format-errors"] = ipv4Stats.FormatErrors
-    leafs["bad-hop-count"] = ipv4Stats.BadHopCount
-    leafs["bad-source-address"] = ipv4Stats.BadSourceAddress
-    leafs["bad-header"] = ipv4Stats.BadHeader
-    leafs["no-protocol"] = ipv4Stats.NoProtocol
-    leafs["no-gateway"] = ipv4Stats.NoGateway
-    leafs["reassemble-input"] = ipv4Stats.ReassembleInput
-    leafs["reassembled"] = ipv4Stats.Reassembled
-    leafs["reassemble-timeout"] = ipv4Stats.ReassembleTimeout
-    leafs["reassemble-max-drop"] = ipv4Stats.ReassembleMaxDrop
-    leafs["reassemble-failed"] = ipv4Stats.ReassembleFailed
-    leafs["options-present"] = ipv4Stats.OptionsPresent
-    leafs["bad-option"] = ipv4Stats.BadOption
-    leafs["unknown-option"] = ipv4Stats.UnknownOption
-    leafs["bad-security-option"] = ipv4Stats.BadSecurityOption
-    leafs["basic-security-option"] = ipv4Stats.BasicSecurityOption
-    leafs["extended-security-option"] = ipv4Stats.ExtendedSecurityOption
-    leafs["cipso-option"] = ipv4Stats.CipsoOption
-    leafs["strict-source-route-option"] = ipv4Stats.StrictSourceRouteOption
-    leafs["loose-source-route-option"] = ipv4Stats.LooseSourceRouteOption
-    leafs["record-route-option"] = ipv4Stats.RecordRouteOption
-    leafs["sid-option"] = ipv4Stats.SidOption
-    leafs["timestamp-option"] = ipv4Stats.TimestampOption
-    leafs["router-alert-option"] = ipv4Stats.RouterAlertOption
-    leafs["noop-option"] = ipv4Stats.NoopOption
-    leafs["end-option"] = ipv4Stats.EndOption
-    leafs["packets-output"] = ipv4Stats.PacketsOutput
-    leafs["packets-forwarded"] = ipv4Stats.PacketsForwarded
-    leafs["packets-fragmented"] = ipv4Stats.PacketsFragmented
-    leafs["fragment-count"] = ipv4Stats.FragmentCount
-    leafs["encapsulation-failed"] = ipv4Stats.EncapsulationFailed
-    leafs["no-router"] = ipv4Stats.NoRouter
-    leafs["packet-too-big"] = ipv4Stats.PacketTooBig
-    leafs["multicast-in"] = ipv4Stats.MulticastIn
-    leafs["multicast-out"] = ipv4Stats.MulticastOut
-    leafs["broadcast-in"] = ipv4Stats.BroadcastIn
-    leafs["broadcast-out"] = ipv4Stats.BroadcastOut
-    leafs["lisp-v4-encap"] = ipv4Stats.LispV4Encap
-    leafs["lisp-v4-decap"] = ipv4Stats.LispV4Decap
-    leafs["lisp-v6-encap"] = ipv4Stats.LispV6Encap
-    leafs["lisp-v6-decap"] = ipv4Stats.LispV6Decap
-    leafs["lisp-encap-error"] = ipv4Stats.LispEncapError
-    leafs["lisp-decap-error"] = ipv4Stats.LispDecapError
-    return leafs
-}
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetYangName() string { return "ipv4-stats" }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) SetParent(parent types.Entity) { ipv4Stats.parent = parent }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetParent() types.Entity { return ipv4Stats.parent }
-
-func (ipv4Stats *Ipv4Network_Nodes_Node_Statistics_Traffic_Ipv4Stats) GetParentYangName() string { return "traffic" }
 
 // Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats
 // ICMP Stats
 type Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ICMP Received. The type is interface{} with range: 0..4294967295.
@@ -2982,262 +1626,123 @@ type Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats struct {
     RouterSolicitReceived interface{}
 }
 
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetFilter() yfilter.YFilter { return icmpStats.YFilter }
+func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetEntityData() *types.CommonEntityData {
+    icmpStats.EntityData.YFilter = icmpStats.YFilter
+    icmpStats.EntityData.YangName = "icmp-stats"
+    icmpStats.EntityData.BundleName = "cisco_ios_xr"
+    icmpStats.EntityData.ParentYangName = "traffic"
+    icmpStats.EntityData.SegmentPath = "icmp-stats"
+    icmpStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    icmpStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    icmpStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) SetFilter(yf yfilter.YFilter) { icmpStats.YFilter = yf }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetGoName(yname string) string {
-    if yname == "received" { return "Received" }
-    if yname == "checksum-error" { return "ChecksumError" }
-    if yname == "unknown" { return "Unknown" }
-    if yname == "output" { return "Output" }
-    if yname == "admin-unreachable-sent" { return "AdminUnreachableSent" }
-    if yname == "network-unreachable-sent" { return "NetworkUnreachableSent" }
-    if yname == "host-unreachable-sent" { return "HostUnreachableSent" }
-    if yname == "protocol-unreachable-sent" { return "ProtocolUnreachableSent" }
-    if yname == "port-unreachable-sent" { return "PortUnreachableSent" }
-    if yname == "fragment-unreachable-sent" { return "FragmentUnreachableSent" }
-    if yname == "admin-unreachable-received" { return "AdminUnreachableReceived" }
-    if yname == "network-unreachable-received" { return "NetworkUnreachableReceived" }
-    if yname == "host-unreachable-received" { return "HostUnreachableReceived" }
-    if yname == "protocol-unreachable-received" { return "ProtocolUnreachableReceived" }
-    if yname == "port-unreachable-received" { return "PortUnreachableReceived" }
-    if yname == "fragment-unreachable-received" { return "FragmentUnreachableReceived" }
-    if yname == "hopcount-sent" { return "HopcountSent" }
-    if yname == "reassembly-sent" { return "ReassemblySent" }
-    if yname == "hopcount-received" { return "HopcountReceived" }
-    if yname == "reassebly-received" { return "ReasseblyReceived" }
-    if yname == "param-error-received" { return "ParamErrorReceived" }
-    if yname == "param-error-send" { return "ParamErrorSend" }
-    if yname == "echo-request-sent" { return "EchoRequestSent" }
-    if yname == "echo-request-received" { return "EchoRequestReceived" }
-    if yname == "echo-reply-sent" { return "EchoReplySent" }
-    if yname == "echo-reply-received" { return "EchoReplyReceived" }
-    if yname == "mask-request-sent" { return "MaskRequestSent" }
-    if yname == "mask-request-received" { return "MaskRequestReceived" }
-    if yname == "mask-reply-sent" { return "MaskReplySent" }
-    if yname == "mask-reply-received" { return "MaskReplyReceived" }
-    if yname == "source-quench-received" { return "SourceQuenchReceived" }
-    if yname == "redirect-received" { return "RedirectReceived" }
-    if yname == "redirect-send" { return "RedirectSend" }
-    if yname == "timestamp-received" { return "TimestampReceived" }
-    if yname == "timestamp-reply-received" { return "TimestampReplyReceived" }
-    if yname == "router-advert-received" { return "RouterAdvertReceived" }
-    if yname == "router-solicit-received" { return "RouterSolicitReceived" }
-    return ""
+    icmpStats.EntityData.Children = make(map[string]types.YChild)
+    icmpStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmpStats.EntityData.Leafs["received"] = types.YLeaf{"Received", icmpStats.Received}
+    icmpStats.EntityData.Leafs["checksum-error"] = types.YLeaf{"ChecksumError", icmpStats.ChecksumError}
+    icmpStats.EntityData.Leafs["unknown"] = types.YLeaf{"Unknown", icmpStats.Unknown}
+    icmpStats.EntityData.Leafs["output"] = types.YLeaf{"Output", icmpStats.Output}
+    icmpStats.EntityData.Leafs["admin-unreachable-sent"] = types.YLeaf{"AdminUnreachableSent", icmpStats.AdminUnreachableSent}
+    icmpStats.EntityData.Leafs["network-unreachable-sent"] = types.YLeaf{"NetworkUnreachableSent", icmpStats.NetworkUnreachableSent}
+    icmpStats.EntityData.Leafs["host-unreachable-sent"] = types.YLeaf{"HostUnreachableSent", icmpStats.HostUnreachableSent}
+    icmpStats.EntityData.Leafs["protocol-unreachable-sent"] = types.YLeaf{"ProtocolUnreachableSent", icmpStats.ProtocolUnreachableSent}
+    icmpStats.EntityData.Leafs["port-unreachable-sent"] = types.YLeaf{"PortUnreachableSent", icmpStats.PortUnreachableSent}
+    icmpStats.EntityData.Leafs["fragment-unreachable-sent"] = types.YLeaf{"FragmentUnreachableSent", icmpStats.FragmentUnreachableSent}
+    icmpStats.EntityData.Leafs["admin-unreachable-received"] = types.YLeaf{"AdminUnreachableReceived", icmpStats.AdminUnreachableReceived}
+    icmpStats.EntityData.Leafs["network-unreachable-received"] = types.YLeaf{"NetworkUnreachableReceived", icmpStats.NetworkUnreachableReceived}
+    icmpStats.EntityData.Leafs["host-unreachable-received"] = types.YLeaf{"HostUnreachableReceived", icmpStats.HostUnreachableReceived}
+    icmpStats.EntityData.Leafs["protocol-unreachable-received"] = types.YLeaf{"ProtocolUnreachableReceived", icmpStats.ProtocolUnreachableReceived}
+    icmpStats.EntityData.Leafs["port-unreachable-received"] = types.YLeaf{"PortUnreachableReceived", icmpStats.PortUnreachableReceived}
+    icmpStats.EntityData.Leafs["fragment-unreachable-received"] = types.YLeaf{"FragmentUnreachableReceived", icmpStats.FragmentUnreachableReceived}
+    icmpStats.EntityData.Leafs["hopcount-sent"] = types.YLeaf{"HopcountSent", icmpStats.HopcountSent}
+    icmpStats.EntityData.Leafs["reassembly-sent"] = types.YLeaf{"ReassemblySent", icmpStats.ReassemblySent}
+    icmpStats.EntityData.Leafs["hopcount-received"] = types.YLeaf{"HopcountReceived", icmpStats.HopcountReceived}
+    icmpStats.EntityData.Leafs["reassebly-received"] = types.YLeaf{"ReasseblyReceived", icmpStats.ReasseblyReceived}
+    icmpStats.EntityData.Leafs["param-error-received"] = types.YLeaf{"ParamErrorReceived", icmpStats.ParamErrorReceived}
+    icmpStats.EntityData.Leafs["param-error-send"] = types.YLeaf{"ParamErrorSend", icmpStats.ParamErrorSend}
+    icmpStats.EntityData.Leafs["echo-request-sent"] = types.YLeaf{"EchoRequestSent", icmpStats.EchoRequestSent}
+    icmpStats.EntityData.Leafs["echo-request-received"] = types.YLeaf{"EchoRequestReceived", icmpStats.EchoRequestReceived}
+    icmpStats.EntityData.Leafs["echo-reply-sent"] = types.YLeaf{"EchoReplySent", icmpStats.EchoReplySent}
+    icmpStats.EntityData.Leafs["echo-reply-received"] = types.YLeaf{"EchoReplyReceived", icmpStats.EchoReplyReceived}
+    icmpStats.EntityData.Leafs["mask-request-sent"] = types.YLeaf{"MaskRequestSent", icmpStats.MaskRequestSent}
+    icmpStats.EntityData.Leafs["mask-request-received"] = types.YLeaf{"MaskRequestReceived", icmpStats.MaskRequestReceived}
+    icmpStats.EntityData.Leafs["mask-reply-sent"] = types.YLeaf{"MaskReplySent", icmpStats.MaskReplySent}
+    icmpStats.EntityData.Leafs["mask-reply-received"] = types.YLeaf{"MaskReplyReceived", icmpStats.MaskReplyReceived}
+    icmpStats.EntityData.Leafs["source-quench-received"] = types.YLeaf{"SourceQuenchReceived", icmpStats.SourceQuenchReceived}
+    icmpStats.EntityData.Leafs["redirect-received"] = types.YLeaf{"RedirectReceived", icmpStats.RedirectReceived}
+    icmpStats.EntityData.Leafs["redirect-send"] = types.YLeaf{"RedirectSend", icmpStats.RedirectSend}
+    icmpStats.EntityData.Leafs["timestamp-received"] = types.YLeaf{"TimestampReceived", icmpStats.TimestampReceived}
+    icmpStats.EntityData.Leafs["timestamp-reply-received"] = types.YLeaf{"TimestampReplyReceived", icmpStats.TimestampReplyReceived}
+    icmpStats.EntityData.Leafs["router-advert-received"] = types.YLeaf{"RouterAdvertReceived", icmpStats.RouterAdvertReceived}
+    icmpStats.EntityData.Leafs["router-solicit-received"] = types.YLeaf{"RouterSolicitReceived", icmpStats.RouterSolicitReceived}
+    return &(icmpStats.EntityData)
 }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetSegmentPath() string {
-    return "icmp-stats"
-}
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received"] = icmpStats.Received
-    leafs["checksum-error"] = icmpStats.ChecksumError
-    leafs["unknown"] = icmpStats.Unknown
-    leafs["output"] = icmpStats.Output
-    leafs["admin-unreachable-sent"] = icmpStats.AdminUnreachableSent
-    leafs["network-unreachable-sent"] = icmpStats.NetworkUnreachableSent
-    leafs["host-unreachable-sent"] = icmpStats.HostUnreachableSent
-    leafs["protocol-unreachable-sent"] = icmpStats.ProtocolUnreachableSent
-    leafs["port-unreachable-sent"] = icmpStats.PortUnreachableSent
-    leafs["fragment-unreachable-sent"] = icmpStats.FragmentUnreachableSent
-    leafs["admin-unreachable-received"] = icmpStats.AdminUnreachableReceived
-    leafs["network-unreachable-received"] = icmpStats.NetworkUnreachableReceived
-    leafs["host-unreachable-received"] = icmpStats.HostUnreachableReceived
-    leafs["protocol-unreachable-received"] = icmpStats.ProtocolUnreachableReceived
-    leafs["port-unreachable-received"] = icmpStats.PortUnreachableReceived
-    leafs["fragment-unreachable-received"] = icmpStats.FragmentUnreachableReceived
-    leafs["hopcount-sent"] = icmpStats.HopcountSent
-    leafs["reassembly-sent"] = icmpStats.ReassemblySent
-    leafs["hopcount-received"] = icmpStats.HopcountReceived
-    leafs["reassebly-received"] = icmpStats.ReasseblyReceived
-    leafs["param-error-received"] = icmpStats.ParamErrorReceived
-    leafs["param-error-send"] = icmpStats.ParamErrorSend
-    leafs["echo-request-sent"] = icmpStats.EchoRequestSent
-    leafs["echo-request-received"] = icmpStats.EchoRequestReceived
-    leafs["echo-reply-sent"] = icmpStats.EchoReplySent
-    leafs["echo-reply-received"] = icmpStats.EchoReplyReceived
-    leafs["mask-request-sent"] = icmpStats.MaskRequestSent
-    leafs["mask-request-received"] = icmpStats.MaskRequestReceived
-    leafs["mask-reply-sent"] = icmpStats.MaskReplySent
-    leafs["mask-reply-received"] = icmpStats.MaskReplyReceived
-    leafs["source-quench-received"] = icmpStats.SourceQuenchReceived
-    leafs["redirect-received"] = icmpStats.RedirectReceived
-    leafs["redirect-send"] = icmpStats.RedirectSend
-    leafs["timestamp-received"] = icmpStats.TimestampReceived
-    leafs["timestamp-reply-received"] = icmpStats.TimestampReplyReceived
-    leafs["router-advert-received"] = icmpStats.RouterAdvertReceived
-    leafs["router-solicit-received"] = icmpStats.RouterSolicitReceived
-    return leafs
-}
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetYangName() string { return "icmp-stats" }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) SetParent(parent types.Entity) { icmpStats.parent = parent }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetParent() types.Entity { return icmpStats.parent }
-
-func (icmpStats *Ipv4Network_Nodes_Node_Statistics_Traffic_IcmpStats) GetParentYangName() string { return "traffic" }
 
 // Ipv4Network_Interfaces
 // IPv4 network operational interface data
 type Ipv4Network_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface names with VRF. The type is slice of
-    // Ipv4Network_Interfaces_Interface.
-    Interface []Ipv4Network_Interfaces_Interface
+    // Ipv4Network_Interfaces_Interface_.
+    Interface_ []Ipv4Network_Interfaces_Interface
 }
 
-func (interfaces *Ipv4Network_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Ipv4Network_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "ipv4-network"
+    interfaces.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-oper:interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *Ipv4Network_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Ipv4Network_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Ipv4Network_Interfaces) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-ma-oper:interfaces"
-}
-
-func (interfaces *Ipv4Network_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Ipv4Network_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Ipv4Network_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Ipv4Network_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Ipv4Network_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Ipv4Network_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Ipv4Network_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Ipv4Network_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Ipv4Network_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Ipv4Network_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Ipv4Network_Interfaces) GetParentYangName() string { return "ipv4-network" }
 
 // Ipv4Network_Interfaces_Interface
 // Interface names with VRF
 type Ipv4Network_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // List of VRF on the interface.
     Vrfs Ipv4Network_Interfaces_Interface_Vrfs
 }
 
-func (self *Ipv4Network_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Ipv4Network_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Ipv4Network_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Ipv4Network_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "vrfs" { return "Vrfs" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &self.Vrfs}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    return &(self.EntityData)
 }
-
-func (self *Ipv4Network_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *Ipv4Network_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrfs" {
-        return &self.Vrfs
-    }
-    return nil
-}
-
-func (self *Ipv4Network_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vrfs"] = &self.Vrfs
-    return children
-}
-
-func (self *Ipv4Network_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    return leafs
-}
-
-func (self *Ipv4Network_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Ipv4Network_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Ipv4Network_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Ipv4Network_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Ipv4Network_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Ipv4Network_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Ipv4Network_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Ipv4Network_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs
 // List of VRF on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF information on the interface. The type is slice of
@@ -3245,72 +1750,33 @@ type Ipv4Network_Interfaces_Interface_Vrfs struct {
     Vrf []Ipv4Network_Interfaces_Interface_Vrfs_Vrf
 }
 
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "interface"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Interfaces_Interface_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *Ipv4Network_Interfaces_Interface_Vrfs) GetParentYangName() string { return "interface" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf
 // VRF information on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // Detail IPv4 network operational data for an interface.
@@ -3320,71 +1786,33 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf struct {
     Brief Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief
 }
 
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "detail" { return "Detail" }
-    if yname == "brief" { return "Brief" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["detail"] = types.YChild{"Detail", &vrf.Detail}
+    vrf.EntityData.Children["brief"] = types.YChild{"Brief", &vrf.Brief}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "detail" {
-        return &vrf.Detail
-    }
-    if childYangName == "brief" {
-        return &vrf.Brief
-    }
-    return nil
-}
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["detail"] = &vrf.Detail
-    children["brief"] = &vrf.Brief
-    return children
-}
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail
 // Detail IPv4 network operational data for an
 // interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -3473,164 +1901,59 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail struct {
     SecondaryAddress []Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress
 }
 
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetFilter() yfilter.YFilter { return detail.YFilter }
+func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetEntityData() *types.CommonEntityData {
+    detail.EntityData.YFilter = detail.YFilter
+    detail.EntityData.YangName = "detail"
+    detail.EntityData.BundleName = "cisco_ios_xr"
+    detail.EntityData.ParentYangName = "vrf"
+    detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) SetFilter(yf yfilter.YFilter) { detail.YFilter = yf }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetGoName(yname string) string {
-    if yname == "primary-address" { return "PrimaryAddress" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "line-state" { return "LineState" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "route-tag" { return "RouteTag" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "unreachable" { return "Unreachable" }
-    if yname == "redirect" { return "Redirect" }
-    if yname == "direct-broadcast" { return "DirectBroadcast" }
-    if yname == "mask-reply" { return "MaskReply" }
-    if yname == "rg-id-exists" { return "RgIdExists" }
-    if yname == "mlacp-active" { return "MlacpActive" }
-    if yname == "unnumbered-interface-name" { return "UnnumberedInterfaceName" }
-    if yname == "proxy-arp-disabled" { return "ProxyArpDisabled" }
-    if yname == "flow-tag-src" { return "FlowTagSrc" }
-    if yname == "flow-tag-dst" { return "FlowTagDst" }
-    if yname == "acl" { return "Acl" }
-    if yname == "multi-acl" { return "MultiAcl" }
-    if yname == "helper-address" { return "HelperAddress" }
-    if yname == "rpf" { return "Rpf" }
-    if yname == "bgp-pa" { return "BgpPa" }
-    if yname == "pub-utime" { return "PubUtime" }
-    if yname == "idb-utime" { return "IdbUtime" }
-    if yname == "caps-utime" { return "CapsUtime" }
-    if yname == "fwd-en-utime" { return "FwdEnUtime" }
-    if yname == "fwd-dis-utime" { return "FwdDisUtime" }
-    if yname == "multicast-group" { return "MulticastGroup" }
-    if yname == "secondary-address" { return "SecondaryAddress" }
-    return ""
-}
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetSegmentPath() string {
-    return "detail"
-}
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "acl" {
-        return &detail.Acl
-    }
-    if childYangName == "multi-acl" {
-        return &detail.MultiAcl
-    }
-    if childYangName == "helper-address" {
-        return &detail.HelperAddress
-    }
-    if childYangName == "rpf" {
-        return &detail.Rpf
-    }
-    if childYangName == "bgp-pa" {
-        return &detail.BgpPa
-    }
-    if childYangName == "pub-utime" {
-        return &detail.PubUtime
-    }
-    if childYangName == "idb-utime" {
-        return &detail.IdbUtime
-    }
-    if childYangName == "caps-utime" {
-        return &detail.CapsUtime
-    }
-    if childYangName == "fwd-en-utime" {
-        return &detail.FwdEnUtime
-    }
-    if childYangName == "fwd-dis-utime" {
-        return &detail.FwdDisUtime
-    }
-    if childYangName == "multicast-group" {
-        for _, c := range detail.MulticastGroup {
-            if detail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup{}
-        detail.MulticastGroup = append(detail.MulticastGroup, child)
-        return &detail.MulticastGroup[len(detail.MulticastGroup)-1]
-    }
-    if childYangName == "secondary-address" {
-        for _, c := range detail.SecondaryAddress {
-            if detail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress{}
-        detail.SecondaryAddress = append(detail.SecondaryAddress, child)
-        return &detail.SecondaryAddress[len(detail.SecondaryAddress)-1]
-    }
-    return nil
-}
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["acl"] = &detail.Acl
-    children["multi-acl"] = &detail.MultiAcl
-    children["helper-address"] = &detail.HelperAddress
-    children["rpf"] = &detail.Rpf
-    children["bgp-pa"] = &detail.BgpPa
-    children["pub-utime"] = &detail.PubUtime
-    children["idb-utime"] = &detail.IdbUtime
-    children["caps-utime"] = &detail.CapsUtime
-    children["fwd-en-utime"] = &detail.FwdEnUtime
-    children["fwd-dis-utime"] = &detail.FwdDisUtime
+    detail.EntityData.Children = make(map[string]types.YChild)
+    detail.EntityData.Children["acl"] = types.YChild{"Acl", &detail.Acl}
+    detail.EntityData.Children["multi-acl"] = types.YChild{"MultiAcl", &detail.MultiAcl}
+    detail.EntityData.Children["helper-address"] = types.YChild{"HelperAddress", &detail.HelperAddress}
+    detail.EntityData.Children["rpf"] = types.YChild{"Rpf", &detail.Rpf}
+    detail.EntityData.Children["bgp-pa"] = types.YChild{"BgpPa", &detail.BgpPa}
+    detail.EntityData.Children["pub-utime"] = types.YChild{"PubUtime", &detail.PubUtime}
+    detail.EntityData.Children["idb-utime"] = types.YChild{"IdbUtime", &detail.IdbUtime}
+    detail.EntityData.Children["caps-utime"] = types.YChild{"CapsUtime", &detail.CapsUtime}
+    detail.EntityData.Children["fwd-en-utime"] = types.YChild{"FwdEnUtime", &detail.FwdEnUtime}
+    detail.EntityData.Children["fwd-dis-utime"] = types.YChild{"FwdDisUtime", &detail.FwdDisUtime}
+    detail.EntityData.Children["multicast-group"] = types.YChild{"MulticastGroup", nil}
     for i := range detail.MulticastGroup {
-        children[detail.MulticastGroup[i].GetSegmentPath()] = &detail.MulticastGroup[i]
+        detail.EntityData.Children[types.GetSegmentPath(&detail.MulticastGroup[i])] = types.YChild{"MulticastGroup", &detail.MulticastGroup[i]}
     }
+    detail.EntityData.Children["secondary-address"] = types.YChild{"SecondaryAddress", nil}
     for i := range detail.SecondaryAddress {
-        children[detail.SecondaryAddress[i].GetSegmentPath()] = &detail.SecondaryAddress[i]
+        detail.EntityData.Children[types.GetSegmentPath(&detail.SecondaryAddress[i])] = types.YChild{"SecondaryAddress", &detail.SecondaryAddress[i]}
     }
-    return children
+    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs["primary-address"] = types.YLeaf{"PrimaryAddress", detail.PrimaryAddress}
+    detail.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", detail.VrfId}
+    detail.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", detail.LineState}
+    detail.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", detail.PrefixLength}
+    detail.EntityData.Leafs["route-tag"] = types.YLeaf{"RouteTag", detail.RouteTag}
+    detail.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", detail.Mtu}
+    detail.EntityData.Leafs["unreachable"] = types.YLeaf{"Unreachable", detail.Unreachable}
+    detail.EntityData.Leafs["redirect"] = types.YLeaf{"Redirect", detail.Redirect}
+    detail.EntityData.Leafs["direct-broadcast"] = types.YLeaf{"DirectBroadcast", detail.DirectBroadcast}
+    detail.EntityData.Leafs["mask-reply"] = types.YLeaf{"MaskReply", detail.MaskReply}
+    detail.EntityData.Leafs["rg-id-exists"] = types.YLeaf{"RgIdExists", detail.RgIdExists}
+    detail.EntityData.Leafs["mlacp-active"] = types.YLeaf{"MlacpActive", detail.MlacpActive}
+    detail.EntityData.Leafs["unnumbered-interface-name"] = types.YLeaf{"UnnumberedInterfaceName", detail.UnnumberedInterfaceName}
+    detail.EntityData.Leafs["proxy-arp-disabled"] = types.YLeaf{"ProxyArpDisabled", detail.ProxyArpDisabled}
+    detail.EntityData.Leafs["flow-tag-src"] = types.YLeaf{"FlowTagSrc", detail.FlowTagSrc}
+    detail.EntityData.Leafs["flow-tag-dst"] = types.YLeaf{"FlowTagDst", detail.FlowTagDst}
+    return &(detail.EntityData)
 }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["primary-address"] = detail.PrimaryAddress
-    leafs["vrf-id"] = detail.VrfId
-    leafs["line-state"] = detail.LineState
-    leafs["prefix-length"] = detail.PrefixLength
-    leafs["route-tag"] = detail.RouteTag
-    leafs["mtu"] = detail.Mtu
-    leafs["unreachable"] = detail.Unreachable
-    leafs["redirect"] = detail.Redirect
-    leafs["direct-broadcast"] = detail.DirectBroadcast
-    leafs["mask-reply"] = detail.MaskReply
-    leafs["rg-id-exists"] = detail.RgIdExists
-    leafs["mlacp-active"] = detail.MlacpActive
-    leafs["unnumbered-interface-name"] = detail.UnnumberedInterfaceName
-    leafs["proxy-arp-disabled"] = detail.ProxyArpDisabled
-    leafs["flow-tag-src"] = detail.FlowTagSrc
-    leafs["flow-tag-dst"] = detail.FlowTagDst
-    return leafs
-}
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetYangName() string { return "detail" }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) SetParent(parent types.Entity) { detail.parent = parent }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetParent() types.Entity { return detail.parent }
-
-func (detail *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail) GetParentYangName() string { return "vrf" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl
 // ACLs configured on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ACL applied to incoming packets. The type is string.
@@ -3646,185 +1969,210 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl struct {
     CommonOutBound interface{}
 }
 
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetFilter() yfilter.YFilter { return acl.YFilter }
+func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetEntityData() *types.CommonEntityData {
+    acl.EntityData.YFilter = acl.YFilter
+    acl.EntityData.YangName = "acl"
+    acl.EntityData.BundleName = "cisco_ios_xr"
+    acl.EntityData.ParentYangName = "detail"
+    acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) SetFilter(yf yfilter.YFilter) { acl.YFilter = yf }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    if yname == "common-in-bound" { return "CommonInBound" }
-    if yname == "common-out-bound" { return "CommonOutBound" }
-    return ""
+    acl.EntityData.Children = make(map[string]types.YChild)
+    acl.EntityData.Leafs = make(map[string]types.YLeaf)
+    acl.EntityData.Leafs["inbound"] = types.YLeaf{"Inbound", acl.Inbound}
+    acl.EntityData.Leafs["outbound"] = types.YLeaf{"Outbound", acl.Outbound}
+    acl.EntityData.Leafs["common-in-bound"] = types.YLeaf{"CommonInBound", acl.CommonInBound}
+    acl.EntityData.Leafs["common-out-bound"] = types.YLeaf{"CommonOutBound", acl.CommonOutBound}
+    return &(acl.EntityData)
 }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetSegmentPath() string {
-    return "acl"
-}
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["inbound"] = acl.Inbound
-    leafs["outbound"] = acl.Outbound
-    leafs["common-in-bound"] = acl.CommonInBound
-    leafs["common-out-bound"] = acl.CommonOutBound
-    return leafs
-}
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetYangName() string { return "acl" }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) SetParent(parent types.Entity) { acl.parent = parent }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetParent() types.Entity { return acl.parent }
-
-func (acl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Acl) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl
 // Multi ACLs configured on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Inbound ACLs. The type is slice of string.
-    Inbound []interface{}
+    // Inbound ACLs. The type is slice of
+    // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound.
+    Inbound []Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound
 
-    // Outbound ACLs. The type is slice of string.
-    Outbound []interface{}
+    // Outbound ACLs. The type is slice of
+    // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound.
+    Outbound []Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound
 
-    // Common ACLs. The type is slice of string.
-    Common []interface{}
+    // Common ACLs. The type is slice of
+    // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common.
+    Common []Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common
 }
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetFilter() yfilter.YFilter { return multiAcl.YFilter }
+func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetEntityData() *types.CommonEntityData {
+    multiAcl.EntityData.YFilter = multiAcl.YFilter
+    multiAcl.EntityData.YangName = "multi-acl"
+    multiAcl.EntityData.BundleName = "cisco_ios_xr"
+    multiAcl.EntityData.ParentYangName = "detail"
+    multiAcl.EntityData.SegmentPath = "multi-acl"
+    multiAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multiAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multiAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) SetFilter(yf yfilter.YFilter) { multiAcl.YFilter = yf }
-
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    if yname == "common" { return "Common" }
-    return ""
+    multiAcl.EntityData.Children = make(map[string]types.YChild)
+    multiAcl.EntityData.Children["inbound"] = types.YChild{"Inbound", nil}
+    for i := range multiAcl.Inbound {
+        multiAcl.EntityData.Children[types.GetSegmentPath(&multiAcl.Inbound[i])] = types.YChild{"Inbound", &multiAcl.Inbound[i]}
+    }
+    multiAcl.EntityData.Children["outbound"] = types.YChild{"Outbound", nil}
+    for i := range multiAcl.Outbound {
+        multiAcl.EntityData.Children[types.GetSegmentPath(&multiAcl.Outbound[i])] = types.YChild{"Outbound", &multiAcl.Outbound[i]}
+    }
+    multiAcl.EntityData.Children["common"] = types.YChild{"Common", nil}
+    for i := range multiAcl.Common {
+        multiAcl.EntityData.Children[types.GetSegmentPath(&multiAcl.Common[i])] = types.YChild{"Common", &multiAcl.Common[i]}
+    }
+    multiAcl.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(multiAcl.EntityData)
 }
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetSegmentPath() string {
-    return "multi-acl"
+// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound
+// Inbound ACLs
+type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string.
+    Entry interface{}
 }
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (inbound *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "multi-acl"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["entry"] = types.YLeaf{"Entry", inbound.Entry}
+    return &(inbound.EntityData)
 }
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound
+// Outbound ACLs
+type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string.
+    Entry interface{}
 }
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["inbound"] = multiAcl.Inbound
-    leafs["outbound"] = multiAcl.Outbound
-    leafs["common"] = multiAcl.Common
-    return leafs
+func (outbound *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "multi-acl"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["entry"] = types.YLeaf{"Entry", outbound.Entry}
+    return &(outbound.EntityData)
 }
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetBundleName() string { return "cisco_ios_xr" }
+// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common
+// Common ACLs
+type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetYangName() string { return "multi-acl" }
+    // The type is string.
+    Entry interface{}
+}
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+func (common *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl_Common) GetEntityData() *types.CommonEntityData {
+    common.EntityData.YFilter = common.YFilter
+    common.EntityData.YangName = "common"
+    common.EntityData.BundleName = "cisco_ios_xr"
+    common.EntityData.ParentYangName = "multi-acl"
+    common.EntityData.SegmentPath = "common"
+    common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) SetParent(parent types.Entity) { multiAcl.parent = parent }
-
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetParent() types.Entity { return multiAcl.parent }
-
-func (multiAcl *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MultiAcl) GetParentYangName() string { return "detail" }
+    common.EntityData.Children = make(map[string]types.YChild)
+    common.EntityData.Leafs = make(map[string]types.YLeaf)
+    common.EntityData.Leafs["entry"] = types.YLeaf{"Entry", common.Entry}
+    return &(common.EntityData)
+}
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress
 // Helper Addresses configured on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Helper address. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    AddressArray []interface{}
+    // Helper address. The type is slice of
+    // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray.
+    AddressArray []Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray
 }
 
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetFilter() yfilter.YFilter { return helperAddress.YFilter }
+func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetEntityData() *types.CommonEntityData {
+    helperAddress.EntityData.YFilter = helperAddress.YFilter
+    helperAddress.EntityData.YangName = "helper-address"
+    helperAddress.EntityData.BundleName = "cisco_ios_xr"
+    helperAddress.EntityData.ParentYangName = "detail"
+    helperAddress.EntityData.SegmentPath = "helper-address"
+    helperAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    helperAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    helperAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) SetFilter(yf yfilter.YFilter) { helperAddress.YFilter = yf }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetGoName(yname string) string {
-    if yname == "address-array" { return "AddressArray" }
-    return ""
+    helperAddress.EntityData.Children = make(map[string]types.YChild)
+    helperAddress.EntityData.Children["address-array"] = types.YChild{"AddressArray", nil}
+    for i := range helperAddress.AddressArray {
+        helperAddress.EntityData.Children[types.GetSegmentPath(&helperAddress.AddressArray[i])] = types.YChild{"AddressArray", &helperAddress.AddressArray[i]}
+    }
+    helperAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(helperAddress.EntityData)
 }
 
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetSegmentPath() string {
-    return "helper-address"
+// Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray
+// Helper address
+type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Entry interface{}
 }
 
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (addressArray *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress_AddressArray) GetEntityData() *types.CommonEntityData {
+    addressArray.EntityData.YFilter = addressArray.YFilter
+    addressArray.EntityData.YangName = "address-array"
+    addressArray.EntityData.BundleName = "cisco_ios_xr"
+    addressArray.EntityData.ParentYangName = "helper-address"
+    addressArray.EntityData.SegmentPath = "address-array"
+    addressArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addressArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addressArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    addressArray.EntityData.Children = make(map[string]types.YChild)
+    addressArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressArray.EntityData.Leafs["entry"] = types.YLeaf{"Entry", addressArray.Entry}
+    return &(addressArray.EntityData)
 }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address-array"] = helperAddress.AddressArray
-    return leafs
-}
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetYangName() string { return "helper-address" }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) SetParent(parent types.Entity) { helperAddress.parent = parent }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetParent() types.Entity { return helperAddress.parent }
-
-func (helperAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_HelperAddress) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf
 // RPF config on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable RPF config. The type is bool.
@@ -3840,62 +2188,29 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf struct {
     Mode interface{}
 }
 
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetFilter() yfilter.YFilter { return rpf.YFilter }
+func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetEntityData() *types.CommonEntityData {
+    rpf.EntityData.YFilter = rpf.YFilter
+    rpf.EntityData.YangName = "rpf"
+    rpf.EntityData.BundleName = "cisco_ios_xr"
+    rpf.EntityData.ParentYangName = "detail"
+    rpf.EntityData.SegmentPath = "rpf"
+    rpf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rpf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rpf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) SetFilter(yf yfilter.YFilter) { rpf.YFilter = yf }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "allow-default-route" { return "AllowDefaultRoute" }
-    if yname == "allow-self-ping" { return "AllowSelfPing" }
-    if yname == "mode" { return "Mode" }
-    return ""
+    rpf.EntityData.Children = make(map[string]types.YChild)
+    rpf.EntityData.Leafs = make(map[string]types.YLeaf)
+    rpf.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rpf.Enable}
+    rpf.EntityData.Leafs["allow-default-route"] = types.YLeaf{"AllowDefaultRoute", rpf.AllowDefaultRoute}
+    rpf.EntityData.Leafs["allow-self-ping"] = types.YLeaf{"AllowSelfPing", rpf.AllowSelfPing}
+    rpf.EntityData.Leafs["mode"] = types.YLeaf{"Mode", rpf.Mode}
+    return &(rpf.EntityData)
 }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetSegmentPath() string {
-    return "rpf"
-}
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = rpf.Enable
-    leafs["allow-default-route"] = rpf.AllowDefaultRoute
-    leafs["allow-self-ping"] = rpf.AllowSelfPing
-    leafs["mode"] = rpf.Mode
-    return leafs
-}
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetYangName() string { return "rpf" }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) SetParent(parent types.Entity) { rpf.parent = parent }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetParent() types.Entity { return rpf.parent }
-
-func (rpf *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_Rpf) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa
 // BGP PA config on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // BGP PA input config.
@@ -3905,64 +2220,27 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa struct {
     Output Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output
 }
 
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetFilter() yfilter.YFilter { return bgpPa.YFilter }
+func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetEntityData() *types.CommonEntityData {
+    bgpPa.EntityData.YFilter = bgpPa.YFilter
+    bgpPa.EntityData.YangName = "bgp-pa"
+    bgpPa.EntityData.BundleName = "cisco_ios_xr"
+    bgpPa.EntityData.ParentYangName = "detail"
+    bgpPa.EntityData.SegmentPath = "bgp-pa"
+    bgpPa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgpPa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgpPa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) SetFilter(yf yfilter.YFilter) { bgpPa.YFilter = yf }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    bgpPa.EntityData.Children = make(map[string]types.YChild)
+    bgpPa.EntityData.Children["input"] = types.YChild{"Input", &bgpPa.Input}
+    bgpPa.EntityData.Children["output"] = types.YChild{"Output", &bgpPa.Output}
+    bgpPa.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgpPa.EntityData)
 }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetSegmentPath() string {
-    return "bgp-pa"
-}
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &bgpPa.Input
-    }
-    if childYangName == "output" {
-        return &bgpPa.Output
-    }
-    return nil
-}
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &bgpPa.Input
-    children["output"] = &bgpPa.Output
-    return children
-}
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetYangName() string { return "bgp-pa" }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) SetParent(parent types.Entity) { bgpPa.parent = parent }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetParent() types.Entity { return bgpPa.parent }
-
-func (bgpPa *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input
 // BGP PA input config
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable BGP PA for ingress/egress. The type is bool.
@@ -3975,60 +2253,28 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input struct {
     Destination interface{}
 }
 
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "bgp-pa"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "source" { return "Source" }
-    if yname == "destination" { return "Destination" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["enable"] = types.YLeaf{"Enable", input.Enable}
+    input.EntityData.Leafs["source"] = types.YLeaf{"Source", input.Source}
+    input.EntityData.Leafs["destination"] = types.YLeaf{"Destination", input.Destination}
+    return &(input.EntityData)
 }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = input.Enable
-    leafs["source"] = input.Source
-    leafs["destination"] = input.Destination
-    return leafs
-}
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetYangName() string { return "input" }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Input) GetParentYangName() string { return "bgp-pa" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output
 // BGP PA output config
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable BGP PA for ingress/egress. The type is bool.
@@ -4041,376 +2287,169 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output struct {
     Destination interface{}
 }
 
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "bgp-pa"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "source" { return "Source" }
-    if yname == "destination" { return "Destination" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["enable"] = types.YLeaf{"Enable", output.Enable}
+    output.EntityData.Leafs["source"] = types.YLeaf{"Source", output.Source}
+    output.EntityData.Leafs["destination"] = types.YLeaf{"Destination", output.Destination}
+    return &(output.EntityData)
 }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = output.Enable
-    leafs["source"] = output.Source
-    leafs["destination"] = output.Destination
-    return leafs
-}
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetYangName() string { return "output" }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_BgpPa_Output) GetParentYangName() string { return "bgp-pa" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime
 // Address Publish Time
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetFilter() yfilter.YFilter { return pubUtime.YFilter }
+func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetEntityData() *types.CommonEntityData {
+    pubUtime.EntityData.YFilter = pubUtime.YFilter
+    pubUtime.EntityData.YangName = "pub-utime"
+    pubUtime.EntityData.BundleName = "cisco_ios_xr"
+    pubUtime.EntityData.ParentYangName = "detail"
+    pubUtime.EntityData.SegmentPath = "pub-utime"
+    pubUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pubUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pubUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) SetFilter(yf yfilter.YFilter) { pubUtime.YFilter = yf }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetGoName(yname string) string {
-    return ""
+    pubUtime.EntityData.Children = make(map[string]types.YChild)
+    pubUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pubUtime.EntityData)
 }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetSegmentPath() string {
-    return "pub-utime"
-}
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetYangName() string { return "pub-utime" }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) SetParent(parent types.Entity) { pubUtime.parent = parent }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetParent() types.Entity { return pubUtime.parent }
-
-func (pubUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_PubUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime
 // IDB Create Time
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetFilter() yfilter.YFilter { return idbUtime.YFilter }
+func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetEntityData() *types.CommonEntityData {
+    idbUtime.EntityData.YFilter = idbUtime.YFilter
+    idbUtime.EntityData.YangName = "idb-utime"
+    idbUtime.EntityData.BundleName = "cisco_ios_xr"
+    idbUtime.EntityData.ParentYangName = "detail"
+    idbUtime.EntityData.SegmentPath = "idb-utime"
+    idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) SetFilter(yf yfilter.YFilter) { idbUtime.YFilter = yf }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetGoName(yname string) string {
-    return ""
+    idbUtime.EntityData.Children = make(map[string]types.YChild)
+    idbUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(idbUtime.EntityData)
 }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetSegmentPath() string {
-    return "idb-utime"
-}
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetYangName() string { return "idb-utime" }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) SetParent(parent types.Entity) { idbUtime.parent = parent }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetParent() types.Entity { return idbUtime.parent }
-
-func (idbUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_IdbUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime
 // CAPS Add Time
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetFilter() yfilter.YFilter { return capsUtime.YFilter }
+func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetEntityData() *types.CommonEntityData {
+    capsUtime.EntityData.YFilter = capsUtime.YFilter
+    capsUtime.EntityData.YangName = "caps-utime"
+    capsUtime.EntityData.BundleName = "cisco_ios_xr"
+    capsUtime.EntityData.ParentYangName = "detail"
+    capsUtime.EntityData.SegmentPath = "caps-utime"
+    capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) SetFilter(yf yfilter.YFilter) { capsUtime.YFilter = yf }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetGoName(yname string) string {
-    return ""
+    capsUtime.EntityData.Children = make(map[string]types.YChild)
+    capsUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(capsUtime.EntityData)
 }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetSegmentPath() string {
-    return "caps-utime"
-}
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetYangName() string { return "caps-utime" }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) SetParent(parent types.Entity) { capsUtime.parent = parent }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetParent() types.Entity { return capsUtime.parent }
-
-func (capsUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_CapsUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime
 // FWD ENABLE Time
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetFilter() yfilter.YFilter { return fwdEnUtime.YFilter }
+func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetEntityData() *types.CommonEntityData {
+    fwdEnUtime.EntityData.YFilter = fwdEnUtime.YFilter
+    fwdEnUtime.EntityData.YangName = "fwd-en-utime"
+    fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdEnUtime.EntityData.ParentYangName = "detail"
+    fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
+    fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) SetFilter(yf yfilter.YFilter) { fwdEnUtime.YFilter = yf }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetGoName(yname string) string {
-    return ""
+    fwdEnUtime.EntityData.Children = make(map[string]types.YChild)
+    fwdEnUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fwdEnUtime.EntityData)
 }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetSegmentPath() string {
-    return "fwd-en-utime"
-}
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetYangName() string { return "fwd-en-utime" }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) SetParent(parent types.Entity) { fwdEnUtime.parent = parent }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetParent() types.Entity { return fwdEnUtime.parent }
-
-func (fwdEnUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdEnUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime
 // FWD DISABLE Time
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetFilter() yfilter.YFilter { return fwdDisUtime.YFilter }
+func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetEntityData() *types.CommonEntityData {
+    fwdDisUtime.EntityData.YFilter = fwdDisUtime.YFilter
+    fwdDisUtime.EntityData.YangName = "fwd-dis-utime"
+    fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdDisUtime.EntityData.ParentYangName = "detail"
+    fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
+    fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) SetFilter(yf yfilter.YFilter) { fwdDisUtime.YFilter = yf }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetGoName(yname string) string {
-    return ""
+    fwdDisUtime.EntityData.Children = make(map[string]types.YChild)
+    fwdDisUtime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fwdDisUtime.EntityData)
 }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetSegmentPath() string {
-    return "fwd-dis-utime"
-}
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetYangName() string { return "fwd-dis-utime" }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) SetParent(parent types.Entity) { fwdDisUtime.parent = parent }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetParent() types.Entity { return fwdDisUtime.parent }
-
-func (fwdDisUtime *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_FwdDisUtime) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup
 // Multicast groups joined on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address of multicast group. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     GroupAddress interface{}
 }
 
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetFilter() yfilter.YFilter { return multicastGroup.YFilter }
+func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetEntityData() *types.CommonEntityData {
+    multicastGroup.EntityData.YFilter = multicastGroup.YFilter
+    multicastGroup.EntityData.YangName = "multicast-group"
+    multicastGroup.EntityData.BundleName = "cisco_ios_xr"
+    multicastGroup.EntityData.ParentYangName = "detail"
+    multicastGroup.EntityData.SegmentPath = "multicast-group"
+    multicastGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) SetFilter(yf yfilter.YFilter) { multicastGroup.YFilter = yf }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetGoName(yname string) string {
-    if yname == "group-address" { return "GroupAddress" }
-    return ""
+    multicastGroup.EntityData.Children = make(map[string]types.YChild)
+    multicastGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastGroup.EntityData.Leafs["group-address"] = types.YLeaf{"GroupAddress", multicastGroup.GroupAddress}
+    return &(multicastGroup.EntityData)
 }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetSegmentPath() string {
-    return "multicast-group"
-}
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group-address"] = multicastGroup.GroupAddress
-    return leafs
-}
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetYangName() string { return "multicast-group" }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) SetParent(parent types.Entity) { multicastGroup.parent = parent }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetParent() types.Entity { return multicastGroup.parent }
-
-func (multicastGroup *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_MulticastGroup) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress
 // Secondary addresses on the interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Prefix length of address. The type is interface{} with range:
@@ -4422,65 +2461,33 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress struct {
     RouteTag interface{}
 }
 
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetFilter() yfilter.YFilter { return secondaryAddress.YFilter }
+func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetEntityData() *types.CommonEntityData {
+    secondaryAddress.EntityData.YFilter = secondaryAddress.YFilter
+    secondaryAddress.EntityData.YangName = "secondary-address"
+    secondaryAddress.EntityData.BundleName = "cisco_ios_xr"
+    secondaryAddress.EntityData.ParentYangName = "detail"
+    secondaryAddress.EntityData.SegmentPath = "secondary-address"
+    secondaryAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    secondaryAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    secondaryAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) SetFilter(yf yfilter.YFilter) { secondaryAddress.YFilter = yf }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "route-tag" { return "RouteTag" }
-    return ""
+    secondaryAddress.EntityData.Children = make(map[string]types.YChild)
+    secondaryAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    secondaryAddress.EntityData.Leafs["address"] = types.YLeaf{"Address", secondaryAddress.Address}
+    secondaryAddress.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", secondaryAddress.PrefixLength}
+    secondaryAddress.EntityData.Leafs["route-tag"] = types.YLeaf{"RouteTag", secondaryAddress.RouteTag}
+    return &(secondaryAddress.EntityData)
 }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetSegmentPath() string {
-    return "secondary-address"
-}
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = secondaryAddress.Address
-    leafs["prefix-length"] = secondaryAddress.PrefixLength
-    leafs["route-tag"] = secondaryAddress.RouteTag
-    return leafs
-}
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetYangName() string { return "secondary-address" }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) SetParent(parent types.Entity) { secondaryAddress.parent = parent }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetParent() types.Entity { return secondaryAddress.parent }
-
-func (secondaryAddress *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Detail_SecondaryAddress) GetParentYangName() string { return "detail" }
 
 // Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief
 // Brief IPv4 network operational data for an
 // interface
 type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryAddress interface{}
 
     // VRF ID of the interface. The type is interface{} with range: 0..4294967295.
@@ -4493,55 +2500,22 @@ type Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief struct {
     LineState interface{}
 }
 
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetFilter() yfilter.YFilter { return brief.YFilter }
+func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetEntityData() *types.CommonEntityData {
+    brief.EntityData.YFilter = brief.YFilter
+    brief.EntityData.YangName = "brief"
+    brief.EntityData.BundleName = "cisco_ios_xr"
+    brief.EntityData.ParentYangName = "vrf"
+    brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) SetFilter(yf yfilter.YFilter) { brief.YFilter = yf }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetGoName(yname string) string {
-    if yname == "primary-address" { return "PrimaryAddress" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "line-state" { return "LineState" }
-    return ""
+    brief.EntityData.Children = make(map[string]types.YChild)
+    brief.EntityData.Leafs = make(map[string]types.YLeaf)
+    brief.EntityData.Leafs["primary-address"] = types.YLeaf{"PrimaryAddress", brief.PrimaryAddress}
+    brief.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", brief.VrfId}
+    brief.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", brief.VrfName}
+    brief.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", brief.LineState}
+    return &(brief.EntityData)
 }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetSegmentPath() string {
-    return "brief"
-}
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["primary-address"] = brief.PrimaryAddress
-    leafs["vrf-id"] = brief.VrfId
-    leafs["vrf-name"] = brief.VrfName
-    leafs["line-state"] = brief.LineState
-    return leafs
-}
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetBundleName() string { return "cisco_ios_xr" }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetYangName() string { return "brief" }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) SetParent(parent types.Entity) { brief.parent = parent }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetParent() types.Entity { return brief.parent }
-
-func (brief *Ipv4Network_Interfaces_Interface_Vrfs_Vrf_Brief) GetParentYangName() string { return "vrf" }
 

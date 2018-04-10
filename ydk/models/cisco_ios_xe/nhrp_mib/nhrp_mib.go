@@ -19,7 +19,7 @@ func init() {
 
 // NHRPMIB
 type NHRPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -68,108 +68,35 @@ type NHRPMIB struct {
     Nhrpserverstattable NHRPMIB_Nhrpserverstattable
 }
 
-func (nHRPMIB *NHRPMIB) GetFilter() yfilter.YFilter { return nHRPMIB.YFilter }
+func (nHRPMIB *NHRPMIB) GetEntityData() *types.CommonEntityData {
+    nHRPMIB.EntityData.YFilter = nHRPMIB.YFilter
+    nHRPMIB.EntityData.YangName = "NHRP-MIB"
+    nHRPMIB.EntityData.BundleName = "cisco_ios_xe"
+    nHRPMIB.EntityData.ParentYangName = "NHRP-MIB"
+    nHRPMIB.EntityData.SegmentPath = "NHRP-MIB:NHRP-MIB"
+    nHRPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nHRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nHRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nHRPMIB *NHRPMIB) SetFilter(yf yfilter.YFilter) { nHRPMIB.YFilter = yf }
-
-func (nHRPMIB *NHRPMIB) GetGoName(yname string) string {
-    if yname == "nhrpGeneralObjects" { return "Nhrpgeneralobjects" }
-    if yname == "nhrpCacheTable" { return "Nhrpcachetable" }
-    if yname == "nhrpPurgeReqTable" { return "Nhrppurgereqtable" }
-    if yname == "nhrpClientTable" { return "Nhrpclienttable" }
-    if yname == "nhrpClientRegistrationTable" { return "Nhrpclientregistrationtable" }
-    if yname == "nhrpClientNhsTable" { return "Nhrpclientnhstable" }
-    if yname == "nhrpClientStatTable" { return "Nhrpclientstattable" }
-    if yname == "nhrpServerTable" { return "Nhrpservertable" }
-    if yname == "nhrpServerCacheTable" { return "Nhrpservercachetable" }
-    if yname == "nhrpServerNhcTable" { return "Nhrpservernhctable" }
-    if yname == "nhrpServerStatTable" { return "Nhrpserverstattable" }
-    return ""
+    nHRPMIB.EntityData.Children = make(map[string]types.YChild)
+    nHRPMIB.EntityData.Children["nhrpGeneralObjects"] = types.YChild{"Nhrpgeneralobjects", &nHRPMIB.Nhrpgeneralobjects}
+    nHRPMIB.EntityData.Children["nhrpCacheTable"] = types.YChild{"Nhrpcachetable", &nHRPMIB.Nhrpcachetable}
+    nHRPMIB.EntityData.Children["nhrpPurgeReqTable"] = types.YChild{"Nhrppurgereqtable", &nHRPMIB.Nhrppurgereqtable}
+    nHRPMIB.EntityData.Children["nhrpClientTable"] = types.YChild{"Nhrpclienttable", &nHRPMIB.Nhrpclienttable}
+    nHRPMIB.EntityData.Children["nhrpClientRegistrationTable"] = types.YChild{"Nhrpclientregistrationtable", &nHRPMIB.Nhrpclientregistrationtable}
+    nHRPMIB.EntityData.Children["nhrpClientNhsTable"] = types.YChild{"Nhrpclientnhstable", &nHRPMIB.Nhrpclientnhstable}
+    nHRPMIB.EntityData.Children["nhrpClientStatTable"] = types.YChild{"Nhrpclientstattable", &nHRPMIB.Nhrpclientstattable}
+    nHRPMIB.EntityData.Children["nhrpServerTable"] = types.YChild{"Nhrpservertable", &nHRPMIB.Nhrpservertable}
+    nHRPMIB.EntityData.Children["nhrpServerCacheTable"] = types.YChild{"Nhrpservercachetable", &nHRPMIB.Nhrpservercachetable}
+    nHRPMIB.EntityData.Children["nhrpServerNhcTable"] = types.YChild{"Nhrpservernhctable", &nHRPMIB.Nhrpservernhctable}
+    nHRPMIB.EntityData.Children["nhrpServerStatTable"] = types.YChild{"Nhrpserverstattable", &nHRPMIB.Nhrpserverstattable}
+    nHRPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nHRPMIB.EntityData)
 }
-
-func (nHRPMIB *NHRPMIB) GetSegmentPath() string {
-    return "NHRP-MIB:NHRP-MIB"
-}
-
-func (nHRPMIB *NHRPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpGeneralObjects" {
-        return &nHRPMIB.Nhrpgeneralobjects
-    }
-    if childYangName == "nhrpCacheTable" {
-        return &nHRPMIB.Nhrpcachetable
-    }
-    if childYangName == "nhrpPurgeReqTable" {
-        return &nHRPMIB.Nhrppurgereqtable
-    }
-    if childYangName == "nhrpClientTable" {
-        return &nHRPMIB.Nhrpclienttable
-    }
-    if childYangName == "nhrpClientRegistrationTable" {
-        return &nHRPMIB.Nhrpclientregistrationtable
-    }
-    if childYangName == "nhrpClientNhsTable" {
-        return &nHRPMIB.Nhrpclientnhstable
-    }
-    if childYangName == "nhrpClientStatTable" {
-        return &nHRPMIB.Nhrpclientstattable
-    }
-    if childYangName == "nhrpServerTable" {
-        return &nHRPMIB.Nhrpservertable
-    }
-    if childYangName == "nhrpServerCacheTable" {
-        return &nHRPMIB.Nhrpservercachetable
-    }
-    if childYangName == "nhrpServerNhcTable" {
-        return &nHRPMIB.Nhrpservernhctable
-    }
-    if childYangName == "nhrpServerStatTable" {
-        return &nHRPMIB.Nhrpserverstattable
-    }
-    return nil
-}
-
-func (nHRPMIB *NHRPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nhrpGeneralObjects"] = &nHRPMIB.Nhrpgeneralobjects
-    children["nhrpCacheTable"] = &nHRPMIB.Nhrpcachetable
-    children["nhrpPurgeReqTable"] = &nHRPMIB.Nhrppurgereqtable
-    children["nhrpClientTable"] = &nHRPMIB.Nhrpclienttable
-    children["nhrpClientRegistrationTable"] = &nHRPMIB.Nhrpclientregistrationtable
-    children["nhrpClientNhsTable"] = &nHRPMIB.Nhrpclientnhstable
-    children["nhrpClientStatTable"] = &nHRPMIB.Nhrpclientstattable
-    children["nhrpServerTable"] = &nHRPMIB.Nhrpservertable
-    children["nhrpServerCacheTable"] = &nHRPMIB.Nhrpservercachetable
-    children["nhrpServerNhcTable"] = &nHRPMIB.Nhrpservernhctable
-    children["nhrpServerStatTable"] = &nHRPMIB.Nhrpserverstattable
-    return children
-}
-
-func (nHRPMIB *NHRPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nHRPMIB *NHRPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nHRPMIB *NHRPMIB) GetYangName() string { return "NHRP-MIB" }
-
-func (nHRPMIB *NHRPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nHRPMIB *NHRPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nHRPMIB *NHRPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nHRPMIB *NHRPMIB) SetParent(parent types.Entity) { nHRPMIB.parent = parent }
-
-func (nHRPMIB *NHRPMIB) GetParent() types.Entity { return nHRPMIB.parent }
-
-func (nHRPMIB *NHRPMIB) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpgeneralobjects
 type NHRPMIB_Nhrpgeneralobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This scalar is used for creating rows in the nhrpClientTable and the
@@ -188,57 +115,27 @@ type NHRPMIB_Nhrpgeneralobjects struct {
     Nhrpnextindex interface{}
 }
 
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetFilter() yfilter.YFilter { return nhrpgeneralobjects.YFilter }
+func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetEntityData() *types.CommonEntityData {
+    nhrpgeneralobjects.EntityData.YFilter = nhrpgeneralobjects.YFilter
+    nhrpgeneralobjects.EntityData.YangName = "nhrpGeneralObjects"
+    nhrpgeneralobjects.EntityData.BundleName = "cisco_ios_xe"
+    nhrpgeneralobjects.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpgeneralobjects.EntityData.SegmentPath = "nhrpGeneralObjects"
+    nhrpgeneralobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpgeneralobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpgeneralobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) SetFilter(yf yfilter.YFilter) { nhrpgeneralobjects.YFilter = yf }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetGoName(yname string) string {
-    if yname == "nhrpNextIndex" { return "Nhrpnextindex" }
-    return ""
+    nhrpgeneralobjects.EntityData.Children = make(map[string]types.YChild)
+    nhrpgeneralobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpgeneralobjects.EntityData.Leafs["nhrpNextIndex"] = types.YLeaf{"Nhrpnextindex", nhrpgeneralobjects.Nhrpnextindex}
+    return &(nhrpgeneralobjects.EntityData)
 }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetSegmentPath() string {
-    return "nhrpGeneralObjects"
-}
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpNextIndex"] = nhrpgeneralobjects.Nhrpnextindex
-    return leafs
-}
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetYangName() string { return "nhrpGeneralObjects" }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) SetParent(parent types.Entity) { nhrpgeneralobjects.parent = parent }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetParent() types.Entity { return nhrpgeneralobjects.parent }
-
-func (nhrpgeneralobjects *NHRPMIB_Nhrpgeneralobjects) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpcachetable
 // This table contains mappings between internetwork layer
 // addresses and NBMA subnetwork layer addresses.
 type NHRPMIB_Nhrpcachetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cached mapping between an internetwork layer address and an NBMA address.
@@ -253,63 +150,24 @@ type NHRPMIB_Nhrpcachetable struct {
     Nhrpcacheentry []NHRPMIB_Nhrpcachetable_Nhrpcacheentry
 }
 
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetFilter() yfilter.YFilter { return nhrpcachetable.YFilter }
+func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetEntityData() *types.CommonEntityData {
+    nhrpcachetable.EntityData.YFilter = nhrpcachetable.YFilter
+    nhrpcachetable.EntityData.YangName = "nhrpCacheTable"
+    nhrpcachetable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpcachetable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpcachetable.EntityData.SegmentPath = "nhrpCacheTable"
+    nhrpcachetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpcachetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpcachetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) SetFilter(yf yfilter.YFilter) { nhrpcachetable.YFilter = yf }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetGoName(yname string) string {
-    if yname == "nhrpCacheEntry" { return "Nhrpcacheentry" }
-    return ""
-}
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetSegmentPath() string {
-    return "nhrpCacheTable"
-}
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpCacheEntry" {
-        for _, c := range nhrpcachetable.Nhrpcacheentry {
-            if nhrpcachetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpcachetable_Nhrpcacheentry{}
-        nhrpcachetable.Nhrpcacheentry = append(nhrpcachetable.Nhrpcacheentry, child)
-        return &nhrpcachetable.Nhrpcacheentry[len(nhrpcachetable.Nhrpcacheentry)-1]
-    }
-    return nil
-}
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpcachetable.EntityData.Children = make(map[string]types.YChild)
+    nhrpcachetable.EntityData.Children["nhrpCacheEntry"] = types.YChild{"Nhrpcacheentry", nil}
     for i := range nhrpcachetable.Nhrpcacheentry {
-        children[nhrpcachetable.Nhrpcacheentry[i].GetSegmentPath()] = &nhrpcachetable.Nhrpcacheentry[i]
+        nhrpcachetable.EntityData.Children[types.GetSegmentPath(&nhrpcachetable.Nhrpcacheentry[i])] = types.YChild{"Nhrpcacheentry", &nhrpcachetable.Nhrpcacheentry[i]}
     }
-    return children
+    nhrpcachetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpcachetable.EntityData)
 }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetYangName() string { return "nhrpCacheTable" }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) SetParent(parent types.Entity) { nhrpcachetable.parent = parent }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetParent() types.Entity { return nhrpcachetable.parent }
-
-func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpcachetable_Nhrpcacheentry
 // A cached mapping between an internetwork layer address
@@ -328,7 +186,7 @@ func (nhrpcachetable *NHRPMIB_Nhrpcachetable) GetParentYangName() string { retur
 // of the CIE, refer to Section 5.2.0.1 of
 // RFC 2332 [17].
 type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The internetwork layer address type of this Next
@@ -449,83 +307,37 @@ type NHRPMIB_Nhrpcachetable_Nhrpcacheentry struct {
     Nhrpcacherowstatus interface{}
 }
 
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetFilter() yfilter.YFilter { return nhrpcacheentry.YFilter }
+func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetEntityData() *types.CommonEntityData {
+    nhrpcacheentry.EntityData.YFilter = nhrpcacheentry.YFilter
+    nhrpcacheentry.EntityData.YangName = "nhrpCacheEntry"
+    nhrpcacheentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpcacheentry.EntityData.ParentYangName = "nhrpCacheTable"
+    nhrpcacheentry.EntityData.SegmentPath = "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + fmt.Sprintf("%v", nhrpcacheentry.Ifindex) + "']" + "[nhrpCacheIndex='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheindex) + "']"
+    nhrpcacheentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpcacheentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpcacheentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) SetFilter(yf yfilter.YFilter) { nhrpcacheentry.YFilter = yf }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetGoName(yname string) string {
-    if yname == "nhrpCacheInternetworkAddrType" { return "Nhrpcacheinternetworkaddrtype" }
-    if yname == "nhrpCacheInternetworkAddr" { return "Nhrpcacheinternetworkaddr" }
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "nhrpCacheIndex" { return "Nhrpcacheindex" }
-    if yname == "nhrpCachePrefixLength" { return "Nhrpcacheprefixlength" }
-    if yname == "nhrpCacheNextHopInternetworkAddr" { return "Nhrpcachenexthopinternetworkaddr" }
-    if yname == "nhrpCacheNbmaAddrType" { return "Nhrpcachenbmaaddrtype" }
-    if yname == "nhrpCacheNbmaAddr" { return "Nhrpcachenbmaaddr" }
-    if yname == "nhrpCacheNbmaSubaddr" { return "Nhrpcachenbmasubaddr" }
-    if yname == "nhrpCacheType" { return "Nhrpcachetype" }
-    if yname == "nhrpCacheState" { return "Nhrpcachestate" }
-    if yname == "nhrpCacheHoldingTimeValid" { return "Nhrpcacheholdingtimevalid" }
-    if yname == "nhrpCacheHoldingTime" { return "Nhrpcacheholdingtime" }
-    if yname == "nhrpCacheNegotiatedMtu" { return "Nhrpcachenegotiatedmtu" }
-    if yname == "nhrpCachePreference" { return "Nhrpcachepreference" }
-    if yname == "nhrpCacheStorageType" { return "Nhrpcachestoragetype" }
-    if yname == "nhrpCacheRowStatus" { return "Nhrpcacherowstatus" }
-    return ""
+    nhrpcacheentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpcacheentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheInternetworkAddrType"] = types.YLeaf{"Nhrpcacheinternetworkaddrtype", nhrpcacheentry.Nhrpcacheinternetworkaddrtype}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheInternetworkAddr"] = types.YLeaf{"Nhrpcacheinternetworkaddr", nhrpcacheentry.Nhrpcacheinternetworkaddr}
+    nhrpcacheentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", nhrpcacheentry.Ifindex}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheIndex"] = types.YLeaf{"Nhrpcacheindex", nhrpcacheentry.Nhrpcacheindex}
+    nhrpcacheentry.EntityData.Leafs["nhrpCachePrefixLength"] = types.YLeaf{"Nhrpcacheprefixlength", nhrpcacheentry.Nhrpcacheprefixlength}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheNextHopInternetworkAddr"] = types.YLeaf{"Nhrpcachenexthopinternetworkaddr", nhrpcacheentry.Nhrpcachenexthopinternetworkaddr}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheNbmaAddrType"] = types.YLeaf{"Nhrpcachenbmaaddrtype", nhrpcacheentry.Nhrpcachenbmaaddrtype}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheNbmaAddr"] = types.YLeaf{"Nhrpcachenbmaaddr", nhrpcacheentry.Nhrpcachenbmaaddr}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheNbmaSubaddr"] = types.YLeaf{"Nhrpcachenbmasubaddr", nhrpcacheentry.Nhrpcachenbmasubaddr}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheType"] = types.YLeaf{"Nhrpcachetype", nhrpcacheentry.Nhrpcachetype}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheState"] = types.YLeaf{"Nhrpcachestate", nhrpcacheentry.Nhrpcachestate}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheHoldingTimeValid"] = types.YLeaf{"Nhrpcacheholdingtimevalid", nhrpcacheentry.Nhrpcacheholdingtimevalid}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheHoldingTime"] = types.YLeaf{"Nhrpcacheholdingtime", nhrpcacheentry.Nhrpcacheholdingtime}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheNegotiatedMtu"] = types.YLeaf{"Nhrpcachenegotiatedmtu", nhrpcacheentry.Nhrpcachenegotiatedmtu}
+    nhrpcacheentry.EntityData.Leafs["nhrpCachePreference"] = types.YLeaf{"Nhrpcachepreference", nhrpcacheentry.Nhrpcachepreference}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheStorageType"] = types.YLeaf{"Nhrpcachestoragetype", nhrpcacheentry.Nhrpcachestoragetype}
+    nhrpcacheentry.EntityData.Leafs["nhrpCacheRowStatus"] = types.YLeaf{"Nhrpcacherowstatus", nhrpcacheentry.Nhrpcacherowstatus}
+    return &(nhrpcacheentry.EntityData)
 }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetSegmentPath() string {
-    return "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + fmt.Sprintf("%v", nhrpcacheentry.Ifindex) + "']" + "[nhrpCacheIndex='" + fmt.Sprintf("%v", nhrpcacheentry.Nhrpcacheindex) + "']"
-}
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpCacheInternetworkAddrType"] = nhrpcacheentry.Nhrpcacheinternetworkaddrtype
-    leafs["nhrpCacheInternetworkAddr"] = nhrpcacheentry.Nhrpcacheinternetworkaddr
-    leafs["ifIndex"] = nhrpcacheentry.Ifindex
-    leafs["nhrpCacheIndex"] = nhrpcacheentry.Nhrpcacheindex
-    leafs["nhrpCachePrefixLength"] = nhrpcacheentry.Nhrpcacheprefixlength
-    leafs["nhrpCacheNextHopInternetworkAddr"] = nhrpcacheentry.Nhrpcachenexthopinternetworkaddr
-    leafs["nhrpCacheNbmaAddrType"] = nhrpcacheentry.Nhrpcachenbmaaddrtype
-    leafs["nhrpCacheNbmaAddr"] = nhrpcacheentry.Nhrpcachenbmaaddr
-    leafs["nhrpCacheNbmaSubaddr"] = nhrpcacheentry.Nhrpcachenbmasubaddr
-    leafs["nhrpCacheType"] = nhrpcacheentry.Nhrpcachetype
-    leafs["nhrpCacheState"] = nhrpcacheentry.Nhrpcachestate
-    leafs["nhrpCacheHoldingTimeValid"] = nhrpcacheentry.Nhrpcacheholdingtimevalid
-    leafs["nhrpCacheHoldingTime"] = nhrpcacheentry.Nhrpcacheholdingtime
-    leafs["nhrpCacheNegotiatedMtu"] = nhrpcacheentry.Nhrpcachenegotiatedmtu
-    leafs["nhrpCachePreference"] = nhrpcacheentry.Nhrpcachepreference
-    leafs["nhrpCacheStorageType"] = nhrpcacheentry.Nhrpcachestoragetype
-    leafs["nhrpCacheRowStatus"] = nhrpcacheentry.Nhrpcacherowstatus
-    return leafs
-}
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetYangName() string { return "nhrpCacheEntry" }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) SetParent(parent types.Entity) { nhrpcacheentry.parent = parent }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetParent() types.Entity { return nhrpcacheentry.parent }
-
-func (nhrpcacheentry *NHRPMIB_Nhrpcachetable_Nhrpcacheentry) GetParentYangName() string { return "nhrpCacheTable" }
 
 // NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate represents                 cached NAK mapping.
 type NHRPMIB_Nhrpcachetable_Nhrpcacheentry_Nhrpcachestate string
@@ -562,7 +374,7 @@ const (
 // NHRPMIB_Nhrppurgereqtable
 // This table will track Purge Request Information.
 type NHRPMIB_Nhrppurgereqtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information regarding a Purge Request. The type is slice of
@@ -570,68 +382,29 @@ type NHRPMIB_Nhrppurgereqtable struct {
     Nhrppurgereqentry []NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry
 }
 
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetFilter() yfilter.YFilter { return nhrppurgereqtable.YFilter }
+func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetEntityData() *types.CommonEntityData {
+    nhrppurgereqtable.EntityData.YFilter = nhrppurgereqtable.YFilter
+    nhrppurgereqtable.EntityData.YangName = "nhrpPurgeReqTable"
+    nhrppurgereqtable.EntityData.BundleName = "cisco_ios_xe"
+    nhrppurgereqtable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrppurgereqtable.EntityData.SegmentPath = "nhrpPurgeReqTable"
+    nhrppurgereqtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrppurgereqtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrppurgereqtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) SetFilter(yf yfilter.YFilter) { nhrppurgereqtable.YFilter = yf }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetGoName(yname string) string {
-    if yname == "nhrpPurgeReqEntry" { return "Nhrppurgereqentry" }
-    return ""
-}
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetSegmentPath() string {
-    return "nhrpPurgeReqTable"
-}
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpPurgeReqEntry" {
-        for _, c := range nhrppurgereqtable.Nhrppurgereqentry {
-            if nhrppurgereqtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry{}
-        nhrppurgereqtable.Nhrppurgereqentry = append(nhrppurgereqtable.Nhrppurgereqentry, child)
-        return &nhrppurgereqtable.Nhrppurgereqentry[len(nhrppurgereqtable.Nhrppurgereqentry)-1]
-    }
-    return nil
-}
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrppurgereqtable.EntityData.Children = make(map[string]types.YChild)
+    nhrppurgereqtable.EntityData.Children["nhrpPurgeReqEntry"] = types.YChild{"Nhrppurgereqentry", nil}
     for i := range nhrppurgereqtable.Nhrppurgereqentry {
-        children[nhrppurgereqtable.Nhrppurgereqentry[i].GetSegmentPath()] = &nhrppurgereqtable.Nhrppurgereqentry[i]
+        nhrppurgereqtable.EntityData.Children[types.GetSegmentPath(&nhrppurgereqtable.Nhrppurgereqentry[i])] = types.YChild{"Nhrppurgereqentry", &nhrppurgereqtable.Nhrppurgereqentry[i]}
     }
-    return children
+    nhrppurgereqtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrppurgereqtable.EntityData)
 }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetYangName() string { return "nhrpPurgeReqTable" }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) SetParent(parent types.Entity) { nhrppurgereqtable.parent = parent }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetParent() types.Entity { return nhrppurgereqtable.parent }
-
-func (nhrppurgereqtable *NHRPMIB_Nhrppurgereqtable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry
 // Information regarding a Purge Request.
 type NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index for this entry that has local
@@ -663,67 +436,32 @@ type NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry struct {
     Nhrppurgerowstatus interface{}
 }
 
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetFilter() yfilter.YFilter { return nhrppurgereqentry.YFilter }
+func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetEntityData() *types.CommonEntityData {
+    nhrppurgereqentry.EntityData.YFilter = nhrppurgereqentry.YFilter
+    nhrppurgereqentry.EntityData.YangName = "nhrpPurgeReqEntry"
+    nhrppurgereqentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrppurgereqentry.EntityData.ParentYangName = "nhrpPurgeReqTable"
+    nhrppurgereqentry.EntityData.SegmentPath = "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + fmt.Sprintf("%v", nhrppurgereqentry.Nhrppurgeindex) + "']"
+    nhrppurgereqentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrppurgereqentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrppurgereqentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) SetFilter(yf yfilter.YFilter) { nhrppurgereqentry.YFilter = yf }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetGoName(yname string) string {
-    if yname == "nhrpPurgeIndex" { return "Nhrppurgeindex" }
-    if yname == "nhrpPurgeCacheIdentifier" { return "Nhrppurgecacheidentifier" }
-    if yname == "nhrpPurgePrefixLength" { return "Nhrppurgeprefixlength" }
-    if yname == "nhrpPurgeRequestID" { return "Nhrppurgerequestid" }
-    if yname == "nhrpPurgeReplyExpected" { return "Nhrppurgereplyexpected" }
-    if yname == "nhrpPurgeRowStatus" { return "Nhrppurgerowstatus" }
-    return ""
+    nhrppurgereqentry.EntityData.Children = make(map[string]types.YChild)
+    nhrppurgereqentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeIndex"] = types.YLeaf{"Nhrppurgeindex", nhrppurgereqentry.Nhrppurgeindex}
+    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeCacheIdentifier"] = types.YLeaf{"Nhrppurgecacheidentifier", nhrppurgereqentry.Nhrppurgecacheidentifier}
+    nhrppurgereqentry.EntityData.Leafs["nhrpPurgePrefixLength"] = types.YLeaf{"Nhrppurgeprefixlength", nhrppurgereqentry.Nhrppurgeprefixlength}
+    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeRequestID"] = types.YLeaf{"Nhrppurgerequestid", nhrppurgereqentry.Nhrppurgerequestid}
+    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeReplyExpected"] = types.YLeaf{"Nhrppurgereplyexpected", nhrppurgereqentry.Nhrppurgereplyexpected}
+    nhrppurgereqentry.EntityData.Leafs["nhrpPurgeRowStatus"] = types.YLeaf{"Nhrppurgerowstatus", nhrppurgereqentry.Nhrppurgerowstatus}
+    return &(nhrppurgereqentry.EntityData)
 }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetSegmentPath() string {
-    return "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + fmt.Sprintf("%v", nhrppurgereqentry.Nhrppurgeindex) + "']"
-}
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpPurgeIndex"] = nhrppurgereqentry.Nhrppurgeindex
-    leafs["nhrpPurgeCacheIdentifier"] = nhrppurgereqentry.Nhrppurgecacheidentifier
-    leafs["nhrpPurgePrefixLength"] = nhrppurgereqentry.Nhrppurgeprefixlength
-    leafs["nhrpPurgeRequestID"] = nhrppurgereqentry.Nhrppurgerequestid
-    leafs["nhrpPurgeReplyExpected"] = nhrppurgereqentry.Nhrppurgereplyexpected
-    leafs["nhrpPurgeRowStatus"] = nhrppurgereqentry.Nhrppurgerowstatus
-    return leafs
-}
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetYangName() string { return "nhrpPurgeReqEntry" }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) SetParent(parent types.Entity) { nhrppurgereqentry.parent = parent }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetParent() types.Entity { return nhrppurgereqentry.parent }
-
-func (nhrppurgereqentry *NHRPMIB_Nhrppurgereqtable_Nhrppurgereqentry) GetParentYangName() string { return "nhrpPurgeReqTable" }
 
 // NHRPMIB_Nhrpclienttable
 // Information about NHRP clients (NHCs) managed by this
 // agent.
 type NHRPMIB_Nhrpclienttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single NHC. The type is slice of
@@ -731,68 +469,29 @@ type NHRPMIB_Nhrpclienttable struct {
     Nhrpcliententry []NHRPMIB_Nhrpclienttable_Nhrpcliententry
 }
 
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetFilter() yfilter.YFilter { return nhrpclienttable.YFilter }
+func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetEntityData() *types.CommonEntityData {
+    nhrpclienttable.EntityData.YFilter = nhrpclienttable.YFilter
+    nhrpclienttable.EntityData.YangName = "nhrpClientTable"
+    nhrpclienttable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclienttable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpclienttable.EntityData.SegmentPath = "nhrpClientTable"
+    nhrpclienttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclienttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclienttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) SetFilter(yf yfilter.YFilter) { nhrpclienttable.YFilter = yf }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetGoName(yname string) string {
-    if yname == "nhrpClientEntry" { return "Nhrpcliententry" }
-    return ""
-}
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetSegmentPath() string {
-    return "nhrpClientTable"
-}
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpClientEntry" {
-        for _, c := range nhrpclienttable.Nhrpcliententry {
-            if nhrpclienttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpclienttable_Nhrpcliententry{}
-        nhrpclienttable.Nhrpcliententry = append(nhrpclienttable.Nhrpcliententry, child)
-        return &nhrpclienttable.Nhrpcliententry[len(nhrpclienttable.Nhrpcliententry)-1]
-    }
-    return nil
-}
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpclienttable.EntityData.Children = make(map[string]types.YChild)
+    nhrpclienttable.EntityData.Children["nhrpClientEntry"] = types.YChild{"Nhrpcliententry", nil}
     for i := range nhrpclienttable.Nhrpcliententry {
-        children[nhrpclienttable.Nhrpcliententry[i].GetSegmentPath()] = &nhrpclienttable.Nhrpcliententry[i]
+        nhrpclienttable.EntityData.Children[types.GetSegmentPath(&nhrpclienttable.Nhrpcliententry[i])] = types.YChild{"Nhrpcliententry", &nhrpclienttable.Nhrpcliententry[i]}
     }
-    return children
+    nhrpclienttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpclienttable.EntityData)
 }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetYangName() string { return "nhrpClientTable" }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) SetParent(parent types.Entity) { nhrpclienttable.parent = parent }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetParent() types.Entity { return nhrpclienttable.parent }
-
-func (nhrpclienttable *NHRPMIB_Nhrpclienttable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpclienttable_Nhrpcliententry
 // Information about a single NHC.
 type NHRPMIB_Nhrpclienttable_Nhrpcliententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An identifier for the NHRP client that is unique
@@ -874,85 +573,41 @@ type NHRPMIB_Nhrpclienttable_Nhrpcliententry struct {
     Nhrpclientrowstatus interface{}
 }
 
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetFilter() yfilter.YFilter { return nhrpcliententry.YFilter }
+func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetEntityData() *types.CommonEntityData {
+    nhrpcliententry.EntityData.YFilter = nhrpcliententry.YFilter
+    nhrpcliententry.EntityData.YangName = "nhrpClientEntry"
+    nhrpcliententry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpcliententry.EntityData.ParentYangName = "nhrpClientTable"
+    nhrpcliententry.EntityData.SegmentPath = "nhrpClientEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpcliententry.Nhrpclientindex) + "']"
+    nhrpcliententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpcliententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpcliententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) SetFilter(yf yfilter.YFilter) { nhrpcliententry.YFilter = yf }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetGoName(yname string) string {
-    if yname == "nhrpClientIndex" { return "Nhrpclientindex" }
-    if yname == "nhrpClientInternetworkAddrType" { return "Nhrpclientinternetworkaddrtype" }
-    if yname == "nhrpClientInternetworkAddr" { return "Nhrpclientinternetworkaddr" }
-    if yname == "nhrpClientNbmaAddrType" { return "Nhrpclientnbmaaddrtype" }
-    if yname == "nhrpClientNbmaAddr" { return "Nhrpclientnbmaaddr" }
-    if yname == "nhrpClientNbmaSubaddr" { return "Nhrpclientnbmasubaddr" }
-    if yname == "nhrpClientInitialRequestTimeout" { return "Nhrpclientinitialrequesttimeout" }
-    if yname == "nhrpClientRegistrationRequestRetries" { return "Nhrpclientregistrationrequestretries" }
-    if yname == "nhrpClientResolutionRequestRetries" { return "Nhrpclientresolutionrequestretries" }
-    if yname == "nhrpClientPurgeRequestRetries" { return "Nhrpclientpurgerequestretries" }
-    if yname == "nhrpClientDefaultMtu" { return "Nhrpclientdefaultmtu" }
-    if yname == "nhrpClientHoldTime" { return "Nhrpclientholdtime" }
-    if yname == "nhrpClientRequestID" { return "Nhrpclientrequestid" }
-    if yname == "nhrpClientStorageType" { return "Nhrpclientstoragetype" }
-    if yname == "nhrpClientRowStatus" { return "Nhrpclientrowstatus" }
-    return ""
+    nhrpcliententry.EntityData.Children = make(map[string]types.YChild)
+    nhrpcliententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpcliententry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpcliententry.Nhrpclientindex}
+    nhrpcliententry.EntityData.Leafs["nhrpClientInternetworkAddrType"] = types.YLeaf{"Nhrpclientinternetworkaddrtype", nhrpcliententry.Nhrpclientinternetworkaddrtype}
+    nhrpcliententry.EntityData.Leafs["nhrpClientInternetworkAddr"] = types.YLeaf{"Nhrpclientinternetworkaddr", nhrpcliententry.Nhrpclientinternetworkaddr}
+    nhrpcliententry.EntityData.Leafs["nhrpClientNbmaAddrType"] = types.YLeaf{"Nhrpclientnbmaaddrtype", nhrpcliententry.Nhrpclientnbmaaddrtype}
+    nhrpcliententry.EntityData.Leafs["nhrpClientNbmaAddr"] = types.YLeaf{"Nhrpclientnbmaaddr", nhrpcliententry.Nhrpclientnbmaaddr}
+    nhrpcliententry.EntityData.Leafs["nhrpClientNbmaSubaddr"] = types.YLeaf{"Nhrpclientnbmasubaddr", nhrpcliententry.Nhrpclientnbmasubaddr}
+    nhrpcliententry.EntityData.Leafs["nhrpClientInitialRequestTimeout"] = types.YLeaf{"Nhrpclientinitialrequesttimeout", nhrpcliententry.Nhrpclientinitialrequesttimeout}
+    nhrpcliententry.EntityData.Leafs["nhrpClientRegistrationRequestRetries"] = types.YLeaf{"Nhrpclientregistrationrequestretries", nhrpcliententry.Nhrpclientregistrationrequestretries}
+    nhrpcliententry.EntityData.Leafs["nhrpClientResolutionRequestRetries"] = types.YLeaf{"Nhrpclientresolutionrequestretries", nhrpcliententry.Nhrpclientresolutionrequestretries}
+    nhrpcliententry.EntityData.Leafs["nhrpClientPurgeRequestRetries"] = types.YLeaf{"Nhrpclientpurgerequestretries", nhrpcliententry.Nhrpclientpurgerequestretries}
+    nhrpcliententry.EntityData.Leafs["nhrpClientDefaultMtu"] = types.YLeaf{"Nhrpclientdefaultmtu", nhrpcliententry.Nhrpclientdefaultmtu}
+    nhrpcliententry.EntityData.Leafs["nhrpClientHoldTime"] = types.YLeaf{"Nhrpclientholdtime", nhrpcliententry.Nhrpclientholdtime}
+    nhrpcliententry.EntityData.Leafs["nhrpClientRequestID"] = types.YLeaf{"Nhrpclientrequestid", nhrpcliententry.Nhrpclientrequestid}
+    nhrpcliententry.EntityData.Leafs["nhrpClientStorageType"] = types.YLeaf{"Nhrpclientstoragetype", nhrpcliententry.Nhrpclientstoragetype}
+    nhrpcliententry.EntityData.Leafs["nhrpClientRowStatus"] = types.YLeaf{"Nhrpclientrowstatus", nhrpcliententry.Nhrpclientrowstatus}
+    return &(nhrpcliententry.EntityData)
 }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetSegmentPath() string {
-    return "nhrpClientEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpcliententry.Nhrpclientindex) + "']"
-}
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpClientIndex"] = nhrpcliententry.Nhrpclientindex
-    leafs["nhrpClientInternetworkAddrType"] = nhrpcliententry.Nhrpclientinternetworkaddrtype
-    leafs["nhrpClientInternetworkAddr"] = nhrpcliententry.Nhrpclientinternetworkaddr
-    leafs["nhrpClientNbmaAddrType"] = nhrpcliententry.Nhrpclientnbmaaddrtype
-    leafs["nhrpClientNbmaAddr"] = nhrpcliententry.Nhrpclientnbmaaddr
-    leafs["nhrpClientNbmaSubaddr"] = nhrpcliententry.Nhrpclientnbmasubaddr
-    leafs["nhrpClientInitialRequestTimeout"] = nhrpcliententry.Nhrpclientinitialrequesttimeout
-    leafs["nhrpClientRegistrationRequestRetries"] = nhrpcliententry.Nhrpclientregistrationrequestretries
-    leafs["nhrpClientResolutionRequestRetries"] = nhrpcliententry.Nhrpclientresolutionrequestretries
-    leafs["nhrpClientPurgeRequestRetries"] = nhrpcliententry.Nhrpclientpurgerequestretries
-    leafs["nhrpClientDefaultMtu"] = nhrpcliententry.Nhrpclientdefaultmtu
-    leafs["nhrpClientHoldTime"] = nhrpcliententry.Nhrpclientholdtime
-    leafs["nhrpClientRequestID"] = nhrpcliententry.Nhrpclientrequestid
-    leafs["nhrpClientStorageType"] = nhrpcliententry.Nhrpclientstoragetype
-    leafs["nhrpClientRowStatus"] = nhrpcliententry.Nhrpclientrowstatus
-    return leafs
-}
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetYangName() string { return "nhrpClientEntry" }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) SetParent(parent types.Entity) { nhrpcliententry.parent = parent }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetParent() types.Entity { return nhrpcliententry.parent }
-
-func (nhrpcliententry *NHRPMIB_Nhrpclienttable_Nhrpcliententry) GetParentYangName() string { return "nhrpClientTable" }
 
 // NHRPMIB_Nhrpclientregistrationtable
 // A table of Registration Request Information that
 // needs to be maintained by the NHCs (clients).
 type NHRPMIB_Nhrpclientregistrationtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An NHC needs to maintain registration request information between the NHC
@@ -962,70 +617,31 @@ type NHRPMIB_Nhrpclientregistrationtable struct {
     Nhrpclientregistrationentry []NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry
 }
 
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetFilter() yfilter.YFilter { return nhrpclientregistrationtable.YFilter }
+func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetEntityData() *types.CommonEntityData {
+    nhrpclientregistrationtable.EntityData.YFilter = nhrpclientregistrationtable.YFilter
+    nhrpclientregistrationtable.EntityData.YangName = "nhrpClientRegistrationTable"
+    nhrpclientregistrationtable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclientregistrationtable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpclientregistrationtable.EntityData.SegmentPath = "nhrpClientRegistrationTable"
+    nhrpclientregistrationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclientregistrationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclientregistrationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) SetFilter(yf yfilter.YFilter) { nhrpclientregistrationtable.YFilter = yf }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetGoName(yname string) string {
-    if yname == "nhrpClientRegistrationEntry" { return "Nhrpclientregistrationentry" }
-    return ""
-}
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetSegmentPath() string {
-    return "nhrpClientRegistrationTable"
-}
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpClientRegistrationEntry" {
-        for _, c := range nhrpclientregistrationtable.Nhrpclientregistrationentry {
-            if nhrpclientregistrationtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry{}
-        nhrpclientregistrationtable.Nhrpclientregistrationentry = append(nhrpclientregistrationtable.Nhrpclientregistrationentry, child)
-        return &nhrpclientregistrationtable.Nhrpclientregistrationentry[len(nhrpclientregistrationtable.Nhrpclientregistrationentry)-1]
-    }
-    return nil
-}
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpclientregistrationtable.EntityData.Children = make(map[string]types.YChild)
+    nhrpclientregistrationtable.EntityData.Children["nhrpClientRegistrationEntry"] = types.YChild{"Nhrpclientregistrationentry", nil}
     for i := range nhrpclientregistrationtable.Nhrpclientregistrationentry {
-        children[nhrpclientregistrationtable.Nhrpclientregistrationentry[i].GetSegmentPath()] = &nhrpclientregistrationtable.Nhrpclientregistrationentry[i]
+        nhrpclientregistrationtable.EntityData.Children[types.GetSegmentPath(&nhrpclientregistrationtable.Nhrpclientregistrationentry[i])] = types.YChild{"Nhrpclientregistrationentry", &nhrpclientregistrationtable.Nhrpclientregistrationentry[i]}
     }
-    return children
+    nhrpclientregistrationtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpclientregistrationtable.EntityData)
 }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetYangName() string { return "nhrpClientRegistrationTable" }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) SetParent(parent types.Entity) { nhrpclientregistrationtable.parent = parent }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetParent() types.Entity { return nhrpclientregistrationtable.parent }
-
-func (nhrpclientregistrationtable *NHRPMIB_Nhrpclientregistrationtable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry
 // An NHC needs to maintain registration request information
 // between the NHC and the NHS.  An entry in this table
 // represents information for a single registration request.
 type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -1059,59 +675,25 @@ type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry struct {
     Nhrpclientregrowstatus interface{}
 }
 
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetFilter() yfilter.YFilter { return nhrpclientregistrationentry.YFilter }
+func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetEntityData() *types.CommonEntityData {
+    nhrpclientregistrationentry.EntityData.YFilter = nhrpclientregistrationentry.YFilter
+    nhrpclientregistrationentry.EntityData.YangName = "nhrpClientRegistrationEntry"
+    nhrpclientregistrationentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclientregistrationentry.EntityData.ParentYangName = "nhrpClientRegistrationTable"
+    nhrpclientregistrationentry.EntityData.SegmentPath = "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientregistrationentry.Nhrpclientindex) + "']" + "[nhrpClientRegIndex='" + fmt.Sprintf("%v", nhrpclientregistrationentry.Nhrpclientregindex) + "']"
+    nhrpclientregistrationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclientregistrationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclientregistrationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) SetFilter(yf yfilter.YFilter) { nhrpclientregistrationentry.YFilter = yf }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetGoName(yname string) string {
-    if yname == "nhrpClientIndex" { return "Nhrpclientindex" }
-    if yname == "nhrpClientRegIndex" { return "Nhrpclientregindex" }
-    if yname == "nhrpClientRegUniqueness" { return "Nhrpclientreguniqueness" }
-    if yname == "nhrpClientRegState" { return "Nhrpclientregstate" }
-    if yname == "nhrpClientRegRowStatus" { return "Nhrpclientregrowstatus" }
-    return ""
+    nhrpclientregistrationentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpclientregistrationentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpclientregistrationentry.Nhrpclientindex}
+    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegIndex"] = types.YLeaf{"Nhrpclientregindex", nhrpclientregistrationentry.Nhrpclientregindex}
+    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegUniqueness"] = types.YLeaf{"Nhrpclientreguniqueness", nhrpclientregistrationentry.Nhrpclientreguniqueness}
+    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegState"] = types.YLeaf{"Nhrpclientregstate", nhrpclientregistrationentry.Nhrpclientregstate}
+    nhrpclientregistrationentry.EntityData.Leafs["nhrpClientRegRowStatus"] = types.YLeaf{"Nhrpclientregrowstatus", nhrpclientregistrationentry.Nhrpclientregrowstatus}
+    return &(nhrpclientregistrationentry.EntityData)
 }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetSegmentPath() string {
-    return "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientregistrationentry.Nhrpclientindex) + "']" + "[nhrpClientRegIndex='" + fmt.Sprintf("%v", nhrpclientregistrationentry.Nhrpclientregindex) + "']"
-}
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpClientIndex"] = nhrpclientregistrationentry.Nhrpclientindex
-    leafs["nhrpClientRegIndex"] = nhrpclientregistrationentry.Nhrpclientregindex
-    leafs["nhrpClientRegUniqueness"] = nhrpclientregistrationentry.Nhrpclientreguniqueness
-    leafs["nhrpClientRegState"] = nhrpclientregistrationentry.Nhrpclientregstate
-    leafs["nhrpClientRegRowStatus"] = nhrpclientregistrationentry.Nhrpclientregrowstatus
-    return leafs
-}
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetYangName() string { return "nhrpClientRegistrationEntry" }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) SetParent(parent types.Entity) { nhrpclientregistrationentry.parent = parent }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetParent() types.Entity { return nhrpclientregistrationentry.parent }
-
-func (nhrpclientregistrationentry *NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry) GetParentYangName() string { return "nhrpClientRegistrationTable" }
 
 // NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate represents                         reply (NAK).
 type NHRPMIB_Nhrpclientregistrationtable_Nhrpclientregistrationentry_Nhrpclientregstate string
@@ -1140,7 +722,7 @@ const (
 // (client). By default, the agent will add an entry to this
 // table that corresponds to the client's default router.
 type NHRPMIB_Nhrpclientnhstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An NHS that may be used by an NHC. The type is slice of
@@ -1148,68 +730,29 @@ type NHRPMIB_Nhrpclientnhstable struct {
     Nhrpclientnhsentry []NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry
 }
 
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetFilter() yfilter.YFilter { return nhrpclientnhstable.YFilter }
+func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetEntityData() *types.CommonEntityData {
+    nhrpclientnhstable.EntityData.YFilter = nhrpclientnhstable.YFilter
+    nhrpclientnhstable.EntityData.YangName = "nhrpClientNhsTable"
+    nhrpclientnhstable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclientnhstable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpclientnhstable.EntityData.SegmentPath = "nhrpClientNhsTable"
+    nhrpclientnhstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclientnhstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclientnhstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) SetFilter(yf yfilter.YFilter) { nhrpclientnhstable.YFilter = yf }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetGoName(yname string) string {
-    if yname == "nhrpClientNhsEntry" { return "Nhrpclientnhsentry" }
-    return ""
-}
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetSegmentPath() string {
-    return "nhrpClientNhsTable"
-}
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpClientNhsEntry" {
-        for _, c := range nhrpclientnhstable.Nhrpclientnhsentry {
-            if nhrpclientnhstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry{}
-        nhrpclientnhstable.Nhrpclientnhsentry = append(nhrpclientnhstable.Nhrpclientnhsentry, child)
-        return &nhrpclientnhstable.Nhrpclientnhsentry[len(nhrpclientnhstable.Nhrpclientnhsentry)-1]
-    }
-    return nil
-}
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpclientnhstable.EntityData.Children = make(map[string]types.YChild)
+    nhrpclientnhstable.EntityData.Children["nhrpClientNhsEntry"] = types.YChild{"Nhrpclientnhsentry", nil}
     for i := range nhrpclientnhstable.Nhrpclientnhsentry {
-        children[nhrpclientnhstable.Nhrpclientnhsentry[i].GetSegmentPath()] = &nhrpclientnhstable.Nhrpclientnhsentry[i]
+        nhrpclientnhstable.EntityData.Children[types.GetSegmentPath(&nhrpclientnhstable.Nhrpclientnhsentry[i])] = types.YChild{"Nhrpclientnhsentry", &nhrpclientnhstable.Nhrpclientnhsentry[i]}
     }
-    return children
+    nhrpclientnhstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpclientnhstable.EntityData)
 }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetYangName() string { return "nhrpClientNhsTable" }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) SetParent(parent types.Entity) { nhrpclientnhstable.parent = parent }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetParent() types.Entity { return nhrpclientnhstable.parent }
-
-func (nhrpclientnhstable *NHRPMIB_Nhrpclientnhstable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry
 // An NHS that may be used by an NHC.
 type NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -1255,73 +798,35 @@ type NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry struct {
     Nhrpclientnhsrowstatus interface{}
 }
 
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetFilter() yfilter.YFilter { return nhrpclientnhsentry.YFilter }
+func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetEntityData() *types.CommonEntityData {
+    nhrpclientnhsentry.EntityData.YFilter = nhrpclientnhsentry.YFilter
+    nhrpclientnhsentry.EntityData.YangName = "nhrpClientNhsEntry"
+    nhrpclientnhsentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclientnhsentry.EntityData.ParentYangName = "nhrpClientNhsTable"
+    nhrpclientnhsentry.EntityData.SegmentPath = "nhrpClientNhsEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientnhsentry.Nhrpclientindex) + "']" + "[nhrpClientNhsIndex='" + fmt.Sprintf("%v", nhrpclientnhsentry.Nhrpclientnhsindex) + "']"
+    nhrpclientnhsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclientnhsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclientnhsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) SetFilter(yf yfilter.YFilter) { nhrpclientnhsentry.YFilter = yf }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetGoName(yname string) string {
-    if yname == "nhrpClientIndex" { return "Nhrpclientindex" }
-    if yname == "nhrpClientNhsIndex" { return "Nhrpclientnhsindex" }
-    if yname == "nhrpClientNhsInternetworkAddrType" { return "Nhrpclientnhsinternetworkaddrtype" }
-    if yname == "nhrpClientNhsInternetworkAddr" { return "Nhrpclientnhsinternetworkaddr" }
-    if yname == "nhrpClientNhsNbmaAddrType" { return "Nhrpclientnhsnbmaaddrtype" }
-    if yname == "nhrpClientNhsNbmaAddr" { return "Nhrpclientnhsnbmaaddr" }
-    if yname == "nhrpClientNhsNbmaSubaddr" { return "Nhrpclientnhsnbmasubaddr" }
-    if yname == "nhrpClientNhsInUse" { return "Nhrpclientnhsinuse" }
-    if yname == "nhrpClientNhsRowStatus" { return "Nhrpclientnhsrowstatus" }
-    return ""
+    nhrpclientnhsentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpclientnhsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpclientnhsentry.Nhrpclientindex}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsIndex"] = types.YLeaf{"Nhrpclientnhsindex", nhrpclientnhsentry.Nhrpclientnhsindex}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsInternetworkAddrType"] = types.YLeaf{"Nhrpclientnhsinternetworkaddrtype", nhrpclientnhsentry.Nhrpclientnhsinternetworkaddrtype}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsInternetworkAddr"] = types.YLeaf{"Nhrpclientnhsinternetworkaddr", nhrpclientnhsentry.Nhrpclientnhsinternetworkaddr}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsNbmaAddrType"] = types.YLeaf{"Nhrpclientnhsnbmaaddrtype", nhrpclientnhsentry.Nhrpclientnhsnbmaaddrtype}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsNbmaAddr"] = types.YLeaf{"Nhrpclientnhsnbmaaddr", nhrpclientnhsentry.Nhrpclientnhsnbmaaddr}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsNbmaSubaddr"] = types.YLeaf{"Nhrpclientnhsnbmasubaddr", nhrpclientnhsentry.Nhrpclientnhsnbmasubaddr}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsInUse"] = types.YLeaf{"Nhrpclientnhsinuse", nhrpclientnhsentry.Nhrpclientnhsinuse}
+    nhrpclientnhsentry.EntityData.Leafs["nhrpClientNhsRowStatus"] = types.YLeaf{"Nhrpclientnhsrowstatus", nhrpclientnhsentry.Nhrpclientnhsrowstatus}
+    return &(nhrpclientnhsentry.EntityData)
 }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetSegmentPath() string {
-    return "nhrpClientNhsEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientnhsentry.Nhrpclientindex) + "']" + "[nhrpClientNhsIndex='" + fmt.Sprintf("%v", nhrpclientnhsentry.Nhrpclientnhsindex) + "']"
-}
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpClientIndex"] = nhrpclientnhsentry.Nhrpclientindex
-    leafs["nhrpClientNhsIndex"] = nhrpclientnhsentry.Nhrpclientnhsindex
-    leafs["nhrpClientNhsInternetworkAddrType"] = nhrpclientnhsentry.Nhrpclientnhsinternetworkaddrtype
-    leafs["nhrpClientNhsInternetworkAddr"] = nhrpclientnhsentry.Nhrpclientnhsinternetworkaddr
-    leafs["nhrpClientNhsNbmaAddrType"] = nhrpclientnhsentry.Nhrpclientnhsnbmaaddrtype
-    leafs["nhrpClientNhsNbmaAddr"] = nhrpclientnhsentry.Nhrpclientnhsnbmaaddr
-    leafs["nhrpClientNhsNbmaSubaddr"] = nhrpclientnhsentry.Nhrpclientnhsnbmasubaddr
-    leafs["nhrpClientNhsInUse"] = nhrpclientnhsentry.Nhrpclientnhsinuse
-    leafs["nhrpClientNhsRowStatus"] = nhrpclientnhsentry.Nhrpclientnhsrowstatus
-    return leafs
-}
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetYangName() string { return "nhrpClientNhsEntry" }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) SetParent(parent types.Entity) { nhrpclientnhsentry.parent = parent }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetParent() types.Entity { return nhrpclientnhsentry.parent }
-
-func (nhrpclientnhsentry *NHRPMIB_Nhrpclientnhstable_Nhrpclientnhsentry) GetParentYangName() string { return "nhrpClientNhsTable" }
 
 // NHRPMIB_Nhrpclientstattable
 // This table contains statistics collected by NHRP
 // clients.
 type NHRPMIB_Nhrpclientstattable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics collected by a NHRP client. The type is slice of
@@ -1329,68 +834,29 @@ type NHRPMIB_Nhrpclientstattable struct {
     Nhrpclientstatentry []NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry
 }
 
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetFilter() yfilter.YFilter { return nhrpclientstattable.YFilter }
+func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetEntityData() *types.CommonEntityData {
+    nhrpclientstattable.EntityData.YFilter = nhrpclientstattable.YFilter
+    nhrpclientstattable.EntityData.YangName = "nhrpClientStatTable"
+    nhrpclientstattable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclientstattable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpclientstattable.EntityData.SegmentPath = "nhrpClientStatTable"
+    nhrpclientstattable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclientstattable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclientstattable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) SetFilter(yf yfilter.YFilter) { nhrpclientstattable.YFilter = yf }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetGoName(yname string) string {
-    if yname == "nhrpClientStatEntry" { return "Nhrpclientstatentry" }
-    return ""
-}
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetSegmentPath() string {
-    return "nhrpClientStatTable"
-}
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpClientStatEntry" {
-        for _, c := range nhrpclientstattable.Nhrpclientstatentry {
-            if nhrpclientstattable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry{}
-        nhrpclientstattable.Nhrpclientstatentry = append(nhrpclientstattable.Nhrpclientstatentry, child)
-        return &nhrpclientstattable.Nhrpclientstatentry[len(nhrpclientstattable.Nhrpclientstatentry)-1]
-    }
-    return nil
-}
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpclientstattable.EntityData.Children = make(map[string]types.YChild)
+    nhrpclientstattable.EntityData.Children["nhrpClientStatEntry"] = types.YChild{"Nhrpclientstatentry", nil}
     for i := range nhrpclientstattable.Nhrpclientstatentry {
-        children[nhrpclientstattable.Nhrpclientstatentry[i].GetSegmentPath()] = &nhrpclientstattable.Nhrpclientstatentry[i]
+        nhrpclientstattable.EntityData.Children[types.GetSegmentPath(&nhrpclientstattable.Nhrpclientstatentry[i])] = types.YChild{"Nhrpclientstatentry", &nhrpclientstattable.Nhrpclientstatentry[i]}
     }
-    return children
+    nhrpclientstattable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpclientstattable.EntityData)
 }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetYangName() string { return "nhrpClientStatTable" }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) SetParent(parent types.Entity) { nhrpclientstattable.parent = parent }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetParent() types.Entity { return nhrpclientstattable.parent }
-
-func (nhrpclientstattable *NHRPMIB_Nhrpclientstattable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry
 // Statistics collected by a NHRP client.
 type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -1593,107 +1059,52 @@ type NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry struct {
     Nhrpclientstatdiscontinuitytime interface{}
 }
 
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetFilter() yfilter.YFilter { return nhrpclientstatentry.YFilter }
+func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetEntityData() *types.CommonEntityData {
+    nhrpclientstatentry.EntityData.YFilter = nhrpclientstatentry.YFilter
+    nhrpclientstatentry.EntityData.YangName = "nhrpClientStatEntry"
+    nhrpclientstatentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpclientstatentry.EntityData.ParentYangName = "nhrpClientStatTable"
+    nhrpclientstatentry.EntityData.SegmentPath = "nhrpClientStatEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientstatentry.Nhrpclientindex) + "']"
+    nhrpclientstatentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpclientstatentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpclientstatentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) SetFilter(yf yfilter.YFilter) { nhrpclientstatentry.YFilter = yf }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetGoName(yname string) string {
-    if yname == "nhrpClientIndex" { return "Nhrpclientindex" }
-    if yname == "nhrpClientStatTxResolveReq" { return "Nhrpclientstattxresolvereq" }
-    if yname == "nhrpClientStatRxResolveReplyAck" { return "Nhrpclientstatrxresolvereplyack" }
-    if yname == "nhrpClientStatRxResolveReplyNakProhibited" { return "Nhrpclientstatrxresolvereplynakprohibited" }
-    if yname == "nhrpClientStatRxResolveReplyNakInsufResources" { return "Nhrpclientstatrxresolvereplynakinsufresources" }
-    if yname == "nhrpClientStatRxResolveReplyNakNoBinding" { return "Nhrpclientstatrxresolvereplynaknobinding" }
-    if yname == "nhrpClientStatRxResolveReplyNakNotUnique" { return "Nhrpclientstatrxresolvereplynaknotunique" }
-    if yname == "nhrpClientStatTxRegisterReq" { return "Nhrpclientstattxregisterreq" }
-    if yname == "nhrpClientStatRxRegisterAck" { return "Nhrpclientstatrxregisterack" }
-    if yname == "nhrpClientStatRxRegisterNakProhibited" { return "Nhrpclientstatrxregisternakprohibited" }
-    if yname == "nhrpClientStatRxRegisterNakInsufResources" { return "Nhrpclientstatrxregisternakinsufresources" }
-    if yname == "nhrpClientStatRxRegisterNakAlreadyReg" { return "Nhrpclientstatrxregisternakalreadyreg" }
-    if yname == "nhrpClientStatRxPurgeReq" { return "Nhrpclientstatrxpurgereq" }
-    if yname == "nhrpClientStatTxPurgeReq" { return "Nhrpclientstattxpurgereq" }
-    if yname == "nhrpClientStatRxPurgeReply" { return "Nhrpclientstatrxpurgereply" }
-    if yname == "nhrpClientStatTxPurgeReply" { return "Nhrpclientstattxpurgereply" }
-    if yname == "nhrpClientStatTxErrorIndication" { return "Nhrpclientstattxerrorindication" }
-    if yname == "nhrpClientStatRxErrUnrecognizedExtension" { return "Nhrpclientstatrxerrunrecognizedextension" }
-    if yname == "nhrpClientStatRxErrLoopDetected" { return "Nhrpclientstatrxerrloopdetected" }
-    if yname == "nhrpClientStatRxErrProtoAddrUnreachable" { return "Nhrpclientstatrxerrprotoaddrunreachable" }
-    if yname == "nhrpClientStatRxErrProtoError" { return "Nhrpclientstatrxerrprotoerror" }
-    if yname == "nhrpClientStatRxErrSduSizeExceeded" { return "Nhrpclientstatrxerrsdusizeexceeded" }
-    if yname == "nhrpClientStatRxErrInvalidExtension" { return "Nhrpclientstatrxerrinvalidextension" }
-    if yname == "nhrpClientStatRxErrAuthenticationFailure" { return "Nhrpclientstatrxerrauthenticationfailure" }
-    if yname == "nhrpClientStatRxErrHopCountExceeded" { return "Nhrpclientstatrxerrhopcountexceeded" }
-    if yname == "nhrpClientStatDiscontinuityTime" { return "Nhrpclientstatdiscontinuitytime" }
-    return ""
+    nhrpclientstatentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpclientstatentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientIndex"] = types.YLeaf{"Nhrpclientindex", nhrpclientstatentry.Nhrpclientindex}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxResolveReq"] = types.YLeaf{"Nhrpclientstattxresolvereq", nhrpclientstatentry.Nhrpclientstattxresolvereq}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyAck"] = types.YLeaf{"Nhrpclientstatrxresolvereplyack", nhrpclientstatentry.Nhrpclientstatrxresolvereplyack}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakProhibited"] = types.YLeaf{"Nhrpclientstatrxresolvereplynakprohibited", nhrpclientstatentry.Nhrpclientstatrxresolvereplynakprohibited}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakInsufResources"] = types.YLeaf{"Nhrpclientstatrxresolvereplynakinsufresources", nhrpclientstatentry.Nhrpclientstatrxresolvereplynakinsufresources}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakNoBinding"] = types.YLeaf{"Nhrpclientstatrxresolvereplynaknobinding", nhrpclientstatentry.Nhrpclientstatrxresolvereplynaknobinding}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxResolveReplyNakNotUnique"] = types.YLeaf{"Nhrpclientstatrxresolvereplynaknotunique", nhrpclientstatentry.Nhrpclientstatrxresolvereplynaknotunique}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxRegisterReq"] = types.YLeaf{"Nhrpclientstattxregisterreq", nhrpclientstatentry.Nhrpclientstattxregisterreq}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterAck"] = types.YLeaf{"Nhrpclientstatrxregisterack", nhrpclientstatentry.Nhrpclientstatrxregisterack}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterNakProhibited"] = types.YLeaf{"Nhrpclientstatrxregisternakprohibited", nhrpclientstatentry.Nhrpclientstatrxregisternakprohibited}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterNakInsufResources"] = types.YLeaf{"Nhrpclientstatrxregisternakinsufresources", nhrpclientstatentry.Nhrpclientstatrxregisternakinsufresources}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxRegisterNakAlreadyReg"] = types.YLeaf{"Nhrpclientstatrxregisternakalreadyreg", nhrpclientstatentry.Nhrpclientstatrxregisternakalreadyreg}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxPurgeReq"] = types.YLeaf{"Nhrpclientstatrxpurgereq", nhrpclientstatentry.Nhrpclientstatrxpurgereq}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxPurgeReq"] = types.YLeaf{"Nhrpclientstattxpurgereq", nhrpclientstatentry.Nhrpclientstattxpurgereq}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxPurgeReply"] = types.YLeaf{"Nhrpclientstatrxpurgereply", nhrpclientstatentry.Nhrpclientstatrxpurgereply}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxPurgeReply"] = types.YLeaf{"Nhrpclientstattxpurgereply", nhrpclientstatentry.Nhrpclientstattxpurgereply}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatTxErrorIndication"] = types.YLeaf{"Nhrpclientstattxerrorindication", nhrpclientstatentry.Nhrpclientstattxerrorindication}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrUnrecognizedExtension"] = types.YLeaf{"Nhrpclientstatrxerrunrecognizedextension", nhrpclientstatentry.Nhrpclientstatrxerrunrecognizedextension}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrLoopDetected"] = types.YLeaf{"Nhrpclientstatrxerrloopdetected", nhrpclientstatentry.Nhrpclientstatrxerrloopdetected}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrProtoAddrUnreachable"] = types.YLeaf{"Nhrpclientstatrxerrprotoaddrunreachable", nhrpclientstatentry.Nhrpclientstatrxerrprotoaddrunreachable}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrProtoError"] = types.YLeaf{"Nhrpclientstatrxerrprotoerror", nhrpclientstatentry.Nhrpclientstatrxerrprotoerror}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrSduSizeExceeded"] = types.YLeaf{"Nhrpclientstatrxerrsdusizeexceeded", nhrpclientstatentry.Nhrpclientstatrxerrsdusizeexceeded}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrInvalidExtension"] = types.YLeaf{"Nhrpclientstatrxerrinvalidextension", nhrpclientstatentry.Nhrpclientstatrxerrinvalidextension}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrAuthenticationFailure"] = types.YLeaf{"Nhrpclientstatrxerrauthenticationfailure", nhrpclientstatentry.Nhrpclientstatrxerrauthenticationfailure}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatRxErrHopCountExceeded"] = types.YLeaf{"Nhrpclientstatrxerrhopcountexceeded", nhrpclientstatentry.Nhrpclientstatrxerrhopcountexceeded}
+    nhrpclientstatentry.EntityData.Leafs["nhrpClientStatDiscontinuityTime"] = types.YLeaf{"Nhrpclientstatdiscontinuitytime", nhrpclientstatentry.Nhrpclientstatdiscontinuitytime}
+    return &(nhrpclientstatentry.EntityData)
 }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetSegmentPath() string {
-    return "nhrpClientStatEntry" + "[nhrpClientIndex='" + fmt.Sprintf("%v", nhrpclientstatentry.Nhrpclientindex) + "']"
-}
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpClientIndex"] = nhrpclientstatentry.Nhrpclientindex
-    leafs["nhrpClientStatTxResolveReq"] = nhrpclientstatentry.Nhrpclientstattxresolvereq
-    leafs["nhrpClientStatRxResolveReplyAck"] = nhrpclientstatentry.Nhrpclientstatrxresolvereplyack
-    leafs["nhrpClientStatRxResolveReplyNakProhibited"] = nhrpclientstatentry.Nhrpclientstatrxresolvereplynakprohibited
-    leafs["nhrpClientStatRxResolveReplyNakInsufResources"] = nhrpclientstatentry.Nhrpclientstatrxresolvereplynakinsufresources
-    leafs["nhrpClientStatRxResolveReplyNakNoBinding"] = nhrpclientstatentry.Nhrpclientstatrxresolvereplynaknobinding
-    leafs["nhrpClientStatRxResolveReplyNakNotUnique"] = nhrpclientstatentry.Nhrpclientstatrxresolvereplynaknotunique
-    leafs["nhrpClientStatTxRegisterReq"] = nhrpclientstatentry.Nhrpclientstattxregisterreq
-    leafs["nhrpClientStatRxRegisterAck"] = nhrpclientstatentry.Nhrpclientstatrxregisterack
-    leafs["nhrpClientStatRxRegisterNakProhibited"] = nhrpclientstatentry.Nhrpclientstatrxregisternakprohibited
-    leafs["nhrpClientStatRxRegisterNakInsufResources"] = nhrpclientstatentry.Nhrpclientstatrxregisternakinsufresources
-    leafs["nhrpClientStatRxRegisterNakAlreadyReg"] = nhrpclientstatentry.Nhrpclientstatrxregisternakalreadyreg
-    leafs["nhrpClientStatRxPurgeReq"] = nhrpclientstatentry.Nhrpclientstatrxpurgereq
-    leafs["nhrpClientStatTxPurgeReq"] = nhrpclientstatentry.Nhrpclientstattxpurgereq
-    leafs["nhrpClientStatRxPurgeReply"] = nhrpclientstatentry.Nhrpclientstatrxpurgereply
-    leafs["nhrpClientStatTxPurgeReply"] = nhrpclientstatentry.Nhrpclientstattxpurgereply
-    leafs["nhrpClientStatTxErrorIndication"] = nhrpclientstatentry.Nhrpclientstattxerrorindication
-    leafs["nhrpClientStatRxErrUnrecognizedExtension"] = nhrpclientstatentry.Nhrpclientstatrxerrunrecognizedextension
-    leafs["nhrpClientStatRxErrLoopDetected"] = nhrpclientstatentry.Nhrpclientstatrxerrloopdetected
-    leafs["nhrpClientStatRxErrProtoAddrUnreachable"] = nhrpclientstatentry.Nhrpclientstatrxerrprotoaddrunreachable
-    leafs["nhrpClientStatRxErrProtoError"] = nhrpclientstatentry.Nhrpclientstatrxerrprotoerror
-    leafs["nhrpClientStatRxErrSduSizeExceeded"] = nhrpclientstatentry.Nhrpclientstatrxerrsdusizeexceeded
-    leafs["nhrpClientStatRxErrInvalidExtension"] = nhrpclientstatentry.Nhrpclientstatrxerrinvalidextension
-    leafs["nhrpClientStatRxErrAuthenticationFailure"] = nhrpclientstatentry.Nhrpclientstatrxerrauthenticationfailure
-    leafs["nhrpClientStatRxErrHopCountExceeded"] = nhrpclientstatentry.Nhrpclientstatrxerrhopcountexceeded
-    leafs["nhrpClientStatDiscontinuityTime"] = nhrpclientstatentry.Nhrpclientstatdiscontinuitytime
-    return leafs
-}
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetYangName() string { return "nhrpClientStatEntry" }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) SetParent(parent types.Entity) { nhrpclientstatentry.parent = parent }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetParent() types.Entity { return nhrpclientstatentry.parent }
-
-func (nhrpclientstatentry *NHRPMIB_Nhrpclientstattable_Nhrpclientstatentry) GetParentYangName() string { return "nhrpClientStatTable" }
 
 // NHRPMIB_Nhrpservertable
 // This table contains information for a set of NHSes
 // associated with this agent.
 type NHRPMIB_Nhrpservertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single NHS. The type is slice of
@@ -1701,68 +1112,29 @@ type NHRPMIB_Nhrpservertable struct {
     Nhrpserverentry []NHRPMIB_Nhrpservertable_Nhrpserverentry
 }
 
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetFilter() yfilter.YFilter { return nhrpservertable.YFilter }
+func (nhrpservertable *NHRPMIB_Nhrpservertable) GetEntityData() *types.CommonEntityData {
+    nhrpservertable.EntityData.YFilter = nhrpservertable.YFilter
+    nhrpservertable.EntityData.YangName = "nhrpServerTable"
+    nhrpservertable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpservertable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpservertable.EntityData.SegmentPath = "nhrpServerTable"
+    nhrpservertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpservertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpservertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpservertable *NHRPMIB_Nhrpservertable) SetFilter(yf yfilter.YFilter) { nhrpservertable.YFilter = yf }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetGoName(yname string) string {
-    if yname == "nhrpServerEntry" { return "Nhrpserverentry" }
-    return ""
-}
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetSegmentPath() string {
-    return "nhrpServerTable"
-}
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpServerEntry" {
-        for _, c := range nhrpservertable.Nhrpserverentry {
-            if nhrpservertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpservertable_Nhrpserverentry{}
-        nhrpservertable.Nhrpserverentry = append(nhrpservertable.Nhrpserverentry, child)
-        return &nhrpservertable.Nhrpserverentry[len(nhrpservertable.Nhrpserverentry)-1]
-    }
-    return nil
-}
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpservertable.EntityData.Children = make(map[string]types.YChild)
+    nhrpservertable.EntityData.Children["nhrpServerEntry"] = types.YChild{"Nhrpserverentry", nil}
     for i := range nhrpservertable.Nhrpserverentry {
-        children[nhrpservertable.Nhrpserverentry[i].GetSegmentPath()] = &nhrpservertable.Nhrpserverentry[i]
+        nhrpservertable.EntityData.Children[types.GetSegmentPath(&nhrpservertable.Nhrpserverentry[i])] = types.YChild{"Nhrpserverentry", &nhrpservertable.Nhrpserverentry[i]}
     }
-    return children
+    nhrpservertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpservertable.EntityData)
 }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetYangName() string { return "nhrpServerTable" }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) SetParent(parent types.Entity) { nhrpservertable.parent = parent }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetParent() types.Entity { return nhrpservertable.parent }
-
-func (nhrpservertable *NHRPMIB_Nhrpservertable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpservertable_Nhrpserverentry
 // Information about a single NHS.
 type NHRPMIB_Nhrpservertable_Nhrpserverentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An identifier for the server that is unique within
@@ -1802,65 +1174,28 @@ type NHRPMIB_Nhrpservertable_Nhrpserverentry struct {
     Nhrpserverrowstatus interface{}
 }
 
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetFilter() yfilter.YFilter { return nhrpserverentry.YFilter }
+func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetEntityData() *types.CommonEntityData {
+    nhrpserverentry.EntityData.YFilter = nhrpserverentry.YFilter
+    nhrpserverentry.EntityData.YangName = "nhrpServerEntry"
+    nhrpserverentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpserverentry.EntityData.ParentYangName = "nhrpServerTable"
+    nhrpserverentry.EntityData.SegmentPath = "nhrpServerEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpserverentry.Nhrpserverindex) + "']"
+    nhrpserverentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpserverentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpserverentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) SetFilter(yf yfilter.YFilter) { nhrpserverentry.YFilter = yf }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetGoName(yname string) string {
-    if yname == "nhrpServerIndex" { return "Nhrpserverindex" }
-    if yname == "nhrpServerInternetworkAddrType" { return "Nhrpserverinternetworkaddrtype" }
-    if yname == "nhrpServerInternetworkAddr" { return "Nhrpserverinternetworkaddr" }
-    if yname == "nhrpServerNbmaAddrType" { return "Nhrpservernbmaaddrtype" }
-    if yname == "nhrpServerNbmaAddr" { return "Nhrpservernbmaaddr" }
-    if yname == "nhrpServerNbmaSubaddr" { return "Nhrpservernbmasubaddr" }
-    if yname == "nhrpServerStorageType" { return "Nhrpserverstoragetype" }
-    if yname == "nhrpServerRowStatus" { return "Nhrpserverrowstatus" }
-    return ""
+    nhrpserverentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpserverentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpserverentry.EntityData.Leafs["nhrpServerIndex"] = types.YLeaf{"Nhrpserverindex", nhrpserverentry.Nhrpserverindex}
+    nhrpserverentry.EntityData.Leafs["nhrpServerInternetworkAddrType"] = types.YLeaf{"Nhrpserverinternetworkaddrtype", nhrpserverentry.Nhrpserverinternetworkaddrtype}
+    nhrpserverentry.EntityData.Leafs["nhrpServerInternetworkAddr"] = types.YLeaf{"Nhrpserverinternetworkaddr", nhrpserverentry.Nhrpserverinternetworkaddr}
+    nhrpserverentry.EntityData.Leafs["nhrpServerNbmaAddrType"] = types.YLeaf{"Nhrpservernbmaaddrtype", nhrpserverentry.Nhrpservernbmaaddrtype}
+    nhrpserverentry.EntityData.Leafs["nhrpServerNbmaAddr"] = types.YLeaf{"Nhrpservernbmaaddr", nhrpserverentry.Nhrpservernbmaaddr}
+    nhrpserverentry.EntityData.Leafs["nhrpServerNbmaSubaddr"] = types.YLeaf{"Nhrpservernbmasubaddr", nhrpserverentry.Nhrpservernbmasubaddr}
+    nhrpserverentry.EntityData.Leafs["nhrpServerStorageType"] = types.YLeaf{"Nhrpserverstoragetype", nhrpserverentry.Nhrpserverstoragetype}
+    nhrpserverentry.EntityData.Leafs["nhrpServerRowStatus"] = types.YLeaf{"Nhrpserverrowstatus", nhrpserverentry.Nhrpserverrowstatus}
+    return &(nhrpserverentry.EntityData)
 }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetSegmentPath() string {
-    return "nhrpServerEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpserverentry.Nhrpserverindex) + "']"
-}
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpServerIndex"] = nhrpserverentry.Nhrpserverindex
-    leafs["nhrpServerInternetworkAddrType"] = nhrpserverentry.Nhrpserverinternetworkaddrtype
-    leafs["nhrpServerInternetworkAddr"] = nhrpserverentry.Nhrpserverinternetworkaddr
-    leafs["nhrpServerNbmaAddrType"] = nhrpserverentry.Nhrpservernbmaaddrtype
-    leafs["nhrpServerNbmaAddr"] = nhrpserverentry.Nhrpservernbmaaddr
-    leafs["nhrpServerNbmaSubaddr"] = nhrpserverentry.Nhrpservernbmasubaddr
-    leafs["nhrpServerStorageType"] = nhrpserverentry.Nhrpserverstoragetype
-    leafs["nhrpServerRowStatus"] = nhrpserverentry.Nhrpserverrowstatus
-    return leafs
-}
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetYangName() string { return "nhrpServerEntry" }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) SetParent(parent types.Entity) { nhrpserverentry.parent = parent }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetParent() types.Entity { return nhrpserverentry.parent }
-
-func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetParentYangName() string { return "nhrpServerTable" }
 
 // NHRPMIB_Nhrpservercachetable
 // This table extends the nhrpCacheTable for
@@ -1876,7 +1211,7 @@ func (nhrpserverentry *NHRPMIB_Nhrpservertable_Nhrpserverentry) GetParentYangNam
 // Hop Client which is co-resident on the same device
 // as the NHS, a row will not be added to this table.
 type NHRPMIB_Nhrpservercachetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Additional information kept by a NHS for a relevant Next Hop Resolution
@@ -1885,69 +1220,30 @@ type NHRPMIB_Nhrpservercachetable struct {
     Nhrpservercacheentry []NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry
 }
 
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetFilter() yfilter.YFilter { return nhrpservercachetable.YFilter }
+func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetEntityData() *types.CommonEntityData {
+    nhrpservercachetable.EntityData.YFilter = nhrpservercachetable.YFilter
+    nhrpservercachetable.EntityData.YangName = "nhrpServerCacheTable"
+    nhrpservercachetable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpservercachetable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpservercachetable.EntityData.SegmentPath = "nhrpServerCacheTable"
+    nhrpservercachetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpservercachetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpservercachetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) SetFilter(yf yfilter.YFilter) { nhrpservercachetable.YFilter = yf }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetGoName(yname string) string {
-    if yname == "nhrpServerCacheEntry" { return "Nhrpservercacheentry" }
-    return ""
-}
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetSegmentPath() string {
-    return "nhrpServerCacheTable"
-}
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpServerCacheEntry" {
-        for _, c := range nhrpservercachetable.Nhrpservercacheentry {
-            if nhrpservercachetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry{}
-        nhrpservercachetable.Nhrpservercacheentry = append(nhrpservercachetable.Nhrpservercacheentry, child)
-        return &nhrpservercachetable.Nhrpservercacheentry[len(nhrpservercachetable.Nhrpservercacheentry)-1]
-    }
-    return nil
-}
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpservercachetable.EntityData.Children = make(map[string]types.YChild)
+    nhrpservercachetable.EntityData.Children["nhrpServerCacheEntry"] = types.YChild{"Nhrpservercacheentry", nil}
     for i := range nhrpservercachetable.Nhrpservercacheentry {
-        children[nhrpservercachetable.Nhrpservercacheentry[i].GetSegmentPath()] = &nhrpservercachetable.Nhrpservercacheentry[i]
+        nhrpservercachetable.EntityData.Children[types.GetSegmentPath(&nhrpservercachetable.Nhrpservercacheentry[i])] = types.YChild{"Nhrpservercacheentry", &nhrpservercachetable.Nhrpservercacheentry[i]}
     }
-    return children
+    nhrpservercachetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpservercachetable.EntityData)
 }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetYangName() string { return "nhrpServerCacheTable" }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) SetParent(parent types.Entity) { nhrpservercachetable.parent = parent }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetParent() types.Entity { return nhrpservercachetable.parent }
-
-func (nhrpservercachetable *NHRPMIB_Nhrpservercachetable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry
 // Additional information kept by a NHS for a relevant
 // Next Hop Resolution Cache entry.
 type NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is AddressFamilyNumbers. Refers to
@@ -1978,67 +1274,32 @@ type NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry struct {
     Nhrpservercacheuniqueness interface{}
 }
 
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetFilter() yfilter.YFilter { return nhrpservercacheentry.YFilter }
+func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetEntityData() *types.CommonEntityData {
+    nhrpservercacheentry.EntityData.YFilter = nhrpservercacheentry.YFilter
+    nhrpservercacheentry.EntityData.YangName = "nhrpServerCacheEntry"
+    nhrpservercacheentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpservercacheentry.EntityData.ParentYangName = "nhrpServerCacheTable"
+    nhrpservercacheentry.EntityData.SegmentPath = "nhrpServerCacheEntry" + "[nhrpCacheInternetworkAddrType='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + fmt.Sprintf("%v", nhrpservercacheentry.Ifindex) + "']" + "[nhrpCacheIndex='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheindex) + "']"
+    nhrpservercacheentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpservercacheentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpservercacheentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) SetFilter(yf yfilter.YFilter) { nhrpservercacheentry.YFilter = yf }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetGoName(yname string) string {
-    if yname == "nhrpCacheInternetworkAddrType" { return "Nhrpcacheinternetworkaddrtype" }
-    if yname == "nhrpCacheInternetworkAddr" { return "Nhrpcacheinternetworkaddr" }
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "nhrpCacheIndex" { return "Nhrpcacheindex" }
-    if yname == "nhrpServerCacheAuthoritative" { return "Nhrpservercacheauthoritative" }
-    if yname == "nhrpServerCacheUniqueness" { return "Nhrpservercacheuniqueness" }
-    return ""
+    nhrpservercacheentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpservercacheentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpservercacheentry.EntityData.Leafs["nhrpCacheInternetworkAddrType"] = types.YLeaf{"Nhrpcacheinternetworkaddrtype", nhrpservercacheentry.Nhrpcacheinternetworkaddrtype}
+    nhrpservercacheentry.EntityData.Leafs["nhrpCacheInternetworkAddr"] = types.YLeaf{"Nhrpcacheinternetworkaddr", nhrpservercacheentry.Nhrpcacheinternetworkaddr}
+    nhrpservercacheentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", nhrpservercacheentry.Ifindex}
+    nhrpservercacheentry.EntityData.Leafs["nhrpCacheIndex"] = types.YLeaf{"Nhrpcacheindex", nhrpservercacheentry.Nhrpcacheindex}
+    nhrpservercacheentry.EntityData.Leafs["nhrpServerCacheAuthoritative"] = types.YLeaf{"Nhrpservercacheauthoritative", nhrpservercacheentry.Nhrpservercacheauthoritative}
+    nhrpservercacheentry.EntityData.Leafs["nhrpServerCacheUniqueness"] = types.YLeaf{"Nhrpservercacheuniqueness", nhrpservercacheentry.Nhrpservercacheuniqueness}
+    return &(nhrpservercacheentry.EntityData)
 }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetSegmentPath() string {
-    return "nhrpServerCacheEntry" + "[nhrpCacheInternetworkAddrType='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + fmt.Sprintf("%v", nhrpservercacheentry.Ifindex) + "']" + "[nhrpCacheIndex='" + fmt.Sprintf("%v", nhrpservercacheentry.Nhrpcacheindex) + "']"
-}
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpCacheInternetworkAddrType"] = nhrpservercacheentry.Nhrpcacheinternetworkaddrtype
-    leafs["nhrpCacheInternetworkAddr"] = nhrpservercacheentry.Nhrpcacheinternetworkaddr
-    leafs["ifIndex"] = nhrpservercacheentry.Ifindex
-    leafs["nhrpCacheIndex"] = nhrpservercacheentry.Nhrpcacheindex
-    leafs["nhrpServerCacheAuthoritative"] = nhrpservercacheentry.Nhrpservercacheauthoritative
-    leafs["nhrpServerCacheUniqueness"] = nhrpservercacheentry.Nhrpservercacheuniqueness
-    return leafs
-}
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetYangName() string { return "nhrpServerCacheEntry" }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) SetParent(parent types.Entity) { nhrpservercacheentry.parent = parent }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetParent() types.Entity { return nhrpservercacheentry.parent }
-
-func (nhrpservercacheentry *NHRPMIB_Nhrpservercachetable_Nhrpservercacheentry) GetParentYangName() string { return "nhrpServerCacheTable" }
 
 // NHRPMIB_Nhrpservernhctable
 // A table of NHCs that are available for use by this NHS
 // (Server).
 type NHRPMIB_Nhrpservernhctable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An NHC that may be used by an NHS. The type is slice of
@@ -2046,68 +1307,29 @@ type NHRPMIB_Nhrpservernhctable struct {
     Nhrpservernhcentry []NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry
 }
 
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetFilter() yfilter.YFilter { return nhrpservernhctable.YFilter }
+func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetEntityData() *types.CommonEntityData {
+    nhrpservernhctable.EntityData.YFilter = nhrpservernhctable.YFilter
+    nhrpservernhctable.EntityData.YangName = "nhrpServerNhcTable"
+    nhrpservernhctable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpservernhctable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpservernhctable.EntityData.SegmentPath = "nhrpServerNhcTable"
+    nhrpservernhctable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpservernhctable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpservernhctable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) SetFilter(yf yfilter.YFilter) { nhrpservernhctable.YFilter = yf }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetGoName(yname string) string {
-    if yname == "nhrpServerNhcEntry" { return "Nhrpservernhcentry" }
-    return ""
-}
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetSegmentPath() string {
-    return "nhrpServerNhcTable"
-}
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpServerNhcEntry" {
-        for _, c := range nhrpservernhctable.Nhrpservernhcentry {
-            if nhrpservernhctable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry{}
-        nhrpservernhctable.Nhrpservernhcentry = append(nhrpservernhctable.Nhrpservernhcentry, child)
-        return &nhrpservernhctable.Nhrpservernhcentry[len(nhrpservernhctable.Nhrpservernhcentry)-1]
-    }
-    return nil
-}
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpservernhctable.EntityData.Children = make(map[string]types.YChild)
+    nhrpservernhctable.EntityData.Children["nhrpServerNhcEntry"] = types.YChild{"Nhrpservernhcentry", nil}
     for i := range nhrpservernhctable.Nhrpservernhcentry {
-        children[nhrpservernhctable.Nhrpservernhcentry[i].GetSegmentPath()] = &nhrpservernhctable.Nhrpservernhcentry[i]
+        nhrpservernhctable.EntityData.Children[types.GetSegmentPath(&nhrpservernhctable.Nhrpservernhcentry[i])] = types.YChild{"Nhrpservernhcentry", &nhrpservernhctable.Nhrpservernhcentry[i]}
     }
-    return children
+    nhrpservernhctable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpservernhctable.EntityData)
 }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetYangName() string { return "nhrpServerNhcTable" }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) SetParent(parent types.Entity) { nhrpservernhctable.parent = parent }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetParent() types.Entity { return nhrpservernhctable.parent }
-
-func (nhrpservernhctable *NHRPMIB_Nhrpservernhctable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry
 // An NHC that may be used by an NHS.
 type NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -2158,74 +1380,35 @@ type NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry struct {
     Nhrpservernhcrowstatus interface{}
 }
 
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetFilter() yfilter.YFilter { return nhrpservernhcentry.YFilter }
+func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetEntityData() *types.CommonEntityData {
+    nhrpservernhcentry.EntityData.YFilter = nhrpservernhcentry.YFilter
+    nhrpservernhcentry.EntityData.YangName = "nhrpServerNhcEntry"
+    nhrpservernhcentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpservernhcentry.EntityData.ParentYangName = "nhrpServerNhcTable"
+    nhrpservernhcentry.EntityData.SegmentPath = "nhrpServerNhcEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpservernhcentry.Nhrpserverindex) + "']" + "[nhrpServerNhcIndex='" + fmt.Sprintf("%v", nhrpservernhcentry.Nhrpservernhcindex) + "']"
+    nhrpservernhcentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpservernhcentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpservernhcentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) SetFilter(yf yfilter.YFilter) { nhrpservernhcentry.YFilter = yf }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetGoName(yname string) string {
-    if yname == "nhrpServerIndex" { return "Nhrpserverindex" }
-    if yname == "nhrpServerNhcIndex" { return "Nhrpservernhcindex" }
-    if yname == "nhrpServerNhcPrefixLength" { return "Nhrpservernhcprefixlength" }
-    if yname == "nhrpServerNhcInternetworkAddrType" { return "Nhrpservernhcinternetworkaddrtype" }
-    if yname == "nhrpServerNhcInternetworkAddr" { return "Nhrpservernhcinternetworkaddr" }
-    if yname == "nhrpServerNhcNbmaAddrType" { return "Nhrpservernhcnbmaaddrtype" }
-    if yname == "nhrpServerNhcNbmaAddr" { return "Nhrpservernhcnbmaaddr" }
-    if yname == "nhrpServerNhcNbmaSubaddr" { return "Nhrpservernhcnbmasubaddr" }
-    if yname == "nhrpServerNhcInUse" { return "Nhrpservernhcinuse" }
-    if yname == "nhrpServerNhcRowStatus" { return "Nhrpservernhcrowstatus" }
-    return ""
+    nhrpservernhcentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpservernhcentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerIndex"] = types.YLeaf{"Nhrpserverindex", nhrpservernhcentry.Nhrpserverindex}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcIndex"] = types.YLeaf{"Nhrpservernhcindex", nhrpservernhcentry.Nhrpservernhcindex}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcPrefixLength"] = types.YLeaf{"Nhrpservernhcprefixlength", nhrpservernhcentry.Nhrpservernhcprefixlength}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcInternetworkAddrType"] = types.YLeaf{"Nhrpservernhcinternetworkaddrtype", nhrpservernhcentry.Nhrpservernhcinternetworkaddrtype}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcInternetworkAddr"] = types.YLeaf{"Nhrpservernhcinternetworkaddr", nhrpservernhcentry.Nhrpservernhcinternetworkaddr}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcNbmaAddrType"] = types.YLeaf{"Nhrpservernhcnbmaaddrtype", nhrpservernhcentry.Nhrpservernhcnbmaaddrtype}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcNbmaAddr"] = types.YLeaf{"Nhrpservernhcnbmaaddr", nhrpservernhcentry.Nhrpservernhcnbmaaddr}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcNbmaSubaddr"] = types.YLeaf{"Nhrpservernhcnbmasubaddr", nhrpservernhcentry.Nhrpservernhcnbmasubaddr}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcInUse"] = types.YLeaf{"Nhrpservernhcinuse", nhrpservernhcentry.Nhrpservernhcinuse}
+    nhrpservernhcentry.EntityData.Leafs["nhrpServerNhcRowStatus"] = types.YLeaf{"Nhrpservernhcrowstatus", nhrpservernhcentry.Nhrpservernhcrowstatus}
+    return &(nhrpservernhcentry.EntityData)
 }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetSegmentPath() string {
-    return "nhrpServerNhcEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpservernhcentry.Nhrpserverindex) + "']" + "[nhrpServerNhcIndex='" + fmt.Sprintf("%v", nhrpservernhcentry.Nhrpservernhcindex) + "']"
-}
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpServerIndex"] = nhrpservernhcentry.Nhrpserverindex
-    leafs["nhrpServerNhcIndex"] = nhrpservernhcentry.Nhrpservernhcindex
-    leafs["nhrpServerNhcPrefixLength"] = nhrpservernhcentry.Nhrpservernhcprefixlength
-    leafs["nhrpServerNhcInternetworkAddrType"] = nhrpservernhcentry.Nhrpservernhcinternetworkaddrtype
-    leafs["nhrpServerNhcInternetworkAddr"] = nhrpservernhcentry.Nhrpservernhcinternetworkaddr
-    leafs["nhrpServerNhcNbmaAddrType"] = nhrpservernhcentry.Nhrpservernhcnbmaaddrtype
-    leafs["nhrpServerNhcNbmaAddr"] = nhrpservernhcentry.Nhrpservernhcnbmaaddr
-    leafs["nhrpServerNhcNbmaSubaddr"] = nhrpservernhcentry.Nhrpservernhcnbmasubaddr
-    leafs["nhrpServerNhcInUse"] = nhrpservernhcentry.Nhrpservernhcinuse
-    leafs["nhrpServerNhcRowStatus"] = nhrpservernhcentry.Nhrpservernhcrowstatus
-    return leafs
-}
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetYangName() string { return "nhrpServerNhcEntry" }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) SetParent(parent types.Entity) { nhrpservernhcentry.parent = parent }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetParent() types.Entity { return nhrpservernhcentry.parent }
-
-func (nhrpservernhcentry *NHRPMIB_Nhrpservernhctable_Nhrpservernhcentry) GetParentYangName() string { return "nhrpServerNhcTable" }
 
 // NHRPMIB_Nhrpserverstattable
 // Statistics collected by Next Hop Servers.
 type NHRPMIB_Nhrpserverstattable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics for a particular NHS. The statistics are broken into received
@@ -2235,63 +1418,24 @@ type NHRPMIB_Nhrpserverstattable struct {
     Nhrpserverstatentry []NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry
 }
 
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetFilter() yfilter.YFilter { return nhrpserverstattable.YFilter }
+func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetEntityData() *types.CommonEntityData {
+    nhrpserverstattable.EntityData.YFilter = nhrpserverstattable.YFilter
+    nhrpserverstattable.EntityData.YangName = "nhrpServerStatTable"
+    nhrpserverstattable.EntityData.BundleName = "cisco_ios_xe"
+    nhrpserverstattable.EntityData.ParentYangName = "NHRP-MIB"
+    nhrpserverstattable.EntityData.SegmentPath = "nhrpServerStatTable"
+    nhrpserverstattable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpserverstattable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpserverstattable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) SetFilter(yf yfilter.YFilter) { nhrpserverstattable.YFilter = yf }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetGoName(yname string) string {
-    if yname == "nhrpServerStatEntry" { return "Nhrpserverstatentry" }
-    return ""
-}
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetSegmentPath() string {
-    return "nhrpServerStatTable"
-}
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nhrpServerStatEntry" {
-        for _, c := range nhrpserverstattable.Nhrpserverstatentry {
-            if nhrpserverstattable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry{}
-        nhrpserverstattable.Nhrpserverstatentry = append(nhrpserverstattable.Nhrpserverstatentry, child)
-        return &nhrpserverstattable.Nhrpserverstatentry[len(nhrpserverstattable.Nhrpserverstatentry)-1]
-    }
-    return nil
-}
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nhrpserverstattable.EntityData.Children = make(map[string]types.YChild)
+    nhrpserverstattable.EntityData.Children["nhrpServerStatEntry"] = types.YChild{"Nhrpserverstatentry", nil}
     for i := range nhrpserverstattable.Nhrpserverstatentry {
-        children[nhrpserverstattable.Nhrpserverstatentry[i].GetSegmentPath()] = &nhrpserverstattable.Nhrpserverstatentry[i]
+        nhrpserverstattable.EntityData.Children[types.GetSegmentPath(&nhrpserverstattable.Nhrpserverstatentry[i])] = types.YChild{"Nhrpserverstatentry", &nhrpserverstattable.Nhrpserverstatentry[i]}
     }
-    return children
+    nhrpserverstattable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nhrpserverstattable.EntityData)
 }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetYangName() string { return "nhrpServerStatTable" }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) SetParent(parent types.Entity) { nhrpserverstattable.parent = parent }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetParent() types.Entity { return nhrpserverstattable.parent }
-
-func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetParentYangName() string { return "NHRP-MIB" }
 
 // NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry
 // Statistics for a particular NHS. The statistics are
@@ -2299,7 +1443,7 @@ func (nhrpserverstattable *NHRPMIB_Nhrpserverstattable) GetParentYangName() stri
 // and forwarded (Fw).  Forwarded (Fw) would be done
 // by a transit NHS.
 type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -2621,129 +1765,59 @@ type NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry struct {
     Nhrpserverstatdiscontinuitytime interface{}
 }
 
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetFilter() yfilter.YFilter { return nhrpserverstatentry.YFilter }
+func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetEntityData() *types.CommonEntityData {
+    nhrpserverstatentry.EntityData.YFilter = nhrpserverstatentry.YFilter
+    nhrpserverstatentry.EntityData.YangName = "nhrpServerStatEntry"
+    nhrpserverstatentry.EntityData.BundleName = "cisco_ios_xe"
+    nhrpserverstatentry.EntityData.ParentYangName = "nhrpServerStatTable"
+    nhrpserverstatentry.EntityData.SegmentPath = "nhrpServerStatEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpserverstatentry.Nhrpserverindex) + "']"
+    nhrpserverstatentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhrpserverstatentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhrpserverstatentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) SetFilter(yf yfilter.YFilter) { nhrpserverstatentry.YFilter = yf }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetGoName(yname string) string {
-    if yname == "nhrpServerIndex" { return "Nhrpserverindex" }
-    if yname == "nhrpServerStatRxResolveReq" { return "Nhrpserverstatrxresolvereq" }
-    if yname == "nhrpServerStatTxResolveReplyAck" { return "Nhrpserverstattxresolvereplyack" }
-    if yname == "nhrpServerStatTxResolveReplyNakProhibited" { return "Nhrpserverstattxresolvereplynakprohibited" }
-    if yname == "nhrpServerStatTxResolveReplyNakInsufResources" { return "Nhrpserverstattxresolvereplynakinsufresources" }
-    if yname == "nhrpServerStatTxResolveReplyNakNoBinding" { return "Nhrpserverstattxresolvereplynaknobinding" }
-    if yname == "nhrpServerStatTxResolveReplyNakNotUnique" { return "Nhrpserverstattxresolvereplynaknotunique" }
-    if yname == "nhrpServerStatRxRegisterReq" { return "Nhrpserverstatrxregisterreq" }
-    if yname == "nhrpServerStatTxRegisterAck" { return "Nhrpserverstattxregisterack" }
-    if yname == "nhrpServerStatTxRegisterNakProhibited" { return "Nhrpserverstattxregisternakprohibited" }
-    if yname == "nhrpServerStatTxRegisterNakInsufResources" { return "Nhrpserverstattxregisternakinsufresources" }
-    if yname == "nhrpServerStatTxRegisterNakAlreadyReg" { return "Nhrpserverstattxregisternakalreadyreg" }
-    if yname == "nhrpServerStatRxPurgeReq" { return "Nhrpserverstatrxpurgereq" }
-    if yname == "nhrpServerStatTxPurgeReq" { return "Nhrpserverstattxpurgereq" }
-    if yname == "nhrpServerStatRxPurgeReply" { return "Nhrpserverstatrxpurgereply" }
-    if yname == "nhrpServerStatTxPurgeReply" { return "Nhrpserverstattxpurgereply" }
-    if yname == "nhrpServerStatRxErrUnrecognizedExtension" { return "Nhrpserverstatrxerrunrecognizedextension" }
-    if yname == "nhrpServerStatRxErrLoopDetected" { return "Nhrpserverstatrxerrloopdetected" }
-    if yname == "nhrpServerStatRxErrProtoAddrUnreachable" { return "Nhrpserverstatrxerrprotoaddrunreachable" }
-    if yname == "nhrpServerStatRxErrProtoError" { return "Nhrpserverstatrxerrprotoerror" }
-    if yname == "nhrpServerStatRxErrSduSizeExceeded" { return "Nhrpserverstatrxerrsdusizeexceeded" }
-    if yname == "nhrpServerStatRxErrInvalidExtension" { return "Nhrpserverstatrxerrinvalidextension" }
-    if yname == "nhrpServerStatRxErrInvalidResReplyReceived" { return "Nhrpserverstatrxerrinvalidresreplyreceived" }
-    if yname == "nhrpServerStatRxErrAuthenticationFailure" { return "Nhrpserverstatrxerrauthenticationfailure" }
-    if yname == "nhrpServerStatRxErrHopCountExceeded" { return "Nhrpserverstatrxerrhopcountexceeded" }
-    if yname == "nhrpServerStatTxErrUnrecognizedExtension" { return "Nhrpserverstattxerrunrecognizedextension" }
-    if yname == "nhrpServerStatTxErrLoopDetected" { return "Nhrpserverstattxerrloopdetected" }
-    if yname == "nhrpServerStatTxErrProtoAddrUnreachable" { return "Nhrpserverstattxerrprotoaddrunreachable" }
-    if yname == "nhrpServerStatTxErrProtoError" { return "Nhrpserverstattxerrprotoerror" }
-    if yname == "nhrpServerStatTxErrSduSizeExceeded" { return "Nhrpserverstattxerrsdusizeexceeded" }
-    if yname == "nhrpServerStatTxErrInvalidExtension" { return "Nhrpserverstattxerrinvalidextension" }
-    if yname == "nhrpServerStatTxErrAuthenticationFailure" { return "Nhrpserverstattxerrauthenticationfailure" }
-    if yname == "nhrpServerStatTxErrHopCountExceeded" { return "Nhrpserverstattxerrhopcountexceeded" }
-    if yname == "nhrpServerStatFwResolveReq" { return "Nhrpserverstatfwresolvereq" }
-    if yname == "nhrpServerStatFwResolveReply" { return "Nhrpserverstatfwresolvereply" }
-    if yname == "nhrpServerStatFwRegisterReq" { return "Nhrpserverstatfwregisterreq" }
-    if yname == "nhrpServerStatFwRegisterReply" { return "Nhrpserverstatfwregisterreply" }
-    if yname == "nhrpServerStatFwPurgeReq" { return "Nhrpserverstatfwpurgereq" }
-    if yname == "nhrpServerStatFwPurgeReply" { return "Nhrpserverstatfwpurgereply" }
-    if yname == "nhrpServerStatFwErrorIndication" { return "Nhrpserverstatfwerrorindication" }
-    if yname == "nhrpServerStatDiscontinuityTime" { return "Nhrpserverstatdiscontinuitytime" }
-    return ""
+    nhrpserverstatentry.EntityData.Children = make(map[string]types.YChild)
+    nhrpserverstatentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerIndex"] = types.YLeaf{"Nhrpserverindex", nhrpserverstatentry.Nhrpserverindex}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxResolveReq"] = types.YLeaf{"Nhrpserverstatrxresolvereq", nhrpserverstatentry.Nhrpserverstatrxresolvereq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyAck"] = types.YLeaf{"Nhrpserverstattxresolvereplyack", nhrpserverstatentry.Nhrpserverstattxresolvereplyack}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakProhibited"] = types.YLeaf{"Nhrpserverstattxresolvereplynakprohibited", nhrpserverstatentry.Nhrpserverstattxresolvereplynakprohibited}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakInsufResources"] = types.YLeaf{"Nhrpserverstattxresolvereplynakinsufresources", nhrpserverstatentry.Nhrpserverstattxresolvereplynakinsufresources}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakNoBinding"] = types.YLeaf{"Nhrpserverstattxresolvereplynaknobinding", nhrpserverstatentry.Nhrpserverstattxresolvereplynaknobinding}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxResolveReplyNakNotUnique"] = types.YLeaf{"Nhrpserverstattxresolvereplynaknotunique", nhrpserverstatentry.Nhrpserverstattxresolvereplynaknotunique}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxRegisterReq"] = types.YLeaf{"Nhrpserverstatrxregisterreq", nhrpserverstatentry.Nhrpserverstatrxregisterreq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterAck"] = types.YLeaf{"Nhrpserverstattxregisterack", nhrpserverstatentry.Nhrpserverstattxregisterack}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterNakProhibited"] = types.YLeaf{"Nhrpserverstattxregisternakprohibited", nhrpserverstatentry.Nhrpserverstattxregisternakprohibited}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterNakInsufResources"] = types.YLeaf{"Nhrpserverstattxregisternakinsufresources", nhrpserverstatentry.Nhrpserverstattxregisternakinsufresources}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxRegisterNakAlreadyReg"] = types.YLeaf{"Nhrpserverstattxregisternakalreadyreg", nhrpserverstatentry.Nhrpserverstattxregisternakalreadyreg}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxPurgeReq"] = types.YLeaf{"Nhrpserverstatrxpurgereq", nhrpserverstatentry.Nhrpserverstatrxpurgereq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxPurgeReq"] = types.YLeaf{"Nhrpserverstattxpurgereq", nhrpserverstatentry.Nhrpserverstattxpurgereq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxPurgeReply"] = types.YLeaf{"Nhrpserverstatrxpurgereply", nhrpserverstatentry.Nhrpserverstatrxpurgereply}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxPurgeReply"] = types.YLeaf{"Nhrpserverstattxpurgereply", nhrpserverstatentry.Nhrpserverstattxpurgereply}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrUnrecognizedExtension"] = types.YLeaf{"Nhrpserverstatrxerrunrecognizedextension", nhrpserverstatentry.Nhrpserverstatrxerrunrecognizedextension}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrLoopDetected"] = types.YLeaf{"Nhrpserverstatrxerrloopdetected", nhrpserverstatentry.Nhrpserverstatrxerrloopdetected}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrProtoAddrUnreachable"] = types.YLeaf{"Nhrpserverstatrxerrprotoaddrunreachable", nhrpserverstatentry.Nhrpserverstatrxerrprotoaddrunreachable}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrProtoError"] = types.YLeaf{"Nhrpserverstatrxerrprotoerror", nhrpserverstatentry.Nhrpserverstatrxerrprotoerror}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrSduSizeExceeded"] = types.YLeaf{"Nhrpserverstatrxerrsdusizeexceeded", nhrpserverstatentry.Nhrpserverstatrxerrsdusizeexceeded}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrInvalidExtension"] = types.YLeaf{"Nhrpserverstatrxerrinvalidextension", nhrpserverstatentry.Nhrpserverstatrxerrinvalidextension}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrInvalidResReplyReceived"] = types.YLeaf{"Nhrpserverstatrxerrinvalidresreplyreceived", nhrpserverstatentry.Nhrpserverstatrxerrinvalidresreplyreceived}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrAuthenticationFailure"] = types.YLeaf{"Nhrpserverstatrxerrauthenticationfailure", nhrpserverstatentry.Nhrpserverstatrxerrauthenticationfailure}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatRxErrHopCountExceeded"] = types.YLeaf{"Nhrpserverstatrxerrhopcountexceeded", nhrpserverstatentry.Nhrpserverstatrxerrhopcountexceeded}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrUnrecognizedExtension"] = types.YLeaf{"Nhrpserverstattxerrunrecognizedextension", nhrpserverstatentry.Nhrpserverstattxerrunrecognizedextension}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrLoopDetected"] = types.YLeaf{"Nhrpserverstattxerrloopdetected", nhrpserverstatentry.Nhrpserverstattxerrloopdetected}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrProtoAddrUnreachable"] = types.YLeaf{"Nhrpserverstattxerrprotoaddrunreachable", nhrpserverstatentry.Nhrpserverstattxerrprotoaddrunreachable}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrProtoError"] = types.YLeaf{"Nhrpserverstattxerrprotoerror", nhrpserverstatentry.Nhrpserverstattxerrprotoerror}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrSduSizeExceeded"] = types.YLeaf{"Nhrpserverstattxerrsdusizeexceeded", nhrpserverstatentry.Nhrpserverstattxerrsdusizeexceeded}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrInvalidExtension"] = types.YLeaf{"Nhrpserverstattxerrinvalidextension", nhrpserverstatentry.Nhrpserverstattxerrinvalidextension}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrAuthenticationFailure"] = types.YLeaf{"Nhrpserverstattxerrauthenticationfailure", nhrpserverstatentry.Nhrpserverstattxerrauthenticationfailure}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatTxErrHopCountExceeded"] = types.YLeaf{"Nhrpserverstattxerrhopcountexceeded", nhrpserverstatentry.Nhrpserverstattxerrhopcountexceeded}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwResolveReq"] = types.YLeaf{"Nhrpserverstatfwresolvereq", nhrpserverstatentry.Nhrpserverstatfwresolvereq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwResolveReply"] = types.YLeaf{"Nhrpserverstatfwresolvereply", nhrpserverstatentry.Nhrpserverstatfwresolvereply}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwRegisterReq"] = types.YLeaf{"Nhrpserverstatfwregisterreq", nhrpserverstatentry.Nhrpserverstatfwregisterreq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwRegisterReply"] = types.YLeaf{"Nhrpserverstatfwregisterreply", nhrpserverstatentry.Nhrpserverstatfwregisterreply}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwPurgeReq"] = types.YLeaf{"Nhrpserverstatfwpurgereq", nhrpserverstatentry.Nhrpserverstatfwpurgereq}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwPurgeReply"] = types.YLeaf{"Nhrpserverstatfwpurgereply", nhrpserverstatentry.Nhrpserverstatfwpurgereply}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatFwErrorIndication"] = types.YLeaf{"Nhrpserverstatfwerrorindication", nhrpserverstatentry.Nhrpserverstatfwerrorindication}
+    nhrpserverstatentry.EntityData.Leafs["nhrpServerStatDiscontinuityTime"] = types.YLeaf{"Nhrpserverstatdiscontinuitytime", nhrpserverstatentry.Nhrpserverstatdiscontinuitytime}
+    return &(nhrpserverstatentry.EntityData)
 }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetSegmentPath() string {
-    return "nhrpServerStatEntry" + "[nhrpServerIndex='" + fmt.Sprintf("%v", nhrpserverstatentry.Nhrpserverindex) + "']"
-}
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nhrpServerIndex"] = nhrpserverstatentry.Nhrpserverindex
-    leafs["nhrpServerStatRxResolveReq"] = nhrpserverstatentry.Nhrpserverstatrxresolvereq
-    leafs["nhrpServerStatTxResolveReplyAck"] = nhrpserverstatentry.Nhrpserverstattxresolvereplyack
-    leafs["nhrpServerStatTxResolveReplyNakProhibited"] = nhrpserverstatentry.Nhrpserverstattxresolvereplynakprohibited
-    leafs["nhrpServerStatTxResolveReplyNakInsufResources"] = nhrpserverstatentry.Nhrpserverstattxresolvereplynakinsufresources
-    leafs["nhrpServerStatTxResolveReplyNakNoBinding"] = nhrpserverstatentry.Nhrpserverstattxresolvereplynaknobinding
-    leafs["nhrpServerStatTxResolveReplyNakNotUnique"] = nhrpserverstatentry.Nhrpserverstattxresolvereplynaknotunique
-    leafs["nhrpServerStatRxRegisterReq"] = nhrpserverstatentry.Nhrpserverstatrxregisterreq
-    leafs["nhrpServerStatTxRegisterAck"] = nhrpserverstatentry.Nhrpserverstattxregisterack
-    leafs["nhrpServerStatTxRegisterNakProhibited"] = nhrpserverstatentry.Nhrpserverstattxregisternakprohibited
-    leafs["nhrpServerStatTxRegisterNakInsufResources"] = nhrpserverstatentry.Nhrpserverstattxregisternakinsufresources
-    leafs["nhrpServerStatTxRegisterNakAlreadyReg"] = nhrpserverstatentry.Nhrpserverstattxregisternakalreadyreg
-    leafs["nhrpServerStatRxPurgeReq"] = nhrpserverstatentry.Nhrpserverstatrxpurgereq
-    leafs["nhrpServerStatTxPurgeReq"] = nhrpserverstatentry.Nhrpserverstattxpurgereq
-    leafs["nhrpServerStatRxPurgeReply"] = nhrpserverstatentry.Nhrpserverstatrxpurgereply
-    leafs["nhrpServerStatTxPurgeReply"] = nhrpserverstatentry.Nhrpserverstattxpurgereply
-    leafs["nhrpServerStatRxErrUnrecognizedExtension"] = nhrpserverstatentry.Nhrpserverstatrxerrunrecognizedextension
-    leafs["nhrpServerStatRxErrLoopDetected"] = nhrpserverstatentry.Nhrpserverstatrxerrloopdetected
-    leafs["nhrpServerStatRxErrProtoAddrUnreachable"] = nhrpserverstatentry.Nhrpserverstatrxerrprotoaddrunreachable
-    leafs["nhrpServerStatRxErrProtoError"] = nhrpserverstatentry.Nhrpserverstatrxerrprotoerror
-    leafs["nhrpServerStatRxErrSduSizeExceeded"] = nhrpserverstatentry.Nhrpserverstatrxerrsdusizeexceeded
-    leafs["nhrpServerStatRxErrInvalidExtension"] = nhrpserverstatentry.Nhrpserverstatrxerrinvalidextension
-    leafs["nhrpServerStatRxErrInvalidResReplyReceived"] = nhrpserverstatentry.Nhrpserverstatrxerrinvalidresreplyreceived
-    leafs["nhrpServerStatRxErrAuthenticationFailure"] = nhrpserverstatentry.Nhrpserverstatrxerrauthenticationfailure
-    leafs["nhrpServerStatRxErrHopCountExceeded"] = nhrpserverstatentry.Nhrpserverstatrxerrhopcountexceeded
-    leafs["nhrpServerStatTxErrUnrecognizedExtension"] = nhrpserverstatentry.Nhrpserverstattxerrunrecognizedextension
-    leafs["nhrpServerStatTxErrLoopDetected"] = nhrpserverstatentry.Nhrpserverstattxerrloopdetected
-    leafs["nhrpServerStatTxErrProtoAddrUnreachable"] = nhrpserverstatentry.Nhrpserverstattxerrprotoaddrunreachable
-    leafs["nhrpServerStatTxErrProtoError"] = nhrpserverstatentry.Nhrpserverstattxerrprotoerror
-    leafs["nhrpServerStatTxErrSduSizeExceeded"] = nhrpserverstatentry.Nhrpserverstattxerrsdusizeexceeded
-    leafs["nhrpServerStatTxErrInvalidExtension"] = nhrpserverstatentry.Nhrpserverstattxerrinvalidextension
-    leafs["nhrpServerStatTxErrAuthenticationFailure"] = nhrpserverstatentry.Nhrpserverstattxerrauthenticationfailure
-    leafs["nhrpServerStatTxErrHopCountExceeded"] = nhrpserverstatentry.Nhrpserverstattxerrhopcountexceeded
-    leafs["nhrpServerStatFwResolveReq"] = nhrpserverstatentry.Nhrpserverstatfwresolvereq
-    leafs["nhrpServerStatFwResolveReply"] = nhrpserverstatentry.Nhrpserverstatfwresolvereply
-    leafs["nhrpServerStatFwRegisterReq"] = nhrpserverstatentry.Nhrpserverstatfwregisterreq
-    leafs["nhrpServerStatFwRegisterReply"] = nhrpserverstatentry.Nhrpserverstatfwregisterreply
-    leafs["nhrpServerStatFwPurgeReq"] = nhrpserverstatentry.Nhrpserverstatfwpurgereq
-    leafs["nhrpServerStatFwPurgeReply"] = nhrpserverstatentry.Nhrpserverstatfwpurgereply
-    leafs["nhrpServerStatFwErrorIndication"] = nhrpserverstatentry.Nhrpserverstatfwerrorindication
-    leafs["nhrpServerStatDiscontinuityTime"] = nhrpserverstatentry.Nhrpserverstatdiscontinuitytime
-    return leafs
-}
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetYangName() string { return "nhrpServerStatEntry" }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) SetParent(parent types.Entity) { nhrpserverstatentry.parent = parent }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetParent() types.Entity { return nhrpserverstatentry.parent }
-
-func (nhrpserverstatentry *NHRPMIB_Nhrpserverstattable_Nhrpserverstatentry) GetParentYangName() string { return "nhrpServerStatTable" }
 

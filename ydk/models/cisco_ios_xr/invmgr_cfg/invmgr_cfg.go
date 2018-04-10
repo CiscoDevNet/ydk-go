@@ -27,75 +27,36 @@ func init() {
 // InventoryConfigurations
 // Configuration for inventory entities
 type InventoryConfigurations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Entity name. The type is slice of InventoryConfigurations_Entity.
     Entity []InventoryConfigurations_Entity
 }
 
-func (inventoryConfigurations *InventoryConfigurations) GetFilter() yfilter.YFilter { return inventoryConfigurations.YFilter }
+func (inventoryConfigurations *InventoryConfigurations) GetEntityData() *types.CommonEntityData {
+    inventoryConfigurations.EntityData.YFilter = inventoryConfigurations.YFilter
+    inventoryConfigurations.EntityData.YangName = "inventory-configurations"
+    inventoryConfigurations.EntityData.BundleName = "cisco_ios_xr"
+    inventoryConfigurations.EntityData.ParentYangName = "Cisco-IOS-XR-invmgr-cfg"
+    inventoryConfigurations.EntityData.SegmentPath = "Cisco-IOS-XR-invmgr-cfg:inventory-configurations"
+    inventoryConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inventoryConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inventoryConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inventoryConfigurations *InventoryConfigurations) SetFilter(yf yfilter.YFilter) { inventoryConfigurations.YFilter = yf }
-
-func (inventoryConfigurations *InventoryConfigurations) GetGoName(yname string) string {
-    if yname == "entity" { return "Entity" }
-    return ""
-}
-
-func (inventoryConfigurations *InventoryConfigurations) GetSegmentPath() string {
-    return "Cisco-IOS-XR-invmgr-cfg:inventory-configurations"
-}
-
-func (inventoryConfigurations *InventoryConfigurations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entity" {
-        for _, c := range inventoryConfigurations.Entity {
-            if inventoryConfigurations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := InventoryConfigurations_Entity{}
-        inventoryConfigurations.Entity = append(inventoryConfigurations.Entity, child)
-        return &inventoryConfigurations.Entity[len(inventoryConfigurations.Entity)-1]
-    }
-    return nil
-}
-
-func (inventoryConfigurations *InventoryConfigurations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    inventoryConfigurations.EntityData.Children = make(map[string]types.YChild)
+    inventoryConfigurations.EntityData.Children["entity"] = types.YChild{"Entity", nil}
     for i := range inventoryConfigurations.Entity {
-        children[inventoryConfigurations.Entity[i].GetSegmentPath()] = &inventoryConfigurations.Entity[i]
+        inventoryConfigurations.EntityData.Children[types.GetSegmentPath(&inventoryConfigurations.Entity[i])] = types.YChild{"Entity", &inventoryConfigurations.Entity[i]}
     }
-    return children
+    inventoryConfigurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(inventoryConfigurations.EntityData)
 }
-
-func (inventoryConfigurations *InventoryConfigurations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (inventoryConfigurations *InventoryConfigurations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inventoryConfigurations *InventoryConfigurations) GetYangName() string { return "inventory-configurations" }
-
-func (inventoryConfigurations *InventoryConfigurations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inventoryConfigurations *InventoryConfigurations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inventoryConfigurations *InventoryConfigurations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inventoryConfigurations *InventoryConfigurations) SetParent(parent types.Entity) { inventoryConfigurations.parent = parent }
-
-func (inventoryConfigurations *InventoryConfigurations) GetParent() types.Entity { return inventoryConfigurations.parent }
-
-func (inventoryConfigurations *InventoryConfigurations) GetParentYangName() string { return "Cisco-IOS-XR-invmgr-cfg" }
 
 // InventoryConfigurations_Entity
 // Entity name
 type InventoryConfigurations_Entity struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Entity name. The type is string.
@@ -105,51 +66,20 @@ type InventoryConfigurations_Entity struct {
     NameXr interface{}
 }
 
-func (entity *InventoryConfigurations_Entity) GetFilter() yfilter.YFilter { return entity.YFilter }
+func (entity *InventoryConfigurations_Entity) GetEntityData() *types.CommonEntityData {
+    entity.EntityData.YFilter = entity.YFilter
+    entity.EntityData.YangName = "entity"
+    entity.EntityData.BundleName = "cisco_ios_xr"
+    entity.EntityData.ParentYangName = "inventory-configurations"
+    entity.EntityData.SegmentPath = "entity" + "[name='" + fmt.Sprintf("%v", entity.Name) + "']"
+    entity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (entity *InventoryConfigurations_Entity) SetFilter(yf yfilter.YFilter) { entity.YFilter = yf }
-
-func (entity *InventoryConfigurations_Entity) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "name-xr" { return "NameXr" }
-    return ""
+    entity.EntityData.Children = make(map[string]types.YChild)
+    entity.EntityData.Leafs = make(map[string]types.YLeaf)
+    entity.EntityData.Leafs["name"] = types.YLeaf{"Name", entity.Name}
+    entity.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", entity.NameXr}
+    return &(entity.EntityData)
 }
-
-func (entity *InventoryConfigurations_Entity) GetSegmentPath() string {
-    return "entity" + "[name='" + fmt.Sprintf("%v", entity.Name) + "']"
-}
-
-func (entity *InventoryConfigurations_Entity) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (entity *InventoryConfigurations_Entity) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (entity *InventoryConfigurations_Entity) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = entity.Name
-    leafs["name-xr"] = entity.NameXr
-    return leafs
-}
-
-func (entity *InventoryConfigurations_Entity) GetBundleName() string { return "cisco_ios_xr" }
-
-func (entity *InventoryConfigurations_Entity) GetYangName() string { return "entity" }
-
-func (entity *InventoryConfigurations_Entity) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (entity *InventoryConfigurations_Entity) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (entity *InventoryConfigurations_Entity) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (entity *InventoryConfigurations_Entity) SetParent(parent types.Entity) { entity.parent = parent }
-
-func (entity *InventoryConfigurations_Entity) GetParent() types.Entity { return entity.parent }
-
-func (entity *InventoryConfigurations_Entity) GetParentYangName() string { return "inventory-configurations" }
 

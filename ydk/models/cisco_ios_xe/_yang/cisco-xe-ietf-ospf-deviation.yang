@@ -29,6 +29,15 @@ module cisco-xe-ietf-ospf-deviation {
     "This module defines deviation statements for ietf-ospf
      module.";
 
+  revision 2018-02-09 {
+    description
+      "Added deviations for operational data";
+
+    reference
+      "RFC 6020: YANG - A Data Modeling Language for the
+       Network Configuration Protocol (NETCONF)";
+  }
+
   revision 2015-09-11 {
     description
       "Initial Revision";
@@ -408,4 +417,123 @@ module cisco-xe-ietf-ospf-deviation {
     deviate not-supported;
     description "Not supported in IOS-XE 3.17 release.";
   }
+
+ deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:topology" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:as-scope-lsas" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+   deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:link-scope-lsas" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+  
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:enable" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:operation-mode" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:passive" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:node-flag" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:fast-reroute" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:mtu-ignore" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:interfaces/ospf:topology" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  } 
+  
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:decoded-completed" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:raw-data" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:version/ospf:v2/ospf:ospfv2/ospf:header/ospf:opaque-type" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+  
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:version/ospf:v2/ospf:ospfv2/ospf:header/ospf:opaque-id" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:version/ospf:v2/ospf:ospfv2/ospf:header/ospf:type" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+  
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:version/ospf:v2/ospf:ospfv2/ospf:body/ospf:external" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+ 
+  deviation "/rt:routing-state/rt:routing-instance/rt:routing-protocols" +
+            "/rt:routing-protocol/ospf:ospf/ospf:instance" +
+            "/ospf:area/ospf:area-scope-lsas/ospf:area-scope-lsa/ospf:version/ospf:v3/ospf:ospfv3/ospf:body/ospf:as-external" {
+    deviate not-supported;
+    description "Not supported in Polaris 16.8.1 release.";
+  }
+
 }

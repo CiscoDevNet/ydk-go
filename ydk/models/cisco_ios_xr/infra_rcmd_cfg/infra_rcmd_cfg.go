@@ -55,7 +55,7 @@ const (
 // RouterConvergence
 // Configure Router Convergence Monitoring
 type RouterConvergence struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event buffer size for storing event traces (as number of events). The type
@@ -100,91 +100,36 @@ type RouterConvergence struct {
     Nodes RouterConvergence_Nodes
 }
 
-func (routerConvergence *RouterConvergence) GetFilter() yfilter.YFilter { return routerConvergence.YFilter }
+func (routerConvergence *RouterConvergence) GetEntityData() *types.CommonEntityData {
+    routerConvergence.EntityData.YFilter = routerConvergence.YFilter
+    routerConvergence.EntityData.YangName = "router-convergence"
+    routerConvergence.EntityData.BundleName = "cisco_ios_xr"
+    routerConvergence.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rcmd-cfg"
+    routerConvergence.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence"
+    routerConvergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    routerConvergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    routerConvergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (routerConvergence *RouterConvergence) SetFilter(yf yfilter.YFilter) { routerConvergence.YFilter = yf }
-
-func (routerConvergence *RouterConvergence) GetGoName(yname string) string {
-    if yname == "event-buffer-size" { return "EventBufferSize" }
-    if yname == "prefix-monitor-limit" { return "PrefixMonitorLimit" }
-    if yname == "disable" { return "Disable" }
-    if yname == "enable" { return "Enable" }
-    if yname == "max-events-stored" { return "MaxEventsStored" }
-    if yname == "monitoring-interval" { return "MonitoringInterval" }
-    if yname == "protocols" { return "Protocols" }
-    if yname == "storage-location" { return "StorageLocation" }
-    if yname == "mpls-ldp" { return "MplsLdp" }
-    if yname == "collect-diagnostics" { return "CollectDiagnostics" }
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    routerConvergence.EntityData.Children = make(map[string]types.YChild)
+    routerConvergence.EntityData.Children["protocols"] = types.YChild{"Protocols", &routerConvergence.Protocols}
+    routerConvergence.EntityData.Children["storage-location"] = types.YChild{"StorageLocation", &routerConvergence.StorageLocation}
+    routerConvergence.EntityData.Children["mpls-ldp"] = types.YChild{"MplsLdp", &routerConvergence.MplsLdp}
+    routerConvergence.EntityData.Children["collect-diagnostics"] = types.YChild{"CollectDiagnostics", &routerConvergence.CollectDiagnostics}
+    routerConvergence.EntityData.Children["nodes"] = types.YChild{"Nodes", &routerConvergence.Nodes}
+    routerConvergence.EntityData.Leafs = make(map[string]types.YLeaf)
+    routerConvergence.EntityData.Leafs["event-buffer-size"] = types.YLeaf{"EventBufferSize", routerConvergence.EventBufferSize}
+    routerConvergence.EntityData.Leafs["prefix-monitor-limit"] = types.YLeaf{"PrefixMonitorLimit", routerConvergence.PrefixMonitorLimit}
+    routerConvergence.EntityData.Leafs["disable"] = types.YLeaf{"Disable", routerConvergence.Disable}
+    routerConvergence.EntityData.Leafs["enable"] = types.YLeaf{"Enable", routerConvergence.Enable}
+    routerConvergence.EntityData.Leafs["max-events-stored"] = types.YLeaf{"MaxEventsStored", routerConvergence.MaxEventsStored}
+    routerConvergence.EntityData.Leafs["monitoring-interval"] = types.YLeaf{"MonitoringInterval", routerConvergence.MonitoringInterval}
+    return &(routerConvergence.EntityData)
 }
-
-func (routerConvergence *RouterConvergence) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence"
-}
-
-func (routerConvergence *RouterConvergence) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "protocols" {
-        return &routerConvergence.Protocols
-    }
-    if childYangName == "storage-location" {
-        return &routerConvergence.StorageLocation
-    }
-    if childYangName == "mpls-ldp" {
-        return &routerConvergence.MplsLdp
-    }
-    if childYangName == "collect-diagnostics" {
-        return &routerConvergence.CollectDiagnostics
-    }
-    if childYangName == "nodes" {
-        return &routerConvergence.Nodes
-    }
-    return nil
-}
-
-func (routerConvergence *RouterConvergence) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["protocols"] = &routerConvergence.Protocols
-    children["storage-location"] = &routerConvergence.StorageLocation
-    children["mpls-ldp"] = &routerConvergence.MplsLdp
-    children["collect-diagnostics"] = &routerConvergence.CollectDiagnostics
-    children["nodes"] = &routerConvergence.Nodes
-    return children
-}
-
-func (routerConvergence *RouterConvergence) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-buffer-size"] = routerConvergence.EventBufferSize
-    leafs["prefix-monitor-limit"] = routerConvergence.PrefixMonitorLimit
-    leafs["disable"] = routerConvergence.Disable
-    leafs["enable"] = routerConvergence.Enable
-    leafs["max-events-stored"] = routerConvergence.MaxEventsStored
-    leafs["monitoring-interval"] = routerConvergence.MonitoringInterval
-    return leafs
-}
-
-func (routerConvergence *RouterConvergence) GetBundleName() string { return "cisco_ios_xr" }
-
-func (routerConvergence *RouterConvergence) GetYangName() string { return "router-convergence" }
-
-func (routerConvergence *RouterConvergence) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (routerConvergence *RouterConvergence) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (routerConvergence *RouterConvergence) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (routerConvergence *RouterConvergence) SetParent(parent types.Entity) { routerConvergence.parent = parent }
-
-func (routerConvergence *RouterConvergence) GetParent() types.Entity { return routerConvergence.parent }
-
-func (routerConvergence *RouterConvergence) GetParentYangName() string { return "Cisco-IOS-XR-infra-rcmd-cfg" }
 
 // RouterConvergence_Protocols
 // Table of Protocol
 type RouterConvergence_Protocols struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Protocol for which to configure RCMD parameters. The type is slice of
@@ -192,68 +137,29 @@ type RouterConvergence_Protocols struct {
     Protocol []RouterConvergence_Protocols_Protocol
 }
 
-func (protocols *RouterConvergence_Protocols) GetFilter() yfilter.YFilter { return protocols.YFilter }
+func (protocols *RouterConvergence_Protocols) GetEntityData() *types.CommonEntityData {
+    protocols.EntityData.YFilter = protocols.YFilter
+    protocols.EntityData.YangName = "protocols"
+    protocols.EntityData.BundleName = "cisco_ios_xr"
+    protocols.EntityData.ParentYangName = "router-convergence"
+    protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (protocols *RouterConvergence_Protocols) SetFilter(yf yfilter.YFilter) { protocols.YFilter = yf }
-
-func (protocols *RouterConvergence_Protocols) GetGoName(yname string) string {
-    if yname == "protocol" { return "Protocol" }
-    return ""
-}
-
-func (protocols *RouterConvergence_Protocols) GetSegmentPath() string {
-    return "protocols"
-}
-
-func (protocols *RouterConvergence_Protocols) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "protocol" {
-        for _, c := range protocols.Protocol {
-            if protocols.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RouterConvergence_Protocols_Protocol{}
-        protocols.Protocol = append(protocols.Protocol, child)
-        return &protocols.Protocol[len(protocols.Protocol)-1]
-    }
-    return nil
-}
-
-func (protocols *RouterConvergence_Protocols) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    protocols.EntityData.Children = make(map[string]types.YChild)
+    protocols.EntityData.Children["protocol"] = types.YChild{"Protocol", nil}
     for i := range protocols.Protocol {
-        children[protocols.Protocol[i].GetSegmentPath()] = &protocols.Protocol[i]
+        protocols.EntityData.Children[types.GetSegmentPath(&protocols.Protocol[i])] = types.YChild{"Protocol", &protocols.Protocol[i]}
     }
-    return children
+    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(protocols.EntityData)
 }
-
-func (protocols *RouterConvergence_Protocols) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (protocols *RouterConvergence_Protocols) GetBundleName() string { return "cisco_ios_xr" }
-
-func (protocols *RouterConvergence_Protocols) GetYangName() string { return "protocols" }
-
-func (protocols *RouterConvergence_Protocols) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (protocols *RouterConvergence_Protocols) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (protocols *RouterConvergence_Protocols) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (protocols *RouterConvergence_Protocols) SetParent(parent types.Entity) { protocols.parent = parent }
-
-func (protocols *RouterConvergence_Protocols) GetParent() types.Entity { return protocols.parent }
-
-func (protocols *RouterConvergence_Protocols) GetParentYangName() string { return "router-convergence" }
 
 // RouterConvergence_Protocols_Protocol
 // Protocol for which to configure RCMD parameters
 type RouterConvergence_Protocols_Protocol struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify the protocol. The type is ProtocolName.
@@ -268,63 +174,28 @@ type RouterConvergence_Protocols_Protocol struct {
     Priorities RouterConvergence_Protocols_Protocol_Priorities
 }
 
-func (protocol *RouterConvergence_Protocols_Protocol) GetFilter() yfilter.YFilter { return protocol.YFilter }
+func (protocol *RouterConvergence_Protocols_Protocol) GetEntityData() *types.CommonEntityData {
+    protocol.EntityData.YFilter = protocol.YFilter
+    protocol.EntityData.YangName = "protocol"
+    protocol.EntityData.BundleName = "cisco_ios_xr"
+    protocol.EntityData.ParentYangName = "protocols"
+    protocol.EntityData.SegmentPath = "protocol" + "[protocol-name='" + fmt.Sprintf("%v", protocol.ProtocolName) + "']"
+    protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (protocol *RouterConvergence_Protocols_Protocol) SetFilter(yf yfilter.YFilter) { protocol.YFilter = yf }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetGoName(yname string) string {
-    if yname == "protocol-name" { return "ProtocolName" }
-    if yname == "enable" { return "Enable" }
-    if yname == "priorities" { return "Priorities" }
-    return ""
+    protocol.EntityData.Children = make(map[string]types.YChild)
+    protocol.EntityData.Children["priorities"] = types.YChild{"Priorities", &protocol.Priorities}
+    protocol.EntityData.Leafs = make(map[string]types.YLeaf)
+    protocol.EntityData.Leafs["protocol-name"] = types.YLeaf{"ProtocolName", protocol.ProtocolName}
+    protocol.EntityData.Leafs["enable"] = types.YLeaf{"Enable", protocol.Enable}
+    return &(protocol.EntityData)
 }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetSegmentPath() string {
-    return "protocol" + "[protocol-name='" + fmt.Sprintf("%v", protocol.ProtocolName) + "']"
-}
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "priorities" {
-        return &protocol.Priorities
-    }
-    return nil
-}
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["priorities"] = &protocol.Priorities
-    return children
-}
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["protocol-name"] = protocol.ProtocolName
-    leafs["enable"] = protocol.Enable
-    return leafs
-}
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetBundleName() string { return "cisco_ios_xr" }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetYangName() string { return "protocol" }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (protocol *RouterConvergence_Protocols_Protocol) SetParent(parent types.Entity) { protocol.parent = parent }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetParent() types.Entity { return protocol.parent }
-
-func (protocol *RouterConvergence_Protocols_Protocol) GetParentYangName() string { return "protocols" }
 
 // RouterConvergence_Protocols_Protocol_Priorities
 // Table of Priority
 type RouterConvergence_Protocols_Protocol_Priorities struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Priority. The type is slice of
@@ -332,68 +203,29 @@ type RouterConvergence_Protocols_Protocol_Priorities struct {
     Priority []RouterConvergence_Protocols_Protocol_Priorities_Priority
 }
 
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetFilter() yfilter.YFilter { return priorities.YFilter }
+func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetEntityData() *types.CommonEntityData {
+    priorities.EntityData.YFilter = priorities.YFilter
+    priorities.EntityData.YangName = "priorities"
+    priorities.EntityData.BundleName = "cisco_ios_xr"
+    priorities.EntityData.ParentYangName = "protocol"
+    priorities.EntityData.SegmentPath = "priorities"
+    priorities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) SetFilter(yf yfilter.YFilter) { priorities.YFilter = yf }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetGoName(yname string) string {
-    if yname == "priority" { return "Priority" }
-    return ""
-}
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetSegmentPath() string {
-    return "priorities"
-}
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "priority" {
-        for _, c := range priorities.Priority {
-            if priorities.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RouterConvergence_Protocols_Protocol_Priorities_Priority{}
-        priorities.Priority = append(priorities.Priority, child)
-        return &priorities.Priority[len(priorities.Priority)-1]
-    }
-    return nil
-}
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    priorities.EntityData.Children = make(map[string]types.YChild)
+    priorities.EntityData.Children["priority"] = types.YChild{"Priority", nil}
     for i := range priorities.Priority {
-        children[priorities.Priority[i].GetSegmentPath()] = &priorities.Priority[i]
+        priorities.EntityData.Children[types.GetSegmentPath(&priorities.Priority[i])] = types.YChild{"Priority", &priorities.Priority[i]}
     }
-    return children
+    priorities.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(priorities.EntityData)
 }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetBundleName() string { return "cisco_ios_xr" }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetYangName() string { return "priorities" }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) SetParent(parent types.Entity) { priorities.parent = parent }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetParent() types.Entity { return priorities.parent }
-
-func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetParentYangName() string { return "protocol" }
 
 // RouterConvergence_Protocols_Protocol_Priorities_Priority
 // Priority
 type RouterConvergence_Protocols_Protocol_Priorities_Priority struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify the priority. The type is RcmdPriority.
@@ -420,61 +252,26 @@ type RouterConvergence_Protocols_Protocol_Priorities_Priority struct {
     FrrThreshold interface{}
 }
 
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetFilter() yfilter.YFilter { return priority.YFilter }
+func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetEntityData() *types.CommonEntityData {
+    priority.EntityData.YFilter = priority.YFilter
+    priority.EntityData.YangName = "priority"
+    priority.EntityData.BundleName = "cisco_ios_xr"
+    priority.EntityData.ParentYangName = "priorities"
+    priority.EntityData.SegmentPath = "priority" + "[rcmd-priority='" + fmt.Sprintf("%v", priority.RcmdPriority) + "']"
+    priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) SetFilter(yf yfilter.YFilter) { priority.YFilter = yf }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetGoName(yname string) string {
-    if yname == "rcmd-priority" { return "RcmdPriority" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "leaf-networks" { return "LeafNetworks" }
-    if yname == "disable" { return "Disable" }
-    if yname == "enable" { return "Enable" }
-    if yname == "frr-threshold" { return "FrrThreshold" }
-    return ""
+    priority.EntityData.Children = make(map[string]types.YChild)
+    priority.EntityData.Leafs = make(map[string]types.YLeaf)
+    priority.EntityData.Leafs["rcmd-priority"] = types.YLeaf{"RcmdPriority", priority.RcmdPriority}
+    priority.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", priority.Threshold}
+    priority.EntityData.Leafs["leaf-networks"] = types.YLeaf{"LeafNetworks", priority.LeafNetworks}
+    priority.EntityData.Leafs["disable"] = types.YLeaf{"Disable", priority.Disable}
+    priority.EntityData.Leafs["enable"] = types.YLeaf{"Enable", priority.Enable}
+    priority.EntityData.Leafs["frr-threshold"] = types.YLeaf{"FrrThreshold", priority.FrrThreshold}
+    return &(priority.EntityData)
 }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetSegmentPath() string {
-    return "priority" + "[rcmd-priority='" + fmt.Sprintf("%v", priority.RcmdPriority) + "']"
-}
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rcmd-priority"] = priority.RcmdPriority
-    leafs["threshold"] = priority.Threshold
-    leafs["leaf-networks"] = priority.LeafNetworks
-    leafs["disable"] = priority.Disable
-    leafs["enable"] = priority.Enable
-    leafs["frr-threshold"] = priority.FrrThreshold
-    return leafs
-}
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetBundleName() string { return "cisco_ios_xr" }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetYangName() string { return "priority" }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) SetParent(parent types.Entity) { priority.parent = parent }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetParent() types.Entity { return priority.parent }
-
-func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetParentYangName() string { return "priorities" }
 
 // RouterConvergence_StorageLocation
 // Absolute directory path for saving the archive
@@ -482,7 +279,7 @@ func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetPar
 // <tftp-location>/rcmd/
 // This type is a presence type.
 type RouterConvergence_StorageLocation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Absolute directory path for storing diagnostic reports. Example
@@ -502,123 +299,57 @@ type RouterConvergence_StorageLocation struct {
     Reports interface{}
 }
 
-func (storageLocation *RouterConvergence_StorageLocation) GetFilter() yfilter.YFilter { return storageLocation.YFilter }
+func (storageLocation *RouterConvergence_StorageLocation) GetEntityData() *types.CommonEntityData {
+    storageLocation.EntityData.YFilter = storageLocation.YFilter
+    storageLocation.EntityData.YangName = "storage-location"
+    storageLocation.EntityData.BundleName = "cisco_ios_xr"
+    storageLocation.EntityData.ParentYangName = "router-convergence"
+    storageLocation.EntityData.SegmentPath = "storage-location"
+    storageLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    storageLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    storageLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (storageLocation *RouterConvergence_StorageLocation) SetFilter(yf yfilter.YFilter) { storageLocation.YFilter = yf }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetGoName(yname string) string {
-    if yname == "diagnostics" { return "Diagnostics" }
-    if yname == "diagnostics-size" { return "DiagnosticsSize" }
-    if yname == "reports-size" { return "ReportsSize" }
-    if yname == "reports" { return "Reports" }
-    return ""
+    storageLocation.EntityData.Children = make(map[string]types.YChild)
+    storageLocation.EntityData.Leafs = make(map[string]types.YLeaf)
+    storageLocation.EntityData.Leafs["diagnostics"] = types.YLeaf{"Diagnostics", storageLocation.Diagnostics}
+    storageLocation.EntityData.Leafs["diagnostics-size"] = types.YLeaf{"DiagnosticsSize", storageLocation.DiagnosticsSize}
+    storageLocation.EntityData.Leafs["reports-size"] = types.YLeaf{"ReportsSize", storageLocation.ReportsSize}
+    storageLocation.EntityData.Leafs["reports"] = types.YLeaf{"Reports", storageLocation.Reports}
+    return &(storageLocation.EntityData)
 }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetSegmentPath() string {
-    return "storage-location"
-}
-
-func (storageLocation *RouterConvergence_StorageLocation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (storageLocation *RouterConvergence_StorageLocation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (storageLocation *RouterConvergence_StorageLocation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["diagnostics"] = storageLocation.Diagnostics
-    leafs["diagnostics-size"] = storageLocation.DiagnosticsSize
-    leafs["reports-size"] = storageLocation.ReportsSize
-    leafs["reports"] = storageLocation.Reports
-    return leafs
-}
-
-func (storageLocation *RouterConvergence_StorageLocation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetYangName() string { return "storage-location" }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (storageLocation *RouterConvergence_StorageLocation) SetParent(parent types.Entity) { storageLocation.parent = parent }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetParent() types.Entity { return storageLocation.parent }
-
-func (storageLocation *RouterConvergence_StorageLocation) GetParentYangName() string { return "router-convergence" }
 
 // RouterConvergence_MplsLdp
 // RCMD related configuration for MPLS-LDP
 // This type is a presence type.
 type RouterConvergence_MplsLdp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Monitoring configuration for Remote LFA.
     RemoteLfa RouterConvergence_MplsLdp_RemoteLfa
 }
 
-func (mplsLdp *RouterConvergence_MplsLdp) GetFilter() yfilter.YFilter { return mplsLdp.YFilter }
+func (mplsLdp *RouterConvergence_MplsLdp) GetEntityData() *types.CommonEntityData {
+    mplsLdp.EntityData.YFilter = mplsLdp.YFilter
+    mplsLdp.EntityData.YangName = "mpls-ldp"
+    mplsLdp.EntityData.BundleName = "cisco_ios_xr"
+    mplsLdp.EntityData.ParentYangName = "router-convergence"
+    mplsLdp.EntityData.SegmentPath = "mpls-ldp"
+    mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mplsLdp *RouterConvergence_MplsLdp) SetFilter(yf yfilter.YFilter) { mplsLdp.YFilter = yf }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetGoName(yname string) string {
-    if yname == "remote-lfa" { return "RemoteLfa" }
-    return ""
+    mplsLdp.EntityData.Children = make(map[string]types.YChild)
+    mplsLdp.EntityData.Children["remote-lfa"] = types.YChild{"RemoteLfa", &mplsLdp.RemoteLfa}
+    mplsLdp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsLdp.EntityData)
 }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetSegmentPath() string {
-    return "mpls-ldp"
-}
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-lfa" {
-        return &mplsLdp.RemoteLfa
-    }
-    return nil
-}
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["remote-lfa"] = &mplsLdp.RemoteLfa
-    return children
-}
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetYangName() string { return "mpls-ldp" }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mplsLdp *RouterConvergence_MplsLdp) SetParent(parent types.Entity) { mplsLdp.parent = parent }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetParent() types.Entity { return mplsLdp.parent }
-
-func (mplsLdp *RouterConvergence_MplsLdp) GetParentYangName() string { return "router-convergence" }
 
 // RouterConvergence_MplsLdp_RemoteLfa
 // Monitoring configuration for Remote LFA
 // This type is a presence type.
 type RouterConvergence_MplsLdp_RemoteLfa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Threshold value for label coverage (in percentage). The type is interface{}
@@ -626,56 +357,26 @@ type RouterConvergence_MplsLdp_RemoteLfa struct {
     Threshold interface{}
 }
 
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetFilter() yfilter.YFilter { return remoteLfa.YFilter }
+func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetEntityData() *types.CommonEntityData {
+    remoteLfa.EntityData.YFilter = remoteLfa.YFilter
+    remoteLfa.EntityData.YangName = "remote-lfa"
+    remoteLfa.EntityData.BundleName = "cisco_ios_xr"
+    remoteLfa.EntityData.ParentYangName = "mpls-ldp"
+    remoteLfa.EntityData.SegmentPath = "remote-lfa"
+    remoteLfa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteLfa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteLfa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) SetFilter(yf yfilter.YFilter) { remoteLfa.YFilter = yf }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetGoName(yname string) string {
-    if yname == "threshold" { return "Threshold" }
-    return ""
+    remoteLfa.EntityData.Children = make(map[string]types.YChild)
+    remoteLfa.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteLfa.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", remoteLfa.Threshold}
+    return &(remoteLfa.EntityData)
 }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetSegmentPath() string {
-    return "remote-lfa"
-}
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["threshold"] = remoteLfa.Threshold
-    return leafs
-}
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetYangName() string { return "remote-lfa" }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) SetParent(parent types.Entity) { remoteLfa.parent = parent }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetParent() types.Entity { return remoteLfa.parent }
-
-func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetParentYangName() string { return "mpls-ldp" }
 
 // RouterConvergence_CollectDiagnostics
 // Table of CollectDiagnostics
 type RouterConvergence_CollectDiagnostics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Collect diagnostics on specified node. The type is slice of
@@ -683,72 +384,33 @@ type RouterConvergence_CollectDiagnostics struct {
     CollectDiagnostic []RouterConvergence_CollectDiagnostics_CollectDiagnostic
 }
 
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetFilter() yfilter.YFilter { return collectDiagnostics.YFilter }
+func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetEntityData() *types.CommonEntityData {
+    collectDiagnostics.EntityData.YFilter = collectDiagnostics.YFilter
+    collectDiagnostics.EntityData.YangName = "collect-diagnostics"
+    collectDiagnostics.EntityData.BundleName = "cisco_ios_xr"
+    collectDiagnostics.EntityData.ParentYangName = "router-convergence"
+    collectDiagnostics.EntityData.SegmentPath = "collect-diagnostics"
+    collectDiagnostics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectDiagnostics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectDiagnostics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) SetFilter(yf yfilter.YFilter) { collectDiagnostics.YFilter = yf }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetGoName(yname string) string {
-    if yname == "collect-diagnostic" { return "CollectDiagnostic" }
-    return ""
-}
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetSegmentPath() string {
-    return "collect-diagnostics"
-}
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "collect-diagnostic" {
-        for _, c := range collectDiagnostics.CollectDiagnostic {
-            if collectDiagnostics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RouterConvergence_CollectDiagnostics_CollectDiagnostic{}
-        collectDiagnostics.CollectDiagnostic = append(collectDiagnostics.CollectDiagnostic, child)
-        return &collectDiagnostics.CollectDiagnostic[len(collectDiagnostics.CollectDiagnostic)-1]
-    }
-    return nil
-}
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    collectDiagnostics.EntityData.Children = make(map[string]types.YChild)
+    collectDiagnostics.EntityData.Children["collect-diagnostic"] = types.YChild{"CollectDiagnostic", nil}
     for i := range collectDiagnostics.CollectDiagnostic {
-        children[collectDiagnostics.CollectDiagnostic[i].GetSegmentPath()] = &collectDiagnostics.CollectDiagnostic[i]
+        collectDiagnostics.EntityData.Children[types.GetSegmentPath(&collectDiagnostics.CollectDiagnostic[i])] = types.YChild{"CollectDiagnostic", &collectDiagnostics.CollectDiagnostic[i]}
     }
-    return children
+    collectDiagnostics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(collectDiagnostics.EntityData)
 }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetYangName() string { return "collect-diagnostics" }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) SetParent(parent types.Entity) { collectDiagnostics.parent = parent }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetParent() types.Entity { return collectDiagnostics.parent }
-
-func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetParentYangName() string { return "router-convergence" }
 
 // RouterConvergence_CollectDiagnostics_CollectDiagnostic
 // Collect diagnostics on specified node
 type RouterConvergence_CollectDiagnostics_CollectDiagnostic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specified location. The type is string with
-    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Enables collection of diagnostics on the specified location. The type is
@@ -756,58 +418,27 @@ type RouterConvergence_CollectDiagnostics_CollectDiagnostic struct {
     Enable interface{}
 }
 
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetFilter() yfilter.YFilter { return collectDiagnostic.YFilter }
+func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetEntityData() *types.CommonEntityData {
+    collectDiagnostic.EntityData.YFilter = collectDiagnostic.YFilter
+    collectDiagnostic.EntityData.YangName = "collect-diagnostic"
+    collectDiagnostic.EntityData.BundleName = "cisco_ios_xr"
+    collectDiagnostic.EntityData.ParentYangName = "collect-diagnostics"
+    collectDiagnostic.EntityData.SegmentPath = "collect-diagnostic" + "[node-name='" + fmt.Sprintf("%v", collectDiagnostic.NodeName) + "']"
+    collectDiagnostic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectDiagnostic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectDiagnostic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) SetFilter(yf yfilter.YFilter) { collectDiagnostic.YFilter = yf }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    collectDiagnostic.EntityData.Children = make(map[string]types.YChild)
+    collectDiagnostic.EntityData.Leafs = make(map[string]types.YLeaf)
+    collectDiagnostic.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", collectDiagnostic.NodeName}
+    collectDiagnostic.EntityData.Leafs["enable"] = types.YLeaf{"Enable", collectDiagnostic.Enable}
+    return &(collectDiagnostic.EntityData)
 }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetSegmentPath() string {
-    return "collect-diagnostic" + "[node-name='" + fmt.Sprintf("%v", collectDiagnostic.NodeName) + "']"
-}
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = collectDiagnostic.NodeName
-    leafs["enable"] = collectDiagnostic.Enable
-    return leafs
-}
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetYangName() string { return "collect-diagnostic" }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) SetParent(parent types.Entity) { collectDiagnostic.parent = parent }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetParent() types.Entity { return collectDiagnostic.parent }
-
-func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic) GetParentYangName() string { return "collect-diagnostics" }
 
 // RouterConvergence_Nodes
 // Table of Node
 type RouterConvergence_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure parameters for the specified node (Partially qualified location
@@ -815,74 +446,35 @@ type RouterConvergence_Nodes struct {
     Node []RouterConvergence_Nodes_Node
 }
 
-func (nodes *RouterConvergence_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *RouterConvergence_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "router-convergence"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *RouterConvergence_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *RouterConvergence_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *RouterConvergence_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *RouterConvergence_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RouterConvergence_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *RouterConvergence_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *RouterConvergence_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *RouterConvergence_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *RouterConvergence_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *RouterConvergence_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *RouterConvergence_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *RouterConvergence_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *RouterConvergence_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *RouterConvergence_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *RouterConvergence_Nodes) GetParentYangName() string { return "router-convergence" }
 
 // RouterConvergence_Nodes_Node
 // Configure parameters for the specified node
 // (Partially qualified location allowed)
 type RouterConvergence_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Wildcard expression(eg. */*/*, R/*/*, R/S/*,
     // R/S/I). The type is string with pattern:
-    // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
+    // b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
     NodeName interface{}
 
     // Disables the monitoring of route convergence on specified location. The
@@ -895,53 +487,21 @@ type RouterConvergence_Nodes_Node struct {
     Enable interface{}
 }
 
-func (node *RouterConvergence_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *RouterConvergence_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *RouterConvergence_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *RouterConvergence_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "disable" { return "Disable" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Leafs["disable"] = types.YLeaf{"Disable", node.Disable}
+    node.EntityData.Leafs["enable"] = types.YLeaf{"Enable", node.Enable}
+    return &(node.EntityData)
 }
-
-func (node *RouterConvergence_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *RouterConvergence_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (node *RouterConvergence_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (node *RouterConvergence_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    leafs["disable"] = node.Disable
-    leafs["enable"] = node.Enable
-    return leafs
-}
-
-func (node *RouterConvergence_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *RouterConvergence_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *RouterConvergence_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *RouterConvergence_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *RouterConvergence_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *RouterConvergence_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *RouterConvergence_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *RouterConvergence_Nodes_Node) GetParentYangName() string { return "nodes" }
 

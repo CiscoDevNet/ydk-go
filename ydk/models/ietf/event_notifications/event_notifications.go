@@ -31,18 +31,39 @@ func init() {
     ydk.RegisterEntity("ietf-event-notifications:subscriptions", reflect.TypeOf(Subscriptions{}))
 }
 
-type ErrorNoSuchOption struct {
-}
-
-func (id ErrorNoSuchOption) String() string {
-	return "ietf-event-notifications:error-no-such-option"
-}
-
 type Stream struct {
 }
 
 func (id Stream) String() string {
 	return "ietf-event-notifications:stream"
+}
+
+type NETCONF struct {
+}
+
+func (id NETCONF) String() string {
+	return "ietf-event-notifications:NETCONF"
+}
+
+type SubscriptionResult struct {
+}
+
+func (id SubscriptionResult) String() string {
+	return "ietf-event-notifications:subscription-result"
+}
+
+type Ok struct {
+}
+
+func (id Ok) String() string {
+	return "ietf-event-notifications:ok"
+}
+
+type Error struct {
+}
+
+func (id Error) String() string {
+	return "ietf-event-notifications:error"
 }
 
 type ErrorNoSuchSubscription struct {
@@ -52,11 +73,46 @@ func (id ErrorNoSuchSubscription) String() string {
 	return "ietf-event-notifications:error-no-such-subscription"
 }
 
-type NoResources struct {
+type ErrorNoSuchOption struct {
 }
 
-func (id NoResources) String() string {
-	return "ietf-event-notifications:no-resources"
+func (id ErrorNoSuchOption) String() string {
+	return "ietf-event-notifications:error-no-such-option"
+}
+
+type ErrorInsufficientResources struct {
+}
+
+func (id ErrorInsufficientResources) String() string {
+	return "ietf-event-notifications:error-insufficient-resources"
+}
+
+type ErrorConfiguredSubscription struct {
+}
+
+func (id ErrorConfiguredSubscription) String() string {
+	return "ietf-event-notifications:error-configured-subscription"
+}
+
+type ErrorOther struct {
+}
+
+func (id ErrorOther) String() string {
+	return "ietf-event-notifications:error-other"
+}
+
+type SubscriptionStreamStatus struct {
+}
+
+func (id SubscriptionStreamStatus) String() string {
+	return "ietf-event-notifications:subscription-stream-status"
+}
+
+type Active struct {
+}
+
+func (id Active) String() string {
+	return "ietf-event-notifications:active"
 }
 
 type Inactive struct {
@@ -73,11 +129,60 @@ func (id Suspended) String() string {
 	return "ietf-event-notifications:suspended"
 }
 
+type InError struct {
+}
+
+func (id InError) String() string {
+	return "ietf-event-notifications:in-error"
+}
+
+type SubscriptionErrors struct {
+}
+
+func (id SubscriptionErrors) String() string {
+	return "ietf-event-notifications:subscription-errors"
+}
+
+type InternalError struct {
+}
+
+func (id InternalError) String() string {
+	return "ietf-event-notifications:internal-error"
+}
+
+type NoResources struct {
+}
+
+func (id NoResources) String() string {
+	return "ietf-event-notifications:no-resources"
+}
+
+type SubscriptionDeleted struct {
+}
+
+func (id SubscriptionDeleted) String() string {
+	return "ietf-event-notifications:subscription-deleted"
+}
+
+type Other struct {
+}
+
+func (id Other) String() string {
+	return "ietf-event-notifications:other"
+}
+
 type Encodings struct {
 }
 
 func (id Encodings) String() string {
 	return "ietf-event-notifications:encodings"
+}
+
+type EncodeXml struct {
+}
+
+func (id EncodeXml) String() string {
+	return "ietf-event-notifications:encode-xml"
 }
 
 type EncodeJson struct {
@@ -94,116 +199,11 @@ func (id Transport) String() string {
 	return "ietf-event-notifications:transport"
 }
 
-type InternalError struct {
-}
-
-func (id InternalError) String() string {
-	return "ietf-event-notifications:internal-error"
-}
-
-type ErrorOther struct {
-}
-
-func (id ErrorOther) String() string {
-	return "ietf-event-notifications:error-other"
-}
-
-type Other struct {
-}
-
-func (id Other) String() string {
-	return "ietf-event-notifications:other"
-}
-
-type InError struct {
-}
-
-func (id InError) String() string {
-	return "ietf-event-notifications:in-error"
-}
-
-type ErrorInsufficientResources struct {
-}
-
-func (id ErrorInsufficientResources) String() string {
-	return "ietf-event-notifications:error-insufficient-resources"
-}
-
 type Netconf struct {
 }
 
 func (id Netconf) String() string {
 	return "ietf-event-notifications:netconf"
-}
-
-type ErrorConfiguredSubscription struct {
-}
-
-func (id ErrorConfiguredSubscription) String() string {
-	return "ietf-event-notifications:error-configured-subscription"
-}
-
-type SubscriptionResult struct {
-}
-
-func (id SubscriptionResult) String() string {
-	return "ietf-event-notifications:subscription-result"
-}
-
-type Error struct {
-}
-
-func (id Error) String() string {
-	return "ietf-event-notifications:error"
-}
-
-type Active struct {
-}
-
-func (id Active) String() string {
-	return "ietf-event-notifications:active"
-}
-
-type NETCONF struct {
-}
-
-func (id NETCONF) String() string {
-	return "ietf-event-notifications:NETCONF"
-}
-
-type Ok struct {
-}
-
-func (id Ok) String() string {
-	return "ietf-event-notifications:ok"
-}
-
-type SubscriptionStreamStatus struct {
-}
-
-func (id SubscriptionStreamStatus) String() string {
-	return "ietf-event-notifications:subscription-stream-status"
-}
-
-type EncodeXml struct {
-}
-
-func (id EncodeXml) String() string {
-	return "ietf-event-notifications:encode-xml"
-}
-
-type SubscriptionDeleted struct {
-}
-
-func (id SubscriptionDeleted) String() string {
-	return "ietf-event-notifications:subscription-deleted"
-}
-
-type SubscriptionErrors struct {
-}
-
-func (id SubscriptionErrors) String() string {
-	return "ietf-event-notifications:subscription-errors"
 }
 
 // PushSource represents being sent by the publisher.
@@ -233,7 +233,7 @@ const (
 // that would have a high likelihood of succeeding in a
 // subsequent establish-subscription request.
 type EstablishSubscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -243,72 +243,35 @@ type EstablishSubscription struct {
     Output EstablishSubscription_Output
 }
 
-func (establishSubscription *EstablishSubscription) GetFilter() yfilter.YFilter { return establishSubscription.YFilter }
+func (establishSubscription *EstablishSubscription) GetEntityData() *types.CommonEntityData {
+    establishSubscription.EntityData.YFilter = establishSubscription.YFilter
+    establishSubscription.EntityData.YangName = "establish-subscription"
+    establishSubscription.EntityData.BundleName = "ietf"
+    establishSubscription.EntityData.ParentYangName = "ietf-event-notifications"
+    establishSubscription.EntityData.SegmentPath = "ietf-event-notifications:establish-subscription"
+    establishSubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    establishSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
+    establishSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (establishSubscription *EstablishSubscription) SetFilter(yf yfilter.YFilter) { establishSubscription.YFilter = yf }
-
-func (establishSubscription *EstablishSubscription) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    establishSubscription.EntityData.Children = make(map[string]types.YChild)
+    establishSubscription.EntityData.Children["input"] = types.YChild{"Input", &establishSubscription.Input}
+    establishSubscription.EntityData.Children["output"] = types.YChild{"Output", &establishSubscription.Output}
+    establishSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(establishSubscription.EntityData)
 }
-
-func (establishSubscription *EstablishSubscription) GetSegmentPath() string {
-    return "ietf-event-notifications:establish-subscription"
-}
-
-func (establishSubscription *EstablishSubscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &establishSubscription.Input
-    }
-    if childYangName == "output" {
-        return &establishSubscription.Output
-    }
-    return nil
-}
-
-func (establishSubscription *EstablishSubscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &establishSubscription.Input
-    children["output"] = &establishSubscription.Output
-    return children
-}
-
-func (establishSubscription *EstablishSubscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (establishSubscription *EstablishSubscription) GetBundleName() string { return "ietf" }
-
-func (establishSubscription *EstablishSubscription) GetYangName() string { return "establish-subscription" }
-
-func (establishSubscription *EstablishSubscription) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (establishSubscription *EstablishSubscription) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (establishSubscription *EstablishSubscription) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (establishSubscription *EstablishSubscription) SetParent(parent types.Entity) { establishSubscription.parent = parent }
-
-func (establishSubscription *EstablishSubscription) GetParent() types.Entity { return establishSubscription.parent }
-
-func (establishSubscription *EstablishSubscription) GetParentYangName() string { return "ietf-event-notifications" }
 
 // EstablishSubscription_Input
 type EstablishSubscription_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFCustomStreamYangPush.
+    // NETCONFYangPushCustomStream.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
+    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -345,7 +308,7 @@ type EstablishSubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -354,7 +317,7 @@ type EstablishSubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -369,7 +332,7 @@ type EstablishSubscription_Input struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -411,90 +374,45 @@ type EstablishSubscription_Input struct {
     SubscriptionDependency interface{}
 }
 
-func (input *EstablishSubscription_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *EstablishSubscription_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "establish-subscription"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *EstablishSubscription_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *EstablishSubscription_Input) GetGoName(yname string) string {
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "filter" { return "Filter" }
-    if yname == "filter-ref" { return "FilterRef" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    if yname == "period" { return "Period" }
-    if yname == "anchor-time" { return "AnchorTime" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "dampening-period" { return "DampeningPeriod" }
-    if yname == "excluded-change" { return "ExcludedChange" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "subscription-priority" { return "SubscriptionPriority" }
-    if yname == "subscription-dependency" { return "SubscriptionDependency" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["stream"] = types.YLeaf{"Stream", input.Stream}
+    input.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", input.Encoding}
+    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
+    input.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", input.FilterRef}
+    input.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", input.SubtreeFilter}
+    input.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", input.XpathFilter}
+    input.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", input.Starttime}
+    input.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", input.Stoptime}
+    input.EntityData.Leafs["period"] = types.YLeaf{"Period", input.Period}
+    input.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", input.AnchorTime}
+    input.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", input.NoSynchOnStart}
+    input.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", input.DampeningPeriod}
+    input.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", input.ExcludedChange}
+    input.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", input.Dscp}
+    input.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", input.SubscriptionPriority}
+    input.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", input.SubscriptionDependency}
+    return &(input.EntityData)
 }
-
-func (input *EstablishSubscription_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *EstablishSubscription_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *EstablishSubscription_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *EstablishSubscription_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["stream"] = input.Stream
-    leafs["encoding"] = input.Encoding
-    leafs["filter"] = input.Filter
-    leafs["filter-ref"] = input.FilterRef
-    leafs["subtree-filter"] = input.SubtreeFilter
-    leafs["xpath-filter"] = input.XpathFilter
-    leafs["startTime"] = input.Starttime
-    leafs["stopTime"] = input.Stoptime
-    leafs["period"] = input.Period
-    leafs["anchor-time"] = input.AnchorTime
-    leafs["no-synch-on-start"] = input.NoSynchOnStart
-    leafs["dampening-period"] = input.DampeningPeriod
-    leafs["excluded-change"] = input.ExcludedChange
-    leafs["dscp"] = input.Dscp
-    leafs["subscription-priority"] = input.SubscriptionPriority
-    leafs["subscription-dependency"] = input.SubscriptionDependency
-    return leafs
-}
-
-func (input *EstablishSubscription_Input) GetBundleName() string { return "ietf" }
-
-func (input *EstablishSubscription_Input) GetYangName() string { return "input" }
-
-func (input *EstablishSubscription_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *EstablishSubscription_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *EstablishSubscription_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *EstablishSubscription_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *EstablishSubscription_Input) GetParent() types.Entity { return input.parent }
-
-func (input *EstablishSubscription_Input) GetParentYangName() string { return "establish-subscription" }
 
 // EstablishSubscription_Output
 type EstablishSubscription_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
+    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 
@@ -504,11 +422,11 @@ type EstablishSubscription_Output struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFCustomStreamYangPush.
+    // NETCONFYangPushCustomStream.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
+    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -545,7 +463,7 @@ type EstablishSubscription_Output struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -554,7 +472,7 @@ type EstablishSubscription_Output struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -569,7 +487,7 @@ type EstablishSubscription_Output struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -611,85 +529,38 @@ type EstablishSubscription_Output struct {
     SubscriptionDependency interface{}
 }
 
-func (output *EstablishSubscription_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *EstablishSubscription_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "ietf"
+    output.EntityData.ParentYangName = "establish-subscription"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    output.EntityData.NamespaceTable = ietf.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (output *EstablishSubscription_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *EstablishSubscription_Output) GetGoName(yname string) string {
-    if yname == "subscription-result" { return "SubscriptionResult" }
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "filter" { return "Filter" }
-    if yname == "filter-ref" { return "FilterRef" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    if yname == "period" { return "Period" }
-    if yname == "anchor-time" { return "AnchorTime" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "dampening-period" { return "DampeningPeriod" }
-    if yname == "excluded-change" { return "ExcludedChange" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "subscription-priority" { return "SubscriptionPriority" }
-    if yname == "subscription-dependency" { return "SubscriptionDependency" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["subscription-result"] = types.YLeaf{"SubscriptionResult", output.SubscriptionResult}
+    output.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", output.SubscriptionId}
+    output.EntityData.Leafs["stream"] = types.YLeaf{"Stream", output.Stream}
+    output.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", output.Encoding}
+    output.EntityData.Leafs["filter"] = types.YLeaf{"Filter", output.Filter}
+    output.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", output.FilterRef}
+    output.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", output.SubtreeFilter}
+    output.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", output.XpathFilter}
+    output.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", output.Starttime}
+    output.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", output.Stoptime}
+    output.EntityData.Leafs["period"] = types.YLeaf{"Period", output.Period}
+    output.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", output.AnchorTime}
+    output.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", output.NoSynchOnStart}
+    output.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", output.DampeningPeriod}
+    output.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", output.ExcludedChange}
+    output.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", output.Dscp}
+    output.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", output.SubscriptionPriority}
+    output.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", output.SubscriptionDependency}
+    return &(output.EntityData)
 }
-
-func (output *EstablishSubscription_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *EstablishSubscription_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *EstablishSubscription_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *EstablishSubscription_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-result"] = output.SubscriptionResult
-    leafs["subscription-id"] = output.SubscriptionId
-    leafs["stream"] = output.Stream
-    leafs["encoding"] = output.Encoding
-    leafs["filter"] = output.Filter
-    leafs["filter-ref"] = output.FilterRef
-    leafs["subtree-filter"] = output.SubtreeFilter
-    leafs["xpath-filter"] = output.XpathFilter
-    leafs["startTime"] = output.Starttime
-    leafs["stopTime"] = output.Stoptime
-    leafs["period"] = output.Period
-    leafs["anchor-time"] = output.AnchorTime
-    leafs["no-synch-on-start"] = output.NoSynchOnStart
-    leafs["dampening-period"] = output.DampeningPeriod
-    leafs["excluded-change"] = output.ExcludedChange
-    leafs["dscp"] = output.Dscp
-    leafs["subscription-priority"] = output.SubscriptionPriority
-    leafs["subscription-dependency"] = output.SubscriptionDependency
-    return leafs
-}
-
-func (output *EstablishSubscription_Output) GetBundleName() string { return "ietf" }
-
-func (output *EstablishSubscription_Output) GetYangName() string { return "output" }
-
-func (output *EstablishSubscription_Output) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (output *EstablishSubscription_Output) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (output *EstablishSubscription_Output) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (output *EstablishSubscription_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *EstablishSubscription_Output) GetParent() types.Entity { return output.parent }
-
-func (output *EstablishSubscription_Output) GetParentYangName() string { return "establish-subscription" }
 
 // CreateSubscription
 // This operation initiates an event notification subscription
@@ -700,74 +571,41 @@ func (output *EstablishSubscription_Output) GetParentYangName() string { return 
 // reasons of backward compatibility with RFC 5277
 // implementations.
 type CreateSubscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input CreateSubscription_Input
 }
 
-func (createSubscription *CreateSubscription) GetFilter() yfilter.YFilter { return createSubscription.YFilter }
+func (createSubscription *CreateSubscription) GetEntityData() *types.CommonEntityData {
+    createSubscription.EntityData.YFilter = createSubscription.YFilter
+    createSubscription.EntityData.YangName = "create-subscription"
+    createSubscription.EntityData.BundleName = "ietf"
+    createSubscription.EntityData.ParentYangName = "ietf-event-notifications"
+    createSubscription.EntityData.SegmentPath = "ietf-event-notifications:create-subscription"
+    createSubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    createSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
+    createSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (createSubscription *CreateSubscription) SetFilter(yf yfilter.YFilter) { createSubscription.YFilter = yf }
-
-func (createSubscription *CreateSubscription) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    createSubscription.EntityData.Children = make(map[string]types.YChild)
+    createSubscription.EntityData.Children["input"] = types.YChild{"Input", &createSubscription.Input}
+    createSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(createSubscription.EntityData)
 }
-
-func (createSubscription *CreateSubscription) GetSegmentPath() string {
-    return "ietf-event-notifications:create-subscription"
-}
-
-func (createSubscription *CreateSubscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &createSubscription.Input
-    }
-    return nil
-}
-
-func (createSubscription *CreateSubscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &createSubscription.Input
-    return children
-}
-
-func (createSubscription *CreateSubscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (createSubscription *CreateSubscription) GetBundleName() string { return "ietf" }
-
-func (createSubscription *CreateSubscription) GetYangName() string { return "create-subscription" }
-
-func (createSubscription *CreateSubscription) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (createSubscription *CreateSubscription) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (createSubscription *CreateSubscription) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (createSubscription *CreateSubscription) SetParent(parent types.Entity) { createSubscription.parent = parent }
-
-func (createSubscription *CreateSubscription) GetParent() types.Entity { return createSubscription.parent }
-
-func (createSubscription *CreateSubscription) GetParentYangName() string { return "ietf-event-notifications" }
 
 // CreateSubscription_Input
 type CreateSubscription_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFCustomStreamYangPush. The default value is NETCONF.
+    // NETCONFYangPushCustomStream. The default value is NETCONF.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
+    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -789,7 +627,7 @@ type CreateSubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -798,63 +636,29 @@ type CreateSubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 }
 
-func (input *CreateSubscription_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *CreateSubscription_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "create-subscription"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *CreateSubscription_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *CreateSubscription_Input) GetGoName(yname string) string {
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "filter" { return "Filter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["stream"] = types.YLeaf{"Stream", input.Stream}
+    input.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", input.Encoding}
+    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
+    input.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", input.Starttime}
+    input.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", input.Stoptime}
+    return &(input.EntityData)
 }
-
-func (input *CreateSubscription_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *CreateSubscription_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *CreateSubscription_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *CreateSubscription_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["stream"] = input.Stream
-    leafs["encoding"] = input.Encoding
-    leafs["filter"] = input.Filter
-    leafs["startTime"] = input.Starttime
-    leafs["stopTime"] = input.Stoptime
-    return leafs
-}
-
-func (input *CreateSubscription_Input) GetBundleName() string { return "ietf" }
-
-func (input *CreateSubscription_Input) GetYangName() string { return "input" }
-
-func (input *CreateSubscription_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *CreateSubscription_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *CreateSubscription_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *CreateSubscription_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *CreateSubscription_Input) GetParent() types.Entity { return input.parent }
-
-func (input *CreateSubscription_Input) GetParentYangName() string { return "create-subscription" }
 
 // ModifySubscription
 // This RPC allows a subscriber to modify a subscription
@@ -871,7 +675,7 @@ func (input *CreateSubscription_Input) GetParentYangName() string { return "crea
 // that would have a high likelihood of succeeding in a
 // subsequent modify-subscription request.
 type ModifySubscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -881,63 +685,26 @@ type ModifySubscription struct {
     Output ModifySubscription_Output
 }
 
-func (modifySubscription *ModifySubscription) GetFilter() yfilter.YFilter { return modifySubscription.YFilter }
+func (modifySubscription *ModifySubscription) GetEntityData() *types.CommonEntityData {
+    modifySubscription.EntityData.YFilter = modifySubscription.YFilter
+    modifySubscription.EntityData.YangName = "modify-subscription"
+    modifySubscription.EntityData.BundleName = "ietf"
+    modifySubscription.EntityData.ParentYangName = "ietf-event-notifications"
+    modifySubscription.EntityData.SegmentPath = "ietf-event-notifications:modify-subscription"
+    modifySubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    modifySubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
+    modifySubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (modifySubscription *ModifySubscription) SetFilter(yf yfilter.YFilter) { modifySubscription.YFilter = yf }
-
-func (modifySubscription *ModifySubscription) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    modifySubscription.EntityData.Children = make(map[string]types.YChild)
+    modifySubscription.EntityData.Children["input"] = types.YChild{"Input", &modifySubscription.Input}
+    modifySubscription.EntityData.Children["output"] = types.YChild{"Output", &modifySubscription.Output}
+    modifySubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(modifySubscription.EntityData)
 }
-
-func (modifySubscription *ModifySubscription) GetSegmentPath() string {
-    return "ietf-event-notifications:modify-subscription"
-}
-
-func (modifySubscription *ModifySubscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &modifySubscription.Input
-    }
-    if childYangName == "output" {
-        return &modifySubscription.Output
-    }
-    return nil
-}
-
-func (modifySubscription *ModifySubscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &modifySubscription.Input
-    children["output"] = &modifySubscription.Output
-    return children
-}
-
-func (modifySubscription *ModifySubscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (modifySubscription *ModifySubscription) GetBundleName() string { return "ietf" }
-
-func (modifySubscription *ModifySubscription) GetYangName() string { return "modify-subscription" }
-
-func (modifySubscription *ModifySubscription) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (modifySubscription *ModifySubscription) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (modifySubscription *ModifySubscription) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (modifySubscription *ModifySubscription) SetParent(parent types.Entity) { modifySubscription.parent = parent }
-
-func (modifySubscription *ModifySubscription) GetParent() types.Entity { return modifySubscription.parent }
-
-func (modifySubscription *ModifySubscription) GetParentYangName() string { return "ietf-event-notifications" }
 
 // ModifySubscription_Input
 type ModifySubscription_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Identifier to use for this subscription. The type is interface{} with
@@ -978,7 +745,7 @@ type ModifySubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -987,7 +754,7 @@ type ModifySubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -1002,7 +769,7 @@ type ModifySubscription_Input struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1028,82 +795,41 @@ type ModifySubscription_Input struct {
     ExcludedChange []interface{}
 }
 
-func (input *ModifySubscription_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *ModifySubscription_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "modify-subscription"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *ModifySubscription_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *ModifySubscription_Input) GetGoName(yname string) string {
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "filter" { return "Filter" }
-    if yname == "filter-ref" { return "FilterRef" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    if yname == "period" { return "Period" }
-    if yname == "anchor-time" { return "AnchorTime" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "dampening-period" { return "DampeningPeriod" }
-    if yname == "excluded-change" { return "ExcludedChange" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", input.SubscriptionId}
+    input.EntityData.Leafs["filter"] = types.YLeaf{"Filter", input.Filter}
+    input.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", input.FilterRef}
+    input.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", input.SubtreeFilter}
+    input.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", input.XpathFilter}
+    input.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", input.Starttime}
+    input.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", input.Stoptime}
+    input.EntityData.Leafs["period"] = types.YLeaf{"Period", input.Period}
+    input.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", input.AnchorTime}
+    input.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", input.NoSynchOnStart}
+    input.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", input.DampeningPeriod}
+    input.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", input.ExcludedChange}
+    return &(input.EntityData)
 }
-
-func (input *ModifySubscription_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *ModifySubscription_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *ModifySubscription_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *ModifySubscription_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-id"] = input.SubscriptionId
-    leafs["filter"] = input.Filter
-    leafs["filter-ref"] = input.FilterRef
-    leafs["subtree-filter"] = input.SubtreeFilter
-    leafs["xpath-filter"] = input.XpathFilter
-    leafs["startTime"] = input.Starttime
-    leafs["stopTime"] = input.Stoptime
-    leafs["period"] = input.Period
-    leafs["anchor-time"] = input.AnchorTime
-    leafs["no-synch-on-start"] = input.NoSynchOnStart
-    leafs["dampening-period"] = input.DampeningPeriod
-    leafs["excluded-change"] = input.ExcludedChange
-    return leafs
-}
-
-func (input *ModifySubscription_Input) GetBundleName() string { return "ietf" }
-
-func (input *ModifySubscription_Input) GetYangName() string { return "input" }
-
-func (input *ModifySubscription_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *ModifySubscription_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *ModifySubscription_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *ModifySubscription_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *ModifySubscription_Input) GetParent() types.Entity { return input.parent }
-
-func (input *ModifySubscription_Input) GetParentYangName() string { return "modify-subscription" }
 
 // ModifySubscription_Output
 type ModifySubscription_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
+    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 
@@ -1113,11 +839,11 @@ type ModifySubscription_Output struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFCustomStreamYangPush.
+    // NETCONFYangPushCustomStream.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
+    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -1154,7 +880,7 @@ type ModifySubscription_Output struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -1163,7 +889,7 @@ type ModifySubscription_Output struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -1178,7 +904,7 @@ type ModifySubscription_Output struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1220,91 +946,44 @@ type ModifySubscription_Output struct {
     SubscriptionDependency interface{}
 }
 
-func (output *ModifySubscription_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *ModifySubscription_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "ietf"
+    output.EntityData.ParentYangName = "modify-subscription"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    output.EntityData.NamespaceTable = ietf.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (output *ModifySubscription_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *ModifySubscription_Output) GetGoName(yname string) string {
-    if yname == "subscription-result" { return "SubscriptionResult" }
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "filter" { return "Filter" }
-    if yname == "filter-ref" { return "FilterRef" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    if yname == "period" { return "Period" }
-    if yname == "anchor-time" { return "AnchorTime" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "dampening-period" { return "DampeningPeriod" }
-    if yname == "excluded-change" { return "ExcludedChange" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "subscription-priority" { return "SubscriptionPriority" }
-    if yname == "subscription-dependency" { return "SubscriptionDependency" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["subscription-result"] = types.YLeaf{"SubscriptionResult", output.SubscriptionResult}
+    output.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", output.SubscriptionId}
+    output.EntityData.Leafs["stream"] = types.YLeaf{"Stream", output.Stream}
+    output.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", output.Encoding}
+    output.EntityData.Leafs["filter"] = types.YLeaf{"Filter", output.Filter}
+    output.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", output.FilterRef}
+    output.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", output.SubtreeFilter}
+    output.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", output.XpathFilter}
+    output.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", output.Starttime}
+    output.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", output.Stoptime}
+    output.EntityData.Leafs["period"] = types.YLeaf{"Period", output.Period}
+    output.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", output.AnchorTime}
+    output.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", output.NoSynchOnStart}
+    output.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", output.DampeningPeriod}
+    output.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", output.ExcludedChange}
+    output.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", output.Dscp}
+    output.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", output.SubscriptionPriority}
+    output.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", output.SubscriptionDependency}
+    return &(output.EntityData)
 }
-
-func (output *ModifySubscription_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *ModifySubscription_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *ModifySubscription_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *ModifySubscription_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-result"] = output.SubscriptionResult
-    leafs["subscription-id"] = output.SubscriptionId
-    leafs["stream"] = output.Stream
-    leafs["encoding"] = output.Encoding
-    leafs["filter"] = output.Filter
-    leafs["filter-ref"] = output.FilterRef
-    leafs["subtree-filter"] = output.SubtreeFilter
-    leafs["xpath-filter"] = output.XpathFilter
-    leafs["startTime"] = output.Starttime
-    leafs["stopTime"] = output.Stoptime
-    leafs["period"] = output.Period
-    leafs["anchor-time"] = output.AnchorTime
-    leafs["no-synch-on-start"] = output.NoSynchOnStart
-    leafs["dampening-period"] = output.DampeningPeriod
-    leafs["excluded-change"] = output.ExcludedChange
-    leafs["dscp"] = output.Dscp
-    leafs["subscription-priority"] = output.SubscriptionPriority
-    leafs["subscription-dependency"] = output.SubscriptionDependency
-    return leafs
-}
-
-func (output *ModifySubscription_Output) GetBundleName() string { return "ietf" }
-
-func (output *ModifySubscription_Output) GetYangName() string { return "output" }
-
-func (output *ModifySubscription_Output) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (output *ModifySubscription_Output) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (output *ModifySubscription_Output) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (output *ModifySubscription_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *ModifySubscription_Output) GetParent() types.Entity { return output.parent }
-
-func (output *ModifySubscription_Output) GetParentYangName() string { return "modify-subscription" }
 
 // DeleteSubscription
 // This RPC allows a subscriber to delete a subscription that
 // was previously created using establish-subscription.
 type DeleteSubscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -1314,63 +993,26 @@ type DeleteSubscription struct {
     Output DeleteSubscription_Output
 }
 
-func (deleteSubscription *DeleteSubscription) GetFilter() yfilter.YFilter { return deleteSubscription.YFilter }
+func (deleteSubscription *DeleteSubscription) GetEntityData() *types.CommonEntityData {
+    deleteSubscription.EntityData.YFilter = deleteSubscription.YFilter
+    deleteSubscription.EntityData.YangName = "delete-subscription"
+    deleteSubscription.EntityData.BundleName = "ietf"
+    deleteSubscription.EntityData.ParentYangName = "ietf-event-notifications"
+    deleteSubscription.EntityData.SegmentPath = "ietf-event-notifications:delete-subscription"
+    deleteSubscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    deleteSubscription.EntityData.NamespaceTable = ietf.GetNamespaces()
+    deleteSubscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (deleteSubscription *DeleteSubscription) SetFilter(yf yfilter.YFilter) { deleteSubscription.YFilter = yf }
-
-func (deleteSubscription *DeleteSubscription) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    deleteSubscription.EntityData.Children = make(map[string]types.YChild)
+    deleteSubscription.EntityData.Children["input"] = types.YChild{"Input", &deleteSubscription.Input}
+    deleteSubscription.EntityData.Children["output"] = types.YChild{"Output", &deleteSubscription.Output}
+    deleteSubscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(deleteSubscription.EntityData)
 }
-
-func (deleteSubscription *DeleteSubscription) GetSegmentPath() string {
-    return "ietf-event-notifications:delete-subscription"
-}
-
-func (deleteSubscription *DeleteSubscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &deleteSubscription.Input
-    }
-    if childYangName == "output" {
-        return &deleteSubscription.Output
-    }
-    return nil
-}
-
-func (deleteSubscription *DeleteSubscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &deleteSubscription.Input
-    children["output"] = &deleteSubscription.Output
-    return children
-}
-
-func (deleteSubscription *DeleteSubscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (deleteSubscription *DeleteSubscription) GetBundleName() string { return "ietf" }
-
-func (deleteSubscription *DeleteSubscription) GetYangName() string { return "delete-subscription" }
-
-func (deleteSubscription *DeleteSubscription) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (deleteSubscription *DeleteSubscription) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (deleteSubscription *DeleteSubscription) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (deleteSubscription *DeleteSubscription) SetParent(parent types.Entity) { deleteSubscription.parent = parent }
-
-func (deleteSubscription *DeleteSubscription) GetParent() types.Entity { return deleteSubscription.parent }
-
-func (deleteSubscription *DeleteSubscription) GetParentYangName() string { return "ietf-event-notifications" }
 
 // DeleteSubscription_Input
 type DeleteSubscription_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Identifier of the subscription that is to be deleted. Only subscriptions
@@ -1380,115 +1022,55 @@ type DeleteSubscription_Input struct {
     SubscriptionId interface{}
 }
 
-func (input *DeleteSubscription_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *DeleteSubscription_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "ietf"
+    input.EntityData.ParentYangName = "delete-subscription"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    input.EntityData.NamespaceTable = ietf.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (input *DeleteSubscription_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *DeleteSubscription_Input) GetGoName(yname string) string {
-    if yname == "subscription-id" { return "SubscriptionId" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", input.SubscriptionId}
+    return &(input.EntityData)
 }
-
-func (input *DeleteSubscription_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *DeleteSubscription_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *DeleteSubscription_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *DeleteSubscription_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-id"] = input.SubscriptionId
-    return leafs
-}
-
-func (input *DeleteSubscription_Input) GetBundleName() string { return "ietf" }
-
-func (input *DeleteSubscription_Input) GetYangName() string { return "input" }
-
-func (input *DeleteSubscription_Input) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (input *DeleteSubscription_Input) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (input *DeleteSubscription_Input) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (input *DeleteSubscription_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *DeleteSubscription_Input) GetParent() types.Entity { return input.parent }
-
-func (input *DeleteSubscription_Input) GetParentYangName() string { return "delete-subscription" }
 
 // DeleteSubscription_Output
 type DeleteSubscription_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
+    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 }
 
-func (output *DeleteSubscription_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DeleteSubscription_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "ietf"
+    output.EntityData.ParentYangName = "delete-subscription"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    output.EntityData.NamespaceTable = ietf.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (output *DeleteSubscription_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DeleteSubscription_Output) GetGoName(yname string) string {
-    if yname == "subscription-result" { return "SubscriptionResult" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["subscription-result"] = types.YLeaf{"SubscriptionResult", output.SubscriptionResult}
+    return &(output.EntityData)
 }
-
-func (output *DeleteSubscription_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DeleteSubscription_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DeleteSubscription_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DeleteSubscription_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-result"] = output.SubscriptionResult
-    return leafs
-}
-
-func (output *DeleteSubscription_Output) GetBundleName() string { return "ietf" }
-
-func (output *DeleteSubscription_Output) GetYangName() string { return "output" }
-
-func (output *DeleteSubscription_Output) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (output *DeleteSubscription_Output) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (output *DeleteSubscription_Output) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (output *DeleteSubscription_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DeleteSubscription_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DeleteSubscription_Output) GetParentYangName() string { return "delete-subscription" }
 
 // Streams
 // This container contains a leaf list of built-in
 // streams that are provided by the system.
 type Streams struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Identifies the built-in streams that are supported by the system.  Built-in
@@ -1496,62 +1078,32 @@ type Streams struct {
     // special semantics. In case configurable custom streams are supported, as
     // indicated by the custom-stream identity, the configuration of those custom
     // streams is provided         separately. The type is slice of ['NETCONF',
-    // 'CustomStream', 'YangPush'].
+    // 'YangPush', 'CustomStream'].
     Stream []interface{}
 }
 
-func (streams *Streams) GetFilter() yfilter.YFilter { return streams.YFilter }
+func (streams *Streams) GetEntityData() *types.CommonEntityData {
+    streams.EntityData.YFilter = streams.YFilter
+    streams.EntityData.YangName = "streams"
+    streams.EntityData.BundleName = "ietf"
+    streams.EntityData.ParentYangName = "ietf-event-notifications"
+    streams.EntityData.SegmentPath = "ietf-event-notifications:streams"
+    streams.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    streams.EntityData.NamespaceTable = ietf.GetNamespaces()
+    streams.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (streams *Streams) SetFilter(yf yfilter.YFilter) { streams.YFilter = yf }
-
-func (streams *Streams) GetGoName(yname string) string {
-    if yname == "stream" { return "Stream" }
-    return ""
+    streams.EntityData.Children = make(map[string]types.YChild)
+    streams.EntityData.Leafs = make(map[string]types.YLeaf)
+    streams.EntityData.Leafs["stream"] = types.YLeaf{"Stream", streams.Stream}
+    return &(streams.EntityData)
 }
-
-func (streams *Streams) GetSegmentPath() string {
-    return "ietf-event-notifications:streams"
-}
-
-func (streams *Streams) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (streams *Streams) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (streams *Streams) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["stream"] = streams.Stream
-    return leafs
-}
-
-func (streams *Streams) GetBundleName() string { return "ietf" }
-
-func (streams *Streams) GetYangName() string { return "streams" }
-
-func (streams *Streams) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (streams *Streams) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (streams *Streams) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (streams *Streams) SetParent(parent types.Entity) { streams.parent = parent }
-
-func (streams *Streams) GetParent() types.Entity { return streams.parent }
-
-func (streams *Streams) GetParentYangName() string { return "ietf-event-notifications" }
 
 // Filters
 // This container contains a list of configurable filters
 // that can be applied to subscriptions.  This facilitates
 // the reuse of complex filters once defined.
 type Filters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of configurable filters that can be applied to subscriptions. The
@@ -1559,69 +1111,30 @@ type Filters struct {
     Filter []Filters_Filter
 }
 
-func (filters *Filters) GetFilter() yfilter.YFilter { return filters.YFilter }
+func (filters *Filters) GetEntityData() *types.CommonEntityData {
+    filters.EntityData.YFilter = filters.YFilter
+    filters.EntityData.YangName = "filters"
+    filters.EntityData.BundleName = "ietf"
+    filters.EntityData.ParentYangName = "ietf-event-notifications"
+    filters.EntityData.SegmentPath = "ietf-event-notifications:filters"
+    filters.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    filters.EntityData.NamespaceTable = ietf.GetNamespaces()
+    filters.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (filters *Filters) SetFilter(yf yfilter.YFilter) { filters.YFilter = yf }
-
-func (filters *Filters) GetGoName(yname string) string {
-    if yname == "filter" { return "Filter" }
-    return ""
-}
-
-func (filters *Filters) GetSegmentPath() string {
-    return "ietf-event-notifications:filters"
-}
-
-func (filters *Filters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "filter" {
-        for _, c := range filters.Filter {
-            if filters.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Filters_Filter{}
-        filters.Filter = append(filters.Filter, child)
-        return &filters.Filter[len(filters.Filter)-1]
-    }
-    return nil
-}
-
-func (filters *Filters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    filters.EntityData.Children = make(map[string]types.YChild)
+    filters.EntityData.Children["filter"] = types.YChild{"Filter", nil}
     for i := range filters.Filter {
-        children[filters.Filter[i].GetSegmentPath()] = &filters.Filter[i]
+        filters.EntityData.Children[types.GetSegmentPath(&filters.Filter[i])] = types.YChild{"Filter", &filters.Filter[i]}
     }
-    return children
+    filters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(filters.EntityData)
 }
-
-func (filters *Filters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (filters *Filters) GetBundleName() string { return "ietf" }
-
-func (filters *Filters) GetYangName() string { return "filters" }
-
-func (filters *Filters) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (filters *Filters) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (filters *Filters) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (filters *Filters) SetParent(parent types.Entity) { filters.parent = parent }
-
-func (filters *Filters) GetParent() types.Entity { return filters.parent }
-
-func (filters *Filters) GetParentYangName() string { return "ietf-event-notifications" }
 
 // Filters_Filter
 // A list of configurable filters that can be applied to
 // subscriptions.
 type Filters_Filter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An identifier to differentiate between filters.
@@ -1650,63 +1163,30 @@ type Filters_Filter struct {
     XpathFilter interface{}
 }
 
-func (filter *Filters_Filter) GetFilter() yfilter.YFilter { return filter.YFilter }
+func (filter *Filters_Filter) GetEntityData() *types.CommonEntityData {
+    filter.EntityData.YFilter = filter.YFilter
+    filter.EntityData.YangName = "filter"
+    filter.EntityData.BundleName = "ietf"
+    filter.EntityData.ParentYangName = "filters"
+    filter.EntityData.SegmentPath = "filter" + "[filter-id='" + fmt.Sprintf("%v", filter.FilterId) + "']"
+    filter.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    filter.EntityData.NamespaceTable = ietf.GetNamespaces()
+    filter.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (filter *Filters_Filter) SetFilter(yf yfilter.YFilter) { filter.YFilter = yf }
-
-func (filter *Filters_Filter) GetGoName(yname string) string {
-    if yname == "filter-id" { return "FilterId" }
-    if yname == "filter" { return "Filter" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    return ""
+    filter.EntityData.Children = make(map[string]types.YChild)
+    filter.EntityData.Leafs = make(map[string]types.YLeaf)
+    filter.EntityData.Leafs["filter-id"] = types.YLeaf{"FilterId", filter.FilterId}
+    filter.EntityData.Leafs["filter"] = types.YLeaf{"Filter", filter.Filter}
+    filter.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", filter.SubtreeFilter}
+    filter.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", filter.XpathFilter}
+    return &(filter.EntityData)
 }
-
-func (filter *Filters_Filter) GetSegmentPath() string {
-    return "filter" + "[filter-id='" + fmt.Sprintf("%v", filter.FilterId) + "']"
-}
-
-func (filter *Filters_Filter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (filter *Filters_Filter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (filter *Filters_Filter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["filter-id"] = filter.FilterId
-    leafs["filter"] = filter.Filter
-    leafs["subtree-filter"] = filter.SubtreeFilter
-    leafs["xpath-filter"] = filter.XpathFilter
-    return leafs
-}
-
-func (filter *Filters_Filter) GetBundleName() string { return "ietf" }
-
-func (filter *Filters_Filter) GetYangName() string { return "filter" }
-
-func (filter *Filters_Filter) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (filter *Filters_Filter) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (filter *Filters_Filter) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (filter *Filters_Filter) SetParent(parent types.Entity) { filter.parent = parent }
-
-func (filter *Filters_Filter) GetParent() types.Entity { return filter.parent }
-
-func (filter *Filters_Filter) GetParentYangName() string { return "filters" }
 
 // SubscriptionConfig
 // Contains the list of subscriptions that are configured,
 // as opposed to established via RPC or other means.
 type SubscriptionConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Content of a subscription. The type is slice of
@@ -1714,68 +1194,29 @@ type SubscriptionConfig struct {
     Subscription []SubscriptionConfig_Subscription
 }
 
-func (subscriptionConfig *SubscriptionConfig) GetFilter() yfilter.YFilter { return subscriptionConfig.YFilter }
+func (subscriptionConfig *SubscriptionConfig) GetEntityData() *types.CommonEntityData {
+    subscriptionConfig.EntityData.YFilter = subscriptionConfig.YFilter
+    subscriptionConfig.EntityData.YangName = "subscription-config"
+    subscriptionConfig.EntityData.BundleName = "ietf"
+    subscriptionConfig.EntityData.ParentYangName = "ietf-event-notifications"
+    subscriptionConfig.EntityData.SegmentPath = "ietf-event-notifications:subscription-config"
+    subscriptionConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    subscriptionConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
+    subscriptionConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (subscriptionConfig *SubscriptionConfig) SetFilter(yf yfilter.YFilter) { subscriptionConfig.YFilter = yf }
-
-func (subscriptionConfig *SubscriptionConfig) GetGoName(yname string) string {
-    if yname == "subscription" { return "Subscription" }
-    return ""
-}
-
-func (subscriptionConfig *SubscriptionConfig) GetSegmentPath() string {
-    return "ietf-event-notifications:subscription-config"
-}
-
-func (subscriptionConfig *SubscriptionConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscription" {
-        for _, c := range subscriptionConfig.Subscription {
-            if subscriptionConfig.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriptionConfig_Subscription{}
-        subscriptionConfig.Subscription = append(subscriptionConfig.Subscription, child)
-        return &subscriptionConfig.Subscription[len(subscriptionConfig.Subscription)-1]
-    }
-    return nil
-}
-
-func (subscriptionConfig *SubscriptionConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subscriptionConfig.EntityData.Children = make(map[string]types.YChild)
+    subscriptionConfig.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
     for i := range subscriptionConfig.Subscription {
-        children[subscriptionConfig.Subscription[i].GetSegmentPath()] = &subscriptionConfig.Subscription[i]
+        subscriptionConfig.EntityData.Children[types.GetSegmentPath(&subscriptionConfig.Subscription[i])] = types.YChild{"Subscription", &subscriptionConfig.Subscription[i]}
     }
-    return children
+    subscriptionConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriptionConfig.EntityData)
 }
-
-func (subscriptionConfig *SubscriptionConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriptionConfig *SubscriptionConfig) GetBundleName() string { return "ietf" }
-
-func (subscriptionConfig *SubscriptionConfig) GetYangName() string { return "subscription-config" }
-
-func (subscriptionConfig *SubscriptionConfig) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (subscriptionConfig *SubscriptionConfig) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (subscriptionConfig *SubscriptionConfig) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (subscriptionConfig *SubscriptionConfig) SetParent(parent types.Entity) { subscriptionConfig.parent = parent }
-
-func (subscriptionConfig *SubscriptionConfig) GetParent() types.Entity { return subscriptionConfig.parent }
-
-func (subscriptionConfig *SubscriptionConfig) GetParentYangName() string { return "ietf-event-notifications" }
 
 // SubscriptionConfig_Subscription
 // Content of a subscription.
 type SubscriptionConfig_Subscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Identifier to use for this subscription. The type
@@ -1784,11 +1225,11 @@ type SubscriptionConfig_Subscription struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFCustomStreamYangPush.
+    // NETCONFYangPushCustomStream.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
+    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -1825,7 +1266,7 @@ type SubscriptionConfig_Subscription struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -1834,7 +1275,7 @@ type SubscriptionConfig_Subscription struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 
     // References the interface for notifications. The type is string. Refers to
@@ -1846,9 +1287,9 @@ type SubscriptionConfig_Subscription struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory..
     SourceAddress interface{}
 
@@ -1864,7 +1305,7 @@ type SubscriptionConfig_Subscription struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1909,99 +1350,46 @@ type SubscriptionConfig_Subscription struct {
     Receivers SubscriptionConfig_Subscription_Receivers
 }
 
-func (subscription *SubscriptionConfig_Subscription) GetFilter() yfilter.YFilter { return subscription.YFilter }
+func (subscription *SubscriptionConfig_Subscription) GetEntityData() *types.CommonEntityData {
+    subscription.EntityData.YFilter = subscription.YFilter
+    subscription.EntityData.YangName = "subscription"
+    subscription.EntityData.BundleName = "ietf"
+    subscription.EntityData.ParentYangName = "subscription-config"
+    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    subscription.EntityData.NamespaceTable = ietf.GetNamespaces()
+    subscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (subscription *SubscriptionConfig_Subscription) SetFilter(yf yfilter.YFilter) { subscription.YFilter = yf }
-
-func (subscription *SubscriptionConfig_Subscription) GetGoName(yname string) string {
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "filter" { return "Filter" }
-    if yname == "filter-ref" { return "FilterRef" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "source-vrf" { return "SourceVrf" }
-    if yname == "source-address" { return "SourceAddress" }
-    if yname == "period" { return "Period" }
-    if yname == "anchor-time" { return "AnchorTime" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "dampening-period" { return "DampeningPeriod" }
-    if yname == "excluded-change" { return "ExcludedChange" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "subscription-priority" { return "SubscriptionPriority" }
-    if yname == "subscription-dependency" { return "SubscriptionDependency" }
-    if yname == "receivers" { return "Receivers" }
-    return ""
+    subscription.EntityData.Children = make(map[string]types.YChild)
+    subscription.EntityData.Children["receivers"] = types.YChild{"Receivers", &subscription.Receivers}
+    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
+    subscription.EntityData.Leafs["stream"] = types.YLeaf{"Stream", subscription.Stream}
+    subscription.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", subscription.Encoding}
+    subscription.EntityData.Leafs["filter"] = types.YLeaf{"Filter", subscription.Filter}
+    subscription.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", subscription.FilterRef}
+    subscription.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", subscription.SubtreeFilter}
+    subscription.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", subscription.XpathFilter}
+    subscription.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", subscription.Starttime}
+    subscription.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", subscription.Stoptime}
+    subscription.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", subscription.SourceInterface}
+    subscription.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", subscription.SourceVrf}
+    subscription.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", subscription.SourceAddress}
+    subscription.EntityData.Leafs["period"] = types.YLeaf{"Period", subscription.Period}
+    subscription.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", subscription.AnchorTime}
+    subscription.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", subscription.NoSynchOnStart}
+    subscription.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", subscription.DampeningPeriod}
+    subscription.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", subscription.ExcludedChange}
+    subscription.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", subscription.Dscp}
+    subscription.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", subscription.SubscriptionPriority}
+    subscription.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", subscription.SubscriptionDependency}
+    return &(subscription.EntityData)
 }
-
-func (subscription *SubscriptionConfig_Subscription) GetSegmentPath() string {
-    return "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
-}
-
-func (subscription *SubscriptionConfig_Subscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "receivers" {
-        return &subscription.Receivers
-    }
-    return nil
-}
-
-func (subscription *SubscriptionConfig_Subscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["receivers"] = &subscription.Receivers
-    return children
-}
-
-func (subscription *SubscriptionConfig_Subscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-id"] = subscription.SubscriptionId
-    leafs["stream"] = subscription.Stream
-    leafs["encoding"] = subscription.Encoding
-    leafs["filter"] = subscription.Filter
-    leafs["filter-ref"] = subscription.FilterRef
-    leafs["subtree-filter"] = subscription.SubtreeFilter
-    leafs["xpath-filter"] = subscription.XpathFilter
-    leafs["startTime"] = subscription.Starttime
-    leafs["stopTime"] = subscription.Stoptime
-    leafs["source-interface"] = subscription.SourceInterface
-    leafs["source-vrf"] = subscription.SourceVrf
-    leafs["source-address"] = subscription.SourceAddress
-    leafs["period"] = subscription.Period
-    leafs["anchor-time"] = subscription.AnchorTime
-    leafs["no-synch-on-start"] = subscription.NoSynchOnStart
-    leafs["dampening-period"] = subscription.DampeningPeriod
-    leafs["excluded-change"] = subscription.ExcludedChange
-    leafs["dscp"] = subscription.Dscp
-    leafs["subscription-priority"] = subscription.SubscriptionPriority
-    leafs["subscription-dependency"] = subscription.SubscriptionDependency
-    return leafs
-}
-
-func (subscription *SubscriptionConfig_Subscription) GetBundleName() string { return "ietf" }
-
-func (subscription *SubscriptionConfig_Subscription) GetYangName() string { return "subscription" }
-
-func (subscription *SubscriptionConfig_Subscription) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (subscription *SubscriptionConfig_Subscription) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (subscription *SubscriptionConfig_Subscription) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (subscription *SubscriptionConfig_Subscription) SetParent(parent types.Entity) { subscription.parent = parent }
-
-func (subscription *SubscriptionConfig_Subscription) GetParent() types.Entity { return subscription.parent }
-
-func (subscription *SubscriptionConfig_Subscription) GetParentYangName() string { return "subscription-config" }
 
 // SubscriptionConfig_Subscription_Receivers
 // Set of receivers in a subscription.
 type SubscriptionConfig_Subscription_Receivers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single host or multipoint address intended as a target for the
@@ -2010,80 +1398,42 @@ type SubscriptionConfig_Subscription_Receivers struct {
     Receiver []SubscriptionConfig_Subscription_Receivers_Receiver
 }
 
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetFilter() yfilter.YFilter { return receivers.YFilter }
+func (receivers *SubscriptionConfig_Subscription_Receivers) GetEntityData() *types.CommonEntityData {
+    receivers.EntityData.YFilter = receivers.YFilter
+    receivers.EntityData.YangName = "receivers"
+    receivers.EntityData.BundleName = "ietf"
+    receivers.EntityData.ParentYangName = "subscription"
+    receivers.EntityData.SegmentPath = "receivers"
+    receivers.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    receivers.EntityData.NamespaceTable = ietf.GetNamespaces()
+    receivers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (receivers *SubscriptionConfig_Subscription_Receivers) SetFilter(yf yfilter.YFilter) { receivers.YFilter = yf }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetGoName(yname string) string {
-    if yname == "receiver" { return "Receiver" }
-    return ""
-}
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetSegmentPath() string {
-    return "receivers"
-}
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "receiver" {
-        for _, c := range receivers.Receiver {
-            if receivers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriptionConfig_Subscription_Receivers_Receiver{}
-        receivers.Receiver = append(receivers.Receiver, child)
-        return &receivers.Receiver[len(receivers.Receiver)-1]
-    }
-    return nil
-}
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    receivers.EntityData.Children = make(map[string]types.YChild)
+    receivers.EntityData.Children["receiver"] = types.YChild{"Receiver", nil}
     for i := range receivers.Receiver {
-        children[receivers.Receiver[i].GetSegmentPath()] = &receivers.Receiver[i]
+        receivers.EntityData.Children[types.GetSegmentPath(&receivers.Receiver[i])] = types.YChild{"Receiver", &receivers.Receiver[i]}
     }
-    return children
+    receivers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(receivers.EntityData)
 }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetBundleName() string { return "ietf" }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetYangName() string { return "receivers" }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) SetParent(parent types.Entity) { receivers.parent = parent }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetParent() types.Entity { return receivers.parent }
-
-func (receivers *SubscriptionConfig_Subscription_Receivers) GetParentYangName() string { return "subscription" }
 
 // SubscriptionConfig_Subscription_Receivers_Receiver
 // A single host or multipoint address intended as a target
 // for the notifications for a subscription.
 type SubscriptionConfig_Subscription_Receivers_Receiver struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specifies the address for the traffic to reach a
     // remote host. One of the following must be specified: an ipv4 address, an
     // ipv6 address, or a host name. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
-    // This attribute is mandatory.., or string with length: 1..253 This attribute
-    // is mandatory..
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // This attribute is mandatory.., or string with pattern:
+    // b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'
+    // This attribute is mandatory..
     Address interface{}
 
     // This leaf specifies the port number to use for messages destined for a
@@ -2097,55 +1447,23 @@ type SubscriptionConfig_Subscription_Receivers_Receiver struct {
     Protocol interface{}
 }
 
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetFilter() yfilter.YFilter { return receiver.YFilter }
+func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetEntityData() *types.CommonEntityData {
+    receiver.EntityData.YFilter = receiver.YFilter
+    receiver.EntityData.YangName = "receiver"
+    receiver.EntityData.BundleName = "ietf"
+    receiver.EntityData.ParentYangName = "receivers"
+    receiver.EntityData.SegmentPath = "receiver" + "[address='" + fmt.Sprintf("%v", receiver.Address) + "']"
+    receiver.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    receiver.EntityData.NamespaceTable = ietf.GetNamespaces()
+    receiver.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) SetFilter(yf yfilter.YFilter) { receiver.YFilter = yf }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "port" { return "Port" }
-    if yname == "protocol" { return "Protocol" }
-    return ""
+    receiver.EntityData.Children = make(map[string]types.YChild)
+    receiver.EntityData.Leafs = make(map[string]types.YLeaf)
+    receiver.EntityData.Leafs["address"] = types.YLeaf{"Address", receiver.Address}
+    receiver.EntityData.Leafs["port"] = types.YLeaf{"Port", receiver.Port}
+    receiver.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", receiver.Protocol}
+    return &(receiver.EntityData)
 }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetSegmentPath() string {
-    return "receiver" + "[address='" + fmt.Sprintf("%v", receiver.Address) + "']"
-}
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = receiver.Address
-    leafs["port"] = receiver.Port
-    leafs["protocol"] = receiver.Protocol
-    return leafs
-}
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetBundleName() string { return "ietf" }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetYangName() string { return "receiver" }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) SetParent(parent types.Entity) { receiver.parent = parent }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetParent() types.Entity { return receiver.parent }
-
-func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetParentYangName() string { return "receivers" }
 
 // Subscriptions
 // Contains the list of currently active subscriptions,
@@ -2157,7 +1475,7 @@ func (receiver *SubscriptionConfig_Subscription_Receivers_Receiver) GetParentYan
 // subscriptions that have been established via
 //     configuration.
 type Subscriptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Content of a subscription. Subscriptions can be created using a control
@@ -2166,70 +1484,31 @@ type Subscriptions struct {
     Subscription []Subscriptions_Subscription
 }
 
-func (subscriptions *Subscriptions) GetFilter() yfilter.YFilter { return subscriptions.YFilter }
+func (subscriptions *Subscriptions) GetEntityData() *types.CommonEntityData {
+    subscriptions.EntityData.YFilter = subscriptions.YFilter
+    subscriptions.EntityData.YangName = "subscriptions"
+    subscriptions.EntityData.BundleName = "ietf"
+    subscriptions.EntityData.ParentYangName = "ietf-event-notifications"
+    subscriptions.EntityData.SegmentPath = "ietf-event-notifications:subscriptions"
+    subscriptions.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    subscriptions.EntityData.NamespaceTable = ietf.GetNamespaces()
+    subscriptions.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (subscriptions *Subscriptions) SetFilter(yf yfilter.YFilter) { subscriptions.YFilter = yf }
-
-func (subscriptions *Subscriptions) GetGoName(yname string) string {
-    if yname == "subscription" { return "Subscription" }
-    return ""
-}
-
-func (subscriptions *Subscriptions) GetSegmentPath() string {
-    return "ietf-event-notifications:subscriptions"
-}
-
-func (subscriptions *Subscriptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscription" {
-        for _, c := range subscriptions.Subscription {
-            if subscriptions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Subscriptions_Subscription{}
-        subscriptions.Subscription = append(subscriptions.Subscription, child)
-        return &subscriptions.Subscription[len(subscriptions.Subscription)-1]
-    }
-    return nil
-}
-
-func (subscriptions *Subscriptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subscriptions.EntityData.Children = make(map[string]types.YChild)
+    subscriptions.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
     for i := range subscriptions.Subscription {
-        children[subscriptions.Subscription[i].GetSegmentPath()] = &subscriptions.Subscription[i]
+        subscriptions.EntityData.Children[types.GetSegmentPath(&subscriptions.Subscription[i])] = types.YChild{"Subscription", &subscriptions.Subscription[i]}
     }
-    return children
+    subscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriptions.EntityData)
 }
-
-func (subscriptions *Subscriptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriptions *Subscriptions) GetBundleName() string { return "ietf" }
-
-func (subscriptions *Subscriptions) GetYangName() string { return "subscriptions" }
-
-func (subscriptions *Subscriptions) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (subscriptions *Subscriptions) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (subscriptions *Subscriptions) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (subscriptions *Subscriptions) SetParent(parent types.Entity) { subscriptions.parent = parent }
-
-func (subscriptions *Subscriptions) GetParent() types.Entity { return subscriptions.parent }
-
-func (subscriptions *Subscriptions) GetParentYangName() string { return "ietf-event-notifications" }
 
 // Subscriptions_Subscription
 // Content of a subscription.
 // Subscriptions can be created using a control channel
 // or RPC, or be established through configuration.
 type Subscriptions_Subscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Identifier of this subscription. The type is
@@ -2242,16 +1521,16 @@ type Subscriptions_Subscription struct {
     ConfiguredSubscription interface{}
 
     // The status of the subscription. The type is one of the following:
-    // InactiveSuspendedInErrorActive.
+    // ActiveInactiveSuspendedInError.
     SubscriptionStatus interface{}
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFCustomStreamYangPush.
+    // NETCONFYangPushCustomStream.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
+    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -2288,7 +1567,7 @@ type Subscriptions_Subscription struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Starttime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -2297,7 +1576,7 @@ type Subscriptions_Subscription struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     Stoptime interface{}
 
     // References the interface for notifications. The type is string. Refers to
@@ -2309,9 +1588,9 @@ type Subscriptions_Subscription struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory..
     SourceAddress interface{}
 
@@ -2327,7 +1606,7 @@ type Subscriptions_Subscription struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -2372,103 +1651,48 @@ type Subscriptions_Subscription struct {
     Receivers Subscriptions_Subscription_Receivers
 }
 
-func (subscription *Subscriptions_Subscription) GetFilter() yfilter.YFilter { return subscription.YFilter }
+func (subscription *Subscriptions_Subscription) GetEntityData() *types.CommonEntityData {
+    subscription.EntityData.YFilter = subscription.YFilter
+    subscription.EntityData.YangName = "subscription"
+    subscription.EntityData.BundleName = "ietf"
+    subscription.EntityData.ParentYangName = "subscriptions"
+    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    subscription.EntityData.NamespaceTable = ietf.GetNamespaces()
+    subscription.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (subscription *Subscriptions_Subscription) SetFilter(yf yfilter.YFilter) { subscription.YFilter = yf }
-
-func (subscription *Subscriptions_Subscription) GetGoName(yname string) string {
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "configured-subscription" { return "ConfiguredSubscription" }
-    if yname == "subscription-status" { return "SubscriptionStatus" }
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "filter" { return "Filter" }
-    if yname == "filter-ref" { return "FilterRef" }
-    if yname == "subtree-filter" { return "SubtreeFilter" }
-    if yname == "xpath-filter" { return "XpathFilter" }
-    if yname == "startTime" { return "Starttime" }
-    if yname == "stopTime" { return "Stoptime" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "source-vrf" { return "SourceVrf" }
-    if yname == "source-address" { return "SourceAddress" }
-    if yname == "period" { return "Period" }
-    if yname == "anchor-time" { return "AnchorTime" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "dampening-period" { return "DampeningPeriod" }
-    if yname == "excluded-change" { return "ExcludedChange" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "subscription-priority" { return "SubscriptionPriority" }
-    if yname == "subscription-dependency" { return "SubscriptionDependency" }
-    if yname == "receivers" { return "Receivers" }
-    return ""
+    subscription.EntityData.Children = make(map[string]types.YChild)
+    subscription.EntityData.Children["receivers"] = types.YChild{"Receivers", &subscription.Receivers}
+    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
+    subscription.EntityData.Leafs["configured-subscription"] = types.YLeaf{"ConfiguredSubscription", subscription.ConfiguredSubscription}
+    subscription.EntityData.Leafs["subscription-status"] = types.YLeaf{"SubscriptionStatus", subscription.SubscriptionStatus}
+    subscription.EntityData.Leafs["stream"] = types.YLeaf{"Stream", subscription.Stream}
+    subscription.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", subscription.Encoding}
+    subscription.EntityData.Leafs["filter"] = types.YLeaf{"Filter", subscription.Filter}
+    subscription.EntityData.Leafs["filter-ref"] = types.YLeaf{"FilterRef", subscription.FilterRef}
+    subscription.EntityData.Leafs["subtree-filter"] = types.YLeaf{"SubtreeFilter", subscription.SubtreeFilter}
+    subscription.EntityData.Leafs["xpath-filter"] = types.YLeaf{"XpathFilter", subscription.XpathFilter}
+    subscription.EntityData.Leafs["startTime"] = types.YLeaf{"Starttime", subscription.Starttime}
+    subscription.EntityData.Leafs["stopTime"] = types.YLeaf{"Stoptime", subscription.Stoptime}
+    subscription.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", subscription.SourceInterface}
+    subscription.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", subscription.SourceVrf}
+    subscription.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", subscription.SourceAddress}
+    subscription.EntityData.Leafs["period"] = types.YLeaf{"Period", subscription.Period}
+    subscription.EntityData.Leafs["anchor-time"] = types.YLeaf{"AnchorTime", subscription.AnchorTime}
+    subscription.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", subscription.NoSynchOnStart}
+    subscription.EntityData.Leafs["dampening-period"] = types.YLeaf{"DampeningPeriod", subscription.DampeningPeriod}
+    subscription.EntityData.Leafs["excluded-change"] = types.YLeaf{"ExcludedChange", subscription.ExcludedChange}
+    subscription.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", subscription.Dscp}
+    subscription.EntityData.Leafs["subscription-priority"] = types.YLeaf{"SubscriptionPriority", subscription.SubscriptionPriority}
+    subscription.EntityData.Leafs["subscription-dependency"] = types.YLeaf{"SubscriptionDependency", subscription.SubscriptionDependency}
+    return &(subscription.EntityData)
 }
-
-func (subscription *Subscriptions_Subscription) GetSegmentPath() string {
-    return "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
-}
-
-func (subscription *Subscriptions_Subscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "receivers" {
-        return &subscription.Receivers
-    }
-    return nil
-}
-
-func (subscription *Subscriptions_Subscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["receivers"] = &subscription.Receivers
-    return children
-}
-
-func (subscription *Subscriptions_Subscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-id"] = subscription.SubscriptionId
-    leafs["configured-subscription"] = subscription.ConfiguredSubscription
-    leafs["subscription-status"] = subscription.SubscriptionStatus
-    leafs["stream"] = subscription.Stream
-    leafs["encoding"] = subscription.Encoding
-    leafs["filter"] = subscription.Filter
-    leafs["filter-ref"] = subscription.FilterRef
-    leafs["subtree-filter"] = subscription.SubtreeFilter
-    leafs["xpath-filter"] = subscription.XpathFilter
-    leafs["startTime"] = subscription.Starttime
-    leafs["stopTime"] = subscription.Stoptime
-    leafs["source-interface"] = subscription.SourceInterface
-    leafs["source-vrf"] = subscription.SourceVrf
-    leafs["source-address"] = subscription.SourceAddress
-    leafs["period"] = subscription.Period
-    leafs["anchor-time"] = subscription.AnchorTime
-    leafs["no-synch-on-start"] = subscription.NoSynchOnStart
-    leafs["dampening-period"] = subscription.DampeningPeriod
-    leafs["excluded-change"] = subscription.ExcludedChange
-    leafs["dscp"] = subscription.Dscp
-    leafs["subscription-priority"] = subscription.SubscriptionPriority
-    leafs["subscription-dependency"] = subscription.SubscriptionDependency
-    return leafs
-}
-
-func (subscription *Subscriptions_Subscription) GetBundleName() string { return "ietf" }
-
-func (subscription *Subscriptions_Subscription) GetYangName() string { return "subscription" }
-
-func (subscription *Subscriptions_Subscription) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (subscription *Subscriptions_Subscription) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (subscription *Subscriptions_Subscription) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (subscription *Subscriptions_Subscription) SetParent(parent types.Entity) { subscription.parent = parent }
-
-func (subscription *Subscriptions_Subscription) GetParent() types.Entity { return subscription.parent }
-
-func (subscription *Subscriptions_Subscription) GetParentYangName() string { return "subscriptions" }
 
 // Subscriptions_Subscription_Receivers
 // Set of receivers in a subscription.
 type Subscriptions_Subscription_Receivers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single host or multipoint address intended as a target for the
@@ -2477,80 +1701,42 @@ type Subscriptions_Subscription_Receivers struct {
     Receiver []Subscriptions_Subscription_Receivers_Receiver
 }
 
-func (receivers *Subscriptions_Subscription_Receivers) GetFilter() yfilter.YFilter { return receivers.YFilter }
+func (receivers *Subscriptions_Subscription_Receivers) GetEntityData() *types.CommonEntityData {
+    receivers.EntityData.YFilter = receivers.YFilter
+    receivers.EntityData.YangName = "receivers"
+    receivers.EntityData.BundleName = "ietf"
+    receivers.EntityData.ParentYangName = "subscription"
+    receivers.EntityData.SegmentPath = "receivers"
+    receivers.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    receivers.EntityData.NamespaceTable = ietf.GetNamespaces()
+    receivers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (receivers *Subscriptions_Subscription_Receivers) SetFilter(yf yfilter.YFilter) { receivers.YFilter = yf }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetGoName(yname string) string {
-    if yname == "receiver" { return "Receiver" }
-    return ""
-}
-
-func (receivers *Subscriptions_Subscription_Receivers) GetSegmentPath() string {
-    return "receivers"
-}
-
-func (receivers *Subscriptions_Subscription_Receivers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "receiver" {
-        for _, c := range receivers.Receiver {
-            if receivers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Subscriptions_Subscription_Receivers_Receiver{}
-        receivers.Receiver = append(receivers.Receiver, child)
-        return &receivers.Receiver[len(receivers.Receiver)-1]
-    }
-    return nil
-}
-
-func (receivers *Subscriptions_Subscription_Receivers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    receivers.EntityData.Children = make(map[string]types.YChild)
+    receivers.EntityData.Children["receiver"] = types.YChild{"Receiver", nil}
     for i := range receivers.Receiver {
-        children[receivers.Receiver[i].GetSegmentPath()] = &receivers.Receiver[i]
+        receivers.EntityData.Children[types.GetSegmentPath(&receivers.Receiver[i])] = types.YChild{"Receiver", &receivers.Receiver[i]}
     }
-    return children
+    receivers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(receivers.EntityData)
 }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (receivers *Subscriptions_Subscription_Receivers) GetBundleName() string { return "ietf" }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetYangName() string { return "receivers" }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (receivers *Subscriptions_Subscription_Receivers) SetParent(parent types.Entity) { receivers.parent = parent }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetParent() types.Entity { return receivers.parent }
-
-func (receivers *Subscriptions_Subscription_Receivers) GetParentYangName() string { return "subscription" }
 
 // Subscriptions_Subscription_Receivers_Receiver
 // A single host or multipoint address intended as a target
 // for the notifications for a subscription.
 type Subscriptions_Subscription_Receivers_Receiver struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specifies the address for the traffic to reach a
     // remote host. One of the following must be specified: an ipv4 address, an
     // ipv6 address, or a host name. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
-    // This attribute is mandatory.., or string with length: 1..253 This attribute
-    // is mandatory..
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // This attribute is mandatory.., or string with pattern:
+    // b'((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.'
+    // This attribute is mandatory..
     Address interface{}
 
     // This leaf specifies the port number to use for messages destined for a
@@ -2564,53 +1750,21 @@ type Subscriptions_Subscription_Receivers_Receiver struct {
     Protocol interface{}
 }
 
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetFilter() yfilter.YFilter { return receiver.YFilter }
+func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetEntityData() *types.CommonEntityData {
+    receiver.EntityData.YFilter = receiver.YFilter
+    receiver.EntityData.YangName = "receiver"
+    receiver.EntityData.BundleName = "ietf"
+    receiver.EntityData.ParentYangName = "receivers"
+    receiver.EntityData.SegmentPath = "receiver" + "[address='" + fmt.Sprintf("%v", receiver.Address) + "']"
+    receiver.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    receiver.EntityData.NamespaceTable = ietf.GetNamespaces()
+    receiver.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) SetFilter(yf yfilter.YFilter) { receiver.YFilter = yf }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "port" { return "Port" }
-    if yname == "protocol" { return "Protocol" }
-    return ""
+    receiver.EntityData.Children = make(map[string]types.YChild)
+    receiver.EntityData.Leafs = make(map[string]types.YLeaf)
+    receiver.EntityData.Leafs["address"] = types.YLeaf{"Address", receiver.Address}
+    receiver.EntityData.Leafs["port"] = types.YLeaf{"Port", receiver.Port}
+    receiver.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", receiver.Protocol}
+    return &(receiver.EntityData)
 }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetSegmentPath() string {
-    return "receiver" + "[address='" + fmt.Sprintf("%v", receiver.Address) + "']"
-}
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = receiver.Address
-    leafs["port"] = receiver.Port
-    leafs["protocol"] = receiver.Protocol
-    return leafs
-}
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetBundleName() string { return "ietf" }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetYangName() string { return "receiver" }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) SetParent(parent types.Entity) { receiver.parent = parent }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetParent() types.Entity { return receiver.parent }
-
-func (receiver *Subscriptions_Subscription_Receivers_Receiver) GetParentYangName() string { return "receivers" }
 

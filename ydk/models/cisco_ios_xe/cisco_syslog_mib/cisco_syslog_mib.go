@@ -41,7 +41,7 @@ const (
 
 // CISCOSYSLOGMIB
 type CISCOSYSLOGMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -64,78 +64,29 @@ type CISCOSYSLOGMIB struct {
     Clogserverconfigtable CISCOSYSLOGMIB_Clogserverconfigtable
 }
 
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetFilter() yfilter.YFilter { return cISCOSYSLOGMIB.YFilter }
+func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetEntityData() *types.CommonEntityData {
+    cISCOSYSLOGMIB.EntityData.YFilter = cISCOSYSLOGMIB.YFilter
+    cISCOSYSLOGMIB.EntityData.YangName = "CISCO-SYSLOG-MIB"
+    cISCOSYSLOGMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOSYSLOGMIB.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
+    cISCOSYSLOGMIB.EntityData.SegmentPath = "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB"
+    cISCOSYSLOGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOSYSLOGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOSYSLOGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) SetFilter(yf yfilter.YFilter) { cISCOSYSLOGMIB.YFilter = yf }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetGoName(yname string) string {
-    if yname == "clogBasic" { return "Clogbasic" }
-    if yname == "clogHistory" { return "Cloghistory" }
-    if yname == "clogServer" { return "Clogserver" }
-    if yname == "clogHistoryTable" { return "Cloghistorytable" }
-    if yname == "clogServerConfigTable" { return "Clogserverconfigtable" }
-    return ""
+    cISCOSYSLOGMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOSYSLOGMIB.EntityData.Children["clogBasic"] = types.YChild{"Clogbasic", &cISCOSYSLOGMIB.Clogbasic}
+    cISCOSYSLOGMIB.EntityData.Children["clogHistory"] = types.YChild{"Cloghistory", &cISCOSYSLOGMIB.Cloghistory}
+    cISCOSYSLOGMIB.EntityData.Children["clogServer"] = types.YChild{"Clogserver", &cISCOSYSLOGMIB.Clogserver}
+    cISCOSYSLOGMIB.EntityData.Children["clogHistoryTable"] = types.YChild{"Cloghistorytable", &cISCOSYSLOGMIB.Cloghistorytable}
+    cISCOSYSLOGMIB.EntityData.Children["clogServerConfigTable"] = types.YChild{"Clogserverconfigtable", &cISCOSYSLOGMIB.Clogserverconfigtable}
+    cISCOSYSLOGMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOSYSLOGMIB.EntityData)
 }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetSegmentPath() string {
-    return "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB"
-}
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "clogBasic" {
-        return &cISCOSYSLOGMIB.Clogbasic
-    }
-    if childYangName == "clogHistory" {
-        return &cISCOSYSLOGMIB.Cloghistory
-    }
-    if childYangName == "clogServer" {
-        return &cISCOSYSLOGMIB.Clogserver
-    }
-    if childYangName == "clogHistoryTable" {
-        return &cISCOSYSLOGMIB.Cloghistorytable
-    }
-    if childYangName == "clogServerConfigTable" {
-        return &cISCOSYSLOGMIB.Clogserverconfigtable
-    }
-    return nil
-}
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["clogBasic"] = &cISCOSYSLOGMIB.Clogbasic
-    children["clogHistory"] = &cISCOSYSLOGMIB.Cloghistory
-    children["clogServer"] = &cISCOSYSLOGMIB.Clogserver
-    children["clogHistoryTable"] = &cISCOSYSLOGMIB.Cloghistorytable
-    children["clogServerConfigTable"] = &cISCOSYSLOGMIB.Clogserverconfigtable
-    return children
-}
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetYangName() string { return "CISCO-SYSLOG-MIB" }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) SetParent(parent types.Entity) { cISCOSYSLOGMIB.parent = parent }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetParent() types.Entity { return cISCOSYSLOGMIB.parent }
-
-func (cISCOSYSLOGMIB *CISCOSYSLOGMIB) GetParentYangName() string { return "CISCO-SYSLOG-MIB" }
 
 // CISCOSYSLOGMIB_Clogbasic
 type CISCOSYSLOGMIB_Clogbasic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of clogMessageGenerated notifications that have been sent. This
@@ -207,63 +158,27 @@ type CISCOSYSLOGMIB_Clogbasic struct {
     Clogoriginid interface{}
 }
 
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetFilter() yfilter.YFilter { return clogbasic.YFilter }
+func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetEntityData() *types.CommonEntityData {
+    clogbasic.EntityData.YFilter = clogbasic.YFilter
+    clogbasic.EntityData.YangName = "clogBasic"
+    clogbasic.EntityData.BundleName = "cisco_ios_xe"
+    clogbasic.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
+    clogbasic.EntityData.SegmentPath = "clogBasic"
+    clogbasic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clogbasic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clogbasic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) SetFilter(yf yfilter.YFilter) { clogbasic.YFilter = yf }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetGoName(yname string) string {
-    if yname == "clogNotificationsSent" { return "Clognotificationssent" }
-    if yname == "clogNotificationsEnabled" { return "Clognotificationsenabled" }
-    if yname == "clogMaxSeverity" { return "Clogmaxseverity" }
-    if yname == "clogMsgIgnores" { return "Clogmsgignores" }
-    if yname == "clogMsgDrops" { return "Clogmsgdrops" }
-    if yname == "clogOriginIDType" { return "Clogoriginidtype" }
-    if yname == "clogOriginID" { return "Clogoriginid" }
-    return ""
+    clogbasic.EntityData.Children = make(map[string]types.YChild)
+    clogbasic.EntityData.Leafs = make(map[string]types.YLeaf)
+    clogbasic.EntityData.Leafs["clogNotificationsSent"] = types.YLeaf{"Clognotificationssent", clogbasic.Clognotificationssent}
+    clogbasic.EntityData.Leafs["clogNotificationsEnabled"] = types.YLeaf{"Clognotificationsenabled", clogbasic.Clognotificationsenabled}
+    clogbasic.EntityData.Leafs["clogMaxSeverity"] = types.YLeaf{"Clogmaxseverity", clogbasic.Clogmaxseverity}
+    clogbasic.EntityData.Leafs["clogMsgIgnores"] = types.YLeaf{"Clogmsgignores", clogbasic.Clogmsgignores}
+    clogbasic.EntityData.Leafs["clogMsgDrops"] = types.YLeaf{"Clogmsgdrops", clogbasic.Clogmsgdrops}
+    clogbasic.EntityData.Leafs["clogOriginIDType"] = types.YLeaf{"Clogoriginidtype", clogbasic.Clogoriginidtype}
+    clogbasic.EntityData.Leafs["clogOriginID"] = types.YLeaf{"Clogoriginid", clogbasic.Clogoriginid}
+    return &(clogbasic.EntityData)
 }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetSegmentPath() string {
-    return "clogBasic"
-}
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clogNotificationsSent"] = clogbasic.Clognotificationssent
-    leafs["clogNotificationsEnabled"] = clogbasic.Clognotificationsenabled
-    leafs["clogMaxSeverity"] = clogbasic.Clogmaxseverity
-    leafs["clogMsgIgnores"] = clogbasic.Clogmsgignores
-    leafs["clogMsgDrops"] = clogbasic.Clogmsgdrops
-    leafs["clogOriginIDType"] = clogbasic.Clogoriginidtype
-    leafs["clogOriginID"] = clogbasic.Clogoriginid
-    return leafs
-}
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetBundleName() string { return "cisco_ios_xe" }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetYangName() string { return "clogBasic" }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) SetParent(parent types.Entity) { clogbasic.parent = parent }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetParent() types.Entity { return clogbasic.parent }
-
-func (clogbasic *CISCOSYSLOGMIB_Clogbasic) GetParentYangName() string { return "CISCO-SYSLOG-MIB" }
 
 // CISCOSYSLOGMIB_Clogbasic_Clogoriginidtype represents    can only be read.
 type CISCOSYSLOGMIB_Clogbasic_Clogoriginidtype string
@@ -284,7 +199,7 @@ const (
 
 // CISCOSYSLOGMIB_Cloghistory
 type CISCOSYSLOGMIB_Cloghistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The upper limit on the number of entries that the clogHistoryTable may
@@ -302,57 +217,26 @@ type CISCOSYSLOGMIB_Cloghistory struct {
     Cloghistmsgsflushed interface{}
 }
 
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetFilter() yfilter.YFilter { return cloghistory.YFilter }
+func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetEntityData() *types.CommonEntityData {
+    cloghistory.EntityData.YFilter = cloghistory.YFilter
+    cloghistory.EntityData.YangName = "clogHistory"
+    cloghistory.EntityData.BundleName = "cisco_ios_xe"
+    cloghistory.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
+    cloghistory.EntityData.SegmentPath = "clogHistory"
+    cloghistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cloghistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cloghistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) SetFilter(yf yfilter.YFilter) { cloghistory.YFilter = yf }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetGoName(yname string) string {
-    if yname == "clogHistTableMaxLength" { return "Cloghisttablemaxlength" }
-    if yname == "clogHistMsgsFlushed" { return "Cloghistmsgsflushed" }
-    return ""
+    cloghistory.EntityData.Children = make(map[string]types.YChild)
+    cloghistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    cloghistory.EntityData.Leafs["clogHistTableMaxLength"] = types.YLeaf{"Cloghisttablemaxlength", cloghistory.Cloghisttablemaxlength}
+    cloghistory.EntityData.Leafs["clogHistMsgsFlushed"] = types.YLeaf{"Cloghistmsgsflushed", cloghistory.Cloghistmsgsflushed}
+    return &(cloghistory.EntityData)
 }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetSegmentPath() string {
-    return "clogHistory"
-}
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clogHistTableMaxLength"] = cloghistory.Cloghisttablemaxlength
-    leafs["clogHistMsgsFlushed"] = cloghistory.Cloghistmsgsflushed
-    return leafs
-}
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetYangName() string { return "clogHistory" }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) SetParent(parent types.Entity) { cloghistory.parent = parent }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetParent() types.Entity { return cloghistory.parent }
-
-func (cloghistory *CISCOSYSLOGMIB_Cloghistory) GetParentYangName() string { return "CISCO-SYSLOG-MIB" }
 
 // CISCOSYSLOGMIB_Clogserver
 type CISCOSYSLOGMIB_Clogserver struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of syslog servers that can be configured for the system
@@ -362,58 +246,28 @@ type CISCOSYSLOGMIB_Clogserver struct {
     Clogmaxservers interface{}
 }
 
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetFilter() yfilter.YFilter { return clogserver.YFilter }
+func (clogserver *CISCOSYSLOGMIB_Clogserver) GetEntityData() *types.CommonEntityData {
+    clogserver.EntityData.YFilter = clogserver.YFilter
+    clogserver.EntityData.YangName = "clogServer"
+    clogserver.EntityData.BundleName = "cisco_ios_xe"
+    clogserver.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
+    clogserver.EntityData.SegmentPath = "clogServer"
+    clogserver.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clogserver.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clogserver.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (clogserver *CISCOSYSLOGMIB_Clogserver) SetFilter(yf yfilter.YFilter) { clogserver.YFilter = yf }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetGoName(yname string) string {
-    if yname == "clogMaxServers" { return "Clogmaxservers" }
-    return ""
+    clogserver.EntityData.Children = make(map[string]types.YChild)
+    clogserver.EntityData.Leafs = make(map[string]types.YLeaf)
+    clogserver.EntityData.Leafs["clogMaxServers"] = types.YLeaf{"Clogmaxservers", clogserver.Clogmaxservers}
+    return &(clogserver.EntityData)
 }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetSegmentPath() string {
-    return "clogServer"
-}
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clogMaxServers"] = clogserver.Clogmaxservers
-    return leafs
-}
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetBundleName() string { return "cisco_ios_xe" }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetYangName() string { return "clogServer" }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) SetParent(parent types.Entity) { clogserver.parent = parent }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetParent() types.Entity { return clogserver.parent }
-
-func (clogserver *CISCOSYSLOGMIB_Clogserver) GetParentYangName() string { return "CISCO-SYSLOG-MIB" }
 
 // CISCOSYSLOGMIB_Cloghistorytable
 // A table of syslog messages generated by this device.
 // All 'interesting' syslog messages (i.e. severity <=
 // clogMaxSeverity) are entered into this table.
 type CISCOSYSLOGMIB_Cloghistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A syslog message that was previously generated by this device. Each entry
@@ -422,69 +276,30 @@ type CISCOSYSLOGMIB_Cloghistorytable struct {
     Cloghistoryentry []CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry
 }
 
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetFilter() yfilter.YFilter { return cloghistorytable.YFilter }
+func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetEntityData() *types.CommonEntityData {
+    cloghistorytable.EntityData.YFilter = cloghistorytable.YFilter
+    cloghistorytable.EntityData.YangName = "clogHistoryTable"
+    cloghistorytable.EntityData.BundleName = "cisco_ios_xe"
+    cloghistorytable.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
+    cloghistorytable.EntityData.SegmentPath = "clogHistoryTable"
+    cloghistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cloghistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cloghistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) SetFilter(yf yfilter.YFilter) { cloghistorytable.YFilter = yf }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetGoName(yname string) string {
-    if yname == "clogHistoryEntry" { return "Cloghistoryentry" }
-    return ""
-}
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetSegmentPath() string {
-    return "clogHistoryTable"
-}
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "clogHistoryEntry" {
-        for _, c := range cloghistorytable.Cloghistoryentry {
-            if cloghistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry{}
-        cloghistorytable.Cloghistoryentry = append(cloghistorytable.Cloghistoryentry, child)
-        return &cloghistorytable.Cloghistoryentry[len(cloghistorytable.Cloghistoryentry)-1]
-    }
-    return nil
-}
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cloghistorytable.EntityData.Children = make(map[string]types.YChild)
+    cloghistorytable.EntityData.Children["clogHistoryEntry"] = types.YChild{"Cloghistoryentry", nil}
     for i := range cloghistorytable.Cloghistoryentry {
-        children[cloghistorytable.Cloghistoryentry[i].GetSegmentPath()] = &cloghistorytable.Cloghistoryentry[i]
+        cloghistorytable.EntityData.Children[types.GetSegmentPath(&cloghistorytable.Cloghistoryentry[i])] = types.YChild{"Cloghistoryentry", &cloghistorytable.Cloghistoryentry[i]}
     }
-    return children
+    cloghistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cloghistorytable.EntityData)
 }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetYangName() string { return "clogHistoryTable" }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) SetParent(parent types.Entity) { cloghistorytable.parent = parent }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetParent() types.Entity { return cloghistorytable.parent }
-
-func (cloghistorytable *CISCOSYSLOGMIB_Cloghistorytable) GetParentYangName() string { return "CISCO-SYSLOG-MIB" }
 
 // CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry
 // A syslog message that was previously generated by this
 // device. Each entry is indexed by a message index.
 type CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer for the sole
@@ -516,61 +331,26 @@ type CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry struct {
     Cloghisttimestamp interface{}
 }
 
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetFilter() yfilter.YFilter { return cloghistoryentry.YFilter }
+func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetEntityData() *types.CommonEntityData {
+    cloghistoryentry.EntityData.YFilter = cloghistoryentry.YFilter
+    cloghistoryentry.EntityData.YangName = "clogHistoryEntry"
+    cloghistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    cloghistoryentry.EntityData.ParentYangName = "clogHistoryTable"
+    cloghistoryentry.EntityData.SegmentPath = "clogHistoryEntry" + "[clogHistIndex='" + fmt.Sprintf("%v", cloghistoryentry.Cloghistindex) + "']"
+    cloghistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cloghistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cloghistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) SetFilter(yf yfilter.YFilter) { cloghistoryentry.YFilter = yf }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetGoName(yname string) string {
-    if yname == "clogHistIndex" { return "Cloghistindex" }
-    if yname == "clogHistFacility" { return "Cloghistfacility" }
-    if yname == "clogHistSeverity" { return "Cloghistseverity" }
-    if yname == "clogHistMsgName" { return "Cloghistmsgname" }
-    if yname == "clogHistMsgText" { return "Cloghistmsgtext" }
-    if yname == "clogHistTimestamp" { return "Cloghisttimestamp" }
-    return ""
+    cloghistoryentry.EntityData.Children = make(map[string]types.YChild)
+    cloghistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cloghistoryentry.EntityData.Leafs["clogHistIndex"] = types.YLeaf{"Cloghistindex", cloghistoryentry.Cloghistindex}
+    cloghistoryentry.EntityData.Leafs["clogHistFacility"] = types.YLeaf{"Cloghistfacility", cloghistoryentry.Cloghistfacility}
+    cloghistoryentry.EntityData.Leafs["clogHistSeverity"] = types.YLeaf{"Cloghistseverity", cloghistoryentry.Cloghistseverity}
+    cloghistoryentry.EntityData.Leafs["clogHistMsgName"] = types.YLeaf{"Cloghistmsgname", cloghistoryentry.Cloghistmsgname}
+    cloghistoryentry.EntityData.Leafs["clogHistMsgText"] = types.YLeaf{"Cloghistmsgtext", cloghistoryentry.Cloghistmsgtext}
+    cloghistoryentry.EntityData.Leafs["clogHistTimestamp"] = types.YLeaf{"Cloghisttimestamp", cloghistoryentry.Cloghisttimestamp}
+    return &(cloghistoryentry.EntityData)
 }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetSegmentPath() string {
-    return "clogHistoryEntry" + "[clogHistIndex='" + fmt.Sprintf("%v", cloghistoryentry.Cloghistindex) + "']"
-}
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clogHistIndex"] = cloghistoryentry.Cloghistindex
-    leafs["clogHistFacility"] = cloghistoryentry.Cloghistfacility
-    leafs["clogHistSeverity"] = cloghistoryentry.Cloghistseverity
-    leafs["clogHistMsgName"] = cloghistoryentry.Cloghistmsgname
-    leafs["clogHistMsgText"] = cloghistoryentry.Cloghistmsgtext
-    leafs["clogHistTimestamp"] = cloghistoryentry.Cloghisttimestamp
-    return leafs
-}
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetYangName() string { return "clogHistoryEntry" }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) SetParent(parent types.Entity) { cloghistoryentry.parent = parent }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetParent() types.Entity { return cloghistoryentry.parent }
-
-func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetParentYangName() string { return "clogHistoryTable" }
 
 // CISCOSYSLOGMIB_Clogserverconfigtable
 // This table contains entries that allow application
@@ -580,7 +360,7 @@ func (cloghistoryentry *CISCOSYSLOGMIB_Cloghistorytable_Cloghistoryentry) GetPar
 // for this table is limited by the object
 // clogMaxServers.
 type CISCOSYSLOGMIB_Clogserverconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing information about syslog servers configured for the
@@ -589,69 +369,30 @@ type CISCOSYSLOGMIB_Clogserverconfigtable struct {
     Clogserverconfigentry []CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry
 }
 
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetFilter() yfilter.YFilter { return clogserverconfigtable.YFilter }
+func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetEntityData() *types.CommonEntityData {
+    clogserverconfigtable.EntityData.YFilter = clogserverconfigtable.YFilter
+    clogserverconfigtable.EntityData.YangName = "clogServerConfigTable"
+    clogserverconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    clogserverconfigtable.EntityData.ParentYangName = "CISCO-SYSLOG-MIB"
+    clogserverconfigtable.EntityData.SegmentPath = "clogServerConfigTable"
+    clogserverconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clogserverconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clogserverconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) SetFilter(yf yfilter.YFilter) { clogserverconfigtable.YFilter = yf }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetGoName(yname string) string {
-    if yname == "clogServerConfigEntry" { return "Clogserverconfigentry" }
-    return ""
-}
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetSegmentPath() string {
-    return "clogServerConfigTable"
-}
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "clogServerConfigEntry" {
-        for _, c := range clogserverconfigtable.Clogserverconfigentry {
-            if clogserverconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry{}
-        clogserverconfigtable.Clogserverconfigentry = append(clogserverconfigtable.Clogserverconfigentry, child)
-        return &clogserverconfigtable.Clogserverconfigentry[len(clogserverconfigtable.Clogserverconfigentry)-1]
-    }
-    return nil
-}
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clogserverconfigtable.EntityData.Children = make(map[string]types.YChild)
+    clogserverconfigtable.EntityData.Children["clogServerConfigEntry"] = types.YChild{"Clogserverconfigentry", nil}
     for i := range clogserverconfigtable.Clogserverconfigentry {
-        children[clogserverconfigtable.Clogserverconfigentry[i].GetSegmentPath()] = &clogserverconfigtable.Clogserverconfigentry[i]
+        clogserverconfigtable.EntityData.Children[types.GetSegmentPath(&clogserverconfigtable.Clogserverconfigentry[i])] = types.YChild{"Clogserverconfigentry", &clogserverconfigtable.Clogserverconfigentry[i]}
     }
-    return children
+    clogserverconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clogserverconfigtable.EntityData)
 }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetYangName() string { return "clogServerConfigTable" }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) SetParent(parent types.Entity) { clogserverconfigtable.parent = parent }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetParent() types.Entity { return clogserverconfigtable.parent }
-
-func (clogserverconfigtable *CISCOSYSLOGMIB_Clogserverconfigtable) GetParentYangName() string { return "CISCO-SYSLOG-MIB" }
 
 // CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry
 // An entry containing information about syslog servers
 // configured for the system.
 type CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of Internet address of this syslog
@@ -669,53 +410,21 @@ type CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry struct {
     Clogserverstatus interface{}
 }
 
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetFilter() yfilter.YFilter { return clogserverconfigentry.YFilter }
+func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetEntityData() *types.CommonEntityData {
+    clogserverconfigentry.EntityData.YFilter = clogserverconfigentry.YFilter
+    clogserverconfigentry.EntityData.YangName = "clogServerConfigEntry"
+    clogserverconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    clogserverconfigentry.EntityData.ParentYangName = "clogServerConfigTable"
+    clogserverconfigentry.EntityData.SegmentPath = "clogServerConfigEntry" + "[clogServerAddrType='" + fmt.Sprintf("%v", clogserverconfigentry.Clogserveraddrtype) + "']" + "[clogServerAddr='" + fmt.Sprintf("%v", clogserverconfigentry.Clogserveraddr) + "']"
+    clogserverconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clogserverconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clogserverconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) SetFilter(yf yfilter.YFilter) { clogserverconfigentry.YFilter = yf }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetGoName(yname string) string {
-    if yname == "clogServerAddrType" { return "Clogserveraddrtype" }
-    if yname == "clogServerAddr" { return "Clogserveraddr" }
-    if yname == "clogServerStatus" { return "Clogserverstatus" }
-    return ""
+    clogserverconfigentry.EntityData.Children = make(map[string]types.YChild)
+    clogserverconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    clogserverconfigentry.EntityData.Leafs["clogServerAddrType"] = types.YLeaf{"Clogserveraddrtype", clogserverconfigentry.Clogserveraddrtype}
+    clogserverconfigentry.EntityData.Leafs["clogServerAddr"] = types.YLeaf{"Clogserveraddr", clogserverconfigentry.Clogserveraddr}
+    clogserverconfigentry.EntityData.Leafs["clogServerStatus"] = types.YLeaf{"Clogserverstatus", clogserverconfigentry.Clogserverstatus}
+    return &(clogserverconfigentry.EntityData)
 }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetSegmentPath() string {
-    return "clogServerConfigEntry" + "[clogServerAddrType='" + fmt.Sprintf("%v", clogserverconfigentry.Clogserveraddrtype) + "']" + "[clogServerAddr='" + fmt.Sprintf("%v", clogserverconfigentry.Clogserveraddr) + "']"
-}
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clogServerAddrType"] = clogserverconfigentry.Clogserveraddrtype
-    leafs["clogServerAddr"] = clogserverconfigentry.Clogserveraddr
-    leafs["clogServerStatus"] = clogserverconfigentry.Clogserverstatus
-    return leafs
-}
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetYangName() string { return "clogServerConfigEntry" }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) SetParent(parent types.Entity) { clogserverconfigentry.parent = parent }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetParent() types.Entity { return clogserverconfigentry.parent }
-
-func (clogserverconfigentry *CISCOSYSLOGMIB_Clogserverconfigtable_Clogserverconfigentry) GetParentYangName() string { return "clogServerConfigTable" }
 

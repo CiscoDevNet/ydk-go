@@ -24,58 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ppp-ma-oper:ppp", reflect.TypeOf(Ppp{}))
 }
 
-// NcpIdent represents Ncp ident
-type NcpIdent string
-
-const (
-    // CDP control protocol
-    NcpIdent_cdpcp NcpIdent = "cdpcp"
-
-    // IPv4 control protocol
-    NcpIdent_ipcp NcpIdent = "ipcp"
-
-    // IPv4 Interworking control protocol
-    NcpIdent_ipcpiw NcpIdent = "ipcpiw"
-
-    // IPv6 control protocol
-    NcpIdent_ipv6cp NcpIdent = "ipv6cp"
-
-    // MPLS control protocol
-    NcpIdent_mplscp NcpIdent = "mplscp"
-
-    // OSI (CLNS) control protocol
-    NcpIdent_osicp NcpIdent = "osicp"
-)
-
-// PppSsoFsmState represents Ppp sso fsm state
-type PppSsoFsmState string
-
-const (
-    // Not ready
-    PppSsoFsmState_ppp_sso_state_not_ready_0 PppSsoFsmState = "ppp-sso-state-not-ready-0"
-
-    // S UnNegd
-    PppSsoFsmState_ppp_sso_state_standby_unnegd_1 PppSsoFsmState = "ppp-sso-state-standby-unnegd-1"
-
-    // A Down
-    PppSsoFsmState_ppp_sso_state_active_down_2 PppSsoFsmState = "ppp-sso-state-active-down-2"
-
-    // Deactivating
-    PppSsoFsmState_ppp_sso_state_deactivating_3 PppSsoFsmState = "ppp-sso-state-deactivating-3"
-
-    // A UnNegd
-    PppSsoFsmState_ppp_sso_state_active_unnegd_4 PppSsoFsmState = "ppp-sso-state-active-unnegd-4"
-
-    // S Negd
-    PppSsoFsmState_ppp_sso_state_standby_negd_5 PppSsoFsmState = "ppp-sso-state-standby-negd-5"
-
-    // Activating
-    PppSsoFsmState_ppp_sso_state_activating_6 PppSsoFsmState = "ppp-sso-state-activating-6"
-
-    // A Negd
-    PppSsoFsmState_ppp_sso_state_active_negd_7 PppSsoFsmState = "ppp-sso-state-active-negd-7"
-)
-
 // PppIphcCompression represents IPHC compression type
 type PppIphcCompression string
 
@@ -94,41 +42,6 @@ const (
 
     // CISCO
     PppIphcCompression_ppp_iphc_compression_fmt_cisco PppIphcCompression = "ppp-iphc-compression-fmt-cisco"
-)
-
-// PppFsmState represents Ppp fsm state
-type PppFsmState string
-
-const (
-    // Connection Idle
-    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
-
-    // This layer required, but lower layer down
-    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
-
-    // Lower layer up, but this layer not required
-    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
-
-    // Listening for a Config Request
-    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
-
-    // Shutting down due to local change
-    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
-
-    // Shutting down due to peer's actions
-    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
-
-    // Config Request Sent
-    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
-
-    // Config Ack Received
-    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
-
-    // Config Ack Sent
-    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
-
-    // Connection Open
-    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
 )
 
 // PppLcpMpMbrState represents MP member states
@@ -178,69 +91,123 @@ const (
     PppLcpMpMbrState_ppp_lcp_mp_mbr_state_active PppLcpMpMbrState = "ppp-lcp-mp-mbr-state-active"
 )
 
+// PppSsoFsmState represents Ppp sso fsm state
+type PppSsoFsmState string
+
+const (
+    // Not ready
+    PppSsoFsmState_ppp_sso_state_not_ready_0 PppSsoFsmState = "ppp-sso-state-not-ready-0"
+
+    // S UnNegd
+    PppSsoFsmState_ppp_sso_state_standby_unnegd_1 PppSsoFsmState = "ppp-sso-state-standby-unnegd-1"
+
+    // A Down
+    PppSsoFsmState_ppp_sso_state_active_down_2 PppSsoFsmState = "ppp-sso-state-active-down-2"
+
+    // Deactivating
+    PppSsoFsmState_ppp_sso_state_deactivating_3 PppSsoFsmState = "ppp-sso-state-deactivating-3"
+
+    // A UnNegd
+    PppSsoFsmState_ppp_sso_state_active_unnegd_4 PppSsoFsmState = "ppp-sso-state-active-unnegd-4"
+
+    // S Negd
+    PppSsoFsmState_ppp_sso_state_standby_negd_5 PppSsoFsmState = "ppp-sso-state-standby-negd-5"
+
+    // Activating
+    PppSsoFsmState_ppp_sso_state_activating_6 PppSsoFsmState = "ppp-sso-state-activating-6"
+
+    // A Negd
+    PppSsoFsmState_ppp_sso_state_active_negd_7 PppSsoFsmState = "ppp-sso-state-active-negd-7"
+)
+
+// PppFsmState represents Ppp fsm state
+type PppFsmState string
+
+const (
+    // Connection Idle
+    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
+
+    // This layer required, but lower layer down
+    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
+
+    // Lower layer up, but this layer not required
+    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
+
+    // Listening for a Config Request
+    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
+
+    // Shutting down due to local change
+    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
+
+    // Shutting down due to peer's actions
+    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
+
+    // Config Request Sent
+    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
+
+    // Config Ack Received
+    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
+
+    // Config Ack Sent
+    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
+
+    // Connection Open
+    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
+)
+
+// NcpIdent represents Ncp ident
+type NcpIdent string
+
+const (
+    // CDP control protocol
+    NcpIdent_cdpcp NcpIdent = "cdpcp"
+
+    // IPv4 control protocol
+    NcpIdent_ipcp NcpIdent = "ipcp"
+
+    // IPv4 Interworking control protocol
+    NcpIdent_ipcpiw NcpIdent = "ipcpiw"
+
+    // IPv6 control protocol
+    NcpIdent_ipv6cp NcpIdent = "ipv6cp"
+
+    // MPLS control protocol
+    NcpIdent_mplscp NcpIdent = "mplscp"
+
+    // OSI (CLNS) control protocol
+    NcpIdent_osicp NcpIdent = "osicp"
+)
+
 // Ppp
 // PPP operational data
 type Ppp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per node PPP operational data.
     Nodes Ppp_Nodes
 }
 
-func (ppp *Ppp) GetFilter() yfilter.YFilter { return ppp.YFilter }
+func (ppp *Ppp) GetEntityData() *types.CommonEntityData {
+    ppp.EntityData.YFilter = ppp.YFilter
+    ppp.EntityData.YangName = "ppp"
+    ppp.EntityData.BundleName = "cisco_ios_xr"
+    ppp.EntityData.ParentYangName = "Cisco-IOS-XR-ppp-ma-oper"
+    ppp.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-oper:ppp"
+    ppp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ppp *Ppp) SetFilter(yf yfilter.YFilter) { ppp.YFilter = yf }
-
-func (ppp *Ppp) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    ppp.EntityData.Children = make(map[string]types.YChild)
+    ppp.EntityData.Children["nodes"] = types.YChild{"Nodes", &ppp.Nodes}
+    ppp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ppp.EntityData)
 }
-
-func (ppp *Ppp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ppp-ma-oper:ppp"
-}
-
-func (ppp *Ppp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &ppp.Nodes
-    }
-    return nil
-}
-
-func (ppp *Ppp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &ppp.Nodes
-    return children
-}
-
-func (ppp *Ppp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ppp *Ppp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ppp *Ppp) GetYangName() string { return "ppp" }
-
-func (ppp *Ppp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ppp *Ppp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ppp *Ppp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ppp *Ppp) SetParent(parent types.Entity) { ppp.parent = parent }
-
-func (ppp *Ppp) GetParent() types.Entity { return ppp.parent }
-
-func (ppp *Ppp) GetParentYangName() string { return "Cisco-IOS-XR-ppp-ma-oper" }
 
 // Ppp_Nodes
 // Per node PPP operational data
 type Ppp_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The PPP operational data for a particular node. The type is slice of
@@ -248,72 +215,33 @@ type Ppp_Nodes struct {
     Node []Ppp_Nodes_Node
 }
 
-func (nodes *Ppp_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Ppp_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "ppp"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Ppp_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Ppp_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Ppp_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Ppp_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Ppp_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Ppp_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Ppp_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Ppp_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Ppp_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Ppp_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Ppp_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Ppp_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Ppp_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Ppp_Nodes) GetParentYangName() string { return "ppp" }
 
 // Ppp_Nodes_Node
 // The PPP operational data for a particular node
 type Ppp_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // PPP statistics data for a particular node.
@@ -338,91 +266,33 @@ type Ppp_Nodes_Node struct {
     Summary Ppp_Nodes_Node_Summary
 }
 
-func (node *Ppp_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Ppp_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Ppp_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Ppp_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "node-interfaces" { return "NodeInterfaces" }
-    if yname == "sso-alerts" { return "SsoAlerts" }
-    if yname == "node-interface-statistics" { return "NodeInterfaceStatistics" }
-    if yname == "sso-summary" { return "SsoSummary" }
-    if yname == "sso-groups" { return "SsoGroups" }
-    if yname == "summary" { return "Summary" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
+    node.EntityData.Children["node-interfaces"] = types.YChild{"NodeInterfaces", &node.NodeInterfaces}
+    node.EntityData.Children["sso-alerts"] = types.YChild{"SsoAlerts", &node.SsoAlerts}
+    node.EntityData.Children["node-interface-statistics"] = types.YChild{"NodeInterfaceStatistics", &node.NodeInterfaceStatistics}
+    node.EntityData.Children["sso-summary"] = types.YChild{"SsoSummary", &node.SsoSummary}
+    node.EntityData.Children["sso-groups"] = types.YChild{"SsoGroups", &node.SsoGroups}
+    node.EntityData.Children["summary"] = types.YChild{"Summary", &node.Summary}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Ppp_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Ppp_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &node.Statistics
-    }
-    if childYangName == "node-interfaces" {
-        return &node.NodeInterfaces
-    }
-    if childYangName == "sso-alerts" {
-        return &node.SsoAlerts
-    }
-    if childYangName == "node-interface-statistics" {
-        return &node.NodeInterfaceStatistics
-    }
-    if childYangName == "sso-summary" {
-        return &node.SsoSummary
-    }
-    if childYangName == "sso-groups" {
-        return &node.SsoGroups
-    }
-    if childYangName == "summary" {
-        return &node.Summary
-    }
-    return nil
-}
-
-func (node *Ppp_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &node.Statistics
-    children["node-interfaces"] = &node.NodeInterfaces
-    children["sso-alerts"] = &node.SsoAlerts
-    children["node-interface-statistics"] = &node.NodeInterfaceStatistics
-    children["sso-summary"] = &node.SsoSummary
-    children["sso-groups"] = &node.SsoGroups
-    children["summary"] = &node.Summary
-    return children
-}
-
-func (node *Ppp_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Ppp_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Ppp_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Ppp_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Ppp_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Ppp_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Ppp_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Ppp_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Ppp_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Ppp_Nodes_Node_Statistics
 // PPP statistics data for a particular node
 type Ppp_Nodes_Node_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPP LCP Statistics.
@@ -436,78 +306,31 @@ type Ppp_Nodes_Node_Statistics struct {
     NcpStatisticsArray []Ppp_Nodes_Node_Statistics_NcpStatisticsArray
 }
 
-func (statistics *Ppp_Nodes_Node_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Ppp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "node"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Ppp_Nodes_Node_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetGoName(yname string) string {
-    if yname == "lcp-statistics" { return "LcpStatistics" }
-    if yname == "authentication-statistics" { return "AuthenticationStatistics" }
-    if yname == "ncp-statistics-array" { return "NcpStatisticsArray" }
-    return ""
-}
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lcp-statistics" {
-        return &statistics.LcpStatistics
-    }
-    if childYangName == "authentication-statistics" {
-        return &statistics.AuthenticationStatistics
-    }
-    if childYangName == "ncp-statistics-array" {
-        for _, c := range statistics.NcpStatisticsArray {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_Statistics_NcpStatisticsArray{}
-        statistics.NcpStatisticsArray = append(statistics.NcpStatisticsArray, child)
-        return &statistics.NcpStatisticsArray[len(statistics.NcpStatisticsArray)-1]
-    }
-    return nil
-}
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lcp-statistics"] = &statistics.LcpStatistics
-    children["authentication-statistics"] = &statistics.AuthenticationStatistics
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["lcp-statistics"] = types.YChild{"LcpStatistics", &statistics.LcpStatistics}
+    statistics.EntityData.Children["authentication-statistics"] = types.YChild{"AuthenticationStatistics", &statistics.AuthenticationStatistics}
+    statistics.EntityData.Children["ncp-statistics-array"] = types.YChild{"NcpStatisticsArray", nil}
     for i := range statistics.NcpStatisticsArray {
-        children[statistics.NcpStatisticsArray[i].GetSegmentPath()] = &statistics.NcpStatisticsArray[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.NcpStatisticsArray[i])] = types.YChild{"NcpStatisticsArray", &statistics.NcpStatisticsArray[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Ppp_Nodes_Node_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Ppp_Nodes_Node_Statistics) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_Statistics_LcpStatistics
 // PPP LCP Statistics
 type Ppp_Nodes_Node_Statistics_LcpStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Conf Req Packets Sent. The type is interface{} with range:
@@ -607,102 +430,49 @@ type Ppp_Nodes_Node_Statistics_LcpStatistics struct {
     LinkError interface{}
 }
 
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetFilter() yfilter.YFilter { return lcpStatistics.YFilter }
+func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetEntityData() *types.CommonEntityData {
+    lcpStatistics.EntityData.YFilter = lcpStatistics.YFilter
+    lcpStatistics.EntityData.YangName = "lcp-statistics"
+    lcpStatistics.EntityData.BundleName = "cisco_ios_xr"
+    lcpStatistics.EntityData.ParentYangName = "statistics"
+    lcpStatistics.EntityData.SegmentPath = "lcp-statistics"
+    lcpStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) SetFilter(yf yfilter.YFilter) { lcpStatistics.YFilter = yf }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetGoName(yname string) string {
-    if yname == "conf-req-sent" { return "ConfReqSent" }
-    if yname == "conf-req-rcvd" { return "ConfReqRcvd" }
-    if yname == "conf-ack-sent" { return "ConfAckSent" }
-    if yname == "conf-ack-rcvd" { return "ConfAckRcvd" }
-    if yname == "conf-nak-sent" { return "ConfNakSent" }
-    if yname == "conf-nak-rcvd" { return "ConfNakRcvd" }
-    if yname == "conf-rej-sent" { return "ConfRejSent" }
-    if yname == "conf-rej-rcvd" { return "ConfRejRcvd" }
-    if yname == "term-req-sent" { return "TermReqSent" }
-    if yname == "term-req-rcvd" { return "TermReqRcvd" }
-    if yname == "term-ack-sent" { return "TermAckSent" }
-    if yname == "term-ack-rcvd" { return "TermAckRcvd" }
-    if yname == "code-rej-sent" { return "CodeRejSent" }
-    if yname == "code-rej-rcvd" { return "CodeRejRcvd" }
-    if yname == "proto-rej-sent" { return "ProtoRejSent" }
-    if yname == "proto-rej-rcvd" { return "ProtoRejRcvd" }
-    if yname == "echo-req-sent" { return "EchoReqSent" }
-    if yname == "echo-req-rcvd" { return "EchoReqRcvd" }
-    if yname == "echo-rep-sent" { return "EchoRepSent" }
-    if yname == "echo-rep-rcvd" { return "EchoRepRcvd" }
-    if yname == "disc-req-sent" { return "DiscReqSent" }
-    if yname == "disc-req-rcvd" { return "DiscReqRcvd" }
-    if yname == "link-up" { return "LinkUp" }
-    if yname == "link-error" { return "LinkError" }
-    return ""
+    lcpStatistics.EntityData.Children = make(map[string]types.YChild)
+    lcpStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpStatistics.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", lcpStatistics.ConfReqSent}
+    lcpStatistics.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", lcpStatistics.ConfReqRcvd}
+    lcpStatistics.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", lcpStatistics.ConfAckSent}
+    lcpStatistics.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", lcpStatistics.ConfAckRcvd}
+    lcpStatistics.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", lcpStatistics.ConfNakSent}
+    lcpStatistics.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", lcpStatistics.ConfNakRcvd}
+    lcpStatistics.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", lcpStatistics.ConfRejSent}
+    lcpStatistics.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", lcpStatistics.ConfRejRcvd}
+    lcpStatistics.EntityData.Leafs["term-req-sent"] = types.YLeaf{"TermReqSent", lcpStatistics.TermReqSent}
+    lcpStatistics.EntityData.Leafs["term-req-rcvd"] = types.YLeaf{"TermReqRcvd", lcpStatistics.TermReqRcvd}
+    lcpStatistics.EntityData.Leafs["term-ack-sent"] = types.YLeaf{"TermAckSent", lcpStatistics.TermAckSent}
+    lcpStatistics.EntityData.Leafs["term-ack-rcvd"] = types.YLeaf{"TermAckRcvd", lcpStatistics.TermAckRcvd}
+    lcpStatistics.EntityData.Leafs["code-rej-sent"] = types.YLeaf{"CodeRejSent", lcpStatistics.CodeRejSent}
+    lcpStatistics.EntityData.Leafs["code-rej-rcvd"] = types.YLeaf{"CodeRejRcvd", lcpStatistics.CodeRejRcvd}
+    lcpStatistics.EntityData.Leafs["proto-rej-sent"] = types.YLeaf{"ProtoRejSent", lcpStatistics.ProtoRejSent}
+    lcpStatistics.EntityData.Leafs["proto-rej-rcvd"] = types.YLeaf{"ProtoRejRcvd", lcpStatistics.ProtoRejRcvd}
+    lcpStatistics.EntityData.Leafs["echo-req-sent"] = types.YLeaf{"EchoReqSent", lcpStatistics.EchoReqSent}
+    lcpStatistics.EntityData.Leafs["echo-req-rcvd"] = types.YLeaf{"EchoReqRcvd", lcpStatistics.EchoReqRcvd}
+    lcpStatistics.EntityData.Leafs["echo-rep-sent"] = types.YLeaf{"EchoRepSent", lcpStatistics.EchoRepSent}
+    lcpStatistics.EntityData.Leafs["echo-rep-rcvd"] = types.YLeaf{"EchoRepRcvd", lcpStatistics.EchoRepRcvd}
+    lcpStatistics.EntityData.Leafs["disc-req-sent"] = types.YLeaf{"DiscReqSent", lcpStatistics.DiscReqSent}
+    lcpStatistics.EntityData.Leafs["disc-req-rcvd"] = types.YLeaf{"DiscReqRcvd", lcpStatistics.DiscReqRcvd}
+    lcpStatistics.EntityData.Leafs["link-up"] = types.YLeaf{"LinkUp", lcpStatistics.LinkUp}
+    lcpStatistics.EntityData.Leafs["link-error"] = types.YLeaf{"LinkError", lcpStatistics.LinkError}
+    return &(lcpStatistics.EntityData)
 }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetSegmentPath() string {
-    return "lcp-statistics"
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["conf-req-sent"] = lcpStatistics.ConfReqSent
-    leafs["conf-req-rcvd"] = lcpStatistics.ConfReqRcvd
-    leafs["conf-ack-sent"] = lcpStatistics.ConfAckSent
-    leafs["conf-ack-rcvd"] = lcpStatistics.ConfAckRcvd
-    leafs["conf-nak-sent"] = lcpStatistics.ConfNakSent
-    leafs["conf-nak-rcvd"] = lcpStatistics.ConfNakRcvd
-    leafs["conf-rej-sent"] = lcpStatistics.ConfRejSent
-    leafs["conf-rej-rcvd"] = lcpStatistics.ConfRejRcvd
-    leafs["term-req-sent"] = lcpStatistics.TermReqSent
-    leafs["term-req-rcvd"] = lcpStatistics.TermReqRcvd
-    leafs["term-ack-sent"] = lcpStatistics.TermAckSent
-    leafs["term-ack-rcvd"] = lcpStatistics.TermAckRcvd
-    leafs["code-rej-sent"] = lcpStatistics.CodeRejSent
-    leafs["code-rej-rcvd"] = lcpStatistics.CodeRejRcvd
-    leafs["proto-rej-sent"] = lcpStatistics.ProtoRejSent
-    leafs["proto-rej-rcvd"] = lcpStatistics.ProtoRejRcvd
-    leafs["echo-req-sent"] = lcpStatistics.EchoReqSent
-    leafs["echo-req-rcvd"] = lcpStatistics.EchoReqRcvd
-    leafs["echo-rep-sent"] = lcpStatistics.EchoRepSent
-    leafs["echo-rep-rcvd"] = lcpStatistics.EchoRepRcvd
-    leafs["disc-req-sent"] = lcpStatistics.DiscReqSent
-    leafs["disc-req-rcvd"] = lcpStatistics.DiscReqRcvd
-    leafs["link-up"] = lcpStatistics.LinkUp
-    leafs["link-error"] = lcpStatistics.LinkError
-    return leafs
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetYangName() string { return "lcp-statistics" }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) SetParent(parent types.Entity) { lcpStatistics.parent = parent }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetParent() types.Entity { return lcpStatistics.parent }
-
-func (lcpStatistics *Ppp_Nodes_Node_Statistics_LcpStatistics) GetParentYangName() string { return "statistics" }
 
 // Ppp_Nodes_Node_Statistics_AuthenticationStatistics
 // PPP Authentication statistics
 type Ppp_Nodes_Node_Statistics_AuthenticationStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PAP Request packets sent. The type is interface{} with range:
@@ -766,84 +536,40 @@ type Ppp_Nodes_Node_Statistics_AuthenticationStatistics struct {
     AuthTimeoutCount interface{}
 }
 
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetFilter() yfilter.YFilter { return authenticationStatistics.YFilter }
+func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetEntityData() *types.CommonEntityData {
+    authenticationStatistics.EntityData.YFilter = authenticationStatistics.YFilter
+    authenticationStatistics.EntityData.YangName = "authentication-statistics"
+    authenticationStatistics.EntityData.BundleName = "cisco_ios_xr"
+    authenticationStatistics.EntityData.ParentYangName = "statistics"
+    authenticationStatistics.EntityData.SegmentPath = "authentication-statistics"
+    authenticationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) SetFilter(yf yfilter.YFilter) { authenticationStatistics.YFilter = yf }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetGoName(yname string) string {
-    if yname == "pap-req-sent" { return "PapReqSent" }
-    if yname == "pap-req-rcvd" { return "PapReqRcvd" }
-    if yname == "pap-ack-sent" { return "PapAckSent" }
-    if yname == "pap-ack-rcvd" { return "PapAckRcvd" }
-    if yname == "pap-nak-sent" { return "PapNakSent" }
-    if yname == "pap-nak-rcvd" { return "PapNakRcvd" }
-    if yname == "chap-chall-sent" { return "ChapChallSent" }
-    if yname == "chap-chall-rcvd" { return "ChapChallRcvd" }
-    if yname == "chap-resp-sent" { return "ChapRespSent" }
-    if yname == "chap-resp-rcvd" { return "ChapRespRcvd" }
-    if yname == "chap-rep-succ-sent" { return "ChapRepSuccSent" }
-    if yname == "chap-rep-succ-rcvd" { return "ChapRepSuccRcvd" }
-    if yname == "chap-rep-fail-sent" { return "ChapRepFailSent" }
-    if yname == "chap-rep-fail-rcvd" { return "ChapRepFailRcvd" }
-    if yname == "auth-timeout-count" { return "AuthTimeoutCount" }
-    return ""
+    authenticationStatistics.EntityData.Children = make(map[string]types.YChild)
+    authenticationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticationStatistics.EntityData.Leafs["pap-req-sent"] = types.YLeaf{"PapReqSent", authenticationStatistics.PapReqSent}
+    authenticationStatistics.EntityData.Leafs["pap-req-rcvd"] = types.YLeaf{"PapReqRcvd", authenticationStatistics.PapReqRcvd}
+    authenticationStatistics.EntityData.Leafs["pap-ack-sent"] = types.YLeaf{"PapAckSent", authenticationStatistics.PapAckSent}
+    authenticationStatistics.EntityData.Leafs["pap-ack-rcvd"] = types.YLeaf{"PapAckRcvd", authenticationStatistics.PapAckRcvd}
+    authenticationStatistics.EntityData.Leafs["pap-nak-sent"] = types.YLeaf{"PapNakSent", authenticationStatistics.PapNakSent}
+    authenticationStatistics.EntityData.Leafs["pap-nak-rcvd"] = types.YLeaf{"PapNakRcvd", authenticationStatistics.PapNakRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-chall-sent"] = types.YLeaf{"ChapChallSent", authenticationStatistics.ChapChallSent}
+    authenticationStatistics.EntityData.Leafs["chap-chall-rcvd"] = types.YLeaf{"ChapChallRcvd", authenticationStatistics.ChapChallRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-resp-sent"] = types.YLeaf{"ChapRespSent", authenticationStatistics.ChapRespSent}
+    authenticationStatistics.EntityData.Leafs["chap-resp-rcvd"] = types.YLeaf{"ChapRespRcvd", authenticationStatistics.ChapRespRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-rep-succ-sent"] = types.YLeaf{"ChapRepSuccSent", authenticationStatistics.ChapRepSuccSent}
+    authenticationStatistics.EntityData.Leafs["chap-rep-succ-rcvd"] = types.YLeaf{"ChapRepSuccRcvd", authenticationStatistics.ChapRepSuccRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-rep-fail-sent"] = types.YLeaf{"ChapRepFailSent", authenticationStatistics.ChapRepFailSent}
+    authenticationStatistics.EntityData.Leafs["chap-rep-fail-rcvd"] = types.YLeaf{"ChapRepFailRcvd", authenticationStatistics.ChapRepFailRcvd}
+    authenticationStatistics.EntityData.Leafs["auth-timeout-count"] = types.YLeaf{"AuthTimeoutCount", authenticationStatistics.AuthTimeoutCount}
+    return &(authenticationStatistics.EntityData)
 }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetSegmentPath() string {
-    return "authentication-statistics"
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pap-req-sent"] = authenticationStatistics.PapReqSent
-    leafs["pap-req-rcvd"] = authenticationStatistics.PapReqRcvd
-    leafs["pap-ack-sent"] = authenticationStatistics.PapAckSent
-    leafs["pap-ack-rcvd"] = authenticationStatistics.PapAckRcvd
-    leafs["pap-nak-sent"] = authenticationStatistics.PapNakSent
-    leafs["pap-nak-rcvd"] = authenticationStatistics.PapNakRcvd
-    leafs["chap-chall-sent"] = authenticationStatistics.ChapChallSent
-    leafs["chap-chall-rcvd"] = authenticationStatistics.ChapChallRcvd
-    leafs["chap-resp-sent"] = authenticationStatistics.ChapRespSent
-    leafs["chap-resp-rcvd"] = authenticationStatistics.ChapRespRcvd
-    leafs["chap-rep-succ-sent"] = authenticationStatistics.ChapRepSuccSent
-    leafs["chap-rep-succ-rcvd"] = authenticationStatistics.ChapRepSuccRcvd
-    leafs["chap-rep-fail-sent"] = authenticationStatistics.ChapRepFailSent
-    leafs["chap-rep-fail-rcvd"] = authenticationStatistics.ChapRepFailRcvd
-    leafs["auth-timeout-count"] = authenticationStatistics.AuthTimeoutCount
-    return leafs
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetYangName() string { return "authentication-statistics" }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) SetParent(parent types.Entity) { authenticationStatistics.parent = parent }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetParent() types.Entity { return authenticationStatistics.parent }
-
-func (authenticationStatistics *Ppp_Nodes_Node_Statistics_AuthenticationStatistics) GetParentYangName() string { return "statistics" }
 
 // Ppp_Nodes_Node_Statistics_NcpStatisticsArray
 // Array of PPP NCP Statistics
 type Ppp_Nodes_Node_Statistics_NcpStatisticsArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NCP identifier. The type is NcpIdent.
@@ -906,84 +632,40 @@ type Ppp_Nodes_Node_Statistics_NcpStatisticsArray struct {
     ProtoRejRcvd interface{}
 }
 
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetFilter() yfilter.YFilter { return ncpStatisticsArray.YFilter }
+func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetEntityData() *types.CommonEntityData {
+    ncpStatisticsArray.EntityData.YFilter = ncpStatisticsArray.YFilter
+    ncpStatisticsArray.EntityData.YangName = "ncp-statistics-array"
+    ncpStatisticsArray.EntityData.BundleName = "cisco_ios_xr"
+    ncpStatisticsArray.EntityData.ParentYangName = "statistics"
+    ncpStatisticsArray.EntityData.SegmentPath = "ncp-statistics-array"
+    ncpStatisticsArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ncpStatisticsArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ncpStatisticsArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) SetFilter(yf yfilter.YFilter) { ncpStatisticsArray.YFilter = yf }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetGoName(yname string) string {
-    if yname == "ncp-identifier" { return "NcpIdentifier" }
-    if yname == "conf-req-sent" { return "ConfReqSent" }
-    if yname == "conf-req-rcvd" { return "ConfReqRcvd" }
-    if yname == "conf-ack-sent" { return "ConfAckSent" }
-    if yname == "conf-ack-rcvd" { return "ConfAckRcvd" }
-    if yname == "conf-nak-sent" { return "ConfNakSent" }
-    if yname == "conf-nak-rcvd" { return "ConfNakRcvd" }
-    if yname == "conf-rej-sent" { return "ConfRejSent" }
-    if yname == "conf-rej-rcvd" { return "ConfRejRcvd" }
-    if yname == "term-req-sent" { return "TermReqSent" }
-    if yname == "term-req-rcvd" { return "TermReqRcvd" }
-    if yname == "term-ack-sent" { return "TermAckSent" }
-    if yname == "term-ack-rcvd" { return "TermAckRcvd" }
-    if yname == "proto-rej-sent" { return "ProtoRejSent" }
-    if yname == "proto-rej-rcvd" { return "ProtoRejRcvd" }
-    return ""
+    ncpStatisticsArray.EntityData.Children = make(map[string]types.YChild)
+    ncpStatisticsArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    ncpStatisticsArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpStatisticsArray.NcpIdentifier}
+    ncpStatisticsArray.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", ncpStatisticsArray.ConfReqSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", ncpStatisticsArray.ConfReqRcvd}
+    ncpStatisticsArray.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", ncpStatisticsArray.ConfAckSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", ncpStatisticsArray.ConfAckRcvd}
+    ncpStatisticsArray.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", ncpStatisticsArray.ConfNakSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", ncpStatisticsArray.ConfNakRcvd}
+    ncpStatisticsArray.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", ncpStatisticsArray.ConfRejSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", ncpStatisticsArray.ConfRejRcvd}
+    ncpStatisticsArray.EntityData.Leafs["term-req-sent"] = types.YLeaf{"TermReqSent", ncpStatisticsArray.TermReqSent}
+    ncpStatisticsArray.EntityData.Leafs["term-req-rcvd"] = types.YLeaf{"TermReqRcvd", ncpStatisticsArray.TermReqRcvd}
+    ncpStatisticsArray.EntityData.Leafs["term-ack-sent"] = types.YLeaf{"TermAckSent", ncpStatisticsArray.TermAckSent}
+    ncpStatisticsArray.EntityData.Leafs["term-ack-rcvd"] = types.YLeaf{"TermAckRcvd", ncpStatisticsArray.TermAckRcvd}
+    ncpStatisticsArray.EntityData.Leafs["proto-rej-sent"] = types.YLeaf{"ProtoRejSent", ncpStatisticsArray.ProtoRejSent}
+    ncpStatisticsArray.EntityData.Leafs["proto-rej-rcvd"] = types.YLeaf{"ProtoRejRcvd", ncpStatisticsArray.ProtoRejRcvd}
+    return &(ncpStatisticsArray.EntityData)
 }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetSegmentPath() string {
-    return "ncp-statistics-array"
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ncp-identifier"] = ncpStatisticsArray.NcpIdentifier
-    leafs["conf-req-sent"] = ncpStatisticsArray.ConfReqSent
-    leafs["conf-req-rcvd"] = ncpStatisticsArray.ConfReqRcvd
-    leafs["conf-ack-sent"] = ncpStatisticsArray.ConfAckSent
-    leafs["conf-ack-rcvd"] = ncpStatisticsArray.ConfAckRcvd
-    leafs["conf-nak-sent"] = ncpStatisticsArray.ConfNakSent
-    leafs["conf-nak-rcvd"] = ncpStatisticsArray.ConfNakRcvd
-    leafs["conf-rej-sent"] = ncpStatisticsArray.ConfRejSent
-    leafs["conf-rej-rcvd"] = ncpStatisticsArray.ConfRejRcvd
-    leafs["term-req-sent"] = ncpStatisticsArray.TermReqSent
-    leafs["term-req-rcvd"] = ncpStatisticsArray.TermReqRcvd
-    leafs["term-ack-sent"] = ncpStatisticsArray.TermAckSent
-    leafs["term-ack-rcvd"] = ncpStatisticsArray.TermAckRcvd
-    leafs["proto-rej-sent"] = ncpStatisticsArray.ProtoRejSent
-    leafs["proto-rej-rcvd"] = ncpStatisticsArray.ProtoRejRcvd
-    return leafs
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetYangName() string { return "ncp-statistics-array" }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) SetParent(parent types.Entity) { ncpStatisticsArray.parent = parent }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetParent() types.Entity { return ncpStatisticsArray.parent }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_Statistics_NcpStatisticsArray) GetParentYangName() string { return "statistics" }
 
 // Ppp_Nodes_Node_NodeInterfaces
 // Per interface PPP operational data
 type Ppp_Nodes_Node_NodeInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LCP and summarized NCP data for an interface running PPP. The type is slice
@@ -991,74 +673,35 @@ type Ppp_Nodes_Node_NodeInterfaces struct {
     NodeInterface []Ppp_Nodes_Node_NodeInterfaces_NodeInterface
 }
 
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetFilter() yfilter.YFilter { return nodeInterfaces.YFilter }
+func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetEntityData() *types.CommonEntityData {
+    nodeInterfaces.EntityData.YFilter = nodeInterfaces.YFilter
+    nodeInterfaces.EntityData.YangName = "node-interfaces"
+    nodeInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    nodeInterfaces.EntityData.ParentYangName = "node"
+    nodeInterfaces.EntityData.SegmentPath = "node-interfaces"
+    nodeInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) SetFilter(yf yfilter.YFilter) { nodeInterfaces.YFilter = yf }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetGoName(yname string) string {
-    if yname == "node-interface" { return "NodeInterface" }
-    return ""
-}
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetSegmentPath() string {
-    return "node-interfaces"
-}
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node-interface" {
-        for _, c := range nodeInterfaces.NodeInterface {
-            if nodeInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_NodeInterfaces_NodeInterface{}
-        nodeInterfaces.NodeInterface = append(nodeInterfaces.NodeInterface, child)
-        return &nodeInterfaces.NodeInterface[len(nodeInterfaces.NodeInterface)-1]
-    }
-    return nil
-}
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodeInterfaces.EntityData.Children = make(map[string]types.YChild)
+    nodeInterfaces.EntityData.Children["node-interface"] = types.YChild{"NodeInterface", nil}
     for i := range nodeInterfaces.NodeInterface {
-        children[nodeInterfaces.NodeInterface[i].GetSegmentPath()] = &nodeInterfaces.NodeInterface[i]
+        nodeInterfaces.EntityData.Children[types.GetSegmentPath(&nodeInterfaces.NodeInterface[i])] = types.YChild{"NodeInterface", &nodeInterfaces.NodeInterface[i]}
     }
-    return children
+    nodeInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodeInterfaces.EntityData)
 }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetYangName() string { return "node-interfaces" }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) SetParent(parent types.Entity) { nodeInterfaces.parent = parent }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetParent() types.Entity { return nodeInterfaces.parent }
-
-func (nodeInterfaces *Ppp_Nodes_Node_NodeInterfaces) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface
 // LCP and summarized NCP data for an interface
 // running PPP
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Parent state. The type is interface{} with range: 0..4294967295.
     ParentState interface{}
@@ -1156,145 +799,66 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     NcpInfoArray []Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray
 }
 
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetFilter() yfilter.YFilter { return nodeInterface.YFilter }
+func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetEntityData() *types.CommonEntityData {
+    nodeInterface.EntityData.YFilter = nodeInterface.YFilter
+    nodeInterface.EntityData.YangName = "node-interface"
+    nodeInterface.EntityData.BundleName = "cisco_ios_xr"
+    nodeInterface.EntityData.ParentYangName = "node-interfaces"
+    nodeInterface.EntityData.SegmentPath = "node-interface" + "[interface='" + fmt.Sprintf("%v", nodeInterface.Interface_) + "']"
+    nodeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) SetFilter(yf yfilter.YFilter) { nodeInterface.YFilter = yf }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "parent-state" { return "ParentState" }
-    if yname == "line-state" { return "LineState" }
-    if yname == "is-loopback-detected" { return "IsLoopbackDetected" }
-    if yname == "caps-idb-srg-role" { return "CapsIdbSrgRole" }
-    if yname == "session-srg-role" { return "SessionSrgRole" }
-    if yname == "keepalive-period" { return "KeepalivePeriod" }
-    if yname == "keepalive-retry-count" { return "KeepaliveRetryCount" }
-    if yname == "is-ssrp-configured" { return "IsSsrpConfigured" }
-    if yname == "is-l2ac" { return "IsL2Ac" }
-    if yname == "provisioned" { return "Provisioned" }
-    if yname == "ip-interworking-enabled" { return "IpInterworkingEnabled" }
-    if yname == "xconnect-id" { return "XconnectId" }
-    if yname == "is-tunneled-session" { return "IsTunneledSession" }
-    if yname == "ssrp-peer-id" { return "SsrpPeerId" }
-    if yname == "lcp-state" { return "LcpState" }
-    if yname == "lcpsso-state" { return "LcpssoState" }
-    if yname == "is-lcp-delayed" { return "IsLcpDelayed" }
-    if yname == "local-mru" { return "LocalMru" }
-    if yname == "peer-mru" { return "PeerMru" }
-    if yname == "local-mrru" { return "LocalMrru" }
-    if yname == "peer-mrru" { return "PeerMrru" }
-    if yname == "local-ed" { return "LocalEd" }
-    if yname == "peer-ed" { return "PeerEd" }
-    if yname == "is-mcmp-enabled" { return "IsMcmpEnabled" }
-    if yname == "local-mcmp-classes" { return "LocalMcmpClasses" }
-    if yname == "peer-mcmp-classes" { return "PeerMcmpClasses" }
-    if yname == "session-expires" { return "SessionExpires" }
-    if yname == "mp-info" { return "MpInfo" }
-    if yname == "configured-timeout" { return "ConfiguredTimeout" }
-    if yname == "auth-info" { return "AuthInfo" }
-    if yname == "ncp-info-array" { return "NcpInfoArray" }
-    return ""
-}
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetSegmentPath() string {
-    return "node-interface" + "[interface='" + fmt.Sprintf("%v", nodeInterface.Interface) + "']"
-}
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mp-info" {
-        return &nodeInterface.MpInfo
-    }
-    if childYangName == "configured-timeout" {
-        return &nodeInterface.ConfiguredTimeout
-    }
-    if childYangName == "auth-info" {
-        return &nodeInterface.AuthInfo
-    }
-    if childYangName == "ncp-info-array" {
-        for _, c := range nodeInterface.NcpInfoArray {
-            if nodeInterface.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray{}
-        nodeInterface.NcpInfoArray = append(nodeInterface.NcpInfoArray, child)
-        return &nodeInterface.NcpInfoArray[len(nodeInterface.NcpInfoArray)-1]
-    }
-    return nil
-}
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mp-info"] = &nodeInterface.MpInfo
-    children["configured-timeout"] = &nodeInterface.ConfiguredTimeout
-    children["auth-info"] = &nodeInterface.AuthInfo
+    nodeInterface.EntityData.Children = make(map[string]types.YChild)
+    nodeInterface.EntityData.Children["mp-info"] = types.YChild{"MpInfo", &nodeInterface.MpInfo}
+    nodeInterface.EntityData.Children["configured-timeout"] = types.YChild{"ConfiguredTimeout", &nodeInterface.ConfiguredTimeout}
+    nodeInterface.EntityData.Children["auth-info"] = types.YChild{"AuthInfo", &nodeInterface.AuthInfo}
+    nodeInterface.EntityData.Children["ncp-info-array"] = types.YChild{"NcpInfoArray", nil}
     for i := range nodeInterface.NcpInfoArray {
-        children[nodeInterface.NcpInfoArray[i].GetSegmentPath()] = &nodeInterface.NcpInfoArray[i]
+        nodeInterface.EntityData.Children[types.GetSegmentPath(&nodeInterface.NcpInfoArray[i])] = types.YChild{"NcpInfoArray", &nodeInterface.NcpInfoArray[i]}
     }
-    return children
+    nodeInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodeInterface.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", nodeInterface.Interface_}
+    nodeInterface.EntityData.Leafs["parent-state"] = types.YLeaf{"ParentState", nodeInterface.ParentState}
+    nodeInterface.EntityData.Leafs["line-state"] = types.YLeaf{"LineState", nodeInterface.LineState}
+    nodeInterface.EntityData.Leafs["is-loopback-detected"] = types.YLeaf{"IsLoopbackDetected", nodeInterface.IsLoopbackDetected}
+    nodeInterface.EntityData.Leafs["caps-idb-srg-role"] = types.YLeaf{"CapsIdbSrgRole", nodeInterface.CapsIdbSrgRole}
+    nodeInterface.EntityData.Leafs["session-srg-role"] = types.YLeaf{"SessionSrgRole", nodeInterface.SessionSrgRole}
+    nodeInterface.EntityData.Leafs["keepalive-period"] = types.YLeaf{"KeepalivePeriod", nodeInterface.KeepalivePeriod}
+    nodeInterface.EntityData.Leafs["keepalive-retry-count"] = types.YLeaf{"KeepaliveRetryCount", nodeInterface.KeepaliveRetryCount}
+    nodeInterface.EntityData.Leafs["is-ssrp-configured"] = types.YLeaf{"IsSsrpConfigured", nodeInterface.IsSsrpConfigured}
+    nodeInterface.EntityData.Leafs["is-l2ac"] = types.YLeaf{"IsL2Ac", nodeInterface.IsL2Ac}
+    nodeInterface.EntityData.Leafs["provisioned"] = types.YLeaf{"Provisioned", nodeInterface.Provisioned}
+    nodeInterface.EntityData.Leafs["ip-interworking-enabled"] = types.YLeaf{"IpInterworkingEnabled", nodeInterface.IpInterworkingEnabled}
+    nodeInterface.EntityData.Leafs["xconnect-id"] = types.YLeaf{"XconnectId", nodeInterface.XconnectId}
+    nodeInterface.EntityData.Leafs["is-tunneled-session"] = types.YLeaf{"IsTunneledSession", nodeInterface.IsTunneledSession}
+    nodeInterface.EntityData.Leafs["ssrp-peer-id"] = types.YLeaf{"SsrpPeerId", nodeInterface.SsrpPeerId}
+    nodeInterface.EntityData.Leafs["lcp-state"] = types.YLeaf{"LcpState", nodeInterface.LcpState}
+    nodeInterface.EntityData.Leafs["lcpsso-state"] = types.YLeaf{"LcpssoState", nodeInterface.LcpssoState}
+    nodeInterface.EntityData.Leafs["is-lcp-delayed"] = types.YLeaf{"IsLcpDelayed", nodeInterface.IsLcpDelayed}
+    nodeInterface.EntityData.Leafs["local-mru"] = types.YLeaf{"LocalMru", nodeInterface.LocalMru}
+    nodeInterface.EntityData.Leafs["peer-mru"] = types.YLeaf{"PeerMru", nodeInterface.PeerMru}
+    nodeInterface.EntityData.Leafs["local-mrru"] = types.YLeaf{"LocalMrru", nodeInterface.LocalMrru}
+    nodeInterface.EntityData.Leafs["peer-mrru"] = types.YLeaf{"PeerMrru", nodeInterface.PeerMrru}
+    nodeInterface.EntityData.Leafs["local-ed"] = types.YLeaf{"LocalEd", nodeInterface.LocalEd}
+    nodeInterface.EntityData.Leafs["peer-ed"] = types.YLeaf{"PeerEd", nodeInterface.PeerEd}
+    nodeInterface.EntityData.Leafs["is-mcmp-enabled"] = types.YLeaf{"IsMcmpEnabled", nodeInterface.IsMcmpEnabled}
+    nodeInterface.EntityData.Leafs["local-mcmp-classes"] = types.YLeaf{"LocalMcmpClasses", nodeInterface.LocalMcmpClasses}
+    nodeInterface.EntityData.Leafs["peer-mcmp-classes"] = types.YLeaf{"PeerMcmpClasses", nodeInterface.PeerMcmpClasses}
+    nodeInterface.EntityData.Leafs["session-expires"] = types.YLeaf{"SessionExpires", nodeInterface.SessionExpires}
+    return &(nodeInterface.EntityData)
 }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = nodeInterface.Interface
-    leafs["parent-state"] = nodeInterface.ParentState
-    leafs["line-state"] = nodeInterface.LineState
-    leafs["is-loopback-detected"] = nodeInterface.IsLoopbackDetected
-    leafs["caps-idb-srg-role"] = nodeInterface.CapsIdbSrgRole
-    leafs["session-srg-role"] = nodeInterface.SessionSrgRole
-    leafs["keepalive-period"] = nodeInterface.KeepalivePeriod
-    leafs["keepalive-retry-count"] = nodeInterface.KeepaliveRetryCount
-    leafs["is-ssrp-configured"] = nodeInterface.IsSsrpConfigured
-    leafs["is-l2ac"] = nodeInterface.IsL2Ac
-    leafs["provisioned"] = nodeInterface.Provisioned
-    leafs["ip-interworking-enabled"] = nodeInterface.IpInterworkingEnabled
-    leafs["xconnect-id"] = nodeInterface.XconnectId
-    leafs["is-tunneled-session"] = nodeInterface.IsTunneledSession
-    leafs["ssrp-peer-id"] = nodeInterface.SsrpPeerId
-    leafs["lcp-state"] = nodeInterface.LcpState
-    leafs["lcpsso-state"] = nodeInterface.LcpssoState
-    leafs["is-lcp-delayed"] = nodeInterface.IsLcpDelayed
-    leafs["local-mru"] = nodeInterface.LocalMru
-    leafs["peer-mru"] = nodeInterface.PeerMru
-    leafs["local-mrru"] = nodeInterface.LocalMrru
-    leafs["peer-mrru"] = nodeInterface.PeerMrru
-    leafs["local-ed"] = nodeInterface.LocalEd
-    leafs["peer-ed"] = nodeInterface.PeerEd
-    leafs["is-mcmp-enabled"] = nodeInterface.IsMcmpEnabled
-    leafs["local-mcmp-classes"] = nodeInterface.LocalMcmpClasses
-    leafs["peer-mcmp-classes"] = nodeInterface.PeerMcmpClasses
-    leafs["session-expires"] = nodeInterface.SessionExpires
-    return leafs
-}
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetYangName() string { return "node-interface" }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) SetParent(parent types.Entity) { nodeInterface.parent = parent }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetParent() types.Entity { return nodeInterface.parent }
-
-func (nodeInterface *Ppp_Nodes_Node_NodeInterfaces_NodeInterface) GetParentYangName() string { return "node-interfaces" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo
 // MP information
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is an MP bundle. The type is bool.
     IsMpBundle interface{}
 
-    // MP Bundle Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // MP Bundle Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     MpBundleInterface interface{}
 
     // MP Bundle Member. The type is bool.
@@ -1321,145 +885,67 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo struct {
     MpMemberInfoArray []Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray
 }
 
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetFilter() yfilter.YFilter { return mpInfo.YFilter }
+func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetEntityData() *types.CommonEntityData {
+    mpInfo.EntityData.YFilter = mpInfo.YFilter
+    mpInfo.EntityData.YangName = "mp-info"
+    mpInfo.EntityData.BundleName = "cisco_ios_xr"
+    mpInfo.EntityData.ParentYangName = "node-interface"
+    mpInfo.EntityData.SegmentPath = "mp-info"
+    mpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) SetFilter(yf yfilter.YFilter) { mpInfo.YFilter = yf }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetGoName(yname string) string {
-    if yname == "is-mp-bundle" { return "IsMpBundle" }
-    if yname == "mp-bundle-interface" { return "MpBundleInterface" }
-    if yname == "is-mp-bundle-member" { return "IsMpBundleMember" }
-    if yname == "mp-group" { return "MpGroup" }
-    if yname == "active-links" { return "ActiveLinks" }
-    if yname == "inactive-links" { return "InactiveLinks" }
-    if yname == "minimum-active-links" { return "MinimumActiveLinks" }
-    if yname == "mp-state" { return "MpState" }
-    if yname == "mp-member-info-array" { return "MpMemberInfoArray" }
-    return ""
-}
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetSegmentPath() string {
-    return "mp-info"
-}
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mp-member-info-array" {
-        for _, c := range mpInfo.MpMemberInfoArray {
-            if mpInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray{}
-        mpInfo.MpMemberInfoArray = append(mpInfo.MpMemberInfoArray, child)
-        return &mpInfo.MpMemberInfoArray[len(mpInfo.MpMemberInfoArray)-1]
-    }
-    return nil
-}
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mpInfo.EntityData.Children = make(map[string]types.YChild)
+    mpInfo.EntityData.Children["mp-member-info-array"] = types.YChild{"MpMemberInfoArray", nil}
     for i := range mpInfo.MpMemberInfoArray {
-        children[mpInfo.MpMemberInfoArray[i].GetSegmentPath()] = &mpInfo.MpMemberInfoArray[i]
+        mpInfo.EntityData.Children[types.GetSegmentPath(&mpInfo.MpMemberInfoArray[i])] = types.YChild{"MpMemberInfoArray", &mpInfo.MpMemberInfoArray[i]}
     }
-    return children
+    mpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpInfo.EntityData.Leafs["is-mp-bundle"] = types.YLeaf{"IsMpBundle", mpInfo.IsMpBundle}
+    mpInfo.EntityData.Leafs["mp-bundle-interface"] = types.YLeaf{"MpBundleInterface", mpInfo.MpBundleInterface}
+    mpInfo.EntityData.Leafs["is-mp-bundle-member"] = types.YLeaf{"IsMpBundleMember", mpInfo.IsMpBundleMember}
+    mpInfo.EntityData.Leafs["mp-group"] = types.YLeaf{"MpGroup", mpInfo.MpGroup}
+    mpInfo.EntityData.Leafs["active-links"] = types.YLeaf{"ActiveLinks", mpInfo.ActiveLinks}
+    mpInfo.EntityData.Leafs["inactive-links"] = types.YLeaf{"InactiveLinks", mpInfo.InactiveLinks}
+    mpInfo.EntityData.Leafs["minimum-active-links"] = types.YLeaf{"MinimumActiveLinks", mpInfo.MinimumActiveLinks}
+    mpInfo.EntityData.Leafs["mp-state"] = types.YLeaf{"MpState", mpInfo.MpState}
+    return &(mpInfo.EntityData)
 }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-mp-bundle"] = mpInfo.IsMpBundle
-    leafs["mp-bundle-interface"] = mpInfo.MpBundleInterface
-    leafs["is-mp-bundle-member"] = mpInfo.IsMpBundleMember
-    leafs["mp-group"] = mpInfo.MpGroup
-    leafs["active-links"] = mpInfo.ActiveLinks
-    leafs["inactive-links"] = mpInfo.InactiveLinks
-    leafs["minimum-active-links"] = mpInfo.MinimumActiveLinks
-    leafs["mp-state"] = mpInfo.MpState
-    return leafs
-}
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetYangName() string { return "mp-info" }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) SetParent(parent types.Entity) { mpInfo.parent = parent }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetParent() types.Entity { return mpInfo.parent }
-
-func (mpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo) GetParentYangName() string { return "node-interface" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray
 // Array of MP members
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Member Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Member State. The type is PppLcpMpMbrState.
     State interface{}
 }
 
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetFilter() yfilter.YFilter { return mpMemberInfoArray.YFilter }
+func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetEntityData() *types.CommonEntityData {
+    mpMemberInfoArray.EntityData.YFilter = mpMemberInfoArray.YFilter
+    mpMemberInfoArray.EntityData.YangName = "mp-member-info-array"
+    mpMemberInfoArray.EntityData.BundleName = "cisco_ios_xr"
+    mpMemberInfoArray.EntityData.ParentYangName = "mp-info"
+    mpMemberInfoArray.EntityData.SegmentPath = "mp-member-info-array"
+    mpMemberInfoArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpMemberInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpMemberInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) SetFilter(yf yfilter.YFilter) { mpMemberInfoArray.YFilter = yf }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "state" { return "State" }
-    return ""
+    mpMemberInfoArray.EntityData.Children = make(map[string]types.YChild)
+    mpMemberInfoArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpMemberInfoArray.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", mpMemberInfoArray.Interface_}
+    mpMemberInfoArray.EntityData.Leafs["state"] = types.YLeaf{"State", mpMemberInfoArray.State}
+    return &(mpMemberInfoArray.EntityData)
 }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetSegmentPath() string {
-    return "mp-member-info-array"
-}
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = mpMemberInfoArray.Interface
-    leafs["state"] = mpMemberInfoArray.State
-    return leafs
-}
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetYangName() string { return "mp-member-info-array" }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) SetParent(parent types.Entity) { mpMemberInfoArray.parent = parent }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetParent() types.Entity { return mpMemberInfoArray.parent }
-
-func (mpMemberInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray) GetParentYangName() string { return "mp-info" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout
 // Configured timeout
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minutes. The type is interface{} with range: 0..4294967295. Units are
@@ -1470,58 +956,27 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout struct {
     Seconds interface{}
 }
 
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetFilter() yfilter.YFilter { return configuredTimeout.YFilter }
+func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetEntityData() *types.CommonEntityData {
+    configuredTimeout.EntityData.YFilter = configuredTimeout.YFilter
+    configuredTimeout.EntityData.YangName = "configured-timeout"
+    configuredTimeout.EntityData.BundleName = "cisco_ios_xr"
+    configuredTimeout.EntityData.ParentYangName = "node-interface"
+    configuredTimeout.EntityData.SegmentPath = "configured-timeout"
+    configuredTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuredTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuredTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) SetFilter(yf yfilter.YFilter) { configuredTimeout.YFilter = yf }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetGoName(yname string) string {
-    if yname == "minutes" { return "Minutes" }
-    if yname == "seconds" { return "Seconds" }
-    return ""
+    configuredTimeout.EntityData.Children = make(map[string]types.YChild)
+    configuredTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
+    configuredTimeout.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", configuredTimeout.Minutes}
+    configuredTimeout.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", configuredTimeout.Seconds}
+    return &(configuredTimeout.EntityData)
 }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetSegmentPath() string {
-    return "configured-timeout"
-}
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minutes"] = configuredTimeout.Minutes
-    leafs["seconds"] = configuredTimeout.Seconds
-    return leafs
-}
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetYangName() string { return "configured-timeout" }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) SetParent(parent types.Entity) { configuredTimeout.parent = parent }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetParent() types.Entity { return configuredTimeout.parent }
-
-func (configuredTimeout *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_ConfiguredTimeout) GetParentYangName() string { return "node-interface" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo
 // Authentication information
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is authenticated. The type is bool.
@@ -1549,70 +1004,33 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo struct {
     OfPeerSsoState interface{}
 }
 
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetFilter() yfilter.YFilter { return authInfo.YFilter }
+func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetEntityData() *types.CommonEntityData {
+    authInfo.EntityData.YFilter = authInfo.YFilter
+    authInfo.EntityData.YangName = "auth-info"
+    authInfo.EntityData.BundleName = "cisco_ios_xr"
+    authInfo.EntityData.ParentYangName = "node-interface"
+    authInfo.EntityData.SegmentPath = "auth-info"
+    authInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) SetFilter(yf yfilter.YFilter) { authInfo.YFilter = yf }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetGoName(yname string) string {
-    if yname == "is-authenticated" { return "IsAuthenticated" }
-    if yname == "is-sso-authenticated" { return "IsSsoAuthenticated" }
-    if yname == "of-us-auth" { return "OfUsAuth" }
-    if yname == "of-peer-auth" { return "OfPeerAuth" }
-    if yname == "of-us-name" { return "OfUsName" }
-    if yname == "of-peer-name" { return "OfPeerName" }
-    if yname == "of-us-sso-state" { return "OfUsSsoState" }
-    if yname == "of-peer-sso-state" { return "OfPeerSsoState" }
-    return ""
+    authInfo.EntityData.Children = make(map[string]types.YChild)
+    authInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    authInfo.EntityData.Leafs["is-authenticated"] = types.YLeaf{"IsAuthenticated", authInfo.IsAuthenticated}
+    authInfo.EntityData.Leafs["is-sso-authenticated"] = types.YLeaf{"IsSsoAuthenticated", authInfo.IsSsoAuthenticated}
+    authInfo.EntityData.Leafs["of-us-auth"] = types.YLeaf{"OfUsAuth", authInfo.OfUsAuth}
+    authInfo.EntityData.Leafs["of-peer-auth"] = types.YLeaf{"OfPeerAuth", authInfo.OfPeerAuth}
+    authInfo.EntityData.Leafs["of-us-name"] = types.YLeaf{"OfUsName", authInfo.OfUsName}
+    authInfo.EntityData.Leafs["of-peer-name"] = types.YLeaf{"OfPeerName", authInfo.OfPeerName}
+    authInfo.EntityData.Leafs["of-us-sso-state"] = types.YLeaf{"OfUsSsoState", authInfo.OfUsSsoState}
+    authInfo.EntityData.Leafs["of-peer-sso-state"] = types.YLeaf{"OfPeerSsoState", authInfo.OfPeerSsoState}
+    return &(authInfo.EntityData)
 }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetSegmentPath() string {
-    return "auth-info"
-}
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-authenticated"] = authInfo.IsAuthenticated
-    leafs["is-sso-authenticated"] = authInfo.IsSsoAuthenticated
-    leafs["of-us-auth"] = authInfo.OfUsAuth
-    leafs["of-peer-auth"] = authInfo.OfPeerAuth
-    leafs["of-us-name"] = authInfo.OfUsName
-    leafs["of-peer-name"] = authInfo.OfPeerName
-    leafs["of-us-sso-state"] = authInfo.OfUsSsoState
-    leafs["of-peer-sso-state"] = authInfo.OfPeerSsoState
-    return leafs
-}
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetYangName() string { return "auth-info" }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) SetParent(parent types.Entity) { authInfo.parent = parent }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetParent() types.Entity { return authInfo.parent }
-
-func (authInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_AuthInfo) GetParentYangName() string { return "node-interface" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray
 // Array of per-NCP data
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NCP state value. The type is PppFsmState.
@@ -1631,71 +1049,34 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray struct {
     NcpInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo
 }
 
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetFilter() yfilter.YFilter { return ncpInfoArray.YFilter }
+func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetEntityData() *types.CommonEntityData {
+    ncpInfoArray.EntityData.YFilter = ncpInfoArray.YFilter
+    ncpInfoArray.EntityData.YangName = "ncp-info-array"
+    ncpInfoArray.EntityData.BundleName = "cisco_ios_xr"
+    ncpInfoArray.EntityData.ParentYangName = "node-interface"
+    ncpInfoArray.EntityData.SegmentPath = "ncp-info-array"
+    ncpInfoArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ncpInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ncpInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) SetFilter(yf yfilter.YFilter) { ncpInfoArray.YFilter = yf }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetGoName(yname string) string {
-    if yname == "ncp-state" { return "NcpState" }
-    if yname == "ncpsso-state" { return "NcpssoState" }
-    if yname == "is-passive" { return "IsPassive" }
-    if yname == "ncp-identifier" { return "NcpIdentifier" }
-    if yname == "ncp-info" { return "NcpInfo" }
-    return ""
+    ncpInfoArray.EntityData.Children = make(map[string]types.YChild)
+    ncpInfoArray.EntityData.Children["ncp-info"] = types.YChild{"NcpInfo", &ncpInfoArray.NcpInfo}
+    ncpInfoArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    ncpInfoArray.EntityData.Leafs["ncp-state"] = types.YLeaf{"NcpState", ncpInfoArray.NcpState}
+    ncpInfoArray.EntityData.Leafs["ncpsso-state"] = types.YLeaf{"NcpssoState", ncpInfoArray.NcpssoState}
+    ncpInfoArray.EntityData.Leafs["is-passive"] = types.YLeaf{"IsPassive", ncpInfoArray.IsPassive}
+    ncpInfoArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpInfoArray.NcpIdentifier}
+    return &(ncpInfoArray.EntityData)
 }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetSegmentPath() string {
-    return "ncp-info-array"
-}
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ncp-info" {
-        return &ncpInfoArray.NcpInfo
-    }
-    return nil
-}
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ncp-info"] = &ncpInfoArray.NcpInfo
-    return children
-}
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ncp-state"] = ncpInfoArray.NcpState
-    leafs["ncpsso-state"] = ncpInfoArray.NcpssoState
-    leafs["is-passive"] = ncpInfoArray.IsPassive
-    leafs["ncp-identifier"] = ncpInfoArray.NcpIdentifier
-    return leafs
-}
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetYangName() string { return "ncp-info-array" }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) SetParent(parent types.Entity) { ncpInfoArray.parent = parent }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetParent() types.Entity { return ncpInfoArray.parent }
-
-func (ncpInfoArray *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray) GetParentYangName() string { return "node-interface" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo
 // Specific NCP info
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Type. The type is NcpIdent.
-    Type interface{}
+    Type_ interface{}
 
     // Info for IPCP.
     IpcpInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo
@@ -1707,99 +1088,57 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo struct {
     Ipv6CpInfo Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo
 }
 
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetFilter() yfilter.YFilter { return ncpInfo.YFilter }
+func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetEntityData() *types.CommonEntityData {
+    ncpInfo.EntityData.YFilter = ncpInfo.YFilter
+    ncpInfo.EntityData.YangName = "ncp-info"
+    ncpInfo.EntityData.BundleName = "cisco_ios_xr"
+    ncpInfo.EntityData.ParentYangName = "ncp-info-array"
+    ncpInfo.EntityData.SegmentPath = "ncp-info"
+    ncpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ncpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ncpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) SetFilter(yf yfilter.YFilter) { ncpInfo.YFilter = yf }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "ipcp-info" { return "IpcpInfo" }
-    if yname == "ipcpiw-info" { return "IpcpiwInfo" }
-    if yname == "ipv6cp-info" { return "Ipv6CpInfo" }
-    return ""
+    ncpInfo.EntityData.Children = make(map[string]types.YChild)
+    ncpInfo.EntityData.Children["ipcp-info"] = types.YChild{"IpcpInfo", &ncpInfo.IpcpInfo}
+    ncpInfo.EntityData.Children["ipcpiw-info"] = types.YChild{"IpcpiwInfo", &ncpInfo.IpcpiwInfo}
+    ncpInfo.EntityData.Children["ipv6cp-info"] = types.YChild{"Ipv6CpInfo", &ncpInfo.Ipv6CpInfo}
+    ncpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    ncpInfo.EntityData.Leafs["type"] = types.YLeaf{"Type_", ncpInfo.Type_}
+    return &(ncpInfo.EntityData)
 }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetSegmentPath() string {
-    return "ncp-info"
-}
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipcp-info" {
-        return &ncpInfo.IpcpInfo
-    }
-    if childYangName == "ipcpiw-info" {
-        return &ncpInfo.IpcpiwInfo
-    }
-    if childYangName == "ipv6cp-info" {
-        return &ncpInfo.Ipv6CpInfo
-    }
-    return nil
-}
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipcp-info"] = &ncpInfo.IpcpInfo
-    children["ipcpiw-info"] = &ncpInfo.IpcpiwInfo
-    children["ipv6cp-info"] = &ncpInfo.Ipv6CpInfo
-    return children
-}
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = ncpInfo.Type
-    return leafs
-}
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetYangName() string { return "ncp-info" }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) SetParent(parent types.Entity) { ncpInfo.parent = parent }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetParent() types.Entity { return ncpInfo.parent }
-
-func (ncpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo) GetParentYangName() string { return "ncp-info-array" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo
 // Info for IPCP
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Peer IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 
     // Peer IPv4 netmask. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerNetmask interface{}
 
     // Peer DNS Primary. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DnsPrimary interface{}
 
     // Peer DNS Secondary. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DnsSecondary interface{}
 
     // Peer WINS Primary. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     WinsPrimary interface{}
 
     // Peer WINS Secondary. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     WinsSecondary interface{}
 
     // Is IPHC Configured. The type is bool.
@@ -1812,80 +1151,35 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo s
     PeerIphcOptions Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions
 }
 
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetFilter() yfilter.YFilter { return ipcpInfo.YFilter }
+func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetEntityData() *types.CommonEntityData {
+    ipcpInfo.EntityData.YFilter = ipcpInfo.YFilter
+    ipcpInfo.EntityData.YangName = "ipcp-info"
+    ipcpInfo.EntityData.BundleName = "cisco_ios_xr"
+    ipcpInfo.EntityData.ParentYangName = "ncp-info"
+    ipcpInfo.EntityData.SegmentPath = "ipcp-info"
+    ipcpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipcpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipcpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) SetFilter(yf yfilter.YFilter) { ipcpInfo.YFilter = yf }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetGoName(yname string) string {
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "peer-address" { return "PeerAddress" }
-    if yname == "peer-netmask" { return "PeerNetmask" }
-    if yname == "dns-primary" { return "DnsPrimary" }
-    if yname == "dns-secondary" { return "DnsSecondary" }
-    if yname == "wins-primary" { return "WinsPrimary" }
-    if yname == "wins-secondary" { return "WinsSecondary" }
-    if yname == "is-iphc-configured" { return "IsIphcConfigured" }
-    if yname == "local-iphc-options" { return "LocalIphcOptions" }
-    if yname == "peer-iphc-options" { return "PeerIphcOptions" }
-    return ""
+    ipcpInfo.EntityData.Children = make(map[string]types.YChild)
+    ipcpInfo.EntityData.Children["local-iphc-options"] = types.YChild{"LocalIphcOptions", &ipcpInfo.LocalIphcOptions}
+    ipcpInfo.EntityData.Children["peer-iphc-options"] = types.YChild{"PeerIphcOptions", &ipcpInfo.PeerIphcOptions}
+    ipcpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcpInfo.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", ipcpInfo.LocalAddress}
+    ipcpInfo.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", ipcpInfo.PeerAddress}
+    ipcpInfo.EntityData.Leafs["peer-netmask"] = types.YLeaf{"PeerNetmask", ipcpInfo.PeerNetmask}
+    ipcpInfo.EntityData.Leafs["dns-primary"] = types.YLeaf{"DnsPrimary", ipcpInfo.DnsPrimary}
+    ipcpInfo.EntityData.Leafs["dns-secondary"] = types.YLeaf{"DnsSecondary", ipcpInfo.DnsSecondary}
+    ipcpInfo.EntityData.Leafs["wins-primary"] = types.YLeaf{"WinsPrimary", ipcpInfo.WinsPrimary}
+    ipcpInfo.EntityData.Leafs["wins-secondary"] = types.YLeaf{"WinsSecondary", ipcpInfo.WinsSecondary}
+    ipcpInfo.EntityData.Leafs["is-iphc-configured"] = types.YLeaf{"IsIphcConfigured", ipcpInfo.IsIphcConfigured}
+    return &(ipcpInfo.EntityData)
 }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetSegmentPath() string {
-    return "ipcp-info"
-}
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "local-iphc-options" {
-        return &ipcpInfo.LocalIphcOptions
-    }
-    if childYangName == "peer-iphc-options" {
-        return &ipcpInfo.PeerIphcOptions
-    }
-    return nil
-}
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["local-iphc-options"] = &ipcpInfo.LocalIphcOptions
-    children["peer-iphc-options"] = &ipcpInfo.PeerIphcOptions
-    return children
-}
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-address"] = ipcpInfo.LocalAddress
-    leafs["peer-address"] = ipcpInfo.PeerAddress
-    leafs["peer-netmask"] = ipcpInfo.PeerNetmask
-    leafs["dns-primary"] = ipcpInfo.DnsPrimary
-    leafs["dns-secondary"] = ipcpInfo.DnsSecondary
-    leafs["wins-primary"] = ipcpInfo.WinsPrimary
-    leafs["wins-secondary"] = ipcpInfo.WinsSecondary
-    leafs["is-iphc-configured"] = ipcpInfo.IsIphcConfigured
-    return leafs
-}
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetYangName() string { return "ipcp-info" }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) SetParent(parent types.Entity) { ipcpInfo.parent = parent }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetParent() types.Entity { return ipcpInfo.parent }
-
-func (ipcpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo) GetParentYangName() string { return "ncp-info" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions
 // Local IPHC options
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Compression type. The type is PppIphcCompression.
@@ -1913,70 +1207,33 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_L
     EcRtpCompression interface{}
 }
 
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetFilter() yfilter.YFilter { return localIphcOptions.YFilter }
+func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetEntityData() *types.CommonEntityData {
+    localIphcOptions.EntityData.YFilter = localIphcOptions.YFilter
+    localIphcOptions.EntityData.YangName = "local-iphc-options"
+    localIphcOptions.EntityData.BundleName = "cisco_ios_xr"
+    localIphcOptions.EntityData.ParentYangName = "ipcp-info"
+    localIphcOptions.EntityData.SegmentPath = "local-iphc-options"
+    localIphcOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localIphcOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localIphcOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) SetFilter(yf yfilter.YFilter) { localIphcOptions.YFilter = yf }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetGoName(yname string) string {
-    if yname == "compression-type" { return "CompressionType" }
-    if yname == "tcp-space" { return "TcpSpace" }
-    if yname == "non-tcp-space" { return "NonTcpSpace" }
-    if yname == "max-period" { return "MaxPeriod" }
-    if yname == "max-time" { return "MaxTime" }
-    if yname == "max-header" { return "MaxHeader" }
-    if yname == "rtp-compression" { return "RtpCompression" }
-    if yname == "ec-rtp-compression" { return "EcRtpCompression" }
-    return ""
+    localIphcOptions.EntityData.Children = make(map[string]types.YChild)
+    localIphcOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    localIphcOptions.EntityData.Leafs["compression-type"] = types.YLeaf{"CompressionType", localIphcOptions.CompressionType}
+    localIphcOptions.EntityData.Leafs["tcp-space"] = types.YLeaf{"TcpSpace", localIphcOptions.TcpSpace}
+    localIphcOptions.EntityData.Leafs["non-tcp-space"] = types.YLeaf{"NonTcpSpace", localIphcOptions.NonTcpSpace}
+    localIphcOptions.EntityData.Leafs["max-period"] = types.YLeaf{"MaxPeriod", localIphcOptions.MaxPeriod}
+    localIphcOptions.EntityData.Leafs["max-time"] = types.YLeaf{"MaxTime", localIphcOptions.MaxTime}
+    localIphcOptions.EntityData.Leafs["max-header"] = types.YLeaf{"MaxHeader", localIphcOptions.MaxHeader}
+    localIphcOptions.EntityData.Leafs["rtp-compression"] = types.YLeaf{"RtpCompression", localIphcOptions.RtpCompression}
+    localIphcOptions.EntityData.Leafs["ec-rtp-compression"] = types.YLeaf{"EcRtpCompression", localIphcOptions.EcRtpCompression}
+    return &(localIphcOptions.EntityData)
 }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetSegmentPath() string {
-    return "local-iphc-options"
-}
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["compression-type"] = localIphcOptions.CompressionType
-    leafs["tcp-space"] = localIphcOptions.TcpSpace
-    leafs["non-tcp-space"] = localIphcOptions.NonTcpSpace
-    leafs["max-period"] = localIphcOptions.MaxPeriod
-    leafs["max-time"] = localIphcOptions.MaxTime
-    leafs["max-header"] = localIphcOptions.MaxHeader
-    leafs["rtp-compression"] = localIphcOptions.RtpCompression
-    leafs["ec-rtp-compression"] = localIphcOptions.EcRtpCompression
-    return leafs
-}
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetYangName() string { return "local-iphc-options" }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) SetParent(parent types.Entity) { localIphcOptions.parent = parent }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetParent() types.Entity { return localIphcOptions.parent }
-
-func (localIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_LocalIphcOptions) GetParentYangName() string { return "ipcp-info" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions
 // Peer IPHC options
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Compression type. The type is PppIphcCompression.
@@ -2004,196 +1261,97 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_P
     EcRtpCompression interface{}
 }
 
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetFilter() yfilter.YFilter { return peerIphcOptions.YFilter }
+func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetEntityData() *types.CommonEntityData {
+    peerIphcOptions.EntityData.YFilter = peerIphcOptions.YFilter
+    peerIphcOptions.EntityData.YangName = "peer-iphc-options"
+    peerIphcOptions.EntityData.BundleName = "cisco_ios_xr"
+    peerIphcOptions.EntityData.ParentYangName = "ipcp-info"
+    peerIphcOptions.EntityData.SegmentPath = "peer-iphc-options"
+    peerIphcOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerIphcOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerIphcOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) SetFilter(yf yfilter.YFilter) { peerIphcOptions.YFilter = yf }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetGoName(yname string) string {
-    if yname == "compression-type" { return "CompressionType" }
-    if yname == "tcp-space" { return "TcpSpace" }
-    if yname == "non-tcp-space" { return "NonTcpSpace" }
-    if yname == "max-period" { return "MaxPeriod" }
-    if yname == "max-time" { return "MaxTime" }
-    if yname == "max-header" { return "MaxHeader" }
-    if yname == "rtp-compression" { return "RtpCompression" }
-    if yname == "ec-rtp-compression" { return "EcRtpCompression" }
-    return ""
+    peerIphcOptions.EntityData.Children = make(map[string]types.YChild)
+    peerIphcOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerIphcOptions.EntityData.Leafs["compression-type"] = types.YLeaf{"CompressionType", peerIphcOptions.CompressionType}
+    peerIphcOptions.EntityData.Leafs["tcp-space"] = types.YLeaf{"TcpSpace", peerIphcOptions.TcpSpace}
+    peerIphcOptions.EntityData.Leafs["non-tcp-space"] = types.YLeaf{"NonTcpSpace", peerIphcOptions.NonTcpSpace}
+    peerIphcOptions.EntityData.Leafs["max-period"] = types.YLeaf{"MaxPeriod", peerIphcOptions.MaxPeriod}
+    peerIphcOptions.EntityData.Leafs["max-time"] = types.YLeaf{"MaxTime", peerIphcOptions.MaxTime}
+    peerIphcOptions.EntityData.Leafs["max-header"] = types.YLeaf{"MaxHeader", peerIphcOptions.MaxHeader}
+    peerIphcOptions.EntityData.Leafs["rtp-compression"] = types.YLeaf{"RtpCompression", peerIphcOptions.RtpCompression}
+    peerIphcOptions.EntityData.Leafs["ec-rtp-compression"] = types.YLeaf{"EcRtpCompression", peerIphcOptions.EcRtpCompression}
+    return &(peerIphcOptions.EntityData)
 }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetSegmentPath() string {
-    return "peer-iphc-options"
-}
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["compression-type"] = peerIphcOptions.CompressionType
-    leafs["tcp-space"] = peerIphcOptions.TcpSpace
-    leafs["non-tcp-space"] = peerIphcOptions.NonTcpSpace
-    leafs["max-period"] = peerIphcOptions.MaxPeriod
-    leafs["max-time"] = peerIphcOptions.MaxTime
-    leafs["max-header"] = peerIphcOptions.MaxHeader
-    leafs["rtp-compression"] = peerIphcOptions.RtpCompression
-    leafs["ec-rtp-compression"] = peerIphcOptions.EcRtpCompression
-    return leafs
-}
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetYangName() string { return "peer-iphc-options" }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) SetParent(parent types.Entity) { peerIphcOptions.parent = parent }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetParent() types.Entity { return peerIphcOptions.parent }
-
-func (peerIphcOptions *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo_PeerIphcOptions) GetParentYangName() string { return "ipcp-info" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo
 // Info for IPCPIW
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Peer IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 }
 
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetFilter() yfilter.YFilter { return ipcpiwInfo.YFilter }
+func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetEntityData() *types.CommonEntityData {
+    ipcpiwInfo.EntityData.YFilter = ipcpiwInfo.YFilter
+    ipcpiwInfo.EntityData.YangName = "ipcpiw-info"
+    ipcpiwInfo.EntityData.BundleName = "cisco_ios_xr"
+    ipcpiwInfo.EntityData.ParentYangName = "ncp-info"
+    ipcpiwInfo.EntityData.SegmentPath = "ipcpiw-info"
+    ipcpiwInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipcpiwInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipcpiwInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) SetFilter(yf yfilter.YFilter) { ipcpiwInfo.YFilter = yf }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetGoName(yname string) string {
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "peer-address" { return "PeerAddress" }
-    return ""
+    ipcpiwInfo.EntityData.Children = make(map[string]types.YChild)
+    ipcpiwInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcpiwInfo.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", ipcpiwInfo.LocalAddress}
+    ipcpiwInfo.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", ipcpiwInfo.PeerAddress}
+    return &(ipcpiwInfo.EntityData)
 }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetSegmentPath() string {
-    return "ipcpiw-info"
-}
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-address"] = ipcpiwInfo.LocalAddress
-    leafs["peer-address"] = ipcpiwInfo.PeerAddress
-    return leafs
-}
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetYangName() string { return "ipcpiw-info" }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) SetParent(parent types.Entity) { ipcpiwInfo.parent = parent }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetParent() types.Entity { return ipcpiwInfo.parent }
-
-func (ipcpiwInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo) GetParentYangName() string { return "ncp-info" }
 
 // Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo
 // Info for IPv6CP
 type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Peer IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerAddress interface{}
 }
 
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetFilter() yfilter.YFilter { return ipv6CpInfo.YFilter }
+func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetEntityData() *types.CommonEntityData {
+    ipv6CpInfo.EntityData.YFilter = ipv6CpInfo.YFilter
+    ipv6CpInfo.EntityData.YangName = "ipv6cp-info"
+    ipv6CpInfo.EntityData.BundleName = "cisco_ios_xr"
+    ipv6CpInfo.EntityData.ParentYangName = "ncp-info"
+    ipv6CpInfo.EntityData.SegmentPath = "ipv6cp-info"
+    ipv6CpInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6CpInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6CpInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) SetFilter(yf yfilter.YFilter) { ipv6CpInfo.YFilter = yf }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetGoName(yname string) string {
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "peer-address" { return "PeerAddress" }
-    return ""
+    ipv6CpInfo.EntityData.Children = make(map[string]types.YChild)
+    ipv6CpInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6CpInfo.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", ipv6CpInfo.LocalAddress}
+    ipv6CpInfo.EntityData.Leafs["peer-address"] = types.YLeaf{"PeerAddress", ipv6CpInfo.PeerAddress}
+    return &(ipv6CpInfo.EntityData)
 }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetSegmentPath() string {
-    return "ipv6cp-info"
-}
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-address"] = ipv6CpInfo.LocalAddress
-    leafs["peer-address"] = ipv6CpInfo.PeerAddress
-    return leafs
-}
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetYangName() string { return "ipv6cp-info" }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) SetParent(parent types.Entity) { ipv6CpInfo.parent = parent }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetParent() types.Entity { return ipv6CpInfo.parent }
-
-func (ipv6CpInfo *Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6CpInfo) GetParentYangName() string { return "ncp-info" }
 
 // Ppp_Nodes_Node_SsoAlerts
 // PPP SSO Alert data for a particular node
 type Ppp_Nodes_Node_SsoAlerts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPP SSO Alert data for a particular interface. The type is slice of
@@ -2201,73 +1359,34 @@ type Ppp_Nodes_Node_SsoAlerts struct {
     SsoAlert []Ppp_Nodes_Node_SsoAlerts_SsoAlert
 }
 
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetFilter() yfilter.YFilter { return ssoAlerts.YFilter }
+func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetEntityData() *types.CommonEntityData {
+    ssoAlerts.EntityData.YFilter = ssoAlerts.YFilter
+    ssoAlerts.EntityData.YangName = "sso-alerts"
+    ssoAlerts.EntityData.BundleName = "cisco_ios_xr"
+    ssoAlerts.EntityData.ParentYangName = "node"
+    ssoAlerts.EntityData.SegmentPath = "sso-alerts"
+    ssoAlerts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoAlerts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoAlerts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) SetFilter(yf yfilter.YFilter) { ssoAlerts.YFilter = yf }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetGoName(yname string) string {
-    if yname == "sso-alert" { return "SsoAlert" }
-    return ""
-}
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetSegmentPath() string {
-    return "sso-alerts"
-}
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sso-alert" {
-        for _, c := range ssoAlerts.SsoAlert {
-            if ssoAlerts.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_SsoAlerts_SsoAlert{}
-        ssoAlerts.SsoAlert = append(ssoAlerts.SsoAlert, child)
-        return &ssoAlerts.SsoAlert[len(ssoAlerts.SsoAlert)-1]
-    }
-    return nil
-}
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ssoAlerts.EntityData.Children = make(map[string]types.YChild)
+    ssoAlerts.EntityData.Children["sso-alert"] = types.YChild{"SsoAlert", nil}
     for i := range ssoAlerts.SsoAlert {
-        children[ssoAlerts.SsoAlert[i].GetSegmentPath()] = &ssoAlerts.SsoAlert[i]
+        ssoAlerts.EntityData.Children[types.GetSegmentPath(&ssoAlerts.SsoAlert[i])] = types.YChild{"SsoAlert", &ssoAlerts.SsoAlert[i]}
     }
-    return children
+    ssoAlerts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ssoAlerts.EntityData)
 }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetYangName() string { return "sso-alerts" }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) SetParent(parent types.Entity) { ssoAlerts.parent = parent }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetParent() types.Entity { return ssoAlerts.parent }
-
-func (ssoAlerts *Ppp_Nodes_Node_SsoAlerts) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_SsoAlerts_SsoAlert
 // PPP SSO Alert data for a particular interface
 type Ppp_Nodes_Node_SsoAlerts_SsoAlert struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface with SSO Alert. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // LCP SSO Error.
     LcpError Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError
@@ -2282,76 +1401,30 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert struct {
     IpcpError Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError
 }
 
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetFilter() yfilter.YFilter { return ssoAlert.YFilter }
+func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetEntityData() *types.CommonEntityData {
+    ssoAlert.EntityData.YFilter = ssoAlert.YFilter
+    ssoAlert.EntityData.YangName = "sso-alert"
+    ssoAlert.EntityData.BundleName = "cisco_ios_xr"
+    ssoAlert.EntityData.ParentYangName = "sso-alerts"
+    ssoAlert.EntityData.SegmentPath = "sso-alert" + "[interface='" + fmt.Sprintf("%v", ssoAlert.Interface_) + "']"
+    ssoAlert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoAlert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoAlert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) SetFilter(yf yfilter.YFilter) { ssoAlert.YFilter = yf }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "lcp-error" { return "LcpError" }
-    if yname == "of-us-auth-error" { return "OfUsAuthError" }
-    if yname == "of-peer-auth-error" { return "OfPeerAuthError" }
-    if yname == "ipcp-error" { return "IpcpError" }
-    return ""
+    ssoAlert.EntityData.Children = make(map[string]types.YChild)
+    ssoAlert.EntityData.Children["lcp-error"] = types.YChild{"LcpError", &ssoAlert.LcpError}
+    ssoAlert.EntityData.Children["of-us-auth-error"] = types.YChild{"OfUsAuthError", &ssoAlert.OfUsAuthError}
+    ssoAlert.EntityData.Children["of-peer-auth-error"] = types.YChild{"OfPeerAuthError", &ssoAlert.OfPeerAuthError}
+    ssoAlert.EntityData.Children["ipcp-error"] = types.YChild{"IpcpError", &ssoAlert.IpcpError}
+    ssoAlert.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoAlert.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", ssoAlert.Interface_}
+    return &(ssoAlert.EntityData)
 }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetSegmentPath() string {
-    return "sso-alert" + "[interface='" + fmt.Sprintf("%v", ssoAlert.Interface) + "']"
-}
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lcp-error" {
-        return &ssoAlert.LcpError
-    }
-    if childYangName == "of-us-auth-error" {
-        return &ssoAlert.OfUsAuthError
-    }
-    if childYangName == "of-peer-auth-error" {
-        return &ssoAlert.OfPeerAuthError
-    }
-    if childYangName == "ipcp-error" {
-        return &ssoAlert.IpcpError
-    }
-    return nil
-}
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lcp-error"] = &ssoAlert.LcpError
-    children["of-us-auth-error"] = &ssoAlert.OfUsAuthError
-    children["of-peer-auth-error"] = &ssoAlert.OfPeerAuthError
-    children["ipcp-error"] = &ssoAlert.IpcpError
-    return children
-}
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = ssoAlert.Interface
-    return leafs
-}
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetYangName() string { return "sso-alert" }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) SetParent(parent types.Entity) { ssoAlert.parent = parent }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetParent() types.Entity { return ssoAlert.parent }
-
-func (ssoAlert *Ppp_Nodes_Node_SsoAlerts_SsoAlert) GetParentYangName() string { return "sso-alerts" }
 
 // Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError
 // LCP SSO Error
 type Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO Error. The type is bool.
@@ -2364,60 +1437,28 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError struct {
     Context interface{}
 }
 
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetFilter() yfilter.YFilter { return lcpError.YFilter }
+func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetEntityData() *types.CommonEntityData {
+    lcpError.EntityData.YFilter = lcpError.YFilter
+    lcpError.EntityData.YangName = "lcp-error"
+    lcpError.EntityData.BundleName = "cisco_ios_xr"
+    lcpError.EntityData.ParentYangName = "sso-alert"
+    lcpError.EntityData.SegmentPath = "lcp-error"
+    lcpError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) SetFilter(yf yfilter.YFilter) { lcpError.YFilter = yf }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetGoName(yname string) string {
-    if yname == "is-error" { return "IsError" }
-    if yname == "error" { return "Error" }
-    if yname == "context" { return "Context" }
-    return ""
+    lcpError.EntityData.Children = make(map[string]types.YChild)
+    lcpError.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", lcpError.IsError}
+    lcpError.EntityData.Leafs["error"] = types.YLeaf{"Error", lcpError.Error}
+    lcpError.EntityData.Leafs["context"] = types.YLeaf{"Context", lcpError.Context}
+    return &(lcpError.EntityData)
 }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetSegmentPath() string {
-    return "lcp-error"
-}
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-error"] = lcpError.IsError
-    leafs["error"] = lcpError.Error
-    leafs["context"] = lcpError.Context
-    return leafs
-}
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetYangName() string { return "lcp-error" }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) SetParent(parent types.Entity) { lcpError.parent = parent }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetParent() types.Entity { return lcpError.parent }
-
-func (lcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_LcpError) GetParentYangName() string { return "sso-alert" }
 
 // Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError
 // Of-us Authentication SSO Error
 type Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO Error. The type is bool.
@@ -2430,60 +1471,28 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError struct {
     Context interface{}
 }
 
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetFilter() yfilter.YFilter { return ofUsAuthError.YFilter }
+func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetEntityData() *types.CommonEntityData {
+    ofUsAuthError.EntityData.YFilter = ofUsAuthError.YFilter
+    ofUsAuthError.EntityData.YangName = "of-us-auth-error"
+    ofUsAuthError.EntityData.BundleName = "cisco_ios_xr"
+    ofUsAuthError.EntityData.ParentYangName = "sso-alert"
+    ofUsAuthError.EntityData.SegmentPath = "of-us-auth-error"
+    ofUsAuthError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ofUsAuthError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ofUsAuthError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) SetFilter(yf yfilter.YFilter) { ofUsAuthError.YFilter = yf }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetGoName(yname string) string {
-    if yname == "is-error" { return "IsError" }
-    if yname == "error" { return "Error" }
-    if yname == "context" { return "Context" }
-    return ""
+    ofUsAuthError.EntityData.Children = make(map[string]types.YChild)
+    ofUsAuthError.EntityData.Leafs = make(map[string]types.YLeaf)
+    ofUsAuthError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", ofUsAuthError.IsError}
+    ofUsAuthError.EntityData.Leafs["error"] = types.YLeaf{"Error", ofUsAuthError.Error}
+    ofUsAuthError.EntityData.Leafs["context"] = types.YLeaf{"Context", ofUsAuthError.Context}
+    return &(ofUsAuthError.EntityData)
 }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetSegmentPath() string {
-    return "of-us-auth-error"
-}
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-error"] = ofUsAuthError.IsError
-    leafs["error"] = ofUsAuthError.Error
-    leafs["context"] = ofUsAuthError.Context
-    return leafs
-}
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetYangName() string { return "of-us-auth-error" }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) SetParent(parent types.Entity) { ofUsAuthError.parent = parent }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetParent() types.Entity { return ofUsAuthError.parent }
-
-func (ofUsAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfUsAuthError) GetParentYangName() string { return "sso-alert" }
 
 // Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError
 // Of-peer Authentication SSO Error
 type Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO Error. The type is bool.
@@ -2496,60 +1505,28 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError struct {
     Context interface{}
 }
 
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetFilter() yfilter.YFilter { return ofPeerAuthError.YFilter }
+func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetEntityData() *types.CommonEntityData {
+    ofPeerAuthError.EntityData.YFilter = ofPeerAuthError.YFilter
+    ofPeerAuthError.EntityData.YangName = "of-peer-auth-error"
+    ofPeerAuthError.EntityData.BundleName = "cisco_ios_xr"
+    ofPeerAuthError.EntityData.ParentYangName = "sso-alert"
+    ofPeerAuthError.EntityData.SegmentPath = "of-peer-auth-error"
+    ofPeerAuthError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ofPeerAuthError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ofPeerAuthError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) SetFilter(yf yfilter.YFilter) { ofPeerAuthError.YFilter = yf }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetGoName(yname string) string {
-    if yname == "is-error" { return "IsError" }
-    if yname == "error" { return "Error" }
-    if yname == "context" { return "Context" }
-    return ""
+    ofPeerAuthError.EntityData.Children = make(map[string]types.YChild)
+    ofPeerAuthError.EntityData.Leafs = make(map[string]types.YLeaf)
+    ofPeerAuthError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", ofPeerAuthError.IsError}
+    ofPeerAuthError.EntityData.Leafs["error"] = types.YLeaf{"Error", ofPeerAuthError.Error}
+    ofPeerAuthError.EntityData.Leafs["context"] = types.YLeaf{"Context", ofPeerAuthError.Context}
+    return &(ofPeerAuthError.EntityData)
 }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetSegmentPath() string {
-    return "of-peer-auth-error"
-}
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-error"] = ofPeerAuthError.IsError
-    leafs["error"] = ofPeerAuthError.Error
-    leafs["context"] = ofPeerAuthError.Context
-    return leafs
-}
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetYangName() string { return "of-peer-auth-error" }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) SetParent(parent types.Entity) { ofPeerAuthError.parent = parent }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetParent() types.Entity { return ofPeerAuthError.parent }
-
-func (ofPeerAuthError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_OfPeerAuthError) GetParentYangName() string { return "sso-alert" }
 
 // Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError
 // IPCP SSO Error
 type Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO Error. The type is bool.
@@ -2562,60 +1539,28 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError struct {
     Context interface{}
 }
 
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetFilter() yfilter.YFilter { return ipcpError.YFilter }
+func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetEntityData() *types.CommonEntityData {
+    ipcpError.EntityData.YFilter = ipcpError.YFilter
+    ipcpError.EntityData.YangName = "ipcp-error"
+    ipcpError.EntityData.BundleName = "cisco_ios_xr"
+    ipcpError.EntityData.ParentYangName = "sso-alert"
+    ipcpError.EntityData.SegmentPath = "ipcp-error"
+    ipcpError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipcpError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipcpError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) SetFilter(yf yfilter.YFilter) { ipcpError.YFilter = yf }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetGoName(yname string) string {
-    if yname == "is-error" { return "IsError" }
-    if yname == "error" { return "Error" }
-    if yname == "context" { return "Context" }
-    return ""
+    ipcpError.EntityData.Children = make(map[string]types.YChild)
+    ipcpError.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcpError.EntityData.Leafs["is-error"] = types.YLeaf{"IsError", ipcpError.IsError}
+    ipcpError.EntityData.Leafs["error"] = types.YLeaf{"Error", ipcpError.Error}
+    ipcpError.EntityData.Leafs["context"] = types.YLeaf{"Context", ipcpError.Context}
+    return &(ipcpError.EntityData)
 }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetSegmentPath() string {
-    return "ipcp-error"
-}
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-error"] = ipcpError.IsError
-    leafs["error"] = ipcpError.Error
-    leafs["context"] = ipcpError.Context
-    return leafs
-}
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetYangName() string { return "ipcp-error" }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) SetParent(parent types.Entity) { ipcpError.parent = parent }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetParent() types.Entity { return ipcpError.parent }
-
-func (ipcpError *Ppp_Nodes_Node_SsoAlerts_SsoAlert_IpcpError) GetParentYangName() string { return "sso-alert" }
 
 // Ppp_Nodes_Node_NodeInterfaceStatistics
 // Per interface PPP operational statistics
 type Ppp_Nodes_Node_NodeInterfaceStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LCP and NCP statistics for an interface running PPP. The type is slice of
@@ -2623,73 +1568,34 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics struct {
     NodeInterfaceStatistic []Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic
 }
 
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetFilter() yfilter.YFilter { return nodeInterfaceStatistics.YFilter }
+func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetEntityData() *types.CommonEntityData {
+    nodeInterfaceStatistics.EntityData.YFilter = nodeInterfaceStatistics.YFilter
+    nodeInterfaceStatistics.EntityData.YangName = "node-interface-statistics"
+    nodeInterfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
+    nodeInterfaceStatistics.EntityData.ParentYangName = "node"
+    nodeInterfaceStatistics.EntityData.SegmentPath = "node-interface-statistics"
+    nodeInterfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeInterfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeInterfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) SetFilter(yf yfilter.YFilter) { nodeInterfaceStatistics.YFilter = yf }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetGoName(yname string) string {
-    if yname == "node-interface-statistic" { return "NodeInterfaceStatistic" }
-    return ""
-}
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetSegmentPath() string {
-    return "node-interface-statistics"
-}
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node-interface-statistic" {
-        for _, c := range nodeInterfaceStatistics.NodeInterfaceStatistic {
-            if nodeInterfaceStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic{}
-        nodeInterfaceStatistics.NodeInterfaceStatistic = append(nodeInterfaceStatistics.NodeInterfaceStatistic, child)
-        return &nodeInterfaceStatistics.NodeInterfaceStatistic[len(nodeInterfaceStatistics.NodeInterfaceStatistic)-1]
-    }
-    return nil
-}
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodeInterfaceStatistics.EntityData.Children = make(map[string]types.YChild)
+    nodeInterfaceStatistics.EntityData.Children["node-interface-statistic"] = types.YChild{"NodeInterfaceStatistic", nil}
     for i := range nodeInterfaceStatistics.NodeInterfaceStatistic {
-        children[nodeInterfaceStatistics.NodeInterfaceStatistic[i].GetSegmentPath()] = &nodeInterfaceStatistics.NodeInterfaceStatistic[i]
+        nodeInterfaceStatistics.EntityData.Children[types.GetSegmentPath(&nodeInterfaceStatistics.NodeInterfaceStatistic[i])] = types.YChild{"NodeInterfaceStatistic", &nodeInterfaceStatistics.NodeInterfaceStatistic[i]}
     }
-    return children
+    nodeInterfaceStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodeInterfaceStatistics.EntityData)
 }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetYangName() string { return "node-interface-statistics" }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) SetParent(parent types.Entity) { nodeInterfaceStatistics.parent = parent }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetParent() types.Entity { return nodeInterfaceStatistics.parent }
-
-func (nodeInterfaceStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic
 // LCP and NCP statistics for an interface
 // running PPP
 type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // PPP LCP Statistics.
@@ -2703,80 +1609,32 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
     NcpStatisticsArray []Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray
 }
 
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetFilter() yfilter.YFilter { return nodeInterfaceStatistic.YFilter }
+func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetEntityData() *types.CommonEntityData {
+    nodeInterfaceStatistic.EntityData.YFilter = nodeInterfaceStatistic.YFilter
+    nodeInterfaceStatistic.EntityData.YangName = "node-interface-statistic"
+    nodeInterfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
+    nodeInterfaceStatistic.EntityData.ParentYangName = "node-interface-statistics"
+    nodeInterfaceStatistic.EntityData.SegmentPath = "node-interface-statistic" + "[interface-name='" + fmt.Sprintf("%v", nodeInterfaceStatistic.InterfaceName) + "']"
+    nodeInterfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodeInterfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodeInterfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) SetFilter(yf yfilter.YFilter) { nodeInterfaceStatistic.YFilter = yf }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "lcp-statistics" { return "LcpStatistics" }
-    if yname == "authentication-statistics" { return "AuthenticationStatistics" }
-    if yname == "ncp-statistics-array" { return "NcpStatisticsArray" }
-    return ""
-}
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetSegmentPath() string {
-    return "node-interface-statistic" + "[interface-name='" + fmt.Sprintf("%v", nodeInterfaceStatistic.InterfaceName) + "']"
-}
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lcp-statistics" {
-        return &nodeInterfaceStatistic.LcpStatistics
-    }
-    if childYangName == "authentication-statistics" {
-        return &nodeInterfaceStatistic.AuthenticationStatistics
-    }
-    if childYangName == "ncp-statistics-array" {
-        for _, c := range nodeInterfaceStatistic.NcpStatisticsArray {
-            if nodeInterfaceStatistic.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray{}
-        nodeInterfaceStatistic.NcpStatisticsArray = append(nodeInterfaceStatistic.NcpStatisticsArray, child)
-        return &nodeInterfaceStatistic.NcpStatisticsArray[len(nodeInterfaceStatistic.NcpStatisticsArray)-1]
-    }
-    return nil
-}
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lcp-statistics"] = &nodeInterfaceStatistic.LcpStatistics
-    children["authentication-statistics"] = &nodeInterfaceStatistic.AuthenticationStatistics
+    nodeInterfaceStatistic.EntityData.Children = make(map[string]types.YChild)
+    nodeInterfaceStatistic.EntityData.Children["lcp-statistics"] = types.YChild{"LcpStatistics", &nodeInterfaceStatistic.LcpStatistics}
+    nodeInterfaceStatistic.EntityData.Children["authentication-statistics"] = types.YChild{"AuthenticationStatistics", &nodeInterfaceStatistic.AuthenticationStatistics}
+    nodeInterfaceStatistic.EntityData.Children["ncp-statistics-array"] = types.YChild{"NcpStatisticsArray", nil}
     for i := range nodeInterfaceStatistic.NcpStatisticsArray {
-        children[nodeInterfaceStatistic.NcpStatisticsArray[i].GetSegmentPath()] = &nodeInterfaceStatistic.NcpStatisticsArray[i]
+        nodeInterfaceStatistic.EntityData.Children[types.GetSegmentPath(&nodeInterfaceStatistic.NcpStatisticsArray[i])] = types.YChild{"NcpStatisticsArray", &nodeInterfaceStatistic.NcpStatisticsArray[i]}
     }
-    return children
+    nodeInterfaceStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    nodeInterfaceStatistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", nodeInterfaceStatistic.InterfaceName}
+    return &(nodeInterfaceStatistic.EntityData)
 }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = nodeInterfaceStatistic.InterfaceName
-    return leafs
-}
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetYangName() string { return "node-interface-statistic" }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) SetParent(parent types.Entity) { nodeInterfaceStatistic.parent = parent }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetParent() types.Entity { return nodeInterfaceStatistic.parent }
-
-func (nodeInterfaceStatistic *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic) GetParentYangName() string { return "node-interface-statistics" }
 
 // Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics
 // PPP LCP Statistics
 type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Conf Req Packets Sent. The type is interface{} with range: 0..65535.
@@ -2828,86 +1686,41 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics
     LinkError interface{}
 }
 
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetFilter() yfilter.YFilter { return lcpStatistics.YFilter }
+func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetEntityData() *types.CommonEntityData {
+    lcpStatistics.EntityData.YFilter = lcpStatistics.YFilter
+    lcpStatistics.EntityData.YangName = "lcp-statistics"
+    lcpStatistics.EntityData.BundleName = "cisco_ios_xr"
+    lcpStatistics.EntityData.ParentYangName = "node-interface-statistic"
+    lcpStatistics.EntityData.SegmentPath = "lcp-statistics"
+    lcpStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) SetFilter(yf yfilter.YFilter) { lcpStatistics.YFilter = yf }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetGoName(yname string) string {
-    if yname == "conf-req-sent" { return "ConfReqSent" }
-    if yname == "conf-req-rcvd" { return "ConfReqRcvd" }
-    if yname == "conf-ack-sent" { return "ConfAckSent" }
-    if yname == "conf-ack-rcvd" { return "ConfAckRcvd" }
-    if yname == "conf-nak-sent" { return "ConfNakSent" }
-    if yname == "conf-nak-rcvd" { return "ConfNakRcvd" }
-    if yname == "conf-rej-sent" { return "ConfRejSent" }
-    if yname == "conf-rej-rcvd" { return "ConfRejRcvd" }
-    if yname == "echo-req-sent" { return "EchoReqSent" }
-    if yname == "echo-req-rcvd" { return "EchoReqRcvd" }
-    if yname == "echo-rep-sent" { return "EchoRepSent" }
-    if yname == "echo-rep-rcvd" { return "EchoRepRcvd" }
-    if yname == "disc-req-sent" { return "DiscReqSent" }
-    if yname == "disc-req-rcvd" { return "DiscReqRcvd" }
-    if yname == "link-up" { return "LinkUp" }
-    if yname == "link-error" { return "LinkError" }
-    return ""
+    lcpStatistics.EntityData.Children = make(map[string]types.YChild)
+    lcpStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpStatistics.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", lcpStatistics.ConfReqSent}
+    lcpStatistics.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", lcpStatistics.ConfReqRcvd}
+    lcpStatistics.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", lcpStatistics.ConfAckSent}
+    lcpStatistics.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", lcpStatistics.ConfAckRcvd}
+    lcpStatistics.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", lcpStatistics.ConfNakSent}
+    lcpStatistics.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", lcpStatistics.ConfNakRcvd}
+    lcpStatistics.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", lcpStatistics.ConfRejSent}
+    lcpStatistics.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", lcpStatistics.ConfRejRcvd}
+    lcpStatistics.EntityData.Leafs["echo-req-sent"] = types.YLeaf{"EchoReqSent", lcpStatistics.EchoReqSent}
+    lcpStatistics.EntityData.Leafs["echo-req-rcvd"] = types.YLeaf{"EchoReqRcvd", lcpStatistics.EchoReqRcvd}
+    lcpStatistics.EntityData.Leafs["echo-rep-sent"] = types.YLeaf{"EchoRepSent", lcpStatistics.EchoRepSent}
+    lcpStatistics.EntityData.Leafs["echo-rep-rcvd"] = types.YLeaf{"EchoRepRcvd", lcpStatistics.EchoRepRcvd}
+    lcpStatistics.EntityData.Leafs["disc-req-sent"] = types.YLeaf{"DiscReqSent", lcpStatistics.DiscReqSent}
+    lcpStatistics.EntityData.Leafs["disc-req-rcvd"] = types.YLeaf{"DiscReqRcvd", lcpStatistics.DiscReqRcvd}
+    lcpStatistics.EntityData.Leafs["link-up"] = types.YLeaf{"LinkUp", lcpStatistics.LinkUp}
+    lcpStatistics.EntityData.Leafs["link-error"] = types.YLeaf{"LinkError", lcpStatistics.LinkError}
+    return &(lcpStatistics.EntityData)
 }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetSegmentPath() string {
-    return "lcp-statistics"
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["conf-req-sent"] = lcpStatistics.ConfReqSent
-    leafs["conf-req-rcvd"] = lcpStatistics.ConfReqRcvd
-    leafs["conf-ack-sent"] = lcpStatistics.ConfAckSent
-    leafs["conf-ack-rcvd"] = lcpStatistics.ConfAckRcvd
-    leafs["conf-nak-sent"] = lcpStatistics.ConfNakSent
-    leafs["conf-nak-rcvd"] = lcpStatistics.ConfNakRcvd
-    leafs["conf-rej-sent"] = lcpStatistics.ConfRejSent
-    leafs["conf-rej-rcvd"] = lcpStatistics.ConfRejRcvd
-    leafs["echo-req-sent"] = lcpStatistics.EchoReqSent
-    leafs["echo-req-rcvd"] = lcpStatistics.EchoReqRcvd
-    leafs["echo-rep-sent"] = lcpStatistics.EchoRepSent
-    leafs["echo-rep-rcvd"] = lcpStatistics.EchoRepRcvd
-    leafs["disc-req-sent"] = lcpStatistics.DiscReqSent
-    leafs["disc-req-rcvd"] = lcpStatistics.DiscReqRcvd
-    leafs["link-up"] = lcpStatistics.LinkUp
-    leafs["link-error"] = lcpStatistics.LinkError
-    return leafs
-}
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetYangName() string { return "lcp-statistics" }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) SetParent(parent types.Entity) { lcpStatistics.parent = parent }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetParent() types.Entity { return lcpStatistics.parent }
-
-func (lcpStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_LcpStatistics) GetParentYangName() string { return "node-interface-statistic" }
 
 // Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics
 // PPP Authentication statistics
 type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PAP Request packets sent. The type is interface{} with range: 0..65535.
@@ -2962,84 +1775,40 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_Authenticatio
     AuthTimeoutCount interface{}
 }
 
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetFilter() yfilter.YFilter { return authenticationStatistics.YFilter }
+func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetEntityData() *types.CommonEntityData {
+    authenticationStatistics.EntityData.YFilter = authenticationStatistics.YFilter
+    authenticationStatistics.EntityData.YangName = "authentication-statistics"
+    authenticationStatistics.EntityData.BundleName = "cisco_ios_xr"
+    authenticationStatistics.EntityData.ParentYangName = "node-interface-statistic"
+    authenticationStatistics.EntityData.SegmentPath = "authentication-statistics"
+    authenticationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) SetFilter(yf yfilter.YFilter) { authenticationStatistics.YFilter = yf }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetGoName(yname string) string {
-    if yname == "pap-req-sent" { return "PapReqSent" }
-    if yname == "pap-req-rcvd" { return "PapReqRcvd" }
-    if yname == "pap-ack-sent" { return "PapAckSent" }
-    if yname == "pap-ack-rcvd" { return "PapAckRcvd" }
-    if yname == "pap-nak-sent" { return "PapNakSent" }
-    if yname == "pap-nak-rcvd" { return "PapNakRcvd" }
-    if yname == "chap-chall-sent" { return "ChapChallSent" }
-    if yname == "chap-chall-rcvd" { return "ChapChallRcvd" }
-    if yname == "chap-resp-sent" { return "ChapRespSent" }
-    if yname == "chap-resp-rcvd" { return "ChapRespRcvd" }
-    if yname == "chap-rep-succ-sent" { return "ChapRepSuccSent" }
-    if yname == "chap-rep-succ-rcvd" { return "ChapRepSuccRcvd" }
-    if yname == "chap-rep-fail-sent" { return "ChapRepFailSent" }
-    if yname == "chap-rep-fail-rcvd" { return "ChapRepFailRcvd" }
-    if yname == "auth-timeout-count" { return "AuthTimeoutCount" }
-    return ""
+    authenticationStatistics.EntityData.Children = make(map[string]types.YChild)
+    authenticationStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticationStatistics.EntityData.Leafs["pap-req-sent"] = types.YLeaf{"PapReqSent", authenticationStatistics.PapReqSent}
+    authenticationStatistics.EntityData.Leafs["pap-req-rcvd"] = types.YLeaf{"PapReqRcvd", authenticationStatistics.PapReqRcvd}
+    authenticationStatistics.EntityData.Leafs["pap-ack-sent"] = types.YLeaf{"PapAckSent", authenticationStatistics.PapAckSent}
+    authenticationStatistics.EntityData.Leafs["pap-ack-rcvd"] = types.YLeaf{"PapAckRcvd", authenticationStatistics.PapAckRcvd}
+    authenticationStatistics.EntityData.Leafs["pap-nak-sent"] = types.YLeaf{"PapNakSent", authenticationStatistics.PapNakSent}
+    authenticationStatistics.EntityData.Leafs["pap-nak-rcvd"] = types.YLeaf{"PapNakRcvd", authenticationStatistics.PapNakRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-chall-sent"] = types.YLeaf{"ChapChallSent", authenticationStatistics.ChapChallSent}
+    authenticationStatistics.EntityData.Leafs["chap-chall-rcvd"] = types.YLeaf{"ChapChallRcvd", authenticationStatistics.ChapChallRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-resp-sent"] = types.YLeaf{"ChapRespSent", authenticationStatistics.ChapRespSent}
+    authenticationStatistics.EntityData.Leafs["chap-resp-rcvd"] = types.YLeaf{"ChapRespRcvd", authenticationStatistics.ChapRespRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-rep-succ-sent"] = types.YLeaf{"ChapRepSuccSent", authenticationStatistics.ChapRepSuccSent}
+    authenticationStatistics.EntityData.Leafs["chap-rep-succ-rcvd"] = types.YLeaf{"ChapRepSuccRcvd", authenticationStatistics.ChapRepSuccRcvd}
+    authenticationStatistics.EntityData.Leafs["chap-rep-fail-sent"] = types.YLeaf{"ChapRepFailSent", authenticationStatistics.ChapRepFailSent}
+    authenticationStatistics.EntityData.Leafs["chap-rep-fail-rcvd"] = types.YLeaf{"ChapRepFailRcvd", authenticationStatistics.ChapRepFailRcvd}
+    authenticationStatistics.EntityData.Leafs["auth-timeout-count"] = types.YLeaf{"AuthTimeoutCount", authenticationStatistics.AuthTimeoutCount}
+    return &(authenticationStatistics.EntityData)
 }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetSegmentPath() string {
-    return "authentication-statistics"
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pap-req-sent"] = authenticationStatistics.PapReqSent
-    leafs["pap-req-rcvd"] = authenticationStatistics.PapReqRcvd
-    leafs["pap-ack-sent"] = authenticationStatistics.PapAckSent
-    leafs["pap-ack-rcvd"] = authenticationStatistics.PapAckRcvd
-    leafs["pap-nak-sent"] = authenticationStatistics.PapNakSent
-    leafs["pap-nak-rcvd"] = authenticationStatistics.PapNakRcvd
-    leafs["chap-chall-sent"] = authenticationStatistics.ChapChallSent
-    leafs["chap-chall-rcvd"] = authenticationStatistics.ChapChallRcvd
-    leafs["chap-resp-sent"] = authenticationStatistics.ChapRespSent
-    leafs["chap-resp-rcvd"] = authenticationStatistics.ChapRespRcvd
-    leafs["chap-rep-succ-sent"] = authenticationStatistics.ChapRepSuccSent
-    leafs["chap-rep-succ-rcvd"] = authenticationStatistics.ChapRepSuccRcvd
-    leafs["chap-rep-fail-sent"] = authenticationStatistics.ChapRepFailSent
-    leafs["chap-rep-fail-rcvd"] = authenticationStatistics.ChapRepFailRcvd
-    leafs["auth-timeout-count"] = authenticationStatistics.AuthTimeoutCount
-    return leafs
-}
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetYangName() string { return "authentication-statistics" }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) SetParent(parent types.Entity) { authenticationStatistics.parent = parent }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetParent() types.Entity { return authenticationStatistics.parent }
-
-func (authenticationStatistics *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_AuthenticationStatistics) GetParentYangName() string { return "node-interface-statistic" }
 
 // Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray
 // Array of PPP NCP Statistics
 type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NCP identifier. The type is NcpIdent.
@@ -3070,72 +1839,34 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatistics
     ConfRejRcvd interface{}
 }
 
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetFilter() yfilter.YFilter { return ncpStatisticsArray.YFilter }
+func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetEntityData() *types.CommonEntityData {
+    ncpStatisticsArray.EntityData.YFilter = ncpStatisticsArray.YFilter
+    ncpStatisticsArray.EntityData.YangName = "ncp-statistics-array"
+    ncpStatisticsArray.EntityData.BundleName = "cisco_ios_xr"
+    ncpStatisticsArray.EntityData.ParentYangName = "node-interface-statistic"
+    ncpStatisticsArray.EntityData.SegmentPath = "ncp-statistics-array"
+    ncpStatisticsArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ncpStatisticsArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ncpStatisticsArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) SetFilter(yf yfilter.YFilter) { ncpStatisticsArray.YFilter = yf }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetGoName(yname string) string {
-    if yname == "ncp-identifier" { return "NcpIdentifier" }
-    if yname == "conf-req-sent" { return "ConfReqSent" }
-    if yname == "conf-req-rcvd" { return "ConfReqRcvd" }
-    if yname == "conf-ack-sent" { return "ConfAckSent" }
-    if yname == "conf-ack-rcvd" { return "ConfAckRcvd" }
-    if yname == "conf-nak-sent" { return "ConfNakSent" }
-    if yname == "conf-nak-rcvd" { return "ConfNakRcvd" }
-    if yname == "conf-rej-sent" { return "ConfRejSent" }
-    if yname == "conf-rej-rcvd" { return "ConfRejRcvd" }
-    return ""
+    ncpStatisticsArray.EntityData.Children = make(map[string]types.YChild)
+    ncpStatisticsArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    ncpStatisticsArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpStatisticsArray.NcpIdentifier}
+    ncpStatisticsArray.EntityData.Leafs["conf-req-sent"] = types.YLeaf{"ConfReqSent", ncpStatisticsArray.ConfReqSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-req-rcvd"] = types.YLeaf{"ConfReqRcvd", ncpStatisticsArray.ConfReqRcvd}
+    ncpStatisticsArray.EntityData.Leafs["conf-ack-sent"] = types.YLeaf{"ConfAckSent", ncpStatisticsArray.ConfAckSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-ack-rcvd"] = types.YLeaf{"ConfAckRcvd", ncpStatisticsArray.ConfAckRcvd}
+    ncpStatisticsArray.EntityData.Leafs["conf-nak-sent"] = types.YLeaf{"ConfNakSent", ncpStatisticsArray.ConfNakSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-nak-rcvd"] = types.YLeaf{"ConfNakRcvd", ncpStatisticsArray.ConfNakRcvd}
+    ncpStatisticsArray.EntityData.Leafs["conf-rej-sent"] = types.YLeaf{"ConfRejSent", ncpStatisticsArray.ConfRejSent}
+    ncpStatisticsArray.EntityData.Leafs["conf-rej-rcvd"] = types.YLeaf{"ConfRejRcvd", ncpStatisticsArray.ConfRejRcvd}
+    return &(ncpStatisticsArray.EntityData)
 }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetSegmentPath() string {
-    return "ncp-statistics-array"
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ncp-identifier"] = ncpStatisticsArray.NcpIdentifier
-    leafs["conf-req-sent"] = ncpStatisticsArray.ConfReqSent
-    leafs["conf-req-rcvd"] = ncpStatisticsArray.ConfReqRcvd
-    leafs["conf-ack-sent"] = ncpStatisticsArray.ConfAckSent
-    leafs["conf-ack-rcvd"] = ncpStatisticsArray.ConfAckRcvd
-    leafs["conf-nak-sent"] = ncpStatisticsArray.ConfNakSent
-    leafs["conf-nak-rcvd"] = ncpStatisticsArray.ConfNakRcvd
-    leafs["conf-rej-sent"] = ncpStatisticsArray.ConfRejSent
-    leafs["conf-rej-rcvd"] = ncpStatisticsArray.ConfRejRcvd
-    return leafs
-}
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetYangName() string { return "ncp-statistics-array" }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) SetParent(parent types.Entity) { ncpStatisticsArray.parent = parent }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetParent() types.Entity { return ncpStatisticsArray.parent }
-
-func (ncpStatisticsArray *Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic_NcpStatisticsArray) GetParentYangName() string { return "node-interface-statistic" }
 
 // Ppp_Nodes_Node_SsoSummary
 // Summarized PPP SSO data for a particular node
 type Ppp_Nodes_Node_SsoSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LCP SSO FSM States.
@@ -3151,74 +1882,29 @@ type Ppp_Nodes_Node_SsoSummary struct {
     IpcpStates Ppp_Nodes_Node_SsoSummary_IpcpStates
 }
 
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetFilter() yfilter.YFilter { return ssoSummary.YFilter }
+func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetEntityData() *types.CommonEntityData {
+    ssoSummary.EntityData.YFilter = ssoSummary.YFilter
+    ssoSummary.EntityData.YangName = "sso-summary"
+    ssoSummary.EntityData.BundleName = "cisco_ios_xr"
+    ssoSummary.EntityData.ParentYangName = "node"
+    ssoSummary.EntityData.SegmentPath = "sso-summary"
+    ssoSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) SetFilter(yf yfilter.YFilter) { ssoSummary.YFilter = yf }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetGoName(yname string) string {
-    if yname == "lcp-states" { return "LcpStates" }
-    if yname == "of-us-auth-states" { return "OfUsAuthStates" }
-    if yname == "of-peer-auth-states" { return "OfPeerAuthStates" }
-    if yname == "ipcp-states" { return "IpcpStates" }
-    return ""
+    ssoSummary.EntityData.Children = make(map[string]types.YChild)
+    ssoSummary.EntityData.Children["lcp-states"] = types.YChild{"LcpStates", &ssoSummary.LcpStates}
+    ssoSummary.EntityData.Children["of-us-auth-states"] = types.YChild{"OfUsAuthStates", &ssoSummary.OfUsAuthStates}
+    ssoSummary.EntityData.Children["of-peer-auth-states"] = types.YChild{"OfPeerAuthStates", &ssoSummary.OfPeerAuthStates}
+    ssoSummary.EntityData.Children["ipcp-states"] = types.YChild{"IpcpStates", &ssoSummary.IpcpStates}
+    ssoSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ssoSummary.EntityData)
 }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetSegmentPath() string {
-    return "sso-summary"
-}
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lcp-states" {
-        return &ssoSummary.LcpStates
-    }
-    if childYangName == "of-us-auth-states" {
-        return &ssoSummary.OfUsAuthStates
-    }
-    if childYangName == "of-peer-auth-states" {
-        return &ssoSummary.OfPeerAuthStates
-    }
-    if childYangName == "ipcp-states" {
-        return &ssoSummary.IpcpStates
-    }
-    return nil
-}
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lcp-states"] = &ssoSummary.LcpStates
-    children["of-us-auth-states"] = &ssoSummary.OfUsAuthStates
-    children["of-peer-auth-states"] = &ssoSummary.OfPeerAuthStates
-    children["ipcp-states"] = &ssoSummary.IpcpStates
-    return children
-}
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetYangName() string { return "sso-summary" }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) SetParent(parent types.Entity) { ssoSummary.parent = parent }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetParent() types.Entity { return ssoSummary.parent }
-
-func (ssoSummary *Ppp_Nodes_Node_SsoSummary) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_SsoSummary_LcpStates
 // LCP SSO FSM States
 type Ppp_Nodes_Node_SsoSummary_LcpStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of SSO FSMs running. The type is interface{} with range:
@@ -3230,58 +1916,27 @@ type Ppp_Nodes_Node_SsoSummary_LcpStates struct {
     Count []interface{}
 }
 
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetFilter() yfilter.YFilter { return lcpStates.YFilter }
+func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetEntityData() *types.CommonEntityData {
+    lcpStates.EntityData.YFilter = lcpStates.YFilter
+    lcpStates.EntityData.YangName = "lcp-states"
+    lcpStates.EntityData.BundleName = "cisco_ios_xr"
+    lcpStates.EntityData.ParentYangName = "sso-summary"
+    lcpStates.EntityData.SegmentPath = "lcp-states"
+    lcpStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) SetFilter(yf yfilter.YFilter) { lcpStates.YFilter = yf }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "count" { return "Count" }
-    return ""
+    lcpStates.EntityData.Children = make(map[string]types.YChild)
+    lcpStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpStates.EntityData.Leafs["total"] = types.YLeaf{"Total", lcpStates.Total}
+    lcpStates.EntityData.Leafs["count"] = types.YLeaf{"Count", lcpStates.Count}
+    return &(lcpStates.EntityData)
 }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetSegmentPath() string {
-    return "lcp-states"
-}
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = lcpStates.Total
-    leafs["count"] = lcpStates.Count
-    return leafs
-}
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetYangName() string { return "lcp-states" }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) SetParent(parent types.Entity) { lcpStates.parent = parent }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetParent() types.Entity { return lcpStates.parent }
-
-func (lcpStates *Ppp_Nodes_Node_SsoSummary_LcpStates) GetParentYangName() string { return "sso-summary" }
 
 // Ppp_Nodes_Node_SsoSummary_OfUsAuthStates
 // Of-us Authentication SSO FSM States
 type Ppp_Nodes_Node_SsoSummary_OfUsAuthStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of SSO FSMs running. The type is interface{} with range:
@@ -3293,58 +1948,27 @@ type Ppp_Nodes_Node_SsoSummary_OfUsAuthStates struct {
     Count []interface{}
 }
 
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetFilter() yfilter.YFilter { return ofUsAuthStates.YFilter }
+func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetEntityData() *types.CommonEntityData {
+    ofUsAuthStates.EntityData.YFilter = ofUsAuthStates.YFilter
+    ofUsAuthStates.EntityData.YangName = "of-us-auth-states"
+    ofUsAuthStates.EntityData.BundleName = "cisco_ios_xr"
+    ofUsAuthStates.EntityData.ParentYangName = "sso-summary"
+    ofUsAuthStates.EntityData.SegmentPath = "of-us-auth-states"
+    ofUsAuthStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ofUsAuthStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ofUsAuthStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) SetFilter(yf yfilter.YFilter) { ofUsAuthStates.YFilter = yf }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "count" { return "Count" }
-    return ""
+    ofUsAuthStates.EntityData.Children = make(map[string]types.YChild)
+    ofUsAuthStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ofUsAuthStates.EntityData.Leafs["total"] = types.YLeaf{"Total", ofUsAuthStates.Total}
+    ofUsAuthStates.EntityData.Leafs["count"] = types.YLeaf{"Count", ofUsAuthStates.Count}
+    return &(ofUsAuthStates.EntityData)
 }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetSegmentPath() string {
-    return "of-us-auth-states"
-}
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = ofUsAuthStates.Total
-    leafs["count"] = ofUsAuthStates.Count
-    return leafs
-}
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetYangName() string { return "of-us-auth-states" }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) SetParent(parent types.Entity) { ofUsAuthStates.parent = parent }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetParent() types.Entity { return ofUsAuthStates.parent }
-
-func (ofUsAuthStates *Ppp_Nodes_Node_SsoSummary_OfUsAuthStates) GetParentYangName() string { return "sso-summary" }
 
 // Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates
 // Of-peer Authentication SSO FSM States
 type Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of SSO FSMs running. The type is interface{} with range:
@@ -3356,58 +1980,27 @@ type Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates struct {
     Count []interface{}
 }
 
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetFilter() yfilter.YFilter { return ofPeerAuthStates.YFilter }
+func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetEntityData() *types.CommonEntityData {
+    ofPeerAuthStates.EntityData.YFilter = ofPeerAuthStates.YFilter
+    ofPeerAuthStates.EntityData.YangName = "of-peer-auth-states"
+    ofPeerAuthStates.EntityData.BundleName = "cisco_ios_xr"
+    ofPeerAuthStates.EntityData.ParentYangName = "sso-summary"
+    ofPeerAuthStates.EntityData.SegmentPath = "of-peer-auth-states"
+    ofPeerAuthStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ofPeerAuthStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ofPeerAuthStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) SetFilter(yf yfilter.YFilter) { ofPeerAuthStates.YFilter = yf }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "count" { return "Count" }
-    return ""
+    ofPeerAuthStates.EntityData.Children = make(map[string]types.YChild)
+    ofPeerAuthStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ofPeerAuthStates.EntityData.Leafs["total"] = types.YLeaf{"Total", ofPeerAuthStates.Total}
+    ofPeerAuthStates.EntityData.Leafs["count"] = types.YLeaf{"Count", ofPeerAuthStates.Count}
+    return &(ofPeerAuthStates.EntityData)
 }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetSegmentPath() string {
-    return "of-peer-auth-states"
-}
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = ofPeerAuthStates.Total
-    leafs["count"] = ofPeerAuthStates.Count
-    return leafs
-}
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetYangName() string { return "of-peer-auth-states" }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) SetParent(parent types.Entity) { ofPeerAuthStates.parent = parent }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetParent() types.Entity { return ofPeerAuthStates.parent }
-
-func (ofPeerAuthStates *Ppp_Nodes_Node_SsoSummary_OfPeerAuthStates) GetParentYangName() string { return "sso-summary" }
 
 // Ppp_Nodes_Node_SsoSummary_IpcpStates
 // IPCP SSO FSM States
 type Ppp_Nodes_Node_SsoSummary_IpcpStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of SSO FSMs running. The type is interface{} with range:
@@ -3419,58 +2012,27 @@ type Ppp_Nodes_Node_SsoSummary_IpcpStates struct {
     Count []interface{}
 }
 
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetFilter() yfilter.YFilter { return ipcpStates.YFilter }
+func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetEntityData() *types.CommonEntityData {
+    ipcpStates.EntityData.YFilter = ipcpStates.YFilter
+    ipcpStates.EntityData.YangName = "ipcp-states"
+    ipcpStates.EntityData.BundleName = "cisco_ios_xr"
+    ipcpStates.EntityData.ParentYangName = "sso-summary"
+    ipcpStates.EntityData.SegmentPath = "ipcp-states"
+    ipcpStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipcpStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipcpStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) SetFilter(yf yfilter.YFilter) { ipcpStates.YFilter = yf }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "count" { return "Count" }
-    return ""
+    ipcpStates.EntityData.Children = make(map[string]types.YChild)
+    ipcpStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcpStates.EntityData.Leafs["total"] = types.YLeaf{"Total", ipcpStates.Total}
+    ipcpStates.EntityData.Leafs["count"] = types.YLeaf{"Count", ipcpStates.Count}
+    return &(ipcpStates.EntityData)
 }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetSegmentPath() string {
-    return "ipcp-states"
-}
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = ipcpStates.Total
-    leafs["count"] = ipcpStates.Count
-    return leafs
-}
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetYangName() string { return "ipcp-states" }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) SetParent(parent types.Entity) { ipcpStates.parent = parent }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetParent() types.Entity { return ipcpStates.parent }
-
-func (ipcpStates *Ppp_Nodes_Node_SsoSummary_IpcpStates) GetParentYangName() string { return "sso-summary" }
 
 // Ppp_Nodes_Node_SsoGroups
 // PPP SSO Group data for a particular node
 type Ppp_Nodes_Node_SsoGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPP SSO state data for a particular group. The type is slice of
@@ -3478,68 +2040,29 @@ type Ppp_Nodes_Node_SsoGroups struct {
     SsoGroup []Ppp_Nodes_Node_SsoGroups_SsoGroup
 }
 
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetFilter() yfilter.YFilter { return ssoGroups.YFilter }
+func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetEntityData() *types.CommonEntityData {
+    ssoGroups.EntityData.YFilter = ssoGroups.YFilter
+    ssoGroups.EntityData.YangName = "sso-groups"
+    ssoGroups.EntityData.BundleName = "cisco_ios_xr"
+    ssoGroups.EntityData.ParentYangName = "node"
+    ssoGroups.EntityData.SegmentPath = "sso-groups"
+    ssoGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) SetFilter(yf yfilter.YFilter) { ssoGroups.YFilter = yf }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetGoName(yname string) string {
-    if yname == "sso-group" { return "SsoGroup" }
-    return ""
-}
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetSegmentPath() string {
-    return "sso-groups"
-}
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sso-group" {
-        for _, c := range ssoGroups.SsoGroup {
-            if ssoGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_SsoGroups_SsoGroup{}
-        ssoGroups.SsoGroup = append(ssoGroups.SsoGroup, child)
-        return &ssoGroups.SsoGroup[len(ssoGroups.SsoGroup)-1]
-    }
-    return nil
-}
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ssoGroups.EntityData.Children = make(map[string]types.YChild)
+    ssoGroups.EntityData.Children["sso-group"] = types.YChild{"SsoGroup", nil}
     for i := range ssoGroups.SsoGroup {
-        children[ssoGroups.SsoGroup[i].GetSegmentPath()] = &ssoGroups.SsoGroup[i]
+        ssoGroups.EntityData.Children[types.GetSegmentPath(&ssoGroups.SsoGroup[i])] = types.YChild{"SsoGroup", &ssoGroups.SsoGroup[i]}
     }
-    return children
+    ssoGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ssoGroups.EntityData)
 }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetYangName() string { return "sso-groups" }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) SetParent(parent types.Entity) { ssoGroups.parent = parent }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetParent() types.Entity { return ssoGroups.parent }
-
-func (ssoGroups *Ppp_Nodes_Node_SsoGroups) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup
 // PPP SSO state data for a particular group
 type Ppp_Nodes_Node_SsoGroups_SsoGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier for the group. The type is
@@ -3550,61 +2073,27 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup struct {
     SsoStates Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates
 }
 
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetFilter() yfilter.YFilter { return ssoGroup.YFilter }
+func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetEntityData() *types.CommonEntityData {
+    ssoGroup.EntityData.YFilter = ssoGroup.YFilter
+    ssoGroup.EntityData.YangName = "sso-group"
+    ssoGroup.EntityData.BundleName = "cisco_ios_xr"
+    ssoGroup.EntityData.ParentYangName = "sso-groups"
+    ssoGroup.EntityData.SegmentPath = "sso-group" + "[group-id='" + fmt.Sprintf("%v", ssoGroup.GroupId) + "']"
+    ssoGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) SetFilter(yf yfilter.YFilter) { ssoGroup.YFilter = yf }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetGoName(yname string) string {
-    if yname == "group-id" { return "GroupId" }
-    if yname == "sso-states" { return "SsoStates" }
-    return ""
+    ssoGroup.EntityData.Children = make(map[string]types.YChild)
+    ssoGroup.EntityData.Children["sso-states"] = types.YChild{"SsoStates", &ssoGroup.SsoStates}
+    ssoGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoGroup.EntityData.Leafs["group-id"] = types.YLeaf{"GroupId", ssoGroup.GroupId}
+    return &(ssoGroup.EntityData)
 }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetSegmentPath() string {
-    return "sso-group" + "[group-id='" + fmt.Sprintf("%v", ssoGroup.GroupId) + "']"
-}
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sso-states" {
-        return &ssoGroup.SsoStates
-    }
-    return nil
-}
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sso-states"] = &ssoGroup.SsoStates
-    return children
-}
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["group-id"] = ssoGroup.GroupId
-    return leafs
-}
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetYangName() string { return "sso-group" }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) SetParent(parent types.Entity) { ssoGroup.parent = parent }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetParent() types.Entity { return ssoGroup.parent }
-
-func (ssoGroup *Ppp_Nodes_Node_SsoGroups_SsoGroup) GetParentYangName() string { return "sso-groups" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates
 // PPP SSO State data for a particular group
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPP SSO State data for a particular interface. The type is slice of
@@ -3612,69 +2101,30 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates struct {
     SsoState []Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState
 }
 
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetFilter() yfilter.YFilter { return ssoStates.YFilter }
+func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetEntityData() *types.CommonEntityData {
+    ssoStates.EntityData.YFilter = ssoStates.YFilter
+    ssoStates.EntityData.YangName = "sso-states"
+    ssoStates.EntityData.BundleName = "cisco_ios_xr"
+    ssoStates.EntityData.ParentYangName = "sso-group"
+    ssoStates.EntityData.SegmentPath = "sso-states"
+    ssoStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) SetFilter(yf yfilter.YFilter) { ssoStates.YFilter = yf }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetGoName(yname string) string {
-    if yname == "sso-state" { return "SsoState" }
-    return ""
-}
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetSegmentPath() string {
-    return "sso-states"
-}
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sso-state" {
-        for _, c := range ssoStates.SsoState {
-            if ssoStates.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState{}
-        ssoStates.SsoState = append(ssoStates.SsoState, child)
-        return &ssoStates.SsoState[len(ssoStates.SsoState)-1]
-    }
-    return nil
-}
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ssoStates.EntityData.Children = make(map[string]types.YChild)
+    ssoStates.EntityData.Children["sso-state"] = types.YChild{"SsoState", nil}
     for i := range ssoStates.SsoState {
-        children[ssoStates.SsoState[i].GetSegmentPath()] = &ssoStates.SsoState[i]
+        ssoStates.EntityData.Children[types.GetSegmentPath(&ssoStates.SsoState[i])] = types.YChild{"SsoState", &ssoStates.SsoState[i]}
     }
-    return children
+    ssoStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ssoStates.EntityData)
 }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetYangName() string { return "sso-states" }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) SetParent(parent types.Entity) { ssoStates.parent = parent }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetParent() types.Entity { return ssoStates.parent }
-
-func (ssoStates *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates) GetParentYangName() string { return "sso-group" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState
 // PPP SSO State data for a particular
 // interface
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session ID for the interface with SSO State. The
@@ -3684,8 +2134,8 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
     // SSRP Session ID. The type is interface{} with range: 0..4294967295.
     SessionIdXr interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // LCP SSO State.
     LcpState Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState
@@ -3700,80 +2150,32 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
     IpcpState Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState
 }
 
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetFilter() yfilter.YFilter { return ssoState.YFilter }
+func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetEntityData() *types.CommonEntityData {
+    ssoState.EntityData.YFilter = ssoState.YFilter
+    ssoState.EntityData.YangName = "sso-state"
+    ssoState.EntityData.BundleName = "cisco_ios_xr"
+    ssoState.EntityData.ParentYangName = "sso-states"
+    ssoState.EntityData.SegmentPath = "sso-state" + "[session-id='" + fmt.Sprintf("%v", ssoState.SessionId) + "']"
+    ssoState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssoState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssoState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) SetFilter(yf yfilter.YFilter) { ssoState.YFilter = yf }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetGoName(yname string) string {
-    if yname == "session-id" { return "SessionId" }
-    if yname == "session-id-xr" { return "SessionIdXr" }
-    if yname == "interface" { return "Interface" }
-    if yname == "lcp-state" { return "LcpState" }
-    if yname == "of-us-auth-state" { return "OfUsAuthState" }
-    if yname == "of-peer-auth-state" { return "OfPeerAuthState" }
-    if yname == "ipcp-state" { return "IpcpState" }
-    return ""
+    ssoState.EntityData.Children = make(map[string]types.YChild)
+    ssoState.EntityData.Children["lcp-state"] = types.YChild{"LcpState", &ssoState.LcpState}
+    ssoState.EntityData.Children["of-us-auth-state"] = types.YChild{"OfUsAuthState", &ssoState.OfUsAuthState}
+    ssoState.EntityData.Children["of-peer-auth-state"] = types.YChild{"OfPeerAuthState", &ssoState.OfPeerAuthState}
+    ssoState.EntityData.Children["ipcp-state"] = types.YChild{"IpcpState", &ssoState.IpcpState}
+    ssoState.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssoState.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", ssoState.SessionId}
+    ssoState.EntityData.Leafs["session-id-xr"] = types.YLeaf{"SessionIdXr", ssoState.SessionIdXr}
+    ssoState.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", ssoState.Interface_}
+    return &(ssoState.EntityData)
 }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetSegmentPath() string {
-    return "sso-state" + "[session-id='" + fmt.Sprintf("%v", ssoState.SessionId) + "']"
-}
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lcp-state" {
-        return &ssoState.LcpState
-    }
-    if childYangName == "of-us-auth-state" {
-        return &ssoState.OfUsAuthState
-    }
-    if childYangName == "of-peer-auth-state" {
-        return &ssoState.OfPeerAuthState
-    }
-    if childYangName == "ipcp-state" {
-        return &ssoState.IpcpState
-    }
-    return nil
-}
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lcp-state"] = &ssoState.LcpState
-    children["of-us-auth-state"] = &ssoState.OfUsAuthState
-    children["of-peer-auth-state"] = &ssoState.OfPeerAuthState
-    children["ipcp-state"] = &ssoState.IpcpState
-    return children
-}
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-id"] = ssoState.SessionId
-    leafs["session-id-xr"] = ssoState.SessionIdXr
-    leafs["interface"] = ssoState.Interface
-    return leafs
-}
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetYangName() string { return "sso-state" }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) SetParent(parent types.Entity) { ssoState.parent = parent }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetParent() types.Entity { return ssoState.parent }
-
-func (ssoState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState) GetParentYangName() string { return "sso-states" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState
 // LCP SSO State
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO FSM Running. The type is bool.
@@ -3783,58 +2185,27 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState struct {
     State interface{}
 }
 
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetFilter() yfilter.YFilter { return lcpState.YFilter }
+func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetEntityData() *types.CommonEntityData {
+    lcpState.EntityData.YFilter = lcpState.YFilter
+    lcpState.EntityData.YangName = "lcp-state"
+    lcpState.EntityData.BundleName = "cisco_ios_xr"
+    lcpState.EntityData.ParentYangName = "sso-state"
+    lcpState.EntityData.SegmentPath = "lcp-state"
+    lcpState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) SetFilter(yf yfilter.YFilter) { lcpState.YFilter = yf }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetGoName(yname string) string {
-    if yname == "is-running" { return "IsRunning" }
-    if yname == "state" { return "State" }
-    return ""
+    lcpState.EntityData.Children = make(map[string]types.YChild)
+    lcpState.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", lcpState.IsRunning}
+    lcpState.EntityData.Leafs["state"] = types.YLeaf{"State", lcpState.State}
+    return &(lcpState.EntityData)
 }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetSegmentPath() string {
-    return "lcp-state"
-}
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-running"] = lcpState.IsRunning
-    leafs["state"] = lcpState.State
-    return leafs
-}
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetYangName() string { return "lcp-state" }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) SetParent(parent types.Entity) { lcpState.parent = parent }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetParent() types.Entity { return lcpState.parent }
-
-func (lcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_LcpState) GetParentYangName() string { return "sso-state" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState
 // Of-us Authentication SSO State
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO FSM Running. The type is bool.
@@ -3844,58 +2215,27 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState struct {
     State interface{}
 }
 
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetFilter() yfilter.YFilter { return ofUsAuthState.YFilter }
+func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetEntityData() *types.CommonEntityData {
+    ofUsAuthState.EntityData.YFilter = ofUsAuthState.YFilter
+    ofUsAuthState.EntityData.YangName = "of-us-auth-state"
+    ofUsAuthState.EntityData.BundleName = "cisco_ios_xr"
+    ofUsAuthState.EntityData.ParentYangName = "sso-state"
+    ofUsAuthState.EntityData.SegmentPath = "of-us-auth-state"
+    ofUsAuthState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ofUsAuthState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ofUsAuthState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) SetFilter(yf yfilter.YFilter) { ofUsAuthState.YFilter = yf }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetGoName(yname string) string {
-    if yname == "is-running" { return "IsRunning" }
-    if yname == "state" { return "State" }
-    return ""
+    ofUsAuthState.EntityData.Children = make(map[string]types.YChild)
+    ofUsAuthState.EntityData.Leafs = make(map[string]types.YLeaf)
+    ofUsAuthState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", ofUsAuthState.IsRunning}
+    ofUsAuthState.EntityData.Leafs["state"] = types.YLeaf{"State", ofUsAuthState.State}
+    return &(ofUsAuthState.EntityData)
 }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetSegmentPath() string {
-    return "of-us-auth-state"
-}
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-running"] = ofUsAuthState.IsRunning
-    leafs["state"] = ofUsAuthState.State
-    return leafs
-}
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetYangName() string { return "of-us-auth-state" }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) SetParent(parent types.Entity) { ofUsAuthState.parent = parent }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetParent() types.Entity { return ofUsAuthState.parent }
-
-func (ofUsAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfUsAuthState) GetParentYangName() string { return "sso-state" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState
 // Of-peer Authentication SSO State
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO FSM Running. The type is bool.
@@ -3905,58 +2245,27 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState struct
     State interface{}
 }
 
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetFilter() yfilter.YFilter { return ofPeerAuthState.YFilter }
+func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetEntityData() *types.CommonEntityData {
+    ofPeerAuthState.EntityData.YFilter = ofPeerAuthState.YFilter
+    ofPeerAuthState.EntityData.YangName = "of-peer-auth-state"
+    ofPeerAuthState.EntityData.BundleName = "cisco_ios_xr"
+    ofPeerAuthState.EntityData.ParentYangName = "sso-state"
+    ofPeerAuthState.EntityData.SegmentPath = "of-peer-auth-state"
+    ofPeerAuthState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ofPeerAuthState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ofPeerAuthState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) SetFilter(yf yfilter.YFilter) { ofPeerAuthState.YFilter = yf }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetGoName(yname string) string {
-    if yname == "is-running" { return "IsRunning" }
-    if yname == "state" { return "State" }
-    return ""
+    ofPeerAuthState.EntityData.Children = make(map[string]types.YChild)
+    ofPeerAuthState.EntityData.Leafs = make(map[string]types.YLeaf)
+    ofPeerAuthState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", ofPeerAuthState.IsRunning}
+    ofPeerAuthState.EntityData.Leafs["state"] = types.YLeaf{"State", ofPeerAuthState.State}
+    return &(ofPeerAuthState.EntityData)
 }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetSegmentPath() string {
-    return "of-peer-auth-state"
-}
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-running"] = ofPeerAuthState.IsRunning
-    leafs["state"] = ofPeerAuthState.State
-    return leafs
-}
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetYangName() string { return "of-peer-auth-state" }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) SetParent(parent types.Entity) { ofPeerAuthState.parent = parent }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetParent() types.Entity { return ofPeerAuthState.parent }
-
-func (ofPeerAuthState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_OfPeerAuthState) GetParentYangName() string { return "sso-state" }
 
 // Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState
 // IPCP SSO State
 type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is SSO FSM Running. The type is bool.
@@ -3966,58 +2275,27 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState struct {
     State interface{}
 }
 
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetFilter() yfilter.YFilter { return ipcpState.YFilter }
+func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetEntityData() *types.CommonEntityData {
+    ipcpState.EntityData.YFilter = ipcpState.YFilter
+    ipcpState.EntityData.YangName = "ipcp-state"
+    ipcpState.EntityData.BundleName = "cisco_ios_xr"
+    ipcpState.EntityData.ParentYangName = "sso-state"
+    ipcpState.EntityData.SegmentPath = "ipcp-state"
+    ipcpState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipcpState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipcpState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) SetFilter(yf yfilter.YFilter) { ipcpState.YFilter = yf }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetGoName(yname string) string {
-    if yname == "is-running" { return "IsRunning" }
-    if yname == "state" { return "State" }
-    return ""
+    ipcpState.EntityData.Children = make(map[string]types.YChild)
+    ipcpState.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcpState.EntityData.Leafs["is-running"] = types.YLeaf{"IsRunning", ipcpState.IsRunning}
+    ipcpState.EntityData.Leafs["state"] = types.YLeaf{"State", ipcpState.State}
+    return &(ipcpState.EntityData)
 }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetSegmentPath() string {
-    return "ipcp-state"
-}
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-running"] = ipcpState.IsRunning
-    leafs["state"] = ipcpState.State
-    return leafs
-}
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetYangName() string { return "ipcp-state" }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) SetParent(parent types.Entity) { ipcpState.parent = parent }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetParent() types.Entity { return ipcpState.parent }
-
-func (ipcpState *Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState_IpcpState) GetParentYangName() string { return "sso-state" }
 
 // Ppp_Nodes_Node_Summary
 // Summarized PPP data for a particular node
 type Ppp_Nodes_Node_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interfaces running PPP.
@@ -4030,69 +2308,28 @@ type Ppp_Nodes_Node_Summary struct {
     LcpAuthPhases Ppp_Nodes_Node_Summary_LcpAuthPhases
 }
 
-func (summary *Ppp_Nodes_Node_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Ppp_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "node"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Ppp_Nodes_Node_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Ppp_Nodes_Node_Summary) GetGoName(yname string) string {
-    if yname == "intfs" { return "Intfs" }
-    if yname == "fsm-states" { return "FsmStates" }
-    if yname == "lcp-auth-phases" { return "LcpAuthPhases" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["intfs"] = types.YChild{"Intfs", &summary.Intfs}
+    summary.EntityData.Children["fsm-states"] = types.YChild{"FsmStates", &summary.FsmStates}
+    summary.EntityData.Children["lcp-auth-phases"] = types.YChild{"LcpAuthPhases", &summary.LcpAuthPhases}
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(summary.EntityData)
 }
-
-func (summary *Ppp_Nodes_Node_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Ppp_Nodes_Node_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intfs" {
-        return &summary.Intfs
-    }
-    if childYangName == "fsm-states" {
-        return &summary.FsmStates
-    }
-    if childYangName == "lcp-auth-phases" {
-        return &summary.LcpAuthPhases
-    }
-    return nil
-}
-
-func (summary *Ppp_Nodes_Node_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["intfs"] = &summary.Intfs
-    children["fsm-states"] = &summary.FsmStates
-    children["lcp-auth-phases"] = &summary.LcpAuthPhases
-    return children
-}
-
-func (summary *Ppp_Nodes_Node_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (summary *Ppp_Nodes_Node_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Ppp_Nodes_Node_Summary) GetYangName() string { return "summary" }
-
-func (summary *Ppp_Nodes_Node_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Ppp_Nodes_Node_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Ppp_Nodes_Node_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Ppp_Nodes_Node_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Ppp_Nodes_Node_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Ppp_Nodes_Node_Summary) GetParentYangName() string { return "node" }
 
 // Ppp_Nodes_Node_Summary_Intfs
 // Interfaces running PPP
 type Ppp_Nodes_Node_Summary_Intfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // POS Count. The type is interface{} with range: 0..4294967295.
@@ -4117,68 +2354,32 @@ type Ppp_Nodes_Node_Summary_Intfs struct {
     Total interface{}
 }
 
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetFilter() yfilter.YFilter { return intfs.YFilter }
+func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetEntityData() *types.CommonEntityData {
+    intfs.EntityData.YFilter = intfs.YFilter
+    intfs.EntityData.YangName = "intfs"
+    intfs.EntityData.BundleName = "cisco_ios_xr"
+    intfs.EntityData.ParentYangName = "summary"
+    intfs.EntityData.SegmentPath = "intfs"
+    intfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) SetFilter(yf yfilter.YFilter) { intfs.YFilter = yf }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetGoName(yname string) string {
-    if yname == "pos-count" { return "PosCount" }
-    if yname == "serial-count" { return "SerialCount" }
-    if yname == "pppoe-count" { return "PppoeCount" }
-    if yname == "multilink-bundle-count" { return "MultilinkBundleCount" }
-    if yname == "gcc0-count" { return "Gcc0Count" }
-    if yname == "gcc1-count" { return "Gcc1Count" }
-    if yname == "total" { return "Total" }
-    return ""
+    intfs.EntityData.Children = make(map[string]types.YChild)
+    intfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    intfs.EntityData.Leafs["pos-count"] = types.YLeaf{"PosCount", intfs.PosCount}
+    intfs.EntityData.Leafs["serial-count"] = types.YLeaf{"SerialCount", intfs.SerialCount}
+    intfs.EntityData.Leafs["pppoe-count"] = types.YLeaf{"PppoeCount", intfs.PppoeCount}
+    intfs.EntityData.Leafs["multilink-bundle-count"] = types.YLeaf{"MultilinkBundleCount", intfs.MultilinkBundleCount}
+    intfs.EntityData.Leafs["gcc0-count"] = types.YLeaf{"Gcc0Count", intfs.Gcc0Count}
+    intfs.EntityData.Leafs["gcc1-count"] = types.YLeaf{"Gcc1Count", intfs.Gcc1Count}
+    intfs.EntityData.Leafs["total"] = types.YLeaf{"Total", intfs.Total}
+    return &(intfs.EntityData)
 }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetSegmentPath() string {
-    return "intfs"
-}
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pos-count"] = intfs.PosCount
-    leafs["serial-count"] = intfs.SerialCount
-    leafs["pppoe-count"] = intfs.PppoeCount
-    leafs["multilink-bundle-count"] = intfs.MultilinkBundleCount
-    leafs["gcc0-count"] = intfs.Gcc0Count
-    leafs["gcc1-count"] = intfs.Gcc1Count
-    leafs["total"] = intfs.Total
-    return leafs
-}
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetYangName() string { return "intfs" }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) SetParent(parent types.Entity) { intfs.parent = parent }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetParent() types.Entity { return intfs.parent }
-
-func (intfs *Ppp_Nodes_Node_Summary_Intfs) GetParentYangName() string { return "summary" }
 
 // Ppp_Nodes_Node_Summary_FsmStates
 // FSM States
 type Ppp_Nodes_Node_Summary_FsmStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Array of per-LCP FSM States.
@@ -4189,73 +2390,30 @@ type Ppp_Nodes_Node_Summary_FsmStates struct {
     NcpfsmStatesArray []Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray
 }
 
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetFilter() yfilter.YFilter { return fsmStates.YFilter }
+func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetEntityData() *types.CommonEntityData {
+    fsmStates.EntityData.YFilter = fsmStates.YFilter
+    fsmStates.EntityData.YangName = "fsm-states"
+    fsmStates.EntityData.BundleName = "cisco_ios_xr"
+    fsmStates.EntityData.ParentYangName = "summary"
+    fsmStates.EntityData.SegmentPath = "fsm-states"
+    fsmStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fsmStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fsmStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) SetFilter(yf yfilter.YFilter) { fsmStates.YFilter = yf }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetGoName(yname string) string {
-    if yname == "lcpfsm-states" { return "LcpfsmStates" }
-    if yname == "ncpfsm-states-array" { return "NcpfsmStatesArray" }
-    return ""
-}
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetSegmentPath() string {
-    return "fsm-states"
-}
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lcpfsm-states" {
-        return &fsmStates.LcpfsmStates
-    }
-    if childYangName == "ncpfsm-states-array" {
-        for _, c := range fsmStates.NcpfsmStatesArray {
-            if fsmStates.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray{}
-        fsmStates.NcpfsmStatesArray = append(fsmStates.NcpfsmStatesArray, child)
-        return &fsmStates.NcpfsmStatesArray[len(fsmStates.NcpfsmStatesArray)-1]
-    }
-    return nil
-}
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lcpfsm-states"] = &fsmStates.LcpfsmStates
+    fsmStates.EntityData.Children = make(map[string]types.YChild)
+    fsmStates.EntityData.Children["lcpfsm-states"] = types.YChild{"LcpfsmStates", &fsmStates.LcpfsmStates}
+    fsmStates.EntityData.Children["ncpfsm-states-array"] = types.YChild{"NcpfsmStatesArray", nil}
     for i := range fsmStates.NcpfsmStatesArray {
-        children[fsmStates.NcpfsmStatesArray[i].GetSegmentPath()] = &fsmStates.NcpfsmStatesArray[i]
+        fsmStates.EntityData.Children[types.GetSegmentPath(&fsmStates.NcpfsmStatesArray[i])] = types.YChild{"NcpfsmStatesArray", &fsmStates.NcpfsmStatesArray[i]}
     }
-    return children
+    fsmStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fsmStates.EntityData)
 }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetYangName() string { return "fsm-states" }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) SetParent(parent types.Entity) { fsmStates.parent = parent }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetParent() types.Entity { return fsmStates.parent }
-
-func (fsmStates *Ppp_Nodes_Node_Summary_FsmStates) GetParentYangName() string { return "summary" }
 
 // Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates
 // Array of per-LCP FSM States
 type Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of LCP FSMs running. The type is interface{} with range:
@@ -4267,58 +2425,27 @@ type Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates struct {
     Count []interface{}
 }
 
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetFilter() yfilter.YFilter { return lcpfsmStates.YFilter }
+func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetEntityData() *types.CommonEntityData {
+    lcpfsmStates.EntityData.YFilter = lcpfsmStates.YFilter
+    lcpfsmStates.EntityData.YangName = "lcpfsm-states"
+    lcpfsmStates.EntityData.BundleName = "cisco_ios_xr"
+    lcpfsmStates.EntityData.ParentYangName = "fsm-states"
+    lcpfsmStates.EntityData.SegmentPath = "lcpfsm-states"
+    lcpfsmStates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpfsmStates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpfsmStates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) SetFilter(yf yfilter.YFilter) { lcpfsmStates.YFilter = yf }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "count" { return "Count" }
-    return ""
+    lcpfsmStates.EntityData.Children = make(map[string]types.YChild)
+    lcpfsmStates.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpfsmStates.EntityData.Leafs["total"] = types.YLeaf{"Total", lcpfsmStates.Total}
+    lcpfsmStates.EntityData.Leafs["count"] = types.YLeaf{"Count", lcpfsmStates.Count}
+    return &(lcpfsmStates.EntityData)
 }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetSegmentPath() string {
-    return "lcpfsm-states"
-}
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = lcpfsmStates.Total
-    leafs["count"] = lcpfsmStates.Count
-    return leafs
-}
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetYangName() string { return "lcpfsm-states" }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) SetParent(parent types.Entity) { lcpfsmStates.parent = parent }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetParent() types.Entity { return lcpfsmStates.parent }
-
-func (lcpfsmStates *Ppp_Nodes_Node_Summary_FsmStates_LcpfsmStates) GetParentYangName() string { return "fsm-states" }
 
 // Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray
 // Array of per-NCP FSM States
 type Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NCP Identifier. The type is NcpIdent.
@@ -4333,60 +2460,28 @@ type Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray struct {
     Count []interface{}
 }
 
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetFilter() yfilter.YFilter { return ncpfsmStatesArray.YFilter }
+func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetEntityData() *types.CommonEntityData {
+    ncpfsmStatesArray.EntityData.YFilter = ncpfsmStatesArray.YFilter
+    ncpfsmStatesArray.EntityData.YangName = "ncpfsm-states-array"
+    ncpfsmStatesArray.EntityData.BundleName = "cisco_ios_xr"
+    ncpfsmStatesArray.EntityData.ParentYangName = "fsm-states"
+    ncpfsmStatesArray.EntityData.SegmentPath = "ncpfsm-states-array"
+    ncpfsmStatesArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ncpfsmStatesArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ncpfsmStatesArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) SetFilter(yf yfilter.YFilter) { ncpfsmStatesArray.YFilter = yf }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetGoName(yname string) string {
-    if yname == "ncp-identifier" { return "NcpIdentifier" }
-    if yname == "total" { return "Total" }
-    if yname == "count" { return "Count" }
-    return ""
+    ncpfsmStatesArray.EntityData.Children = make(map[string]types.YChild)
+    ncpfsmStatesArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    ncpfsmStatesArray.EntityData.Leafs["ncp-identifier"] = types.YLeaf{"NcpIdentifier", ncpfsmStatesArray.NcpIdentifier}
+    ncpfsmStatesArray.EntityData.Leafs["total"] = types.YLeaf{"Total", ncpfsmStatesArray.Total}
+    ncpfsmStatesArray.EntityData.Leafs["count"] = types.YLeaf{"Count", ncpfsmStatesArray.Count}
+    return &(ncpfsmStatesArray.EntityData)
 }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetSegmentPath() string {
-    return "ncpfsm-states-array"
-}
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ncp-identifier"] = ncpfsmStatesArray.NcpIdentifier
-    leafs["total"] = ncpfsmStatesArray.Total
-    leafs["count"] = ncpfsmStatesArray.Count
-    return leafs
-}
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetYangName() string { return "ncpfsm-states-array" }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) SetParent(parent types.Entity) { ncpfsmStatesArray.parent = parent }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetParent() types.Entity { return ncpfsmStatesArray.parent }
-
-func (ncpfsmStatesArray *Ppp_Nodes_Node_Summary_FsmStates_NcpfsmStatesArray) GetParentYangName() string { return "fsm-states" }
 
 // Ppp_Nodes_Node_Summary_LcpAuthPhases
 // LCP/Auth Phases
 type Ppp_Nodes_Node_Summary_LcpAuthPhases struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of sessions with LCP not negotiated. The type is interface{} with
@@ -4414,59 +2509,24 @@ type Ppp_Nodes_Node_Summary_LcpAuthPhases struct {
     UpTunneled interface{}
 }
 
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetFilter() yfilter.YFilter { return lcpAuthPhases.YFilter }
+func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetEntityData() *types.CommonEntityData {
+    lcpAuthPhases.EntityData.YFilter = lcpAuthPhases.YFilter
+    lcpAuthPhases.EntityData.YangName = "lcp-auth-phases"
+    lcpAuthPhases.EntityData.BundleName = "cisco_ios_xr"
+    lcpAuthPhases.EntityData.ParentYangName = "summary"
+    lcpAuthPhases.EntityData.SegmentPath = "lcp-auth-phases"
+    lcpAuthPhases.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcpAuthPhases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcpAuthPhases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) SetFilter(yf yfilter.YFilter) { lcpAuthPhases.YFilter = yf }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetGoName(yname string) string {
-    if yname == "lcp-not-negotiated" { return "LcpNotNegotiated" }
-    if yname == "authenticating" { return "Authenticating" }
-    if yname == "line-held-down" { return "LineHeldDown" }
-    if yname == "up-local-term" { return "UpLocalTerm" }
-    if yname == "up-l2-fwded" { return "UpL2Fwded" }
-    if yname == "up-tunneled" { return "UpTunneled" }
-    return ""
+    lcpAuthPhases.EntityData.Children = make(map[string]types.YChild)
+    lcpAuthPhases.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcpAuthPhases.EntityData.Leafs["lcp-not-negotiated"] = types.YLeaf{"LcpNotNegotiated", lcpAuthPhases.LcpNotNegotiated}
+    lcpAuthPhases.EntityData.Leafs["authenticating"] = types.YLeaf{"Authenticating", lcpAuthPhases.Authenticating}
+    lcpAuthPhases.EntityData.Leafs["line-held-down"] = types.YLeaf{"LineHeldDown", lcpAuthPhases.LineHeldDown}
+    lcpAuthPhases.EntityData.Leafs["up-local-term"] = types.YLeaf{"UpLocalTerm", lcpAuthPhases.UpLocalTerm}
+    lcpAuthPhases.EntityData.Leafs["up-l2-fwded"] = types.YLeaf{"UpL2Fwded", lcpAuthPhases.UpL2Fwded}
+    lcpAuthPhases.EntityData.Leafs["up-tunneled"] = types.YLeaf{"UpTunneled", lcpAuthPhases.UpTunneled}
+    return &(lcpAuthPhases.EntityData)
 }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetSegmentPath() string {
-    return "lcp-auth-phases"
-}
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lcp-not-negotiated"] = lcpAuthPhases.LcpNotNegotiated
-    leafs["authenticating"] = lcpAuthPhases.Authenticating
-    leafs["line-held-down"] = lcpAuthPhases.LineHeldDown
-    leafs["up-local-term"] = lcpAuthPhases.UpLocalTerm
-    leafs["up-l2-fwded"] = lcpAuthPhases.UpL2Fwded
-    leafs["up-tunneled"] = lcpAuthPhases.UpTunneled
-    return leafs
-}
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetYangName() string { return "lcp-auth-phases" }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) SetParent(parent types.Entity) { lcpAuthPhases.parent = parent }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetParent() types.Entity { return lcpAuthPhases.parent }
-
-func (lcpAuthPhases *Ppp_Nodes_Node_Summary_LcpAuthPhases) GetParentYangName() string { return "summary" }
 

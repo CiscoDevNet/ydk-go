@@ -24,89 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven", reflect.TypeOf(TelemetryModelDriven{}))
 }
 
-// MdtTransportEnum represents MDT Transport
-type MdtTransportEnum string
-
-const (
-    // PROTOCOL NOT SET
-    MdtTransportEnum_not_set MdtTransportEnum = "not-set"
-
-    // GRPC
-    MdtTransportEnum_grpc MdtTransportEnum = "grpc"
-
-    // TCP
-    MdtTransportEnum_tcp MdtTransportEnum = "tcp"
-
-    // UDP
-    MdtTransportEnum_udp MdtTransportEnum = "udp"
-
-    // DIALIN
-    MdtTransportEnum_dialin MdtTransportEnum = "dialin"
-)
-
-// MdtInternalPathStatus represents Internal Subscription Path Status
-type MdtInternalPathStatus string
-
-const (
-    // Active
-    MdtInternalPathStatus_active MdtInternalPathStatus = "active"
-
-    // Internal Error
-    MdtInternalPathStatus_internal_err MdtInternalPathStatus = "internal-err"
-
-    // Plugin Active
-    MdtInternalPathStatus_plugin_active MdtInternalPathStatus = "plugin-active"
-
-    // Plugin Not Initialized
-    MdtInternalPathStatus_plugin_not_initialized MdtInternalPathStatus = "plugin-not-initialized"
-
-    // Plugin Unsupported Cadence
-    MdtInternalPathStatus_plugin_invalid_cadence MdtInternalPathStatus = "plugin-invalid-cadence"
-
-    // Plugin Subscription Error
-    MdtInternalPathStatus_plugin_err MdtInternalPathStatus = "plugin-err"
-
-    // Filter Error
-    MdtInternalPathStatus_filter_err MdtInternalPathStatus = "filter-err"
-
-    // Paused
-    MdtInternalPathStatus_paused MdtInternalPathStatus = "paused"
-
-    // Eventing Active
-    MdtInternalPathStatus_event_ing_active MdtInternalPathStatus = "event-ing-active"
-
-    // Eventing Not Active
-    MdtInternalPathStatus_event_ing_not_active MdtInternalPathStatus = "event-ing-not-active"
-
-    // Eventing Error
-    MdtInternalPathStatus_event_ing_err MdtInternalPathStatus = "event-ing-err"
-)
-
-// MdtIp represents IP Type
-type MdtIp string
-
-const (
-    // IPv4
-    MdtIp_ipv4 MdtIp = "ipv4"
-
-    // IPv6
-    MdtIp_ipv6 MdtIp = "ipv6"
-)
-
-// MdtSubsStateEnum represents Subscription State
-type MdtSubsStateEnum string
-
-const (
-    // NA
-    MdtSubsStateEnum_not_active MdtSubsStateEnum = "not-active"
-
-    // Active
-    MdtSubsStateEnum_active MdtSubsStateEnum = "active"
-
-    // Paused
-    MdtSubsStateEnum_paused MdtSubsStateEnum = "paused"
-)
-
 // MdtSourceQosMarking represents DSCP source qos value for subscription
 type MdtSourceQosMarking string
 
@@ -175,6 +92,58 @@ const (
     MdtSourceQosMarking_dscp_cs7 MdtSourceQosMarking = "dscp-cs7"
 )
 
+// MdtSubsStateEnum represents Subscription State
+type MdtSubsStateEnum string
+
+const (
+    // NA
+    MdtSubsStateEnum_not_active MdtSubsStateEnum = "not-active"
+
+    // Active
+    MdtSubsStateEnum_active MdtSubsStateEnum = "active"
+
+    // Paused
+    MdtSubsStateEnum_paused MdtSubsStateEnum = "paused"
+)
+
+// MdtInternalPathStatus represents Internal Subscription Path Status
+type MdtInternalPathStatus string
+
+const (
+    // Active
+    MdtInternalPathStatus_active MdtInternalPathStatus = "active"
+
+    // Internal Error
+    MdtInternalPathStatus_internal_err MdtInternalPathStatus = "internal-err"
+
+    // Plugin Active
+    MdtInternalPathStatus_plugin_active MdtInternalPathStatus = "plugin-active"
+
+    // Plugin Not Initialized
+    MdtInternalPathStatus_plugin_not_initialized MdtInternalPathStatus = "plugin-not-initialized"
+
+    // Plugin Unsupported Cadence
+    MdtInternalPathStatus_plugin_invalid_cadence MdtInternalPathStatus = "plugin-invalid-cadence"
+
+    // Plugin Subscription Error
+    MdtInternalPathStatus_plugin_err MdtInternalPathStatus = "plugin-err"
+
+    // Filter Error
+    MdtInternalPathStatus_filter_err MdtInternalPathStatus = "filter-err"
+
+    // Paused
+    MdtInternalPathStatus_paused MdtInternalPathStatus = "paused"
+
+    // Eventing Active
+    MdtInternalPathStatus_event_ing_active MdtInternalPathStatus = "event-ing-active"
+
+    // Eventing Not Active
+    MdtInternalPathStatus_event_ing_not_active MdtInternalPathStatus = "event-ing-not-active"
+
+    // Eventing Error
+    MdtInternalPathStatus_event_ing_err MdtInternalPathStatus = "event-ing-err"
+)
+
 // MdtDestStateEnum represents Destination state
 type MdtDestStateEnum string
 
@@ -198,6 +167,26 @@ const (
     MdtDestStateEnum_dest_channel_not_found MdtDestStateEnum = "dest-channel-not-found"
 )
 
+// MdtTransportEnum represents MDT Transport
+type MdtTransportEnum string
+
+const (
+    // PROTOCOL NOT SET
+    MdtTransportEnum_not_set MdtTransportEnum = "not-set"
+
+    // GRPC
+    MdtTransportEnum_grpc MdtTransportEnum = "grpc"
+
+    // TCP
+    MdtTransportEnum_tcp MdtTransportEnum = "tcp"
+
+    // UDP
+    MdtTransportEnum_udp MdtTransportEnum = "udp"
+
+    // DIALIN
+    MdtTransportEnum_dialin MdtTransportEnum = "dialin"
+)
+
 // MdtEncodingEnum represents MDT Encoding
 type MdtEncodingEnum string
 
@@ -215,10 +204,21 @@ const (
     MdtEncodingEnum_json MdtEncodingEnum = "json"
 )
 
+// MdtIp represents IP Type
+type MdtIp string
+
+const (
+    // IPv4
+    MdtIp_ipv4 MdtIp = "ipv4"
+
+    // IPv6
+    MdtIp_ipv6 MdtIp = "ipv6"
+)
+
 // TelemetryModelDriven
 // Telemetry operational data
 type TelemetryModelDriven struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Telemetry Destinations.
@@ -231,69 +231,28 @@ type TelemetryModelDriven struct {
     SensorGroups TelemetryModelDriven_SensorGroups
 }
 
-func (telemetryModelDriven *TelemetryModelDriven) GetFilter() yfilter.YFilter { return telemetryModelDriven.YFilter }
+func (telemetryModelDriven *TelemetryModelDriven) GetEntityData() *types.CommonEntityData {
+    telemetryModelDriven.EntityData.YFilter = telemetryModelDriven.YFilter
+    telemetryModelDriven.EntityData.YangName = "telemetry-model-driven"
+    telemetryModelDriven.EntityData.BundleName = "cisco_ios_xr"
+    telemetryModelDriven.EntityData.ParentYangName = "Cisco-IOS-XR-telemetry-model-driven-oper"
+    telemetryModelDriven.EntityData.SegmentPath = "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven"
+    telemetryModelDriven.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    telemetryModelDriven.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    telemetryModelDriven.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (telemetryModelDriven *TelemetryModelDriven) SetFilter(yf yfilter.YFilter) { telemetryModelDriven.YFilter = yf }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetGoName(yname string) string {
-    if yname == "destinations" { return "Destinations" }
-    if yname == "subscriptions" { return "Subscriptions" }
-    if yname == "sensor-groups" { return "SensorGroups" }
-    return ""
+    telemetryModelDriven.EntityData.Children = make(map[string]types.YChild)
+    telemetryModelDriven.EntityData.Children["destinations"] = types.YChild{"Destinations", &telemetryModelDriven.Destinations}
+    telemetryModelDriven.EntityData.Children["subscriptions"] = types.YChild{"Subscriptions", &telemetryModelDriven.Subscriptions}
+    telemetryModelDriven.EntityData.Children["sensor-groups"] = types.YChild{"SensorGroups", &telemetryModelDriven.SensorGroups}
+    telemetryModelDriven.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(telemetryModelDriven.EntityData)
 }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetSegmentPath() string {
-    return "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven"
-}
-
-func (telemetryModelDriven *TelemetryModelDriven) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destinations" {
-        return &telemetryModelDriven.Destinations
-    }
-    if childYangName == "subscriptions" {
-        return &telemetryModelDriven.Subscriptions
-    }
-    if childYangName == "sensor-groups" {
-        return &telemetryModelDriven.SensorGroups
-    }
-    return nil
-}
-
-func (telemetryModelDriven *TelemetryModelDriven) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destinations"] = &telemetryModelDriven.Destinations
-    children["subscriptions"] = &telemetryModelDriven.Subscriptions
-    children["sensor-groups"] = &telemetryModelDriven.SensorGroups
-    return children
-}
-
-func (telemetryModelDriven *TelemetryModelDriven) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (telemetryModelDriven *TelemetryModelDriven) GetBundleName() string { return "cisco_ios_xr" }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetYangName() string { return "telemetry-model-driven" }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (telemetryModelDriven *TelemetryModelDriven) SetParent(parent types.Entity) { telemetryModelDriven.parent = parent }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetParent() types.Entity { return telemetryModelDriven.parent }
-
-func (telemetryModelDriven *TelemetryModelDriven) GetParentYangName() string { return "Cisco-IOS-XR-telemetry-model-driven-oper" }
 
 // TelemetryModelDriven_Destinations
 // Telemetry Destinations
 type TelemetryModelDriven_Destinations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Telemetry Destination. The type is slice of
@@ -301,72 +260,33 @@ type TelemetryModelDriven_Destinations struct {
     Destination []TelemetryModelDriven_Destinations_Destination
 }
 
-func (destinations *TelemetryModelDriven_Destinations) GetFilter() yfilter.YFilter { return destinations.YFilter }
+func (destinations *TelemetryModelDriven_Destinations) GetEntityData() *types.CommonEntityData {
+    destinations.EntityData.YFilter = destinations.YFilter
+    destinations.EntityData.YangName = "destinations"
+    destinations.EntityData.BundleName = "cisco_ios_xr"
+    destinations.EntityData.ParentYangName = "telemetry-model-driven"
+    destinations.EntityData.SegmentPath = "destinations"
+    destinations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinations *TelemetryModelDriven_Destinations) SetFilter(yf yfilter.YFilter) { destinations.YFilter = yf }
-
-func (destinations *TelemetryModelDriven_Destinations) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    return ""
-}
-
-func (destinations *TelemetryModelDriven_Destinations) GetSegmentPath() string {
-    return "destinations"
-}
-
-func (destinations *TelemetryModelDriven_Destinations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        for _, c := range destinations.Destination {
-            if destinations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Destinations_Destination{}
-        destinations.Destination = append(destinations.Destination, child)
-        return &destinations.Destination[len(destinations.Destination)-1]
-    }
-    return nil
-}
-
-func (destinations *TelemetryModelDriven_Destinations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    destinations.EntityData.Children = make(map[string]types.YChild)
+    destinations.EntityData.Children["destination"] = types.YChild{"Destination", nil}
     for i := range destinations.Destination {
-        children[destinations.Destination[i].GetSegmentPath()] = &destinations.Destination[i]
+        destinations.EntityData.Children[types.GetSegmentPath(&destinations.Destination[i])] = types.YChild{"Destination", &destinations.Destination[i]}
     }
-    return children
+    destinations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(destinations.EntityData)
 }
-
-func (destinations *TelemetryModelDriven_Destinations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (destinations *TelemetryModelDriven_Destinations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinations *TelemetryModelDriven_Destinations) GetYangName() string { return "destinations" }
-
-func (destinations *TelemetryModelDriven_Destinations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinations *TelemetryModelDriven_Destinations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinations *TelemetryModelDriven_Destinations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinations *TelemetryModelDriven_Destinations) SetParent(parent types.Entity) { destinations.parent = parent }
-
-func (destinations *TelemetryModelDriven_Destinations) GetParent() types.Entity { return destinations.parent }
-
-func (destinations *TelemetryModelDriven_Destinations) GetParentYangName() string { return "telemetry-model-driven" }
 
 // TelemetryModelDriven_Destinations_Destination
 // Telemetry Destination
 type TelemetryModelDriven_Destinations_Destination struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Id of the destination. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     DestinationId interface{}
 
     // Destination Group name. The type is string.
@@ -378,154 +298,69 @@ type TelemetryModelDriven_Destinations_Destination struct {
 
     // list of destinations defined in this group. The type is slice of
     // TelemetryModelDriven_Destinations_Destination_Destination.
-    Destination []TelemetryModelDriven_Destinations_Destination_Destination
+    Destination []TelemetryModelDriven_Destinations_Destination_Destination_
 }
 
-func (destination *TelemetryModelDriven_Destinations_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination *TelemetryModelDriven_Destinations_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "destinations"
+    destination.EntityData.SegmentPath = "destination" + "[destination-id='" + fmt.Sprintf("%v", destination.DestinationId) + "']"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *TelemetryModelDriven_Destinations_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetGoName(yname string) string {
-    if yname == "destination-id" { return "DestinationId" }
-    if yname == "id" { return "Id" }
-    if yname == "configured" { return "Configured" }
-    if yname == "destination" { return "Destination" }
-    return ""
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetSegmentPath() string {
-    return "destination" + "[destination-id='" + fmt.Sprintf("%v", destination.DestinationId) + "']"
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        for _, c := range destination.Destination {
-            if destination.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Destinations_Destination_Destination{}
-        destination.Destination = append(destination.Destination, child)
-        return &destination.Destination[len(destination.Destination)-1]
-    }
-    return nil
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    destination.EntityData.Children = make(map[string]types.YChild)
+    destination.EntityData.Children["destination"] = types.YChild{"Destination", nil}
     for i := range destination.Destination {
-        children[destination.Destination[i].GetSegmentPath()] = &destination.Destination[i]
+        destination.EntityData.Children[types.GetSegmentPath(&destination.Destination[i])] = types.YChild{"Destination", &destination.Destination[i]}
     }
-    return children
+    destination.EntityData.Leafs = make(map[string]types.YLeaf)
+    destination.EntityData.Leafs["destination-id"] = types.YLeaf{"DestinationId", destination.DestinationId}
+    destination.EntityData.Leafs["id"] = types.YLeaf{"Id", destination.Id}
+    destination.EntityData.Leafs["configured"] = types.YLeaf{"Configured", destination.Configured}
+    return &(destination.EntityData)
 }
 
-func (destination *TelemetryModelDriven_Destinations_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-id"] = destination.DestinationId
-    leafs["id"] = destination.Id
-    leafs["configured"] = destination.Configured
-    return leafs
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetYangName() string { return "destination" }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *TelemetryModelDriven_Destinations_Destination) GetParentYangName() string { return "destinations" }
-
-// TelemetryModelDriven_Destinations_Destination_Destination
+// TelemetryModelDriven_Destinations_Destination_Destination_
 // list of destinations defined in this group
-type TelemetryModelDriven_Destinations_Destination_Destination struct {
-    parent types.Entity
+type TelemetryModelDriven_Destinations_Destination_Destination_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination.
-    Destination TelemetryModelDriven_Destinations_Destination_Destination_Destination
+    Destination TelemetryModelDriven_Destinations_Destination_Destination__Destination_
 
     // List of collection groups for this destination group. The type is slice of
-    // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup.
-    CollectionGroup []TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup
+    // TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup.
+    CollectionGroup []TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup
 }
 
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination_ *TelemetryModelDriven_Destinations_Destination_Destination_) GetEntityData() *types.CommonEntityData {
+    destination_.EntityData.YFilter = destination_.YFilter
+    destination_.EntityData.YangName = "destination"
+    destination_.EntityData.BundleName = "cisco_ios_xr"
+    destination_.EntityData.ParentYangName = "destination"
+    destination_.EntityData.SegmentPath = "destination"
+    destination_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "collection-group" { return "CollectionGroup" }
-    return ""
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetSegmentPath() string {
-    return "destination"
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        return &destination.Destination
+    destination_.EntityData.Children = make(map[string]types.YChild)
+    destination_.EntityData.Children["destination"] = types.YChild{"Destination", &destination_.Destination}
+    destination_.EntityData.Children["collection-group"] = types.YChild{"CollectionGroup", nil}
+    for i := range destination_.CollectionGroup {
+        destination_.EntityData.Children[types.GetSegmentPath(&destination_.CollectionGroup[i])] = types.YChild{"CollectionGroup", &destination_.CollectionGroup[i]}
     }
-    if childYangName == "collection-group" {
-        for _, c := range destination.CollectionGroup {
-            if destination.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup{}
-        destination.CollectionGroup = append(destination.CollectionGroup, child)
-        return &destination.CollectionGroup[len(destination.CollectionGroup)-1]
-    }
-    return nil
+    destination_.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(destination_.EntityData)
 }
 
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination"] = &destination.Destination
-    for i := range destination.CollectionGroup {
-        children[destination.CollectionGroup[i].GetSegmentPath()] = &destination.CollectionGroup[i]
-    }
-    return children
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetYangName() string { return "destination" }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination) GetParentYangName() string { return "destination" }
-
-// TelemetryModelDriven_Destinations_Destination_Destination_Destination
+// TelemetryModelDriven_Destinations_Destination_Destination__Destination_
 // Destination
-type TelemetryModelDriven_Destinations_Destination_Destination_Destination struct {
-    parent types.Entity
+type TelemetryModelDriven_Destinations_Destination_Destination__Destination_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination Id. The type is string.
@@ -585,163 +420,82 @@ type TelemetryModelDriven_Destinations_Destination_Destination_Destination struc
     SubId []interface{}
 
     // Destination IP Address.
-    DestIpAddress TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress
+    DestIpAddress TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress
 }
 
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination_ *TelemetryModelDriven_Destinations_Destination_Destination__Destination_) GetEntityData() *types.CommonEntityData {
+    destination_.EntityData.YFilter = destination_.YFilter
+    destination_.EntityData.YangName = "destination"
+    destination_.EntityData.BundleName = "cisco_ios_xr"
+    destination_.EntityData.ParentYangName = "destination"
+    destination_.EntityData.SegmentPath = "destination"
+    destination_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "sub-id-str" { return "SubIdStr" }
-    if yname == "dest-port" { return "DestPort" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "transport" { return "Transport" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "state" { return "State" }
-    if yname == "udp-mtu" { return "UdpMtu" }
-    if yname == "tls" { return "Tls" }
-    if yname == "tls-host" { return "TlsHost" }
-    if yname == "total-num-of-packets-sent" { return "TotalNumOfPacketsSent" }
-    if yname == "total-num-of-bytes-sent" { return "TotalNumOfBytesSent" }
-    if yname == "last-collection-time" { return "LastCollectionTime" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "sub-id" { return "SubId" }
-    if yname == "dest-ip-address" { return "DestIpAddress" }
-    return ""
+    destination_.EntityData.Children = make(map[string]types.YChild)
+    destination_.EntityData.Children["dest-ip-address"] = types.YChild{"DestIpAddress", &destination_.DestIpAddress}
+    destination_.EntityData.Leafs = make(map[string]types.YLeaf)
+    destination_.EntityData.Leafs["id"] = types.YLeaf{"Id", destination_.Id}
+    destination_.EntityData.Leafs["sub-id-str"] = types.YLeaf{"SubIdStr", destination_.SubIdStr}
+    destination_.EntityData.Leafs["dest-port"] = types.YLeaf{"DestPort", destination_.DestPort}
+    destination_.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", destination_.Encoding}
+    destination_.EntityData.Leafs["transport"] = types.YLeaf{"Transport", destination_.Transport}
+    destination_.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", destination_.Vrf}
+    destination_.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", destination_.VrfId}
+    destination_.EntityData.Leafs["state"] = types.YLeaf{"State", destination_.State}
+    destination_.EntityData.Leafs["udp-mtu"] = types.YLeaf{"UdpMtu", destination_.UdpMtu}
+    destination_.EntityData.Leafs["tls"] = types.YLeaf{"Tls", destination_.Tls}
+    destination_.EntityData.Leafs["tls-host"] = types.YLeaf{"TlsHost", destination_.TlsHost}
+    destination_.EntityData.Leafs["total-num-of-packets-sent"] = types.YLeaf{"TotalNumOfPacketsSent", destination_.TotalNumOfPacketsSent}
+    destination_.EntityData.Leafs["total-num-of-bytes-sent"] = types.YLeaf{"TotalNumOfBytesSent", destination_.TotalNumOfBytesSent}
+    destination_.EntityData.Leafs["last-collection-time"] = types.YLeaf{"LastCollectionTime", destination_.LastCollectionTime}
+    destination_.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", destination_.Dscp}
+    destination_.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", destination_.SubId}
+    return &(destination_.EntityData)
 }
 
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetSegmentPath() string {
-    return "destination"
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dest-ip-address" {
-        return &destination.DestIpAddress
-    }
-    return nil
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dest-ip-address"] = &destination.DestIpAddress
-    return children
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = destination.Id
-    leafs["sub-id-str"] = destination.SubIdStr
-    leafs["dest-port"] = destination.DestPort
-    leafs["encoding"] = destination.Encoding
-    leafs["transport"] = destination.Transport
-    leafs["vrf"] = destination.Vrf
-    leafs["vrf-id"] = destination.VrfId
-    leafs["state"] = destination.State
-    leafs["udp-mtu"] = destination.UdpMtu
-    leafs["tls"] = destination.Tls
-    leafs["tls-host"] = destination.TlsHost
-    leafs["total-num-of-packets-sent"] = destination.TotalNumOfPacketsSent
-    leafs["total-num-of-bytes-sent"] = destination.TotalNumOfBytesSent
-    leafs["last-collection-time"] = destination.LastCollectionTime
-    leafs["dscp"] = destination.Dscp
-    leafs["sub-id"] = destination.SubId
-    return leafs
-}
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetYangName() string { return "destination" }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *TelemetryModelDriven_Destinations_Destination_Destination_Destination) GetParentYangName() string { return "destination" }
-
-// TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress
+// TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress
 // Destination IP Address
-type TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress struct {
-    parent types.Entity
+type TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPType. The type is MdtIp.
     IpType interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetFilter() yfilter.YFilter { return destIpAddress.YFilter }
+func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination__Destination__DestIpAddress) GetEntityData() *types.CommonEntityData {
+    destIpAddress.EntityData.YFilter = destIpAddress.YFilter
+    destIpAddress.EntityData.YangName = "dest-ip-address"
+    destIpAddress.EntityData.BundleName = "cisco_ios_xr"
+    destIpAddress.EntityData.ParentYangName = "destination"
+    destIpAddress.EntityData.SegmentPath = "dest-ip-address"
+    destIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) SetFilter(yf yfilter.YFilter) { destIpAddress.YFilter = yf }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetGoName(yname string) string {
-    if yname == "ip-type" { return "IpType" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    destIpAddress.EntityData.Children = make(map[string]types.YChild)
+    destIpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    destIpAddress.EntityData.Leafs["ip-type"] = types.YLeaf{"IpType", destIpAddress.IpType}
+    destIpAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", destIpAddress.Ipv4Address}
+    destIpAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", destIpAddress.Ipv6Address}
+    return &(destIpAddress.EntityData)
 }
 
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetSegmentPath() string {
-    return "dest-ip-address"
-}
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-type"] = destIpAddress.IpType
-    leafs["ipv4-address"] = destIpAddress.Ipv4Address
-    leafs["ipv6-address"] = destIpAddress.Ipv6Address
-    return leafs
-}
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetYangName() string { return "dest-ip-address" }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) SetParent(parent types.Entity) { destIpAddress.parent = parent }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetParent() types.Entity { return destIpAddress.parent }
-
-func (destIpAddress *TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestIpAddress) GetParentYangName() string { return "destination" }
-
-// TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup
+// TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup
 // List of collection groups for this destination
 // group
-type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup struct {
-    parent types.Entity
+type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Collection Group id. The type is interface{} with range:
@@ -808,124 +562,59 @@ type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup s
 
     // Array of information for sensor paths within collection group. The type is
     // slice of
-    // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath.
-    CollectionPath []TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath
+    // TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath.
+    CollectionPath []TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath
 
     // Array of information for sysdb paths within collection group. The type is
     // slice of
-    // TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup.
-    InternalCollectionGroup []TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup
+    // TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup.
+    InternalCollectionGroup []TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup
 }
 
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetFilter() yfilter.YFilter { return collectionGroup.YFilter }
+func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup) GetEntityData() *types.CommonEntityData {
+    collectionGroup.EntityData.YFilter = collectionGroup.YFilter
+    collectionGroup.EntityData.YangName = "collection-group"
+    collectionGroup.EntityData.BundleName = "cisco_ios_xr"
+    collectionGroup.EntityData.ParentYangName = "destination"
+    collectionGroup.EntityData.SegmentPath = "collection-group"
+    collectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) SetFilter(yf yfilter.YFilter) { collectionGroup.YFilter = yf }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "cadence" { return "Cadence" }
-    if yname == "total-collections" { return "TotalCollections" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "last-collection-start-time" { return "LastCollectionStartTime" }
-    if yname == "last-collection-end-time" { return "LastCollectionEndTime" }
-    if yname == "max-collection-time" { return "MaxCollectionTime" }
-    if yname == "min-collection-time" { return "MinCollectionTime" }
-    if yname == "min-total-time" { return "MinTotalTime" }
-    if yname == "max-total-time" { return "MaxTotalTime" }
-    if yname == "avg-total-time" { return "AvgTotalTime" }
-    if yname == "total-other-errors" { return "TotalOtherErrors" }
-    if yname == "total-on-data-instances" { return "TotalOnDataInstances" }
-    if yname == "total-not-ready" { return "TotalNotReady" }
-    if yname == "total-send-errors" { return "TotalSendErrors" }
-    if yname == "total-send-drops" { return "TotalSendDrops" }
-    if yname == "collection-path" { return "CollectionPath" }
-    if yname == "internal-collection-group" { return "InternalCollectionGroup" }
-    return ""
-}
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetSegmentPath() string {
-    return "collection-group"
-}
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "collection-path" {
-        for _, c := range collectionGroup.CollectionPath {
-            if collectionGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath{}
-        collectionGroup.CollectionPath = append(collectionGroup.CollectionPath, child)
-        return &collectionGroup.CollectionPath[len(collectionGroup.CollectionPath)-1]
-    }
-    if childYangName == "internal-collection-group" {
-        for _, c := range collectionGroup.InternalCollectionGroup {
-            if collectionGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup{}
-        collectionGroup.InternalCollectionGroup = append(collectionGroup.InternalCollectionGroup, child)
-        return &collectionGroup.InternalCollectionGroup[len(collectionGroup.InternalCollectionGroup)-1]
-    }
-    return nil
-}
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    collectionGroup.EntityData.Children = make(map[string]types.YChild)
+    collectionGroup.EntityData.Children["collection-path"] = types.YChild{"CollectionPath", nil}
     for i := range collectionGroup.CollectionPath {
-        children[collectionGroup.CollectionPath[i].GetSegmentPath()] = &collectionGroup.CollectionPath[i]
+        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.CollectionPath[i])] = types.YChild{"CollectionPath", &collectionGroup.CollectionPath[i]}
     }
+    collectionGroup.EntityData.Children["internal-collection-group"] = types.YChild{"InternalCollectionGroup", nil}
     for i := range collectionGroup.InternalCollectionGroup {
-        children[collectionGroup.InternalCollectionGroup[i].GetSegmentPath()] = &collectionGroup.InternalCollectionGroup[i]
+        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.InternalCollectionGroup[i])] = types.YChild{"InternalCollectionGroup", &collectionGroup.InternalCollectionGroup[i]}
     }
-    return children
+    collectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    collectionGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", collectionGroup.Id}
+    collectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", collectionGroup.Cadence}
+    collectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", collectionGroup.TotalCollections}
+    collectionGroup.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", collectionGroup.Encoding}
+    collectionGroup.EntityData.Leafs["last-collection-start-time"] = types.YLeaf{"LastCollectionStartTime", collectionGroup.LastCollectionStartTime}
+    collectionGroup.EntityData.Leafs["last-collection-end-time"] = types.YLeaf{"LastCollectionEndTime", collectionGroup.LastCollectionEndTime}
+    collectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", collectionGroup.MaxCollectionTime}
+    collectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", collectionGroup.MinCollectionTime}
+    collectionGroup.EntityData.Leafs["min-total-time"] = types.YLeaf{"MinTotalTime", collectionGroup.MinTotalTime}
+    collectionGroup.EntityData.Leafs["max-total-time"] = types.YLeaf{"MaxTotalTime", collectionGroup.MaxTotalTime}
+    collectionGroup.EntityData.Leafs["avg-total-time"] = types.YLeaf{"AvgTotalTime", collectionGroup.AvgTotalTime}
+    collectionGroup.EntityData.Leafs["total-other-errors"] = types.YLeaf{"TotalOtherErrors", collectionGroup.TotalOtherErrors}
+    collectionGroup.EntityData.Leafs["total-on-data-instances"] = types.YLeaf{"TotalOnDataInstances", collectionGroup.TotalOnDataInstances}
+    collectionGroup.EntityData.Leafs["total-not-ready"] = types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady}
+    collectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors}
+    collectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops}
+    return &(collectionGroup.EntityData)
 }
 
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = collectionGroup.Id
-    leafs["cadence"] = collectionGroup.Cadence
-    leafs["total-collections"] = collectionGroup.TotalCollections
-    leafs["encoding"] = collectionGroup.Encoding
-    leafs["last-collection-start-time"] = collectionGroup.LastCollectionStartTime
-    leafs["last-collection-end-time"] = collectionGroup.LastCollectionEndTime
-    leafs["max-collection-time"] = collectionGroup.MaxCollectionTime
-    leafs["min-collection-time"] = collectionGroup.MinCollectionTime
-    leafs["min-total-time"] = collectionGroup.MinTotalTime
-    leafs["max-total-time"] = collectionGroup.MaxTotalTime
-    leafs["avg-total-time"] = collectionGroup.AvgTotalTime
-    leafs["total-other-errors"] = collectionGroup.TotalOtherErrors
-    leafs["total-on-data-instances"] = collectionGroup.TotalOnDataInstances
-    leafs["total-not-ready"] = collectionGroup.TotalNotReady
-    leafs["total-send-errors"] = collectionGroup.TotalSendErrors
-    leafs["total-send-drops"] = collectionGroup.TotalSendDrops
-    return leafs
-}
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetYangName() string { return "collection-group" }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) SetParent(parent types.Entity) { collectionGroup.parent = parent }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetParent() types.Entity { return collectionGroup.parent }
-
-func (collectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup) GetParentYangName() string { return "destination" }
-
-// TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath
+// TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath
 // Array of information for sensor paths within
 // collection group
-type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath struct {
-    parent types.Entity
+type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor Path. The type is string.
@@ -939,61 +628,29 @@ type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_C
     StatusStr interface{}
 }
 
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetFilter() yfilter.YFilter { return collectionPath.YFilter }
+func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_CollectionPath) GetEntityData() *types.CommonEntityData {
+    collectionPath.EntityData.YFilter = collectionPath.YFilter
+    collectionPath.EntityData.YangName = "collection-path"
+    collectionPath.EntityData.BundleName = "cisco_ios_xr"
+    collectionPath.EntityData.ParentYangName = "collection-group"
+    collectionPath.EntityData.SegmentPath = "collection-path"
+    collectionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) SetFilter(yf yfilter.YFilter) { collectionPath.YFilter = yf }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    if yname == "state" { return "State" }
-    if yname == "status-str" { return "StatusStr" }
-    return ""
+    collectionPath.EntityData.Children = make(map[string]types.YChild)
+    collectionPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    collectionPath.EntityData.Leafs["path"] = types.YLeaf{"Path", collectionPath.Path}
+    collectionPath.EntityData.Leafs["state"] = types.YLeaf{"State", collectionPath.State}
+    collectionPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", collectionPath.StatusStr}
+    return &(collectionPath.EntityData)
 }
 
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetSegmentPath() string {
-    return "collection-path"
-}
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path"] = collectionPath.Path
-    leafs["state"] = collectionPath.State
-    leafs["status-str"] = collectionPath.StatusStr
-    return leafs
-}
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetYangName() string { return "collection-path" }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) SetParent(parent types.Entity) { collectionPath.parent = parent }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetParent() types.Entity { return collectionPath.parent }
-
-func (collectionPath *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_CollectionPath) GetParentYangName() string { return "collection-group" }
-
-// TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup
+// TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup
 // Array of information for sysdb paths within
 // collection group
-type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup struct {
-    parent types.Entity
+type TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sysdb Path. The type is string.
@@ -1103,108 +760,52 @@ type TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_I
     Status interface{}
 }
 
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetFilter() yfilter.YFilter { return internalCollectionGroup.YFilter }
+func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination__CollectionGroup_InternalCollectionGroup) GetEntityData() *types.CommonEntityData {
+    internalCollectionGroup.EntityData.YFilter = internalCollectionGroup.YFilter
+    internalCollectionGroup.EntityData.YangName = "internal-collection-group"
+    internalCollectionGroup.EntityData.BundleName = "cisco_ios_xr"
+    internalCollectionGroup.EntityData.ParentYangName = "collection-group"
+    internalCollectionGroup.EntityData.SegmentPath = "internal-collection-group"
+    internalCollectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalCollectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalCollectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) SetFilter(yf yfilter.YFilter) { internalCollectionGroup.YFilter = yf }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    if yname == "cadence" { return "Cadence" }
-    if yname == "total-get-count" { return "TotalGetCount" }
-    if yname == "total-list-count" { return "TotalListCount" }
-    if yname == "total-datalist-count" { return "TotalDatalistCount" }
-    if yname == "total-finddata-count" { return "TotalFinddataCount" }
-    if yname == "total-get-bulk-count" { return "TotalGetBulkCount" }
-    if yname == "total-item-count" { return "TotalItemCount" }
-    if yname == "total-get-errors" { return "TotalGetErrors" }
-    if yname == "total-list-errors" { return "TotalListErrors" }
-    if yname == "total-datalist-errors" { return "TotalDatalistErrors" }
-    if yname == "total-finddata-errors" { return "TotalFinddataErrors" }
-    if yname == "total-get-bulk-errors" { return "TotalGetBulkErrors" }
-    if yname == "total-encode-errors" { return "TotalEncodeErrors" }
-    if yname == "total-encode-notready" { return "TotalEncodeNotready" }
-    if yname == "total-send-errors" { return "TotalSendErrors" }
-    if yname == "total-send-drops" { return "TotalSendDrops" }
-    if yname == "total-sent-bytes" { return "TotalSentBytes" }
-    if yname == "total-send-packets" { return "TotalSendPackets" }
-    if yname == "total-send-bytes-dropped" { return "TotalSendBytesDropped" }
-    if yname == "total-collections" { return "TotalCollections" }
-    if yname == "total-collections-missed" { return "TotalCollectionsMissed" }
-    if yname == "max-collection-time" { return "MaxCollectionTime" }
-    if yname == "min-collection-time" { return "MinCollectionTime" }
-    if yname == "avg-collection-time" { return "AvgCollectionTime" }
-    if yname == "collection-method" { return "CollectionMethod" }
-    if yname == "status" { return "Status" }
-    return ""
+    internalCollectionGroup.EntityData.Children = make(map[string]types.YChild)
+    internalCollectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    internalCollectionGroup.EntityData.Leafs["path"] = types.YLeaf{"Path", internalCollectionGroup.Path}
+    internalCollectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", internalCollectionGroup.Cadence}
+    internalCollectionGroup.EntityData.Leafs["total-get-count"] = types.YLeaf{"TotalGetCount", internalCollectionGroup.TotalGetCount}
+    internalCollectionGroup.EntityData.Leafs["total-list-count"] = types.YLeaf{"TotalListCount", internalCollectionGroup.TotalListCount}
+    internalCollectionGroup.EntityData.Leafs["total-datalist-count"] = types.YLeaf{"TotalDatalistCount", internalCollectionGroup.TotalDatalistCount}
+    internalCollectionGroup.EntityData.Leafs["total-finddata-count"] = types.YLeaf{"TotalFinddataCount", internalCollectionGroup.TotalFinddataCount}
+    internalCollectionGroup.EntityData.Leafs["total-get-bulk-count"] = types.YLeaf{"TotalGetBulkCount", internalCollectionGroup.TotalGetBulkCount}
+    internalCollectionGroup.EntityData.Leafs["total-item-count"] = types.YLeaf{"TotalItemCount", internalCollectionGroup.TotalItemCount}
+    internalCollectionGroup.EntityData.Leafs["total-get-errors"] = types.YLeaf{"TotalGetErrors", internalCollectionGroup.TotalGetErrors}
+    internalCollectionGroup.EntityData.Leafs["total-list-errors"] = types.YLeaf{"TotalListErrors", internalCollectionGroup.TotalListErrors}
+    internalCollectionGroup.EntityData.Leafs["total-datalist-errors"] = types.YLeaf{"TotalDatalistErrors", internalCollectionGroup.TotalDatalistErrors}
+    internalCollectionGroup.EntityData.Leafs["total-finddata-errors"] = types.YLeaf{"TotalFinddataErrors", internalCollectionGroup.TotalFinddataErrors}
+    internalCollectionGroup.EntityData.Leafs["total-get-bulk-errors"] = types.YLeaf{"TotalGetBulkErrors", internalCollectionGroup.TotalGetBulkErrors}
+    internalCollectionGroup.EntityData.Leafs["total-encode-errors"] = types.YLeaf{"TotalEncodeErrors", internalCollectionGroup.TotalEncodeErrors}
+    internalCollectionGroup.EntityData.Leafs["total-encode-notready"] = types.YLeaf{"TotalEncodeNotready", internalCollectionGroup.TotalEncodeNotready}
+    internalCollectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", internalCollectionGroup.TotalSendErrors}
+    internalCollectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", internalCollectionGroup.TotalSendDrops}
+    internalCollectionGroup.EntityData.Leafs["total-sent-bytes"] = types.YLeaf{"TotalSentBytes", internalCollectionGroup.TotalSentBytes}
+    internalCollectionGroup.EntityData.Leafs["total-send-packets"] = types.YLeaf{"TotalSendPackets", internalCollectionGroup.TotalSendPackets}
+    internalCollectionGroup.EntityData.Leafs["total-send-bytes-dropped"] = types.YLeaf{"TotalSendBytesDropped", internalCollectionGroup.TotalSendBytesDropped}
+    internalCollectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", internalCollectionGroup.TotalCollections}
+    internalCollectionGroup.EntityData.Leafs["total-collections-missed"] = types.YLeaf{"TotalCollectionsMissed", internalCollectionGroup.TotalCollectionsMissed}
+    internalCollectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", internalCollectionGroup.MaxCollectionTime}
+    internalCollectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", internalCollectionGroup.MinCollectionTime}
+    internalCollectionGroup.EntityData.Leafs["avg-collection-time"] = types.YLeaf{"AvgCollectionTime", internalCollectionGroup.AvgCollectionTime}
+    internalCollectionGroup.EntityData.Leafs["collection-method"] = types.YLeaf{"CollectionMethod", internalCollectionGroup.CollectionMethod}
+    internalCollectionGroup.EntityData.Leafs["status"] = types.YLeaf{"Status", internalCollectionGroup.Status}
+    return &(internalCollectionGroup.EntityData)
 }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetSegmentPath() string {
-    return "internal-collection-group"
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path"] = internalCollectionGroup.Path
-    leafs["cadence"] = internalCollectionGroup.Cadence
-    leafs["total-get-count"] = internalCollectionGroup.TotalGetCount
-    leafs["total-list-count"] = internalCollectionGroup.TotalListCount
-    leafs["total-datalist-count"] = internalCollectionGroup.TotalDatalistCount
-    leafs["total-finddata-count"] = internalCollectionGroup.TotalFinddataCount
-    leafs["total-get-bulk-count"] = internalCollectionGroup.TotalGetBulkCount
-    leafs["total-item-count"] = internalCollectionGroup.TotalItemCount
-    leafs["total-get-errors"] = internalCollectionGroup.TotalGetErrors
-    leafs["total-list-errors"] = internalCollectionGroup.TotalListErrors
-    leafs["total-datalist-errors"] = internalCollectionGroup.TotalDatalistErrors
-    leafs["total-finddata-errors"] = internalCollectionGroup.TotalFinddataErrors
-    leafs["total-get-bulk-errors"] = internalCollectionGroup.TotalGetBulkErrors
-    leafs["total-encode-errors"] = internalCollectionGroup.TotalEncodeErrors
-    leafs["total-encode-notready"] = internalCollectionGroup.TotalEncodeNotready
-    leafs["total-send-errors"] = internalCollectionGroup.TotalSendErrors
-    leafs["total-send-drops"] = internalCollectionGroup.TotalSendDrops
-    leafs["total-sent-bytes"] = internalCollectionGroup.TotalSentBytes
-    leafs["total-send-packets"] = internalCollectionGroup.TotalSendPackets
-    leafs["total-send-bytes-dropped"] = internalCollectionGroup.TotalSendBytesDropped
-    leafs["total-collections"] = internalCollectionGroup.TotalCollections
-    leafs["total-collections-missed"] = internalCollectionGroup.TotalCollectionsMissed
-    leafs["max-collection-time"] = internalCollectionGroup.MaxCollectionTime
-    leafs["min-collection-time"] = internalCollectionGroup.MinCollectionTime
-    leafs["avg-collection-time"] = internalCollectionGroup.AvgCollectionTime
-    leafs["collection-method"] = internalCollectionGroup.CollectionMethod
-    leafs["status"] = internalCollectionGroup.Status
-    return leafs
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetYangName() string { return "internal-collection-group" }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) SetParent(parent types.Entity) { internalCollectionGroup.parent = parent }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetParent() types.Entity { return internalCollectionGroup.parent }
-
-func (internalCollectionGroup *TelemetryModelDriven_Destinations_Destination_Destination_CollectionGroup_InternalCollectionGroup) GetParentYangName() string { return "collection-group" }
 
 // TelemetryModelDriven_Subscriptions
 // Telemetry Subscriptions
 type TelemetryModelDriven_Subscriptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Telemetry Subscription. The type is slice of
@@ -1212,151 +813,68 @@ type TelemetryModelDriven_Subscriptions struct {
     Subscription []TelemetryModelDriven_Subscriptions_Subscription
 }
 
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetFilter() yfilter.YFilter { return subscriptions.YFilter }
+func (subscriptions *TelemetryModelDriven_Subscriptions) GetEntityData() *types.CommonEntityData {
+    subscriptions.EntityData.YFilter = subscriptions.YFilter
+    subscriptions.EntityData.YangName = "subscriptions"
+    subscriptions.EntityData.BundleName = "cisco_ios_xr"
+    subscriptions.EntityData.ParentYangName = "telemetry-model-driven"
+    subscriptions.EntityData.SegmentPath = "subscriptions"
+    subscriptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriptions *TelemetryModelDriven_Subscriptions) SetFilter(yf yfilter.YFilter) { subscriptions.YFilter = yf }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetGoName(yname string) string {
-    if yname == "subscription" { return "Subscription" }
-    return ""
-}
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetSegmentPath() string {
-    return "subscriptions"
-}
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscription" {
-        for _, c := range subscriptions.Subscription {
-            if subscriptions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription{}
-        subscriptions.Subscription = append(subscriptions.Subscription, child)
-        return &subscriptions.Subscription[len(subscriptions.Subscription)-1]
-    }
-    return nil
-}
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subscriptions.EntityData.Children = make(map[string]types.YChild)
+    subscriptions.EntityData.Children["subscription"] = types.YChild{"Subscription", nil}
     for i := range subscriptions.Subscription {
-        children[subscriptions.Subscription[i].GetSegmentPath()] = &subscriptions.Subscription[i]
+        subscriptions.EntityData.Children[types.GetSegmentPath(&subscriptions.Subscription[i])] = types.YChild{"Subscription", &subscriptions.Subscription[i]}
     }
-    return children
+    subscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriptions.EntityData)
 }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetYangName() string { return "subscriptions" }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) SetParent(parent types.Entity) { subscriptions.parent = parent }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetParent() types.Entity { return subscriptions.parent }
-
-func (subscriptions *TelemetryModelDriven_Subscriptions) GetParentYangName() string { return "telemetry-model-driven" }
 
 // TelemetryModelDriven_Subscriptions_Subscription
 // Telemetry Subscription
 type TelemetryModelDriven_Subscriptions_Subscription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Id of the subscription. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SubscriptionId interface{}
 
     // Subscription.
-    Subscription TelemetryModelDriven_Subscriptions_Subscription_Subscription
+    Subscription TelemetryModelDriven_Subscriptions_Subscription_Subscription_
 
     // List of collection groups active for this subscription. The type is slice
     // of TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup.
     CollectionGroup []TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup
 }
 
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetFilter() yfilter.YFilter { return subscription.YFilter }
+func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetEntityData() *types.CommonEntityData {
+    subscription.EntityData.YFilter = subscription.YFilter
+    subscription.EntityData.YangName = "subscription"
+    subscription.EntityData.BundleName = "cisco_ios_xr"
+    subscription.EntityData.ParentYangName = "subscriptions"
+    subscription.EntityData.SegmentPath = "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
+    subscription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) SetFilter(yf yfilter.YFilter) { subscription.YFilter = yf }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetGoName(yname string) string {
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "subscription" { return "Subscription" }
-    if yname == "collection-group" { return "CollectionGroup" }
-    return ""
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetSegmentPath() string {
-    return "subscription" + "[subscription-id='" + fmt.Sprintf("%v", subscription.SubscriptionId) + "']"
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscription" {
-        return &subscription.Subscription
-    }
-    if childYangName == "collection-group" {
-        for _, c := range subscription.CollectionGroup {
-            if subscription.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup{}
-        subscription.CollectionGroup = append(subscription.CollectionGroup, child)
-        return &subscription.CollectionGroup[len(subscription.CollectionGroup)-1]
-    }
-    return nil
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["subscription"] = &subscription.Subscription
+    subscription.EntityData.Children = make(map[string]types.YChild)
+    subscription.EntityData.Children["subscription"] = types.YChild{"Subscription", &subscription.Subscription}
+    subscription.EntityData.Children["collection-group"] = types.YChild{"CollectionGroup", nil}
     for i := range subscription.CollectionGroup {
-        children[subscription.CollectionGroup[i].GetSegmentPath()] = &subscription.CollectionGroup[i]
+        subscription.EntityData.Children[types.GetSegmentPath(&subscription.CollectionGroup[i])] = types.YChild{"CollectionGroup", &subscription.CollectionGroup[i]}
     }
-    return children
+    subscription.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscription.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", subscription.SubscriptionId}
+    return &(subscription.EntityData)
 }
 
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-id"] = subscription.SubscriptionId
-    return leafs
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetYangName() string { return "subscription" }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) SetParent(parent types.Entity) { subscription.parent = parent }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetParent() types.Entity { return subscription.parent }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription) GetParentYangName() string { return "subscriptions" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription_
 // Subscription
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Collection Subscription name. The type is string.
@@ -1369,104 +887,48 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription struct {
     SourceQosMarking interface{}
 
     // configured source interface.
-    SourceInterface TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface
+    SourceInterface TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface
 
     // List of sensor groups within a subscription. The type is slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile.
-    SensorProfile []TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile.
+    SensorProfile []TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
 
     // Array of destinations within a subscription. The type is slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp.
-    DestinationGrp []TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp.
+    DestinationGrp []TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp
 }
 
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetFilter() yfilter.YFilter { return subscription.YFilter }
+func (subscription_ *TelemetryModelDriven_Subscriptions_Subscription_Subscription_) GetEntityData() *types.CommonEntityData {
+    subscription_.EntityData.YFilter = subscription_.YFilter
+    subscription_.EntityData.YangName = "subscription"
+    subscription_.EntityData.BundleName = "cisco_ios_xr"
+    subscription_.EntityData.ParentYangName = "subscription"
+    subscription_.EntityData.SegmentPath = "subscription"
+    subscription_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscription_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscription_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) SetFilter(yf yfilter.YFilter) { subscription.YFilter = yf }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "state" { return "State" }
-    if yname == "source-qos-marking" { return "SourceQosMarking" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "sensor-profile" { return "SensorProfile" }
-    if yname == "destination-grp" { return "DestinationGrp" }
-    return ""
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetSegmentPath() string {
-    return "subscription"
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "source-interface" {
-        return &subscription.SourceInterface
+    subscription_.EntityData.Children = make(map[string]types.YChild)
+    subscription_.EntityData.Children["source-interface"] = types.YChild{"SourceInterface", &subscription_.SourceInterface}
+    subscription_.EntityData.Children["sensor-profile"] = types.YChild{"SensorProfile", nil}
+    for i := range subscription_.SensorProfile {
+        subscription_.EntityData.Children[types.GetSegmentPath(&subscription_.SensorProfile[i])] = types.YChild{"SensorProfile", &subscription_.SensorProfile[i]}
     }
-    if childYangName == "sensor-profile" {
-        for _, c := range subscription.SensorProfile {
-            if subscription.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile{}
-        subscription.SensorProfile = append(subscription.SensorProfile, child)
-        return &subscription.SensorProfile[len(subscription.SensorProfile)-1]
+    subscription_.EntityData.Children["destination-grp"] = types.YChild{"DestinationGrp", nil}
+    for i := range subscription_.DestinationGrp {
+        subscription_.EntityData.Children[types.GetSegmentPath(&subscription_.DestinationGrp[i])] = types.YChild{"DestinationGrp", &subscription_.DestinationGrp[i]}
     }
-    if childYangName == "destination-grp" {
-        for _, c := range subscription.DestinationGrp {
-            if subscription.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp{}
-        subscription.DestinationGrp = append(subscription.DestinationGrp, child)
-        return &subscription.DestinationGrp[len(subscription.DestinationGrp)-1]
-    }
-    return nil
+    subscription_.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscription_.EntityData.Leafs["id"] = types.YLeaf{"Id", subscription_.Id}
+    subscription_.EntityData.Leafs["state"] = types.YLeaf{"State", subscription_.State}
+    subscription_.EntityData.Leafs["source-qos-marking"] = types.YLeaf{"SourceQosMarking", subscription_.SourceQosMarking}
+    return &(subscription_.EntityData)
 }
 
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["source-interface"] = &subscription.SourceInterface
-    for i := range subscription.SensorProfile {
-        children[subscription.SensorProfile[i].GetSegmentPath()] = &subscription.SensorProfile[i]
-    }
-    for i := range subscription.DestinationGrp {
-        children[subscription.DestinationGrp[i].GetSegmentPath()] = &subscription.DestinationGrp[i]
-    }
-    return children
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = subscription.Id
-    leafs["state"] = subscription.State
-    leafs["source-qos-marking"] = subscription.SourceQosMarking
-    return leafs
-}
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetYangName() string { return "subscription" }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) SetParent(parent types.Entity) { subscription.parent = parent }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetParent() types.Entity { return subscription.parent }
-
-func (subscription *TelemetryModelDriven_Subscriptions_Subscription_Subscription) GetParentYangName() string { return "subscription" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface
 // configured source interface
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source Interface Name. The type is string.
@@ -1476,75 +938,41 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterfac
     State interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // Src Vrf Id. The type is interface{} with range: 0..4294967295.
     VrfId interface{}
 }
 
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetFilter() yfilter.YFilter { return sourceInterface.YFilter }
+func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SourceInterface) GetEntityData() *types.CommonEntityData {
+    sourceInterface.EntityData.YFilter = sourceInterface.YFilter
+    sourceInterface.EntityData.YangName = "source-interface"
+    sourceInterface.EntityData.BundleName = "cisco_ios_xr"
+    sourceInterface.EntityData.ParentYangName = "subscription"
+    sourceInterface.EntityData.SegmentPath = "source-interface"
+    sourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) SetFilter(yf yfilter.YFilter) { sourceInterface.YFilter = yf }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "state" { return "State" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-id" { return "VrfId" }
-    return ""
+    sourceInterface.EntityData.Children = make(map[string]types.YChild)
+    sourceInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", sourceInterface.InterfaceName}
+    sourceInterface.EntityData.Leafs["state"] = types.YLeaf{"State", sourceInterface.State}
+    sourceInterface.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", sourceInterface.Ipv4Address}
+    sourceInterface.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", sourceInterface.Ipv6Address}
+    sourceInterface.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", sourceInterface.VrfId}
+    return &(sourceInterface.EntityData)
 }
 
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetSegmentPath() string {
-    return "source-interface"
-}
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = sourceInterface.InterfaceName
-    leafs["state"] = sourceInterface.State
-    leafs["ipv4-address"] = sourceInterface.Ipv4Address
-    leafs["ipv6-address"] = sourceInterface.Ipv6Address
-    leafs["vrf-id"] = sourceInterface.VrfId
-    return leafs
-}
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetYangName() string { return "source-interface" }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) SetParent(parent types.Entity) { sourceInterface.parent = parent }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetParent() types.Entity { return sourceInterface.parent }
-
-func (sourceInterface *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterface) GetParentYangName() string { return "subscription" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile
 // List of sensor groups within a subscription
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sample interval for the sensor group (ms). The type is interface{} with
@@ -1559,68 +987,32 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile 
     SuppressRedundant interface{}
 
     // sensor group.
-    SensorGroup TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup
+    SensorGroup TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup
 }
 
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetFilter() yfilter.YFilter { return sensorProfile.YFilter }
+func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile) GetEntityData() *types.CommonEntityData {
+    sensorProfile.EntityData.YFilter = sensorProfile.YFilter
+    sensorProfile.EntityData.YangName = "sensor-profile"
+    sensorProfile.EntityData.BundleName = "cisco_ios_xr"
+    sensorProfile.EntityData.ParentYangName = "subscription"
+    sensorProfile.EntityData.SegmentPath = "sensor-profile"
+    sensorProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) SetFilter(yf yfilter.YFilter) { sensorProfile.YFilter = yf }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetGoName(yname string) string {
-    if yname == "sample-interval" { return "SampleInterval" }
-    if yname == "heartbeat-interval" { return "HeartbeatInterval" }
-    if yname == "suppress-redundant" { return "SuppressRedundant" }
-    if yname == "sensor-group" { return "SensorGroup" }
-    return ""
+    sensorProfile.EntityData.Children = make(map[string]types.YChild)
+    sensorProfile.EntityData.Children["sensor-group"] = types.YChild{"SensorGroup", &sensorProfile.SensorGroup}
+    sensorProfile.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorProfile.EntityData.Leafs["sample-interval"] = types.YLeaf{"SampleInterval", sensorProfile.SampleInterval}
+    sensorProfile.EntityData.Leafs["heartbeat-interval"] = types.YLeaf{"HeartbeatInterval", sensorProfile.HeartbeatInterval}
+    sensorProfile.EntityData.Leafs["suppress-redundant"] = types.YLeaf{"SuppressRedundant", sensorProfile.SuppressRedundant}
+    return &(sensorProfile.EntityData)
 }
 
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetSegmentPath() string {
-    return "sensor-profile"
-}
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-group" {
-        return &sensorProfile.SensorGroup
-    }
-    return nil
-}
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sensor-group"] = &sensorProfile.SensorGroup
-    return children
-}
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sample-interval"] = sensorProfile.SampleInterval
-    leafs["heartbeat-interval"] = sensorProfile.HeartbeatInterval
-    leafs["suppress-redundant"] = sensorProfile.SuppressRedundant
-    return leafs
-}
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetYangName() string { return "sensor-profile" }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) SetParent(parent types.Entity) { sensorProfile.parent = parent }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetParent() types.Entity { return sensorProfile.parent }
-
-func (sensorProfile *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile) GetParentYangName() string { return "subscription" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup
 // sensor group
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor Group name. The type is string.
@@ -1632,77 +1024,36 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_
 
     // Array of information for sensor paths within sensor group. The type is
     // slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath.
-    SensorPath []TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath.
+    SensorPath []TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath
 }
 
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetFilter() yfilter.YFilter { return sensorGroup.YFilter }
+func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup) GetEntityData() *types.CommonEntityData {
+    sensorGroup.EntityData.YFilter = sensorGroup.YFilter
+    sensorGroup.EntityData.YangName = "sensor-group"
+    sensorGroup.EntityData.BundleName = "cisco_ios_xr"
+    sensorGroup.EntityData.ParentYangName = "sensor-profile"
+    sensorGroup.EntityData.SegmentPath = "sensor-group"
+    sensorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) SetFilter(yf yfilter.YFilter) { sensorGroup.YFilter = yf }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "configured" { return "Configured" }
-    if yname == "sensor-path" { return "SensorPath" }
-    return ""
-}
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetSegmentPath() string {
-    return "sensor-group"
-}
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-path" {
-        for _, c := range sensorGroup.SensorPath {
-            if sensorGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath{}
-        sensorGroup.SensorPath = append(sensorGroup.SensorPath, child)
-        return &sensorGroup.SensorPath[len(sensorGroup.SensorPath)-1]
-    }
-    return nil
-}
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sensorGroup.EntityData.Children = make(map[string]types.YChild)
+    sensorGroup.EntityData.Children["sensor-path"] = types.YChild{"SensorPath", nil}
     for i := range sensorGroup.SensorPath {
-        children[sensorGroup.SensorPath[i].GetSegmentPath()] = &sensorGroup.SensorPath[i]
+        sensorGroup.EntityData.Children[types.GetSegmentPath(&sensorGroup.SensorPath[i])] = types.YChild{"SensorPath", &sensorGroup.SensorPath[i]}
     }
-    return children
+    sensorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", sensorGroup.Id}
+    sensorGroup.EntityData.Leafs["configured"] = types.YLeaf{"Configured", sensorGroup.Configured}
+    return &(sensorGroup.EntityData)
 }
 
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = sensorGroup.Id
-    leafs["configured"] = sensorGroup.Configured
-    return leafs
-}
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetYangName() string { return "sensor-group" }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) SetParent(parent types.Entity) { sensorGroup.parent = parent }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetParent() types.Entity { return sensorGroup.parent }
-
-func (sensorGroup *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup) GetParentYangName() string { return "sensor-profile" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath
 // Array of information for sensor paths within
 // sensor group
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor Path. The type is string.
@@ -1716,60 +1067,28 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_
     StatusStr interface{}
 }
 
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetFilter() yfilter.YFilter { return sensorPath.YFilter }
+func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription__SensorProfile_SensorGroup_SensorPath) GetEntityData() *types.CommonEntityData {
+    sensorPath.EntityData.YFilter = sensorPath.YFilter
+    sensorPath.EntityData.YangName = "sensor-path"
+    sensorPath.EntityData.BundleName = "cisco_ios_xr"
+    sensorPath.EntityData.ParentYangName = "sensor-group"
+    sensorPath.EntityData.SegmentPath = "sensor-path"
+    sensorPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) SetFilter(yf yfilter.YFilter) { sensorPath.YFilter = yf }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    if yname == "state" { return "State" }
-    if yname == "status-str" { return "StatusStr" }
-    return ""
+    sensorPath.EntityData.Children = make(map[string]types.YChild)
+    sensorPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorPath.EntityData.Leafs["path"] = types.YLeaf{"Path", sensorPath.Path}
+    sensorPath.EntityData.Leafs["state"] = types.YLeaf{"State", sensorPath.State}
+    sensorPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", sensorPath.StatusStr}
+    return &(sensorPath.EntityData)
 }
 
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetSegmentPath() string {
-    return "sensor-path"
-}
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path"] = sensorPath.Path
-    leafs["state"] = sensorPath.State
-    leafs["status-str"] = sensorPath.StatusStr
-    return leafs
-}
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetYangName() string { return "sensor-path" }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) SetParent(parent types.Entity) { sensorPath.parent = parent }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetParent() types.Entity { return sensorPath.parent }
-
-func (sensorPath *TelemetryModelDriven_Subscriptions_Subscription_Subscription_SensorProfile_SensorGroup_SensorPath) GetParentYangName() string { return "sensor-group" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp
 // Array of destinations within a subscription
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination Group name. The type is string.
@@ -1780,76 +1099,35 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
     Configured interface{}
 
     // list of destinations defined in this group. The type is slice of
-    // TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination.
-    Destination []TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination
+    // TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination.
+    Destination []TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination
 }
 
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetFilter() yfilter.YFilter { return destinationGrp.YFilter }
+func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp) GetEntityData() *types.CommonEntityData {
+    destinationGrp.EntityData.YFilter = destinationGrp.YFilter
+    destinationGrp.EntityData.YangName = "destination-grp"
+    destinationGrp.EntityData.BundleName = "cisco_ios_xr"
+    destinationGrp.EntityData.ParentYangName = "subscription"
+    destinationGrp.EntityData.SegmentPath = "destination-grp"
+    destinationGrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationGrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationGrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) SetFilter(yf yfilter.YFilter) { destinationGrp.YFilter = yf }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "configured" { return "Configured" }
-    if yname == "destination" { return "Destination" }
-    return ""
-}
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetSegmentPath() string {
-    return "destination-grp"
-}
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        for _, c := range destinationGrp.Destination {
-            if destinationGrp.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination{}
-        destinationGrp.Destination = append(destinationGrp.Destination, child)
-        return &destinationGrp.Destination[len(destinationGrp.Destination)-1]
-    }
-    return nil
-}
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    destinationGrp.EntityData.Children = make(map[string]types.YChild)
+    destinationGrp.EntityData.Children["destination"] = types.YChild{"Destination", nil}
     for i := range destinationGrp.Destination {
-        children[destinationGrp.Destination[i].GetSegmentPath()] = &destinationGrp.Destination[i]
+        destinationGrp.EntityData.Children[types.GetSegmentPath(&destinationGrp.Destination[i])] = types.YChild{"Destination", &destinationGrp.Destination[i]}
     }
-    return children
+    destinationGrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationGrp.EntityData.Leafs["id"] = types.YLeaf{"Id", destinationGrp.Id}
+    destinationGrp.EntityData.Leafs["configured"] = types.YLeaf{"Configured", destinationGrp.Configured}
+    return &(destinationGrp.EntityData)
 }
 
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = destinationGrp.Id
-    leafs["configured"] = destinationGrp.Configured
-    return leafs
-}
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetYangName() string { return "destination-grp" }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) SetParent(parent types.Entity) { destinationGrp.parent = parent }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetParent() types.Entity { return destinationGrp.parent }
-
-func (destinationGrp *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp) GetParentYangName() string { return "subscription" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination
 // list of destinations defined in this group
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination Id. The type is string.
@@ -1909,163 +1187,82 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
     SubId []interface{}
 
     // Destination IP Address.
-    DestIpAddress TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress
+    DestIpAddress TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress
 }
 
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "destination-grp"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "sub-id-str" { return "SubIdStr" }
-    if yname == "dest-port" { return "DestPort" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "transport" { return "Transport" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "state" { return "State" }
-    if yname == "udp-mtu" { return "UdpMtu" }
-    if yname == "tls" { return "Tls" }
-    if yname == "tls-host" { return "TlsHost" }
-    if yname == "total-num-of-packets-sent" { return "TotalNumOfPacketsSent" }
-    if yname == "total-num-of-bytes-sent" { return "TotalNumOfBytesSent" }
-    if yname == "last-collection-time" { return "LastCollectionTime" }
-    if yname == "dscp" { return "Dscp" }
-    if yname == "sub-id" { return "SubId" }
-    if yname == "dest-ip-address" { return "DestIpAddress" }
-    return ""
+    destination.EntityData.Children = make(map[string]types.YChild)
+    destination.EntityData.Children["dest-ip-address"] = types.YChild{"DestIpAddress", &destination.DestIpAddress}
+    destination.EntityData.Leafs = make(map[string]types.YLeaf)
+    destination.EntityData.Leafs["id"] = types.YLeaf{"Id", destination.Id}
+    destination.EntityData.Leafs["sub-id-str"] = types.YLeaf{"SubIdStr", destination.SubIdStr}
+    destination.EntityData.Leafs["dest-port"] = types.YLeaf{"DestPort", destination.DestPort}
+    destination.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", destination.Encoding}
+    destination.EntityData.Leafs["transport"] = types.YLeaf{"Transport", destination.Transport}
+    destination.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", destination.Vrf}
+    destination.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", destination.VrfId}
+    destination.EntityData.Leafs["state"] = types.YLeaf{"State", destination.State}
+    destination.EntityData.Leafs["udp-mtu"] = types.YLeaf{"UdpMtu", destination.UdpMtu}
+    destination.EntityData.Leafs["tls"] = types.YLeaf{"Tls", destination.Tls}
+    destination.EntityData.Leafs["tls-host"] = types.YLeaf{"TlsHost", destination.TlsHost}
+    destination.EntityData.Leafs["total-num-of-packets-sent"] = types.YLeaf{"TotalNumOfPacketsSent", destination.TotalNumOfPacketsSent}
+    destination.EntityData.Leafs["total-num-of-bytes-sent"] = types.YLeaf{"TotalNumOfBytesSent", destination.TotalNumOfBytesSent}
+    destination.EntityData.Leafs["last-collection-time"] = types.YLeaf{"LastCollectionTime", destination.LastCollectionTime}
+    destination.EntityData.Leafs["dscp"] = types.YLeaf{"Dscp", destination.Dscp}
+    destination.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", destination.SubId}
+    return &(destination.EntityData)
 }
 
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetSegmentPath() string {
-    return "destination"
-}
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dest-ip-address" {
-        return &destination.DestIpAddress
-    }
-    return nil
-}
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dest-ip-address"] = &destination.DestIpAddress
-    return children
-}
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = destination.Id
-    leafs["sub-id-str"] = destination.SubIdStr
-    leafs["dest-port"] = destination.DestPort
-    leafs["encoding"] = destination.Encoding
-    leafs["transport"] = destination.Transport
-    leafs["vrf"] = destination.Vrf
-    leafs["vrf-id"] = destination.VrfId
-    leafs["state"] = destination.State
-    leafs["udp-mtu"] = destination.UdpMtu
-    leafs["tls"] = destination.Tls
-    leafs["tls-host"] = destination.TlsHost
-    leafs["total-num-of-packets-sent"] = destination.TotalNumOfPacketsSent
-    leafs["total-num-of-bytes-sent"] = destination.TotalNumOfBytesSent
-    leafs["last-collection-time"] = destination.LastCollectionTime
-    leafs["dscp"] = destination.Dscp
-    leafs["sub-id"] = destination.SubId
-    return leafs
-}
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetYangName() string { return "destination" }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination) GetParentYangName() string { return "destination-grp" }
-
-// TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress
+// TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress
 // Destination IP Address
-type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress struct {
-    parent types.Entity
+type TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPType. The type is MdtIp.
     IpType interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetFilter() yfilter.YFilter { return destIpAddress.YFilter }
+func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription__DestinationGrp_Destination_DestIpAddress) GetEntityData() *types.CommonEntityData {
+    destIpAddress.EntityData.YFilter = destIpAddress.YFilter
+    destIpAddress.EntityData.YangName = "dest-ip-address"
+    destIpAddress.EntityData.BundleName = "cisco_ios_xr"
+    destIpAddress.EntityData.ParentYangName = "destination"
+    destIpAddress.EntityData.SegmentPath = "dest-ip-address"
+    destIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) SetFilter(yf yfilter.YFilter) { destIpAddress.YFilter = yf }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetGoName(yname string) string {
-    if yname == "ip-type" { return "IpType" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    destIpAddress.EntityData.Children = make(map[string]types.YChild)
+    destIpAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    destIpAddress.EntityData.Leafs["ip-type"] = types.YLeaf{"IpType", destIpAddress.IpType}
+    destIpAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", destIpAddress.Ipv4Address}
+    destIpAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", destIpAddress.Ipv6Address}
+    return &(destIpAddress.EntityData)
 }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetSegmentPath() string {
-    return "dest-ip-address"
-}
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-type"] = destIpAddress.IpType
-    leafs["ipv4-address"] = destIpAddress.Ipv4Address
-    leafs["ipv6-address"] = destIpAddress.Ipv6Address
-    return leafs
-}
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetYangName() string { return "dest-ip-address" }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) SetParent(parent types.Entity) { destIpAddress.parent = parent }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetParent() types.Entity { return destIpAddress.parent }
-
-func (destIpAddress *TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp_Destination_DestIpAddress) GetParentYangName() string { return "destination" }
 
 // TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup
 // List of collection groups active for this
 // subscription
 type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Collection Group id. The type is interface{} with range:
@@ -2141,115 +1338,50 @@ type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup struct {
     InternalCollectionGroup []TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup
 }
 
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetFilter() yfilter.YFilter { return collectionGroup.YFilter }
+func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetEntityData() *types.CommonEntityData {
+    collectionGroup.EntityData.YFilter = collectionGroup.YFilter
+    collectionGroup.EntityData.YangName = "collection-group"
+    collectionGroup.EntityData.BundleName = "cisco_ios_xr"
+    collectionGroup.EntityData.ParentYangName = "subscription"
+    collectionGroup.EntityData.SegmentPath = "collection-group"
+    collectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) SetFilter(yf yfilter.YFilter) { collectionGroup.YFilter = yf }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "cadence" { return "Cadence" }
-    if yname == "total-collections" { return "TotalCollections" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "last-collection-start-time" { return "LastCollectionStartTime" }
-    if yname == "last-collection-end-time" { return "LastCollectionEndTime" }
-    if yname == "max-collection-time" { return "MaxCollectionTime" }
-    if yname == "min-collection-time" { return "MinCollectionTime" }
-    if yname == "min-total-time" { return "MinTotalTime" }
-    if yname == "max-total-time" { return "MaxTotalTime" }
-    if yname == "avg-total-time" { return "AvgTotalTime" }
-    if yname == "total-other-errors" { return "TotalOtherErrors" }
-    if yname == "total-on-data-instances" { return "TotalOnDataInstances" }
-    if yname == "total-not-ready" { return "TotalNotReady" }
-    if yname == "total-send-errors" { return "TotalSendErrors" }
-    if yname == "total-send-drops" { return "TotalSendDrops" }
-    if yname == "collection-path" { return "CollectionPath" }
-    if yname == "internal-collection-group" { return "InternalCollectionGroup" }
-    return ""
-}
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetSegmentPath() string {
-    return "collection-group"
-}
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "collection-path" {
-        for _, c := range collectionGroup.CollectionPath {
-            if collectionGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath{}
-        collectionGroup.CollectionPath = append(collectionGroup.CollectionPath, child)
-        return &collectionGroup.CollectionPath[len(collectionGroup.CollectionPath)-1]
-    }
-    if childYangName == "internal-collection-group" {
-        for _, c := range collectionGroup.InternalCollectionGroup {
-            if collectionGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup{}
-        collectionGroup.InternalCollectionGroup = append(collectionGroup.InternalCollectionGroup, child)
-        return &collectionGroup.InternalCollectionGroup[len(collectionGroup.InternalCollectionGroup)-1]
-    }
-    return nil
-}
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    collectionGroup.EntityData.Children = make(map[string]types.YChild)
+    collectionGroup.EntityData.Children["collection-path"] = types.YChild{"CollectionPath", nil}
     for i := range collectionGroup.CollectionPath {
-        children[collectionGroup.CollectionPath[i].GetSegmentPath()] = &collectionGroup.CollectionPath[i]
+        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.CollectionPath[i])] = types.YChild{"CollectionPath", &collectionGroup.CollectionPath[i]}
     }
+    collectionGroup.EntityData.Children["internal-collection-group"] = types.YChild{"InternalCollectionGroup", nil}
     for i := range collectionGroup.InternalCollectionGroup {
-        children[collectionGroup.InternalCollectionGroup[i].GetSegmentPath()] = &collectionGroup.InternalCollectionGroup[i]
+        collectionGroup.EntityData.Children[types.GetSegmentPath(&collectionGroup.InternalCollectionGroup[i])] = types.YChild{"InternalCollectionGroup", &collectionGroup.InternalCollectionGroup[i]}
     }
-    return children
+    collectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    collectionGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", collectionGroup.Id}
+    collectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", collectionGroup.Cadence}
+    collectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", collectionGroup.TotalCollections}
+    collectionGroup.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", collectionGroup.Encoding}
+    collectionGroup.EntityData.Leafs["last-collection-start-time"] = types.YLeaf{"LastCollectionStartTime", collectionGroup.LastCollectionStartTime}
+    collectionGroup.EntityData.Leafs["last-collection-end-time"] = types.YLeaf{"LastCollectionEndTime", collectionGroup.LastCollectionEndTime}
+    collectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", collectionGroup.MaxCollectionTime}
+    collectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", collectionGroup.MinCollectionTime}
+    collectionGroup.EntityData.Leafs["min-total-time"] = types.YLeaf{"MinTotalTime", collectionGroup.MinTotalTime}
+    collectionGroup.EntityData.Leafs["max-total-time"] = types.YLeaf{"MaxTotalTime", collectionGroup.MaxTotalTime}
+    collectionGroup.EntityData.Leafs["avg-total-time"] = types.YLeaf{"AvgTotalTime", collectionGroup.AvgTotalTime}
+    collectionGroup.EntityData.Leafs["total-other-errors"] = types.YLeaf{"TotalOtherErrors", collectionGroup.TotalOtherErrors}
+    collectionGroup.EntityData.Leafs["total-on-data-instances"] = types.YLeaf{"TotalOnDataInstances", collectionGroup.TotalOnDataInstances}
+    collectionGroup.EntityData.Leafs["total-not-ready"] = types.YLeaf{"TotalNotReady", collectionGroup.TotalNotReady}
+    collectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", collectionGroup.TotalSendErrors}
+    collectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", collectionGroup.TotalSendDrops}
+    return &(collectionGroup.EntityData)
 }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = collectionGroup.Id
-    leafs["cadence"] = collectionGroup.Cadence
-    leafs["total-collections"] = collectionGroup.TotalCollections
-    leafs["encoding"] = collectionGroup.Encoding
-    leafs["last-collection-start-time"] = collectionGroup.LastCollectionStartTime
-    leafs["last-collection-end-time"] = collectionGroup.LastCollectionEndTime
-    leafs["max-collection-time"] = collectionGroup.MaxCollectionTime
-    leafs["min-collection-time"] = collectionGroup.MinCollectionTime
-    leafs["min-total-time"] = collectionGroup.MinTotalTime
-    leafs["max-total-time"] = collectionGroup.MaxTotalTime
-    leafs["avg-total-time"] = collectionGroup.AvgTotalTime
-    leafs["total-other-errors"] = collectionGroup.TotalOtherErrors
-    leafs["total-on-data-instances"] = collectionGroup.TotalOnDataInstances
-    leafs["total-not-ready"] = collectionGroup.TotalNotReady
-    leafs["total-send-errors"] = collectionGroup.TotalSendErrors
-    leafs["total-send-drops"] = collectionGroup.TotalSendDrops
-    return leafs
-}
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetYangName() string { return "collection-group" }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) SetParent(parent types.Entity) { collectionGroup.parent = parent }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetParent() types.Entity { return collectionGroup.parent }
-
-func (collectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup) GetParentYangName() string { return "subscription" }
 
 // TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath
 // Array of information for sensor paths within
 // collection group
 type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor Path. The type is string.
@@ -2263,61 +1395,29 @@ type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionP
     StatusStr interface{}
 }
 
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetFilter() yfilter.YFilter { return collectionPath.YFilter }
+func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetEntityData() *types.CommonEntityData {
+    collectionPath.EntityData.YFilter = collectionPath.YFilter
+    collectionPath.EntityData.YangName = "collection-path"
+    collectionPath.EntityData.BundleName = "cisco_ios_xr"
+    collectionPath.EntityData.ParentYangName = "collection-group"
+    collectionPath.EntityData.SegmentPath = "collection-path"
+    collectionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) SetFilter(yf yfilter.YFilter) { collectionPath.YFilter = yf }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    if yname == "state" { return "State" }
-    if yname == "status-str" { return "StatusStr" }
-    return ""
+    collectionPath.EntityData.Children = make(map[string]types.YChild)
+    collectionPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    collectionPath.EntityData.Leafs["path"] = types.YLeaf{"Path", collectionPath.Path}
+    collectionPath.EntityData.Leafs["state"] = types.YLeaf{"State", collectionPath.State}
+    collectionPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", collectionPath.StatusStr}
+    return &(collectionPath.EntityData)
 }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetSegmentPath() string {
-    return "collection-path"
-}
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path"] = collectionPath.Path
-    leafs["state"] = collectionPath.State
-    leafs["status-str"] = collectionPath.StatusStr
-    return leafs
-}
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetYangName() string { return "collection-path" }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) SetParent(parent types.Entity) { collectionPath.parent = parent }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetParent() types.Entity { return collectionPath.parent }
-
-func (collectionPath *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_CollectionPath) GetParentYangName() string { return "collection-group" }
 
 // TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup
 // Array of information for sysdb paths within
 // collection group
 type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sysdb Path. The type is string.
@@ -2427,108 +1527,52 @@ type TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCol
     Status interface{}
 }
 
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetFilter() yfilter.YFilter { return internalCollectionGroup.YFilter }
+func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetEntityData() *types.CommonEntityData {
+    internalCollectionGroup.EntityData.YFilter = internalCollectionGroup.YFilter
+    internalCollectionGroup.EntityData.YangName = "internal-collection-group"
+    internalCollectionGroup.EntityData.BundleName = "cisco_ios_xr"
+    internalCollectionGroup.EntityData.ParentYangName = "collection-group"
+    internalCollectionGroup.EntityData.SegmentPath = "internal-collection-group"
+    internalCollectionGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    internalCollectionGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    internalCollectionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) SetFilter(yf yfilter.YFilter) { internalCollectionGroup.YFilter = yf }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    if yname == "cadence" { return "Cadence" }
-    if yname == "total-get-count" { return "TotalGetCount" }
-    if yname == "total-list-count" { return "TotalListCount" }
-    if yname == "total-datalist-count" { return "TotalDatalistCount" }
-    if yname == "total-finddata-count" { return "TotalFinddataCount" }
-    if yname == "total-get-bulk-count" { return "TotalGetBulkCount" }
-    if yname == "total-item-count" { return "TotalItemCount" }
-    if yname == "total-get-errors" { return "TotalGetErrors" }
-    if yname == "total-list-errors" { return "TotalListErrors" }
-    if yname == "total-datalist-errors" { return "TotalDatalistErrors" }
-    if yname == "total-finddata-errors" { return "TotalFinddataErrors" }
-    if yname == "total-get-bulk-errors" { return "TotalGetBulkErrors" }
-    if yname == "total-encode-errors" { return "TotalEncodeErrors" }
-    if yname == "total-encode-notready" { return "TotalEncodeNotready" }
-    if yname == "total-send-errors" { return "TotalSendErrors" }
-    if yname == "total-send-drops" { return "TotalSendDrops" }
-    if yname == "total-sent-bytes" { return "TotalSentBytes" }
-    if yname == "total-send-packets" { return "TotalSendPackets" }
-    if yname == "total-send-bytes-dropped" { return "TotalSendBytesDropped" }
-    if yname == "total-collections" { return "TotalCollections" }
-    if yname == "total-collections-missed" { return "TotalCollectionsMissed" }
-    if yname == "max-collection-time" { return "MaxCollectionTime" }
-    if yname == "min-collection-time" { return "MinCollectionTime" }
-    if yname == "avg-collection-time" { return "AvgCollectionTime" }
-    if yname == "collection-method" { return "CollectionMethod" }
-    if yname == "status" { return "Status" }
-    return ""
+    internalCollectionGroup.EntityData.Children = make(map[string]types.YChild)
+    internalCollectionGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    internalCollectionGroup.EntityData.Leafs["path"] = types.YLeaf{"Path", internalCollectionGroup.Path}
+    internalCollectionGroup.EntityData.Leafs["cadence"] = types.YLeaf{"Cadence", internalCollectionGroup.Cadence}
+    internalCollectionGroup.EntityData.Leafs["total-get-count"] = types.YLeaf{"TotalGetCount", internalCollectionGroup.TotalGetCount}
+    internalCollectionGroup.EntityData.Leafs["total-list-count"] = types.YLeaf{"TotalListCount", internalCollectionGroup.TotalListCount}
+    internalCollectionGroup.EntityData.Leafs["total-datalist-count"] = types.YLeaf{"TotalDatalistCount", internalCollectionGroup.TotalDatalistCount}
+    internalCollectionGroup.EntityData.Leafs["total-finddata-count"] = types.YLeaf{"TotalFinddataCount", internalCollectionGroup.TotalFinddataCount}
+    internalCollectionGroup.EntityData.Leafs["total-get-bulk-count"] = types.YLeaf{"TotalGetBulkCount", internalCollectionGroup.TotalGetBulkCount}
+    internalCollectionGroup.EntityData.Leafs["total-item-count"] = types.YLeaf{"TotalItemCount", internalCollectionGroup.TotalItemCount}
+    internalCollectionGroup.EntityData.Leafs["total-get-errors"] = types.YLeaf{"TotalGetErrors", internalCollectionGroup.TotalGetErrors}
+    internalCollectionGroup.EntityData.Leafs["total-list-errors"] = types.YLeaf{"TotalListErrors", internalCollectionGroup.TotalListErrors}
+    internalCollectionGroup.EntityData.Leafs["total-datalist-errors"] = types.YLeaf{"TotalDatalistErrors", internalCollectionGroup.TotalDatalistErrors}
+    internalCollectionGroup.EntityData.Leafs["total-finddata-errors"] = types.YLeaf{"TotalFinddataErrors", internalCollectionGroup.TotalFinddataErrors}
+    internalCollectionGroup.EntityData.Leafs["total-get-bulk-errors"] = types.YLeaf{"TotalGetBulkErrors", internalCollectionGroup.TotalGetBulkErrors}
+    internalCollectionGroup.EntityData.Leafs["total-encode-errors"] = types.YLeaf{"TotalEncodeErrors", internalCollectionGroup.TotalEncodeErrors}
+    internalCollectionGroup.EntityData.Leafs["total-encode-notready"] = types.YLeaf{"TotalEncodeNotready", internalCollectionGroup.TotalEncodeNotready}
+    internalCollectionGroup.EntityData.Leafs["total-send-errors"] = types.YLeaf{"TotalSendErrors", internalCollectionGroup.TotalSendErrors}
+    internalCollectionGroup.EntityData.Leafs["total-send-drops"] = types.YLeaf{"TotalSendDrops", internalCollectionGroup.TotalSendDrops}
+    internalCollectionGroup.EntityData.Leafs["total-sent-bytes"] = types.YLeaf{"TotalSentBytes", internalCollectionGroup.TotalSentBytes}
+    internalCollectionGroup.EntityData.Leafs["total-send-packets"] = types.YLeaf{"TotalSendPackets", internalCollectionGroup.TotalSendPackets}
+    internalCollectionGroup.EntityData.Leafs["total-send-bytes-dropped"] = types.YLeaf{"TotalSendBytesDropped", internalCollectionGroup.TotalSendBytesDropped}
+    internalCollectionGroup.EntityData.Leafs["total-collections"] = types.YLeaf{"TotalCollections", internalCollectionGroup.TotalCollections}
+    internalCollectionGroup.EntityData.Leafs["total-collections-missed"] = types.YLeaf{"TotalCollectionsMissed", internalCollectionGroup.TotalCollectionsMissed}
+    internalCollectionGroup.EntityData.Leafs["max-collection-time"] = types.YLeaf{"MaxCollectionTime", internalCollectionGroup.MaxCollectionTime}
+    internalCollectionGroup.EntityData.Leafs["min-collection-time"] = types.YLeaf{"MinCollectionTime", internalCollectionGroup.MinCollectionTime}
+    internalCollectionGroup.EntityData.Leafs["avg-collection-time"] = types.YLeaf{"AvgCollectionTime", internalCollectionGroup.AvgCollectionTime}
+    internalCollectionGroup.EntityData.Leafs["collection-method"] = types.YLeaf{"CollectionMethod", internalCollectionGroup.CollectionMethod}
+    internalCollectionGroup.EntityData.Leafs["status"] = types.YLeaf{"Status", internalCollectionGroup.Status}
+    return &(internalCollectionGroup.EntityData)
 }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetSegmentPath() string {
-    return "internal-collection-group"
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path"] = internalCollectionGroup.Path
-    leafs["cadence"] = internalCollectionGroup.Cadence
-    leafs["total-get-count"] = internalCollectionGroup.TotalGetCount
-    leafs["total-list-count"] = internalCollectionGroup.TotalListCount
-    leafs["total-datalist-count"] = internalCollectionGroup.TotalDatalistCount
-    leafs["total-finddata-count"] = internalCollectionGroup.TotalFinddataCount
-    leafs["total-get-bulk-count"] = internalCollectionGroup.TotalGetBulkCount
-    leafs["total-item-count"] = internalCollectionGroup.TotalItemCount
-    leafs["total-get-errors"] = internalCollectionGroup.TotalGetErrors
-    leafs["total-list-errors"] = internalCollectionGroup.TotalListErrors
-    leafs["total-datalist-errors"] = internalCollectionGroup.TotalDatalistErrors
-    leafs["total-finddata-errors"] = internalCollectionGroup.TotalFinddataErrors
-    leafs["total-get-bulk-errors"] = internalCollectionGroup.TotalGetBulkErrors
-    leafs["total-encode-errors"] = internalCollectionGroup.TotalEncodeErrors
-    leafs["total-encode-notready"] = internalCollectionGroup.TotalEncodeNotready
-    leafs["total-send-errors"] = internalCollectionGroup.TotalSendErrors
-    leafs["total-send-drops"] = internalCollectionGroup.TotalSendDrops
-    leafs["total-sent-bytes"] = internalCollectionGroup.TotalSentBytes
-    leafs["total-send-packets"] = internalCollectionGroup.TotalSendPackets
-    leafs["total-send-bytes-dropped"] = internalCollectionGroup.TotalSendBytesDropped
-    leafs["total-collections"] = internalCollectionGroup.TotalCollections
-    leafs["total-collections-missed"] = internalCollectionGroup.TotalCollectionsMissed
-    leafs["max-collection-time"] = internalCollectionGroup.MaxCollectionTime
-    leafs["min-collection-time"] = internalCollectionGroup.MinCollectionTime
-    leafs["avg-collection-time"] = internalCollectionGroup.AvgCollectionTime
-    leafs["collection-method"] = internalCollectionGroup.CollectionMethod
-    leafs["status"] = internalCollectionGroup.Status
-    return leafs
-}
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetYangName() string { return "internal-collection-group" }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) SetParent(parent types.Entity) { internalCollectionGroup.parent = parent }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetParent() types.Entity { return internalCollectionGroup.parent }
-
-func (internalCollectionGroup *TelemetryModelDriven_Subscriptions_Subscription_CollectionGroup_InternalCollectionGroup) GetParentYangName() string { return "collection-group" }
 
 // TelemetryModelDriven_SensorGroups
 // Telemetry Sensor Groups
 type TelemetryModelDriven_SensorGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Telemetry Sensor Groups. The type is slice of
@@ -2536,72 +1580,33 @@ type TelemetryModelDriven_SensorGroups struct {
     SensorGroup []TelemetryModelDriven_SensorGroups_SensorGroup
 }
 
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetFilter() yfilter.YFilter { return sensorGroups.YFilter }
+func (sensorGroups *TelemetryModelDriven_SensorGroups) GetEntityData() *types.CommonEntityData {
+    sensorGroups.EntityData.YFilter = sensorGroups.YFilter
+    sensorGroups.EntityData.YangName = "sensor-groups"
+    sensorGroups.EntityData.BundleName = "cisco_ios_xr"
+    sensorGroups.EntityData.ParentYangName = "telemetry-model-driven"
+    sensorGroups.EntityData.SegmentPath = "sensor-groups"
+    sensorGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorGroups *TelemetryModelDriven_SensorGroups) SetFilter(yf yfilter.YFilter) { sensorGroups.YFilter = yf }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetGoName(yname string) string {
-    if yname == "sensor-group" { return "SensorGroup" }
-    return ""
-}
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetSegmentPath() string {
-    return "sensor-groups"
-}
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-group" {
-        for _, c := range sensorGroups.SensorGroup {
-            if sensorGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_SensorGroups_SensorGroup{}
-        sensorGroups.SensorGroup = append(sensorGroups.SensorGroup, child)
-        return &sensorGroups.SensorGroup[len(sensorGroups.SensorGroup)-1]
-    }
-    return nil
-}
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sensorGroups.EntityData.Children = make(map[string]types.YChild)
+    sensorGroups.EntityData.Children["sensor-group"] = types.YChild{"SensorGroup", nil}
     for i := range sensorGroups.SensorGroup {
-        children[sensorGroups.SensorGroup[i].GetSegmentPath()] = &sensorGroups.SensorGroup[i]
+        sensorGroups.EntityData.Children[types.GetSegmentPath(&sensorGroups.SensorGroup[i])] = types.YChild{"SensorGroup", &sensorGroups.SensorGroup[i]}
     }
-    return children
+    sensorGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensorGroups.EntityData)
 }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetYangName() string { return "sensor-groups" }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) SetParent(parent types.Entity) { sensorGroups.parent = parent }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetParent() types.Entity { return sensorGroups.parent }
-
-func (sensorGroups *TelemetryModelDriven_SensorGroups) GetParentYangName() string { return "telemetry-model-driven" }
 
 // TelemetryModelDriven_SensorGroups_SensorGroup
 // Telemetry Sensor Groups
 type TelemetryModelDriven_SensorGroups_SensorGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Id of the sensor group. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SensorGroupId interface{}
 
     // Sensor Group name. The type is string.
@@ -2616,75 +1621,33 @@ type TelemetryModelDriven_SensorGroups_SensorGroup struct {
     SensorPath []TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath
 }
 
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetFilter() yfilter.YFilter { return sensorGroup.YFilter }
+func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetEntityData() *types.CommonEntityData {
+    sensorGroup.EntityData.YFilter = sensorGroup.YFilter
+    sensorGroup.EntityData.YangName = "sensor-group"
+    sensorGroup.EntityData.BundleName = "cisco_ios_xr"
+    sensorGroup.EntityData.ParentYangName = "sensor-groups"
+    sensorGroup.EntityData.SegmentPath = "sensor-group" + "[sensor-group-id='" + fmt.Sprintf("%v", sensorGroup.SensorGroupId) + "']"
+    sensorGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) SetFilter(yf yfilter.YFilter) { sensorGroup.YFilter = yf }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetGoName(yname string) string {
-    if yname == "sensor-group-id" { return "SensorGroupId" }
-    if yname == "id" { return "Id" }
-    if yname == "configured" { return "Configured" }
-    if yname == "sensor-path" { return "SensorPath" }
-    return ""
-}
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetSegmentPath() string {
-    return "sensor-group" + "[sensor-group-id='" + fmt.Sprintf("%v", sensorGroup.SensorGroupId) + "']"
-}
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor-path" {
-        for _, c := range sensorGroup.SensorPath {
-            if sensorGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath{}
-        sensorGroup.SensorPath = append(sensorGroup.SensorPath, child)
-        return &sensorGroup.SensorPath[len(sensorGroup.SensorPath)-1]
-    }
-    return nil
-}
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sensorGroup.EntityData.Children = make(map[string]types.YChild)
+    sensorGroup.EntityData.Children["sensor-path"] = types.YChild{"SensorPath", nil}
     for i := range sensorGroup.SensorPath {
-        children[sensorGroup.SensorPath[i].GetSegmentPath()] = &sensorGroup.SensorPath[i]
+        sensorGroup.EntityData.Children[types.GetSegmentPath(&sensorGroup.SensorPath[i])] = types.YChild{"SensorPath", &sensorGroup.SensorPath[i]}
     }
-    return children
+    sensorGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorGroup.EntityData.Leafs["sensor-group-id"] = types.YLeaf{"SensorGroupId", sensorGroup.SensorGroupId}
+    sensorGroup.EntityData.Leafs["id"] = types.YLeaf{"Id", sensorGroup.Id}
+    sensorGroup.EntityData.Leafs["configured"] = types.YLeaf{"Configured", sensorGroup.Configured}
+    return &(sensorGroup.EntityData)
 }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sensor-group-id"] = sensorGroup.SensorGroupId
-    leafs["id"] = sensorGroup.Id
-    leafs["configured"] = sensorGroup.Configured
-    return leafs
-}
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetYangName() string { return "sensor-group" }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) SetParent(parent types.Entity) { sensorGroup.parent = parent }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetParent() types.Entity { return sensorGroup.parent }
-
-func (sensorGroup *TelemetryModelDriven_SensorGroups_SensorGroup) GetParentYangName() string { return "sensor-groups" }
 
 // TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath
 // Array of information for sensor paths within
 // sensor group
 type TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor Path. The type is string.
@@ -2698,53 +1661,21 @@ type TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath struct {
     StatusStr interface{}
 }
 
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetFilter() yfilter.YFilter { return sensorPath.YFilter }
+func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetEntityData() *types.CommonEntityData {
+    sensorPath.EntityData.YFilter = sensorPath.YFilter
+    sensorPath.EntityData.YangName = "sensor-path"
+    sensorPath.EntityData.BundleName = "cisco_ios_xr"
+    sensorPath.EntityData.ParentYangName = "sensor-group"
+    sensorPath.EntityData.SegmentPath = "sensor-path"
+    sensorPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) SetFilter(yf yfilter.YFilter) { sensorPath.YFilter = yf }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    if yname == "state" { return "State" }
-    if yname == "status-str" { return "StatusStr" }
-    return ""
+    sensorPath.EntityData.Children = make(map[string]types.YChild)
+    sensorPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensorPath.EntityData.Leafs["path"] = types.YLeaf{"Path", sensorPath.Path}
+    sensorPath.EntityData.Leafs["state"] = types.YLeaf{"State", sensorPath.State}
+    sensorPath.EntityData.Leafs["status-str"] = types.YLeaf{"StatusStr", sensorPath.StatusStr}
+    return &(sensorPath.EntityData)
 }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetSegmentPath() string {
-    return "sensor-path"
-}
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["path"] = sensorPath.Path
-    leafs["state"] = sensorPath.State
-    leafs["status-str"] = sensorPath.StatusStr
-    return leafs
-}
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetYangName() string { return "sensor-path" }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) SetParent(parent types.Entity) { sensorPath.parent = parent }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetParent() types.Entity { return sensorPath.parent }
-
-func (sensorPath *TelemetryModelDriven_SensorGroups_SensorGroup_SensorPath) GetParentYangName() string { return "sensor-group" }
 

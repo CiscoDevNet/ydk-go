@@ -59,7 +59,7 @@ func init() {
 
 // CISCOETHERCFMMIB
 type CISCOETHERCFMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -84,63 +84,26 @@ type CISCOETHERCFMMIB struct {
     Cethercfmeventtable CISCOETHERCFMMIB_Cethercfmeventtable
 }
 
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetFilter() yfilter.YFilter { return cISCOETHERCFMMIB.YFilter }
+func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetEntityData() *types.CommonEntityData {
+    cISCOETHERCFMMIB.EntityData.YFilter = cISCOETHERCFMMIB.YFilter
+    cISCOETHERCFMMIB.EntityData.YangName = "CISCO-ETHER-CFM-MIB"
+    cISCOETHERCFMMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOETHERCFMMIB.EntityData.ParentYangName = "CISCO-ETHER-CFM-MIB"
+    cISCOETHERCFMMIB.EntityData.SegmentPath = "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB"
+    cISCOETHERCFMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOETHERCFMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOETHERCFMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) SetFilter(yf yfilter.YFilter) { cISCOETHERCFMMIB.YFilter = yf }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetGoName(yname string) string {
-    if yname == "cecCfmEvents" { return "Ceccfmevents" }
-    if yname == "cEtherCfmEventTable" { return "Cethercfmeventtable" }
-    return ""
+    cISCOETHERCFMMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOETHERCFMMIB.EntityData.Children["cecCfmEvents"] = types.YChild{"Ceccfmevents", &cISCOETHERCFMMIB.Ceccfmevents}
+    cISCOETHERCFMMIB.EntityData.Children["cEtherCfmEventTable"] = types.YChild{"Cethercfmeventtable", &cISCOETHERCFMMIB.Cethercfmeventtable}
+    cISCOETHERCFMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOETHERCFMMIB.EntityData)
 }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetSegmentPath() string {
-    return "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB"
-}
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cecCfmEvents" {
-        return &cISCOETHERCFMMIB.Ceccfmevents
-    }
-    if childYangName == "cEtherCfmEventTable" {
-        return &cISCOETHERCFMMIB.Cethercfmeventtable
-    }
-    return nil
-}
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cecCfmEvents"] = &cISCOETHERCFMMIB.Ceccfmevents
-    children["cEtherCfmEventTable"] = &cISCOETHERCFMMIB.Cethercfmeventtable
-    return children
-}
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetYangName() string { return "CISCO-ETHER-CFM-MIB" }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) SetParent(parent types.Entity) { cISCOETHERCFMMIB.parent = parent }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetParent() types.Entity { return cISCOETHERCFMMIB.parent }
-
-func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetParentYangName() string { return "CISCO-ETHER-CFM-MIB" }
 
 // CISCOETHERCFMMIB_Ceccfmevents
 type CISCOETHERCFMMIB_Ceccfmevents struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the maximum upper value supported  for the
@@ -149,51 +112,21 @@ type CISCOETHERCFMMIB_Ceccfmevents struct {
     Cethercfmmaxeventindex interface{}
 }
 
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetFilter() yfilter.YFilter { return ceccfmevents.YFilter }
+func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetEntityData() *types.CommonEntityData {
+    ceccfmevents.EntityData.YFilter = ceccfmevents.YFilter
+    ceccfmevents.EntityData.YangName = "cecCfmEvents"
+    ceccfmevents.EntityData.BundleName = "cisco_ios_xe"
+    ceccfmevents.EntityData.ParentYangName = "CISCO-ETHER-CFM-MIB"
+    ceccfmevents.EntityData.SegmentPath = "cecCfmEvents"
+    ceccfmevents.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceccfmevents.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceccfmevents.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) SetFilter(yf yfilter.YFilter) { ceccfmevents.YFilter = yf }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetGoName(yname string) string {
-    if yname == "cEtherCfmMaxEventIndex" { return "Cethercfmmaxeventindex" }
-    return ""
+    ceccfmevents.EntityData.Children = make(map[string]types.YChild)
+    ceccfmevents.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceccfmevents.EntityData.Leafs["cEtherCfmMaxEventIndex"] = types.YLeaf{"Cethercfmmaxeventindex", ceccfmevents.Cethercfmmaxeventindex}
+    return &(ceccfmevents.EntityData)
 }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetSegmentPath() string {
-    return "cecCfmEvents"
-}
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEtherCfmMaxEventIndex"] = ceccfmevents.Cethercfmmaxeventindex
-    return leafs
-}
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetYangName() string { return "cecCfmEvents" }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) SetParent(parent types.Entity) { ceccfmevents.parent = parent }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetParent() types.Entity { return ceccfmevents.parent }
-
-func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetParentYangName() string { return "CISCO-ETHER-CFM-MIB" }
 
 // CISCOETHERCFMMIB_Cethercfmeventtable
 // This table contains a collection of Ethernet CFM notifications
@@ -234,7 +167,7 @@ func (ceccfmevents *CISCOETHERCFMMIB_Ceccfmevents) GetParentYangName() string { 
 // to the MIB to particular entities (be it a service provider,
 // or operator, or customer).
 type CISCOETHERCFMMIB_Cethercfmeventtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created for every event reported by Ethernet CFM.
@@ -243,69 +176,30 @@ type CISCOETHERCFMMIB_Cethercfmeventtable struct {
     Cethercfmevententry []CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry
 }
 
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetFilter() yfilter.YFilter { return cethercfmeventtable.YFilter }
+func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetEntityData() *types.CommonEntityData {
+    cethercfmeventtable.EntityData.YFilter = cethercfmeventtable.YFilter
+    cethercfmeventtable.EntityData.YangName = "cEtherCfmEventTable"
+    cethercfmeventtable.EntityData.BundleName = "cisco_ios_xe"
+    cethercfmeventtable.EntityData.ParentYangName = "CISCO-ETHER-CFM-MIB"
+    cethercfmeventtable.EntityData.SegmentPath = "cEtherCfmEventTable"
+    cethercfmeventtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cethercfmeventtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cethercfmeventtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) SetFilter(yf yfilter.YFilter) { cethercfmeventtable.YFilter = yf }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetGoName(yname string) string {
-    if yname == "cEtherCfmEventEntry" { return "Cethercfmevententry" }
-    return ""
-}
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetSegmentPath() string {
-    return "cEtherCfmEventTable"
-}
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEtherCfmEventEntry" {
-        for _, c := range cethercfmeventtable.Cethercfmevententry {
-            if cethercfmeventtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry{}
-        cethercfmeventtable.Cethercfmevententry = append(cethercfmeventtable.Cethercfmevententry, child)
-        return &cethercfmeventtable.Cethercfmevententry[len(cethercfmeventtable.Cethercfmevententry)-1]
-    }
-    return nil
-}
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cethercfmeventtable.EntityData.Children = make(map[string]types.YChild)
+    cethercfmeventtable.EntityData.Children["cEtherCfmEventEntry"] = types.YChild{"Cethercfmevententry", nil}
     for i := range cethercfmeventtable.Cethercfmevententry {
-        children[cethercfmeventtable.Cethercfmevententry[i].GetSegmentPath()] = &cethercfmeventtable.Cethercfmevententry[i]
+        cethercfmeventtable.EntityData.Children[types.GetSegmentPath(&cethercfmeventtable.Cethercfmevententry[i])] = types.YChild{"Cethercfmevententry", &cethercfmeventtable.Cethercfmevententry[i]}
     }
-    return children
+    cethercfmeventtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cethercfmeventtable.EntityData)
 }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetYangName() string { return "cEtherCfmEventTable" }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) SetParent(parent types.Entity) { cethercfmeventtable.parent = parent }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetParent() types.Entity { return cethercfmeventtable.parent }
-
-func (cethercfmeventtable *CISCOETHERCFMMIB_Cethercfmeventtable) GetParentYangName() string { return "CISCO-ETHER-CFM-MIB" }
 
 // CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry
 // An entry in this table is created for every event reported
 // by Ethernet CFM.
 type CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object represents the ID which uniquely
@@ -376,7 +270,7 @@ type CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry struct {
     Cethercfmeventlclmepid interface{}
 
     // The MAC address of the device reporting the event. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Cethercfmeventlclmacaddress interface{}
 
     // The number of local MEPs affected by the event. The type is interface{}
@@ -393,7 +287,7 @@ type CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry struct {
 
     // The MAC address of the remote maintenance point for which the event entry
     // is being logged. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Cethercfmeventrmtmacaddress interface{}
 
     // The operational state of the port on which the  remote MEP is configured.
@@ -452,83 +346,37 @@ type CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry struct {
     Cethercfmeventdeleterow interface{}
 }
 
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetFilter() yfilter.YFilter { return cethercfmevententry.YFilter }
+func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetEntityData() *types.CommonEntityData {
+    cethercfmevententry.EntityData.YFilter = cethercfmevententry.YFilter
+    cethercfmevententry.EntityData.YangName = "cEtherCfmEventEntry"
+    cethercfmevententry.EntityData.BundleName = "cisco_ios_xe"
+    cethercfmevententry.EntityData.ParentYangName = "cEtherCfmEventTable"
+    cethercfmevententry.EntityData.SegmentPath = "cEtherCfmEventEntry" + "[cEtherCfmEventDomainIndex='" + fmt.Sprintf("%v", cethercfmevententry.Cethercfmeventdomainindex) + "']" + "[cEtherCfmEventSvlan='" + fmt.Sprintf("%v", cethercfmevententry.Cethercfmeventsvlan) + "']" + "[cEtherCfmEventIndex='" + fmt.Sprintf("%v", cethercfmevententry.Cethercfmeventindex) + "']"
+    cethercfmevententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cethercfmevententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cethercfmevententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) SetFilter(yf yfilter.YFilter) { cethercfmevententry.YFilter = yf }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetGoName(yname string) string {
-    if yname == "cEtherCfmEventDomainIndex" { return "Cethercfmeventdomainindex" }
-    if yname == "cEtherCfmEventSvlan" { return "Cethercfmeventsvlan" }
-    if yname == "cEtherCfmEventIndex" { return "Cethercfmeventindex" }
-    if yname == "cEtherCfmEventDomainName" { return "Cethercfmeventdomainname" }
-    if yname == "cEtherCfmEventType" { return "Cethercfmeventtype" }
-    if yname == "cEtherCfmEventLastChange" { return "Cethercfmeventlastchange" }
-    if yname == "cEtherCfmEventServiceId" { return "Cethercfmeventserviceid" }
-    if yname == "cEtherCfmEventLclMepid" { return "Cethercfmeventlclmepid" }
-    if yname == "cEtherCfmEventLclMacAddress" { return "Cethercfmeventlclmacaddress" }
-    if yname == "cEtherCfmEventLclMepCount" { return "Cethercfmeventlclmepcount" }
-    if yname == "cEtherCfmEventLclIfCount" { return "Cethercfmeventlclifcount" }
-    if yname == "cEtherCfmEventRmtMepid" { return "Cethercfmeventrmtmepid" }
-    if yname == "cEtherCfmEventRmtMacAddress" { return "Cethercfmeventrmtmacaddress" }
-    if yname == "cEtherCfmEventRmtPortState" { return "Cethercfmeventrmtportstate" }
-    if yname == "cEtherCfmEventRmtServiceId" { return "Cethercfmeventrmtserviceid" }
-    if yname == "cEtherCfmEventCode" { return "Cethercfmeventcode" }
-    if yname == "cEtherCfmEventDeleteRow" { return "Cethercfmeventdeleterow" }
-    return ""
+    cethercfmevententry.EntityData.Children = make(map[string]types.YChild)
+    cethercfmevententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventDomainIndex"] = types.YLeaf{"Cethercfmeventdomainindex", cethercfmevententry.Cethercfmeventdomainindex}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventSvlan"] = types.YLeaf{"Cethercfmeventsvlan", cethercfmevententry.Cethercfmeventsvlan}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventIndex"] = types.YLeaf{"Cethercfmeventindex", cethercfmevententry.Cethercfmeventindex}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventDomainName"] = types.YLeaf{"Cethercfmeventdomainname", cethercfmevententry.Cethercfmeventdomainname}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventType"] = types.YLeaf{"Cethercfmeventtype", cethercfmevententry.Cethercfmeventtype}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventLastChange"] = types.YLeaf{"Cethercfmeventlastchange", cethercfmevententry.Cethercfmeventlastchange}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventServiceId"] = types.YLeaf{"Cethercfmeventserviceid", cethercfmevententry.Cethercfmeventserviceid}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventLclMepid"] = types.YLeaf{"Cethercfmeventlclmepid", cethercfmevententry.Cethercfmeventlclmepid}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventLclMacAddress"] = types.YLeaf{"Cethercfmeventlclmacaddress", cethercfmevententry.Cethercfmeventlclmacaddress}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventLclMepCount"] = types.YLeaf{"Cethercfmeventlclmepcount", cethercfmevententry.Cethercfmeventlclmepcount}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventLclIfCount"] = types.YLeaf{"Cethercfmeventlclifcount", cethercfmevententry.Cethercfmeventlclifcount}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventRmtMepid"] = types.YLeaf{"Cethercfmeventrmtmepid", cethercfmevententry.Cethercfmeventrmtmepid}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventRmtMacAddress"] = types.YLeaf{"Cethercfmeventrmtmacaddress", cethercfmevententry.Cethercfmeventrmtmacaddress}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventRmtPortState"] = types.YLeaf{"Cethercfmeventrmtportstate", cethercfmevententry.Cethercfmeventrmtportstate}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventRmtServiceId"] = types.YLeaf{"Cethercfmeventrmtserviceid", cethercfmevententry.Cethercfmeventrmtserviceid}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventCode"] = types.YLeaf{"Cethercfmeventcode", cethercfmevententry.Cethercfmeventcode}
+    cethercfmevententry.EntityData.Leafs["cEtherCfmEventDeleteRow"] = types.YLeaf{"Cethercfmeventdeleterow", cethercfmevententry.Cethercfmeventdeleterow}
+    return &(cethercfmevententry.EntityData)
 }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetSegmentPath() string {
-    return "cEtherCfmEventEntry" + "[cEtherCfmEventDomainIndex='" + fmt.Sprintf("%v", cethercfmevententry.Cethercfmeventdomainindex) + "']" + "[cEtherCfmEventSvlan='" + fmt.Sprintf("%v", cethercfmevententry.Cethercfmeventsvlan) + "']" + "[cEtherCfmEventIndex='" + fmt.Sprintf("%v", cethercfmevententry.Cethercfmeventindex) + "']"
-}
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEtherCfmEventDomainIndex"] = cethercfmevententry.Cethercfmeventdomainindex
-    leafs["cEtherCfmEventSvlan"] = cethercfmevententry.Cethercfmeventsvlan
-    leafs["cEtherCfmEventIndex"] = cethercfmevententry.Cethercfmeventindex
-    leafs["cEtherCfmEventDomainName"] = cethercfmevententry.Cethercfmeventdomainname
-    leafs["cEtherCfmEventType"] = cethercfmevententry.Cethercfmeventtype
-    leafs["cEtherCfmEventLastChange"] = cethercfmevententry.Cethercfmeventlastchange
-    leafs["cEtherCfmEventServiceId"] = cethercfmevententry.Cethercfmeventserviceid
-    leafs["cEtherCfmEventLclMepid"] = cethercfmevententry.Cethercfmeventlclmepid
-    leafs["cEtherCfmEventLclMacAddress"] = cethercfmevententry.Cethercfmeventlclmacaddress
-    leafs["cEtherCfmEventLclMepCount"] = cethercfmevententry.Cethercfmeventlclmepcount
-    leafs["cEtherCfmEventLclIfCount"] = cethercfmevententry.Cethercfmeventlclifcount
-    leafs["cEtherCfmEventRmtMepid"] = cethercfmevententry.Cethercfmeventrmtmepid
-    leafs["cEtherCfmEventRmtMacAddress"] = cethercfmevententry.Cethercfmeventrmtmacaddress
-    leafs["cEtherCfmEventRmtPortState"] = cethercfmevententry.Cethercfmeventrmtportstate
-    leafs["cEtherCfmEventRmtServiceId"] = cethercfmevententry.Cethercfmeventrmtserviceid
-    leafs["cEtherCfmEventCode"] = cethercfmevententry.Cethercfmeventcode
-    leafs["cEtherCfmEventDeleteRow"] = cethercfmevententry.Cethercfmeventdeleterow
-    return leafs
-}
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetYangName() string { return "cEtherCfmEventEntry" }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) SetParent(parent types.Entity) { cethercfmevententry.parent = parent }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetParent() types.Entity { return cethercfmevententry.parent }
-
-func (cethercfmevententry *CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry) GetParentYangName() string { return "cEtherCfmEventTable" }
 
 // CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry_Cethercfmeventcode represents                       cleared.
 type CISCOETHERCFMMIB_Cethercfmeventtable_Cethercfmevententry_Cethercfmeventcode string

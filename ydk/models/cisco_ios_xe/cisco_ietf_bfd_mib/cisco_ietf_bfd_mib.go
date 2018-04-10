@@ -52,7 +52,7 @@ const (
 
 // CISCOIETFBFDMIB
 type CISCOIETFBFDMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -77,78 +77,29 @@ type CISCOIETFBFDMIB struct {
     Ciscobfdsessipmaptable CISCOIETFBFDMIB_Ciscobfdsessipmaptable
 }
 
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetFilter() yfilter.YFilter { return cISCOIETFBFDMIB.YFilter }
+func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIETFBFDMIB.EntityData.YFilter = cISCOIETFBFDMIB.YFilter
+    cISCOIETFBFDMIB.EntityData.YangName = "CISCO-IETF-BFD-MIB"
+    cISCOIETFBFDMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIETFBFDMIB.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
+    cISCOIETFBFDMIB.EntityData.SegmentPath = "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB"
+    cISCOIETFBFDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIETFBFDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIETFBFDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) SetFilter(yf yfilter.YFilter) { cISCOIETFBFDMIB.YFilter = yf }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetGoName(yname string) string {
-    if yname == "ciscoBfdScalarObjects" { return "Ciscobfdscalarobjects" }
-    if yname == "ciscoBfdSessTable" { return "Ciscobfdsesstable" }
-    if yname == "ciscoBfdSessMapTable" { return "Ciscobfdsessmaptable" }
-    if yname == "ciscoBfdSessDiscMapTable" { return "Ciscobfdsessdiscmaptable" }
-    if yname == "ciscoBfdSessIpMapTable" { return "Ciscobfdsessipmaptable" }
-    return ""
+    cISCOIETFBFDMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIETFBFDMIB.EntityData.Children["ciscoBfdScalarObjects"] = types.YChild{"Ciscobfdscalarobjects", &cISCOIETFBFDMIB.Ciscobfdscalarobjects}
+    cISCOIETFBFDMIB.EntityData.Children["ciscoBfdSessTable"] = types.YChild{"Ciscobfdsesstable", &cISCOIETFBFDMIB.Ciscobfdsesstable}
+    cISCOIETFBFDMIB.EntityData.Children["ciscoBfdSessMapTable"] = types.YChild{"Ciscobfdsessmaptable", &cISCOIETFBFDMIB.Ciscobfdsessmaptable}
+    cISCOIETFBFDMIB.EntityData.Children["ciscoBfdSessDiscMapTable"] = types.YChild{"Ciscobfdsessdiscmaptable", &cISCOIETFBFDMIB.Ciscobfdsessdiscmaptable}
+    cISCOIETFBFDMIB.EntityData.Children["ciscoBfdSessIpMapTable"] = types.YChild{"Ciscobfdsessipmaptable", &cISCOIETFBFDMIB.Ciscobfdsessipmaptable}
+    cISCOIETFBFDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIETFBFDMIB.EntityData)
 }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetSegmentPath() string {
-    return "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB"
-}
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoBfdScalarObjects" {
-        return &cISCOIETFBFDMIB.Ciscobfdscalarobjects
-    }
-    if childYangName == "ciscoBfdSessTable" {
-        return &cISCOIETFBFDMIB.Ciscobfdsesstable
-    }
-    if childYangName == "ciscoBfdSessMapTable" {
-        return &cISCOIETFBFDMIB.Ciscobfdsessmaptable
-    }
-    if childYangName == "ciscoBfdSessDiscMapTable" {
-        return &cISCOIETFBFDMIB.Ciscobfdsessdiscmaptable
-    }
-    if childYangName == "ciscoBfdSessIpMapTable" {
-        return &cISCOIETFBFDMIB.Ciscobfdsessipmaptable
-    }
-    return nil
-}
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ciscoBfdScalarObjects"] = &cISCOIETFBFDMIB.Ciscobfdscalarobjects
-    children["ciscoBfdSessTable"] = &cISCOIETFBFDMIB.Ciscobfdsesstable
-    children["ciscoBfdSessMapTable"] = &cISCOIETFBFDMIB.Ciscobfdsessmaptable
-    children["ciscoBfdSessDiscMapTable"] = &cISCOIETFBFDMIB.Ciscobfdsessdiscmaptable
-    children["ciscoBfdSessIpMapTable"] = &cISCOIETFBFDMIB.Ciscobfdsessipmaptable
-    return children
-}
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetYangName() string { return "CISCO-IETF-BFD-MIB" }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) SetParent(parent types.Entity) { cISCOIETFBFDMIB.parent = parent }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetParent() types.Entity { return cISCOIETFBFDMIB.parent }
-
-func (cISCOIETFBFDMIB *CISCOIETFBFDMIB) GetParentYangName() string { return "CISCO-IETF-BFD-MIB" }
 
 // CISCOIETFBFDMIB_Ciscobfdscalarobjects
 type CISCOIETFBFDMIB_Ciscobfdscalarobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The global administrative status of BFD in this router. The value 'enabled'
@@ -167,55 +118,23 @@ type CISCOIETFBFDMIB_Ciscobfdscalarobjects struct {
     Ciscobfdsessnotificationsenable interface{}
 }
 
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetFilter() yfilter.YFilter { return ciscobfdscalarobjects.YFilter }
+func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetEntityData() *types.CommonEntityData {
+    ciscobfdscalarobjects.EntityData.YFilter = ciscobfdscalarobjects.YFilter
+    ciscobfdscalarobjects.EntityData.YangName = "ciscoBfdScalarObjects"
+    ciscobfdscalarobjects.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdscalarobjects.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
+    ciscobfdscalarobjects.EntityData.SegmentPath = "ciscoBfdScalarObjects"
+    ciscobfdscalarobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdscalarobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdscalarobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) SetFilter(yf yfilter.YFilter) { ciscobfdscalarobjects.YFilter = yf }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetGoName(yname string) string {
-    if yname == "ciscoBfdAdminStatus" { return "Ciscobfdadminstatus" }
-    if yname == "ciscoBfdVersionNumber" { return "Ciscobfdversionnumber" }
-    if yname == "ciscoBfdSessNotificationsEnable" { return "Ciscobfdsessnotificationsenable" }
-    return ""
+    ciscobfdscalarobjects.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdscalarobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscobfdscalarobjects.EntityData.Leafs["ciscoBfdAdminStatus"] = types.YLeaf{"Ciscobfdadminstatus", ciscobfdscalarobjects.Ciscobfdadminstatus}
+    ciscobfdscalarobjects.EntityData.Leafs["ciscoBfdVersionNumber"] = types.YLeaf{"Ciscobfdversionnumber", ciscobfdscalarobjects.Ciscobfdversionnumber}
+    ciscobfdscalarobjects.EntityData.Leafs["ciscoBfdSessNotificationsEnable"] = types.YLeaf{"Ciscobfdsessnotificationsenable", ciscobfdscalarobjects.Ciscobfdsessnotificationsenable}
+    return &(ciscobfdscalarobjects.EntityData)
 }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetSegmentPath() string {
-    return "ciscoBfdScalarObjects"
-}
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoBfdAdminStatus"] = ciscobfdscalarobjects.Ciscobfdadminstatus
-    leafs["ciscoBfdVersionNumber"] = ciscobfdscalarobjects.Ciscobfdversionnumber
-    leafs["ciscoBfdSessNotificationsEnable"] = ciscobfdscalarobjects.Ciscobfdsessnotificationsenable
-    return leafs
-}
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetYangName() string { return "ciscoBfdScalarObjects" }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) SetParent(parent types.Entity) { ciscobfdscalarobjects.parent = parent }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetParent() types.Entity { return ciscobfdscalarobjects.parent }
-
-func (ciscobfdscalarobjects *CISCOIETFBFDMIB_Ciscobfdscalarobjects) GetParentYangName() string { return "CISCO-IETF-BFD-MIB" }
 
 // CISCOIETFBFDMIB_Ciscobfdscalarobjects_Ciscobfdadminstatus represents it on all interfaces.
 type CISCOIETFBFDMIB_Ciscobfdscalarobjects_Ciscobfdadminstatus string
@@ -229,7 +148,7 @@ const (
 // CISCOIETFBFDMIB_Ciscobfdsesstable
 // The BFD Session Table describes the BFD sessions.
 type CISCOIETFBFDMIB_Ciscobfdsesstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The BFD Session Entry describes BFD session. The type is slice of
@@ -237,68 +156,29 @@ type CISCOIETFBFDMIB_Ciscobfdsesstable struct {
     Ciscobfdsessentry []CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry
 }
 
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetFilter() yfilter.YFilter { return ciscobfdsesstable.YFilter }
+func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetEntityData() *types.CommonEntityData {
+    ciscobfdsesstable.EntityData.YFilter = ciscobfdsesstable.YFilter
+    ciscobfdsesstable.EntityData.YangName = "ciscoBfdSessTable"
+    ciscobfdsesstable.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsesstable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
+    ciscobfdsesstable.EntityData.SegmentPath = "ciscoBfdSessTable"
+    ciscobfdsesstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsesstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsesstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) SetFilter(yf yfilter.YFilter) { ciscobfdsesstable.YFilter = yf }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessEntry" { return "Ciscobfdsessentry" }
-    return ""
-}
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetSegmentPath() string {
-    return "ciscoBfdSessTable"
-}
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoBfdSessEntry" {
-        for _, c := range ciscobfdsesstable.Ciscobfdsessentry {
-            if ciscobfdsesstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry{}
-        ciscobfdsesstable.Ciscobfdsessentry = append(ciscobfdsesstable.Ciscobfdsessentry, child)
-        return &ciscobfdsesstable.Ciscobfdsessentry[len(ciscobfdsesstable.Ciscobfdsessentry)-1]
-    }
-    return nil
-}
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscobfdsesstable.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsesstable.EntityData.Children["ciscoBfdSessEntry"] = types.YChild{"Ciscobfdsessentry", nil}
     for i := range ciscobfdsesstable.Ciscobfdsessentry {
-        children[ciscobfdsesstable.Ciscobfdsessentry[i].GetSegmentPath()] = &ciscobfdsesstable.Ciscobfdsessentry[i]
+        ciscobfdsesstable.EntityData.Children[types.GetSegmentPath(&ciscobfdsesstable.Ciscobfdsessentry[i])] = types.YChild{"Ciscobfdsessentry", &ciscobfdsesstable.Ciscobfdsessentry[i]}
     }
-    return children
+    ciscobfdsesstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscobfdsesstable.EntityData)
 }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetYangName() string { return "ciscoBfdSessTable" }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) SetParent(parent types.Entity) { ciscobfdsesstable.parent = parent }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetParent() types.Entity { return ciscobfdsesstable.parent }
-
-func (ciscobfdsesstable *CISCOIETFBFDMIB_Ciscobfdsesstable) GetParentYangName() string { return "CISCO-IETF-BFD-MIB" }
 
 // CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry
 // The BFD Session Entry describes BFD session.
 type CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object contains an index used to represent a
@@ -482,117 +362,54 @@ type CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry struct {
     Ciscobfdsessperfpktouthc interface{}
 }
 
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetFilter() yfilter.YFilter { return ciscobfdsessentry.YFilter }
+func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessentry.EntityData.YFilter = ciscobfdsessentry.YFilter
+    ciscobfdsessentry.EntityData.YangName = "ciscoBfdSessEntry"
+    ciscobfdsessentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessentry.EntityData.ParentYangName = "ciscoBfdSessTable"
+    ciscobfdsessentry.EntityData.SegmentPath = "ciscoBfdSessEntry" + "[ciscoBfdSessIndex='" + fmt.Sprintf("%v", ciscobfdsessentry.Ciscobfdsessindex) + "']"
+    ciscobfdsessentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) SetFilter(yf yfilter.YFilter) { ciscobfdsessentry.YFilter = yf }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessIndex" { return "Ciscobfdsessindex" }
-    if yname == "ciscoBfdSessApplicationId" { return "Ciscobfdsessapplicationid" }
-    if yname == "ciscoBfdSessDiscriminator" { return "Ciscobfdsessdiscriminator" }
-    if yname == "ciscoBfdSessRemoteDiscr" { return "Ciscobfdsessremotediscr" }
-    if yname == "ciscoBfdSessUdpPort" { return "Ciscobfdsessudpport" }
-    if yname == "ciscoBfdSessState" { return "Ciscobfdsessstate" }
-    if yname == "ciscoBfdSessRemoteHeardFlag" { return "Ciscobfdsessremoteheardflag" }
-    if yname == "ciscoBfdSessDiag" { return "Ciscobfdsessdiag" }
-    if yname == "ciscoBfdSessOperMode" { return "Ciscobfdsessopermode" }
-    if yname == "ciscoBfdSessDemandModeDesiredFlag" { return "Ciscobfdsessdemandmodedesiredflag" }
-    if yname == "ciscoBfdSessEchoFuncModeDesiredFlag" { return "Ciscobfdsessechofuncmodedesiredflag" }
-    if yname == "ciscoBfdSessControlPlanIndepFlag" { return "Ciscobfdsesscontrolplanindepflag" }
-    if yname == "ciscoBfdSessAddrType" { return "Ciscobfdsessaddrtype" }
-    if yname == "ciscoBfdSessAddr" { return "Ciscobfdsessaddr" }
-    if yname == "ciscoBfdSessDesiredMinTxInterval" { return "Ciscobfdsessdesiredmintxinterval" }
-    if yname == "ciscoBfdSessReqMinRxInterval" { return "Ciscobfdsessreqminrxinterval" }
-    if yname == "ciscoBfdSessReqMinEchoRxInterval" { return "Ciscobfdsessreqminechorxinterval" }
-    if yname == "ciscoBfdSessDetectMult" { return "Ciscobfdsessdetectmult" }
-    if yname == "ciscoBfdSessStorType" { return "Ciscobfdsessstortype" }
-    if yname == "ciscoBfdSessRowStatus" { return "Ciscobfdsessrowstatus" }
-    if yname == "ciscoBfdSessAuthPresFlag" { return "Ciscobfdsessauthpresflag" }
-    if yname == "ciscoBfdSessAuthenticationType" { return "Ciscobfdsessauthenticationtype" }
-    if yname == "ciscoBfdSessVersionNumber" { return "Ciscobfdsessversionnumber" }
-    if yname == "ciscoBfdSessType" { return "Ciscobfdsesstype" }
-    if yname == "ciscoBfdSessInterface" { return "Ciscobfdsessinterface" }
-    if yname == "ciscoBfdSessPerfPktIn" { return "Ciscobfdsessperfpktin" }
-    if yname == "ciscoBfdSessPerfPktOut" { return "Ciscobfdsessperfpktout" }
-    if yname == "ciscoBfdSessUpTime" { return "Ciscobfdsessuptime" }
-    if yname == "ciscoBfdSessPerfLastSessDownTime" { return "Ciscobfdsessperflastsessdowntime" }
-    if yname == "ciscoBfdSessPerfLastCommLostDiag" { return "Ciscobfdsessperflastcommlostdiag" }
-    if yname == "ciscoBfdSessPerfSessUpCount" { return "Ciscobfdsessperfsessupcount" }
-    if yname == "ciscoBfdSessPerfDiscTime" { return "Ciscobfdsessperfdisctime" }
-    if yname == "ciscoBfdSessPerfPktInHC" { return "Ciscobfdsessperfpktinhc" }
-    if yname == "ciscoBfdSessPerfPktOutHC" { return "Ciscobfdsessperfpktouthc" }
-    return ""
+    ciscobfdsessentry.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessIndex"] = types.YLeaf{"Ciscobfdsessindex", ciscobfdsessentry.Ciscobfdsessindex}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessApplicationId"] = types.YLeaf{"Ciscobfdsessapplicationid", ciscobfdsessentry.Ciscobfdsessapplicationid}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessDiscriminator"] = types.YLeaf{"Ciscobfdsessdiscriminator", ciscobfdsessentry.Ciscobfdsessdiscriminator}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessRemoteDiscr"] = types.YLeaf{"Ciscobfdsessremotediscr", ciscobfdsessentry.Ciscobfdsessremotediscr}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessUdpPort"] = types.YLeaf{"Ciscobfdsessudpport", ciscobfdsessentry.Ciscobfdsessudpport}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessState"] = types.YLeaf{"Ciscobfdsessstate", ciscobfdsessentry.Ciscobfdsessstate}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessRemoteHeardFlag"] = types.YLeaf{"Ciscobfdsessremoteheardflag", ciscobfdsessentry.Ciscobfdsessremoteheardflag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessDiag"] = types.YLeaf{"Ciscobfdsessdiag", ciscobfdsessentry.Ciscobfdsessdiag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessOperMode"] = types.YLeaf{"Ciscobfdsessopermode", ciscobfdsessentry.Ciscobfdsessopermode}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessDemandModeDesiredFlag"] = types.YLeaf{"Ciscobfdsessdemandmodedesiredflag", ciscobfdsessentry.Ciscobfdsessdemandmodedesiredflag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessEchoFuncModeDesiredFlag"] = types.YLeaf{"Ciscobfdsessechofuncmodedesiredflag", ciscobfdsessentry.Ciscobfdsessechofuncmodedesiredflag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessControlPlanIndepFlag"] = types.YLeaf{"Ciscobfdsesscontrolplanindepflag", ciscobfdsessentry.Ciscobfdsesscontrolplanindepflag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessAddrType"] = types.YLeaf{"Ciscobfdsessaddrtype", ciscobfdsessentry.Ciscobfdsessaddrtype}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessAddr"] = types.YLeaf{"Ciscobfdsessaddr", ciscobfdsessentry.Ciscobfdsessaddr}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessDesiredMinTxInterval"] = types.YLeaf{"Ciscobfdsessdesiredmintxinterval", ciscobfdsessentry.Ciscobfdsessdesiredmintxinterval}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessReqMinRxInterval"] = types.YLeaf{"Ciscobfdsessreqminrxinterval", ciscobfdsessentry.Ciscobfdsessreqminrxinterval}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessReqMinEchoRxInterval"] = types.YLeaf{"Ciscobfdsessreqminechorxinterval", ciscobfdsessentry.Ciscobfdsessreqminechorxinterval}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessDetectMult"] = types.YLeaf{"Ciscobfdsessdetectmult", ciscobfdsessentry.Ciscobfdsessdetectmult}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessStorType"] = types.YLeaf{"Ciscobfdsessstortype", ciscobfdsessentry.Ciscobfdsessstortype}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessRowStatus"] = types.YLeaf{"Ciscobfdsessrowstatus", ciscobfdsessentry.Ciscobfdsessrowstatus}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessAuthPresFlag"] = types.YLeaf{"Ciscobfdsessauthpresflag", ciscobfdsessentry.Ciscobfdsessauthpresflag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessAuthenticationType"] = types.YLeaf{"Ciscobfdsessauthenticationtype", ciscobfdsessentry.Ciscobfdsessauthenticationtype}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessVersionNumber"] = types.YLeaf{"Ciscobfdsessversionnumber", ciscobfdsessentry.Ciscobfdsessversionnumber}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessType"] = types.YLeaf{"Ciscobfdsesstype", ciscobfdsessentry.Ciscobfdsesstype}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessInterface"] = types.YLeaf{"Ciscobfdsessinterface", ciscobfdsessentry.Ciscobfdsessinterface}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfPktIn"] = types.YLeaf{"Ciscobfdsessperfpktin", ciscobfdsessentry.Ciscobfdsessperfpktin}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfPktOut"] = types.YLeaf{"Ciscobfdsessperfpktout", ciscobfdsessentry.Ciscobfdsessperfpktout}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessUpTime"] = types.YLeaf{"Ciscobfdsessuptime", ciscobfdsessentry.Ciscobfdsessuptime}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfLastSessDownTime"] = types.YLeaf{"Ciscobfdsessperflastsessdowntime", ciscobfdsessentry.Ciscobfdsessperflastsessdowntime}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfLastCommLostDiag"] = types.YLeaf{"Ciscobfdsessperflastcommlostdiag", ciscobfdsessentry.Ciscobfdsessperflastcommlostdiag}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfSessUpCount"] = types.YLeaf{"Ciscobfdsessperfsessupcount", ciscobfdsessentry.Ciscobfdsessperfsessupcount}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfDiscTime"] = types.YLeaf{"Ciscobfdsessperfdisctime", ciscobfdsessentry.Ciscobfdsessperfdisctime}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfPktInHC"] = types.YLeaf{"Ciscobfdsessperfpktinhc", ciscobfdsessentry.Ciscobfdsessperfpktinhc}
+    ciscobfdsessentry.EntityData.Leafs["ciscoBfdSessPerfPktOutHC"] = types.YLeaf{"Ciscobfdsessperfpktouthc", ciscobfdsessentry.Ciscobfdsessperfpktouthc}
+    return &(ciscobfdsessentry.EntityData)
 }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetSegmentPath() string {
-    return "ciscoBfdSessEntry" + "[ciscoBfdSessIndex='" + fmt.Sprintf("%v", ciscobfdsessentry.Ciscobfdsessindex) + "']"
-}
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoBfdSessIndex"] = ciscobfdsessentry.Ciscobfdsessindex
-    leafs["ciscoBfdSessApplicationId"] = ciscobfdsessentry.Ciscobfdsessapplicationid
-    leafs["ciscoBfdSessDiscriminator"] = ciscobfdsessentry.Ciscobfdsessdiscriminator
-    leafs["ciscoBfdSessRemoteDiscr"] = ciscobfdsessentry.Ciscobfdsessremotediscr
-    leafs["ciscoBfdSessUdpPort"] = ciscobfdsessentry.Ciscobfdsessudpport
-    leafs["ciscoBfdSessState"] = ciscobfdsessentry.Ciscobfdsessstate
-    leafs["ciscoBfdSessRemoteHeardFlag"] = ciscobfdsessentry.Ciscobfdsessremoteheardflag
-    leafs["ciscoBfdSessDiag"] = ciscobfdsessentry.Ciscobfdsessdiag
-    leafs["ciscoBfdSessOperMode"] = ciscobfdsessentry.Ciscobfdsessopermode
-    leafs["ciscoBfdSessDemandModeDesiredFlag"] = ciscobfdsessentry.Ciscobfdsessdemandmodedesiredflag
-    leafs["ciscoBfdSessEchoFuncModeDesiredFlag"] = ciscobfdsessentry.Ciscobfdsessechofuncmodedesiredflag
-    leafs["ciscoBfdSessControlPlanIndepFlag"] = ciscobfdsessentry.Ciscobfdsesscontrolplanindepflag
-    leafs["ciscoBfdSessAddrType"] = ciscobfdsessentry.Ciscobfdsessaddrtype
-    leafs["ciscoBfdSessAddr"] = ciscobfdsessentry.Ciscobfdsessaddr
-    leafs["ciscoBfdSessDesiredMinTxInterval"] = ciscobfdsessentry.Ciscobfdsessdesiredmintxinterval
-    leafs["ciscoBfdSessReqMinRxInterval"] = ciscobfdsessentry.Ciscobfdsessreqminrxinterval
-    leafs["ciscoBfdSessReqMinEchoRxInterval"] = ciscobfdsessentry.Ciscobfdsessreqminechorxinterval
-    leafs["ciscoBfdSessDetectMult"] = ciscobfdsessentry.Ciscobfdsessdetectmult
-    leafs["ciscoBfdSessStorType"] = ciscobfdsessentry.Ciscobfdsessstortype
-    leafs["ciscoBfdSessRowStatus"] = ciscobfdsessentry.Ciscobfdsessrowstatus
-    leafs["ciscoBfdSessAuthPresFlag"] = ciscobfdsessentry.Ciscobfdsessauthpresflag
-    leafs["ciscoBfdSessAuthenticationType"] = ciscobfdsessentry.Ciscobfdsessauthenticationtype
-    leafs["ciscoBfdSessVersionNumber"] = ciscobfdsessentry.Ciscobfdsessversionnumber
-    leafs["ciscoBfdSessType"] = ciscobfdsessentry.Ciscobfdsesstype
-    leafs["ciscoBfdSessInterface"] = ciscobfdsessentry.Ciscobfdsessinterface
-    leafs["ciscoBfdSessPerfPktIn"] = ciscobfdsessentry.Ciscobfdsessperfpktin
-    leafs["ciscoBfdSessPerfPktOut"] = ciscobfdsessentry.Ciscobfdsessperfpktout
-    leafs["ciscoBfdSessUpTime"] = ciscobfdsessentry.Ciscobfdsessuptime
-    leafs["ciscoBfdSessPerfLastSessDownTime"] = ciscobfdsessentry.Ciscobfdsessperflastsessdowntime
-    leafs["ciscoBfdSessPerfLastCommLostDiag"] = ciscobfdsessentry.Ciscobfdsessperflastcommlostdiag
-    leafs["ciscoBfdSessPerfSessUpCount"] = ciscobfdsessentry.Ciscobfdsessperfsessupcount
-    leafs["ciscoBfdSessPerfDiscTime"] = ciscobfdsessentry.Ciscobfdsessperfdisctime
-    leafs["ciscoBfdSessPerfPktInHC"] = ciscobfdsessentry.Ciscobfdsessperfpktinhc
-    leafs["ciscoBfdSessPerfPktOutHC"] = ciscobfdsessentry.Ciscobfdsessperfpktouthc
-    return leafs
-}
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetYangName() string { return "ciscoBfdSessEntry" }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) SetParent(parent types.Entity) { ciscobfdsessentry.parent = parent }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetParent() types.Entity { return ciscobfdsessentry.parent }
-
-func (ciscobfdsessentry *CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry) GetParentYangName() string { return "ciscoBfdSessTable" }
 
 // CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry_Ciscobfdsessauthenticationtype represents field is valid only when the Authentication Present bit is set
 type CISCOIETFBFDMIB_Ciscobfdsesstable_Ciscobfdsessentry_Ciscobfdsessauthenticationtype string
@@ -651,7 +468,7 @@ const (
 // indexing of the BFD sessions to the flat 
 // CiscoBfdSessIndexTC used in the ciscoBfdSessTable.
 type CISCOIETFBFDMIB_Ciscobfdsessmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The BFD Session Entry describes BFD session that is mapped to this index.
@@ -660,69 +477,30 @@ type CISCOIETFBFDMIB_Ciscobfdsessmaptable struct {
     Ciscobfdsessmapentry []CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry
 }
 
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetFilter() yfilter.YFilter { return ciscobfdsessmaptable.YFilter }
+func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessmaptable.EntityData.YFilter = ciscobfdsessmaptable.YFilter
+    ciscobfdsessmaptable.EntityData.YangName = "ciscoBfdSessMapTable"
+    ciscobfdsessmaptable.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessmaptable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
+    ciscobfdsessmaptable.EntityData.SegmentPath = "ciscoBfdSessMapTable"
+    ciscobfdsessmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) SetFilter(yf yfilter.YFilter) { ciscobfdsessmaptable.YFilter = yf }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessMapEntry" { return "Ciscobfdsessmapentry" }
-    return ""
-}
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetSegmentPath() string {
-    return "ciscoBfdSessMapTable"
-}
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoBfdSessMapEntry" {
-        for _, c := range ciscobfdsessmaptable.Ciscobfdsessmapentry {
-            if ciscobfdsessmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry{}
-        ciscobfdsessmaptable.Ciscobfdsessmapentry = append(ciscobfdsessmaptable.Ciscobfdsessmapentry, child)
-        return &ciscobfdsessmaptable.Ciscobfdsessmapentry[len(ciscobfdsessmaptable.Ciscobfdsessmapentry)-1]
-    }
-    return nil
-}
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscobfdsessmaptable.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessmaptable.EntityData.Children["ciscoBfdSessMapEntry"] = types.YChild{"Ciscobfdsessmapentry", nil}
     for i := range ciscobfdsessmaptable.Ciscobfdsessmapentry {
-        children[ciscobfdsessmaptable.Ciscobfdsessmapentry[i].GetSegmentPath()] = &ciscobfdsessmaptable.Ciscobfdsessmapentry[i]
+        ciscobfdsessmaptable.EntityData.Children[types.GetSegmentPath(&ciscobfdsessmaptable.Ciscobfdsessmapentry[i])] = types.YChild{"Ciscobfdsessmapentry", &ciscobfdsessmaptable.Ciscobfdsessmapentry[i]}
     }
-    return children
+    ciscobfdsessmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscobfdsessmaptable.EntityData)
 }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetYangName() string { return "ciscoBfdSessMapTable" }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) SetParent(parent types.Entity) { ciscobfdsessmaptable.parent = parent }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetParent() types.Entity { return ciscobfdsessmaptable.parent }
-
-func (ciscobfdsessmaptable *CISCOIETFBFDMIB_Ciscobfdsessmaptable) GetParentYangName() string { return "CISCO-IETF-BFD-MIB" }
 
 // CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry
 // The BFD Session Entry describes BFD session
 // that is mapped to this index.
 type CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -749,66 +527,32 @@ type CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry struct {
     Ciscobfdsessmapbfdindex interface{}
 }
 
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetFilter() yfilter.YFilter { return ciscobfdsessmapentry.YFilter }
+func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessmapentry.EntityData.YFilter = ciscobfdsessmapentry.YFilter
+    ciscobfdsessmapentry.EntityData.YangName = "ciscoBfdSessMapEntry"
+    ciscobfdsessmapentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessmapentry.EntityData.ParentYangName = "ciscoBfdSessMapTable"
+    ciscobfdsessmapentry.EntityData.SegmentPath = "ciscoBfdSessMapEntry" + "[ciscoBfdSessApplicationId='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessapplicationid) + "']" + "[ciscoBfdSessDiscriminator='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessdiscriminator) + "']" + "[ciscoBfdSessAddrType='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessaddrtype) + "']" + "[ciscoBfdSessAddr='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessaddr) + "']"
+    ciscobfdsessmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) SetFilter(yf yfilter.YFilter) { ciscobfdsessmapentry.YFilter = yf }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessApplicationId" { return "Ciscobfdsessapplicationid" }
-    if yname == "ciscoBfdSessDiscriminator" { return "Ciscobfdsessdiscriminator" }
-    if yname == "ciscoBfdSessAddrType" { return "Ciscobfdsessaddrtype" }
-    if yname == "ciscoBfdSessAddr" { return "Ciscobfdsessaddr" }
-    if yname == "ciscoBfdSessMapBfdIndex" { return "Ciscobfdsessmapbfdindex" }
-    return ""
+    ciscobfdsessmapentry.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscobfdsessmapentry.EntityData.Leafs["ciscoBfdSessApplicationId"] = types.YLeaf{"Ciscobfdsessapplicationid", ciscobfdsessmapentry.Ciscobfdsessapplicationid}
+    ciscobfdsessmapentry.EntityData.Leafs["ciscoBfdSessDiscriminator"] = types.YLeaf{"Ciscobfdsessdiscriminator", ciscobfdsessmapentry.Ciscobfdsessdiscriminator}
+    ciscobfdsessmapentry.EntityData.Leafs["ciscoBfdSessAddrType"] = types.YLeaf{"Ciscobfdsessaddrtype", ciscobfdsessmapentry.Ciscobfdsessaddrtype}
+    ciscobfdsessmapentry.EntityData.Leafs["ciscoBfdSessAddr"] = types.YLeaf{"Ciscobfdsessaddr", ciscobfdsessmapentry.Ciscobfdsessaddr}
+    ciscobfdsessmapentry.EntityData.Leafs["ciscoBfdSessMapBfdIndex"] = types.YLeaf{"Ciscobfdsessmapbfdindex", ciscobfdsessmapentry.Ciscobfdsessmapbfdindex}
+    return &(ciscobfdsessmapentry.EntityData)
 }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetSegmentPath() string {
-    return "ciscoBfdSessMapEntry" + "[ciscoBfdSessApplicationId='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessapplicationid) + "']" + "[ciscoBfdSessDiscriminator='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessdiscriminator) + "']" + "[ciscoBfdSessAddrType='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessaddrtype) + "']" + "[ciscoBfdSessAddr='" + fmt.Sprintf("%v", ciscobfdsessmapentry.Ciscobfdsessaddr) + "']"
-}
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoBfdSessApplicationId"] = ciscobfdsessmapentry.Ciscobfdsessapplicationid
-    leafs["ciscoBfdSessDiscriminator"] = ciscobfdsessmapentry.Ciscobfdsessdiscriminator
-    leafs["ciscoBfdSessAddrType"] = ciscobfdsessmapentry.Ciscobfdsessaddrtype
-    leafs["ciscoBfdSessAddr"] = ciscobfdsessmapentry.Ciscobfdsessaddr
-    leafs["ciscoBfdSessMapBfdIndex"] = ciscobfdsessmapentry.Ciscobfdsessmapbfdindex
-    return leafs
-}
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetYangName() string { return "ciscoBfdSessMapEntry" }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) SetParent(parent types.Entity) { ciscobfdsessmapentry.parent = parent }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetParent() types.Entity { return ciscobfdsessmapentry.parent }
-
-func (ciscobfdsessmapentry *CISCOIETFBFDMIB_Ciscobfdsessmaptable_Ciscobfdsessmapentry) GetParentYangName() string { return "ciscoBfdSessMapTable" }
 
 // CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable
 // The BFD Session Discriminator Mapping Table maps a
 // local discriminator value to associated BFD sessions'
 // CiscoBfdSessIndexTC used in the ciscoBfdSessTable.
 type CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each row contains a mapping between a local discriminator value to an entry
@@ -817,69 +561,30 @@ type CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable struct {
     Ciscobfdsessdiscmapentry []CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry
 }
 
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetFilter() yfilter.YFilter { return ciscobfdsessdiscmaptable.YFilter }
+func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessdiscmaptable.EntityData.YFilter = ciscobfdsessdiscmaptable.YFilter
+    ciscobfdsessdiscmaptable.EntityData.YangName = "ciscoBfdSessDiscMapTable"
+    ciscobfdsessdiscmaptable.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessdiscmaptable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
+    ciscobfdsessdiscmaptable.EntityData.SegmentPath = "ciscoBfdSessDiscMapTable"
+    ciscobfdsessdiscmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessdiscmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessdiscmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) SetFilter(yf yfilter.YFilter) { ciscobfdsessdiscmaptable.YFilter = yf }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessDiscMapEntry" { return "Ciscobfdsessdiscmapentry" }
-    return ""
-}
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetSegmentPath() string {
-    return "ciscoBfdSessDiscMapTable"
-}
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoBfdSessDiscMapEntry" {
-        for _, c := range ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry {
-            if ciscobfdsessdiscmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry{}
-        ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry = append(ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry, child)
-        return &ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry[len(ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry)-1]
-    }
-    return nil
-}
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscobfdsessdiscmaptable.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessdiscmaptable.EntityData.Children["ciscoBfdSessDiscMapEntry"] = types.YChild{"Ciscobfdsessdiscmapentry", nil}
     for i := range ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry {
-        children[ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry[i].GetSegmentPath()] = &ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry[i]
+        ciscobfdsessdiscmaptable.EntityData.Children[types.GetSegmentPath(&ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry[i])] = types.YChild{"Ciscobfdsessdiscmapentry", &ciscobfdsessdiscmaptable.Ciscobfdsessdiscmapentry[i]}
     }
-    return children
+    ciscobfdsessdiscmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscobfdsessdiscmaptable.EntityData)
 }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetYangName() string { return "ciscoBfdSessDiscMapTable" }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) SetParent(parent types.Entity) { ciscobfdsessdiscmaptable.parent = parent }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetParent() types.Entity { return ciscobfdsessdiscmaptable.parent }
-
-func (ciscobfdsessdiscmaptable *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable) GetParentYangName() string { return "CISCO-IETF-BFD-MIB" }
 
 // CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry
 // Each row contains a mapping between a local discriminator
 // value to an entry in ciscoBfdSessTable.
 type CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -893,53 +598,22 @@ type CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry struct {
     Ciscobfdsessdiscmapindex interface{}
 }
 
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetFilter() yfilter.YFilter { return ciscobfdsessdiscmapentry.YFilter }
+func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessdiscmapentry.EntityData.YFilter = ciscobfdsessdiscmapentry.YFilter
+    ciscobfdsessdiscmapentry.EntityData.YangName = "ciscoBfdSessDiscMapEntry"
+    ciscobfdsessdiscmapentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessdiscmapentry.EntityData.ParentYangName = "ciscoBfdSessDiscMapTable"
+    ciscobfdsessdiscmapentry.EntityData.SegmentPath = "ciscoBfdSessDiscMapEntry" + "[ciscoBfdSessDiscriminator='" + fmt.Sprintf("%v", ciscobfdsessdiscmapentry.Ciscobfdsessdiscriminator) + "']"
+    ciscobfdsessdiscmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessdiscmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessdiscmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) SetFilter(yf yfilter.YFilter) { ciscobfdsessdiscmapentry.YFilter = yf }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessDiscriminator" { return "Ciscobfdsessdiscriminator" }
-    if yname == "ciscoBfdSessDiscMapIndex" { return "Ciscobfdsessdiscmapindex" }
-    return ""
+    ciscobfdsessdiscmapentry.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessdiscmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscobfdsessdiscmapentry.EntityData.Leafs["ciscoBfdSessDiscriminator"] = types.YLeaf{"Ciscobfdsessdiscriminator", ciscobfdsessdiscmapentry.Ciscobfdsessdiscriminator}
+    ciscobfdsessdiscmapentry.EntityData.Leafs["ciscoBfdSessDiscMapIndex"] = types.YLeaf{"Ciscobfdsessdiscmapindex", ciscobfdsessdiscmapentry.Ciscobfdsessdiscmapindex}
+    return &(ciscobfdsessdiscmapentry.EntityData)
 }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetSegmentPath() string {
-    return "ciscoBfdSessDiscMapEntry" + "[ciscoBfdSessDiscriminator='" + fmt.Sprintf("%v", ciscobfdsessdiscmapentry.Ciscobfdsessdiscriminator) + "']"
-}
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoBfdSessDiscriminator"] = ciscobfdsessdiscmapentry.Ciscobfdsessdiscriminator
-    leafs["ciscoBfdSessDiscMapIndex"] = ciscobfdsessdiscmapentry.Ciscobfdsessdiscmapindex
-    return leafs
-}
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetYangName() string { return "ciscoBfdSessDiscMapEntry" }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) SetParent(parent types.Entity) { ciscobfdsessdiscmapentry.parent = parent }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetParent() types.Entity { return ciscobfdsessdiscmapentry.parent }
-
-func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobfdsessdiscmapentry) GetParentYangName() string { return "ciscoBfdSessDiscMapTable" }
 
 // CISCOIETFBFDMIB_Ciscobfdsessipmaptable
 // The BFD Session IP Mapping Table maps given
@@ -949,7 +623,7 @@ func (ciscobfdsessdiscmapentry *CISCOIETFBFDMIB_Ciscobfdsessdiscmaptable_Ciscobf
 // This table SHOULD contains those BFD sessions are
 // of IP type: singleHop(1) and multiHop(2).
 type CISCOIETFBFDMIB_Ciscobfdsessipmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each row contains a mapping between ciscoBfdSessInterface,
@@ -959,70 +633,31 @@ type CISCOIETFBFDMIB_Ciscobfdsessipmaptable struct {
     Ciscobfdsessipmapentry []CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry
 }
 
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetFilter() yfilter.YFilter { return ciscobfdsessipmaptable.YFilter }
+func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessipmaptable.EntityData.YFilter = ciscobfdsessipmaptable.YFilter
+    ciscobfdsessipmaptable.EntityData.YangName = "ciscoBfdSessIpMapTable"
+    ciscobfdsessipmaptable.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessipmaptable.EntityData.ParentYangName = "CISCO-IETF-BFD-MIB"
+    ciscobfdsessipmaptable.EntityData.SegmentPath = "ciscoBfdSessIpMapTable"
+    ciscobfdsessipmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessipmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessipmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) SetFilter(yf yfilter.YFilter) { ciscobfdsessipmaptable.YFilter = yf }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessIpMapEntry" { return "Ciscobfdsessipmapentry" }
-    return ""
-}
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetSegmentPath() string {
-    return "ciscoBfdSessIpMapTable"
-}
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoBfdSessIpMapEntry" {
-        for _, c := range ciscobfdsessipmaptable.Ciscobfdsessipmapentry {
-            if ciscobfdsessipmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry{}
-        ciscobfdsessipmaptable.Ciscobfdsessipmapentry = append(ciscobfdsessipmaptable.Ciscobfdsessipmapentry, child)
-        return &ciscobfdsessipmaptable.Ciscobfdsessipmapentry[len(ciscobfdsessipmaptable.Ciscobfdsessipmapentry)-1]
-    }
-    return nil
-}
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscobfdsessipmaptable.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessipmaptable.EntityData.Children["ciscoBfdSessIpMapEntry"] = types.YChild{"Ciscobfdsessipmapentry", nil}
     for i := range ciscobfdsessipmaptable.Ciscobfdsessipmapentry {
-        children[ciscobfdsessipmaptable.Ciscobfdsessipmapentry[i].GetSegmentPath()] = &ciscobfdsessipmaptable.Ciscobfdsessipmapentry[i]
+        ciscobfdsessipmaptable.EntityData.Children[types.GetSegmentPath(&ciscobfdsessipmaptable.Ciscobfdsessipmapentry[i])] = types.YChild{"Ciscobfdsessipmapentry", &ciscobfdsessipmaptable.Ciscobfdsessipmapentry[i]}
     }
-    return children
+    ciscobfdsessipmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscobfdsessipmaptable.EntityData)
 }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetYangName() string { return "ciscoBfdSessIpMapTable" }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) SetParent(parent types.Entity) { ciscobfdsessipmaptable.parent = parent }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetParent() types.Entity { return ciscobfdsessipmaptable.parent }
-
-func (ciscobfdsessipmaptable *CISCOIETFBFDMIB_Ciscobfdsessipmaptable) GetParentYangName() string { return "CISCO-IETF-BFD-MIB" }
 
 // CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry
 // Each row contains a mapping between ciscoBfdSessInterface,
 // ciscoBfdSessAddrType and ciscoBfdSessAddr values to an 
 // entry in ciscoBfdSessTable.
 type CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1045,55 +680,22 @@ type CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry struct {
     Ciscobfdsessipmapindex interface{}
 }
 
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetFilter() yfilter.YFilter { return ciscobfdsessipmapentry.YFilter }
+func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetEntityData() *types.CommonEntityData {
+    ciscobfdsessipmapentry.EntityData.YFilter = ciscobfdsessipmapentry.YFilter
+    ciscobfdsessipmapentry.EntityData.YangName = "ciscoBfdSessIpMapEntry"
+    ciscobfdsessipmapentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscobfdsessipmapentry.EntityData.ParentYangName = "ciscoBfdSessIpMapTable"
+    ciscobfdsessipmapentry.EntityData.SegmentPath = "ciscoBfdSessIpMapEntry" + "[ciscoBfdSessInterface='" + fmt.Sprintf("%v", ciscobfdsessipmapentry.Ciscobfdsessinterface) + "']" + "[ciscoBfdSessAddrType='" + fmt.Sprintf("%v", ciscobfdsessipmapentry.Ciscobfdsessaddrtype) + "']" + "[ciscoBfdSessAddr='" + fmt.Sprintf("%v", ciscobfdsessipmapentry.Ciscobfdsessaddr) + "']"
+    ciscobfdsessipmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscobfdsessipmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscobfdsessipmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) SetFilter(yf yfilter.YFilter) { ciscobfdsessipmapentry.YFilter = yf }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetGoName(yname string) string {
-    if yname == "ciscoBfdSessInterface" { return "Ciscobfdsessinterface" }
-    if yname == "ciscoBfdSessAddrType" { return "Ciscobfdsessaddrtype" }
-    if yname == "ciscoBfdSessAddr" { return "Ciscobfdsessaddr" }
-    if yname == "ciscoBfdSessIpMapIndex" { return "Ciscobfdsessipmapindex" }
-    return ""
+    ciscobfdsessipmapentry.EntityData.Children = make(map[string]types.YChild)
+    ciscobfdsessipmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscobfdsessipmapentry.EntityData.Leafs["ciscoBfdSessInterface"] = types.YLeaf{"Ciscobfdsessinterface", ciscobfdsessipmapentry.Ciscobfdsessinterface}
+    ciscobfdsessipmapentry.EntityData.Leafs["ciscoBfdSessAddrType"] = types.YLeaf{"Ciscobfdsessaddrtype", ciscobfdsessipmapentry.Ciscobfdsessaddrtype}
+    ciscobfdsessipmapentry.EntityData.Leafs["ciscoBfdSessAddr"] = types.YLeaf{"Ciscobfdsessaddr", ciscobfdsessipmapentry.Ciscobfdsessaddr}
+    ciscobfdsessipmapentry.EntityData.Leafs["ciscoBfdSessIpMapIndex"] = types.YLeaf{"Ciscobfdsessipmapindex", ciscobfdsessipmapentry.Ciscobfdsessipmapindex}
+    return &(ciscobfdsessipmapentry.EntityData)
 }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetSegmentPath() string {
-    return "ciscoBfdSessIpMapEntry" + "[ciscoBfdSessInterface='" + fmt.Sprintf("%v", ciscobfdsessipmapentry.Ciscobfdsessinterface) + "']" + "[ciscoBfdSessAddrType='" + fmt.Sprintf("%v", ciscobfdsessipmapentry.Ciscobfdsessaddrtype) + "']" + "[ciscoBfdSessAddr='" + fmt.Sprintf("%v", ciscobfdsessipmapentry.Ciscobfdsessaddr) + "']"
-}
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoBfdSessInterface"] = ciscobfdsessipmapentry.Ciscobfdsessinterface
-    leafs["ciscoBfdSessAddrType"] = ciscobfdsessipmapentry.Ciscobfdsessaddrtype
-    leafs["ciscoBfdSessAddr"] = ciscobfdsessipmapentry.Ciscobfdsessaddr
-    leafs["ciscoBfdSessIpMapIndex"] = ciscobfdsessipmapentry.Ciscobfdsessipmapindex
-    return leafs
-}
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetYangName() string { return "ciscoBfdSessIpMapEntry" }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) SetParent(parent types.Entity) { ciscobfdsessipmapentry.parent = parent }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetParent() types.Entity { return ciscobfdsessipmapentry.parent }
-
-func (ciscobfdsessipmapentry *CISCOIETFBFDMIB_Ciscobfdsessipmaptable_Ciscobfdsessipmapentry) GetParentYangName() string { return "ciscoBfdSessIpMapTable" }
 

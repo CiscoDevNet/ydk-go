@@ -44,7 +44,7 @@ const (
 
 // CISCOEMBEDDEDEVENTMGRMIB
 type CISCOEMBEDDEDEVENTMGRMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -73,73 +73,28 @@ type CISCOEMBEDDEDEVENTMGRMIB struct {
     Ceemregisteredpolicytable CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable
 }
 
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetFilter() yfilter.YFilter { return cISCOEMBEDDEDEVENTMGRMIB.YFilter }
+func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetEntityData() *types.CommonEntityData {
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.YFilter = cISCOEMBEDDEDEVENTMGRMIB.YFilter
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.YangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.SegmentPath = "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB"
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) SetFilter(yf yfilter.YFilter) { cISCOEMBEDDEDEVENTMGRMIB.YFilter = yf }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetGoName(yname string) string {
-    if yname == "ceemHistory" { return "Ceemhistory" }
-    if yname == "ceemEventMapTable" { return "Ceemeventmaptable" }
-    if yname == "ceemHistoryEventTable" { return "Ceemhistoryeventtable" }
-    if yname == "ceemRegisteredPolicyTable" { return "Ceemregisteredpolicytable" }
-    return ""
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.Children["ceemHistory"] = types.YChild{"Ceemhistory", &cISCOEMBEDDEDEVENTMGRMIB.Ceemhistory}
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.Children["ceemEventMapTable"] = types.YChild{"Ceemeventmaptable", &cISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable}
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.Children["ceemHistoryEventTable"] = types.YChild{"Ceemhistoryeventtable", &cISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable}
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.Children["ceemRegisteredPolicyTable"] = types.YChild{"Ceemregisteredpolicytable", &cISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable}
+    cISCOEMBEDDEDEVENTMGRMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOEMBEDDEDEVENTMGRMIB.EntityData)
 }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetSegmentPath() string {
-    return "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB"
-}
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceemHistory" {
-        return &cISCOEMBEDDEDEVENTMGRMIB.Ceemhistory
-    }
-    if childYangName == "ceemEventMapTable" {
-        return &cISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable
-    }
-    if childYangName == "ceemHistoryEventTable" {
-        return &cISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable
-    }
-    if childYangName == "ceemRegisteredPolicyTable" {
-        return &cISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable
-    }
-    return nil
-}
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ceemHistory"] = &cISCOEMBEDDEDEVENTMGRMIB.Ceemhistory
-    children["ceemEventMapTable"] = &cISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable
-    children["ceemHistoryEventTable"] = &cISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable
-    children["ceemRegisteredPolicyTable"] = &cISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable
-    return children
-}
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetYangName() string { return "CISCO-EMBEDDED-EVENT-MGR-MIB" }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) SetParent(parent types.Entity) { cISCOEMBEDDEDEVENTMGRMIB.parent = parent }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetParent() types.Entity { return cISCOEMBEDDEDEVENTMGRMIB.parent }
-
-func (cISCOEMBEDDEDEVENTMGRMIB *CISCOEMBEDDEDEVENTMGRMIB) GetParentYangName() string { return "CISCO-EMBEDDED-EVENT-MGR-MIB" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of entries that can be held in ceemHistoryEventTable.
@@ -151,53 +106,22 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory struct {
     Ceemhistorylastevententry interface{}
 }
 
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetFilter() yfilter.YFilter { return ceemhistory.YFilter }
+func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetEntityData() *types.CommonEntityData {
+    ceemhistory.EntityData.YFilter = ceemhistory.YFilter
+    ceemhistory.EntityData.YangName = "ceemHistory"
+    ceemhistory.EntityData.BundleName = "cisco_ios_xe"
+    ceemhistory.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+    ceemhistory.EntityData.SegmentPath = "ceemHistory"
+    ceemhistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemhistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemhistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) SetFilter(yf yfilter.YFilter) { ceemhistory.YFilter = yf }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetGoName(yname string) string {
-    if yname == "ceemHistoryMaxEventEntries" { return "Ceemhistorymaxevententries" }
-    if yname == "ceemHistoryLastEventEntry" { return "Ceemhistorylastevententry" }
-    return ""
+    ceemhistory.EntityData.Children = make(map[string]types.YChild)
+    ceemhistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceemhistory.EntityData.Leafs["ceemHistoryMaxEventEntries"] = types.YLeaf{"Ceemhistorymaxevententries", ceemhistory.Ceemhistorymaxevententries}
+    ceemhistory.EntityData.Leafs["ceemHistoryLastEventEntry"] = types.YLeaf{"Ceemhistorylastevententry", ceemhistory.Ceemhistorylastevententry}
+    return &(ceemhistory.EntityData)
 }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetSegmentPath() string {
-    return "ceemHistory"
-}
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceemHistoryMaxEventEntries"] = ceemhistory.Ceemhistorymaxevententries
-    leafs["ceemHistoryLastEventEntry"] = ceemhistory.Ceemhistorylastevententry
-    return leafs
-}
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetYangName() string { return "ceemHistory" }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) SetParent(parent types.Entity) { ceemhistory.parent = parent }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetParent() types.Entity { return ceemhistory.parent }
-
-func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetParentYangName() string { return "CISCO-EMBEDDED-EVENT-MGR-MIB" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable
 // A table containing information about ceemEventIndex
@@ -209,7 +133,7 @@ func (ceemhistory *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistory) GetParentYangName() str
 // Manager Event Detectors register with the Embedded 
 // Event Manager server.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A mapping between an event type and an event description. The type is slice
@@ -217,68 +141,29 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable struct {
     Ceemeventmapentry []CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry
 }
 
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetFilter() yfilter.YFilter { return ceemeventmaptable.YFilter }
+func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetEntityData() *types.CommonEntityData {
+    ceemeventmaptable.EntityData.YFilter = ceemeventmaptable.YFilter
+    ceemeventmaptable.EntityData.YangName = "ceemEventMapTable"
+    ceemeventmaptable.EntityData.BundleName = "cisco_ios_xe"
+    ceemeventmaptable.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+    ceemeventmaptable.EntityData.SegmentPath = "ceemEventMapTable"
+    ceemeventmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemeventmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemeventmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) SetFilter(yf yfilter.YFilter) { ceemeventmaptable.YFilter = yf }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetGoName(yname string) string {
-    if yname == "ceemEventMapEntry" { return "Ceemeventmapentry" }
-    return ""
-}
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetSegmentPath() string {
-    return "ceemEventMapTable"
-}
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceemEventMapEntry" {
-        for _, c := range ceemeventmaptable.Ceemeventmapentry {
-            if ceemeventmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry{}
-        ceemeventmaptable.Ceemeventmapentry = append(ceemeventmaptable.Ceemeventmapentry, child)
-        return &ceemeventmaptable.Ceemeventmapentry[len(ceemeventmaptable.Ceemeventmapentry)-1]
-    }
-    return nil
-}
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceemeventmaptable.EntityData.Children = make(map[string]types.YChild)
+    ceemeventmaptable.EntityData.Children["ceemEventMapEntry"] = types.YChild{"Ceemeventmapentry", nil}
     for i := range ceemeventmaptable.Ceemeventmapentry {
-        children[ceemeventmaptable.Ceemeventmapentry[i].GetSegmentPath()] = &ceemeventmaptable.Ceemeventmapentry[i]
+        ceemeventmaptable.EntityData.Children[types.GetSegmentPath(&ceemeventmaptable.Ceemeventmapentry[i])] = types.YChild{"Ceemeventmapentry", &ceemeventmaptable.Ceemeventmapentry[i]}
     }
-    return children
+    ceemeventmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceemeventmaptable.EntityData)
 }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetYangName() string { return "ceemEventMapTable" }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) SetParent(parent types.Entity) { ceemeventmaptable.parent = parent }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetParent() types.Entity { return ceemeventmaptable.parent }
-
-func (ceemeventmaptable *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable) GetParentYangName() string { return "CISCO-EMBEDDED-EVENT-MGR-MIB" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry
 // A mapping between an event type and an event description.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object uniquely identifies an event.  Events
@@ -295,55 +180,23 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry struct {
     Ceemeventdescrtext interface{}
 }
 
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetFilter() yfilter.YFilter { return ceemeventmapentry.YFilter }
+func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetEntityData() *types.CommonEntityData {
+    ceemeventmapentry.EntityData.YFilter = ceemeventmapentry.YFilter
+    ceemeventmapentry.EntityData.YangName = "ceemEventMapEntry"
+    ceemeventmapentry.EntityData.BundleName = "cisco_ios_xe"
+    ceemeventmapentry.EntityData.ParentYangName = "ceemEventMapTable"
+    ceemeventmapentry.EntityData.SegmentPath = "ceemEventMapEntry" + "[ceemEventIndex='" + fmt.Sprintf("%v", ceemeventmapentry.Ceemeventindex) + "']"
+    ceemeventmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemeventmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemeventmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) SetFilter(yf yfilter.YFilter) { ceemeventmapentry.YFilter = yf }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetGoName(yname string) string {
-    if yname == "ceemEventIndex" { return "Ceemeventindex" }
-    if yname == "ceemEventName" { return "Ceemeventname" }
-    if yname == "ceemEventDescrText" { return "Ceemeventdescrtext" }
-    return ""
+    ceemeventmapentry.EntityData.Children = make(map[string]types.YChild)
+    ceemeventmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceemeventmapentry.EntityData.Leafs["ceemEventIndex"] = types.YLeaf{"Ceemeventindex", ceemeventmapentry.Ceemeventindex}
+    ceemeventmapentry.EntityData.Leafs["ceemEventName"] = types.YLeaf{"Ceemeventname", ceemeventmapentry.Ceemeventname}
+    ceemeventmapentry.EntityData.Leafs["ceemEventDescrText"] = types.YLeaf{"Ceemeventdescrtext", ceemeventmapentry.Ceemeventdescrtext}
+    return &(ceemeventmapentry.EntityData)
 }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetSegmentPath() string {
-    return "ceemEventMapEntry" + "[ceemEventIndex='" + fmt.Sprintf("%v", ceemeventmapentry.Ceemeventindex) + "']"
-}
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceemEventIndex"] = ceemeventmapentry.Ceemeventindex
-    leafs["ceemEventName"] = ceemeventmapentry.Ceemeventname
-    leafs["ceemEventDescrText"] = ceemeventmapentry.Ceemeventdescrtext
-    return leafs
-}
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetYangName() string { return "ceemEventMapEntry" }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) SetParent(parent types.Entity) { ceemeventmapentry.parent = parent }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetParent() types.Entity { return ceemeventmapentry.parent }
-
-func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmapentry) GetParentYangName() string { return "ceemEventMapTable" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable
 // A table of Embedded Event Manager events generated by this
@@ -358,7 +211,7 @@ func (ceemeventmapentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemeventmaptable_Ceemeventmap
 // entries are immediately removed from the table leaving 
 // a maximum of N entries.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about an Embedded Event Manager event which has been generated
@@ -369,63 +222,24 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable struct {
     Ceemhistoryevententry []CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry
 }
 
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetFilter() yfilter.YFilter { return ceemhistoryeventtable.YFilter }
+func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetEntityData() *types.CommonEntityData {
+    ceemhistoryeventtable.EntityData.YFilter = ceemhistoryeventtable.YFilter
+    ceemhistoryeventtable.EntityData.YangName = "ceemHistoryEventTable"
+    ceemhistoryeventtable.EntityData.BundleName = "cisco_ios_xe"
+    ceemhistoryeventtable.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+    ceemhistoryeventtable.EntityData.SegmentPath = "ceemHistoryEventTable"
+    ceemhistoryeventtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemhistoryeventtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemhistoryeventtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) SetFilter(yf yfilter.YFilter) { ceemhistoryeventtable.YFilter = yf }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetGoName(yname string) string {
-    if yname == "ceemHistoryEventEntry" { return "Ceemhistoryevententry" }
-    return ""
-}
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetSegmentPath() string {
-    return "ceemHistoryEventTable"
-}
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceemHistoryEventEntry" {
-        for _, c := range ceemhistoryeventtable.Ceemhistoryevententry {
-            if ceemhistoryeventtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry{}
-        ceemhistoryeventtable.Ceemhistoryevententry = append(ceemhistoryeventtable.Ceemhistoryevententry, child)
-        return &ceemhistoryeventtable.Ceemhistoryevententry[len(ceemhistoryeventtable.Ceemhistoryevententry)-1]
-    }
-    return nil
-}
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceemhistoryeventtable.EntityData.Children = make(map[string]types.YChild)
+    ceemhistoryeventtable.EntityData.Children["ceemHistoryEventEntry"] = types.YChild{"Ceemhistoryevententry", nil}
     for i := range ceemhistoryeventtable.Ceemhistoryevententry {
-        children[ceemhistoryeventtable.Ceemhistoryevententry[i].GetSegmentPath()] = &ceemhistoryeventtable.Ceemhistoryevententry[i]
+        ceemhistoryeventtable.EntityData.Children[types.GetSegmentPath(&ceemhistoryeventtable.Ceemhistoryevententry[i])] = types.YChild{"Ceemhistoryevententry", &ceemhistoryeventtable.Ceemhistoryevententry[i]}
     }
-    return children
+    ceemhistoryeventtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceemhistoryeventtable.EntityData)
 }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetYangName() string { return "ceemHistoryEventTable" }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) SetParent(parent types.Entity) { ceemhistoryeventtable.parent = parent }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetParent() types.Entity { return ceemhistoryeventtable.parent }
-
-func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) GetParentYangName() string { return "CISCO-EMBEDDED-EVENT-MGR-MIB" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry
 // Information about an Embedded Event Manager event which has
@@ -434,7 +248,7 @@ func (ceemhistoryeventtable *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable) Get
 // triggered when multiple events are published within a certain
 // period of time.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing non-zero integer
@@ -523,88 +337,43 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry struct
     Ceemhistoryeventtype8 interface{}
 }
 
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetFilter() yfilter.YFilter { return ceemhistoryevententry.YFilter }
+func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetEntityData() *types.CommonEntityData {
+    ceemhistoryevententry.EntityData.YFilter = ceemhistoryevententry.YFilter
+    ceemhistoryevententry.EntityData.YangName = "ceemHistoryEventEntry"
+    ceemhistoryevententry.EntityData.BundleName = "cisco_ios_xe"
+    ceemhistoryevententry.EntityData.ParentYangName = "ceemHistoryEventTable"
+    ceemhistoryevententry.EntityData.SegmentPath = "ceemHistoryEventEntry" + "[ceemHistoryEventIndex='" + fmt.Sprintf("%v", ceemhistoryevententry.Ceemhistoryeventindex) + "']"
+    ceemhistoryevententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemhistoryevententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemhistoryevententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) SetFilter(yf yfilter.YFilter) { ceemhistoryevententry.YFilter = yf }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetGoName(yname string) string {
-    if yname == "ceemHistoryEventIndex" { return "Ceemhistoryeventindex" }
-    if yname == "ceemHistoryEventType1" { return "Ceemhistoryeventtype1" }
-    if yname == "ceemHistoryEventType2" { return "Ceemhistoryeventtype2" }
-    if yname == "ceemHistoryEventType3" { return "Ceemhistoryeventtype3" }
-    if yname == "ceemHistoryEventType4" { return "Ceemhistoryeventtype4" }
-    if yname == "ceemHistoryPolicyPath" { return "Ceemhistorypolicypath" }
-    if yname == "ceemHistoryPolicyName" { return "Ceemhistorypolicyname" }
-    if yname == "ceemHistoryPolicyExitStatus" { return "Ceemhistorypolicyexitstatus" }
-    if yname == "ceemHistoryPolicyIntData1" { return "Ceemhistorypolicyintdata1" }
-    if yname == "ceemHistoryPolicyIntData2" { return "Ceemhistorypolicyintdata2" }
-    if yname == "ceemHistoryPolicyStrData" { return "Ceemhistorypolicystrdata" }
-    if yname == "ceemHistoryNotifyType" { return "Ceemhistorynotifytype" }
-    if yname == "ceemHistoryEventType5" { return "Ceemhistoryeventtype5" }
-    if yname == "ceemHistoryEventType6" { return "Ceemhistoryeventtype6" }
-    if yname == "ceemHistoryEventType7" { return "Ceemhistoryeventtype7" }
-    if yname == "ceemHistoryEventType8" { return "Ceemhistoryeventtype8" }
-    return ""
+    ceemhistoryevententry.EntityData.Children = make(map[string]types.YChild)
+    ceemhistoryevententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventIndex"] = types.YLeaf{"Ceemhistoryeventindex", ceemhistoryevententry.Ceemhistoryeventindex}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType1"] = types.YLeaf{"Ceemhistoryeventtype1", ceemhistoryevententry.Ceemhistoryeventtype1}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType2"] = types.YLeaf{"Ceemhistoryeventtype2", ceemhistoryevententry.Ceemhistoryeventtype2}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType3"] = types.YLeaf{"Ceemhistoryeventtype3", ceemhistoryevententry.Ceemhistoryeventtype3}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType4"] = types.YLeaf{"Ceemhistoryeventtype4", ceemhistoryevententry.Ceemhistoryeventtype4}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryPolicyPath"] = types.YLeaf{"Ceemhistorypolicypath", ceemhistoryevententry.Ceemhistorypolicypath}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryPolicyName"] = types.YLeaf{"Ceemhistorypolicyname", ceemhistoryevententry.Ceemhistorypolicyname}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryPolicyExitStatus"] = types.YLeaf{"Ceemhistorypolicyexitstatus", ceemhistoryevententry.Ceemhistorypolicyexitstatus}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryPolicyIntData1"] = types.YLeaf{"Ceemhistorypolicyintdata1", ceemhistoryevententry.Ceemhistorypolicyintdata1}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryPolicyIntData2"] = types.YLeaf{"Ceemhistorypolicyintdata2", ceemhistoryevententry.Ceemhistorypolicyintdata2}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryPolicyStrData"] = types.YLeaf{"Ceemhistorypolicystrdata", ceemhistoryevententry.Ceemhistorypolicystrdata}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryNotifyType"] = types.YLeaf{"Ceemhistorynotifytype", ceemhistoryevententry.Ceemhistorynotifytype}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType5"] = types.YLeaf{"Ceemhistoryeventtype5", ceemhistoryevententry.Ceemhistoryeventtype5}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType6"] = types.YLeaf{"Ceemhistoryeventtype6", ceemhistoryevententry.Ceemhistoryeventtype6}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType7"] = types.YLeaf{"Ceemhistoryeventtype7", ceemhistoryevententry.Ceemhistoryeventtype7}
+    ceemhistoryevententry.EntityData.Leafs["ceemHistoryEventType8"] = types.YLeaf{"Ceemhistoryeventtype8", ceemhistoryevententry.Ceemhistoryeventtype8}
+    return &(ceemhistoryevententry.EntityData)
 }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetSegmentPath() string {
-    return "ceemHistoryEventEntry" + "[ceemHistoryEventIndex='" + fmt.Sprintf("%v", ceemhistoryevententry.Ceemhistoryeventindex) + "']"
-}
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceemHistoryEventIndex"] = ceemhistoryevententry.Ceemhistoryeventindex
-    leafs["ceemHistoryEventType1"] = ceemhistoryevententry.Ceemhistoryeventtype1
-    leafs["ceemHistoryEventType2"] = ceemhistoryevententry.Ceemhistoryeventtype2
-    leafs["ceemHistoryEventType3"] = ceemhistoryevententry.Ceemhistoryeventtype3
-    leafs["ceemHistoryEventType4"] = ceemhistoryevententry.Ceemhistoryeventtype4
-    leafs["ceemHistoryPolicyPath"] = ceemhistoryevententry.Ceemhistorypolicypath
-    leafs["ceemHistoryPolicyName"] = ceemhistoryevententry.Ceemhistorypolicyname
-    leafs["ceemHistoryPolicyExitStatus"] = ceemhistoryevententry.Ceemhistorypolicyexitstatus
-    leafs["ceemHistoryPolicyIntData1"] = ceemhistoryevententry.Ceemhistorypolicyintdata1
-    leafs["ceemHistoryPolicyIntData2"] = ceemhistoryevententry.Ceemhistorypolicyintdata2
-    leafs["ceemHistoryPolicyStrData"] = ceemhistoryevententry.Ceemhistorypolicystrdata
-    leafs["ceemHistoryNotifyType"] = ceemhistoryevententry.Ceemhistorynotifytype
-    leafs["ceemHistoryEventType5"] = ceemhistoryevententry.Ceemhistoryeventtype5
-    leafs["ceemHistoryEventType6"] = ceemhistoryevententry.Ceemhistoryeventtype6
-    leafs["ceemHistoryEventType7"] = ceemhistoryevententry.Ceemhistoryeventtype7
-    leafs["ceemHistoryEventType8"] = ceemhistoryevententry.Ceemhistoryeventtype8
-    return leafs
-}
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetYangName() string { return "ceemHistoryEventEntry" }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) SetParent(parent types.Entity) { ceemhistoryevententry.parent = parent }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetParent() types.Entity { return ceemhistoryevententry.parent }
-
-func (ceemhistoryevententry *CISCOEMBEDDEDEVENTMGRMIB_Ceemhistoryeventtable_Ceemhistoryevententry) GetParentYangName() string { return "ceemHistoryEventTable" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable
 // A table of Embedded Event Manager policies registered on a system.
 // The number of entries depends on the configuration of the system.  The 
 // maximum number is implementation dependent.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table of Embedded Event Manager policies that are
@@ -616,63 +385,24 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable struct {
     Ceemregisteredpolicyentry []CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry
 }
 
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetFilter() yfilter.YFilter { return ceemregisteredpolicytable.YFilter }
+func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetEntityData() *types.CommonEntityData {
+    ceemregisteredpolicytable.EntityData.YFilter = ceemregisteredpolicytable.YFilter
+    ceemregisteredpolicytable.EntityData.YangName = "ceemRegisteredPolicyTable"
+    ceemregisteredpolicytable.EntityData.BundleName = "cisco_ios_xe"
+    ceemregisteredpolicytable.EntityData.ParentYangName = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+    ceemregisteredpolicytable.EntityData.SegmentPath = "ceemRegisteredPolicyTable"
+    ceemregisteredpolicytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemregisteredpolicytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemregisteredpolicytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) SetFilter(yf yfilter.YFilter) { ceemregisteredpolicytable.YFilter = yf }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetGoName(yname string) string {
-    if yname == "ceemRegisteredPolicyEntry" { return "Ceemregisteredpolicyentry" }
-    return ""
-}
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetSegmentPath() string {
-    return "ceemRegisteredPolicyTable"
-}
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceemRegisteredPolicyEntry" {
-        for _, c := range ceemregisteredpolicytable.Ceemregisteredpolicyentry {
-            if ceemregisteredpolicytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry{}
-        ceemregisteredpolicytable.Ceemregisteredpolicyentry = append(ceemregisteredpolicytable.Ceemregisteredpolicyentry, child)
-        return &ceemregisteredpolicytable.Ceemregisteredpolicyentry[len(ceemregisteredpolicytable.Ceemregisteredpolicyentry)-1]
-    }
-    return nil
-}
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceemregisteredpolicytable.EntityData.Children = make(map[string]types.YChild)
+    ceemregisteredpolicytable.EntityData.Children["ceemRegisteredPolicyEntry"] = types.YChild{"Ceemregisteredpolicyentry", nil}
     for i := range ceemregisteredpolicytable.Ceemregisteredpolicyentry {
-        children[ceemregisteredpolicytable.Ceemregisteredpolicyentry[i].GetSegmentPath()] = &ceemregisteredpolicytable.Ceemregisteredpolicyentry[i]
+        ceemregisteredpolicytable.EntityData.Children[types.GetSegmentPath(&ceemregisteredpolicytable.Ceemregisteredpolicyentry[i])] = types.YChild{"Ceemregisteredpolicyentry", &ceemregisteredpolicytable.Ceemregisteredpolicyentry[i]}
     }
-    return children
+    ceemregisteredpolicytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceemregisteredpolicytable.EntityData)
 }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetYangName() string { return "ceemRegisteredPolicyTable" }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) SetParent(parent types.Entity) { ceemregisteredpolicytable.parent = parent }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetParent() types.Entity { return ceemregisteredpolicytable.parent }
-
-func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable) GetParentYangName() string { return "CISCO-EMBEDDED-EVENT-MGR-MIB" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry
 // An entry in the table of Embedded Event Manager policies that are
@@ -682,7 +412,7 @@ func (ceemregisteredpolicytable *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicyta
 // cannot be created or deleted by SNMP operations on columns of the 
 // table.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing non-zero integer
@@ -765,83 +495,37 @@ type CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentr
     Ceemregisteredpolicyeventtype8 interface{}
 }
 
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetFilter() yfilter.YFilter { return ceemregisteredpolicyentry.YFilter }
+func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetEntityData() *types.CommonEntityData {
+    ceemregisteredpolicyentry.EntityData.YFilter = ceemregisteredpolicyentry.YFilter
+    ceemregisteredpolicyentry.EntityData.YangName = "ceemRegisteredPolicyEntry"
+    ceemregisteredpolicyentry.EntityData.BundleName = "cisco_ios_xe"
+    ceemregisteredpolicyentry.EntityData.ParentYangName = "ceemRegisteredPolicyTable"
+    ceemregisteredpolicyentry.EntityData.SegmentPath = "ceemRegisteredPolicyEntry" + "[ceemRegisteredPolicyIndex='" + fmt.Sprintf("%v", ceemregisteredpolicyentry.Ceemregisteredpolicyindex) + "']"
+    ceemregisteredpolicyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceemregisteredpolicyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceemregisteredpolicyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) SetFilter(yf yfilter.YFilter) { ceemregisteredpolicyentry.YFilter = yf }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetGoName(yname string) string {
-    if yname == "ceemRegisteredPolicyIndex" { return "Ceemregisteredpolicyindex" }
-    if yname == "ceemRegisteredPolicyName" { return "Ceemregisteredpolicyname" }
-    if yname == "ceemRegisteredPolicyEventType1" { return "Ceemregisteredpolicyeventtype1" }
-    if yname == "ceemRegisteredPolicyEventType2" { return "Ceemregisteredpolicyeventtype2" }
-    if yname == "ceemRegisteredPolicyEventType3" { return "Ceemregisteredpolicyeventtype3" }
-    if yname == "ceemRegisteredPolicyEventType4" { return "Ceemregisteredpolicyeventtype4" }
-    if yname == "ceemRegisteredPolicyStatus" { return "Ceemregisteredpolicystatus" }
-    if yname == "ceemRegisteredPolicyType" { return "Ceemregisteredpolicytype" }
-    if yname == "ceemRegisteredPolicyNotifFlag" { return "Ceemregisteredpolicynotifflag" }
-    if yname == "ceemRegisteredPolicyRegTime" { return "Ceemregisteredpolicyregtime" }
-    if yname == "ceemRegisteredPolicyEnabledTime" { return "Ceemregisteredpolicyenabledtime" }
-    if yname == "ceemRegisteredPolicyRunTime" { return "Ceemregisteredpolicyruntime" }
-    if yname == "ceemRegisteredPolicyRunCount" { return "Ceemregisteredpolicyruncount" }
-    if yname == "ceemRegisteredPolicyEventType5" { return "Ceemregisteredpolicyeventtype5" }
-    if yname == "ceemRegisteredPolicyEventType6" { return "Ceemregisteredpolicyeventtype6" }
-    if yname == "ceemRegisteredPolicyEventType7" { return "Ceemregisteredpolicyeventtype7" }
-    if yname == "ceemRegisteredPolicyEventType8" { return "Ceemregisteredpolicyeventtype8" }
-    return ""
+    ceemregisteredpolicyentry.EntityData.Children = make(map[string]types.YChild)
+    ceemregisteredpolicyentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyIndex"] = types.YLeaf{"Ceemregisteredpolicyindex", ceemregisteredpolicyentry.Ceemregisteredpolicyindex}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyName"] = types.YLeaf{"Ceemregisteredpolicyname", ceemregisteredpolicyentry.Ceemregisteredpolicyname}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType1"] = types.YLeaf{"Ceemregisteredpolicyeventtype1", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype1}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType2"] = types.YLeaf{"Ceemregisteredpolicyeventtype2", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype2}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType3"] = types.YLeaf{"Ceemregisteredpolicyeventtype3", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype3}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType4"] = types.YLeaf{"Ceemregisteredpolicyeventtype4", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype4}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyStatus"] = types.YLeaf{"Ceemregisteredpolicystatus", ceemregisteredpolicyentry.Ceemregisteredpolicystatus}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyType"] = types.YLeaf{"Ceemregisteredpolicytype", ceemregisteredpolicyentry.Ceemregisteredpolicytype}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyNotifFlag"] = types.YLeaf{"Ceemregisteredpolicynotifflag", ceemregisteredpolicyentry.Ceemregisteredpolicynotifflag}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyRegTime"] = types.YLeaf{"Ceemregisteredpolicyregtime", ceemregisteredpolicyentry.Ceemregisteredpolicyregtime}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEnabledTime"] = types.YLeaf{"Ceemregisteredpolicyenabledtime", ceemregisteredpolicyentry.Ceemregisteredpolicyenabledtime}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyRunTime"] = types.YLeaf{"Ceemregisteredpolicyruntime", ceemregisteredpolicyentry.Ceemregisteredpolicyruntime}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyRunCount"] = types.YLeaf{"Ceemregisteredpolicyruncount", ceemregisteredpolicyentry.Ceemregisteredpolicyruncount}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType5"] = types.YLeaf{"Ceemregisteredpolicyeventtype5", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype5}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType6"] = types.YLeaf{"Ceemregisteredpolicyeventtype6", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype6}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType7"] = types.YLeaf{"Ceemregisteredpolicyeventtype7", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype7}
+    ceemregisteredpolicyentry.EntityData.Leafs["ceemRegisteredPolicyEventType8"] = types.YLeaf{"Ceemregisteredpolicyeventtype8", ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype8}
+    return &(ceemregisteredpolicyentry.EntityData)
 }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetSegmentPath() string {
-    return "ceemRegisteredPolicyEntry" + "[ceemRegisteredPolicyIndex='" + fmt.Sprintf("%v", ceemregisteredpolicyentry.Ceemregisteredpolicyindex) + "']"
-}
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceemRegisteredPolicyIndex"] = ceemregisteredpolicyentry.Ceemregisteredpolicyindex
-    leafs["ceemRegisteredPolicyName"] = ceemregisteredpolicyentry.Ceemregisteredpolicyname
-    leafs["ceemRegisteredPolicyEventType1"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype1
-    leafs["ceemRegisteredPolicyEventType2"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype2
-    leafs["ceemRegisteredPolicyEventType3"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype3
-    leafs["ceemRegisteredPolicyEventType4"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype4
-    leafs["ceemRegisteredPolicyStatus"] = ceemregisteredpolicyentry.Ceemregisteredpolicystatus
-    leafs["ceemRegisteredPolicyType"] = ceemregisteredpolicyentry.Ceemregisteredpolicytype
-    leafs["ceemRegisteredPolicyNotifFlag"] = ceemregisteredpolicyentry.Ceemregisteredpolicynotifflag
-    leafs["ceemRegisteredPolicyRegTime"] = ceemregisteredpolicyentry.Ceemregisteredpolicyregtime
-    leafs["ceemRegisteredPolicyEnabledTime"] = ceemregisteredpolicyentry.Ceemregisteredpolicyenabledtime
-    leafs["ceemRegisteredPolicyRunTime"] = ceemregisteredpolicyentry.Ceemregisteredpolicyruntime
-    leafs["ceemRegisteredPolicyRunCount"] = ceemregisteredpolicyentry.Ceemregisteredpolicyruncount
-    leafs["ceemRegisteredPolicyEventType5"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype5
-    leafs["ceemRegisteredPolicyEventType6"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype6
-    leafs["ceemRegisteredPolicyEventType7"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype7
-    leafs["ceemRegisteredPolicyEventType8"] = ceemregisteredpolicyentry.Ceemregisteredpolicyeventtype8
-    return leafs
-}
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetYangName() string { return "ceemRegisteredPolicyEntry" }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) SetParent(parent types.Entity) { ceemregisteredpolicyentry.parent = parent }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetParent() types.Entity { return ceemregisteredpolicyentry.parent }
-
-func (ceemregisteredpolicyentry *CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry) GetParentYangName() string { return "ceemRegisteredPolicyTable" }
 
 // CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry_Ceemregisteredpolicystatus represents This status indicates whether the policy is enabled or disabled.
 type CISCOEMBEDDEDEVENTMGRMIB_Ceemregisteredpolicytable_Ceemregisteredpolicyentry_Ceemregisteredpolicystatus string

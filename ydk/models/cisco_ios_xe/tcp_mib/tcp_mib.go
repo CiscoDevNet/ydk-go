@@ -22,7 +22,7 @@ func init() {
 
 // TCPMIB
 type TCPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -57,73 +57,28 @@ type TCPMIB struct {
     Tcplistenertable TCPMIB_Tcplistenertable
 }
 
-func (tCPMIB *TCPMIB) GetFilter() yfilter.YFilter { return tCPMIB.YFilter }
+func (tCPMIB *TCPMIB) GetEntityData() *types.CommonEntityData {
+    tCPMIB.EntityData.YFilter = tCPMIB.YFilter
+    tCPMIB.EntityData.YangName = "TCP-MIB"
+    tCPMIB.EntityData.BundleName = "cisco_ios_xe"
+    tCPMIB.EntityData.ParentYangName = "TCP-MIB"
+    tCPMIB.EntityData.SegmentPath = "TCP-MIB:TCP-MIB"
+    tCPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tCPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tCPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tCPMIB *TCPMIB) SetFilter(yf yfilter.YFilter) { tCPMIB.YFilter = yf }
-
-func (tCPMIB *TCPMIB) GetGoName(yname string) string {
-    if yname == "tcp" { return "Tcp" }
-    if yname == "tcpConnTable" { return "Tcpconntable" }
-    if yname == "tcpConnectionTable" { return "Tcpconnectiontable" }
-    if yname == "tcpListenerTable" { return "Tcplistenertable" }
-    return ""
+    tCPMIB.EntityData.Children = make(map[string]types.YChild)
+    tCPMIB.EntityData.Children["tcp"] = types.YChild{"Tcp", &tCPMIB.Tcp}
+    tCPMIB.EntityData.Children["tcpConnTable"] = types.YChild{"Tcpconntable", &tCPMIB.Tcpconntable}
+    tCPMIB.EntityData.Children["tcpConnectionTable"] = types.YChild{"Tcpconnectiontable", &tCPMIB.Tcpconnectiontable}
+    tCPMIB.EntityData.Children["tcpListenerTable"] = types.YChild{"Tcplistenertable", &tCPMIB.Tcplistenertable}
+    tCPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tCPMIB.EntityData)
 }
-
-func (tCPMIB *TCPMIB) GetSegmentPath() string {
-    return "TCP-MIB:TCP-MIB"
-}
-
-func (tCPMIB *TCPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tcp" {
-        return &tCPMIB.Tcp
-    }
-    if childYangName == "tcpConnTable" {
-        return &tCPMIB.Tcpconntable
-    }
-    if childYangName == "tcpConnectionTable" {
-        return &tCPMIB.Tcpconnectiontable
-    }
-    if childYangName == "tcpListenerTable" {
-        return &tCPMIB.Tcplistenertable
-    }
-    return nil
-}
-
-func (tCPMIB *TCPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tcp"] = &tCPMIB.Tcp
-    children["tcpConnTable"] = &tCPMIB.Tcpconntable
-    children["tcpConnectionTable"] = &tCPMIB.Tcpconnectiontable
-    children["tcpListenerTable"] = &tCPMIB.Tcplistenertable
-    return children
-}
-
-func (tCPMIB *TCPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tCPMIB *TCPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tCPMIB *TCPMIB) GetYangName() string { return "TCP-MIB" }
-
-func (tCPMIB *TCPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tCPMIB *TCPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tCPMIB *TCPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tCPMIB *TCPMIB) SetParent(parent types.Entity) { tCPMIB.parent = parent }
-
-func (tCPMIB *TCPMIB) GetParent() types.Entity { return tCPMIB.parent }
-
-func (tCPMIB *TCPMIB) GetParentYangName() string { return "TCP-MIB" }
 
 // TCPMIB_Tcp
 type TCPMIB_Tcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The algorithm used to determine the timeout value used for retransmitting
@@ -231,81 +186,36 @@ type TCPMIB_Tcp struct {
     Tcphcoutsegs interface{}
 }
 
-func (tcp *TCPMIB_Tcp) GetFilter() yfilter.YFilter { return tcp.YFilter }
+func (tcp *TCPMIB_Tcp) GetEntityData() *types.CommonEntityData {
+    tcp.EntityData.YFilter = tcp.YFilter
+    tcp.EntityData.YangName = "tcp"
+    tcp.EntityData.BundleName = "cisco_ios_xe"
+    tcp.EntityData.ParentYangName = "TCP-MIB"
+    tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcp *TCPMIB_Tcp) SetFilter(yf yfilter.YFilter) { tcp.YFilter = yf }
-
-func (tcp *TCPMIB_Tcp) GetGoName(yname string) string {
-    if yname == "tcpRtoAlgorithm" { return "Tcprtoalgorithm" }
-    if yname == "tcpRtoMin" { return "Tcprtomin" }
-    if yname == "tcpRtoMax" { return "Tcprtomax" }
-    if yname == "tcpMaxConn" { return "Tcpmaxconn" }
-    if yname == "tcpActiveOpens" { return "Tcpactiveopens" }
-    if yname == "tcpPassiveOpens" { return "Tcppassiveopens" }
-    if yname == "tcpAttemptFails" { return "Tcpattemptfails" }
-    if yname == "tcpEstabResets" { return "Tcpestabresets" }
-    if yname == "tcpCurrEstab" { return "Tcpcurrestab" }
-    if yname == "tcpInSegs" { return "Tcpinsegs" }
-    if yname == "tcpOutSegs" { return "Tcpoutsegs" }
-    if yname == "tcpRetransSegs" { return "Tcpretranssegs" }
-    if yname == "tcpInErrs" { return "Tcpinerrs" }
-    if yname == "tcpOutRsts" { return "Tcpoutrsts" }
-    if yname == "tcpHCInSegs" { return "Tcphcinsegs" }
-    if yname == "tcpHCOutSegs" { return "Tcphcoutsegs" }
-    return ""
+    tcp.EntityData.Children = make(map[string]types.YChild)
+    tcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcp.EntityData.Leafs["tcpRtoAlgorithm"] = types.YLeaf{"Tcprtoalgorithm", tcp.Tcprtoalgorithm}
+    tcp.EntityData.Leafs["tcpRtoMin"] = types.YLeaf{"Tcprtomin", tcp.Tcprtomin}
+    tcp.EntityData.Leafs["tcpRtoMax"] = types.YLeaf{"Tcprtomax", tcp.Tcprtomax}
+    tcp.EntityData.Leafs["tcpMaxConn"] = types.YLeaf{"Tcpmaxconn", tcp.Tcpmaxconn}
+    tcp.EntityData.Leafs["tcpActiveOpens"] = types.YLeaf{"Tcpactiveopens", tcp.Tcpactiveopens}
+    tcp.EntityData.Leafs["tcpPassiveOpens"] = types.YLeaf{"Tcppassiveopens", tcp.Tcppassiveopens}
+    tcp.EntityData.Leafs["tcpAttemptFails"] = types.YLeaf{"Tcpattemptfails", tcp.Tcpattemptfails}
+    tcp.EntityData.Leafs["tcpEstabResets"] = types.YLeaf{"Tcpestabresets", tcp.Tcpestabresets}
+    tcp.EntityData.Leafs["tcpCurrEstab"] = types.YLeaf{"Tcpcurrestab", tcp.Tcpcurrestab}
+    tcp.EntityData.Leafs["tcpInSegs"] = types.YLeaf{"Tcpinsegs", tcp.Tcpinsegs}
+    tcp.EntityData.Leafs["tcpOutSegs"] = types.YLeaf{"Tcpoutsegs", tcp.Tcpoutsegs}
+    tcp.EntityData.Leafs["tcpRetransSegs"] = types.YLeaf{"Tcpretranssegs", tcp.Tcpretranssegs}
+    tcp.EntityData.Leafs["tcpInErrs"] = types.YLeaf{"Tcpinerrs", tcp.Tcpinerrs}
+    tcp.EntityData.Leafs["tcpOutRsts"] = types.YLeaf{"Tcpoutrsts", tcp.Tcpoutrsts}
+    tcp.EntityData.Leafs["tcpHCInSegs"] = types.YLeaf{"Tcphcinsegs", tcp.Tcphcinsegs}
+    tcp.EntityData.Leafs["tcpHCOutSegs"] = types.YLeaf{"Tcphcoutsegs", tcp.Tcphcoutsegs}
+    return &(tcp.EntityData)
 }
-
-func (tcp *TCPMIB_Tcp) GetSegmentPath() string {
-    return "tcp"
-}
-
-func (tcp *TCPMIB_Tcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tcp *TCPMIB_Tcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tcp *TCPMIB_Tcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tcpRtoAlgorithm"] = tcp.Tcprtoalgorithm
-    leafs["tcpRtoMin"] = tcp.Tcprtomin
-    leafs["tcpRtoMax"] = tcp.Tcprtomax
-    leafs["tcpMaxConn"] = tcp.Tcpmaxconn
-    leafs["tcpActiveOpens"] = tcp.Tcpactiveopens
-    leafs["tcpPassiveOpens"] = tcp.Tcppassiveopens
-    leafs["tcpAttemptFails"] = tcp.Tcpattemptfails
-    leafs["tcpEstabResets"] = tcp.Tcpestabresets
-    leafs["tcpCurrEstab"] = tcp.Tcpcurrestab
-    leafs["tcpInSegs"] = tcp.Tcpinsegs
-    leafs["tcpOutSegs"] = tcp.Tcpoutsegs
-    leafs["tcpRetransSegs"] = tcp.Tcpretranssegs
-    leafs["tcpInErrs"] = tcp.Tcpinerrs
-    leafs["tcpOutRsts"] = tcp.Tcpoutrsts
-    leafs["tcpHCInSegs"] = tcp.Tcphcinsegs
-    leafs["tcpHCOutSegs"] = tcp.Tcphcoutsegs
-    return leafs
-}
-
-func (tcp *TCPMIB_Tcp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcp *TCPMIB_Tcp) GetYangName() string { return "tcp" }
-
-func (tcp *TCPMIB_Tcp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcp *TCPMIB_Tcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcp *TCPMIB_Tcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcp *TCPMIB_Tcp) SetParent(parent types.Entity) { tcp.parent = parent }
-
-func (tcp *TCPMIB_Tcp) GetParent() types.Entity { return tcp.parent }
-
-func (tcp *TCPMIB_Tcp) GetParentYangName() string { return "TCP-MIB" }
 
 // TCPMIB_Tcp_Tcprtoalgorithm represents retransmitting unacknowledged octets.
 type TCPMIB_Tcp_Tcprtoalgorithm string
@@ -328,7 +238,7 @@ const (
 // deprecated in favor of the version neutral
 // tcpConnectionTable.
 type TCPMIB_Tcpconntable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row of the tcpConnTable containing information about a
@@ -339,63 +249,24 @@ type TCPMIB_Tcpconntable struct {
     Tcpconnentry []TCPMIB_Tcpconntable_Tcpconnentry
 }
 
-func (tcpconntable *TCPMIB_Tcpconntable) GetFilter() yfilter.YFilter { return tcpconntable.YFilter }
+func (tcpconntable *TCPMIB_Tcpconntable) GetEntityData() *types.CommonEntityData {
+    tcpconntable.EntityData.YFilter = tcpconntable.YFilter
+    tcpconntable.EntityData.YangName = "tcpConnTable"
+    tcpconntable.EntityData.BundleName = "cisco_ios_xe"
+    tcpconntable.EntityData.ParentYangName = "TCP-MIB"
+    tcpconntable.EntityData.SegmentPath = "tcpConnTable"
+    tcpconntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpconntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpconntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcpconntable *TCPMIB_Tcpconntable) SetFilter(yf yfilter.YFilter) { tcpconntable.YFilter = yf }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetGoName(yname string) string {
-    if yname == "tcpConnEntry" { return "Tcpconnentry" }
-    return ""
-}
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetSegmentPath() string {
-    return "tcpConnTable"
-}
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tcpConnEntry" {
-        for _, c := range tcpconntable.Tcpconnentry {
-            if tcpconntable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TCPMIB_Tcpconntable_Tcpconnentry{}
-        tcpconntable.Tcpconnentry = append(tcpconntable.Tcpconnentry, child)
-        return &tcpconntable.Tcpconnentry[len(tcpconntable.Tcpconnentry)-1]
-    }
-    return nil
-}
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tcpconntable.EntityData.Children = make(map[string]types.YChild)
+    tcpconntable.EntityData.Children["tcpConnEntry"] = types.YChild{"Tcpconnentry", nil}
     for i := range tcpconntable.Tcpconnentry {
-        children[tcpconntable.Tcpconnentry[i].GetSegmentPath()] = &tcpconntable.Tcpconnentry[i]
+        tcpconntable.EntityData.Children[types.GetSegmentPath(&tcpconntable.Tcpconnentry[i])] = types.YChild{"Tcpconnentry", &tcpconntable.Tcpconnentry[i]}
     }
-    return children
+    tcpconntable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tcpconntable.EntityData)
 }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetYangName() string { return "tcpConnTable" }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcpconntable *TCPMIB_Tcpconntable) SetParent(parent types.Entity) { tcpconntable.parent = parent }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetParent() types.Entity { return tcpconntable.parent }
-
-func (tcpconntable *TCPMIB_Tcpconntable) GetParentYangName() string { return "TCP-MIB" }
 
 // TCPMIB_Tcpconntable_Tcpconnentry
 // A conceptual row of the tcpConnTable containing information
@@ -404,14 +275,14 @@ func (tcpconntable *TCPMIB_Tcpconntable) GetParentYangName() string { return "TC
 // (or soon after) the connection makes the transition to the
 // CLOSED state.
 type TCPMIB_Tcpconntable_Tcpconnentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The local IP address for this TCP connection.  In
     // the case of a connection in the listen state willing to accept connections
     // for any IP interface associated with the node, the value 0.0.0.0 is used.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Tcpconnlocaladdress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
@@ -420,7 +291,7 @@ type TCPMIB_Tcpconntable_Tcpconnentry struct {
 
     // This attribute is a key. The remote IP address for this TCP connection. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Tcpconnremaddress interface{}
 
     // This attribute is a key. The remote port number for this TCP connection.
@@ -440,59 +311,25 @@ type TCPMIB_Tcpconntable_Tcpconnentry struct {
     Tcpconnstate interface{}
 }
 
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetFilter() yfilter.YFilter { return tcpconnentry.YFilter }
+func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetEntityData() *types.CommonEntityData {
+    tcpconnentry.EntityData.YFilter = tcpconnentry.YFilter
+    tcpconnentry.EntityData.YangName = "tcpConnEntry"
+    tcpconnentry.EntityData.BundleName = "cisco_ios_xe"
+    tcpconnentry.EntityData.ParentYangName = "tcpConnTable"
+    tcpconnentry.EntityData.SegmentPath = "tcpConnEntry" + "[tcpConnLocalAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremaddress) + "']" + "[tcpConnRemPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremport) + "']"
+    tcpconnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpconnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpconnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) SetFilter(yf yfilter.YFilter) { tcpconnentry.YFilter = yf }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetGoName(yname string) string {
-    if yname == "tcpConnLocalAddress" { return "Tcpconnlocaladdress" }
-    if yname == "tcpConnLocalPort" { return "Tcpconnlocalport" }
-    if yname == "tcpConnRemAddress" { return "Tcpconnremaddress" }
-    if yname == "tcpConnRemPort" { return "Tcpconnremport" }
-    if yname == "tcpConnState" { return "Tcpconnstate" }
-    return ""
+    tcpconnentry.EntityData.Children = make(map[string]types.YChild)
+    tcpconnentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcpconnentry.EntityData.Leafs["tcpConnLocalAddress"] = types.YLeaf{"Tcpconnlocaladdress", tcpconnentry.Tcpconnlocaladdress}
+    tcpconnentry.EntityData.Leafs["tcpConnLocalPort"] = types.YLeaf{"Tcpconnlocalport", tcpconnentry.Tcpconnlocalport}
+    tcpconnentry.EntityData.Leafs["tcpConnRemAddress"] = types.YLeaf{"Tcpconnremaddress", tcpconnentry.Tcpconnremaddress}
+    tcpconnentry.EntityData.Leafs["tcpConnRemPort"] = types.YLeaf{"Tcpconnremport", tcpconnentry.Tcpconnremport}
+    tcpconnentry.EntityData.Leafs["tcpConnState"] = types.YLeaf{"Tcpconnstate", tcpconnentry.Tcpconnstate}
+    return &(tcpconnentry.EntityData)
 }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetSegmentPath() string {
-    return "tcpConnEntry" + "[tcpConnLocalAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremaddress) + "']" + "[tcpConnRemPort='" + fmt.Sprintf("%v", tcpconnentry.Tcpconnremport) + "']"
-}
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tcpConnLocalAddress"] = tcpconnentry.Tcpconnlocaladdress
-    leafs["tcpConnLocalPort"] = tcpconnentry.Tcpconnlocalport
-    leafs["tcpConnRemAddress"] = tcpconnentry.Tcpconnremaddress
-    leafs["tcpConnRemPort"] = tcpconnentry.Tcpconnremport
-    leafs["tcpConnState"] = tcpconnentry.Tcpconnstate
-    return leafs
-}
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetYangName() string { return "tcpConnEntry" }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) SetParent(parent types.Entity) { tcpconnentry.parent = parent }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetParent() types.Entity { return tcpconnentry.parent }
-
-func (tcpconnentry *TCPMIB_Tcpconntable_Tcpconnentry) GetParentYangName() string { return "tcpConnTable" }
 
 // TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate represents however, that RST segments are not sent reliably).
 type TCPMIB_Tcpconntable_Tcpconnentry_Tcpconnstate string
@@ -528,7 +365,7 @@ const (
 // connections.  Note that unlike earlier TCP MIBs, there
 // is a separate table for connections in the LISTEN state.
 type TCPMIB_Tcpconnectiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row of the tcpConnectionTable containing information about a
@@ -539,63 +376,24 @@ type TCPMIB_Tcpconnectiontable struct {
     Tcpconnectionentry []TCPMIB_Tcpconnectiontable_Tcpconnectionentry
 }
 
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetFilter() yfilter.YFilter { return tcpconnectiontable.YFilter }
+func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetEntityData() *types.CommonEntityData {
+    tcpconnectiontable.EntityData.YFilter = tcpconnectiontable.YFilter
+    tcpconnectiontable.EntityData.YangName = "tcpConnectionTable"
+    tcpconnectiontable.EntityData.BundleName = "cisco_ios_xe"
+    tcpconnectiontable.EntityData.ParentYangName = "TCP-MIB"
+    tcpconnectiontable.EntityData.SegmentPath = "tcpConnectionTable"
+    tcpconnectiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpconnectiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpconnectiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) SetFilter(yf yfilter.YFilter) { tcpconnectiontable.YFilter = yf }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetGoName(yname string) string {
-    if yname == "tcpConnectionEntry" { return "Tcpconnectionentry" }
-    return ""
-}
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetSegmentPath() string {
-    return "tcpConnectionTable"
-}
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tcpConnectionEntry" {
-        for _, c := range tcpconnectiontable.Tcpconnectionentry {
-            if tcpconnectiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TCPMIB_Tcpconnectiontable_Tcpconnectionentry{}
-        tcpconnectiontable.Tcpconnectionentry = append(tcpconnectiontable.Tcpconnectionentry, child)
-        return &tcpconnectiontable.Tcpconnectionentry[len(tcpconnectiontable.Tcpconnectionentry)-1]
-    }
-    return nil
-}
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tcpconnectiontable.EntityData.Children = make(map[string]types.YChild)
+    tcpconnectiontable.EntityData.Children["tcpConnectionEntry"] = types.YChild{"Tcpconnectionentry", nil}
     for i := range tcpconnectiontable.Tcpconnectionentry {
-        children[tcpconnectiontable.Tcpconnectionentry[i].GetSegmentPath()] = &tcpconnectiontable.Tcpconnectionentry[i]
+        tcpconnectiontable.EntityData.Children[types.GetSegmentPath(&tcpconnectiontable.Tcpconnectionentry[i])] = types.YChild{"Tcpconnectionentry", &tcpconnectiontable.Tcpconnectionentry[i]}
     }
-    return children
+    tcpconnectiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tcpconnectiontable.EntityData)
 }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetYangName() string { return "tcpConnectionTable" }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) SetParent(parent types.Entity) { tcpconnectiontable.parent = parent }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetParent() types.Entity { return tcpconnectiontable.parent }
-
-func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetParentYangName() string { return "TCP-MIB" }
 
 // TCPMIB_Tcpconnectiontable_Tcpconnectionentry
 // A conceptual row of the tcpConnectionTable containing
@@ -604,7 +402,7 @@ func (tcpconnectiontable *TCPMIB_Tcpconnectiontable) GetParentYangName() string 
 // exist when (or soon after) the connection makes the
 // transition to the CLOSED state.
 type TCPMIB_Tcpconnectiontable_Tcpconnectionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type of tcpConnectionLocalAddress. The
@@ -663,65 +461,28 @@ type TCPMIB_Tcpconnectiontable_Tcpconnectionentry struct {
     Tcpconnectionprocess interface{}
 }
 
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetFilter() yfilter.YFilter { return tcpconnectionentry.YFilter }
+func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetEntityData() *types.CommonEntityData {
+    tcpconnectionentry.EntityData.YFilter = tcpconnectionentry.YFilter
+    tcpconnectionentry.EntityData.YangName = "tcpConnectionEntry"
+    tcpconnectionentry.EntityData.BundleName = "cisco_ios_xe"
+    tcpconnectionentry.EntityData.ParentYangName = "tcpConnectionTable"
+    tcpconnectionentry.EntityData.SegmentPath = "tcpConnectionEntry" + "[tcpConnectionLocalAddressType='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocaladdresstype) + "']" + "[tcpConnectionLocalAddress='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocaladdress) + "']" + "[tcpConnectionLocalPort='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocalport) + "']" + "[tcpConnectionRemAddressType='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremaddresstype) + "']" + "[tcpConnectionRemAddress='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremaddress) + "']" + "[tcpConnectionRemPort='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremport) + "']"
+    tcpconnectionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpconnectionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpconnectionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) SetFilter(yf yfilter.YFilter) { tcpconnectionentry.YFilter = yf }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetGoName(yname string) string {
-    if yname == "tcpConnectionLocalAddressType" { return "Tcpconnectionlocaladdresstype" }
-    if yname == "tcpConnectionLocalAddress" { return "Tcpconnectionlocaladdress" }
-    if yname == "tcpConnectionLocalPort" { return "Tcpconnectionlocalport" }
-    if yname == "tcpConnectionRemAddressType" { return "Tcpconnectionremaddresstype" }
-    if yname == "tcpConnectionRemAddress" { return "Tcpconnectionremaddress" }
-    if yname == "tcpConnectionRemPort" { return "Tcpconnectionremport" }
-    if yname == "tcpConnectionState" { return "Tcpconnectionstate" }
-    if yname == "tcpConnectionProcess" { return "Tcpconnectionprocess" }
-    return ""
+    tcpconnectionentry.EntityData.Children = make(map[string]types.YChild)
+    tcpconnectionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionLocalAddressType"] = types.YLeaf{"Tcpconnectionlocaladdresstype", tcpconnectionentry.Tcpconnectionlocaladdresstype}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionLocalAddress"] = types.YLeaf{"Tcpconnectionlocaladdress", tcpconnectionentry.Tcpconnectionlocaladdress}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionLocalPort"] = types.YLeaf{"Tcpconnectionlocalport", tcpconnectionentry.Tcpconnectionlocalport}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionRemAddressType"] = types.YLeaf{"Tcpconnectionremaddresstype", tcpconnectionentry.Tcpconnectionremaddresstype}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionRemAddress"] = types.YLeaf{"Tcpconnectionremaddress", tcpconnectionentry.Tcpconnectionremaddress}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionRemPort"] = types.YLeaf{"Tcpconnectionremport", tcpconnectionentry.Tcpconnectionremport}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionState"] = types.YLeaf{"Tcpconnectionstate", tcpconnectionentry.Tcpconnectionstate}
+    tcpconnectionentry.EntityData.Leafs["tcpConnectionProcess"] = types.YLeaf{"Tcpconnectionprocess", tcpconnectionentry.Tcpconnectionprocess}
+    return &(tcpconnectionentry.EntityData)
 }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetSegmentPath() string {
-    return "tcpConnectionEntry" + "[tcpConnectionLocalAddressType='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocaladdresstype) + "']" + "[tcpConnectionLocalAddress='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocaladdress) + "']" + "[tcpConnectionLocalPort='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionlocalport) + "']" + "[tcpConnectionRemAddressType='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremaddresstype) + "']" + "[tcpConnectionRemAddress='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremaddress) + "']" + "[tcpConnectionRemPort='" + fmt.Sprintf("%v", tcpconnectionentry.Tcpconnectionremport) + "']"
-}
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tcpConnectionLocalAddressType"] = tcpconnectionentry.Tcpconnectionlocaladdresstype
-    leafs["tcpConnectionLocalAddress"] = tcpconnectionentry.Tcpconnectionlocaladdress
-    leafs["tcpConnectionLocalPort"] = tcpconnectionentry.Tcpconnectionlocalport
-    leafs["tcpConnectionRemAddressType"] = tcpconnectionentry.Tcpconnectionremaddresstype
-    leafs["tcpConnectionRemAddress"] = tcpconnectionentry.Tcpconnectionremaddress
-    leafs["tcpConnectionRemPort"] = tcpconnectionentry.Tcpconnectionremport
-    leafs["tcpConnectionState"] = tcpconnectionentry.Tcpconnectionstate
-    leafs["tcpConnectionProcess"] = tcpconnectionentry.Tcpconnectionprocess
-    return leafs
-}
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetYangName() string { return "tcpConnectionEntry" }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) SetParent(parent types.Entity) { tcpconnectionentry.parent = parent }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetParent() types.Entity { return tcpconnectionentry.parent }
-
-func (tcpconnectionentry *TCPMIB_Tcpconnectiontable_Tcpconnectionentry) GetParentYangName() string { return "tcpConnectionTable" }
 
 // TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate represents however, that RST segments are not sent reliably).
 type TCPMIB_Tcpconnectiontable_Tcpconnectionentry_Tcpconnectionstate string
@@ -783,7 +544,7 @@ const (
 // IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would
 // use InetAddressType ipv4(1)).
 type TCPMIB_Tcplistenertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row of the tcpListenerTable containing information about a
@@ -792,69 +553,30 @@ type TCPMIB_Tcplistenertable struct {
     Tcplistenerentry []TCPMIB_Tcplistenertable_Tcplistenerentry
 }
 
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetFilter() yfilter.YFilter { return tcplistenertable.YFilter }
+func (tcplistenertable *TCPMIB_Tcplistenertable) GetEntityData() *types.CommonEntityData {
+    tcplistenertable.EntityData.YFilter = tcplistenertable.YFilter
+    tcplistenertable.EntityData.YangName = "tcpListenerTable"
+    tcplistenertable.EntityData.BundleName = "cisco_ios_xe"
+    tcplistenertable.EntityData.ParentYangName = "TCP-MIB"
+    tcplistenertable.EntityData.SegmentPath = "tcpListenerTable"
+    tcplistenertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcplistenertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcplistenertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcplistenertable *TCPMIB_Tcplistenertable) SetFilter(yf yfilter.YFilter) { tcplistenertable.YFilter = yf }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetGoName(yname string) string {
-    if yname == "tcpListenerEntry" { return "Tcplistenerentry" }
-    return ""
-}
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetSegmentPath() string {
-    return "tcpListenerTable"
-}
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tcpListenerEntry" {
-        for _, c := range tcplistenertable.Tcplistenerentry {
-            if tcplistenertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TCPMIB_Tcplistenertable_Tcplistenerentry{}
-        tcplistenertable.Tcplistenerentry = append(tcplistenertable.Tcplistenerentry, child)
-        return &tcplistenertable.Tcplistenerentry[len(tcplistenertable.Tcplistenerentry)-1]
-    }
-    return nil
-}
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tcplistenertable.EntityData.Children = make(map[string]types.YChild)
+    tcplistenertable.EntityData.Children["tcpListenerEntry"] = types.YChild{"Tcplistenerentry", nil}
     for i := range tcplistenertable.Tcplistenerentry {
-        children[tcplistenertable.Tcplistenerentry[i].GetSegmentPath()] = &tcplistenertable.Tcplistenerentry[i]
+        tcplistenertable.EntityData.Children[types.GetSegmentPath(&tcplistenertable.Tcplistenerentry[i])] = types.YChild{"Tcplistenerentry", &tcplistenertable.Tcplistenerentry[i]}
     }
-    return children
+    tcplistenertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tcplistenertable.EntityData)
 }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetYangName() string { return "tcpListenerTable" }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) SetParent(parent types.Entity) { tcplistenertable.parent = parent }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetParent() types.Entity { return tcplistenertable.parent }
-
-func (tcplistenertable *TCPMIB_Tcplistenertable) GetParentYangName() string { return "TCP-MIB" }
 
 // TCPMIB_Tcplistenertable_Tcplistenerentry
 // A conceptual row of the tcpListenerTable containing
 // information about a particular TCP listener.
 type TCPMIB_Tcplistenertable_Tcplistenerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type of tcpListenerLocalAddress.  The
@@ -893,55 +615,22 @@ type TCPMIB_Tcplistenertable_Tcplistenerentry struct {
     Tcplistenerprocess interface{}
 }
 
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetFilter() yfilter.YFilter { return tcplistenerentry.YFilter }
+func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetEntityData() *types.CommonEntityData {
+    tcplistenerentry.EntityData.YFilter = tcplistenerentry.YFilter
+    tcplistenerentry.EntityData.YangName = "tcpListenerEntry"
+    tcplistenerentry.EntityData.BundleName = "cisco_ios_xe"
+    tcplistenerentry.EntityData.ParentYangName = "tcpListenerTable"
+    tcplistenerentry.EntityData.SegmentPath = "tcpListenerEntry" + "[tcpListenerLocalAddressType='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocaladdresstype) + "']" + "[tcpListenerLocalAddress='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocaladdress) + "']" + "[tcpListenerLocalPort='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocalport) + "']"
+    tcplistenerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcplistenerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcplistenerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) SetFilter(yf yfilter.YFilter) { tcplistenerentry.YFilter = yf }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetGoName(yname string) string {
-    if yname == "tcpListenerLocalAddressType" { return "Tcplistenerlocaladdresstype" }
-    if yname == "tcpListenerLocalAddress" { return "Tcplistenerlocaladdress" }
-    if yname == "tcpListenerLocalPort" { return "Tcplistenerlocalport" }
-    if yname == "tcpListenerProcess" { return "Tcplistenerprocess" }
-    return ""
+    tcplistenerentry.EntityData.Children = make(map[string]types.YChild)
+    tcplistenerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcplistenerentry.EntityData.Leafs["tcpListenerLocalAddressType"] = types.YLeaf{"Tcplistenerlocaladdresstype", tcplistenerentry.Tcplistenerlocaladdresstype}
+    tcplistenerentry.EntityData.Leafs["tcpListenerLocalAddress"] = types.YLeaf{"Tcplistenerlocaladdress", tcplistenerentry.Tcplistenerlocaladdress}
+    tcplistenerentry.EntityData.Leafs["tcpListenerLocalPort"] = types.YLeaf{"Tcplistenerlocalport", tcplistenerentry.Tcplistenerlocalport}
+    tcplistenerentry.EntityData.Leafs["tcpListenerProcess"] = types.YLeaf{"Tcplistenerprocess", tcplistenerentry.Tcplistenerprocess}
+    return &(tcplistenerentry.EntityData)
 }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetSegmentPath() string {
-    return "tcpListenerEntry" + "[tcpListenerLocalAddressType='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocaladdresstype) + "']" + "[tcpListenerLocalAddress='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocaladdress) + "']" + "[tcpListenerLocalPort='" + fmt.Sprintf("%v", tcplistenerentry.Tcplistenerlocalport) + "']"
-}
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tcpListenerLocalAddressType"] = tcplistenerentry.Tcplistenerlocaladdresstype
-    leafs["tcpListenerLocalAddress"] = tcplistenerentry.Tcplistenerlocaladdress
-    leafs["tcpListenerLocalPort"] = tcplistenerentry.Tcplistenerlocalport
-    leafs["tcpListenerProcess"] = tcplistenerentry.Tcplistenerprocess
-    return leafs
-}
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetYangName() string { return "tcpListenerEntry" }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) SetParent(parent types.Entity) { tcplistenerentry.parent = parent }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetParent() types.Entity { return tcplistenerentry.parent }
-
-func (tcplistenerentry *TCPMIB_Tcplistenertable_Tcplistenerentry) GetParentYangName() string { return "tcpListenerTable" }
 

@@ -69,7 +69,7 @@ const (
 // Pppoe
 // PPPoE operational data
 type Pppoe struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPPoE access interface statistics information.
@@ -79,64 +79,27 @@ type Pppoe struct {
     Nodes Pppoe_Nodes
 }
 
-func (pppoe *Pppoe) GetFilter() yfilter.YFilter { return pppoe.YFilter }
+func (pppoe *Pppoe) GetEntityData() *types.CommonEntityData {
+    pppoe.EntityData.YFilter = pppoe.YFilter
+    pppoe.EntityData.YangName = "pppoe"
+    pppoe.EntityData.BundleName = "cisco_ios_xr"
+    pppoe.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-pppoe-ma-oper"
+    pppoe.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe"
+    pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pppoe *Pppoe) SetFilter(yf yfilter.YFilter) { pppoe.YFilter = yf }
-
-func (pppoe *Pppoe) GetGoName(yname string) string {
-    if yname == "access-interface-statistics" { return "AccessInterfaceStatistics" }
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    pppoe.EntityData.Children = make(map[string]types.YChild)
+    pppoe.EntityData.Children["access-interface-statistics"] = types.YChild{"AccessInterfaceStatistics", &pppoe.AccessInterfaceStatistics}
+    pppoe.EntityData.Children["nodes"] = types.YChild{"Nodes", &pppoe.Nodes}
+    pppoe.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pppoe.EntityData)
 }
-
-func (pppoe *Pppoe) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe"
-}
-
-func (pppoe *Pppoe) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-interface-statistics" {
-        return &pppoe.AccessInterfaceStatistics
-    }
-    if childYangName == "nodes" {
-        return &pppoe.Nodes
-    }
-    return nil
-}
-
-func (pppoe *Pppoe) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["access-interface-statistics"] = &pppoe.AccessInterfaceStatistics
-    children["nodes"] = &pppoe.Nodes
-    return children
-}
-
-func (pppoe *Pppoe) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pppoe *Pppoe) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pppoe *Pppoe) GetYangName() string { return "pppoe" }
-
-func (pppoe *Pppoe) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pppoe *Pppoe) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pppoe *Pppoe) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pppoe *Pppoe) SetParent(parent types.Entity) { pppoe.parent = parent }
-
-func (pppoe *Pppoe) GetParent() types.Entity { return pppoe.parent }
-
-func (pppoe *Pppoe) GetParentYangName() string { return "Cisco-IOS-XR-subscriber-pppoe-ma-oper" }
 
 // Pppoe_AccessInterfaceStatistics
 // PPPoE access interface statistics information
 type Pppoe_AccessInterfaceStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics information for a PPPoE-enabled access interface. The type is
@@ -144,134 +107,61 @@ type Pppoe_AccessInterfaceStatistics struct {
     AccessInterfaceStatistic []Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic
 }
 
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetFilter() yfilter.YFilter { return accessInterfaceStatistics.YFilter }
+func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetEntityData() *types.CommonEntityData {
+    accessInterfaceStatistics.EntityData.YFilter = accessInterfaceStatistics.YFilter
+    accessInterfaceStatistics.EntityData.YangName = "access-interface-statistics"
+    accessInterfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
+    accessInterfaceStatistics.EntityData.ParentYangName = "pppoe"
+    accessInterfaceStatistics.EntityData.SegmentPath = "access-interface-statistics"
+    accessInterfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) SetFilter(yf yfilter.YFilter) { accessInterfaceStatistics.YFilter = yf }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetGoName(yname string) string {
-    if yname == "access-interface-statistic" { return "AccessInterfaceStatistic" }
-    return ""
-}
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetSegmentPath() string {
-    return "access-interface-statistics"
-}
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-interface-statistic" {
-        for _, c := range accessInterfaceStatistics.AccessInterfaceStatistic {
-            if accessInterfaceStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic{}
-        accessInterfaceStatistics.AccessInterfaceStatistic = append(accessInterfaceStatistics.AccessInterfaceStatistic, child)
-        return &accessInterfaceStatistics.AccessInterfaceStatistic[len(accessInterfaceStatistics.AccessInterfaceStatistic)-1]
-    }
-    return nil
-}
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessInterfaceStatistics.EntityData.Children = make(map[string]types.YChild)
+    accessInterfaceStatistics.EntityData.Children["access-interface-statistic"] = types.YChild{"AccessInterfaceStatistic", nil}
     for i := range accessInterfaceStatistics.AccessInterfaceStatistic {
-        children[accessInterfaceStatistics.AccessInterfaceStatistic[i].GetSegmentPath()] = &accessInterfaceStatistics.AccessInterfaceStatistic[i]
+        accessInterfaceStatistics.EntityData.Children[types.GetSegmentPath(&accessInterfaceStatistics.AccessInterfaceStatistic[i])] = types.YChild{"AccessInterfaceStatistic", &accessInterfaceStatistics.AccessInterfaceStatistic[i]}
     }
-    return children
+    accessInterfaceStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accessInterfaceStatistics.EntityData)
 }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetYangName() string { return "access-interface-statistics" }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) SetParent(parent types.Entity) { accessInterfaceStatistics.parent = parent }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetParent() types.Entity { return accessInterfaceStatistics.parent }
-
-func (accessInterfaceStatistics *Pppoe_AccessInterfaceStatistics) GetParentYangName() string { return "pppoe" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic
 // Statistics information for a PPPoE-enabled
 // access interface
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. PPPoE Access Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Packet Counts.
     PacketCounts Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts
 }
 
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetFilter() yfilter.YFilter { return accessInterfaceStatistic.YFilter }
+func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetEntityData() *types.CommonEntityData {
+    accessInterfaceStatistic.EntityData.YFilter = accessInterfaceStatistic.YFilter
+    accessInterfaceStatistic.EntityData.YangName = "access-interface-statistic"
+    accessInterfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
+    accessInterfaceStatistic.EntityData.ParentYangName = "access-interface-statistics"
+    accessInterfaceStatistic.EntityData.SegmentPath = "access-interface-statistic" + "[interface-name='" + fmt.Sprintf("%v", accessInterfaceStatistic.InterfaceName) + "']"
+    accessInterfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) SetFilter(yf yfilter.YFilter) { accessInterfaceStatistic.YFilter = yf }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "packet-counts" { return "PacketCounts" }
-    return ""
+    accessInterfaceStatistic.EntityData.Children = make(map[string]types.YChild)
+    accessInterfaceStatistic.EntityData.Children["packet-counts"] = types.YChild{"PacketCounts", &accessInterfaceStatistic.PacketCounts}
+    accessInterfaceStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessInterfaceStatistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", accessInterfaceStatistic.InterfaceName}
+    return &(accessInterfaceStatistic.EntityData)
 }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetSegmentPath() string {
-    return "access-interface-statistic" + "[interface-name='" + fmt.Sprintf("%v", accessInterfaceStatistic.InterfaceName) + "']"
-}
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "packet-counts" {
-        return &accessInterfaceStatistic.PacketCounts
-    }
-    return nil
-}
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["packet-counts"] = &accessInterfaceStatistic.PacketCounts
-    return children
-}
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = accessInterfaceStatistic.InterfaceName
-    return leafs
-}
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetYangName() string { return "access-interface-statistic" }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) SetParent(parent types.Entity) { accessInterfaceStatistic.parent = parent }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetParent() types.Entity { return accessInterfaceStatistic.parent }
-
-func (accessInterfaceStatistic *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic) GetParentYangName() string { return "access-interface-statistics" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts
 // Packet Counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PADI counts.
@@ -299,94 +189,33 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts struc
     Other Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other
 }
 
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetFilter() yfilter.YFilter { return packetCounts.YFilter }
+func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetEntityData() *types.CommonEntityData {
+    packetCounts.EntityData.YFilter = packetCounts.YFilter
+    packetCounts.EntityData.YangName = "packet-counts"
+    packetCounts.EntityData.BundleName = "cisco_ios_xr"
+    packetCounts.EntityData.ParentYangName = "access-interface-statistic"
+    packetCounts.EntityData.SegmentPath = "packet-counts"
+    packetCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) SetFilter(yf yfilter.YFilter) { packetCounts.YFilter = yf }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetGoName(yname string) string {
-    if yname == "padi" { return "Padi" }
-    if yname == "pado" { return "Pado" }
-    if yname == "padr" { return "Padr" }
-    if yname == "pads-success" { return "PadsSuccess" }
-    if yname == "pads-error" { return "PadsError" }
-    if yname == "padt" { return "Padt" }
-    if yname == "session-state" { return "SessionState" }
-    if yname == "other" { return "Other" }
-    return ""
+    packetCounts.EntityData.Children = make(map[string]types.YChild)
+    packetCounts.EntityData.Children["padi"] = types.YChild{"Padi", &packetCounts.Padi}
+    packetCounts.EntityData.Children["pado"] = types.YChild{"Pado", &packetCounts.Pado}
+    packetCounts.EntityData.Children["padr"] = types.YChild{"Padr", &packetCounts.Padr}
+    packetCounts.EntityData.Children["pads-success"] = types.YChild{"PadsSuccess", &packetCounts.PadsSuccess}
+    packetCounts.EntityData.Children["pads-error"] = types.YChild{"PadsError", &packetCounts.PadsError}
+    packetCounts.EntityData.Children["padt"] = types.YChild{"Padt", &packetCounts.Padt}
+    packetCounts.EntityData.Children["session-state"] = types.YChild{"SessionState", &packetCounts.SessionState}
+    packetCounts.EntityData.Children["other"] = types.YChild{"Other", &packetCounts.Other}
+    packetCounts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(packetCounts.EntityData)
 }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetSegmentPath() string {
-    return "packet-counts"
-}
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "padi" {
-        return &packetCounts.Padi
-    }
-    if childYangName == "pado" {
-        return &packetCounts.Pado
-    }
-    if childYangName == "padr" {
-        return &packetCounts.Padr
-    }
-    if childYangName == "pads-success" {
-        return &packetCounts.PadsSuccess
-    }
-    if childYangName == "pads-error" {
-        return &packetCounts.PadsError
-    }
-    if childYangName == "padt" {
-        return &packetCounts.Padt
-    }
-    if childYangName == "session-state" {
-        return &packetCounts.SessionState
-    }
-    if childYangName == "other" {
-        return &packetCounts.Other
-    }
-    return nil
-}
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["padi"] = &packetCounts.Padi
-    children["pado"] = &packetCounts.Pado
-    children["padr"] = &packetCounts.Padr
-    children["pads-success"] = &packetCounts.PadsSuccess
-    children["pads-error"] = &packetCounts.PadsError
-    children["padt"] = &packetCounts.Padt
-    children["session-state"] = &packetCounts.SessionState
-    children["other"] = &packetCounts.Other
-    return children
-}
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetYangName() string { return "packet-counts" }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) SetParent(parent types.Entity) { packetCounts.parent = parent }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetParent() types.Entity { return packetCounts.parent }
-
-func (packetCounts *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts) GetParentYangName() string { return "access-interface-statistic" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi
 // PADI counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -399,60 +228,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi 
     Dropped interface{}
 }
 
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetFilter() yfilter.YFilter { return padi.YFilter }
+func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetEntityData() *types.CommonEntityData {
+    padi.EntityData.YFilter = padi.YFilter
+    padi.EntityData.YangName = "padi"
+    padi.EntityData.BundleName = "cisco_ios_xr"
+    padi.EntityData.ParentYangName = "packet-counts"
+    padi.EntityData.SegmentPath = "padi"
+    padi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) SetFilter(yf yfilter.YFilter) { padi.YFilter = yf }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padi.EntityData.Children = make(map[string]types.YChild)
+    padi.EntityData.Leafs = make(map[string]types.YLeaf)
+    padi.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padi.Sent}
+    padi.EntityData.Leafs["received"] = types.YLeaf{"Received", padi.Received}
+    padi.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padi.Dropped}
+    return &(padi.EntityData)
 }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetSegmentPath() string {
-    return "padi"
-}
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padi.Sent
-    leafs["received"] = padi.Received
-    leafs["dropped"] = padi.Dropped
-    return leafs
-}
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetYangName() string { return "padi" }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) SetParent(parent types.Entity) { padi.parent = parent }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetParent() types.Entity { return padi.parent }
-
-func (padi *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padi) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado
 // PADO counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -465,60 +262,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado 
     Dropped interface{}
 }
 
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetFilter() yfilter.YFilter { return pado.YFilter }
+func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetEntityData() *types.CommonEntityData {
+    pado.EntityData.YFilter = pado.YFilter
+    pado.EntityData.YangName = "pado"
+    pado.EntityData.BundleName = "cisco_ios_xr"
+    pado.EntityData.ParentYangName = "packet-counts"
+    pado.EntityData.SegmentPath = "pado"
+    pado.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pado.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pado.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) SetFilter(yf yfilter.YFilter) { pado.YFilter = yf }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    pado.EntityData.Children = make(map[string]types.YChild)
+    pado.EntityData.Leafs = make(map[string]types.YLeaf)
+    pado.EntityData.Leafs["sent"] = types.YLeaf{"Sent", pado.Sent}
+    pado.EntityData.Leafs["received"] = types.YLeaf{"Received", pado.Received}
+    pado.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", pado.Dropped}
+    return &(pado.EntityData)
 }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetSegmentPath() string {
-    return "pado"
-}
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = pado.Sent
-    leafs["received"] = pado.Received
-    leafs["dropped"] = pado.Dropped
-    return leafs
-}
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetYangName() string { return "pado" }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) SetParent(parent types.Entity) { pado.parent = parent }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetParent() types.Entity { return pado.parent }
-
-func (pado *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Pado) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr
 // PADR counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -531,60 +296,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr 
     Dropped interface{}
 }
 
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetFilter() yfilter.YFilter { return padr.YFilter }
+func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetEntityData() *types.CommonEntityData {
+    padr.EntityData.YFilter = padr.YFilter
+    padr.EntityData.YangName = "padr"
+    padr.EntityData.BundleName = "cisco_ios_xr"
+    padr.EntityData.ParentYangName = "packet-counts"
+    padr.EntityData.SegmentPath = "padr"
+    padr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) SetFilter(yf yfilter.YFilter) { padr.YFilter = yf }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padr.EntityData.Children = make(map[string]types.YChild)
+    padr.EntityData.Leafs = make(map[string]types.YLeaf)
+    padr.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padr.Sent}
+    padr.EntityData.Leafs["received"] = types.YLeaf{"Received", padr.Received}
+    padr.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padr.Dropped}
+    return &(padr.EntityData)
 }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetSegmentPath() string {
-    return "padr"
-}
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padr.Sent
-    leafs["received"] = padr.Received
-    leafs["dropped"] = padr.Dropped
-    return leafs
-}
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetYangName() string { return "padr" }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) SetParent(parent types.Entity) { padr.parent = parent }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetParent() types.Entity { return padr.parent }
-
-func (padr *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padr) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess
 // PADS Success counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -597,60 +330,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsS
     Dropped interface{}
 }
 
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetFilter() yfilter.YFilter { return padsSuccess.YFilter }
+func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetEntityData() *types.CommonEntityData {
+    padsSuccess.EntityData.YFilter = padsSuccess.YFilter
+    padsSuccess.EntityData.YangName = "pads-success"
+    padsSuccess.EntityData.BundleName = "cisco_ios_xr"
+    padsSuccess.EntityData.ParentYangName = "packet-counts"
+    padsSuccess.EntityData.SegmentPath = "pads-success"
+    padsSuccess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padsSuccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padsSuccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) SetFilter(yf yfilter.YFilter) { padsSuccess.YFilter = yf }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padsSuccess.EntityData.Children = make(map[string]types.YChild)
+    padsSuccess.EntityData.Leafs = make(map[string]types.YLeaf)
+    padsSuccess.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padsSuccess.Sent}
+    padsSuccess.EntityData.Leafs["received"] = types.YLeaf{"Received", padsSuccess.Received}
+    padsSuccess.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padsSuccess.Dropped}
+    return &(padsSuccess.EntityData)
 }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetSegmentPath() string {
-    return "pads-success"
-}
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padsSuccess.Sent
-    leafs["received"] = padsSuccess.Received
-    leafs["dropped"] = padsSuccess.Dropped
-    return leafs
-}
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetYangName() string { return "pads-success" }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) SetParent(parent types.Entity) { padsSuccess.parent = parent }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetParent() types.Entity { return padsSuccess.parent }
-
-func (padsSuccess *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsSuccess) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError
 // PADS Error counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -663,60 +364,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsE
     Dropped interface{}
 }
 
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetFilter() yfilter.YFilter { return padsError.YFilter }
+func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetEntityData() *types.CommonEntityData {
+    padsError.EntityData.YFilter = padsError.YFilter
+    padsError.EntityData.YangName = "pads-error"
+    padsError.EntityData.BundleName = "cisco_ios_xr"
+    padsError.EntityData.ParentYangName = "packet-counts"
+    padsError.EntityData.SegmentPath = "pads-error"
+    padsError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padsError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padsError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) SetFilter(yf yfilter.YFilter) { padsError.YFilter = yf }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padsError.EntityData.Children = make(map[string]types.YChild)
+    padsError.EntityData.Leafs = make(map[string]types.YLeaf)
+    padsError.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padsError.Sent}
+    padsError.EntityData.Leafs["received"] = types.YLeaf{"Received", padsError.Received}
+    padsError.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padsError.Dropped}
+    return &(padsError.EntityData)
 }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetSegmentPath() string {
-    return "pads-error"
-}
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padsError.Sent
-    leafs["received"] = padsError.Received
-    leafs["dropped"] = padsError.Dropped
-    return leafs
-}
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetYangName() string { return "pads-error" }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) SetParent(parent types.Entity) { padsError.parent = parent }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetParent() types.Entity { return padsError.parent }
-
-func (padsError *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_PadsError) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt
 // PADT counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -729,60 +398,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt 
     Dropped interface{}
 }
 
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetFilter() yfilter.YFilter { return padt.YFilter }
+func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetEntityData() *types.CommonEntityData {
+    padt.EntityData.YFilter = padt.YFilter
+    padt.EntityData.YangName = "padt"
+    padt.EntityData.BundleName = "cisco_ios_xr"
+    padt.EntityData.ParentYangName = "packet-counts"
+    padt.EntityData.SegmentPath = "padt"
+    padt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) SetFilter(yf yfilter.YFilter) { padt.YFilter = yf }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padt.EntityData.Children = make(map[string]types.YChild)
+    padt.EntityData.Leafs = make(map[string]types.YLeaf)
+    padt.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padt.Sent}
+    padt.EntityData.Leafs["received"] = types.YLeaf{"Received", padt.Received}
+    padt.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padt.Dropped}
+    return &(padt.EntityData)
 }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetSegmentPath() string {
-    return "padt"
-}
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padt.Sent
-    leafs["received"] = padt.Received
-    leafs["dropped"] = padt.Dropped
-    return leafs
-}
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetYangName() string { return "padt" }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) SetParent(parent types.Entity) { padt.parent = parent }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetParent() types.Entity { return padt.parent }
-
-func (padt *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Padt) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState
 // Session Stage counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -795,60 +432,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Sessi
     Dropped interface{}
 }
 
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetFilter() yfilter.YFilter { return sessionState.YFilter }
+func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetEntityData() *types.CommonEntityData {
+    sessionState.EntityData.YFilter = sessionState.YFilter
+    sessionState.EntityData.YangName = "session-state"
+    sessionState.EntityData.BundleName = "cisco_ios_xr"
+    sessionState.EntityData.ParentYangName = "packet-counts"
+    sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) SetFilter(yf yfilter.YFilter) { sessionState.YFilter = yf }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    sessionState.EntityData.Children = make(map[string]types.YChild)
+    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionState.EntityData.Leafs["sent"] = types.YLeaf{"Sent", sessionState.Sent}
+    sessionState.EntityData.Leafs["received"] = types.YLeaf{"Received", sessionState.Received}
+    sessionState.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", sessionState.Dropped}
+    return &(sessionState.EntityData)
 }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetSegmentPath() string {
-    return "session-state"
-}
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = sessionState.Sent
-    leafs["received"] = sessionState.Received
-    leafs["dropped"] = sessionState.Dropped
-    return leafs
-}
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetYangName() string { return "session-state" }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) SetParent(parent types.Entity) { sessionState.parent = parent }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetParent() types.Entity { return sessionState.parent }
-
-func (sessionState *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_SessionState) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other
 // Other counts
 type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -861,60 +466,28 @@ type Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other
     Dropped interface{}
 }
 
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetFilter() yfilter.YFilter { return other.YFilter }
+func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetEntityData() *types.CommonEntityData {
+    other.EntityData.YFilter = other.YFilter
+    other.EntityData.YangName = "other"
+    other.EntityData.BundleName = "cisco_ios_xr"
+    other.EntityData.ParentYangName = "packet-counts"
+    other.EntityData.SegmentPath = "other"
+    other.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    other.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    other.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) SetFilter(yf yfilter.YFilter) { other.YFilter = yf }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    other.EntityData.Children = make(map[string]types.YChild)
+    other.EntityData.Leafs = make(map[string]types.YLeaf)
+    other.EntityData.Leafs["sent"] = types.YLeaf{"Sent", other.Sent}
+    other.EntityData.Leafs["received"] = types.YLeaf{"Received", other.Received}
+    other.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", other.Dropped}
+    return &(other.EntityData)
 }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetSegmentPath() string {
-    return "other"
-}
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = other.Sent
-    leafs["received"] = other.Received
-    leafs["dropped"] = other.Dropped
-    return leafs
-}
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetBundleName() string { return "cisco_ios_xr" }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetYangName() string { return "other" }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) SetParent(parent types.Entity) { other.parent = parent }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetParent() types.Entity { return other.parent }
-
-func (other *Pppoe_AccessInterfaceStatistics_AccessInterfaceStatistic_PacketCounts_Other) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes
 // Per-node PPPoE operational data
 type Pppoe_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPPoE operational data for a particular node. The type is slice of
@@ -922,72 +495,33 @@ type Pppoe_Nodes struct {
     Node []Pppoe_Nodes_Node
 }
 
-func (nodes *Pppoe_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Pppoe_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "pppoe"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Pppoe_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Pppoe_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Pppoe_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Pppoe_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Pppoe_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Pppoe_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Pppoe_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Pppoe_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Pppoe_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Pppoe_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Pppoe_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Pppoe_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Pppoe_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Pppoe_Nodes) GetParentYangName() string { return "pppoe" }
 
 // Pppoe_Nodes_Node
 // PPPoE operational data for a particular node
 type Pppoe_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // PPPoE statistics for a given node.
@@ -1006,81 +540,31 @@ type Pppoe_Nodes_Node struct {
     SummaryTotal Pppoe_Nodes_Node_SummaryTotal
 }
 
-func (node *Pppoe_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Pppoe_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Pppoe_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Pppoe_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "access-interface" { return "AccessInterface" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "bba-groups" { return "BbaGroups" }
-    if yname == "summary-total" { return "SummaryTotal" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
+    node.EntityData.Children["access-interface"] = types.YChild{"AccessInterface", &node.AccessInterface}
+    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
+    node.EntityData.Children["bba-groups"] = types.YChild{"BbaGroups", &node.BbaGroups}
+    node.EntityData.Children["summary-total"] = types.YChild{"SummaryTotal", &node.SummaryTotal}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Pppoe_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Pppoe_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &node.Statistics
-    }
-    if childYangName == "access-interface" {
-        return &node.AccessInterface
-    }
-    if childYangName == "interfaces" {
-        return &node.Interfaces
-    }
-    if childYangName == "bba-groups" {
-        return &node.BbaGroups
-    }
-    if childYangName == "summary-total" {
-        return &node.SummaryTotal
-    }
-    return nil
-}
-
-func (node *Pppoe_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &node.Statistics
-    children["access-interface"] = &node.AccessInterface
-    children["interfaces"] = &node.Interfaces
-    children["bba-groups"] = &node.BbaGroups
-    children["summary-total"] = &node.SummaryTotal
-    return children
-}
-
-func (node *Pppoe_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Pppoe_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Pppoe_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Pppoe_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Pppoe_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Pppoe_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Pppoe_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Pppoe_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Pppoe_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Pppoe_Nodes_Node_Statistics
 // PPPoE statistics for a given node
 type Pppoe_Nodes_Node_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Packet Counts.
@@ -1090,64 +574,27 @@ type Pppoe_Nodes_Node_Statistics struct {
     PacketErrorCounts Pppoe_Nodes_Node_Statistics_PacketErrorCounts
 }
 
-func (statistics *Pppoe_Nodes_Node_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Pppoe_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "node"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Pppoe_Nodes_Node_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetGoName(yname string) string {
-    if yname == "packet-counts" { return "PacketCounts" }
-    if yname == "packet-error-counts" { return "PacketErrorCounts" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["packet-counts"] = types.YChild{"PacketCounts", &statistics.PacketCounts}
+    statistics.EntityData.Children["packet-error-counts"] = types.YChild{"PacketErrorCounts", &statistics.PacketErrorCounts}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "packet-counts" {
-        return &statistics.PacketCounts
-    }
-    if childYangName == "packet-error-counts" {
-        return &statistics.PacketErrorCounts
-    }
-    return nil
-}
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["packet-counts"] = &statistics.PacketCounts
-    children["packet-error-counts"] = &statistics.PacketErrorCounts
-    return children
-}
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Pppoe_Nodes_Node_Statistics) GetParentYangName() string { return "node" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts
 // Packet Counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PADI counts.
@@ -1175,94 +622,33 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts struct {
     Other Pppoe_Nodes_Node_Statistics_PacketCounts_Other
 }
 
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetFilter() yfilter.YFilter { return packetCounts.YFilter }
+func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetEntityData() *types.CommonEntityData {
+    packetCounts.EntityData.YFilter = packetCounts.YFilter
+    packetCounts.EntityData.YangName = "packet-counts"
+    packetCounts.EntityData.BundleName = "cisco_ios_xr"
+    packetCounts.EntityData.ParentYangName = "statistics"
+    packetCounts.EntityData.SegmentPath = "packet-counts"
+    packetCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) SetFilter(yf yfilter.YFilter) { packetCounts.YFilter = yf }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetGoName(yname string) string {
-    if yname == "padi" { return "Padi" }
-    if yname == "pado" { return "Pado" }
-    if yname == "padr" { return "Padr" }
-    if yname == "pads-success" { return "PadsSuccess" }
-    if yname == "pads-error" { return "PadsError" }
-    if yname == "padt" { return "Padt" }
-    if yname == "session-state" { return "SessionState" }
-    if yname == "other" { return "Other" }
-    return ""
+    packetCounts.EntityData.Children = make(map[string]types.YChild)
+    packetCounts.EntityData.Children["padi"] = types.YChild{"Padi", &packetCounts.Padi}
+    packetCounts.EntityData.Children["pado"] = types.YChild{"Pado", &packetCounts.Pado}
+    packetCounts.EntityData.Children["padr"] = types.YChild{"Padr", &packetCounts.Padr}
+    packetCounts.EntityData.Children["pads-success"] = types.YChild{"PadsSuccess", &packetCounts.PadsSuccess}
+    packetCounts.EntityData.Children["pads-error"] = types.YChild{"PadsError", &packetCounts.PadsError}
+    packetCounts.EntityData.Children["padt"] = types.YChild{"Padt", &packetCounts.Padt}
+    packetCounts.EntityData.Children["session-state"] = types.YChild{"SessionState", &packetCounts.SessionState}
+    packetCounts.EntityData.Children["other"] = types.YChild{"Other", &packetCounts.Other}
+    packetCounts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(packetCounts.EntityData)
 }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetSegmentPath() string {
-    return "packet-counts"
-}
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "padi" {
-        return &packetCounts.Padi
-    }
-    if childYangName == "pado" {
-        return &packetCounts.Pado
-    }
-    if childYangName == "padr" {
-        return &packetCounts.Padr
-    }
-    if childYangName == "pads-success" {
-        return &packetCounts.PadsSuccess
-    }
-    if childYangName == "pads-error" {
-        return &packetCounts.PadsError
-    }
-    if childYangName == "padt" {
-        return &packetCounts.Padt
-    }
-    if childYangName == "session-state" {
-        return &packetCounts.SessionState
-    }
-    if childYangName == "other" {
-        return &packetCounts.Other
-    }
-    return nil
-}
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["padi"] = &packetCounts.Padi
-    children["pado"] = &packetCounts.Pado
-    children["padr"] = &packetCounts.Padr
-    children["pads-success"] = &packetCounts.PadsSuccess
-    children["pads-error"] = &packetCounts.PadsError
-    children["padt"] = &packetCounts.Padt
-    children["session-state"] = &packetCounts.SessionState
-    children["other"] = &packetCounts.Other
-    return children
-}
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetYangName() string { return "packet-counts" }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) SetParent(parent types.Entity) { packetCounts.parent = parent }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetParent() types.Entity { return packetCounts.parent }
-
-func (packetCounts *Pppoe_Nodes_Node_Statistics_PacketCounts) GetParentYangName() string { return "statistics" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_Padi
 // PADI counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_Padi struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1275,60 +661,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_Padi struct {
     Dropped interface{}
 }
 
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetFilter() yfilter.YFilter { return padi.YFilter }
+func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetEntityData() *types.CommonEntityData {
+    padi.EntityData.YFilter = padi.YFilter
+    padi.EntityData.YangName = "padi"
+    padi.EntityData.BundleName = "cisco_ios_xr"
+    padi.EntityData.ParentYangName = "packet-counts"
+    padi.EntityData.SegmentPath = "padi"
+    padi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) SetFilter(yf yfilter.YFilter) { padi.YFilter = yf }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padi.EntityData.Children = make(map[string]types.YChild)
+    padi.EntityData.Leafs = make(map[string]types.YLeaf)
+    padi.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padi.Sent}
+    padi.EntityData.Leafs["received"] = types.YLeaf{"Received", padi.Received}
+    padi.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padi.Dropped}
+    return &(padi.EntityData)
 }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetSegmentPath() string {
-    return "padi"
-}
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padi.Sent
-    leafs["received"] = padi.Received
-    leafs["dropped"] = padi.Dropped
-    return leafs
-}
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetYangName() string { return "padi" }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) SetParent(parent types.Entity) { padi.parent = parent }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetParent() types.Entity { return padi.parent }
-
-func (padi *Pppoe_Nodes_Node_Statistics_PacketCounts_Padi) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_Pado
 // PADO counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_Pado struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1341,60 +695,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_Pado struct {
     Dropped interface{}
 }
 
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetFilter() yfilter.YFilter { return pado.YFilter }
+func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetEntityData() *types.CommonEntityData {
+    pado.EntityData.YFilter = pado.YFilter
+    pado.EntityData.YangName = "pado"
+    pado.EntityData.BundleName = "cisco_ios_xr"
+    pado.EntityData.ParentYangName = "packet-counts"
+    pado.EntityData.SegmentPath = "pado"
+    pado.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pado.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pado.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) SetFilter(yf yfilter.YFilter) { pado.YFilter = yf }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    pado.EntityData.Children = make(map[string]types.YChild)
+    pado.EntityData.Leafs = make(map[string]types.YLeaf)
+    pado.EntityData.Leafs["sent"] = types.YLeaf{"Sent", pado.Sent}
+    pado.EntityData.Leafs["received"] = types.YLeaf{"Received", pado.Received}
+    pado.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", pado.Dropped}
+    return &(pado.EntityData)
 }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetSegmentPath() string {
-    return "pado"
-}
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = pado.Sent
-    leafs["received"] = pado.Received
-    leafs["dropped"] = pado.Dropped
-    return leafs
-}
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetYangName() string { return "pado" }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) SetParent(parent types.Entity) { pado.parent = parent }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetParent() types.Entity { return pado.parent }
-
-func (pado *Pppoe_Nodes_Node_Statistics_PacketCounts_Pado) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_Padr
 // PADR counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_Padr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1407,60 +729,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_Padr struct {
     Dropped interface{}
 }
 
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetFilter() yfilter.YFilter { return padr.YFilter }
+func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetEntityData() *types.CommonEntityData {
+    padr.EntityData.YFilter = padr.YFilter
+    padr.EntityData.YangName = "padr"
+    padr.EntityData.BundleName = "cisco_ios_xr"
+    padr.EntityData.ParentYangName = "packet-counts"
+    padr.EntityData.SegmentPath = "padr"
+    padr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) SetFilter(yf yfilter.YFilter) { padr.YFilter = yf }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padr.EntityData.Children = make(map[string]types.YChild)
+    padr.EntityData.Leafs = make(map[string]types.YLeaf)
+    padr.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padr.Sent}
+    padr.EntityData.Leafs["received"] = types.YLeaf{"Received", padr.Received}
+    padr.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padr.Dropped}
+    return &(padr.EntityData)
 }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetSegmentPath() string {
-    return "padr"
-}
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padr.Sent
-    leafs["received"] = padr.Received
-    leafs["dropped"] = padr.Dropped
-    return leafs
-}
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetYangName() string { return "padr" }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) SetParent(parent types.Entity) { padr.parent = parent }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetParent() types.Entity { return padr.parent }
-
-func (padr *Pppoe_Nodes_Node_Statistics_PacketCounts_Padr) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess
 // PADS Success counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1473,60 +763,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess struct {
     Dropped interface{}
 }
 
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetFilter() yfilter.YFilter { return padsSuccess.YFilter }
+func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetEntityData() *types.CommonEntityData {
+    padsSuccess.EntityData.YFilter = padsSuccess.YFilter
+    padsSuccess.EntityData.YangName = "pads-success"
+    padsSuccess.EntityData.BundleName = "cisco_ios_xr"
+    padsSuccess.EntityData.ParentYangName = "packet-counts"
+    padsSuccess.EntityData.SegmentPath = "pads-success"
+    padsSuccess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padsSuccess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padsSuccess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) SetFilter(yf yfilter.YFilter) { padsSuccess.YFilter = yf }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padsSuccess.EntityData.Children = make(map[string]types.YChild)
+    padsSuccess.EntityData.Leafs = make(map[string]types.YLeaf)
+    padsSuccess.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padsSuccess.Sent}
+    padsSuccess.EntityData.Leafs["received"] = types.YLeaf{"Received", padsSuccess.Received}
+    padsSuccess.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padsSuccess.Dropped}
+    return &(padsSuccess.EntityData)
 }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetSegmentPath() string {
-    return "pads-success"
-}
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padsSuccess.Sent
-    leafs["received"] = padsSuccess.Received
-    leafs["dropped"] = padsSuccess.Dropped
-    return leafs
-}
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetYangName() string { return "pads-success" }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) SetParent(parent types.Entity) { padsSuccess.parent = parent }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetParent() types.Entity { return padsSuccess.parent }
-
-func (padsSuccess *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsSuccess) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError
 // PADS Error counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1539,60 +797,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError struct {
     Dropped interface{}
 }
 
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetFilter() yfilter.YFilter { return padsError.YFilter }
+func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetEntityData() *types.CommonEntityData {
+    padsError.EntityData.YFilter = padsError.YFilter
+    padsError.EntityData.YangName = "pads-error"
+    padsError.EntityData.BundleName = "cisco_ios_xr"
+    padsError.EntityData.ParentYangName = "packet-counts"
+    padsError.EntityData.SegmentPath = "pads-error"
+    padsError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padsError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padsError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) SetFilter(yf yfilter.YFilter) { padsError.YFilter = yf }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padsError.EntityData.Children = make(map[string]types.YChild)
+    padsError.EntityData.Leafs = make(map[string]types.YLeaf)
+    padsError.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padsError.Sent}
+    padsError.EntityData.Leafs["received"] = types.YLeaf{"Received", padsError.Received}
+    padsError.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padsError.Dropped}
+    return &(padsError.EntityData)
 }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetSegmentPath() string {
-    return "pads-error"
-}
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padsError.Sent
-    leafs["received"] = padsError.Received
-    leafs["dropped"] = padsError.Dropped
-    return leafs
-}
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetYangName() string { return "pads-error" }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) SetParent(parent types.Entity) { padsError.parent = parent }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetParent() types.Entity { return padsError.parent }
-
-func (padsError *Pppoe_Nodes_Node_Statistics_PacketCounts_PadsError) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_Padt
 // PADT counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_Padt struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1605,60 +831,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_Padt struct {
     Dropped interface{}
 }
 
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetFilter() yfilter.YFilter { return padt.YFilter }
+func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetEntityData() *types.CommonEntityData {
+    padt.EntityData.YFilter = padt.YFilter
+    padt.EntityData.YangName = "padt"
+    padt.EntityData.BundleName = "cisco_ios_xr"
+    padt.EntityData.ParentYangName = "packet-counts"
+    padt.EntityData.SegmentPath = "padt"
+    padt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    padt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    padt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) SetFilter(yf yfilter.YFilter) { padt.YFilter = yf }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    padt.EntityData.Children = make(map[string]types.YChild)
+    padt.EntityData.Leafs = make(map[string]types.YLeaf)
+    padt.EntityData.Leafs["sent"] = types.YLeaf{"Sent", padt.Sent}
+    padt.EntityData.Leafs["received"] = types.YLeaf{"Received", padt.Received}
+    padt.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", padt.Dropped}
+    return &(padt.EntityData)
 }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetSegmentPath() string {
-    return "padt"
-}
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = padt.Sent
-    leafs["received"] = padt.Received
-    leafs["dropped"] = padt.Dropped
-    return leafs
-}
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetBundleName() string { return "cisco_ios_xr" }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetYangName() string { return "padt" }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) SetParent(parent types.Entity) { padt.parent = parent }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetParent() types.Entity { return padt.parent }
-
-func (padt *Pppoe_Nodes_Node_Statistics_PacketCounts_Padt) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState
 // Session Stage counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1671,60 +865,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState struct {
     Dropped interface{}
 }
 
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetFilter() yfilter.YFilter { return sessionState.YFilter }
+func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetEntityData() *types.CommonEntityData {
+    sessionState.EntityData.YFilter = sessionState.YFilter
+    sessionState.EntityData.YangName = "session-state"
+    sessionState.EntityData.BundleName = "cisco_ios_xr"
+    sessionState.EntityData.ParentYangName = "packet-counts"
+    sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) SetFilter(yf yfilter.YFilter) { sessionState.YFilter = yf }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    sessionState.EntityData.Children = make(map[string]types.YChild)
+    sessionState.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionState.EntityData.Leafs["sent"] = types.YLeaf{"Sent", sessionState.Sent}
+    sessionState.EntityData.Leafs["received"] = types.YLeaf{"Received", sessionState.Received}
+    sessionState.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", sessionState.Dropped}
+    return &(sessionState.EntityData)
 }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetSegmentPath() string {
-    return "session-state"
-}
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = sessionState.Sent
-    leafs["received"] = sessionState.Received
-    leafs["dropped"] = sessionState.Dropped
-    return leafs
-}
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetYangName() string { return "session-state" }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) SetParent(parent types.Entity) { sessionState.parent = parent }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetParent() types.Entity { return sessionState.parent }
-
-func (sessionState *Pppoe_Nodes_Node_Statistics_PacketCounts_SessionState) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketCounts_Other
 // Other counts
 type Pppoe_Nodes_Node_Statistics_PacketCounts_Other struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sent. The type is interface{} with range: 0..4294967295.
@@ -1737,60 +899,28 @@ type Pppoe_Nodes_Node_Statistics_PacketCounts_Other struct {
     Dropped interface{}
 }
 
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetFilter() yfilter.YFilter { return other.YFilter }
+func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetEntityData() *types.CommonEntityData {
+    other.EntityData.YFilter = other.YFilter
+    other.EntityData.YangName = "other"
+    other.EntityData.BundleName = "cisco_ios_xr"
+    other.EntityData.ParentYangName = "packet-counts"
+    other.EntityData.SegmentPath = "other"
+    other.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    other.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    other.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) SetFilter(yf yfilter.YFilter) { other.YFilter = yf }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetGoName(yname string) string {
-    if yname == "sent" { return "Sent" }
-    if yname == "received" { return "Received" }
-    if yname == "dropped" { return "Dropped" }
-    return ""
+    other.EntityData.Children = make(map[string]types.YChild)
+    other.EntityData.Leafs = make(map[string]types.YLeaf)
+    other.EntityData.Leafs["sent"] = types.YLeaf{"Sent", other.Sent}
+    other.EntityData.Leafs["received"] = types.YLeaf{"Received", other.Received}
+    other.EntityData.Leafs["dropped"] = types.YLeaf{"Dropped", other.Dropped}
+    return &(other.EntityData)
 }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetSegmentPath() string {
-    return "other"
-}
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sent"] = other.Sent
-    leafs["received"] = other.Received
-    leafs["dropped"] = other.Dropped
-    return leafs
-}
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetBundleName() string { return "cisco_ios_xr" }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetYangName() string { return "other" }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) SetParent(parent types.Entity) { other.parent = parent }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetParent() types.Entity { return other.parent }
-
-func (other *Pppoe_Nodes_Node_Statistics_PacketCounts_Other) GetParentYangName() string { return "packet-counts" }
 
 // Pppoe_Nodes_Node_Statistics_PacketErrorCounts
 // Packet Error Counts
 type Pppoe_Nodes_Node_Statistics_PacketErrorCounts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // No interface handle. The type is interface{} with range: 0..4294967295.
@@ -1973,217 +1103,103 @@ type Pppoe_Nodes_Node_Statistics_PacketErrorCounts struct {
     PacketOnSrgSlave interface{}
 }
 
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetFilter() yfilter.YFilter { return packetErrorCounts.YFilter }
+func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetEntityData() *types.CommonEntityData {
+    packetErrorCounts.EntityData.YFilter = packetErrorCounts.YFilter
+    packetErrorCounts.EntityData.YangName = "packet-error-counts"
+    packetErrorCounts.EntityData.BundleName = "cisco_ios_xr"
+    packetErrorCounts.EntityData.ParentYangName = "statistics"
+    packetErrorCounts.EntityData.SegmentPath = "packet-error-counts"
+    packetErrorCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetErrorCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetErrorCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) SetFilter(yf yfilter.YFilter) { packetErrorCounts.YFilter = yf }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetGoName(yname string) string {
-    if yname == "no-interface-handle" { return "NoInterfaceHandle" }
-    if yname == "no-packet-payload" { return "NoPacketPayload" }
-    if yname == "no-packet-mac-address" { return "NoPacketMacAddress" }
-    if yname == "invalid-version-type-value" { return "InvalidVersionTypeValue" }
-    if yname == "bad-packet-length" { return "BadPacketLength" }
-    if yname == "unknown-interface" { return "UnknownInterface" }
-    if yname == "pado-received" { return "PadoReceived" }
-    if yname == "pads-received" { return "PadsReceived" }
-    if yname == "unknown-packet-type-received" { return "UnknownPacketTypeReceived" }
-    if yname == "unexpected-session-id-in-packet" { return "UnexpectedSessionIdInPacket" }
-    if yname == "no-service-name-tag" { return "NoServiceNameTag" }
-    if yname == "padt-for-unknown-session" { return "PadtForUnknownSession" }
-    if yname == "padt-with-wrong-peer-mac" { return "PadtWithWrongPeerMac" }
-    if yname == "padt-with-wrong-vlan-tags" { return "PadtWithWrongVlanTags" }
-    if yname == "zero-length-host-uniq" { return "ZeroLengthHostUniq" }
-    if yname == "padt-before-pads-sent" { return "PadtBeforePadsSent" }
-    if yname == "session-stage-packet-for-unknown-session" { return "SessionStagePacketForUnknownSession" }
-    if yname == "session-stage-packet-with-wrong-mac" { return "SessionStagePacketWithWrongMac" }
-    if yname == "session-stage-packet-with-wrong-vlan-tags" { return "SessionStagePacketWithWrongVlanTags" }
-    if yname == "session-stage-packet-with-no-error" { return "SessionStagePacketWithNoError" }
-    if yname == "tag-too-short" { return "TagTooShort" }
-    if yname == "bad-tag-length-field" { return "BadTagLengthField" }
-    if yname == "multiple-service-name-tags" { return "MultipleServiceNameTags" }
-    if yname == "multiple-max-payload-tags" { return "MultipleMaxPayloadTags" }
-    if yname == "invalid-max-payload-tag" { return "InvalidMaxPayloadTag" }
-    if yname == "multiple-vendor-specific-tags" { return "MultipleVendorSpecificTags" }
-    if yname == "unexpected-ac-name-tag" { return "UnexpectedAcNameTag" }
-    if yname == "unexpected-error-tags" { return "UnexpectedErrorTags" }
-    if yname == "unknown-tag-received" { return "UnknownTagReceived" }
-    if yname == "no-iana-code-invendor-tag" { return "NoIanaCodeInvendorTag" }
-    if yname == "invalid-iana-code-invendor-tag" { return "InvalidIanaCodeInvendorTag" }
-    if yname == "vendor-tag-too-short" { return "VendorTagTooShort" }
-    if yname == "bad-vendor-tag-length-field" { return "BadVendorTagLengthField" }
-    if yname == "multiple-host-uniq-tags" { return "MultipleHostUniqTags" }
-    if yname == "multiple-relay-session-id-tags" { return "MultipleRelaySessionIdTags" }
-    if yname == "multiple-circuit-id-tags" { return "MultipleCircuitIdTags" }
-    if yname == "multiple-remote-id-tags" { return "MultipleRemoteIdTags" }
-    if yname == "invalid-dsl-tag" { return "InvalidDslTag" }
-    if yname == "multiple-of-the-same-dsl-tag" { return "MultipleOfTheSameDslTag" }
-    if yname == "invalid-iwf-tag" { return "InvalidIwfTag" }
-    if yname == "multiple-iwf-tags" { return "MultipleIwfTags" }
-    if yname == "unknownvendor-tag" { return "UnknownvendorTag" }
-    if yname == "no-space-left-in-packet" { return "NoSpaceLeftInPacket" }
-    if yname == "duplicate-host-uniq-tag-received" { return "DuplicateHostUniqTagReceived" }
-    if yname == "duplicate-relay-session-id-tag-received" { return "DuplicateRelaySessionIdTagReceived" }
-    if yname == "packet-too-long" { return "PacketTooLong" }
-    if yname == "invalid-ale-tag" { return "InvalidAleTag" }
-    if yname == "multiple-ale-tags" { return "MultipleAleTags" }
-    if yname == "invalid-service-name" { return "InvalidServiceName" }
-    if yname == "invalid-peer-mac" { return "InvalidPeerMac" }
-    if yname == "invalid-vlan-tags" { return "InvalidVlanTags" }
-    if yname == "packet-on-srg-slave" { return "PacketOnSrgSlave" }
-    return ""
+    packetErrorCounts.EntityData.Children = make(map[string]types.YChild)
+    packetErrorCounts.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetErrorCounts.EntityData.Leafs["no-interface-handle"] = types.YLeaf{"NoInterfaceHandle", packetErrorCounts.NoInterfaceHandle}
+    packetErrorCounts.EntityData.Leafs["no-packet-payload"] = types.YLeaf{"NoPacketPayload", packetErrorCounts.NoPacketPayload}
+    packetErrorCounts.EntityData.Leafs["no-packet-mac-address"] = types.YLeaf{"NoPacketMacAddress", packetErrorCounts.NoPacketMacAddress}
+    packetErrorCounts.EntityData.Leafs["invalid-version-type-value"] = types.YLeaf{"InvalidVersionTypeValue", packetErrorCounts.InvalidVersionTypeValue}
+    packetErrorCounts.EntityData.Leafs["bad-packet-length"] = types.YLeaf{"BadPacketLength", packetErrorCounts.BadPacketLength}
+    packetErrorCounts.EntityData.Leafs["unknown-interface"] = types.YLeaf{"UnknownInterface", packetErrorCounts.UnknownInterface}
+    packetErrorCounts.EntityData.Leafs["pado-received"] = types.YLeaf{"PadoReceived", packetErrorCounts.PadoReceived}
+    packetErrorCounts.EntityData.Leafs["pads-received"] = types.YLeaf{"PadsReceived", packetErrorCounts.PadsReceived}
+    packetErrorCounts.EntityData.Leafs["unknown-packet-type-received"] = types.YLeaf{"UnknownPacketTypeReceived", packetErrorCounts.UnknownPacketTypeReceived}
+    packetErrorCounts.EntityData.Leafs["unexpected-session-id-in-packet"] = types.YLeaf{"UnexpectedSessionIdInPacket", packetErrorCounts.UnexpectedSessionIdInPacket}
+    packetErrorCounts.EntityData.Leafs["no-service-name-tag"] = types.YLeaf{"NoServiceNameTag", packetErrorCounts.NoServiceNameTag}
+    packetErrorCounts.EntityData.Leafs["padt-for-unknown-session"] = types.YLeaf{"PadtForUnknownSession", packetErrorCounts.PadtForUnknownSession}
+    packetErrorCounts.EntityData.Leafs["padt-with-wrong-peer-mac"] = types.YLeaf{"PadtWithWrongPeerMac", packetErrorCounts.PadtWithWrongPeerMac}
+    packetErrorCounts.EntityData.Leafs["padt-with-wrong-vlan-tags"] = types.YLeaf{"PadtWithWrongVlanTags", packetErrorCounts.PadtWithWrongVlanTags}
+    packetErrorCounts.EntityData.Leafs["zero-length-host-uniq"] = types.YLeaf{"ZeroLengthHostUniq", packetErrorCounts.ZeroLengthHostUniq}
+    packetErrorCounts.EntityData.Leafs["padt-before-pads-sent"] = types.YLeaf{"PadtBeforePadsSent", packetErrorCounts.PadtBeforePadsSent}
+    packetErrorCounts.EntityData.Leafs["session-stage-packet-for-unknown-session"] = types.YLeaf{"SessionStagePacketForUnknownSession", packetErrorCounts.SessionStagePacketForUnknownSession}
+    packetErrorCounts.EntityData.Leafs["session-stage-packet-with-wrong-mac"] = types.YLeaf{"SessionStagePacketWithWrongMac", packetErrorCounts.SessionStagePacketWithWrongMac}
+    packetErrorCounts.EntityData.Leafs["session-stage-packet-with-wrong-vlan-tags"] = types.YLeaf{"SessionStagePacketWithWrongVlanTags", packetErrorCounts.SessionStagePacketWithWrongVlanTags}
+    packetErrorCounts.EntityData.Leafs["session-stage-packet-with-no-error"] = types.YLeaf{"SessionStagePacketWithNoError", packetErrorCounts.SessionStagePacketWithNoError}
+    packetErrorCounts.EntityData.Leafs["tag-too-short"] = types.YLeaf{"TagTooShort", packetErrorCounts.TagTooShort}
+    packetErrorCounts.EntityData.Leafs["bad-tag-length-field"] = types.YLeaf{"BadTagLengthField", packetErrorCounts.BadTagLengthField}
+    packetErrorCounts.EntityData.Leafs["multiple-service-name-tags"] = types.YLeaf{"MultipleServiceNameTags", packetErrorCounts.MultipleServiceNameTags}
+    packetErrorCounts.EntityData.Leafs["multiple-max-payload-tags"] = types.YLeaf{"MultipleMaxPayloadTags", packetErrorCounts.MultipleMaxPayloadTags}
+    packetErrorCounts.EntityData.Leafs["invalid-max-payload-tag"] = types.YLeaf{"InvalidMaxPayloadTag", packetErrorCounts.InvalidMaxPayloadTag}
+    packetErrorCounts.EntityData.Leafs["multiple-vendor-specific-tags"] = types.YLeaf{"MultipleVendorSpecificTags", packetErrorCounts.MultipleVendorSpecificTags}
+    packetErrorCounts.EntityData.Leafs["unexpected-ac-name-tag"] = types.YLeaf{"UnexpectedAcNameTag", packetErrorCounts.UnexpectedAcNameTag}
+    packetErrorCounts.EntityData.Leafs["unexpected-error-tags"] = types.YLeaf{"UnexpectedErrorTags", packetErrorCounts.UnexpectedErrorTags}
+    packetErrorCounts.EntityData.Leafs["unknown-tag-received"] = types.YLeaf{"UnknownTagReceived", packetErrorCounts.UnknownTagReceived}
+    packetErrorCounts.EntityData.Leafs["no-iana-code-invendor-tag"] = types.YLeaf{"NoIanaCodeInvendorTag", packetErrorCounts.NoIanaCodeInvendorTag}
+    packetErrorCounts.EntityData.Leafs["invalid-iana-code-invendor-tag"] = types.YLeaf{"InvalidIanaCodeInvendorTag", packetErrorCounts.InvalidIanaCodeInvendorTag}
+    packetErrorCounts.EntityData.Leafs["vendor-tag-too-short"] = types.YLeaf{"VendorTagTooShort", packetErrorCounts.VendorTagTooShort}
+    packetErrorCounts.EntityData.Leafs["bad-vendor-tag-length-field"] = types.YLeaf{"BadVendorTagLengthField", packetErrorCounts.BadVendorTagLengthField}
+    packetErrorCounts.EntityData.Leafs["multiple-host-uniq-tags"] = types.YLeaf{"MultipleHostUniqTags", packetErrorCounts.MultipleHostUniqTags}
+    packetErrorCounts.EntityData.Leafs["multiple-relay-session-id-tags"] = types.YLeaf{"MultipleRelaySessionIdTags", packetErrorCounts.MultipleRelaySessionIdTags}
+    packetErrorCounts.EntityData.Leafs["multiple-circuit-id-tags"] = types.YLeaf{"MultipleCircuitIdTags", packetErrorCounts.MultipleCircuitIdTags}
+    packetErrorCounts.EntityData.Leafs["multiple-remote-id-tags"] = types.YLeaf{"MultipleRemoteIdTags", packetErrorCounts.MultipleRemoteIdTags}
+    packetErrorCounts.EntityData.Leafs["invalid-dsl-tag"] = types.YLeaf{"InvalidDslTag", packetErrorCounts.InvalidDslTag}
+    packetErrorCounts.EntityData.Leafs["multiple-of-the-same-dsl-tag"] = types.YLeaf{"MultipleOfTheSameDslTag", packetErrorCounts.MultipleOfTheSameDslTag}
+    packetErrorCounts.EntityData.Leafs["invalid-iwf-tag"] = types.YLeaf{"InvalidIwfTag", packetErrorCounts.InvalidIwfTag}
+    packetErrorCounts.EntityData.Leafs["multiple-iwf-tags"] = types.YLeaf{"MultipleIwfTags", packetErrorCounts.MultipleIwfTags}
+    packetErrorCounts.EntityData.Leafs["unknownvendor-tag"] = types.YLeaf{"UnknownvendorTag", packetErrorCounts.UnknownvendorTag}
+    packetErrorCounts.EntityData.Leafs["no-space-left-in-packet"] = types.YLeaf{"NoSpaceLeftInPacket", packetErrorCounts.NoSpaceLeftInPacket}
+    packetErrorCounts.EntityData.Leafs["duplicate-host-uniq-tag-received"] = types.YLeaf{"DuplicateHostUniqTagReceived", packetErrorCounts.DuplicateHostUniqTagReceived}
+    packetErrorCounts.EntityData.Leafs["duplicate-relay-session-id-tag-received"] = types.YLeaf{"DuplicateRelaySessionIdTagReceived", packetErrorCounts.DuplicateRelaySessionIdTagReceived}
+    packetErrorCounts.EntityData.Leafs["packet-too-long"] = types.YLeaf{"PacketTooLong", packetErrorCounts.PacketTooLong}
+    packetErrorCounts.EntityData.Leafs["invalid-ale-tag"] = types.YLeaf{"InvalidAleTag", packetErrorCounts.InvalidAleTag}
+    packetErrorCounts.EntityData.Leafs["multiple-ale-tags"] = types.YLeaf{"MultipleAleTags", packetErrorCounts.MultipleAleTags}
+    packetErrorCounts.EntityData.Leafs["invalid-service-name"] = types.YLeaf{"InvalidServiceName", packetErrorCounts.InvalidServiceName}
+    packetErrorCounts.EntityData.Leafs["invalid-peer-mac"] = types.YLeaf{"InvalidPeerMac", packetErrorCounts.InvalidPeerMac}
+    packetErrorCounts.EntityData.Leafs["invalid-vlan-tags"] = types.YLeaf{"InvalidVlanTags", packetErrorCounts.InvalidVlanTags}
+    packetErrorCounts.EntityData.Leafs["packet-on-srg-slave"] = types.YLeaf{"PacketOnSrgSlave", packetErrorCounts.PacketOnSrgSlave}
+    return &(packetErrorCounts.EntityData)
 }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetSegmentPath() string {
-    return "packet-error-counts"
-}
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["no-interface-handle"] = packetErrorCounts.NoInterfaceHandle
-    leafs["no-packet-payload"] = packetErrorCounts.NoPacketPayload
-    leafs["no-packet-mac-address"] = packetErrorCounts.NoPacketMacAddress
-    leafs["invalid-version-type-value"] = packetErrorCounts.InvalidVersionTypeValue
-    leafs["bad-packet-length"] = packetErrorCounts.BadPacketLength
-    leafs["unknown-interface"] = packetErrorCounts.UnknownInterface
-    leafs["pado-received"] = packetErrorCounts.PadoReceived
-    leafs["pads-received"] = packetErrorCounts.PadsReceived
-    leafs["unknown-packet-type-received"] = packetErrorCounts.UnknownPacketTypeReceived
-    leafs["unexpected-session-id-in-packet"] = packetErrorCounts.UnexpectedSessionIdInPacket
-    leafs["no-service-name-tag"] = packetErrorCounts.NoServiceNameTag
-    leafs["padt-for-unknown-session"] = packetErrorCounts.PadtForUnknownSession
-    leafs["padt-with-wrong-peer-mac"] = packetErrorCounts.PadtWithWrongPeerMac
-    leafs["padt-with-wrong-vlan-tags"] = packetErrorCounts.PadtWithWrongVlanTags
-    leafs["zero-length-host-uniq"] = packetErrorCounts.ZeroLengthHostUniq
-    leafs["padt-before-pads-sent"] = packetErrorCounts.PadtBeforePadsSent
-    leafs["session-stage-packet-for-unknown-session"] = packetErrorCounts.SessionStagePacketForUnknownSession
-    leafs["session-stage-packet-with-wrong-mac"] = packetErrorCounts.SessionStagePacketWithWrongMac
-    leafs["session-stage-packet-with-wrong-vlan-tags"] = packetErrorCounts.SessionStagePacketWithWrongVlanTags
-    leafs["session-stage-packet-with-no-error"] = packetErrorCounts.SessionStagePacketWithNoError
-    leafs["tag-too-short"] = packetErrorCounts.TagTooShort
-    leafs["bad-tag-length-field"] = packetErrorCounts.BadTagLengthField
-    leafs["multiple-service-name-tags"] = packetErrorCounts.MultipleServiceNameTags
-    leafs["multiple-max-payload-tags"] = packetErrorCounts.MultipleMaxPayloadTags
-    leafs["invalid-max-payload-tag"] = packetErrorCounts.InvalidMaxPayloadTag
-    leafs["multiple-vendor-specific-tags"] = packetErrorCounts.MultipleVendorSpecificTags
-    leafs["unexpected-ac-name-tag"] = packetErrorCounts.UnexpectedAcNameTag
-    leafs["unexpected-error-tags"] = packetErrorCounts.UnexpectedErrorTags
-    leafs["unknown-tag-received"] = packetErrorCounts.UnknownTagReceived
-    leafs["no-iana-code-invendor-tag"] = packetErrorCounts.NoIanaCodeInvendorTag
-    leafs["invalid-iana-code-invendor-tag"] = packetErrorCounts.InvalidIanaCodeInvendorTag
-    leafs["vendor-tag-too-short"] = packetErrorCounts.VendorTagTooShort
-    leafs["bad-vendor-tag-length-field"] = packetErrorCounts.BadVendorTagLengthField
-    leafs["multiple-host-uniq-tags"] = packetErrorCounts.MultipleHostUniqTags
-    leafs["multiple-relay-session-id-tags"] = packetErrorCounts.MultipleRelaySessionIdTags
-    leafs["multiple-circuit-id-tags"] = packetErrorCounts.MultipleCircuitIdTags
-    leafs["multiple-remote-id-tags"] = packetErrorCounts.MultipleRemoteIdTags
-    leafs["invalid-dsl-tag"] = packetErrorCounts.InvalidDslTag
-    leafs["multiple-of-the-same-dsl-tag"] = packetErrorCounts.MultipleOfTheSameDslTag
-    leafs["invalid-iwf-tag"] = packetErrorCounts.InvalidIwfTag
-    leafs["multiple-iwf-tags"] = packetErrorCounts.MultipleIwfTags
-    leafs["unknownvendor-tag"] = packetErrorCounts.UnknownvendorTag
-    leafs["no-space-left-in-packet"] = packetErrorCounts.NoSpaceLeftInPacket
-    leafs["duplicate-host-uniq-tag-received"] = packetErrorCounts.DuplicateHostUniqTagReceived
-    leafs["duplicate-relay-session-id-tag-received"] = packetErrorCounts.DuplicateRelaySessionIdTagReceived
-    leafs["packet-too-long"] = packetErrorCounts.PacketTooLong
-    leafs["invalid-ale-tag"] = packetErrorCounts.InvalidAleTag
-    leafs["multiple-ale-tags"] = packetErrorCounts.MultipleAleTags
-    leafs["invalid-service-name"] = packetErrorCounts.InvalidServiceName
-    leafs["invalid-peer-mac"] = packetErrorCounts.InvalidPeerMac
-    leafs["invalid-vlan-tags"] = packetErrorCounts.InvalidVlanTags
-    leafs["packet-on-srg-slave"] = packetErrorCounts.PacketOnSrgSlave
-    return leafs
-}
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetYangName() string { return "packet-error-counts" }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) SetParent(parent types.Entity) { packetErrorCounts.parent = parent }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetParent() types.Entity { return packetErrorCounts.parent }
-
-func (packetErrorCounts *Pppoe_Nodes_Node_Statistics_PacketErrorCounts) GetParentYangName() string { return "statistics" }
 
 // Pppoe_Nodes_Node_AccessInterface
 // PPPoE access interface information
 type Pppoe_Nodes_Node_AccessInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPPoE access interface summary information.
     Summaries Pppoe_Nodes_Node_AccessInterface_Summaries
 }
 
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetFilter() yfilter.YFilter { return accessInterface.YFilter }
+func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetEntityData() *types.CommonEntityData {
+    accessInterface.EntityData.YFilter = accessInterface.YFilter
+    accessInterface.EntityData.YangName = "access-interface"
+    accessInterface.EntityData.BundleName = "cisco_ios_xr"
+    accessInterface.EntityData.ParentYangName = "node"
+    accessInterface.EntityData.SegmentPath = "access-interface"
+    accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) SetFilter(yf yfilter.YFilter) { accessInterface.YFilter = yf }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetGoName(yname string) string {
-    if yname == "summaries" { return "Summaries" }
-    return ""
+    accessInterface.EntityData.Children = make(map[string]types.YChild)
+    accessInterface.EntityData.Children["summaries"] = types.YChild{"Summaries", &accessInterface.Summaries}
+    accessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accessInterface.EntityData)
 }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetSegmentPath() string {
-    return "access-interface"
-}
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summaries" {
-        return &accessInterface.Summaries
-    }
-    return nil
-}
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["summaries"] = &accessInterface.Summaries
-    return children
-}
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetYangName() string { return "access-interface" }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) SetParent(parent types.Entity) { accessInterface.parent = parent }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetParent() types.Entity { return accessInterface.parent }
-
-func (accessInterface *Pppoe_Nodes_Node_AccessInterface) GetParentYangName() string { return "node" }
 
 // Pppoe_Nodes_Node_AccessInterface_Summaries
 // PPPoE access interface summary information
 type Pppoe_Nodes_Node_AccessInterface_Summaries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Summary information for a PPPoE-enabled access interface. The type is slice
@@ -2191,83 +1207,44 @@ type Pppoe_Nodes_Node_AccessInterface_Summaries struct {
     Summary []Pppoe_Nodes_Node_AccessInterface_Summaries_Summary
 }
 
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetFilter() yfilter.YFilter { return summaries.YFilter }
+func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetEntityData() *types.CommonEntityData {
+    summaries.EntityData.YFilter = summaries.YFilter
+    summaries.EntityData.YangName = "summaries"
+    summaries.EntityData.BundleName = "cisco_ios_xr"
+    summaries.EntityData.ParentYangName = "access-interface"
+    summaries.EntityData.SegmentPath = "summaries"
+    summaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) SetFilter(yf yfilter.YFilter) { summaries.YFilter = yf }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetGoName(yname string) string {
-    if yname == "summary" { return "Summary" }
-    return ""
-}
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetSegmentPath() string {
-    return "summaries"
-}
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summary" {
-        for _, c := range summaries.Summary {
-            if summaries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_Nodes_Node_AccessInterface_Summaries_Summary{}
-        summaries.Summary = append(summaries.Summary, child)
-        return &summaries.Summary[len(summaries.Summary)-1]
-    }
-    return nil
-}
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    summaries.EntityData.Children = make(map[string]types.YChild)
+    summaries.EntityData.Children["summary"] = types.YChild{"Summary", nil}
     for i := range summaries.Summary {
-        children[summaries.Summary[i].GetSegmentPath()] = &summaries.Summary[i]
+        summaries.EntityData.Children[types.GetSegmentPath(&summaries.Summary[i])] = types.YChild{"Summary", &summaries.Summary[i]}
     }
-    return children
+    summaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(summaries.EntityData)
 }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetYangName() string { return "summaries" }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) SetParent(parent types.Entity) { summaries.parent = parent }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetParent() types.Entity { return summaries.parent }
-
-func (summaries *Pppoe_Nodes_Node_AccessInterface_Summaries) GetParentYangName() string { return "access-interface" }
 
 // Pppoe_Nodes_Node_AccessInterface_Summaries_Summary
 // Summary information for a PPPoE-enabled
 // access interface
 type Pppoe_Nodes_Node_AccessInterface_Summaries_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. PPPoE Access Interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceNameXr interface{}
 
     // Interface State. The type is interface{} with range: 0..4294967295.
     InterfaceState interface{}
 
     // Mac Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // BBA Group. The type is string.
@@ -2284,149 +1261,73 @@ type Pppoe_Nodes_Node_AccessInterface_Summaries_Summary struct {
     IncompleteSessions interface{}
 }
 
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "summaries"
+    summary.EntityData.SegmentPath = "summary" + "[interface-name='" + fmt.Sprintf("%v", summary.InterfaceName) + "']"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "interface-state" { return "InterfaceState" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "bba-group-name" { return "BbaGroupName" }
-    if yname == "is-ready" { return "IsReady" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "incomplete-sessions" { return "IncompleteSessions" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", summary.InterfaceName}
+    summary.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", summary.InterfaceNameXr}
+    summary.EntityData.Leafs["interface-state"] = types.YLeaf{"InterfaceState", summary.InterfaceState}
+    summary.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", summary.MacAddress}
+    summary.EntityData.Leafs["bba-group-name"] = types.YLeaf{"BbaGroupName", summary.BbaGroupName}
+    summary.EntityData.Leafs["is-ready"] = types.YLeaf{"IsReady", summary.IsReady}
+    summary.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", summary.Sessions}
+    summary.EntityData.Leafs["incomplete-sessions"] = types.YLeaf{"IncompleteSessions", summary.IncompleteSessions}
+    return &(summary.EntityData)
 }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetSegmentPath() string {
-    return "summary" + "[interface-name='" + fmt.Sprintf("%v", summary.InterfaceName) + "']"
-}
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = summary.InterfaceName
-    leafs["interface-name-xr"] = summary.InterfaceNameXr
-    leafs["interface-state"] = summary.InterfaceState
-    leafs["mac-address"] = summary.MacAddress
-    leafs["bba-group-name"] = summary.BbaGroupName
-    leafs["is-ready"] = summary.IsReady
-    leafs["sessions"] = summary.Sessions
-    leafs["incomplete-sessions"] = summary.IncompleteSessions
-    return leafs
-}
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetYangName() string { return "summary" }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Pppoe_Nodes_Node_AccessInterface_Summaries_Summary) GetParentYangName() string { return "summaries" }
 
 // Pppoe_Nodes_Node_Interfaces
 // Per interface PPPoE operational data
 type Pppoe_Nodes_Node_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Data for a PPPoE interface. The type is slice of
-    // Pppoe_Nodes_Node_Interfaces_Interface.
-    Interface []Pppoe_Nodes_Node_Interfaces_Interface
+    // Pppoe_Nodes_Node_Interfaces_Interface_.
+    Interface_ []Pppoe_Nodes_Node_Interfaces_Interface
 }
 
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Pppoe_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "node"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *Pppoe_Nodes_Node_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_Nodes_Node_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Pppoe_Nodes_Node_Interfaces) GetParentYangName() string { return "node" }
 
 // Pppoe_Nodes_Node_Interfaces_Interface
 // Data for a PPPoE interface
 type Pppoe_Nodes_Node_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. PPPoE Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceNameXr interface{}
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     AccessInterfaceName interface{}
 
     // BBA Group. The type is string.
@@ -2436,11 +1337,11 @@ type Pppoe_Nodes_Node_Interfaces_Interface struct {
     SessionId interface{}
 
     // Local Mac-Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     LocalMacAddress interface{}
 
     // Peer Mac-Address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PeerMacAddress interface{}
 
     // Is Complete. The type is interface{} with range: -2147483648..2147483647.
@@ -2459,81 +1360,37 @@ type Pppoe_Nodes_Node_Interfaces_Interface struct {
     Tags Pppoe_Nodes_Node_Interfaces_Interface_Tags
 }
 
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "access-interface-name" { return "AccessInterfaceName" }
-    if yname == "bba-group-name" { return "BbaGroupName" }
-    if yname == "session-id" { return "SessionId" }
-    if yname == "local-mac-address" { return "LocalMacAddress" }
-    if yname == "peer-mac-address" { return "PeerMacAddress" }
-    if yname == "is-complete" { return "IsComplete" }
-    if yname == "vlan-outer-id" { return "VlanOuterId" }
-    if yname == "vlan-inner-id" { return "VlanInnerId" }
-    if yname == "srg-state" { return "SrgState" }
-    if yname == "tags" { return "Tags" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["tags"] = types.YChild{"Tags", &self.Tags}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", self.InterfaceNameXr}
+    self.EntityData.Leafs["access-interface-name"] = types.YLeaf{"AccessInterfaceName", self.AccessInterfaceName}
+    self.EntityData.Leafs["bba-group-name"] = types.YLeaf{"BbaGroupName", self.BbaGroupName}
+    self.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", self.SessionId}
+    self.EntityData.Leafs["local-mac-address"] = types.YLeaf{"LocalMacAddress", self.LocalMacAddress}
+    self.EntityData.Leafs["peer-mac-address"] = types.YLeaf{"PeerMacAddress", self.PeerMacAddress}
+    self.EntityData.Leafs["is-complete"] = types.YLeaf{"IsComplete", self.IsComplete}
+    self.EntityData.Leafs["vlan-outer-id"] = types.YLeaf{"VlanOuterId", self.VlanOuterId}
+    self.EntityData.Leafs["vlan-inner-id"] = types.YLeaf{"VlanInnerId", self.VlanInnerId}
+    self.EntityData.Leafs["srg-state"] = types.YLeaf{"SrgState", self.SrgState}
+    return &(self.EntityData)
 }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tags" {
-        return &self.Tags
-    }
-    return nil
-}
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tags"] = &self.Tags
-    return children
-}
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface-name-xr"] = self.InterfaceNameXr
-    leafs["access-interface-name"] = self.AccessInterfaceName
-    leafs["bba-group-name"] = self.BbaGroupName
-    leafs["session-id"] = self.SessionId
-    leafs["local-mac-address"] = self.LocalMacAddress
-    leafs["peer-mac-address"] = self.PeerMacAddress
-    leafs["is-complete"] = self.IsComplete
-    leafs["vlan-outer-id"] = self.VlanOuterId
-    leafs["vlan-inner-id"] = self.VlanInnerId
-    leafs["srg-state"] = self.SrgState
-    return leafs
-}
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Pppoe_Nodes_Node_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // Pppoe_Nodes_Node_Interfaces_Interface_Tags
 // Tags
 type Pppoe_Nodes_Node_Interfaces_Interface_Tags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service Name. The type is string.
@@ -2543,11 +1400,11 @@ type Pppoe_Nodes_Node_Interfaces_Interface_Tags struct {
     MaxPayload interface{}
 
     // Host Uniq. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HostUniq interface{}
 
     // Relay Session ID. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     RelaySessionId interface{}
 
     // Remote ID. The type is string.
@@ -2605,101 +1462,47 @@ type Pppoe_Nodes_Node_Interfaces_Interface_Tags struct {
     AccessLoopEncapsulation Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation
 }
 
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetFilter() yfilter.YFilter { return tags.YFilter }
+func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetEntityData() *types.CommonEntityData {
+    tags.EntityData.YFilter = tags.YFilter
+    tags.EntityData.YangName = "tags"
+    tags.EntityData.BundleName = "cisco_ios_xr"
+    tags.EntityData.ParentYangName = "interface"
+    tags.EntityData.SegmentPath = "tags"
+    tags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) SetFilter(yf yfilter.YFilter) { tags.YFilter = yf }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetGoName(yname string) string {
-    if yname == "service-name" { return "ServiceName" }
-    if yname == "max-payload" { return "MaxPayload" }
-    if yname == "host-uniq" { return "HostUniq" }
-    if yname == "relay-session-id" { return "RelaySessionId" }
-    if yname == "remote-id" { return "RemoteId" }
-    if yname == "circuit-id" { return "CircuitId" }
-    if yname == "is-iwf" { return "IsIwf" }
-    if yname == "dsl-actual-up" { return "DslActualUp" }
-    if yname == "dsl-actual-down" { return "DslActualDown" }
-    if yname == "dsl-min-up" { return "DslMinUp" }
-    if yname == "dsl-min-down" { return "DslMinDown" }
-    if yname == "dsl-attain-up" { return "DslAttainUp" }
-    if yname == "dsl-attain-down" { return "DslAttainDown" }
-    if yname == "dsl-max-up" { return "DslMaxUp" }
-    if yname == "dsl-max-down" { return "DslMaxDown" }
-    if yname == "dsl-min-up-low" { return "DslMinUpLow" }
-    if yname == "dsl-min-down-low" { return "DslMinDownLow" }
-    if yname == "dsl-max-delay-up" { return "DslMaxDelayUp" }
-    if yname == "dsl-actual-delay-up" { return "DslActualDelayUp" }
-    if yname == "dsl-max-delay-down" { return "DslMaxDelayDown" }
-    if yname == "dsl-actual-delay-down" { return "DslActualDelayDown" }
-    if yname == "access-loop-encapsulation" { return "AccessLoopEncapsulation" }
-    return ""
+    tags.EntityData.Children = make(map[string]types.YChild)
+    tags.EntityData.Children["access-loop-encapsulation"] = types.YChild{"AccessLoopEncapsulation", &tags.AccessLoopEncapsulation}
+    tags.EntityData.Leafs = make(map[string]types.YLeaf)
+    tags.EntityData.Leafs["service-name"] = types.YLeaf{"ServiceName", tags.ServiceName}
+    tags.EntityData.Leafs["max-payload"] = types.YLeaf{"MaxPayload", tags.MaxPayload}
+    tags.EntityData.Leafs["host-uniq"] = types.YLeaf{"HostUniq", tags.HostUniq}
+    tags.EntityData.Leafs["relay-session-id"] = types.YLeaf{"RelaySessionId", tags.RelaySessionId}
+    tags.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", tags.RemoteId}
+    tags.EntityData.Leafs["circuit-id"] = types.YLeaf{"CircuitId", tags.CircuitId}
+    tags.EntityData.Leafs["is-iwf"] = types.YLeaf{"IsIwf", tags.IsIwf}
+    tags.EntityData.Leafs["dsl-actual-up"] = types.YLeaf{"DslActualUp", tags.DslActualUp}
+    tags.EntityData.Leafs["dsl-actual-down"] = types.YLeaf{"DslActualDown", tags.DslActualDown}
+    tags.EntityData.Leafs["dsl-min-up"] = types.YLeaf{"DslMinUp", tags.DslMinUp}
+    tags.EntityData.Leafs["dsl-min-down"] = types.YLeaf{"DslMinDown", tags.DslMinDown}
+    tags.EntityData.Leafs["dsl-attain-up"] = types.YLeaf{"DslAttainUp", tags.DslAttainUp}
+    tags.EntityData.Leafs["dsl-attain-down"] = types.YLeaf{"DslAttainDown", tags.DslAttainDown}
+    tags.EntityData.Leafs["dsl-max-up"] = types.YLeaf{"DslMaxUp", tags.DslMaxUp}
+    tags.EntityData.Leafs["dsl-max-down"] = types.YLeaf{"DslMaxDown", tags.DslMaxDown}
+    tags.EntityData.Leafs["dsl-min-up-low"] = types.YLeaf{"DslMinUpLow", tags.DslMinUpLow}
+    tags.EntityData.Leafs["dsl-min-down-low"] = types.YLeaf{"DslMinDownLow", tags.DslMinDownLow}
+    tags.EntityData.Leafs["dsl-max-delay-up"] = types.YLeaf{"DslMaxDelayUp", tags.DslMaxDelayUp}
+    tags.EntityData.Leafs["dsl-actual-delay-up"] = types.YLeaf{"DslActualDelayUp", tags.DslActualDelayUp}
+    tags.EntityData.Leafs["dsl-max-delay-down"] = types.YLeaf{"DslMaxDelayDown", tags.DslMaxDelayDown}
+    tags.EntityData.Leafs["dsl-actual-delay-down"] = types.YLeaf{"DslActualDelayDown", tags.DslActualDelayDown}
+    return &(tags.EntityData)
 }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetSegmentPath() string {
-    return "tags"
-}
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-loop-encapsulation" {
-        return &tags.AccessLoopEncapsulation
-    }
-    return nil
-}
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["access-loop-encapsulation"] = &tags.AccessLoopEncapsulation
-    return children
-}
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["service-name"] = tags.ServiceName
-    leafs["max-payload"] = tags.MaxPayload
-    leafs["host-uniq"] = tags.HostUniq
-    leafs["relay-session-id"] = tags.RelaySessionId
-    leafs["remote-id"] = tags.RemoteId
-    leafs["circuit-id"] = tags.CircuitId
-    leafs["is-iwf"] = tags.IsIwf
-    leafs["dsl-actual-up"] = tags.DslActualUp
-    leafs["dsl-actual-down"] = tags.DslActualDown
-    leafs["dsl-min-up"] = tags.DslMinUp
-    leafs["dsl-min-down"] = tags.DslMinDown
-    leafs["dsl-attain-up"] = tags.DslAttainUp
-    leafs["dsl-attain-down"] = tags.DslAttainDown
-    leafs["dsl-max-up"] = tags.DslMaxUp
-    leafs["dsl-max-down"] = tags.DslMaxDown
-    leafs["dsl-min-up-low"] = tags.DslMinUpLow
-    leafs["dsl-min-down-low"] = tags.DslMinDownLow
-    leafs["dsl-max-delay-up"] = tags.DslMaxDelayUp
-    leafs["dsl-actual-delay-up"] = tags.DslActualDelayUp
-    leafs["dsl-max-delay-down"] = tags.DslMaxDelayDown
-    leafs["dsl-actual-delay-down"] = tags.DslActualDelayDown
-    return leafs
-}
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetYangName() string { return "tags" }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) SetParent(parent types.Entity) { tags.parent = parent }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetParent() types.Entity { return tags.parent }
-
-func (tags *Pppoe_Nodes_Node_Interfaces_Interface_Tags) GetParentYangName() string { return "interface" }
 
 // Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation
 // Access Loop Encapsulation
 type Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Data Link. The type is interface{} with range: 0..255.
@@ -2712,60 +1515,28 @@ type Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation struct {
     Encaps2 interface{}
 }
 
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetFilter() yfilter.YFilter { return accessLoopEncapsulation.YFilter }
+func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetEntityData() *types.CommonEntityData {
+    accessLoopEncapsulation.EntityData.YFilter = accessLoopEncapsulation.YFilter
+    accessLoopEncapsulation.EntityData.YangName = "access-loop-encapsulation"
+    accessLoopEncapsulation.EntityData.BundleName = "cisco_ios_xr"
+    accessLoopEncapsulation.EntityData.ParentYangName = "tags"
+    accessLoopEncapsulation.EntityData.SegmentPath = "access-loop-encapsulation"
+    accessLoopEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessLoopEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessLoopEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) SetFilter(yf yfilter.YFilter) { accessLoopEncapsulation.YFilter = yf }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetGoName(yname string) string {
-    if yname == "data-link" { return "DataLink" }
-    if yname == "encaps1" { return "Encaps1" }
-    if yname == "encaps2" { return "Encaps2" }
-    return ""
+    accessLoopEncapsulation.EntityData.Children = make(map[string]types.YChild)
+    accessLoopEncapsulation.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessLoopEncapsulation.EntityData.Leafs["data-link"] = types.YLeaf{"DataLink", accessLoopEncapsulation.DataLink}
+    accessLoopEncapsulation.EntityData.Leafs["encaps1"] = types.YLeaf{"Encaps1", accessLoopEncapsulation.Encaps1}
+    accessLoopEncapsulation.EntityData.Leafs["encaps2"] = types.YLeaf{"Encaps2", accessLoopEncapsulation.Encaps2}
+    return &(accessLoopEncapsulation.EntityData)
 }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetSegmentPath() string {
-    return "access-loop-encapsulation"
-}
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["data-link"] = accessLoopEncapsulation.DataLink
-    leafs["encaps1"] = accessLoopEncapsulation.Encaps1
-    leafs["encaps2"] = accessLoopEncapsulation.Encaps2
-    return leafs
-}
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetYangName() string { return "access-loop-encapsulation" }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) SetParent(parent types.Entity) { accessLoopEncapsulation.parent = parent }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetParent() types.Entity { return accessLoopEncapsulation.parent }
-
-func (accessLoopEncapsulation *Pppoe_Nodes_Node_Interfaces_Interface_Tags_AccessLoopEncapsulation) GetParentYangName() string { return "tags" }
 
 // Pppoe_Nodes_Node_BbaGroups
 // PPPoE BBA-Group information
 type Pppoe_Nodes_Node_BbaGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPPoE BBA-Group information. The type is slice of
@@ -2773,72 +1544,33 @@ type Pppoe_Nodes_Node_BbaGroups struct {
     BbaGroup []Pppoe_Nodes_Node_BbaGroups_BbaGroup
 }
 
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetFilter() yfilter.YFilter { return bbaGroups.YFilter }
+func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetEntityData() *types.CommonEntityData {
+    bbaGroups.EntityData.YFilter = bbaGroups.YFilter
+    bbaGroups.EntityData.YangName = "bba-groups"
+    bbaGroups.EntityData.BundleName = "cisco_ios_xr"
+    bbaGroups.EntityData.ParentYangName = "node"
+    bbaGroups.EntityData.SegmentPath = "bba-groups"
+    bbaGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bbaGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bbaGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) SetFilter(yf yfilter.YFilter) { bbaGroups.YFilter = yf }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetGoName(yname string) string {
-    if yname == "bba-group" { return "BbaGroup" }
-    return ""
-}
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetSegmentPath() string {
-    return "bba-groups"
-}
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bba-group" {
-        for _, c := range bbaGroups.BbaGroup {
-            if bbaGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_Nodes_Node_BbaGroups_BbaGroup{}
-        bbaGroups.BbaGroup = append(bbaGroups.BbaGroup, child)
-        return &bbaGroups.BbaGroup[len(bbaGroups.BbaGroup)-1]
-    }
-    return nil
-}
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bbaGroups.EntityData.Children = make(map[string]types.YChild)
+    bbaGroups.EntityData.Children["bba-group"] = types.YChild{"BbaGroup", nil}
     for i := range bbaGroups.BbaGroup {
-        children[bbaGroups.BbaGroup[i].GetSegmentPath()] = &bbaGroups.BbaGroup[i]
+        bbaGroups.EntityData.Children[types.GetSegmentPath(&bbaGroups.BbaGroup[i])] = types.YChild{"BbaGroup", &bbaGroups.BbaGroup[i]}
     }
-    return children
+    bbaGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bbaGroups.EntityData)
 }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetYangName() string { return "bba-groups" }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) SetParent(parent types.Entity) { bbaGroups.parent = parent }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetParent() types.Entity { return bbaGroups.parent }
-
-func (bbaGroups *Pppoe_Nodes_Node_BbaGroups) GetParentYangName() string { return "node" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup
 // PPPoE BBA-Group information
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. BBA Group. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     BbaGroupName interface{}
 
     // BBA-Group limit configuration information.
@@ -2854,76 +1586,30 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup struct {
     ThrottleConfig Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig
 }
 
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetFilter() yfilter.YFilter { return bbaGroup.YFilter }
+func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetEntityData() *types.CommonEntityData {
+    bbaGroup.EntityData.YFilter = bbaGroup.YFilter
+    bbaGroup.EntityData.YangName = "bba-group"
+    bbaGroup.EntityData.BundleName = "cisco_ios_xr"
+    bbaGroup.EntityData.ParentYangName = "bba-groups"
+    bbaGroup.EntityData.SegmentPath = "bba-group" + "[bba-group-name='" + fmt.Sprintf("%v", bbaGroup.BbaGroupName) + "']"
+    bbaGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bbaGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bbaGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) SetFilter(yf yfilter.YFilter) { bbaGroup.YFilter = yf }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetGoName(yname string) string {
-    if yname == "bba-group-name" { return "BbaGroupName" }
-    if yname == "limit-config" { return "LimitConfig" }
-    if yname == "limits" { return "Limits" }
-    if yname == "throttles" { return "Throttles" }
-    if yname == "throttle-config" { return "ThrottleConfig" }
-    return ""
+    bbaGroup.EntityData.Children = make(map[string]types.YChild)
+    bbaGroup.EntityData.Children["limit-config"] = types.YChild{"LimitConfig", &bbaGroup.LimitConfig}
+    bbaGroup.EntityData.Children["limits"] = types.YChild{"Limits", &bbaGroup.Limits}
+    bbaGroup.EntityData.Children["throttles"] = types.YChild{"Throttles", &bbaGroup.Throttles}
+    bbaGroup.EntityData.Children["throttle-config"] = types.YChild{"ThrottleConfig", &bbaGroup.ThrottleConfig}
+    bbaGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    bbaGroup.EntityData.Leafs["bba-group-name"] = types.YLeaf{"BbaGroupName", bbaGroup.BbaGroupName}
+    return &(bbaGroup.EntityData)
 }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetSegmentPath() string {
-    return "bba-group" + "[bba-group-name='" + fmt.Sprintf("%v", bbaGroup.BbaGroupName) + "']"
-}
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "limit-config" {
-        return &bbaGroup.LimitConfig
-    }
-    if childYangName == "limits" {
-        return &bbaGroup.Limits
-    }
-    if childYangName == "throttles" {
-        return &bbaGroup.Throttles
-    }
-    if childYangName == "throttle-config" {
-        return &bbaGroup.ThrottleConfig
-    }
-    return nil
-}
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["limit-config"] = &bbaGroup.LimitConfig
-    children["limits"] = &bbaGroup.Limits
-    children["throttles"] = &bbaGroup.Throttles
-    children["throttle-config"] = &bbaGroup.ThrottleConfig
-    return children
-}
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bba-group-name"] = bbaGroup.BbaGroupName
-    return leafs
-}
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetYangName() string { return "bba-group" }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) SetParent(parent types.Entity) { bbaGroup.parent = parent }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetParent() types.Entity { return bbaGroup.parent }
-
-func (bbaGroup *Pppoe_Nodes_Node_BbaGroups_BbaGroup) GetParentYangName() string { return "bba-groups" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig
 // BBA-Group limit configuration information
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Card.
@@ -2963,114 +1649,37 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig struct {
     VlanId Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId
 }
 
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetFilter() yfilter.YFilter { return limitConfig.YFilter }
+func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetEntityData() *types.CommonEntityData {
+    limitConfig.EntityData.YFilter = limitConfig.YFilter
+    limitConfig.EntityData.YangName = "limit-config"
+    limitConfig.EntityData.BundleName = "cisco_ios_xr"
+    limitConfig.EntityData.ParentYangName = "bba-group"
+    limitConfig.EntityData.SegmentPath = "limit-config"
+    limitConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    limitConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    limitConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) SetFilter(yf yfilter.YFilter) { limitConfig.YFilter = yf }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetGoName(yname string) string {
-    if yname == "card" { return "Card" }
-    if yname == "access-intf" { return "AccessIntf" }
-    if yname == "mac" { return "Mac" }
-    if yname == "mac-iwf" { return "MacIwf" }
-    if yname == "mac-access-interface" { return "MacAccessInterface" }
-    if yname == "mac-iwf-access-interface" { return "MacIwfAccessInterface" }
-    if yname == "circuit-id" { return "CircuitId" }
-    if yname == "remote-id" { return "RemoteId" }
-    if yname == "circuit-id-and-remote-id" { return "CircuitIdAndRemoteId" }
-    if yname == "outer-vlan-id" { return "OuterVlanId" }
-    if yname == "inner-vlan-id" { return "InnerVlanId" }
-    if yname == "vlan-id" { return "VlanId" }
-    return ""
+    limitConfig.EntityData.Children = make(map[string]types.YChild)
+    limitConfig.EntityData.Children["card"] = types.YChild{"Card", &limitConfig.Card}
+    limitConfig.EntityData.Children["access-intf"] = types.YChild{"AccessIntf", &limitConfig.AccessIntf}
+    limitConfig.EntityData.Children["mac"] = types.YChild{"Mac", &limitConfig.Mac}
+    limitConfig.EntityData.Children["mac-iwf"] = types.YChild{"MacIwf", &limitConfig.MacIwf}
+    limitConfig.EntityData.Children["mac-access-interface"] = types.YChild{"MacAccessInterface", &limitConfig.MacAccessInterface}
+    limitConfig.EntityData.Children["mac-iwf-access-interface"] = types.YChild{"MacIwfAccessInterface", &limitConfig.MacIwfAccessInterface}
+    limitConfig.EntityData.Children["circuit-id"] = types.YChild{"CircuitId", &limitConfig.CircuitId}
+    limitConfig.EntityData.Children["remote-id"] = types.YChild{"RemoteId", &limitConfig.RemoteId}
+    limitConfig.EntityData.Children["circuit-id-and-remote-id"] = types.YChild{"CircuitIdAndRemoteId", &limitConfig.CircuitIdAndRemoteId}
+    limitConfig.EntityData.Children["outer-vlan-id"] = types.YChild{"OuterVlanId", &limitConfig.OuterVlanId}
+    limitConfig.EntityData.Children["inner-vlan-id"] = types.YChild{"InnerVlanId", &limitConfig.InnerVlanId}
+    limitConfig.EntityData.Children["vlan-id"] = types.YChild{"VlanId", &limitConfig.VlanId}
+    limitConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(limitConfig.EntityData)
 }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetSegmentPath() string {
-    return "limit-config"
-}
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "card" {
-        return &limitConfig.Card
-    }
-    if childYangName == "access-intf" {
-        return &limitConfig.AccessIntf
-    }
-    if childYangName == "mac" {
-        return &limitConfig.Mac
-    }
-    if childYangName == "mac-iwf" {
-        return &limitConfig.MacIwf
-    }
-    if childYangName == "mac-access-interface" {
-        return &limitConfig.MacAccessInterface
-    }
-    if childYangName == "mac-iwf-access-interface" {
-        return &limitConfig.MacIwfAccessInterface
-    }
-    if childYangName == "circuit-id" {
-        return &limitConfig.CircuitId
-    }
-    if childYangName == "remote-id" {
-        return &limitConfig.RemoteId
-    }
-    if childYangName == "circuit-id-and-remote-id" {
-        return &limitConfig.CircuitIdAndRemoteId
-    }
-    if childYangName == "outer-vlan-id" {
-        return &limitConfig.OuterVlanId
-    }
-    if childYangName == "inner-vlan-id" {
-        return &limitConfig.InnerVlanId
-    }
-    if childYangName == "vlan-id" {
-        return &limitConfig.VlanId
-    }
-    return nil
-}
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["card"] = &limitConfig.Card
-    children["access-intf"] = &limitConfig.AccessIntf
-    children["mac"] = &limitConfig.Mac
-    children["mac-iwf"] = &limitConfig.MacIwf
-    children["mac-access-interface"] = &limitConfig.MacAccessInterface
-    children["mac-iwf-access-interface"] = &limitConfig.MacIwfAccessInterface
-    children["circuit-id"] = &limitConfig.CircuitId
-    children["remote-id"] = &limitConfig.RemoteId
-    children["circuit-id-and-remote-id"] = &limitConfig.CircuitIdAndRemoteId
-    children["outer-vlan-id"] = &limitConfig.OuterVlanId
-    children["inner-vlan-id"] = &limitConfig.InnerVlanId
-    children["vlan-id"] = &limitConfig.VlanId
-    return children
-}
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetYangName() string { return "limit-config" }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) SetParent(parent types.Entity) { limitConfig.parent = parent }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetParent() types.Entity { return limitConfig.parent }
-
-func (limitConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig) GetParentYangName() string { return "bba-group" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card
 // Card
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3084,60 +1693,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetFilter() yfilter.YFilter { return card.YFilter }
+func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetEntityData() *types.CommonEntityData {
+    card.EntityData.YFilter = card.YFilter
+    card.EntityData.YangName = "card"
+    card.EntityData.BundleName = "cisco_ios_xr"
+    card.EntityData.ParentYangName = "limit-config"
+    card.EntityData.SegmentPath = "card"
+    card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) SetFilter(yf yfilter.YFilter) { card.YFilter = yf }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    card.EntityData.Children = make(map[string]types.YChild)
+    card.EntityData.Leafs = make(map[string]types.YLeaf)
+    card.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", card.MaxLimit}
+    card.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", card.Threshold}
+    card.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", card.RadiusOverrideEnabled}
+    return &(card.EntityData)
 }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetSegmentPath() string {
-    return "card"
-}
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = card.MaxLimit
-    leafs["threshold"] = card.Threshold
-    leafs["radius-override-enabled"] = card.RadiusOverrideEnabled
-    return leafs
-}
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetBundleName() string { return "cisco_ios_xr" }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetYangName() string { return "card" }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) SetParent(parent types.Entity) { card.parent = parent }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetParent() types.Entity { return card.parent }
-
-func (card *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Card) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf
 // Access Interface
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3151,60 +1728,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetFilter() yfilter.YFilter { return accessIntf.YFilter }
+func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetEntityData() *types.CommonEntityData {
+    accessIntf.EntityData.YFilter = accessIntf.YFilter
+    accessIntf.EntityData.YangName = "access-intf"
+    accessIntf.EntityData.BundleName = "cisco_ios_xr"
+    accessIntf.EntityData.ParentYangName = "limit-config"
+    accessIntf.EntityData.SegmentPath = "access-intf"
+    accessIntf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessIntf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessIntf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) SetFilter(yf yfilter.YFilter) { accessIntf.YFilter = yf }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    accessIntf.EntityData.Children = make(map[string]types.YChild)
+    accessIntf.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessIntf.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", accessIntf.MaxLimit}
+    accessIntf.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", accessIntf.Threshold}
+    accessIntf.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", accessIntf.RadiusOverrideEnabled}
+    return &(accessIntf.EntityData)
 }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetSegmentPath() string {
-    return "access-intf"
-}
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = accessIntf.MaxLimit
-    leafs["threshold"] = accessIntf.Threshold
-    leafs["radius-override-enabled"] = accessIntf.RadiusOverrideEnabled
-    return leafs
-}
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetYangName() string { return "access-intf" }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) SetParent(parent types.Entity) { accessIntf.parent = parent }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetParent() types.Entity { return accessIntf.parent }
-
-func (accessIntf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_AccessIntf) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac
 // MAC
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3218,60 +1763,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetFilter() yfilter.YFilter { return mac.YFilter }
+func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetEntityData() *types.CommonEntityData {
+    mac.EntityData.YFilter = mac.YFilter
+    mac.EntityData.YangName = "mac"
+    mac.EntityData.BundleName = "cisco_ios_xr"
+    mac.EntityData.ParentYangName = "limit-config"
+    mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) SetFilter(yf yfilter.YFilter) { mac.YFilter = yf }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    mac.EntityData.Children = make(map[string]types.YChild)
+    mac.EntityData.Leafs = make(map[string]types.YLeaf)
+    mac.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", mac.MaxLimit}
+    mac.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", mac.Threshold}
+    mac.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", mac.RadiusOverrideEnabled}
+    return &(mac.EntityData)
 }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetSegmentPath() string {
-    return "mac"
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = mac.MaxLimit
-    leafs["threshold"] = mac.Threshold
-    leafs["radius-override-enabled"] = mac.RadiusOverrideEnabled
-    return leafs
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetYangName() string { return "mac" }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) SetParent(parent types.Entity) { mac.parent = parent }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetParent() types.Entity { return mac.parent }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_Mac) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf
 // MAC IWF
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3285,60 +1798,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetFilter() yfilter.YFilter { return macIwf.YFilter }
+func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetEntityData() *types.CommonEntityData {
+    macIwf.EntityData.YFilter = macIwf.YFilter
+    macIwf.EntityData.YangName = "mac-iwf"
+    macIwf.EntityData.BundleName = "cisco_ios_xr"
+    macIwf.EntityData.ParentYangName = "limit-config"
+    macIwf.EntityData.SegmentPath = "mac-iwf"
+    macIwf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macIwf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macIwf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) SetFilter(yf yfilter.YFilter) { macIwf.YFilter = yf }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    macIwf.EntityData.Children = make(map[string]types.YChild)
+    macIwf.EntityData.Leafs = make(map[string]types.YLeaf)
+    macIwf.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", macIwf.MaxLimit}
+    macIwf.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macIwf.Threshold}
+    macIwf.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", macIwf.RadiusOverrideEnabled}
+    return &(macIwf.EntityData)
 }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetSegmentPath() string {
-    return "mac-iwf"
-}
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = macIwf.MaxLimit
-    leafs["threshold"] = macIwf.Threshold
-    leafs["radius-override-enabled"] = macIwf.RadiusOverrideEnabled
-    return leafs
-}
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetYangName() string { return "mac-iwf" }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) SetParent(parent types.Entity) { macIwf.parent = parent }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetParent() types.Entity { return macIwf.parent }
-
-func (macIwf *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwf) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface
 // MAC Access Interface
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3352,60 +1833,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetFilter() yfilter.YFilter { return macAccessInterface.YFilter }
+func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetEntityData() *types.CommonEntityData {
+    macAccessInterface.EntityData.YFilter = macAccessInterface.YFilter
+    macAccessInterface.EntityData.YangName = "mac-access-interface"
+    macAccessInterface.EntityData.BundleName = "cisco_ios_xr"
+    macAccessInterface.EntityData.ParentYangName = "limit-config"
+    macAccessInterface.EntityData.SegmentPath = "mac-access-interface"
+    macAccessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macAccessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macAccessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) SetFilter(yf yfilter.YFilter) { macAccessInterface.YFilter = yf }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    macAccessInterface.EntityData.Children = make(map[string]types.YChild)
+    macAccessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    macAccessInterface.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", macAccessInterface.MaxLimit}
+    macAccessInterface.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macAccessInterface.Threshold}
+    macAccessInterface.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", macAccessInterface.RadiusOverrideEnabled}
+    return &(macAccessInterface.EntityData)
 }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetSegmentPath() string {
-    return "mac-access-interface"
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = macAccessInterface.MaxLimit
-    leafs["threshold"] = macAccessInterface.Threshold
-    leafs["radius-override-enabled"] = macAccessInterface.RadiusOverrideEnabled
-    return leafs
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetYangName() string { return "mac-access-interface" }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) SetParent(parent types.Entity) { macAccessInterface.parent = parent }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetParent() types.Entity { return macAccessInterface.parent }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacAccessInterface) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface
 // MAC IWF Access Interface
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3419,60 +1868,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface struc
     RadiusOverrideEnabled interface{}
 }
 
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetFilter() yfilter.YFilter { return macIwfAccessInterface.YFilter }
+func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetEntityData() *types.CommonEntityData {
+    macIwfAccessInterface.EntityData.YFilter = macIwfAccessInterface.YFilter
+    macIwfAccessInterface.EntityData.YangName = "mac-iwf-access-interface"
+    macIwfAccessInterface.EntityData.BundleName = "cisco_ios_xr"
+    macIwfAccessInterface.EntityData.ParentYangName = "limit-config"
+    macIwfAccessInterface.EntityData.SegmentPath = "mac-iwf-access-interface"
+    macIwfAccessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macIwfAccessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macIwfAccessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) SetFilter(yf yfilter.YFilter) { macIwfAccessInterface.YFilter = yf }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    macIwfAccessInterface.EntityData.Children = make(map[string]types.YChild)
+    macIwfAccessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    macIwfAccessInterface.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", macIwfAccessInterface.MaxLimit}
+    macIwfAccessInterface.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", macIwfAccessInterface.Threshold}
+    macIwfAccessInterface.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", macIwfAccessInterface.RadiusOverrideEnabled}
+    return &(macIwfAccessInterface.EntityData)
 }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetSegmentPath() string {
-    return "mac-iwf-access-interface"
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = macIwfAccessInterface.MaxLimit
-    leafs["threshold"] = macIwfAccessInterface.Threshold
-    leafs["radius-override-enabled"] = macIwfAccessInterface.RadiusOverrideEnabled
-    return leafs
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetYangName() string { return "mac-iwf-access-interface" }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) SetParent(parent types.Entity) { macIwfAccessInterface.parent = parent }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetParent() types.Entity { return macIwfAccessInterface.parent }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_MacIwfAccessInterface) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId
 // Circuit ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3486,60 +1903,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetFilter() yfilter.YFilter { return circuitId.YFilter }
+func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetEntityData() *types.CommonEntityData {
+    circuitId.EntityData.YFilter = circuitId.YFilter
+    circuitId.EntityData.YangName = "circuit-id"
+    circuitId.EntityData.BundleName = "cisco_ios_xr"
+    circuitId.EntityData.ParentYangName = "limit-config"
+    circuitId.EntityData.SegmentPath = "circuit-id"
+    circuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    circuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    circuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) SetFilter(yf yfilter.YFilter) { circuitId.YFilter = yf }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    circuitId.EntityData.Children = make(map[string]types.YChild)
+    circuitId.EntityData.Leafs = make(map[string]types.YLeaf)
+    circuitId.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", circuitId.MaxLimit}
+    circuitId.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", circuitId.Threshold}
+    circuitId.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", circuitId.RadiusOverrideEnabled}
+    return &(circuitId.EntityData)
 }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetSegmentPath() string {
-    return "circuit-id"
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = circuitId.MaxLimit
-    leafs["threshold"] = circuitId.Threshold
-    leafs["radius-override-enabled"] = circuitId.RadiusOverrideEnabled
-    return leafs
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetYangName() string { return "circuit-id" }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) SetParent(parent types.Entity) { circuitId.parent = parent }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetParent() types.Entity { return circuitId.parent }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitId) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId
 // Remote ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3553,60 +1938,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetFilter() yfilter.YFilter { return remoteId.YFilter }
+func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetEntityData() *types.CommonEntityData {
+    remoteId.EntityData.YFilter = remoteId.YFilter
+    remoteId.EntityData.YangName = "remote-id"
+    remoteId.EntityData.BundleName = "cisco_ios_xr"
+    remoteId.EntityData.ParentYangName = "limit-config"
+    remoteId.EntityData.SegmentPath = "remote-id"
+    remoteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) SetFilter(yf yfilter.YFilter) { remoteId.YFilter = yf }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    remoteId.EntityData.Children = make(map[string]types.YChild)
+    remoteId.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteId.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", remoteId.MaxLimit}
+    remoteId.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", remoteId.Threshold}
+    remoteId.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", remoteId.RadiusOverrideEnabled}
+    return &(remoteId.EntityData)
 }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetSegmentPath() string {
-    return "remote-id"
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = remoteId.MaxLimit
-    leafs["threshold"] = remoteId.Threshold
-    leafs["radius-override-enabled"] = remoteId.RadiusOverrideEnabled
-    return leafs
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetYangName() string { return "remote-id" }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) SetParent(parent types.Entity) { remoteId.parent = parent }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetParent() types.Entity { return remoteId.parent }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_RemoteId) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId
 // Circuit ID and Remote ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3620,60 +1973,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId struct
     RadiusOverrideEnabled interface{}
 }
 
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetFilter() yfilter.YFilter { return circuitIdAndRemoteId.YFilter }
+func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetEntityData() *types.CommonEntityData {
+    circuitIdAndRemoteId.EntityData.YFilter = circuitIdAndRemoteId.YFilter
+    circuitIdAndRemoteId.EntityData.YangName = "circuit-id-and-remote-id"
+    circuitIdAndRemoteId.EntityData.BundleName = "cisco_ios_xr"
+    circuitIdAndRemoteId.EntityData.ParentYangName = "limit-config"
+    circuitIdAndRemoteId.EntityData.SegmentPath = "circuit-id-and-remote-id"
+    circuitIdAndRemoteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    circuitIdAndRemoteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    circuitIdAndRemoteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) SetFilter(yf yfilter.YFilter) { circuitIdAndRemoteId.YFilter = yf }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    circuitIdAndRemoteId.EntityData.Children = make(map[string]types.YChild)
+    circuitIdAndRemoteId.EntityData.Leafs = make(map[string]types.YLeaf)
+    circuitIdAndRemoteId.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", circuitIdAndRemoteId.MaxLimit}
+    circuitIdAndRemoteId.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", circuitIdAndRemoteId.Threshold}
+    circuitIdAndRemoteId.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", circuitIdAndRemoteId.RadiusOverrideEnabled}
+    return &(circuitIdAndRemoteId.EntityData)
 }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetSegmentPath() string {
-    return "circuit-id-and-remote-id"
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = circuitIdAndRemoteId.MaxLimit
-    leafs["threshold"] = circuitIdAndRemoteId.Threshold
-    leafs["radius-override-enabled"] = circuitIdAndRemoteId.RadiusOverrideEnabled
-    return leafs
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetYangName() string { return "circuit-id-and-remote-id" }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) SetParent(parent types.Entity) { circuitIdAndRemoteId.parent = parent }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetParent() types.Entity { return circuitIdAndRemoteId.parent }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_CircuitIdAndRemoteId) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId
 // Outer VLAN ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3687,60 +2008,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetFilter() yfilter.YFilter { return outerVlanId.YFilter }
+func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetEntityData() *types.CommonEntityData {
+    outerVlanId.EntityData.YFilter = outerVlanId.YFilter
+    outerVlanId.EntityData.YangName = "outer-vlan-id"
+    outerVlanId.EntityData.BundleName = "cisco_ios_xr"
+    outerVlanId.EntityData.ParentYangName = "limit-config"
+    outerVlanId.EntityData.SegmentPath = "outer-vlan-id"
+    outerVlanId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outerVlanId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outerVlanId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) SetFilter(yf yfilter.YFilter) { outerVlanId.YFilter = yf }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    outerVlanId.EntityData.Children = make(map[string]types.YChild)
+    outerVlanId.EntityData.Leafs = make(map[string]types.YLeaf)
+    outerVlanId.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", outerVlanId.MaxLimit}
+    outerVlanId.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", outerVlanId.Threshold}
+    outerVlanId.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", outerVlanId.RadiusOverrideEnabled}
+    return &(outerVlanId.EntityData)
 }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetSegmentPath() string {
-    return "outer-vlan-id"
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = outerVlanId.MaxLimit
-    leafs["threshold"] = outerVlanId.Threshold
-    leafs["radius-override-enabled"] = outerVlanId.RadiusOverrideEnabled
-    return leafs
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetYangName() string { return "outer-vlan-id" }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) SetParent(parent types.Entity) { outerVlanId.parent = parent }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetParent() types.Entity { return outerVlanId.parent }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_OuterVlanId) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId
 // Inner VLAN ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3754,60 +2043,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetFilter() yfilter.YFilter { return innerVlanId.YFilter }
+func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetEntityData() *types.CommonEntityData {
+    innerVlanId.EntityData.YFilter = innerVlanId.YFilter
+    innerVlanId.EntityData.YangName = "inner-vlan-id"
+    innerVlanId.EntityData.BundleName = "cisco_ios_xr"
+    innerVlanId.EntityData.ParentYangName = "limit-config"
+    innerVlanId.EntityData.SegmentPath = "inner-vlan-id"
+    innerVlanId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerVlanId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerVlanId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) SetFilter(yf yfilter.YFilter) { innerVlanId.YFilter = yf }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    innerVlanId.EntityData.Children = make(map[string]types.YChild)
+    innerVlanId.EntityData.Leafs = make(map[string]types.YLeaf)
+    innerVlanId.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", innerVlanId.MaxLimit}
+    innerVlanId.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", innerVlanId.Threshold}
+    innerVlanId.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", innerVlanId.RadiusOverrideEnabled}
+    return &(innerVlanId.EntityData)
 }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetSegmentPath() string {
-    return "inner-vlan-id"
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = innerVlanId.MaxLimit
-    leafs["threshold"] = innerVlanId.Threshold
-    leafs["radius-override-enabled"] = innerVlanId.RadiusOverrideEnabled
-    return leafs
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetYangName() string { return "inner-vlan-id" }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) SetParent(parent types.Entity) { innerVlanId.parent = parent }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetParent() types.Entity { return innerVlanId.parent }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_InnerVlanId) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId
 // VLAN ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Limit. The type is interface{} with range: 0..4294967295.
@@ -3821,60 +2078,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId struct {
     RadiusOverrideEnabled interface{}
 }
 
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetFilter() yfilter.YFilter { return vlanId.YFilter }
+func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetEntityData() *types.CommonEntityData {
+    vlanId.EntityData.YFilter = vlanId.YFilter
+    vlanId.EntityData.YangName = "vlan-id"
+    vlanId.EntityData.BundleName = "cisco_ios_xr"
+    vlanId.EntityData.ParentYangName = "limit-config"
+    vlanId.EntityData.SegmentPath = "vlan-id"
+    vlanId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) SetFilter(yf yfilter.YFilter) { vlanId.YFilter = yf }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetGoName(yname string) string {
-    if yname == "max-limit" { return "MaxLimit" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "radius-override-enabled" { return "RadiusOverrideEnabled" }
-    return ""
+    vlanId.EntityData.Children = make(map[string]types.YChild)
+    vlanId.EntityData.Leafs = make(map[string]types.YLeaf)
+    vlanId.EntityData.Leafs["max-limit"] = types.YLeaf{"MaxLimit", vlanId.MaxLimit}
+    vlanId.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", vlanId.Threshold}
+    vlanId.EntityData.Leafs["radius-override-enabled"] = types.YLeaf{"RadiusOverrideEnabled", vlanId.RadiusOverrideEnabled}
+    return &(vlanId.EntityData)
 }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetSegmentPath() string {
-    return "vlan-id"
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-limit"] = vlanId.MaxLimit
-    leafs["threshold"] = vlanId.Threshold
-    leafs["radius-override-enabled"] = vlanId.RadiusOverrideEnabled
-    return leafs
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetYangName() string { return "vlan-id" }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) SetParent(parent types.Entity) { vlanId.parent = parent }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetParent() types.Entity { return vlanId.parent }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_LimitConfig_VlanId) GetParentYangName() string { return "limit-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits
 // PPPoE session limit information
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPPoE session limit state. The type is slice of
@@ -3882,84 +2107,46 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits struct {
     Limit []Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit
 }
 
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetFilter() yfilter.YFilter { return limits.YFilter }
+func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetEntityData() *types.CommonEntityData {
+    limits.EntityData.YFilter = limits.YFilter
+    limits.EntityData.YangName = "limits"
+    limits.EntityData.BundleName = "cisco_ios_xr"
+    limits.EntityData.ParentYangName = "bba-group"
+    limits.EntityData.SegmentPath = "limits"
+    limits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    limits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    limits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) SetFilter(yf yfilter.YFilter) { limits.YFilter = yf }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    return ""
-}
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetSegmentPath() string {
-    return "limits"
-}
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "limit" {
-        for _, c := range limits.Limit {
-            if limits.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit{}
-        limits.Limit = append(limits.Limit, child)
-        return &limits.Limit[len(limits.Limit)-1]
-    }
-    return nil
-}
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    limits.EntityData.Children = make(map[string]types.YChild)
+    limits.EntityData.Children["limit"] = types.YChild{"Limit", nil}
     for i := range limits.Limit {
-        children[limits.Limit[i].GetSegmentPath()] = &limits.Limit[i]
+        limits.EntityData.Children[types.GetSegmentPath(&limits.Limit[i])] = types.YChild{"Limit", &limits.Limit[i]}
     }
-    return children
+    limits.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(limits.EntityData)
 }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetBundleName() string { return "cisco_ios_xr" }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetYangName() string { return "limits" }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) SetParent(parent types.Entity) { limits.parent = parent }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetParent() types.Entity { return limits.parent }
-
-func (limits *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits) GetParentYangName() string { return "bba-group" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit
 // PPPoE session limit state
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IWF flag. The type is bool.
     Iwf interface{}
 
-    // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Circuit ID. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CircuitId interface{}
 
-    // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Remote ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RemoteId interface{}
 
     // Outer VLAN ID. The type is interface{} with range: 0..4095.
@@ -3982,76 +2169,36 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit struct {
     OverrideLimit interface{}
 }
 
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetFilter() yfilter.YFilter { return limit.YFilter }
+func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetEntityData() *types.CommonEntityData {
+    limit.EntityData.YFilter = limit.YFilter
+    limit.EntityData.YangName = "limit"
+    limit.EntityData.BundleName = "cisco_ios_xr"
+    limit.EntityData.ParentYangName = "limits"
+    limit.EntityData.SegmentPath = "limit"
+    limit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    limit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    limit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) SetFilter(yf yfilter.YFilter) { limit.YFilter = yf }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "iwf" { return "Iwf" }
-    if yname == "circuit-id" { return "CircuitId" }
-    if yname == "remote-id" { return "RemoteId" }
-    if yname == "outer-vlan-id" { return "OuterVlanId" }
-    if yname == "inner-vlan-id" { return "InnerVlanId" }
-    if yname == "state" { return "State" }
-    if yname == "session-count" { return "SessionCount" }
-    if yname == "radius-override-set" { return "RadiusOverrideSet" }
-    if yname == "override-limit" { return "OverrideLimit" }
-    return ""
+    limit.EntityData.Children = make(map[string]types.YChild)
+    limit.EntityData.Leafs = make(map[string]types.YLeaf)
+    limit.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", limit.InterfaceName}
+    limit.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", limit.MacAddress}
+    limit.EntityData.Leafs["iwf"] = types.YLeaf{"Iwf", limit.Iwf}
+    limit.EntityData.Leafs["circuit-id"] = types.YLeaf{"CircuitId", limit.CircuitId}
+    limit.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", limit.RemoteId}
+    limit.EntityData.Leafs["outer-vlan-id"] = types.YLeaf{"OuterVlanId", limit.OuterVlanId}
+    limit.EntityData.Leafs["inner-vlan-id"] = types.YLeaf{"InnerVlanId", limit.InnerVlanId}
+    limit.EntityData.Leafs["state"] = types.YLeaf{"State", limit.State}
+    limit.EntityData.Leafs["session-count"] = types.YLeaf{"SessionCount", limit.SessionCount}
+    limit.EntityData.Leafs["radius-override-set"] = types.YLeaf{"RadiusOverrideSet", limit.RadiusOverrideSet}
+    limit.EntityData.Leafs["override-limit"] = types.YLeaf{"OverrideLimit", limit.OverrideLimit}
+    return &(limit.EntityData)
 }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetSegmentPath() string {
-    return "limit"
-}
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = limit.InterfaceName
-    leafs["mac-address"] = limit.MacAddress
-    leafs["iwf"] = limit.Iwf
-    leafs["circuit-id"] = limit.CircuitId
-    leafs["remote-id"] = limit.RemoteId
-    leafs["outer-vlan-id"] = limit.OuterVlanId
-    leafs["inner-vlan-id"] = limit.InnerVlanId
-    leafs["state"] = limit.State
-    leafs["session-count"] = limit.SessionCount
-    leafs["radius-override-set"] = limit.RadiusOverrideSet
-    leafs["override-limit"] = limit.OverrideLimit
-    return leafs
-}
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetYangName() string { return "limit" }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) SetParent(parent types.Entity) { limit.parent = parent }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetParent() types.Entity { return limit.parent }
-
-func (limit *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Limits_Limit) GetParentYangName() string { return "limits" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles
 // PPPoE throttle information
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPPoE session throttle state. The type is slice of
@@ -4059,84 +2206,46 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles struct {
     Throttle []Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle
 }
 
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetFilter() yfilter.YFilter { return throttles.YFilter }
+func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetEntityData() *types.CommonEntityData {
+    throttles.EntityData.YFilter = throttles.YFilter
+    throttles.EntityData.YangName = "throttles"
+    throttles.EntityData.BundleName = "cisco_ios_xr"
+    throttles.EntityData.ParentYangName = "bba-group"
+    throttles.EntityData.SegmentPath = "throttles"
+    throttles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) SetFilter(yf yfilter.YFilter) { throttles.YFilter = yf }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetGoName(yname string) string {
-    if yname == "throttle" { return "Throttle" }
-    return ""
-}
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetSegmentPath() string {
-    return "throttles"
-}
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "throttle" {
-        for _, c := range throttles.Throttle {
-            if throttles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle{}
-        throttles.Throttle = append(throttles.Throttle, child)
-        return &throttles.Throttle[len(throttles.Throttle)-1]
-    }
-    return nil
-}
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    throttles.EntityData.Children = make(map[string]types.YChild)
+    throttles.EntityData.Children["throttle"] = types.YChild{"Throttle", nil}
     for i := range throttles.Throttle {
-        children[throttles.Throttle[i].GetSegmentPath()] = &throttles.Throttle[i]
+        throttles.EntityData.Children[types.GetSegmentPath(&throttles.Throttle[i])] = types.YChild{"Throttle", &throttles.Throttle[i]}
     }
-    return children
+    throttles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(throttles.EntityData)
 }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetYangName() string { return "throttles" }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) SetParent(parent types.Entity) { throttles.parent = parent }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetParent() types.Entity { return throttles.parent }
-
-func (throttles *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles) GetParentYangName() string { return "bba-group" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle
 // PPPoE session throttle state
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Access Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Access Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // IWF flag. The type is bool.
     Iwf interface{}
 
-    // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Circuit ID. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CircuitId interface{}
 
-    // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Remote ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RemoteId interface{}
 
     // Outer VLAN ID. The type is interface{} with range: 0..4095.
@@ -4163,78 +2272,37 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle struct {
     PadrCount interface{}
 }
 
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetFilter() yfilter.YFilter { return throttle.YFilter }
+func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetEntityData() *types.CommonEntityData {
+    throttle.EntityData.YFilter = throttle.YFilter
+    throttle.EntityData.YangName = "throttle"
+    throttle.EntityData.BundleName = "cisco_ios_xr"
+    throttle.EntityData.ParentYangName = "throttles"
+    throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) SetFilter(yf yfilter.YFilter) { throttle.YFilter = yf }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "iwf" { return "Iwf" }
-    if yname == "circuit-id" { return "CircuitId" }
-    if yname == "remote-id" { return "RemoteId" }
-    if yname == "outer-vlan-id" { return "OuterVlanId" }
-    if yname == "inner-vlan-id" { return "InnerVlanId" }
-    if yname == "state" { return "State" }
-    if yname == "time-left" { return "TimeLeft" }
-    if yname == "since-reset" { return "SinceReset" }
-    if yname == "padi-count" { return "PadiCount" }
-    if yname == "padr-count" { return "PadrCount" }
-    return ""
+    throttle.EntityData.Children = make(map[string]types.YChild)
+    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttle.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", throttle.InterfaceName}
+    throttle.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", throttle.MacAddress}
+    throttle.EntityData.Leafs["iwf"] = types.YLeaf{"Iwf", throttle.Iwf}
+    throttle.EntityData.Leafs["circuit-id"] = types.YLeaf{"CircuitId", throttle.CircuitId}
+    throttle.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", throttle.RemoteId}
+    throttle.EntityData.Leafs["outer-vlan-id"] = types.YLeaf{"OuterVlanId", throttle.OuterVlanId}
+    throttle.EntityData.Leafs["inner-vlan-id"] = types.YLeaf{"InnerVlanId", throttle.InnerVlanId}
+    throttle.EntityData.Leafs["state"] = types.YLeaf{"State", throttle.State}
+    throttle.EntityData.Leafs["time-left"] = types.YLeaf{"TimeLeft", throttle.TimeLeft}
+    throttle.EntityData.Leafs["since-reset"] = types.YLeaf{"SinceReset", throttle.SinceReset}
+    throttle.EntityData.Leafs["padi-count"] = types.YLeaf{"PadiCount", throttle.PadiCount}
+    throttle.EntityData.Leafs["padr-count"] = types.YLeaf{"PadrCount", throttle.PadrCount}
+    return &(throttle.EntityData)
 }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetSegmentPath() string {
-    return "throttle"
-}
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = throttle.InterfaceName
-    leafs["mac-address"] = throttle.MacAddress
-    leafs["iwf"] = throttle.Iwf
-    leafs["circuit-id"] = throttle.CircuitId
-    leafs["remote-id"] = throttle.RemoteId
-    leafs["outer-vlan-id"] = throttle.OuterVlanId
-    leafs["inner-vlan-id"] = throttle.InnerVlanId
-    leafs["state"] = throttle.State
-    leafs["time-left"] = throttle.TimeLeft
-    leafs["since-reset"] = throttle.SinceReset
-    leafs["padi-count"] = throttle.PadiCount
-    leafs["padr-count"] = throttle.PadrCount
-    return leafs
-}
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetYangName() string { return "throttle" }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) SetParent(parent types.Entity) { throttle.parent = parent }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetParent() types.Entity { return throttle.parent }
-
-func (throttle *Pppoe_Nodes_Node_BbaGroups_BbaGroup_Throttles_Throttle) GetParentYangName() string { return "throttles" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig
 // BBA-Group throttle configuration information
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC.
@@ -4265,99 +2333,34 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig struct {
     VlanId Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId
 }
 
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetFilter() yfilter.YFilter { return throttleConfig.YFilter }
+func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetEntityData() *types.CommonEntityData {
+    throttleConfig.EntityData.YFilter = throttleConfig.YFilter
+    throttleConfig.EntityData.YangName = "throttle-config"
+    throttleConfig.EntityData.BundleName = "cisco_ios_xr"
+    throttleConfig.EntityData.ParentYangName = "bba-group"
+    throttleConfig.EntityData.SegmentPath = "throttle-config"
+    throttleConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttleConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttleConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) SetFilter(yf yfilter.YFilter) { throttleConfig.YFilter = yf }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetGoName(yname string) string {
-    if yname == "mac" { return "Mac" }
-    if yname == "mac-access-interface" { return "MacAccessInterface" }
-    if yname == "mac-iwf-access-interface" { return "MacIwfAccessInterface" }
-    if yname == "circuit-id" { return "CircuitId" }
-    if yname == "remote-id" { return "RemoteId" }
-    if yname == "circuit-id-and-remote-id" { return "CircuitIdAndRemoteId" }
-    if yname == "outer-vlan-id" { return "OuterVlanId" }
-    if yname == "inner-vlan-id" { return "InnerVlanId" }
-    if yname == "vlan-id" { return "VlanId" }
-    return ""
+    throttleConfig.EntityData.Children = make(map[string]types.YChild)
+    throttleConfig.EntityData.Children["mac"] = types.YChild{"Mac", &throttleConfig.Mac}
+    throttleConfig.EntityData.Children["mac-access-interface"] = types.YChild{"MacAccessInterface", &throttleConfig.MacAccessInterface}
+    throttleConfig.EntityData.Children["mac-iwf-access-interface"] = types.YChild{"MacIwfAccessInterface", &throttleConfig.MacIwfAccessInterface}
+    throttleConfig.EntityData.Children["circuit-id"] = types.YChild{"CircuitId", &throttleConfig.CircuitId}
+    throttleConfig.EntityData.Children["remote-id"] = types.YChild{"RemoteId", &throttleConfig.RemoteId}
+    throttleConfig.EntityData.Children["circuit-id-and-remote-id"] = types.YChild{"CircuitIdAndRemoteId", &throttleConfig.CircuitIdAndRemoteId}
+    throttleConfig.EntityData.Children["outer-vlan-id"] = types.YChild{"OuterVlanId", &throttleConfig.OuterVlanId}
+    throttleConfig.EntityData.Children["inner-vlan-id"] = types.YChild{"InnerVlanId", &throttleConfig.InnerVlanId}
+    throttleConfig.EntityData.Children["vlan-id"] = types.YChild{"VlanId", &throttleConfig.VlanId}
+    throttleConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(throttleConfig.EntityData)
 }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetSegmentPath() string {
-    return "throttle-config"
-}
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mac" {
-        return &throttleConfig.Mac
-    }
-    if childYangName == "mac-access-interface" {
-        return &throttleConfig.MacAccessInterface
-    }
-    if childYangName == "mac-iwf-access-interface" {
-        return &throttleConfig.MacIwfAccessInterface
-    }
-    if childYangName == "circuit-id" {
-        return &throttleConfig.CircuitId
-    }
-    if childYangName == "remote-id" {
-        return &throttleConfig.RemoteId
-    }
-    if childYangName == "circuit-id-and-remote-id" {
-        return &throttleConfig.CircuitIdAndRemoteId
-    }
-    if childYangName == "outer-vlan-id" {
-        return &throttleConfig.OuterVlanId
-    }
-    if childYangName == "inner-vlan-id" {
-        return &throttleConfig.InnerVlanId
-    }
-    if childYangName == "vlan-id" {
-        return &throttleConfig.VlanId
-    }
-    return nil
-}
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mac"] = &throttleConfig.Mac
-    children["mac-access-interface"] = &throttleConfig.MacAccessInterface
-    children["mac-iwf-access-interface"] = &throttleConfig.MacIwfAccessInterface
-    children["circuit-id"] = &throttleConfig.CircuitId
-    children["remote-id"] = &throttleConfig.RemoteId
-    children["circuit-id-and-remote-id"] = &throttleConfig.CircuitIdAndRemoteId
-    children["outer-vlan-id"] = &throttleConfig.OuterVlanId
-    children["inner-vlan-id"] = &throttleConfig.InnerVlanId
-    children["vlan-id"] = &throttleConfig.VlanId
-    return children
-}
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetYangName() string { return "throttle-config" }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) SetParent(parent types.Entity) { throttleConfig.parent = parent }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetParent() types.Entity { return throttleConfig.parent }
-
-func (throttleConfig *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig) GetParentYangName() string { return "bba-group" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac
 // MAC
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4370,60 +2373,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac struct {
     BlockingPeriod interface{}
 }
 
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetFilter() yfilter.YFilter { return mac.YFilter }
+func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetEntityData() *types.CommonEntityData {
+    mac.EntityData.YFilter = mac.YFilter
+    mac.EntityData.YangName = "mac"
+    mac.EntityData.BundleName = "cisco_ios_xr"
+    mac.EntityData.ParentYangName = "throttle-config"
+    mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) SetFilter(yf yfilter.YFilter) { mac.YFilter = yf }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    mac.EntityData.Children = make(map[string]types.YChild)
+    mac.EntityData.Leafs = make(map[string]types.YLeaf)
+    mac.EntityData.Leafs["limit"] = types.YLeaf{"Limit", mac.Limit}
+    mac.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", mac.RequestPeriod}
+    mac.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", mac.BlockingPeriod}
+    return &(mac.EntityData)
 }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetSegmentPath() string {
-    return "mac"
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = mac.Limit
-    leafs["request-period"] = mac.RequestPeriod
-    leafs["blocking-period"] = mac.BlockingPeriod
-    return leafs
-}
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetYangName() string { return "mac" }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) SetParent(parent types.Entity) { mac.parent = parent }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetParent() types.Entity { return mac.parent }
-
-func (mac *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_Mac) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface
 // MAC Access Interface
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4436,60 +2407,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface struc
     BlockingPeriod interface{}
 }
 
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetFilter() yfilter.YFilter { return macAccessInterface.YFilter }
+func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetEntityData() *types.CommonEntityData {
+    macAccessInterface.EntityData.YFilter = macAccessInterface.YFilter
+    macAccessInterface.EntityData.YangName = "mac-access-interface"
+    macAccessInterface.EntityData.BundleName = "cisco_ios_xr"
+    macAccessInterface.EntityData.ParentYangName = "throttle-config"
+    macAccessInterface.EntityData.SegmentPath = "mac-access-interface"
+    macAccessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macAccessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macAccessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) SetFilter(yf yfilter.YFilter) { macAccessInterface.YFilter = yf }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    macAccessInterface.EntityData.Children = make(map[string]types.YChild)
+    macAccessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    macAccessInterface.EntityData.Leafs["limit"] = types.YLeaf{"Limit", macAccessInterface.Limit}
+    macAccessInterface.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", macAccessInterface.RequestPeriod}
+    macAccessInterface.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", macAccessInterface.BlockingPeriod}
+    return &(macAccessInterface.EntityData)
 }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetSegmentPath() string {
-    return "mac-access-interface"
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = macAccessInterface.Limit
-    leafs["request-period"] = macAccessInterface.RequestPeriod
-    leafs["blocking-period"] = macAccessInterface.BlockingPeriod
-    return leafs
-}
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetYangName() string { return "mac-access-interface" }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) SetParent(parent types.Entity) { macAccessInterface.parent = parent }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetParent() types.Entity { return macAccessInterface.parent }
-
-func (macAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacAccessInterface) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface
 // MAC IWF Access Interface
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4502,60 +2441,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface st
     BlockingPeriod interface{}
 }
 
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetFilter() yfilter.YFilter { return macIwfAccessInterface.YFilter }
+func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetEntityData() *types.CommonEntityData {
+    macIwfAccessInterface.EntityData.YFilter = macIwfAccessInterface.YFilter
+    macIwfAccessInterface.EntityData.YangName = "mac-iwf-access-interface"
+    macIwfAccessInterface.EntityData.BundleName = "cisco_ios_xr"
+    macIwfAccessInterface.EntityData.ParentYangName = "throttle-config"
+    macIwfAccessInterface.EntityData.SegmentPath = "mac-iwf-access-interface"
+    macIwfAccessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macIwfAccessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macIwfAccessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) SetFilter(yf yfilter.YFilter) { macIwfAccessInterface.YFilter = yf }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    macIwfAccessInterface.EntityData.Children = make(map[string]types.YChild)
+    macIwfAccessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    macIwfAccessInterface.EntityData.Leafs["limit"] = types.YLeaf{"Limit", macIwfAccessInterface.Limit}
+    macIwfAccessInterface.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", macIwfAccessInterface.RequestPeriod}
+    macIwfAccessInterface.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", macIwfAccessInterface.BlockingPeriod}
+    return &(macIwfAccessInterface.EntityData)
 }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetSegmentPath() string {
-    return "mac-iwf-access-interface"
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = macIwfAccessInterface.Limit
-    leafs["request-period"] = macIwfAccessInterface.RequestPeriod
-    leafs["blocking-period"] = macIwfAccessInterface.BlockingPeriod
-    return leafs
-}
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetYangName() string { return "mac-iwf-access-interface" }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) SetParent(parent types.Entity) { macIwfAccessInterface.parent = parent }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetParent() types.Entity { return macIwfAccessInterface.parent }
-
-func (macIwfAccessInterface *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_MacIwfAccessInterface) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId
 // Circuit ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4568,60 +2475,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId struct {
     BlockingPeriod interface{}
 }
 
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetFilter() yfilter.YFilter { return circuitId.YFilter }
+func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetEntityData() *types.CommonEntityData {
+    circuitId.EntityData.YFilter = circuitId.YFilter
+    circuitId.EntityData.YangName = "circuit-id"
+    circuitId.EntityData.BundleName = "cisco_ios_xr"
+    circuitId.EntityData.ParentYangName = "throttle-config"
+    circuitId.EntityData.SegmentPath = "circuit-id"
+    circuitId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    circuitId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    circuitId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) SetFilter(yf yfilter.YFilter) { circuitId.YFilter = yf }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    circuitId.EntityData.Children = make(map[string]types.YChild)
+    circuitId.EntityData.Leafs = make(map[string]types.YLeaf)
+    circuitId.EntityData.Leafs["limit"] = types.YLeaf{"Limit", circuitId.Limit}
+    circuitId.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", circuitId.RequestPeriod}
+    circuitId.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", circuitId.BlockingPeriod}
+    return &(circuitId.EntityData)
 }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetSegmentPath() string {
-    return "circuit-id"
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = circuitId.Limit
-    leafs["request-period"] = circuitId.RequestPeriod
-    leafs["blocking-period"] = circuitId.BlockingPeriod
-    return leafs
-}
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetYangName() string { return "circuit-id" }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) SetParent(parent types.Entity) { circuitId.parent = parent }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetParent() types.Entity { return circuitId.parent }
-
-func (circuitId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitId) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId
 // Remote ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4634,60 +2509,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId struct {
     BlockingPeriod interface{}
 }
 
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetFilter() yfilter.YFilter { return remoteId.YFilter }
+func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetEntityData() *types.CommonEntityData {
+    remoteId.EntityData.YFilter = remoteId.YFilter
+    remoteId.EntityData.YangName = "remote-id"
+    remoteId.EntityData.BundleName = "cisco_ios_xr"
+    remoteId.EntityData.ParentYangName = "throttle-config"
+    remoteId.EntityData.SegmentPath = "remote-id"
+    remoteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) SetFilter(yf yfilter.YFilter) { remoteId.YFilter = yf }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    remoteId.EntityData.Children = make(map[string]types.YChild)
+    remoteId.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteId.EntityData.Leafs["limit"] = types.YLeaf{"Limit", remoteId.Limit}
+    remoteId.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", remoteId.RequestPeriod}
+    remoteId.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", remoteId.BlockingPeriod}
+    return &(remoteId.EntityData)
 }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetSegmentPath() string {
-    return "remote-id"
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = remoteId.Limit
-    leafs["request-period"] = remoteId.RequestPeriod
-    leafs["blocking-period"] = remoteId.BlockingPeriod
-    return leafs
-}
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetYangName() string { return "remote-id" }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) SetParent(parent types.Entity) { remoteId.parent = parent }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetParent() types.Entity { return remoteId.parent }
-
-func (remoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_RemoteId) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId
 // Circuit ID and Remote ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4700,60 +2543,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId str
     BlockingPeriod interface{}
 }
 
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetFilter() yfilter.YFilter { return circuitIdAndRemoteId.YFilter }
+func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetEntityData() *types.CommonEntityData {
+    circuitIdAndRemoteId.EntityData.YFilter = circuitIdAndRemoteId.YFilter
+    circuitIdAndRemoteId.EntityData.YangName = "circuit-id-and-remote-id"
+    circuitIdAndRemoteId.EntityData.BundleName = "cisco_ios_xr"
+    circuitIdAndRemoteId.EntityData.ParentYangName = "throttle-config"
+    circuitIdAndRemoteId.EntityData.SegmentPath = "circuit-id-and-remote-id"
+    circuitIdAndRemoteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    circuitIdAndRemoteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    circuitIdAndRemoteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) SetFilter(yf yfilter.YFilter) { circuitIdAndRemoteId.YFilter = yf }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    circuitIdAndRemoteId.EntityData.Children = make(map[string]types.YChild)
+    circuitIdAndRemoteId.EntityData.Leafs = make(map[string]types.YLeaf)
+    circuitIdAndRemoteId.EntityData.Leafs["limit"] = types.YLeaf{"Limit", circuitIdAndRemoteId.Limit}
+    circuitIdAndRemoteId.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", circuitIdAndRemoteId.RequestPeriod}
+    circuitIdAndRemoteId.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", circuitIdAndRemoteId.BlockingPeriod}
+    return &(circuitIdAndRemoteId.EntityData)
 }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetSegmentPath() string {
-    return "circuit-id-and-remote-id"
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = circuitIdAndRemoteId.Limit
-    leafs["request-period"] = circuitIdAndRemoteId.RequestPeriod
-    leafs["blocking-period"] = circuitIdAndRemoteId.BlockingPeriod
-    return leafs
-}
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetYangName() string { return "circuit-id-and-remote-id" }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) SetParent(parent types.Entity) { circuitIdAndRemoteId.parent = parent }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetParent() types.Entity { return circuitIdAndRemoteId.parent }
-
-func (circuitIdAndRemoteId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_CircuitIdAndRemoteId) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId
 // Outer VLAN ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4766,60 +2577,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId struct {
     BlockingPeriod interface{}
 }
 
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetFilter() yfilter.YFilter { return outerVlanId.YFilter }
+func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetEntityData() *types.CommonEntityData {
+    outerVlanId.EntityData.YFilter = outerVlanId.YFilter
+    outerVlanId.EntityData.YangName = "outer-vlan-id"
+    outerVlanId.EntityData.BundleName = "cisco_ios_xr"
+    outerVlanId.EntityData.ParentYangName = "throttle-config"
+    outerVlanId.EntityData.SegmentPath = "outer-vlan-id"
+    outerVlanId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outerVlanId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outerVlanId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) SetFilter(yf yfilter.YFilter) { outerVlanId.YFilter = yf }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    outerVlanId.EntityData.Children = make(map[string]types.YChild)
+    outerVlanId.EntityData.Leafs = make(map[string]types.YLeaf)
+    outerVlanId.EntityData.Leafs["limit"] = types.YLeaf{"Limit", outerVlanId.Limit}
+    outerVlanId.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", outerVlanId.RequestPeriod}
+    outerVlanId.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", outerVlanId.BlockingPeriod}
+    return &(outerVlanId.EntityData)
 }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetSegmentPath() string {
-    return "outer-vlan-id"
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = outerVlanId.Limit
-    leafs["request-period"] = outerVlanId.RequestPeriod
-    leafs["blocking-period"] = outerVlanId.BlockingPeriod
-    return leafs
-}
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetYangName() string { return "outer-vlan-id" }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) SetParent(parent types.Entity) { outerVlanId.parent = parent }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetParent() types.Entity { return outerVlanId.parent }
-
-func (outerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_OuterVlanId) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId
 // Inner VLAN ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4832,60 +2611,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId struct {
     BlockingPeriod interface{}
 }
 
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetFilter() yfilter.YFilter { return innerVlanId.YFilter }
+func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetEntityData() *types.CommonEntityData {
+    innerVlanId.EntityData.YFilter = innerVlanId.YFilter
+    innerVlanId.EntityData.YangName = "inner-vlan-id"
+    innerVlanId.EntityData.BundleName = "cisco_ios_xr"
+    innerVlanId.EntityData.ParentYangName = "throttle-config"
+    innerVlanId.EntityData.SegmentPath = "inner-vlan-id"
+    innerVlanId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    innerVlanId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    innerVlanId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) SetFilter(yf yfilter.YFilter) { innerVlanId.YFilter = yf }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    innerVlanId.EntityData.Children = make(map[string]types.YChild)
+    innerVlanId.EntityData.Leafs = make(map[string]types.YLeaf)
+    innerVlanId.EntityData.Leafs["limit"] = types.YLeaf{"Limit", innerVlanId.Limit}
+    innerVlanId.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", innerVlanId.RequestPeriod}
+    innerVlanId.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", innerVlanId.BlockingPeriod}
+    return &(innerVlanId.EntityData)
 }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetSegmentPath() string {
-    return "inner-vlan-id"
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = innerVlanId.Limit
-    leafs["request-period"] = innerVlanId.RequestPeriod
-    leafs["blocking-period"] = innerVlanId.BlockingPeriod
-    return leafs
-}
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetYangName() string { return "inner-vlan-id" }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) SetParent(parent types.Entity) { innerVlanId.parent = parent }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetParent() types.Entity { return innerVlanId.parent }
-
-func (innerVlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_InnerVlanId) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId
 // VLAN ID
 type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Limit. The type is interface{} with range: 0..4294967295.
@@ -4898,60 +2645,28 @@ type Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId struct {
     BlockingPeriod interface{}
 }
 
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetFilter() yfilter.YFilter { return vlanId.YFilter }
+func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetEntityData() *types.CommonEntityData {
+    vlanId.EntityData.YFilter = vlanId.YFilter
+    vlanId.EntityData.YangName = "vlan-id"
+    vlanId.EntityData.BundleName = "cisco_ios_xr"
+    vlanId.EntityData.ParentYangName = "throttle-config"
+    vlanId.EntityData.SegmentPath = "vlan-id"
+    vlanId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vlanId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vlanId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) SetFilter(yf yfilter.YFilter) { vlanId.YFilter = yf }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetGoName(yname string) string {
-    if yname == "limit" { return "Limit" }
-    if yname == "request-period" { return "RequestPeriod" }
-    if yname == "blocking-period" { return "BlockingPeriod" }
-    return ""
+    vlanId.EntityData.Children = make(map[string]types.YChild)
+    vlanId.EntityData.Leafs = make(map[string]types.YLeaf)
+    vlanId.EntityData.Leafs["limit"] = types.YLeaf{"Limit", vlanId.Limit}
+    vlanId.EntityData.Leafs["request-period"] = types.YLeaf{"RequestPeriod", vlanId.RequestPeriod}
+    vlanId.EntityData.Leafs["blocking-period"] = types.YLeaf{"BlockingPeriod", vlanId.BlockingPeriod}
+    return &(vlanId.EntityData)
 }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetSegmentPath() string {
-    return "vlan-id"
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["limit"] = vlanId.Limit
-    leafs["request-period"] = vlanId.RequestPeriod
-    leafs["blocking-period"] = vlanId.BlockingPeriod
-    return leafs
-}
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetYangName() string { return "vlan-id" }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) SetParent(parent types.Entity) { vlanId.parent = parent }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetParent() types.Entity { return vlanId.parent }
-
-func (vlanId *Pppoe_Nodes_Node_BbaGroups_BbaGroup_ThrottleConfig_VlanId) GetParentYangName() string { return "throttle-config" }
 
 // Pppoe_Nodes_Node_SummaryTotal
 // PPPoE statistics for a given node
 type Pppoe_Nodes_Node_SummaryTotal struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ready Access Interface Count. The type is interface{} with range:
@@ -4994,67 +2709,28 @@ type Pppoe_Nodes_Node_SummaryTotal struct {
     PppoemaSubscriberInfraFlowControl interface{}
 }
 
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetFilter() yfilter.YFilter { return summaryTotal.YFilter }
+func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetEntityData() *types.CommonEntityData {
+    summaryTotal.EntityData.YFilter = summaryTotal.YFilter
+    summaryTotal.EntityData.YangName = "summary-total"
+    summaryTotal.EntityData.BundleName = "cisco_ios_xr"
+    summaryTotal.EntityData.ParentYangName = "node"
+    summaryTotal.EntityData.SegmentPath = "summary-total"
+    summaryTotal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summaryTotal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summaryTotal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) SetFilter(yf yfilter.YFilter) { summaryTotal.YFilter = yf }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetGoName(yname string) string {
-    if yname == "ready-access-interfaces" { return "ReadyAccessInterfaces" }
-    if yname == "not-ready-access-interfaces" { return "NotReadyAccessInterfaces" }
-    if yname == "complete-sessions" { return "CompleteSessions" }
-    if yname == "incomplete-sessions" { return "IncompleteSessions" }
-    if yname == "flow-control-limit" { return "FlowControlLimit" }
-    if yname == "flow-control-in-flight-sessions" { return "FlowControlInFlightSessions" }
-    if yname == "flow-control-dropped-sessions" { return "FlowControlDroppedSessions" }
-    if yname == "flow-control-disconnected-sessions" { return "FlowControlDisconnectedSessions" }
-    if yname == "flow-control-successful-sessions" { return "FlowControlSuccessfulSessions" }
-    if yname == "pppoema-subscriber-infra-flow-control" { return "PppoemaSubscriberInfraFlowControl" }
-    return ""
+    summaryTotal.EntityData.Children = make(map[string]types.YChild)
+    summaryTotal.EntityData.Leafs = make(map[string]types.YLeaf)
+    summaryTotal.EntityData.Leafs["ready-access-interfaces"] = types.YLeaf{"ReadyAccessInterfaces", summaryTotal.ReadyAccessInterfaces}
+    summaryTotal.EntityData.Leafs["not-ready-access-interfaces"] = types.YLeaf{"NotReadyAccessInterfaces", summaryTotal.NotReadyAccessInterfaces}
+    summaryTotal.EntityData.Leafs["complete-sessions"] = types.YLeaf{"CompleteSessions", summaryTotal.CompleteSessions}
+    summaryTotal.EntityData.Leafs["incomplete-sessions"] = types.YLeaf{"IncompleteSessions", summaryTotal.IncompleteSessions}
+    summaryTotal.EntityData.Leafs["flow-control-limit"] = types.YLeaf{"FlowControlLimit", summaryTotal.FlowControlLimit}
+    summaryTotal.EntityData.Leafs["flow-control-in-flight-sessions"] = types.YLeaf{"FlowControlInFlightSessions", summaryTotal.FlowControlInFlightSessions}
+    summaryTotal.EntityData.Leafs["flow-control-dropped-sessions"] = types.YLeaf{"FlowControlDroppedSessions", summaryTotal.FlowControlDroppedSessions}
+    summaryTotal.EntityData.Leafs["flow-control-disconnected-sessions"] = types.YLeaf{"FlowControlDisconnectedSessions", summaryTotal.FlowControlDisconnectedSessions}
+    summaryTotal.EntityData.Leafs["flow-control-successful-sessions"] = types.YLeaf{"FlowControlSuccessfulSessions", summaryTotal.FlowControlSuccessfulSessions}
+    summaryTotal.EntityData.Leafs["pppoema-subscriber-infra-flow-control"] = types.YLeaf{"PppoemaSubscriberInfraFlowControl", summaryTotal.PppoemaSubscriberInfraFlowControl}
+    return &(summaryTotal.EntityData)
 }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetSegmentPath() string {
-    return "summary-total"
-}
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ready-access-interfaces"] = summaryTotal.ReadyAccessInterfaces
-    leafs["not-ready-access-interfaces"] = summaryTotal.NotReadyAccessInterfaces
-    leafs["complete-sessions"] = summaryTotal.CompleteSessions
-    leafs["incomplete-sessions"] = summaryTotal.IncompleteSessions
-    leafs["flow-control-limit"] = summaryTotal.FlowControlLimit
-    leafs["flow-control-in-flight-sessions"] = summaryTotal.FlowControlInFlightSessions
-    leafs["flow-control-dropped-sessions"] = summaryTotal.FlowControlDroppedSessions
-    leafs["flow-control-disconnected-sessions"] = summaryTotal.FlowControlDisconnectedSessions
-    leafs["flow-control-successful-sessions"] = summaryTotal.FlowControlSuccessfulSessions
-    leafs["pppoema-subscriber-infra-flow-control"] = summaryTotal.PppoemaSubscriberInfraFlowControl
-    return leafs
-}
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetYangName() string { return "summary-total" }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) SetParent(parent types.Entity) { summaryTotal.parent = parent }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetParent() types.Entity { return summaryTotal.parent }
-
-func (summaryTotal *Pppoe_Nodes_Node_SummaryTotal) GetParentYangName() string { return "node" }
 

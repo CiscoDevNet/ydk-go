@@ -23,65 +23,32 @@ func init() {
 // SysmgrProcessRestart
 // Restart an XR process
 type SysmgrProcessRestart struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input SysmgrProcessRestart_Input
 }
 
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetFilter() yfilter.YFilter { return sysmgrProcessRestart.YFilter }
+func (sysmgrProcessRestart *SysmgrProcessRestart) GetEntityData() *types.CommonEntityData {
+    sysmgrProcessRestart.EntityData.YFilter = sysmgrProcessRestart.YFilter
+    sysmgrProcessRestart.EntityData.YangName = "sysmgr-process-restart"
+    sysmgrProcessRestart.EntityData.BundleName = "cisco_ios_xr"
+    sysmgrProcessRestart.EntityData.ParentYangName = "Cisco-IOS-XR-sysmgr-act"
+    sysmgrProcessRestart.EntityData.SegmentPath = "Cisco-IOS-XR-sysmgr-act:sysmgr-process-restart"
+    sysmgrProcessRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sysmgrProcessRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sysmgrProcessRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sysmgrProcessRestart *SysmgrProcessRestart) SetFilter(yf yfilter.YFilter) { sysmgrProcessRestart.YFilter = yf }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    sysmgrProcessRestart.EntityData.Children = make(map[string]types.YChild)
+    sysmgrProcessRestart.EntityData.Children["input"] = types.YChild{"Input", &sysmgrProcessRestart.Input}
+    sysmgrProcessRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sysmgrProcessRestart.EntityData)
 }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetSegmentPath() string {
-    return "Cisco-IOS-XR-sysmgr-act:sysmgr-process-restart"
-}
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &sysmgrProcessRestart.Input
-    }
-    return nil
-}
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &sysmgrProcessRestart.Input
-    return children
-}
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetYangName() string { return "sysmgr-process-restart" }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) SetParent(parent types.Entity) { sysmgrProcessRestart.parent = parent }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetParent() types.Entity { return sysmgrProcessRestart.parent }
-
-func (sysmgrProcessRestart *SysmgrProcessRestart) GetParentYangName() string { return "Cisco-IOS-XR-sysmgr-act" }
 
 // SysmgrProcessRestart_Input
 type SysmgrProcessRestart_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // XR process name or Job Id e.g. bgp, ospf. The type is string. This
@@ -92,51 +59,20 @@ type SysmgrProcessRestart_Input struct {
     Location interface{}
 }
 
-func (input *SysmgrProcessRestart_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *SysmgrProcessRestart_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "sysmgr-process-restart"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *SysmgrProcessRestart_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *SysmgrProcessRestart_Input) GetGoName(yname string) string {
-    if yname == "process-name" { return "ProcessName" }
-    if yname == "location" { return "Location" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["process-name"] = types.YLeaf{"ProcessName", input.ProcessName}
+    input.EntityData.Leafs["location"] = types.YLeaf{"Location", input.Location}
+    return &(input.EntityData)
 }
-
-func (input *SysmgrProcessRestart_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *SysmgrProcessRestart_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *SysmgrProcessRestart_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *SysmgrProcessRestart_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["process-name"] = input.ProcessName
-    leafs["location"] = input.Location
-    return leafs
-}
-
-func (input *SysmgrProcessRestart_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *SysmgrProcessRestart_Input) GetYangName() string { return "input" }
-
-func (input *SysmgrProcessRestart_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *SysmgrProcessRestart_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *SysmgrProcessRestart_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *SysmgrProcessRestart_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *SysmgrProcessRestart_Input) GetParent() types.Entity { return input.parent }
-
-func (input *SysmgrProcessRestart_Input) GetParentYangName() string { return "sysmgr-process-restart" }
 

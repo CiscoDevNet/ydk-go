@@ -24,15 +24,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths", reflect.TypeOf(IpExplicitPaths{}))
 }
 
-// IpIepPath represents Ip iep path
-type IpIepPath string
+// IpIepNum represents Ip iep num
+type IpIepNum string
 
 const (
-    // Identifier
-    IpIepPath_identifier IpIepPath = "identifier"
+    // Unnumbered
+    IpIepNum_unnumbered IpIepNum = "unnumbered"
 
-    // Name
-    IpIepPath_name IpIepPath = "name"
+    // Numbered
+    IpIepNum_numbered IpIepNum = "numbered"
 )
 
 // IpIepHop represents Ip iep hop
@@ -55,80 +55,47 @@ const (
     IpIepHop_next_label IpIepHop = "next-label"
 )
 
-// IpIepNum represents Ip iep num
-type IpIepNum string
+// IpIepPath represents Ip iep path
+type IpIepPath string
 
 const (
-    // Unnumbered
-    IpIepNum_unnumbered IpIepNum = "unnumbered"
+    // Identifier
+    IpIepPath_identifier IpIepPath = "identifier"
 
-    // Numbered
-    IpIepNum_numbered IpIepNum = "numbered"
+    // Name
+    IpIepPath_name IpIepPath = "name"
 )
 
 // IpExplicitPaths
 // IP Explicit Path config data
 type IpExplicitPaths struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of explicit paths.
     Paths IpExplicitPaths_Paths
 }
 
-func (ipExplicitPaths *IpExplicitPaths) GetFilter() yfilter.YFilter { return ipExplicitPaths.YFilter }
+func (ipExplicitPaths *IpExplicitPaths) GetEntityData() *types.CommonEntityData {
+    ipExplicitPaths.EntityData.YFilter = ipExplicitPaths.YFilter
+    ipExplicitPaths.EntityData.YangName = "ip-explicit-paths"
+    ipExplicitPaths.EntityData.BundleName = "cisco_ios_xr"
+    ipExplicitPaths.EntityData.ParentYangName = "Cisco-IOS-XR-ip-iep-cfg"
+    ipExplicitPaths.EntityData.SegmentPath = "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths"
+    ipExplicitPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipExplicitPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipExplicitPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipExplicitPaths *IpExplicitPaths) SetFilter(yf yfilter.YFilter) { ipExplicitPaths.YFilter = yf }
-
-func (ipExplicitPaths *IpExplicitPaths) GetGoName(yname string) string {
-    if yname == "paths" { return "Paths" }
-    return ""
+    ipExplicitPaths.EntityData.Children = make(map[string]types.YChild)
+    ipExplicitPaths.EntityData.Children["paths"] = types.YChild{"Paths", &ipExplicitPaths.Paths}
+    ipExplicitPaths.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipExplicitPaths.EntityData)
 }
-
-func (ipExplicitPaths *IpExplicitPaths) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths"
-}
-
-func (ipExplicitPaths *IpExplicitPaths) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "paths" {
-        return &ipExplicitPaths.Paths
-    }
-    return nil
-}
-
-func (ipExplicitPaths *IpExplicitPaths) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["paths"] = &ipExplicitPaths.Paths
-    return children
-}
-
-func (ipExplicitPaths *IpExplicitPaths) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipExplicitPaths *IpExplicitPaths) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipExplicitPaths *IpExplicitPaths) GetYangName() string { return "ip-explicit-paths" }
-
-func (ipExplicitPaths *IpExplicitPaths) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipExplicitPaths *IpExplicitPaths) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipExplicitPaths *IpExplicitPaths) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipExplicitPaths *IpExplicitPaths) SetParent(parent types.Entity) { ipExplicitPaths.parent = parent }
-
-func (ipExplicitPaths *IpExplicitPaths) GetParent() types.Entity { return ipExplicitPaths.parent }
-
-func (ipExplicitPaths *IpExplicitPaths) GetParentYangName() string { return "Cisco-IOS-XR-ip-iep-cfg" }
 
 // IpExplicitPaths_Paths
 // A list of explicit paths
 type IpExplicitPaths_Paths struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Config data for a specific explicit path. The type is slice of
@@ -136,72 +103,33 @@ type IpExplicitPaths_Paths struct {
     Path []IpExplicitPaths_Paths_Path
 }
 
-func (paths *IpExplicitPaths_Paths) GetFilter() yfilter.YFilter { return paths.YFilter }
+func (paths *IpExplicitPaths_Paths) GetEntityData() *types.CommonEntityData {
+    paths.EntityData.YFilter = paths.YFilter
+    paths.EntityData.YangName = "paths"
+    paths.EntityData.BundleName = "cisco_ios_xr"
+    paths.EntityData.ParentYangName = "ip-explicit-paths"
+    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (paths *IpExplicitPaths_Paths) SetFilter(yf yfilter.YFilter) { paths.YFilter = yf }
-
-func (paths *IpExplicitPaths_Paths) GetGoName(yname string) string {
-    if yname == "path" { return "Path" }
-    return ""
-}
-
-func (paths *IpExplicitPaths_Paths) GetSegmentPath() string {
-    return "paths"
-}
-
-func (paths *IpExplicitPaths_Paths) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "path" {
-        for _, c := range paths.Path {
-            if paths.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpExplicitPaths_Paths_Path{}
-        paths.Path = append(paths.Path, child)
-        return &paths.Path[len(paths.Path)-1]
-    }
-    return nil
-}
-
-func (paths *IpExplicitPaths_Paths) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    paths.EntityData.Children = make(map[string]types.YChild)
+    paths.EntityData.Children["path"] = types.YChild{"Path", nil}
     for i := range paths.Path {
-        children[paths.Path[i].GetSegmentPath()] = &paths.Path[i]
+        paths.EntityData.Children[types.GetSegmentPath(&paths.Path[i])] = types.YChild{"Path", &paths.Path[i]}
     }
-    return children
+    paths.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(paths.EntityData)
 }
-
-func (paths *IpExplicitPaths_Paths) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (paths *IpExplicitPaths_Paths) GetBundleName() string { return "cisco_ios_xr" }
-
-func (paths *IpExplicitPaths_Paths) GetYangName() string { return "paths" }
-
-func (paths *IpExplicitPaths_Paths) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (paths *IpExplicitPaths_Paths) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (paths *IpExplicitPaths_Paths) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (paths *IpExplicitPaths_Paths) SetParent(parent types.Entity) { paths.parent = parent }
-
-func (paths *IpExplicitPaths_Paths) GetParent() types.Entity { return paths.parent }
-
-func (paths *IpExplicitPaths_Paths) GetParentYangName() string { return "ip-explicit-paths" }
 
 // IpExplicitPaths_Paths_Path
 // Config data for a specific explicit path
 type IpExplicitPaths_Paths_Path struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path type. The type is IpIepPath.
-    Type interface{}
+    Type_ interface{}
 
     // name. The type is slice of IpExplicitPaths_Paths_Path_Name.
     Name []IpExplicitPaths_Paths_Path_Name
@@ -210,88 +138,38 @@ type IpExplicitPaths_Paths_Path struct {
     Identifier []IpExplicitPaths_Paths_Path_Identifier
 }
 
-func (path *IpExplicitPaths_Paths_Path) GetFilter() yfilter.YFilter { return path.YFilter }
+func (path *IpExplicitPaths_Paths_Path) GetEntityData() *types.CommonEntityData {
+    path.EntityData.YFilter = path.YFilter
+    path.EntityData.YangName = "path"
+    path.EntityData.BundleName = "cisco_ios_xr"
+    path.EntityData.ParentYangName = "paths"
+    path.EntityData.SegmentPath = "path" + "[type='" + fmt.Sprintf("%v", path.Type_) + "']"
+    path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (path *IpExplicitPaths_Paths_Path) SetFilter(yf yfilter.YFilter) { path.YFilter = yf }
-
-func (path *IpExplicitPaths_Paths_Path) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "name" { return "Name" }
-    if yname == "identifier" { return "Identifier" }
-    return ""
-}
-
-func (path *IpExplicitPaths_Paths_Path) GetSegmentPath() string {
-    return "path" + "[type='" + fmt.Sprintf("%v", path.Type) + "']"
-}
-
-func (path *IpExplicitPaths_Paths_Path) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "name" {
-        for _, c := range path.Name {
-            if path.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpExplicitPaths_Paths_Path_Name{}
-        path.Name = append(path.Name, child)
-        return &path.Name[len(path.Name)-1]
-    }
-    if childYangName == "identifier" {
-        for _, c := range path.Identifier {
-            if path.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpExplicitPaths_Paths_Path_Identifier{}
-        path.Identifier = append(path.Identifier, child)
-        return &path.Identifier[len(path.Identifier)-1]
-    }
-    return nil
-}
-
-func (path *IpExplicitPaths_Paths_Path) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    path.EntityData.Children = make(map[string]types.YChild)
+    path.EntityData.Children["name"] = types.YChild{"Name", nil}
     for i := range path.Name {
-        children[path.Name[i].GetSegmentPath()] = &path.Name[i]
+        path.EntityData.Children[types.GetSegmentPath(&path.Name[i])] = types.YChild{"Name", &path.Name[i]}
     }
+    path.EntityData.Children["identifier"] = types.YChild{"Identifier", nil}
     for i := range path.Identifier {
-        children[path.Identifier[i].GetSegmentPath()] = &path.Identifier[i]
+        path.EntityData.Children[types.GetSegmentPath(&path.Identifier[i])] = types.YChild{"Identifier", &path.Identifier[i]}
     }
-    return children
+    path.EntityData.Leafs = make(map[string]types.YLeaf)
+    path.EntityData.Leafs["type"] = types.YLeaf{"Type_", path.Type_}
+    return &(path.EntityData)
 }
-
-func (path *IpExplicitPaths_Paths_Path) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = path.Type
-    return leafs
-}
-
-func (path *IpExplicitPaths_Paths_Path) GetBundleName() string { return "cisco_ios_xr" }
-
-func (path *IpExplicitPaths_Paths_Path) GetYangName() string { return "path" }
-
-func (path *IpExplicitPaths_Paths_Path) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (path *IpExplicitPaths_Paths_Path) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (path *IpExplicitPaths_Paths_Path) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (path *IpExplicitPaths_Paths_Path) SetParent(parent types.Entity) { path.parent = parent }
-
-func (path *IpExplicitPaths_Paths_Path) GetParent() types.Entity { return path.parent }
-
-func (path *IpExplicitPaths_Paths_Path) GetParentYangName() string { return "paths" }
 
 // IpExplicitPaths_Paths_Path_Name
 // name
 type IpExplicitPaths_Paths_Path_Name struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Disable the explicit path. The type is interface{}.
@@ -301,63 +179,28 @@ type IpExplicitPaths_Paths_Path_Name struct {
     Hops IpExplicitPaths_Paths_Path_Name_Hops
 }
 
-func (name *IpExplicitPaths_Paths_Path_Name) GetFilter() yfilter.YFilter { return name.YFilter }
+func (name *IpExplicitPaths_Paths_Path_Name) GetEntityData() *types.CommonEntityData {
+    name.EntityData.YFilter = name.YFilter
+    name.EntityData.YangName = "name"
+    name.EntityData.BundleName = "cisco_ios_xr"
+    name.EntityData.ParentYangName = "path"
+    name.EntityData.SegmentPath = "name" + "[name='" + fmt.Sprintf("%v", name.Name) + "']"
+    name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (name *IpExplicitPaths_Paths_Path_Name) SetFilter(yf yfilter.YFilter) { name.YFilter = yf }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "disable" { return "Disable" }
-    if yname == "hops" { return "Hops" }
-    return ""
+    name.EntityData.Children = make(map[string]types.YChild)
+    name.EntityData.Children["hops"] = types.YChild{"Hops", &name.Hops}
+    name.EntityData.Leafs = make(map[string]types.YLeaf)
+    name.EntityData.Leafs["name"] = types.YLeaf{"Name", name.Name}
+    name.EntityData.Leafs["disable"] = types.YLeaf{"Disable", name.Disable}
+    return &(name.EntityData)
 }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetSegmentPath() string {
-    return "name" + "[name='" + fmt.Sprintf("%v", name.Name) + "']"
-}
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hops" {
-        return &name.Hops
-    }
-    return nil
-}
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["hops"] = &name.Hops
-    return children
-}
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = name.Name
-    leafs["disable"] = name.Disable
-    return leafs
-}
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetBundleName() string { return "cisco_ios_xr" }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetYangName() string { return "name" }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (name *IpExplicitPaths_Paths_Path_Name) SetParent(parent types.Entity) { name.parent = parent }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetParent() types.Entity { return name.parent }
-
-func (name *IpExplicitPaths_Paths_Path_Name) GetParentYangName() string { return "path" }
 
 // IpExplicitPaths_Paths_Path_Name_Hops
 // List of Hops
 type IpExplicitPaths_Paths_Path_Name_Hops struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Hop Information. The type is slice of
@@ -365,68 +208,29 @@ type IpExplicitPaths_Paths_Path_Name_Hops struct {
     Hop []IpExplicitPaths_Paths_Path_Name_Hops_Hop
 }
 
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetFilter() yfilter.YFilter { return hops.YFilter }
+func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetEntityData() *types.CommonEntityData {
+    hops.EntityData.YFilter = hops.YFilter
+    hops.EntityData.YangName = "hops"
+    hops.EntityData.BundleName = "cisco_ios_xr"
+    hops.EntityData.ParentYangName = "name"
+    hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) SetFilter(yf yfilter.YFilter) { hops.YFilter = yf }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetGoName(yname string) string {
-    if yname == "hop" { return "Hop" }
-    return ""
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetSegmentPath() string {
-    return "hops"
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hop" {
-        for _, c := range hops.Hop {
-            if hops.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpExplicitPaths_Paths_Path_Name_Hops_Hop{}
-        hops.Hop = append(hops.Hop, child)
-        return &hops.Hop[len(hops.Hop)-1]
-    }
-    return nil
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hops.EntityData.Children = make(map[string]types.YChild)
+    hops.EntityData.Children["hop"] = types.YChild{"Hop", nil}
     for i := range hops.Hop {
-        children[hops.Hop[i].GetSegmentPath()] = &hops.Hop[i]
+        hops.EntityData.Children[types.GetSegmentPath(&hops.Hop[i])] = types.YChild{"Hop", &hops.Hop[i]}
     }
-    return children
+    hops.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hops.EntityData)
 }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetYangName() string { return "hops" }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) SetParent(parent types.Entity) { hops.parent = parent }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetParent() types.Entity { return hops.parent }
-
-func (hops *IpExplicitPaths_Paths_Path_Name_Hops) GetParentYangName() string { return "name" }
 
 // IpExplicitPaths_Paths_Path_Name_Hops_Hop
 // Hop Information
 type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index number. The type is interface{} with range:
@@ -434,7 +238,7 @@ type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
     IndexNumber interface{}
 
     // IP address of the hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // The default value is 0.0.0.0.
     IpAddress interface{}
 
@@ -454,66 +258,31 @@ type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
     MplsLabel interface{}
 }
 
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetFilter() yfilter.YFilter { return hop.YFilter }
+func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetEntityData() *types.CommonEntityData {
+    hop.EntityData.YFilter = hop.YFilter
+    hop.EntityData.YangName = "hop"
+    hop.EntityData.BundleName = "cisco_ios_xr"
+    hop.EntityData.ParentYangName = "hops"
+    hop.EntityData.SegmentPath = "hop" + "[index-number='" + fmt.Sprintf("%v", hop.IndexNumber) + "']"
+    hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) SetFilter(yf yfilter.YFilter) { hop.YFilter = yf }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetGoName(yname string) string {
-    if yname == "index-number" { return "IndexNumber" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "hop-type" { return "HopType" }
-    if yname == "if-index" { return "IfIndex" }
-    if yname == "num-type" { return "NumType" }
-    if yname == "mpls-label" { return "MplsLabel" }
-    return ""
+    hop.EntityData.Children = make(map[string]types.YChild)
+    hop.EntityData.Leafs = make(map[string]types.YLeaf)
+    hop.EntityData.Leafs["index-number"] = types.YLeaf{"IndexNumber", hop.IndexNumber}
+    hop.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", hop.IpAddress}
+    hop.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", hop.HopType}
+    hop.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", hop.IfIndex}
+    hop.EntityData.Leafs["num-type"] = types.YLeaf{"NumType", hop.NumType}
+    hop.EntityData.Leafs["mpls-label"] = types.YLeaf{"MplsLabel", hop.MplsLabel}
+    return &(hop.EntityData)
 }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetSegmentPath() string {
-    return "hop" + "[index-number='" + fmt.Sprintf("%v", hop.IndexNumber) + "']"
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index-number"] = hop.IndexNumber
-    leafs["ip-address"] = hop.IpAddress
-    leafs["hop-type"] = hop.HopType
-    leafs["if-index"] = hop.IfIndex
-    leafs["num-type"] = hop.NumType
-    leafs["mpls-label"] = hop.MplsLabel
-    return leafs
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetYangName() string { return "hop" }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) SetParent(parent types.Entity) { hop.parent = parent }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetParent() types.Entity { return hop.parent }
-
-func (hop *IpExplicitPaths_Paths_Path_Name_Hops_Hop) GetParentYangName() string { return "hops" }
 
 // IpExplicitPaths_Paths_Path_Identifier
 // identifier
 type IpExplicitPaths_Paths_Path_Identifier struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Path identifier. The type is interface{} with
@@ -527,63 +296,28 @@ type IpExplicitPaths_Paths_Path_Identifier struct {
     Hops IpExplicitPaths_Paths_Path_Identifier_Hops
 }
 
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetFilter() yfilter.YFilter { return identifier.YFilter }
+func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetEntityData() *types.CommonEntityData {
+    identifier.EntityData.YFilter = identifier.YFilter
+    identifier.EntityData.YangName = "identifier"
+    identifier.EntityData.BundleName = "cisco_ios_xr"
+    identifier.EntityData.ParentYangName = "path"
+    identifier.EntityData.SegmentPath = "identifier" + "[id='" + fmt.Sprintf("%v", identifier.Id) + "']"
+    identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) SetFilter(yf yfilter.YFilter) { identifier.YFilter = yf }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetGoName(yname string) string {
-    if yname == "id" { return "Id" }
-    if yname == "disable" { return "Disable" }
-    if yname == "hops" { return "Hops" }
-    return ""
+    identifier.EntityData.Children = make(map[string]types.YChild)
+    identifier.EntityData.Children["hops"] = types.YChild{"Hops", &identifier.Hops}
+    identifier.EntityData.Leafs = make(map[string]types.YLeaf)
+    identifier.EntityData.Leafs["id"] = types.YLeaf{"Id", identifier.Id}
+    identifier.EntityData.Leafs["disable"] = types.YLeaf{"Disable", identifier.Disable}
+    return &(identifier.EntityData)
 }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetSegmentPath() string {
-    return "identifier" + "[id='" + fmt.Sprintf("%v", identifier.Id) + "']"
-}
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hops" {
-        return &identifier.Hops
-    }
-    return nil
-}
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["hops"] = &identifier.Hops
-    return children
-}
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["id"] = identifier.Id
-    leafs["disable"] = identifier.Disable
-    return leafs
-}
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetBundleName() string { return "cisco_ios_xr" }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetYangName() string { return "identifier" }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) SetParent(parent types.Entity) { identifier.parent = parent }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetParent() types.Entity { return identifier.parent }
-
-func (identifier *IpExplicitPaths_Paths_Path_Identifier) GetParentYangName() string { return "path" }
 
 // IpExplicitPaths_Paths_Path_Identifier_Hops
 // List of Hops
 type IpExplicitPaths_Paths_Path_Identifier_Hops struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Hop Information. The type is slice of
@@ -591,68 +325,29 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops struct {
     Hop []IpExplicitPaths_Paths_Path_Identifier_Hops_Hop
 }
 
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetFilter() yfilter.YFilter { return hops.YFilter }
+func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetEntityData() *types.CommonEntityData {
+    hops.EntityData.YFilter = hops.YFilter
+    hops.EntityData.YangName = "hops"
+    hops.EntityData.BundleName = "cisco_ios_xr"
+    hops.EntityData.ParentYangName = "identifier"
+    hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) SetFilter(yf yfilter.YFilter) { hops.YFilter = yf }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetGoName(yname string) string {
-    if yname == "hop" { return "Hop" }
-    return ""
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetSegmentPath() string {
-    return "hops"
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hop" {
-        for _, c := range hops.Hop {
-            if hops.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpExplicitPaths_Paths_Path_Identifier_Hops_Hop{}
-        hops.Hop = append(hops.Hop, child)
-        return &hops.Hop[len(hops.Hop)-1]
-    }
-    return nil
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hops.EntityData.Children = make(map[string]types.YChild)
+    hops.EntityData.Children["hop"] = types.YChild{"Hop", nil}
     for i := range hops.Hop {
-        children[hops.Hop[i].GetSegmentPath()] = &hops.Hop[i]
+        hops.EntityData.Children[types.GetSegmentPath(&hops.Hop[i])] = types.YChild{"Hop", &hops.Hop[i]}
     }
-    return children
+    hops.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hops.EntityData)
 }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetYangName() string { return "hops" }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) SetParent(parent types.Entity) { hops.parent = parent }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetParent() types.Entity { return hops.parent }
-
-func (hops *IpExplicitPaths_Paths_Path_Identifier_Hops) GetParentYangName() string { return "identifier" }
 
 // IpExplicitPaths_Paths_Path_Identifier_Hops_Hop
 // Hop Information
 type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index number. The type is interface{} with range:
@@ -660,7 +355,7 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
     IndexNumber interface{}
 
     // IP address of the hop. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // The default value is 0.0.0.0.
     IpAddress interface{}
 
@@ -680,59 +375,24 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
     MplsLabel interface{}
 }
 
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetFilter() yfilter.YFilter { return hop.YFilter }
+func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetEntityData() *types.CommonEntityData {
+    hop.EntityData.YFilter = hop.YFilter
+    hop.EntityData.YangName = "hop"
+    hop.EntityData.BundleName = "cisco_ios_xr"
+    hop.EntityData.ParentYangName = "hops"
+    hop.EntityData.SegmentPath = "hop" + "[index-number='" + fmt.Sprintf("%v", hop.IndexNumber) + "']"
+    hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) SetFilter(yf yfilter.YFilter) { hop.YFilter = yf }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetGoName(yname string) string {
-    if yname == "index-number" { return "IndexNumber" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "hop-type" { return "HopType" }
-    if yname == "if-index" { return "IfIndex" }
-    if yname == "num-type" { return "NumType" }
-    if yname == "mpls-label" { return "MplsLabel" }
-    return ""
+    hop.EntityData.Children = make(map[string]types.YChild)
+    hop.EntityData.Leafs = make(map[string]types.YLeaf)
+    hop.EntityData.Leafs["index-number"] = types.YLeaf{"IndexNumber", hop.IndexNumber}
+    hop.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", hop.IpAddress}
+    hop.EntityData.Leafs["hop-type"] = types.YLeaf{"HopType", hop.HopType}
+    hop.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", hop.IfIndex}
+    hop.EntityData.Leafs["num-type"] = types.YLeaf{"NumType", hop.NumType}
+    hop.EntityData.Leafs["mpls-label"] = types.YLeaf{"MplsLabel", hop.MplsLabel}
+    return &(hop.EntityData)
 }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetSegmentPath() string {
-    return "hop" + "[index-number='" + fmt.Sprintf("%v", hop.IndexNumber) + "']"
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["index-number"] = hop.IndexNumber
-    leafs["ip-address"] = hop.IpAddress
-    leafs["hop-type"] = hop.HopType
-    leafs["if-index"] = hop.IfIndex
-    leafs["num-type"] = hop.NumType
-    leafs["mpls-label"] = hop.MplsLabel
-    return leafs
-}
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetYangName() string { return "hop" }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) SetParent(parent types.Entity) { hop.parent = parent }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetParent() types.Entity { return hop.parent }
-
-func (hop *IpExplicitPaths_Paths_Path_Identifier_Hops_Hop) GetParentYangName() string { return "hops" }
 

@@ -32,6 +32,7 @@ import "C"
 import (
 	"fmt"
 	"github.com/CiscoDevNet/ydk-go/ydk"
+	"github.com/CiscoDevNet/ydk-go/ydk/errors"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
 	encodingFormat "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 	"github.com/CiscoDevNet/ydk-go/ydk/types/protocol"
@@ -94,7 +95,7 @@ func ExecuteRPC(
 }
 
 func getDataPayload(
-	state *types.State,
+	state *errors.State,
 	entity types.Entity,
 	rootSchema C.RootSchemaNode,
 	provider types.ServiceProvider) *C.char {
@@ -135,8 +136,9 @@ func ExecuteRPCEntity(
 	rootSchema := C.ServiceProviderGetRootSchema(*cstate, realProvider)
 	panicOnCStateError(cstate)
 
+	segmentPath := rpcEntity.GetEntityData().SegmentPath
 	ydkRPC := C.RootSchemaNodeRpc(
-		*cstate, rootSchema, C.CString(rpcEntity.GetSegmentPath()))
+		*cstate, rootSchema, C.CString(segmentPath))
 	panicOnCStateError(cstate)
 
 	if rootSchema == nil {
@@ -147,7 +149,7 @@ func ExecuteRPCEntity(
 	rpcInput := C.RpcInput(*cstate, ydkRPC)
 	panicOnCStateError(cstate)
 
-	child := rpcEntity.GetChildByName("input", "")
+	child := types.GetChildByName(rpcEntity, "input", "")
 	if (child != nil && types.HasDataOrFilter(child)) {
 		walkRPCChildren(state, child, rpcInput, "")
 	}
@@ -155,7 +157,7 @@ func ExecuteRPCEntity(
 	readDataNode := types.DataNode{C.RpcExecute(*cstate, ydkRPC, realProvider)}
 	panicOnCStateError(cstate)
 
-	output := rpcEntity.GetChildByName("output", "")
+	output := types.GetChildByName(rpcEntity, "output", "")
 
 	if (output == nil || readDataNode.Private == nil) {
 		return nil
@@ -164,11 +166,11 @@ func ExecuteRPCEntity(
 }
 
 func walkRPCChildren(
-	state *types.State, rpcEntity types.Entity, rpcInput C.DataNode, path string) {
+	state *errors.State, rpcEntity types.Entity, rpcInput C.DataNode, path string) {
 
 	ydk.YLogDebug("Walking Rpc Children...")
 	if(rpcEntity != nil) {
-		children := rpcEntity.GetChildren()
+		children := rpcEntity.GetEntityData().Children
 		entityPath := types.GetEntityPath(rpcEntity)
 		ydk.YLogDebug(fmt.Sprintf(
 			"Got %d entity children in '%s'", len(children), entityPath.Path))
@@ -188,12 +190,12 @@ func walkRPCChildren(
 		}
 
 		for childName, _ := range children {
-			if (children[childName] != nil &&
-				types.HasDataOrFilter(children[childName])) {
+			if (children[childName].Value != nil &&
+				types.HasDataOrFilter(children[childName].Value)) {
 
-				ydk.YLogDebug(fmt.Sprintf("Looking at entity child '%s'",
-					children[childName].GetSegmentPath()))
-				walkRPCChildren(state, children[childName], rpcInput, path)
+				segmentPath := children[childName].Value.GetEntityData().SegmentPath
+				ydk.YLogDebug(fmt.Sprintf("Looking at entity child '%s'", segmentPath))
+				walkRPCChildren(state, children[childName].Value, rpcInput, path)
 			}
 		}
 
@@ -207,7 +209,7 @@ func walkRPCChildren(
 }
 
 func createFromEntityPath(
-	state *types.State, rpcEntity types.Entity, rpcInput C.DataNode, path string) {
+	state *errors.State, rpcEntity types.Entity, rpcInput C.DataNode, path string) {
 
 	entityPath := types.GetEntityPath(rpcEntity)
 	for _, nameValue := range entityPath.ValuePaths {
@@ -228,23 +230,24 @@ func createFromEntityPath(
 }
 
 func createFromChildren(
-	state *types.State, children map[string]types.Entity, rpcInput C.DataNode) {
+	state *errors.State, children map[string]types.YChild, rpcInput C.DataNode) {
 
 	for childName, child := range children {
-		if types.HasDataOrFilter(child) {
+		if child.Value != nil && types.HasDataOrFilter(child.Value) {
 			ydk.YLogDebug(fmt.Sprintf("Creating child '%s' : %s",
-				childName, types.GetEntityPath(child).Path))
+				childName, types.GetEntityPath(child.Value).Path))
 			C.DataNodeCreate(*getCState(state), rpcInput, C.CString(childName), C.CString(""))
 		}
 	}
 }
 
 func getTopEntityFromFilter(filter types.Entity) types.Entity {
-	if filter.GetParent() == nil {
+	parent := types.GetParent(filter)
+	if parent == nil {
 		return filter
 	}
 
-	return getTopEntityFromFilter(filter.GetParent())
+	return getTopEntityFromFilter(parent)
 }
 
 // ReadDatanode populates entity by reading the top level entity from a given data node.
@@ -255,8 +258,9 @@ func ReadDatanode(filter types.Entity, readDataNode types.DataNode) types.Entity
 	}
 
 	topEntity := getTopEntityFromFilter(filter)
+	segmentPath := topEntity.GetEntityData().SegmentPath
 	ydk.YLogDebug(
-		fmt.Sprintf("Reading top entity: '%s'", topEntity.GetSegmentPath()))
+		fmt.Sprintf("Reading top entity: '%s'", segmentPath))
 
 	cchildren := C.DataNodeGetChildren(readDataNode.Private.(C.DataNode))
 
@@ -274,7 +278,7 @@ func ReadDatanode(filter types.Entity, readDataNode types.DataNode) types.Entity
 // connection to the provider using given address, username, password, and port.
 // Returns the connected service provider (types.CServiceProvider).
 func ConnectToNetconfProvider(
-	state *types.State,
+	state *errors.State,
 	repo types.Repository,
 	address, username, password string,
 	port int,
@@ -327,7 +331,7 @@ func DisconnectFromNetconfProvider(provider types.CServiceProvider) {
 }
 
 // CleanUpErrorState cleans up memory for CState.
-func CleanUpErrorState(state *types.State) {
+func CleanUpErrorState(state *errors.State) {
 	realState := getCState(state)
 	C.YDKStateFree(*realState)
 }
@@ -337,7 +341,7 @@ func CleanUpErrorState(state *types.State) {
 // and port.
 // Returns the connected service provider (types.CServiceProvider).
 func ConnectToRestconfProvider(
-	state *types.State,
+	state *errors.State,
 	Path, Address, Username, Password string,
 	port int, encoding encodingFormat.EncodingFormat,
 	stateURLRoot, configURLRoot string) types.CServiceProvider {
@@ -388,26 +392,27 @@ func DisconnectFromRestconfProvider(provider types.CServiceProvider) {
 // InitCodecServiceProvider initializes CodecServiceProvider.
 // Returns root schema node (types.RootSchemaNode) parsed from repository.
 func InitCodecServiceProvider(
-	state *types.State,
+	state *errors.State,
 	entity types.Entity,
 	repo types.Repository) types.RootSchemaNode {
 
 	var repoPath *C.char
 	defer C.free(unsafe.Pointer(repoPath))
 
+	data := entity.GetEntityData()
 	if len(repo.Path) > 0 {
 		ydk.YLogDebug(fmt.Sprintf(
 			"CodecServiceProvider using YANG models in %v", repo.Path))
 		repoPath = C.CString(repo.Path)
 	} else {
-		yangPath := entity.GetBundleYangModelsLocation()
+		yangPath := data.BundleYangModelsLocation
 		ydk.YLogDebug(fmt.Sprintf(
 			"CodecServiceProvider using YANG models in %v", yangPath))
 		repoPath = C.CString(yangPath)
 	}
 
-	capabilities := entity.GetCapabilitiesTable()
-	namespaces := entity.GetNamespaceTable()
+	capabilities := data.CapabilitiesTable
+	namespaces := data.NamespaceTable
 	lookupTableKeys := make([]*C.char, 0)
 	lookupTableValues := make([]C.Capability, 0)
 	for name, revision := range capabilities {
@@ -447,7 +452,7 @@ func InitCodecServiceProvider(
 // encoding format passed in.
 // Returns the resulting payload (string).
 func CodecServiceEncode(
-	state *types.State,
+	state *errors.State,
 	entity types.Entity,
 	rootSchema types.RootSchemaNode,
 	encoding encodingFormat.EncodingFormat) string {
@@ -482,7 +487,7 @@ func CodecServiceEncode(
 // CodecServiceDecode decodes XML/JSON payloads passed in to entity.
 // Returns the top level entity (types.Entity) from resulting data node.
 func CodecServiceDecode(
-	state *types.State,
+	state *errors.State,
 	rootSchema types.RootSchemaNode,
 	payload string,
 	encoding encodingFormat.EncodingFormat,
@@ -517,7 +522,7 @@ func CodecServiceDecode(
 // ConnectToOpenDaylightProvider connects to OpenDaylight device.
 // Returns the connected service provider (types.COpenDaylightServiceProvier).
 func ConnectToOpenDaylightProvider(
-	state *types.State,
+	state *errors.State,
 	Path, Address, Username, Password string,
 	port int,
 	encoding encodingFormat.EncodingFormat,
@@ -565,7 +570,7 @@ func DisconnectFromOpenDaylightProvider(
 // given the opendaylight service provider.
 // Returns node ids available ([]string).
 func OpenDaylightServiceProviderGetNodeIDs(
-	state *types.State, provider types.COpenDaylightServiceProvider) []string {
+	state *errors.State, provider types.COpenDaylightServiceProvider) []string {
 
 	cprovider := provider.Private.(C.OpenDaylightServiceProvider)
 	var ids []string
@@ -589,7 +594,7 @@ func OpenDaylightServiceProviderGetNodeIDs(
 // node provider given the opendaylight service provider and node id.
 // Returns service provider (types.CServiceProvider) based on given node id.
 func OpenDaylightServiceProviderGetNodeProvider(
-	state *types.State,
+	state *errors.State,
 	provider types.COpenDaylightServiceProvider,
 	nodeID string) types.CServiceProvider {
 
@@ -609,15 +614,18 @@ func OpenDaylightServiceProviderGetNodeProvider(
 // DataNode from Entity
 //////////////////////////////////////////////////////////////////////////
 func getDataNodeFromEntity(
-	state *types.State,
+	state *errors.State,
 	entity types.Entity,
 	rootSchema C.RootSchemaNode) C.DataNode {
 
 	if entity == nil {
 		return nil
 	}
-	for parent := entity.GetParent(); parent != nil; parent = parent.GetParent() {
+
+	parent := types.GetParent(entity)
+	for parent != nil {
 		entity = parent
+		parent = types.GetParent(entity)
 	}
 
 	rootPath := types.GetEntityPath(entity)
@@ -627,7 +635,7 @@ func getDataNodeFromEntity(
 	rootDataNode := C.RootSchemaNodeCreate(*getCState(state), rootSchema, path)
 	panicOnCStateError(getCState(state))
 
-	addDataNodeFilterAnnotation(&rootDataNode, entity.GetFilter())
+	addDataNodeFilterAnnotation(&rootDataNode, entity.GetEntityData().YFilter)
 
 	populateNameValues(state, rootDataNode, rootPath)
 	walkChildren(state, entity, rootDataNode)
@@ -635,25 +643,27 @@ func getDataNodeFromEntity(
 }
 
 func walkChildren(
-	state *types.State, entity types.Entity, dataNode C.DataNode) {
-	children := entity.GetChildren()
+	state *errors.State, entity types.Entity, dataNode C.DataNode) {
+	children := entity.GetEntityData().Children
 
 	ydk.YLogDebug(fmt.Sprintf("Got %d entity children", len(children)))
 
 	for childName := range children {
+		if children[childName].Value != nil {
+			segmentPath := children[childName].Value.GetEntityData().SegmentPath
+			ydk.YLogDebug(fmt.Sprintf(
+				"Looking at entity child '%s'", segmentPath))
 
-		ydk.YLogDebug(fmt.Sprintf(
-			"Looking at entity child '%s'", children[childName].GetSegmentPath()))
-
-		if types.HasDataOrFilter(children[childName]) {
-			populateDataNode(state, children[childName], dataNode)
+			if types.HasDataOrFilter(children[childName].Value) {
+				populateDataNode(state, children[childName].Value, dataNode)
+			}
 		}
 	}
 	ydk.YLogDebug("")
 }
 
 func populateDataNode(
-	state *types.State, entity types.Entity, parentDataNode C.DataNode) {
+	state *errors.State, entity types.Entity, parentDataNode C.DataNode) {
 
 	path := types.GetEntityPath(entity)
 	p := C.CString(path.Path)
@@ -669,14 +679,14 @@ func populateDataNode(
 		panic("Datanode could not be created for: " + path.Path)
 	}
 
-	addDataNodeFilterAnnotation(&dataNode, entity.GetFilter())
+	addDataNodeFilterAnnotation(&dataNode, entity.GetEntityData().YFilter)
 
 	populateNameValues(state, dataNode, path)
 	walkChildren(state, entity, dataNode)
 }
 
 func populateNameValues(
-	state *types.State, dataNode C.DataNode, path types.EntityPath) {
+	state *errors.State, dataNode C.DataNode, path types.EntityPath) {
 
 	for _, nameValue := range path.ValuePaths {
 		var result C.DataNode
@@ -731,17 +741,17 @@ func getEntityFromDataNode(node C.DataNode, entity types.Entity) {
 			var childEntity types.Entity
 			if dataNodeIsList(childDataNode) {
 				segmentPath := C.GoString(C.DataNodeGetSegmentPath(childDataNode))
-				ydk.YLogDebug(fmt.Sprintf("Creating child list instance '%s'", segmentPath))
-				childEntity = entity.GetChildByName(childName, segmentPath)
+				ydk.YLogDebug(fmt.Sprintf("Creating child list instance '%s' '%s'", childName, segmentPath))
+				childEntity = types.GetChildByName(entity, childName, segmentPath)
 			} else {
 				ydk.YLogDebug(fmt.Sprintf("Creating child node '%s'", childName))
-				childEntity = entity.GetChildByName(childName, "")
+				childEntity = types.GetChildByName(entity, childName, "")
 			}
 			if childEntity == nil {
 				ydk.YLogError(fmt.Sprintf("Could not create child entity '%s'!", childName))
 				panic("Could not create child entity!")
 			}
-			childEntity.SetParent(entity)
+			types.SetParent(childEntity, entity)
 			getEntityFromDataNode(childDataNode, childEntity)
 		}
 	}
@@ -768,10 +778,10 @@ func addDataNodeFilterAnnotation(dataNode *C.DataNode, yf yfilter.YFilter) {
 // Error Handling
 //////////////////////////////////////////////////////////////////////////
 
-// AddCState creates and adds cstate to *types.State.
-func AddCState(state *types.State) {
+// AddCState creates and adds cstate to *errors.State.
+func AddCState(state *errors.State) {
 	cstate := C.YDKStateCreate()
-	state.Private = types.CState{Private: cstate}
+	state.Private = errors.CState{Private: cstate}
 }
 
 func checkState(cstate *C.YDKStatePtr) error {
@@ -790,25 +800,25 @@ func checkState(cstate *C.YDKStatePtr) error {
 
 	switch cerrorType {
 	case C.YDK_CLIENT_ERROR:
-		return &types.YClientError{Msg: errMsg}
+		return &errors.YClientError{Msg: errMsg}
 	case C.YDK_SERVICE_PROVIDER_ERROR:
-		return &types.YServiceProviderError{Msg: errMsg}
+		return &errors.YServiceProviderError{Msg: errMsg}
 	case C.YDK_SERVICE_ERROR:
-		return &types.YServiceError{Msg: errMsg}
+		return &errors.YServiceError{Msg: errMsg}
 	case C.YDK_ILLEGAL_STATE_ERROR:
-		return &types.YIllegalStateError{Msg: errMsg}
+		return &errors.YIllegalStateError{Msg: errMsg}
 	case C.YDK_INVALID_ARGUMENT_ERROR:
-		return &types.YInvalidArgumentError{Msg: errMsg}
+		return &errors.YInvalidArgumentError{Msg: errMsg}
 	case C.YDK_OPERATION_NOTSUPPORTED_ERROR:
-		return &types.YOperationNotSupportedError{Msg: errMsg}
+		return &errors.YOperationNotSupportedError{Msg: errMsg}
 	case C.YDK_MODEL_ERROR:
-		return &types.YModelError{Msg: errMsg}
+		return &errors.YModelError{Msg: errMsg}
 	case C.YDK_CORE_ERROR:
-		return &types.YCoreError{Msg: errMsg}
+		return &errors.YCoreError{Msg: errMsg}
 	case C.YDK_CODEC_ERROR:
-		return &types.YCodecError{Msg: errMsg}
+		return &errors.YCodecError{Msg: errMsg}
 	default:
-		return &types.YError{Msg: errMsg}
+		return &errors.YError{Msg: errMsg}
 	}
 }
 
@@ -820,8 +830,8 @@ func getCProtocol(proto protocol.Protocol) C.Protocol {
 	}
 }
 
-func getCState(state *types.State) *C.YDKStatePtr {
-	statePtr := state.Private.(types.CState).Private.(C.YDKStatePtr)
+func getCState(state *errors.State) *C.YDKStatePtr {
+	statePtr := state.Private.(errors.CState).Private.(C.YDKStatePtr)
 	return &statePtr
 }
 

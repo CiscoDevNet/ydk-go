@@ -31,12 +31,36 @@ module Cisco-IOS-XE-snmp {
 
   description
     "Cisco XE Native Simple Network Management Protocol (SNMP) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-10-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+
+  revision 2017-10-06 {
+    description
+      "Move udp-port out of container trap-enable";
+  }
+  revision 2017-08-11 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -642,6 +666,11 @@ module Cisco-IOS-XE-snmp {
               leaf oper-state {
                 type empty;
               }
+            }
+            leaf dhcp {
+              description
+                "Enable SNMP dhcp traps";
+              type empty;
             }
             leaf eigrp {
               description
@@ -1824,12 +1853,14 @@ module Cisco-IOS-XE-snmp {
       list host {
         description
           "Specify hosts to receive SNMP notifications";
-        key "ip-address community-string";
+        key "ip-address community-or-user";
         leaf ip-address {
           type ios-types:host-type;
         }
-        // snmp-server host * community-string
-        leaf community-string {
+        // snmp-server host * community-string (or user-name)
+        leaf community-or-user {
+          description
+            "SNMPv1/v2c community string or SNMPv3 user name";
           type string;
         }
         leaf vrf {
@@ -1865,6 +1896,11 @@ module Cisco-IOS-XE-snmp {
             enum "noauth";
             enum "priv";
           }
+        }
+        leaf udp-port {
+          description
+            "The notification host's UDP port number (default port 162)";
+          type uint16;
         }
         container trap-enable {
           leaf aaa_server {
@@ -2221,11 +2257,6 @@ module Cisco-IOS-XE-snmp {
             description
               "Allow TCP connection traps";
             type empty;
-          }
-          leaf udp-port {
-            description
-              "The notification host's UDP port number (default port 162)";
-            type uint16;
           }
           leaf voice {
             description
@@ -2712,6 +2743,26 @@ module Cisco-IOS-XE-snmp {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-snmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-snmp-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-snmp-grouping;
   }
 

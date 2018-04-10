@@ -19,7 +19,7 @@
 package datastore
 
 import (
-	"github.com/CiscoDevNet/ydk-go/ydk/types"
+	"github.com/CiscoDevNet/ydk-go/ydk/errors"
 )
 
 // DataStore is a complete set of configuration data that is required to get a
@@ -50,6 +50,6 @@ func (ds DataStore) String() string {
 		return ""
 	}
 
-	err := types.YError{Msg: "Invalid DataStore value"}
+	err := errors.YError{Msg: "Invalid DataStore value"}
 	panic(err.Error())
 }

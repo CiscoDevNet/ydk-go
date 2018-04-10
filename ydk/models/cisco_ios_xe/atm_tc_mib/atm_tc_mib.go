@@ -12,25 +12,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package atm_tc_mib"))
 }
 
-type Atmclptransparentnoscr struct {
+type Atmnotrafficdescriptor struct {
 }
 
-func (id Atmclptransparentnoscr) String() string {
-	return "ATM-TC-MIB:atmClpTransparentNoScr"
-}
-
-type Atmnoclpscr struct {
-}
-
-func (id Atmnoclpscr) String() string {
-	return "ATM-TC-MIB:atmNoClpScr"
-}
-
-type Atmclptransparentscr struct {
-}
-
-func (id Atmclptransparentscr) String() string {
-	return "ATM-TC-MIB:atmClpTransparentScr"
+func (id Atmnotrafficdescriptor) String() string {
+	return "ATM-TC-MIB:atmNoTrafficDescriptor"
 }
 
 type Atmnoclpnoscr struct {
@@ -40,39 +26,11 @@ func (id Atmnoclpnoscr) String() string {
 	return "ATM-TC-MIB:atmNoClpNoScr"
 }
 
-type Atmclpnotaggingscr struct {
+type Atmclpnotaggingnoscr struct {
 }
 
-func (id Atmclpnotaggingscr) String() string {
-	return "ATM-TC-MIB:atmClpNoTaggingScr"
-}
-
-type Atmnoclptaggingnoscr struct {
-}
-
-func (id Atmnoclptaggingnoscr) String() string {
-	return "ATM-TC-MIB:atmNoClpTaggingNoScr"
-}
-
-type Atmclpnotaggingmcr struct {
-}
-
-func (id Atmclpnotaggingmcr) String() string {
-	return "ATM-TC-MIB:atmClpNoTaggingMcr"
-}
-
-type Atmclpnotaggingscrcdvt struct {
-}
-
-func (id Atmclpnotaggingscrcdvt) String() string {
-	return "ATM-TC-MIB:atmClpNoTaggingScrCdvt"
-}
-
-type Atmnotrafficdescriptor struct {
-}
-
-func (id Atmnotrafficdescriptor) String() string {
-	return "ATM-TC-MIB:atmNoTrafficDescriptor"
+func (id Atmclpnotaggingnoscr) String() string {
+	return "ATM-TC-MIB:atmClpNoTaggingNoScr"
 }
 
 type Atmclptaggingnoscr struct {
@@ -82,18 +40,18 @@ func (id Atmclptaggingnoscr) String() string {
 	return "ATM-TC-MIB:atmClpTaggingNoScr"
 }
 
-type Atmnoclpscrcdvt struct {
+type Atmnoclpscr struct {
 }
 
-func (id Atmnoclpscrcdvt) String() string {
-	return "ATM-TC-MIB:atmNoClpScrCdvt"
+func (id Atmnoclpscr) String() string {
+	return "ATM-TC-MIB:atmNoClpScr"
 }
 
-type Atmnoclpnoscrcdvt struct {
+type Atmclpnotaggingscr struct {
 }
 
-func (id Atmnoclpnoscrcdvt) String() string {
-	return "ATM-TC-MIB:atmNoClpNoScrCdvt"
+func (id Atmclpnotaggingscr) String() string {
+	return "ATM-TC-MIB:atmClpNoTaggingScr"
 }
 
 type Atmclptaggingscr struct {
@@ -103,11 +61,53 @@ func (id Atmclptaggingscr) String() string {
 	return "ATM-TC-MIB:atmClpTaggingScr"
 }
 
-type Atmclpnotaggingnoscr struct {
+type Atmclpnotaggingmcr struct {
 }
 
-func (id Atmclpnotaggingnoscr) String() string {
-	return "ATM-TC-MIB:atmClpNoTaggingNoScr"
+func (id Atmclpnotaggingmcr) String() string {
+	return "ATM-TC-MIB:atmClpNoTaggingMcr"
+}
+
+type Atmclptransparentnoscr struct {
+}
+
+func (id Atmclptransparentnoscr) String() string {
+	return "ATM-TC-MIB:atmClpTransparentNoScr"
+}
+
+type Atmclptransparentscr struct {
+}
+
+func (id Atmclptransparentscr) String() string {
+	return "ATM-TC-MIB:atmClpTransparentScr"
+}
+
+type Atmnoclptaggingnoscr struct {
+}
+
+func (id Atmnoclptaggingnoscr) String() string {
+	return "ATM-TC-MIB:atmNoClpTaggingNoScr"
+}
+
+type Atmnoclpnoscrcdvt struct {
+}
+
+func (id Atmnoclpnoscrcdvt) String() string {
+	return "ATM-TC-MIB:atmNoClpNoScrCdvt"
+}
+
+type Atmnoclpscrcdvt struct {
+}
+
+func (id Atmnoclpscrcdvt) String() string {
+	return "ATM-TC-MIB:atmNoClpScrCdvt"
+}
+
+type Atmclpnotaggingscrcdvt struct {
+}
+
+func (id Atmclpnotaggingscrcdvt) String() string {
+	return "ATM-TC-MIB:atmClpNoTaggingScrCdvt"
 }
 
 type Atmclptaggingscrcdvt struct {
@@ -117,30 +117,30 @@ func (id Atmclptaggingscrcdvt) String() string {
 	return "ATM-TC-MIB:atmClpTaggingScrCdvt"
 }
 
-// AtmVorXAdminStatus represents link or cross-connect.
-type AtmVorXAdminStatus string
+// AtmConnCastType represents   are to the leaf of the p2mp connection.
+type AtmConnCastType string
 
 const (
-    AtmVorXAdminStatus_up AtmVorXAdminStatus = "up"
+    AtmConnCastType_p2p AtmConnCastType = "p2p"
 
-    AtmVorXAdminStatus_down AtmVorXAdminStatus = "down"
+    AtmConnCastType_p2mpRoot AtmConnCastType = "p2mpRoot"
+
+    AtmConnCastType_p2mpLeaf AtmConnCastType = "p2mpLeaf"
 )
 
-// AtmServiceCategory represents The service category for a connection.
-type AtmServiceCategory string
+// AtmConnKind represents cross-connected to an svcIncoming or an spvcInitiator.
+type AtmConnKind string
 
 const (
-    AtmServiceCategory_other AtmServiceCategory = "other"
+    AtmConnKind_pvc AtmConnKind = "pvc"
 
-    AtmServiceCategory_cbr AtmServiceCategory = "cbr"
+    AtmConnKind_svcIncoming AtmConnKind = "svcIncoming"
 
-    AtmServiceCategory_rtVbr AtmServiceCategory = "rtVbr"
+    AtmConnKind_svcOutgoing AtmConnKind = "svcOutgoing"
 
-    AtmServiceCategory_nrtVbr AtmServiceCategory = "nrtVbr"
+    AtmConnKind_spvcInitiator AtmConnKind = "spvcInitiator"
 
-    AtmServiceCategory_abr AtmServiceCategory = "abr"
-
-    AtmServiceCategory_ubr AtmServiceCategory = "ubr"
+    AtmConnKind_spvcTarget AtmConnKind = "spvcTarget"
 )
 
 // AtmInterfaceType represents    signalling disabled.
@@ -174,19 +174,30 @@ const (
     AtmInterfaceType_atmfNniPvcOnly AtmInterfaceType = "atmfNniPvcOnly"
 )
 
-// AtmConnKind represents cross-connected to an svcIncoming or an spvcInitiator.
-type AtmConnKind string
+// AtmServiceCategory represents The service category for a connection.
+type AtmServiceCategory string
 
 const (
-    AtmConnKind_pvc AtmConnKind = "pvc"
+    AtmServiceCategory_other AtmServiceCategory = "other"
 
-    AtmConnKind_svcIncoming AtmConnKind = "svcIncoming"
+    AtmServiceCategory_cbr AtmServiceCategory = "cbr"
 
-    AtmConnKind_svcOutgoing AtmConnKind = "svcOutgoing"
+    AtmServiceCategory_rtVbr AtmServiceCategory = "rtVbr"
 
-    AtmConnKind_spvcInitiator AtmConnKind = "spvcInitiator"
+    AtmServiceCategory_nrtVbr AtmServiceCategory = "nrtVbr"
 
-    AtmConnKind_spvcTarget AtmConnKind = "spvcTarget"
+    AtmServiceCategory_abr AtmServiceCategory = "abr"
+
+    AtmServiceCategory_ubr AtmServiceCategory = "ubr"
+)
+
+// AtmVorXAdminStatus represents link or cross-connect.
+type AtmVorXAdminStatus string
+
+const (
+    AtmVorXAdminStatus_up AtmVorXAdminStatus = "up"
+
+    AtmVorXAdminStatus_down AtmVorXAdminStatus = "down"
 )
 
 // AtmVorXOperStatus represents interface(s) is down or unknown respectively.
@@ -198,16 +209,5 @@ const (
     AtmVorXOperStatus_down AtmVorXOperStatus = "down"
 
     AtmVorXOperStatus_unknown AtmVorXOperStatus = "unknown"
-)
-
-// AtmConnCastType represents   are to the leaf of the p2mp connection.
-type AtmConnCastType string
-
-const (
-    AtmConnCastType_p2p AtmConnCastType = "p2p"
-
-    AtmConnCastType_p2mpRoot AtmConnCastType = "p2mpRoot"
-
-    AtmConnCastType_p2mpLeaf AtmConnCastType = "p2mpLeaf"
 )
 

@@ -23,12 +23,32 @@ module Cisco-IOS-XE-sanet {
 
   description
     "Cisco XE Native Session Aware Networking (SaNet) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+
+  revision 2017-08-11 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -395,6 +415,31 @@ module Cisco-IOS-XE-sanet {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-authentication-grouping;
+    uses config-interface-mab-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-authentication-grouping;
     uses config-interface-mab-grouping;
   }

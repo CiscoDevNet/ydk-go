@@ -18,7 +18,7 @@ func init() {
 
 // IGMPSTDMIB
 type IGMPSTDMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The (conceptual) table listing the interfaces on which IGMP is enabled.
@@ -29,65 +29,28 @@ type IGMPSTDMIB struct {
     Igmpcachetable IGMPSTDMIB_Igmpcachetable
 }
 
-func (iGMPSTDMIB *IGMPSTDMIB) GetFilter() yfilter.YFilter { return iGMPSTDMIB.YFilter }
+func (iGMPSTDMIB *IGMPSTDMIB) GetEntityData() *types.CommonEntityData {
+    iGMPSTDMIB.EntityData.YFilter = iGMPSTDMIB.YFilter
+    iGMPSTDMIB.EntityData.YangName = "IGMP-STD-MIB"
+    iGMPSTDMIB.EntityData.BundleName = "cisco_ios_xe"
+    iGMPSTDMIB.EntityData.ParentYangName = "IGMP-STD-MIB"
+    iGMPSTDMIB.EntityData.SegmentPath = "IGMP-STD-MIB:IGMP-STD-MIB"
+    iGMPSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iGMPSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iGMPSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iGMPSTDMIB *IGMPSTDMIB) SetFilter(yf yfilter.YFilter) { iGMPSTDMIB.YFilter = yf }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetGoName(yname string) string {
-    if yname == "igmpInterfaceTable" { return "Igmpinterfacetable" }
-    if yname == "igmpCacheTable" { return "Igmpcachetable" }
-    return ""
+    iGMPSTDMIB.EntityData.Children = make(map[string]types.YChild)
+    iGMPSTDMIB.EntityData.Children["igmpInterfaceTable"] = types.YChild{"Igmpinterfacetable", &iGMPSTDMIB.Igmpinterfacetable}
+    iGMPSTDMIB.EntityData.Children["igmpCacheTable"] = types.YChild{"Igmpcachetable", &iGMPSTDMIB.Igmpcachetable}
+    iGMPSTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iGMPSTDMIB.EntityData)
 }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetSegmentPath() string {
-    return "IGMP-STD-MIB:IGMP-STD-MIB"
-}
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "igmpInterfaceTable" {
-        return &iGMPSTDMIB.Igmpinterfacetable
-    }
-    if childYangName == "igmpCacheTable" {
-        return &iGMPSTDMIB.Igmpcachetable
-    }
-    return nil
-}
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["igmpInterfaceTable"] = &iGMPSTDMIB.Igmpinterfacetable
-    children["igmpCacheTable"] = &iGMPSTDMIB.Igmpcachetable
-    return children
-}
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetYangName() string { return "IGMP-STD-MIB" }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iGMPSTDMIB *IGMPSTDMIB) SetParent(parent types.Entity) { iGMPSTDMIB.parent = parent }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetParent() types.Entity { return iGMPSTDMIB.parent }
-
-func (iGMPSTDMIB *IGMPSTDMIB) GetParentYangName() string { return "IGMP-STD-MIB" }
 
 // IGMPSTDMIB_Igmpinterfacetable
 // The (conceptual) table listing the interfaces on which IGMP
 // is enabled.
 type IGMPSTDMIB_Igmpinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) representing an interface on which IGMP is
@@ -96,69 +59,30 @@ type IGMPSTDMIB_Igmpinterfacetable struct {
     Igmpinterfaceentry []IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry
 }
 
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetFilter() yfilter.YFilter { return igmpinterfacetable.YFilter }
+func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetEntityData() *types.CommonEntityData {
+    igmpinterfacetable.EntityData.YFilter = igmpinterfacetable.YFilter
+    igmpinterfacetable.EntityData.YangName = "igmpInterfaceTable"
+    igmpinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    igmpinterfacetable.EntityData.ParentYangName = "IGMP-STD-MIB"
+    igmpinterfacetable.EntityData.SegmentPath = "igmpInterfaceTable"
+    igmpinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    igmpinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    igmpinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) SetFilter(yf yfilter.YFilter) { igmpinterfacetable.YFilter = yf }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetGoName(yname string) string {
-    if yname == "igmpInterfaceEntry" { return "Igmpinterfaceentry" }
-    return ""
-}
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetSegmentPath() string {
-    return "igmpInterfaceTable"
-}
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "igmpInterfaceEntry" {
-        for _, c := range igmpinterfacetable.Igmpinterfaceentry {
-            if igmpinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry{}
-        igmpinterfacetable.Igmpinterfaceentry = append(igmpinterfacetable.Igmpinterfaceentry, child)
-        return &igmpinterfacetable.Igmpinterfaceentry[len(igmpinterfacetable.Igmpinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    igmpinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    igmpinterfacetable.EntityData.Children["igmpInterfaceEntry"] = types.YChild{"Igmpinterfaceentry", nil}
     for i := range igmpinterfacetable.Igmpinterfaceentry {
-        children[igmpinterfacetable.Igmpinterfaceentry[i].GetSegmentPath()] = &igmpinterfacetable.Igmpinterfaceentry[i]
+        igmpinterfacetable.EntityData.Children[types.GetSegmentPath(&igmpinterfacetable.Igmpinterfaceentry[i])] = types.YChild{"Igmpinterfaceentry", &igmpinterfacetable.Igmpinterfaceentry[i]}
     }
-    return children
+    igmpinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(igmpinterfacetable.EntityData)
 }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetYangName() string { return "igmpInterfaceTable" }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) SetParent(parent types.Entity) { igmpinterfacetable.parent = parent }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetParent() types.Entity { return igmpinterfacetable.parent }
-
-func (igmpinterfacetable *IGMPSTDMIB_Igmpinterfacetable) GetParentYangName() string { return "IGMP-STD-MIB" }
 
 // IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry
 // An entry (conceptual row) representing an interface on
 // which IGMP is enabled.
 type IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex value of the interface for which IGMP
@@ -183,7 +107,7 @@ type IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry struct {
 
     // The address of the IGMP Querier on the IP subnet to which      this
     // interface is attached. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Igmpinterfacequerier interface{}
 
     // The maximum query response time advertised in IGMPv2 queries on this
@@ -250,85 +174,41 @@ type IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry struct {
     Igmpinterfacelastmembqueryintvl interface{}
 }
 
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetFilter() yfilter.YFilter { return igmpinterfaceentry.YFilter }
+func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetEntityData() *types.CommonEntityData {
+    igmpinterfaceentry.EntityData.YFilter = igmpinterfaceentry.YFilter
+    igmpinterfaceentry.EntityData.YangName = "igmpInterfaceEntry"
+    igmpinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    igmpinterfaceentry.EntityData.ParentYangName = "igmpInterfaceTable"
+    igmpinterfaceentry.EntityData.SegmentPath = "igmpInterfaceEntry" + "[igmpInterfaceIfIndex='" + fmt.Sprintf("%v", igmpinterfaceentry.Igmpinterfaceifindex) + "']"
+    igmpinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    igmpinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    igmpinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) SetFilter(yf yfilter.YFilter) { igmpinterfaceentry.YFilter = yf }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetGoName(yname string) string {
-    if yname == "igmpInterfaceIfIndex" { return "Igmpinterfaceifindex" }
-    if yname == "igmpInterfaceQueryInterval" { return "Igmpinterfacequeryinterval" }
-    if yname == "igmpInterfaceStatus" { return "Igmpinterfacestatus" }
-    if yname == "igmpInterfaceVersion" { return "Igmpinterfaceversion" }
-    if yname == "igmpInterfaceQuerier" { return "Igmpinterfacequerier" }
-    if yname == "igmpInterfaceQueryMaxResponseTime" { return "Igmpinterfacequerymaxresponsetime" }
-    if yname == "igmpInterfaceQuerierUpTime" { return "Igmpinterfacequerieruptime" }
-    if yname == "igmpInterfaceQuerierExpiryTime" { return "Igmpinterfacequerierexpirytime" }
-    if yname == "igmpInterfaceVersion1QuerierTimer" { return "Igmpinterfaceversion1Queriertimer" }
-    if yname == "igmpInterfaceWrongVersionQueries" { return "Igmpinterfacewrongversionqueries" }
-    if yname == "igmpInterfaceJoins" { return "Igmpinterfacejoins" }
-    if yname == "igmpInterfaceProxyIfIndex" { return "Igmpinterfaceproxyifindex" }
-    if yname == "igmpInterfaceGroups" { return "Igmpinterfacegroups" }
-    if yname == "igmpInterfaceRobustness" { return "Igmpinterfacerobustness" }
-    if yname == "igmpInterfaceLastMembQueryIntvl" { return "Igmpinterfacelastmembqueryintvl" }
-    return ""
+    igmpinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    igmpinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceIfIndex"] = types.YLeaf{"Igmpinterfaceifindex", igmpinterfaceentry.Igmpinterfaceifindex}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceQueryInterval"] = types.YLeaf{"Igmpinterfacequeryinterval", igmpinterfaceentry.Igmpinterfacequeryinterval}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceStatus"] = types.YLeaf{"Igmpinterfacestatus", igmpinterfaceentry.Igmpinterfacestatus}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceVersion"] = types.YLeaf{"Igmpinterfaceversion", igmpinterfaceentry.Igmpinterfaceversion}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceQuerier"] = types.YLeaf{"Igmpinterfacequerier", igmpinterfaceentry.Igmpinterfacequerier}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceQueryMaxResponseTime"] = types.YLeaf{"Igmpinterfacequerymaxresponsetime", igmpinterfaceentry.Igmpinterfacequerymaxresponsetime}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceQuerierUpTime"] = types.YLeaf{"Igmpinterfacequerieruptime", igmpinterfaceentry.Igmpinterfacequerieruptime}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceQuerierExpiryTime"] = types.YLeaf{"Igmpinterfacequerierexpirytime", igmpinterfaceentry.Igmpinterfacequerierexpirytime}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceVersion1QuerierTimer"] = types.YLeaf{"Igmpinterfaceversion1Queriertimer", igmpinterfaceentry.Igmpinterfaceversion1Queriertimer}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceWrongVersionQueries"] = types.YLeaf{"Igmpinterfacewrongversionqueries", igmpinterfaceentry.Igmpinterfacewrongversionqueries}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceJoins"] = types.YLeaf{"Igmpinterfacejoins", igmpinterfaceentry.Igmpinterfacejoins}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceProxyIfIndex"] = types.YLeaf{"Igmpinterfaceproxyifindex", igmpinterfaceentry.Igmpinterfaceproxyifindex}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceGroups"] = types.YLeaf{"Igmpinterfacegroups", igmpinterfaceentry.Igmpinterfacegroups}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceRobustness"] = types.YLeaf{"Igmpinterfacerobustness", igmpinterfaceentry.Igmpinterfacerobustness}
+    igmpinterfaceentry.EntityData.Leafs["igmpInterfaceLastMembQueryIntvl"] = types.YLeaf{"Igmpinterfacelastmembqueryintvl", igmpinterfaceentry.Igmpinterfacelastmembqueryintvl}
+    return &(igmpinterfaceentry.EntityData)
 }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetSegmentPath() string {
-    return "igmpInterfaceEntry" + "[igmpInterfaceIfIndex='" + fmt.Sprintf("%v", igmpinterfaceentry.Igmpinterfaceifindex) + "']"
-}
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["igmpInterfaceIfIndex"] = igmpinterfaceentry.Igmpinterfaceifindex
-    leafs["igmpInterfaceQueryInterval"] = igmpinterfaceentry.Igmpinterfacequeryinterval
-    leafs["igmpInterfaceStatus"] = igmpinterfaceentry.Igmpinterfacestatus
-    leafs["igmpInterfaceVersion"] = igmpinterfaceentry.Igmpinterfaceversion
-    leafs["igmpInterfaceQuerier"] = igmpinterfaceentry.Igmpinterfacequerier
-    leafs["igmpInterfaceQueryMaxResponseTime"] = igmpinterfaceentry.Igmpinterfacequerymaxresponsetime
-    leafs["igmpInterfaceQuerierUpTime"] = igmpinterfaceentry.Igmpinterfacequerieruptime
-    leafs["igmpInterfaceQuerierExpiryTime"] = igmpinterfaceentry.Igmpinterfacequerierexpirytime
-    leafs["igmpInterfaceVersion1QuerierTimer"] = igmpinterfaceentry.Igmpinterfaceversion1Queriertimer
-    leafs["igmpInterfaceWrongVersionQueries"] = igmpinterfaceentry.Igmpinterfacewrongversionqueries
-    leafs["igmpInterfaceJoins"] = igmpinterfaceentry.Igmpinterfacejoins
-    leafs["igmpInterfaceProxyIfIndex"] = igmpinterfaceentry.Igmpinterfaceproxyifindex
-    leafs["igmpInterfaceGroups"] = igmpinterfaceentry.Igmpinterfacegroups
-    leafs["igmpInterfaceRobustness"] = igmpinterfaceentry.Igmpinterfacerobustness
-    leafs["igmpInterfaceLastMembQueryIntvl"] = igmpinterfaceentry.Igmpinterfacelastmembqueryintvl
-    return leafs
-}
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetYangName() string { return "igmpInterfaceEntry" }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) SetParent(parent types.Entity) { igmpinterfaceentry.parent = parent }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetParent() types.Entity { return igmpinterfaceentry.parent }
-
-func (igmpinterfaceentry *IGMPSTDMIB_Igmpinterfacetable_Igmpinterfaceentry) GetParentYangName() string { return "igmpInterfaceTable" }
 
 // IGMPSTDMIB_Igmpcachetable
 // The (conceptual) table listing the IP multicast groups for
 // which there are members on a particular interface.
 type IGMPSTDMIB_Igmpcachetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the igmpCacheTable. The type is slice of
@@ -336,73 +216,34 @@ type IGMPSTDMIB_Igmpcachetable struct {
     Igmpcacheentry []IGMPSTDMIB_Igmpcachetable_Igmpcacheentry
 }
 
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetFilter() yfilter.YFilter { return igmpcachetable.YFilter }
+func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetEntityData() *types.CommonEntityData {
+    igmpcachetable.EntityData.YFilter = igmpcachetable.YFilter
+    igmpcachetable.EntityData.YangName = "igmpCacheTable"
+    igmpcachetable.EntityData.BundleName = "cisco_ios_xe"
+    igmpcachetable.EntityData.ParentYangName = "IGMP-STD-MIB"
+    igmpcachetable.EntityData.SegmentPath = "igmpCacheTable"
+    igmpcachetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    igmpcachetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    igmpcachetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) SetFilter(yf yfilter.YFilter) { igmpcachetable.YFilter = yf }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetGoName(yname string) string {
-    if yname == "igmpCacheEntry" { return "Igmpcacheentry" }
-    return ""
-}
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetSegmentPath() string {
-    return "igmpCacheTable"
-}
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "igmpCacheEntry" {
-        for _, c := range igmpcachetable.Igmpcacheentry {
-            if igmpcachetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IGMPSTDMIB_Igmpcachetable_Igmpcacheentry{}
-        igmpcachetable.Igmpcacheentry = append(igmpcachetable.Igmpcacheentry, child)
-        return &igmpcachetable.Igmpcacheentry[len(igmpcachetable.Igmpcacheentry)-1]
-    }
-    return nil
-}
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    igmpcachetable.EntityData.Children = make(map[string]types.YChild)
+    igmpcachetable.EntityData.Children["igmpCacheEntry"] = types.YChild{"Igmpcacheentry", nil}
     for i := range igmpcachetable.Igmpcacheentry {
-        children[igmpcachetable.Igmpcacheentry[i].GetSegmentPath()] = &igmpcachetable.Igmpcacheentry[i]
+        igmpcachetable.EntityData.Children[types.GetSegmentPath(&igmpcachetable.Igmpcacheentry[i])] = types.YChild{"Igmpcacheentry", &igmpcachetable.Igmpcacheentry[i]}
     }
-    return children
+    igmpcachetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(igmpcachetable.EntityData)
 }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetYangName() string { return "igmpCacheTable" }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) SetParent(parent types.Entity) { igmpcachetable.parent = parent }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetParent() types.Entity { return igmpcachetable.parent }
-
-func (igmpcachetable *IGMPSTDMIB_Igmpcachetable) GetParentYangName() string { return "IGMP-STD-MIB" }
 
 // IGMPSTDMIB_Igmpcachetable_Igmpcacheentry
 // An entry (conceptual row) in the igmpCacheTable.
 type IGMPSTDMIB_Igmpcachetable_Igmpcacheentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains information. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Igmpcacheaddress interface{}
 
     // This attribute is a key. The interface for which this entry contains
@@ -418,7 +259,7 @@ type IGMPSTDMIB_Igmpcachetable_Igmpcacheentry struct {
     // this IP Multicast group address on this interface.  If no membership report
     // has been received, this object has the value 0.0.0.0. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Igmpcachelastreporter interface{}
 
     // The time elapsed since this entry was created. The type is interface{} with
@@ -447,63 +288,26 @@ type IGMPSTDMIB_Igmpcachetable_Igmpcacheentry struct {
     Igmpcacheversion1Hosttimer interface{}
 }
 
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetFilter() yfilter.YFilter { return igmpcacheentry.YFilter }
+func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetEntityData() *types.CommonEntityData {
+    igmpcacheentry.EntityData.YFilter = igmpcacheentry.YFilter
+    igmpcacheentry.EntityData.YangName = "igmpCacheEntry"
+    igmpcacheentry.EntityData.BundleName = "cisco_ios_xe"
+    igmpcacheentry.EntityData.ParentYangName = "igmpCacheTable"
+    igmpcacheentry.EntityData.SegmentPath = "igmpCacheEntry" + "[igmpCacheAddress='" + fmt.Sprintf("%v", igmpcacheentry.Igmpcacheaddress) + "']" + "[igmpCacheIfIndex='" + fmt.Sprintf("%v", igmpcacheentry.Igmpcacheifindex) + "']"
+    igmpcacheentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    igmpcacheentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    igmpcacheentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) SetFilter(yf yfilter.YFilter) { igmpcacheentry.YFilter = yf }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetGoName(yname string) string {
-    if yname == "igmpCacheAddress" { return "Igmpcacheaddress" }
-    if yname == "igmpCacheIfIndex" { return "Igmpcacheifindex" }
-    if yname == "igmpCacheSelf" { return "Igmpcacheself" }
-    if yname == "igmpCacheLastReporter" { return "Igmpcachelastreporter" }
-    if yname == "igmpCacheUpTime" { return "Igmpcacheuptime" }
-    if yname == "igmpCacheExpiryTime" { return "Igmpcacheexpirytime" }
-    if yname == "igmpCacheStatus" { return "Igmpcachestatus" }
-    if yname == "igmpCacheVersion1HostTimer" { return "Igmpcacheversion1Hosttimer" }
-    return ""
+    igmpcacheentry.EntityData.Children = make(map[string]types.YChild)
+    igmpcacheentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    igmpcacheentry.EntityData.Leafs["igmpCacheAddress"] = types.YLeaf{"Igmpcacheaddress", igmpcacheentry.Igmpcacheaddress}
+    igmpcacheentry.EntityData.Leafs["igmpCacheIfIndex"] = types.YLeaf{"Igmpcacheifindex", igmpcacheentry.Igmpcacheifindex}
+    igmpcacheentry.EntityData.Leafs["igmpCacheSelf"] = types.YLeaf{"Igmpcacheself", igmpcacheentry.Igmpcacheself}
+    igmpcacheentry.EntityData.Leafs["igmpCacheLastReporter"] = types.YLeaf{"Igmpcachelastreporter", igmpcacheentry.Igmpcachelastreporter}
+    igmpcacheentry.EntityData.Leafs["igmpCacheUpTime"] = types.YLeaf{"Igmpcacheuptime", igmpcacheentry.Igmpcacheuptime}
+    igmpcacheentry.EntityData.Leafs["igmpCacheExpiryTime"] = types.YLeaf{"Igmpcacheexpirytime", igmpcacheentry.Igmpcacheexpirytime}
+    igmpcacheentry.EntityData.Leafs["igmpCacheStatus"] = types.YLeaf{"Igmpcachestatus", igmpcacheentry.Igmpcachestatus}
+    igmpcacheentry.EntityData.Leafs["igmpCacheVersion1HostTimer"] = types.YLeaf{"Igmpcacheversion1Hosttimer", igmpcacheentry.Igmpcacheversion1Hosttimer}
+    return &(igmpcacheentry.EntityData)
 }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetSegmentPath() string {
-    return "igmpCacheEntry" + "[igmpCacheAddress='" + fmt.Sprintf("%v", igmpcacheentry.Igmpcacheaddress) + "']" + "[igmpCacheIfIndex='" + fmt.Sprintf("%v", igmpcacheentry.Igmpcacheifindex) + "']"
-}
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["igmpCacheAddress"] = igmpcacheentry.Igmpcacheaddress
-    leafs["igmpCacheIfIndex"] = igmpcacheentry.Igmpcacheifindex
-    leafs["igmpCacheSelf"] = igmpcacheentry.Igmpcacheself
-    leafs["igmpCacheLastReporter"] = igmpcacheentry.Igmpcachelastreporter
-    leafs["igmpCacheUpTime"] = igmpcacheentry.Igmpcacheuptime
-    leafs["igmpCacheExpiryTime"] = igmpcacheentry.Igmpcacheexpirytime
-    leafs["igmpCacheStatus"] = igmpcacheentry.Igmpcachestatus
-    leafs["igmpCacheVersion1HostTimer"] = igmpcacheentry.Igmpcacheversion1Hosttimer
-    return leafs
-}
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetYangName() string { return "igmpCacheEntry" }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) SetParent(parent types.Entity) { igmpcacheentry.parent = parent }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetParent() types.Entity { return igmpcacheentry.parent }
-
-func (igmpcacheentry *IGMPSTDMIB_Igmpcachetable_Igmpcacheentry) GetParentYangName() string { return "igmpCacheTable" }
 

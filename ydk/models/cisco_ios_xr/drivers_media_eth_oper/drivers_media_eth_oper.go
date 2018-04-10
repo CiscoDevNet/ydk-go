@@ -24,6 +24,267 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface", reflect.TypeOf(EthernetInterface{}))
 }
 
+// EthernetDevIf represents Ethernet dev if
+type EthernetDevIf string
+
+const (
+    // no interface
+    EthernetDevIf_no_interface EthernetDevIf = "no-interface"
+
+    // xgmii
+    EthernetDevIf_xgmii EthernetDevIf = "xgmii"
+
+    // xaui
+    EthernetDevIf_xaui EthernetDevIf = "xaui"
+
+    // ethernet num dev if
+    EthernetDevIf_ethernet_num_dev_if EthernetDevIf = "ethernet-num-dev-if"
+)
+
+// EthernetDev represents Ethernet dev
+type EthernetDev string
+
+const (
+    // no device
+    EthernetDev_no_device EthernetDev = "no-device"
+
+    // pma pmd
+    EthernetDev_pma_pmd EthernetDev = "pma-pmd"
+
+    // wis
+    EthernetDev_wis EthernetDev = "wis"
+
+    // pcs
+    EthernetDev_pcs EthernetDev = "pcs"
+
+    // phy xs
+    EthernetDev_phy_xs EthernetDev = "phy-xs"
+
+    // dte xs
+    EthernetDev_dte_xs EthernetDev = "dte-xs"
+
+    // ethernet num dev
+    EthernetDev_ethernet_num_dev EthernetDev = "ethernet-num-dev"
+)
+
+// EthernetBertPattern represents Ethernet test patterns (IEEE spec 36A/48A)
+type EthernetBertPattern string
+
+const (
+    // no test pattern
+    EthernetBertPattern_no_test_pattern EthernetBertPattern = "no-test-pattern"
+
+    // high frequency
+    EthernetBertPattern_high_frequency EthernetBertPattern = "high-frequency"
+
+    // low frequency
+    EthernetBertPattern_low_frequency EthernetBertPattern = "low-frequency"
+
+    // mixed frequency
+    EthernetBertPattern_mixed_frequency EthernetBertPattern = "mixed-frequency"
+
+    // continuous random
+    EthernetBertPattern_continuous_random EthernetBertPattern = "continuous-random"
+
+    // continuous jitter
+    EthernetBertPattern_continuous_jitter EthernetBertPattern = "continuous-jitter"
+
+    // long continuous random
+    EthernetBertPattern_long_continuous_random EthernetBertPattern = "long-continuous-random"
+
+    // short continuous random
+    EthernetBertPattern_short_continuous_random EthernetBertPattern = "short-continuous-random"
+
+    // pseudorandom seed a
+    EthernetBertPattern_pseudorandom_seed_a EthernetBertPattern = "pseudorandom-seed-a"
+
+    // pseudorandom seed b
+    EthernetBertPattern_pseudorandom_seed_b EthernetBertPattern = "pseudorandom-seed-b"
+
+    // prbs31
+    EthernetBertPattern_prbs31 EthernetBertPattern = "prbs31"
+
+    // square wave
+    EthernetBertPattern_square_wave EthernetBertPattern = "square-wave"
+
+    // pseudorandom
+    EthernetBertPattern_pseudorandom EthernetBertPattern = "pseudorandom"
+
+    // ethernet bert pattern types
+    EthernetBertPattern_ethernet_bert_pattern_types EthernetBertPattern = "ethernet-bert-pattern-types"
+)
+
+// EthernetBertErrCnt represents Ethernet bert err cnt
+type EthernetBertErrCnt string
+
+const (
+    // no count type
+    EthernetBertErrCnt_no_count_type EthernetBertErrCnt = "no-count-type"
+
+    // bit error count
+    EthernetBertErrCnt_bit_error_count EthernetBertErrCnt = "bit-error-count"
+
+    // frame error count
+    EthernetBertErrCnt_frame_error_count EthernetBertErrCnt = "frame-error-count"
+
+    // block error count
+    EthernetBertErrCnt_block_error_count EthernetBertErrCnt = "block-error-count"
+
+    // ethernet bert err cnt types
+    EthernetBertErrCnt_ethernet_bert_err_cnt_types EthernetBertErrCnt = "ethernet-bert-err-cnt-types"
+)
+
+// EtherAinsStatus represents Ether ains status
+type EtherAinsStatus string
+
+const (
+    // AINS Soak timer not running
+    EtherAinsStatus_ains_soak_status_none EtherAinsStatus = "ains-soak-status-none"
+
+    // AINS Soak timer pending
+    EtherAinsStatus_ains_soak_status_pending EtherAinsStatus = "ains-soak-status-pending"
+
+    // AINS Soak timer running
+    EtherAinsStatus_ains_soak_status_running EtherAinsStatus = "ains-soak-status-running"
+)
+
+// EtherPfc represents Priority flowcontrol type
+type EtherPfc string
+
+const (
+    // No priority flow control (disabled)
+    EtherPfc_no_pfc EtherPfc = "no-pfc"
+
+    // Priority flow control enabled
+    EtherPfc_on EtherPfc = "on"
+)
+
+// EthCtrlrAlarmState represents Ethernet alarm state
+type EthCtrlrAlarmState string
+
+const (
+    // Not supported on this interface
+    EthCtrlrAlarmState_alarm_not_supported EthCtrlrAlarmState = "alarm-not-supported"
+
+    // Alarm set
+    EthCtrlrAlarmState_alarm_set EthCtrlrAlarmState = "alarm-set"
+
+    // Alarm not set
+    EthCtrlrAlarmState_alarm_not_set EthCtrlrAlarmState = "alarm-not-set"
+)
+
+// EthernetIpg represents Inter packet gap
+type EthernetIpg string
+
+const (
+    // IEEE standard value of 12
+    EthernetIpg_standard EthernetIpg = "standard"
+
+    // Non-standard value of 16
+    EthernetIpg_non_standard EthernetIpg = "non-standard"
+)
+
+// EtherFlowcontrol represents Flowcontrol type
+type EtherFlowcontrol string
+
+const (
+    // No flow control (disabled)
+    EtherFlowcontrol_no_flowcontrol EtherFlowcontrol = "no-flowcontrol"
+
+    // Traffic egress (pause frames ingress)
+    EtherFlowcontrol_egress EtherFlowcontrol = "egress"
+
+    // Traffic ingress (pause frames egress)
+    EtherFlowcontrol_ingress EtherFlowcontrol = "ingress"
+
+    // On both ingress and egress
+    EtherFlowcontrol_bidirectional EtherFlowcontrol = "bidirectional"
+)
+
+// EthernetDuplex represents Duplexity
+type EthernetDuplex string
+
+const (
+    // ethernet duplex invalid
+    EthernetDuplex_ethernet_duplex_invalid EthernetDuplex = "ethernet-duplex-invalid"
+
+    // half duplex
+    EthernetDuplex_half_duplex EthernetDuplex = "half-duplex"
+
+    // full duplex
+    EthernetDuplex_full_duplex EthernetDuplex = "full-duplex"
+)
+
+// EthernetSpeed represents Speed
+type EthernetSpeed string
+
+const (
+    // ethernet speed invalid
+    EthernetSpeed_ethernet_speed_invalid EthernetSpeed = "ethernet-speed-invalid"
+
+    // ten mbps
+    EthernetSpeed_ten_mbps EthernetSpeed = "ten-mbps"
+
+    // hundred mbps
+    EthernetSpeed_hundred_mbps EthernetSpeed = "hundred-mbps"
+
+    // one gbps
+    EthernetSpeed_one_gbps EthernetSpeed = "one-gbps"
+
+    // ten gbps
+    EthernetSpeed_ten_gbps EthernetSpeed = "ten-gbps"
+
+    // twenty five gbps
+    EthernetSpeed_twenty_five_gbps EthernetSpeed = "twenty-five-gbps"
+
+    // forty gbps
+    EthernetSpeed_forty_gbps EthernetSpeed = "forty-gbps"
+
+    // fifty gbps
+    EthernetSpeed_fifty_gbps EthernetSpeed = "fifty-gbps"
+
+    // hundred gbps
+    EthernetSpeed_hundred_gbps EthernetSpeed = "hundred-gbps"
+
+    // two hundred gbps
+    EthernetSpeed_two_hundred_gbps EthernetSpeed = "two-hundred-gbps"
+
+    // four hundred gbps
+    EthernetSpeed_four_hundred_gbps EthernetSpeed = "four-hundred-gbps"
+
+    // ethernet speed types count
+    EthernetSpeed_ethernet_speed_types_count EthernetSpeed = "ethernet-speed-types-count"
+)
+
+// EtherLedState represents Ether led state
+type EtherLedState string
+
+const (
+    // LED state is unknown
+    EtherLedState_led_state_unknown EtherLedState = "led-state-unknown"
+
+    // LED is off
+    EtherLedState_led_off EtherLedState = "led-off"
+
+    // LED is green
+    EtherLedState_green_on EtherLedState = "green-on"
+
+    // LED is flashing green
+    EtherLedState_green_flashing EtherLedState = "green-flashing"
+
+    // LED is yellow
+    EtherLedState_yellow_on EtherLedState = "yellow-on"
+
+    // LED is flashing yellow
+    EtherLedState_yellow_flashing EtherLedState = "yellow-flashing"
+
+    // LED is red
+    EtherLedState_red_on EtherLedState = "red-on"
+
+    // LED is flashing red
+    EtherLedState_red_flashing EtherLedState = "red-flashing"
+)
+
 // EtherLinkState represents .5.1.1.4
 type EtherLinkState string
 
@@ -113,158 +374,43 @@ const (
 
     // OTN Framing Error
     EtherLinkState_otn_framing_error EtherLinkState = "otn-framing-error"
+
+    // Link is shutdown
+    EtherLinkState_shutdown EtherLinkState = "shutdown"
 )
 
-// EthernetBertPattern represents Ethernet test patterns (IEEE spec 36A/48A)
-type EthernetBertPattern string
+// EthernetFec represents FEC type
+type EthernetFec string
 
 const (
-    // no test pattern
-    EthernetBertPattern_no_test_pattern EthernetBertPattern = "no-test-pattern"
+    // FEC not configured
+    EthernetFec_not_configured EthernetFec = "not-configured"
 
-    // high frequency
-    EthernetBertPattern_high_frequency EthernetBertPattern = "high-frequency"
+    // Reed-Solomon encoding
+    EthernetFec_standard EthernetFec = "standard"
 
-    // low frequency
-    EthernetBertPattern_low_frequency EthernetBertPattern = "low-frequency"
+    // FEC explicitly disabled
+    EthernetFec_disabled EthernetFec = "disabled"
 
-    // mixed frequency
-    EthernetBertPattern_mixed_frequency EthernetBertPattern = "mixed-frequency"
-
-    // continuous random
-    EthernetBertPattern_continuous_random EthernetBertPattern = "continuous-random"
-
-    // continuous jitter
-    EthernetBertPattern_continuous_jitter EthernetBertPattern = "continuous-jitter"
-
-    // long continuous random
-    EthernetBertPattern_long_continuous_random EthernetBertPattern = "long-continuous-random"
-
-    // short continuous random
-    EthernetBertPattern_short_continuous_random EthernetBertPattern = "short-continuous-random"
-
-    // pseudorandom seed a
-    EthernetBertPattern_pseudorandom_seed_a EthernetBertPattern = "pseudorandom-seed-a"
-
-    // pseudorandom seed b
-    EthernetBertPattern_pseudorandom_seed_b EthernetBertPattern = "pseudorandom-seed-b"
-
-    // prbs31
-    EthernetBertPattern_prbs31 EthernetBertPattern = "prbs31"
-
-    // square wave
-    EthernetBertPattern_square_wave EthernetBertPattern = "square-wave"
-
-    // pseudorandom
-    EthernetBertPattern_pseudorandom EthernetBertPattern = "pseudorandom"
-
-    // ethernet bert pattern types
-    EthernetBertPattern_ethernet_bert_pattern_types EthernetBertPattern = "ethernet-bert-pattern-types"
+    // BASE-R encoding
+    EthernetFec_base_r EthernetFec = "base-r"
 )
 
-// EthernetPortEnable represents Port admin state
-type EthernetPortEnable string
+// EthernetLoopback represents Loopback type
+type EthernetLoopback string
 
 const (
-    // Port disabled, both directions
-    EthernetPortEnable_disabled EthernetPortEnable = "disabled"
+    // Disabled
+    EthernetLoopback_no_loopback EthernetLoopback = "no-loopback"
 
-    // Port enabled rx direction only
-    EthernetPortEnable_rx_enabled EthernetPortEnable = "rx-enabled"
+    // Loopback in the framer
+    EthernetLoopback_internal EthernetLoopback = "internal"
 
-    // Port enabled tx direction only
-    EthernetPortEnable_tx_enabled EthernetPortEnable = "tx-enabled"
+    // Loops peer's packets back to them
+    EthernetLoopback_line EthernetLoopback = "line"
 
-    // Port enabled, both directions
-    EthernetPortEnable_enabled EthernetPortEnable = "enabled"
-)
-
-// EthCtrlrAlarmState represents Ethernet alarm state
-type EthCtrlrAlarmState string
-
-const (
-    // Not supported on this interface
-    EthCtrlrAlarmState_alarm_not_supported EthCtrlrAlarmState = "alarm-not-supported"
-
-    // Alarm set
-    EthCtrlrAlarmState_alarm_set EthCtrlrAlarmState = "alarm-set"
-
-    // Alarm not set
-    EthCtrlrAlarmState_alarm_not_set EthCtrlrAlarmState = "alarm-not-set"
-)
-
-// EthernetDev represents Ethernet dev
-type EthernetDev string
-
-const (
-    // no device
-    EthernetDev_no_device EthernetDev = "no-device"
-
-    // pma pmd
-    EthernetDev_pma_pmd EthernetDev = "pma-pmd"
-
-    // wis
-    EthernetDev_wis EthernetDev = "wis"
-
-    // pcs
-    EthernetDev_pcs EthernetDev = "pcs"
-
-    // phy xs
-    EthernetDev_phy_xs EthernetDev = "phy-xs"
-
-    // dte xs
-    EthernetDev_dte_xs EthernetDev = "dte-xs"
-
-    // ethernet num dev
-    EthernetDev_ethernet_num_dev EthernetDev = "ethernet-num-dev"
-)
-
-// EtherPhyPresent represents Ether phy present
-type EtherPhyPresent string
-
-const (
-    // No PHY present
-    EtherPhyPresent_phy_not_present EtherPhyPresent = "phy-not-present"
-
-    // PHY is present
-    EtherPhyPresent_phy_present EtherPhyPresent = "phy-present"
-
-    // State is unknown
-    EtherPhyPresent_no_information EtherPhyPresent = "no-information"
-)
-
-// EthernetDevIf represents Ethernet dev if
-type EthernetDevIf string
-
-const (
-    // no interface
-    EthernetDevIf_no_interface EthernetDevIf = "no-interface"
-
-    // xgmii
-    EthernetDevIf_xgmii EthernetDevIf = "xgmii"
-
-    // xaui
-    EthernetDevIf_xaui EthernetDevIf = "xaui"
-
-    // ethernet num dev if
-    EthernetDevIf_ethernet_num_dev_if EthernetDevIf = "ethernet-num-dev-if"
-)
-
-// EtherFlowcontrol represents Flowcontrol type
-type EtherFlowcontrol string
-
-const (
-    // No flow control (disabled)
-    EtherFlowcontrol_no_flowcontrol EtherFlowcontrol = "no-flowcontrol"
-
-    // Traffic egress (pause frames ingress)
-    EtherFlowcontrol_egress EtherFlowcontrol = "egress"
-
-    // Traffic ingress (pause frames egress)
-    EtherFlowcontrol_ingress EtherFlowcontrol = "ingress"
-
-    // On both ingress and egress
-    EtherFlowcontrol_bidirectional EtherFlowcontrol = "bidirectional"
+    // tx externally connected to rx
+    EthernetLoopback_external EthernetLoopback = "external"
 )
 
 // EtherDomAlarm represents Ether dom alarm
@@ -290,147 +436,18 @@ const (
     EtherDomAlarm_alarm_low EtherDomAlarm = "alarm-low"
 )
 
-// EtherPfc represents Priority flowcontrol type
-type EtherPfc string
+// EtherPhyPresent represents Ether phy present
+type EtherPhyPresent string
 
 const (
-    // No priority flow control (disabled)
-    EtherPfc_no_pfc EtherPfc = "no-pfc"
+    // No PHY present
+    EtherPhyPresent_phy_not_present EtherPhyPresent = "phy-not-present"
 
-    // Priority flow control enabled
-    EtherPfc_on EtherPfc = "on"
-)
+    // PHY is present
+    EtherPhyPresent_phy_present EtherPhyPresent = "phy-present"
 
-// EthernetBertErrCnt represents Ethernet bert err cnt
-type EthernetBertErrCnt string
-
-const (
-    // no count type
-    EthernetBertErrCnt_no_count_type EthernetBertErrCnt = "no-count-type"
-
-    // bit error count
-    EthernetBertErrCnt_bit_error_count EthernetBertErrCnt = "bit-error-count"
-
-    // frame error count
-    EthernetBertErrCnt_frame_error_count EthernetBertErrCnt = "frame-error-count"
-
-    // block error count
-    EthernetBertErrCnt_block_error_count EthernetBertErrCnt = "block-error-count"
-
-    // ethernet bert err cnt types
-    EthernetBertErrCnt_ethernet_bert_err_cnt_types EthernetBertErrCnt = "ethernet-bert-err-cnt-types"
-)
-
-// EthernetDuplex represents Duplexity
-type EthernetDuplex string
-
-const (
-    // ethernet duplex invalid
-    EthernetDuplex_ethernet_duplex_invalid EthernetDuplex = "ethernet-duplex-invalid"
-
-    // half duplex
-    EthernetDuplex_half_duplex EthernetDuplex = "half-duplex"
-
-    // full duplex
-    EthernetDuplex_full_duplex EthernetDuplex = "full-duplex"
-)
-
-// EthernetIpg represents Inter packet gap
-type EthernetIpg string
-
-const (
-    // IEEE standard value of 12
-    EthernetIpg_standard EthernetIpg = "standard"
-
-    // Non-standard value of 16
-    EthernetIpg_non_standard EthernetIpg = "non-standard"
-)
-
-// EthernetSpeed represents Speed
-type EthernetSpeed string
-
-const (
-    // ethernet speed invalid
-    EthernetSpeed_ethernet_speed_invalid EthernetSpeed = "ethernet-speed-invalid"
-
-    // ten mbps
-    EthernetSpeed_ten_mbps EthernetSpeed = "ten-mbps"
-
-    // hundred mbps
-    EthernetSpeed_hundred_mbps EthernetSpeed = "hundred-mbps"
-
-    // one gbps
-    EthernetSpeed_one_gbps EthernetSpeed = "one-gbps"
-
-    // ten gbps
-    EthernetSpeed_ten_gbps EthernetSpeed = "ten-gbps"
-
-    // twenty five gbps
-    EthernetSpeed_twenty_five_gbps EthernetSpeed = "twenty-five-gbps"
-
-    // forty gbps
-    EthernetSpeed_forty_gbps EthernetSpeed = "forty-gbps"
-
-    // fifty gbps
-    EthernetSpeed_fifty_gbps EthernetSpeed = "fifty-gbps"
-
-    // hundred gbps
-    EthernetSpeed_hundred_gbps EthernetSpeed = "hundred-gbps"
-
-    // two hundred gbps
-    EthernetSpeed_two_hundred_gbps EthernetSpeed = "two-hundred-gbps"
-
-    // four hundred gbps
-    EthernetSpeed_four_hundred_gbps EthernetSpeed = "four-hundred-gbps"
-
-    // ethernet speed types count
-    EthernetSpeed_ethernet_speed_types_count EthernetSpeed = "ethernet-speed-types-count"
-)
-
-// EtherLedState represents Ether led state
-type EtherLedState string
-
-const (
-    // LED state is unknown
-    EtherLedState_led_state_unknown EtherLedState = "led-state-unknown"
-
-    // LED is off
-    EtherLedState_led_off EtherLedState = "led-off"
-
-    // LED is green
-    EtherLedState_green_on EtherLedState = "green-on"
-
-    // LED is flashing green
-    EtherLedState_green_flashing EtherLedState = "green-flashing"
-
-    // LED is yellow
-    EtherLedState_yellow_on EtherLedState = "yellow-on"
-
-    // LED is flashing yellow
-    EtherLedState_yellow_flashing EtherLedState = "yellow-flashing"
-
-    // LED is red
-    EtherLedState_red_on EtherLedState = "red-on"
-
-    // LED is flashing red
-    EtherLedState_red_flashing EtherLedState = "red-flashing"
-)
-
-// EthernetFec represents FEC type
-type EthernetFec string
-
-const (
-    // FEC not configured
-    EthernetFec_not_configured EthernetFec = "not-configured"
-
-    // Reed-Solomon encoding
-    EthernetFec_standard EthernetFec = "standard"
-
-    // FEC explicitly disabled
-    EthernetFec_disabled EthernetFec = "disabled"
-
-    // BASE-R encoding
-    EthernetFec_base_r EthernetFec = "base-r"
+    // State is unknown
+    EtherPhyPresent_no_information EtherPhyPresent = "no-information"
 )
 
 // EthernetMedia represents 30.5.1.1.2
@@ -1493,45 +1510,52 @@ const (
     // 4 lanes Passive Copper
     EthernetMedia_ethernet_400gbase_cr4 EthernetMedia = "ethernet-400gbase-cr4"
 
+    // Passive Twinax cable assembly 1m
+    EthernetMedia_ethernet_10gbase_cu1m EthernetMedia = "ethernet-10gbase-cu1m"
+
+    // Passive Twinax cable assembly 3m
+    EthernetMedia_ethernet_10gbase_cu3m EthernetMedia = "ethernet-10gbase-cu3m"
+
+    // Passive Twinax cable assembly 5m
+    EthernetMedia_ethernet_10gbase_cu5m EthernetMedia = "ethernet-10gbase-cu5m"
+
+    // Active Twinax cable assembly 7m
+    EthernetMedia_ethernet_10gbase_acu7m EthernetMedia = "ethernet-10gbase-acu7m"
+
+    // Active Twinax cable assembly 10m
+    EthernetMedia_ethernet_10gbase_acu10m EthernetMedia = "ethernet-10gbase-acu10m"
+
+    // Active optical cable
+    EthernetMedia_ethernet_40gbase_aoc EthernetMedia = "ethernet-40gbase-aoc"
+
+    // fiber over 4 lane optics (long reach)
+    EthernetMedia_ethernet_4x10g_base_lr EthernetMedia = "ethernet-4x10g-base-lr"
+
     // ethernet base max
     EthernetMedia_ethernet_base_max EthernetMedia = "ethernet-base-max"
 )
 
-// EtherAinsStatus represents Ether ains status
-type EtherAinsStatus string
+// EthernetPortEnable represents Port admin state
+type EthernetPortEnable string
 
 const (
-    // AINS Soak timer not running
-    EtherAinsStatus_ains_soak_status_none EtherAinsStatus = "ains-soak-status-none"
+    // Port disabled, both directions
+    EthernetPortEnable_disabled EthernetPortEnable = "disabled"
 
-    // AINS Soak timer pending
-    EtherAinsStatus_ains_soak_status_pending EtherAinsStatus = "ains-soak-status-pending"
+    // Port enabled rx direction only
+    EthernetPortEnable_rx_enabled EthernetPortEnable = "rx-enabled"
 
-    // AINS Soak timer running
-    EtherAinsStatus_ains_soak_status_running EtherAinsStatus = "ains-soak-status-running"
-)
+    // Port enabled tx direction only
+    EthernetPortEnable_tx_enabled EthernetPortEnable = "tx-enabled"
 
-// EthernetLoopback represents Loopback type
-type EthernetLoopback string
-
-const (
-    // Disabled
-    EthernetLoopback_no_loopback EthernetLoopback = "no-loopback"
-
-    // Loopback in the framer
-    EthernetLoopback_internal EthernetLoopback = "internal"
-
-    // Loops peer's packets back to them
-    EthernetLoopback_line EthernetLoopback = "line"
-
-    // tx externally connected to rx
-    EthernetLoopback_external EthernetLoopback = "external"
+    // Port enabled, both directions
+    EthernetPortEnable_enabled EthernetPortEnable = "enabled"
 )
 
 // EthernetInterface
 // Ethernet operational data
 type EthernetInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ethernet controller statistics table.
@@ -1544,69 +1568,28 @@ type EthernetInterface struct {
     Berts EthernetInterface_Berts
 }
 
-func (ethernetInterface *EthernetInterface) GetFilter() yfilter.YFilter { return ethernetInterface.YFilter }
+func (ethernetInterface *EthernetInterface) GetEntityData() *types.CommonEntityData {
+    ethernetInterface.EntityData.YFilter = ethernetInterface.YFilter
+    ethernetInterface.EntityData.YangName = "ethernet-interface"
+    ethernetInterface.EntityData.BundleName = "cisco_ios_xr"
+    ethernetInterface.EntityData.ParentYangName = "Cisco-IOS-XR-drivers-media-eth-oper"
+    ethernetInterface.EntityData.SegmentPath = "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface"
+    ethernetInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ethernetInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ethernetInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ethernetInterface *EthernetInterface) SetFilter(yf yfilter.YFilter) { ethernetInterface.YFilter = yf }
-
-func (ethernetInterface *EthernetInterface) GetGoName(yname string) string {
-    if yname == "statistics" { return "Statistics" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "berts" { return "Berts" }
-    return ""
+    ethernetInterface.EntityData.Children = make(map[string]types.YChild)
+    ethernetInterface.EntityData.Children["statistics"] = types.YChild{"Statistics", &ethernetInterface.Statistics}
+    ethernetInterface.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ethernetInterface.Interfaces}
+    ethernetInterface.EntityData.Children["berts"] = types.YChild{"Berts", &ethernetInterface.Berts}
+    ethernetInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ethernetInterface.EntityData)
 }
-
-func (ethernetInterface *EthernetInterface) GetSegmentPath() string {
-    return "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface"
-}
-
-func (ethernetInterface *EthernetInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &ethernetInterface.Statistics
-    }
-    if childYangName == "interfaces" {
-        return &ethernetInterface.Interfaces
-    }
-    if childYangName == "berts" {
-        return &ethernetInterface.Berts
-    }
-    return nil
-}
-
-func (ethernetInterface *EthernetInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &ethernetInterface.Statistics
-    children["interfaces"] = &ethernetInterface.Interfaces
-    children["berts"] = &ethernetInterface.Berts
-    return children
-}
-
-func (ethernetInterface *EthernetInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ethernetInterface *EthernetInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ethernetInterface *EthernetInterface) GetYangName() string { return "ethernet-interface" }
-
-func (ethernetInterface *EthernetInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ethernetInterface *EthernetInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ethernetInterface *EthernetInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ethernetInterface *EthernetInterface) SetParent(parent types.Entity) { ethernetInterface.parent = parent }
-
-func (ethernetInterface *EthernetInterface) GetParent() types.Entity { return ethernetInterface.parent }
-
-func (ethernetInterface *EthernetInterface) GetParentYangName() string { return "Cisco-IOS-XR-drivers-media-eth-oper" }
 
 // EthernetInterface_Statistics
 // Ethernet controller statistics table
 type EthernetInterface_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ethernet statistics information. The type is slice of
@@ -1614,72 +1597,33 @@ type EthernetInterface_Statistics struct {
     Statistic []EthernetInterface_Statistics_Statistic
 }
 
-func (statistics *EthernetInterface_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *EthernetInterface_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "ethernet-interface"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *EthernetInterface_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *EthernetInterface_Statistics) GetGoName(yname string) string {
-    if yname == "statistic" { return "Statistic" }
-    return ""
-}
-
-func (statistics *EthernetInterface_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *EthernetInterface_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistic" {
-        for _, c := range statistics.Statistic {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EthernetInterface_Statistics_Statistic{}
-        statistics.Statistic = append(statistics.Statistic, child)
-        return &statistics.Statistic[len(statistics.Statistic)-1]
-    }
-    return nil
-}
-
-func (statistics *EthernetInterface_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["statistic"] = types.YChild{"Statistic", nil}
     for i := range statistics.Statistic {
-        children[statistics.Statistic[i].GetSegmentPath()] = &statistics.Statistic[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Statistic[i])] = types.YChild{"Statistic", &statistics.Statistic[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *EthernetInterface_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *EthernetInterface_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *EthernetInterface_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *EthernetInterface_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *EthernetInterface_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *EthernetInterface_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *EthernetInterface_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *EthernetInterface_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *EthernetInterface_Statistics) GetParentYangName() string { return "ethernet-interface" }
 
 // EthernetInterface_Statistics_Statistic
 // Ethernet statistics information
 type EthernetInterface_Statistics_Statistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Total octets of all frames. The type is interface{} with range:
@@ -1902,239 +1846,115 @@ type EthernetInterface_Statistics_Statistic struct {
     MiscellaneousOutputErrors interface{}
 }
 
-func (statistic *EthernetInterface_Statistics_Statistic) GetFilter() yfilter.YFilter { return statistic.YFilter }
+func (statistic *EthernetInterface_Statistics_Statistic) GetEntityData() *types.CommonEntityData {
+    statistic.EntityData.YFilter = statistic.YFilter
+    statistic.EntityData.YangName = "statistic"
+    statistic.EntityData.BundleName = "cisco_ios_xr"
+    statistic.EntityData.ParentYangName = "statistics"
+    statistic.EntityData.SegmentPath = "statistic" + "[interface-name='" + fmt.Sprintf("%v", statistic.InterfaceName) + "']"
+    statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistic *EthernetInterface_Statistics_Statistic) SetFilter(yf yfilter.YFilter) { statistic.YFilter = yf }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "received-total-bytes" { return "ReceivedTotalBytes" }
-    if yname == "received-good-bytes" { return "ReceivedGoodBytes" }
-    if yname == "received-total-frames" { return "ReceivedTotalFrames" }
-    if yname == "received8021q-frames" { return "Received8021QFrames" }
-    if yname == "received-pause-frames" { return "ReceivedPauseFrames" }
-    if yname == "received-unknown-opcodes" { return "ReceivedUnknownOpcodes" }
-    if yname == "received-total64-octet-frames" { return "ReceivedTotal64OctetFrames" }
-    if yname == "received-total-octet-frames-from65-to127" { return "ReceivedTotalOctetFramesFrom65To127" }
-    if yname == "received-total-octet-frames-from128-to255" { return "ReceivedTotalOctetFramesFrom128To255" }
-    if yname == "received-total-octet-frames-from256-to511" { return "ReceivedTotalOctetFramesFrom256To511" }
-    if yname == "received-total-octet-frames-from512-to1023" { return "ReceivedTotalOctetFramesFrom512To1023" }
-    if yname == "received-total-octet-frames-from1024-to1518" { return "ReceivedTotalOctetFramesFrom1024To1518" }
-    if yname == "received-total-octet-frames-from1519-to-max" { return "ReceivedTotalOctetFramesFrom1519ToMax" }
-    if yname == "received-good-frames" { return "ReceivedGoodFrames" }
-    if yname == "received-unicast-frames" { return "ReceivedUnicastFrames" }
-    if yname == "received-multicast-frames" { return "ReceivedMulticastFrames" }
-    if yname == "received-broadcast-frames" { return "ReceivedBroadcastFrames" }
-    if yname == "number-of-buffer-overrun-packets-dropped" { return "NumberOfBufferOverrunPacketsDropped" }
-    if yname == "number-of-aborted-packets-dropped" { return "NumberOfAbortedPacketsDropped" }
-    if yname == "numberof-invalid-vlan-id-packets-dropped" { return "NumberofInvalidVlanIdPacketsDropped" }
-    if yname == "invalid-dest-mac-drop-packets" { return "InvalidDestMacDropPackets" }
-    if yname == "invalid-encap-drop-packets" { return "InvalidEncapDropPackets" }
-    if yname == "number-of-miscellaneous-packets-dropped" { return "NumberOfMiscellaneousPacketsDropped" }
-    if yname == "dropped-giant-packets-greaterthan-mru" { return "DroppedGiantPacketsGreaterthanMru" }
-    if yname == "dropped-ether-stats-undersize-pkts" { return "DroppedEtherStatsUndersizePkts" }
-    if yname == "dropped-jabbers-packets-greaterthan-mru" { return "DroppedJabbersPacketsGreaterthanMru" }
-    if yname == "dropped-ether-stats-fragments" { return "DroppedEtherStatsFragments" }
-    if yname == "dropped-packets-with-crc-align-errors" { return "DroppedPacketsWithCrcAlignErrors" }
-    if yname == "ether-stats-collisions" { return "EtherStatsCollisions" }
-    if yname == "symbol-errors" { return "SymbolErrors" }
-    if yname == "dropped-miscellaneous-error-packets" { return "DroppedMiscellaneousErrorPackets" }
-    if yname == "rfc2819-ether-stats-oversized-pkts" { return "Rfc2819EtherStatsOversizedPkts" }
-    if yname == "rfc2819-ether-stats-jabbers" { return "Rfc2819EtherStatsJabbers" }
-    if yname == "rfc2819-ether-stats-crc-align-errors" { return "Rfc2819EtherStatsCrcAlignErrors" }
-    if yname == "rfc3635dot3-stats-alignment-errors" { return "Rfc3635Dot3StatsAlignmentErrors" }
-    if yname == "total-bytes-transmitted" { return "TotalBytesTransmitted" }
-    if yname == "total-good-bytes-transmitted" { return "TotalGoodBytesTransmitted" }
-    if yname == "total-frames-transmitted" { return "TotalFramesTransmitted" }
-    if yname == "transmitted8021q-frames" { return "Transmitted8021QFrames" }
-    if yname == "transmitted-total-pause-frames" { return "TransmittedTotalPauseFrames" }
-    if yname == "transmitted-total64-octet-frames" { return "TransmittedTotal64OctetFrames" }
-    if yname == "transmitted-total-octet-frames-from65-to127" { return "TransmittedTotalOctetFramesFrom65To127" }
-    if yname == "transmitted-total-octet-frames-from128-to255" { return "TransmittedTotalOctetFramesFrom128To255" }
-    if yname == "transmitted-total-octet-frames-from256-to511" { return "TransmittedTotalOctetFramesFrom256To511" }
-    if yname == "transmitted-total-octet-frames-from512-to1023" { return "TransmittedTotalOctetFramesFrom512To1023" }
-    if yname == "transmitted-total-octet-frames-from1024-to1518" { return "TransmittedTotalOctetFramesFrom1024To1518" }
-    if yname == "transmitted-total-octet-frames-from1518-to-max" { return "TransmittedTotalOctetFramesFrom1518ToMax" }
-    if yname == "transmitted-good-frames" { return "TransmittedGoodFrames" }
-    if yname == "transmitted-unicast-frames" { return "TransmittedUnicastFrames" }
-    if yname == "transmitted-multicast-frames" { return "TransmittedMulticastFrames" }
-    if yname == "transmitted-broadcast-frames" { return "TransmittedBroadcastFrames" }
-    if yname == "buffer-underrun-packet-drops" { return "BufferUnderrunPacketDrops" }
-    if yname == "aborted-packet-drops" { return "AbortedPacketDrops" }
-    if yname == "uncounted-dropped-frames" { return "UncountedDroppedFrames" }
-    if yname == "miscellaneous-output-errors" { return "MiscellaneousOutputErrors" }
-    return ""
+    statistic.EntityData.Children = make(map[string]types.YChild)
+    statistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", statistic.InterfaceName}
+    statistic.EntityData.Leafs["received-total-bytes"] = types.YLeaf{"ReceivedTotalBytes", statistic.ReceivedTotalBytes}
+    statistic.EntityData.Leafs["received-good-bytes"] = types.YLeaf{"ReceivedGoodBytes", statistic.ReceivedGoodBytes}
+    statistic.EntityData.Leafs["received-total-frames"] = types.YLeaf{"ReceivedTotalFrames", statistic.ReceivedTotalFrames}
+    statistic.EntityData.Leafs["received8021q-frames"] = types.YLeaf{"Received8021QFrames", statistic.Received8021QFrames}
+    statistic.EntityData.Leafs["received-pause-frames"] = types.YLeaf{"ReceivedPauseFrames", statistic.ReceivedPauseFrames}
+    statistic.EntityData.Leafs["received-unknown-opcodes"] = types.YLeaf{"ReceivedUnknownOpcodes", statistic.ReceivedUnknownOpcodes}
+    statistic.EntityData.Leafs["received-total64-octet-frames"] = types.YLeaf{"ReceivedTotal64OctetFrames", statistic.ReceivedTotal64OctetFrames}
+    statistic.EntityData.Leafs["received-total-octet-frames-from65-to127"] = types.YLeaf{"ReceivedTotalOctetFramesFrom65To127", statistic.ReceivedTotalOctetFramesFrom65To127}
+    statistic.EntityData.Leafs["received-total-octet-frames-from128-to255"] = types.YLeaf{"ReceivedTotalOctetFramesFrom128To255", statistic.ReceivedTotalOctetFramesFrom128To255}
+    statistic.EntityData.Leafs["received-total-octet-frames-from256-to511"] = types.YLeaf{"ReceivedTotalOctetFramesFrom256To511", statistic.ReceivedTotalOctetFramesFrom256To511}
+    statistic.EntityData.Leafs["received-total-octet-frames-from512-to1023"] = types.YLeaf{"ReceivedTotalOctetFramesFrom512To1023", statistic.ReceivedTotalOctetFramesFrom512To1023}
+    statistic.EntityData.Leafs["received-total-octet-frames-from1024-to1518"] = types.YLeaf{"ReceivedTotalOctetFramesFrom1024To1518", statistic.ReceivedTotalOctetFramesFrom1024To1518}
+    statistic.EntityData.Leafs["received-total-octet-frames-from1519-to-max"] = types.YLeaf{"ReceivedTotalOctetFramesFrom1519ToMax", statistic.ReceivedTotalOctetFramesFrom1519ToMax}
+    statistic.EntityData.Leafs["received-good-frames"] = types.YLeaf{"ReceivedGoodFrames", statistic.ReceivedGoodFrames}
+    statistic.EntityData.Leafs["received-unicast-frames"] = types.YLeaf{"ReceivedUnicastFrames", statistic.ReceivedUnicastFrames}
+    statistic.EntityData.Leafs["received-multicast-frames"] = types.YLeaf{"ReceivedMulticastFrames", statistic.ReceivedMulticastFrames}
+    statistic.EntityData.Leafs["received-broadcast-frames"] = types.YLeaf{"ReceivedBroadcastFrames", statistic.ReceivedBroadcastFrames}
+    statistic.EntityData.Leafs["number-of-buffer-overrun-packets-dropped"] = types.YLeaf{"NumberOfBufferOverrunPacketsDropped", statistic.NumberOfBufferOverrunPacketsDropped}
+    statistic.EntityData.Leafs["number-of-aborted-packets-dropped"] = types.YLeaf{"NumberOfAbortedPacketsDropped", statistic.NumberOfAbortedPacketsDropped}
+    statistic.EntityData.Leafs["numberof-invalid-vlan-id-packets-dropped"] = types.YLeaf{"NumberofInvalidVlanIdPacketsDropped", statistic.NumberofInvalidVlanIdPacketsDropped}
+    statistic.EntityData.Leafs["invalid-dest-mac-drop-packets"] = types.YLeaf{"InvalidDestMacDropPackets", statistic.InvalidDestMacDropPackets}
+    statistic.EntityData.Leafs["invalid-encap-drop-packets"] = types.YLeaf{"InvalidEncapDropPackets", statistic.InvalidEncapDropPackets}
+    statistic.EntityData.Leafs["number-of-miscellaneous-packets-dropped"] = types.YLeaf{"NumberOfMiscellaneousPacketsDropped", statistic.NumberOfMiscellaneousPacketsDropped}
+    statistic.EntityData.Leafs["dropped-giant-packets-greaterthan-mru"] = types.YLeaf{"DroppedGiantPacketsGreaterthanMru", statistic.DroppedGiantPacketsGreaterthanMru}
+    statistic.EntityData.Leafs["dropped-ether-stats-undersize-pkts"] = types.YLeaf{"DroppedEtherStatsUndersizePkts", statistic.DroppedEtherStatsUndersizePkts}
+    statistic.EntityData.Leafs["dropped-jabbers-packets-greaterthan-mru"] = types.YLeaf{"DroppedJabbersPacketsGreaterthanMru", statistic.DroppedJabbersPacketsGreaterthanMru}
+    statistic.EntityData.Leafs["dropped-ether-stats-fragments"] = types.YLeaf{"DroppedEtherStatsFragments", statistic.DroppedEtherStatsFragments}
+    statistic.EntityData.Leafs["dropped-packets-with-crc-align-errors"] = types.YLeaf{"DroppedPacketsWithCrcAlignErrors", statistic.DroppedPacketsWithCrcAlignErrors}
+    statistic.EntityData.Leafs["ether-stats-collisions"] = types.YLeaf{"EtherStatsCollisions", statistic.EtherStatsCollisions}
+    statistic.EntityData.Leafs["symbol-errors"] = types.YLeaf{"SymbolErrors", statistic.SymbolErrors}
+    statistic.EntityData.Leafs["dropped-miscellaneous-error-packets"] = types.YLeaf{"DroppedMiscellaneousErrorPackets", statistic.DroppedMiscellaneousErrorPackets}
+    statistic.EntityData.Leafs["rfc2819-ether-stats-oversized-pkts"] = types.YLeaf{"Rfc2819EtherStatsOversizedPkts", statistic.Rfc2819EtherStatsOversizedPkts}
+    statistic.EntityData.Leafs["rfc2819-ether-stats-jabbers"] = types.YLeaf{"Rfc2819EtherStatsJabbers", statistic.Rfc2819EtherStatsJabbers}
+    statistic.EntityData.Leafs["rfc2819-ether-stats-crc-align-errors"] = types.YLeaf{"Rfc2819EtherStatsCrcAlignErrors", statistic.Rfc2819EtherStatsCrcAlignErrors}
+    statistic.EntityData.Leafs["rfc3635dot3-stats-alignment-errors"] = types.YLeaf{"Rfc3635Dot3StatsAlignmentErrors", statistic.Rfc3635Dot3StatsAlignmentErrors}
+    statistic.EntityData.Leafs["total-bytes-transmitted"] = types.YLeaf{"TotalBytesTransmitted", statistic.TotalBytesTransmitted}
+    statistic.EntityData.Leafs["total-good-bytes-transmitted"] = types.YLeaf{"TotalGoodBytesTransmitted", statistic.TotalGoodBytesTransmitted}
+    statistic.EntityData.Leafs["total-frames-transmitted"] = types.YLeaf{"TotalFramesTransmitted", statistic.TotalFramesTransmitted}
+    statistic.EntityData.Leafs["transmitted8021q-frames"] = types.YLeaf{"Transmitted8021QFrames", statistic.Transmitted8021QFrames}
+    statistic.EntityData.Leafs["transmitted-total-pause-frames"] = types.YLeaf{"TransmittedTotalPauseFrames", statistic.TransmittedTotalPauseFrames}
+    statistic.EntityData.Leafs["transmitted-total64-octet-frames"] = types.YLeaf{"TransmittedTotal64OctetFrames", statistic.TransmittedTotal64OctetFrames}
+    statistic.EntityData.Leafs["transmitted-total-octet-frames-from65-to127"] = types.YLeaf{"TransmittedTotalOctetFramesFrom65To127", statistic.TransmittedTotalOctetFramesFrom65To127}
+    statistic.EntityData.Leafs["transmitted-total-octet-frames-from128-to255"] = types.YLeaf{"TransmittedTotalOctetFramesFrom128To255", statistic.TransmittedTotalOctetFramesFrom128To255}
+    statistic.EntityData.Leafs["transmitted-total-octet-frames-from256-to511"] = types.YLeaf{"TransmittedTotalOctetFramesFrom256To511", statistic.TransmittedTotalOctetFramesFrom256To511}
+    statistic.EntityData.Leafs["transmitted-total-octet-frames-from512-to1023"] = types.YLeaf{"TransmittedTotalOctetFramesFrom512To1023", statistic.TransmittedTotalOctetFramesFrom512To1023}
+    statistic.EntityData.Leafs["transmitted-total-octet-frames-from1024-to1518"] = types.YLeaf{"TransmittedTotalOctetFramesFrom1024To1518", statistic.TransmittedTotalOctetFramesFrom1024To1518}
+    statistic.EntityData.Leafs["transmitted-total-octet-frames-from1518-to-max"] = types.YLeaf{"TransmittedTotalOctetFramesFrom1518ToMax", statistic.TransmittedTotalOctetFramesFrom1518ToMax}
+    statistic.EntityData.Leafs["transmitted-good-frames"] = types.YLeaf{"TransmittedGoodFrames", statistic.TransmittedGoodFrames}
+    statistic.EntityData.Leafs["transmitted-unicast-frames"] = types.YLeaf{"TransmittedUnicastFrames", statistic.TransmittedUnicastFrames}
+    statistic.EntityData.Leafs["transmitted-multicast-frames"] = types.YLeaf{"TransmittedMulticastFrames", statistic.TransmittedMulticastFrames}
+    statistic.EntityData.Leafs["transmitted-broadcast-frames"] = types.YLeaf{"TransmittedBroadcastFrames", statistic.TransmittedBroadcastFrames}
+    statistic.EntityData.Leafs["buffer-underrun-packet-drops"] = types.YLeaf{"BufferUnderrunPacketDrops", statistic.BufferUnderrunPacketDrops}
+    statistic.EntityData.Leafs["aborted-packet-drops"] = types.YLeaf{"AbortedPacketDrops", statistic.AbortedPacketDrops}
+    statistic.EntityData.Leafs["uncounted-dropped-frames"] = types.YLeaf{"UncountedDroppedFrames", statistic.UncountedDroppedFrames}
+    statistic.EntityData.Leafs["miscellaneous-output-errors"] = types.YLeaf{"MiscellaneousOutputErrors", statistic.MiscellaneousOutputErrors}
+    return &(statistic.EntityData)
 }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetSegmentPath() string {
-    return "statistic" + "[interface-name='" + fmt.Sprintf("%v", statistic.InterfaceName) + "']"
-}
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = statistic.InterfaceName
-    leafs["received-total-bytes"] = statistic.ReceivedTotalBytes
-    leafs["received-good-bytes"] = statistic.ReceivedGoodBytes
-    leafs["received-total-frames"] = statistic.ReceivedTotalFrames
-    leafs["received8021q-frames"] = statistic.Received8021QFrames
-    leafs["received-pause-frames"] = statistic.ReceivedPauseFrames
-    leafs["received-unknown-opcodes"] = statistic.ReceivedUnknownOpcodes
-    leafs["received-total64-octet-frames"] = statistic.ReceivedTotal64OctetFrames
-    leafs["received-total-octet-frames-from65-to127"] = statistic.ReceivedTotalOctetFramesFrom65To127
-    leafs["received-total-octet-frames-from128-to255"] = statistic.ReceivedTotalOctetFramesFrom128To255
-    leafs["received-total-octet-frames-from256-to511"] = statistic.ReceivedTotalOctetFramesFrom256To511
-    leafs["received-total-octet-frames-from512-to1023"] = statistic.ReceivedTotalOctetFramesFrom512To1023
-    leafs["received-total-octet-frames-from1024-to1518"] = statistic.ReceivedTotalOctetFramesFrom1024To1518
-    leafs["received-total-octet-frames-from1519-to-max"] = statistic.ReceivedTotalOctetFramesFrom1519ToMax
-    leafs["received-good-frames"] = statistic.ReceivedGoodFrames
-    leafs["received-unicast-frames"] = statistic.ReceivedUnicastFrames
-    leafs["received-multicast-frames"] = statistic.ReceivedMulticastFrames
-    leafs["received-broadcast-frames"] = statistic.ReceivedBroadcastFrames
-    leafs["number-of-buffer-overrun-packets-dropped"] = statistic.NumberOfBufferOverrunPacketsDropped
-    leafs["number-of-aborted-packets-dropped"] = statistic.NumberOfAbortedPacketsDropped
-    leafs["numberof-invalid-vlan-id-packets-dropped"] = statistic.NumberofInvalidVlanIdPacketsDropped
-    leafs["invalid-dest-mac-drop-packets"] = statistic.InvalidDestMacDropPackets
-    leafs["invalid-encap-drop-packets"] = statistic.InvalidEncapDropPackets
-    leafs["number-of-miscellaneous-packets-dropped"] = statistic.NumberOfMiscellaneousPacketsDropped
-    leafs["dropped-giant-packets-greaterthan-mru"] = statistic.DroppedGiantPacketsGreaterthanMru
-    leafs["dropped-ether-stats-undersize-pkts"] = statistic.DroppedEtherStatsUndersizePkts
-    leafs["dropped-jabbers-packets-greaterthan-mru"] = statistic.DroppedJabbersPacketsGreaterthanMru
-    leafs["dropped-ether-stats-fragments"] = statistic.DroppedEtherStatsFragments
-    leafs["dropped-packets-with-crc-align-errors"] = statistic.DroppedPacketsWithCrcAlignErrors
-    leafs["ether-stats-collisions"] = statistic.EtherStatsCollisions
-    leafs["symbol-errors"] = statistic.SymbolErrors
-    leafs["dropped-miscellaneous-error-packets"] = statistic.DroppedMiscellaneousErrorPackets
-    leafs["rfc2819-ether-stats-oversized-pkts"] = statistic.Rfc2819EtherStatsOversizedPkts
-    leafs["rfc2819-ether-stats-jabbers"] = statistic.Rfc2819EtherStatsJabbers
-    leafs["rfc2819-ether-stats-crc-align-errors"] = statistic.Rfc2819EtherStatsCrcAlignErrors
-    leafs["rfc3635dot3-stats-alignment-errors"] = statistic.Rfc3635Dot3StatsAlignmentErrors
-    leafs["total-bytes-transmitted"] = statistic.TotalBytesTransmitted
-    leafs["total-good-bytes-transmitted"] = statistic.TotalGoodBytesTransmitted
-    leafs["total-frames-transmitted"] = statistic.TotalFramesTransmitted
-    leafs["transmitted8021q-frames"] = statistic.Transmitted8021QFrames
-    leafs["transmitted-total-pause-frames"] = statistic.TransmittedTotalPauseFrames
-    leafs["transmitted-total64-octet-frames"] = statistic.TransmittedTotal64OctetFrames
-    leafs["transmitted-total-octet-frames-from65-to127"] = statistic.TransmittedTotalOctetFramesFrom65To127
-    leafs["transmitted-total-octet-frames-from128-to255"] = statistic.TransmittedTotalOctetFramesFrom128To255
-    leafs["transmitted-total-octet-frames-from256-to511"] = statistic.TransmittedTotalOctetFramesFrom256To511
-    leafs["transmitted-total-octet-frames-from512-to1023"] = statistic.TransmittedTotalOctetFramesFrom512To1023
-    leafs["transmitted-total-octet-frames-from1024-to1518"] = statistic.TransmittedTotalOctetFramesFrom1024To1518
-    leafs["transmitted-total-octet-frames-from1518-to-max"] = statistic.TransmittedTotalOctetFramesFrom1518ToMax
-    leafs["transmitted-good-frames"] = statistic.TransmittedGoodFrames
-    leafs["transmitted-unicast-frames"] = statistic.TransmittedUnicastFrames
-    leafs["transmitted-multicast-frames"] = statistic.TransmittedMulticastFrames
-    leafs["transmitted-broadcast-frames"] = statistic.TransmittedBroadcastFrames
-    leafs["buffer-underrun-packet-drops"] = statistic.BufferUnderrunPacketDrops
-    leafs["aborted-packet-drops"] = statistic.AbortedPacketDrops
-    leafs["uncounted-dropped-frames"] = statistic.UncountedDroppedFrames
-    leafs["miscellaneous-output-errors"] = statistic.MiscellaneousOutputErrors
-    return leafs
-}
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetYangName() string { return "statistic" }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistic *EthernetInterface_Statistics_Statistic) SetParent(parent types.Entity) { statistic.parent = parent }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetParent() types.Entity { return statistic.parent }
-
-func (statistic *EthernetInterface_Statistics_Statistic) GetParentYangName() string { return "statistics" }
 
 // EthernetInterface_Interfaces
 // Ethernet controller info table
 type EthernetInterface_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ethernet controller information. The type is slice of
-    // EthernetInterface_Interfaces_Interface.
-    Interface []EthernetInterface_Interfaces_Interface
+    // EthernetInterface_Interfaces_Interface_.
+    Interface_ []EthernetInterface_Interfaces_Interface
 }
 
-func (interfaces *EthernetInterface_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *EthernetInterface_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "ethernet-interface"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *EthernetInterface_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *EthernetInterface_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *EthernetInterface_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *EthernetInterface_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EthernetInterface_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *EthernetInterface_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *EthernetInterface_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *EthernetInterface_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *EthernetInterface_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *EthernetInterface_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *EthernetInterface_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *EthernetInterface_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *EthernetInterface_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *EthernetInterface_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *EthernetInterface_Interfaces) GetParentYangName() string { return "ethernet-interface" }
 
 // EthernetInterface_Interfaces_Interface
 // Ethernet controller information
 type EthernetInterface_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Port Administrative State. The type is EthernetPortEnable.
@@ -2156,80 +1976,32 @@ type EthernetInterface_Interfaces_Interface struct {
     TransportInfo EthernetInterface_Interfaces_Interface_TransportInfo
 }
 
-func (self *EthernetInterface_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *EthernetInterface_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *EthernetInterface_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *EthernetInterface_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state-up" { return "OperStateUp" }
-    if yname == "phy-info" { return "PhyInfo" }
-    if yname == "layer1-info" { return "Layer1Info" }
-    if yname == "mac-info" { return "MacInfo" }
-    if yname == "transport-info" { return "TransportInfo" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["phy-info"] = types.YChild{"PhyInfo", &self.PhyInfo}
+    self.EntityData.Children["layer1-info"] = types.YChild{"Layer1Info", &self.Layer1Info}
+    self.EntityData.Children["mac-info"] = types.YChild{"MacInfo", &self.MacInfo}
+    self.EntityData.Children["transport-info"] = types.YChild{"TransportInfo", &self.TransportInfo}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", self.AdminState}
+    self.EntityData.Leafs["oper-state-up"] = types.YLeaf{"OperStateUp", self.OperStateUp}
+    return &(self.EntityData)
 }
-
-func (self *EthernetInterface_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *EthernetInterface_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "phy-info" {
-        return &self.PhyInfo
-    }
-    if childYangName == "layer1-info" {
-        return &self.Layer1Info
-    }
-    if childYangName == "mac-info" {
-        return &self.MacInfo
-    }
-    if childYangName == "transport-info" {
-        return &self.TransportInfo
-    }
-    return nil
-}
-
-func (self *EthernetInterface_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["phy-info"] = &self.PhyInfo
-    children["layer1-info"] = &self.Layer1Info
-    children["mac-info"] = &self.MacInfo
-    children["transport-info"] = &self.TransportInfo
-    return children
-}
-
-func (self *EthernetInterface_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["admin-state"] = self.AdminState
-    leafs["oper-state-up"] = self.OperStateUp
-    return leafs
-}
-
-func (self *EthernetInterface_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *EthernetInterface_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *EthernetInterface_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *EthernetInterface_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *EthernetInterface_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *EthernetInterface_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *EthernetInterface_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *EthernetInterface_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo
 // PHY information
 type EthernetInterface_Interfaces_Interface_PhyInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port media type. The type is EthernetMedia.
@@ -2252,84 +2024,34 @@ type EthernetInterface_Interfaces_Interface_PhyInfo struct {
     ExtendedLoopback []EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback
 }
 
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetFilter() yfilter.YFilter { return phyInfo.YFilter }
+func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetEntityData() *types.CommonEntityData {
+    phyInfo.EntityData.YFilter = phyInfo.YFilter
+    phyInfo.EntityData.YangName = "phy-info"
+    phyInfo.EntityData.BundleName = "cisco_ios_xr"
+    phyInfo.EntityData.ParentYangName = "interface"
+    phyInfo.EntityData.SegmentPath = "phy-info"
+    phyInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    phyInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    phyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) SetFilter(yf yfilter.YFilter) { phyInfo.YFilter = yf }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetGoName(yname string) string {
-    if yname == "media-type" { return "MediaType" }
-    if yname == "phy-present" { return "PhyPresent" }
-    if yname == "loopback" { return "Loopback" }
-    if yname == "phy-details" { return "PhyDetails" }
-    if yname == "fec-details" { return "FecDetails" }
-    if yname == "extended-loopback" { return "ExtendedLoopback" }
-    return ""
-}
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetSegmentPath() string {
-    return "phy-info"
-}
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "phy-details" {
-        return &phyInfo.PhyDetails
-    }
-    if childYangName == "fec-details" {
-        return &phyInfo.FecDetails
-    }
-    if childYangName == "extended-loopback" {
-        for _, c := range phyInfo.ExtendedLoopback {
-            if phyInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback{}
-        phyInfo.ExtendedLoopback = append(phyInfo.ExtendedLoopback, child)
-        return &phyInfo.ExtendedLoopback[len(phyInfo.ExtendedLoopback)-1]
-    }
-    return nil
-}
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["phy-details"] = &phyInfo.PhyDetails
-    children["fec-details"] = &phyInfo.FecDetails
+    phyInfo.EntityData.Children = make(map[string]types.YChild)
+    phyInfo.EntityData.Children["phy-details"] = types.YChild{"PhyDetails", &phyInfo.PhyDetails}
+    phyInfo.EntityData.Children["fec-details"] = types.YChild{"FecDetails", &phyInfo.FecDetails}
+    phyInfo.EntityData.Children["extended-loopback"] = types.YChild{"ExtendedLoopback", nil}
     for i := range phyInfo.ExtendedLoopback {
-        children[phyInfo.ExtendedLoopback[i].GetSegmentPath()] = &phyInfo.ExtendedLoopback[i]
+        phyInfo.EntityData.Children[types.GetSegmentPath(&phyInfo.ExtendedLoopback[i])] = types.YChild{"ExtendedLoopback", &phyInfo.ExtendedLoopback[i]}
     }
-    return children
+    phyInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    phyInfo.EntityData.Leafs["media-type"] = types.YLeaf{"MediaType", phyInfo.MediaType}
+    phyInfo.EntityData.Leafs["phy-present"] = types.YLeaf{"PhyPresent", phyInfo.PhyPresent}
+    phyInfo.EntityData.Leafs["loopback"] = types.YLeaf{"Loopback", phyInfo.Loopback}
+    return &(phyInfo.EntityData)
 }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["media-type"] = phyInfo.MediaType
-    leafs["phy-present"] = phyInfo.PhyPresent
-    leafs["loopback"] = phyInfo.Loopback
-    return leafs
-}
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetYangName() string { return "phy-info" }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) SetParent(parent types.Entity) { phyInfo.parent = parent }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetParent() types.Entity { return phyInfo.parent }
-
-func (phyInfo *EthernetInterface_Interfaces_Interface_PhyInfo) GetParentYangName() string { return "interface" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails
 // Details about the PHY
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of the port optics manufacturer. The type is string.
@@ -2385,106 +2107,44 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails struct {
     Lane []EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane
 }
 
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetFilter() yfilter.YFilter { return phyDetails.YFilter }
+func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetEntityData() *types.CommonEntityData {
+    phyDetails.EntityData.YFilter = phyDetails.YFilter
+    phyDetails.EntityData.YangName = "phy-details"
+    phyDetails.EntityData.BundleName = "cisco_ios_xr"
+    phyDetails.EntityData.ParentYangName = "phy-info"
+    phyDetails.EntityData.SegmentPath = "phy-details"
+    phyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    phyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    phyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) SetFilter(yf yfilter.YFilter) { phyDetails.YFilter = yf }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetGoName(yname string) string {
-    if yname == "vendor" { return "Vendor" }
-    if yname == "vendor-part-number" { return "VendorPartNumber" }
-    if yname == "vendor-serial-number" { return "VendorSerialNumber" }
-    if yname == "transceiver-temperature" { return "TransceiverTemperature" }
-    if yname == "transceiver-voltage" { return "TransceiverVoltage" }
-    if yname == "transceiver-tx-power" { return "TransceiverTxPower" }
-    if yname == "transceiver-rx-power" { return "TransceiverRxPower" }
-    if yname == "transceiver-tx-bias" { return "TransceiverTxBias" }
-    if yname == "optics-wavelength" { return "OpticsWavelength" }
-    if yname == "optics-type" { return "OpticsType" }
-    if yname == "revision-number" { return "RevisionNumber" }
-    if yname == "lane-field-validity" { return "LaneFieldValidity" }
-    if yname == "dig-opt-mon-alarm-thresholds" { return "DigOptMonAlarmThresholds" }
-    if yname == "dig-opt-mon-alarms" { return "DigOptMonAlarms" }
-    if yname == "lane" { return "Lane" }
-    return ""
-}
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetSegmentPath() string {
-    return "phy-details"
-}
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lane-field-validity" {
-        return &phyDetails.LaneFieldValidity
-    }
-    if childYangName == "dig-opt-mon-alarm-thresholds" {
-        return &phyDetails.DigOptMonAlarmThresholds
-    }
-    if childYangName == "dig-opt-mon-alarms" {
-        return &phyDetails.DigOptMonAlarms
-    }
-    if childYangName == "lane" {
-        for _, c := range phyDetails.Lane {
-            if phyDetails.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane{}
-        phyDetails.Lane = append(phyDetails.Lane, child)
-        return &phyDetails.Lane[len(phyDetails.Lane)-1]
-    }
-    return nil
-}
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lane-field-validity"] = &phyDetails.LaneFieldValidity
-    children["dig-opt-mon-alarm-thresholds"] = &phyDetails.DigOptMonAlarmThresholds
-    children["dig-opt-mon-alarms"] = &phyDetails.DigOptMonAlarms
+    phyDetails.EntityData.Children = make(map[string]types.YChild)
+    phyDetails.EntityData.Children["lane-field-validity"] = types.YChild{"LaneFieldValidity", &phyDetails.LaneFieldValidity}
+    phyDetails.EntityData.Children["dig-opt-mon-alarm-thresholds"] = types.YChild{"DigOptMonAlarmThresholds", &phyDetails.DigOptMonAlarmThresholds}
+    phyDetails.EntityData.Children["dig-opt-mon-alarms"] = types.YChild{"DigOptMonAlarms", &phyDetails.DigOptMonAlarms}
+    phyDetails.EntityData.Children["lane"] = types.YChild{"Lane", nil}
     for i := range phyDetails.Lane {
-        children[phyDetails.Lane[i].GetSegmentPath()] = &phyDetails.Lane[i]
+        phyDetails.EntityData.Children[types.GetSegmentPath(&phyDetails.Lane[i])] = types.YChild{"Lane", &phyDetails.Lane[i]}
     }
-    return children
+    phyDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    phyDetails.EntityData.Leafs["vendor"] = types.YLeaf{"Vendor", phyDetails.Vendor}
+    phyDetails.EntityData.Leafs["vendor-part-number"] = types.YLeaf{"VendorPartNumber", phyDetails.VendorPartNumber}
+    phyDetails.EntityData.Leafs["vendor-serial-number"] = types.YLeaf{"VendorSerialNumber", phyDetails.VendorSerialNumber}
+    phyDetails.EntityData.Leafs["transceiver-temperature"] = types.YLeaf{"TransceiverTemperature", phyDetails.TransceiverTemperature}
+    phyDetails.EntityData.Leafs["transceiver-voltage"] = types.YLeaf{"TransceiverVoltage", phyDetails.TransceiverVoltage}
+    phyDetails.EntityData.Leafs["transceiver-tx-power"] = types.YLeaf{"TransceiverTxPower", phyDetails.TransceiverTxPower}
+    phyDetails.EntityData.Leafs["transceiver-rx-power"] = types.YLeaf{"TransceiverRxPower", phyDetails.TransceiverRxPower}
+    phyDetails.EntityData.Leafs["transceiver-tx-bias"] = types.YLeaf{"TransceiverTxBias", phyDetails.TransceiverTxBias}
+    phyDetails.EntityData.Leafs["optics-wavelength"] = types.YLeaf{"OpticsWavelength", phyDetails.OpticsWavelength}
+    phyDetails.EntityData.Leafs["optics-type"] = types.YLeaf{"OpticsType", phyDetails.OpticsType}
+    phyDetails.EntityData.Leafs["revision-number"] = types.YLeaf{"RevisionNumber", phyDetails.RevisionNumber}
+    return &(phyDetails.EntityData)
 }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vendor"] = phyDetails.Vendor
-    leafs["vendor-part-number"] = phyDetails.VendorPartNumber
-    leafs["vendor-serial-number"] = phyDetails.VendorSerialNumber
-    leafs["transceiver-temperature"] = phyDetails.TransceiverTemperature
-    leafs["transceiver-voltage"] = phyDetails.TransceiverVoltage
-    leafs["transceiver-tx-power"] = phyDetails.TransceiverTxPower
-    leafs["transceiver-rx-power"] = phyDetails.TransceiverRxPower
-    leafs["transceiver-tx-bias"] = phyDetails.TransceiverTxBias
-    leafs["optics-wavelength"] = phyDetails.OpticsWavelength
-    leafs["optics-type"] = phyDetails.OpticsType
-    leafs["revision-number"] = phyDetails.RevisionNumber
-    return leafs
-}
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetYangName() string { return "phy-details" }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) SetParent(parent types.Entity) { phyDetails.parent = parent }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetParent() types.Entity { return phyDetails.parent }
-
-func (phyDetails *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails) GetParentYangName() string { return "phy-info" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity
 // Digital Optical Monitoring (per lane
 // information) validity
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The wavelength 'per lane' field is valid. The type is interface{} with
@@ -2504,62 +2164,29 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity
     LaserBiasValid interface{}
 }
 
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetFilter() yfilter.YFilter { return laneFieldValidity.YFilter }
+func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetEntityData() *types.CommonEntityData {
+    laneFieldValidity.EntityData.YFilter = laneFieldValidity.YFilter
+    laneFieldValidity.EntityData.YangName = "lane-field-validity"
+    laneFieldValidity.EntityData.BundleName = "cisco_ios_xr"
+    laneFieldValidity.EntityData.ParentYangName = "phy-details"
+    laneFieldValidity.EntityData.SegmentPath = "lane-field-validity"
+    laneFieldValidity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    laneFieldValidity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    laneFieldValidity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) SetFilter(yf yfilter.YFilter) { laneFieldValidity.YFilter = yf }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetGoName(yname string) string {
-    if yname == "wavelength-valid" { return "WavelengthValid" }
-    if yname == "transmit-power-valid" { return "TransmitPowerValid" }
-    if yname == "receive-power-valid" { return "ReceivePowerValid" }
-    if yname == "laser-bias-valid" { return "LaserBiasValid" }
-    return ""
+    laneFieldValidity.EntityData.Children = make(map[string]types.YChild)
+    laneFieldValidity.EntityData.Leafs = make(map[string]types.YLeaf)
+    laneFieldValidity.EntityData.Leafs["wavelength-valid"] = types.YLeaf{"WavelengthValid", laneFieldValidity.WavelengthValid}
+    laneFieldValidity.EntityData.Leafs["transmit-power-valid"] = types.YLeaf{"TransmitPowerValid", laneFieldValidity.TransmitPowerValid}
+    laneFieldValidity.EntityData.Leafs["receive-power-valid"] = types.YLeaf{"ReceivePowerValid", laneFieldValidity.ReceivePowerValid}
+    laneFieldValidity.EntityData.Leafs["laser-bias-valid"] = types.YLeaf{"LaserBiasValid", laneFieldValidity.LaserBiasValid}
+    return &(laneFieldValidity.EntityData)
 }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetSegmentPath() string {
-    return "lane-field-validity"
-}
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["wavelength-valid"] = laneFieldValidity.WavelengthValid
-    leafs["transmit-power-valid"] = laneFieldValidity.TransmitPowerValid
-    leafs["receive-power-valid"] = laneFieldValidity.ReceivePowerValid
-    leafs["laser-bias-valid"] = laneFieldValidity.LaserBiasValid
-    return leafs
-}
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetBundleName() string { return "cisco_ios_xr" }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetYangName() string { return "lane-field-validity" }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) SetParent(parent types.Entity) { laneFieldValidity.parent = parent }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetParent() types.Entity { return laneFieldValidity.parent }
-
-func (laneFieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_LaneFieldValidity) GetParentYangName() string { return "phy-details" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds
 // Digital Optical Monitoring alarm thresholds
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Transceiver high temperature alarm threshold (mDegrees C). The type is
@@ -2646,99 +2273,46 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThr
     FieldValidity EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity
 }
 
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetFilter() yfilter.YFilter { return digOptMonAlarmThresholds.YFilter }
+func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetEntityData() *types.CommonEntityData {
+    digOptMonAlarmThresholds.EntityData.YFilter = digOptMonAlarmThresholds.YFilter
+    digOptMonAlarmThresholds.EntityData.YangName = "dig-opt-mon-alarm-thresholds"
+    digOptMonAlarmThresholds.EntityData.BundleName = "cisco_ios_xr"
+    digOptMonAlarmThresholds.EntityData.ParentYangName = "phy-details"
+    digOptMonAlarmThresholds.EntityData.SegmentPath = "dig-opt-mon-alarm-thresholds"
+    digOptMonAlarmThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    digOptMonAlarmThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    digOptMonAlarmThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) SetFilter(yf yfilter.YFilter) { digOptMonAlarmThresholds.YFilter = yf }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetGoName(yname string) string {
-    if yname == "transceiver-temperature-alarm-high" { return "TransceiverTemperatureAlarmHigh" }
-    if yname == "transceiver-temperature-warning-high" { return "TransceiverTemperatureWarningHigh" }
-    if yname == "transceiver-temperature-warning-low" { return "TransceiverTemperatureWarningLow" }
-    if yname == "transceiver-temperature-alarm-low" { return "TransceiverTemperatureAlarmLow" }
-    if yname == "transceiver-voltage-alarm-high" { return "TransceiverVoltageAlarmHigh" }
-    if yname == "transceiver-voltage-warning-high" { return "TransceiverVoltageWarningHigh" }
-    if yname == "transceiver-voltage-warning-low" { return "TransceiverVoltageWarningLow" }
-    if yname == "transceiver-voltage-alarm-low" { return "TransceiverVoltageAlarmLow" }
-    if yname == "laser-bias-alarm-high" { return "LaserBiasAlarmHigh" }
-    if yname == "laser-bias-warning-high" { return "LaserBiasWarningHigh" }
-    if yname == "laser-bias-warning-low" { return "LaserBiasWarningLow" }
-    if yname == "laser-bias-alarm-low" { return "LaserBiasAlarmLow" }
-    if yname == "optical-transmit-power-alarm-high" { return "OpticalTransmitPowerAlarmHigh" }
-    if yname == "optical-transmit-power-warning-high" { return "OpticalTransmitPowerWarningHigh" }
-    if yname == "optical-transmit-power-warning-low" { return "OpticalTransmitPowerWarningLow" }
-    if yname == "optical-transmit-power-alarm-low" { return "OpticalTransmitPowerAlarmLow" }
-    if yname == "optical-receive-power-alarm-high" { return "OpticalReceivePowerAlarmHigh" }
-    if yname == "optical-receive-power-warning-high" { return "OpticalReceivePowerWarningHigh" }
-    if yname == "optical-receive-power-warning-low" { return "OpticalReceivePowerWarningLow" }
-    if yname == "optical-receive-power-alarm-low" { return "OpticalReceivePowerAlarmLow" }
-    if yname == "field-validity" { return "FieldValidity" }
-    return ""
+    digOptMonAlarmThresholds.EntityData.Children = make(map[string]types.YChild)
+    digOptMonAlarmThresholds.EntityData.Children["field-validity"] = types.YChild{"FieldValidity", &digOptMonAlarmThresholds.FieldValidity}
+    digOptMonAlarmThresholds.EntityData.Leafs = make(map[string]types.YLeaf)
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-temperature-alarm-high"] = types.YLeaf{"TransceiverTemperatureAlarmHigh", digOptMonAlarmThresholds.TransceiverTemperatureAlarmHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-temperature-warning-high"] = types.YLeaf{"TransceiverTemperatureWarningHigh", digOptMonAlarmThresholds.TransceiverTemperatureWarningHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-temperature-warning-low"] = types.YLeaf{"TransceiverTemperatureWarningLow", digOptMonAlarmThresholds.TransceiverTemperatureWarningLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-temperature-alarm-low"] = types.YLeaf{"TransceiverTemperatureAlarmLow", digOptMonAlarmThresholds.TransceiverTemperatureAlarmLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-voltage-alarm-high"] = types.YLeaf{"TransceiverVoltageAlarmHigh", digOptMonAlarmThresholds.TransceiverVoltageAlarmHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-voltage-warning-high"] = types.YLeaf{"TransceiverVoltageWarningHigh", digOptMonAlarmThresholds.TransceiverVoltageWarningHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-voltage-warning-low"] = types.YLeaf{"TransceiverVoltageWarningLow", digOptMonAlarmThresholds.TransceiverVoltageWarningLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["transceiver-voltage-alarm-low"] = types.YLeaf{"TransceiverVoltageAlarmLow", digOptMonAlarmThresholds.TransceiverVoltageAlarmLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["laser-bias-alarm-high"] = types.YLeaf{"LaserBiasAlarmHigh", digOptMonAlarmThresholds.LaserBiasAlarmHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["laser-bias-warning-high"] = types.YLeaf{"LaserBiasWarningHigh", digOptMonAlarmThresholds.LaserBiasWarningHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["laser-bias-warning-low"] = types.YLeaf{"LaserBiasWarningLow", digOptMonAlarmThresholds.LaserBiasWarningLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["laser-bias-alarm-low"] = types.YLeaf{"LaserBiasAlarmLow", digOptMonAlarmThresholds.LaserBiasAlarmLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-transmit-power-alarm-high"] = types.YLeaf{"OpticalTransmitPowerAlarmHigh", digOptMonAlarmThresholds.OpticalTransmitPowerAlarmHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-transmit-power-warning-high"] = types.YLeaf{"OpticalTransmitPowerWarningHigh", digOptMonAlarmThresholds.OpticalTransmitPowerWarningHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-transmit-power-warning-low"] = types.YLeaf{"OpticalTransmitPowerWarningLow", digOptMonAlarmThresholds.OpticalTransmitPowerWarningLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-transmit-power-alarm-low"] = types.YLeaf{"OpticalTransmitPowerAlarmLow", digOptMonAlarmThresholds.OpticalTransmitPowerAlarmLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-receive-power-alarm-high"] = types.YLeaf{"OpticalReceivePowerAlarmHigh", digOptMonAlarmThresholds.OpticalReceivePowerAlarmHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-receive-power-warning-high"] = types.YLeaf{"OpticalReceivePowerWarningHigh", digOptMonAlarmThresholds.OpticalReceivePowerWarningHigh}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-receive-power-warning-low"] = types.YLeaf{"OpticalReceivePowerWarningLow", digOptMonAlarmThresholds.OpticalReceivePowerWarningLow}
+    digOptMonAlarmThresholds.EntityData.Leafs["optical-receive-power-alarm-low"] = types.YLeaf{"OpticalReceivePowerAlarmLow", digOptMonAlarmThresholds.OpticalReceivePowerAlarmLow}
+    return &(digOptMonAlarmThresholds.EntityData)
 }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetSegmentPath() string {
-    return "dig-opt-mon-alarm-thresholds"
-}
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "field-validity" {
-        return &digOptMonAlarmThresholds.FieldValidity
-    }
-    return nil
-}
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["field-validity"] = &digOptMonAlarmThresholds.FieldValidity
-    return children
-}
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transceiver-temperature-alarm-high"] = digOptMonAlarmThresholds.TransceiverTemperatureAlarmHigh
-    leafs["transceiver-temperature-warning-high"] = digOptMonAlarmThresholds.TransceiverTemperatureWarningHigh
-    leafs["transceiver-temperature-warning-low"] = digOptMonAlarmThresholds.TransceiverTemperatureWarningLow
-    leafs["transceiver-temperature-alarm-low"] = digOptMonAlarmThresholds.TransceiverTemperatureAlarmLow
-    leafs["transceiver-voltage-alarm-high"] = digOptMonAlarmThresholds.TransceiverVoltageAlarmHigh
-    leafs["transceiver-voltage-warning-high"] = digOptMonAlarmThresholds.TransceiverVoltageWarningHigh
-    leafs["transceiver-voltage-warning-low"] = digOptMonAlarmThresholds.TransceiverVoltageWarningLow
-    leafs["transceiver-voltage-alarm-low"] = digOptMonAlarmThresholds.TransceiverVoltageAlarmLow
-    leafs["laser-bias-alarm-high"] = digOptMonAlarmThresholds.LaserBiasAlarmHigh
-    leafs["laser-bias-warning-high"] = digOptMonAlarmThresholds.LaserBiasWarningHigh
-    leafs["laser-bias-warning-low"] = digOptMonAlarmThresholds.LaserBiasWarningLow
-    leafs["laser-bias-alarm-low"] = digOptMonAlarmThresholds.LaserBiasAlarmLow
-    leafs["optical-transmit-power-alarm-high"] = digOptMonAlarmThresholds.OpticalTransmitPowerAlarmHigh
-    leafs["optical-transmit-power-warning-high"] = digOptMonAlarmThresholds.OpticalTransmitPowerWarningHigh
-    leafs["optical-transmit-power-warning-low"] = digOptMonAlarmThresholds.OpticalTransmitPowerWarningLow
-    leafs["optical-transmit-power-alarm-low"] = digOptMonAlarmThresholds.OpticalTransmitPowerAlarmLow
-    leafs["optical-receive-power-alarm-high"] = digOptMonAlarmThresholds.OpticalReceivePowerAlarmHigh
-    leafs["optical-receive-power-warning-high"] = digOptMonAlarmThresholds.OpticalReceivePowerWarningHigh
-    leafs["optical-receive-power-warning-low"] = digOptMonAlarmThresholds.OpticalReceivePowerWarningLow
-    leafs["optical-receive-power-alarm-low"] = digOptMonAlarmThresholds.OpticalReceivePowerAlarmLow
-    return leafs
-}
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetYangName() string { return "dig-opt-mon-alarm-thresholds" }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) SetParent(parent types.Entity) { digOptMonAlarmThresholds.parent = parent }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetParent() types.Entity { return digOptMonAlarmThresholds.parent }
-
-func (digOptMonAlarmThresholds *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds) GetParentYangName() string { return "phy-details" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity
 // Field validity
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The temperature fields are valid. The type is interface{} with range:
@@ -2762,64 +2336,30 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThr
     ReceivePowerValid interface{}
 }
 
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetFilter() yfilter.YFilter { return fieldValidity.YFilter }
+func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetEntityData() *types.CommonEntityData {
+    fieldValidity.EntityData.YFilter = fieldValidity.YFilter
+    fieldValidity.EntityData.YangName = "field-validity"
+    fieldValidity.EntityData.BundleName = "cisco_ios_xr"
+    fieldValidity.EntityData.ParentYangName = "dig-opt-mon-alarm-thresholds"
+    fieldValidity.EntityData.SegmentPath = "field-validity"
+    fieldValidity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fieldValidity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fieldValidity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) SetFilter(yf yfilter.YFilter) { fieldValidity.YFilter = yf }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetGoName(yname string) string {
-    if yname == "temperature-valid" { return "TemperatureValid" }
-    if yname == "voltage-valid" { return "VoltageValid" }
-    if yname == "laser-bias-valid" { return "LaserBiasValid" }
-    if yname == "transmit-power-valid" { return "TransmitPowerValid" }
-    if yname == "receive-power-valid" { return "ReceivePowerValid" }
-    return ""
+    fieldValidity.EntityData.Children = make(map[string]types.YChild)
+    fieldValidity.EntityData.Leafs = make(map[string]types.YLeaf)
+    fieldValidity.EntityData.Leafs["temperature-valid"] = types.YLeaf{"TemperatureValid", fieldValidity.TemperatureValid}
+    fieldValidity.EntityData.Leafs["voltage-valid"] = types.YLeaf{"VoltageValid", fieldValidity.VoltageValid}
+    fieldValidity.EntityData.Leafs["laser-bias-valid"] = types.YLeaf{"LaserBiasValid", fieldValidity.LaserBiasValid}
+    fieldValidity.EntityData.Leafs["transmit-power-valid"] = types.YLeaf{"TransmitPowerValid", fieldValidity.TransmitPowerValid}
+    fieldValidity.EntityData.Leafs["receive-power-valid"] = types.YLeaf{"ReceivePowerValid", fieldValidity.ReceivePowerValid}
+    return &(fieldValidity.EntityData)
 }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetSegmentPath() string {
-    return "field-validity"
-}
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["temperature-valid"] = fieldValidity.TemperatureValid
-    leafs["voltage-valid"] = fieldValidity.VoltageValid
-    leafs["laser-bias-valid"] = fieldValidity.LaserBiasValid
-    leafs["transmit-power-valid"] = fieldValidity.TransmitPowerValid
-    leafs["receive-power-valid"] = fieldValidity.ReceivePowerValid
-    return leafs
-}
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetYangName() string { return "field-validity" }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) SetParent(parent types.Entity) { fieldValidity.parent = parent }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetParent() types.Entity { return fieldValidity.parent }
-
-func (fieldValidity *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarmThresholds_FieldValidity) GetParentYangName() string { return "dig-opt-mon-alarm-thresholds" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms
 // Digital Optical Monitoring alarms
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Transceiver Temperature Alarm. The type is EtherDomAlarm.
@@ -2838,65 +2378,31 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms s
     LaserBiasCurrent interface{}
 }
 
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetFilter() yfilter.YFilter { return digOptMonAlarms.YFilter }
+func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetEntityData() *types.CommonEntityData {
+    digOptMonAlarms.EntityData.YFilter = digOptMonAlarms.YFilter
+    digOptMonAlarms.EntityData.YangName = "dig-opt-mon-alarms"
+    digOptMonAlarms.EntityData.BundleName = "cisco_ios_xr"
+    digOptMonAlarms.EntityData.ParentYangName = "phy-details"
+    digOptMonAlarms.EntityData.SegmentPath = "dig-opt-mon-alarms"
+    digOptMonAlarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    digOptMonAlarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    digOptMonAlarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) SetFilter(yf yfilter.YFilter) { digOptMonAlarms.YFilter = yf }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetGoName(yname string) string {
-    if yname == "transceiver-temperature" { return "TransceiverTemperature" }
-    if yname == "transceiver-voltage" { return "TransceiverVoltage" }
-    if yname == "transmit-laser-power" { return "TransmitLaserPower" }
-    if yname == "received-laser-power" { return "ReceivedLaserPower" }
-    if yname == "laser-bias-current" { return "LaserBiasCurrent" }
-    return ""
+    digOptMonAlarms.EntityData.Children = make(map[string]types.YChild)
+    digOptMonAlarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    digOptMonAlarms.EntityData.Leafs["transceiver-temperature"] = types.YLeaf{"TransceiverTemperature", digOptMonAlarms.TransceiverTemperature}
+    digOptMonAlarms.EntityData.Leafs["transceiver-voltage"] = types.YLeaf{"TransceiverVoltage", digOptMonAlarms.TransceiverVoltage}
+    digOptMonAlarms.EntityData.Leafs["transmit-laser-power"] = types.YLeaf{"TransmitLaserPower", digOptMonAlarms.TransmitLaserPower}
+    digOptMonAlarms.EntityData.Leafs["received-laser-power"] = types.YLeaf{"ReceivedLaserPower", digOptMonAlarms.ReceivedLaserPower}
+    digOptMonAlarms.EntityData.Leafs["laser-bias-current"] = types.YLeaf{"LaserBiasCurrent", digOptMonAlarms.LaserBiasCurrent}
+    return &(digOptMonAlarms.EntityData)
 }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetSegmentPath() string {
-    return "dig-opt-mon-alarms"
-}
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transceiver-temperature"] = digOptMonAlarms.TransceiverTemperature
-    leafs["transceiver-voltage"] = digOptMonAlarms.TransceiverVoltage
-    leafs["transmit-laser-power"] = digOptMonAlarms.TransmitLaserPower
-    leafs["received-laser-power"] = digOptMonAlarms.ReceivedLaserPower
-    leafs["laser-bias-current"] = digOptMonAlarms.LaserBiasCurrent
-    return leafs
-}
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetBundleName() string { return "cisco_ios_xr" }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetYangName() string { return "dig-opt-mon-alarms" }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) SetParent(parent types.Entity) { digOptMonAlarms.parent = parent }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetParent() types.Entity { return digOptMonAlarms.parent }
-
-func (digOptMonAlarms *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_DigOptMonAlarms) GetParentYangName() string { return "phy-details" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane
 // Digital Optical Monitoring (per lane
 // information)
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Center Wavelength (nm*1000). The type is interface{} with range:
@@ -2923,69 +2429,31 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane struct {
     DigOptMonAlarm EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm
 }
 
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetFilter() yfilter.YFilter { return lane.YFilter }
+func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetEntityData() *types.CommonEntityData {
+    lane.EntityData.YFilter = lane.YFilter
+    lane.EntityData.YangName = "lane"
+    lane.EntityData.BundleName = "cisco_ios_xr"
+    lane.EntityData.ParentYangName = "phy-details"
+    lane.EntityData.SegmentPath = "lane"
+    lane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) SetFilter(yf yfilter.YFilter) { lane.YFilter = yf }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetGoName(yname string) string {
-    if yname == "center-wavelength" { return "CenterWavelength" }
-    if yname == "transmit-laser-power" { return "TransmitLaserPower" }
-    if yname == "received-laser-power" { return "ReceivedLaserPower" }
-    if yname == "laser-bias-current" { return "LaserBiasCurrent" }
-    if yname == "lane-id" { return "LaneId" }
-    if yname == "dig-opt-mon-alarm" { return "DigOptMonAlarm" }
-    return ""
+    lane.EntityData.Children = make(map[string]types.YChild)
+    lane.EntityData.Children["dig-opt-mon-alarm"] = types.YChild{"DigOptMonAlarm", &lane.DigOptMonAlarm}
+    lane.EntityData.Leafs = make(map[string]types.YLeaf)
+    lane.EntityData.Leafs["center-wavelength"] = types.YLeaf{"CenterWavelength", lane.CenterWavelength}
+    lane.EntityData.Leafs["transmit-laser-power"] = types.YLeaf{"TransmitLaserPower", lane.TransmitLaserPower}
+    lane.EntityData.Leafs["received-laser-power"] = types.YLeaf{"ReceivedLaserPower", lane.ReceivedLaserPower}
+    lane.EntityData.Leafs["laser-bias-current"] = types.YLeaf{"LaserBiasCurrent", lane.LaserBiasCurrent}
+    lane.EntityData.Leafs["lane-id"] = types.YLeaf{"LaneId", lane.LaneId}
+    return &(lane.EntityData)
 }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetSegmentPath() string {
-    return "lane"
-}
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dig-opt-mon-alarm" {
-        return &lane.DigOptMonAlarm
-    }
-    return nil
-}
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dig-opt-mon-alarm"] = &lane.DigOptMonAlarm
-    return children
-}
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["center-wavelength"] = lane.CenterWavelength
-    leafs["transmit-laser-power"] = lane.TransmitLaserPower
-    leafs["received-laser-power"] = lane.ReceivedLaserPower
-    leafs["laser-bias-current"] = lane.LaserBiasCurrent
-    leafs["lane-id"] = lane.LaneId
-    return leafs
-}
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetYangName() string { return "lane" }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) SetParent(parent types.Entity) { lane.parent = parent }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetParent() types.Entity { return lane.parent }
-
-func (lane *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane) GetParentYangName() string { return "phy-details" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm
 // Digital Optical Monitoring alarms
 type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Transmit Laser Power Alarm. The type is EtherDomAlarm.
@@ -2998,60 +2466,28 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAla
     LaserBiasCurrent interface{}
 }
 
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetFilter() yfilter.YFilter { return digOptMonAlarm.YFilter }
+func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetEntityData() *types.CommonEntityData {
+    digOptMonAlarm.EntityData.YFilter = digOptMonAlarm.YFilter
+    digOptMonAlarm.EntityData.YangName = "dig-opt-mon-alarm"
+    digOptMonAlarm.EntityData.BundleName = "cisco_ios_xr"
+    digOptMonAlarm.EntityData.ParentYangName = "lane"
+    digOptMonAlarm.EntityData.SegmentPath = "dig-opt-mon-alarm"
+    digOptMonAlarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    digOptMonAlarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    digOptMonAlarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) SetFilter(yf yfilter.YFilter) { digOptMonAlarm.YFilter = yf }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetGoName(yname string) string {
-    if yname == "transmit-laser-power" { return "TransmitLaserPower" }
-    if yname == "received-laser-power" { return "ReceivedLaserPower" }
-    if yname == "laser-bias-current" { return "LaserBiasCurrent" }
-    return ""
+    digOptMonAlarm.EntityData.Children = make(map[string]types.YChild)
+    digOptMonAlarm.EntityData.Leafs = make(map[string]types.YLeaf)
+    digOptMonAlarm.EntityData.Leafs["transmit-laser-power"] = types.YLeaf{"TransmitLaserPower", digOptMonAlarm.TransmitLaserPower}
+    digOptMonAlarm.EntityData.Leafs["received-laser-power"] = types.YLeaf{"ReceivedLaserPower", digOptMonAlarm.ReceivedLaserPower}
+    digOptMonAlarm.EntityData.Leafs["laser-bias-current"] = types.YLeaf{"LaserBiasCurrent", digOptMonAlarm.LaserBiasCurrent}
+    return &(digOptMonAlarm.EntityData)
 }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetSegmentPath() string {
-    return "dig-opt-mon-alarm"
-}
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-laser-power"] = digOptMonAlarm.TransmitLaserPower
-    leafs["received-laser-power"] = digOptMonAlarm.ReceivedLaserPower
-    leafs["laser-bias-current"] = digOptMonAlarm.LaserBiasCurrent
-    return leafs
-}
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetYangName() string { return "dig-opt-mon-alarm" }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) SetParent(parent types.Entity) { digOptMonAlarm.parent = parent }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetParent() types.Entity { return digOptMonAlarm.parent }
-
-func (digOptMonAlarm *EthernetInterface_Interfaces_Interface_PhyInfo_PhyDetails_Lane_DigOptMonAlarm) GetParentYangName() string { return "lane" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails
 // Forward Error Correction information
 type EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port operational FEC type. The type is EthernetFec.
@@ -3066,60 +2502,28 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails struct {
     UncorrectedCodewordCount interface{}
 }
 
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetFilter() yfilter.YFilter { return fecDetails.YFilter }
+func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetEntityData() *types.CommonEntityData {
+    fecDetails.EntityData.YFilter = fecDetails.YFilter
+    fecDetails.EntityData.YangName = "fec-details"
+    fecDetails.EntityData.BundleName = "cisco_ios_xr"
+    fecDetails.EntityData.ParentYangName = "phy-info"
+    fecDetails.EntityData.SegmentPath = "fec-details"
+    fecDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fecDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fecDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) SetFilter(yf yfilter.YFilter) { fecDetails.YFilter = yf }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetGoName(yname string) string {
-    if yname == "fec" { return "Fec" }
-    if yname == "corrected-codeword-count" { return "CorrectedCodewordCount" }
-    if yname == "uncorrected-codeword-count" { return "UncorrectedCodewordCount" }
-    return ""
+    fecDetails.EntityData.Children = make(map[string]types.YChild)
+    fecDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    fecDetails.EntityData.Leafs["fec"] = types.YLeaf{"Fec", fecDetails.Fec}
+    fecDetails.EntityData.Leafs["corrected-codeword-count"] = types.YLeaf{"CorrectedCodewordCount", fecDetails.CorrectedCodewordCount}
+    fecDetails.EntityData.Leafs["uncorrected-codeword-count"] = types.YLeaf{"UncorrectedCodewordCount", fecDetails.UncorrectedCodewordCount}
+    return &(fecDetails.EntityData)
 }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetSegmentPath() string {
-    return "fec-details"
-}
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fec"] = fecDetails.Fec
-    leafs["corrected-codeword-count"] = fecDetails.CorrectedCodewordCount
-    leafs["uncorrected-codeword-count"] = fecDetails.UncorrectedCodewordCount
-    return leafs
-}
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetYangName() string { return "fec-details" }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) SetParent(parent types.Entity) { fecDetails.parent = parent }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetParent() types.Entity { return fecDetails.parent }
-
-func (fecDetails *EthernetInterface_Interfaces_Interface_PhyInfo_FecDetails) GetParentYangName() string { return "phy-info" }
 
 // EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback
 // Port operational extended loopback
 type EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Level. The type is interface{} with range: 0..4294967295.
@@ -3129,58 +2533,27 @@ type EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback struct {
     Loopback interface{}
 }
 
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetFilter() yfilter.YFilter { return extendedLoopback.YFilter }
+func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetEntityData() *types.CommonEntityData {
+    extendedLoopback.EntityData.YFilter = extendedLoopback.YFilter
+    extendedLoopback.EntityData.YangName = "extended-loopback"
+    extendedLoopback.EntityData.BundleName = "cisco_ios_xr"
+    extendedLoopback.EntityData.ParentYangName = "phy-info"
+    extendedLoopback.EntityData.SegmentPath = "extended-loopback"
+    extendedLoopback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    extendedLoopback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    extendedLoopback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) SetFilter(yf yfilter.YFilter) { extendedLoopback.YFilter = yf }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetGoName(yname string) string {
-    if yname == "level" { return "Level" }
-    if yname == "loopback" { return "Loopback" }
-    return ""
+    extendedLoopback.EntityData.Children = make(map[string]types.YChild)
+    extendedLoopback.EntityData.Leafs = make(map[string]types.YLeaf)
+    extendedLoopback.EntityData.Leafs["level"] = types.YLeaf{"Level", extendedLoopback.Level}
+    extendedLoopback.EntityData.Leafs["loopback"] = types.YLeaf{"Loopback", extendedLoopback.Loopback}
+    return &(extendedLoopback.EntityData)
 }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetSegmentPath() string {
-    return "extended-loopback"
-}
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["level"] = extendedLoopback.Level
-    leafs["loopback"] = extendedLoopback.Loopback
-    return leafs
-}
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetBundleName() string { return "cisco_ios_xr" }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetYangName() string { return "extended-loopback" }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) SetParent(parent types.Entity) { extendedLoopback.parent = parent }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetParent() types.Entity { return extendedLoopback.parent }
-
-func (extendedLoopback *EthernetInterface_Interfaces_Interface_PhyInfo_ExtendedLoopback) GetParentYangName() string { return "phy-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info
 // Layer 1 information
 type EthernetInterface_Interfaces_Interface_Layer1Info struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link state. The type is EtherLinkState.
@@ -3234,107 +2607,41 @@ type EthernetInterface_Interfaces_Interface_Layer1Info struct {
     PfcInfo EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo
 }
 
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetFilter() yfilter.YFilter { return layer1Info.YFilter }
+func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetEntityData() *types.CommonEntityData {
+    layer1Info.EntityData.YFilter = layer1Info.YFilter
+    layer1Info.EntityData.YangName = "layer1-info"
+    layer1Info.EntityData.BundleName = "cisco_ios_xr"
+    layer1Info.EntityData.ParentYangName = "interface"
+    layer1Info.EntityData.SegmentPath = "layer1-info"
+    layer1Info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    layer1Info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    layer1Info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) SetFilter(yf yfilter.YFilter) { layer1Info.YFilter = yf }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetGoName(yname string) string {
-    if yname == "link-state" { return "LinkState" }
-    if yname == "led-state" { return "LedState" }
-    if yname == "speed" { return "Speed" }
-    if yname == "duplex" { return "Duplex" }
-    if yname == "flowcontrol" { return "Flowcontrol" }
-    if yname == "ipg" { return "Ipg" }
-    if yname == "laser-squelch-enabled" { return "LaserSquelchEnabled" }
-    if yname == "bandwidth-utilization" { return "BandwidthUtilization" }
-    if yname == "bandwidth" { return "Bandwidth" }
-    if yname == "autoneg" { return "Autoneg" }
-    if yname == "current-alarms" { return "CurrentAlarms" }
-    if yname == "previous-alarms" { return "PreviousAlarms" }
-    if yname == "error-counts" { return "ErrorCounts" }
-    if yname == "ber-monitoring" { return "BerMonitoring" }
-    if yname == "opd-monitoring" { return "OpdMonitoring" }
-    if yname == "pfc-info" { return "PfcInfo" }
-    return ""
+    layer1Info.EntityData.Children = make(map[string]types.YChild)
+    layer1Info.EntityData.Children["autoneg"] = types.YChild{"Autoneg", &layer1Info.Autoneg}
+    layer1Info.EntityData.Children["current-alarms"] = types.YChild{"CurrentAlarms", &layer1Info.CurrentAlarms}
+    layer1Info.EntityData.Children["previous-alarms"] = types.YChild{"PreviousAlarms", &layer1Info.PreviousAlarms}
+    layer1Info.EntityData.Children["error-counts"] = types.YChild{"ErrorCounts", &layer1Info.ErrorCounts}
+    layer1Info.EntityData.Children["ber-monitoring"] = types.YChild{"BerMonitoring", &layer1Info.BerMonitoring}
+    layer1Info.EntityData.Children["opd-monitoring"] = types.YChild{"OpdMonitoring", &layer1Info.OpdMonitoring}
+    layer1Info.EntityData.Children["pfc-info"] = types.YChild{"PfcInfo", &layer1Info.PfcInfo}
+    layer1Info.EntityData.Leafs = make(map[string]types.YLeaf)
+    layer1Info.EntityData.Leafs["link-state"] = types.YLeaf{"LinkState", layer1Info.LinkState}
+    layer1Info.EntityData.Leafs["led-state"] = types.YLeaf{"LedState", layer1Info.LedState}
+    layer1Info.EntityData.Leafs["speed"] = types.YLeaf{"Speed", layer1Info.Speed}
+    layer1Info.EntityData.Leafs["duplex"] = types.YLeaf{"Duplex", layer1Info.Duplex}
+    layer1Info.EntityData.Leafs["flowcontrol"] = types.YLeaf{"Flowcontrol", layer1Info.Flowcontrol}
+    layer1Info.EntityData.Leafs["ipg"] = types.YLeaf{"Ipg", layer1Info.Ipg}
+    layer1Info.EntityData.Leafs["laser-squelch-enabled"] = types.YLeaf{"LaserSquelchEnabled", layer1Info.LaserSquelchEnabled}
+    layer1Info.EntityData.Leafs["bandwidth-utilization"] = types.YLeaf{"BandwidthUtilization", layer1Info.BandwidthUtilization}
+    layer1Info.EntityData.Leafs["bandwidth"] = types.YLeaf{"Bandwidth", layer1Info.Bandwidth}
+    return &(layer1Info.EntityData)
 }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetSegmentPath() string {
-    return "layer1-info"
-}
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "autoneg" {
-        return &layer1Info.Autoneg
-    }
-    if childYangName == "current-alarms" {
-        return &layer1Info.CurrentAlarms
-    }
-    if childYangName == "previous-alarms" {
-        return &layer1Info.PreviousAlarms
-    }
-    if childYangName == "error-counts" {
-        return &layer1Info.ErrorCounts
-    }
-    if childYangName == "ber-monitoring" {
-        return &layer1Info.BerMonitoring
-    }
-    if childYangName == "opd-monitoring" {
-        return &layer1Info.OpdMonitoring
-    }
-    if childYangName == "pfc-info" {
-        return &layer1Info.PfcInfo
-    }
-    return nil
-}
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["autoneg"] = &layer1Info.Autoneg
-    children["current-alarms"] = &layer1Info.CurrentAlarms
-    children["previous-alarms"] = &layer1Info.PreviousAlarms
-    children["error-counts"] = &layer1Info.ErrorCounts
-    children["ber-monitoring"] = &layer1Info.BerMonitoring
-    children["opd-monitoring"] = &layer1Info.OpdMonitoring
-    children["pfc-info"] = &layer1Info.PfcInfo
-    return children
-}
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-state"] = layer1Info.LinkState
-    leafs["led-state"] = layer1Info.LedState
-    leafs["speed"] = layer1Info.Speed
-    leafs["duplex"] = layer1Info.Duplex
-    leafs["flowcontrol"] = layer1Info.Flowcontrol
-    leafs["ipg"] = layer1Info.Ipg
-    leafs["laser-squelch-enabled"] = layer1Info.LaserSquelchEnabled
-    leafs["bandwidth-utilization"] = layer1Info.BandwidthUtilization
-    leafs["bandwidth"] = layer1Info.Bandwidth
-    return leafs
-}
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetBundleName() string { return "cisco_ios_xr" }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetYangName() string { return "layer1-info" }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) SetParent(parent types.Entity) { layer1Info.parent = parent }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetParent() types.Entity { return layer1Info.parent }
-
-func (layer1Info *EthernetInterface_Interfaces_Interface_Layer1Info) GetParentYangName() string { return "interface" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg
 // Port autonegotiation configuration settings
 type EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TRUE if autonegotiation is enabled. The type is interface{} with range:
@@ -3366,68 +2673,32 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg struct {
     Fec interface{}
 }
 
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetFilter() yfilter.YFilter { return autoneg.YFilter }
+func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetEntityData() *types.CommonEntityData {
+    autoneg.EntityData.YFilter = autoneg.YFilter
+    autoneg.EntityData.YangName = "autoneg"
+    autoneg.EntityData.BundleName = "cisco_ios_xr"
+    autoneg.EntityData.ParentYangName = "layer1-info"
+    autoneg.EntityData.SegmentPath = "autoneg"
+    autoneg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoneg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoneg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) SetFilter(yf yfilter.YFilter) { autoneg.YFilter = yf }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetGoName(yname string) string {
-    if yname == "autoneg-enabled" { return "AutonegEnabled" }
-    if yname == "mask" { return "Mask" }
-    if yname == "speed" { return "Speed" }
-    if yname == "duplex" { return "Duplex" }
-    if yname == "flowcontrol" { return "Flowcontrol" }
-    if yname == "config-override" { return "ConfigOverride" }
-    if yname == "fec" { return "Fec" }
-    return ""
+    autoneg.EntityData.Children = make(map[string]types.YChild)
+    autoneg.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoneg.EntityData.Leafs["autoneg-enabled"] = types.YLeaf{"AutonegEnabled", autoneg.AutonegEnabled}
+    autoneg.EntityData.Leafs["mask"] = types.YLeaf{"Mask", autoneg.Mask}
+    autoneg.EntityData.Leafs["speed"] = types.YLeaf{"Speed", autoneg.Speed}
+    autoneg.EntityData.Leafs["duplex"] = types.YLeaf{"Duplex", autoneg.Duplex}
+    autoneg.EntityData.Leafs["flowcontrol"] = types.YLeaf{"Flowcontrol", autoneg.Flowcontrol}
+    autoneg.EntityData.Leafs["config-override"] = types.YLeaf{"ConfigOverride", autoneg.ConfigOverride}
+    autoneg.EntityData.Leafs["fec"] = types.YLeaf{"Fec", autoneg.Fec}
+    return &(autoneg.EntityData)
 }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetSegmentPath() string {
-    return "autoneg"
-}
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["autoneg-enabled"] = autoneg.AutonegEnabled
-    leafs["mask"] = autoneg.Mask
-    leafs["speed"] = autoneg.Speed
-    leafs["duplex"] = autoneg.Duplex
-    leafs["flowcontrol"] = autoneg.Flowcontrol
-    leafs["config-override"] = autoneg.ConfigOverride
-    leafs["fec"] = autoneg.Fec
-    return leafs
-}
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetYangName() string { return "autoneg" }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) SetParent(parent types.Entity) { autoneg.parent = parent }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetParent() types.Entity { return autoneg.parent }
-
-func (autoneg *EthernetInterface_Interfaces_Interface_Layer1Info_Autoneg) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms
 // Current alarms
 type EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received Loss of Signal. The type is EthCtrlrAlarmState.
@@ -3461,74 +2732,35 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms struct {
     RxOpdAlarm interface{}
 }
 
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetFilter() yfilter.YFilter { return currentAlarms.YFilter }
+func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetEntityData() *types.CommonEntityData {
+    currentAlarms.EntityData.YFilter = currentAlarms.YFilter
+    currentAlarms.EntityData.YangName = "current-alarms"
+    currentAlarms.EntityData.BundleName = "cisco_ios_xr"
+    currentAlarms.EntityData.ParentYangName = "layer1-info"
+    currentAlarms.EntityData.SegmentPath = "current-alarms"
+    currentAlarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    currentAlarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    currentAlarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) SetFilter(yf yfilter.YFilter) { currentAlarms.YFilter = yf }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetGoName(yname string) string {
-    if yname == "received-loss-of-signal-alarm" { return "ReceivedLossOfSignalAlarm" }
-    if yname == "pcs-loss-of-block-lock-alarm" { return "PcsLossOfBlockLockAlarm" }
-    if yname == "local-fault-alarm" { return "LocalFaultAlarm" }
-    if yname == "remote-fault-alarm" { return "RemoteFaultAlarm" }
-    if yname == "sd-ber-alarm" { return "SdBerAlarm" }
-    if yname == "sf-ber-alarm" { return "SfBerAlarm" }
-    if yname == "loss-of-synchronization-data-alarm" { return "LossOfSynchronizationDataAlarm" }
-    if yname == "hi-ber-alarm" { return "HiBerAlarm" }
-    if yname == "squelch-alarm" { return "SquelchAlarm" }
-    if yname == "rx-opd-alarm" { return "RxOpdAlarm" }
-    return ""
+    currentAlarms.EntityData.Children = make(map[string]types.YChild)
+    currentAlarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    currentAlarms.EntityData.Leafs["received-loss-of-signal-alarm"] = types.YLeaf{"ReceivedLossOfSignalAlarm", currentAlarms.ReceivedLossOfSignalAlarm}
+    currentAlarms.EntityData.Leafs["pcs-loss-of-block-lock-alarm"] = types.YLeaf{"PcsLossOfBlockLockAlarm", currentAlarms.PcsLossOfBlockLockAlarm}
+    currentAlarms.EntityData.Leafs["local-fault-alarm"] = types.YLeaf{"LocalFaultAlarm", currentAlarms.LocalFaultAlarm}
+    currentAlarms.EntityData.Leafs["remote-fault-alarm"] = types.YLeaf{"RemoteFaultAlarm", currentAlarms.RemoteFaultAlarm}
+    currentAlarms.EntityData.Leafs["sd-ber-alarm"] = types.YLeaf{"SdBerAlarm", currentAlarms.SdBerAlarm}
+    currentAlarms.EntityData.Leafs["sf-ber-alarm"] = types.YLeaf{"SfBerAlarm", currentAlarms.SfBerAlarm}
+    currentAlarms.EntityData.Leafs["loss-of-synchronization-data-alarm"] = types.YLeaf{"LossOfSynchronizationDataAlarm", currentAlarms.LossOfSynchronizationDataAlarm}
+    currentAlarms.EntityData.Leafs["hi-ber-alarm"] = types.YLeaf{"HiBerAlarm", currentAlarms.HiBerAlarm}
+    currentAlarms.EntityData.Leafs["squelch-alarm"] = types.YLeaf{"SquelchAlarm", currentAlarms.SquelchAlarm}
+    currentAlarms.EntityData.Leafs["rx-opd-alarm"] = types.YLeaf{"RxOpdAlarm", currentAlarms.RxOpdAlarm}
+    return &(currentAlarms.EntityData)
 }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetSegmentPath() string {
-    return "current-alarms"
-}
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-loss-of-signal-alarm"] = currentAlarms.ReceivedLossOfSignalAlarm
-    leafs["pcs-loss-of-block-lock-alarm"] = currentAlarms.PcsLossOfBlockLockAlarm
-    leafs["local-fault-alarm"] = currentAlarms.LocalFaultAlarm
-    leafs["remote-fault-alarm"] = currentAlarms.RemoteFaultAlarm
-    leafs["sd-ber-alarm"] = currentAlarms.SdBerAlarm
-    leafs["sf-ber-alarm"] = currentAlarms.SfBerAlarm
-    leafs["loss-of-synchronization-data-alarm"] = currentAlarms.LossOfSynchronizationDataAlarm
-    leafs["hi-ber-alarm"] = currentAlarms.HiBerAlarm
-    leafs["squelch-alarm"] = currentAlarms.SquelchAlarm
-    leafs["rx-opd-alarm"] = currentAlarms.RxOpdAlarm
-    return leafs
-}
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetBundleName() string { return "cisco_ios_xr" }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetYangName() string { return "current-alarms" }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) SetParent(parent types.Entity) { currentAlarms.parent = parent }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetParent() types.Entity { return currentAlarms.parent }
-
-func (currentAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_CurrentAlarms) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms
 // Previous alarms
 type EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received Loss of Signal. The type is EthCtrlrAlarmState.
@@ -3562,74 +2794,35 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms struct {
     RxOpdAlarm interface{}
 }
 
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetFilter() yfilter.YFilter { return previousAlarms.YFilter }
+func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetEntityData() *types.CommonEntityData {
+    previousAlarms.EntityData.YFilter = previousAlarms.YFilter
+    previousAlarms.EntityData.YangName = "previous-alarms"
+    previousAlarms.EntityData.BundleName = "cisco_ios_xr"
+    previousAlarms.EntityData.ParentYangName = "layer1-info"
+    previousAlarms.EntityData.SegmentPath = "previous-alarms"
+    previousAlarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    previousAlarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    previousAlarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) SetFilter(yf yfilter.YFilter) { previousAlarms.YFilter = yf }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetGoName(yname string) string {
-    if yname == "received-loss-of-signal-alarm" { return "ReceivedLossOfSignalAlarm" }
-    if yname == "pcs-loss-of-block-lock-alarm" { return "PcsLossOfBlockLockAlarm" }
-    if yname == "local-fault-alarm" { return "LocalFaultAlarm" }
-    if yname == "remote-fault-alarm" { return "RemoteFaultAlarm" }
-    if yname == "sd-ber-alarm" { return "SdBerAlarm" }
-    if yname == "sf-ber-alarm" { return "SfBerAlarm" }
-    if yname == "loss-of-synchronization-data-alarm" { return "LossOfSynchronizationDataAlarm" }
-    if yname == "hi-ber-alarm" { return "HiBerAlarm" }
-    if yname == "squelch-alarm" { return "SquelchAlarm" }
-    if yname == "rx-opd-alarm" { return "RxOpdAlarm" }
-    return ""
+    previousAlarms.EntityData.Children = make(map[string]types.YChild)
+    previousAlarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    previousAlarms.EntityData.Leafs["received-loss-of-signal-alarm"] = types.YLeaf{"ReceivedLossOfSignalAlarm", previousAlarms.ReceivedLossOfSignalAlarm}
+    previousAlarms.EntityData.Leafs["pcs-loss-of-block-lock-alarm"] = types.YLeaf{"PcsLossOfBlockLockAlarm", previousAlarms.PcsLossOfBlockLockAlarm}
+    previousAlarms.EntityData.Leafs["local-fault-alarm"] = types.YLeaf{"LocalFaultAlarm", previousAlarms.LocalFaultAlarm}
+    previousAlarms.EntityData.Leafs["remote-fault-alarm"] = types.YLeaf{"RemoteFaultAlarm", previousAlarms.RemoteFaultAlarm}
+    previousAlarms.EntityData.Leafs["sd-ber-alarm"] = types.YLeaf{"SdBerAlarm", previousAlarms.SdBerAlarm}
+    previousAlarms.EntityData.Leafs["sf-ber-alarm"] = types.YLeaf{"SfBerAlarm", previousAlarms.SfBerAlarm}
+    previousAlarms.EntityData.Leafs["loss-of-synchronization-data-alarm"] = types.YLeaf{"LossOfSynchronizationDataAlarm", previousAlarms.LossOfSynchronizationDataAlarm}
+    previousAlarms.EntityData.Leafs["hi-ber-alarm"] = types.YLeaf{"HiBerAlarm", previousAlarms.HiBerAlarm}
+    previousAlarms.EntityData.Leafs["squelch-alarm"] = types.YLeaf{"SquelchAlarm", previousAlarms.SquelchAlarm}
+    previousAlarms.EntityData.Leafs["rx-opd-alarm"] = types.YLeaf{"RxOpdAlarm", previousAlarms.RxOpdAlarm}
+    return &(previousAlarms.EntityData)
 }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetSegmentPath() string {
-    return "previous-alarms"
-}
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-loss-of-signal-alarm"] = previousAlarms.ReceivedLossOfSignalAlarm
-    leafs["pcs-loss-of-block-lock-alarm"] = previousAlarms.PcsLossOfBlockLockAlarm
-    leafs["local-fault-alarm"] = previousAlarms.LocalFaultAlarm
-    leafs["remote-fault-alarm"] = previousAlarms.RemoteFaultAlarm
-    leafs["sd-ber-alarm"] = previousAlarms.SdBerAlarm
-    leafs["sf-ber-alarm"] = previousAlarms.SfBerAlarm
-    leafs["loss-of-synchronization-data-alarm"] = previousAlarms.LossOfSynchronizationDataAlarm
-    leafs["hi-ber-alarm"] = previousAlarms.HiBerAlarm
-    leafs["squelch-alarm"] = previousAlarms.SquelchAlarm
-    leafs["rx-opd-alarm"] = previousAlarms.RxOpdAlarm
-    return leafs
-}
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetBundleName() string { return "cisco_ios_xr" }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetYangName() string { return "previous-alarms" }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) SetParent(parent types.Entity) { previousAlarms.parent = parent }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetParent() types.Entity { return previousAlarms.parent }
-
-func (previousAlarms *EthernetInterface_Interfaces_Interface_Layer1Info_PreviousAlarms) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts
 // Statistics for detected errors
 type EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sync-header error count. The type is interface{} with range:
@@ -3641,58 +2834,27 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts struct {
     PcsbipErrors interface{}
 }
 
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetFilter() yfilter.YFilter { return errorCounts.YFilter }
+func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetEntityData() *types.CommonEntityData {
+    errorCounts.EntityData.YFilter = errorCounts.YFilter
+    errorCounts.EntityData.YangName = "error-counts"
+    errorCounts.EntityData.BundleName = "cisco_ios_xr"
+    errorCounts.EntityData.ParentYangName = "layer1-info"
+    errorCounts.EntityData.SegmentPath = "error-counts"
+    errorCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    errorCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    errorCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) SetFilter(yf yfilter.YFilter) { errorCounts.YFilter = yf }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetGoName(yname string) string {
-    if yname == "sync-header-errors" { return "SyncHeaderErrors" }
-    if yname == "pcsbip-errors" { return "PcsbipErrors" }
-    return ""
+    errorCounts.EntityData.Children = make(map[string]types.YChild)
+    errorCounts.EntityData.Leafs = make(map[string]types.YLeaf)
+    errorCounts.EntityData.Leafs["sync-header-errors"] = types.YLeaf{"SyncHeaderErrors", errorCounts.SyncHeaderErrors}
+    errorCounts.EntityData.Leafs["pcsbip-errors"] = types.YLeaf{"PcsbipErrors", errorCounts.PcsbipErrors}
+    return &(errorCounts.EntityData)
 }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetSegmentPath() string {
-    return "error-counts"
-}
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sync-header-errors"] = errorCounts.SyncHeaderErrors
-    leafs["pcsbip-errors"] = errorCounts.PcsbipErrors
-    return leafs
-}
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetYangName() string { return "error-counts" }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) SetParent(parent types.Entity) { errorCounts.parent = parent }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetParent() types.Entity { return errorCounts.parent }
-
-func (errorCounts *EthernetInterface_Interfaces_Interface_Layer1Info_ErrorCounts) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring
 // BER monitoring details
 type EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Whether or not BER monitoring is supported. The type is interface{} with
@@ -3701,63 +2863,33 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring struct {
 
     // The BER monitoring settings to be applied.
     Settings EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings
+
+    // The BER state.
+    State EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_State
 }
 
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetFilter() yfilter.YFilter { return berMonitoring.YFilter }
+func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetEntityData() *types.CommonEntityData {
+    berMonitoring.EntityData.YFilter = berMonitoring.YFilter
+    berMonitoring.EntityData.YangName = "ber-monitoring"
+    berMonitoring.EntityData.BundleName = "cisco_ios_xr"
+    berMonitoring.EntityData.ParentYangName = "layer1-info"
+    berMonitoring.EntityData.SegmentPath = "ber-monitoring"
+    berMonitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    berMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    berMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) SetFilter(yf yfilter.YFilter) { berMonitoring.YFilter = yf }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetGoName(yname string) string {
-    if yname == "supported" { return "Supported" }
-    if yname == "settings" { return "Settings" }
-    return ""
+    berMonitoring.EntityData.Children = make(map[string]types.YChild)
+    berMonitoring.EntityData.Children["settings"] = types.YChild{"Settings", &berMonitoring.Settings}
+    berMonitoring.EntityData.Children["state"] = types.YChild{"State", &berMonitoring.State}
+    berMonitoring.EntityData.Leafs = make(map[string]types.YLeaf)
+    berMonitoring.EntityData.Leafs["supported"] = types.YLeaf{"Supported", berMonitoring.Supported}
+    return &(berMonitoring.EntityData)
 }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetSegmentPath() string {
-    return "ber-monitoring"
-}
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "settings" {
-        return &berMonitoring.Settings
-    }
-    return nil
-}
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["settings"] = &berMonitoring.Settings
-    return children
-}
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["supported"] = berMonitoring.Supported
-    return leafs
-}
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetBundleName() string { return "cisco_ios_xr" }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetYangName() string { return "ber-monitoring" }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) SetParent(parent types.Entity) { berMonitoring.parent = parent }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetParent() types.Entity { return berMonitoring.parent }
-
-func (berMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings
 // The BER monitoring settings to be applied
 type EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // BER threshold for signal to degrade. The type is interface{} with range:
@@ -3781,64 +2913,60 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings st
     SignalRemoteFault interface{}
 }
 
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetFilter() yfilter.YFilter { return settings.YFilter }
+func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetEntityData() *types.CommonEntityData {
+    settings.EntityData.YFilter = settings.YFilter
+    settings.EntityData.YangName = "settings"
+    settings.EntityData.BundleName = "cisco_ios_xr"
+    settings.EntityData.ParentYangName = "ber-monitoring"
+    settings.EntityData.SegmentPath = "settings"
+    settings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    settings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    settings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) SetFilter(yf yfilter.YFilter) { settings.YFilter = yf }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetGoName(yname string) string {
-    if yname == "signal-degrade-threshold" { return "SignalDegradeThreshold" }
-    if yname == "signal-degrade-alarm" { return "SignalDegradeAlarm" }
-    if yname == "signal-fail-threshold" { return "SignalFailThreshold" }
-    if yname == "signal-fail-alarm" { return "SignalFailAlarm" }
-    if yname == "signal-remote-fault" { return "SignalRemoteFault" }
-    return ""
+    settings.EntityData.Children = make(map[string]types.YChild)
+    settings.EntityData.Leafs = make(map[string]types.YLeaf)
+    settings.EntityData.Leafs["signal-degrade-threshold"] = types.YLeaf{"SignalDegradeThreshold", settings.SignalDegradeThreshold}
+    settings.EntityData.Leafs["signal-degrade-alarm"] = types.YLeaf{"SignalDegradeAlarm", settings.SignalDegradeAlarm}
+    settings.EntityData.Leafs["signal-fail-threshold"] = types.YLeaf{"SignalFailThreshold", settings.SignalFailThreshold}
+    settings.EntityData.Leafs["signal-fail-alarm"] = types.YLeaf{"SignalFailAlarm", settings.SignalFailAlarm}
+    settings.EntityData.Leafs["signal-remote-fault"] = types.YLeaf{"SignalRemoteFault", settings.SignalRemoteFault}
+    return &(settings.EntityData)
 }
 
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetSegmentPath() string {
-    return "settings"
+// EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_State
+// The BER state
+type EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Current SD-BER. The type is interface{} with range: 0..4294967295.
+    SdCurrentBer interface{}
+
+    // Current SF-BER. The type is interface{} with range: 0..4294967295.
+    SfCurrentBer interface{}
 }
 
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (state *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "cisco_ios_xr"
+    state.EntityData.ParentYangName = "ber-monitoring"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["sd-current-ber"] = types.YLeaf{"SdCurrentBer", state.SdCurrentBer}
+    state.EntityData.Leafs["sf-current-ber"] = types.YLeaf{"SfCurrentBer", state.SfCurrentBer}
+    return &(state.EntityData)
 }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["signal-degrade-threshold"] = settings.SignalDegradeThreshold
-    leafs["signal-degrade-alarm"] = settings.SignalDegradeAlarm
-    leafs["signal-fail-threshold"] = settings.SignalFailThreshold
-    leafs["signal-fail-alarm"] = settings.SignalFailAlarm
-    leafs["signal-remote-fault"] = settings.SignalRemoteFault
-    return leafs
-}
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetBundleName() string { return "cisco_ios_xr" }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetYangName() string { return "settings" }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) SetParent(parent types.Entity) { settings.parent = parent }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetParent() types.Entity { return settings.parent }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_BerMonitoring_Settings) GetParentYangName() string { return "ber-monitoring" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring
 // OPD monitoring details
 type EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Whether or not OPD monitoring is supported. The type is interface{} with
@@ -3849,61 +2977,27 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring struct {
     Settings EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings
 }
 
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetFilter() yfilter.YFilter { return opdMonitoring.YFilter }
+func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetEntityData() *types.CommonEntityData {
+    opdMonitoring.EntityData.YFilter = opdMonitoring.YFilter
+    opdMonitoring.EntityData.YangName = "opd-monitoring"
+    opdMonitoring.EntityData.BundleName = "cisco_ios_xr"
+    opdMonitoring.EntityData.ParentYangName = "layer1-info"
+    opdMonitoring.EntityData.SegmentPath = "opd-monitoring"
+    opdMonitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opdMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opdMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) SetFilter(yf yfilter.YFilter) { opdMonitoring.YFilter = yf }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetGoName(yname string) string {
-    if yname == "supported" { return "Supported" }
-    if yname == "settings" { return "Settings" }
-    return ""
+    opdMonitoring.EntityData.Children = make(map[string]types.YChild)
+    opdMonitoring.EntityData.Children["settings"] = types.YChild{"Settings", &opdMonitoring.Settings}
+    opdMonitoring.EntityData.Leafs = make(map[string]types.YLeaf)
+    opdMonitoring.EntityData.Leafs["supported"] = types.YLeaf{"Supported", opdMonitoring.Supported}
+    return &(opdMonitoring.EntityData)
 }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetSegmentPath() string {
-    return "opd-monitoring"
-}
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "settings" {
-        return &opdMonitoring.Settings
-    }
-    return nil
-}
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["settings"] = &opdMonitoring.Settings
-    return children
-}
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["supported"] = opdMonitoring.Supported
-    return leafs
-}
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetYangName() string { return "opd-monitoring" }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) SetParent(parent types.Entity) { opdMonitoring.parent = parent }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetParent() types.Entity { return opdMonitoring.parent }
-
-func (opdMonitoring *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings
 // The OPD monitoring settings to be applied
 type EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rx-OPD alarm threshold set?. The type is interface{} with range:
@@ -3915,58 +3009,27 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings st
     ReceivedOpticalPowerDegradeThreshold interface{}
 }
 
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetFilter() yfilter.YFilter { return settings.YFilter }
+func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetEntityData() *types.CommonEntityData {
+    settings.EntityData.YFilter = settings.YFilter
+    settings.EntityData.YangName = "settings"
+    settings.EntityData.BundleName = "cisco_ios_xr"
+    settings.EntityData.ParentYangName = "opd-monitoring"
+    settings.EntityData.SegmentPath = "settings"
+    settings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    settings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    settings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) SetFilter(yf yfilter.YFilter) { settings.YFilter = yf }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetGoName(yname string) string {
-    if yname == "received-optical-power-degrade-threshold-set" { return "ReceivedOpticalPowerDegradeThresholdSet" }
-    if yname == "received-optical-power-degrade-threshold" { return "ReceivedOpticalPowerDegradeThreshold" }
-    return ""
+    settings.EntityData.Children = make(map[string]types.YChild)
+    settings.EntityData.Leafs = make(map[string]types.YLeaf)
+    settings.EntityData.Leafs["received-optical-power-degrade-threshold-set"] = types.YLeaf{"ReceivedOpticalPowerDegradeThresholdSet", settings.ReceivedOpticalPowerDegradeThresholdSet}
+    settings.EntityData.Leafs["received-optical-power-degrade-threshold"] = types.YLeaf{"ReceivedOpticalPowerDegradeThreshold", settings.ReceivedOpticalPowerDegradeThreshold}
+    return &(settings.EntityData)
 }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetSegmentPath() string {
-    return "settings"
-}
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-optical-power-degrade-threshold-set"] = settings.ReceivedOpticalPowerDegradeThresholdSet
-    leafs["received-optical-power-degrade-threshold"] = settings.ReceivedOpticalPowerDegradeThreshold
-    return leafs
-}
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetBundleName() string { return "cisco_ios_xr" }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetYangName() string { return "settings" }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) SetParent(parent types.Entity) { settings.parent = parent }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetParent() types.Entity { return settings.parent }
-
-func (settings *EthernetInterface_Interfaces_Interface_Layer1Info_OpdMonitoring_Settings) GetParentYangName() string { return "opd-monitoring" }
 
 // EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo
 // Priority flow control information
 type EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port operational priority flow control. The type is EtherPfc.
@@ -3984,62 +3047,29 @@ type EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo struct {
     TxFrame []interface{}
 }
 
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetFilter() yfilter.YFilter { return pfcInfo.YFilter }
+func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetEntityData() *types.CommonEntityData {
+    pfcInfo.EntityData.YFilter = pfcInfo.YFilter
+    pfcInfo.EntityData.YangName = "pfc-info"
+    pfcInfo.EntityData.BundleName = "cisco_ios_xr"
+    pfcInfo.EntityData.ParentYangName = "layer1-info"
+    pfcInfo.EntityData.SegmentPath = "pfc-info"
+    pfcInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pfcInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pfcInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) SetFilter(yf yfilter.YFilter) { pfcInfo.YFilter = yf }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetGoName(yname string) string {
-    if yname == "priority-flowcontrol" { return "PriorityFlowcontrol" }
-    if yname == "priority-enabled-bitmap" { return "PriorityEnabledBitmap" }
-    if yname == "rx-frame" { return "RxFrame" }
-    if yname == "tx-frame" { return "TxFrame" }
-    return ""
+    pfcInfo.EntityData.Children = make(map[string]types.YChild)
+    pfcInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    pfcInfo.EntityData.Leafs["priority-flowcontrol"] = types.YLeaf{"PriorityFlowcontrol", pfcInfo.PriorityFlowcontrol}
+    pfcInfo.EntityData.Leafs["priority-enabled-bitmap"] = types.YLeaf{"PriorityEnabledBitmap", pfcInfo.PriorityEnabledBitmap}
+    pfcInfo.EntityData.Leafs["rx-frame"] = types.YLeaf{"RxFrame", pfcInfo.RxFrame}
+    pfcInfo.EntityData.Leafs["tx-frame"] = types.YLeaf{"TxFrame", pfcInfo.TxFrame}
+    return &(pfcInfo.EntityData)
 }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetSegmentPath() string {
-    return "pfc-info"
-}
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["priority-flowcontrol"] = pfcInfo.PriorityFlowcontrol
-    leafs["priority-enabled-bitmap"] = pfcInfo.PriorityEnabledBitmap
-    leafs["rx-frame"] = pfcInfo.RxFrame
-    leafs["tx-frame"] = pfcInfo.TxFrame
-    return leafs
-}
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetYangName() string { return "pfc-info" }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) SetParent(parent types.Entity) { pfcInfo.parent = parent }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetParent() types.Entity { return pfcInfo.parent }
-
-func (pfcInfo *EthernetInterface_Interfaces_Interface_Layer1Info_PfcInfo) GetParentYangName() string { return "layer1-info" }
 
 // EthernetInterface_Interfaces_Interface_MacInfo
 // MAC Layer information
 type EthernetInterface_Interfaces_Interface_MacInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port operational MTU. The type is interface{} with range: 0..4294967295.
@@ -4049,11 +3079,11 @@ type EthernetInterface_Interfaces_Interface_MacInfo struct {
     Mru interface{}
 
     // Port Burned-In MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     BurnedInMacAddress interface{}
 
     // Port operational MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     OperationalMacAddress interface{}
 
     // Port unicast MAC filter information.
@@ -4063,129 +3093,58 @@ type EthernetInterface_Interfaces_Interface_MacInfo struct {
     MulticastMacFilters EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters
 }
 
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetFilter() yfilter.YFilter { return macInfo.YFilter }
+func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetEntityData() *types.CommonEntityData {
+    macInfo.EntityData.YFilter = macInfo.YFilter
+    macInfo.EntityData.YangName = "mac-info"
+    macInfo.EntityData.BundleName = "cisco_ios_xr"
+    macInfo.EntityData.ParentYangName = "interface"
+    macInfo.EntityData.SegmentPath = "mac-info"
+    macInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) SetFilter(yf yfilter.YFilter) { macInfo.YFilter = yf }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetGoName(yname string) string {
-    if yname == "mtu" { return "Mtu" }
-    if yname == "mru" { return "Mru" }
-    if yname == "burned-in-mac-address" { return "BurnedInMacAddress" }
-    if yname == "operational-mac-address" { return "OperationalMacAddress" }
-    if yname == "unicast-mac-filters" { return "UnicastMacFilters" }
-    if yname == "multicast-mac-filters" { return "MulticastMacFilters" }
-    return ""
+    macInfo.EntityData.Children = make(map[string]types.YChild)
+    macInfo.EntityData.Children["unicast-mac-filters"] = types.YChild{"UnicastMacFilters", &macInfo.UnicastMacFilters}
+    macInfo.EntityData.Children["multicast-mac-filters"] = types.YChild{"MulticastMacFilters", &macInfo.MulticastMacFilters}
+    macInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    macInfo.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", macInfo.Mtu}
+    macInfo.EntityData.Leafs["mru"] = types.YLeaf{"Mru", macInfo.Mru}
+    macInfo.EntityData.Leafs["burned-in-mac-address"] = types.YLeaf{"BurnedInMacAddress", macInfo.BurnedInMacAddress}
+    macInfo.EntityData.Leafs["operational-mac-address"] = types.YLeaf{"OperationalMacAddress", macInfo.OperationalMacAddress}
+    return &(macInfo.EntityData)
 }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetSegmentPath() string {
-    return "mac-info"
-}
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "unicast-mac-filters" {
-        return &macInfo.UnicastMacFilters
-    }
-    if childYangName == "multicast-mac-filters" {
-        return &macInfo.MulticastMacFilters
-    }
-    return nil
-}
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["unicast-mac-filters"] = &macInfo.UnicastMacFilters
-    children["multicast-mac-filters"] = &macInfo.MulticastMacFilters
-    return children
-}
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mtu"] = macInfo.Mtu
-    leafs["mru"] = macInfo.Mru
-    leafs["burned-in-mac-address"] = macInfo.BurnedInMacAddress
-    leafs["operational-mac-address"] = macInfo.OperationalMacAddress
-    return leafs
-}
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetYangName() string { return "mac-info" }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) SetParent(parent types.Entity) { macInfo.parent = parent }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetParent() types.Entity { return macInfo.parent }
-
-func (macInfo *EthernetInterface_Interfaces_Interface_MacInfo) GetParentYangName() string { return "interface" }
 
 // EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters
 // Port unicast MAC filter information
 type EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC addresses in the unicast ingress destination MAC filter. The type is
-    // slice of string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // slice of string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     UnicastMacAddress []interface{}
 }
 
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetFilter() yfilter.YFilter { return unicastMacFilters.YFilter }
+func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetEntityData() *types.CommonEntityData {
+    unicastMacFilters.EntityData.YFilter = unicastMacFilters.YFilter
+    unicastMacFilters.EntityData.YangName = "unicast-mac-filters"
+    unicastMacFilters.EntityData.BundleName = "cisco_ios_xr"
+    unicastMacFilters.EntityData.ParentYangName = "mac-info"
+    unicastMacFilters.EntityData.SegmentPath = "unicast-mac-filters"
+    unicastMacFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    unicastMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    unicastMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) SetFilter(yf yfilter.YFilter) { unicastMacFilters.YFilter = yf }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetGoName(yname string) string {
-    if yname == "unicast-mac-address" { return "UnicastMacAddress" }
-    return ""
+    unicastMacFilters.EntityData.Children = make(map[string]types.YChild)
+    unicastMacFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    unicastMacFilters.EntityData.Leafs["unicast-mac-address"] = types.YLeaf{"UnicastMacAddress", unicastMacFilters.UnicastMacAddress}
+    return &(unicastMacFilters.EntityData)
 }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetSegmentPath() string {
-    return "unicast-mac-filters"
-}
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unicast-mac-address"] = unicastMacFilters.UnicastMacAddress
-    return leafs
-}
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetYangName() string { return "unicast-mac-filters" }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) SetParent(parent types.Entity) { unicastMacFilters.parent = parent }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetParent() types.Entity { return unicastMacFilters.parent }
-
-func (unicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_UnicastMacFilters) GetParentYangName() string { return "mac-info" }
 
 // EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters
 // Port multicast MAC filter information
 type EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Whether the port is in multicast promiscuous mode. The type is bool.
@@ -4197,134 +3156,63 @@ type EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters struct {
     MulticastMacAddress []EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress
 }
 
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetFilter() yfilter.YFilter { return multicastMacFilters.YFilter }
+func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetEntityData() *types.CommonEntityData {
+    multicastMacFilters.EntityData.YFilter = multicastMacFilters.YFilter
+    multicastMacFilters.EntityData.YangName = "multicast-mac-filters"
+    multicastMacFilters.EntityData.BundleName = "cisco_ios_xr"
+    multicastMacFilters.EntityData.ParentYangName = "mac-info"
+    multicastMacFilters.EntityData.SegmentPath = "multicast-mac-filters"
+    multicastMacFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) SetFilter(yf yfilter.YFilter) { multicastMacFilters.YFilter = yf }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetGoName(yname string) string {
-    if yname == "multicast-promiscuous" { return "MulticastPromiscuous" }
-    if yname == "multicast-mac-address" { return "MulticastMacAddress" }
-    return ""
-}
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetSegmentPath() string {
-    return "multicast-mac-filters"
-}
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "multicast-mac-address" {
-        for _, c := range multicastMacFilters.MulticastMacAddress {
-            if multicastMacFilters.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress{}
-        multicastMacFilters.MulticastMacAddress = append(multicastMacFilters.MulticastMacAddress, child)
-        return &multicastMacFilters.MulticastMacAddress[len(multicastMacFilters.MulticastMacAddress)-1]
-    }
-    return nil
-}
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    multicastMacFilters.EntityData.Children = make(map[string]types.YChild)
+    multicastMacFilters.EntityData.Children["multicast-mac-address"] = types.YChild{"MulticastMacAddress", nil}
     for i := range multicastMacFilters.MulticastMacAddress {
-        children[multicastMacFilters.MulticastMacAddress[i].GetSegmentPath()] = &multicastMacFilters.MulticastMacAddress[i]
+        multicastMacFilters.EntityData.Children[types.GetSegmentPath(&multicastMacFilters.MulticastMacAddress[i])] = types.YChild{"MulticastMacAddress", &multicastMacFilters.MulticastMacAddress[i]}
     }
-    return children
+    multicastMacFilters.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastMacFilters.EntityData.Leafs["multicast-promiscuous"] = types.YLeaf{"MulticastPromiscuous", multicastMacFilters.MulticastPromiscuous}
+    return &(multicastMacFilters.EntityData)
 }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["multicast-promiscuous"] = multicastMacFilters.MulticastPromiscuous
-    return leafs
-}
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetYangName() string { return "multicast-mac-filters" }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) SetParent(parent types.Entity) { multicastMacFilters.parent = parent }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetParent() types.Entity { return multicastMacFilters.parent }
-
-func (multicastMacFilters *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters) GetParentYangName() string { return "mac-info" }
 
 // EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress
 // MAC addresses in the multicast ingress
 // destination MAC filter
 type EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     MacAddress interface{}
 
     // Mask for this MAC address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Mask interface{}
 }
 
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetFilter() yfilter.YFilter { return multicastMacAddress.YFilter }
+func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetEntityData() *types.CommonEntityData {
+    multicastMacAddress.EntityData.YFilter = multicastMacAddress.YFilter
+    multicastMacAddress.EntityData.YangName = "multicast-mac-address"
+    multicastMacAddress.EntityData.BundleName = "cisco_ios_xr"
+    multicastMacAddress.EntityData.ParentYangName = "multicast-mac-filters"
+    multicastMacAddress.EntityData.SegmentPath = "multicast-mac-address"
+    multicastMacAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    multicastMacAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    multicastMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) SetFilter(yf yfilter.YFilter) { multicastMacAddress.YFilter = yf }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetGoName(yname string) string {
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "mask" { return "Mask" }
-    return ""
+    multicastMacAddress.EntityData.Children = make(map[string]types.YChild)
+    multicastMacAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    multicastMacAddress.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", multicastMacAddress.MacAddress}
+    multicastMacAddress.EntityData.Leafs["mask"] = types.YLeaf{"Mask", multicastMacAddress.Mask}
+    return &(multicastMacAddress.EntityData)
 }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetSegmentPath() string {
-    return "multicast-mac-address"
-}
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mac-address"] = multicastMacAddress.MacAddress
-    leafs["mask"] = multicastMacAddress.Mask
-    return leafs
-}
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetYangName() string { return "multicast-mac-address" }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) SetParent(parent types.Entity) { multicastMacAddress.parent = parent }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetParent() types.Entity { return multicastMacAddress.parent }
-
-func (multicastMacAddress *EthernetInterface_Interfaces_Interface_MacInfo_MulticastMacFilters_MulticastMacAddress) GetParentYangName() string { return "multicast-mac-filters" }
 
 // EthernetInterface_Interfaces_Interface_TransportInfo
 // Transport state information
 type EthernetInterface_Interfaces_Interface_TransportInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maintenance Mode - TRUE if enabled. The type is bool.
@@ -4342,62 +3230,29 @@ type EthernetInterface_Interfaces_Interface_TransportInfo struct {
     RemainingDuration interface{}
 }
 
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetFilter() yfilter.YFilter { return transportInfo.YFilter }
+func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetEntityData() *types.CommonEntityData {
+    transportInfo.EntityData.YFilter = transportInfo.YFilter
+    transportInfo.EntityData.YangName = "transport-info"
+    transportInfo.EntityData.BundleName = "cisco_ios_xr"
+    transportInfo.EntityData.ParentYangName = "interface"
+    transportInfo.EntityData.SegmentPath = "transport-info"
+    transportInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transportInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transportInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) SetFilter(yf yfilter.YFilter) { transportInfo.YFilter = yf }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetGoName(yname string) string {
-    if yname == "maintenance-mode-enabled" { return "MaintenanceModeEnabled" }
-    if yname == "ains-status" { return "AinsStatus" }
-    if yname == "total-duration" { return "TotalDuration" }
-    if yname == "remaining-duration" { return "RemainingDuration" }
-    return ""
+    transportInfo.EntityData.Children = make(map[string]types.YChild)
+    transportInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    transportInfo.EntityData.Leafs["maintenance-mode-enabled"] = types.YLeaf{"MaintenanceModeEnabled", transportInfo.MaintenanceModeEnabled}
+    transportInfo.EntityData.Leafs["ains-status"] = types.YLeaf{"AinsStatus", transportInfo.AinsStatus}
+    transportInfo.EntityData.Leafs["total-duration"] = types.YLeaf{"TotalDuration", transportInfo.TotalDuration}
+    transportInfo.EntityData.Leafs["remaining-duration"] = types.YLeaf{"RemainingDuration", transportInfo.RemainingDuration}
+    return &(transportInfo.EntityData)
 }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetSegmentPath() string {
-    return "transport-info"
-}
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["maintenance-mode-enabled"] = transportInfo.MaintenanceModeEnabled
-    leafs["ains-status"] = transportInfo.AinsStatus
-    leafs["total-duration"] = transportInfo.TotalDuration
-    leafs["remaining-duration"] = transportInfo.RemainingDuration
-    return leafs
-}
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetYangName() string { return "transport-info" }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) SetParent(parent types.Entity) { transportInfo.parent = parent }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetParent() types.Entity { return transportInfo.parent }
-
-func (transportInfo *EthernetInterface_Interfaces_Interface_TransportInfo) GetParentYangName() string { return "interface" }
 
 // EthernetInterface_Berts
 // Ethernet controller BERT table
 type EthernetInterface_Berts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ethernet BERT information. The type is slice of
@@ -4405,72 +3260,33 @@ type EthernetInterface_Berts struct {
     Bert []EthernetInterface_Berts_Bert
 }
 
-func (berts *EthernetInterface_Berts) GetFilter() yfilter.YFilter { return berts.YFilter }
+func (berts *EthernetInterface_Berts) GetEntityData() *types.CommonEntityData {
+    berts.EntityData.YFilter = berts.YFilter
+    berts.EntityData.YangName = "berts"
+    berts.EntityData.BundleName = "cisco_ios_xr"
+    berts.EntityData.ParentYangName = "ethernet-interface"
+    berts.EntityData.SegmentPath = "berts"
+    berts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    berts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    berts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (berts *EthernetInterface_Berts) SetFilter(yf yfilter.YFilter) { berts.YFilter = yf }
-
-func (berts *EthernetInterface_Berts) GetGoName(yname string) string {
-    if yname == "bert" { return "Bert" }
-    return ""
-}
-
-func (berts *EthernetInterface_Berts) GetSegmentPath() string {
-    return "berts"
-}
-
-func (berts *EthernetInterface_Berts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bert" {
-        for _, c := range berts.Bert {
-            if berts.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EthernetInterface_Berts_Bert{}
-        berts.Bert = append(berts.Bert, child)
-        return &berts.Bert[len(berts.Bert)-1]
-    }
-    return nil
-}
-
-func (berts *EthernetInterface_Berts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    berts.EntityData.Children = make(map[string]types.YChild)
+    berts.EntityData.Children["bert"] = types.YChild{"Bert", nil}
     for i := range berts.Bert {
-        children[berts.Bert[i].GetSegmentPath()] = &berts.Bert[i]
+        berts.EntityData.Children[types.GetSegmentPath(&berts.Bert[i])] = types.YChild{"Bert", &berts.Bert[i]}
     }
-    return children
+    berts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(berts.EntityData)
 }
-
-func (berts *EthernetInterface_Berts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (berts *EthernetInterface_Berts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (berts *EthernetInterface_Berts) GetYangName() string { return "berts" }
-
-func (berts *EthernetInterface_Berts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (berts *EthernetInterface_Berts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (berts *EthernetInterface_Berts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (berts *EthernetInterface_Berts) SetParent(parent types.Entity) { berts.parent = parent }
-
-func (berts *EthernetInterface_Berts) GetParent() types.Entity { return berts.parent }
-
-func (berts *EthernetInterface_Berts) GetParentYangName() string { return "ethernet-interface" }
 
 // EthernetInterface_Berts_Bert
 // Ethernet BERT information
 type EthernetInterface_Berts_Bert struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Remaining time for this test in seconds. The type is interface{} with
@@ -4484,65 +3300,29 @@ type EthernetInterface_Berts_Bert struct {
     BertStatus EthernetInterface_Berts_Bert_BertStatus
 }
 
-func (bert *EthernetInterface_Berts_Bert) GetFilter() yfilter.YFilter { return bert.YFilter }
+func (bert *EthernetInterface_Berts_Bert) GetEntityData() *types.CommonEntityData {
+    bert.EntityData.YFilter = bert.YFilter
+    bert.EntityData.YangName = "bert"
+    bert.EntityData.BundleName = "cisco_ios_xr"
+    bert.EntityData.ParentYangName = "berts"
+    bert.EntityData.SegmentPath = "bert" + "[interface-name='" + fmt.Sprintf("%v", bert.InterfaceName) + "']"
+    bert.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bert.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bert.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bert *EthernetInterface_Berts_Bert) SetFilter(yf yfilter.YFilter) { bert.YFilter = yf }
-
-func (bert *EthernetInterface_Berts_Bert) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "time-left" { return "TimeLeft" }
-    if yname == "port-bert-interval" { return "PortBertInterval" }
-    if yname == "bert-status" { return "BertStatus" }
-    return ""
+    bert.EntityData.Children = make(map[string]types.YChild)
+    bert.EntityData.Children["bert-status"] = types.YChild{"BertStatus", &bert.BertStatus}
+    bert.EntityData.Leafs = make(map[string]types.YLeaf)
+    bert.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bert.InterfaceName}
+    bert.EntityData.Leafs["time-left"] = types.YLeaf{"TimeLeft", bert.TimeLeft}
+    bert.EntityData.Leafs["port-bert-interval"] = types.YLeaf{"PortBertInterval", bert.PortBertInterval}
+    return &(bert.EntityData)
 }
-
-func (bert *EthernetInterface_Berts_Bert) GetSegmentPath() string {
-    return "bert" + "[interface-name='" + fmt.Sprintf("%v", bert.InterfaceName) + "']"
-}
-
-func (bert *EthernetInterface_Berts_Bert) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bert-status" {
-        return &bert.BertStatus
-    }
-    return nil
-}
-
-func (bert *EthernetInterface_Berts_Bert) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bert-status"] = &bert.BertStatus
-    return children
-}
-
-func (bert *EthernetInterface_Berts_Bert) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = bert.InterfaceName
-    leafs["time-left"] = bert.TimeLeft
-    leafs["port-bert-interval"] = bert.PortBertInterval
-    return leafs
-}
-
-func (bert *EthernetInterface_Berts_Bert) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bert *EthernetInterface_Berts_Bert) GetYangName() string { return "bert" }
-
-func (bert *EthernetInterface_Berts_Bert) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bert *EthernetInterface_Berts_Bert) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bert *EthernetInterface_Berts_Bert) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bert *EthernetInterface_Berts_Bert) SetParent(parent types.Entity) { bert.parent = parent }
-
-func (bert *EthernetInterface_Berts_Bert) GetParent() types.Entity { return bert.parent }
-
-func (bert *EthernetInterface_Berts_Bert) GetParentYangName() string { return "berts" }
 
 // EthernetInterface_Berts_Bert_BertStatus
 // Current test status
 type EthernetInterface_Berts_Bert_BertStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // State. The type is bool.
@@ -4577,65 +3357,27 @@ type EthernetInterface_Berts_Bert_BertStatus struct {
     InterfaceDevice interface{}
 }
 
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetFilter() yfilter.YFilter { return bertStatus.YFilter }
+func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetEntityData() *types.CommonEntityData {
+    bertStatus.EntityData.YFilter = bertStatus.YFilter
+    bertStatus.EntityData.YangName = "bert-status"
+    bertStatus.EntityData.BundleName = "cisco_ios_xr"
+    bertStatus.EntityData.ParentYangName = "bert"
+    bertStatus.EntityData.SegmentPath = "bert-status"
+    bertStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bertStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bertStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) SetFilter(yf yfilter.YFilter) { bertStatus.YFilter = yf }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetGoName(yname string) string {
-    if yname == "bert-state-enabled" { return "BertStateEnabled" }
-    if yname == "data-availability" { return "DataAvailability" }
-    if yname == "receive-count" { return "ReceiveCount" }
-    if yname == "transmit-count" { return "TransmitCount" }
-    if yname == "receive-errors" { return "ReceiveErrors" }
-    if yname == "error-type" { return "ErrorType" }
-    if yname == "test-pattern" { return "TestPattern" }
-    if yname == "device-under-test" { return "DeviceUnderTest" }
-    if yname == "interface-device" { return "InterfaceDevice" }
-    return ""
+    bertStatus.EntityData.Children = make(map[string]types.YChild)
+    bertStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    bertStatus.EntityData.Leafs["bert-state-enabled"] = types.YLeaf{"BertStateEnabled", bertStatus.BertStateEnabled}
+    bertStatus.EntityData.Leafs["data-availability"] = types.YLeaf{"DataAvailability", bertStatus.DataAvailability}
+    bertStatus.EntityData.Leafs["receive-count"] = types.YLeaf{"ReceiveCount", bertStatus.ReceiveCount}
+    bertStatus.EntityData.Leafs["transmit-count"] = types.YLeaf{"TransmitCount", bertStatus.TransmitCount}
+    bertStatus.EntityData.Leafs["receive-errors"] = types.YLeaf{"ReceiveErrors", bertStatus.ReceiveErrors}
+    bertStatus.EntityData.Leafs["error-type"] = types.YLeaf{"ErrorType", bertStatus.ErrorType}
+    bertStatus.EntityData.Leafs["test-pattern"] = types.YLeaf{"TestPattern", bertStatus.TestPattern}
+    bertStatus.EntityData.Leafs["device-under-test"] = types.YLeaf{"DeviceUnderTest", bertStatus.DeviceUnderTest}
+    bertStatus.EntityData.Leafs["interface-device"] = types.YLeaf{"InterfaceDevice", bertStatus.InterfaceDevice}
+    return &(bertStatus.EntityData)
 }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetSegmentPath() string {
-    return "bert-status"
-}
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bert-state-enabled"] = bertStatus.BertStateEnabled
-    leafs["data-availability"] = bertStatus.DataAvailability
-    leafs["receive-count"] = bertStatus.ReceiveCount
-    leafs["transmit-count"] = bertStatus.TransmitCount
-    leafs["receive-errors"] = bertStatus.ReceiveErrors
-    leafs["error-type"] = bertStatus.ErrorType
-    leafs["test-pattern"] = bertStatus.TestPattern
-    leafs["device-under-test"] = bertStatus.DeviceUnderTest
-    leafs["interface-device"] = bertStatus.InterfaceDevice
-    return leafs
-}
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetYangName() string { return "bert-status" }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) SetParent(parent types.Entity) { bertStatus.parent = parent }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetParent() types.Entity { return bertStatus.parent }
-
-func (bertStatus *EthernetInterface_Berts_Bert_BertStatus) GetParentYangName() string { return "bert" }
 

@@ -27,56 +27,26 @@ func init() {
 // HardwareModuleExtUsb
 // External USB configuration
 type HardwareModuleExtUsb struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // External USB disable. The type is interface{}.
     Disable interface{}
 }
 
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetFilter() yfilter.YFilter { return hardwareModuleExtUsb.YFilter }
+func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetEntityData() *types.CommonEntityData {
+    hardwareModuleExtUsb.EntityData.YFilter = hardwareModuleExtUsb.YFilter
+    hardwareModuleExtUsb.EntityData.YangName = "hardware-module-ext-usb"
+    hardwareModuleExtUsb.EntityData.BundleName = "cisco_ios_xr"
+    hardwareModuleExtUsb.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-ext-usb-cfg"
+    hardwareModuleExtUsb.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-ext-usb-cfg:hardware-module-ext-usb"
+    hardwareModuleExtUsb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareModuleExtUsb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareModuleExtUsb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) SetFilter(yf yfilter.YFilter) { hardwareModuleExtUsb.YFilter = yf }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    hardwareModuleExtUsb.EntityData.Children = make(map[string]types.YChild)
+    hardwareModuleExtUsb.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareModuleExtUsb.EntityData.Leafs["disable"] = types.YLeaf{"Disable", hardwareModuleExtUsb.Disable}
+    return &(hardwareModuleExtUsb.EntityData)
 }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-ext-usb-cfg:hardware-module-ext-usb"
-}
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = hardwareModuleExtUsb.Disable
-    return leafs
-}
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetYangName() string { return "hardware-module-ext-usb" }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) SetParent(parent types.Entity) { hardwareModuleExtUsb.parent = parent }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetParent() types.Entity { return hardwareModuleExtUsb.parent }
-
-func (hardwareModuleExtUsb *HardwareModuleExtUsb) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-ext-usb-cfg" }
 

@@ -27,56 +27,26 @@ func init() {
 // LawfulIntercept
 // Lawful intercept configuration
 type LawfulIntercept struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Disable lawful intercept feature. The type is interface{}.
     Disable interface{}
 }
 
-func (lawfulIntercept *LawfulIntercept) GetFilter() yfilter.YFilter { return lawfulIntercept.YFilter }
+func (lawfulIntercept *LawfulIntercept) GetEntityData() *types.CommonEntityData {
+    lawfulIntercept.EntityData.YFilter = lawfulIntercept.YFilter
+    lawfulIntercept.EntityData.YangName = "lawful-intercept"
+    lawfulIntercept.EntityData.BundleName = "cisco_ios_xr"
+    lawfulIntercept.EntityData.ParentYangName = "Cisco-IOS-XR-li-cfg"
+    lawfulIntercept.EntityData.SegmentPath = "Cisco-IOS-XR-li-cfg:lawful-intercept"
+    lawfulIntercept.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lawfulIntercept.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lawfulIntercept.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lawfulIntercept *LawfulIntercept) SetFilter(yf yfilter.YFilter) { lawfulIntercept.YFilter = yf }
-
-func (lawfulIntercept *LawfulIntercept) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    lawfulIntercept.EntityData.Children = make(map[string]types.YChild)
+    lawfulIntercept.EntityData.Leafs = make(map[string]types.YLeaf)
+    lawfulIntercept.EntityData.Leafs["disable"] = types.YLeaf{"Disable", lawfulIntercept.Disable}
+    return &(lawfulIntercept.EntityData)
 }
-
-func (lawfulIntercept *LawfulIntercept) GetSegmentPath() string {
-    return "Cisco-IOS-XR-li-cfg:lawful-intercept"
-}
-
-func (lawfulIntercept *LawfulIntercept) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lawfulIntercept *LawfulIntercept) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lawfulIntercept *LawfulIntercept) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = lawfulIntercept.Disable
-    return leafs
-}
-
-func (lawfulIntercept *LawfulIntercept) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lawfulIntercept *LawfulIntercept) GetYangName() string { return "lawful-intercept" }
-
-func (lawfulIntercept *LawfulIntercept) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lawfulIntercept *LawfulIntercept) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lawfulIntercept *LawfulIntercept) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lawfulIntercept *LawfulIntercept) SetParent(parent types.Entity) { lawfulIntercept.parent = parent }
-
-func (lawfulIntercept *LawfulIntercept) GetParent() types.Entity { return lawfulIntercept.parent }
-
-func (lawfulIntercept *LawfulIntercept) GetParentYangName() string { return "Cisco-IOS-XR-li-cfg" }
 

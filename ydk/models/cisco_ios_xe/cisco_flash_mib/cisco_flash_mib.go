@@ -34,7 +34,7 @@ const (
 
 // CISCOFLASHMIB
 type CISCOFLASHMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -92,103 +92,34 @@ type CISCOFLASHMIB struct {
     Ciscoflashmiscoptable CISCOFLASHMIB_Ciscoflashmiscoptable
 }
 
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetFilter() yfilter.YFilter { return cISCOFLASHMIB.YFilter }
+func (cISCOFLASHMIB *CISCOFLASHMIB) GetEntityData() *types.CommonEntityData {
+    cISCOFLASHMIB.EntityData.YFilter = cISCOFLASHMIB.YFilter
+    cISCOFLASHMIB.EntityData.YangName = "CISCO-FLASH-MIB"
+    cISCOFLASHMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOFLASHMIB.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    cISCOFLASHMIB.EntityData.SegmentPath = "CISCO-FLASH-MIB:CISCO-FLASH-MIB"
+    cISCOFLASHMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOFLASHMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOFLASHMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOFLASHMIB *CISCOFLASHMIB) SetFilter(yf yfilter.YFilter) { cISCOFLASHMIB.YFilter = yf }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetGoName(yname string) string {
-    if yname == "ciscoFlashDevice" { return "Ciscoflashdevice" }
-    if yname == "ciscoFlashCfg" { return "Ciscoflashcfg" }
-    if yname == "ciscoFlashDeviceTable" { return "Ciscoflashdevicetable" }
-    if yname == "ciscoFlashChipTable" { return "Ciscoflashchiptable" }
-    if yname == "ciscoFlashPartitionTable" { return "Ciscoflashpartitiontable" }
-    if yname == "ciscoFlashFileTable" { return "Ciscoflashfiletable" }
-    if yname == "ciscoFlashFileByTypeTable" { return "Ciscoflashfilebytypetable" }
-    if yname == "ciscoFlashCopyTable" { return "Ciscoflashcopytable" }
-    if yname == "ciscoFlashPartitioningTable" { return "Ciscoflashpartitioningtable" }
-    if yname == "ciscoFlashMiscOpTable" { return "Ciscoflashmiscoptable" }
-    return ""
+    cISCOFLASHMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashDevice"] = types.YChild{"Ciscoflashdevice", &cISCOFLASHMIB.Ciscoflashdevice}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashCfg"] = types.YChild{"Ciscoflashcfg", &cISCOFLASHMIB.Ciscoflashcfg}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashDeviceTable"] = types.YChild{"Ciscoflashdevicetable", &cISCOFLASHMIB.Ciscoflashdevicetable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashChipTable"] = types.YChild{"Ciscoflashchiptable", &cISCOFLASHMIB.Ciscoflashchiptable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashPartitionTable"] = types.YChild{"Ciscoflashpartitiontable", &cISCOFLASHMIB.Ciscoflashpartitiontable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashFileTable"] = types.YChild{"Ciscoflashfiletable", &cISCOFLASHMIB.Ciscoflashfiletable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashFileByTypeTable"] = types.YChild{"Ciscoflashfilebytypetable", &cISCOFLASHMIB.Ciscoflashfilebytypetable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashCopyTable"] = types.YChild{"Ciscoflashcopytable", &cISCOFLASHMIB.Ciscoflashcopytable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashPartitioningTable"] = types.YChild{"Ciscoflashpartitioningtable", &cISCOFLASHMIB.Ciscoflashpartitioningtable}
+    cISCOFLASHMIB.EntityData.Children["ciscoFlashMiscOpTable"] = types.YChild{"Ciscoflashmiscoptable", &cISCOFLASHMIB.Ciscoflashmiscoptable}
+    cISCOFLASHMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOFLASHMIB.EntityData)
 }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetSegmentPath() string {
-    return "CISCO-FLASH-MIB:CISCO-FLASH-MIB"
-}
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashDevice" {
-        return &cISCOFLASHMIB.Ciscoflashdevice
-    }
-    if childYangName == "ciscoFlashCfg" {
-        return &cISCOFLASHMIB.Ciscoflashcfg
-    }
-    if childYangName == "ciscoFlashDeviceTable" {
-        return &cISCOFLASHMIB.Ciscoflashdevicetable
-    }
-    if childYangName == "ciscoFlashChipTable" {
-        return &cISCOFLASHMIB.Ciscoflashchiptable
-    }
-    if childYangName == "ciscoFlashPartitionTable" {
-        return &cISCOFLASHMIB.Ciscoflashpartitiontable
-    }
-    if childYangName == "ciscoFlashFileTable" {
-        return &cISCOFLASHMIB.Ciscoflashfiletable
-    }
-    if childYangName == "ciscoFlashFileByTypeTable" {
-        return &cISCOFLASHMIB.Ciscoflashfilebytypetable
-    }
-    if childYangName == "ciscoFlashCopyTable" {
-        return &cISCOFLASHMIB.Ciscoflashcopytable
-    }
-    if childYangName == "ciscoFlashPartitioningTable" {
-        return &cISCOFLASHMIB.Ciscoflashpartitioningtable
-    }
-    if childYangName == "ciscoFlashMiscOpTable" {
-        return &cISCOFLASHMIB.Ciscoflashmiscoptable
-    }
-    return nil
-}
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ciscoFlashDevice"] = &cISCOFLASHMIB.Ciscoflashdevice
-    children["ciscoFlashCfg"] = &cISCOFLASHMIB.Ciscoflashcfg
-    children["ciscoFlashDeviceTable"] = &cISCOFLASHMIB.Ciscoflashdevicetable
-    children["ciscoFlashChipTable"] = &cISCOFLASHMIB.Ciscoflashchiptable
-    children["ciscoFlashPartitionTable"] = &cISCOFLASHMIB.Ciscoflashpartitiontable
-    children["ciscoFlashFileTable"] = &cISCOFLASHMIB.Ciscoflashfiletable
-    children["ciscoFlashFileByTypeTable"] = &cISCOFLASHMIB.Ciscoflashfilebytypetable
-    children["ciscoFlashCopyTable"] = &cISCOFLASHMIB.Ciscoflashcopytable
-    children["ciscoFlashPartitioningTable"] = &cISCOFLASHMIB.Ciscoflashpartitioningtable
-    children["ciscoFlashMiscOpTable"] = &cISCOFLASHMIB.Ciscoflashmiscoptable
-    return children
-}
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetYangName() string { return "CISCO-FLASH-MIB" }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) SetParent(parent types.Entity) { cISCOFLASHMIB.parent = parent }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetParent() types.Entity { return cISCOFLASHMIB.parent }
-
-func (cISCOFLASHMIB *CISCOFLASHMIB) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashdevice
 type CISCOFLASHMIB_Ciscoflashdevice struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of Flash devices supported by the system. If the system does not
@@ -198,55 +129,25 @@ type CISCOFLASHMIB_Ciscoflashdevice struct {
     Ciscoflashdevicessupported interface{}
 }
 
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetFilter() yfilter.YFilter { return ciscoflashdevice.YFilter }
+func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetEntityData() *types.CommonEntityData {
+    ciscoflashdevice.EntityData.YFilter = ciscoflashdevice.YFilter
+    ciscoflashdevice.EntityData.YangName = "ciscoFlashDevice"
+    ciscoflashdevice.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashdevice.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashdevice.EntityData.SegmentPath = "ciscoFlashDevice"
+    ciscoflashdevice.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashdevice.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashdevice.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) SetFilter(yf yfilter.YFilter) { ciscoflashdevice.YFilter = yf }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetGoName(yname string) string {
-    if yname == "ciscoFlashDevicesSupported" { return "Ciscoflashdevicessupported" }
-    return ""
+    ciscoflashdevice.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashdevice.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashdevice.EntityData.Leafs["ciscoFlashDevicesSupported"] = types.YLeaf{"Ciscoflashdevicessupported", ciscoflashdevice.Ciscoflashdevicessupported}
+    return &(ciscoflashdevice.EntityData)
 }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetSegmentPath() string {
-    return "ciscoFlashDevice"
-}
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashDevicesSupported"] = ciscoflashdevice.Ciscoflashdevicessupported
-    return leafs
-}
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetYangName() string { return "ciscoFlashDevice" }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) SetParent(parent types.Entity) { ciscoflashdevice.parent = parent }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetParent() types.Entity { return ciscoflashdevice.parent }
-
-func (ciscoflashdevice *CISCOFLASHMIB_Ciscoflashdevice) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashcfg
 type CISCOFLASHMIB_Ciscoflashcfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specifies whether or not a notification should be generated on the
@@ -283,55 +184,23 @@ type CISCOFLASHMIB_Ciscoflashcfg struct {
     Ciscoflashpartitionlowspacenotifenable interface{}
 }
 
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetFilter() yfilter.YFilter { return ciscoflashcfg.YFilter }
+func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetEntityData() *types.CommonEntityData {
+    ciscoflashcfg.EntityData.YFilter = ciscoflashcfg.YFilter
+    ciscoflashcfg.EntityData.YangName = "ciscoFlashCfg"
+    ciscoflashcfg.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashcfg.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashcfg.EntityData.SegmentPath = "ciscoFlashCfg"
+    ciscoflashcfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashcfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashcfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) SetFilter(yf yfilter.YFilter) { ciscoflashcfg.YFilter = yf }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetGoName(yname string) string {
-    if yname == "ciscoFlashCfgDevInsNotifEnable" { return "Ciscoflashcfgdevinsnotifenable" }
-    if yname == "ciscoFlashCfgDevRemNotifEnable" { return "Ciscoflashcfgdevremnotifenable" }
-    if yname == "ciscoFlashPartitionLowSpaceNotifEnable" { return "Ciscoflashpartitionlowspacenotifenable" }
-    return ""
+    ciscoflashcfg.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashcfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashcfg.EntityData.Leafs["ciscoFlashCfgDevInsNotifEnable"] = types.YLeaf{"Ciscoflashcfgdevinsnotifenable", ciscoflashcfg.Ciscoflashcfgdevinsnotifenable}
+    ciscoflashcfg.EntityData.Leafs["ciscoFlashCfgDevRemNotifEnable"] = types.YLeaf{"Ciscoflashcfgdevremnotifenable", ciscoflashcfg.Ciscoflashcfgdevremnotifenable}
+    ciscoflashcfg.EntityData.Leafs["ciscoFlashPartitionLowSpaceNotifEnable"] = types.YLeaf{"Ciscoflashpartitionlowspacenotifenable", ciscoflashcfg.Ciscoflashpartitionlowspacenotifenable}
+    return &(ciscoflashcfg.EntityData)
 }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetSegmentPath() string {
-    return "ciscoFlashCfg"
-}
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashCfgDevInsNotifEnable"] = ciscoflashcfg.Ciscoflashcfgdevinsnotifenable
-    leafs["ciscoFlashCfgDevRemNotifEnable"] = ciscoflashcfg.Ciscoflashcfgdevremnotifenable
-    leafs["ciscoFlashPartitionLowSpaceNotifEnable"] = ciscoflashcfg.Ciscoflashpartitionlowspacenotifenable
-    return leafs
-}
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetYangName() string { return "ciscoFlashCfg" }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) SetParent(parent types.Entity) { ciscoflashcfg.parent = parent }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetParent() types.Entity { return ciscoflashcfg.parent }
-
-func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashdevicetable
 // Table of Flash device properties for each initialized
@@ -362,7 +231,7 @@ func (ciscoflashcfg *CISCOFLASHMIB_Ciscoflashcfg) GetParentYangName() string { r
 // ciscoFlashDeviceRemovable will be
 // true to indicate it is removable.
 type CISCOFLASHMIB_Ciscoflashdevicetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table of flash device properties for each initialized flash
@@ -374,63 +243,24 @@ type CISCOFLASHMIB_Ciscoflashdevicetable struct {
     Ciscoflashdeviceentry []CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry
 }
 
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetFilter() yfilter.YFilter { return ciscoflashdevicetable.YFilter }
+func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetEntityData() *types.CommonEntityData {
+    ciscoflashdevicetable.EntityData.YFilter = ciscoflashdevicetable.YFilter
+    ciscoflashdevicetable.EntityData.YangName = "ciscoFlashDeviceTable"
+    ciscoflashdevicetable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashdevicetable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashdevicetable.EntityData.SegmentPath = "ciscoFlashDeviceTable"
+    ciscoflashdevicetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashdevicetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashdevicetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) SetFilter(yf yfilter.YFilter) { ciscoflashdevicetable.YFilter = yf }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetGoName(yname string) string {
-    if yname == "ciscoFlashDeviceEntry" { return "Ciscoflashdeviceentry" }
-    return ""
-}
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetSegmentPath() string {
-    return "ciscoFlashDeviceTable"
-}
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashDeviceEntry" {
-        for _, c := range ciscoflashdevicetable.Ciscoflashdeviceentry {
-            if ciscoflashdevicetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry{}
-        ciscoflashdevicetable.Ciscoflashdeviceentry = append(ciscoflashdevicetable.Ciscoflashdeviceentry, child)
-        return &ciscoflashdevicetable.Ciscoflashdeviceentry[len(ciscoflashdevicetable.Ciscoflashdeviceentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashdevicetable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashdevicetable.EntityData.Children["ciscoFlashDeviceEntry"] = types.YChild{"Ciscoflashdeviceentry", nil}
     for i := range ciscoflashdevicetable.Ciscoflashdeviceentry {
-        children[ciscoflashdevicetable.Ciscoflashdeviceentry[i].GetSegmentPath()] = &ciscoflashdevicetable.Ciscoflashdeviceentry[i]
+        ciscoflashdevicetable.EntityData.Children[types.GetSegmentPath(&ciscoflashdevicetable.Ciscoflashdeviceentry[i])] = types.YChild{"Ciscoflashdeviceentry", &ciscoflashdevicetable.Ciscoflashdeviceentry[i]}
     }
-    return children
+    ciscoflashdevicetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashdevicetable.EntityData)
 }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetYangName() string { return "ciscoFlashDeviceTable" }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) SetParent(parent types.Entity) { ciscoflashdevicetable.parent = parent }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetParent() types.Entity { return ciscoflashdevicetable.parent }
-
-func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry
 // An entry in the table of flash device properties for
@@ -442,7 +272,7 @@ func (ciscoflashdevicetable *CISCOFLASHMIB_Ciscoflashdevicetable) GetParentYangN
 // a non-removable device that has not been installed
 // will not have an entry in the table.
 type CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Flash device sequence number to index within the
@@ -556,7 +386,7 @@ type CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry struct {
     // such as the MC. This object will therefore be used to essentially index
     // into cardTable to retrieve details about the card such as cardDescr,
     // cardSlotNumber, etc. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ciscoflashdevicecard interface{}
 
     // This object gives the state of a jumper (if present and can be determined)
@@ -632,83 +462,37 @@ type CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry struct {
     Ciscoflashdeviceminpartitionsizeextended interface{}
 }
 
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetFilter() yfilter.YFilter { return ciscoflashdeviceentry.YFilter }
+func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashdeviceentry.EntityData.YFilter = ciscoflashdeviceentry.YFilter
+    ciscoflashdeviceentry.EntityData.YangName = "ciscoFlashDeviceEntry"
+    ciscoflashdeviceentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashdeviceentry.EntityData.ParentYangName = "ciscoFlashDeviceTable"
+    ciscoflashdeviceentry.EntityData.SegmentPath = "ciscoFlashDeviceEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashdeviceentry.Ciscoflashdeviceindex) + "']"
+    ciscoflashdeviceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashdeviceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashdeviceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) SetFilter(yf yfilter.YFilter) { ciscoflashdeviceentry.YFilter = yf }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashDeviceIndex" { return "Ciscoflashdeviceindex" }
-    if yname == "ciscoFlashDeviceSize" { return "Ciscoflashdevicesize" }
-    if yname == "ciscoFlashDeviceMinPartitionSize" { return "Ciscoflashdeviceminpartitionsize" }
-    if yname == "ciscoFlashDeviceMaxPartitions" { return "Ciscoflashdevicemaxpartitions" }
-    if yname == "ciscoFlashDevicePartitions" { return "Ciscoflashdevicepartitions" }
-    if yname == "ciscoFlashDeviceChipCount" { return "Ciscoflashdevicechipcount" }
-    if yname == "ciscoFlashDeviceName" { return "Ciscoflashdevicename" }
-    if yname == "ciscoFlashDeviceDescr" { return "Ciscoflashdevicedescr" }
-    if yname == "ciscoFlashDeviceController" { return "Ciscoflashdevicecontroller" }
-    if yname == "ciscoFlashDeviceCard" { return "Ciscoflashdevicecard" }
-    if yname == "ciscoFlashDeviceProgrammingJumper" { return "Ciscoflashdeviceprogrammingjumper" }
-    if yname == "ciscoFlashDeviceInitTime" { return "Ciscoflashdeviceinittime" }
-    if yname == "ciscoFlashDeviceRemovable" { return "Ciscoflashdeviceremovable" }
-    if yname == "ciscoFlashPhyEntIndex" { return "Ciscoflashphyentindex" }
-    if yname == "ciscoFlashDeviceNameExtended" { return "Ciscoflashdevicenameextended" }
-    if yname == "ciscoFlashDeviceSizeExtended" { return "Ciscoflashdevicesizeextended" }
-    if yname == "ciscoFlashDeviceMinPartitionSizeExtended" { return "Ciscoflashdeviceminpartitionsizeextended" }
-    return ""
+    ciscoflashdeviceentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashdeviceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceIndex"] = types.YLeaf{"Ciscoflashdeviceindex", ciscoflashdeviceentry.Ciscoflashdeviceindex}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceSize"] = types.YLeaf{"Ciscoflashdevicesize", ciscoflashdeviceentry.Ciscoflashdevicesize}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceMinPartitionSize"] = types.YLeaf{"Ciscoflashdeviceminpartitionsize", ciscoflashdeviceentry.Ciscoflashdeviceminpartitionsize}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceMaxPartitions"] = types.YLeaf{"Ciscoflashdevicemaxpartitions", ciscoflashdeviceentry.Ciscoflashdevicemaxpartitions}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDevicePartitions"] = types.YLeaf{"Ciscoflashdevicepartitions", ciscoflashdeviceentry.Ciscoflashdevicepartitions}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceChipCount"] = types.YLeaf{"Ciscoflashdevicechipcount", ciscoflashdeviceentry.Ciscoflashdevicechipcount}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceName"] = types.YLeaf{"Ciscoflashdevicename", ciscoflashdeviceentry.Ciscoflashdevicename}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceDescr"] = types.YLeaf{"Ciscoflashdevicedescr", ciscoflashdeviceentry.Ciscoflashdevicedescr}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceController"] = types.YLeaf{"Ciscoflashdevicecontroller", ciscoflashdeviceentry.Ciscoflashdevicecontroller}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceCard"] = types.YLeaf{"Ciscoflashdevicecard", ciscoflashdeviceentry.Ciscoflashdevicecard}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceProgrammingJumper"] = types.YLeaf{"Ciscoflashdeviceprogrammingjumper", ciscoflashdeviceentry.Ciscoflashdeviceprogrammingjumper}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceInitTime"] = types.YLeaf{"Ciscoflashdeviceinittime", ciscoflashdeviceentry.Ciscoflashdeviceinittime}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceRemovable"] = types.YLeaf{"Ciscoflashdeviceremovable", ciscoflashdeviceentry.Ciscoflashdeviceremovable}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashPhyEntIndex"] = types.YLeaf{"Ciscoflashphyentindex", ciscoflashdeviceentry.Ciscoflashphyentindex}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceNameExtended"] = types.YLeaf{"Ciscoflashdevicenameextended", ciscoflashdeviceentry.Ciscoflashdevicenameextended}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceSizeExtended"] = types.YLeaf{"Ciscoflashdevicesizeextended", ciscoflashdeviceentry.Ciscoflashdevicesizeextended}
+    ciscoflashdeviceentry.EntityData.Leafs["ciscoFlashDeviceMinPartitionSizeExtended"] = types.YLeaf{"Ciscoflashdeviceminpartitionsizeextended", ciscoflashdeviceentry.Ciscoflashdeviceminpartitionsizeextended}
+    return &(ciscoflashdeviceentry.EntityData)
 }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetSegmentPath() string {
-    return "ciscoFlashDeviceEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashdeviceentry.Ciscoflashdeviceindex) + "']"
-}
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashDeviceIndex"] = ciscoflashdeviceentry.Ciscoflashdeviceindex
-    leafs["ciscoFlashDeviceSize"] = ciscoflashdeviceentry.Ciscoflashdevicesize
-    leafs["ciscoFlashDeviceMinPartitionSize"] = ciscoflashdeviceentry.Ciscoflashdeviceminpartitionsize
-    leafs["ciscoFlashDeviceMaxPartitions"] = ciscoflashdeviceentry.Ciscoflashdevicemaxpartitions
-    leafs["ciscoFlashDevicePartitions"] = ciscoflashdeviceentry.Ciscoflashdevicepartitions
-    leafs["ciscoFlashDeviceChipCount"] = ciscoflashdeviceentry.Ciscoflashdevicechipcount
-    leafs["ciscoFlashDeviceName"] = ciscoflashdeviceentry.Ciscoflashdevicename
-    leafs["ciscoFlashDeviceDescr"] = ciscoflashdeviceentry.Ciscoflashdevicedescr
-    leafs["ciscoFlashDeviceController"] = ciscoflashdeviceentry.Ciscoflashdevicecontroller
-    leafs["ciscoFlashDeviceCard"] = ciscoflashdeviceentry.Ciscoflashdevicecard
-    leafs["ciscoFlashDeviceProgrammingJumper"] = ciscoflashdeviceentry.Ciscoflashdeviceprogrammingjumper
-    leafs["ciscoFlashDeviceInitTime"] = ciscoflashdeviceentry.Ciscoflashdeviceinittime
-    leafs["ciscoFlashDeviceRemovable"] = ciscoflashdeviceentry.Ciscoflashdeviceremovable
-    leafs["ciscoFlashPhyEntIndex"] = ciscoflashdeviceentry.Ciscoflashphyentindex
-    leafs["ciscoFlashDeviceNameExtended"] = ciscoflashdeviceentry.Ciscoflashdevicenameextended
-    leafs["ciscoFlashDeviceSizeExtended"] = ciscoflashdeviceentry.Ciscoflashdevicesizeextended
-    leafs["ciscoFlashDeviceMinPartitionSizeExtended"] = ciscoflashdeviceentry.Ciscoflashdeviceminpartitionsizeextended
-    return leafs
-}
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetYangName() string { return "ciscoFlashDeviceEntry" }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) SetParent(parent types.Entity) { ciscoflashdeviceentry.parent = parent }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetParent() types.Entity { return ciscoflashdeviceentry.parent }
-
-func (ciscoflashdeviceentry *CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry) GetParentYangName() string { return "ciscoFlashDeviceTable" }
 
 // CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry_Ciscoflashdeviceprogrammingjumper represents for the readOnly state.
 type CISCOFLASHMIB_Ciscoflashdevicetable_Ciscoflashdeviceentry_Ciscoflashdeviceprogrammingjumper string
@@ -727,7 +511,7 @@ const (
 // This table is meant primarily for aiding error
 // diagnosis.
 type CISCOFLASHMIB_Ciscoflashchiptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table of chip info for each flash device initialized in the
@@ -737,63 +521,24 @@ type CISCOFLASHMIB_Ciscoflashchiptable struct {
     Ciscoflashchipentry []CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry
 }
 
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetFilter() yfilter.YFilter { return ciscoflashchiptable.YFilter }
+func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetEntityData() *types.CommonEntityData {
+    ciscoflashchiptable.EntityData.YFilter = ciscoflashchiptable.YFilter
+    ciscoflashchiptable.EntityData.YangName = "ciscoFlashChipTable"
+    ciscoflashchiptable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashchiptable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashchiptable.EntityData.SegmentPath = "ciscoFlashChipTable"
+    ciscoflashchiptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashchiptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashchiptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) SetFilter(yf yfilter.YFilter) { ciscoflashchiptable.YFilter = yf }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetGoName(yname string) string {
-    if yname == "ciscoFlashChipEntry" { return "Ciscoflashchipentry" }
-    return ""
-}
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetSegmentPath() string {
-    return "ciscoFlashChipTable"
-}
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashChipEntry" {
-        for _, c := range ciscoflashchiptable.Ciscoflashchipentry {
-            if ciscoflashchiptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry{}
-        ciscoflashchiptable.Ciscoflashchipentry = append(ciscoflashchiptable.Ciscoflashchipentry, child)
-        return &ciscoflashchiptable.Ciscoflashchipentry[len(ciscoflashchiptable.Ciscoflashchipentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashchiptable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashchiptable.EntityData.Children["ciscoFlashChipEntry"] = types.YChild{"Ciscoflashchipentry", nil}
     for i := range ciscoflashchiptable.Ciscoflashchipentry {
-        children[ciscoflashchiptable.Ciscoflashchipentry[i].GetSegmentPath()] = &ciscoflashchiptable.Ciscoflashchipentry[i]
+        ciscoflashchiptable.EntityData.Children[types.GetSegmentPath(&ciscoflashchiptable.Ciscoflashchipentry[i])] = types.YChild{"Ciscoflashchipentry", &ciscoflashchiptable.Ciscoflashchipentry[i]}
     }
-    return children
+    ciscoflashchiptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashchiptable.EntityData)
 }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetYangName() string { return "ciscoFlashChipTable" }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) SetParent(parent types.Entity) { ciscoflashchiptable.parent = parent }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetParent() types.Entity { return ciscoflashchiptable.parent }
-
-func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry
 // An entry in the table of chip info for each
@@ -802,7 +547,7 @@ func (ciscoflashchiptable *CISCOFLASHMIB_Ciscoflashchiptable) GetParentYangName(
 // device index and the chip index within that
 // device.
 type CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -873,65 +618,28 @@ type CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry struct {
     Ciscoflashchipmaxeraseretries interface{}
 }
 
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetFilter() yfilter.YFilter { return ciscoflashchipentry.YFilter }
+func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashchipentry.EntityData.YFilter = ciscoflashchipentry.YFilter
+    ciscoflashchipentry.EntityData.YangName = "ciscoFlashChipEntry"
+    ciscoflashchipentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashchipentry.EntityData.ParentYangName = "ciscoFlashChipTable"
+    ciscoflashchipentry.EntityData.SegmentPath = "ciscoFlashChipEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashchipentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashChipIndex='" + fmt.Sprintf("%v", ciscoflashchipentry.Ciscoflashchipindex) + "']"
+    ciscoflashchipentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashchipentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashchipentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) SetFilter(yf yfilter.YFilter) { ciscoflashchipentry.YFilter = yf }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashDeviceIndex" { return "Ciscoflashdeviceindex" }
-    if yname == "ciscoFlashChipIndex" { return "Ciscoflashchipindex" }
-    if yname == "ciscoFlashChipCode" { return "Ciscoflashchipcode" }
-    if yname == "ciscoFlashChipDescr" { return "Ciscoflashchipdescr" }
-    if yname == "ciscoFlashChipWriteRetries" { return "Ciscoflashchipwriteretries" }
-    if yname == "ciscoFlashChipEraseRetries" { return "Ciscoflashchiperaseretries" }
-    if yname == "ciscoFlashChipMaxWriteRetries" { return "Ciscoflashchipmaxwriteretries" }
-    if yname == "ciscoFlashChipMaxEraseRetries" { return "Ciscoflashchipmaxeraseretries" }
-    return ""
+    ciscoflashchipentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashchipentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashDeviceIndex"] = types.YLeaf{"Ciscoflashdeviceindex", ciscoflashchipentry.Ciscoflashdeviceindex}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipIndex"] = types.YLeaf{"Ciscoflashchipindex", ciscoflashchipentry.Ciscoflashchipindex}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipCode"] = types.YLeaf{"Ciscoflashchipcode", ciscoflashchipentry.Ciscoflashchipcode}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipDescr"] = types.YLeaf{"Ciscoflashchipdescr", ciscoflashchipentry.Ciscoflashchipdescr}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipWriteRetries"] = types.YLeaf{"Ciscoflashchipwriteretries", ciscoflashchipentry.Ciscoflashchipwriteretries}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipEraseRetries"] = types.YLeaf{"Ciscoflashchiperaseretries", ciscoflashchipentry.Ciscoflashchiperaseretries}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipMaxWriteRetries"] = types.YLeaf{"Ciscoflashchipmaxwriteretries", ciscoflashchipentry.Ciscoflashchipmaxwriteretries}
+    ciscoflashchipentry.EntityData.Leafs["ciscoFlashChipMaxEraseRetries"] = types.YLeaf{"Ciscoflashchipmaxeraseretries", ciscoflashchipentry.Ciscoflashchipmaxeraseretries}
+    return &(ciscoflashchipentry.EntityData)
 }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetSegmentPath() string {
-    return "ciscoFlashChipEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashchipentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashChipIndex='" + fmt.Sprintf("%v", ciscoflashchipentry.Ciscoflashchipindex) + "']"
-}
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashDeviceIndex"] = ciscoflashchipentry.Ciscoflashdeviceindex
-    leafs["ciscoFlashChipIndex"] = ciscoflashchipentry.Ciscoflashchipindex
-    leafs["ciscoFlashChipCode"] = ciscoflashchipentry.Ciscoflashchipcode
-    leafs["ciscoFlashChipDescr"] = ciscoflashchipentry.Ciscoflashchipdescr
-    leafs["ciscoFlashChipWriteRetries"] = ciscoflashchipentry.Ciscoflashchipwriteretries
-    leafs["ciscoFlashChipEraseRetries"] = ciscoflashchipentry.Ciscoflashchiperaseretries
-    leafs["ciscoFlashChipMaxWriteRetries"] = ciscoflashchipentry.Ciscoflashchipmaxwriteretries
-    leafs["ciscoFlashChipMaxEraseRetries"] = ciscoflashchipentry.Ciscoflashchipmaxeraseretries
-    return leafs
-}
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetYangName() string { return "ciscoFlashChipEntry" }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) SetParent(parent types.Entity) { ciscoflashchipentry.parent = parent }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetParent() types.Entity { return ciscoflashchipentry.parent }
-
-func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry) GetParentYangName() string { return "ciscoFlashChipTable" }
 
 // CISCOFLASHMIB_Ciscoflashpartitiontable
 // Table of flash device partition properties for each
@@ -940,7 +648,7 @@ func (ciscoflashchipentry *CISCOFLASHMIB_Ciscoflashchiptable_Ciscoflashchipentry
 // the entire device will be assumed to exist. There will
 // therefore always be atleast one partition on a device.
 type CISCOFLASHMIB_Ciscoflashpartitiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table of flash partition properties for each initialized
@@ -950,63 +658,24 @@ type CISCOFLASHMIB_Ciscoflashpartitiontable struct {
     Ciscoflashpartitionentry []CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry
 }
 
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetFilter() yfilter.YFilter { return ciscoflashpartitiontable.YFilter }
+func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetEntityData() *types.CommonEntityData {
+    ciscoflashpartitiontable.EntityData.YFilter = ciscoflashpartitiontable.YFilter
+    ciscoflashpartitiontable.EntityData.YangName = "ciscoFlashPartitionTable"
+    ciscoflashpartitiontable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashpartitiontable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashpartitiontable.EntityData.SegmentPath = "ciscoFlashPartitionTable"
+    ciscoflashpartitiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashpartitiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashpartitiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) SetFilter(yf yfilter.YFilter) { ciscoflashpartitiontable.YFilter = yf }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetGoName(yname string) string {
-    if yname == "ciscoFlashPartitionEntry" { return "Ciscoflashpartitionentry" }
-    return ""
-}
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetSegmentPath() string {
-    return "ciscoFlashPartitionTable"
-}
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashPartitionEntry" {
-        for _, c := range ciscoflashpartitiontable.Ciscoflashpartitionentry {
-            if ciscoflashpartitiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry{}
-        ciscoflashpartitiontable.Ciscoflashpartitionentry = append(ciscoflashpartitiontable.Ciscoflashpartitionentry, child)
-        return &ciscoflashpartitiontable.Ciscoflashpartitionentry[len(ciscoflashpartitiontable.Ciscoflashpartitionentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashpartitiontable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashpartitiontable.EntityData.Children["ciscoFlashPartitionEntry"] = types.YChild{"Ciscoflashpartitionentry", nil}
     for i := range ciscoflashpartitiontable.Ciscoflashpartitionentry {
-        children[ciscoflashpartitiontable.Ciscoflashpartitionentry[i].GetSegmentPath()] = &ciscoflashpartitiontable.Ciscoflashpartitionentry[i]
+        ciscoflashpartitiontable.EntityData.Children[types.GetSegmentPath(&ciscoflashpartitiontable.Ciscoflashpartitionentry[i])] = types.YChild{"Ciscoflashpartitionentry", &ciscoflashpartitiontable.Ciscoflashpartitionentry[i]}
     }
-    return children
+    ciscoflashpartitiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashpartitiontable.EntityData)
 }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetYangName() string { return "ciscoFlashPartitionTable" }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) SetParent(parent types.Entity) { ciscoflashpartitiontable.parent = parent }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetParent() types.Entity { return ciscoflashpartitiontable.parent }
-
-func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry
 // An entry in the table of flash partition properties
@@ -1014,7 +683,7 @@ func (ciscoflashpartitiontable *CISCOFLASHMIB_Ciscoflashpartitiontable) GetParen
 // will be indexed by a device number and a partition
 // number within the device.
 type CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -1186,81 +855,36 @@ type CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry struct {
     Ciscoflashpartitionlowspacenotifthreshold interface{}
 }
 
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetFilter() yfilter.YFilter { return ciscoflashpartitionentry.YFilter }
+func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashpartitionentry.EntityData.YFilter = ciscoflashpartitionentry.YFilter
+    ciscoflashpartitionentry.EntityData.YangName = "ciscoFlashPartitionEntry"
+    ciscoflashpartitionentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashpartitionentry.EntityData.ParentYangName = "ciscoFlashPartitionTable"
+    ciscoflashpartitionentry.EntityData.SegmentPath = "ciscoFlashPartitionEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashpartitionentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + fmt.Sprintf("%v", ciscoflashpartitionentry.Ciscoflashpartitionindex) + "']"
+    ciscoflashpartitionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashpartitionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashpartitionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) SetFilter(yf yfilter.YFilter) { ciscoflashpartitionentry.YFilter = yf }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashDeviceIndex" { return "Ciscoflashdeviceindex" }
-    if yname == "ciscoFlashPartitionIndex" { return "Ciscoflashpartitionindex" }
-    if yname == "ciscoFlashPartitionStartChip" { return "Ciscoflashpartitionstartchip" }
-    if yname == "ciscoFlashPartitionEndChip" { return "Ciscoflashpartitionendchip" }
-    if yname == "ciscoFlashPartitionSize" { return "Ciscoflashpartitionsize" }
-    if yname == "ciscoFlashPartitionFreeSpace" { return "Ciscoflashpartitionfreespace" }
-    if yname == "ciscoFlashPartitionFileCount" { return "Ciscoflashpartitionfilecount" }
-    if yname == "ciscoFlashPartitionChecksumAlgorithm" { return "Ciscoflashpartitionchecksumalgorithm" }
-    if yname == "ciscoFlashPartitionStatus" { return "Ciscoflashpartitionstatus" }
-    if yname == "ciscoFlashPartitionUpgradeMethod" { return "Ciscoflashpartitionupgrademethod" }
-    if yname == "ciscoFlashPartitionName" { return "Ciscoflashpartitionname" }
-    if yname == "ciscoFlashPartitionNeedErasure" { return "Ciscoflashpartitionneederasure" }
-    if yname == "ciscoFlashPartitionFileNameLength" { return "Ciscoflashpartitionfilenamelength" }
-    if yname == "ciscoFlashPartitionSizeExtended" { return "Ciscoflashpartitionsizeextended" }
-    if yname == "ciscoFlashPartitionFreeSpaceExtended" { return "Ciscoflashpartitionfreespaceextended" }
-    if yname == "ciscoFlashPartitionLowSpaceNotifThreshold" { return "Ciscoflashpartitionlowspacenotifthreshold" }
-    return ""
+    ciscoflashpartitionentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashpartitionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashDeviceIndex"] = types.YLeaf{"Ciscoflashdeviceindex", ciscoflashpartitionentry.Ciscoflashdeviceindex}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionIndex"] = types.YLeaf{"Ciscoflashpartitionindex", ciscoflashpartitionentry.Ciscoflashpartitionindex}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionStartChip"] = types.YLeaf{"Ciscoflashpartitionstartchip", ciscoflashpartitionentry.Ciscoflashpartitionstartchip}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionEndChip"] = types.YLeaf{"Ciscoflashpartitionendchip", ciscoflashpartitionentry.Ciscoflashpartitionendchip}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionSize"] = types.YLeaf{"Ciscoflashpartitionsize", ciscoflashpartitionentry.Ciscoflashpartitionsize}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionFreeSpace"] = types.YLeaf{"Ciscoflashpartitionfreespace", ciscoflashpartitionentry.Ciscoflashpartitionfreespace}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionFileCount"] = types.YLeaf{"Ciscoflashpartitionfilecount", ciscoflashpartitionentry.Ciscoflashpartitionfilecount}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionChecksumAlgorithm"] = types.YLeaf{"Ciscoflashpartitionchecksumalgorithm", ciscoflashpartitionentry.Ciscoflashpartitionchecksumalgorithm}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionStatus"] = types.YLeaf{"Ciscoflashpartitionstatus", ciscoflashpartitionentry.Ciscoflashpartitionstatus}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionUpgradeMethod"] = types.YLeaf{"Ciscoflashpartitionupgrademethod", ciscoflashpartitionentry.Ciscoflashpartitionupgrademethod}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionName"] = types.YLeaf{"Ciscoflashpartitionname", ciscoflashpartitionentry.Ciscoflashpartitionname}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionNeedErasure"] = types.YLeaf{"Ciscoflashpartitionneederasure", ciscoflashpartitionentry.Ciscoflashpartitionneederasure}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionFileNameLength"] = types.YLeaf{"Ciscoflashpartitionfilenamelength", ciscoflashpartitionentry.Ciscoflashpartitionfilenamelength}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionSizeExtended"] = types.YLeaf{"Ciscoflashpartitionsizeextended", ciscoflashpartitionentry.Ciscoflashpartitionsizeextended}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionFreeSpaceExtended"] = types.YLeaf{"Ciscoflashpartitionfreespaceextended", ciscoflashpartitionentry.Ciscoflashpartitionfreespaceextended}
+    ciscoflashpartitionentry.EntityData.Leafs["ciscoFlashPartitionLowSpaceNotifThreshold"] = types.YLeaf{"Ciscoflashpartitionlowspacenotifthreshold", ciscoflashpartitionentry.Ciscoflashpartitionlowspacenotifthreshold}
+    return &(ciscoflashpartitionentry.EntityData)
 }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetSegmentPath() string {
-    return "ciscoFlashPartitionEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashpartitionentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + fmt.Sprintf("%v", ciscoflashpartitionentry.Ciscoflashpartitionindex) + "']"
-}
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashDeviceIndex"] = ciscoflashpartitionentry.Ciscoflashdeviceindex
-    leafs["ciscoFlashPartitionIndex"] = ciscoflashpartitionentry.Ciscoflashpartitionindex
-    leafs["ciscoFlashPartitionStartChip"] = ciscoflashpartitionentry.Ciscoflashpartitionstartchip
-    leafs["ciscoFlashPartitionEndChip"] = ciscoflashpartitionentry.Ciscoflashpartitionendchip
-    leafs["ciscoFlashPartitionSize"] = ciscoflashpartitionentry.Ciscoflashpartitionsize
-    leafs["ciscoFlashPartitionFreeSpace"] = ciscoflashpartitionentry.Ciscoflashpartitionfreespace
-    leafs["ciscoFlashPartitionFileCount"] = ciscoflashpartitionentry.Ciscoflashpartitionfilecount
-    leafs["ciscoFlashPartitionChecksumAlgorithm"] = ciscoflashpartitionentry.Ciscoflashpartitionchecksumalgorithm
-    leafs["ciscoFlashPartitionStatus"] = ciscoflashpartitionentry.Ciscoflashpartitionstatus
-    leafs["ciscoFlashPartitionUpgradeMethod"] = ciscoflashpartitionentry.Ciscoflashpartitionupgrademethod
-    leafs["ciscoFlashPartitionName"] = ciscoflashpartitionentry.Ciscoflashpartitionname
-    leafs["ciscoFlashPartitionNeedErasure"] = ciscoflashpartitionentry.Ciscoflashpartitionneederasure
-    leafs["ciscoFlashPartitionFileNameLength"] = ciscoflashpartitionentry.Ciscoflashpartitionfilenamelength
-    leafs["ciscoFlashPartitionSizeExtended"] = ciscoflashpartitionentry.Ciscoflashpartitionsizeextended
-    leafs["ciscoFlashPartitionFreeSpaceExtended"] = ciscoflashpartitionentry.Ciscoflashpartitionfreespaceextended
-    leafs["ciscoFlashPartitionLowSpaceNotifThreshold"] = ciscoflashpartitionentry.Ciscoflashpartitionlowspacenotifthreshold
-    return leafs
-}
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetYangName() string { return "ciscoFlashPartitionEntry" }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) SetParent(parent types.Entity) { ciscoflashpartitionentry.parent = parent }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetParent() types.Entity { return ciscoflashpartitionentry.parent }
-
-func (ciscoflashpartitionentry *CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry) GetParentYangName() string { return "ciscoFlashPartitionTable" }
 
 // CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry_Ciscoflashpartitionchecksumalgorithm represents values will be added as necessary.
 type CISCOFLASHMIB_Ciscoflashpartitiontable_Ciscoflashpartitionentry_Ciscoflashpartitionchecksumalgorithm string
@@ -1298,7 +922,7 @@ const (
 // CISCOFLASHMIB_Ciscoflashfiletable
 // Table of information for files in a Flash partition.
 type CISCOFLASHMIB_Ciscoflashfiletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table of Flash file properties for each initialized Flash
@@ -1309,63 +933,24 @@ type CISCOFLASHMIB_Ciscoflashfiletable struct {
     Ciscoflashfileentry []CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry
 }
 
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetFilter() yfilter.YFilter { return ciscoflashfiletable.YFilter }
+func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetEntityData() *types.CommonEntityData {
+    ciscoflashfiletable.EntityData.YFilter = ciscoflashfiletable.YFilter
+    ciscoflashfiletable.EntityData.YangName = "ciscoFlashFileTable"
+    ciscoflashfiletable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashfiletable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashfiletable.EntityData.SegmentPath = "ciscoFlashFileTable"
+    ciscoflashfiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashfiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashfiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) SetFilter(yf yfilter.YFilter) { ciscoflashfiletable.YFilter = yf }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetGoName(yname string) string {
-    if yname == "ciscoFlashFileEntry" { return "Ciscoflashfileentry" }
-    return ""
-}
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetSegmentPath() string {
-    return "ciscoFlashFileTable"
-}
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashFileEntry" {
-        for _, c := range ciscoflashfiletable.Ciscoflashfileentry {
-            if ciscoflashfiletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry{}
-        ciscoflashfiletable.Ciscoflashfileentry = append(ciscoflashfiletable.Ciscoflashfileentry, child)
-        return &ciscoflashfiletable.Ciscoflashfileentry[len(ciscoflashfiletable.Ciscoflashfileentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashfiletable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashfiletable.EntityData.Children["ciscoFlashFileEntry"] = types.YChild{"Ciscoflashfileentry", nil}
     for i := range ciscoflashfiletable.Ciscoflashfileentry {
-        children[ciscoflashfiletable.Ciscoflashfileentry[i].GetSegmentPath()] = &ciscoflashfiletable.Ciscoflashfileentry[i]
+        ciscoflashfiletable.EntityData.Children[types.GetSegmentPath(&ciscoflashfiletable.Ciscoflashfileentry[i])] = types.YChild{"Ciscoflashfileentry", &ciscoflashfiletable.Ciscoflashfileentry[i]}
     }
-    return children
+    ciscoflashfiletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashfiletable.EntityData)
 }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetYangName() string { return "ciscoFlashFileTable" }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) SetParent(parent types.Entity) { ciscoflashfiletable.parent = parent }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetParent() types.Entity { return ciscoflashfiletable.parent }
-
-func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry
 // An entry in the table of Flash file properties
@@ -1375,7 +960,7 @@ func (ciscoflashfiletable *CISCOFLASHMIB_Ciscoflashfiletable) GetParentYangName(
 // partition number within the device, and file
 // number within the partition.
 type CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -1430,67 +1015,29 @@ type CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry struct {
     Ciscoflashfiledate interface{}
 }
 
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetFilter() yfilter.YFilter { return ciscoflashfileentry.YFilter }
+func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashfileentry.EntityData.YFilter = ciscoflashfileentry.YFilter
+    ciscoflashfileentry.EntityData.YangName = "ciscoFlashFileEntry"
+    ciscoflashfileentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashfileentry.EntityData.ParentYangName = "ciscoFlashFileTable"
+    ciscoflashfileentry.EntityData.SegmentPath = "ciscoFlashFileEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashfileentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + fmt.Sprintf("%v", ciscoflashfileentry.Ciscoflashpartitionindex) + "']" + "[ciscoFlashFileIndex='" + fmt.Sprintf("%v", ciscoflashfileentry.Ciscoflashfileindex) + "']"
+    ciscoflashfileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashfileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashfileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) SetFilter(yf yfilter.YFilter) { ciscoflashfileentry.YFilter = yf }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashDeviceIndex" { return "Ciscoflashdeviceindex" }
-    if yname == "ciscoFlashPartitionIndex" { return "Ciscoflashpartitionindex" }
-    if yname == "ciscoFlashFileIndex" { return "Ciscoflashfileindex" }
-    if yname == "ciscoFlashFileSize" { return "Ciscoflashfilesize" }
-    if yname == "ciscoFlashFileChecksum" { return "Ciscoflashfilechecksum" }
-    if yname == "ciscoFlashFileStatus" { return "Ciscoflashfilestatus" }
-    if yname == "ciscoFlashFileName" { return "Ciscoflashfilename" }
-    if yname == "ciscoFlashFileType" { return "Ciscoflashfiletype" }
-    if yname == "ciscoFlashFileDate" { return "Ciscoflashfiledate" }
-    return ""
+    ciscoflashfileentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashfileentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashDeviceIndex"] = types.YLeaf{"Ciscoflashdeviceindex", ciscoflashfileentry.Ciscoflashdeviceindex}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashPartitionIndex"] = types.YLeaf{"Ciscoflashpartitionindex", ciscoflashfileentry.Ciscoflashpartitionindex}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileIndex"] = types.YLeaf{"Ciscoflashfileindex", ciscoflashfileentry.Ciscoflashfileindex}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileSize"] = types.YLeaf{"Ciscoflashfilesize", ciscoflashfileentry.Ciscoflashfilesize}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileChecksum"] = types.YLeaf{"Ciscoflashfilechecksum", ciscoflashfileentry.Ciscoflashfilechecksum}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileStatus"] = types.YLeaf{"Ciscoflashfilestatus", ciscoflashfileentry.Ciscoflashfilestatus}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileName"] = types.YLeaf{"Ciscoflashfilename", ciscoflashfileentry.Ciscoflashfilename}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileType"] = types.YLeaf{"Ciscoflashfiletype", ciscoflashfileentry.Ciscoflashfiletype}
+    ciscoflashfileentry.EntityData.Leafs["ciscoFlashFileDate"] = types.YLeaf{"Ciscoflashfiledate", ciscoflashfileentry.Ciscoflashfiledate}
+    return &(ciscoflashfileentry.EntityData)
 }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetSegmentPath() string {
-    return "ciscoFlashFileEntry" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashfileentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + fmt.Sprintf("%v", ciscoflashfileentry.Ciscoflashpartitionindex) + "']" + "[ciscoFlashFileIndex='" + fmt.Sprintf("%v", ciscoflashfileentry.Ciscoflashfileindex) + "']"
-}
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashDeviceIndex"] = ciscoflashfileentry.Ciscoflashdeviceindex
-    leafs["ciscoFlashPartitionIndex"] = ciscoflashfileentry.Ciscoflashpartitionindex
-    leafs["ciscoFlashFileIndex"] = ciscoflashfileentry.Ciscoflashfileindex
-    leafs["ciscoFlashFileSize"] = ciscoflashfileentry.Ciscoflashfilesize
-    leafs["ciscoFlashFileChecksum"] = ciscoflashfileentry.Ciscoflashfilechecksum
-    leafs["ciscoFlashFileStatus"] = ciscoflashfileentry.Ciscoflashfilestatus
-    leafs["ciscoFlashFileName"] = ciscoflashfileentry.Ciscoflashfilename
-    leafs["ciscoFlashFileType"] = ciscoflashfileentry.Ciscoflashfiletype
-    leafs["ciscoFlashFileDate"] = ciscoflashfileentry.Ciscoflashfiledate
-    return leafs
-}
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetYangName() string { return "ciscoFlashFileEntry" }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) SetParent(parent types.Entity) { ciscoflashfileentry.parent = parent }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetParent() types.Entity { return ciscoflashfileentry.parent }
-
-func (ciscoflashfileentry *CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry) GetParentYangName() string { return "ciscoFlashFileTable" }
 
 // CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry_Ciscoflashfilestatus represents marked as invalid.
 type CISCOFLASHMIB_Ciscoflashfiletable_Ciscoflashfileentry_Ciscoflashfilestatus string
@@ -1507,7 +1054,7 @@ const (
 // Table of information for files on the manageable
 // flash devices sorted by File Types.
 type CISCOFLASHMIB_Ciscoflashfilebytypetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table of Flash file properties for each initialized Flash
@@ -1522,63 +1069,24 @@ type CISCOFLASHMIB_Ciscoflashfilebytypetable struct {
     Ciscoflashfilebytypeentry []CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry
 }
 
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetFilter() yfilter.YFilter { return ciscoflashfilebytypetable.YFilter }
+func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetEntityData() *types.CommonEntityData {
+    ciscoflashfilebytypetable.EntityData.YFilter = ciscoflashfilebytypetable.YFilter
+    ciscoflashfilebytypetable.EntityData.YangName = "ciscoFlashFileByTypeTable"
+    ciscoflashfilebytypetable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashfilebytypetable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashfilebytypetable.EntityData.SegmentPath = "ciscoFlashFileByTypeTable"
+    ciscoflashfilebytypetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashfilebytypetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashfilebytypetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) SetFilter(yf yfilter.YFilter) { ciscoflashfilebytypetable.YFilter = yf }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetGoName(yname string) string {
-    if yname == "ciscoFlashFileByTypeEntry" { return "Ciscoflashfilebytypeentry" }
-    return ""
-}
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetSegmentPath() string {
-    return "ciscoFlashFileByTypeTable"
-}
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashFileByTypeEntry" {
-        for _, c := range ciscoflashfilebytypetable.Ciscoflashfilebytypeentry {
-            if ciscoflashfilebytypetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry{}
-        ciscoflashfilebytypetable.Ciscoflashfilebytypeentry = append(ciscoflashfilebytypetable.Ciscoflashfilebytypeentry, child)
-        return &ciscoflashfilebytypetable.Ciscoflashfilebytypeentry[len(ciscoflashfilebytypetable.Ciscoflashfilebytypeentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashfilebytypetable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashfilebytypetable.EntityData.Children["ciscoFlashFileByTypeEntry"] = types.YChild{"Ciscoflashfilebytypeentry", nil}
     for i := range ciscoflashfilebytypetable.Ciscoflashfilebytypeentry {
-        children[ciscoflashfilebytypetable.Ciscoflashfilebytypeentry[i].GetSegmentPath()] = &ciscoflashfilebytypetable.Ciscoflashfilebytypeentry[i]
+        ciscoflashfilebytypetable.EntityData.Children[types.GetSegmentPath(&ciscoflashfilebytypetable.Ciscoflashfilebytypeentry[i])] = types.YChild{"Ciscoflashfilebytypeentry", &ciscoflashfilebytypetable.Ciscoflashfilebytypeentry[i]}
     }
-    return children
+    ciscoflashfilebytypetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashfilebytypetable.EntityData)
 }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetYangName() string { return "ciscoFlashFileByTypeTable" }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) SetParent(parent types.Entity) { ciscoflashfilebytypetable.parent = parent }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetParent() types.Entity { return ciscoflashfilebytypetable.parent }
-
-func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry
 // An entry in the table of Flash file properties
@@ -1596,7 +1104,7 @@ func (ciscoflashfilebytypetable *CISCOFLASHMIB_Ciscoflashfilebytypetable) GetPar
 // the file number within the partition, given by
 // ciscoFlashFileIndex.
 type CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is FlashFileType. Refers to
@@ -1640,67 +1148,29 @@ type CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry struct {
     Ciscoflashfilebytypedate interface{}
 }
 
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetFilter() yfilter.YFilter { return ciscoflashfilebytypeentry.YFilter }
+func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashfilebytypeentry.EntityData.YFilter = ciscoflashfilebytypeentry.YFilter
+    ciscoflashfilebytypeentry.EntityData.YangName = "ciscoFlashFileByTypeEntry"
+    ciscoflashfilebytypeentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashfilebytypeentry.EntityData.ParentYangName = "ciscoFlashFileByTypeTable"
+    ciscoflashfilebytypeentry.EntityData.SegmentPath = "ciscoFlashFileByTypeEntry" + "[ciscoFlashFileType='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashfiletype) + "']" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashpartitionindex) + "']" + "[ciscoFlashFileIndex='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashfileindex) + "']"
+    ciscoflashfilebytypeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashfilebytypeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashfilebytypeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) SetFilter(yf yfilter.YFilter) { ciscoflashfilebytypeentry.YFilter = yf }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashFileType" { return "Ciscoflashfiletype" }
-    if yname == "ciscoFlashDeviceIndex" { return "Ciscoflashdeviceindex" }
-    if yname == "ciscoFlashPartitionIndex" { return "Ciscoflashpartitionindex" }
-    if yname == "ciscoFlashFileIndex" { return "Ciscoflashfileindex" }
-    if yname == "ciscoFlashFileByTypeSize" { return "Ciscoflashfilebytypesize" }
-    if yname == "ciscoFlashFileByTypeChecksum" { return "Ciscoflashfilebytypechecksum" }
-    if yname == "ciscoFlashFileByTypeStatus" { return "Ciscoflashfilebytypestatus" }
-    if yname == "ciscoFlashFileByTypeName" { return "Ciscoflashfilebytypename" }
-    if yname == "ciscoFlashFileByTypeDate" { return "Ciscoflashfilebytypedate" }
-    return ""
+    ciscoflashfilebytypeentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashfilebytypeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileType"] = types.YLeaf{"Ciscoflashfiletype", ciscoflashfilebytypeentry.Ciscoflashfiletype}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashDeviceIndex"] = types.YLeaf{"Ciscoflashdeviceindex", ciscoflashfilebytypeentry.Ciscoflashdeviceindex}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashPartitionIndex"] = types.YLeaf{"Ciscoflashpartitionindex", ciscoflashfilebytypeentry.Ciscoflashpartitionindex}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileIndex"] = types.YLeaf{"Ciscoflashfileindex", ciscoflashfilebytypeentry.Ciscoflashfileindex}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileByTypeSize"] = types.YLeaf{"Ciscoflashfilebytypesize", ciscoflashfilebytypeentry.Ciscoflashfilebytypesize}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileByTypeChecksum"] = types.YLeaf{"Ciscoflashfilebytypechecksum", ciscoflashfilebytypeentry.Ciscoflashfilebytypechecksum}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileByTypeStatus"] = types.YLeaf{"Ciscoflashfilebytypestatus", ciscoflashfilebytypeentry.Ciscoflashfilebytypestatus}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileByTypeName"] = types.YLeaf{"Ciscoflashfilebytypename", ciscoflashfilebytypeentry.Ciscoflashfilebytypename}
+    ciscoflashfilebytypeentry.EntityData.Leafs["ciscoFlashFileByTypeDate"] = types.YLeaf{"Ciscoflashfilebytypedate", ciscoflashfilebytypeentry.Ciscoflashfilebytypedate}
+    return &(ciscoflashfilebytypeentry.EntityData)
 }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetSegmentPath() string {
-    return "ciscoFlashFileByTypeEntry" + "[ciscoFlashFileType='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashfiletype) + "']" + "[ciscoFlashDeviceIndex='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashdeviceindex) + "']" + "[ciscoFlashPartitionIndex='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashpartitionindex) + "']" + "[ciscoFlashFileIndex='" + fmt.Sprintf("%v", ciscoflashfilebytypeentry.Ciscoflashfileindex) + "']"
-}
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashFileType"] = ciscoflashfilebytypeentry.Ciscoflashfiletype
-    leafs["ciscoFlashDeviceIndex"] = ciscoflashfilebytypeentry.Ciscoflashdeviceindex
-    leafs["ciscoFlashPartitionIndex"] = ciscoflashfilebytypeentry.Ciscoflashpartitionindex
-    leafs["ciscoFlashFileIndex"] = ciscoflashfilebytypeentry.Ciscoflashfileindex
-    leafs["ciscoFlashFileByTypeSize"] = ciscoflashfilebytypeentry.Ciscoflashfilebytypesize
-    leafs["ciscoFlashFileByTypeChecksum"] = ciscoflashfilebytypeentry.Ciscoflashfilebytypechecksum
-    leafs["ciscoFlashFileByTypeStatus"] = ciscoflashfilebytypeentry.Ciscoflashfilebytypestatus
-    leafs["ciscoFlashFileByTypeName"] = ciscoflashfilebytypeentry.Ciscoflashfilebytypename
-    leafs["ciscoFlashFileByTypeDate"] = ciscoflashfilebytypeentry.Ciscoflashfilebytypedate
-    return leafs
-}
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetYangName() string { return "ciscoFlashFileByTypeEntry" }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) SetParent(parent types.Entity) { ciscoflashfilebytypeentry.parent = parent }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetParent() types.Entity { return ciscoflashfilebytypeentry.parent }
-
-func (ciscoflashfilebytypeentry *CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry) GetParentYangName() string { return "ciscoFlashFileByTypeTable" }
 
 // CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry_Ciscoflashfilebytypestatus represents object in ciscoFlashFileTable.
 type CISCOFLASHMIB_Ciscoflashfilebytypetable_Ciscoflashfilebytypeentry_Ciscoflashfilebytypestatus string
@@ -1718,7 +1188,7 @@ const (
 // entry represents a Flash copy operation (to or
 // from Flash) that has been initiated.
 type CISCOFLASHMIB_Ciscoflashcopytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Flash copy operation entry. Each entry consists of a command, a source,
@@ -1745,63 +1215,24 @@ type CISCOFLASHMIB_Ciscoflashcopytable struct {
     Ciscoflashcopyentry []CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry
 }
 
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetFilter() yfilter.YFilter { return ciscoflashcopytable.YFilter }
+func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetEntityData() *types.CommonEntityData {
+    ciscoflashcopytable.EntityData.YFilter = ciscoflashcopytable.YFilter
+    ciscoflashcopytable.EntityData.YangName = "ciscoFlashCopyTable"
+    ciscoflashcopytable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashcopytable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashcopytable.EntityData.SegmentPath = "ciscoFlashCopyTable"
+    ciscoflashcopytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashcopytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashcopytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) SetFilter(yf yfilter.YFilter) { ciscoflashcopytable.YFilter = yf }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetGoName(yname string) string {
-    if yname == "ciscoFlashCopyEntry" { return "Ciscoflashcopyentry" }
-    return ""
-}
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetSegmentPath() string {
-    return "ciscoFlashCopyTable"
-}
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashCopyEntry" {
-        for _, c := range ciscoflashcopytable.Ciscoflashcopyentry {
-            if ciscoflashcopytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry{}
-        ciscoflashcopytable.Ciscoflashcopyentry = append(ciscoflashcopytable.Ciscoflashcopyentry, child)
-        return &ciscoflashcopytable.Ciscoflashcopyentry[len(ciscoflashcopytable.Ciscoflashcopyentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashcopytable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashcopytable.EntityData.Children["ciscoFlashCopyEntry"] = types.YChild{"Ciscoflashcopyentry", nil}
     for i := range ciscoflashcopytable.Ciscoflashcopyentry {
-        children[ciscoflashcopytable.Ciscoflashcopyentry[i].GetSegmentPath()] = &ciscoflashcopytable.Ciscoflashcopyentry[i]
+        ciscoflashcopytable.EntityData.Children[types.GetSegmentPath(&ciscoflashcopytable.Ciscoflashcopyentry[i])] = types.YChild{"Ciscoflashcopyentry", &ciscoflashcopytable.Ciscoflashcopyentry[i]}
     }
-    return children
+    ciscoflashcopytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashcopytable.EntityData)
 }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetYangName() string { return "ciscoFlashCopyTable" }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) SetParent(parent types.Entity) { ciscoflashcopytable.parent = parent }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetParent() types.Entity { return ciscoflashcopytable.parent }
-
-func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry
 // A Flash copy operation entry. Each entry consists
@@ -1837,7 +1268,7 @@ func (ciscoflashcopytable *CISCOFLASHMIB_Ciscoflashcopytable) GetParentYangName(
 // but an entry will never be deleted within 5 minutes of
 // completing.
 type CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object which specifies a unique entry in the
@@ -1890,7 +1321,7 @@ type CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry struct {
     // 'FFFFFFFF'H  (or 255.255.255.255).  Since this object can just hold only
     // IPv4 Transport type, it is deprecated and replaced by
     // ciscoFlashCopyServerAddrRev1. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ciscoflashcopyserveraddress interface{}
 
     // Source file name, either in Flash or on a server, depending on the type of
@@ -2007,79 +1438,35 @@ type CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry struct {
     Ciscoflashcopyremotepassword interface{}
 }
 
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetFilter() yfilter.YFilter { return ciscoflashcopyentry.YFilter }
+func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashcopyentry.EntityData.YFilter = ciscoflashcopyentry.YFilter
+    ciscoflashcopyentry.EntityData.YangName = "ciscoFlashCopyEntry"
+    ciscoflashcopyentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashcopyentry.EntityData.ParentYangName = "ciscoFlashCopyTable"
+    ciscoflashcopyentry.EntityData.SegmentPath = "ciscoFlashCopyEntry" + "[ciscoFlashCopySerialNumber='" + fmt.Sprintf("%v", ciscoflashcopyentry.Ciscoflashcopyserialnumber) + "']"
+    ciscoflashcopyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashcopyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashcopyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) SetFilter(yf yfilter.YFilter) { ciscoflashcopyentry.YFilter = yf }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashCopySerialNumber" { return "Ciscoflashcopyserialnumber" }
-    if yname == "ciscoFlashCopyCommand" { return "Ciscoflashcopycommand" }
-    if yname == "ciscoFlashCopyProtocol" { return "Ciscoflashcopyprotocol" }
-    if yname == "ciscoFlashCopyServerAddress" { return "Ciscoflashcopyserveraddress" }
-    if yname == "ciscoFlashCopySourceName" { return "Ciscoflashcopysourcename" }
-    if yname == "ciscoFlashCopyDestinationName" { return "Ciscoflashcopydestinationname" }
-    if yname == "ciscoFlashCopyRemoteUserName" { return "Ciscoflashcopyremoteusername" }
-    if yname == "ciscoFlashCopyStatus" { return "Ciscoflashcopystatus" }
-    if yname == "ciscoFlashCopyNotifyOnCompletion" { return "Ciscoflashcopynotifyoncompletion" }
-    if yname == "ciscoFlashCopyTime" { return "Ciscoflashcopytime" }
-    if yname == "ciscoFlashCopyEntryStatus" { return "Ciscoflashcopyentrystatus" }
-    if yname == "ciscoFlashCopyVerify" { return "Ciscoflashcopyverify" }
-    if yname == "ciscoFlashCopyServerAddrType" { return "Ciscoflashcopyserveraddrtype" }
-    if yname == "ciscoFlashCopyServerAddrRev1" { return "Ciscoflashcopyserveraddrrev1" }
-    if yname == "ciscoFlashCopyRemotePassword" { return "Ciscoflashcopyremotepassword" }
-    return ""
+    ciscoflashcopyentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashcopyentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopySerialNumber"] = types.YLeaf{"Ciscoflashcopyserialnumber", ciscoflashcopyentry.Ciscoflashcopyserialnumber}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyCommand"] = types.YLeaf{"Ciscoflashcopycommand", ciscoflashcopyentry.Ciscoflashcopycommand}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyProtocol"] = types.YLeaf{"Ciscoflashcopyprotocol", ciscoflashcopyentry.Ciscoflashcopyprotocol}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyServerAddress"] = types.YLeaf{"Ciscoflashcopyserveraddress", ciscoflashcopyentry.Ciscoflashcopyserveraddress}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopySourceName"] = types.YLeaf{"Ciscoflashcopysourcename", ciscoflashcopyentry.Ciscoflashcopysourcename}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyDestinationName"] = types.YLeaf{"Ciscoflashcopydestinationname", ciscoflashcopyentry.Ciscoflashcopydestinationname}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyRemoteUserName"] = types.YLeaf{"Ciscoflashcopyremoteusername", ciscoflashcopyentry.Ciscoflashcopyremoteusername}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyStatus"] = types.YLeaf{"Ciscoflashcopystatus", ciscoflashcopyentry.Ciscoflashcopystatus}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyNotifyOnCompletion"] = types.YLeaf{"Ciscoflashcopynotifyoncompletion", ciscoflashcopyentry.Ciscoflashcopynotifyoncompletion}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyTime"] = types.YLeaf{"Ciscoflashcopytime", ciscoflashcopyentry.Ciscoflashcopytime}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyEntryStatus"] = types.YLeaf{"Ciscoflashcopyentrystatus", ciscoflashcopyentry.Ciscoflashcopyentrystatus}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyVerify"] = types.YLeaf{"Ciscoflashcopyverify", ciscoflashcopyentry.Ciscoflashcopyverify}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyServerAddrType"] = types.YLeaf{"Ciscoflashcopyserveraddrtype", ciscoflashcopyentry.Ciscoflashcopyserveraddrtype}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyServerAddrRev1"] = types.YLeaf{"Ciscoflashcopyserveraddrrev1", ciscoflashcopyentry.Ciscoflashcopyserveraddrrev1}
+    ciscoflashcopyentry.EntityData.Leafs["ciscoFlashCopyRemotePassword"] = types.YLeaf{"Ciscoflashcopyremotepassword", ciscoflashcopyentry.Ciscoflashcopyremotepassword}
+    return &(ciscoflashcopyentry.EntityData)
 }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetSegmentPath() string {
-    return "ciscoFlashCopyEntry" + "[ciscoFlashCopySerialNumber='" + fmt.Sprintf("%v", ciscoflashcopyentry.Ciscoflashcopyserialnumber) + "']"
-}
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashCopySerialNumber"] = ciscoflashcopyentry.Ciscoflashcopyserialnumber
-    leafs["ciscoFlashCopyCommand"] = ciscoflashcopyentry.Ciscoflashcopycommand
-    leafs["ciscoFlashCopyProtocol"] = ciscoflashcopyentry.Ciscoflashcopyprotocol
-    leafs["ciscoFlashCopyServerAddress"] = ciscoflashcopyentry.Ciscoflashcopyserveraddress
-    leafs["ciscoFlashCopySourceName"] = ciscoflashcopyentry.Ciscoflashcopysourcename
-    leafs["ciscoFlashCopyDestinationName"] = ciscoflashcopyentry.Ciscoflashcopydestinationname
-    leafs["ciscoFlashCopyRemoteUserName"] = ciscoflashcopyentry.Ciscoflashcopyremoteusername
-    leafs["ciscoFlashCopyStatus"] = ciscoflashcopyentry.Ciscoflashcopystatus
-    leafs["ciscoFlashCopyNotifyOnCompletion"] = ciscoflashcopyentry.Ciscoflashcopynotifyoncompletion
-    leafs["ciscoFlashCopyTime"] = ciscoflashcopyentry.Ciscoflashcopytime
-    leafs["ciscoFlashCopyEntryStatus"] = ciscoflashcopyentry.Ciscoflashcopyentrystatus
-    leafs["ciscoFlashCopyVerify"] = ciscoflashcopyentry.Ciscoflashcopyverify
-    leafs["ciscoFlashCopyServerAddrType"] = ciscoflashcopyentry.Ciscoflashcopyserveraddrtype
-    leafs["ciscoFlashCopyServerAddrRev1"] = ciscoflashcopyentry.Ciscoflashcopyserveraddrrev1
-    leafs["ciscoFlashCopyRemotePassword"] = ciscoflashcopyentry.Ciscoflashcopyremotepassword
-    return leafs
-}
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetYangName() string { return "ciscoFlashCopyEntry" }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) SetParent(parent types.Entity) { ciscoflashcopyentry.parent = parent }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetParent() types.Entity { return ciscoflashcopyentry.parent }
-
-func (ciscoflashcopyentry *CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry) GetParentYangName() string { return "ciscoFlashCopyTable" }
 
 // CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry_Ciscoflashcopycommand represents                         CopyNotifyOnCompletion (opt)
 type CISCOFLASHMIB_Ciscoflashcopytable_Ciscoflashcopyentry_Ciscoflashcopycommand string
@@ -2161,7 +1548,7 @@ const (
 // entry represents a Flash partitioning operation that
 // has been initiated.
 type CISCOFLASHMIB_Ciscoflashpartitioningtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Flash partitioning operation entry. Each entry consists of the command,
@@ -2187,63 +1574,24 @@ type CISCOFLASHMIB_Ciscoflashpartitioningtable struct {
     Ciscoflashpartitioningentry []CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry
 }
 
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetFilter() yfilter.YFilter { return ciscoflashpartitioningtable.YFilter }
+func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetEntityData() *types.CommonEntityData {
+    ciscoflashpartitioningtable.EntityData.YFilter = ciscoflashpartitioningtable.YFilter
+    ciscoflashpartitioningtable.EntityData.YangName = "ciscoFlashPartitioningTable"
+    ciscoflashpartitioningtable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashpartitioningtable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashpartitioningtable.EntityData.SegmentPath = "ciscoFlashPartitioningTable"
+    ciscoflashpartitioningtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashpartitioningtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashpartitioningtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) SetFilter(yf yfilter.YFilter) { ciscoflashpartitioningtable.YFilter = yf }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetGoName(yname string) string {
-    if yname == "ciscoFlashPartitioningEntry" { return "Ciscoflashpartitioningentry" }
-    return ""
-}
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetSegmentPath() string {
-    return "ciscoFlashPartitioningTable"
-}
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashPartitioningEntry" {
-        for _, c := range ciscoflashpartitioningtable.Ciscoflashpartitioningentry {
-            if ciscoflashpartitioningtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry{}
-        ciscoflashpartitioningtable.Ciscoflashpartitioningentry = append(ciscoflashpartitioningtable.Ciscoflashpartitioningentry, child)
-        return &ciscoflashpartitioningtable.Ciscoflashpartitioningentry[len(ciscoflashpartitioningtable.Ciscoflashpartitioningentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashpartitioningtable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashpartitioningtable.EntityData.Children["ciscoFlashPartitioningEntry"] = types.YChild{"Ciscoflashpartitioningentry", nil}
     for i := range ciscoflashpartitioningtable.Ciscoflashpartitioningentry {
-        children[ciscoflashpartitioningtable.Ciscoflashpartitioningentry[i].GetSegmentPath()] = &ciscoflashpartitioningtable.Ciscoflashpartitioningentry[i]
+        ciscoflashpartitioningtable.EntityData.Children[types.GetSegmentPath(&ciscoflashpartitioningtable.Ciscoflashpartitioningentry[i])] = types.YChild{"Ciscoflashpartitioningentry", &ciscoflashpartitioningtable.Ciscoflashpartitioningentry[i]}
     }
-    return children
+    ciscoflashpartitioningtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashpartitioningtable.EntityData)
 }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetYangName() string { return "ciscoFlashPartitioningTable" }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) SetParent(parent types.Entity) { ciscoflashpartitioningtable.parent = parent }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetParent() types.Entity { return ciscoflashpartitioningtable.parent }
-
-func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry
 // A Flash partitioning operation entry. Each entry
@@ -2278,7 +1626,7 @@ func (ciscoflashpartitioningtable *CISCOFLASHMIB_Ciscoflashpartitioningtable) Ge
 // but an entry will never be deleted within 5 minutes of
 // completing.
 type CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object which specifies a unique entry in the
@@ -2362,67 +1710,29 @@ type CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry struc
     Ciscoflashpartitioningentrystatus interface{}
 }
 
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetFilter() yfilter.YFilter { return ciscoflashpartitioningentry.YFilter }
+func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashpartitioningentry.EntityData.YFilter = ciscoflashpartitioningentry.YFilter
+    ciscoflashpartitioningentry.EntityData.YangName = "ciscoFlashPartitioningEntry"
+    ciscoflashpartitioningentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashpartitioningentry.EntityData.ParentYangName = "ciscoFlashPartitioningTable"
+    ciscoflashpartitioningentry.EntityData.SegmentPath = "ciscoFlashPartitioningEntry" + "[ciscoFlashPartitioningSerialNumber='" + fmt.Sprintf("%v", ciscoflashpartitioningentry.Ciscoflashpartitioningserialnumber) + "']"
+    ciscoflashpartitioningentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashpartitioningentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashpartitioningentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) SetFilter(yf yfilter.YFilter) { ciscoflashpartitioningentry.YFilter = yf }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashPartitioningSerialNumber" { return "Ciscoflashpartitioningserialnumber" }
-    if yname == "ciscoFlashPartitioningCommand" { return "Ciscoflashpartitioningcommand" }
-    if yname == "ciscoFlashPartitioningDestinationName" { return "Ciscoflashpartitioningdestinationname" }
-    if yname == "ciscoFlashPartitioningPartitionCount" { return "Ciscoflashpartitioningpartitioncount" }
-    if yname == "ciscoFlashPartitioningPartitionSizes" { return "Ciscoflashpartitioningpartitionsizes" }
-    if yname == "ciscoFlashPartitioningStatus" { return "Ciscoflashpartitioningstatus" }
-    if yname == "ciscoFlashPartitioningNotifyOnCompletion" { return "Ciscoflashpartitioningnotifyoncompletion" }
-    if yname == "ciscoFlashPartitioningTime" { return "Ciscoflashpartitioningtime" }
-    if yname == "ciscoFlashPartitioningEntryStatus" { return "Ciscoflashpartitioningentrystatus" }
-    return ""
+    ciscoflashpartitioningentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashpartitioningentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningSerialNumber"] = types.YLeaf{"Ciscoflashpartitioningserialnumber", ciscoflashpartitioningentry.Ciscoflashpartitioningserialnumber}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningCommand"] = types.YLeaf{"Ciscoflashpartitioningcommand", ciscoflashpartitioningentry.Ciscoflashpartitioningcommand}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningDestinationName"] = types.YLeaf{"Ciscoflashpartitioningdestinationname", ciscoflashpartitioningentry.Ciscoflashpartitioningdestinationname}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningPartitionCount"] = types.YLeaf{"Ciscoflashpartitioningpartitioncount", ciscoflashpartitioningentry.Ciscoflashpartitioningpartitioncount}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningPartitionSizes"] = types.YLeaf{"Ciscoflashpartitioningpartitionsizes", ciscoflashpartitioningentry.Ciscoflashpartitioningpartitionsizes}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningStatus"] = types.YLeaf{"Ciscoflashpartitioningstatus", ciscoflashpartitioningentry.Ciscoflashpartitioningstatus}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningNotifyOnCompletion"] = types.YLeaf{"Ciscoflashpartitioningnotifyoncompletion", ciscoflashpartitioningentry.Ciscoflashpartitioningnotifyoncompletion}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningTime"] = types.YLeaf{"Ciscoflashpartitioningtime", ciscoflashpartitioningentry.Ciscoflashpartitioningtime}
+    ciscoflashpartitioningentry.EntityData.Leafs["ciscoFlashPartitioningEntryStatus"] = types.YLeaf{"Ciscoflashpartitioningentrystatus", ciscoflashpartitioningentry.Ciscoflashpartitioningentrystatus}
+    return &(ciscoflashpartitioningentry.EntityData)
 }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetSegmentPath() string {
-    return "ciscoFlashPartitioningEntry" + "[ciscoFlashPartitioningSerialNumber='" + fmt.Sprintf("%v", ciscoflashpartitioningentry.Ciscoflashpartitioningserialnumber) + "']"
-}
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashPartitioningSerialNumber"] = ciscoflashpartitioningentry.Ciscoflashpartitioningserialnumber
-    leafs["ciscoFlashPartitioningCommand"] = ciscoflashpartitioningentry.Ciscoflashpartitioningcommand
-    leafs["ciscoFlashPartitioningDestinationName"] = ciscoflashpartitioningentry.Ciscoflashpartitioningdestinationname
-    leafs["ciscoFlashPartitioningPartitionCount"] = ciscoflashpartitioningentry.Ciscoflashpartitioningpartitioncount
-    leafs["ciscoFlashPartitioningPartitionSizes"] = ciscoflashpartitioningentry.Ciscoflashpartitioningpartitionsizes
-    leafs["ciscoFlashPartitioningStatus"] = ciscoflashpartitioningentry.Ciscoflashpartitioningstatus
-    leafs["ciscoFlashPartitioningNotifyOnCompletion"] = ciscoflashpartitioningentry.Ciscoflashpartitioningnotifyoncompletion
-    leafs["ciscoFlashPartitioningTime"] = ciscoflashpartitioningentry.Ciscoflashpartitioningtime
-    leafs["ciscoFlashPartitioningEntryStatus"] = ciscoflashpartitioningentry.Ciscoflashpartitioningentrystatus
-    return leafs
-}
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetYangName() string { return "ciscoFlashPartitioningEntry" }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) SetParent(parent types.Entity) { ciscoflashpartitioningentry.parent = parent }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetParent() types.Entity { return ciscoflashpartitioningentry.parent }
-
-func (ciscoflashpartitioningentry *CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry) GetParentYangName() string { return "ciscoFlashPartitioningTable" }
 
 // CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry_Ciscoflashpartitioningcommand represents                         PartitioningNotifyOnCompletion (opt)
 type CISCOFLASHMIB_Ciscoflashpartitioningtable_Ciscoflashpartitioningentry_Ciscoflashpartitioningcommand string
@@ -2463,7 +1773,7 @@ const (
 // entry represents a Flash operation that
 // has been initiated.
 type CISCOFLASHMIB_Ciscoflashmiscoptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Flash operation entry. Each entry consists of a command, a target, and
@@ -2489,63 +1799,24 @@ type CISCOFLASHMIB_Ciscoflashmiscoptable struct {
     Ciscoflashmiscopentry []CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry
 }
 
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetFilter() yfilter.YFilter { return ciscoflashmiscoptable.YFilter }
+func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetEntityData() *types.CommonEntityData {
+    ciscoflashmiscoptable.EntityData.YFilter = ciscoflashmiscoptable.YFilter
+    ciscoflashmiscoptable.EntityData.YangName = "ciscoFlashMiscOpTable"
+    ciscoflashmiscoptable.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashmiscoptable.EntityData.ParentYangName = "CISCO-FLASH-MIB"
+    ciscoflashmiscoptable.EntityData.SegmentPath = "ciscoFlashMiscOpTable"
+    ciscoflashmiscoptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashmiscoptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashmiscoptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) SetFilter(yf yfilter.YFilter) { ciscoflashmiscoptable.YFilter = yf }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetGoName(yname string) string {
-    if yname == "ciscoFlashMiscOpEntry" { return "Ciscoflashmiscopentry" }
-    return ""
-}
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetSegmentPath() string {
-    return "ciscoFlashMiscOpTable"
-}
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoFlashMiscOpEntry" {
-        for _, c := range ciscoflashmiscoptable.Ciscoflashmiscopentry {
-            if ciscoflashmiscoptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry{}
-        ciscoflashmiscoptable.Ciscoflashmiscopentry = append(ciscoflashmiscoptable.Ciscoflashmiscopentry, child)
-        return &ciscoflashmiscoptable.Ciscoflashmiscopentry[len(ciscoflashmiscoptable.Ciscoflashmiscopentry)-1]
-    }
-    return nil
-}
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscoflashmiscoptable.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashmiscoptable.EntityData.Children["ciscoFlashMiscOpEntry"] = types.YChild{"Ciscoflashmiscopentry", nil}
     for i := range ciscoflashmiscoptable.Ciscoflashmiscopentry {
-        children[ciscoflashmiscoptable.Ciscoflashmiscopentry[i].GetSegmentPath()] = &ciscoflashmiscoptable.Ciscoflashmiscopentry[i]
+        ciscoflashmiscoptable.EntityData.Children[types.GetSegmentPath(&ciscoflashmiscoptable.Ciscoflashmiscopentry[i])] = types.YChild{"Ciscoflashmiscopentry", &ciscoflashmiscoptable.Ciscoflashmiscopentry[i]}
     }
-    return children
+    ciscoflashmiscoptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoflashmiscoptable.EntityData)
 }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetYangName() string { return "ciscoFlashMiscOpTable" }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) SetParent(parent types.Entity) { ciscoflashmiscoptable.parent = parent }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetParent() types.Entity { return ciscoflashmiscoptable.parent }
-
-func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetParentYangName() string { return "CISCO-FLASH-MIB" }
 
 // CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry
 // A Flash operation entry. Each entry consists of a
@@ -2579,7 +1850,7 @@ func (ciscoflashmiscoptable *CISCOFLASHMIB_Ciscoflashmiscoptable) GetParentYangN
 // but an entry will never be deleted within 5 minutes of
 // completing.
 type CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object which specifies a unique entry in the
@@ -2667,63 +1938,27 @@ type CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry struct {
     Ciscoflashmiscopentrystatus interface{}
 }
 
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetFilter() yfilter.YFilter { return ciscoflashmiscopentry.YFilter }
+func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetEntityData() *types.CommonEntityData {
+    ciscoflashmiscopentry.EntityData.YFilter = ciscoflashmiscopentry.YFilter
+    ciscoflashmiscopentry.EntityData.YangName = "ciscoFlashMiscOpEntry"
+    ciscoflashmiscopentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscoflashmiscopentry.EntityData.ParentYangName = "ciscoFlashMiscOpTable"
+    ciscoflashmiscopentry.EntityData.SegmentPath = "ciscoFlashMiscOpEntry" + "[ciscoFlashMiscOpSerialNumber='" + fmt.Sprintf("%v", ciscoflashmiscopentry.Ciscoflashmiscopserialnumber) + "']"
+    ciscoflashmiscopentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoflashmiscopentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoflashmiscopentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) SetFilter(yf yfilter.YFilter) { ciscoflashmiscopentry.YFilter = yf }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetGoName(yname string) string {
-    if yname == "ciscoFlashMiscOpSerialNumber" { return "Ciscoflashmiscopserialnumber" }
-    if yname == "ciscoFlashMiscOpCommand" { return "Ciscoflashmiscopcommand" }
-    if yname == "ciscoFlashMiscOpDestinationName" { return "Ciscoflashmiscopdestinationname" }
-    if yname == "ciscoFlashMiscOpStatus" { return "Ciscoflashmiscopstatus" }
-    if yname == "ciscoFlashMiscOpNotifyOnCompletion" { return "Ciscoflashmiscopnotifyoncompletion" }
-    if yname == "ciscoFlashMiscOpTime" { return "Ciscoflashmiscoptime" }
-    if yname == "ciscoFlashMiscOpEntryStatus" { return "Ciscoflashmiscopentrystatus" }
-    return ""
+    ciscoflashmiscopentry.EntityData.Children = make(map[string]types.YChild)
+    ciscoflashmiscopentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpSerialNumber"] = types.YLeaf{"Ciscoflashmiscopserialnumber", ciscoflashmiscopentry.Ciscoflashmiscopserialnumber}
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpCommand"] = types.YLeaf{"Ciscoflashmiscopcommand", ciscoflashmiscopentry.Ciscoflashmiscopcommand}
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpDestinationName"] = types.YLeaf{"Ciscoflashmiscopdestinationname", ciscoflashmiscopentry.Ciscoflashmiscopdestinationname}
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpStatus"] = types.YLeaf{"Ciscoflashmiscopstatus", ciscoflashmiscopentry.Ciscoflashmiscopstatus}
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpNotifyOnCompletion"] = types.YLeaf{"Ciscoflashmiscopnotifyoncompletion", ciscoflashmiscopentry.Ciscoflashmiscopnotifyoncompletion}
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpTime"] = types.YLeaf{"Ciscoflashmiscoptime", ciscoflashmiscopentry.Ciscoflashmiscoptime}
+    ciscoflashmiscopentry.EntityData.Leafs["ciscoFlashMiscOpEntryStatus"] = types.YLeaf{"Ciscoflashmiscopentrystatus", ciscoflashmiscopentry.Ciscoflashmiscopentrystatus}
+    return &(ciscoflashmiscopentry.EntityData)
 }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetSegmentPath() string {
-    return "ciscoFlashMiscOpEntry" + "[ciscoFlashMiscOpSerialNumber='" + fmt.Sprintf("%v", ciscoflashmiscopentry.Ciscoflashmiscopserialnumber) + "']"
-}
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoFlashMiscOpSerialNumber"] = ciscoflashmiscopentry.Ciscoflashmiscopserialnumber
-    leafs["ciscoFlashMiscOpCommand"] = ciscoflashmiscopentry.Ciscoflashmiscopcommand
-    leafs["ciscoFlashMiscOpDestinationName"] = ciscoflashmiscopentry.Ciscoflashmiscopdestinationname
-    leafs["ciscoFlashMiscOpStatus"] = ciscoflashmiscopentry.Ciscoflashmiscopstatus
-    leafs["ciscoFlashMiscOpNotifyOnCompletion"] = ciscoflashmiscopentry.Ciscoflashmiscopnotifyoncompletion
-    leafs["ciscoFlashMiscOpTime"] = ciscoflashmiscopentry.Ciscoflashmiscoptime
-    leafs["ciscoFlashMiscOpEntryStatus"] = ciscoflashmiscopentry.Ciscoflashmiscopentrystatus
-    return leafs
-}
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetYangName() string { return "ciscoFlashMiscOpEntry" }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) SetParent(parent types.Entity) { ciscoflashmiscopentry.parent = parent }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetParent() types.Entity { return ciscoflashmiscopentry.parent }
-
-func (ciscoflashmiscopentry *CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry) GetParentYangName() string { return "ciscoFlashMiscOpTable" }
 
 // CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry_Ciscoflashmiscopcommand represents                 MiscOpNotifyOnCompletion (opt)
 type CISCOFLASHMIB_Ciscoflashmiscoptable_Ciscoflashmiscopentry_Ciscoflashmiscopcommand string

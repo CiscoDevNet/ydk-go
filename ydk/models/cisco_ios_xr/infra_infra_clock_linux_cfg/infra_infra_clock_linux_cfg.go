@@ -27,67 +27,34 @@ func init() {
 // Clock
 // Configure time-of-day clock
 type Clock struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure time zone.
     TimeZone Clock_TimeZone
 }
 
-func (clock *Clock) GetFilter() yfilter.YFilter { return clock.YFilter }
+func (clock *Clock) GetEntityData() *types.CommonEntityData {
+    clock.EntityData.YFilter = clock.YFilter
+    clock.EntityData.YangName = "clock"
+    clock.EntityData.BundleName = "cisco_ios_xr"
+    clock.EntityData.ParentYangName = "Cisco-IOS-XR-infra-infra-clock-linux-cfg"
+    clock.EntityData.SegmentPath = "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock"
+    clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clock *Clock) SetFilter(yf yfilter.YFilter) { clock.YFilter = yf }
-
-func (clock *Clock) GetGoName(yname string) string {
-    if yname == "time-zone" { return "TimeZone" }
-    return ""
+    clock.EntityData.Children = make(map[string]types.YChild)
+    clock.EntityData.Children["time-zone"] = types.YChild{"TimeZone", &clock.TimeZone}
+    clock.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clock.EntityData)
 }
-
-func (clock *Clock) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock"
-}
-
-func (clock *Clock) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "time-zone" {
-        return &clock.TimeZone
-    }
-    return nil
-}
-
-func (clock *Clock) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["time-zone"] = &clock.TimeZone
-    return children
-}
-
-func (clock *Clock) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clock *Clock) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clock *Clock) GetYangName() string { return "clock" }
-
-func (clock *Clock) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clock *Clock) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clock *Clock) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clock *Clock) SetParent(parent types.Entity) { clock.parent = parent }
-
-func (clock *Clock) GetParent() types.Entity { return clock.parent }
-
-func (clock *Clock) GetParentYangName() string { return "Cisco-IOS-XR-infra-infra-clock-linux-cfg" }
 
 // Clock_TimeZone
 // Configure time zone
 // This type is a presence type.
 type Clock_TimeZone struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of time zone. The type is string. This attribute is mandatory.
@@ -98,51 +65,20 @@ type Clock_TimeZone struct {
     AreaName interface{}
 }
 
-func (timeZone *Clock_TimeZone) GetFilter() yfilter.YFilter { return timeZone.YFilter }
+func (timeZone *Clock_TimeZone) GetEntityData() *types.CommonEntityData {
+    timeZone.EntityData.YFilter = timeZone.YFilter
+    timeZone.EntityData.YangName = "time-zone"
+    timeZone.EntityData.BundleName = "cisco_ios_xr"
+    timeZone.EntityData.ParentYangName = "clock"
+    timeZone.EntityData.SegmentPath = "time-zone"
+    timeZone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timeZone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timeZone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timeZone *Clock_TimeZone) SetFilter(yf yfilter.YFilter) { timeZone.YFilter = yf }
-
-func (timeZone *Clock_TimeZone) GetGoName(yname string) string {
-    if yname == "time-zone-name" { return "TimeZoneName" }
-    if yname == "area-name" { return "AreaName" }
-    return ""
+    timeZone.EntityData.Children = make(map[string]types.YChild)
+    timeZone.EntityData.Leafs = make(map[string]types.YLeaf)
+    timeZone.EntityData.Leafs["time-zone-name"] = types.YLeaf{"TimeZoneName", timeZone.TimeZoneName}
+    timeZone.EntityData.Leafs["area-name"] = types.YLeaf{"AreaName", timeZone.AreaName}
+    return &(timeZone.EntityData)
 }
-
-func (timeZone *Clock_TimeZone) GetSegmentPath() string {
-    return "time-zone"
-}
-
-func (timeZone *Clock_TimeZone) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timeZone *Clock_TimeZone) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timeZone *Clock_TimeZone) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-zone-name"] = timeZone.TimeZoneName
-    leafs["area-name"] = timeZone.AreaName
-    return leafs
-}
-
-func (timeZone *Clock_TimeZone) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timeZone *Clock_TimeZone) GetYangName() string { return "time-zone" }
-
-func (timeZone *Clock_TimeZone) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timeZone *Clock_TimeZone) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timeZone *Clock_TimeZone) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timeZone *Clock_TimeZone) SetParent(parent types.Entity) { timeZone.parent = parent }
-
-func (timeZone *Clock_TimeZone) GetParent() types.Entity { return timeZone.parent }
-
-func (timeZone *Clock_TimeZone) GetParentYangName() string { return "clock" }
 

@@ -38,134 +38,62 @@ const (
 // EsAcl
 // Layer 2 ACL configuration data
 type EsAcl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of access lists.
     Accesses EsAcl_Accesses
 }
 
-func (esAcl *EsAcl) GetFilter() yfilter.YFilter { return esAcl.YFilter }
+func (esAcl *EsAcl) GetEntityData() *types.CommonEntityData {
+    esAcl.EntityData.YFilter = esAcl.YFilter
+    esAcl.EntityData.YangName = "es-acl"
+    esAcl.EntityData.BundleName = "cisco_ios_xr"
+    esAcl.EntityData.ParentYangName = "Cisco-IOS-XR-es-acl-cfg"
+    esAcl.EntityData.SegmentPath = "Cisco-IOS-XR-es-acl-cfg:es-acl"
+    esAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    esAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    esAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (esAcl *EsAcl) SetFilter(yf yfilter.YFilter) { esAcl.YFilter = yf }
-
-func (esAcl *EsAcl) GetGoName(yname string) string {
-    if yname == "accesses" { return "Accesses" }
-    return ""
+    esAcl.EntityData.Children = make(map[string]types.YChild)
+    esAcl.EntityData.Children["accesses"] = types.YChild{"Accesses", &esAcl.Accesses}
+    esAcl.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(esAcl.EntityData)
 }
-
-func (esAcl *EsAcl) GetSegmentPath() string {
-    return "Cisco-IOS-XR-es-acl-cfg:es-acl"
-}
-
-func (esAcl *EsAcl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accesses" {
-        return &esAcl.Accesses
-    }
-    return nil
-}
-
-func (esAcl *EsAcl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accesses"] = &esAcl.Accesses
-    return children
-}
-
-func (esAcl *EsAcl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (esAcl *EsAcl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (esAcl *EsAcl) GetYangName() string { return "es-acl" }
-
-func (esAcl *EsAcl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (esAcl *EsAcl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (esAcl *EsAcl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (esAcl *EsAcl) SetParent(parent types.Entity) { esAcl.parent = parent }
-
-func (esAcl *EsAcl) GetParent() types.Entity { return esAcl.parent }
-
-func (esAcl *EsAcl) GetParentYangName() string { return "Cisco-IOS-XR-es-acl-cfg" }
 
 // EsAcl_Accesses
 // Table of access lists
 type EsAcl_Accesses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An ACL. The type is slice of EsAcl_Accesses_Access.
     Access []EsAcl_Accesses_Access
 }
 
-func (accesses *EsAcl_Accesses) GetFilter() yfilter.YFilter { return accesses.YFilter }
+func (accesses *EsAcl_Accesses) GetEntityData() *types.CommonEntityData {
+    accesses.EntityData.YFilter = accesses.YFilter
+    accesses.EntityData.YangName = "accesses"
+    accesses.EntityData.BundleName = "cisco_ios_xr"
+    accesses.EntityData.ParentYangName = "es-acl"
+    accesses.EntityData.SegmentPath = "accesses"
+    accesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accesses *EsAcl_Accesses) SetFilter(yf yfilter.YFilter) { accesses.YFilter = yf }
-
-func (accesses *EsAcl_Accesses) GetGoName(yname string) string {
-    if yname == "access" { return "Access" }
-    return ""
-}
-
-func (accesses *EsAcl_Accesses) GetSegmentPath() string {
-    return "accesses"
-}
-
-func (accesses *EsAcl_Accesses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access" {
-        for _, c := range accesses.Access {
-            if accesses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EsAcl_Accesses_Access{}
-        accesses.Access = append(accesses.Access, child)
-        return &accesses.Access[len(accesses.Access)-1]
-    }
-    return nil
-}
-
-func (accesses *EsAcl_Accesses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accesses.EntityData.Children = make(map[string]types.YChild)
+    accesses.EntityData.Children["access"] = types.YChild{"Access", nil}
     for i := range accesses.Access {
-        children[accesses.Access[i].GetSegmentPath()] = &accesses.Access[i]
+        accesses.EntityData.Children[types.GetSegmentPath(&accesses.Access[i])] = types.YChild{"Access", &accesses.Access[i]}
     }
-    return children
+    accesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accesses.EntityData)
 }
-
-func (accesses *EsAcl_Accesses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accesses *EsAcl_Accesses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accesses *EsAcl_Accesses) GetYangName() string { return "accesses" }
-
-func (accesses *EsAcl_Accesses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accesses *EsAcl_Accesses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accesses *EsAcl_Accesses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accesses *EsAcl_Accesses) SetParent(parent types.Entity) { accesses.parent = parent }
-
-func (accesses *EsAcl_Accesses) GetParent() types.Entity { return accesses.parent }
-
-func (accesses *EsAcl_Accesses) GetParentYangName() string { return "es-acl" }
 
 // EsAcl_Accesses_Access
 // An ACL
 type EsAcl_Accesses_Access struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the access list. The type is string with
@@ -176,62 +104,28 @@ type EsAcl_Accesses_Access struct {
     AccessListEntries EsAcl_Accesses_Access_AccessListEntries
 }
 
-func (access *EsAcl_Accesses_Access) GetFilter() yfilter.YFilter { return access.YFilter }
+func (access *EsAcl_Accesses_Access) GetEntityData() *types.CommonEntityData {
+    access.EntityData.YFilter = access.YFilter
+    access.EntityData.YangName = "access"
+    access.EntityData.BundleName = "cisco_ios_xr"
+    access.EntityData.ParentYangName = "accesses"
+    access.EntityData.SegmentPath = "access" + "[name='" + fmt.Sprintf("%v", access.Name) + "']"
+    access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (access *EsAcl_Accesses_Access) SetFilter(yf yfilter.YFilter) { access.YFilter = yf }
-
-func (access *EsAcl_Accesses_Access) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "access-list-entries" { return "AccessListEntries" }
-    return ""
+    access.EntityData.Children = make(map[string]types.YChild)
+    access.EntityData.Children["access-list-entries"] = types.YChild{"AccessListEntries", &access.AccessListEntries}
+    access.EntityData.Leafs = make(map[string]types.YLeaf)
+    access.EntityData.Leafs["name"] = types.YLeaf{"Name", access.Name}
+    return &(access.EntityData)
 }
-
-func (access *EsAcl_Accesses_Access) GetSegmentPath() string {
-    return "access" + "[name='" + fmt.Sprintf("%v", access.Name) + "']"
-}
-
-func (access *EsAcl_Accesses_Access) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-list-entries" {
-        return &access.AccessListEntries
-    }
-    return nil
-}
-
-func (access *EsAcl_Accesses_Access) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["access-list-entries"] = &access.AccessListEntries
-    return children
-}
-
-func (access *EsAcl_Accesses_Access) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = access.Name
-    return leafs
-}
-
-func (access *EsAcl_Accesses_Access) GetBundleName() string { return "cisco_ios_xr" }
-
-func (access *EsAcl_Accesses_Access) GetYangName() string { return "access" }
-
-func (access *EsAcl_Accesses_Access) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (access *EsAcl_Accesses_Access) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (access *EsAcl_Accesses_Access) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (access *EsAcl_Accesses_Access) SetParent(parent types.Entity) { access.parent = parent }
-
-func (access *EsAcl_Accesses_Access) GetParent() types.Entity { return access.parent }
-
-func (access *EsAcl_Accesses_Access) GetParentYangName() string { return "accesses" }
 
 // EsAcl_Accesses_Access_AccessListEntries
 // ACL entry table; contains list of access list
 // entries
 type EsAcl_Accesses_Access_AccessListEntries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An ACL entry; either a description (remark) or anAccess List Entry to match
@@ -240,69 +134,30 @@ type EsAcl_Accesses_Access_AccessListEntries struct {
     AccessListEntry []EsAcl_Accesses_Access_AccessListEntries_AccessListEntry
 }
 
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetFilter() yfilter.YFilter { return accessListEntries.YFilter }
+func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetEntityData() *types.CommonEntityData {
+    accessListEntries.EntityData.YFilter = accessListEntries.YFilter
+    accessListEntries.EntityData.YangName = "access-list-entries"
+    accessListEntries.EntityData.BundleName = "cisco_ios_xr"
+    accessListEntries.EntityData.ParentYangName = "access"
+    accessListEntries.EntityData.SegmentPath = "access-list-entries"
+    accessListEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) SetFilter(yf yfilter.YFilter) { accessListEntries.YFilter = yf }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetGoName(yname string) string {
-    if yname == "access-list-entry" { return "AccessListEntry" }
-    return ""
-}
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetSegmentPath() string {
-    return "access-list-entries"
-}
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-list-entry" {
-        for _, c := range accessListEntries.AccessListEntry {
-            if accessListEntries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EsAcl_Accesses_Access_AccessListEntries_AccessListEntry{}
-        accessListEntries.AccessListEntry = append(accessListEntries.AccessListEntry, child)
-        return &accessListEntries.AccessListEntry[len(accessListEntries.AccessListEntry)-1]
-    }
-    return nil
-}
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessListEntries.EntityData.Children = make(map[string]types.YChild)
+    accessListEntries.EntityData.Children["access-list-entry"] = types.YChild{"AccessListEntry", nil}
     for i := range accessListEntries.AccessListEntry {
-        children[accessListEntries.AccessListEntry[i].GetSegmentPath()] = &accessListEntries.AccessListEntry[i]
+        accessListEntries.EntityData.Children[types.GetSegmentPath(&accessListEntries.AccessListEntry[i])] = types.YChild{"AccessListEntry", &accessListEntries.AccessListEntry[i]}
     }
-    return children
+    accessListEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accessListEntries.EntityData)
 }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetYangName() string { return "access-list-entries" }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) SetParent(parent types.Entity) { accessListEntries.parent = parent }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetParent() types.Entity { return accessListEntries.parent }
-
-func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetParentYangName() string { return "access" }
 
 // EsAcl_Accesses_Access_AccessListEntries_AccessListEntry
 // An ACL entry; either a description (remark)
 // or anAccess List Entry to match against
 type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Sequence number of access list entry. The type is
@@ -362,216 +217,102 @@ type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     DestinationNetwork EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork
 }
 
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetFilter() yfilter.YFilter { return accessListEntry.YFilter }
+func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetEntityData() *types.CommonEntityData {
+    accessListEntry.EntityData.YFilter = accessListEntry.YFilter
+    accessListEntry.EntityData.YangName = "access-list-entry"
+    accessListEntry.EntityData.BundleName = "cisco_ios_xr"
+    accessListEntry.EntityData.ParentYangName = "access-list-entries"
+    accessListEntry.EntityData.SegmentPath = "access-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", accessListEntry.SequenceNumber) + "']"
+    accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) SetFilter(yf yfilter.YFilter) { accessListEntry.YFilter = yf }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetGoName(yname string) string {
-    if yname == "sequence-number" { return "SequenceNumber" }
-    if yname == "grant" { return "Grant" }
-    if yname == "vlan1" { return "Vlan1" }
-    if yname == "vlan2" { return "Vlan2" }
-    if yname == "cos" { return "Cos" }
-    if yname == "dei" { return "Dei" }
-    if yname == "inner-vlan1" { return "InnerVlan1" }
-    if yname == "inner-vlan2" { return "InnerVlan2" }
-    if yname == "inner-cos" { return "InnerCos" }
-    if yname == "inner-dei" { return "InnerDei" }
-    if yname == "remark" { return "Remark" }
-    if yname == "ether-type-number" { return "EtherTypeNumber" }
-    if yname == "capture" { return "Capture" }
-    if yname == "log-option" { return "LogOption" }
-    if yname == "sequence-str" { return "SequenceStr" }
-    if yname == "source-network" { return "SourceNetwork" }
-    if yname == "destination-network" { return "DestinationNetwork" }
-    return ""
+    accessListEntry.EntityData.Children = make(map[string]types.YChild)
+    accessListEntry.EntityData.Children["source-network"] = types.YChild{"SourceNetwork", &accessListEntry.SourceNetwork}
+    accessListEntry.EntityData.Children["destination-network"] = types.YChild{"DestinationNetwork", &accessListEntry.DestinationNetwork}
+    accessListEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessListEntry.EntityData.Leafs["sequence-number"] = types.YLeaf{"SequenceNumber", accessListEntry.SequenceNumber}
+    accessListEntry.EntityData.Leafs["grant"] = types.YLeaf{"Grant", accessListEntry.Grant}
+    accessListEntry.EntityData.Leafs["vlan1"] = types.YLeaf{"Vlan1", accessListEntry.Vlan1}
+    accessListEntry.EntityData.Leafs["vlan2"] = types.YLeaf{"Vlan2", accessListEntry.Vlan2}
+    accessListEntry.EntityData.Leafs["cos"] = types.YLeaf{"Cos", accessListEntry.Cos}
+    accessListEntry.EntityData.Leafs["dei"] = types.YLeaf{"Dei", accessListEntry.Dei}
+    accessListEntry.EntityData.Leafs["inner-vlan1"] = types.YLeaf{"InnerVlan1", accessListEntry.InnerVlan1}
+    accessListEntry.EntityData.Leafs["inner-vlan2"] = types.YLeaf{"InnerVlan2", accessListEntry.InnerVlan2}
+    accessListEntry.EntityData.Leafs["inner-cos"] = types.YLeaf{"InnerCos", accessListEntry.InnerCos}
+    accessListEntry.EntityData.Leafs["inner-dei"] = types.YLeaf{"InnerDei", accessListEntry.InnerDei}
+    accessListEntry.EntityData.Leafs["remark"] = types.YLeaf{"Remark", accessListEntry.Remark}
+    accessListEntry.EntityData.Leafs["ether-type-number"] = types.YLeaf{"EtherTypeNumber", accessListEntry.EtherTypeNumber}
+    accessListEntry.EntityData.Leafs["capture"] = types.YLeaf{"Capture", accessListEntry.Capture}
+    accessListEntry.EntityData.Leafs["log-option"] = types.YLeaf{"LogOption", accessListEntry.LogOption}
+    accessListEntry.EntityData.Leafs["sequence-str"] = types.YLeaf{"SequenceStr", accessListEntry.SequenceStr}
+    return &(accessListEntry.EntityData)
 }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetSegmentPath() string {
-    return "access-list-entry" + "[sequence-number='" + fmt.Sprintf("%v", accessListEntry.SequenceNumber) + "']"
-}
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "source-network" {
-        return &accessListEntry.SourceNetwork
-    }
-    if childYangName == "destination-network" {
-        return &accessListEntry.DestinationNetwork
-    }
-    return nil
-}
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["source-network"] = &accessListEntry.SourceNetwork
-    children["destination-network"] = &accessListEntry.DestinationNetwork
-    return children
-}
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sequence-number"] = accessListEntry.SequenceNumber
-    leafs["grant"] = accessListEntry.Grant
-    leafs["vlan1"] = accessListEntry.Vlan1
-    leafs["vlan2"] = accessListEntry.Vlan2
-    leafs["cos"] = accessListEntry.Cos
-    leafs["dei"] = accessListEntry.Dei
-    leafs["inner-vlan1"] = accessListEntry.InnerVlan1
-    leafs["inner-vlan2"] = accessListEntry.InnerVlan2
-    leafs["inner-cos"] = accessListEntry.InnerCos
-    leafs["inner-dei"] = accessListEntry.InnerDei
-    leafs["remark"] = accessListEntry.Remark
-    leafs["ether-type-number"] = accessListEntry.EtherTypeNumber
-    leafs["capture"] = accessListEntry.Capture
-    leafs["log-option"] = accessListEntry.LogOption
-    leafs["sequence-str"] = accessListEntry.SequenceStr
-    return leafs
-}
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetYangName() string { return "access-list-entry" }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) SetParent(parent types.Entity) { accessListEntry.parent = parent }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetParent() types.Entity { return accessListEntry.parent }
-
-func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) GetParentYangName() string { return "access-list-entries" }
 
 // EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork
 // Source network settings.
 type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source address to match, leave unspecified for any. The type is string with
-    // pattern: ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // pattern: b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     SourceAddress interface{}
 
     // Wildcard bits to apply to source address (if specified), leave unspecified
     // for no wildcarding. The type is string with pattern:
-    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     SourceWildCardBits interface{}
 }
 
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetFilter() yfilter.YFilter { return sourceNetwork.YFilter }
+func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetEntityData() *types.CommonEntityData {
+    sourceNetwork.EntityData.YFilter = sourceNetwork.YFilter
+    sourceNetwork.EntityData.YangName = "source-network"
+    sourceNetwork.EntityData.BundleName = "cisco_ios_xr"
+    sourceNetwork.EntityData.ParentYangName = "access-list-entry"
+    sourceNetwork.EntityData.SegmentPath = "source-network"
+    sourceNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sourceNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sourceNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) SetFilter(yf yfilter.YFilter) { sourceNetwork.YFilter = yf }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetGoName(yname string) string {
-    if yname == "source-address" { return "SourceAddress" }
-    if yname == "source-wild-card-bits" { return "SourceWildCardBits" }
-    return ""
+    sourceNetwork.EntityData.Children = make(map[string]types.YChild)
+    sourceNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceNetwork.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", sourceNetwork.SourceAddress}
+    sourceNetwork.EntityData.Leafs["source-wild-card-bits"] = types.YLeaf{"SourceWildCardBits", sourceNetwork.SourceWildCardBits}
+    return &(sourceNetwork.EntityData)
 }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetSegmentPath() string {
-    return "source-network"
-}
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-address"] = sourceNetwork.SourceAddress
-    leafs["source-wild-card-bits"] = sourceNetwork.SourceWildCardBits
-    return leafs
-}
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetYangName() string { return "source-network" }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) SetParent(parent types.Entity) { sourceNetwork.parent = parent }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetParent() types.Entity { return sourceNetwork.parent }
-
-func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_SourceNetwork) GetParentYangName() string { return "access-list-entry" }
 
 // EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork
 // Destination network settings.
 type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination address to match (if a protocol was specified), leave
     // unspecified for any. The type is string with pattern:
-    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     DestinationAddress interface{}
 
     // Wildcard bits to apply to destination address (if specified), leave
     // unspecified for no wildcarding. The type is string with pattern:
-    // ([0-9a-fA-F]{1,4}(\.[0-9a-fA-F]{1,4}){2}).
+    // b'([0-9a-fA-F]{1,4}(\\.[0-9a-fA-F]{1,4}){2})'.
     DestinationWildCardBits interface{}
 }
 
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetFilter() yfilter.YFilter { return destinationNetwork.YFilter }
+func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetEntityData() *types.CommonEntityData {
+    destinationNetwork.EntityData.YFilter = destinationNetwork.YFilter
+    destinationNetwork.EntityData.YangName = "destination-network"
+    destinationNetwork.EntityData.BundleName = "cisco_ios_xr"
+    destinationNetwork.EntityData.ParentYangName = "access-list-entry"
+    destinationNetwork.EntityData.SegmentPath = "destination-network"
+    destinationNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) SetFilter(yf yfilter.YFilter) { destinationNetwork.YFilter = yf }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetGoName(yname string) string {
-    if yname == "destination-address" { return "DestinationAddress" }
-    if yname == "destination-wild-card-bits" { return "DestinationWildCardBits" }
-    return ""
+    destinationNetwork.EntityData.Children = make(map[string]types.YChild)
+    destinationNetwork.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationNetwork.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", destinationNetwork.DestinationAddress}
+    destinationNetwork.EntityData.Leafs["destination-wild-card-bits"] = types.YLeaf{"DestinationWildCardBits", destinationNetwork.DestinationWildCardBits}
+    return &(destinationNetwork.EntityData)
 }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetSegmentPath() string {
-    return "destination-network"
-}
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-address"] = destinationNetwork.DestinationAddress
-    leafs["destination-wild-card-bits"] = destinationNetwork.DestinationWildCardBits
-    return leafs
-}
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetYangName() string { return "destination-network" }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) SetParent(parent types.Entity) { destinationNetwork.parent = parent }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetParent() types.Entity { return destinationNetwork.parent }
-
-func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_DestinationNetwork) GetParentYangName() string { return "access-list-entry" }
 

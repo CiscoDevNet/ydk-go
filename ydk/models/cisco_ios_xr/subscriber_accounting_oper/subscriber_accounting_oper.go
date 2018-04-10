@@ -27,67 +27,34 @@ func init() {
 // SubscriberAccounting
 // Subscriber accounting operational data
 type SubscriberAccounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber accounting operational data for a particular location.
     Nodes SubscriberAccounting_Nodes
 }
 
-func (subscriberAccounting *SubscriberAccounting) GetFilter() yfilter.YFilter { return subscriberAccounting.YFilter }
+func (subscriberAccounting *SubscriberAccounting) GetEntityData() *types.CommonEntityData {
+    subscriberAccounting.EntityData.YFilter = subscriberAccounting.YFilter
+    subscriberAccounting.EntityData.YangName = "subscriber-accounting"
+    subscriberAccounting.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccounting.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-accounting-oper"
+    subscriberAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting"
+    subscriberAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberAccounting *SubscriberAccounting) SetFilter(yf yfilter.YFilter) { subscriberAccounting.YFilter = yf }
-
-func (subscriberAccounting *SubscriberAccounting) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    subscriberAccounting.EntityData.Children = make(map[string]types.YChild)
+    subscriberAccounting.EntityData.Children["nodes"] = types.YChild{"Nodes", &subscriberAccounting.Nodes}
+    subscriberAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberAccounting.EntityData)
 }
-
-func (subscriberAccounting *SubscriberAccounting) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-accounting-oper:subscriber-accounting"
-}
-
-func (subscriberAccounting *SubscriberAccounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &subscriberAccounting.Nodes
-    }
-    return nil
-}
-
-func (subscriberAccounting *SubscriberAccounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &subscriberAccounting.Nodes
-    return children
-}
-
-func (subscriberAccounting *SubscriberAccounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberAccounting *SubscriberAccounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberAccounting *SubscriberAccounting) GetYangName() string { return "subscriber-accounting" }
-
-func (subscriberAccounting *SubscriberAccounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberAccounting *SubscriberAccounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberAccounting *SubscriberAccounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberAccounting *SubscriberAccounting) SetParent(parent types.Entity) { subscriberAccounting.parent = parent }
-
-func (subscriberAccounting *SubscriberAccounting) GetParent() types.Entity { return subscriberAccounting.parent }
-
-func (subscriberAccounting *SubscriberAccounting) GetParentYangName() string { return "Cisco-IOS-XR-subscriber-accounting-oper" }
 
 // SubscriberAccounting_Nodes
 // Subscriber accounting operational data for a
 // particular location
 type SubscriberAccounting_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Location. For example, 0/1/CPU0. The type is slice of
@@ -95,73 +62,34 @@ type SubscriberAccounting_Nodes struct {
     Node []SubscriberAccounting_Nodes_Node
 }
 
-func (nodes *SubscriberAccounting_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *SubscriberAccounting_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "subscriber-accounting"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *SubscriberAccounting_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *SubscriberAccounting_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *SubscriberAccounting_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *SubscriberAccounting_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriberAccounting_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *SubscriberAccounting_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *SubscriberAccounting_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *SubscriberAccounting_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *SubscriberAccounting_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *SubscriberAccounting_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *SubscriberAccounting_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *SubscriberAccounting_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *SubscriberAccounting_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *SubscriberAccounting_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *SubscriberAccounting_Nodes) GetParentYangName() string { return "subscriber-accounting" }
 
 // SubscriberAccounting_Nodes_Node
 // Location. For example, 0/1/CPU0
 type SubscriberAccounting_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node id to filter on. For example, 0/1/CPU0.
     // The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Subscriber accounting session feature data.
@@ -174,71 +102,29 @@ type SubscriberAccounting_Nodes_Node struct {
     SubscriberAccountingFlowFeatures SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures
 }
 
-func (node *SubscriberAccounting_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *SubscriberAccounting_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *SubscriberAccounting_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *SubscriberAccounting_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-id" { return "NodeId" }
-    if yname == "subscriber-accounting-session-features" { return "SubscriberAccountingSessionFeatures" }
-    if yname == "subscriber-accounting-summary" { return "SubscriberAccountingSummary" }
-    if yname == "subscriber-accounting-flow-features" { return "SubscriberAccountingFlowFeatures" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["subscriber-accounting-session-features"] = types.YChild{"SubscriberAccountingSessionFeatures", &node.SubscriberAccountingSessionFeatures}
+    node.EntityData.Children["subscriber-accounting-summary"] = types.YChild{"SubscriberAccountingSummary", &node.SubscriberAccountingSummary}
+    node.EntityData.Children["subscriber-accounting-flow-features"] = types.YChild{"SubscriberAccountingFlowFeatures", &node.SubscriberAccountingFlowFeatures}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    return &(node.EntityData)
 }
-
-func (node *SubscriberAccounting_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
-}
-
-func (node *SubscriberAccounting_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscriber-accounting-session-features" {
-        return &node.SubscriberAccountingSessionFeatures
-    }
-    if childYangName == "subscriber-accounting-summary" {
-        return &node.SubscriberAccountingSummary
-    }
-    if childYangName == "subscriber-accounting-flow-features" {
-        return &node.SubscriberAccountingFlowFeatures
-    }
-    return nil
-}
-
-func (node *SubscriberAccounting_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["subscriber-accounting-session-features"] = &node.SubscriberAccountingSessionFeatures
-    children["subscriber-accounting-summary"] = &node.SubscriberAccountingSummary
-    children["subscriber-accounting-flow-features"] = &node.SubscriberAccountingFlowFeatures
-    return children
-}
-
-func (node *SubscriberAccounting_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-id"] = node.NodeId
-    return leafs
-}
-
-func (node *SubscriberAccounting_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *SubscriberAccounting_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *SubscriberAccounting_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *SubscriberAccounting_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *SubscriberAccounting_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *SubscriberAccounting_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *SubscriberAccounting_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *SubscriberAccounting_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures
 // Subscriber accounting session feature data
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Display accounting session features by unique subscriber label. The type is
@@ -247,69 +133,30 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures struct 
     SubscriberAccountingSessionFeature []SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature
 }
 
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetFilter() yfilter.YFilter { return subscriberAccountingSessionFeatures.YFilter }
+func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingSessionFeatures.EntityData.YFilter = subscriberAccountingSessionFeatures.YFilter
+    subscriberAccountingSessionFeatures.EntityData.YangName = "subscriber-accounting-session-features"
+    subscriberAccountingSessionFeatures.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingSessionFeatures.EntityData.ParentYangName = "node"
+    subscriberAccountingSessionFeatures.EntityData.SegmentPath = "subscriber-accounting-session-features"
+    subscriberAccountingSessionFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingSessionFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingSessionFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) SetFilter(yf yfilter.YFilter) { subscriberAccountingSessionFeatures.YFilter = yf }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetGoName(yname string) string {
-    if yname == "subscriber-accounting-session-feature" { return "SubscriberAccountingSessionFeature" }
-    return ""
-}
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetSegmentPath() string {
-    return "subscriber-accounting-session-features"
-}
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscriber-accounting-session-feature" {
-        for _, c := range subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature {
-            if subscriberAccountingSessionFeatures.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature{}
-        subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature = append(subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature, child)
-        return &subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature[len(subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature)-1]
-    }
-    return nil
-}
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subscriberAccountingSessionFeatures.EntityData.Children = make(map[string]types.YChild)
+    subscriberAccountingSessionFeatures.EntityData.Children["subscriber-accounting-session-feature"] = types.YChild{"SubscriberAccountingSessionFeature", nil}
     for i := range subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature {
-        children[subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature[i].GetSegmentPath()] = &subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature[i]
+        subscriberAccountingSessionFeatures.EntityData.Children[types.GetSegmentPath(&subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature[i])] = types.YChild{"SubscriberAccountingSessionFeature", &subscriberAccountingSessionFeatures.SubscriberAccountingSessionFeature[i]}
     }
-    return children
+    subscriberAccountingSessionFeatures.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberAccountingSessionFeatures.EntityData)
 }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetYangName() string { return "subscriber-accounting-session-features" }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) SetParent(parent types.Entity) { subscriberAccountingSessionFeatures.parent = parent }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetParent() types.Entity { return subscriberAccountingSessionFeatures.parent }
-
-func (subscriberAccountingSessionFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures) GetParentYangName() string { return "node" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature
 // Display accounting session features by unique
 // subscriber label
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique subscriber label. The type is interface{}
@@ -320,61 +167,27 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_Subscri
     SessionFeatureData SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData
 }
 
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetFilter() yfilter.YFilter { return subscriberAccountingSessionFeature.YFilter }
+func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingSessionFeature.EntityData.YFilter = subscriberAccountingSessionFeature.YFilter
+    subscriberAccountingSessionFeature.EntityData.YangName = "subscriber-accounting-session-feature"
+    subscriberAccountingSessionFeature.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingSessionFeature.EntityData.ParentYangName = "subscriber-accounting-session-features"
+    subscriberAccountingSessionFeature.EntityData.SegmentPath = "subscriber-accounting-session-feature" + "[sub-label='" + fmt.Sprintf("%v", subscriberAccountingSessionFeature.SubLabel) + "']"
+    subscriberAccountingSessionFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingSessionFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingSessionFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) SetFilter(yf yfilter.YFilter) { subscriberAccountingSessionFeature.YFilter = yf }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetGoName(yname string) string {
-    if yname == "sub-label" { return "SubLabel" }
-    if yname == "session-feature-data" { return "SessionFeatureData" }
-    return ""
+    subscriberAccountingSessionFeature.EntityData.Children = make(map[string]types.YChild)
+    subscriberAccountingSessionFeature.EntityData.Children["session-feature-data"] = types.YChild{"SessionFeatureData", &subscriberAccountingSessionFeature.SessionFeatureData}
+    subscriberAccountingSessionFeature.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberAccountingSessionFeature.EntityData.Leafs["sub-label"] = types.YLeaf{"SubLabel", subscriberAccountingSessionFeature.SubLabel}
+    return &(subscriberAccountingSessionFeature.EntityData)
 }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetSegmentPath() string {
-    return "subscriber-accounting-session-feature" + "[sub-label='" + fmt.Sprintf("%v", subscriberAccountingSessionFeature.SubLabel) + "']"
-}
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session-feature-data" {
-        return &subscriberAccountingSessionFeature.SessionFeatureData
-    }
-    return nil
-}
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session-feature-data"] = &subscriberAccountingSessionFeature.SessionFeatureData
-    return children
-}
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sub-label"] = subscriberAccountingSessionFeature.SubLabel
-    return leafs
-}
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetYangName() string { return "subscriber-accounting-session-feature" }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) SetParent(parent types.Entity) { subscriberAccountingSessionFeature.parent = parent }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetParent() types.Entity { return subscriberAccountingSessionFeature.parent }
-
-func (subscriberAccountingSessionFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature) GetParentYangName() string { return "subscriber-accounting-session-features" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData
 // Accounting session feature display data
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unique subscriber label used to identify the session. The type is
@@ -467,114 +280,52 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_Subscri
     ServiceAccountingFeature []SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature
 }
 
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetFilter() yfilter.YFilter { return sessionFeatureData.YFilter }
+func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetEntityData() *types.CommonEntityData {
+    sessionFeatureData.EntityData.YFilter = sessionFeatureData.YFilter
+    sessionFeatureData.EntityData.YangName = "session-feature-data"
+    sessionFeatureData.EntityData.BundleName = "cisco_ios_xr"
+    sessionFeatureData.EntityData.ParentYangName = "subscriber-accounting-session-feature"
+    sessionFeatureData.EntityData.SegmentPath = "session-feature-data"
+    sessionFeatureData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionFeatureData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionFeatureData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) SetFilter(yf yfilter.YFilter) { sessionFeatureData.YFilter = yf }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetGoName(yname string) string {
-    if yname == "unique-subscriber-label" { return "UniqueSubscriberLabel" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "session-disconnected" { return "SessionDisconnected" }
-    if yname == "session-accounting-enabled-flag" { return "SessionAccountingEnabledFlag" }
-    if yname == "session-accounting-method-list" { return "SessionAccountingMethodList" }
-    if yname == "session-accounting-periodic-interval" { return "SessionAccountingPeriodicInterval" }
-    if yname == "session-accounting-aaa-trans-pending" { return "SessionAccountingAaaTransPending" }
-    if yname == "session-accounting-aaa-request-failed" { return "SessionAccountingAaaRequestFailed" }
-    if yname == "session-accounting-started" { return "SessionAccountingStarted" }
-    if yname == "session-idle-timeout-enabled-flag" { return "SessionIdleTimeoutEnabledFlag" }
-    if yname == "idle-timeout-value" { return "IdleTimeoutValue" }
-    if yname == "idle-timeout-threshold" { return "IdleTimeoutThreshold" }
-    if yname == "idle-timeout-direction" { return "IdleTimeoutDirection" }
-    if yname == "session-is-idle" { return "SessionIsIdle" }
-    if yname == "session-stats-changed-time" { return "SessionStatsChangedTime" }
-    if yname == "session-total-idle-time" { return "SessionTotalIdleTime" }
-    if yname == "session-to-idle-count" { return "SessionToIdleCount" }
-    if yname == "session-to-awake-count" { return "SessionToAwakeCount" }
-    if yname == "session-idle-to-aaa-trans-pending" { return "SessionIdleToAaaTransPending" }
-    if yname == "session-idle-to-aaa-request-failed" { return "SessionIdleToAaaRequestFailed" }
-    if yname == "session-timeout-enabled-flag" { return "SessionTimeoutEnabledFlag" }
-    if yname == "session-timeout-value" { return "SessionTimeoutValue" }
-    if yname == "session-timeout-time-remaining" { return "SessionTimeoutTimeRemaining" }
-    if yname == "service-accounting-feature" { return "ServiceAccountingFeature" }
-    return ""
-}
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetSegmentPath() string {
-    return "session-feature-data"
-}
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-accounting-feature" {
-        for _, c := range sessionFeatureData.ServiceAccountingFeature {
-            if sessionFeatureData.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature{}
-        sessionFeatureData.ServiceAccountingFeature = append(sessionFeatureData.ServiceAccountingFeature, child)
-        return &sessionFeatureData.ServiceAccountingFeature[len(sessionFeatureData.ServiceAccountingFeature)-1]
-    }
-    return nil
-}
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessionFeatureData.EntityData.Children = make(map[string]types.YChild)
+    sessionFeatureData.EntityData.Children["service-accounting-feature"] = types.YChild{"ServiceAccountingFeature", nil}
     for i := range sessionFeatureData.ServiceAccountingFeature {
-        children[sessionFeatureData.ServiceAccountingFeature[i].GetSegmentPath()] = &sessionFeatureData.ServiceAccountingFeature[i]
+        sessionFeatureData.EntityData.Children[types.GetSegmentPath(&sessionFeatureData.ServiceAccountingFeature[i])] = types.YChild{"ServiceAccountingFeature", &sessionFeatureData.ServiceAccountingFeature[i]}
     }
-    return children
+    sessionFeatureData.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionFeatureData.EntityData.Leafs["unique-subscriber-label"] = types.YLeaf{"UniqueSubscriberLabel", sessionFeatureData.UniqueSubscriberLabel}
+    sessionFeatureData.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", sessionFeatureData.InterfaceHandle}
+    sessionFeatureData.EntityData.Leafs["session-disconnected"] = types.YLeaf{"SessionDisconnected", sessionFeatureData.SessionDisconnected}
+    sessionFeatureData.EntityData.Leafs["session-accounting-enabled-flag"] = types.YLeaf{"SessionAccountingEnabledFlag", sessionFeatureData.SessionAccountingEnabledFlag}
+    sessionFeatureData.EntityData.Leafs["session-accounting-method-list"] = types.YLeaf{"SessionAccountingMethodList", sessionFeatureData.SessionAccountingMethodList}
+    sessionFeatureData.EntityData.Leafs["session-accounting-periodic-interval"] = types.YLeaf{"SessionAccountingPeriodicInterval", sessionFeatureData.SessionAccountingPeriodicInterval}
+    sessionFeatureData.EntityData.Leafs["session-accounting-aaa-trans-pending"] = types.YLeaf{"SessionAccountingAaaTransPending", sessionFeatureData.SessionAccountingAaaTransPending}
+    sessionFeatureData.EntityData.Leafs["session-accounting-aaa-request-failed"] = types.YLeaf{"SessionAccountingAaaRequestFailed", sessionFeatureData.SessionAccountingAaaRequestFailed}
+    sessionFeatureData.EntityData.Leafs["session-accounting-started"] = types.YLeaf{"SessionAccountingStarted", sessionFeatureData.SessionAccountingStarted}
+    sessionFeatureData.EntityData.Leafs["session-idle-timeout-enabled-flag"] = types.YLeaf{"SessionIdleTimeoutEnabledFlag", sessionFeatureData.SessionIdleTimeoutEnabledFlag}
+    sessionFeatureData.EntityData.Leafs["idle-timeout-value"] = types.YLeaf{"IdleTimeoutValue", sessionFeatureData.IdleTimeoutValue}
+    sessionFeatureData.EntityData.Leafs["idle-timeout-threshold"] = types.YLeaf{"IdleTimeoutThreshold", sessionFeatureData.IdleTimeoutThreshold}
+    sessionFeatureData.EntityData.Leafs["idle-timeout-direction"] = types.YLeaf{"IdleTimeoutDirection", sessionFeatureData.IdleTimeoutDirection}
+    sessionFeatureData.EntityData.Leafs["session-is-idle"] = types.YLeaf{"SessionIsIdle", sessionFeatureData.SessionIsIdle}
+    sessionFeatureData.EntityData.Leafs["session-stats-changed-time"] = types.YLeaf{"SessionStatsChangedTime", sessionFeatureData.SessionStatsChangedTime}
+    sessionFeatureData.EntityData.Leafs["session-total-idle-time"] = types.YLeaf{"SessionTotalIdleTime", sessionFeatureData.SessionTotalIdleTime}
+    sessionFeatureData.EntityData.Leafs["session-to-idle-count"] = types.YLeaf{"SessionToIdleCount", sessionFeatureData.SessionToIdleCount}
+    sessionFeatureData.EntityData.Leafs["session-to-awake-count"] = types.YLeaf{"SessionToAwakeCount", sessionFeatureData.SessionToAwakeCount}
+    sessionFeatureData.EntityData.Leafs["session-idle-to-aaa-trans-pending"] = types.YLeaf{"SessionIdleToAaaTransPending", sessionFeatureData.SessionIdleToAaaTransPending}
+    sessionFeatureData.EntityData.Leafs["session-idle-to-aaa-request-failed"] = types.YLeaf{"SessionIdleToAaaRequestFailed", sessionFeatureData.SessionIdleToAaaRequestFailed}
+    sessionFeatureData.EntityData.Leafs["session-timeout-enabled-flag"] = types.YLeaf{"SessionTimeoutEnabledFlag", sessionFeatureData.SessionTimeoutEnabledFlag}
+    sessionFeatureData.EntityData.Leafs["session-timeout-value"] = types.YLeaf{"SessionTimeoutValue", sessionFeatureData.SessionTimeoutValue}
+    sessionFeatureData.EntityData.Leafs["session-timeout-time-remaining"] = types.YLeaf{"SessionTimeoutTimeRemaining", sessionFeatureData.SessionTimeoutTimeRemaining}
+    return &(sessionFeatureData.EntityData)
 }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unique-subscriber-label"] = sessionFeatureData.UniqueSubscriberLabel
-    leafs["interface-handle"] = sessionFeatureData.InterfaceHandle
-    leafs["session-disconnected"] = sessionFeatureData.SessionDisconnected
-    leafs["session-accounting-enabled-flag"] = sessionFeatureData.SessionAccountingEnabledFlag
-    leafs["session-accounting-method-list"] = sessionFeatureData.SessionAccountingMethodList
-    leafs["session-accounting-periodic-interval"] = sessionFeatureData.SessionAccountingPeriodicInterval
-    leafs["session-accounting-aaa-trans-pending"] = sessionFeatureData.SessionAccountingAaaTransPending
-    leafs["session-accounting-aaa-request-failed"] = sessionFeatureData.SessionAccountingAaaRequestFailed
-    leafs["session-accounting-started"] = sessionFeatureData.SessionAccountingStarted
-    leafs["session-idle-timeout-enabled-flag"] = sessionFeatureData.SessionIdleTimeoutEnabledFlag
-    leafs["idle-timeout-value"] = sessionFeatureData.IdleTimeoutValue
-    leafs["idle-timeout-threshold"] = sessionFeatureData.IdleTimeoutThreshold
-    leafs["idle-timeout-direction"] = sessionFeatureData.IdleTimeoutDirection
-    leafs["session-is-idle"] = sessionFeatureData.SessionIsIdle
-    leafs["session-stats-changed-time"] = sessionFeatureData.SessionStatsChangedTime
-    leafs["session-total-idle-time"] = sessionFeatureData.SessionTotalIdleTime
-    leafs["session-to-idle-count"] = sessionFeatureData.SessionToIdleCount
-    leafs["session-to-awake-count"] = sessionFeatureData.SessionToAwakeCount
-    leafs["session-idle-to-aaa-trans-pending"] = sessionFeatureData.SessionIdleToAaaTransPending
-    leafs["session-idle-to-aaa-request-failed"] = sessionFeatureData.SessionIdleToAaaRequestFailed
-    leafs["session-timeout-enabled-flag"] = sessionFeatureData.SessionTimeoutEnabledFlag
-    leafs["session-timeout-value"] = sessionFeatureData.SessionTimeoutValue
-    leafs["session-timeout-time-remaining"] = sessionFeatureData.SessionTimeoutTimeRemaining
-    return leafs
-}
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetYangName() string { return "session-feature-data" }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) SetParent(parent types.Entity) { sessionFeatureData.parent = parent }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetParent() types.Entity { return sessionFeatureData.parent }
-
-func (sessionFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData) GetParentYangName() string { return "subscriber-accounting-session-feature" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature
 // List of service accounting features
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // True if service accounting is enabled. The type is bool.
@@ -604,68 +355,32 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_Subscri
     SessionAccountingStarted interface{}
 }
 
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetFilter() yfilter.YFilter { return serviceAccountingFeature.YFilter }
+func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetEntityData() *types.CommonEntityData {
+    serviceAccountingFeature.EntityData.YFilter = serviceAccountingFeature.YFilter
+    serviceAccountingFeature.EntityData.YangName = "service-accounting-feature"
+    serviceAccountingFeature.EntityData.BundleName = "cisco_ios_xr"
+    serviceAccountingFeature.EntityData.ParentYangName = "session-feature-data"
+    serviceAccountingFeature.EntityData.SegmentPath = "service-accounting-feature"
+    serviceAccountingFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceAccountingFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceAccountingFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) SetFilter(yf yfilter.YFilter) { serviceAccountingFeature.YFilter = yf }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetGoName(yname string) string {
-    if yname == "service-accounting-enabled-flag" { return "ServiceAccountingEnabledFlag" }
-    if yname == "service-accounting-service-id" { return "ServiceAccountingServiceId" }
-    if yname == "service-accounting-method-list" { return "ServiceAccountingMethodList" }
-    if yname == "service-accounting-periodic-interval" { return "ServiceAccountingPeriodicInterval" }
-    if yname == "session-accounting-aaa-trans-pending" { return "SessionAccountingAaaTransPending" }
-    if yname == "session-accounting-aaa-request-failed" { return "SessionAccountingAaaRequestFailed" }
-    if yname == "session-accounting-started" { return "SessionAccountingStarted" }
-    return ""
+    serviceAccountingFeature.EntityData.Children = make(map[string]types.YChild)
+    serviceAccountingFeature.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceAccountingFeature.EntityData.Leafs["service-accounting-enabled-flag"] = types.YLeaf{"ServiceAccountingEnabledFlag", serviceAccountingFeature.ServiceAccountingEnabledFlag}
+    serviceAccountingFeature.EntityData.Leafs["service-accounting-service-id"] = types.YLeaf{"ServiceAccountingServiceId", serviceAccountingFeature.ServiceAccountingServiceId}
+    serviceAccountingFeature.EntityData.Leafs["service-accounting-method-list"] = types.YLeaf{"ServiceAccountingMethodList", serviceAccountingFeature.ServiceAccountingMethodList}
+    serviceAccountingFeature.EntityData.Leafs["service-accounting-periodic-interval"] = types.YLeaf{"ServiceAccountingPeriodicInterval", serviceAccountingFeature.ServiceAccountingPeriodicInterval}
+    serviceAccountingFeature.EntityData.Leafs["session-accounting-aaa-trans-pending"] = types.YLeaf{"SessionAccountingAaaTransPending", serviceAccountingFeature.SessionAccountingAaaTransPending}
+    serviceAccountingFeature.EntityData.Leafs["session-accounting-aaa-request-failed"] = types.YLeaf{"SessionAccountingAaaRequestFailed", serviceAccountingFeature.SessionAccountingAaaRequestFailed}
+    serviceAccountingFeature.EntityData.Leafs["session-accounting-started"] = types.YLeaf{"SessionAccountingStarted", serviceAccountingFeature.SessionAccountingStarted}
+    return &(serviceAccountingFeature.EntityData)
 }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetSegmentPath() string {
-    return "service-accounting-feature"
-}
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["service-accounting-enabled-flag"] = serviceAccountingFeature.ServiceAccountingEnabledFlag
-    leafs["service-accounting-service-id"] = serviceAccountingFeature.ServiceAccountingServiceId
-    leafs["service-accounting-method-list"] = serviceAccountingFeature.ServiceAccountingMethodList
-    leafs["service-accounting-periodic-interval"] = serviceAccountingFeature.ServiceAccountingPeriodicInterval
-    leafs["session-accounting-aaa-trans-pending"] = serviceAccountingFeature.SessionAccountingAaaTransPending
-    leafs["session-accounting-aaa-request-failed"] = serviceAccountingFeature.SessionAccountingAaaRequestFailed
-    leafs["session-accounting-started"] = serviceAccountingFeature.SessionAccountingStarted
-    return leafs
-}
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetYangName() string { return "service-accounting-feature" }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) SetParent(parent types.Entity) { serviceAccountingFeature.parent = parent }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetParent() types.Entity { return serviceAccountingFeature.parent }
-
-func (serviceAccountingFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingSessionFeatures_SubscriberAccountingSessionFeature_SessionFeatureData_ServiceAccountingFeature) GetParentYangName() string { return "session-feature-data" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary
 // Display subscriber accounting summary data
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Accounting feature AAA summary counters.
@@ -681,74 +396,29 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary struct {
     SessionFlowCounters SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters
 }
 
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetFilter() yfilter.YFilter { return subscriberAccountingSummary.YFilter }
+func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingSummary.EntityData.YFilter = subscriberAccountingSummary.YFilter
+    subscriberAccountingSummary.EntityData.YangName = "subscriber-accounting-summary"
+    subscriberAccountingSummary.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingSummary.EntityData.ParentYangName = "node"
+    subscriberAccountingSummary.EntityData.SegmentPath = "subscriber-accounting-summary"
+    subscriberAccountingSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) SetFilter(yf yfilter.YFilter) { subscriberAccountingSummary.YFilter = yf }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetGoName(yname string) string {
-    if yname == "aaa-counters" { return "AaaCounters" }
-    if yname == "idle-timeout-counters" { return "IdleTimeoutCounters" }
-    if yname == "session-timeout-counters" { return "SessionTimeoutCounters" }
-    if yname == "session-flow-counters" { return "SessionFlowCounters" }
-    return ""
+    subscriberAccountingSummary.EntityData.Children = make(map[string]types.YChild)
+    subscriberAccountingSummary.EntityData.Children["aaa-counters"] = types.YChild{"AaaCounters", &subscriberAccountingSummary.AaaCounters}
+    subscriberAccountingSummary.EntityData.Children["idle-timeout-counters"] = types.YChild{"IdleTimeoutCounters", &subscriberAccountingSummary.IdleTimeoutCounters}
+    subscriberAccountingSummary.EntityData.Children["session-timeout-counters"] = types.YChild{"SessionTimeoutCounters", &subscriberAccountingSummary.SessionTimeoutCounters}
+    subscriberAccountingSummary.EntityData.Children["session-flow-counters"] = types.YChild{"SessionFlowCounters", &subscriberAccountingSummary.SessionFlowCounters}
+    subscriberAccountingSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberAccountingSummary.EntityData)
 }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetSegmentPath() string {
-    return "subscriber-accounting-summary"
-}
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "aaa-counters" {
-        return &subscriberAccountingSummary.AaaCounters
-    }
-    if childYangName == "idle-timeout-counters" {
-        return &subscriberAccountingSummary.IdleTimeoutCounters
-    }
-    if childYangName == "session-timeout-counters" {
-        return &subscriberAccountingSummary.SessionTimeoutCounters
-    }
-    if childYangName == "session-flow-counters" {
-        return &subscriberAccountingSummary.SessionFlowCounters
-    }
-    return nil
-}
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["aaa-counters"] = &subscriberAccountingSummary.AaaCounters
-    children["idle-timeout-counters"] = &subscriberAccountingSummary.IdleTimeoutCounters
-    children["session-timeout-counters"] = &subscriberAccountingSummary.SessionTimeoutCounters
-    children["session-flow-counters"] = &subscriberAccountingSummary.SessionFlowCounters
-    return children
-}
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetYangName() string { return "subscriber-accounting-summary" }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) SetParent(parent types.Entity) { subscriberAccountingSummary.parent = parent }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetParent() types.Entity { return subscriberAccountingSummary.parent }
-
-func (subscriberAccountingSummary *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary) GetParentYangName() string { return "node" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters
 // Accounting feature AAA summary counters
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of Flow Start Requests Sent. The type is interface{} with range:
@@ -892,124 +562,60 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters str
     OwnedResourceStart interface{}
 }
 
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetFilter() yfilter.YFilter { return aaaCounters.YFilter }
+func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetEntityData() *types.CommonEntityData {
+    aaaCounters.EntityData.YFilter = aaaCounters.YFilter
+    aaaCounters.EntityData.YangName = "aaa-counters"
+    aaaCounters.EntityData.BundleName = "cisco_ios_xr"
+    aaaCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
+    aaaCounters.EntityData.SegmentPath = "aaa-counters"
+    aaaCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aaaCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aaaCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) SetFilter(yf yfilter.YFilter) { aaaCounters.YFilter = yf }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetGoName(yname string) string {
-    if yname == "flow-start" { return "FlowStart" }
-    if yname == "flow-disconnect" { return "FlowDisconnect" }
-    if yname == "session-accounting-start" { return "SessionAccountingStart" }
-    if yname == "session-accounting-stop" { return "SessionAccountingStop" }
-    if yname == "session-accounting-update" { return "SessionAccountingUpdate" }
-    if yname == "service-accounting-start" { return "ServiceAccountingStart" }
-    if yname == "service-accounting-stop" { return "ServiceAccountingStop" }
-    if yname == "service-accounting-update" { return "ServiceAccountingUpdate" }
-    if yname == "flow-accounting-start" { return "FlowAccountingStart" }
-    if yname == "flow-accounting-stop" { return "FlowAccountingStop" }
-    if yname == "flow-accounting-update" { return "FlowAccountingUpdate" }
-    if yname == "accounting-callback" { return "AccountingCallback" }
-    if yname == "session-acct-trans-pending" { return "SessionAcctTransPending" }
-    if yname == "session-acct-reqs-failed" { return "SessionAcctReqsFailed" }
-    if yname == "session-acct-out-of-sync" { return "SessionAcctOutOfSync" }
-    if yname == "session-idle-to-trans-pending" { return "SessionIdleToTransPending" }
-    if yname == "session-idle-to-reqs-failed" { return "SessionIdleToReqsFailed" }
-    if yname == "session-idle-to-out-of-sync" { return "SessionIdleToOutOfSync" }
-    if yname == "service-acct-trans-pending" { return "ServiceAcctTransPending" }
-    if yname == "service-acct-reqs-failed" { return "ServiceAcctReqsFailed" }
-    if yname == "service-acct-out-of-sync" { return "ServiceAcctOutOfSync" }
-    if yname == "service-idle-to-trans-pending" { return "ServiceIdleToTransPending" }
-    if yname == "service-idle-to-reqs-failed" { return "ServiceIdleToReqsFailed" }
-    if yname == "service-idle-to-out-of-sync" { return "ServiceIdleToOutOfSync" }
-    if yname == "prepaid-start" { return "PrepaidStart" }
-    if yname == "prepaid-stop" { return "PrepaidStop" }
-    if yname == "prepaid-accounting-start" { return "PrepaidAccountingStart" }
-    if yname == "prepaid-accounting-stop" { return "PrepaidAccountingStop" }
-    if yname == "prepaid-volume-threshold-reached" { return "PrepaidVolumeThresholdReached" }
-    if yname == "prepaid-time-threshold-reached" { return "PrepaidTimeThresholdReached" }
-    if yname == "prepaid-quota-depleted" { return "PrepaidQuotaDepleted" }
-    if yname == "prepaid-reauthorization" { return "PrepaidReauthorization" }
-    if yname == "idle-timeout" { return "IdleTimeout" }
-    if yname == "idle-timeout-response-callback" { return "IdleTimeoutResponseCallback" }
-    if yname == "owned-resource-start" { return "OwnedResourceStart" }
-    return ""
+    aaaCounters.EntityData.Children = make(map[string]types.YChild)
+    aaaCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    aaaCounters.EntityData.Leafs["flow-start"] = types.YLeaf{"FlowStart", aaaCounters.FlowStart}
+    aaaCounters.EntityData.Leafs["flow-disconnect"] = types.YLeaf{"FlowDisconnect", aaaCounters.FlowDisconnect}
+    aaaCounters.EntityData.Leafs["session-accounting-start"] = types.YLeaf{"SessionAccountingStart", aaaCounters.SessionAccountingStart}
+    aaaCounters.EntityData.Leafs["session-accounting-stop"] = types.YLeaf{"SessionAccountingStop", aaaCounters.SessionAccountingStop}
+    aaaCounters.EntityData.Leafs["session-accounting-update"] = types.YLeaf{"SessionAccountingUpdate", aaaCounters.SessionAccountingUpdate}
+    aaaCounters.EntityData.Leafs["service-accounting-start"] = types.YLeaf{"ServiceAccountingStart", aaaCounters.ServiceAccountingStart}
+    aaaCounters.EntityData.Leafs["service-accounting-stop"] = types.YLeaf{"ServiceAccountingStop", aaaCounters.ServiceAccountingStop}
+    aaaCounters.EntityData.Leafs["service-accounting-update"] = types.YLeaf{"ServiceAccountingUpdate", aaaCounters.ServiceAccountingUpdate}
+    aaaCounters.EntityData.Leafs["flow-accounting-start"] = types.YLeaf{"FlowAccountingStart", aaaCounters.FlowAccountingStart}
+    aaaCounters.EntityData.Leafs["flow-accounting-stop"] = types.YLeaf{"FlowAccountingStop", aaaCounters.FlowAccountingStop}
+    aaaCounters.EntityData.Leafs["flow-accounting-update"] = types.YLeaf{"FlowAccountingUpdate", aaaCounters.FlowAccountingUpdate}
+    aaaCounters.EntityData.Leafs["accounting-callback"] = types.YLeaf{"AccountingCallback", aaaCounters.AccountingCallback}
+    aaaCounters.EntityData.Leafs["session-acct-trans-pending"] = types.YLeaf{"SessionAcctTransPending", aaaCounters.SessionAcctTransPending}
+    aaaCounters.EntityData.Leafs["session-acct-reqs-failed"] = types.YLeaf{"SessionAcctReqsFailed", aaaCounters.SessionAcctReqsFailed}
+    aaaCounters.EntityData.Leafs["session-acct-out-of-sync"] = types.YLeaf{"SessionAcctOutOfSync", aaaCounters.SessionAcctOutOfSync}
+    aaaCounters.EntityData.Leafs["session-idle-to-trans-pending"] = types.YLeaf{"SessionIdleToTransPending", aaaCounters.SessionIdleToTransPending}
+    aaaCounters.EntityData.Leafs["session-idle-to-reqs-failed"] = types.YLeaf{"SessionIdleToReqsFailed", aaaCounters.SessionIdleToReqsFailed}
+    aaaCounters.EntityData.Leafs["session-idle-to-out-of-sync"] = types.YLeaf{"SessionIdleToOutOfSync", aaaCounters.SessionIdleToOutOfSync}
+    aaaCounters.EntityData.Leafs["service-acct-trans-pending"] = types.YLeaf{"ServiceAcctTransPending", aaaCounters.ServiceAcctTransPending}
+    aaaCounters.EntityData.Leafs["service-acct-reqs-failed"] = types.YLeaf{"ServiceAcctReqsFailed", aaaCounters.ServiceAcctReqsFailed}
+    aaaCounters.EntityData.Leafs["service-acct-out-of-sync"] = types.YLeaf{"ServiceAcctOutOfSync", aaaCounters.ServiceAcctOutOfSync}
+    aaaCounters.EntityData.Leafs["service-idle-to-trans-pending"] = types.YLeaf{"ServiceIdleToTransPending", aaaCounters.ServiceIdleToTransPending}
+    aaaCounters.EntityData.Leafs["service-idle-to-reqs-failed"] = types.YLeaf{"ServiceIdleToReqsFailed", aaaCounters.ServiceIdleToReqsFailed}
+    aaaCounters.EntityData.Leafs["service-idle-to-out-of-sync"] = types.YLeaf{"ServiceIdleToOutOfSync", aaaCounters.ServiceIdleToOutOfSync}
+    aaaCounters.EntityData.Leafs["prepaid-start"] = types.YLeaf{"PrepaidStart", aaaCounters.PrepaidStart}
+    aaaCounters.EntityData.Leafs["prepaid-stop"] = types.YLeaf{"PrepaidStop", aaaCounters.PrepaidStop}
+    aaaCounters.EntityData.Leafs["prepaid-accounting-start"] = types.YLeaf{"PrepaidAccountingStart", aaaCounters.PrepaidAccountingStart}
+    aaaCounters.EntityData.Leafs["prepaid-accounting-stop"] = types.YLeaf{"PrepaidAccountingStop", aaaCounters.PrepaidAccountingStop}
+    aaaCounters.EntityData.Leafs["prepaid-volume-threshold-reached"] = types.YLeaf{"PrepaidVolumeThresholdReached", aaaCounters.PrepaidVolumeThresholdReached}
+    aaaCounters.EntityData.Leafs["prepaid-time-threshold-reached"] = types.YLeaf{"PrepaidTimeThresholdReached", aaaCounters.PrepaidTimeThresholdReached}
+    aaaCounters.EntityData.Leafs["prepaid-quota-depleted"] = types.YLeaf{"PrepaidQuotaDepleted", aaaCounters.PrepaidQuotaDepleted}
+    aaaCounters.EntityData.Leafs["prepaid-reauthorization"] = types.YLeaf{"PrepaidReauthorization", aaaCounters.PrepaidReauthorization}
+    aaaCounters.EntityData.Leafs["idle-timeout"] = types.YLeaf{"IdleTimeout", aaaCounters.IdleTimeout}
+    aaaCounters.EntityData.Leafs["idle-timeout-response-callback"] = types.YLeaf{"IdleTimeoutResponseCallback", aaaCounters.IdleTimeoutResponseCallback}
+    aaaCounters.EntityData.Leafs["owned-resource-start"] = types.YLeaf{"OwnedResourceStart", aaaCounters.OwnedResourceStart}
+    return &(aaaCounters.EntityData)
 }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetSegmentPath() string {
-    return "aaa-counters"
-}
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["flow-start"] = aaaCounters.FlowStart
-    leafs["flow-disconnect"] = aaaCounters.FlowDisconnect
-    leafs["session-accounting-start"] = aaaCounters.SessionAccountingStart
-    leafs["session-accounting-stop"] = aaaCounters.SessionAccountingStop
-    leafs["session-accounting-update"] = aaaCounters.SessionAccountingUpdate
-    leafs["service-accounting-start"] = aaaCounters.ServiceAccountingStart
-    leafs["service-accounting-stop"] = aaaCounters.ServiceAccountingStop
-    leafs["service-accounting-update"] = aaaCounters.ServiceAccountingUpdate
-    leafs["flow-accounting-start"] = aaaCounters.FlowAccountingStart
-    leafs["flow-accounting-stop"] = aaaCounters.FlowAccountingStop
-    leafs["flow-accounting-update"] = aaaCounters.FlowAccountingUpdate
-    leafs["accounting-callback"] = aaaCounters.AccountingCallback
-    leafs["session-acct-trans-pending"] = aaaCounters.SessionAcctTransPending
-    leafs["session-acct-reqs-failed"] = aaaCounters.SessionAcctReqsFailed
-    leafs["session-acct-out-of-sync"] = aaaCounters.SessionAcctOutOfSync
-    leafs["session-idle-to-trans-pending"] = aaaCounters.SessionIdleToTransPending
-    leafs["session-idle-to-reqs-failed"] = aaaCounters.SessionIdleToReqsFailed
-    leafs["session-idle-to-out-of-sync"] = aaaCounters.SessionIdleToOutOfSync
-    leafs["service-acct-trans-pending"] = aaaCounters.ServiceAcctTransPending
-    leafs["service-acct-reqs-failed"] = aaaCounters.ServiceAcctReqsFailed
-    leafs["service-acct-out-of-sync"] = aaaCounters.ServiceAcctOutOfSync
-    leafs["service-idle-to-trans-pending"] = aaaCounters.ServiceIdleToTransPending
-    leafs["service-idle-to-reqs-failed"] = aaaCounters.ServiceIdleToReqsFailed
-    leafs["service-idle-to-out-of-sync"] = aaaCounters.ServiceIdleToOutOfSync
-    leafs["prepaid-start"] = aaaCounters.PrepaidStart
-    leafs["prepaid-stop"] = aaaCounters.PrepaidStop
-    leafs["prepaid-accounting-start"] = aaaCounters.PrepaidAccountingStart
-    leafs["prepaid-accounting-stop"] = aaaCounters.PrepaidAccountingStop
-    leafs["prepaid-volume-threshold-reached"] = aaaCounters.PrepaidVolumeThresholdReached
-    leafs["prepaid-time-threshold-reached"] = aaaCounters.PrepaidTimeThresholdReached
-    leafs["prepaid-quota-depleted"] = aaaCounters.PrepaidQuotaDepleted
-    leafs["prepaid-reauthorization"] = aaaCounters.PrepaidReauthorization
-    leafs["idle-timeout"] = aaaCounters.IdleTimeout
-    leafs["idle-timeout-response-callback"] = aaaCounters.IdleTimeoutResponseCallback
-    leafs["owned-resource-start"] = aaaCounters.OwnedResourceStart
-    return leafs
-}
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetYangName() string { return "aaa-counters" }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) SetParent(parent types.Entity) { aaaCounters.parent = parent }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetParent() types.Entity { return aaaCounters.parent }
-
-func (aaaCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_AaaCounters) GetParentYangName() string { return "subscriber-accounting-summary" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters
 // Accounting feature idle timeout summary counters
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of Sessions with Idle Timeout Feature. The type is interface{} with
@@ -1044,71 +650,34 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCoun
     ExpiredPrepaidIdleTimers interface{}
 }
 
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetFilter() yfilter.YFilter { return idleTimeoutCounters.YFilter }
+func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetEntityData() *types.CommonEntityData {
+    idleTimeoutCounters.EntityData.YFilter = idleTimeoutCounters.YFilter
+    idleTimeoutCounters.EntityData.YangName = "idle-timeout-counters"
+    idleTimeoutCounters.EntityData.BundleName = "cisco_ios_xr"
+    idleTimeoutCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
+    idleTimeoutCounters.EntityData.SegmentPath = "idle-timeout-counters"
+    idleTimeoutCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idleTimeoutCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idleTimeoutCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) SetFilter(yf yfilter.YFilter) { idleTimeoutCounters.YFilter = yf }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetGoName(yname string) string {
-    if yname == "active-session-idle-timers" { return "ActiveSessionIdleTimers" }
-    if yname == "idle-sessions" { return "IdleSessions" }
-    if yname == "transitions-to-idle" { return "TransitionsToIdle" }
-    if yname == "transitions-to-awake" { return "TransitionsToAwake" }
-    if yname == "active-flow-idle-timers" { return "ActiveFlowIdleTimers" }
-    if yname == "expired-flow-idle-timers" { return "ExpiredFlowIdleTimers" }
-    if yname == "active-prepaid-idle-timers" { return "ActivePrepaidIdleTimers" }
-    if yname == "expired-prepaid-idle-timers" { return "ExpiredPrepaidIdleTimers" }
-    return ""
+    idleTimeoutCounters.EntityData.Children = make(map[string]types.YChild)
+    idleTimeoutCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    idleTimeoutCounters.EntityData.Leafs["active-session-idle-timers"] = types.YLeaf{"ActiveSessionIdleTimers", idleTimeoutCounters.ActiveSessionIdleTimers}
+    idleTimeoutCounters.EntityData.Leafs["idle-sessions"] = types.YLeaf{"IdleSessions", idleTimeoutCounters.IdleSessions}
+    idleTimeoutCounters.EntityData.Leafs["transitions-to-idle"] = types.YLeaf{"TransitionsToIdle", idleTimeoutCounters.TransitionsToIdle}
+    idleTimeoutCounters.EntityData.Leafs["transitions-to-awake"] = types.YLeaf{"TransitionsToAwake", idleTimeoutCounters.TransitionsToAwake}
+    idleTimeoutCounters.EntityData.Leafs["active-flow-idle-timers"] = types.YLeaf{"ActiveFlowIdleTimers", idleTimeoutCounters.ActiveFlowIdleTimers}
+    idleTimeoutCounters.EntityData.Leafs["expired-flow-idle-timers"] = types.YLeaf{"ExpiredFlowIdleTimers", idleTimeoutCounters.ExpiredFlowIdleTimers}
+    idleTimeoutCounters.EntityData.Leafs["active-prepaid-idle-timers"] = types.YLeaf{"ActivePrepaidIdleTimers", idleTimeoutCounters.ActivePrepaidIdleTimers}
+    idleTimeoutCounters.EntityData.Leafs["expired-prepaid-idle-timers"] = types.YLeaf{"ExpiredPrepaidIdleTimers", idleTimeoutCounters.ExpiredPrepaidIdleTimers}
+    return &(idleTimeoutCounters.EntityData)
 }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetSegmentPath() string {
-    return "idle-timeout-counters"
-}
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active-session-idle-timers"] = idleTimeoutCounters.ActiveSessionIdleTimers
-    leafs["idle-sessions"] = idleTimeoutCounters.IdleSessions
-    leafs["transitions-to-idle"] = idleTimeoutCounters.TransitionsToIdle
-    leafs["transitions-to-awake"] = idleTimeoutCounters.TransitionsToAwake
-    leafs["active-flow-idle-timers"] = idleTimeoutCounters.ActiveFlowIdleTimers
-    leafs["expired-flow-idle-timers"] = idleTimeoutCounters.ExpiredFlowIdleTimers
-    leafs["active-prepaid-idle-timers"] = idleTimeoutCounters.ActivePrepaidIdleTimers
-    leafs["expired-prepaid-idle-timers"] = idleTimeoutCounters.ExpiredPrepaidIdleTimers
-    return leafs
-}
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetYangName() string { return "idle-timeout-counters" }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) SetParent(parent types.Entity) { idleTimeoutCounters.parent = parent }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetParent() types.Entity { return idleTimeoutCounters.parent }
-
-func (idleTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_IdleTimeoutCounters) GetParentYangName() string { return "subscriber-accounting-summary" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters
 // Accounting feature session timeout summary
 // counters
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of Active Session Timers. The type is interface{} with range:
@@ -1120,59 +689,28 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutC
     ExpiredSessionTimers interface{}
 }
 
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetFilter() yfilter.YFilter { return sessionTimeoutCounters.YFilter }
+func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetEntityData() *types.CommonEntityData {
+    sessionTimeoutCounters.EntityData.YFilter = sessionTimeoutCounters.YFilter
+    sessionTimeoutCounters.EntityData.YangName = "session-timeout-counters"
+    sessionTimeoutCounters.EntityData.BundleName = "cisco_ios_xr"
+    sessionTimeoutCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
+    sessionTimeoutCounters.EntityData.SegmentPath = "session-timeout-counters"
+    sessionTimeoutCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionTimeoutCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionTimeoutCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) SetFilter(yf yfilter.YFilter) { sessionTimeoutCounters.YFilter = yf }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetGoName(yname string) string {
-    if yname == "active-session-timers" { return "ActiveSessionTimers" }
-    if yname == "expired-session-timers" { return "ExpiredSessionTimers" }
-    return ""
+    sessionTimeoutCounters.EntityData.Children = make(map[string]types.YChild)
+    sessionTimeoutCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionTimeoutCounters.EntityData.Leafs["active-session-timers"] = types.YLeaf{"ActiveSessionTimers", sessionTimeoutCounters.ActiveSessionTimers}
+    sessionTimeoutCounters.EntityData.Leafs["expired-session-timers"] = types.YLeaf{"ExpiredSessionTimers", sessionTimeoutCounters.ExpiredSessionTimers}
+    return &(sessionTimeoutCounters.EntityData)
 }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetSegmentPath() string {
-    return "session-timeout-counters"
-}
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active-session-timers"] = sessionTimeoutCounters.ActiveSessionTimers
-    leafs["expired-session-timers"] = sessionTimeoutCounters.ExpiredSessionTimers
-    return leafs
-}
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetYangName() string { return "session-timeout-counters" }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) SetParent(parent types.Entity) { sessionTimeoutCounters.parent = parent }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetParent() types.Entity { return sessionTimeoutCounters.parent }
-
-func (sessionTimeoutCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionTimeoutCounters) GetParentYangName() string { return "subscriber-accounting-summary" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters
 // Accounting feature session context summary
 // counters
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of Active Sessions. The type is interface{} with range:
@@ -1195,64 +733,30 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCoun
     QuotaReceived interface{}
 }
 
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetFilter() yfilter.YFilter { return sessionFlowCounters.YFilter }
+func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetEntityData() *types.CommonEntityData {
+    sessionFlowCounters.EntityData.YFilter = sessionFlowCounters.YFilter
+    sessionFlowCounters.EntityData.YangName = "session-flow-counters"
+    sessionFlowCounters.EntityData.BundleName = "cisco_ios_xr"
+    sessionFlowCounters.EntityData.ParentYangName = "subscriber-accounting-summary"
+    sessionFlowCounters.EntityData.SegmentPath = "session-flow-counters"
+    sessionFlowCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionFlowCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionFlowCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) SetFilter(yf yfilter.YFilter) { sessionFlowCounters.YFilter = yf }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetGoName(yname string) string {
-    if yname == "active-sessions" { return "ActiveSessions" }
-    if yname == "disconnected-sessions" { return "DisconnectedSessions" }
-    if yname == "active-session-accounting-sessions" { return "ActiveSessionAccountingSessions" }
-    if yname == "active-flows" { return "ActiveFlows" }
-    if yname == "quota-received" { return "QuotaReceived" }
-    return ""
+    sessionFlowCounters.EntityData.Children = make(map[string]types.YChild)
+    sessionFlowCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionFlowCounters.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", sessionFlowCounters.ActiveSessions}
+    sessionFlowCounters.EntityData.Leafs["disconnected-sessions"] = types.YLeaf{"DisconnectedSessions", sessionFlowCounters.DisconnectedSessions}
+    sessionFlowCounters.EntityData.Leafs["active-session-accounting-sessions"] = types.YLeaf{"ActiveSessionAccountingSessions", sessionFlowCounters.ActiveSessionAccountingSessions}
+    sessionFlowCounters.EntityData.Leafs["active-flows"] = types.YLeaf{"ActiveFlows", sessionFlowCounters.ActiveFlows}
+    sessionFlowCounters.EntityData.Leafs["quota-received"] = types.YLeaf{"QuotaReceived", sessionFlowCounters.QuotaReceived}
+    return &(sessionFlowCounters.EntityData)
 }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetSegmentPath() string {
-    return "session-flow-counters"
-}
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active-sessions"] = sessionFlowCounters.ActiveSessions
-    leafs["disconnected-sessions"] = sessionFlowCounters.DisconnectedSessions
-    leafs["active-session-accounting-sessions"] = sessionFlowCounters.ActiveSessionAccountingSessions
-    leafs["active-flows"] = sessionFlowCounters.ActiveFlows
-    leafs["quota-received"] = sessionFlowCounters.QuotaReceived
-    return leafs
-}
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetYangName() string { return "session-flow-counters" }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) SetParent(parent types.Entity) { sessionFlowCounters.parent = parent }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetParent() types.Entity { return sessionFlowCounters.parent }
-
-func (sessionFlowCounters *SubscriberAccounting_Nodes_Node_SubscriberAccountingSummary_SessionFlowCounters) GetParentYangName() string { return "subscriber-accounting-summary" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures
 // Subscriber accounting flow feature data
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Display accounting flow features by unique subscriber label. The type is
@@ -1261,69 +765,30 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures struct {
     SubscriberAccountingFlowFeature []SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature
 }
 
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetFilter() yfilter.YFilter { return subscriberAccountingFlowFeatures.YFilter }
+func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingFlowFeatures.EntityData.YFilter = subscriberAccountingFlowFeatures.YFilter
+    subscriberAccountingFlowFeatures.EntityData.YangName = "subscriber-accounting-flow-features"
+    subscriberAccountingFlowFeatures.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingFlowFeatures.EntityData.ParentYangName = "node"
+    subscriberAccountingFlowFeatures.EntityData.SegmentPath = "subscriber-accounting-flow-features"
+    subscriberAccountingFlowFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingFlowFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingFlowFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) SetFilter(yf yfilter.YFilter) { subscriberAccountingFlowFeatures.YFilter = yf }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetGoName(yname string) string {
-    if yname == "subscriber-accounting-flow-feature" { return "SubscriberAccountingFlowFeature" }
-    return ""
-}
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetSegmentPath() string {
-    return "subscriber-accounting-flow-features"
-}
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscriber-accounting-flow-feature" {
-        for _, c := range subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature {
-            if subscriberAccountingFlowFeatures.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature{}
-        subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature = append(subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature, child)
-        return &subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature[len(subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature)-1]
-    }
-    return nil
-}
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subscriberAccountingFlowFeatures.EntityData.Children = make(map[string]types.YChild)
+    subscriberAccountingFlowFeatures.EntityData.Children["subscriber-accounting-flow-feature"] = types.YChild{"SubscriberAccountingFlowFeature", nil}
     for i := range subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature {
-        children[subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature[i].GetSegmentPath()] = &subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature[i]
+        subscriberAccountingFlowFeatures.EntityData.Children[types.GetSegmentPath(&subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature[i])] = types.YChild{"SubscriberAccountingFlowFeature", &subscriberAccountingFlowFeatures.SubscriberAccountingFlowFeature[i]}
     }
-    return children
+    subscriberAccountingFlowFeatures.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberAccountingFlowFeatures.EntityData)
 }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetYangName() string { return "subscriber-accounting-flow-features" }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) SetParent(parent types.Entity) { subscriberAccountingFlowFeatures.parent = parent }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetParent() types.Entity { return subscriberAccountingFlowFeatures.parent }
-
-func (subscriberAccountingFlowFeatures *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures) GetParentYangName() string { return "node" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature
 // Display accounting flow features by unique
 // subscriber label
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique subscriber class label. The type is
@@ -1334,61 +799,27 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_Subscriber
     FlowFeatureData SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData
 }
 
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetFilter() yfilter.YFilter { return subscriberAccountingFlowFeature.YFilter }
+func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetEntityData() *types.CommonEntityData {
+    subscriberAccountingFlowFeature.EntityData.YFilter = subscriberAccountingFlowFeature.YFilter
+    subscriberAccountingFlowFeature.EntityData.YangName = "subscriber-accounting-flow-feature"
+    subscriberAccountingFlowFeature.EntityData.BundleName = "cisco_ios_xr"
+    subscriberAccountingFlowFeature.EntityData.ParentYangName = "subscriber-accounting-flow-features"
+    subscriberAccountingFlowFeature.EntityData.SegmentPath = "subscriber-accounting-flow-feature" + "[class-label='" + fmt.Sprintf("%v", subscriberAccountingFlowFeature.ClassLabel) + "']"
+    subscriberAccountingFlowFeature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberAccountingFlowFeature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberAccountingFlowFeature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) SetFilter(yf yfilter.YFilter) { subscriberAccountingFlowFeature.YFilter = yf }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetGoName(yname string) string {
-    if yname == "class-label" { return "ClassLabel" }
-    if yname == "flow-feature-data" { return "FlowFeatureData" }
-    return ""
+    subscriberAccountingFlowFeature.EntityData.Children = make(map[string]types.YChild)
+    subscriberAccountingFlowFeature.EntityData.Children["flow-feature-data"] = types.YChild{"FlowFeatureData", &subscriberAccountingFlowFeature.FlowFeatureData}
+    subscriberAccountingFlowFeature.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberAccountingFlowFeature.EntityData.Leafs["class-label"] = types.YLeaf{"ClassLabel", subscriberAccountingFlowFeature.ClassLabel}
+    return &(subscriberAccountingFlowFeature.EntityData)
 }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetSegmentPath() string {
-    return "subscriber-accounting-flow-feature" + "[class-label='" + fmt.Sprintf("%v", subscriberAccountingFlowFeature.ClassLabel) + "']"
-}
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "flow-feature-data" {
-        return &subscriberAccountingFlowFeature.FlowFeatureData
-    }
-    return nil
-}
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["flow-feature-data"] = &subscriberAccountingFlowFeature.FlowFeatureData
-    return children
-}
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class-label"] = subscriberAccountingFlowFeature.ClassLabel
-    return leafs
-}
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetYangName() string { return "subscriber-accounting-flow-feature" }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) SetParent(parent types.Entity) { subscriberAccountingFlowFeature.parent = parent }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetParent() types.Entity { return subscriberAccountingFlowFeature.parent }
-
-func (subscriberAccountingFlowFeature *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature) GetParentYangName() string { return "subscriber-accounting-flow-features" }
 
 // SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData
 // Accouting flow feature display data
 type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // True if flow accounting is enabled. The type is bool.
@@ -1565,139 +996,64 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_Subscriber
     PrepaidChargingRule interface{}
 }
 
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetFilter() yfilter.YFilter { return flowFeatureData.YFilter }
+func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetEntityData() *types.CommonEntityData {
+    flowFeatureData.EntityData.YFilter = flowFeatureData.YFilter
+    flowFeatureData.EntityData.YangName = "flow-feature-data"
+    flowFeatureData.EntityData.BundleName = "cisco_ios_xr"
+    flowFeatureData.EntityData.ParentYangName = "subscriber-accounting-flow-feature"
+    flowFeatureData.EntityData.SegmentPath = "flow-feature-data"
+    flowFeatureData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flowFeatureData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flowFeatureData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) SetFilter(yf yfilter.YFilter) { flowFeatureData.YFilter = yf }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetGoName(yname string) string {
-    if yname == "flow-accounting-enabled-flag" { return "FlowAccountingEnabledFlag" }
-    if yname == "flow-idle-timeout-enabled-flag" { return "FlowIdleTimeoutEnabledFlag" }
-    if yname == "prepaid-enabled-flag" { return "PrepaidEnabledFlag" }
-    if yname == "prepaid-reauth-timer-enabled" { return "PrepaidReauthTimerEnabled" }
-    if yname == "prepaid-idle-timeout-enabled" { return "PrepaidIdleTimeoutEnabled" }
-    if yname == "prepaid-final-unit" { return "PrepaidFinalUnit" }
-    if yname == "unique-class-label" { return "UniqueClassLabel" }
-    if yname == "flow-direction" { return "FlowDirection" }
-    if yname == "flow-accounting-periodic-interval" { return "FlowAccountingPeriodicInterval" }
-    if yname == "flow-idle-timeout-value" { return "FlowIdleTimeoutValue" }
-    if yname == "prepaid-time-quota" { return "PrepaidTimeQuota" }
-    if yname == "prepaid-time-threshold" { return "PrepaidTimeThreshold" }
-    if yname == "prepaid-total-time-quota" { return "PrepaidTotalTimeQuota" }
-    if yname == "prepaid-volume-threshold" { return "PrepaidVolumeThreshold" }
-    if yname == "prepaid-remaining-qt" { return "PrepaidRemainingQt" }
-    if yname == "prepaid-remaining-qat" { return "PrepaidRemainingQat" }
-    if yname == "prepaid-remaining-qit" { return "PrepaidRemainingQit" }
-    if yname == "prepaid-remaining-qtt" { return "PrepaidRemainingQtt" }
-    if yname == "prepaid-remaining-wheel" { return "PrepaidRemainingWheel" }
-    if yname == "prepaid-tariff-time" { return "PrepaidTariffTime" }
-    if yname == "prepaid-idle-timeout-value" { return "PrepaidIdleTimeoutValue" }
-    if yname == "prepaid-reauth-timeout-value" { return "PrepaidReauthTimeoutValue" }
-    if yname == "prepaid-ccfh" { return "PrepaidCcfh" }
-    if yname == "prepaid-result-code" { return "PrepaidResultCode" }
-    if yname == "prepaid-volumei-quota" { return "PrepaidVolumeiQuota" }
-    if yname == "prepaid-volumeo-quota" { return "PrepaidVolumeoQuota" }
-    if yname == "prepaid-volumeb-quota" { return "PrepaidVolumebQuota" }
-    if yname == "prepaid-total-volumei-quota" { return "PrepaidTotalVolumeiQuota" }
-    if yname == "prepaid-total-volumeo-quota" { return "PrepaidTotalVolumeoQuota" }
-    if yname == "prepaid-total-volumeb-quota" { return "PrepaidTotalVolumebQuota" }
-    if yname == "prepaid-volume-usedi-quota" { return "PrepaidVolumeUsediQuota" }
-    if yname == "prepaid-volume-usedo-quota" { return "PrepaidVolumeUsedoQuota" }
-    if yname == "prepaid-volume-refi-quota" { return "PrepaidVolumeRefiQuota" }
-    if yname == "prepaid-volume-refo-quota" { return "PrepaidVolumeRefoQuota" }
-    if yname == "prepaid-volume-refb-quota" { return "PrepaidVolumeRefbQuota" }
-    if yname == "prepaid-volume-newi-quota" { return "PrepaidVolumeNewiQuota" }
-    if yname == "prepaid-volume-newo-quota" { return "PrepaidVolumeNewoQuota" }
-    if yname == "prepaid-volume-newb-quota" { return "PrepaidVolumeNewbQuota" }
-    if yname == "prepaid-tariff-volumei-quota" { return "PrepaidTariffVolumeiQuota" }
-    if yname == "prepaid-tariff-volumeo-quota" { return "PrepaidTariffVolumeoQuota" }
-    if yname == "prepaid-tariff-volumeb-quota" { return "PrepaidTariffVolumebQuota" }
-    if yname == "flow-accounting-method-list-name" { return "FlowAccountingMethodListName" }
-    if yname == "prepaid-cfg" { return "PrepaidCfg" }
-    if yname == "prepaid-time-state" { return "PrepaidTimeState" }
-    if yname == "prepaid-volume-state" { return "PrepaidVolumeState" }
-    if yname == "prepaid-charging-rule" { return "PrepaidChargingRule" }
-    return ""
+    flowFeatureData.EntityData.Children = make(map[string]types.YChild)
+    flowFeatureData.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowFeatureData.EntityData.Leafs["flow-accounting-enabled-flag"] = types.YLeaf{"FlowAccountingEnabledFlag", flowFeatureData.FlowAccountingEnabledFlag}
+    flowFeatureData.EntityData.Leafs["flow-idle-timeout-enabled-flag"] = types.YLeaf{"FlowIdleTimeoutEnabledFlag", flowFeatureData.FlowIdleTimeoutEnabledFlag}
+    flowFeatureData.EntityData.Leafs["prepaid-enabled-flag"] = types.YLeaf{"PrepaidEnabledFlag", flowFeatureData.PrepaidEnabledFlag}
+    flowFeatureData.EntityData.Leafs["prepaid-reauth-timer-enabled"] = types.YLeaf{"PrepaidReauthTimerEnabled", flowFeatureData.PrepaidReauthTimerEnabled}
+    flowFeatureData.EntityData.Leafs["prepaid-idle-timeout-enabled"] = types.YLeaf{"PrepaidIdleTimeoutEnabled", flowFeatureData.PrepaidIdleTimeoutEnabled}
+    flowFeatureData.EntityData.Leafs["prepaid-final-unit"] = types.YLeaf{"PrepaidFinalUnit", flowFeatureData.PrepaidFinalUnit}
+    flowFeatureData.EntityData.Leafs["unique-class-label"] = types.YLeaf{"UniqueClassLabel", flowFeatureData.UniqueClassLabel}
+    flowFeatureData.EntityData.Leafs["flow-direction"] = types.YLeaf{"FlowDirection", flowFeatureData.FlowDirection}
+    flowFeatureData.EntityData.Leafs["flow-accounting-periodic-interval"] = types.YLeaf{"FlowAccountingPeriodicInterval", flowFeatureData.FlowAccountingPeriodicInterval}
+    flowFeatureData.EntityData.Leafs["flow-idle-timeout-value"] = types.YLeaf{"FlowIdleTimeoutValue", flowFeatureData.FlowIdleTimeoutValue}
+    flowFeatureData.EntityData.Leafs["prepaid-time-quota"] = types.YLeaf{"PrepaidTimeQuota", flowFeatureData.PrepaidTimeQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-time-threshold"] = types.YLeaf{"PrepaidTimeThreshold", flowFeatureData.PrepaidTimeThreshold}
+    flowFeatureData.EntityData.Leafs["prepaid-total-time-quota"] = types.YLeaf{"PrepaidTotalTimeQuota", flowFeatureData.PrepaidTotalTimeQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-threshold"] = types.YLeaf{"PrepaidVolumeThreshold", flowFeatureData.PrepaidVolumeThreshold}
+    flowFeatureData.EntityData.Leafs["prepaid-remaining-qt"] = types.YLeaf{"PrepaidRemainingQt", flowFeatureData.PrepaidRemainingQt}
+    flowFeatureData.EntityData.Leafs["prepaid-remaining-qat"] = types.YLeaf{"PrepaidRemainingQat", flowFeatureData.PrepaidRemainingQat}
+    flowFeatureData.EntityData.Leafs["prepaid-remaining-qit"] = types.YLeaf{"PrepaidRemainingQit", flowFeatureData.PrepaidRemainingQit}
+    flowFeatureData.EntityData.Leafs["prepaid-remaining-qtt"] = types.YLeaf{"PrepaidRemainingQtt", flowFeatureData.PrepaidRemainingQtt}
+    flowFeatureData.EntityData.Leafs["prepaid-remaining-wheel"] = types.YLeaf{"PrepaidRemainingWheel", flowFeatureData.PrepaidRemainingWheel}
+    flowFeatureData.EntityData.Leafs["prepaid-tariff-time"] = types.YLeaf{"PrepaidTariffTime", flowFeatureData.PrepaidTariffTime}
+    flowFeatureData.EntityData.Leafs["prepaid-idle-timeout-value"] = types.YLeaf{"PrepaidIdleTimeoutValue", flowFeatureData.PrepaidIdleTimeoutValue}
+    flowFeatureData.EntityData.Leafs["prepaid-reauth-timeout-value"] = types.YLeaf{"PrepaidReauthTimeoutValue", flowFeatureData.PrepaidReauthTimeoutValue}
+    flowFeatureData.EntityData.Leafs["prepaid-ccfh"] = types.YLeaf{"PrepaidCcfh", flowFeatureData.PrepaidCcfh}
+    flowFeatureData.EntityData.Leafs["prepaid-result-code"] = types.YLeaf{"PrepaidResultCode", flowFeatureData.PrepaidResultCode}
+    flowFeatureData.EntityData.Leafs["prepaid-volumei-quota"] = types.YLeaf{"PrepaidVolumeiQuota", flowFeatureData.PrepaidVolumeiQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volumeo-quota"] = types.YLeaf{"PrepaidVolumeoQuota", flowFeatureData.PrepaidVolumeoQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volumeb-quota"] = types.YLeaf{"PrepaidVolumebQuota", flowFeatureData.PrepaidVolumebQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-total-volumei-quota"] = types.YLeaf{"PrepaidTotalVolumeiQuota", flowFeatureData.PrepaidTotalVolumeiQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-total-volumeo-quota"] = types.YLeaf{"PrepaidTotalVolumeoQuota", flowFeatureData.PrepaidTotalVolumeoQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-total-volumeb-quota"] = types.YLeaf{"PrepaidTotalVolumebQuota", flowFeatureData.PrepaidTotalVolumebQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-usedi-quota"] = types.YLeaf{"PrepaidVolumeUsediQuota", flowFeatureData.PrepaidVolumeUsediQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-usedo-quota"] = types.YLeaf{"PrepaidVolumeUsedoQuota", flowFeatureData.PrepaidVolumeUsedoQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-refi-quota"] = types.YLeaf{"PrepaidVolumeRefiQuota", flowFeatureData.PrepaidVolumeRefiQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-refo-quota"] = types.YLeaf{"PrepaidVolumeRefoQuota", flowFeatureData.PrepaidVolumeRefoQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-refb-quota"] = types.YLeaf{"PrepaidVolumeRefbQuota", flowFeatureData.PrepaidVolumeRefbQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-newi-quota"] = types.YLeaf{"PrepaidVolumeNewiQuota", flowFeatureData.PrepaidVolumeNewiQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-newo-quota"] = types.YLeaf{"PrepaidVolumeNewoQuota", flowFeatureData.PrepaidVolumeNewoQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-newb-quota"] = types.YLeaf{"PrepaidVolumeNewbQuota", flowFeatureData.PrepaidVolumeNewbQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-tariff-volumei-quota"] = types.YLeaf{"PrepaidTariffVolumeiQuota", flowFeatureData.PrepaidTariffVolumeiQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-tariff-volumeo-quota"] = types.YLeaf{"PrepaidTariffVolumeoQuota", flowFeatureData.PrepaidTariffVolumeoQuota}
+    flowFeatureData.EntityData.Leafs["prepaid-tariff-volumeb-quota"] = types.YLeaf{"PrepaidTariffVolumebQuota", flowFeatureData.PrepaidTariffVolumebQuota}
+    flowFeatureData.EntityData.Leafs["flow-accounting-method-list-name"] = types.YLeaf{"FlowAccountingMethodListName", flowFeatureData.FlowAccountingMethodListName}
+    flowFeatureData.EntityData.Leafs["prepaid-cfg"] = types.YLeaf{"PrepaidCfg", flowFeatureData.PrepaidCfg}
+    flowFeatureData.EntityData.Leafs["prepaid-time-state"] = types.YLeaf{"PrepaidTimeState", flowFeatureData.PrepaidTimeState}
+    flowFeatureData.EntityData.Leafs["prepaid-volume-state"] = types.YLeaf{"PrepaidVolumeState", flowFeatureData.PrepaidVolumeState}
+    flowFeatureData.EntityData.Leafs["prepaid-charging-rule"] = types.YLeaf{"PrepaidChargingRule", flowFeatureData.PrepaidChargingRule}
+    return &(flowFeatureData.EntityData)
 }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetSegmentPath() string {
-    return "flow-feature-data"
-}
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["flow-accounting-enabled-flag"] = flowFeatureData.FlowAccountingEnabledFlag
-    leafs["flow-idle-timeout-enabled-flag"] = flowFeatureData.FlowIdleTimeoutEnabledFlag
-    leafs["prepaid-enabled-flag"] = flowFeatureData.PrepaidEnabledFlag
-    leafs["prepaid-reauth-timer-enabled"] = flowFeatureData.PrepaidReauthTimerEnabled
-    leafs["prepaid-idle-timeout-enabled"] = flowFeatureData.PrepaidIdleTimeoutEnabled
-    leafs["prepaid-final-unit"] = flowFeatureData.PrepaidFinalUnit
-    leafs["unique-class-label"] = flowFeatureData.UniqueClassLabel
-    leafs["flow-direction"] = flowFeatureData.FlowDirection
-    leafs["flow-accounting-periodic-interval"] = flowFeatureData.FlowAccountingPeriodicInterval
-    leafs["flow-idle-timeout-value"] = flowFeatureData.FlowIdleTimeoutValue
-    leafs["prepaid-time-quota"] = flowFeatureData.PrepaidTimeQuota
-    leafs["prepaid-time-threshold"] = flowFeatureData.PrepaidTimeThreshold
-    leafs["prepaid-total-time-quota"] = flowFeatureData.PrepaidTotalTimeQuota
-    leafs["prepaid-volume-threshold"] = flowFeatureData.PrepaidVolumeThreshold
-    leafs["prepaid-remaining-qt"] = flowFeatureData.PrepaidRemainingQt
-    leafs["prepaid-remaining-qat"] = flowFeatureData.PrepaidRemainingQat
-    leafs["prepaid-remaining-qit"] = flowFeatureData.PrepaidRemainingQit
-    leafs["prepaid-remaining-qtt"] = flowFeatureData.PrepaidRemainingQtt
-    leafs["prepaid-remaining-wheel"] = flowFeatureData.PrepaidRemainingWheel
-    leafs["prepaid-tariff-time"] = flowFeatureData.PrepaidTariffTime
-    leafs["prepaid-idle-timeout-value"] = flowFeatureData.PrepaidIdleTimeoutValue
-    leafs["prepaid-reauth-timeout-value"] = flowFeatureData.PrepaidReauthTimeoutValue
-    leafs["prepaid-ccfh"] = flowFeatureData.PrepaidCcfh
-    leafs["prepaid-result-code"] = flowFeatureData.PrepaidResultCode
-    leafs["prepaid-volumei-quota"] = flowFeatureData.PrepaidVolumeiQuota
-    leafs["prepaid-volumeo-quota"] = flowFeatureData.PrepaidVolumeoQuota
-    leafs["prepaid-volumeb-quota"] = flowFeatureData.PrepaidVolumebQuota
-    leafs["prepaid-total-volumei-quota"] = flowFeatureData.PrepaidTotalVolumeiQuota
-    leafs["prepaid-total-volumeo-quota"] = flowFeatureData.PrepaidTotalVolumeoQuota
-    leafs["prepaid-total-volumeb-quota"] = flowFeatureData.PrepaidTotalVolumebQuota
-    leafs["prepaid-volume-usedi-quota"] = flowFeatureData.PrepaidVolumeUsediQuota
-    leafs["prepaid-volume-usedo-quota"] = flowFeatureData.PrepaidVolumeUsedoQuota
-    leafs["prepaid-volume-refi-quota"] = flowFeatureData.PrepaidVolumeRefiQuota
-    leafs["prepaid-volume-refo-quota"] = flowFeatureData.PrepaidVolumeRefoQuota
-    leafs["prepaid-volume-refb-quota"] = flowFeatureData.PrepaidVolumeRefbQuota
-    leafs["prepaid-volume-newi-quota"] = flowFeatureData.PrepaidVolumeNewiQuota
-    leafs["prepaid-volume-newo-quota"] = flowFeatureData.PrepaidVolumeNewoQuota
-    leafs["prepaid-volume-newb-quota"] = flowFeatureData.PrepaidVolumeNewbQuota
-    leafs["prepaid-tariff-volumei-quota"] = flowFeatureData.PrepaidTariffVolumeiQuota
-    leafs["prepaid-tariff-volumeo-quota"] = flowFeatureData.PrepaidTariffVolumeoQuota
-    leafs["prepaid-tariff-volumeb-quota"] = flowFeatureData.PrepaidTariffVolumebQuota
-    leafs["flow-accounting-method-list-name"] = flowFeatureData.FlowAccountingMethodListName
-    leafs["prepaid-cfg"] = flowFeatureData.PrepaidCfg
-    leafs["prepaid-time-state"] = flowFeatureData.PrepaidTimeState
-    leafs["prepaid-volume-state"] = flowFeatureData.PrepaidVolumeState
-    leafs["prepaid-charging-rule"] = flowFeatureData.PrepaidChargingRule
-    return leafs
-}
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetYangName() string { return "flow-feature-data" }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) SetParent(parent types.Entity) { flowFeatureData.parent = parent }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetParent() types.Entity { return flowFeatureData.parent }
-
-func (flowFeatureData *SubscriberAccounting_Nodes_Node_SubscriberAccountingFlowFeatures_SubscriberAccountingFlowFeature_FlowFeatureData) GetParentYangName() string { return "subscriber-accounting-flow-feature" }
 

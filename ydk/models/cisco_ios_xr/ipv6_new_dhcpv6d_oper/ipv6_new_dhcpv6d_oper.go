@@ -24,37 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6", reflect.TypeOf(Dhcpv6{}))
 }
 
-// LeaseLimit represents Profile lease limit type
-type LeaseLimit string
-
-const (
-    // Lease limit type none
-    LeaseLimit_none LeaseLimit = "none"
-
-    // Lease limit type interface
-    LeaseLimit_interface_ LeaseLimit = "interface"
-
-    // Lease limit type circuit ID
-    LeaseLimit_circuit_id LeaseLimit = "circuit-id"
-
-    // Lease limit type remote ID
-    LeaseLimit_remote_id LeaseLimit = "remote-id"
-)
-
-// BagDhcpv6DSubMode represents Bag dhcpv6d sub mode
-type BagDhcpv6DSubMode string
-
-const (
-    // DHCPv6 Base mode
-    BagDhcpv6DSubMode_base BagDhcpv6DSubMode = "base"
-
-    // DHCPv6 Server mode
-    BagDhcpv6DSubMode_server BagDhcpv6DSubMode = "server"
-
-    // DHCPv6 Proxy mode
-    BagDhcpv6DSubMode_proxy BagDhcpv6DSubMode = "proxy"
-)
-
 // BagDhcpv6DFsmState represents Bag dhcpv6d fsm state
 type BagDhcpv6DFsmState string
 
@@ -104,31 +73,6 @@ const (
     BagDhcpv6DFsmState_proxy_bound_client BagDhcpv6DFsmState = "proxy-bound-client"
 )
 
-// BagDhcpv6DIntfSrgRole represents Bag dhcpv6d intf srg role
-type BagDhcpv6DIntfSrgRole string
-
-const (
-    // DHCPv6 Interface SRG role NONE
-    BagDhcpv6DIntfSrgRole_none BagDhcpv6DIntfSrgRole = "none"
-
-    // DHCPv6 Interface SRG role Master
-    BagDhcpv6DIntfSrgRole_master BagDhcpv6DIntfSrgRole = "master"
-
-    // DHCPv6 Interface SRG role Slave
-    BagDhcpv6DIntfSrgRole_slave BagDhcpv6DIntfSrgRole = "slave"
-)
-
-// Dhcpv6IssuVersion represents Dhcpv6 issu version
-type Dhcpv6IssuVersion string
-
-const (
-    // Version 1
-    Dhcpv6IssuVersion_version1 Dhcpv6IssuVersion = "version1"
-
-    // Version 2
-    Dhcpv6IssuVersion_version2 Dhcpv6IssuVersion = "version2"
-)
-
 // BagDhcpv6DIaId represents Bag dhcpv6d ia id
 type BagDhcpv6DIaId string
 
@@ -143,17 +87,6 @@ const (
     BagDhcpv6DIaId_iata BagDhcpv6DIaId = "iata"
 )
 
-// Dhcpv6IssuRole represents Dhcpv6 issu role
-type Dhcpv6IssuRole string
-
-const (
-    // Primary role
-    Dhcpv6IssuRole_role_primary Dhcpv6IssuRole = "role-primary"
-
-    // Secondary role
-    Dhcpv6IssuRole_role_secondary Dhcpv6IssuRole = "role-secondary"
-)
-
 // BagDhcpv6DIntfSergRole represents Bag dhcpv6d intf serg role
 type BagDhcpv6DIntfSergRole string
 
@@ -166,6 +99,62 @@ const (
 
     // DHCPv6 Interface SERG role Slave
     BagDhcpv6DIntfSergRole_slave BagDhcpv6DIntfSergRole = "slave"
+)
+
+// BagDhcpv6DIntfSrgRole represents Bag dhcpv6d intf srg role
+type BagDhcpv6DIntfSrgRole string
+
+const (
+    // DHCPv6 Interface SRG role NONE
+    BagDhcpv6DIntfSrgRole_none BagDhcpv6DIntfSrgRole = "none"
+
+    // DHCPv6 Interface SRG role Master
+    BagDhcpv6DIntfSrgRole_master BagDhcpv6DIntfSrgRole = "master"
+
+    // DHCPv6 Interface SRG role Slave
+    BagDhcpv6DIntfSrgRole_slave BagDhcpv6DIntfSrgRole = "slave"
+)
+
+// LeaseLimit represents Profile lease limit type
+type LeaseLimit string
+
+const (
+    // Lease limit type none
+    LeaseLimit_none LeaseLimit = "none"
+
+    // Lease limit type interface
+    LeaseLimit_interface_ LeaseLimit = "interface"
+
+    // Lease limit type circuit ID
+    LeaseLimit_circuit_id LeaseLimit = "circuit-id"
+
+    // Lease limit type remote ID
+    LeaseLimit_remote_id LeaseLimit = "remote-id"
+)
+
+// BagDhcpv6DSubMode represents Bag dhcpv6d sub mode
+type BagDhcpv6DSubMode string
+
+const (
+    // DHCPv6 Base mode
+    BagDhcpv6DSubMode_base BagDhcpv6DSubMode = "base"
+
+    // DHCPv6 Server mode
+    BagDhcpv6DSubMode_server BagDhcpv6DSubMode = "server"
+
+    // DHCPv6 Proxy mode
+    BagDhcpv6DSubMode_proxy BagDhcpv6DSubMode = "proxy"
+)
+
+// Dhcpv6IssuVersion represents Dhcpv6 issu version
+type Dhcpv6IssuVersion string
+
+const (
+    // Version 1
+    Dhcpv6IssuVersion_version1 Dhcpv6IssuVersion = "version1"
+
+    // Version 2
+    Dhcpv6IssuVersion_version2 Dhcpv6IssuVersion = "version2"
 )
 
 // DhcpIssuPhase represents Dhcp issu phase
@@ -188,10 +177,21 @@ const (
     DhcpIssuPhase_phase_aborted DhcpIssuPhase = "phase-aborted"
 )
 
+// Dhcpv6IssuRole represents Dhcpv6 issu role
+type Dhcpv6IssuRole string
+
+const (
+    // Primary role
+    Dhcpv6IssuRole_role_primary Dhcpv6IssuRole = "role-primary"
+
+    // Secondary role
+    Dhcpv6IssuRole_role_secondary Dhcpv6IssuRole = "role-secondary"
+)
+
 // Dhcpv6
 // IPV6 DHCPD operational data
 type Dhcpv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP IssuStatus.
@@ -201,64 +201,27 @@ type Dhcpv6 struct {
     Nodes Dhcpv6_Nodes
 }
 
-func (dhcpv6 *Dhcpv6) GetFilter() yfilter.YFilter { return dhcpv6.YFilter }
+func (dhcpv6 *Dhcpv6) GetEntityData() *types.CommonEntityData {
+    dhcpv6.EntityData.YFilter = dhcpv6.YFilter
+    dhcpv6.EntityData.YangName = "dhcpv6"
+    dhcpv6.EntityData.BundleName = "cisco_ios_xr"
+    dhcpv6.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper"
+    dhcpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6"
+    dhcpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcpv6 *Dhcpv6) SetFilter(yf yfilter.YFilter) { dhcpv6.YFilter = yf }
-
-func (dhcpv6 *Dhcpv6) GetGoName(yname string) string {
-    if yname == "issu-status" { return "IssuStatus" }
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    dhcpv6.EntityData.Children = make(map[string]types.YChild)
+    dhcpv6.EntityData.Children["issu-status"] = types.YChild{"IssuStatus", &dhcpv6.IssuStatus}
+    dhcpv6.EntityData.Children["nodes"] = types.YChild{"Nodes", &dhcpv6.Nodes}
+    dhcpv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dhcpv6.EntityData)
 }
-
-func (dhcpv6 *Dhcpv6) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6"
-}
-
-func (dhcpv6 *Dhcpv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "issu-status" {
-        return &dhcpv6.IssuStatus
-    }
-    if childYangName == "nodes" {
-        return &dhcpv6.Nodes
-    }
-    return nil
-}
-
-func (dhcpv6 *Dhcpv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["issu-status"] = &dhcpv6.IssuStatus
-    children["nodes"] = &dhcpv6.Nodes
-    return children
-}
-
-func (dhcpv6 *Dhcpv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dhcpv6 *Dhcpv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcpv6 *Dhcpv6) GetYangName() string { return "dhcpv6" }
-
-func (dhcpv6 *Dhcpv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcpv6 *Dhcpv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcpv6 *Dhcpv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcpv6 *Dhcpv6) SetParent(parent types.Entity) { dhcpv6.parent = parent }
-
-func (dhcpv6 *Dhcpv6) GetParent() types.Entity { return dhcpv6.parent }
-
-func (dhcpv6 *Dhcpv6) GetParentYangName() string { return "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper" }
 
 // Dhcpv6_IssuStatus
 // DHCP IssuStatus
 type Dhcpv6_IssuStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timestamp for the process start time in nanoseconds since Epoch, i.e. since
@@ -306,146 +269,68 @@ type Dhcpv6_IssuStatus struct {
     Version interface{}
 }
 
-func (issuStatus *Dhcpv6_IssuStatus) GetFilter() yfilter.YFilter { return issuStatus.YFilter }
+func (issuStatus *Dhcpv6_IssuStatus) GetEntityData() *types.CommonEntityData {
+    issuStatus.EntityData.YFilter = issuStatus.YFilter
+    issuStatus.EntityData.YangName = "issu-status"
+    issuStatus.EntityData.BundleName = "cisco_ios_xr"
+    issuStatus.EntityData.ParentYangName = "dhcpv6"
+    issuStatus.EntityData.SegmentPath = "issu-status"
+    issuStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    issuStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    issuStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (issuStatus *Dhcpv6_IssuStatus) SetFilter(yf yfilter.YFilter) { issuStatus.YFilter = yf }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetGoName(yname string) string {
-    if yname == "process-start-time" { return "ProcessStartTime" }
-    if yname == "issu-sync-complete-time" { return "IssuSyncCompleteTime" }
-    if yname == "issu-sync-start-time" { return "IssuSyncStartTime" }
-    if yname == "issu-ready-time" { return "IssuReadyTime" }
-    if yname == "big-bang-time" { return "BigBangTime" }
-    if yname == "primary-role-time" { return "PrimaryRoleTime" }
-    if yname == "issu-ready-issu-mgr-connection" { return "IssuReadyIssuMgrConnection" }
-    if yname == "role" { return "Role" }
-    if yname == "phase" { return "Phase" }
-    if yname == "version" { return "Version" }
-    return ""
+    issuStatus.EntityData.Children = make(map[string]types.YChild)
+    issuStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    issuStatus.EntityData.Leafs["process-start-time"] = types.YLeaf{"ProcessStartTime", issuStatus.ProcessStartTime}
+    issuStatus.EntityData.Leafs["issu-sync-complete-time"] = types.YLeaf{"IssuSyncCompleteTime", issuStatus.IssuSyncCompleteTime}
+    issuStatus.EntityData.Leafs["issu-sync-start-time"] = types.YLeaf{"IssuSyncStartTime", issuStatus.IssuSyncStartTime}
+    issuStatus.EntityData.Leafs["issu-ready-time"] = types.YLeaf{"IssuReadyTime", issuStatus.IssuReadyTime}
+    issuStatus.EntityData.Leafs["big-bang-time"] = types.YLeaf{"BigBangTime", issuStatus.BigBangTime}
+    issuStatus.EntityData.Leafs["primary-role-time"] = types.YLeaf{"PrimaryRoleTime", issuStatus.PrimaryRoleTime}
+    issuStatus.EntityData.Leafs["issu-ready-issu-mgr-connection"] = types.YLeaf{"IssuReadyIssuMgrConnection", issuStatus.IssuReadyIssuMgrConnection}
+    issuStatus.EntityData.Leafs["role"] = types.YLeaf{"Role", issuStatus.Role}
+    issuStatus.EntityData.Leafs["phase"] = types.YLeaf{"Phase", issuStatus.Phase}
+    issuStatus.EntityData.Leafs["version"] = types.YLeaf{"Version", issuStatus.Version}
+    return &(issuStatus.EntityData)
 }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetSegmentPath() string {
-    return "issu-status"
-}
-
-func (issuStatus *Dhcpv6_IssuStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (issuStatus *Dhcpv6_IssuStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (issuStatus *Dhcpv6_IssuStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["process-start-time"] = issuStatus.ProcessStartTime
-    leafs["issu-sync-complete-time"] = issuStatus.IssuSyncCompleteTime
-    leafs["issu-sync-start-time"] = issuStatus.IssuSyncStartTime
-    leafs["issu-ready-time"] = issuStatus.IssuReadyTime
-    leafs["big-bang-time"] = issuStatus.BigBangTime
-    leafs["primary-role-time"] = issuStatus.PrimaryRoleTime
-    leafs["issu-ready-issu-mgr-connection"] = issuStatus.IssuReadyIssuMgrConnection
-    leafs["role"] = issuStatus.Role
-    leafs["phase"] = issuStatus.Phase
-    leafs["version"] = issuStatus.Version
-    return leafs
-}
-
-func (issuStatus *Dhcpv6_IssuStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetYangName() string { return "issu-status" }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (issuStatus *Dhcpv6_IssuStatus) SetParent(parent types.Entity) { issuStatus.parent = parent }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetParent() types.Entity { return issuStatus.parent }
-
-func (issuStatus *Dhcpv6_IssuStatus) GetParentYangName() string { return "dhcpv6" }
 
 // Dhcpv6_Nodes
 // IPv6 DHCP list of nodes
 type Dhcpv6_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP particular node name. The type is slice of Dhcpv6_Nodes_Node.
     Node []Dhcpv6_Nodes_Node
 }
 
-func (nodes *Dhcpv6_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Dhcpv6_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "dhcpv6"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Dhcpv6_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Dhcpv6_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Dhcpv6_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Dhcpv6_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Dhcpv6_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Dhcpv6_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Dhcpv6_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Dhcpv6_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Dhcpv6_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Dhcpv6_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Dhcpv6_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Dhcpv6_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Dhcpv6_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Dhcpv6_Nodes) GetParentYangName() string { return "dhcpv6" }
 
 // Dhcpv6_Nodes_Node
 // IPv6 DHCP particular node name
 type Dhcpv6_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IPv6 DHCP proxy operational data.
@@ -461,76 +346,30 @@ type Dhcpv6_Nodes_Node struct {
     Relay Dhcpv6_Nodes_Node_Relay
 }
 
-func (node *Dhcpv6_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Dhcpv6_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Dhcpv6_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Dhcpv6_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "proxy" { return "Proxy" }
-    if yname == "base" { return "Base" }
-    if yname == "server" { return "Server" }
-    if yname == "relay" { return "Relay" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["proxy"] = types.YChild{"Proxy", &node.Proxy}
+    node.EntityData.Children["base"] = types.YChild{"Base", &node.Base}
+    node.EntityData.Children["server"] = types.YChild{"Server", &node.Server}
+    node.EntityData.Children["relay"] = types.YChild{"Relay", &node.Relay}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Dhcpv6_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Dhcpv6_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "proxy" {
-        return &node.Proxy
-    }
-    if childYangName == "base" {
-        return &node.Base
-    }
-    if childYangName == "server" {
-        return &node.Server
-    }
-    if childYangName == "relay" {
-        return &node.Relay
-    }
-    return nil
-}
-
-func (node *Dhcpv6_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["proxy"] = &node.Proxy
-    children["base"] = &node.Base
-    children["server"] = &node.Server
-    children["relay"] = &node.Relay
-    return children
-}
-
-func (node *Dhcpv6_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Dhcpv6_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Dhcpv6_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Dhcpv6_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Dhcpv6_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Dhcpv6_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Dhcpv6_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Dhcpv6_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Dhcpv6_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Dhcpv6_Nodes_Node_Proxy
 // IPv6 DHCP proxy operational data
 type Dhcpv6_Nodes_Node_Proxy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 proxy list of VRF names.
@@ -549,79 +388,30 @@ type Dhcpv6_Nodes_Node_Proxy struct {
     Binding Dhcpv6_Nodes_Node_Proxy_Binding
 }
 
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetFilter() yfilter.YFilter { return proxy.YFilter }
+func (proxy *Dhcpv6_Nodes_Node_Proxy) GetEntityData() *types.CommonEntityData {
+    proxy.EntityData.YFilter = proxy.YFilter
+    proxy.EntityData.YangName = "proxy"
+    proxy.EntityData.BundleName = "cisco_ios_xr"
+    proxy.EntityData.ParentYangName = "node"
+    proxy.EntityData.SegmentPath = "proxy"
+    proxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    proxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    proxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (proxy *Dhcpv6_Nodes_Node_Proxy) SetFilter(yf yfilter.YFilter) { proxy.YFilter = yf }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetGoName(yname string) string {
-    if yname == "vrfs" { return "Vrfs" }
-    if yname == "profiles" { return "Profiles" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "binding" { return "Binding" }
-    return ""
+    proxy.EntityData.Children = make(map[string]types.YChild)
+    proxy.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &proxy.Vrfs}
+    proxy.EntityData.Children["profiles"] = types.YChild{"Profiles", &proxy.Profiles}
+    proxy.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &proxy.Interfaces}
+    proxy.EntityData.Children["statistics"] = types.YChild{"Statistics", &proxy.Statistics}
+    proxy.EntityData.Children["binding"] = types.YChild{"Binding", &proxy.Binding}
+    proxy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(proxy.EntityData)
 }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetSegmentPath() string {
-    return "proxy"
-}
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrfs" {
-        return &proxy.Vrfs
-    }
-    if childYangName == "profiles" {
-        return &proxy.Profiles
-    }
-    if childYangName == "interfaces" {
-        return &proxy.Interfaces
-    }
-    if childYangName == "statistics" {
-        return &proxy.Statistics
-    }
-    if childYangName == "binding" {
-        return &proxy.Binding
-    }
-    return nil
-}
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vrfs"] = &proxy.Vrfs
-    children["profiles"] = &proxy.Profiles
-    children["interfaces"] = &proxy.Interfaces
-    children["statistics"] = &proxy.Statistics
-    children["binding"] = &proxy.Binding
-    return children
-}
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetYangName() string { return "proxy" }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) SetParent(parent types.Entity) { proxy.parent = parent }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetParent() types.Entity { return proxy.parent }
-
-func (proxy *Dhcpv6_Nodes_Node_Proxy) GetParentYangName() string { return "node" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs
 // DHCPV6 proxy list of VRF names
 type Dhcpv6_Nodes_Node_Proxy_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP proxy VRF name. The type is slice of
@@ -629,133 +419,60 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs struct {
     Vrf []Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf
 }
 
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "proxy"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *Dhcpv6_Nodes_Node_Proxy_Vrfs) GetParentYangName() string { return "proxy" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf
 // IPv6 DHCP proxy VRF name
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv6 DHCP proxy statistics.
     Statistics Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics
 }
 
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["statistics"] = types.YChild{"Statistics", &vrf.Statistics}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &vrf.Statistics
-    }
-    return nil
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &vrf.Statistics
-    return children
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics
 // IPv6 DHCP proxy statistics
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 solicit packets.
@@ -810,139 +527,42 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics struct {
     LeaseQueryData Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "vrf"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetGoName(yname string) string {
-    if yname == "solicit" { return "Solicit" }
-    if yname == "advertise" { return "Advertise" }
-    if yname == "request" { return "Request" }
-    if yname == "reply" { return "Reply" }
-    if yname == "confirm" { return "Confirm" }
-    if yname == "decline" { return "Decline" }
-    if yname == "renew" { return "Renew" }
-    if yname == "rebind" { return "Rebind" }
-    if yname == "release" { return "Release" }
-    if yname == "reconfig" { return "Reconfig" }
-    if yname == "inform" { return "Inform" }
-    if yname == "relay-forward" { return "RelayForward" }
-    if yname == "relay-reply" { return "RelayReply" }
-    if yname == "lease-query" { return "LeaseQuery" }
-    if yname == "lease-query-reply" { return "LeaseQueryReply" }
-    if yname == "lease-query-done" { return "LeaseQueryDone" }
-    if yname == "lease-query-data" { return "LeaseQueryData" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["solicit"] = types.YChild{"Solicit", &statistics.Solicit}
+    statistics.EntityData.Children["advertise"] = types.YChild{"Advertise", &statistics.Advertise}
+    statistics.EntityData.Children["request"] = types.YChild{"Request", &statistics.Request}
+    statistics.EntityData.Children["reply"] = types.YChild{"Reply", &statistics.Reply}
+    statistics.EntityData.Children["confirm"] = types.YChild{"Confirm", &statistics.Confirm}
+    statistics.EntityData.Children["decline"] = types.YChild{"Decline", &statistics.Decline}
+    statistics.EntityData.Children["renew"] = types.YChild{"Renew", &statistics.Renew}
+    statistics.EntityData.Children["rebind"] = types.YChild{"Rebind", &statistics.Rebind}
+    statistics.EntityData.Children["release"] = types.YChild{"Release", &statistics.Release}
+    statistics.EntityData.Children["reconfig"] = types.YChild{"Reconfig", &statistics.Reconfig}
+    statistics.EntityData.Children["inform"] = types.YChild{"Inform", &statistics.Inform}
+    statistics.EntityData.Children["relay-forward"] = types.YChild{"RelayForward", &statistics.RelayForward}
+    statistics.EntityData.Children["relay-reply"] = types.YChild{"RelayReply", &statistics.RelayReply}
+    statistics.EntityData.Children["lease-query"] = types.YChild{"LeaseQuery", &statistics.LeaseQuery}
+    statistics.EntityData.Children["lease-query-reply"] = types.YChild{"LeaseQueryReply", &statistics.LeaseQueryReply}
+    statistics.EntityData.Children["lease-query-done"] = types.YChild{"LeaseQueryDone", &statistics.LeaseQueryDone}
+    statistics.EntityData.Children["lease-query-data"] = types.YChild{"LeaseQueryData", &statistics.LeaseQueryData}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "solicit" {
-        return &statistics.Solicit
-    }
-    if childYangName == "advertise" {
-        return &statistics.Advertise
-    }
-    if childYangName == "request" {
-        return &statistics.Request
-    }
-    if childYangName == "reply" {
-        return &statistics.Reply
-    }
-    if childYangName == "confirm" {
-        return &statistics.Confirm
-    }
-    if childYangName == "decline" {
-        return &statistics.Decline
-    }
-    if childYangName == "renew" {
-        return &statistics.Renew
-    }
-    if childYangName == "rebind" {
-        return &statistics.Rebind
-    }
-    if childYangName == "release" {
-        return &statistics.Release
-    }
-    if childYangName == "reconfig" {
-        return &statistics.Reconfig
-    }
-    if childYangName == "inform" {
-        return &statistics.Inform
-    }
-    if childYangName == "relay-forward" {
-        return &statistics.RelayForward
-    }
-    if childYangName == "relay-reply" {
-        return &statistics.RelayReply
-    }
-    if childYangName == "lease-query" {
-        return &statistics.LeaseQuery
-    }
-    if childYangName == "lease-query-reply" {
-        return &statistics.LeaseQueryReply
-    }
-    if childYangName == "lease-query-done" {
-        return &statistics.LeaseQueryDone
-    }
-    if childYangName == "lease-query-data" {
-        return &statistics.LeaseQueryData
-    }
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["solicit"] = &statistics.Solicit
-    children["advertise"] = &statistics.Advertise
-    children["request"] = &statistics.Request
-    children["reply"] = &statistics.Reply
-    children["confirm"] = &statistics.Confirm
-    children["decline"] = &statistics.Decline
-    children["renew"] = &statistics.Renew
-    children["rebind"] = &statistics.Rebind
-    children["release"] = &statistics.Release
-    children["reconfig"] = &statistics.Reconfig
-    children["inform"] = &statistics.Inform
-    children["relay-forward"] = &statistics.RelayForward
-    children["relay-reply"] = &statistics.RelayReply
-    children["lease-query"] = &statistics.LeaseQuery
-    children["lease-query-reply"] = &statistics.LeaseQueryReply
-    children["lease-query-done"] = &statistics.LeaseQueryDone
-    children["lease-query-data"] = &statistics.LeaseQueryData
-    return children
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics) GetParentYangName() string { return "vrf" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit
 // DHCPV6 solicit packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -958,60 +578,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit struct {
     DroppedPackets interface{}
 }
 
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetFilter() yfilter.YFilter { return solicit.YFilter }
+func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetEntityData() *types.CommonEntityData {
+    solicit.EntityData.YFilter = solicit.YFilter
+    solicit.EntityData.YangName = "solicit"
+    solicit.EntityData.BundleName = "cisco_ios_xr"
+    solicit.EntityData.ParentYangName = "statistics"
+    solicit.EntityData.SegmentPath = "solicit"
+    solicit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    solicit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    solicit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) SetFilter(yf yfilter.YFilter) { solicit.YFilter = yf }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    solicit.EntityData.Children = make(map[string]types.YChild)
+    solicit.EntityData.Leafs = make(map[string]types.YLeaf)
+    solicit.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", solicit.ReceivedPackets}
+    solicit.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", solicit.TransmittedPackets}
+    solicit.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", solicit.DroppedPackets}
+    return &(solicit.EntityData)
 }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetSegmentPath() string {
-    return "solicit"
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = solicit.ReceivedPackets
-    leafs["transmitted-packets"] = solicit.TransmittedPackets
-    leafs["dropped-packets"] = solicit.DroppedPackets
-    return leafs
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetYangName() string { return "solicit" }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) SetParent(parent types.Entity) { solicit.parent = parent }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetParent() types.Entity { return solicit.parent }
-
-func (solicit *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Solicit) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise
 // DHCPV6 advertise packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1027,60 +615,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise struct {
     DroppedPackets interface{}
 }
 
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetFilter() yfilter.YFilter { return advertise.YFilter }
+func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetEntityData() *types.CommonEntityData {
+    advertise.EntityData.YFilter = advertise.YFilter
+    advertise.EntityData.YangName = "advertise"
+    advertise.EntityData.BundleName = "cisco_ios_xr"
+    advertise.EntityData.ParentYangName = "statistics"
+    advertise.EntityData.SegmentPath = "advertise"
+    advertise.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertise.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertise.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) SetFilter(yf yfilter.YFilter) { advertise.YFilter = yf }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    advertise.EntityData.Children = make(map[string]types.YChild)
+    advertise.EntityData.Leafs = make(map[string]types.YLeaf)
+    advertise.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", advertise.ReceivedPackets}
+    advertise.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", advertise.TransmittedPackets}
+    advertise.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", advertise.DroppedPackets}
+    return &(advertise.EntityData)
 }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetSegmentPath() string {
-    return "advertise"
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = advertise.ReceivedPackets
-    leafs["transmitted-packets"] = advertise.TransmittedPackets
-    leafs["dropped-packets"] = advertise.DroppedPackets
-    return leafs
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetBundleName() string { return "cisco_ios_xr" }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetYangName() string { return "advertise" }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) SetParent(parent types.Entity) { advertise.parent = parent }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetParent() types.Entity { return advertise.parent }
-
-func (advertise *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Advertise) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request
 // DHCPV6 request packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1096,60 +652,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request struct {
     DroppedPackets interface{}
 }
 
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetFilter() yfilter.YFilter { return request.YFilter }
+func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetEntityData() *types.CommonEntityData {
+    request.EntityData.YFilter = request.YFilter
+    request.EntityData.YangName = "request"
+    request.EntityData.BundleName = "cisco_ios_xr"
+    request.EntityData.ParentYangName = "statistics"
+    request.EntityData.SegmentPath = "request"
+    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) SetFilter(yf yfilter.YFilter) { request.YFilter = yf }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    request.EntityData.Children = make(map[string]types.YChild)
+    request.EntityData.Leafs = make(map[string]types.YLeaf)
+    request.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", request.ReceivedPackets}
+    request.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", request.TransmittedPackets}
+    request.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", request.DroppedPackets}
+    return &(request.EntityData)
 }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetSegmentPath() string {
-    return "request"
-}
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = request.ReceivedPackets
-    leafs["transmitted-packets"] = request.TransmittedPackets
-    leafs["dropped-packets"] = request.DroppedPackets
-    return leafs
-}
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetBundleName() string { return "cisco_ios_xr" }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetYangName() string { return "request" }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) SetParent(parent types.Entity) { request.parent = parent }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetParent() types.Entity { return request.parent }
-
-func (request *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Request) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply
 // DHCPV6 reply packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1165,60 +689,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply struct {
     DroppedPackets interface{}
 }
 
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetFilter() yfilter.YFilter { return reply.YFilter }
+func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetEntityData() *types.CommonEntityData {
+    reply.EntityData.YFilter = reply.YFilter
+    reply.EntityData.YangName = "reply"
+    reply.EntityData.BundleName = "cisco_ios_xr"
+    reply.EntityData.ParentYangName = "statistics"
+    reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) SetFilter(yf yfilter.YFilter) { reply.YFilter = yf }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    reply.EntityData.Children = make(map[string]types.YChild)
+    reply.EntityData.Leafs = make(map[string]types.YLeaf)
+    reply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", reply.ReceivedPackets}
+    reply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", reply.TransmittedPackets}
+    reply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", reply.DroppedPackets}
+    return &(reply.EntityData)
 }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetSegmentPath() string {
-    return "reply"
-}
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = reply.ReceivedPackets
-    leafs["transmitted-packets"] = reply.TransmittedPackets
-    leafs["dropped-packets"] = reply.DroppedPackets
-    return leafs
-}
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetYangName() string { return "reply" }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) SetParent(parent types.Entity) { reply.parent = parent }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetParent() types.Entity { return reply.parent }
-
-func (reply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm
 // DHCPV6 confirm packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1234,60 +726,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm struct {
     DroppedPackets interface{}
 }
 
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetFilter() yfilter.YFilter { return confirm.YFilter }
+func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetEntityData() *types.CommonEntityData {
+    confirm.EntityData.YFilter = confirm.YFilter
+    confirm.EntityData.YangName = "confirm"
+    confirm.EntityData.BundleName = "cisco_ios_xr"
+    confirm.EntityData.ParentYangName = "statistics"
+    confirm.EntityData.SegmentPath = "confirm"
+    confirm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    confirm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    confirm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) SetFilter(yf yfilter.YFilter) { confirm.YFilter = yf }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    confirm.EntityData.Children = make(map[string]types.YChild)
+    confirm.EntityData.Leafs = make(map[string]types.YLeaf)
+    confirm.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", confirm.ReceivedPackets}
+    confirm.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", confirm.TransmittedPackets}
+    confirm.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", confirm.DroppedPackets}
+    return &(confirm.EntityData)
 }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetSegmentPath() string {
-    return "confirm"
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = confirm.ReceivedPackets
-    leafs["transmitted-packets"] = confirm.TransmittedPackets
-    leafs["dropped-packets"] = confirm.DroppedPackets
-    return leafs
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetYangName() string { return "confirm" }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) SetParent(parent types.Entity) { confirm.parent = parent }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetParent() types.Entity { return confirm.parent }
-
-func (confirm *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Confirm) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline
 // DHCPV6 decline packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1303,60 +763,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline struct {
     DroppedPackets interface{}
 }
 
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetFilter() yfilter.YFilter { return decline.YFilter }
+func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetEntityData() *types.CommonEntityData {
+    decline.EntityData.YFilter = decline.YFilter
+    decline.EntityData.YangName = "decline"
+    decline.EntityData.BundleName = "cisco_ios_xr"
+    decline.EntityData.ParentYangName = "statistics"
+    decline.EntityData.SegmentPath = "decline"
+    decline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    decline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    decline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) SetFilter(yf yfilter.YFilter) { decline.YFilter = yf }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    decline.EntityData.Children = make(map[string]types.YChild)
+    decline.EntityData.Leafs = make(map[string]types.YLeaf)
+    decline.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", decline.ReceivedPackets}
+    decline.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", decline.TransmittedPackets}
+    decline.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", decline.DroppedPackets}
+    return &(decline.EntityData)
 }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetSegmentPath() string {
-    return "decline"
-}
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = decline.ReceivedPackets
-    leafs["transmitted-packets"] = decline.TransmittedPackets
-    leafs["dropped-packets"] = decline.DroppedPackets
-    return leafs
-}
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetBundleName() string { return "cisco_ios_xr" }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetYangName() string { return "decline" }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) SetParent(parent types.Entity) { decline.parent = parent }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetParent() types.Entity { return decline.parent }
-
-func (decline *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Decline) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew
 // DHCPV6 renew packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1372,60 +800,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew struct {
     DroppedPackets interface{}
 }
 
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetFilter() yfilter.YFilter { return renew.YFilter }
+func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetEntityData() *types.CommonEntityData {
+    renew.EntityData.YFilter = renew.YFilter
+    renew.EntityData.YangName = "renew"
+    renew.EntityData.BundleName = "cisco_ios_xr"
+    renew.EntityData.ParentYangName = "statistics"
+    renew.EntityData.SegmentPath = "renew"
+    renew.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    renew.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    renew.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) SetFilter(yf yfilter.YFilter) { renew.YFilter = yf }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    renew.EntityData.Children = make(map[string]types.YChild)
+    renew.EntityData.Leafs = make(map[string]types.YLeaf)
+    renew.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", renew.ReceivedPackets}
+    renew.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", renew.TransmittedPackets}
+    renew.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", renew.DroppedPackets}
+    return &(renew.EntityData)
 }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetSegmentPath() string {
-    return "renew"
-}
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = renew.ReceivedPackets
-    leafs["transmitted-packets"] = renew.TransmittedPackets
-    leafs["dropped-packets"] = renew.DroppedPackets
-    return leafs
-}
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetBundleName() string { return "cisco_ios_xr" }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetYangName() string { return "renew" }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) SetParent(parent types.Entity) { renew.parent = parent }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetParent() types.Entity { return renew.parent }
-
-func (renew *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Renew) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind
 // DHCPV6 rebind packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1441,60 +837,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind struct {
     DroppedPackets interface{}
 }
 
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetFilter() yfilter.YFilter { return rebind.YFilter }
+func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetEntityData() *types.CommonEntityData {
+    rebind.EntityData.YFilter = rebind.YFilter
+    rebind.EntityData.YangName = "rebind"
+    rebind.EntityData.BundleName = "cisco_ios_xr"
+    rebind.EntityData.ParentYangName = "statistics"
+    rebind.EntityData.SegmentPath = "rebind"
+    rebind.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rebind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rebind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) SetFilter(yf yfilter.YFilter) { rebind.YFilter = yf }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    rebind.EntityData.Children = make(map[string]types.YChild)
+    rebind.EntityData.Leafs = make(map[string]types.YLeaf)
+    rebind.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", rebind.ReceivedPackets}
+    rebind.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", rebind.TransmittedPackets}
+    rebind.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", rebind.DroppedPackets}
+    return &(rebind.EntityData)
 }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetSegmentPath() string {
-    return "rebind"
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = rebind.ReceivedPackets
-    leafs["transmitted-packets"] = rebind.TransmittedPackets
-    leafs["dropped-packets"] = rebind.DroppedPackets
-    return leafs
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetYangName() string { return "rebind" }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) SetParent(parent types.Entity) { rebind.parent = parent }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetParent() types.Entity { return rebind.parent }
-
-func (rebind *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Rebind) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release
 // DHCPV6 release packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1510,60 +874,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release struct {
     DroppedPackets interface{}
 }
 
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetFilter() yfilter.YFilter { return release.YFilter }
+func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetEntityData() *types.CommonEntityData {
+    release.EntityData.YFilter = release.YFilter
+    release.EntityData.YangName = "release"
+    release.EntityData.BundleName = "cisco_ios_xr"
+    release.EntityData.ParentYangName = "statistics"
+    release.EntityData.SegmentPath = "release"
+    release.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    release.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    release.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) SetFilter(yf yfilter.YFilter) { release.YFilter = yf }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    release.EntityData.Children = make(map[string]types.YChild)
+    release.EntityData.Leafs = make(map[string]types.YLeaf)
+    release.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", release.ReceivedPackets}
+    release.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", release.TransmittedPackets}
+    release.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", release.DroppedPackets}
+    return &(release.EntityData)
 }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetSegmentPath() string {
-    return "release"
-}
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = release.ReceivedPackets
-    leafs["transmitted-packets"] = release.TransmittedPackets
-    leafs["dropped-packets"] = release.DroppedPackets
-    return leafs
-}
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetBundleName() string { return "cisco_ios_xr" }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetYangName() string { return "release" }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) SetParent(parent types.Entity) { release.parent = parent }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetParent() types.Entity { return release.parent }
-
-func (release *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Release) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig
 // DHCPV6 reconfig packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1579,60 +911,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig struct {
     DroppedPackets interface{}
 }
 
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetFilter() yfilter.YFilter { return reconfig.YFilter }
+func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetEntityData() *types.CommonEntityData {
+    reconfig.EntityData.YFilter = reconfig.YFilter
+    reconfig.EntityData.YangName = "reconfig"
+    reconfig.EntityData.BundleName = "cisco_ios_xr"
+    reconfig.EntityData.ParentYangName = "statistics"
+    reconfig.EntityData.SegmentPath = "reconfig"
+    reconfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reconfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reconfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) SetFilter(yf yfilter.YFilter) { reconfig.YFilter = yf }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    reconfig.EntityData.Children = make(map[string]types.YChild)
+    reconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    reconfig.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", reconfig.ReceivedPackets}
+    reconfig.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", reconfig.TransmittedPackets}
+    reconfig.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", reconfig.DroppedPackets}
+    return &(reconfig.EntityData)
 }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetSegmentPath() string {
-    return "reconfig"
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = reconfig.ReceivedPackets
-    leafs["transmitted-packets"] = reconfig.TransmittedPackets
-    leafs["dropped-packets"] = reconfig.DroppedPackets
-    return leafs
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetYangName() string { return "reconfig" }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) SetParent(parent types.Entity) { reconfig.parent = parent }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetParent() types.Entity { return reconfig.parent }
-
-func (reconfig *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Reconfig) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform
 // DHCPV6 inform packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1648,60 +948,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform struct {
     DroppedPackets interface{}
 }
 
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetFilter() yfilter.YFilter { return inform.YFilter }
+func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetEntityData() *types.CommonEntityData {
+    inform.EntityData.YFilter = inform.YFilter
+    inform.EntityData.YangName = "inform"
+    inform.EntityData.BundleName = "cisco_ios_xr"
+    inform.EntityData.ParentYangName = "statistics"
+    inform.EntityData.SegmentPath = "inform"
+    inform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) SetFilter(yf yfilter.YFilter) { inform.YFilter = yf }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    inform.EntityData.Children = make(map[string]types.YChild)
+    inform.EntityData.Leafs = make(map[string]types.YLeaf)
+    inform.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", inform.ReceivedPackets}
+    inform.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", inform.TransmittedPackets}
+    inform.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", inform.DroppedPackets}
+    return &(inform.EntityData)
 }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetSegmentPath() string {
-    return "inform"
-}
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = inform.ReceivedPackets
-    leafs["transmitted-packets"] = inform.TransmittedPackets
-    leafs["dropped-packets"] = inform.DroppedPackets
-    return leafs
-}
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetYangName() string { return "inform" }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) SetParent(parent types.Entity) { inform.parent = parent }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetParent() types.Entity { return inform.parent }
-
-func (inform *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_Inform) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward
 // DHCPV6 relay forward packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1717,60 +985,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward struct {
     DroppedPackets interface{}
 }
 
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetFilter() yfilter.YFilter { return relayForward.YFilter }
+func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetEntityData() *types.CommonEntityData {
+    relayForward.EntityData.YFilter = relayForward.YFilter
+    relayForward.EntityData.YangName = "relay-forward"
+    relayForward.EntityData.BundleName = "cisco_ios_xr"
+    relayForward.EntityData.ParentYangName = "statistics"
+    relayForward.EntityData.SegmentPath = "relay-forward"
+    relayForward.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relayForward.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relayForward.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) SetFilter(yf yfilter.YFilter) { relayForward.YFilter = yf }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    relayForward.EntityData.Children = make(map[string]types.YChild)
+    relayForward.EntityData.Leafs = make(map[string]types.YLeaf)
+    relayForward.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", relayForward.ReceivedPackets}
+    relayForward.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", relayForward.TransmittedPackets}
+    relayForward.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", relayForward.DroppedPackets}
+    return &(relayForward.EntityData)
 }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetSegmentPath() string {
-    return "relay-forward"
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = relayForward.ReceivedPackets
-    leafs["transmitted-packets"] = relayForward.TransmittedPackets
-    leafs["dropped-packets"] = relayForward.DroppedPackets
-    return leafs
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetYangName() string { return "relay-forward" }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) SetParent(parent types.Entity) { relayForward.parent = parent }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetParent() types.Entity { return relayForward.parent }
-
-func (relayForward *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayForward) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply
 // DHCPV6 relay reply packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1786,60 +1022,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply struct {
     DroppedPackets interface{}
 }
 
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetFilter() yfilter.YFilter { return relayReply.YFilter }
+func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetEntityData() *types.CommonEntityData {
+    relayReply.EntityData.YFilter = relayReply.YFilter
+    relayReply.EntityData.YangName = "relay-reply"
+    relayReply.EntityData.BundleName = "cisco_ios_xr"
+    relayReply.EntityData.ParentYangName = "statistics"
+    relayReply.EntityData.SegmentPath = "relay-reply"
+    relayReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relayReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relayReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) SetFilter(yf yfilter.YFilter) { relayReply.YFilter = yf }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    relayReply.EntityData.Children = make(map[string]types.YChild)
+    relayReply.EntityData.Leafs = make(map[string]types.YLeaf)
+    relayReply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", relayReply.ReceivedPackets}
+    relayReply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", relayReply.TransmittedPackets}
+    relayReply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", relayReply.DroppedPackets}
+    return &(relayReply.EntityData)
 }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetSegmentPath() string {
-    return "relay-reply"
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = relayReply.ReceivedPackets
-    leafs["transmitted-packets"] = relayReply.TransmittedPackets
-    leafs["dropped-packets"] = relayReply.DroppedPackets
-    return leafs
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetYangName() string { return "relay-reply" }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) SetParent(parent types.Entity) { relayReply.parent = parent }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetParent() types.Entity { return relayReply.parent }
-
-func (relayReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_RelayReply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery
 // DHCPV6 lease query packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1855,60 +1059,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery struct {
     DroppedPackets interface{}
 }
 
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetFilter() yfilter.YFilter { return leaseQuery.YFilter }
+func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetEntityData() *types.CommonEntityData {
+    leaseQuery.EntityData.YFilter = leaseQuery.YFilter
+    leaseQuery.EntityData.YangName = "lease-query"
+    leaseQuery.EntityData.BundleName = "cisco_ios_xr"
+    leaseQuery.EntityData.ParentYangName = "statistics"
+    leaseQuery.EntityData.SegmentPath = "lease-query"
+    leaseQuery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQuery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQuery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) SetFilter(yf yfilter.YFilter) { leaseQuery.YFilter = yf }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQuery.EntityData.Children = make(map[string]types.YChild)
+    leaseQuery.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQuery.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQuery.ReceivedPackets}
+    leaseQuery.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQuery.TransmittedPackets}
+    leaseQuery.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQuery.DroppedPackets}
+    return &(leaseQuery.EntityData)
 }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetSegmentPath() string {
-    return "lease-query"
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQuery.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQuery.TransmittedPackets
-    leafs["dropped-packets"] = leaseQuery.DroppedPackets
-    return leafs
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetYangName() string { return "lease-query" }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) SetParent(parent types.Entity) { leaseQuery.parent = parent }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetParent() types.Entity { return leaseQuery.parent }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQuery) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply
 // DHCPV6 lease query reply packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1924,60 +1096,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetFilter() yfilter.YFilter { return leaseQueryReply.YFilter }
+func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetEntityData() *types.CommonEntityData {
+    leaseQueryReply.EntityData.YFilter = leaseQueryReply.YFilter
+    leaseQueryReply.EntityData.YangName = "lease-query-reply"
+    leaseQueryReply.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryReply.EntityData.ParentYangName = "statistics"
+    leaseQueryReply.EntityData.SegmentPath = "lease-query-reply"
+    leaseQueryReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) SetFilter(yf yfilter.YFilter) { leaseQueryReply.YFilter = yf }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryReply.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryReply.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryReply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryReply.ReceivedPackets}
+    leaseQueryReply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryReply.TransmittedPackets}
+    leaseQueryReply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryReply.DroppedPackets}
+    return &(leaseQueryReply.EntityData)
 }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetSegmentPath() string {
-    return "lease-query-reply"
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryReply.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryReply.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryReply.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetYangName() string { return "lease-query-reply" }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) SetParent(parent types.Entity) { leaseQueryReply.parent = parent }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetParent() types.Entity { return leaseQueryReply.parent }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryReply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone
 // DHCPV6 lease query done packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -1993,60 +1133,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetFilter() yfilter.YFilter { return leaseQueryDone.YFilter }
+func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetEntityData() *types.CommonEntityData {
+    leaseQueryDone.EntityData.YFilter = leaseQueryDone.YFilter
+    leaseQueryDone.EntityData.YangName = "lease-query-done"
+    leaseQueryDone.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryDone.EntityData.ParentYangName = "statistics"
+    leaseQueryDone.EntityData.SegmentPath = "lease-query-done"
+    leaseQueryDone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryDone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryDone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) SetFilter(yf yfilter.YFilter) { leaseQueryDone.YFilter = yf }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryDone.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryDone.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryDone.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryDone.ReceivedPackets}
+    leaseQueryDone.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryDone.TransmittedPackets}
+    leaseQueryDone.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryDone.DroppedPackets}
+    return &(leaseQueryDone.EntityData)
 }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetSegmentPath() string {
-    return "lease-query-done"
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryDone.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryDone.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryDone.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetYangName() string { return "lease-query-done" }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) SetParent(parent types.Entity) { leaseQueryDone.parent = parent }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetParent() types.Entity { return leaseQueryDone.parent }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryDone) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData
 // DHCPV6 lease query data packets
 type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -2062,60 +1170,28 @@ type Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetFilter() yfilter.YFilter { return leaseQueryData.YFilter }
+func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetEntityData() *types.CommonEntityData {
+    leaseQueryData.EntityData.YFilter = leaseQueryData.YFilter
+    leaseQueryData.EntityData.YangName = "lease-query-data"
+    leaseQueryData.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryData.EntityData.ParentYangName = "statistics"
+    leaseQueryData.EntityData.SegmentPath = "lease-query-data"
+    leaseQueryData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) SetFilter(yf yfilter.YFilter) { leaseQueryData.YFilter = yf }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryData.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryData.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryData.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryData.ReceivedPackets}
+    leaseQueryData.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryData.TransmittedPackets}
+    leaseQueryData.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryData.DroppedPackets}
+    return &(leaseQueryData.EntityData)
 }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetSegmentPath() string {
-    return "lease-query-data"
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryData.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryData.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryData.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetYangName() string { return "lease-query-data" }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) SetParent(parent types.Entity) { leaseQueryData.parent = parent }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetParent() types.Entity { return leaseQueryData.parent }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Proxy_Vrfs_Vrf_Statistics_LeaseQueryData) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles
 // IPv6 DHCP proxy profile
 type Dhcpv6_Nodes_Node_Proxy_Profiles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP proxy profile. The type is slice of
@@ -2123,72 +1199,33 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles struct {
     Profile []Dhcpv6_Nodes_Node_Proxy_Profiles_Profile
 }
 
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetFilter() yfilter.YFilter { return profiles.YFilter }
+func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetEntityData() *types.CommonEntityData {
+    profiles.EntityData.YFilter = profiles.YFilter
+    profiles.EntityData.YangName = "profiles"
+    profiles.EntityData.BundleName = "cisco_ios_xr"
+    profiles.EntityData.ParentYangName = "proxy"
+    profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) SetFilter(yf yfilter.YFilter) { profiles.YFilter = yf }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetGoName(yname string) string {
-    if yname == "profile" { return "Profile" }
-    return ""
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetSegmentPath() string {
-    return "profiles"
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "profile" {
-        for _, c := range profiles.Profile {
-            if profiles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Profiles_Profile{}
-        profiles.Profile = append(profiles.Profile, child)
-        return &profiles.Profile[len(profiles.Profile)-1]
-    }
-    return nil
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    profiles.EntityData.Children = make(map[string]types.YChild)
+    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
     for i := range profiles.Profile {
-        children[profiles.Profile[i].GetSegmentPath()] = &profiles.Profile[i]
+        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
     }
-    return children
+    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(profiles.EntityData)
 }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetYangName() string { return "profiles" }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) SetParent(parent types.Entity) { profiles.parent = parent }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetParent() types.Entity { return profiles.parent }
-
-func (profiles *Dhcpv6_Nodes_Node_Proxy_Profiles) GetParentYangName() string { return "proxy" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile
 // IPv6 DHCP proxy profile
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // DHCPV6 throttle table.
@@ -2198,66 +1235,28 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile struct {
     Info Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info
 }
 
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetFilter() yfilter.YFilter { return profile.YFilter }
+func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "profiles"
+    profile.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) SetFilter(yf yfilter.YFilter) { profile.YFilter = yf }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "throttle-infos" { return "ThrottleInfos" }
-    if yname == "info" { return "Info" }
-    return ""
+    profile.EntityData.Children = make(map[string]types.YChild)
+    profile.EntityData.Children["throttle-infos"] = types.YChild{"ThrottleInfos", &profile.ThrottleInfos}
+    profile.EntityData.Children["info"] = types.YChild{"Info", &profile.Info}
+    profile.EntityData.Leafs = make(map[string]types.YLeaf)
+    profile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile.ProfileName}
+    return &(profile.EntityData)
 }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetSegmentPath() string {
-    return "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
-}
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "throttle-infos" {
-        return &profile.ThrottleInfos
-    }
-    if childYangName == "info" {
-        return &profile.Info
-    }
-    return nil
-}
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["throttle-infos"] = &profile.ThrottleInfos
-    children["info"] = &profile.Info
-    return children
-}
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = profile.ProfileName
-    return leafs
-}
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetYangName() string { return "profile" }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) SetParent(parent types.Entity) { profile.parent = parent }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetParent() types.Entity { return profile.parent }
-
-func (profile *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile) GetParentYangName() string { return "profiles" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos
 // DHCPV6 throttle table
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP proxy profile Throttle Info. The type is slice of
@@ -2265,76 +1264,37 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos struct {
     ThrottleInfo []Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo
 }
 
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetFilter() yfilter.YFilter { return throttleInfos.YFilter }
+func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetEntityData() *types.CommonEntityData {
+    throttleInfos.EntityData.YFilter = throttleInfos.YFilter
+    throttleInfos.EntityData.YangName = "throttle-infos"
+    throttleInfos.EntityData.BundleName = "cisco_ios_xr"
+    throttleInfos.EntityData.ParentYangName = "profile"
+    throttleInfos.EntityData.SegmentPath = "throttle-infos"
+    throttleInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttleInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttleInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) SetFilter(yf yfilter.YFilter) { throttleInfos.YFilter = yf }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetGoName(yname string) string {
-    if yname == "throttle-info" { return "ThrottleInfo" }
-    return ""
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetSegmentPath() string {
-    return "throttle-infos"
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "throttle-info" {
-        for _, c := range throttleInfos.ThrottleInfo {
-            if throttleInfos.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo{}
-        throttleInfos.ThrottleInfo = append(throttleInfos.ThrottleInfo, child)
-        return &throttleInfos.ThrottleInfo[len(throttleInfos.ThrottleInfo)-1]
-    }
-    return nil
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    throttleInfos.EntityData.Children = make(map[string]types.YChild)
+    throttleInfos.EntityData.Children["throttle-info"] = types.YChild{"ThrottleInfo", nil}
     for i := range throttleInfos.ThrottleInfo {
-        children[throttleInfos.ThrottleInfo[i].GetSegmentPath()] = &throttleInfos.ThrottleInfo[i]
+        throttleInfos.EntityData.Children[types.GetSegmentPath(&throttleInfos.ThrottleInfo[i])] = types.YChild{"ThrottleInfo", &throttleInfos.ThrottleInfo[i]}
     }
-    return children
+    throttleInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(throttleInfos.EntityData)
 }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetYangName() string { return "throttle-infos" }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) SetParent(parent types.Entity) { throttleInfos.parent = parent }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetParent() types.Entity { return throttleInfos.parent }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos) GetParentYangName() string { return "profile" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo
 // IPv6 DHCP proxy profile Throttle Info
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MacAddress interface{}
 
     // Client MAC address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     BindingChaddr interface{}
 
     // DHCP access interface. The type is string with length: 0..65.
@@ -2348,64 +1308,30 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo struct 
     TimeLeft interface{}
 }
 
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetFilter() yfilter.YFilter { return throttleInfo.YFilter }
+func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetEntityData() *types.CommonEntityData {
+    throttleInfo.EntityData.YFilter = throttleInfo.YFilter
+    throttleInfo.EntityData.YangName = "throttle-info"
+    throttleInfo.EntityData.BundleName = "cisco_ios_xr"
+    throttleInfo.EntityData.ParentYangName = "throttle-infos"
+    throttleInfo.EntityData.SegmentPath = "throttle-info" + "[mac-address='" + fmt.Sprintf("%v", throttleInfo.MacAddress) + "']"
+    throttleInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttleInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttleInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) SetFilter(yf yfilter.YFilter) { throttleInfo.YFilter = yf }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetGoName(yname string) string {
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "binding-chaddr" { return "BindingChaddr" }
-    if yname == "ifname" { return "Ifname" }
-    if yname == "state" { return "State" }
-    if yname == "time-left" { return "TimeLeft" }
-    return ""
+    throttleInfo.EntityData.Children = make(map[string]types.YChild)
+    throttleInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttleInfo.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", throttleInfo.MacAddress}
+    throttleInfo.EntityData.Leafs["binding-chaddr"] = types.YLeaf{"BindingChaddr", throttleInfo.BindingChaddr}
+    throttleInfo.EntityData.Leafs["ifname"] = types.YLeaf{"Ifname", throttleInfo.Ifname}
+    throttleInfo.EntityData.Leafs["state"] = types.YLeaf{"State", throttleInfo.State}
+    throttleInfo.EntityData.Leafs["time-left"] = types.YLeaf{"TimeLeft", throttleInfo.TimeLeft}
+    return &(throttleInfo.EntityData)
 }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetSegmentPath() string {
-    return "throttle-info" + "[mac-address='" + fmt.Sprintf("%v", throttleInfo.MacAddress) + "']"
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mac-address"] = throttleInfo.MacAddress
-    leafs["binding-chaddr"] = throttleInfo.BindingChaddr
-    leafs["ifname"] = throttleInfo.Ifname
-    leafs["state"] = throttleInfo.State
-    leafs["time-left"] = throttleInfo.TimeLeft
-    return leafs
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetYangName() string { return "throttle-info" }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) SetParent(parent types.Entity) { throttleInfo.parent = parent }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetParent() types.Entity { return throttleInfo.parent }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetParentYangName() string { return "throttle-infos" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info
 // IPv6 DHCP proxy profile Info
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Proxy profile name. The type is string with length: 0..65.
@@ -2415,14 +1341,14 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info struct {
     RemoteId interface{}
 
     // Link address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileLinkAddress interface{}
 
     // LinkAddress From RA mesage. The type is bool.
     ProxyProfileLinkaddressFromRaEnable interface{}
 
     // Helper addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileHelperAddress []interface{}
 
     // VRF names. The type is slice of string with length: 0..33.
@@ -2441,83 +1367,35 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info struct {
     InterfaceReferences Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences
 }
 
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetFilter() yfilter.YFilter { return info.YFilter }
+func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetEntityData() *types.CommonEntityData {
+    info.EntityData.YFilter = info.YFilter
+    info.EntityData.YangName = "info"
+    info.EntityData.BundleName = "cisco_ios_xr"
+    info.EntityData.ParentYangName = "profile"
+    info.EntityData.SegmentPath = "info"
+    info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) SetFilter(yf yfilter.YFilter) { info.YFilter = yf }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "remote-id" { return "RemoteId" }
-    if yname == "profile-link-address" { return "ProfileLinkAddress" }
-    if yname == "proxy-profile-linkaddress-from-ra-enable" { return "ProxyProfileLinkaddressFromRaEnable" }
-    if yname == "profile-helper-address" { return "ProfileHelperAddress" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-id-references" { return "InterfaceIdReferences" }
-    if yname == "vrf-references" { return "VrfReferences" }
-    if yname == "interface-references" { return "InterfaceReferences" }
-    return ""
+    info.EntityData.Children = make(map[string]types.YChild)
+    info.EntityData.Children["interface-id-references"] = types.YChild{"InterfaceIdReferences", &info.InterfaceIdReferences}
+    info.EntityData.Children["vrf-references"] = types.YChild{"VrfReferences", &info.VrfReferences}
+    info.EntityData.Children["interface-references"] = types.YChild{"InterfaceReferences", &info.InterfaceReferences}
+    info.EntityData.Leafs = make(map[string]types.YLeaf)
+    info.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", info.ProfileName}
+    info.EntityData.Leafs["remote-id"] = types.YLeaf{"RemoteId", info.RemoteId}
+    info.EntityData.Leafs["profile-link-address"] = types.YLeaf{"ProfileLinkAddress", info.ProfileLinkAddress}
+    info.EntityData.Leafs["proxy-profile-linkaddress-from-ra-enable"] = types.YLeaf{"ProxyProfileLinkaddressFromRaEnable", info.ProxyProfileLinkaddressFromRaEnable}
+    info.EntityData.Leafs["profile-helper-address"] = types.YLeaf{"ProfileHelperAddress", info.ProfileHelperAddress}
+    info.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", info.VrfName}
+    info.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", info.InterfaceName}
+    return &(info.EntityData)
 }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetSegmentPath() string {
-    return "info"
-}
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-id-references" {
-        return &info.InterfaceIdReferences
-    }
-    if childYangName == "vrf-references" {
-        return &info.VrfReferences
-    }
-    if childYangName == "interface-references" {
-        return &info.InterfaceReferences
-    }
-    return nil
-}
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-id-references"] = &info.InterfaceIdReferences
-    children["vrf-references"] = &info.VrfReferences
-    children["interface-references"] = &info.InterfaceReferences
-    return children
-}
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = info.ProfileName
-    leafs["remote-id"] = info.RemoteId
-    leafs["profile-link-address"] = info.ProfileLinkAddress
-    leafs["proxy-profile-linkaddress-from-ra-enable"] = info.ProxyProfileLinkaddressFromRaEnable
-    leafs["profile-helper-address"] = info.ProfileHelperAddress
-    leafs["vrf-name"] = info.VrfName
-    leafs["interface-name"] = info.InterfaceName
-    return leafs
-}
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetBundleName() string { return "cisco_ios_xr" }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetYangName() string { return "info" }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) SetParent(parent types.Entity) { info.parent = parent }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetParent() types.Entity { return info.parent }
-
-func (info *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info) GetParentYangName() string { return "profile" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences
 // Interface id references
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d proxy iid reference. The type is slice of
@@ -2525,68 +1403,29 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences struct 
     Ipv6Dhcpv6DProxyIidReference []Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference
 }
 
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetFilter() yfilter.YFilter { return interfaceIdReferences.YFilter }
+func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetEntityData() *types.CommonEntityData {
+    interfaceIdReferences.EntityData.YFilter = interfaceIdReferences.YFilter
+    interfaceIdReferences.EntityData.YangName = "interface-id-references"
+    interfaceIdReferences.EntityData.BundleName = "cisco_ios_xr"
+    interfaceIdReferences.EntityData.ParentYangName = "info"
+    interfaceIdReferences.EntityData.SegmentPath = "interface-id-references"
+    interfaceIdReferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceIdReferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceIdReferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) SetFilter(yf yfilter.YFilter) { interfaceIdReferences.YFilter = yf }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-proxy-iid-reference" { return "Ipv6Dhcpv6DProxyIidReference" }
-    return ""
-}
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetSegmentPath() string {
-    return "interface-id-references"
-}
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-proxy-iid-reference" {
-        for _, c := range interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference {
-            if interfaceIdReferences.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference{}
-        interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference = append(interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference, child)
-        return &interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference[len(interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference)-1]
-    }
-    return nil
-}
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceIdReferences.EntityData.Children = make(map[string]types.YChild)
+    interfaceIdReferences.EntityData.Children["ipv6-dhcpv6d-proxy-iid-reference"] = types.YChild{"Ipv6Dhcpv6DProxyIidReference", nil}
     for i := range interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference {
-        children[interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference[i].GetSegmentPath()] = &interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference[i]
+        interfaceIdReferences.EntityData.Children[types.GetSegmentPath(&interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference[i])] = types.YChild{"Ipv6Dhcpv6DProxyIidReference", &interfaceIdReferences.Ipv6Dhcpv6DProxyIidReference[i]}
     }
-    return children
+    interfaceIdReferences.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceIdReferences.EntityData)
 }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetYangName() string { return "interface-id-references" }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) SetParent(parent types.Entity) { interfaceIdReferences.parent = parent }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetParent() types.Entity { return interfaceIdReferences.parent }
-
-func (interfaceIdReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences) GetParentYangName() string { return "info" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference
 // ipv6 dhcpv6d proxy iid reference
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface name for interface id. The type is string with length: 0..65.
@@ -2596,58 +1435,27 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhc
     ProxyInterfaceId interface{}
 }
 
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DProxyIidReference.YFilter }
+func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DProxyIidReference.EntityData.YFilter = ipv6Dhcpv6DProxyIidReference.YFilter
+    ipv6Dhcpv6DProxyIidReference.EntityData.YangName = "ipv6-dhcpv6d-proxy-iid-reference"
+    ipv6Dhcpv6DProxyIidReference.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DProxyIidReference.EntityData.ParentYangName = "interface-id-references"
+    ipv6Dhcpv6DProxyIidReference.EntityData.SegmentPath = "ipv6-dhcpv6d-proxy-iid-reference"
+    ipv6Dhcpv6DProxyIidReference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DProxyIidReference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DProxyIidReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DProxyIidReference.YFilter = yf }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetGoName(yname string) string {
-    if yname == "proxy-iid-interface-name" { return "ProxyIidInterfaceName" }
-    if yname == "proxy-interface-id" { return "ProxyInterfaceId" }
-    return ""
+    ipv6Dhcpv6DProxyIidReference.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DProxyIidReference.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DProxyIidReference.EntityData.Leafs["proxy-iid-interface-name"] = types.YLeaf{"ProxyIidInterfaceName", ipv6Dhcpv6DProxyIidReference.ProxyIidInterfaceName}
+    ipv6Dhcpv6DProxyIidReference.EntityData.Leafs["proxy-interface-id"] = types.YLeaf{"ProxyInterfaceId", ipv6Dhcpv6DProxyIidReference.ProxyInterfaceId}
+    return &(ipv6Dhcpv6DProxyIidReference.EntityData)
 }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-proxy-iid-reference"
-}
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["proxy-iid-interface-name"] = ipv6Dhcpv6DProxyIidReference.ProxyIidInterfaceName
-    leafs["proxy-interface-id"] = ipv6Dhcpv6DProxyIidReference.ProxyInterfaceId
-    return leafs
-}
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetYangName() string { return "ipv6-dhcpv6d-proxy-iid-reference" }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) SetParent(parent types.Entity) { ipv6Dhcpv6DProxyIidReference.parent = parent }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetParent() types.Entity { return ipv6Dhcpv6DProxyIidReference.parent }
-
-func (ipv6Dhcpv6DProxyIidReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceIdReferences_Ipv6Dhcpv6DProxyIidReference) GetParentYangName() string { return "interface-id-references" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences
 // VRF references
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d proxy vrf reference. The type is slice of
@@ -2655,124 +1463,55 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences struct {
     Ipv6Dhcpv6DProxyVrfReference []Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference
 }
 
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetFilter() yfilter.YFilter { return vrfReferences.YFilter }
+func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetEntityData() *types.CommonEntityData {
+    vrfReferences.EntityData.YFilter = vrfReferences.YFilter
+    vrfReferences.EntityData.YangName = "vrf-references"
+    vrfReferences.EntityData.BundleName = "cisco_ios_xr"
+    vrfReferences.EntityData.ParentYangName = "info"
+    vrfReferences.EntityData.SegmentPath = "vrf-references"
+    vrfReferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfReferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfReferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) SetFilter(yf yfilter.YFilter) { vrfReferences.YFilter = yf }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-proxy-vrf-reference" { return "Ipv6Dhcpv6DProxyVrfReference" }
-    return ""
-}
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetSegmentPath() string {
-    return "vrf-references"
-}
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-proxy-vrf-reference" {
-        for _, c := range vrfReferences.Ipv6Dhcpv6DProxyVrfReference {
-            if vrfReferences.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference{}
-        vrfReferences.Ipv6Dhcpv6DProxyVrfReference = append(vrfReferences.Ipv6Dhcpv6DProxyVrfReference, child)
-        return &vrfReferences.Ipv6Dhcpv6DProxyVrfReference[len(vrfReferences.Ipv6Dhcpv6DProxyVrfReference)-1]
-    }
-    return nil
-}
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfReferences.EntityData.Children = make(map[string]types.YChild)
+    vrfReferences.EntityData.Children["ipv6-dhcpv6d-proxy-vrf-reference"] = types.YChild{"Ipv6Dhcpv6DProxyVrfReference", nil}
     for i := range vrfReferences.Ipv6Dhcpv6DProxyVrfReference {
-        children[vrfReferences.Ipv6Dhcpv6DProxyVrfReference[i].GetSegmentPath()] = &vrfReferences.Ipv6Dhcpv6DProxyVrfReference[i]
+        vrfReferences.EntityData.Children[types.GetSegmentPath(&vrfReferences.Ipv6Dhcpv6DProxyVrfReference[i])] = types.YChild{"Ipv6Dhcpv6DProxyVrfReference", &vrfReferences.Ipv6Dhcpv6DProxyVrfReference[i]}
     }
-    return children
+    vrfReferences.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfReferences.EntityData)
 }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetYangName() string { return "vrf-references" }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) SetParent(parent types.Entity) { vrfReferences.parent = parent }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetParent() types.Entity { return vrfReferences.parent }
-
-func (vrfReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences) GetParentYangName() string { return "info" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference
 // ipv6 dhcpv6d proxy vrf reference
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF name. The type is string with length: 0..33.
     ProxyReferenceVrfName interface{}
 }
 
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DProxyVrfReference.YFilter }
+func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DProxyVrfReference.EntityData.YFilter = ipv6Dhcpv6DProxyVrfReference.YFilter
+    ipv6Dhcpv6DProxyVrfReference.EntityData.YangName = "ipv6-dhcpv6d-proxy-vrf-reference"
+    ipv6Dhcpv6DProxyVrfReference.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DProxyVrfReference.EntityData.ParentYangName = "vrf-references"
+    ipv6Dhcpv6DProxyVrfReference.EntityData.SegmentPath = "ipv6-dhcpv6d-proxy-vrf-reference"
+    ipv6Dhcpv6DProxyVrfReference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DProxyVrfReference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DProxyVrfReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DProxyVrfReference.YFilter = yf }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetGoName(yname string) string {
-    if yname == "proxy-reference-vrf-name" { return "ProxyReferenceVrfName" }
-    return ""
+    ipv6Dhcpv6DProxyVrfReference.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DProxyVrfReference.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DProxyVrfReference.EntityData.Leafs["proxy-reference-vrf-name"] = types.YLeaf{"ProxyReferenceVrfName", ipv6Dhcpv6DProxyVrfReference.ProxyReferenceVrfName}
+    return &(ipv6Dhcpv6DProxyVrfReference.EntityData)
 }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-proxy-vrf-reference"
-}
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["proxy-reference-vrf-name"] = ipv6Dhcpv6DProxyVrfReference.ProxyReferenceVrfName
-    return leafs
-}
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetYangName() string { return "ipv6-dhcpv6d-proxy-vrf-reference" }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) SetParent(parent types.Entity) { ipv6Dhcpv6DProxyVrfReference.parent = parent }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetParent() types.Entity { return ipv6Dhcpv6DProxyVrfReference.parent }
-
-func (ipv6Dhcpv6DProxyVrfReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_VrfReferences_Ipv6Dhcpv6DProxyVrfReference) GetParentYangName() string { return "vrf-references" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences
 // Interface references
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d proxy interface reference. The type is slice of
@@ -2780,197 +1519,89 @@ type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences struct {
     Ipv6Dhcpv6DProxyInterfaceReference []Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference
 }
 
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetFilter() yfilter.YFilter { return interfaceReferences.YFilter }
+func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetEntityData() *types.CommonEntityData {
+    interfaceReferences.EntityData.YFilter = interfaceReferences.YFilter
+    interfaceReferences.EntityData.YangName = "interface-references"
+    interfaceReferences.EntityData.BundleName = "cisco_ios_xr"
+    interfaceReferences.EntityData.ParentYangName = "info"
+    interfaceReferences.EntityData.SegmentPath = "interface-references"
+    interfaceReferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceReferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceReferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) SetFilter(yf yfilter.YFilter) { interfaceReferences.YFilter = yf }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-proxy-interface-reference" { return "Ipv6Dhcpv6DProxyInterfaceReference" }
-    return ""
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetSegmentPath() string {
-    return "interface-references"
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-proxy-interface-reference" {
-        for _, c := range interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference {
-            if interfaceReferences.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference{}
-        interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference = append(interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference, child)
-        return &interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference[len(interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference)-1]
-    }
-    return nil
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceReferences.EntityData.Children = make(map[string]types.YChild)
+    interfaceReferences.EntityData.Children["ipv6-dhcpv6d-proxy-interface-reference"] = types.YChild{"Ipv6Dhcpv6DProxyInterfaceReference", nil}
     for i := range interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference {
-        children[interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference[i].GetSegmentPath()] = &interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference[i]
+        interfaceReferences.EntityData.Children[types.GetSegmentPath(&interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference[i])] = types.YChild{"Ipv6Dhcpv6DProxyInterfaceReference", &interfaceReferences.Ipv6Dhcpv6DProxyInterfaceReference[i]}
     }
-    return children
+    interfaceReferences.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceReferences.EntityData)
 }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetYangName() string { return "interface-references" }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) SetParent(parent types.Entity) { interfaceReferences.parent = parent }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetParent() types.Entity { return interfaceReferences.parent }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences) GetParentYangName() string { return "info" }
 
 // Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference
 // ipv6 dhcpv6d proxy interface reference
 type Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface name. The type is string with length: 0..65.
     ProxyReferenceInterfaceName interface{}
 }
 
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DProxyInterfaceReference.YFilter }
+func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.YFilter = ipv6Dhcpv6DProxyInterfaceReference.YFilter
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.YangName = "ipv6-dhcpv6d-proxy-interface-reference"
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.ParentYangName = "interface-references"
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.SegmentPath = "ipv6-dhcpv6d-proxy-interface-reference"
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DProxyInterfaceReference.YFilter = yf }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetGoName(yname string) string {
-    if yname == "proxy-reference-interface-name" { return "ProxyReferenceInterfaceName" }
-    return ""
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DProxyInterfaceReference.EntityData.Leafs["proxy-reference-interface-name"] = types.YLeaf{"ProxyReferenceInterfaceName", ipv6Dhcpv6DProxyInterfaceReference.ProxyReferenceInterfaceName}
+    return &(ipv6Dhcpv6DProxyInterfaceReference.EntityData)
 }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-proxy-interface-reference"
-}
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["proxy-reference-interface-name"] = ipv6Dhcpv6DProxyInterfaceReference.ProxyReferenceInterfaceName
-    return leafs
-}
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetYangName() string { return "ipv6-dhcpv6d-proxy-interface-reference" }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) SetParent(parent types.Entity) { ipv6Dhcpv6DProxyInterfaceReference.parent = parent }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetParent() types.Entity { return ipv6Dhcpv6DProxyInterfaceReference.parent }
-
-func (ipv6Dhcpv6DProxyInterfaceReference *Dhcpv6_Nodes_Node_Proxy_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DProxyInterfaceReference) GetParentYangName() string { return "interface-references" }
 
 // Dhcpv6_Nodes_Node_Proxy_Interfaces
 // DHCPV6 proxy interface
 type Dhcpv6_Nodes_Node_Proxy_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP proxy interface. The type is slice of
-    // Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface.
-    Interface []Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface
+    // Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface_.
+    Interface_ []Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface
 }
 
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "proxy"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Dhcpv6_Nodes_Node_Proxy_Interfaces) GetParentYangName() string { return "proxy" }
 
 // Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface
 // IPv6 DHCP proxy interface
 type Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceName interface{}
 
     // VRF name. The type is string with length: 0..33.
@@ -3009,78 +1640,37 @@ type Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface struct {
     Srgp2P interface{}
 }
 
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "proxy-vrf-name" { return "ProxyVrfName" }
-    if yname == "proxy-interface-mode" { return "ProxyInterfaceMode" }
-    if yname == "is-proxy-interface-ambiguous" { return "IsProxyInterfaceAmbiguous" }
-    if yname == "proxy-interface-profile-name" { return "ProxyInterfaceProfileName" }
-    if yname == "proxy-interface-lease-limit-type" { return "ProxyInterfaceLeaseLimitType" }
-    if yname == "proxy-interface-lease-limits" { return "ProxyInterfaceLeaseLimits" }
-    if yname == "srg-role" { return "SrgRole" }
-    if yname == "serg-role" { return "SergRole" }
-    if yname == "mac-throttle" { return "MacThrottle" }
-    if yname == "srg-vrf-name" { return "SrgVrfName" }
-    if yname == "srgp2p" { return "Srgp2P" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["proxy-vrf-name"] = types.YLeaf{"ProxyVrfName", self.ProxyVrfName}
+    self.EntityData.Leafs["proxy-interface-mode"] = types.YLeaf{"ProxyInterfaceMode", self.ProxyInterfaceMode}
+    self.EntityData.Leafs["is-proxy-interface-ambiguous"] = types.YLeaf{"IsProxyInterfaceAmbiguous", self.IsProxyInterfaceAmbiguous}
+    self.EntityData.Leafs["proxy-interface-profile-name"] = types.YLeaf{"ProxyInterfaceProfileName", self.ProxyInterfaceProfileName}
+    self.EntityData.Leafs["proxy-interface-lease-limit-type"] = types.YLeaf{"ProxyInterfaceLeaseLimitType", self.ProxyInterfaceLeaseLimitType}
+    self.EntityData.Leafs["proxy-interface-lease-limits"] = types.YLeaf{"ProxyInterfaceLeaseLimits", self.ProxyInterfaceLeaseLimits}
+    self.EntityData.Leafs["srg-role"] = types.YLeaf{"SrgRole", self.SrgRole}
+    self.EntityData.Leafs["serg-role"] = types.YLeaf{"SergRole", self.SergRole}
+    self.EntityData.Leafs["mac-throttle"] = types.YLeaf{"MacThrottle", self.MacThrottle}
+    self.EntityData.Leafs["srg-vrf-name"] = types.YLeaf{"SrgVrfName", self.SrgVrfName}
+    self.EntityData.Leafs["srgp2p"] = types.YLeaf{"Srgp2P", self.Srgp2P}
+    return &(self.EntityData)
 }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["proxy-vrf-name"] = self.ProxyVrfName
-    leafs["proxy-interface-mode"] = self.ProxyInterfaceMode
-    leafs["is-proxy-interface-ambiguous"] = self.IsProxyInterfaceAmbiguous
-    leafs["proxy-interface-profile-name"] = self.ProxyInterfaceProfileName
-    leafs["proxy-interface-lease-limit-type"] = self.ProxyInterfaceLeaseLimitType
-    leafs["proxy-interface-lease-limits"] = self.ProxyInterfaceLeaseLimits
-    leafs["srg-role"] = self.SrgRole
-    leafs["serg-role"] = self.SergRole
-    leafs["mac-throttle"] = self.MacThrottle
-    leafs["srg-vrf-name"] = self.SrgVrfName
-    leafs["srgp2p"] = self.Srgp2P
-    return leafs
-}
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Dhcpv6_Nodes_Node_Proxy_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // Dhcpv6_Nodes_Node_Proxy_Statistics
 // DHCPv6 proxy statistics
 type Dhcpv6_Nodes_Node_Proxy_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d proxy stat. The type is slice of
@@ -3088,132 +1678,59 @@ type Dhcpv6_Nodes_Node_Proxy_Statistics struct {
     Ipv6Dhcpv6DProxyStat []Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "proxy"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-proxy-stat" { return "Ipv6Dhcpv6DProxyStat" }
-    return ""
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-proxy-stat" {
-        for _, c := range statistics.Ipv6Dhcpv6DProxyStat {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat{}
-        statistics.Ipv6Dhcpv6DProxyStat = append(statistics.Ipv6Dhcpv6DProxyStat, child)
-        return &statistics.Ipv6Dhcpv6DProxyStat[len(statistics.Ipv6Dhcpv6DProxyStat)-1]
-    }
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["ipv6-dhcpv6d-proxy-stat"] = types.YChild{"Ipv6Dhcpv6DProxyStat", nil}
     for i := range statistics.Ipv6Dhcpv6DProxyStat {
-        children[statistics.Ipv6Dhcpv6DProxyStat[i].GetSegmentPath()] = &statistics.Ipv6Dhcpv6DProxyStat[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Ipv6Dhcpv6DProxyStat[i])] = types.YChild{"Ipv6Dhcpv6DProxyStat", &statistics.Ipv6Dhcpv6DProxyStat[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics) GetParentYangName() string { return "proxy" }
 
 // Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat
 // ipv6 dhcpv6d proxy stat
 type Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 L3 VRF name. The type is string with length: 0..33.
     VrfName interface{}
 
     // Proxy statistics.
-    Statistics Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics
+    Statistics Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics_
 }
 
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DProxyStat.YFilter }
+func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DProxyStat.EntityData.YFilter = ipv6Dhcpv6DProxyStat.YFilter
+    ipv6Dhcpv6DProxyStat.EntityData.YangName = "ipv6-dhcpv6d-proxy-stat"
+    ipv6Dhcpv6DProxyStat.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DProxyStat.EntityData.ParentYangName = "statistics"
+    ipv6Dhcpv6DProxyStat.EntityData.SegmentPath = "ipv6-dhcpv6d-proxy-stat"
+    ipv6Dhcpv6DProxyStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DProxyStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DProxyStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DProxyStat.YFilter = yf }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    ipv6Dhcpv6DProxyStat.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DProxyStat.EntityData.Children["statistics"] = types.YChild{"Statistics", &ipv6Dhcpv6DProxyStat.Statistics}
+    ipv6Dhcpv6DProxyStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DProxyStat.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6Dhcpv6DProxyStat.VrfName}
+    return &(ipv6Dhcpv6DProxyStat.EntityData)
 }
 
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-proxy-stat"
-}
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &ipv6Dhcpv6DProxyStat.Statistics
-    }
-    return nil
-}
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &ipv6Dhcpv6DProxyStat.Statistics
-    return children
-}
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = ipv6Dhcpv6DProxyStat.VrfName
-    return leafs
-}
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetYangName() string { return "ipv6-dhcpv6d-proxy-stat" }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) SetParent(parent types.Entity) { ipv6Dhcpv6DProxyStat.parent = parent }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetParent() types.Entity { return ipv6Dhcpv6DProxyStat.parent }
-
-func (ipv6Dhcpv6DProxyStat *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat) GetParentYangName() string { return "statistics" }
-
-// Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics
+// Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics_
 // Proxy statistics
-type Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics struct {
-    parent types.Entity
+type Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -3229,60 +1746,28 @@ type Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics struct {
     DroppedPackets interface{}
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics_ *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics_) GetEntityData() *types.CommonEntityData {
+    statistics_.EntityData.YFilter = statistics_.YFilter
+    statistics_.EntityData.YangName = "statistics"
+    statistics_.EntityData.BundleName = "cisco_ios_xr"
+    statistics_.EntityData.ParentYangName = "ipv6-dhcpv6d-proxy-stat"
+    statistics_.EntityData.SegmentPath = "statistics"
+    statistics_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    statistics_.EntityData.Children = make(map[string]types.YChild)
+    statistics_.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics_.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", statistics_.ReceivedPackets}
+    statistics_.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", statistics_.TransmittedPackets}
+    statistics_.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", statistics_.DroppedPackets}
+    return &(statistics_.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = statistics.ReceivedPackets
-    leafs["transmitted-packets"] = statistics.TransmittedPackets
-    leafs["dropped-packets"] = statistics.DroppedPackets
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Proxy_Statistics_Ipv6Dhcpv6DProxyStat_Statistics) GetParentYangName() string { return "ipv6-dhcpv6d-proxy-stat" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding
 // DHCPV6 proxy bindings
 type Dhcpv6_Nodes_Node_Proxy_Binding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 proxy client bindings.
@@ -3292,64 +1777,27 @@ type Dhcpv6_Nodes_Node_Proxy_Binding struct {
     Summary Dhcpv6_Nodes_Node_Proxy_Binding_Summary
 }
 
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetFilter() yfilter.YFilter { return binding.YFilter }
+func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetEntityData() *types.CommonEntityData {
+    binding.EntityData.YFilter = binding.YFilter
+    binding.EntityData.YangName = "binding"
+    binding.EntityData.BundleName = "cisco_ios_xr"
+    binding.EntityData.ParentYangName = "proxy"
+    binding.EntityData.SegmentPath = "binding"
+    binding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    binding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    binding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) SetFilter(yf yfilter.YFilter) { binding.YFilter = yf }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetGoName(yname string) string {
-    if yname == "clients" { return "Clients" }
-    if yname == "summary" { return "Summary" }
-    return ""
+    binding.EntityData.Children = make(map[string]types.YChild)
+    binding.EntityData.Children["clients"] = types.YChild{"Clients", &binding.Clients}
+    binding.EntityData.Children["summary"] = types.YChild{"Summary", &binding.Summary}
+    binding.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(binding.EntityData)
 }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetSegmentPath() string {
-    return "binding"
-}
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "clients" {
-        return &binding.Clients
-    }
-    if childYangName == "summary" {
-        return &binding.Summary
-    }
-    return nil
-}
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["clients"] = &binding.Clients
-    children["summary"] = &binding.Summary
-    return children
-}
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetYangName() string { return "binding" }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) SetParent(parent types.Entity) { binding.parent = parent }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetParent() types.Entity { return binding.parent }
-
-func (binding *Dhcpv6_Nodes_Node_Proxy_Binding) GetParentYangName() string { return "proxy" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Clients
 // DHCPV6 proxy client bindings
 type Dhcpv6_Nodes_Node_Proxy_Binding_Clients struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Single DHCPV6 proxy binding. The type is slice of
@@ -3357,72 +1805,33 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients struct {
     Client []Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client
 }
 
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetFilter() yfilter.YFilter { return clients.YFilter }
+func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetEntityData() *types.CommonEntityData {
+    clients.EntityData.YFilter = clients.YFilter
+    clients.EntityData.YangName = "clients"
+    clients.EntityData.BundleName = "cisco_ios_xr"
+    clients.EntityData.ParentYangName = "binding"
+    clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) SetFilter(yf yfilter.YFilter) { clients.YFilter = yf }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetGoName(yname string) string {
-    if yname == "client" { return "Client" }
-    return ""
-}
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetSegmentPath() string {
-    return "clients"
-}
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        for _, c := range clients.Client {
-            if clients.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client{}
-        clients.Client = append(clients.Client, child)
-        return &clients.Client[len(clients.Client)-1]
-    }
-    return nil
-}
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clients.EntityData.Children = make(map[string]types.YChild)
+    clients.EntityData.Children["client"] = types.YChild{"Client", nil}
     for i := range clients.Client {
-        children[clients.Client[i].GetSegmentPath()] = &clients.Client[i]
+        clients.EntityData.Children[types.GetSegmentPath(&clients.Client[i])] = types.YChild{"Client", &clients.Client[i]}
     }
-    return children
+    clients.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clients.EntityData)
 }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetYangName() string { return "clients" }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) SetParent(parent types.Entity) { clients.parent = parent }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetParent() types.Entity { return clients.parent }
-
-func (clients *Dhcpv6_Nodes_Node_Proxy_Binding_Clients) GetParentYangName() string { return "binding" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client
 // Single DHCPV6 proxy binding
 type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // Client DUID. The type is string.
@@ -3444,7 +1853,7 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     IaIdPDs interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // DHCPV6 access VRF name to client. The type is string with length: 0..33.
@@ -3478,14 +1887,14 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     TxInterfaceId interface{}
 
     // DHCPV6 server IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ServerIpv6Address interface{}
 
     // DHCPV6 profile name. The type is string with length: 0..65.
     ProfileName interface{}
 
     // DHCPV6 framed ipv6 addess used by ND. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     FramedIpv6Prefix interface{}
 
     // DHCPV6 framed ipv6 prefix length used by ND. The type is interface{} with
@@ -3517,117 +1926,55 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client struct {
     IaIdPd Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd
 }
 
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "clients"
+    client.EntityData.SegmentPath = "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetGoName(yname string) string {
-    if yname == "client-id" { return "ClientId" }
-    if yname == "duid" { return "Duid" }
-    if yname == "client-flag" { return "ClientFlag" }
-    if yname == "subscriber-label" { return "SubscriberLabel" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "ia-id-p-ds" { return "IaIdPDs" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "access-vrf-name" { return "AccessVrfName" }
-    if yname == "proxy-binding-tags" { return "ProxyBindingTags" }
-    if yname == "proxy-binding-outer-tag" { return "ProxyBindingOuterTag" }
-    if yname == "proxy-binding-inner-tag" { return "ProxyBindingInnerTag" }
-    if yname == "class-name" { return "ClassName" }
-    if yname == "pool-name" { return "PoolName" }
-    if yname == "rx-remote-id" { return "RxRemoteId" }
-    if yname == "tx-remote-id" { return "TxRemoteId" }
-    if yname == "rx-interface-id" { return "RxInterfaceId" }
-    if yname == "tx-interface-id" { return "TxInterfaceId" }
-    if yname == "server-ipv6-address" { return "ServerIpv6Address" }
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "framed-ipv6-prefix" { return "FramedIpv6Prefix" }
-    if yname == "framed-prefix-length" { return "FramedPrefixLength" }
-    if yname == "is-nak-next-renew" { return "IsNakNextRenew" }
-    if yname == "srg-state" { return "SrgState" }
-    if yname == "srg-intf-role" { return "SrgIntfRole" }
-    if yname == "srgp2p" { return "Srgp2P" }
-    if yname == "srg-vrf-name" { return "SrgVrfName" }
-    if yname == "serg-state" { return "SergState" }
-    if yname == "serg-intf-role" { return "SergIntfRole" }
-    if yname == "ia-id-pd" { return "IaIdPd" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Children["ia-id-pd"] = types.YChild{"IaIdPd", &client.IaIdPd}
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", client.ClientId}
+    client.EntityData.Leafs["duid"] = types.YLeaf{"Duid", client.Duid}
+    client.EntityData.Leafs["client-flag"] = types.YLeaf{"ClientFlag", client.ClientFlag}
+    client.EntityData.Leafs["subscriber-label"] = types.YLeaf{"SubscriberLabel", client.SubscriberLabel}
+    client.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", client.VrfName}
+    client.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", client.MacAddress}
+    client.EntityData.Leafs["ia-id-p-ds"] = types.YLeaf{"IaIdPDs", client.IaIdPDs}
+    client.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", client.InterfaceName}
+    client.EntityData.Leafs["access-vrf-name"] = types.YLeaf{"AccessVrfName", client.AccessVrfName}
+    client.EntityData.Leafs["proxy-binding-tags"] = types.YLeaf{"ProxyBindingTags", client.ProxyBindingTags}
+    client.EntityData.Leafs["proxy-binding-outer-tag"] = types.YLeaf{"ProxyBindingOuterTag", client.ProxyBindingOuterTag}
+    client.EntityData.Leafs["proxy-binding-inner-tag"] = types.YLeaf{"ProxyBindingInnerTag", client.ProxyBindingInnerTag}
+    client.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", client.ClassName}
+    client.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", client.PoolName}
+    client.EntityData.Leafs["rx-remote-id"] = types.YLeaf{"RxRemoteId", client.RxRemoteId}
+    client.EntityData.Leafs["tx-remote-id"] = types.YLeaf{"TxRemoteId", client.TxRemoteId}
+    client.EntityData.Leafs["rx-interface-id"] = types.YLeaf{"RxInterfaceId", client.RxInterfaceId}
+    client.EntityData.Leafs["tx-interface-id"] = types.YLeaf{"TxInterfaceId", client.TxInterfaceId}
+    client.EntityData.Leafs["server-ipv6-address"] = types.YLeaf{"ServerIpv6Address", client.ServerIpv6Address}
+    client.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", client.ProfileName}
+    client.EntityData.Leafs["framed-ipv6-prefix"] = types.YLeaf{"FramedIpv6Prefix", client.FramedIpv6Prefix}
+    client.EntityData.Leafs["framed-prefix-length"] = types.YLeaf{"FramedPrefixLength", client.FramedPrefixLength}
+    client.EntityData.Leafs["is-nak-next-renew"] = types.YLeaf{"IsNakNextRenew", client.IsNakNextRenew}
+    client.EntityData.Leafs["srg-state"] = types.YLeaf{"SrgState", client.SrgState}
+    client.EntityData.Leafs["srg-intf-role"] = types.YLeaf{"SrgIntfRole", client.SrgIntfRole}
+    client.EntityData.Leafs["srgp2p"] = types.YLeaf{"Srgp2P", client.Srgp2P}
+    client.EntityData.Leafs["srg-vrf-name"] = types.YLeaf{"SrgVrfName", client.SrgVrfName}
+    client.EntityData.Leafs["serg-state"] = types.YLeaf{"SergState", client.SergState}
+    client.EntityData.Leafs["serg-intf-role"] = types.YLeaf{"SergIntfRole", client.SergIntfRole}
+    return &(client.EntityData)
 }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetSegmentPath() string {
-    return "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
-}
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ia-id-pd" {
-        return &client.IaIdPd
-    }
-    return nil
-}
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ia-id-pd"] = &client.IaIdPd
-    return children
-}
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["client-id"] = client.ClientId
-    leafs["duid"] = client.Duid
-    leafs["client-flag"] = client.ClientFlag
-    leafs["subscriber-label"] = client.SubscriberLabel
-    leafs["vrf-name"] = client.VrfName
-    leafs["mac-address"] = client.MacAddress
-    leafs["ia-id-p-ds"] = client.IaIdPDs
-    leafs["interface-name"] = client.InterfaceName
-    leafs["access-vrf-name"] = client.AccessVrfName
-    leafs["proxy-binding-tags"] = client.ProxyBindingTags
-    leafs["proxy-binding-outer-tag"] = client.ProxyBindingOuterTag
-    leafs["proxy-binding-inner-tag"] = client.ProxyBindingInnerTag
-    leafs["class-name"] = client.ClassName
-    leafs["pool-name"] = client.PoolName
-    leafs["rx-remote-id"] = client.RxRemoteId
-    leafs["tx-remote-id"] = client.TxRemoteId
-    leafs["rx-interface-id"] = client.RxInterfaceId
-    leafs["tx-interface-id"] = client.TxInterfaceId
-    leafs["server-ipv6-address"] = client.ServerIpv6Address
-    leafs["profile-name"] = client.ProfileName
-    leafs["framed-ipv6-prefix"] = client.FramedIpv6Prefix
-    leafs["framed-prefix-length"] = client.FramedPrefixLength
-    leafs["is-nak-next-renew"] = client.IsNakNextRenew
-    leafs["srg-state"] = client.SrgState
-    leafs["srg-intf-role"] = client.SrgIntfRole
-    leafs["srgp2p"] = client.Srgp2P
-    leafs["srg-vrf-name"] = client.SrgVrfName
-    leafs["serg-state"] = client.SergState
-    leafs["serg-intf-role"] = client.SergIntfRole
-    return leafs
-}
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetYangName() string { return "client" }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetParent() types.Entity { return client.parent }
-
-func (client *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client) GetParentYangName() string { return "clients" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd
 // List of DHCPv6 IA_ID/PDs
 type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // bag dhcpv6d ia id pd info. The type is slice of
@@ -3635,68 +1982,29 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd struct {
     BagDhcpv6DIaIdPdInfo []Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
 }
 
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetFilter() yfilter.YFilter { return iaIdPd.YFilter }
+func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetEntityData() *types.CommonEntityData {
+    iaIdPd.EntityData.YFilter = iaIdPd.YFilter
+    iaIdPd.EntityData.YangName = "ia-id-pd"
+    iaIdPd.EntityData.BundleName = "cisco_ios_xr"
+    iaIdPd.EntityData.ParentYangName = "client"
+    iaIdPd.EntityData.SegmentPath = "ia-id-pd"
+    iaIdPd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iaIdPd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iaIdPd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) SetFilter(yf yfilter.YFilter) { iaIdPd.YFilter = yf }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetGoName(yname string) string {
-    if yname == "bag-dhcpv6d-ia-id-pd-info" { return "BagDhcpv6DIaIdPdInfo" }
-    return ""
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetSegmentPath() string {
-    return "ia-id-pd"
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bag-dhcpv6d-ia-id-pd-info" {
-        for _, c := range iaIdPd.BagDhcpv6DIaIdPdInfo {
-            if iaIdPd.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo{}
-        iaIdPd.BagDhcpv6DIaIdPdInfo = append(iaIdPd.BagDhcpv6DIaIdPdInfo, child)
-        return &iaIdPd.BagDhcpv6DIaIdPdInfo[len(iaIdPd.BagDhcpv6DIaIdPdInfo)-1]
-    }
-    return nil
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    iaIdPd.EntityData.Children = make(map[string]types.YChild)
+    iaIdPd.EntityData.Children["bag-dhcpv6d-ia-id-pd-info"] = types.YChild{"BagDhcpv6DIaIdPdInfo", nil}
     for i := range iaIdPd.BagDhcpv6DIaIdPdInfo {
-        children[iaIdPd.BagDhcpv6DIaIdPdInfo[i].GetSegmentPath()] = &iaIdPd.BagDhcpv6DIaIdPdInfo[i]
+        iaIdPd.EntityData.Children[types.GetSegmentPath(&iaIdPd.BagDhcpv6DIaIdPdInfo[i])] = types.YChild{"BagDhcpv6DIaIdPdInfo", &iaIdPd.BagDhcpv6DIaIdPdInfo[i]}
     }
-    return children
+    iaIdPd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iaIdPd.EntityData)
 }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetYangName() string { return "ia-id-pd" }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) SetParent(parent types.Entity) { iaIdPd.parent = parent }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetParent() types.Entity { return iaIdPd.parent }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd) GetParentYangName() string { return "client" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
 // bag dhcpv6d ia id pd info
 type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IA type. The type is BagDhcpv6DIaId.
@@ -3718,69 +2026,31 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo 
     Addresses Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses
 }
 
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetFilter() yfilter.YFilter { return bagDhcpv6DIaIdPdInfo.YFilter }
+func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetEntityData() *types.CommonEntityData {
+    bagDhcpv6DIaIdPdInfo.EntityData.YFilter = bagDhcpv6DIaIdPdInfo.YFilter
+    bagDhcpv6DIaIdPdInfo.EntityData.YangName = "bag-dhcpv6d-ia-id-pd-info"
+    bagDhcpv6DIaIdPdInfo.EntityData.BundleName = "cisco_ios_xr"
+    bagDhcpv6DIaIdPdInfo.EntityData.ParentYangName = "ia-id-pd"
+    bagDhcpv6DIaIdPdInfo.EntityData.SegmentPath = "bag-dhcpv6d-ia-id-pd-info"
+    bagDhcpv6DIaIdPdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bagDhcpv6DIaIdPdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bagDhcpv6DIaIdPdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) SetFilter(yf yfilter.YFilter) { bagDhcpv6DIaIdPdInfo.YFilter = yf }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetGoName(yname string) string {
-    if yname == "ia-type" { return "IaType" }
-    if yname == "ia-id" { return "IaId" }
-    if yname == "flags" { return "Flags" }
-    if yname == "total-address" { return "TotalAddress" }
-    if yname == "state" { return "State" }
-    if yname == "addresses" { return "Addresses" }
-    return ""
+    bagDhcpv6DIaIdPdInfo.EntityData.Children = make(map[string]types.YChild)
+    bagDhcpv6DIaIdPdInfo.EntityData.Children["addresses"] = types.YChild{"Addresses", &bagDhcpv6DIaIdPdInfo.Addresses}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["ia-type"] = types.YLeaf{"IaType", bagDhcpv6DIaIdPdInfo.IaType}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["ia-id"] = types.YLeaf{"IaId", bagDhcpv6DIaIdPdInfo.IaId}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["flags"] = types.YLeaf{"Flags", bagDhcpv6DIaIdPdInfo.Flags}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["total-address"] = types.YLeaf{"TotalAddress", bagDhcpv6DIaIdPdInfo.TotalAddress}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["state"] = types.YLeaf{"State", bagDhcpv6DIaIdPdInfo.State}
+    return &(bagDhcpv6DIaIdPdInfo.EntityData)
 }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetSegmentPath() string {
-    return "bag-dhcpv6d-ia-id-pd-info"
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "addresses" {
-        return &bagDhcpv6DIaIdPdInfo.Addresses
-    }
-    return nil
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["addresses"] = &bagDhcpv6DIaIdPdInfo.Addresses
-    return children
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ia-type"] = bagDhcpv6DIaIdPdInfo.IaType
-    leafs["ia-id"] = bagDhcpv6DIaIdPdInfo.IaId
-    leafs["flags"] = bagDhcpv6DIaIdPdInfo.Flags
-    leafs["total-address"] = bagDhcpv6DIaIdPdInfo.TotalAddress
-    leafs["state"] = bagDhcpv6DIaIdPdInfo.State
-    return leafs
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetYangName() string { return "bag-dhcpv6d-ia-id-pd-info" }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) SetParent(parent types.Entity) { bagDhcpv6DIaIdPdInfo.parent = parent }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetParent() types.Entity { return bagDhcpv6DIaIdPdInfo.parent }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetParentYangName() string { return "ia-id-pd" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses
 // List of addresses in this IA
 type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // bag dhcpv6d addr attrb. The type is slice of
@@ -3788,72 +2058,33 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_
     BagDhcpv6DAddrAttrb []Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb
 }
 
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetFilter() yfilter.YFilter { return addresses.YFilter }
+func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "bag-dhcpv6d-ia-id-pd-info"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) SetFilter(yf yfilter.YFilter) { addresses.YFilter = yf }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetGoName(yname string) string {
-    if yname == "bag-dhcpv6d-addr-attrb" { return "BagDhcpv6DAddrAttrb" }
-    return ""
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetSegmentPath() string {
-    return "addresses"
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bag-dhcpv6d-addr-attrb" {
-        for _, c := range addresses.BagDhcpv6DAddrAttrb {
-            if addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb{}
-        addresses.BagDhcpv6DAddrAttrb = append(addresses.BagDhcpv6DAddrAttrb, child)
-        return &addresses.BagDhcpv6DAddrAttrb[len(addresses.BagDhcpv6DAddrAttrb)-1]
-    }
-    return nil
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    addresses.EntityData.Children = make(map[string]types.YChild)
+    addresses.EntityData.Children["bag-dhcpv6d-addr-attrb"] = types.YChild{"BagDhcpv6DAddrAttrb", nil}
     for i := range addresses.BagDhcpv6DAddrAttrb {
-        children[addresses.BagDhcpv6DAddrAttrb[i].GetSegmentPath()] = &addresses.BagDhcpv6DAddrAttrb[i]
+        addresses.EntityData.Children[types.GetSegmentPath(&addresses.BagDhcpv6DAddrAttrb[i])] = types.YChild{"BagDhcpv6DAddrAttrb", &addresses.BagDhcpv6DAddrAttrb[i]}
     }
-    return children
+    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addresses.EntityData)
 }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetYangName() string { return "addresses" }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) SetParent(parent types.Entity) { addresses.parent = parent }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetParent() types.Entity { return addresses.parent }
-
-func (addresses *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetParentYangName() string { return "bag-dhcpv6d-ia-id-pd-info" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb
 // bag dhcpv6d addr attrb
 type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -3868,62 +2099,29 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_
     RemainingLeaseTime interface{}
 }
 
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetFilter() yfilter.YFilter { return bagDhcpv6DAddrAttrb.YFilter }
+func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetEntityData() *types.CommonEntityData {
+    bagDhcpv6DAddrAttrb.EntityData.YFilter = bagDhcpv6DAddrAttrb.YFilter
+    bagDhcpv6DAddrAttrb.EntityData.YangName = "bag-dhcpv6d-addr-attrb"
+    bagDhcpv6DAddrAttrb.EntityData.BundleName = "cisco_ios_xr"
+    bagDhcpv6DAddrAttrb.EntityData.ParentYangName = "addresses"
+    bagDhcpv6DAddrAttrb.EntityData.SegmentPath = "bag-dhcpv6d-addr-attrb"
+    bagDhcpv6DAddrAttrb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bagDhcpv6DAddrAttrb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bagDhcpv6DAddrAttrb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) SetFilter(yf yfilter.YFilter) { bagDhcpv6DAddrAttrb.YFilter = yf }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "lease-time" { return "LeaseTime" }
-    if yname == "remaining-lease-time" { return "RemainingLeaseTime" }
-    return ""
+    bagDhcpv6DAddrAttrb.EntityData.Children = make(map[string]types.YChild)
+    bagDhcpv6DAddrAttrb.EntityData.Leafs = make(map[string]types.YLeaf)
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", bagDhcpv6DAddrAttrb.Prefix}
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", bagDhcpv6DAddrAttrb.PrefixLength}
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["lease-time"] = types.YLeaf{"LeaseTime", bagDhcpv6DAddrAttrb.LeaseTime}
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["remaining-lease-time"] = types.YLeaf{"RemainingLeaseTime", bagDhcpv6DAddrAttrb.RemainingLeaseTime}
+    return &(bagDhcpv6DAddrAttrb.EntityData)
 }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetSegmentPath() string {
-    return "bag-dhcpv6d-addr-attrb"
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix"] = bagDhcpv6DAddrAttrb.Prefix
-    leafs["prefix-length"] = bagDhcpv6DAddrAttrb.PrefixLength
-    leafs["lease-time"] = bagDhcpv6DAddrAttrb.LeaseTime
-    leafs["remaining-lease-time"] = bagDhcpv6DAddrAttrb.RemainingLeaseTime
-    return leafs
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetYangName() string { return "bag-dhcpv6d-addr-attrb" }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) SetParent(parent types.Entity) { bagDhcpv6DAddrAttrb.parent = parent }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetParent() types.Entity { return bagDhcpv6DAddrAttrb.parent }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Proxy_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetParentYangName() string { return "addresses" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Summary
 // DHCPV6 proxy binding summary
 type Dhcpv6_Nodes_Node_Proxy_Binding_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of clients. The type is interface{} with range: 0..4294967295.
@@ -3936,66 +2134,28 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Summary struct {
     Iapd Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd
 }
 
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "binding"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetGoName(yname string) string {
-    if yname == "clients" { return "Clients" }
-    if yname == "iana" { return "Iana" }
-    if yname == "iapd" { return "Iapd" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["iana"] = types.YChild{"Iana", &summary.Iana}
+    summary.EntityData.Children["iapd"] = types.YChild{"Iapd", &summary.Iapd}
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["clients"] = types.YLeaf{"Clients", summary.Clients}
+    return &(summary.EntityData)
 }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "iana" {
-        return &summary.Iana
-    }
-    if childYangName == "iapd" {
-        return &summary.Iapd
-    }
-    return nil
-}
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["iana"] = &summary.Iana
-    children["iapd"] = &summary.Iapd
-    return children
-}
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clients"] = summary.Clients
-    return leafs
-}
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetYangName() string { return "summary" }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Dhcpv6_Nodes_Node_Proxy_Binding_Summary) GetParentYangName() string { return "binding" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana
 // IANA proxy binding summary
 type Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of clients in init state. The type is interface{} with range:
@@ -4027,68 +2187,32 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana struct {
     BoundClients interface{}
 }
 
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetFilter() yfilter.YFilter { return iana.YFilter }
+func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetEntityData() *types.CommonEntityData {
+    iana.EntityData.YFilter = iana.YFilter
+    iana.EntityData.YangName = "iana"
+    iana.EntityData.BundleName = "cisco_ios_xr"
+    iana.EntityData.ParentYangName = "summary"
+    iana.EntityData.SegmentPath = "iana"
+    iana.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iana.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iana.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) SetFilter(yf yfilter.YFilter) { iana.YFilter = yf }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetGoName(yname string) string {
-    if yname == "initializing-clients" { return "InitializingClients" }
-    if yname == "dpm-waiting-clients" { return "DpmWaitingClients" }
-    if yname == "daps-waiting-clients" { return "DapsWaitingClients" }
-    if yname == "msg-waiting-clients" { return "MsgWaitingClients" }
-    if yname == "iedge-waiting-clients" { return "IedgeWaitingClients" }
-    if yname == "rib-waiting-clients" { return "RibWaitingClients" }
-    if yname == "bound-clients" { return "BoundClients" }
-    return ""
+    iana.EntityData.Children = make(map[string]types.YChild)
+    iana.EntityData.Leafs = make(map[string]types.YLeaf)
+    iana.EntityData.Leafs["initializing-clients"] = types.YLeaf{"InitializingClients", iana.InitializingClients}
+    iana.EntityData.Leafs["dpm-waiting-clients"] = types.YLeaf{"DpmWaitingClients", iana.DpmWaitingClients}
+    iana.EntityData.Leafs["daps-waiting-clients"] = types.YLeaf{"DapsWaitingClients", iana.DapsWaitingClients}
+    iana.EntityData.Leafs["msg-waiting-clients"] = types.YLeaf{"MsgWaitingClients", iana.MsgWaitingClients}
+    iana.EntityData.Leafs["iedge-waiting-clients"] = types.YLeaf{"IedgeWaitingClients", iana.IedgeWaitingClients}
+    iana.EntityData.Leafs["rib-waiting-clients"] = types.YLeaf{"RibWaitingClients", iana.RibWaitingClients}
+    iana.EntityData.Leafs["bound-clients"] = types.YLeaf{"BoundClients", iana.BoundClients}
+    return &(iana.EntityData)
 }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetSegmentPath() string {
-    return "iana"
-}
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["initializing-clients"] = iana.InitializingClients
-    leafs["dpm-waiting-clients"] = iana.DpmWaitingClients
-    leafs["daps-waiting-clients"] = iana.DapsWaitingClients
-    leafs["msg-waiting-clients"] = iana.MsgWaitingClients
-    leafs["iedge-waiting-clients"] = iana.IedgeWaitingClients
-    leafs["rib-waiting-clients"] = iana.RibWaitingClients
-    leafs["bound-clients"] = iana.BoundClients
-    return leafs
-}
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetYangName() string { return "iana" }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) SetParent(parent types.Entity) { iana.parent = parent }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetParent() types.Entity { return iana.parent }
-
-func (iana *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iana) GetParentYangName() string { return "summary" }
 
 // Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd
 // IAPD proxy binding summary
 type Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of clients in init state. The type is interface{} with range:
@@ -4120,68 +2244,32 @@ type Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd struct {
     BoundClients interface{}
 }
 
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetFilter() yfilter.YFilter { return iapd.YFilter }
+func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetEntityData() *types.CommonEntityData {
+    iapd.EntityData.YFilter = iapd.YFilter
+    iapd.EntityData.YangName = "iapd"
+    iapd.EntityData.BundleName = "cisco_ios_xr"
+    iapd.EntityData.ParentYangName = "summary"
+    iapd.EntityData.SegmentPath = "iapd"
+    iapd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iapd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iapd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) SetFilter(yf yfilter.YFilter) { iapd.YFilter = yf }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetGoName(yname string) string {
-    if yname == "initializing-clients" { return "InitializingClients" }
-    if yname == "dpm-waiting-clients" { return "DpmWaitingClients" }
-    if yname == "daps-waiting-clients" { return "DapsWaitingClients" }
-    if yname == "msg-waiting-clients" { return "MsgWaitingClients" }
-    if yname == "iedge-waiting-clients" { return "IedgeWaitingClients" }
-    if yname == "rib-waiting-clients" { return "RibWaitingClients" }
-    if yname == "bound-clients" { return "BoundClients" }
-    return ""
+    iapd.EntityData.Children = make(map[string]types.YChild)
+    iapd.EntityData.Leafs = make(map[string]types.YLeaf)
+    iapd.EntityData.Leafs["initializing-clients"] = types.YLeaf{"InitializingClients", iapd.InitializingClients}
+    iapd.EntityData.Leafs["dpm-waiting-clients"] = types.YLeaf{"DpmWaitingClients", iapd.DpmWaitingClients}
+    iapd.EntityData.Leafs["daps-waiting-clients"] = types.YLeaf{"DapsWaitingClients", iapd.DapsWaitingClients}
+    iapd.EntityData.Leafs["msg-waiting-clients"] = types.YLeaf{"MsgWaitingClients", iapd.MsgWaitingClients}
+    iapd.EntityData.Leafs["iedge-waiting-clients"] = types.YLeaf{"IedgeWaitingClients", iapd.IedgeWaitingClients}
+    iapd.EntityData.Leafs["rib-waiting-clients"] = types.YLeaf{"RibWaitingClients", iapd.RibWaitingClients}
+    iapd.EntityData.Leafs["bound-clients"] = types.YLeaf{"BoundClients", iapd.BoundClients}
+    return &(iapd.EntityData)
 }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetSegmentPath() string {
-    return "iapd"
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["initializing-clients"] = iapd.InitializingClients
-    leafs["dpm-waiting-clients"] = iapd.DpmWaitingClients
-    leafs["daps-waiting-clients"] = iapd.DapsWaitingClients
-    leafs["msg-waiting-clients"] = iapd.MsgWaitingClients
-    leafs["iedge-waiting-clients"] = iapd.IedgeWaitingClients
-    leafs["rib-waiting-clients"] = iapd.RibWaitingClients
-    leafs["bound-clients"] = iapd.BoundClients
-    return leafs
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetYangName() string { return "iapd" }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) SetParent(parent types.Entity) { iapd.parent = parent }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetParent() types.Entity { return iapd.parent }
-
-func (iapd *Dhcpv6_Nodes_Node_Proxy_Binding_Summary_Iapd) GetParentYangName() string { return "summary" }
 
 // Dhcpv6_Nodes_Node_Base
 // IPv6 DHCP Base
 type Dhcpv6_Nodes_Node_Base struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP database.
@@ -4191,64 +2279,27 @@ type Dhcpv6_Nodes_Node_Base struct {
     AddrBindings Dhcpv6_Nodes_Node_Base_AddrBindings
 }
 
-func (base *Dhcpv6_Nodes_Node_Base) GetFilter() yfilter.YFilter { return base.YFilter }
+func (base *Dhcpv6_Nodes_Node_Base) GetEntityData() *types.CommonEntityData {
+    base.EntityData.YFilter = base.YFilter
+    base.EntityData.YangName = "base"
+    base.EntityData.BundleName = "cisco_ios_xr"
+    base.EntityData.ParentYangName = "node"
+    base.EntityData.SegmentPath = "base"
+    base.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    base.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    base.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (base *Dhcpv6_Nodes_Node_Base) SetFilter(yf yfilter.YFilter) { base.YFilter = yf }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetGoName(yname string) string {
-    if yname == "database" { return "Database" }
-    if yname == "addr-bindings" { return "AddrBindings" }
-    return ""
+    base.EntityData.Children = make(map[string]types.YChild)
+    base.EntityData.Children["database"] = types.YChild{"Database", &base.Database}
+    base.EntityData.Children["addr-bindings"] = types.YChild{"AddrBindings", &base.AddrBindings}
+    base.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(base.EntityData)
 }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetSegmentPath() string {
-    return "base"
-}
-
-func (base *Dhcpv6_Nodes_Node_Base) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "database" {
-        return &base.Database
-    }
-    if childYangName == "addr-bindings" {
-        return &base.AddrBindings
-    }
-    return nil
-}
-
-func (base *Dhcpv6_Nodes_Node_Base) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["database"] = &base.Database
-    children["addr-bindings"] = &base.AddrBindings
-    return children
-}
-
-func (base *Dhcpv6_Nodes_Node_Base) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (base *Dhcpv6_Nodes_Node_Base) GetBundleName() string { return "cisco_ios_xr" }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetYangName() string { return "base" }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (base *Dhcpv6_Nodes_Node_Base) SetParent(parent types.Entity) { base.parent = parent }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetParent() types.Entity { return base.parent }
-
-func (base *Dhcpv6_Nodes_Node_Base) GetParentYangName() string { return "node" }
 
 // Dhcpv6_Nodes_Node_Base_Database
 // DHCP database
 type Dhcpv6_Nodes_Node_Base_Database struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Database feature configured. The type is bool.
@@ -4310,86 +2361,41 @@ type Dhcpv6_Nodes_Node_Base_Database struct {
     LastIncrementalFileWriteErrorTimestamp interface{}
 }
 
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetFilter() yfilter.YFilter { return database.YFilter }
+func (database *Dhcpv6_Nodes_Node_Base_Database) GetEntityData() *types.CommonEntityData {
+    database.EntityData.YFilter = database.YFilter
+    database.EntityData.YangName = "database"
+    database.EntityData.BundleName = "cisco_ios_xr"
+    database.EntityData.ParentYangName = "base"
+    database.EntityData.SegmentPath = "database"
+    database.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    database.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    database.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (database *Dhcpv6_Nodes_Node_Base_Database) SetFilter(yf yfilter.YFilter) { database.YFilter = yf }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetGoName(yname string) string {
-    if yname == "configured" { return "Configured" }
-    if yname == "version" { return "Version" }
-    if yname == "full-file-write-interval" { return "FullFileWriteInterval" }
-    if yname == "last-full-write-file-name" { return "LastFullWriteFileName" }
-    if yname == "last-full-write-time" { return "LastFullWriteTime" }
-    if yname == "full-file-write-count" { return "FullFileWriteCount" }
-    if yname == "failed-full-file-write-count" { return "FailedFullFileWriteCount" }
-    if yname == "full-file-record-count" { return "FullFileRecordCount" }
-    if yname == "last-full-file-write-error-timestamp" { return "LastFullFileWriteErrorTimestamp" }
-    if yname == "incremental-file-write-interval" { return "IncrementalFileWriteInterval" }
-    if yname == "last-incremental-write-file-name" { return "LastIncrementalWriteFileName" }
-    if yname == "last-incremental-write-time" { return "LastIncrementalWriteTime" }
-    if yname == "incremental-file-write-count" { return "IncrementalFileWriteCount" }
-    if yname == "failed-incremental-file-write-count" { return "FailedIncrementalFileWriteCount" }
-    if yname == "incremental-file-record-count" { return "IncrementalFileRecordCount" }
-    if yname == "last-incremental-file-write-error-timestamp" { return "LastIncrementalFileWriteErrorTimestamp" }
-    return ""
+    database.EntityData.Children = make(map[string]types.YChild)
+    database.EntityData.Leafs = make(map[string]types.YLeaf)
+    database.EntityData.Leafs["configured"] = types.YLeaf{"Configured", database.Configured}
+    database.EntityData.Leafs["version"] = types.YLeaf{"Version", database.Version}
+    database.EntityData.Leafs["full-file-write-interval"] = types.YLeaf{"FullFileWriteInterval", database.FullFileWriteInterval}
+    database.EntityData.Leafs["last-full-write-file-name"] = types.YLeaf{"LastFullWriteFileName", database.LastFullWriteFileName}
+    database.EntityData.Leafs["last-full-write-time"] = types.YLeaf{"LastFullWriteTime", database.LastFullWriteTime}
+    database.EntityData.Leafs["full-file-write-count"] = types.YLeaf{"FullFileWriteCount", database.FullFileWriteCount}
+    database.EntityData.Leafs["failed-full-file-write-count"] = types.YLeaf{"FailedFullFileWriteCount", database.FailedFullFileWriteCount}
+    database.EntityData.Leafs["full-file-record-count"] = types.YLeaf{"FullFileRecordCount", database.FullFileRecordCount}
+    database.EntityData.Leafs["last-full-file-write-error-timestamp"] = types.YLeaf{"LastFullFileWriteErrorTimestamp", database.LastFullFileWriteErrorTimestamp}
+    database.EntityData.Leafs["incremental-file-write-interval"] = types.YLeaf{"IncrementalFileWriteInterval", database.IncrementalFileWriteInterval}
+    database.EntityData.Leafs["last-incremental-write-file-name"] = types.YLeaf{"LastIncrementalWriteFileName", database.LastIncrementalWriteFileName}
+    database.EntityData.Leafs["last-incremental-write-time"] = types.YLeaf{"LastIncrementalWriteTime", database.LastIncrementalWriteTime}
+    database.EntityData.Leafs["incremental-file-write-count"] = types.YLeaf{"IncrementalFileWriteCount", database.IncrementalFileWriteCount}
+    database.EntityData.Leafs["failed-incremental-file-write-count"] = types.YLeaf{"FailedIncrementalFileWriteCount", database.FailedIncrementalFileWriteCount}
+    database.EntityData.Leafs["incremental-file-record-count"] = types.YLeaf{"IncrementalFileRecordCount", database.IncrementalFileRecordCount}
+    database.EntityData.Leafs["last-incremental-file-write-error-timestamp"] = types.YLeaf{"LastIncrementalFileWriteErrorTimestamp", database.LastIncrementalFileWriteErrorTimestamp}
+    return &(database.EntityData)
 }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetSegmentPath() string {
-    return "database"
-}
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["configured"] = database.Configured
-    leafs["version"] = database.Version
-    leafs["full-file-write-interval"] = database.FullFileWriteInterval
-    leafs["last-full-write-file-name"] = database.LastFullWriteFileName
-    leafs["last-full-write-time"] = database.LastFullWriteTime
-    leafs["full-file-write-count"] = database.FullFileWriteCount
-    leafs["failed-full-file-write-count"] = database.FailedFullFileWriteCount
-    leafs["full-file-record-count"] = database.FullFileRecordCount
-    leafs["last-full-file-write-error-timestamp"] = database.LastFullFileWriteErrorTimestamp
-    leafs["incremental-file-write-interval"] = database.IncrementalFileWriteInterval
-    leafs["last-incremental-write-file-name"] = database.LastIncrementalWriteFileName
-    leafs["last-incremental-write-time"] = database.LastIncrementalWriteTime
-    leafs["incremental-file-write-count"] = database.IncrementalFileWriteCount
-    leafs["failed-incremental-file-write-count"] = database.FailedIncrementalFileWriteCount
-    leafs["incremental-file-record-count"] = database.IncrementalFileRecordCount
-    leafs["last-incremental-file-write-error-timestamp"] = database.LastIncrementalFileWriteErrorTimestamp
-    return leafs
-}
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetBundleName() string { return "cisco_ios_xr" }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetYangName() string { return "database" }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) SetParent(parent types.Entity) { database.parent = parent }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetParent() types.Entity { return database.parent }
-
-func (database *Dhcpv6_Nodes_Node_Base_Database) GetParentYangName() string { return "base" }
 
 // Dhcpv6_Nodes_Node_Base_AddrBindings
 // IPv6 DHCP Base Binding
 type Dhcpv6_Nodes_Node_Base_AddrBindings struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 base stats debug. The type is slice of
@@ -4397,72 +2403,33 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings struct {
     AddrBinding []Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding
 }
 
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetFilter() yfilter.YFilter { return addrBindings.YFilter }
+func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetEntityData() *types.CommonEntityData {
+    addrBindings.EntityData.YFilter = addrBindings.YFilter
+    addrBindings.EntityData.YangName = "addr-bindings"
+    addrBindings.EntityData.BundleName = "cisco_ios_xr"
+    addrBindings.EntityData.ParentYangName = "base"
+    addrBindings.EntityData.SegmentPath = "addr-bindings"
+    addrBindings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addrBindings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addrBindings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) SetFilter(yf yfilter.YFilter) { addrBindings.YFilter = yf }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetGoName(yname string) string {
-    if yname == "addr-binding" { return "AddrBinding" }
-    return ""
-}
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetSegmentPath() string {
-    return "addr-bindings"
-}
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "addr-binding" {
-        for _, c := range addrBindings.AddrBinding {
-            if addrBindings.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding{}
-        addrBindings.AddrBinding = append(addrBindings.AddrBinding, child)
-        return &addrBindings.AddrBinding[len(addrBindings.AddrBinding)-1]
-    }
-    return nil
-}
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    addrBindings.EntityData.Children = make(map[string]types.YChild)
+    addrBindings.EntityData.Children["addr-binding"] = types.YChild{"AddrBinding", nil}
     for i := range addrBindings.AddrBinding {
-        children[addrBindings.AddrBinding[i].GetSegmentPath()] = &addrBindings.AddrBinding[i]
+        addrBindings.EntityData.Children[types.GetSegmentPath(&addrBindings.AddrBinding[i])] = types.YChild{"AddrBinding", &addrBindings.AddrBinding[i]}
     }
-    return children
+    addrBindings.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addrBindings.EntityData)
 }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetYangName() string { return "addr-bindings" }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) SetParent(parent types.Entity) { addrBindings.parent = parent }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetParent() types.Entity { return addrBindings.parent }
-
-func (addrBindings *Dhcpv6_Nodes_Node_Base_AddrBindings) GetParentYangName() string { return "base" }
 
 // Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding
 // DHCPv6 base stats debug
 type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address String. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AddrString interface{}
 
     // DHCPV6 client MAC address. The type is string.
@@ -4475,15 +2442,15 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     ServerVrfName interface{}
 
     // DHCPV6 IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // DHCPV6 server IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ServerIpv6Address interface{}
 
     // DHCPV6 reply server IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ReplyServerIpv6Address interface{}
 
     // Lease time in seconds. The type is interface{} with range: 0..4294967295.
@@ -4498,7 +2465,7 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     State interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // DHCPV6 access interface VRF name. The type is string with length: 0..33.
@@ -4545,104 +2512,50 @@ type Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding struct {
     TxInterfaceId interface{}
 }
 
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetFilter() yfilter.YFilter { return addrBinding.YFilter }
+func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetEntityData() *types.CommonEntityData {
+    addrBinding.EntityData.YFilter = addrBinding.YFilter
+    addrBinding.EntityData.YangName = "addr-binding"
+    addrBinding.EntityData.BundleName = "cisco_ios_xr"
+    addrBinding.EntityData.ParentYangName = "addr-bindings"
+    addrBinding.EntityData.SegmentPath = "addr-binding" + "[addr-string='" + fmt.Sprintf("%v", addrBinding.AddrString) + "']"
+    addrBinding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addrBinding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addrBinding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) SetFilter(yf yfilter.YFilter) { addrBinding.YFilter = yf }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetGoName(yname string) string {
-    if yname == "addr-string" { return "AddrString" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "server-vrf-name" { return "ServerVrfName" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "server-ipv6-address" { return "ServerIpv6Address" }
-    if yname == "reply-server-ipv6-address" { return "ReplyServerIpv6Address" }
-    if yname == "lease-time" { return "LeaseTime" }
-    if yname == "remaining-lease-time" { return "RemainingLeaseTime" }
-    if yname == "state" { return "State" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "access-vrf-name" { return "AccessVrfName" }
-    if yname == "base-binding-tags" { return "BaseBindingTags" }
-    if yname == "base-binding-outer-tag" { return "BaseBindingOuterTag" }
-    if yname == "base-binding-inner-tag" { return "BaseBindingInnerTag" }
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "is-nak-next-renew" { return "IsNakNextRenew" }
-    if yname == "subscriber-label" { return "SubscriberLabel" }
-    if yname == "old-subscriber-label" { return "OldSubscriberLabel" }
-    if yname == "rx-client-duid" { return "RxClientDuid" }
-    if yname == "tx-client-uid" { return "TxClientUid" }
-    if yname == "rx-remote-id" { return "RxRemoteId" }
-    if yname == "tx-remote-id" { return "TxRemoteId" }
-    if yname == "rx-interface-id" { return "RxInterfaceId" }
-    if yname == "tx-interface-id" { return "TxInterfaceId" }
-    return ""
+    addrBinding.EntityData.Children = make(map[string]types.YChild)
+    addrBinding.EntityData.Leafs = make(map[string]types.YLeaf)
+    addrBinding.EntityData.Leafs["addr-string"] = types.YLeaf{"AddrString", addrBinding.AddrString}
+    addrBinding.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", addrBinding.MacAddress}
+    addrBinding.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", addrBinding.VrfName}
+    addrBinding.EntityData.Leafs["server-vrf-name"] = types.YLeaf{"ServerVrfName", addrBinding.ServerVrfName}
+    addrBinding.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", addrBinding.Ipv6Address}
+    addrBinding.EntityData.Leafs["server-ipv6-address"] = types.YLeaf{"ServerIpv6Address", addrBinding.ServerIpv6Address}
+    addrBinding.EntityData.Leafs["reply-server-ipv6-address"] = types.YLeaf{"ReplyServerIpv6Address", addrBinding.ReplyServerIpv6Address}
+    addrBinding.EntityData.Leafs["lease-time"] = types.YLeaf{"LeaseTime", addrBinding.LeaseTime}
+    addrBinding.EntityData.Leafs["remaining-lease-time"] = types.YLeaf{"RemainingLeaseTime", addrBinding.RemainingLeaseTime}
+    addrBinding.EntityData.Leafs["state"] = types.YLeaf{"State", addrBinding.State}
+    addrBinding.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", addrBinding.InterfaceName}
+    addrBinding.EntityData.Leafs["access-vrf-name"] = types.YLeaf{"AccessVrfName", addrBinding.AccessVrfName}
+    addrBinding.EntityData.Leafs["base-binding-tags"] = types.YLeaf{"BaseBindingTags", addrBinding.BaseBindingTags}
+    addrBinding.EntityData.Leafs["base-binding-outer-tag"] = types.YLeaf{"BaseBindingOuterTag", addrBinding.BaseBindingOuterTag}
+    addrBinding.EntityData.Leafs["base-binding-inner-tag"] = types.YLeaf{"BaseBindingInnerTag", addrBinding.BaseBindingInnerTag}
+    addrBinding.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", addrBinding.ProfileName}
+    addrBinding.EntityData.Leafs["is-nak-next-renew"] = types.YLeaf{"IsNakNextRenew", addrBinding.IsNakNextRenew}
+    addrBinding.EntityData.Leafs["subscriber-label"] = types.YLeaf{"SubscriberLabel", addrBinding.SubscriberLabel}
+    addrBinding.EntityData.Leafs["old-subscriber-label"] = types.YLeaf{"OldSubscriberLabel", addrBinding.OldSubscriberLabel}
+    addrBinding.EntityData.Leafs["rx-client-duid"] = types.YLeaf{"RxClientDuid", addrBinding.RxClientDuid}
+    addrBinding.EntityData.Leafs["tx-client-uid"] = types.YLeaf{"TxClientUid", addrBinding.TxClientUid}
+    addrBinding.EntityData.Leafs["rx-remote-id"] = types.YLeaf{"RxRemoteId", addrBinding.RxRemoteId}
+    addrBinding.EntityData.Leafs["tx-remote-id"] = types.YLeaf{"TxRemoteId", addrBinding.TxRemoteId}
+    addrBinding.EntityData.Leafs["rx-interface-id"] = types.YLeaf{"RxInterfaceId", addrBinding.RxInterfaceId}
+    addrBinding.EntityData.Leafs["tx-interface-id"] = types.YLeaf{"TxInterfaceId", addrBinding.TxInterfaceId}
+    return &(addrBinding.EntityData)
 }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetSegmentPath() string {
-    return "addr-binding" + "[addr-string='" + fmt.Sprintf("%v", addrBinding.AddrString) + "']"
-}
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["addr-string"] = addrBinding.AddrString
-    leafs["mac-address"] = addrBinding.MacAddress
-    leafs["vrf-name"] = addrBinding.VrfName
-    leafs["server-vrf-name"] = addrBinding.ServerVrfName
-    leafs["ipv6-address"] = addrBinding.Ipv6Address
-    leafs["server-ipv6-address"] = addrBinding.ServerIpv6Address
-    leafs["reply-server-ipv6-address"] = addrBinding.ReplyServerIpv6Address
-    leafs["lease-time"] = addrBinding.LeaseTime
-    leafs["remaining-lease-time"] = addrBinding.RemainingLeaseTime
-    leafs["state"] = addrBinding.State
-    leafs["interface-name"] = addrBinding.InterfaceName
-    leafs["access-vrf-name"] = addrBinding.AccessVrfName
-    leafs["base-binding-tags"] = addrBinding.BaseBindingTags
-    leafs["base-binding-outer-tag"] = addrBinding.BaseBindingOuterTag
-    leafs["base-binding-inner-tag"] = addrBinding.BaseBindingInnerTag
-    leafs["profile-name"] = addrBinding.ProfileName
-    leafs["is-nak-next-renew"] = addrBinding.IsNakNextRenew
-    leafs["subscriber-label"] = addrBinding.SubscriberLabel
-    leafs["old-subscriber-label"] = addrBinding.OldSubscriberLabel
-    leafs["rx-client-duid"] = addrBinding.RxClientDuid
-    leafs["tx-client-uid"] = addrBinding.TxClientUid
-    leafs["rx-remote-id"] = addrBinding.RxRemoteId
-    leafs["tx-remote-id"] = addrBinding.TxRemoteId
-    leafs["rx-interface-id"] = addrBinding.RxInterfaceId
-    leafs["tx-interface-id"] = addrBinding.TxInterfaceId
-    return leafs
-}
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetYangName() string { return "addr-binding" }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) SetParent(parent types.Entity) { addrBinding.parent = parent }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetParent() types.Entity { return addrBinding.parent }
-
-func (addrBinding *Dhcpv6_Nodes_Node_Base_AddrBindings_AddrBinding) GetParentYangName() string { return "addr-bindings" }
 
 // Dhcpv6_Nodes_Node_Server
 // IPv6 DHCP server operational data
 type Dhcpv6_Nodes_Node_Server struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 server bindings.
@@ -4664,84 +2577,31 @@ type Dhcpv6_Nodes_Node_Server struct {
     BindingOptions Dhcpv6_Nodes_Node_Server_BindingOptions
 }
 
-func (server *Dhcpv6_Nodes_Node_Server) GetFilter() yfilter.YFilter { return server.YFilter }
+func (server *Dhcpv6_Nodes_Node_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "node"
+    server.EntityData.SegmentPath = "server"
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (server *Dhcpv6_Nodes_Node_Server) SetFilter(yf yfilter.YFilter) { server.YFilter = yf }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetGoName(yname string) string {
-    if yname == "binding" { return "Binding" }
-    if yname == "vrfs" { return "Vrfs" }
-    if yname == "profiles" { return "Profiles" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "binding-options" { return "BindingOptions" }
-    return ""
+    server.EntityData.Children = make(map[string]types.YChild)
+    server.EntityData.Children["binding"] = types.YChild{"Binding", &server.Binding}
+    server.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &server.Vrfs}
+    server.EntityData.Children["profiles"] = types.YChild{"Profiles", &server.Profiles}
+    server.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &server.Interfaces}
+    server.EntityData.Children["statistics"] = types.YChild{"Statistics", &server.Statistics}
+    server.EntityData.Children["binding-options"] = types.YChild{"BindingOptions", &server.BindingOptions}
+    server.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(server.EntityData)
 }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetSegmentPath() string {
-    return "server"
-}
-
-func (server *Dhcpv6_Nodes_Node_Server) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "binding" {
-        return &server.Binding
-    }
-    if childYangName == "vrfs" {
-        return &server.Vrfs
-    }
-    if childYangName == "profiles" {
-        return &server.Profiles
-    }
-    if childYangName == "interfaces" {
-        return &server.Interfaces
-    }
-    if childYangName == "statistics" {
-        return &server.Statistics
-    }
-    if childYangName == "binding-options" {
-        return &server.BindingOptions
-    }
-    return nil
-}
-
-func (server *Dhcpv6_Nodes_Node_Server) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["binding"] = &server.Binding
-    children["vrfs"] = &server.Vrfs
-    children["profiles"] = &server.Profiles
-    children["interfaces"] = &server.Interfaces
-    children["statistics"] = &server.Statistics
-    children["binding-options"] = &server.BindingOptions
-    return children
-}
-
-func (server *Dhcpv6_Nodes_Node_Server) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (server *Dhcpv6_Nodes_Node_Server) GetBundleName() string { return "cisco_ios_xr" }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetYangName() string { return "server" }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (server *Dhcpv6_Nodes_Node_Server) SetParent(parent types.Entity) { server.parent = parent }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetParent() types.Entity { return server.parent }
-
-func (server *Dhcpv6_Nodes_Node_Server) GetParentYangName() string { return "node" }
 
 // Dhcpv6_Nodes_Node_Server_Binding
 // DHCPV6 server bindings
 type Dhcpv6_Nodes_Node_Server_Binding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 server binding summary.
@@ -4751,64 +2611,27 @@ type Dhcpv6_Nodes_Node_Server_Binding struct {
     Clients Dhcpv6_Nodes_Node_Server_Binding_Clients
 }
 
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetFilter() yfilter.YFilter { return binding.YFilter }
+func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetEntityData() *types.CommonEntityData {
+    binding.EntityData.YFilter = binding.YFilter
+    binding.EntityData.YangName = "binding"
+    binding.EntityData.BundleName = "cisco_ios_xr"
+    binding.EntityData.ParentYangName = "server"
+    binding.EntityData.SegmentPath = "binding"
+    binding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    binding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    binding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) SetFilter(yf yfilter.YFilter) { binding.YFilter = yf }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetGoName(yname string) string {
-    if yname == "summary" { return "Summary" }
-    if yname == "clients" { return "Clients" }
-    return ""
+    binding.EntityData.Children = make(map[string]types.YChild)
+    binding.EntityData.Children["summary"] = types.YChild{"Summary", &binding.Summary}
+    binding.EntityData.Children["clients"] = types.YChild{"Clients", &binding.Clients}
+    binding.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(binding.EntityData)
 }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetSegmentPath() string {
-    return "binding"
-}
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summary" {
-        return &binding.Summary
-    }
-    if childYangName == "clients" {
-        return &binding.Clients
-    }
-    return nil
-}
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["summary"] = &binding.Summary
-    children["clients"] = &binding.Clients
-    return children
-}
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetYangName() string { return "binding" }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) SetParent(parent types.Entity) { binding.parent = parent }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetParent() types.Entity { return binding.parent }
-
-func (binding *Dhcpv6_Nodes_Node_Server_Binding) GetParentYangName() string { return "server" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Summary
 // DHCPV6 server binding summary
 type Dhcpv6_Nodes_Node_Server_Binding_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of clients. The type is interface{} with range: 0..4294967295.
@@ -4821,66 +2644,28 @@ type Dhcpv6_Nodes_Node_Server_Binding_Summary struct {
     Iapd Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd
 }
 
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "binding"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetGoName(yname string) string {
-    if yname == "clients" { return "Clients" }
-    if yname == "iana" { return "Iana" }
-    if yname == "iapd" { return "Iapd" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["iana"] = types.YChild{"Iana", &summary.Iana}
+    summary.EntityData.Children["iapd"] = types.YChild{"Iapd", &summary.Iapd}
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["clients"] = types.YLeaf{"Clients", summary.Clients}
+    return &(summary.EntityData)
 }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "iana" {
-        return &summary.Iana
-    }
-    if childYangName == "iapd" {
-        return &summary.Iapd
-    }
-    return nil
-}
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["iana"] = &summary.Iana
-    children["iapd"] = &summary.Iapd
-    return children
-}
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clients"] = summary.Clients
-    return leafs
-}
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetYangName() string { return "summary" }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Dhcpv6_Nodes_Node_Server_Binding_Summary) GetParentYangName() string { return "binding" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana
 // IANA server binding summary
 type Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of clients in init state. The type is interface{} with range:
@@ -4912,68 +2697,32 @@ type Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana struct {
     BoundClients interface{}
 }
 
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetFilter() yfilter.YFilter { return iana.YFilter }
+func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetEntityData() *types.CommonEntityData {
+    iana.EntityData.YFilter = iana.YFilter
+    iana.EntityData.YangName = "iana"
+    iana.EntityData.BundleName = "cisco_ios_xr"
+    iana.EntityData.ParentYangName = "summary"
+    iana.EntityData.SegmentPath = "iana"
+    iana.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iana.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iana.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) SetFilter(yf yfilter.YFilter) { iana.YFilter = yf }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetGoName(yname string) string {
-    if yname == "initializing-clients" { return "InitializingClients" }
-    if yname == "dpm-waiting-clients" { return "DpmWaitingClients" }
-    if yname == "daps-waiting-clients" { return "DapsWaitingClients" }
-    if yname == "request-waiting-clients" { return "RequestWaitingClients" }
-    if yname == "iedge-waiting-clients" { return "IedgeWaitingClients" }
-    if yname == "rib-waiting-clients" { return "RibWaitingClients" }
-    if yname == "bound-clients" { return "BoundClients" }
-    return ""
+    iana.EntityData.Children = make(map[string]types.YChild)
+    iana.EntityData.Leafs = make(map[string]types.YLeaf)
+    iana.EntityData.Leafs["initializing-clients"] = types.YLeaf{"InitializingClients", iana.InitializingClients}
+    iana.EntityData.Leafs["dpm-waiting-clients"] = types.YLeaf{"DpmWaitingClients", iana.DpmWaitingClients}
+    iana.EntityData.Leafs["daps-waiting-clients"] = types.YLeaf{"DapsWaitingClients", iana.DapsWaitingClients}
+    iana.EntityData.Leafs["request-waiting-clients"] = types.YLeaf{"RequestWaitingClients", iana.RequestWaitingClients}
+    iana.EntityData.Leafs["iedge-waiting-clients"] = types.YLeaf{"IedgeWaitingClients", iana.IedgeWaitingClients}
+    iana.EntityData.Leafs["rib-waiting-clients"] = types.YLeaf{"RibWaitingClients", iana.RibWaitingClients}
+    iana.EntityData.Leafs["bound-clients"] = types.YLeaf{"BoundClients", iana.BoundClients}
+    return &(iana.EntityData)
 }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetSegmentPath() string {
-    return "iana"
-}
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["initializing-clients"] = iana.InitializingClients
-    leafs["dpm-waiting-clients"] = iana.DpmWaitingClients
-    leafs["daps-waiting-clients"] = iana.DapsWaitingClients
-    leafs["request-waiting-clients"] = iana.RequestWaitingClients
-    leafs["iedge-waiting-clients"] = iana.IedgeWaitingClients
-    leafs["rib-waiting-clients"] = iana.RibWaitingClients
-    leafs["bound-clients"] = iana.BoundClients
-    return leafs
-}
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetYangName() string { return "iana" }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) SetParent(parent types.Entity) { iana.parent = parent }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetParent() types.Entity { return iana.parent }
-
-func (iana *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iana) GetParentYangName() string { return "summary" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd
 // IAPD server binding summary
 type Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of clients in init state. The type is interface{} with range:
@@ -5005,68 +2754,32 @@ type Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd struct {
     BoundClients interface{}
 }
 
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetFilter() yfilter.YFilter { return iapd.YFilter }
+func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetEntityData() *types.CommonEntityData {
+    iapd.EntityData.YFilter = iapd.YFilter
+    iapd.EntityData.YangName = "iapd"
+    iapd.EntityData.BundleName = "cisco_ios_xr"
+    iapd.EntityData.ParentYangName = "summary"
+    iapd.EntityData.SegmentPath = "iapd"
+    iapd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iapd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iapd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) SetFilter(yf yfilter.YFilter) { iapd.YFilter = yf }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetGoName(yname string) string {
-    if yname == "initializing-clients" { return "InitializingClients" }
-    if yname == "dpm-waiting-clients" { return "DpmWaitingClients" }
-    if yname == "daps-waiting-clients" { return "DapsWaitingClients" }
-    if yname == "request-waiting-clients" { return "RequestWaitingClients" }
-    if yname == "iedge-waiting-clients" { return "IedgeWaitingClients" }
-    if yname == "rib-waiting-clients" { return "RibWaitingClients" }
-    if yname == "bound-clients" { return "BoundClients" }
-    return ""
+    iapd.EntityData.Children = make(map[string]types.YChild)
+    iapd.EntityData.Leafs = make(map[string]types.YLeaf)
+    iapd.EntityData.Leafs["initializing-clients"] = types.YLeaf{"InitializingClients", iapd.InitializingClients}
+    iapd.EntityData.Leafs["dpm-waiting-clients"] = types.YLeaf{"DpmWaitingClients", iapd.DpmWaitingClients}
+    iapd.EntityData.Leafs["daps-waiting-clients"] = types.YLeaf{"DapsWaitingClients", iapd.DapsWaitingClients}
+    iapd.EntityData.Leafs["request-waiting-clients"] = types.YLeaf{"RequestWaitingClients", iapd.RequestWaitingClients}
+    iapd.EntityData.Leafs["iedge-waiting-clients"] = types.YLeaf{"IedgeWaitingClients", iapd.IedgeWaitingClients}
+    iapd.EntityData.Leafs["rib-waiting-clients"] = types.YLeaf{"RibWaitingClients", iapd.RibWaitingClients}
+    iapd.EntityData.Leafs["bound-clients"] = types.YLeaf{"BoundClients", iapd.BoundClients}
+    return &(iapd.EntityData)
 }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetSegmentPath() string {
-    return "iapd"
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["initializing-clients"] = iapd.InitializingClients
-    leafs["dpm-waiting-clients"] = iapd.DpmWaitingClients
-    leafs["daps-waiting-clients"] = iapd.DapsWaitingClients
-    leafs["request-waiting-clients"] = iapd.RequestWaitingClients
-    leafs["iedge-waiting-clients"] = iapd.IedgeWaitingClients
-    leafs["rib-waiting-clients"] = iapd.RibWaitingClients
-    leafs["bound-clients"] = iapd.BoundClients
-    return leafs
-}
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetYangName() string { return "iapd" }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) SetParent(parent types.Entity) { iapd.parent = parent }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetParent() types.Entity { return iapd.parent }
-
-func (iapd *Dhcpv6_Nodes_Node_Server_Binding_Summary_Iapd) GetParentYangName() string { return "summary" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Clients
 // DHCPV6 server client bindings
 type Dhcpv6_Nodes_Node_Server_Binding_Clients struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Single DHCPV6 server binding. The type is slice of
@@ -5074,72 +2787,33 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients struct {
     Client []Dhcpv6_Nodes_Node_Server_Binding_Clients_Client
 }
 
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetFilter() yfilter.YFilter { return clients.YFilter }
+func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetEntityData() *types.CommonEntityData {
+    clients.EntityData.YFilter = clients.YFilter
+    clients.EntityData.YangName = "clients"
+    clients.EntityData.BundleName = "cisco_ios_xr"
+    clients.EntityData.ParentYangName = "binding"
+    clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) SetFilter(yf yfilter.YFilter) { clients.YFilter = yf }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetGoName(yname string) string {
-    if yname == "client" { return "Client" }
-    return ""
-}
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetSegmentPath() string {
-    return "clients"
-}
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        for _, c := range clients.Client {
-            if clients.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Binding_Clients_Client{}
-        clients.Client = append(clients.Client, child)
-        return &clients.Client[len(clients.Client)-1]
-    }
-    return nil
-}
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clients.EntityData.Children = make(map[string]types.YChild)
+    clients.EntityData.Children["client"] = types.YChild{"Client", nil}
     for i := range clients.Client {
-        children[clients.Client[i].GetSegmentPath()] = &clients.Client[i]
+        clients.EntityData.Children[types.GetSegmentPath(&clients.Client[i])] = types.YChild{"Client", &clients.Client[i]}
     }
-    return children
+    clients.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clients.EntityData)
 }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetYangName() string { return "clients" }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) SetParent(parent types.Entity) { clients.parent = parent }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetParent() types.Entity { return clients.parent }
-
-func (clients *Dhcpv6_Nodes_Node_Server_Binding_Clients) GetParentYangName() string { return "binding" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Clients_Client
 // Single DHCPV6 server binding
 type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // Client DUID. The type is string.
@@ -5165,11 +2839,11 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     IaIdPDs interface{}
 
     // DHCPV6 IPv6 client link local address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LinkLocalAddress interface{}
 
     // DHCPV6 access interface to client. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // DHCPV6 access VRF name to client. The type is string with length: 0..33.
@@ -5191,7 +2865,7 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     ProfileName interface{}
 
     // DHCPV6 framed ipv6 addess used by ND. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     FramedIpv6Prefix interface{}
 
     // DHCPV6 framed ipv6 prefix length used by ND. The type is interface{} with
@@ -5241,121 +2915,57 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client struct {
     IaIdPd Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd
 }
 
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "clients"
+    client.EntityData.SegmentPath = "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetGoName(yname string) string {
-    if yname == "client-id" { return "ClientId" }
-    if yname == "duid" { return "Duid" }
-    if yname == "client-id-xr" { return "ClientIdXr" }
-    if yname == "client-flag" { return "ClientFlag" }
-    if yname == "subscriber-label" { return "SubscriberLabel" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "ia-id-p-ds" { return "IaIdPDs" }
-    if yname == "link-local-address" { return "LinkLocalAddress" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "access-vrf-name" { return "AccessVrfName" }
-    if yname == "server-binding-tags" { return "ServerBindingTags" }
-    if yname == "server-binding-outer-tag" { return "ServerBindingOuterTag" }
-    if yname == "server-binding-inner-tag" { return "ServerBindingInnerTag" }
-    if yname == "pool-name" { return "PoolName" }
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "framed-ipv6-prefix" { return "FramedIpv6Prefix" }
-    if yname == "framed-prefix-length" { return "FramedPrefixLength" }
-    if yname == "class-name" { return "ClassName" }
-    if yname == "rx-remote-id" { return "RxRemoteId" }
-    if yname == "rx-interface-id" { return "RxInterfaceId" }
-    if yname == "prefix-pool-name" { return "PrefixPoolName" }
-    if yname == "address-pool-name" { return "AddressPoolName" }
-    if yname == "dns-server-count" { return "DnsServerCount" }
-    if yname == "is-nak-next-renew" { return "IsNakNextRenew" }
-    if yname == "srg-state" { return "SrgState" }
-    if yname == "srg-intf-role" { return "SrgIntfRole" }
-    if yname == "srgp2p" { return "Srgp2P" }
-    if yname == "srg-vrf-name" { return "SrgVrfName" }
-    if yname == "sesrg-state" { return "SesrgState" }
-    if yname == "serg-intf-role" { return "SergIntfRole" }
-    if yname == "ia-id-pd" { return "IaIdPd" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Children["ia-id-pd"] = types.YChild{"IaIdPd", &client.IaIdPd}
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", client.ClientId}
+    client.EntityData.Leafs["duid"] = types.YLeaf{"Duid", client.Duid}
+    client.EntityData.Leafs["client-id-xr"] = types.YLeaf{"ClientIdXr", client.ClientIdXr}
+    client.EntityData.Leafs["client-flag"] = types.YLeaf{"ClientFlag", client.ClientFlag}
+    client.EntityData.Leafs["subscriber-label"] = types.YLeaf{"SubscriberLabel", client.SubscriberLabel}
+    client.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", client.VrfName}
+    client.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", client.MacAddress}
+    client.EntityData.Leafs["ia-id-p-ds"] = types.YLeaf{"IaIdPDs", client.IaIdPDs}
+    client.EntityData.Leafs["link-local-address"] = types.YLeaf{"LinkLocalAddress", client.LinkLocalAddress}
+    client.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", client.InterfaceName}
+    client.EntityData.Leafs["access-vrf-name"] = types.YLeaf{"AccessVrfName", client.AccessVrfName}
+    client.EntityData.Leafs["server-binding-tags"] = types.YLeaf{"ServerBindingTags", client.ServerBindingTags}
+    client.EntityData.Leafs["server-binding-outer-tag"] = types.YLeaf{"ServerBindingOuterTag", client.ServerBindingOuterTag}
+    client.EntityData.Leafs["server-binding-inner-tag"] = types.YLeaf{"ServerBindingInnerTag", client.ServerBindingInnerTag}
+    client.EntityData.Leafs["pool-name"] = types.YLeaf{"PoolName", client.PoolName}
+    client.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", client.ProfileName}
+    client.EntityData.Leafs["framed-ipv6-prefix"] = types.YLeaf{"FramedIpv6Prefix", client.FramedIpv6Prefix}
+    client.EntityData.Leafs["framed-prefix-length"] = types.YLeaf{"FramedPrefixLength", client.FramedPrefixLength}
+    client.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", client.ClassName}
+    client.EntityData.Leafs["rx-remote-id"] = types.YLeaf{"RxRemoteId", client.RxRemoteId}
+    client.EntityData.Leafs["rx-interface-id"] = types.YLeaf{"RxInterfaceId", client.RxInterfaceId}
+    client.EntityData.Leafs["prefix-pool-name"] = types.YLeaf{"PrefixPoolName", client.PrefixPoolName}
+    client.EntityData.Leafs["address-pool-name"] = types.YLeaf{"AddressPoolName", client.AddressPoolName}
+    client.EntityData.Leafs["dns-server-count"] = types.YLeaf{"DnsServerCount", client.DnsServerCount}
+    client.EntityData.Leafs["is-nak-next-renew"] = types.YLeaf{"IsNakNextRenew", client.IsNakNextRenew}
+    client.EntityData.Leafs["srg-state"] = types.YLeaf{"SrgState", client.SrgState}
+    client.EntityData.Leafs["srg-intf-role"] = types.YLeaf{"SrgIntfRole", client.SrgIntfRole}
+    client.EntityData.Leafs["srgp2p"] = types.YLeaf{"Srgp2P", client.Srgp2P}
+    client.EntityData.Leafs["srg-vrf-name"] = types.YLeaf{"SrgVrfName", client.SrgVrfName}
+    client.EntityData.Leafs["sesrg-state"] = types.YLeaf{"SesrgState", client.SesrgState}
+    client.EntityData.Leafs["serg-intf-role"] = types.YLeaf{"SergIntfRole", client.SergIntfRole}
+    return &(client.EntityData)
 }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetSegmentPath() string {
-    return "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
-}
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ia-id-pd" {
-        return &client.IaIdPd
-    }
-    return nil
-}
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ia-id-pd"] = &client.IaIdPd
-    return children
-}
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["client-id"] = client.ClientId
-    leafs["duid"] = client.Duid
-    leafs["client-id-xr"] = client.ClientIdXr
-    leafs["client-flag"] = client.ClientFlag
-    leafs["subscriber-label"] = client.SubscriberLabel
-    leafs["vrf-name"] = client.VrfName
-    leafs["mac-address"] = client.MacAddress
-    leafs["ia-id-p-ds"] = client.IaIdPDs
-    leafs["link-local-address"] = client.LinkLocalAddress
-    leafs["interface-name"] = client.InterfaceName
-    leafs["access-vrf-name"] = client.AccessVrfName
-    leafs["server-binding-tags"] = client.ServerBindingTags
-    leafs["server-binding-outer-tag"] = client.ServerBindingOuterTag
-    leafs["server-binding-inner-tag"] = client.ServerBindingInnerTag
-    leafs["pool-name"] = client.PoolName
-    leafs["profile-name"] = client.ProfileName
-    leafs["framed-ipv6-prefix"] = client.FramedIpv6Prefix
-    leafs["framed-prefix-length"] = client.FramedPrefixLength
-    leafs["class-name"] = client.ClassName
-    leafs["rx-remote-id"] = client.RxRemoteId
-    leafs["rx-interface-id"] = client.RxInterfaceId
-    leafs["prefix-pool-name"] = client.PrefixPoolName
-    leafs["address-pool-name"] = client.AddressPoolName
-    leafs["dns-server-count"] = client.DnsServerCount
-    leafs["is-nak-next-renew"] = client.IsNakNextRenew
-    leafs["srg-state"] = client.SrgState
-    leafs["srg-intf-role"] = client.SrgIntfRole
-    leafs["srgp2p"] = client.Srgp2P
-    leafs["srg-vrf-name"] = client.SrgVrfName
-    leafs["sesrg-state"] = client.SesrgState
-    leafs["serg-intf-role"] = client.SergIntfRole
-    return leafs
-}
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetYangName() string { return "client" }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetParent() types.Entity { return client.parent }
-
-func (client *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client) GetParentYangName() string { return "clients" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd
 // List of DHCPv6 IA_ID/PDs
 type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // bag dhcpv6d ia id pd info. The type is slice of
@@ -5363,68 +2973,29 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd struct {
     BagDhcpv6DIaIdPdInfo []Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
 }
 
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetFilter() yfilter.YFilter { return iaIdPd.YFilter }
+func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetEntityData() *types.CommonEntityData {
+    iaIdPd.EntityData.YFilter = iaIdPd.YFilter
+    iaIdPd.EntityData.YangName = "ia-id-pd"
+    iaIdPd.EntityData.BundleName = "cisco_ios_xr"
+    iaIdPd.EntityData.ParentYangName = "client"
+    iaIdPd.EntityData.SegmentPath = "ia-id-pd"
+    iaIdPd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iaIdPd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iaIdPd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) SetFilter(yf yfilter.YFilter) { iaIdPd.YFilter = yf }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetGoName(yname string) string {
-    if yname == "bag-dhcpv6d-ia-id-pd-info" { return "BagDhcpv6DIaIdPdInfo" }
-    return ""
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetSegmentPath() string {
-    return "ia-id-pd"
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bag-dhcpv6d-ia-id-pd-info" {
-        for _, c := range iaIdPd.BagDhcpv6DIaIdPdInfo {
-            if iaIdPd.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo{}
-        iaIdPd.BagDhcpv6DIaIdPdInfo = append(iaIdPd.BagDhcpv6DIaIdPdInfo, child)
-        return &iaIdPd.BagDhcpv6DIaIdPdInfo[len(iaIdPd.BagDhcpv6DIaIdPdInfo)-1]
-    }
-    return nil
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    iaIdPd.EntityData.Children = make(map[string]types.YChild)
+    iaIdPd.EntityData.Children["bag-dhcpv6d-ia-id-pd-info"] = types.YChild{"BagDhcpv6DIaIdPdInfo", nil}
     for i := range iaIdPd.BagDhcpv6DIaIdPdInfo {
-        children[iaIdPd.BagDhcpv6DIaIdPdInfo[i].GetSegmentPath()] = &iaIdPd.BagDhcpv6DIaIdPdInfo[i]
+        iaIdPd.EntityData.Children[types.GetSegmentPath(&iaIdPd.BagDhcpv6DIaIdPdInfo[i])] = types.YChild{"BagDhcpv6DIaIdPdInfo", &iaIdPd.BagDhcpv6DIaIdPdInfo[i]}
     }
-    return children
+    iaIdPd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iaIdPd.EntityData)
 }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetYangName() string { return "ia-id-pd" }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) SetParent(parent types.Entity) { iaIdPd.parent = parent }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetParent() types.Entity { return iaIdPd.parent }
-
-func (iaIdPd *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd) GetParentYangName() string { return "client" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
 // bag dhcpv6d ia id pd info
 type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IA type. The type is BagDhcpv6DIaId.
@@ -5446,69 +3017,31 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
     Addresses Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses
 }
 
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetFilter() yfilter.YFilter { return bagDhcpv6DIaIdPdInfo.YFilter }
+func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetEntityData() *types.CommonEntityData {
+    bagDhcpv6DIaIdPdInfo.EntityData.YFilter = bagDhcpv6DIaIdPdInfo.YFilter
+    bagDhcpv6DIaIdPdInfo.EntityData.YangName = "bag-dhcpv6d-ia-id-pd-info"
+    bagDhcpv6DIaIdPdInfo.EntityData.BundleName = "cisco_ios_xr"
+    bagDhcpv6DIaIdPdInfo.EntityData.ParentYangName = "ia-id-pd"
+    bagDhcpv6DIaIdPdInfo.EntityData.SegmentPath = "bag-dhcpv6d-ia-id-pd-info"
+    bagDhcpv6DIaIdPdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bagDhcpv6DIaIdPdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bagDhcpv6DIaIdPdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) SetFilter(yf yfilter.YFilter) { bagDhcpv6DIaIdPdInfo.YFilter = yf }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetGoName(yname string) string {
-    if yname == "ia-type" { return "IaType" }
-    if yname == "ia-id" { return "IaId" }
-    if yname == "flags" { return "Flags" }
-    if yname == "total-address" { return "TotalAddress" }
-    if yname == "state" { return "State" }
-    if yname == "addresses" { return "Addresses" }
-    return ""
+    bagDhcpv6DIaIdPdInfo.EntityData.Children = make(map[string]types.YChild)
+    bagDhcpv6DIaIdPdInfo.EntityData.Children["addresses"] = types.YChild{"Addresses", &bagDhcpv6DIaIdPdInfo.Addresses}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["ia-type"] = types.YLeaf{"IaType", bagDhcpv6DIaIdPdInfo.IaType}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["ia-id"] = types.YLeaf{"IaId", bagDhcpv6DIaIdPdInfo.IaId}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["flags"] = types.YLeaf{"Flags", bagDhcpv6DIaIdPdInfo.Flags}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["total-address"] = types.YLeaf{"TotalAddress", bagDhcpv6DIaIdPdInfo.TotalAddress}
+    bagDhcpv6DIaIdPdInfo.EntityData.Leafs["state"] = types.YLeaf{"State", bagDhcpv6DIaIdPdInfo.State}
+    return &(bagDhcpv6DIaIdPdInfo.EntityData)
 }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetSegmentPath() string {
-    return "bag-dhcpv6d-ia-id-pd-info"
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "addresses" {
-        return &bagDhcpv6DIaIdPdInfo.Addresses
-    }
-    return nil
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["addresses"] = &bagDhcpv6DIaIdPdInfo.Addresses
-    return children
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ia-type"] = bagDhcpv6DIaIdPdInfo.IaType
-    leafs["ia-id"] = bagDhcpv6DIaIdPdInfo.IaId
-    leafs["flags"] = bagDhcpv6DIaIdPdInfo.Flags
-    leafs["total-address"] = bagDhcpv6DIaIdPdInfo.TotalAddress
-    leafs["state"] = bagDhcpv6DIaIdPdInfo.State
-    return leafs
-}
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetYangName() string { return "bag-dhcpv6d-ia-id-pd-info" }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) SetParent(parent types.Entity) { bagDhcpv6DIaIdPdInfo.parent = parent }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetParent() types.Entity { return bagDhcpv6DIaIdPdInfo.parent }
-
-func (bagDhcpv6DIaIdPdInfo *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo) GetParentYangName() string { return "ia-id-pd" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses
 // List of addresses in this IA
 type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // bag dhcpv6d addr attrb. The type is slice of
@@ -5516,72 +3049,33 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
     BagDhcpv6DAddrAttrb []Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb
 }
 
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetFilter() yfilter.YFilter { return addresses.YFilter }
+func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "bag-dhcpv6d-ia-id-pd-info"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) SetFilter(yf yfilter.YFilter) { addresses.YFilter = yf }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetGoName(yname string) string {
-    if yname == "bag-dhcpv6d-addr-attrb" { return "BagDhcpv6DAddrAttrb" }
-    return ""
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetSegmentPath() string {
-    return "addresses"
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bag-dhcpv6d-addr-attrb" {
-        for _, c := range addresses.BagDhcpv6DAddrAttrb {
-            if addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb{}
-        addresses.BagDhcpv6DAddrAttrb = append(addresses.BagDhcpv6DAddrAttrb, child)
-        return &addresses.BagDhcpv6DAddrAttrb[len(addresses.BagDhcpv6DAddrAttrb)-1]
-    }
-    return nil
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    addresses.EntityData.Children = make(map[string]types.YChild)
+    addresses.EntityData.Children["bag-dhcpv6d-addr-attrb"] = types.YChild{"BagDhcpv6DAddrAttrb", nil}
     for i := range addresses.BagDhcpv6DAddrAttrb {
-        children[addresses.BagDhcpv6DAddrAttrb[i].GetSegmentPath()] = &addresses.BagDhcpv6DAddrAttrb[i]
+        addresses.EntityData.Children[types.GetSegmentPath(&addresses.BagDhcpv6DAddrAttrb[i])] = types.YChild{"BagDhcpv6DAddrAttrb", &addresses.BagDhcpv6DAddrAttrb[i]}
     }
-    return children
+    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addresses.EntityData)
 }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetYangName() string { return "addresses" }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) SetParent(parent types.Entity) { addresses.parent = parent }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetParent() types.Entity { return addresses.parent }
-
-func (addresses *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses) GetParentYangName() string { return "bag-dhcpv6d-ia-id-pd-info" }
 
 // Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb
 // bag dhcpv6d addr attrb
 type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -5596,62 +3090,29 @@ type Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo
     RemainingLeaseTime interface{}
 }
 
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetFilter() yfilter.YFilter { return bagDhcpv6DAddrAttrb.YFilter }
+func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetEntityData() *types.CommonEntityData {
+    bagDhcpv6DAddrAttrb.EntityData.YFilter = bagDhcpv6DAddrAttrb.YFilter
+    bagDhcpv6DAddrAttrb.EntityData.YangName = "bag-dhcpv6d-addr-attrb"
+    bagDhcpv6DAddrAttrb.EntityData.BundleName = "cisco_ios_xr"
+    bagDhcpv6DAddrAttrb.EntityData.ParentYangName = "addresses"
+    bagDhcpv6DAddrAttrb.EntityData.SegmentPath = "bag-dhcpv6d-addr-attrb"
+    bagDhcpv6DAddrAttrb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bagDhcpv6DAddrAttrb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bagDhcpv6DAddrAttrb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) SetFilter(yf yfilter.YFilter) { bagDhcpv6DAddrAttrb.YFilter = yf }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "lease-time" { return "LeaseTime" }
-    if yname == "remaining-lease-time" { return "RemainingLeaseTime" }
-    return ""
+    bagDhcpv6DAddrAttrb.EntityData.Children = make(map[string]types.YChild)
+    bagDhcpv6DAddrAttrb.EntityData.Leafs = make(map[string]types.YLeaf)
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", bagDhcpv6DAddrAttrb.Prefix}
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", bagDhcpv6DAddrAttrb.PrefixLength}
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["lease-time"] = types.YLeaf{"LeaseTime", bagDhcpv6DAddrAttrb.LeaseTime}
+    bagDhcpv6DAddrAttrb.EntityData.Leafs["remaining-lease-time"] = types.YLeaf{"RemainingLeaseTime", bagDhcpv6DAddrAttrb.RemainingLeaseTime}
+    return &(bagDhcpv6DAddrAttrb.EntityData)
 }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetSegmentPath() string {
-    return "bag-dhcpv6d-addr-attrb"
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix"] = bagDhcpv6DAddrAttrb.Prefix
-    leafs["prefix-length"] = bagDhcpv6DAddrAttrb.PrefixLength
-    leafs["lease-time"] = bagDhcpv6DAddrAttrb.LeaseTime
-    leafs["remaining-lease-time"] = bagDhcpv6DAddrAttrb.RemainingLeaseTime
-    return leafs
-}
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetYangName() string { return "bag-dhcpv6d-addr-attrb" }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) SetParent(parent types.Entity) { bagDhcpv6DAddrAttrb.parent = parent }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetParent() types.Entity { return bagDhcpv6DAddrAttrb.parent }
-
-func (bagDhcpv6DAddrAttrb *Dhcpv6_Nodes_Node_Server_Binding_Clients_Client_IaIdPd_BagDhcpv6DIaIdPdInfo_Addresses_BagDhcpv6DAddrAttrb) GetParentYangName() string { return "addresses" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs
 // DHCPV6 server list of VRF names
 type Dhcpv6_Nodes_Node_Server_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP server VRF name. The type is slice of
@@ -5659,133 +3120,60 @@ type Dhcpv6_Nodes_Node_Server_Vrfs struct {
     Vrf []Dhcpv6_Nodes_Node_Server_Vrfs_Vrf
 }
 
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "server"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *Dhcpv6_Nodes_Node_Server_Vrfs) GetParentYangName() string { return "server" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf
 // IPv6 DHCP server VRF name
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv6 DHCP server statistics.
     Statistics Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics
 }
 
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["statistics"] = types.YChild{"Statistics", &vrf.Statistics}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &vrf.Statistics
-    }
-    return nil
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &vrf.Statistics
-    return children
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics
 // IPv6 DHCP server statistics
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 solicit packets.
@@ -5840,139 +3228,42 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics struct {
     LeaseQueryData Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "vrf"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetGoName(yname string) string {
-    if yname == "solicit" { return "Solicit" }
-    if yname == "advertise" { return "Advertise" }
-    if yname == "request" { return "Request" }
-    if yname == "reply" { return "Reply" }
-    if yname == "confirm" { return "Confirm" }
-    if yname == "decline" { return "Decline" }
-    if yname == "renew" { return "Renew" }
-    if yname == "rebind" { return "Rebind" }
-    if yname == "release" { return "Release" }
-    if yname == "reconfig" { return "Reconfig" }
-    if yname == "inform" { return "Inform" }
-    if yname == "relay-forward" { return "RelayForward" }
-    if yname == "relay-reply" { return "RelayReply" }
-    if yname == "lease-query" { return "LeaseQuery" }
-    if yname == "lease-query-reply" { return "LeaseQueryReply" }
-    if yname == "lease-query-done" { return "LeaseQueryDone" }
-    if yname == "lease-query-data" { return "LeaseQueryData" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["solicit"] = types.YChild{"Solicit", &statistics.Solicit}
+    statistics.EntityData.Children["advertise"] = types.YChild{"Advertise", &statistics.Advertise}
+    statistics.EntityData.Children["request"] = types.YChild{"Request", &statistics.Request}
+    statistics.EntityData.Children["reply"] = types.YChild{"Reply", &statistics.Reply}
+    statistics.EntityData.Children["confirm"] = types.YChild{"Confirm", &statistics.Confirm}
+    statistics.EntityData.Children["decline"] = types.YChild{"Decline", &statistics.Decline}
+    statistics.EntityData.Children["renew"] = types.YChild{"Renew", &statistics.Renew}
+    statistics.EntityData.Children["rebind"] = types.YChild{"Rebind", &statistics.Rebind}
+    statistics.EntityData.Children["release"] = types.YChild{"Release", &statistics.Release}
+    statistics.EntityData.Children["reconfig"] = types.YChild{"Reconfig", &statistics.Reconfig}
+    statistics.EntityData.Children["inform"] = types.YChild{"Inform", &statistics.Inform}
+    statistics.EntityData.Children["relay-forward"] = types.YChild{"RelayForward", &statistics.RelayForward}
+    statistics.EntityData.Children["relay-reply"] = types.YChild{"RelayReply", &statistics.RelayReply}
+    statistics.EntityData.Children["lease-query"] = types.YChild{"LeaseQuery", &statistics.LeaseQuery}
+    statistics.EntityData.Children["lease-query-reply"] = types.YChild{"LeaseQueryReply", &statistics.LeaseQueryReply}
+    statistics.EntityData.Children["lease-query-done"] = types.YChild{"LeaseQueryDone", &statistics.LeaseQueryDone}
+    statistics.EntityData.Children["lease-query-data"] = types.YChild{"LeaseQueryData", &statistics.LeaseQueryData}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "solicit" {
-        return &statistics.Solicit
-    }
-    if childYangName == "advertise" {
-        return &statistics.Advertise
-    }
-    if childYangName == "request" {
-        return &statistics.Request
-    }
-    if childYangName == "reply" {
-        return &statistics.Reply
-    }
-    if childYangName == "confirm" {
-        return &statistics.Confirm
-    }
-    if childYangName == "decline" {
-        return &statistics.Decline
-    }
-    if childYangName == "renew" {
-        return &statistics.Renew
-    }
-    if childYangName == "rebind" {
-        return &statistics.Rebind
-    }
-    if childYangName == "release" {
-        return &statistics.Release
-    }
-    if childYangName == "reconfig" {
-        return &statistics.Reconfig
-    }
-    if childYangName == "inform" {
-        return &statistics.Inform
-    }
-    if childYangName == "relay-forward" {
-        return &statistics.RelayForward
-    }
-    if childYangName == "relay-reply" {
-        return &statistics.RelayReply
-    }
-    if childYangName == "lease-query" {
-        return &statistics.LeaseQuery
-    }
-    if childYangName == "lease-query-reply" {
-        return &statistics.LeaseQueryReply
-    }
-    if childYangName == "lease-query-done" {
-        return &statistics.LeaseQueryDone
-    }
-    if childYangName == "lease-query-data" {
-        return &statistics.LeaseQueryData
-    }
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["solicit"] = &statistics.Solicit
-    children["advertise"] = &statistics.Advertise
-    children["request"] = &statistics.Request
-    children["reply"] = &statistics.Reply
-    children["confirm"] = &statistics.Confirm
-    children["decline"] = &statistics.Decline
-    children["renew"] = &statistics.Renew
-    children["rebind"] = &statistics.Rebind
-    children["release"] = &statistics.Release
-    children["reconfig"] = &statistics.Reconfig
-    children["inform"] = &statistics.Inform
-    children["relay-forward"] = &statistics.RelayForward
-    children["relay-reply"] = &statistics.RelayReply
-    children["lease-query"] = &statistics.LeaseQuery
-    children["lease-query-reply"] = &statistics.LeaseQueryReply
-    children["lease-query-done"] = &statistics.LeaseQueryDone
-    children["lease-query-data"] = &statistics.LeaseQueryData
-    return children
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics) GetParentYangName() string { return "vrf" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit
 // DHCPV6 solicit packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -5988,60 +3279,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit struct {
     DroppedPackets interface{}
 }
 
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetFilter() yfilter.YFilter { return solicit.YFilter }
+func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetEntityData() *types.CommonEntityData {
+    solicit.EntityData.YFilter = solicit.YFilter
+    solicit.EntityData.YangName = "solicit"
+    solicit.EntityData.BundleName = "cisco_ios_xr"
+    solicit.EntityData.ParentYangName = "statistics"
+    solicit.EntityData.SegmentPath = "solicit"
+    solicit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    solicit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    solicit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) SetFilter(yf yfilter.YFilter) { solicit.YFilter = yf }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    solicit.EntityData.Children = make(map[string]types.YChild)
+    solicit.EntityData.Leafs = make(map[string]types.YLeaf)
+    solicit.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", solicit.ReceivedPackets}
+    solicit.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", solicit.TransmittedPackets}
+    solicit.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", solicit.DroppedPackets}
+    return &(solicit.EntityData)
 }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetSegmentPath() string {
-    return "solicit"
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = solicit.ReceivedPackets
-    leafs["transmitted-packets"] = solicit.TransmittedPackets
-    leafs["dropped-packets"] = solicit.DroppedPackets
-    return leafs
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetYangName() string { return "solicit" }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) SetParent(parent types.Entity) { solicit.parent = parent }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetParent() types.Entity { return solicit.parent }
-
-func (solicit *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Solicit) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise
 // DHCPV6 advertise packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6057,60 +3316,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise struct {
     DroppedPackets interface{}
 }
 
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetFilter() yfilter.YFilter { return advertise.YFilter }
+func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetEntityData() *types.CommonEntityData {
+    advertise.EntityData.YFilter = advertise.YFilter
+    advertise.EntityData.YangName = "advertise"
+    advertise.EntityData.BundleName = "cisco_ios_xr"
+    advertise.EntityData.ParentYangName = "statistics"
+    advertise.EntityData.SegmentPath = "advertise"
+    advertise.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertise.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertise.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) SetFilter(yf yfilter.YFilter) { advertise.YFilter = yf }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    advertise.EntityData.Children = make(map[string]types.YChild)
+    advertise.EntityData.Leafs = make(map[string]types.YLeaf)
+    advertise.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", advertise.ReceivedPackets}
+    advertise.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", advertise.TransmittedPackets}
+    advertise.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", advertise.DroppedPackets}
+    return &(advertise.EntityData)
 }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetSegmentPath() string {
-    return "advertise"
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = advertise.ReceivedPackets
-    leafs["transmitted-packets"] = advertise.TransmittedPackets
-    leafs["dropped-packets"] = advertise.DroppedPackets
-    return leafs
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetBundleName() string { return "cisco_ios_xr" }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetYangName() string { return "advertise" }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) SetParent(parent types.Entity) { advertise.parent = parent }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetParent() types.Entity { return advertise.parent }
-
-func (advertise *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Advertise) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request
 // DHCPV6 request packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6126,60 +3353,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request struct {
     DroppedPackets interface{}
 }
 
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetFilter() yfilter.YFilter { return request.YFilter }
+func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetEntityData() *types.CommonEntityData {
+    request.EntityData.YFilter = request.YFilter
+    request.EntityData.YangName = "request"
+    request.EntityData.BundleName = "cisco_ios_xr"
+    request.EntityData.ParentYangName = "statistics"
+    request.EntityData.SegmentPath = "request"
+    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) SetFilter(yf yfilter.YFilter) { request.YFilter = yf }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    request.EntityData.Children = make(map[string]types.YChild)
+    request.EntityData.Leafs = make(map[string]types.YLeaf)
+    request.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", request.ReceivedPackets}
+    request.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", request.TransmittedPackets}
+    request.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", request.DroppedPackets}
+    return &(request.EntityData)
 }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetSegmentPath() string {
-    return "request"
-}
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = request.ReceivedPackets
-    leafs["transmitted-packets"] = request.TransmittedPackets
-    leafs["dropped-packets"] = request.DroppedPackets
-    return leafs
-}
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetBundleName() string { return "cisco_ios_xr" }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetYangName() string { return "request" }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) SetParent(parent types.Entity) { request.parent = parent }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetParent() types.Entity { return request.parent }
-
-func (request *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Request) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply
 // DHCPV6 reply packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6195,60 +3390,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply struct {
     DroppedPackets interface{}
 }
 
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetFilter() yfilter.YFilter { return reply.YFilter }
+func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetEntityData() *types.CommonEntityData {
+    reply.EntityData.YFilter = reply.YFilter
+    reply.EntityData.YangName = "reply"
+    reply.EntityData.BundleName = "cisco_ios_xr"
+    reply.EntityData.ParentYangName = "statistics"
+    reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) SetFilter(yf yfilter.YFilter) { reply.YFilter = yf }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    reply.EntityData.Children = make(map[string]types.YChild)
+    reply.EntityData.Leafs = make(map[string]types.YLeaf)
+    reply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", reply.ReceivedPackets}
+    reply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", reply.TransmittedPackets}
+    reply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", reply.DroppedPackets}
+    return &(reply.EntityData)
 }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetSegmentPath() string {
-    return "reply"
-}
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = reply.ReceivedPackets
-    leafs["transmitted-packets"] = reply.TransmittedPackets
-    leafs["dropped-packets"] = reply.DroppedPackets
-    return leafs
-}
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetYangName() string { return "reply" }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) SetParent(parent types.Entity) { reply.parent = parent }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetParent() types.Entity { return reply.parent }
-
-func (reply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm
 // DHCPV6 confirm packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6264,60 +3427,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm struct {
     DroppedPackets interface{}
 }
 
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetFilter() yfilter.YFilter { return confirm.YFilter }
+func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetEntityData() *types.CommonEntityData {
+    confirm.EntityData.YFilter = confirm.YFilter
+    confirm.EntityData.YangName = "confirm"
+    confirm.EntityData.BundleName = "cisco_ios_xr"
+    confirm.EntityData.ParentYangName = "statistics"
+    confirm.EntityData.SegmentPath = "confirm"
+    confirm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    confirm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    confirm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) SetFilter(yf yfilter.YFilter) { confirm.YFilter = yf }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    confirm.EntityData.Children = make(map[string]types.YChild)
+    confirm.EntityData.Leafs = make(map[string]types.YLeaf)
+    confirm.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", confirm.ReceivedPackets}
+    confirm.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", confirm.TransmittedPackets}
+    confirm.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", confirm.DroppedPackets}
+    return &(confirm.EntityData)
 }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetSegmentPath() string {
-    return "confirm"
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = confirm.ReceivedPackets
-    leafs["transmitted-packets"] = confirm.TransmittedPackets
-    leafs["dropped-packets"] = confirm.DroppedPackets
-    return leafs
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetYangName() string { return "confirm" }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) SetParent(parent types.Entity) { confirm.parent = parent }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetParent() types.Entity { return confirm.parent }
-
-func (confirm *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Confirm) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline
 // DHCPV6 decline packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6333,60 +3464,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline struct {
     DroppedPackets interface{}
 }
 
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetFilter() yfilter.YFilter { return decline.YFilter }
+func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetEntityData() *types.CommonEntityData {
+    decline.EntityData.YFilter = decline.YFilter
+    decline.EntityData.YangName = "decline"
+    decline.EntityData.BundleName = "cisco_ios_xr"
+    decline.EntityData.ParentYangName = "statistics"
+    decline.EntityData.SegmentPath = "decline"
+    decline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    decline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    decline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) SetFilter(yf yfilter.YFilter) { decline.YFilter = yf }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    decline.EntityData.Children = make(map[string]types.YChild)
+    decline.EntityData.Leafs = make(map[string]types.YLeaf)
+    decline.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", decline.ReceivedPackets}
+    decline.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", decline.TransmittedPackets}
+    decline.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", decline.DroppedPackets}
+    return &(decline.EntityData)
 }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetSegmentPath() string {
-    return "decline"
-}
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = decline.ReceivedPackets
-    leafs["transmitted-packets"] = decline.TransmittedPackets
-    leafs["dropped-packets"] = decline.DroppedPackets
-    return leafs
-}
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetBundleName() string { return "cisco_ios_xr" }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetYangName() string { return "decline" }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) SetParent(parent types.Entity) { decline.parent = parent }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetParent() types.Entity { return decline.parent }
-
-func (decline *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Decline) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew
 // DHCPV6 renew packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6402,60 +3501,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew struct {
     DroppedPackets interface{}
 }
 
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetFilter() yfilter.YFilter { return renew.YFilter }
+func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetEntityData() *types.CommonEntityData {
+    renew.EntityData.YFilter = renew.YFilter
+    renew.EntityData.YangName = "renew"
+    renew.EntityData.BundleName = "cisco_ios_xr"
+    renew.EntityData.ParentYangName = "statistics"
+    renew.EntityData.SegmentPath = "renew"
+    renew.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    renew.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    renew.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) SetFilter(yf yfilter.YFilter) { renew.YFilter = yf }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    renew.EntityData.Children = make(map[string]types.YChild)
+    renew.EntityData.Leafs = make(map[string]types.YLeaf)
+    renew.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", renew.ReceivedPackets}
+    renew.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", renew.TransmittedPackets}
+    renew.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", renew.DroppedPackets}
+    return &(renew.EntityData)
 }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetSegmentPath() string {
-    return "renew"
-}
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = renew.ReceivedPackets
-    leafs["transmitted-packets"] = renew.TransmittedPackets
-    leafs["dropped-packets"] = renew.DroppedPackets
-    return leafs
-}
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetBundleName() string { return "cisco_ios_xr" }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetYangName() string { return "renew" }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) SetParent(parent types.Entity) { renew.parent = parent }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetParent() types.Entity { return renew.parent }
-
-func (renew *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Renew) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind
 // DHCPV6 rebind packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6471,60 +3538,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind struct {
     DroppedPackets interface{}
 }
 
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetFilter() yfilter.YFilter { return rebind.YFilter }
+func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetEntityData() *types.CommonEntityData {
+    rebind.EntityData.YFilter = rebind.YFilter
+    rebind.EntityData.YangName = "rebind"
+    rebind.EntityData.BundleName = "cisco_ios_xr"
+    rebind.EntityData.ParentYangName = "statistics"
+    rebind.EntityData.SegmentPath = "rebind"
+    rebind.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rebind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rebind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) SetFilter(yf yfilter.YFilter) { rebind.YFilter = yf }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    rebind.EntityData.Children = make(map[string]types.YChild)
+    rebind.EntityData.Leafs = make(map[string]types.YLeaf)
+    rebind.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", rebind.ReceivedPackets}
+    rebind.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", rebind.TransmittedPackets}
+    rebind.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", rebind.DroppedPackets}
+    return &(rebind.EntityData)
 }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetSegmentPath() string {
-    return "rebind"
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = rebind.ReceivedPackets
-    leafs["transmitted-packets"] = rebind.TransmittedPackets
-    leafs["dropped-packets"] = rebind.DroppedPackets
-    return leafs
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetYangName() string { return "rebind" }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) SetParent(parent types.Entity) { rebind.parent = parent }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetParent() types.Entity { return rebind.parent }
-
-func (rebind *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Rebind) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release
 // DHCPV6 release packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6540,60 +3575,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release struct {
     DroppedPackets interface{}
 }
 
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetFilter() yfilter.YFilter { return release.YFilter }
+func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetEntityData() *types.CommonEntityData {
+    release.EntityData.YFilter = release.YFilter
+    release.EntityData.YangName = "release"
+    release.EntityData.BundleName = "cisco_ios_xr"
+    release.EntityData.ParentYangName = "statistics"
+    release.EntityData.SegmentPath = "release"
+    release.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    release.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    release.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) SetFilter(yf yfilter.YFilter) { release.YFilter = yf }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    release.EntityData.Children = make(map[string]types.YChild)
+    release.EntityData.Leafs = make(map[string]types.YLeaf)
+    release.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", release.ReceivedPackets}
+    release.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", release.TransmittedPackets}
+    release.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", release.DroppedPackets}
+    return &(release.EntityData)
 }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetSegmentPath() string {
-    return "release"
-}
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = release.ReceivedPackets
-    leafs["transmitted-packets"] = release.TransmittedPackets
-    leafs["dropped-packets"] = release.DroppedPackets
-    return leafs
-}
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetBundleName() string { return "cisco_ios_xr" }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetYangName() string { return "release" }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) SetParent(parent types.Entity) { release.parent = parent }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetParent() types.Entity { return release.parent }
-
-func (release *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Release) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig
 // DHCPV6 reconfig packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6609,60 +3612,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig struct {
     DroppedPackets interface{}
 }
 
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetFilter() yfilter.YFilter { return reconfig.YFilter }
+func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetEntityData() *types.CommonEntityData {
+    reconfig.EntityData.YFilter = reconfig.YFilter
+    reconfig.EntityData.YangName = "reconfig"
+    reconfig.EntityData.BundleName = "cisco_ios_xr"
+    reconfig.EntityData.ParentYangName = "statistics"
+    reconfig.EntityData.SegmentPath = "reconfig"
+    reconfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reconfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reconfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) SetFilter(yf yfilter.YFilter) { reconfig.YFilter = yf }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    reconfig.EntityData.Children = make(map[string]types.YChild)
+    reconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    reconfig.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", reconfig.ReceivedPackets}
+    reconfig.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", reconfig.TransmittedPackets}
+    reconfig.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", reconfig.DroppedPackets}
+    return &(reconfig.EntityData)
 }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetSegmentPath() string {
-    return "reconfig"
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = reconfig.ReceivedPackets
-    leafs["transmitted-packets"] = reconfig.TransmittedPackets
-    leafs["dropped-packets"] = reconfig.DroppedPackets
-    return leafs
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetYangName() string { return "reconfig" }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) SetParent(parent types.Entity) { reconfig.parent = parent }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetParent() types.Entity { return reconfig.parent }
-
-func (reconfig *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Reconfig) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform
 // DHCPV6 inform packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6678,60 +3649,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform struct {
     DroppedPackets interface{}
 }
 
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetFilter() yfilter.YFilter { return inform.YFilter }
+func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetEntityData() *types.CommonEntityData {
+    inform.EntityData.YFilter = inform.YFilter
+    inform.EntityData.YangName = "inform"
+    inform.EntityData.BundleName = "cisco_ios_xr"
+    inform.EntityData.ParentYangName = "statistics"
+    inform.EntityData.SegmentPath = "inform"
+    inform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) SetFilter(yf yfilter.YFilter) { inform.YFilter = yf }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    inform.EntityData.Children = make(map[string]types.YChild)
+    inform.EntityData.Leafs = make(map[string]types.YLeaf)
+    inform.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", inform.ReceivedPackets}
+    inform.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", inform.TransmittedPackets}
+    inform.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", inform.DroppedPackets}
+    return &(inform.EntityData)
 }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetSegmentPath() string {
-    return "inform"
-}
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = inform.ReceivedPackets
-    leafs["transmitted-packets"] = inform.TransmittedPackets
-    leafs["dropped-packets"] = inform.DroppedPackets
-    return leafs
-}
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetYangName() string { return "inform" }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) SetParent(parent types.Entity) { inform.parent = parent }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetParent() types.Entity { return inform.parent }
-
-func (inform *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_Inform) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward
 // DHCPV6 relay forward packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6747,60 +3686,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward struct {
     DroppedPackets interface{}
 }
 
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetFilter() yfilter.YFilter { return relayForward.YFilter }
+func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetEntityData() *types.CommonEntityData {
+    relayForward.EntityData.YFilter = relayForward.YFilter
+    relayForward.EntityData.YangName = "relay-forward"
+    relayForward.EntityData.BundleName = "cisco_ios_xr"
+    relayForward.EntityData.ParentYangName = "statistics"
+    relayForward.EntityData.SegmentPath = "relay-forward"
+    relayForward.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relayForward.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relayForward.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) SetFilter(yf yfilter.YFilter) { relayForward.YFilter = yf }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    relayForward.EntityData.Children = make(map[string]types.YChild)
+    relayForward.EntityData.Leafs = make(map[string]types.YLeaf)
+    relayForward.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", relayForward.ReceivedPackets}
+    relayForward.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", relayForward.TransmittedPackets}
+    relayForward.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", relayForward.DroppedPackets}
+    return &(relayForward.EntityData)
 }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetSegmentPath() string {
-    return "relay-forward"
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = relayForward.ReceivedPackets
-    leafs["transmitted-packets"] = relayForward.TransmittedPackets
-    leafs["dropped-packets"] = relayForward.DroppedPackets
-    return leafs
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetYangName() string { return "relay-forward" }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) SetParent(parent types.Entity) { relayForward.parent = parent }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetParent() types.Entity { return relayForward.parent }
-
-func (relayForward *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayForward) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply
 // DHCPV6 relay reply packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6816,60 +3723,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply struct {
     DroppedPackets interface{}
 }
 
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetFilter() yfilter.YFilter { return relayReply.YFilter }
+func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetEntityData() *types.CommonEntityData {
+    relayReply.EntityData.YFilter = relayReply.YFilter
+    relayReply.EntityData.YangName = "relay-reply"
+    relayReply.EntityData.BundleName = "cisco_ios_xr"
+    relayReply.EntityData.ParentYangName = "statistics"
+    relayReply.EntityData.SegmentPath = "relay-reply"
+    relayReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relayReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relayReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) SetFilter(yf yfilter.YFilter) { relayReply.YFilter = yf }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    relayReply.EntityData.Children = make(map[string]types.YChild)
+    relayReply.EntityData.Leafs = make(map[string]types.YLeaf)
+    relayReply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", relayReply.ReceivedPackets}
+    relayReply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", relayReply.TransmittedPackets}
+    relayReply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", relayReply.DroppedPackets}
+    return &(relayReply.EntityData)
 }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetSegmentPath() string {
-    return "relay-reply"
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = relayReply.ReceivedPackets
-    leafs["transmitted-packets"] = relayReply.TransmittedPackets
-    leafs["dropped-packets"] = relayReply.DroppedPackets
-    return leafs
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetYangName() string { return "relay-reply" }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) SetParent(parent types.Entity) { relayReply.parent = parent }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetParent() types.Entity { return relayReply.parent }
-
-func (relayReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_RelayReply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery
 // DHCPV6 lease query packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6885,60 +3760,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery struct {
     DroppedPackets interface{}
 }
 
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetFilter() yfilter.YFilter { return leaseQuery.YFilter }
+func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetEntityData() *types.CommonEntityData {
+    leaseQuery.EntityData.YFilter = leaseQuery.YFilter
+    leaseQuery.EntityData.YangName = "lease-query"
+    leaseQuery.EntityData.BundleName = "cisco_ios_xr"
+    leaseQuery.EntityData.ParentYangName = "statistics"
+    leaseQuery.EntityData.SegmentPath = "lease-query"
+    leaseQuery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQuery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQuery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) SetFilter(yf yfilter.YFilter) { leaseQuery.YFilter = yf }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQuery.EntityData.Children = make(map[string]types.YChild)
+    leaseQuery.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQuery.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQuery.ReceivedPackets}
+    leaseQuery.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQuery.TransmittedPackets}
+    leaseQuery.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQuery.DroppedPackets}
+    return &(leaseQuery.EntityData)
 }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetSegmentPath() string {
-    return "lease-query"
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQuery.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQuery.TransmittedPackets
-    leafs["dropped-packets"] = leaseQuery.DroppedPackets
-    return leafs
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetYangName() string { return "lease-query" }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) SetParent(parent types.Entity) { leaseQuery.parent = parent }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetParent() types.Entity { return leaseQuery.parent }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQuery) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply
 // DHCPV6 lease query reply packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -6954,60 +3797,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetFilter() yfilter.YFilter { return leaseQueryReply.YFilter }
+func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetEntityData() *types.CommonEntityData {
+    leaseQueryReply.EntityData.YFilter = leaseQueryReply.YFilter
+    leaseQueryReply.EntityData.YangName = "lease-query-reply"
+    leaseQueryReply.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryReply.EntityData.ParentYangName = "statistics"
+    leaseQueryReply.EntityData.SegmentPath = "lease-query-reply"
+    leaseQueryReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) SetFilter(yf yfilter.YFilter) { leaseQueryReply.YFilter = yf }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryReply.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryReply.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryReply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryReply.ReceivedPackets}
+    leaseQueryReply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryReply.TransmittedPackets}
+    leaseQueryReply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryReply.DroppedPackets}
+    return &(leaseQueryReply.EntityData)
 }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetSegmentPath() string {
-    return "lease-query-reply"
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryReply.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryReply.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryReply.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetYangName() string { return "lease-query-reply" }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) SetParent(parent types.Entity) { leaseQueryReply.parent = parent }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetParent() types.Entity { return leaseQueryReply.parent }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryReply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone
 // DHCPV6 lease query done packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -7023,60 +3834,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetFilter() yfilter.YFilter { return leaseQueryDone.YFilter }
+func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetEntityData() *types.CommonEntityData {
+    leaseQueryDone.EntityData.YFilter = leaseQueryDone.YFilter
+    leaseQueryDone.EntityData.YangName = "lease-query-done"
+    leaseQueryDone.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryDone.EntityData.ParentYangName = "statistics"
+    leaseQueryDone.EntityData.SegmentPath = "lease-query-done"
+    leaseQueryDone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryDone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryDone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) SetFilter(yf yfilter.YFilter) { leaseQueryDone.YFilter = yf }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryDone.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryDone.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryDone.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryDone.ReceivedPackets}
+    leaseQueryDone.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryDone.TransmittedPackets}
+    leaseQueryDone.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryDone.DroppedPackets}
+    return &(leaseQueryDone.EntityData)
 }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetSegmentPath() string {
-    return "lease-query-done"
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryDone.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryDone.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryDone.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetYangName() string { return "lease-query-done" }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) SetParent(parent types.Entity) { leaseQueryDone.parent = parent }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetParent() types.Entity { return leaseQueryDone.parent }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryDone) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData
 // DHCPV6 lease query data packets
 type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -7092,60 +3871,28 @@ type Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetFilter() yfilter.YFilter { return leaseQueryData.YFilter }
+func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetEntityData() *types.CommonEntityData {
+    leaseQueryData.EntityData.YFilter = leaseQueryData.YFilter
+    leaseQueryData.EntityData.YangName = "lease-query-data"
+    leaseQueryData.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryData.EntityData.ParentYangName = "statistics"
+    leaseQueryData.EntityData.SegmentPath = "lease-query-data"
+    leaseQueryData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) SetFilter(yf yfilter.YFilter) { leaseQueryData.YFilter = yf }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryData.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryData.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryData.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryData.ReceivedPackets}
+    leaseQueryData.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryData.TransmittedPackets}
+    leaseQueryData.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryData.DroppedPackets}
+    return &(leaseQueryData.EntityData)
 }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetSegmentPath() string {
-    return "lease-query-data"
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryData.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryData.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryData.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetYangName() string { return "lease-query-data" }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) SetParent(parent types.Entity) { leaseQueryData.parent = parent }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetParent() types.Entity { return leaseQueryData.parent }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Server_Vrfs_Vrf_Statistics_LeaseQueryData) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles
 // IPv6 DHCP server profile
 type Dhcpv6_Nodes_Node_Server_Profiles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP server profile. The type is slice of
@@ -7153,72 +3900,33 @@ type Dhcpv6_Nodes_Node_Server_Profiles struct {
     Profile []Dhcpv6_Nodes_Node_Server_Profiles_Profile
 }
 
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetFilter() yfilter.YFilter { return profiles.YFilter }
+func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetEntityData() *types.CommonEntityData {
+    profiles.EntityData.YFilter = profiles.YFilter
+    profiles.EntityData.YangName = "profiles"
+    profiles.EntityData.BundleName = "cisco_ios_xr"
+    profiles.EntityData.ParentYangName = "server"
+    profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) SetFilter(yf yfilter.YFilter) { profiles.YFilter = yf }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetGoName(yname string) string {
-    if yname == "profile" { return "Profile" }
-    return ""
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetSegmentPath() string {
-    return "profiles"
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "profile" {
-        for _, c := range profiles.Profile {
-            if profiles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Profiles_Profile{}
-        profiles.Profile = append(profiles.Profile, child)
-        return &profiles.Profile[len(profiles.Profile)-1]
-    }
-    return nil
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    profiles.EntityData.Children = make(map[string]types.YChild)
+    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
     for i := range profiles.Profile {
-        children[profiles.Profile[i].GetSegmentPath()] = &profiles.Profile[i]
+        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
     }
-    return children
+    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(profiles.EntityData)
 }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetYangName() string { return "profiles" }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) SetParent(parent types.Entity) { profiles.parent = parent }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetParent() types.Entity { return profiles.parent }
-
-func (profiles *Dhcpv6_Nodes_Node_Server_Profiles) GetParentYangName() string { return "server" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile
 // IPv6 DHCP server profile
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // IPv6 DHCP server profile Info.
@@ -7228,66 +3936,28 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile struct {
     ThrottleInfos Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos
 }
 
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetFilter() yfilter.YFilter { return profile.YFilter }
+func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "profiles"
+    profile.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) SetFilter(yf yfilter.YFilter) { profile.YFilter = yf }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "info" { return "Info" }
-    if yname == "throttle-infos" { return "ThrottleInfos" }
-    return ""
+    profile.EntityData.Children = make(map[string]types.YChild)
+    profile.EntityData.Children["info"] = types.YChild{"Info", &profile.Info}
+    profile.EntityData.Children["throttle-infos"] = types.YChild{"ThrottleInfos", &profile.ThrottleInfos}
+    profile.EntityData.Leafs = make(map[string]types.YLeaf)
+    profile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile.ProfileName}
+    return &(profile.EntityData)
 }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetSegmentPath() string {
-    return "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
-}
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "info" {
-        return &profile.Info
-    }
-    if childYangName == "throttle-infos" {
-        return &profile.ThrottleInfos
-    }
-    return nil
-}
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["info"] = &profile.Info
-    children["throttle-infos"] = &profile.ThrottleInfos
-    return children
-}
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = profile.ProfileName
-    return leafs
-}
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetYangName() string { return "profile" }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) SetParent(parent types.Entity) { profile.parent = parent }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetParent() types.Entity { return profile.parent }
-
-func (profile *Dhcpv6_Nodes_Node_Server_Profiles_Profile) GetParentYangName() string { return "profiles" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info
 // IPv6 DHCP server profile Info
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Server profile name. The type is string with length: 0..65.
@@ -7312,7 +3982,7 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info struct {
     RapidCommit interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ProfileDnsAddress []interface{}
 
     // Server lease time.
@@ -7322,80 +3992,35 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info struct {
     InterfaceReferences Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences
 }
 
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetFilter() yfilter.YFilter { return info.YFilter }
+func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetEntityData() *types.CommonEntityData {
+    info.EntityData.YFilter = info.YFilter
+    info.EntityData.YangName = "info"
+    info.EntityData.BundleName = "cisco_ios_xr"
+    info.EntityData.ParentYangName = "profile"
+    info.EntityData.SegmentPath = "info"
+    info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) SetFilter(yf yfilter.YFilter) { info.YFilter = yf }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "domain-name" { return "DomainName" }
-    if yname == "profile-dns" { return "ProfileDns" }
-    if yname == "aftr-name" { return "AftrName" }
-    if yname == "framed-addr-pool-name" { return "FramedAddrPoolName" }
-    if yname == "delegated-prefix-pool-name" { return "DelegatedPrefixPoolName" }
-    if yname == "rapid-commit" { return "RapidCommit" }
-    if yname == "profile-dns-address" { return "ProfileDnsAddress" }
-    if yname == "lease" { return "Lease" }
-    if yname == "interface-references" { return "InterfaceReferences" }
-    return ""
+    info.EntityData.Children = make(map[string]types.YChild)
+    info.EntityData.Children["lease"] = types.YChild{"Lease", &info.Lease}
+    info.EntityData.Children["interface-references"] = types.YChild{"InterfaceReferences", &info.InterfaceReferences}
+    info.EntityData.Leafs = make(map[string]types.YLeaf)
+    info.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", info.ProfileName}
+    info.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", info.DomainName}
+    info.EntityData.Leafs["profile-dns"] = types.YLeaf{"ProfileDns", info.ProfileDns}
+    info.EntityData.Leafs["aftr-name"] = types.YLeaf{"AftrName", info.AftrName}
+    info.EntityData.Leafs["framed-addr-pool-name"] = types.YLeaf{"FramedAddrPoolName", info.FramedAddrPoolName}
+    info.EntityData.Leafs["delegated-prefix-pool-name"] = types.YLeaf{"DelegatedPrefixPoolName", info.DelegatedPrefixPoolName}
+    info.EntityData.Leafs["rapid-commit"] = types.YLeaf{"RapidCommit", info.RapidCommit}
+    info.EntityData.Leafs["profile-dns-address"] = types.YLeaf{"ProfileDnsAddress", info.ProfileDnsAddress}
+    return &(info.EntityData)
 }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetSegmentPath() string {
-    return "info"
-}
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lease" {
-        return &info.Lease
-    }
-    if childYangName == "interface-references" {
-        return &info.InterfaceReferences
-    }
-    return nil
-}
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lease"] = &info.Lease
-    children["interface-references"] = &info.InterfaceReferences
-    return children
-}
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = info.ProfileName
-    leafs["domain-name"] = info.DomainName
-    leafs["profile-dns"] = info.ProfileDns
-    leafs["aftr-name"] = info.AftrName
-    leafs["framed-addr-pool-name"] = info.FramedAddrPoolName
-    leafs["delegated-prefix-pool-name"] = info.DelegatedPrefixPoolName
-    leafs["rapid-commit"] = info.RapidCommit
-    leafs["profile-dns-address"] = info.ProfileDnsAddress
-    return leafs
-}
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetBundleName() string { return "cisco_ios_xr" }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetYangName() string { return "info" }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) SetParent(parent types.Entity) { info.parent = parent }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetParent() types.Entity { return info.parent }
-
-func (info *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info) GetParentYangName() string { return "profile" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease
 // Server lease time
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 client lease in seconds. The type is interface{} with range:
@@ -7406,58 +4031,27 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease struct {
     Time interface{}
 }
 
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetFilter() yfilter.YFilter { return lease.YFilter }
+func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetEntityData() *types.CommonEntityData {
+    lease.EntityData.YFilter = lease.YFilter
+    lease.EntityData.YangName = "lease"
+    lease.EntityData.BundleName = "cisco_ios_xr"
+    lease.EntityData.ParentYangName = "info"
+    lease.EntityData.SegmentPath = "lease"
+    lease.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lease.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lease.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) SetFilter(yf yfilter.YFilter) { lease.YFilter = yf }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "time" { return "Time" }
-    return ""
+    lease.EntityData.Children = make(map[string]types.YChild)
+    lease.EntityData.Leafs = make(map[string]types.YLeaf)
+    lease.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", lease.Seconds}
+    lease.EntityData.Leafs["time"] = types.YLeaf{"Time", lease.Time}
+    return &(lease.EntityData)
 }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetSegmentPath() string {
-    return "lease"
-}
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = lease.Seconds
-    leafs["time"] = lease.Time
-    return leafs
-}
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetYangName() string { return "lease" }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) SetParent(parent types.Entity) { lease.parent = parent }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetParent() types.Entity { return lease.parent }
-
-func (lease *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_Lease) GetParentYangName() string { return "info" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences
 // Interface references
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d server interface reference. The type is slice of
@@ -7465,124 +4059,55 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences struct {
     Ipv6Dhcpv6DServerInterfaceReference []Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference
 }
 
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetFilter() yfilter.YFilter { return interfaceReferences.YFilter }
+func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetEntityData() *types.CommonEntityData {
+    interfaceReferences.EntityData.YFilter = interfaceReferences.YFilter
+    interfaceReferences.EntityData.YangName = "interface-references"
+    interfaceReferences.EntityData.BundleName = "cisco_ios_xr"
+    interfaceReferences.EntityData.ParentYangName = "info"
+    interfaceReferences.EntityData.SegmentPath = "interface-references"
+    interfaceReferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceReferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceReferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) SetFilter(yf yfilter.YFilter) { interfaceReferences.YFilter = yf }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-server-interface-reference" { return "Ipv6Dhcpv6DServerInterfaceReference" }
-    return ""
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetSegmentPath() string {
-    return "interface-references"
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-server-interface-reference" {
-        for _, c := range interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference {
-            if interfaceReferences.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference{}
-        interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference = append(interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference, child)
-        return &interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference[len(interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference)-1]
-    }
-    return nil
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceReferences.EntityData.Children = make(map[string]types.YChild)
+    interfaceReferences.EntityData.Children["ipv6-dhcpv6d-server-interface-reference"] = types.YChild{"Ipv6Dhcpv6DServerInterfaceReference", nil}
     for i := range interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference {
-        children[interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference[i].GetSegmentPath()] = &interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference[i]
+        interfaceReferences.EntityData.Children[types.GetSegmentPath(&interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference[i])] = types.YChild{"Ipv6Dhcpv6DServerInterfaceReference", &interfaceReferences.Ipv6Dhcpv6DServerInterfaceReference[i]}
     }
-    return children
+    interfaceReferences.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceReferences.EntityData)
 }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetYangName() string { return "interface-references" }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) SetParent(parent types.Entity) { interfaceReferences.parent = parent }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetParent() types.Entity { return interfaceReferences.parent }
-
-func (interfaceReferences *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences) GetParentYangName() string { return "info" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference
 // ipv6 dhcpv6d server interface reference
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface name. The type is string with length: 0..65.
     ServerReferenceInterfaceName interface{}
 }
 
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DServerInterfaceReference.YFilter }
+func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.YFilter = ipv6Dhcpv6DServerInterfaceReference.YFilter
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.YangName = "ipv6-dhcpv6d-server-interface-reference"
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.ParentYangName = "interface-references"
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.SegmentPath = "ipv6-dhcpv6d-server-interface-reference"
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DServerInterfaceReference.YFilter = yf }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetGoName(yname string) string {
-    if yname == "server-reference-interface-name" { return "ServerReferenceInterfaceName" }
-    return ""
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DServerInterfaceReference.EntityData.Leafs["server-reference-interface-name"] = types.YLeaf{"ServerReferenceInterfaceName", ipv6Dhcpv6DServerInterfaceReference.ServerReferenceInterfaceName}
+    return &(ipv6Dhcpv6DServerInterfaceReference.EntityData)
 }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-server-interface-reference"
-}
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["server-reference-interface-name"] = ipv6Dhcpv6DServerInterfaceReference.ServerReferenceInterfaceName
-    return leafs
-}
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetYangName() string { return "ipv6-dhcpv6d-server-interface-reference" }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) SetParent(parent types.Entity) { ipv6Dhcpv6DServerInterfaceReference.parent = parent }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetParent() types.Entity { return ipv6Dhcpv6DServerInterfaceReference.parent }
-
-func (ipv6Dhcpv6DServerInterfaceReference *Dhcpv6_Nodes_Node_Server_Profiles_Profile_Info_InterfaceReferences_Ipv6Dhcpv6DServerInterfaceReference) GetParentYangName() string { return "interface-references" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos
 // DHCPV6 throttle table
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP server profile Throttle Info. The type is slice of
@@ -7590,76 +4115,37 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos struct {
     ThrottleInfo []Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo
 }
 
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetFilter() yfilter.YFilter { return throttleInfos.YFilter }
+func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetEntityData() *types.CommonEntityData {
+    throttleInfos.EntityData.YFilter = throttleInfos.YFilter
+    throttleInfos.EntityData.YangName = "throttle-infos"
+    throttleInfos.EntityData.BundleName = "cisco_ios_xr"
+    throttleInfos.EntityData.ParentYangName = "profile"
+    throttleInfos.EntityData.SegmentPath = "throttle-infos"
+    throttleInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttleInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttleInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) SetFilter(yf yfilter.YFilter) { throttleInfos.YFilter = yf }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetGoName(yname string) string {
-    if yname == "throttle-info" { return "ThrottleInfo" }
-    return ""
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetSegmentPath() string {
-    return "throttle-infos"
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "throttle-info" {
-        for _, c := range throttleInfos.ThrottleInfo {
-            if throttleInfos.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo{}
-        throttleInfos.ThrottleInfo = append(throttleInfos.ThrottleInfo, child)
-        return &throttleInfos.ThrottleInfo[len(throttleInfos.ThrottleInfo)-1]
-    }
-    return nil
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    throttleInfos.EntityData.Children = make(map[string]types.YChild)
+    throttleInfos.EntityData.Children["throttle-info"] = types.YChild{"ThrottleInfo", nil}
     for i := range throttleInfos.ThrottleInfo {
-        children[throttleInfos.ThrottleInfo[i].GetSegmentPath()] = &throttleInfos.ThrottleInfo[i]
+        throttleInfos.EntityData.Children[types.GetSegmentPath(&throttleInfos.ThrottleInfo[i])] = types.YChild{"ThrottleInfo", &throttleInfos.ThrottleInfo[i]}
     }
-    return children
+    throttleInfos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(throttleInfos.EntityData)
 }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetYangName() string { return "throttle-infos" }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) SetParent(parent types.Entity) { throttleInfos.parent = parent }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetParent() types.Entity { return throttleInfos.parent }
-
-func (throttleInfos *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos) GetParentYangName() string { return "profile" }
 
 // Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo
 // IPv6 DHCP server profile Throttle Info
 type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MacAddress interface{}
 
     // Client MAC address. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     BindingChaddr interface{}
 
     // DHCP access interface. The type is string with length: 0..65.
@@ -7673,137 +4159,64 @@ type Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo struct
     TimeLeft interface{}
 }
 
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetFilter() yfilter.YFilter { return throttleInfo.YFilter }
+func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetEntityData() *types.CommonEntityData {
+    throttleInfo.EntityData.YFilter = throttleInfo.YFilter
+    throttleInfo.EntityData.YangName = "throttle-info"
+    throttleInfo.EntityData.BundleName = "cisco_ios_xr"
+    throttleInfo.EntityData.ParentYangName = "throttle-infos"
+    throttleInfo.EntityData.SegmentPath = "throttle-info" + "[mac-address='" + fmt.Sprintf("%v", throttleInfo.MacAddress) + "']"
+    throttleInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttleInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttleInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) SetFilter(yf yfilter.YFilter) { throttleInfo.YFilter = yf }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetGoName(yname string) string {
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "binding-chaddr" { return "BindingChaddr" }
-    if yname == "ifname" { return "Ifname" }
-    if yname == "state" { return "State" }
-    if yname == "time-left" { return "TimeLeft" }
-    return ""
+    throttleInfo.EntityData.Children = make(map[string]types.YChild)
+    throttleInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttleInfo.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", throttleInfo.MacAddress}
+    throttleInfo.EntityData.Leafs["binding-chaddr"] = types.YLeaf{"BindingChaddr", throttleInfo.BindingChaddr}
+    throttleInfo.EntityData.Leafs["ifname"] = types.YLeaf{"Ifname", throttleInfo.Ifname}
+    throttleInfo.EntityData.Leafs["state"] = types.YLeaf{"State", throttleInfo.State}
+    throttleInfo.EntityData.Leafs["time-left"] = types.YLeaf{"TimeLeft", throttleInfo.TimeLeft}
+    return &(throttleInfo.EntityData)
 }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetSegmentPath() string {
-    return "throttle-info" + "[mac-address='" + fmt.Sprintf("%v", throttleInfo.MacAddress) + "']"
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mac-address"] = throttleInfo.MacAddress
-    leafs["binding-chaddr"] = throttleInfo.BindingChaddr
-    leafs["ifname"] = throttleInfo.Ifname
-    leafs["state"] = throttleInfo.State
-    leafs["time-left"] = throttleInfo.TimeLeft
-    return leafs
-}
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetYangName() string { return "throttle-info" }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) SetParent(parent types.Entity) { throttleInfo.parent = parent }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetParent() types.Entity { return throttleInfo.parent }
-
-func (throttleInfo *Dhcpv6_Nodes_Node_Server_Profiles_Profile_ThrottleInfos_ThrottleInfo) GetParentYangName() string { return "throttle-infos" }
 
 // Dhcpv6_Nodes_Node_Server_Interfaces
 // DHCPV6 server interface
 type Dhcpv6_Nodes_Node_Server_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP server interface. The type is slice of
-    // Dhcpv6_Nodes_Node_Server_Interfaces_Interface.
-    Interface []Dhcpv6_Nodes_Node_Server_Interfaces_Interface
+    // Dhcpv6_Nodes_Node_Server_Interfaces_Interface_.
+    Interface_ []Dhcpv6_Nodes_Node_Server_Interfaces_Interface
 }
 
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "server"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Dhcpv6_Nodes_Node_Server_Interfaces) GetParentYangName() string { return "server" }
 
 // Dhcpv6_Nodes_Node_Server_Interfaces_Interface
 // IPv6 DHCP server interface
 type Dhcpv6_Nodes_Node_Server_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     InterfaceName interface{}
 
     // VRF name. The type is string with length: 0..33.
@@ -7842,78 +4255,37 @@ type Dhcpv6_Nodes_Node_Server_Interfaces_Interface struct {
     Srgp2P interface{}
 }
 
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "server-vrf-name" { return "ServerVrfName" }
-    if yname == "server-interface-mode" { return "ServerInterfaceMode" }
-    if yname == "is-server-interface-ambiguous" { return "IsServerInterfaceAmbiguous" }
-    if yname == "server-interface-profile-name" { return "ServerInterfaceProfileName" }
-    if yname == "server-interface-lease-limit-type" { return "ServerInterfaceLeaseLimitType" }
-    if yname == "server-interface-lease-limits" { return "ServerInterfaceLeaseLimits" }
-    if yname == "srg-role" { return "SrgRole" }
-    if yname == "serg-role" { return "SergRole" }
-    if yname == "mac-throttle" { return "MacThrottle" }
-    if yname == "srg-vrf-name" { return "SrgVrfName" }
-    if yname == "srgp2p" { return "Srgp2P" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["server-vrf-name"] = types.YLeaf{"ServerVrfName", self.ServerVrfName}
+    self.EntityData.Leafs["server-interface-mode"] = types.YLeaf{"ServerInterfaceMode", self.ServerInterfaceMode}
+    self.EntityData.Leafs["is-server-interface-ambiguous"] = types.YLeaf{"IsServerInterfaceAmbiguous", self.IsServerInterfaceAmbiguous}
+    self.EntityData.Leafs["server-interface-profile-name"] = types.YLeaf{"ServerInterfaceProfileName", self.ServerInterfaceProfileName}
+    self.EntityData.Leafs["server-interface-lease-limit-type"] = types.YLeaf{"ServerInterfaceLeaseLimitType", self.ServerInterfaceLeaseLimitType}
+    self.EntityData.Leafs["server-interface-lease-limits"] = types.YLeaf{"ServerInterfaceLeaseLimits", self.ServerInterfaceLeaseLimits}
+    self.EntityData.Leafs["srg-role"] = types.YLeaf{"SrgRole", self.SrgRole}
+    self.EntityData.Leafs["serg-role"] = types.YLeaf{"SergRole", self.SergRole}
+    self.EntityData.Leafs["mac-throttle"] = types.YLeaf{"MacThrottle", self.MacThrottle}
+    self.EntityData.Leafs["srg-vrf-name"] = types.YLeaf{"SrgVrfName", self.SrgVrfName}
+    self.EntityData.Leafs["srgp2p"] = types.YLeaf{"Srgp2P", self.Srgp2P}
+    return &(self.EntityData)
 }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["server-vrf-name"] = self.ServerVrfName
-    leafs["server-interface-mode"] = self.ServerInterfaceMode
-    leafs["is-server-interface-ambiguous"] = self.IsServerInterfaceAmbiguous
-    leafs["server-interface-profile-name"] = self.ServerInterfaceProfileName
-    leafs["server-interface-lease-limit-type"] = self.ServerInterfaceLeaseLimitType
-    leafs["server-interface-lease-limits"] = self.ServerInterfaceLeaseLimits
-    leafs["srg-role"] = self.SrgRole
-    leafs["serg-role"] = self.SergRole
-    leafs["mac-throttle"] = self.MacThrottle
-    leafs["srg-vrf-name"] = self.SrgVrfName
-    leafs["srgp2p"] = self.Srgp2P
-    return leafs
-}
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Dhcpv6_Nodes_Node_Server_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // Dhcpv6_Nodes_Node_Server_Statistics
 // DHCPv6 server statistics
 type Dhcpv6_Nodes_Node_Server_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d server stat. The type is slice of
@@ -7921,132 +4293,59 @@ type Dhcpv6_Nodes_Node_Server_Statistics struct {
     Ipv6Dhcpv6DServerStat []Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "server"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-server-stat" { return "Ipv6Dhcpv6DServerStat" }
-    return ""
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-server-stat" {
-        for _, c := range statistics.Ipv6Dhcpv6DServerStat {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat{}
-        statistics.Ipv6Dhcpv6DServerStat = append(statistics.Ipv6Dhcpv6DServerStat, child)
-        return &statistics.Ipv6Dhcpv6DServerStat[len(statistics.Ipv6Dhcpv6DServerStat)-1]
-    }
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["ipv6-dhcpv6d-server-stat"] = types.YChild{"Ipv6Dhcpv6DServerStat", nil}
     for i := range statistics.Ipv6Dhcpv6DServerStat {
-        children[statistics.Ipv6Dhcpv6DServerStat[i].GetSegmentPath()] = &statistics.Ipv6Dhcpv6DServerStat[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Ipv6Dhcpv6DServerStat[i])] = types.YChild{"Ipv6Dhcpv6DServerStat", &statistics.Ipv6Dhcpv6DServerStat[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics) GetParentYangName() string { return "server" }
 
 // Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat
 // ipv6 dhcpv6d server stat
 type Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 L3 VRF name. The type is string with length: 0..33.
     VrfName interface{}
 
     // Server statistics.
-    Statistics Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics
+    Statistics Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics_
 }
 
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DServerStat.YFilter }
+func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DServerStat.EntityData.YFilter = ipv6Dhcpv6DServerStat.YFilter
+    ipv6Dhcpv6DServerStat.EntityData.YangName = "ipv6-dhcpv6d-server-stat"
+    ipv6Dhcpv6DServerStat.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DServerStat.EntityData.ParentYangName = "statistics"
+    ipv6Dhcpv6DServerStat.EntityData.SegmentPath = "ipv6-dhcpv6d-server-stat"
+    ipv6Dhcpv6DServerStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DServerStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DServerStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DServerStat.YFilter = yf }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    ipv6Dhcpv6DServerStat.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DServerStat.EntityData.Children["statistics"] = types.YChild{"Statistics", &ipv6Dhcpv6DServerStat.Statistics}
+    ipv6Dhcpv6DServerStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DServerStat.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6Dhcpv6DServerStat.VrfName}
+    return &(ipv6Dhcpv6DServerStat.EntityData)
 }
 
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-server-stat"
-}
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &ipv6Dhcpv6DServerStat.Statistics
-    }
-    return nil
-}
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &ipv6Dhcpv6DServerStat.Statistics
-    return children
-}
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = ipv6Dhcpv6DServerStat.VrfName
-    return leafs
-}
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetYangName() string { return "ipv6-dhcpv6d-server-stat" }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) SetParent(parent types.Entity) { ipv6Dhcpv6DServerStat.parent = parent }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetParent() types.Entity { return ipv6Dhcpv6DServerStat.parent }
-
-func (ipv6Dhcpv6DServerStat *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat) GetParentYangName() string { return "statistics" }
-
-// Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics
+// Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics_
 // Server statistics
-type Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics struct {
-    parent types.Entity
+type Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -8062,60 +4361,28 @@ type Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics struct
     DroppedPackets interface{}
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics_ *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics_) GetEntityData() *types.CommonEntityData {
+    statistics_.EntityData.YFilter = statistics_.YFilter
+    statistics_.EntityData.YangName = "statistics"
+    statistics_.EntityData.BundleName = "cisco_ios_xr"
+    statistics_.EntityData.ParentYangName = "ipv6-dhcpv6d-server-stat"
+    statistics_.EntityData.SegmentPath = "statistics"
+    statistics_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    statistics_.EntityData.Children = make(map[string]types.YChild)
+    statistics_.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics_.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", statistics_.ReceivedPackets}
+    statistics_.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", statistics_.TransmittedPackets}
+    statistics_.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", statistics_.DroppedPackets}
+    return &(statistics_.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = statistics.ReceivedPackets
-    leafs["transmitted-packets"] = statistics.TransmittedPackets
-    leafs["dropped-packets"] = statistics.DroppedPackets
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Server_Statistics_Ipv6Dhcpv6DServerStat_Statistics) GetParentYangName() string { return "ipv6-dhcpv6d-server-stat" }
 
 // Dhcpv6_Nodes_Node_Server_BindingOptions
 // DHCPv6 server binding with options
 type Dhcpv6_Nodes_Node_Server_BindingOptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 server binding from MAC address.
@@ -8125,64 +4392,27 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions struct {
     DuidBindOptions Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions
 }
 
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetFilter() yfilter.YFilter { return bindingOptions.YFilter }
+func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetEntityData() *types.CommonEntityData {
+    bindingOptions.EntityData.YFilter = bindingOptions.YFilter
+    bindingOptions.EntityData.YangName = "binding-options"
+    bindingOptions.EntityData.BundleName = "cisco_ios_xr"
+    bindingOptions.EntityData.ParentYangName = "server"
+    bindingOptions.EntityData.SegmentPath = "binding-options"
+    bindingOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindingOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindingOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) SetFilter(yf yfilter.YFilter) { bindingOptions.YFilter = yf }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetGoName(yname string) string {
-    if yname == "mac-bind-options" { return "MacBindOptions" }
-    if yname == "duid-bind-options" { return "DuidBindOptions" }
-    return ""
+    bindingOptions.EntityData.Children = make(map[string]types.YChild)
+    bindingOptions.EntityData.Children["mac-bind-options"] = types.YChild{"MacBindOptions", &bindingOptions.MacBindOptions}
+    bindingOptions.EntityData.Children["duid-bind-options"] = types.YChild{"DuidBindOptions", &bindingOptions.DuidBindOptions}
+    bindingOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bindingOptions.EntityData)
 }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetSegmentPath() string {
-    return "binding-options"
-}
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mac-bind-options" {
-        return &bindingOptions.MacBindOptions
-    }
-    if childYangName == "duid-bind-options" {
-        return &bindingOptions.DuidBindOptions
-    }
-    return nil
-}
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mac-bind-options"] = &bindingOptions.MacBindOptions
-    children["duid-bind-options"] = &bindingOptions.DuidBindOptions
-    return children
-}
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetYangName() string { return "binding-options" }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) SetParent(parent types.Entity) { bindingOptions.parent = parent }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetParent() types.Entity { return bindingOptions.parent }
-
-func (bindingOptions *Dhcpv6_Nodes_Node_Server_BindingOptions) GetParentYangName() string { return "server" }
 
 // Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions
 // DHCPv6 server binding from MAC address
 type Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 server binding with options. The type is slice of
@@ -8190,72 +4420,33 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions struct {
     MacBindOption []Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption
 }
 
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetFilter() yfilter.YFilter { return macBindOptions.YFilter }
+func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetEntityData() *types.CommonEntityData {
+    macBindOptions.EntityData.YFilter = macBindOptions.YFilter
+    macBindOptions.EntityData.YangName = "mac-bind-options"
+    macBindOptions.EntityData.BundleName = "cisco_ios_xr"
+    macBindOptions.EntityData.ParentYangName = "binding-options"
+    macBindOptions.EntityData.SegmentPath = "mac-bind-options"
+    macBindOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macBindOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macBindOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) SetFilter(yf yfilter.YFilter) { macBindOptions.YFilter = yf }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetGoName(yname string) string {
-    if yname == "mac-bind-option" { return "MacBindOption" }
-    return ""
-}
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetSegmentPath() string {
-    return "mac-bind-options"
-}
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mac-bind-option" {
-        for _, c := range macBindOptions.MacBindOption {
-            if macBindOptions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption{}
-        macBindOptions.MacBindOption = append(macBindOptions.MacBindOption, child)
-        return &macBindOptions.MacBindOption[len(macBindOptions.MacBindOption)-1]
-    }
-    return nil
-}
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    macBindOptions.EntityData.Children = make(map[string]types.YChild)
+    macBindOptions.EntityData.Children["mac-bind-option"] = types.YChild{"MacBindOption", nil}
     for i := range macBindOptions.MacBindOption {
-        children[macBindOptions.MacBindOption[i].GetSegmentPath()] = &macBindOptions.MacBindOption[i]
+        macBindOptions.EntityData.Children[types.GetSegmentPath(&macBindOptions.MacBindOption[i])] = types.YChild{"MacBindOption", &macBindOptions.MacBindOption[i]}
     }
-    return children
+    macBindOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(macBindOptions.EntityData)
 }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetYangName() string { return "mac-bind-options" }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) SetParent(parent types.Entity) { macBindOptions.parent = parent }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetParent() types.Entity { return macBindOptions.parent }
-
-func (macBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions) GetParentYangName() string { return "binding-options" }
 
 // Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption
 // DHCPv6 server binding with options
 type Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MacAddress interface{}
 
     // Client MAC address. The type is string.
@@ -8271,70 +4462,35 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption struct
     Opt17 interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsAddress []interface{}
 }
 
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetFilter() yfilter.YFilter { return macBindOption.YFilter }
+func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetEntityData() *types.CommonEntityData {
+    macBindOption.EntityData.YFilter = macBindOption.YFilter
+    macBindOption.EntityData.YangName = "mac-bind-option"
+    macBindOption.EntityData.BundleName = "cisco_ios_xr"
+    macBindOption.EntityData.ParentYangName = "mac-bind-options"
+    macBindOption.EntityData.SegmentPath = "mac-bind-option" + "[mac-address='" + fmt.Sprintf("%v", macBindOption.MacAddress) + "']"
+    macBindOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macBindOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macBindOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) SetFilter(yf yfilter.YFilter) { macBindOption.YFilter = yf }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetGoName(yname string) string {
-    if yname == "mac-address" { return "MacAddress" }
-    if yname == "mac-address-xr" { return "MacAddressXr" }
-    if yname == "duid-xr" { return "DuidXr" }
-    if yname == "dns-count" { return "DnsCount" }
-    if yname == "opt17" { return "Opt17" }
-    if yname == "dns-address" { return "DnsAddress" }
-    return ""
+    macBindOption.EntityData.Children = make(map[string]types.YChild)
+    macBindOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    macBindOption.EntityData.Leafs["mac-address"] = types.YLeaf{"MacAddress", macBindOption.MacAddress}
+    macBindOption.EntityData.Leafs["mac-address-xr"] = types.YLeaf{"MacAddressXr", macBindOption.MacAddressXr}
+    macBindOption.EntityData.Leafs["duid-xr"] = types.YLeaf{"DuidXr", macBindOption.DuidXr}
+    macBindOption.EntityData.Leafs["dns-count"] = types.YLeaf{"DnsCount", macBindOption.DnsCount}
+    macBindOption.EntityData.Leafs["opt17"] = types.YLeaf{"Opt17", macBindOption.Opt17}
+    macBindOption.EntityData.Leafs["dns-address"] = types.YLeaf{"DnsAddress", macBindOption.DnsAddress}
+    return &(macBindOption.EntityData)
 }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetSegmentPath() string {
-    return "mac-bind-option" + "[mac-address='" + fmt.Sprintf("%v", macBindOption.MacAddress) + "']"
-}
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mac-address"] = macBindOption.MacAddress
-    leafs["mac-address-xr"] = macBindOption.MacAddressXr
-    leafs["duid-xr"] = macBindOption.DuidXr
-    leafs["dns-count"] = macBindOption.DnsCount
-    leafs["opt17"] = macBindOption.Opt17
-    leafs["dns-address"] = macBindOption.DnsAddress
-    return leafs
-}
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetYangName() string { return "mac-bind-option" }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) SetParent(parent types.Entity) { macBindOption.parent = parent }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetParent() types.Entity { return macBindOption.parent }
-
-func (macBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_MacBindOptions_MacBindOption) GetParentYangName() string { return "mac-bind-options" }
 
 // Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions
 // DHCPv6 server binding from DUID
 type Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 server binding with options. The type is slice of
@@ -8342,72 +4498,33 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions struct {
     DuidBindOption []Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption
 }
 
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetFilter() yfilter.YFilter { return duidBindOptions.YFilter }
+func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetEntityData() *types.CommonEntityData {
+    duidBindOptions.EntityData.YFilter = duidBindOptions.YFilter
+    duidBindOptions.EntityData.YangName = "duid-bind-options"
+    duidBindOptions.EntityData.BundleName = "cisco_ios_xr"
+    duidBindOptions.EntityData.ParentYangName = "binding-options"
+    duidBindOptions.EntityData.SegmentPath = "duid-bind-options"
+    duidBindOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    duidBindOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    duidBindOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) SetFilter(yf yfilter.YFilter) { duidBindOptions.YFilter = yf }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetGoName(yname string) string {
-    if yname == "duid-bind-option" { return "DuidBindOption" }
-    return ""
-}
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetSegmentPath() string {
-    return "duid-bind-options"
-}
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "duid-bind-option" {
-        for _, c := range duidBindOptions.DuidBindOption {
-            if duidBindOptions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption{}
-        duidBindOptions.DuidBindOption = append(duidBindOptions.DuidBindOption, child)
-        return &duidBindOptions.DuidBindOption[len(duidBindOptions.DuidBindOption)-1]
-    }
-    return nil
-}
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    duidBindOptions.EntityData.Children = make(map[string]types.YChild)
+    duidBindOptions.EntityData.Children["duid-bind-option"] = types.YChild{"DuidBindOption", nil}
     for i := range duidBindOptions.DuidBindOption {
-        children[duidBindOptions.DuidBindOption[i].GetSegmentPath()] = &duidBindOptions.DuidBindOption[i]
+        duidBindOptions.EntityData.Children[types.GetSegmentPath(&duidBindOptions.DuidBindOption[i])] = types.YChild{"DuidBindOption", &duidBindOptions.DuidBindOption[i]}
     }
-    return children
+    duidBindOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(duidBindOptions.EntityData)
 }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetYangName() string { return "duid-bind-options" }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) SetParent(parent types.Entity) { duidBindOptions.parent = parent }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetParent() types.Entity { return duidBindOptions.parent }
-
-func (duidBindOptions *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions) GetParentYangName() string { return "binding-options" }
 
 // Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption
 // DHCPv6 server binding with options
 type Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. DUID of Binding. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Duid interface{}
 
     // Client MAC address. The type is string.
@@ -8423,70 +4540,35 @@ type Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption stru
     Opt17 interface{}
 
     // DNS addresses. The type is slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsAddress []interface{}
 }
 
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetFilter() yfilter.YFilter { return duidBindOption.YFilter }
+func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetEntityData() *types.CommonEntityData {
+    duidBindOption.EntityData.YFilter = duidBindOption.YFilter
+    duidBindOption.EntityData.YangName = "duid-bind-option"
+    duidBindOption.EntityData.BundleName = "cisco_ios_xr"
+    duidBindOption.EntityData.ParentYangName = "duid-bind-options"
+    duidBindOption.EntityData.SegmentPath = "duid-bind-option" + "[duid='" + fmt.Sprintf("%v", duidBindOption.Duid) + "']"
+    duidBindOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    duidBindOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    duidBindOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) SetFilter(yf yfilter.YFilter) { duidBindOption.YFilter = yf }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetGoName(yname string) string {
-    if yname == "duid" { return "Duid" }
-    if yname == "mac-address-xr" { return "MacAddressXr" }
-    if yname == "duid-xr" { return "DuidXr" }
-    if yname == "dns-count" { return "DnsCount" }
-    if yname == "opt17" { return "Opt17" }
-    if yname == "dns-address" { return "DnsAddress" }
-    return ""
+    duidBindOption.EntityData.Children = make(map[string]types.YChild)
+    duidBindOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    duidBindOption.EntityData.Leafs["duid"] = types.YLeaf{"Duid", duidBindOption.Duid}
+    duidBindOption.EntityData.Leafs["mac-address-xr"] = types.YLeaf{"MacAddressXr", duidBindOption.MacAddressXr}
+    duidBindOption.EntityData.Leafs["duid-xr"] = types.YLeaf{"DuidXr", duidBindOption.DuidXr}
+    duidBindOption.EntityData.Leafs["dns-count"] = types.YLeaf{"DnsCount", duidBindOption.DnsCount}
+    duidBindOption.EntityData.Leafs["opt17"] = types.YLeaf{"Opt17", duidBindOption.Opt17}
+    duidBindOption.EntityData.Leafs["dns-address"] = types.YLeaf{"DnsAddress", duidBindOption.DnsAddress}
+    return &(duidBindOption.EntityData)
 }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetSegmentPath() string {
-    return "duid-bind-option" + "[duid='" + fmt.Sprintf("%v", duidBindOption.Duid) + "']"
-}
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["duid"] = duidBindOption.Duid
-    leafs["mac-address-xr"] = duidBindOption.MacAddressXr
-    leafs["duid-xr"] = duidBindOption.DuidXr
-    leafs["dns-count"] = duidBindOption.DnsCount
-    leafs["opt17"] = duidBindOption.Opt17
-    leafs["dns-address"] = duidBindOption.DnsAddress
-    return leafs
-}
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetYangName() string { return "duid-bind-option" }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) SetParent(parent types.Entity) { duidBindOption.parent = parent }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetParent() types.Entity { return duidBindOption.parent }
-
-func (duidBindOption *Dhcpv6_Nodes_Node_Server_BindingOptions_DuidBindOptions_DuidBindOption) GetParentYangName() string { return "duid-bind-options" }
 
 // Dhcpv6_Nodes_Node_Relay
 // IPv6 DHCP relay operational data
 type Dhcpv6_Nodes_Node_Relay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 relay statistics.
@@ -8499,69 +4581,28 @@ type Dhcpv6_Nodes_Node_Relay struct {
     Vrfs Dhcpv6_Nodes_Node_Relay_Vrfs
 }
 
-func (relay *Dhcpv6_Nodes_Node_Relay) GetFilter() yfilter.YFilter { return relay.YFilter }
+func (relay *Dhcpv6_Nodes_Node_Relay) GetEntityData() *types.CommonEntityData {
+    relay.EntityData.YFilter = relay.YFilter
+    relay.EntityData.YangName = "relay"
+    relay.EntityData.BundleName = "cisco_ios_xr"
+    relay.EntityData.ParentYangName = "node"
+    relay.EntityData.SegmentPath = "relay"
+    relay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relay *Dhcpv6_Nodes_Node_Relay) SetFilter(yf yfilter.YFilter) { relay.YFilter = yf }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetGoName(yname string) string {
-    if yname == "statistics" { return "Statistics" }
-    if yname == "binding" { return "Binding" }
-    if yname == "vrfs" { return "Vrfs" }
-    return ""
+    relay.EntityData.Children = make(map[string]types.YChild)
+    relay.EntityData.Children["statistics"] = types.YChild{"Statistics", &relay.Statistics}
+    relay.EntityData.Children["binding"] = types.YChild{"Binding", &relay.Binding}
+    relay.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &relay.Vrfs}
+    relay.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(relay.EntityData)
 }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetSegmentPath() string {
-    return "relay"
-}
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &relay.Statistics
-    }
-    if childYangName == "binding" {
-        return &relay.Binding
-    }
-    if childYangName == "vrfs" {
-        return &relay.Vrfs
-    }
-    return nil
-}
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &relay.Statistics
-    children["binding"] = &relay.Binding
-    children["vrfs"] = &relay.Vrfs
-    return children
-}
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetYangName() string { return "relay" }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) SetParent(parent types.Entity) { relay.parent = parent }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetParent() types.Entity { return relay.parent }
-
-func (relay *Dhcpv6_Nodes_Node_Relay) GetParentYangName() string { return "node" }
 
 // Dhcpv6_Nodes_Node_Relay_Statistics
 // DHCPv6 relay statistics
 type Dhcpv6_Nodes_Node_Relay_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv6 dhcpv6d relay stat. The type is slice of
@@ -8569,132 +4610,59 @@ type Dhcpv6_Nodes_Node_Relay_Statistics struct {
     Ipv6Dhcpv6DRelayStat []Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "relay"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetGoName(yname string) string {
-    if yname == "ipv6-dhcpv6d-relay-stat" { return "Ipv6Dhcpv6DRelayStat" }
-    return ""
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-dhcpv6d-relay-stat" {
-        for _, c := range statistics.Ipv6Dhcpv6DRelayStat {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat{}
-        statistics.Ipv6Dhcpv6DRelayStat = append(statistics.Ipv6Dhcpv6DRelayStat, child)
-        return &statistics.Ipv6Dhcpv6DRelayStat[len(statistics.Ipv6Dhcpv6DRelayStat)-1]
-    }
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["ipv6-dhcpv6d-relay-stat"] = types.YChild{"Ipv6Dhcpv6DRelayStat", nil}
     for i := range statistics.Ipv6Dhcpv6DRelayStat {
-        children[statistics.Ipv6Dhcpv6DRelayStat[i].GetSegmentPath()] = &statistics.Ipv6Dhcpv6DRelayStat[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Ipv6Dhcpv6DRelayStat[i])] = types.YChild{"Ipv6Dhcpv6DRelayStat", &statistics.Ipv6Dhcpv6DRelayStat[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics) GetParentYangName() string { return "relay" }
 
 // Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat
 // ipv6 dhcpv6d relay stat
 type Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPv6 L3 VRF name. The type is string with length: 0..33.
     VrfName interface{}
 
     // Relay statistics.
-    Statistics Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics
+    Statistics Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics_
 }
 
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetFilter() yfilter.YFilter { return ipv6Dhcpv6DRelayStat.YFilter }
+func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetEntityData() *types.CommonEntityData {
+    ipv6Dhcpv6DRelayStat.EntityData.YFilter = ipv6Dhcpv6DRelayStat.YFilter
+    ipv6Dhcpv6DRelayStat.EntityData.YangName = "ipv6-dhcpv6d-relay-stat"
+    ipv6Dhcpv6DRelayStat.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Dhcpv6DRelayStat.EntityData.ParentYangName = "statistics"
+    ipv6Dhcpv6DRelayStat.EntityData.SegmentPath = "ipv6-dhcpv6d-relay-stat"
+    ipv6Dhcpv6DRelayStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Dhcpv6DRelayStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Dhcpv6DRelayStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) SetFilter(yf yfilter.YFilter) { ipv6Dhcpv6DRelayStat.YFilter = yf }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    ipv6Dhcpv6DRelayStat.EntityData.Children = make(map[string]types.YChild)
+    ipv6Dhcpv6DRelayStat.EntityData.Children["statistics"] = types.YChild{"Statistics", &ipv6Dhcpv6DRelayStat.Statistics}
+    ipv6Dhcpv6DRelayStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Dhcpv6DRelayStat.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6Dhcpv6DRelayStat.VrfName}
+    return &(ipv6Dhcpv6DRelayStat.EntityData)
 }
 
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetSegmentPath() string {
-    return "ipv6-dhcpv6d-relay-stat"
-}
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &ipv6Dhcpv6DRelayStat.Statistics
-    }
-    return nil
-}
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &ipv6Dhcpv6DRelayStat.Statistics
-    return children
-}
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = ipv6Dhcpv6DRelayStat.VrfName
-    return leafs
-}
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetYangName() string { return "ipv6-dhcpv6d-relay-stat" }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) SetParent(parent types.Entity) { ipv6Dhcpv6DRelayStat.parent = parent }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetParent() types.Entity { return ipv6Dhcpv6DRelayStat.parent }
-
-func (ipv6Dhcpv6DRelayStat *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat) GetParentYangName() string { return "statistics" }
-
-// Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics
+// Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics_
 // Relay statistics
-type Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics struct {
-    parent types.Entity
+type Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -8710,60 +4678,28 @@ type Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics struct {
     DroppedPackets interface{}
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics_ *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics_) GetEntityData() *types.CommonEntityData {
+    statistics_.EntityData.YFilter = statistics_.YFilter
+    statistics_.EntityData.YangName = "statistics"
+    statistics_.EntityData.BundleName = "cisco_ios_xr"
+    statistics_.EntityData.ParentYangName = "ipv6-dhcpv6d-relay-stat"
+    statistics_.EntityData.SegmentPath = "statistics"
+    statistics_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    statistics_.EntityData.Children = make(map[string]types.YChild)
+    statistics_.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics_.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", statistics_.ReceivedPackets}
+    statistics_.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", statistics_.TransmittedPackets}
+    statistics_.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", statistics_.DroppedPackets}
+    return &(statistics_.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = statistics.ReceivedPackets
-    leafs["transmitted-packets"] = statistics.TransmittedPackets
-    leafs["dropped-packets"] = statistics.DroppedPackets
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Statistics_Ipv6Dhcpv6DRelayStat_Statistics) GetParentYangName() string { return "ipv6-dhcpv6d-relay-stat" }
 
 // Dhcpv6_Nodes_Node_Relay_Binding
 // DHCPV6 relay bindings
 type Dhcpv6_Nodes_Node_Relay_Binding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 relay binding summary.
@@ -8773,120 +4709,53 @@ type Dhcpv6_Nodes_Node_Relay_Binding struct {
     Clients Dhcpv6_Nodes_Node_Relay_Binding_Clients
 }
 
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetFilter() yfilter.YFilter { return binding.YFilter }
+func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetEntityData() *types.CommonEntityData {
+    binding.EntityData.YFilter = binding.YFilter
+    binding.EntityData.YangName = "binding"
+    binding.EntityData.BundleName = "cisco_ios_xr"
+    binding.EntityData.ParentYangName = "relay"
+    binding.EntityData.SegmentPath = "binding"
+    binding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    binding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    binding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) SetFilter(yf yfilter.YFilter) { binding.YFilter = yf }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetGoName(yname string) string {
-    if yname == "summary" { return "Summary" }
-    if yname == "clients" { return "Clients" }
-    return ""
+    binding.EntityData.Children = make(map[string]types.YChild)
+    binding.EntityData.Children["summary"] = types.YChild{"Summary", &binding.Summary}
+    binding.EntityData.Children["clients"] = types.YChild{"Clients", &binding.Clients}
+    binding.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(binding.EntityData)
 }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetSegmentPath() string {
-    return "binding"
-}
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summary" {
-        return &binding.Summary
-    }
-    if childYangName == "clients" {
-        return &binding.Clients
-    }
-    return nil
-}
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["summary"] = &binding.Summary
-    children["clients"] = &binding.Clients
-    return children
-}
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetYangName() string { return "binding" }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) SetParent(parent types.Entity) { binding.parent = parent }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetParent() types.Entity { return binding.parent }
-
-func (binding *Dhcpv6_Nodes_Node_Relay_Binding) GetParentYangName() string { return "relay" }
 
 // Dhcpv6_Nodes_Node_Relay_Binding_Summary
 // DHCPV6 relay binding summary
 type Dhcpv6_Nodes_Node_Relay_Binding_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total number of clients. The type is interface{} with range: 0..4294967295.
     Clients interface{}
 }
 
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "binding"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetGoName(yname string) string {
-    if yname == "clients" { return "Clients" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["clients"] = types.YLeaf{"Clients", summary.Clients}
+    return &(summary.EntityData)
 }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["clients"] = summary.Clients
-    return leafs
-}
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetYangName() string { return "summary" }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Dhcpv6_Nodes_Node_Relay_Binding_Summary) GetParentYangName() string { return "binding" }
 
 // Dhcpv6_Nodes_Node_Relay_Binding_Clients
 // DHCPV6 relay client bindings
 type Dhcpv6_Nodes_Node_Relay_Binding_Clients struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Single DHCPV6 relay binding. The type is slice of
@@ -8894,72 +4763,33 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients struct {
     Client []Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client
 }
 
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetFilter() yfilter.YFilter { return clients.YFilter }
+func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetEntityData() *types.CommonEntityData {
+    clients.EntityData.YFilter = clients.YFilter
+    clients.EntityData.YangName = "clients"
+    clients.EntityData.BundleName = "cisco_ios_xr"
+    clients.EntityData.ParentYangName = "binding"
+    clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) SetFilter(yf yfilter.YFilter) { clients.YFilter = yf }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetGoName(yname string) string {
-    if yname == "client" { return "Client" }
-    return ""
-}
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetSegmentPath() string {
-    return "clients"
-}
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        for _, c := range clients.Client {
-            if clients.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client{}
-        clients.Client = append(clients.Client, child)
-        return &clients.Client[len(clients.Client)-1]
-    }
-    return nil
-}
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clients.EntityData.Children = make(map[string]types.YChild)
+    clients.EntityData.Children["client"] = types.YChild{"Client", nil}
     for i := range clients.Client {
-        children[clients.Client[i].GetSegmentPath()] = &clients.Client[i]
+        clients.EntityData.Children[types.GetSegmentPath(&clients.Client[i])] = types.YChild{"Client", &clients.Client[i]}
     }
-    return children
+    clients.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clients.EntityData)
 }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetYangName() string { return "clients" }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) SetParent(parent types.Entity) { clients.parent = parent }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetParent() types.Entity { return clients.parent }
-
-func (clients *Dhcpv6_Nodes_Node_Relay_Binding_Clients) GetParentYangName() string { return "binding" }
 
 // Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client
 // Single DHCPV6 relay binding
 type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Client ID. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ClientId interface{}
 
     // Client DUID. The type is string.
@@ -8973,7 +4803,7 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
     PrefixLength interface{}
 
     // DHCPV6 IPv6 Prefix allotted to client. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 
     // DHCPv6 client/subscriber Vrf name. The type is string with length: 0..33.
@@ -8990,7 +4820,7 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
     InterfaceName interface{}
 
     // Next hop is our address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHopAddr interface{}
 
     // IA_ID of this IA. The type is interface{} with range: 0..4294967295.
@@ -9000,78 +4830,37 @@ type Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client struct {
     RelayProfileName interface{}
 }
 
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "clients"
+    client.EntityData.SegmentPath = "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetGoName(yname string) string {
-    if yname == "client-id" { return "ClientId" }
-    if yname == "duid" { return "Duid" }
-    if yname == "client-id-xr" { return "ClientIdXr" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "prefix" { return "Prefix" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "lifetime" { return "Lifetime" }
-    if yname == "rem-life-time" { return "RemLifeTime" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "next-hop-addr" { return "NextHopAddr" }
-    if yname == "ia-id" { return "IaId" }
-    if yname == "relay-profile-name" { return "RelayProfileName" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", client.ClientId}
+    client.EntityData.Leafs["duid"] = types.YLeaf{"Duid", client.Duid}
+    client.EntityData.Leafs["client-id-xr"] = types.YLeaf{"ClientIdXr", client.ClientIdXr}
+    client.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", client.PrefixLength}
+    client.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", client.Prefix}
+    client.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", client.VrfName}
+    client.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", client.Lifetime}
+    client.EntityData.Leafs["rem-life-time"] = types.YLeaf{"RemLifeTime", client.RemLifeTime}
+    client.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", client.InterfaceName}
+    client.EntityData.Leafs["next-hop-addr"] = types.YLeaf{"NextHopAddr", client.NextHopAddr}
+    client.EntityData.Leafs["ia-id"] = types.YLeaf{"IaId", client.IaId}
+    client.EntityData.Leafs["relay-profile-name"] = types.YLeaf{"RelayProfileName", client.RelayProfileName}
+    return &(client.EntityData)
 }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetSegmentPath() string {
-    return "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
-}
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["client-id"] = client.ClientId
-    leafs["duid"] = client.Duid
-    leafs["client-id-xr"] = client.ClientIdXr
-    leafs["prefix-length"] = client.PrefixLength
-    leafs["prefix"] = client.Prefix
-    leafs["vrf-name"] = client.VrfName
-    leafs["lifetime"] = client.Lifetime
-    leafs["rem-life-time"] = client.RemLifeTime
-    leafs["interface-name"] = client.InterfaceName
-    leafs["next-hop-addr"] = client.NextHopAddr
-    leafs["ia-id"] = client.IaId
-    leafs["relay-profile-name"] = client.RelayProfileName
-    return leafs
-}
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetYangName() string { return "client" }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetParent() types.Entity { return client.parent }
-
-func (client *Dhcpv6_Nodes_Node_Relay_Binding_Clients_Client) GetParentYangName() string { return "clients" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs
 // DHCPV6 relay list of VRF names
 type Dhcpv6_Nodes_Node_Relay_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 DHCP relay VRF name. The type is slice of
@@ -9079,133 +4868,60 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs struct {
     Vrf []Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf
 }
 
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "relay"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *Dhcpv6_Nodes_Node_Relay_Vrfs) GetParentYangName() string { return "relay" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf
 // IPv6 DHCP relay VRF name
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IPv6 DHCP relay statistics.
     Statistics Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics
 }
 
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["statistics"] = types.YChild{"Statistics", &vrf.Statistics}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &vrf.Statistics
-    }
-    return nil
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &vrf.Statistics
-    return children
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics
 // IPv6 DHCP relay statistics
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCPV6 solicit packets.
@@ -9260,139 +4976,42 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics struct {
     LeaseQueryData Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData
 }
 
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "vrf"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetGoName(yname string) string {
-    if yname == "solicit" { return "Solicit" }
-    if yname == "advertise" { return "Advertise" }
-    if yname == "request" { return "Request" }
-    if yname == "reply" { return "Reply" }
-    if yname == "confirm" { return "Confirm" }
-    if yname == "decline" { return "Decline" }
-    if yname == "renew" { return "Renew" }
-    if yname == "rebind" { return "Rebind" }
-    if yname == "release" { return "Release" }
-    if yname == "reconfig" { return "Reconfig" }
-    if yname == "inform" { return "Inform" }
-    if yname == "relay-forward" { return "RelayForward" }
-    if yname == "relay-reply" { return "RelayReply" }
-    if yname == "lease-query" { return "LeaseQuery" }
-    if yname == "lease-query-reply" { return "LeaseQueryReply" }
-    if yname == "lease-query-done" { return "LeaseQueryDone" }
-    if yname == "lease-query-data" { return "LeaseQueryData" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["solicit"] = types.YChild{"Solicit", &statistics.Solicit}
+    statistics.EntityData.Children["advertise"] = types.YChild{"Advertise", &statistics.Advertise}
+    statistics.EntityData.Children["request"] = types.YChild{"Request", &statistics.Request}
+    statistics.EntityData.Children["reply"] = types.YChild{"Reply", &statistics.Reply}
+    statistics.EntityData.Children["confirm"] = types.YChild{"Confirm", &statistics.Confirm}
+    statistics.EntityData.Children["decline"] = types.YChild{"Decline", &statistics.Decline}
+    statistics.EntityData.Children["renew"] = types.YChild{"Renew", &statistics.Renew}
+    statistics.EntityData.Children["rebind"] = types.YChild{"Rebind", &statistics.Rebind}
+    statistics.EntityData.Children["release"] = types.YChild{"Release", &statistics.Release}
+    statistics.EntityData.Children["reconfig"] = types.YChild{"Reconfig", &statistics.Reconfig}
+    statistics.EntityData.Children["inform"] = types.YChild{"Inform", &statistics.Inform}
+    statistics.EntityData.Children["relay-forward"] = types.YChild{"RelayForward", &statistics.RelayForward}
+    statistics.EntityData.Children["relay-reply"] = types.YChild{"RelayReply", &statistics.RelayReply}
+    statistics.EntityData.Children["lease-query"] = types.YChild{"LeaseQuery", &statistics.LeaseQuery}
+    statistics.EntityData.Children["lease-query-reply"] = types.YChild{"LeaseQueryReply", &statistics.LeaseQueryReply}
+    statistics.EntityData.Children["lease-query-done"] = types.YChild{"LeaseQueryDone", &statistics.LeaseQueryDone}
+    statistics.EntityData.Children["lease-query-data"] = types.YChild{"LeaseQueryData", &statistics.LeaseQueryData}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "solicit" {
-        return &statistics.Solicit
-    }
-    if childYangName == "advertise" {
-        return &statistics.Advertise
-    }
-    if childYangName == "request" {
-        return &statistics.Request
-    }
-    if childYangName == "reply" {
-        return &statistics.Reply
-    }
-    if childYangName == "confirm" {
-        return &statistics.Confirm
-    }
-    if childYangName == "decline" {
-        return &statistics.Decline
-    }
-    if childYangName == "renew" {
-        return &statistics.Renew
-    }
-    if childYangName == "rebind" {
-        return &statistics.Rebind
-    }
-    if childYangName == "release" {
-        return &statistics.Release
-    }
-    if childYangName == "reconfig" {
-        return &statistics.Reconfig
-    }
-    if childYangName == "inform" {
-        return &statistics.Inform
-    }
-    if childYangName == "relay-forward" {
-        return &statistics.RelayForward
-    }
-    if childYangName == "relay-reply" {
-        return &statistics.RelayReply
-    }
-    if childYangName == "lease-query" {
-        return &statistics.LeaseQuery
-    }
-    if childYangName == "lease-query-reply" {
-        return &statistics.LeaseQueryReply
-    }
-    if childYangName == "lease-query-done" {
-        return &statistics.LeaseQueryDone
-    }
-    if childYangName == "lease-query-data" {
-        return &statistics.LeaseQueryData
-    }
-    return nil
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["solicit"] = &statistics.Solicit
-    children["advertise"] = &statistics.Advertise
-    children["request"] = &statistics.Request
-    children["reply"] = &statistics.Reply
-    children["confirm"] = &statistics.Confirm
-    children["decline"] = &statistics.Decline
-    children["renew"] = &statistics.Renew
-    children["rebind"] = &statistics.Rebind
-    children["release"] = &statistics.Release
-    children["reconfig"] = &statistics.Reconfig
-    children["inform"] = &statistics.Inform
-    children["relay-forward"] = &statistics.RelayForward
-    children["relay-reply"] = &statistics.RelayReply
-    children["lease-query"] = &statistics.LeaseQuery
-    children["lease-query-reply"] = &statistics.LeaseQueryReply
-    children["lease-query-done"] = &statistics.LeaseQueryDone
-    children["lease-query-data"] = &statistics.LeaseQueryData
-    return children
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics) GetParentYangName() string { return "vrf" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit
 // DHCPV6 solicit packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9408,60 +5027,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit struct {
     DroppedPackets interface{}
 }
 
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetFilter() yfilter.YFilter { return solicit.YFilter }
+func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetEntityData() *types.CommonEntityData {
+    solicit.EntityData.YFilter = solicit.YFilter
+    solicit.EntityData.YangName = "solicit"
+    solicit.EntityData.BundleName = "cisco_ios_xr"
+    solicit.EntityData.ParentYangName = "statistics"
+    solicit.EntityData.SegmentPath = "solicit"
+    solicit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    solicit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    solicit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) SetFilter(yf yfilter.YFilter) { solicit.YFilter = yf }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    solicit.EntityData.Children = make(map[string]types.YChild)
+    solicit.EntityData.Leafs = make(map[string]types.YLeaf)
+    solicit.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", solicit.ReceivedPackets}
+    solicit.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", solicit.TransmittedPackets}
+    solicit.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", solicit.DroppedPackets}
+    return &(solicit.EntityData)
 }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetSegmentPath() string {
-    return "solicit"
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = solicit.ReceivedPackets
-    leafs["transmitted-packets"] = solicit.TransmittedPackets
-    leafs["dropped-packets"] = solicit.DroppedPackets
-    return leafs
-}
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetYangName() string { return "solicit" }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) SetParent(parent types.Entity) { solicit.parent = parent }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetParent() types.Entity { return solicit.parent }
-
-func (solicit *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Solicit) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise
 // DHCPV6 advertise packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9477,60 +5064,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise struct {
     DroppedPackets interface{}
 }
 
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetFilter() yfilter.YFilter { return advertise.YFilter }
+func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetEntityData() *types.CommonEntityData {
+    advertise.EntityData.YFilter = advertise.YFilter
+    advertise.EntityData.YangName = "advertise"
+    advertise.EntityData.BundleName = "cisco_ios_xr"
+    advertise.EntityData.ParentYangName = "statistics"
+    advertise.EntityData.SegmentPath = "advertise"
+    advertise.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    advertise.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    advertise.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) SetFilter(yf yfilter.YFilter) { advertise.YFilter = yf }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    advertise.EntityData.Children = make(map[string]types.YChild)
+    advertise.EntityData.Leafs = make(map[string]types.YLeaf)
+    advertise.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", advertise.ReceivedPackets}
+    advertise.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", advertise.TransmittedPackets}
+    advertise.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", advertise.DroppedPackets}
+    return &(advertise.EntityData)
 }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetSegmentPath() string {
-    return "advertise"
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = advertise.ReceivedPackets
-    leafs["transmitted-packets"] = advertise.TransmittedPackets
-    leafs["dropped-packets"] = advertise.DroppedPackets
-    return leafs
-}
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetBundleName() string { return "cisco_ios_xr" }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetYangName() string { return "advertise" }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) SetParent(parent types.Entity) { advertise.parent = parent }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetParent() types.Entity { return advertise.parent }
-
-func (advertise *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Advertise) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request
 // DHCPV6 request packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9546,60 +5101,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request struct {
     DroppedPackets interface{}
 }
 
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetFilter() yfilter.YFilter { return request.YFilter }
+func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetEntityData() *types.CommonEntityData {
+    request.EntityData.YFilter = request.YFilter
+    request.EntityData.YangName = "request"
+    request.EntityData.BundleName = "cisco_ios_xr"
+    request.EntityData.ParentYangName = "statistics"
+    request.EntityData.SegmentPath = "request"
+    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) SetFilter(yf yfilter.YFilter) { request.YFilter = yf }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    request.EntityData.Children = make(map[string]types.YChild)
+    request.EntityData.Leafs = make(map[string]types.YLeaf)
+    request.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", request.ReceivedPackets}
+    request.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", request.TransmittedPackets}
+    request.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", request.DroppedPackets}
+    return &(request.EntityData)
 }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetSegmentPath() string {
-    return "request"
-}
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = request.ReceivedPackets
-    leafs["transmitted-packets"] = request.TransmittedPackets
-    leafs["dropped-packets"] = request.DroppedPackets
-    return leafs
-}
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetBundleName() string { return "cisco_ios_xr" }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetYangName() string { return "request" }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) SetParent(parent types.Entity) { request.parent = parent }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetParent() types.Entity { return request.parent }
-
-func (request *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Request) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply
 // DHCPV6 reply packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9615,60 +5138,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply struct {
     DroppedPackets interface{}
 }
 
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetFilter() yfilter.YFilter { return reply.YFilter }
+func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetEntityData() *types.CommonEntityData {
+    reply.EntityData.YFilter = reply.YFilter
+    reply.EntityData.YangName = "reply"
+    reply.EntityData.BundleName = "cisco_ios_xr"
+    reply.EntityData.ParentYangName = "statistics"
+    reply.EntityData.SegmentPath = "reply"
+    reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) SetFilter(yf yfilter.YFilter) { reply.YFilter = yf }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    reply.EntityData.Children = make(map[string]types.YChild)
+    reply.EntityData.Leafs = make(map[string]types.YLeaf)
+    reply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", reply.ReceivedPackets}
+    reply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", reply.TransmittedPackets}
+    reply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", reply.DroppedPackets}
+    return &(reply.EntityData)
 }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetSegmentPath() string {
-    return "reply"
-}
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = reply.ReceivedPackets
-    leafs["transmitted-packets"] = reply.TransmittedPackets
-    leafs["dropped-packets"] = reply.DroppedPackets
-    return leafs
-}
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetYangName() string { return "reply" }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) SetParent(parent types.Entity) { reply.parent = parent }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetParent() types.Entity { return reply.parent }
-
-func (reply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm
 // DHCPV6 confirm packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9684,60 +5175,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm struct {
     DroppedPackets interface{}
 }
 
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetFilter() yfilter.YFilter { return confirm.YFilter }
+func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetEntityData() *types.CommonEntityData {
+    confirm.EntityData.YFilter = confirm.YFilter
+    confirm.EntityData.YangName = "confirm"
+    confirm.EntityData.BundleName = "cisco_ios_xr"
+    confirm.EntityData.ParentYangName = "statistics"
+    confirm.EntityData.SegmentPath = "confirm"
+    confirm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    confirm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    confirm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) SetFilter(yf yfilter.YFilter) { confirm.YFilter = yf }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    confirm.EntityData.Children = make(map[string]types.YChild)
+    confirm.EntityData.Leafs = make(map[string]types.YLeaf)
+    confirm.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", confirm.ReceivedPackets}
+    confirm.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", confirm.TransmittedPackets}
+    confirm.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", confirm.DroppedPackets}
+    return &(confirm.EntityData)
 }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetSegmentPath() string {
-    return "confirm"
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = confirm.ReceivedPackets
-    leafs["transmitted-packets"] = confirm.TransmittedPackets
-    leafs["dropped-packets"] = confirm.DroppedPackets
-    return leafs
-}
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetYangName() string { return "confirm" }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) SetParent(parent types.Entity) { confirm.parent = parent }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetParent() types.Entity { return confirm.parent }
-
-func (confirm *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Confirm) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline
 // DHCPV6 decline packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9753,60 +5212,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline struct {
     DroppedPackets interface{}
 }
 
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetFilter() yfilter.YFilter { return decline.YFilter }
+func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetEntityData() *types.CommonEntityData {
+    decline.EntityData.YFilter = decline.YFilter
+    decline.EntityData.YangName = "decline"
+    decline.EntityData.BundleName = "cisco_ios_xr"
+    decline.EntityData.ParentYangName = "statistics"
+    decline.EntityData.SegmentPath = "decline"
+    decline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    decline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    decline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) SetFilter(yf yfilter.YFilter) { decline.YFilter = yf }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    decline.EntityData.Children = make(map[string]types.YChild)
+    decline.EntityData.Leafs = make(map[string]types.YLeaf)
+    decline.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", decline.ReceivedPackets}
+    decline.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", decline.TransmittedPackets}
+    decline.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", decline.DroppedPackets}
+    return &(decline.EntityData)
 }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetSegmentPath() string {
-    return "decline"
-}
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = decline.ReceivedPackets
-    leafs["transmitted-packets"] = decline.TransmittedPackets
-    leafs["dropped-packets"] = decline.DroppedPackets
-    return leafs
-}
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetBundleName() string { return "cisco_ios_xr" }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetYangName() string { return "decline" }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) SetParent(parent types.Entity) { decline.parent = parent }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetParent() types.Entity { return decline.parent }
-
-func (decline *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Decline) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew
 // DHCPV6 renew packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9822,60 +5249,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew struct {
     DroppedPackets interface{}
 }
 
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetFilter() yfilter.YFilter { return renew.YFilter }
+func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetEntityData() *types.CommonEntityData {
+    renew.EntityData.YFilter = renew.YFilter
+    renew.EntityData.YangName = "renew"
+    renew.EntityData.BundleName = "cisco_ios_xr"
+    renew.EntityData.ParentYangName = "statistics"
+    renew.EntityData.SegmentPath = "renew"
+    renew.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    renew.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    renew.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) SetFilter(yf yfilter.YFilter) { renew.YFilter = yf }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    renew.EntityData.Children = make(map[string]types.YChild)
+    renew.EntityData.Leafs = make(map[string]types.YLeaf)
+    renew.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", renew.ReceivedPackets}
+    renew.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", renew.TransmittedPackets}
+    renew.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", renew.DroppedPackets}
+    return &(renew.EntityData)
 }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetSegmentPath() string {
-    return "renew"
-}
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = renew.ReceivedPackets
-    leafs["transmitted-packets"] = renew.TransmittedPackets
-    leafs["dropped-packets"] = renew.DroppedPackets
-    return leafs
-}
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetBundleName() string { return "cisco_ios_xr" }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetYangName() string { return "renew" }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) SetParent(parent types.Entity) { renew.parent = parent }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetParent() types.Entity { return renew.parent }
-
-func (renew *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Renew) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind
 // DHCPV6 rebind packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9891,60 +5286,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind struct {
     DroppedPackets interface{}
 }
 
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetFilter() yfilter.YFilter { return rebind.YFilter }
+func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetEntityData() *types.CommonEntityData {
+    rebind.EntityData.YFilter = rebind.YFilter
+    rebind.EntityData.YangName = "rebind"
+    rebind.EntityData.BundleName = "cisco_ios_xr"
+    rebind.EntityData.ParentYangName = "statistics"
+    rebind.EntityData.SegmentPath = "rebind"
+    rebind.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rebind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rebind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) SetFilter(yf yfilter.YFilter) { rebind.YFilter = yf }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    rebind.EntityData.Children = make(map[string]types.YChild)
+    rebind.EntityData.Leafs = make(map[string]types.YLeaf)
+    rebind.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", rebind.ReceivedPackets}
+    rebind.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", rebind.TransmittedPackets}
+    rebind.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", rebind.DroppedPackets}
+    return &(rebind.EntityData)
 }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetSegmentPath() string {
-    return "rebind"
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = rebind.ReceivedPackets
-    leafs["transmitted-packets"] = rebind.TransmittedPackets
-    leafs["dropped-packets"] = rebind.DroppedPackets
-    return leafs
-}
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetYangName() string { return "rebind" }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) SetParent(parent types.Entity) { rebind.parent = parent }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetParent() types.Entity { return rebind.parent }
-
-func (rebind *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Rebind) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release
 // DHCPV6 release packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -9960,60 +5323,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release struct {
     DroppedPackets interface{}
 }
 
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetFilter() yfilter.YFilter { return release.YFilter }
+func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetEntityData() *types.CommonEntityData {
+    release.EntityData.YFilter = release.YFilter
+    release.EntityData.YangName = "release"
+    release.EntityData.BundleName = "cisco_ios_xr"
+    release.EntityData.ParentYangName = "statistics"
+    release.EntityData.SegmentPath = "release"
+    release.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    release.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    release.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) SetFilter(yf yfilter.YFilter) { release.YFilter = yf }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    release.EntityData.Children = make(map[string]types.YChild)
+    release.EntityData.Leafs = make(map[string]types.YLeaf)
+    release.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", release.ReceivedPackets}
+    release.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", release.TransmittedPackets}
+    release.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", release.DroppedPackets}
+    return &(release.EntityData)
 }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetSegmentPath() string {
-    return "release"
-}
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = release.ReceivedPackets
-    leafs["transmitted-packets"] = release.TransmittedPackets
-    leafs["dropped-packets"] = release.DroppedPackets
-    return leafs
-}
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetBundleName() string { return "cisco_ios_xr" }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetYangName() string { return "release" }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) SetParent(parent types.Entity) { release.parent = parent }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetParent() types.Entity { return release.parent }
-
-func (release *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Release) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig
 // DHCPV6 reconfig packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10029,60 +5360,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig struct {
     DroppedPackets interface{}
 }
 
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetFilter() yfilter.YFilter { return reconfig.YFilter }
+func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetEntityData() *types.CommonEntityData {
+    reconfig.EntityData.YFilter = reconfig.YFilter
+    reconfig.EntityData.YangName = "reconfig"
+    reconfig.EntityData.BundleName = "cisco_ios_xr"
+    reconfig.EntityData.ParentYangName = "statistics"
+    reconfig.EntityData.SegmentPath = "reconfig"
+    reconfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reconfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reconfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) SetFilter(yf yfilter.YFilter) { reconfig.YFilter = yf }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    reconfig.EntityData.Children = make(map[string]types.YChild)
+    reconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    reconfig.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", reconfig.ReceivedPackets}
+    reconfig.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", reconfig.TransmittedPackets}
+    reconfig.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", reconfig.DroppedPackets}
+    return &(reconfig.EntityData)
 }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetSegmentPath() string {
-    return "reconfig"
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = reconfig.ReceivedPackets
-    leafs["transmitted-packets"] = reconfig.TransmittedPackets
-    leafs["dropped-packets"] = reconfig.DroppedPackets
-    return leafs
-}
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetYangName() string { return "reconfig" }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) SetParent(parent types.Entity) { reconfig.parent = parent }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetParent() types.Entity { return reconfig.parent }
-
-func (reconfig *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Reconfig) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform
 // DHCPV6 inform packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10098,60 +5397,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform struct {
     DroppedPackets interface{}
 }
 
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetFilter() yfilter.YFilter { return inform.YFilter }
+func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetEntityData() *types.CommonEntityData {
+    inform.EntityData.YFilter = inform.YFilter
+    inform.EntityData.YangName = "inform"
+    inform.EntityData.BundleName = "cisco_ios_xr"
+    inform.EntityData.ParentYangName = "statistics"
+    inform.EntityData.SegmentPath = "inform"
+    inform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) SetFilter(yf yfilter.YFilter) { inform.YFilter = yf }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    inform.EntityData.Children = make(map[string]types.YChild)
+    inform.EntityData.Leafs = make(map[string]types.YLeaf)
+    inform.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", inform.ReceivedPackets}
+    inform.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", inform.TransmittedPackets}
+    inform.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", inform.DroppedPackets}
+    return &(inform.EntityData)
 }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetSegmentPath() string {
-    return "inform"
-}
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = inform.ReceivedPackets
-    leafs["transmitted-packets"] = inform.TransmittedPackets
-    leafs["dropped-packets"] = inform.DroppedPackets
-    return leafs
-}
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetYangName() string { return "inform" }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) SetParent(parent types.Entity) { inform.parent = parent }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetParent() types.Entity { return inform.parent }
-
-func (inform *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_Inform) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward
 // DHCPV6 relay forward packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10167,60 +5434,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward struct {
     DroppedPackets interface{}
 }
 
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetFilter() yfilter.YFilter { return relayForward.YFilter }
+func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetEntityData() *types.CommonEntityData {
+    relayForward.EntityData.YFilter = relayForward.YFilter
+    relayForward.EntityData.YangName = "relay-forward"
+    relayForward.EntityData.BundleName = "cisco_ios_xr"
+    relayForward.EntityData.ParentYangName = "statistics"
+    relayForward.EntityData.SegmentPath = "relay-forward"
+    relayForward.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relayForward.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relayForward.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) SetFilter(yf yfilter.YFilter) { relayForward.YFilter = yf }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    relayForward.EntityData.Children = make(map[string]types.YChild)
+    relayForward.EntityData.Leafs = make(map[string]types.YLeaf)
+    relayForward.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", relayForward.ReceivedPackets}
+    relayForward.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", relayForward.TransmittedPackets}
+    relayForward.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", relayForward.DroppedPackets}
+    return &(relayForward.EntityData)
 }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetSegmentPath() string {
-    return "relay-forward"
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = relayForward.ReceivedPackets
-    leafs["transmitted-packets"] = relayForward.TransmittedPackets
-    leafs["dropped-packets"] = relayForward.DroppedPackets
-    return leafs
-}
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetYangName() string { return "relay-forward" }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) SetParent(parent types.Entity) { relayForward.parent = parent }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetParent() types.Entity { return relayForward.parent }
-
-func (relayForward *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayForward) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply
 // DHCPV6 relay reply packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10236,60 +5471,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply struct {
     DroppedPackets interface{}
 }
 
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetFilter() yfilter.YFilter { return relayReply.YFilter }
+func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetEntityData() *types.CommonEntityData {
+    relayReply.EntityData.YFilter = relayReply.YFilter
+    relayReply.EntityData.YangName = "relay-reply"
+    relayReply.EntityData.BundleName = "cisco_ios_xr"
+    relayReply.EntityData.ParentYangName = "statistics"
+    relayReply.EntityData.SegmentPath = "relay-reply"
+    relayReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    relayReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    relayReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) SetFilter(yf yfilter.YFilter) { relayReply.YFilter = yf }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    relayReply.EntityData.Children = make(map[string]types.YChild)
+    relayReply.EntityData.Leafs = make(map[string]types.YLeaf)
+    relayReply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", relayReply.ReceivedPackets}
+    relayReply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", relayReply.TransmittedPackets}
+    relayReply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", relayReply.DroppedPackets}
+    return &(relayReply.EntityData)
 }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetSegmentPath() string {
-    return "relay-reply"
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = relayReply.ReceivedPackets
-    leafs["transmitted-packets"] = relayReply.TransmittedPackets
-    leafs["dropped-packets"] = relayReply.DroppedPackets
-    return leafs
-}
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetYangName() string { return "relay-reply" }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) SetParent(parent types.Entity) { relayReply.parent = parent }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetParent() types.Entity { return relayReply.parent }
-
-func (relayReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_RelayReply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery
 // DHCPV6 lease query packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10305,60 +5508,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery struct {
     DroppedPackets interface{}
 }
 
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetFilter() yfilter.YFilter { return leaseQuery.YFilter }
+func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetEntityData() *types.CommonEntityData {
+    leaseQuery.EntityData.YFilter = leaseQuery.YFilter
+    leaseQuery.EntityData.YangName = "lease-query"
+    leaseQuery.EntityData.BundleName = "cisco_ios_xr"
+    leaseQuery.EntityData.ParentYangName = "statistics"
+    leaseQuery.EntityData.SegmentPath = "lease-query"
+    leaseQuery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQuery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQuery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) SetFilter(yf yfilter.YFilter) { leaseQuery.YFilter = yf }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQuery.EntityData.Children = make(map[string]types.YChild)
+    leaseQuery.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQuery.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQuery.ReceivedPackets}
+    leaseQuery.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQuery.TransmittedPackets}
+    leaseQuery.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQuery.DroppedPackets}
+    return &(leaseQuery.EntityData)
 }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetSegmentPath() string {
-    return "lease-query"
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQuery.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQuery.TransmittedPackets
-    leafs["dropped-packets"] = leaseQuery.DroppedPackets
-    return leafs
-}
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetYangName() string { return "lease-query" }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) SetParent(parent types.Entity) { leaseQuery.parent = parent }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetParent() types.Entity { return leaseQuery.parent }
-
-func (leaseQuery *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQuery) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply
 // DHCPV6 lease query reply packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10374,60 +5545,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetFilter() yfilter.YFilter { return leaseQueryReply.YFilter }
+func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetEntityData() *types.CommonEntityData {
+    leaseQueryReply.EntityData.YFilter = leaseQueryReply.YFilter
+    leaseQueryReply.EntityData.YangName = "lease-query-reply"
+    leaseQueryReply.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryReply.EntityData.ParentYangName = "statistics"
+    leaseQueryReply.EntityData.SegmentPath = "lease-query-reply"
+    leaseQueryReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) SetFilter(yf yfilter.YFilter) { leaseQueryReply.YFilter = yf }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryReply.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryReply.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryReply.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryReply.ReceivedPackets}
+    leaseQueryReply.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryReply.TransmittedPackets}
+    leaseQueryReply.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryReply.DroppedPackets}
+    return &(leaseQueryReply.EntityData)
 }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetSegmentPath() string {
-    return "lease-query-reply"
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryReply.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryReply.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryReply.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetYangName() string { return "lease-query-reply" }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) SetParent(parent types.Entity) { leaseQueryReply.parent = parent }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetParent() types.Entity { return leaseQueryReply.parent }
-
-func (leaseQueryReply *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryReply) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone
 // DHCPV6 lease query done packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10443,60 +5582,28 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetFilter() yfilter.YFilter { return leaseQueryDone.YFilter }
+func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetEntityData() *types.CommonEntityData {
+    leaseQueryDone.EntityData.YFilter = leaseQueryDone.YFilter
+    leaseQueryDone.EntityData.YangName = "lease-query-done"
+    leaseQueryDone.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryDone.EntityData.ParentYangName = "statistics"
+    leaseQueryDone.EntityData.SegmentPath = "lease-query-done"
+    leaseQueryDone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryDone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryDone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) SetFilter(yf yfilter.YFilter) { leaseQueryDone.YFilter = yf }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryDone.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryDone.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryDone.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryDone.ReceivedPackets}
+    leaseQueryDone.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryDone.TransmittedPackets}
+    leaseQueryDone.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryDone.DroppedPackets}
+    return &(leaseQueryDone.EntityData)
 }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetSegmentPath() string {
-    return "lease-query-done"
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryDone.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryDone.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryDone.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetYangName() string { return "lease-query-done" }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) SetParent(parent types.Entity) { leaseQueryDone.parent = parent }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetParent() types.Entity { return leaseQueryDone.parent }
-
-func (leaseQueryDone *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryDone) GetParentYangName() string { return "statistics" }
 
 // Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData
 // DHCPV6 lease query data packets
 type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Received packets. The type is interface{} with range:
@@ -10512,53 +5619,21 @@ type Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData struct {
     DroppedPackets interface{}
 }
 
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetFilter() yfilter.YFilter { return leaseQueryData.YFilter }
+func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetEntityData() *types.CommonEntityData {
+    leaseQueryData.EntityData.YFilter = leaseQueryData.YFilter
+    leaseQueryData.EntityData.YangName = "lease-query-data"
+    leaseQueryData.EntityData.BundleName = "cisco_ios_xr"
+    leaseQueryData.EntityData.ParentYangName = "statistics"
+    leaseQueryData.EntityData.SegmentPath = "lease-query-data"
+    leaseQueryData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    leaseQueryData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    leaseQueryData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) SetFilter(yf yfilter.YFilter) { leaseQueryData.YFilter = yf }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetGoName(yname string) string {
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "transmitted-packets" { return "TransmittedPackets" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    leaseQueryData.EntityData.Children = make(map[string]types.YChild)
+    leaseQueryData.EntityData.Leafs = make(map[string]types.YLeaf)
+    leaseQueryData.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", leaseQueryData.ReceivedPackets}
+    leaseQueryData.EntityData.Leafs["transmitted-packets"] = types.YLeaf{"TransmittedPackets", leaseQueryData.TransmittedPackets}
+    leaseQueryData.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", leaseQueryData.DroppedPackets}
+    return &(leaseQueryData.EntityData)
 }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetSegmentPath() string {
-    return "lease-query-data"
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-packets"] = leaseQueryData.ReceivedPackets
-    leafs["transmitted-packets"] = leaseQueryData.TransmittedPackets
-    leafs["dropped-packets"] = leaseQueryData.DroppedPackets
-    return leafs
-}
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetYangName() string { return "lease-query-data" }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) SetParent(parent types.Entity) { leaseQueryData.parent = parent }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetParent() types.Entity { return leaseQueryData.parent }
-
-func (leaseQueryData *Dhcpv6_Nodes_Node_Relay_Vrfs_Vrf_Statistics_LeaseQueryData) GetParentYangName() string { return "statistics" }
 

@@ -18,7 +18,7 @@ func init() {
 
 // CISCOBGPPOLICYACCOUNTINGMIB
 type CISCOBGPPOLICYACCOUNTINGMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The cbpAcctTable provides statistics about ingress and egress  traffic on
@@ -26,61 +26,28 @@ type CISCOBGPPOLICYACCOUNTINGMIB struct {
     Cbpaccttable CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable
 }
 
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetFilter() yfilter.YFilter { return cISCOBGPPOLICYACCOUNTINGMIB.YFilter }
+func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetEntityData() *types.CommonEntityData {
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.YFilter = cISCOBGPPOLICYACCOUNTINGMIB.YFilter
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.YangName = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.ParentYangName = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.SegmentPath = "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB"
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) SetFilter(yf yfilter.YFilter) { cISCOBGPPOLICYACCOUNTINGMIB.YFilter = yf }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetGoName(yname string) string {
-    if yname == "cbpAcctTable" { return "Cbpaccttable" }
-    return ""
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.Children["cbpAcctTable"] = types.YChild{"Cbpaccttable", &cISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable}
+    cISCOBGPPOLICYACCOUNTINGMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOBGPPOLICYACCOUNTINGMIB.EntityData)
 }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetSegmentPath() string {
-    return "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB"
-}
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cbpAcctTable" {
-        return &cISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable
-    }
-    return nil
-}
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cbpAcctTable"] = &cISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable
-    return children
-}
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetYangName() string { return "CISCO-BGP-POLICY-ACCOUNTING-MIB" }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) SetParent(parent types.Entity) { cISCOBGPPOLICYACCOUNTINGMIB.parent = parent }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetParent() types.Entity { return cISCOBGPPOLICYACCOUNTINGMIB.parent }
-
-func (cISCOBGPPOLICYACCOUNTINGMIB *CISCOBGPPOLICYACCOUNTINGMIB) GetParentYangName() string { return "CISCO-BGP-POLICY-ACCOUNTING-MIB" }
 
 // CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable
 // The cbpAcctTable provides statistics about ingress and egress 
 // traffic on an interface. This data could be used for purposes 
 // like billing.
 type CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each cbpAcctEntry provides statistics for traffic of interest on an ingress
@@ -96,63 +63,24 @@ type CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable struct {
     Cbpacctentry []CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry
 }
 
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetFilter() yfilter.YFilter { return cbpaccttable.YFilter }
+func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetEntityData() *types.CommonEntityData {
+    cbpaccttable.EntityData.YFilter = cbpaccttable.YFilter
+    cbpaccttable.EntityData.YangName = "cbpAcctTable"
+    cbpaccttable.EntityData.BundleName = "cisco_ios_xe"
+    cbpaccttable.EntityData.ParentYangName = "CISCO-BGP-POLICY-ACCOUNTING-MIB"
+    cbpaccttable.EntityData.SegmentPath = "cbpAcctTable"
+    cbpaccttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbpaccttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbpaccttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) SetFilter(yf yfilter.YFilter) { cbpaccttable.YFilter = yf }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetGoName(yname string) string {
-    if yname == "cbpAcctEntry" { return "Cbpacctentry" }
-    return ""
-}
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetSegmentPath() string {
-    return "cbpAcctTable"
-}
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cbpAcctEntry" {
-        for _, c := range cbpaccttable.Cbpacctentry {
-            if cbpaccttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry{}
-        cbpaccttable.Cbpacctentry = append(cbpaccttable.Cbpacctentry, child)
-        return &cbpaccttable.Cbpacctentry[len(cbpaccttable.Cbpacctentry)-1]
-    }
-    return nil
-}
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cbpaccttable.EntityData.Children = make(map[string]types.YChild)
+    cbpaccttable.EntityData.Children["cbpAcctEntry"] = types.YChild{"Cbpacctentry", nil}
     for i := range cbpaccttable.Cbpacctentry {
-        children[cbpaccttable.Cbpacctentry[i].GetSegmentPath()] = &cbpaccttable.Cbpacctentry[i]
+        cbpaccttable.EntityData.Children[types.GetSegmentPath(&cbpaccttable.Cbpacctentry[i])] = types.YChild{"Cbpacctentry", &cbpaccttable.Cbpacctentry[i]}
     }
-    return children
+    cbpaccttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cbpaccttable.EntityData)
 }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetYangName() string { return "cbpAcctTable" }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) SetParent(parent types.Entity) { cbpaccttable.parent = parent }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetParent() types.Entity { return cbpaccttable.parent }
-
-func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetParentYangName() string { return "CISCO-BGP-POLICY-ACCOUNTING-MIB" }
 
 // CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry
 // Each cbpAcctEntry provides statistics for traffic of interest
@@ -169,7 +97,7 @@ func (cbpaccttable *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable) GetParentYangName(
 // removes the corresponding traffic-type configuration from an
 // interface.
 type CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -201,59 +129,24 @@ type CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry struct {
     Cbpacctoutoctetcount interface{}
 }
 
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetFilter() yfilter.YFilter { return cbpacctentry.YFilter }
+func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetEntityData() *types.CommonEntityData {
+    cbpacctentry.EntityData.YFilter = cbpacctentry.YFilter
+    cbpacctentry.EntityData.YangName = "cbpAcctEntry"
+    cbpacctentry.EntityData.BundleName = "cisco_ios_xe"
+    cbpacctentry.EntityData.ParentYangName = "cbpAcctTable"
+    cbpacctentry.EntityData.SegmentPath = "cbpAcctEntry" + "[ifIndex='" + fmt.Sprintf("%v", cbpacctentry.Ifindex) + "']" + "[cbpAcctTrafficIndex='" + fmt.Sprintf("%v", cbpacctentry.Cbpaccttrafficindex) + "']"
+    cbpacctentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbpacctentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbpacctentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) SetFilter(yf yfilter.YFilter) { cbpacctentry.YFilter = yf }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cbpAcctTrafficIndex" { return "Cbpaccttrafficindex" }
-    if yname == "cbpAcctInPacketCount" { return "Cbpacctinpacketcount" }
-    if yname == "cbpAcctInOctetCount" { return "Cbpacctinoctetcount" }
-    if yname == "cbpAcctOutPacketCount" { return "Cbpacctoutpacketcount" }
-    if yname == "cbpAcctOutOctetCount" { return "Cbpacctoutoctetcount" }
-    return ""
+    cbpacctentry.EntityData.Children = make(map[string]types.YChild)
+    cbpacctentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cbpacctentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cbpacctentry.Ifindex}
+    cbpacctentry.EntityData.Leafs["cbpAcctTrafficIndex"] = types.YLeaf{"Cbpaccttrafficindex", cbpacctentry.Cbpaccttrafficindex}
+    cbpacctentry.EntityData.Leafs["cbpAcctInPacketCount"] = types.YLeaf{"Cbpacctinpacketcount", cbpacctentry.Cbpacctinpacketcount}
+    cbpacctentry.EntityData.Leafs["cbpAcctInOctetCount"] = types.YLeaf{"Cbpacctinoctetcount", cbpacctentry.Cbpacctinoctetcount}
+    cbpacctentry.EntityData.Leafs["cbpAcctOutPacketCount"] = types.YLeaf{"Cbpacctoutpacketcount", cbpacctentry.Cbpacctoutpacketcount}
+    cbpacctentry.EntityData.Leafs["cbpAcctOutOctetCount"] = types.YLeaf{"Cbpacctoutoctetcount", cbpacctentry.Cbpacctoutoctetcount}
+    return &(cbpacctentry.EntityData)
 }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetSegmentPath() string {
-    return "cbpAcctEntry" + "[ifIndex='" + fmt.Sprintf("%v", cbpacctentry.Ifindex) + "']" + "[cbpAcctTrafficIndex='" + fmt.Sprintf("%v", cbpacctentry.Cbpaccttrafficindex) + "']"
-}
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cbpacctentry.Ifindex
-    leafs["cbpAcctTrafficIndex"] = cbpacctentry.Cbpaccttrafficindex
-    leafs["cbpAcctInPacketCount"] = cbpacctentry.Cbpacctinpacketcount
-    leafs["cbpAcctInOctetCount"] = cbpacctentry.Cbpacctinoctetcount
-    leafs["cbpAcctOutPacketCount"] = cbpacctentry.Cbpacctoutpacketcount
-    leafs["cbpAcctOutOctetCount"] = cbpacctentry.Cbpacctoutoctetcount
-    return leafs
-}
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetYangName() string { return "cbpAcctEntry" }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) SetParent(parent types.Entity) { cbpacctentry.parent = parent }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetParent() types.Entity { return cbpacctentry.parent }
-
-func (cbpacctentry *CISCOBGPPOLICYACCOUNTINGMIB_Cbpaccttable_Cbpacctentry) GetParentYangName() string { return "cbpAcctTable" }
 

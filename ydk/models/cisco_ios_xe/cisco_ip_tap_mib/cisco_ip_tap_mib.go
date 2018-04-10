@@ -30,7 +30,7 @@ func init() {
 
 // CISCOIPTAPMIB
 type CISCOIPTAPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -59,63 +59,26 @@ type CISCOIPTAPMIB struct {
     Citapstreamtable CISCOIPTAPMIB_Citapstreamtable
 }
 
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetFilter() yfilter.YFilter { return cISCOIPTAPMIB.YFilter }
+func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPTAPMIB.EntityData.YFilter = cISCOIPTAPMIB.YFilter
+    cISCOIPTAPMIB.EntityData.YangName = "CISCO-IP-TAP-MIB"
+    cISCOIPTAPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPTAPMIB.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
+    cISCOIPTAPMIB.EntityData.SegmentPath = "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB"
+    cISCOIPTAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPTAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPTAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) SetFilter(yf yfilter.YFilter) { cISCOIPTAPMIB.YFilter = yf }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetGoName(yname string) string {
-    if yname == "citapStreamEncodePacket" { return "Citapstreamencodepacket" }
-    if yname == "citapStreamTable" { return "Citapstreamtable" }
-    return ""
+    cISCOIPTAPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPTAPMIB.EntityData.Children["citapStreamEncodePacket"] = types.YChild{"Citapstreamencodepacket", &cISCOIPTAPMIB.Citapstreamencodepacket}
+    cISCOIPTAPMIB.EntityData.Children["citapStreamTable"] = types.YChild{"Citapstreamtable", &cISCOIPTAPMIB.Citapstreamtable}
+    cISCOIPTAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPTAPMIB.EntityData)
 }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetSegmentPath() string {
-    return "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB"
-}
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "citapStreamEncodePacket" {
-        return &cISCOIPTAPMIB.Citapstreamencodepacket
-    }
-    if childYangName == "citapStreamTable" {
-        return &cISCOIPTAPMIB.Citapstreamtable
-    }
-    return nil
-}
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["citapStreamEncodePacket"] = &cISCOIPTAPMIB.Citapstreamencodepacket
-    children["citapStreamTable"] = &cISCOIPTAPMIB.Citapstreamtable
-    return children
-}
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetYangName() string { return "CISCO-IP-TAP-MIB" }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) SetParent(parent types.Entity) { cISCOIPTAPMIB.parent = parent }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetParent() types.Entity { return cISCOIPTAPMIB.parent }
-
-func (cISCOIPTAPMIB *CISCOIPTAPMIB) GetParentYangName() string { return "CISCO-IP-TAP-MIB" }
 
 // CISCOIPTAPMIB_Citapstreamencodepacket
 type CISCOIPTAPMIB_Citapstreamencodepacket struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object displays what types of intercept streams can be configured on
@@ -138,51 +101,21 @@ type CISCOIPTAPMIB_Citapstreamencodepacket struct {
     Citapstreamcapabilities interface{}
 }
 
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetFilter() yfilter.YFilter { return citapstreamencodepacket.YFilter }
+func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetEntityData() *types.CommonEntityData {
+    citapstreamencodepacket.EntityData.YFilter = citapstreamencodepacket.YFilter
+    citapstreamencodepacket.EntityData.YangName = "citapStreamEncodePacket"
+    citapstreamencodepacket.EntityData.BundleName = "cisco_ios_xe"
+    citapstreamencodepacket.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
+    citapstreamencodepacket.EntityData.SegmentPath = "citapStreamEncodePacket"
+    citapstreamencodepacket.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    citapstreamencodepacket.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    citapstreamencodepacket.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) SetFilter(yf yfilter.YFilter) { citapstreamencodepacket.YFilter = yf }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetGoName(yname string) string {
-    if yname == "citapStreamCapabilities" { return "Citapstreamcapabilities" }
-    return ""
+    citapstreamencodepacket.EntityData.Children = make(map[string]types.YChild)
+    citapstreamencodepacket.EntityData.Leafs = make(map[string]types.YLeaf)
+    citapstreamencodepacket.EntityData.Leafs["citapStreamCapabilities"] = types.YLeaf{"Citapstreamcapabilities", citapstreamencodepacket.Citapstreamcapabilities}
+    return &(citapstreamencodepacket.EntityData)
 }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetSegmentPath() string {
-    return "citapStreamEncodePacket"
-}
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["citapStreamCapabilities"] = citapstreamencodepacket.Citapstreamcapabilities
-    return leafs
-}
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetBundleName() string { return "cisco_ios_xe" }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetYangName() string { return "citapStreamEncodePacket" }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) SetParent(parent types.Entity) { citapstreamencodepacket.parent = parent }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetParent() types.Entity { return citapstreamencodepacket.parent }
-
-func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetParentYangName() string { return "CISCO-IP-TAP-MIB" }
 
 // CISCOIPTAPMIB_Citapstreamtable
 // The Intercept Stream IP Table lists the IPv4 and IPv6 streams
@@ -217,7 +150,7 @@ func (citapstreamencodepacket *CISCOIPTAPMIB_Citapstreamencodepacket) GetParentY
 // Entries are added to this table via citapStreamStatus in 
 // accordance with the RowStatus convention.
 type CISCOIPTAPMIB_Citapstreamtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A stream entry indicates a single data stream to be intercepted to a
@@ -227,63 +160,24 @@ type CISCOIPTAPMIB_Citapstreamtable struct {
     Citapstreamentry []CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry
 }
 
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetFilter() yfilter.YFilter { return citapstreamtable.YFilter }
+func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetEntityData() *types.CommonEntityData {
+    citapstreamtable.EntityData.YFilter = citapstreamtable.YFilter
+    citapstreamtable.EntityData.YangName = "citapStreamTable"
+    citapstreamtable.EntityData.BundleName = "cisco_ios_xe"
+    citapstreamtable.EntityData.ParentYangName = "CISCO-IP-TAP-MIB"
+    citapstreamtable.EntityData.SegmentPath = "citapStreamTable"
+    citapstreamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    citapstreamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    citapstreamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) SetFilter(yf yfilter.YFilter) { citapstreamtable.YFilter = yf }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetGoName(yname string) string {
-    if yname == "citapStreamEntry" { return "Citapstreamentry" }
-    return ""
-}
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetSegmentPath() string {
-    return "citapStreamTable"
-}
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "citapStreamEntry" {
-        for _, c := range citapstreamtable.Citapstreamentry {
-            if citapstreamtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry{}
-        citapstreamtable.Citapstreamentry = append(citapstreamtable.Citapstreamentry, child)
-        return &citapstreamtable.Citapstreamentry[len(citapstreamtable.Citapstreamentry)-1]
-    }
-    return nil
-}
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    citapstreamtable.EntityData.Children = make(map[string]types.YChild)
+    citapstreamtable.EntityData.Children["citapStreamEntry"] = types.YChild{"Citapstreamentry", nil}
     for i := range citapstreamtable.Citapstreamentry {
-        children[citapstreamtable.Citapstreamentry[i].GetSegmentPath()] = &citapstreamtable.Citapstreamentry[i]
+        citapstreamtable.EntityData.Children[types.GetSegmentPath(&citapstreamtable.Citapstreamentry[i])] = types.YChild{"Citapstreamentry", &citapstreamtable.Citapstreamentry[i]}
     }
-    return children
+    citapstreamtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(citapstreamtable.EntityData)
 }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetYangName() string { return "citapStreamTable" }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) SetParent(parent types.Entity) { citapstreamtable.parent = parent }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetParent() types.Entity { return citapstreamtable.parent }
-
-func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetParentYangName() string { return "CISCO-IP-TAP-MIB" }
 
 // CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry
 // A stream entry indicates a single data stream to be
@@ -291,7 +185,7 @@ func (citapstreamtable *CISCOIPTAPMIB_Citapstreamtable) GetParentYangName() stri
 // streams may go to the same application interface, and many
 // application interfaces are supported.
 type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -426,83 +320,36 @@ type CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry struct {
     Citapstreamstatus interface{}
 }
 
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetFilter() yfilter.YFilter { return citapstreamentry.YFilter }
+func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetEntityData() *types.CommonEntityData {
+    citapstreamentry.EntityData.YFilter = citapstreamentry.YFilter
+    citapstreamentry.EntityData.YangName = "citapStreamEntry"
+    citapstreamentry.EntityData.BundleName = "cisco_ios_xe"
+    citapstreamentry.EntityData.ParentYangName = "citapStreamTable"
+    citapstreamentry.EntityData.SegmentPath = "citapStreamEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", citapstreamentry.Ctap2Mediationcontentid) + "']" + "[cTap2StreamIndex='" + fmt.Sprintf("%v", citapstreamentry.Ctap2Streamindex) + "']"
+    citapstreamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    citapstreamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    citapstreamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) SetFilter(yf yfilter.YFilter) { citapstreamentry.YFilter = yf }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetGoName(yname string) string {
-    if yname == "cTap2MediationContentId" { return "Ctap2Mediationcontentid" }
-    if yname == "cTap2StreamIndex" { return "Ctap2Streamindex" }
-    if yname == "citapStreamInterface" { return "Citapstreaminterface" }
-    if yname == "citapStreamAddrType" { return "Citapstreamaddrtype" }
-    if yname == "citapStreamDestinationAddress" { return "Citapstreamdestinationaddress" }
-    if yname == "citapStreamDestinationLength" { return "Citapstreamdestinationlength" }
-    if yname == "citapStreamSourceAddress" { return "Citapstreamsourceaddress" }
-    if yname == "citapStreamSourceLength" { return "Citapstreamsourcelength" }
-    if yname == "citapStreamTosByte" { return "Citapstreamtosbyte" }
-    if yname == "citapStreamTosByteMask" { return "Citapstreamtosbytemask" }
-    if yname == "citapStreamFlowId" { return "Citapstreamflowid" }
-    if yname == "citapStreamProtocol" { return "Citapstreamprotocol" }
-    if yname == "citapStreamDestL4PortMin" { return "Citapstreamdestl4Portmin" }
-    if yname == "citapStreamDestL4PortMax" { return "Citapstreamdestl4Portmax" }
-    if yname == "citapStreamSourceL4PortMin" { return "Citapstreamsourcel4Portmin" }
-    if yname == "citapStreamSourceL4PortMax" { return "Citapstreamsourcel4Portmax" }
-    if yname == "citapStreamVRF" { return "Citapstreamvrf" }
-    if yname == "citapStreamStatus" { return "Citapstreamstatus" }
-    return ""
+    citapstreamentry.EntityData.Children = make(map[string]types.YChild)
+    citapstreamentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    citapstreamentry.EntityData.Leafs["cTap2MediationContentId"] = types.YLeaf{"Ctap2Mediationcontentid", citapstreamentry.Ctap2Mediationcontentid}
+    citapstreamentry.EntityData.Leafs["cTap2StreamIndex"] = types.YLeaf{"Ctap2Streamindex", citapstreamentry.Ctap2Streamindex}
+    citapstreamentry.EntityData.Leafs["citapStreamInterface"] = types.YLeaf{"Citapstreaminterface", citapstreamentry.Citapstreaminterface}
+    citapstreamentry.EntityData.Leafs["citapStreamAddrType"] = types.YLeaf{"Citapstreamaddrtype", citapstreamentry.Citapstreamaddrtype}
+    citapstreamentry.EntityData.Leafs["citapStreamDestinationAddress"] = types.YLeaf{"Citapstreamdestinationaddress", citapstreamentry.Citapstreamdestinationaddress}
+    citapstreamentry.EntityData.Leafs["citapStreamDestinationLength"] = types.YLeaf{"Citapstreamdestinationlength", citapstreamentry.Citapstreamdestinationlength}
+    citapstreamentry.EntityData.Leafs["citapStreamSourceAddress"] = types.YLeaf{"Citapstreamsourceaddress", citapstreamentry.Citapstreamsourceaddress}
+    citapstreamentry.EntityData.Leafs["citapStreamSourceLength"] = types.YLeaf{"Citapstreamsourcelength", citapstreamentry.Citapstreamsourcelength}
+    citapstreamentry.EntityData.Leafs["citapStreamTosByte"] = types.YLeaf{"Citapstreamtosbyte", citapstreamentry.Citapstreamtosbyte}
+    citapstreamentry.EntityData.Leafs["citapStreamTosByteMask"] = types.YLeaf{"Citapstreamtosbytemask", citapstreamentry.Citapstreamtosbytemask}
+    citapstreamentry.EntityData.Leafs["citapStreamFlowId"] = types.YLeaf{"Citapstreamflowid", citapstreamentry.Citapstreamflowid}
+    citapstreamentry.EntityData.Leafs["citapStreamProtocol"] = types.YLeaf{"Citapstreamprotocol", citapstreamentry.Citapstreamprotocol}
+    citapstreamentry.EntityData.Leafs["citapStreamDestL4PortMin"] = types.YLeaf{"Citapstreamdestl4Portmin", citapstreamentry.Citapstreamdestl4Portmin}
+    citapstreamentry.EntityData.Leafs["citapStreamDestL4PortMax"] = types.YLeaf{"Citapstreamdestl4Portmax", citapstreamentry.Citapstreamdestl4Portmax}
+    citapstreamentry.EntityData.Leafs["citapStreamSourceL4PortMin"] = types.YLeaf{"Citapstreamsourcel4Portmin", citapstreamentry.Citapstreamsourcel4Portmin}
+    citapstreamentry.EntityData.Leafs["citapStreamSourceL4PortMax"] = types.YLeaf{"Citapstreamsourcel4Portmax", citapstreamentry.Citapstreamsourcel4Portmax}
+    citapstreamentry.EntityData.Leafs["citapStreamVRF"] = types.YLeaf{"Citapstreamvrf", citapstreamentry.Citapstreamvrf}
+    citapstreamentry.EntityData.Leafs["citapStreamStatus"] = types.YLeaf{"Citapstreamstatus", citapstreamentry.Citapstreamstatus}
+    return &(citapstreamentry.EntityData)
 }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetSegmentPath() string {
-    return "citapStreamEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", citapstreamentry.Ctap2Mediationcontentid) + "']" + "[cTap2StreamIndex='" + fmt.Sprintf("%v", citapstreamentry.Ctap2Streamindex) + "']"
-}
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2MediationContentId"] = citapstreamentry.Ctap2Mediationcontentid
-    leafs["cTap2StreamIndex"] = citapstreamentry.Ctap2Streamindex
-    leafs["citapStreamInterface"] = citapstreamentry.Citapstreaminterface
-    leafs["citapStreamAddrType"] = citapstreamentry.Citapstreamaddrtype
-    leafs["citapStreamDestinationAddress"] = citapstreamentry.Citapstreamdestinationaddress
-    leafs["citapStreamDestinationLength"] = citapstreamentry.Citapstreamdestinationlength
-    leafs["citapStreamSourceAddress"] = citapstreamentry.Citapstreamsourceaddress
-    leafs["citapStreamSourceLength"] = citapstreamentry.Citapstreamsourcelength
-    leafs["citapStreamTosByte"] = citapstreamentry.Citapstreamtosbyte
-    leafs["citapStreamTosByteMask"] = citapstreamentry.Citapstreamtosbytemask
-    leafs["citapStreamFlowId"] = citapstreamentry.Citapstreamflowid
-    leafs["citapStreamProtocol"] = citapstreamentry.Citapstreamprotocol
-    leafs["citapStreamDestL4PortMin"] = citapstreamentry.Citapstreamdestl4Portmin
-    leafs["citapStreamDestL4PortMax"] = citapstreamentry.Citapstreamdestl4Portmax
-    leafs["citapStreamSourceL4PortMin"] = citapstreamentry.Citapstreamsourcel4Portmin
-    leafs["citapStreamSourceL4PortMax"] = citapstreamentry.Citapstreamsourcel4Portmax
-    leafs["citapStreamVRF"] = citapstreamentry.Citapstreamvrf
-    leafs["citapStreamStatus"] = citapstreamentry.Citapstreamstatus
-    return leafs
-}
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetYangName() string { return "citapStreamEntry" }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) SetParent(parent types.Entity) { citapstreamentry.parent = parent }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetParent() types.Entity { return citapstreamentry.parent }
-
-func (citapstreamentry *CISCOIPTAPMIB_Citapstreamtable_Citapstreamentry) GetParentYangName() string { return "citapStreamTable" }
 

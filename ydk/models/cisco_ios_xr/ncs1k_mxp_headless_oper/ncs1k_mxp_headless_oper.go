@@ -45,7 +45,7 @@ const (
 // HeadlessFuncData
 // Information related to headless functionality
 type HeadlessFuncData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OTN Statistics collected during last headless operation.
@@ -55,137 +55,61 @@ type HeadlessFuncData struct {
     EthernetPortNames HeadlessFuncData_EthernetPortNames
 }
 
-func (headlessFuncData *HeadlessFuncData) GetFilter() yfilter.YFilter { return headlessFuncData.YFilter }
+func (headlessFuncData *HeadlessFuncData) GetEntityData() *types.CommonEntityData {
+    headlessFuncData.EntityData.YFilter = headlessFuncData.YFilter
+    headlessFuncData.EntityData.YangName = "headless-func-data"
+    headlessFuncData.EntityData.BundleName = "cisco_ios_xr"
+    headlessFuncData.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1k-mxp-headless-oper"
+    headlessFuncData.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data"
+    headlessFuncData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    headlessFuncData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    headlessFuncData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (headlessFuncData *HeadlessFuncData) SetFilter(yf yfilter.YFilter) { headlessFuncData.YFilter = yf }
-
-func (headlessFuncData *HeadlessFuncData) GetGoName(yname string) string {
-    if yname == "otn-port-names" { return "OtnPortNames" }
-    if yname == "ethernet-port-names" { return "EthernetPortNames" }
-    return ""
+    headlessFuncData.EntityData.Children = make(map[string]types.YChild)
+    headlessFuncData.EntityData.Children["otn-port-names"] = types.YChild{"OtnPortNames", &headlessFuncData.OtnPortNames}
+    headlessFuncData.EntityData.Children["ethernet-port-names"] = types.YChild{"EthernetPortNames", &headlessFuncData.EthernetPortNames}
+    headlessFuncData.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(headlessFuncData.EntityData)
 }
-
-func (headlessFuncData *HeadlessFuncData) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data"
-}
-
-func (headlessFuncData *HeadlessFuncData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "otn-port-names" {
-        return &headlessFuncData.OtnPortNames
-    }
-    if childYangName == "ethernet-port-names" {
-        return &headlessFuncData.EthernetPortNames
-    }
-    return nil
-}
-
-func (headlessFuncData *HeadlessFuncData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["otn-port-names"] = &headlessFuncData.OtnPortNames
-    children["ethernet-port-names"] = &headlessFuncData.EthernetPortNames
-    return children
-}
-
-func (headlessFuncData *HeadlessFuncData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (headlessFuncData *HeadlessFuncData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (headlessFuncData *HeadlessFuncData) GetYangName() string { return "headless-func-data" }
-
-func (headlessFuncData *HeadlessFuncData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (headlessFuncData *HeadlessFuncData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (headlessFuncData *HeadlessFuncData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (headlessFuncData *HeadlessFuncData) SetParent(parent types.Entity) { headlessFuncData.parent = parent }
-
-func (headlessFuncData *HeadlessFuncData) GetParent() types.Entity { return headlessFuncData.parent }
-
-func (headlessFuncData *HeadlessFuncData) GetParentYangName() string { return "Cisco-IOS-XR-ncs1k-mxp-headless-oper" }
 
 // HeadlessFuncData_OtnPortNames
 // OTN Statistics collected during last headless
 // operation
 type HeadlessFuncData_OtnPortNames struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // port Name. The type is slice of HeadlessFuncData_OtnPortNames_OtnPortName.
     OtnPortName []HeadlessFuncData_OtnPortNames_OtnPortName
 }
 
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetFilter() yfilter.YFilter { return otnPortNames.YFilter }
+func (otnPortNames *HeadlessFuncData_OtnPortNames) GetEntityData() *types.CommonEntityData {
+    otnPortNames.EntityData.YFilter = otnPortNames.YFilter
+    otnPortNames.EntityData.YangName = "otn-port-names"
+    otnPortNames.EntityData.BundleName = "cisco_ios_xr"
+    otnPortNames.EntityData.ParentYangName = "headless-func-data"
+    otnPortNames.EntityData.SegmentPath = "otn-port-names"
+    otnPortNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otnPortNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otnPortNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otnPortNames *HeadlessFuncData_OtnPortNames) SetFilter(yf yfilter.YFilter) { otnPortNames.YFilter = yf }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetGoName(yname string) string {
-    if yname == "otn-port-name" { return "OtnPortName" }
-    return ""
-}
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetSegmentPath() string {
-    return "otn-port-names"
-}
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "otn-port-name" {
-        for _, c := range otnPortNames.OtnPortName {
-            if otnPortNames.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HeadlessFuncData_OtnPortNames_OtnPortName{}
-        otnPortNames.OtnPortName = append(otnPortNames.OtnPortName, child)
-        return &otnPortNames.OtnPortName[len(otnPortNames.OtnPortName)-1]
-    }
-    return nil
-}
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    otnPortNames.EntityData.Children = make(map[string]types.YChild)
+    otnPortNames.EntityData.Children["otn-port-name"] = types.YChild{"OtnPortName", nil}
     for i := range otnPortNames.OtnPortName {
-        children[otnPortNames.OtnPortName[i].GetSegmentPath()] = &otnPortNames.OtnPortName[i]
+        otnPortNames.EntityData.Children[types.GetSegmentPath(&otnPortNames.OtnPortName[i])] = types.YChild{"OtnPortName", &otnPortNames.OtnPortName[i]}
     }
-    return children
+    otnPortNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(otnPortNames.EntityData)
 }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetYangName() string { return "otn-port-names" }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) SetParent(parent types.Entity) { otnPortNames.parent = parent }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetParent() types.Entity { return otnPortNames.parent }
-
-func (otnPortNames *HeadlessFuncData_OtnPortNames) GetParentYangName() string { return "headless-func-data" }
 
 // HeadlessFuncData_OtnPortNames_OtnPortName
 // port Name
 type HeadlessFuncData_OtnPortNames_OtnPortName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     Name interface{}
 
     // Started Stateful. The type is bool.
@@ -204,72 +128,31 @@ type HeadlessFuncData_OtnPortNames_OtnPortName struct {
     PrbsStatistics HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics
 }
 
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetFilter() yfilter.YFilter { return otnPortName.YFilter }
+func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetEntityData() *types.CommonEntityData {
+    otnPortName.EntityData.YFilter = otnPortName.YFilter
+    otnPortName.EntityData.YangName = "otn-port-name"
+    otnPortName.EntityData.BundleName = "cisco_ios_xr"
+    otnPortName.EntityData.ParentYangName = "otn-port-names"
+    otnPortName.EntityData.SegmentPath = "otn-port-name" + "[name='" + fmt.Sprintf("%v", otnPortName.Name) + "']"
+    otnPortName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otnPortName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otnPortName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) SetFilter(yf yfilter.YFilter) { otnPortName.YFilter = yf }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "started-stateful" { return "StartedStateful" }
-    if yname == "headless-start-time" { return "HeadlessStartTime" }
-    if yname == "headless-end-time" { return "HeadlessEndTime" }
-    if yname == "otn-statistics" { return "OtnStatistics" }
-    if yname == "prbs-statistics" { return "PrbsStatistics" }
-    return ""
+    otnPortName.EntityData.Children = make(map[string]types.YChild)
+    otnPortName.EntityData.Children["otn-statistics"] = types.YChild{"OtnStatistics", &otnPortName.OtnStatistics}
+    otnPortName.EntityData.Children["prbs-statistics"] = types.YChild{"PrbsStatistics", &otnPortName.PrbsStatistics}
+    otnPortName.EntityData.Leafs = make(map[string]types.YLeaf)
+    otnPortName.EntityData.Leafs["name"] = types.YLeaf{"Name", otnPortName.Name}
+    otnPortName.EntityData.Leafs["started-stateful"] = types.YLeaf{"StartedStateful", otnPortName.StartedStateful}
+    otnPortName.EntityData.Leafs["headless-start-time"] = types.YLeaf{"HeadlessStartTime", otnPortName.HeadlessStartTime}
+    otnPortName.EntityData.Leafs["headless-end-time"] = types.YLeaf{"HeadlessEndTime", otnPortName.HeadlessEndTime}
+    return &(otnPortName.EntityData)
 }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetSegmentPath() string {
-    return "otn-port-name" + "[name='" + fmt.Sprintf("%v", otnPortName.Name) + "']"
-}
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "otn-statistics" {
-        return &otnPortName.OtnStatistics
-    }
-    if childYangName == "prbs-statistics" {
-        return &otnPortName.PrbsStatistics
-    }
-    return nil
-}
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["otn-statistics"] = &otnPortName.OtnStatistics
-    children["prbs-statistics"] = &otnPortName.PrbsStatistics
-    return children
-}
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = otnPortName.Name
-    leafs["started-stateful"] = otnPortName.StartedStateful
-    leafs["headless-start-time"] = otnPortName.HeadlessStartTime
-    leafs["headless-end-time"] = otnPortName.HeadlessEndTime
-    return leafs
-}
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetYangName() string { return "otn-port-name" }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) SetParent(parent types.Entity) { otnPortName.parent = parent }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetParent() types.Entity { return otnPortName.parent }
-
-func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetParentYangName() string { return "otn-port-names" }
 
 // HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics
 // OTN statistics
 type HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // SmBip. The type is interface{} with range: 0..18446744073709551615.
@@ -285,62 +168,29 @@ type HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics struct {
     FecUc interface{}
 }
 
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetFilter() yfilter.YFilter { return otnStatistics.YFilter }
+func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetEntityData() *types.CommonEntityData {
+    otnStatistics.EntityData.YFilter = otnStatistics.YFilter
+    otnStatistics.EntityData.YangName = "otn-statistics"
+    otnStatistics.EntityData.BundleName = "cisco_ios_xr"
+    otnStatistics.EntityData.ParentYangName = "otn-port-name"
+    otnStatistics.EntityData.SegmentPath = "otn-statistics"
+    otnStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otnStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otnStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) SetFilter(yf yfilter.YFilter) { otnStatistics.YFilter = yf }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetGoName(yname string) string {
-    if yname == "sm-bip" { return "SmBip" }
-    if yname == "sm-bei" { return "SmBei" }
-    if yname == "fec-ec" { return "FecEc" }
-    if yname == "fec-uc" { return "FecUc" }
-    return ""
+    otnStatistics.EntityData.Children = make(map[string]types.YChild)
+    otnStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    otnStatistics.EntityData.Leafs["sm-bip"] = types.YLeaf{"SmBip", otnStatistics.SmBip}
+    otnStatistics.EntityData.Leafs["sm-bei"] = types.YLeaf{"SmBei", otnStatistics.SmBei}
+    otnStatistics.EntityData.Leafs["fec-ec"] = types.YLeaf{"FecEc", otnStatistics.FecEc}
+    otnStatistics.EntityData.Leafs["fec-uc"] = types.YLeaf{"FecUc", otnStatistics.FecUc}
+    return &(otnStatistics.EntityData)
 }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetSegmentPath() string {
-    return "otn-statistics"
-}
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sm-bip"] = otnStatistics.SmBip
-    leafs["sm-bei"] = otnStatistics.SmBei
-    leafs["fec-ec"] = otnStatistics.FecEc
-    leafs["fec-uc"] = otnStatistics.FecUc
-    return leafs
-}
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetYangName() string { return "otn-statistics" }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) SetParent(parent types.Entity) { otnStatistics.parent = parent }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetParent() types.Entity { return otnStatistics.parent }
-
-func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) GetParentYangName() string { return "otn-port-name" }
 
 // HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics
 // PRBS Statistics
 type HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // EBC. The type is interface{} with range: 0..18446744073709551615.
@@ -350,59 +200,28 @@ type HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics struct {
     SyncStatus interface{}
 }
 
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetFilter() yfilter.YFilter { return prbsStatistics.YFilter }
+func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetEntityData() *types.CommonEntityData {
+    prbsStatistics.EntityData.YFilter = prbsStatistics.YFilter
+    prbsStatistics.EntityData.YangName = "prbs-statistics"
+    prbsStatistics.EntityData.BundleName = "cisco_ios_xr"
+    prbsStatistics.EntityData.ParentYangName = "otn-port-name"
+    prbsStatistics.EntityData.SegmentPath = "prbs-statistics"
+    prbsStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prbsStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prbsStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) SetFilter(yf yfilter.YFilter) { prbsStatistics.YFilter = yf }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetGoName(yname string) string {
-    if yname == "ebc" { return "Ebc" }
-    if yname == "sync-status" { return "SyncStatus" }
-    return ""
+    prbsStatistics.EntityData.Children = make(map[string]types.YChild)
+    prbsStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    prbsStatistics.EntityData.Leafs["ebc"] = types.YLeaf{"Ebc", prbsStatistics.Ebc}
+    prbsStatistics.EntityData.Leafs["sync-status"] = types.YLeaf{"SyncStatus", prbsStatistics.SyncStatus}
+    return &(prbsStatistics.EntityData)
 }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetSegmentPath() string {
-    return "prbs-statistics"
-}
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ebc"] = prbsStatistics.Ebc
-    leafs["sync-status"] = prbsStatistics.SyncStatus
-    return leafs
-}
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetYangName() string { return "prbs-statistics" }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) SetParent(parent types.Entity) { prbsStatistics.parent = parent }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetParent() types.Entity { return prbsStatistics.parent }
-
-func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) GetParentYangName() string { return "otn-port-name" }
 
 // HeadlessFuncData_EthernetPortNames
 // Ethernet Statistics collected during last
 // headless operation
 type HeadlessFuncData_EthernetPortNames struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Port Name. The type is slice of
@@ -410,72 +229,33 @@ type HeadlessFuncData_EthernetPortNames struct {
     EthernetPortName []HeadlessFuncData_EthernetPortNames_EthernetPortName
 }
 
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetFilter() yfilter.YFilter { return ethernetPortNames.YFilter }
+func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetEntityData() *types.CommonEntityData {
+    ethernetPortNames.EntityData.YFilter = ethernetPortNames.YFilter
+    ethernetPortNames.EntityData.YangName = "ethernet-port-names"
+    ethernetPortNames.EntityData.BundleName = "cisco_ios_xr"
+    ethernetPortNames.EntityData.ParentYangName = "headless-func-data"
+    ethernetPortNames.EntityData.SegmentPath = "ethernet-port-names"
+    ethernetPortNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ethernetPortNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ethernetPortNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) SetFilter(yf yfilter.YFilter) { ethernetPortNames.YFilter = yf }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetGoName(yname string) string {
-    if yname == "ethernet-port-name" { return "EthernetPortName" }
-    return ""
-}
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetSegmentPath() string {
-    return "ethernet-port-names"
-}
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ethernet-port-name" {
-        for _, c := range ethernetPortNames.EthernetPortName {
-            if ethernetPortNames.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HeadlessFuncData_EthernetPortNames_EthernetPortName{}
-        ethernetPortNames.EthernetPortName = append(ethernetPortNames.EthernetPortName, child)
-        return &ethernetPortNames.EthernetPortName[len(ethernetPortNames.EthernetPortName)-1]
-    }
-    return nil
-}
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ethernetPortNames.EntityData.Children = make(map[string]types.YChild)
+    ethernetPortNames.EntityData.Children["ethernet-port-name"] = types.YChild{"EthernetPortName", nil}
     for i := range ethernetPortNames.EthernetPortName {
-        children[ethernetPortNames.EthernetPortName[i].GetSegmentPath()] = &ethernetPortNames.EthernetPortName[i]
+        ethernetPortNames.EntityData.Children[types.GetSegmentPath(&ethernetPortNames.EthernetPortName[i])] = types.YChild{"EthernetPortName", &ethernetPortNames.EthernetPortName[i]}
     }
-    return children
+    ethernetPortNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ethernetPortNames.EntityData)
 }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetYangName() string { return "ethernet-port-names" }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) SetParent(parent types.Entity) { ethernetPortNames.parent = parent }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetParent() types.Entity { return ethernetPortNames.parent }
-
-func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetParentYangName() string { return "headless-func-data" }
 
 // HeadlessFuncData_EthernetPortNames_EthernetPortName
 // Port Name
 type HeadlessFuncData_EthernetPortNames_EthernetPortName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     Name interface{}
 
     // Started Stateful. The type is bool.
@@ -491,67 +271,30 @@ type HeadlessFuncData_EthernetPortNames_EthernetPortName struct {
     EtherStatistics HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics
 }
 
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetFilter() yfilter.YFilter { return ethernetPortName.YFilter }
+func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetEntityData() *types.CommonEntityData {
+    ethernetPortName.EntityData.YFilter = ethernetPortName.YFilter
+    ethernetPortName.EntityData.YangName = "ethernet-port-name"
+    ethernetPortName.EntityData.BundleName = "cisco_ios_xr"
+    ethernetPortName.EntityData.ParentYangName = "ethernet-port-names"
+    ethernetPortName.EntityData.SegmentPath = "ethernet-port-name" + "[name='" + fmt.Sprintf("%v", ethernetPortName.Name) + "']"
+    ethernetPortName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ethernetPortName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ethernetPortName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) SetFilter(yf yfilter.YFilter) { ethernetPortName.YFilter = yf }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "started-stateful" { return "StartedStateful" }
-    if yname == "headless-start-time" { return "HeadlessStartTime" }
-    if yname == "headless-end-time" { return "HeadlessEndTime" }
-    if yname == "ether-statistics" { return "EtherStatistics" }
-    return ""
+    ethernetPortName.EntityData.Children = make(map[string]types.YChild)
+    ethernetPortName.EntityData.Children["ether-statistics"] = types.YChild{"EtherStatistics", &ethernetPortName.EtherStatistics}
+    ethernetPortName.EntityData.Leafs = make(map[string]types.YLeaf)
+    ethernetPortName.EntityData.Leafs["name"] = types.YLeaf{"Name", ethernetPortName.Name}
+    ethernetPortName.EntityData.Leafs["started-stateful"] = types.YLeaf{"StartedStateful", ethernetPortName.StartedStateful}
+    ethernetPortName.EntityData.Leafs["headless-start-time"] = types.YLeaf{"HeadlessStartTime", ethernetPortName.HeadlessStartTime}
+    ethernetPortName.EntityData.Leafs["headless-end-time"] = types.YLeaf{"HeadlessEndTime", ethernetPortName.HeadlessEndTime}
+    return &(ethernetPortName.EntityData)
 }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetSegmentPath() string {
-    return "ethernet-port-name" + "[name='" + fmt.Sprintf("%v", ethernetPortName.Name) + "']"
-}
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ether-statistics" {
-        return &ethernetPortName.EtherStatistics
-    }
-    return nil
-}
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ether-statistics"] = &ethernetPortName.EtherStatistics
-    return children
-}
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = ethernetPortName.Name
-    leafs["started-stateful"] = ethernetPortName.StartedStateful
-    leafs["headless-start-time"] = ethernetPortName.HeadlessStartTime
-    leafs["headless-end-time"] = ethernetPortName.HeadlessEndTime
-    return leafs
-}
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetYangName() string { return "ethernet-port-name" }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) SetParent(parent types.Entity) { ethernetPortName.parent = parent }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetParent() types.Entity { return ethernetPortName.parent }
-
-func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) GetParentYangName() string { return "ethernet-port-names" }
 
 // HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics
 // Ether Statistics
 type HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RxPktsOverSized. The type is interface{} with range:
@@ -664,111 +407,50 @@ type HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics struct 
     Rx8021QPkt interface{}
 }
 
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetFilter() yfilter.YFilter { return etherStatistics.YFilter }
+func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetEntityData() *types.CommonEntityData {
+    etherStatistics.EntityData.YFilter = etherStatistics.YFilter
+    etherStatistics.EntityData.YangName = "ether-statistics"
+    etherStatistics.EntityData.BundleName = "cisco_ios_xr"
+    etherStatistics.EntityData.ParentYangName = "ethernet-port-name"
+    etherStatistics.EntityData.SegmentPath = "ether-statistics"
+    etherStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    etherStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    etherStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) SetFilter(yf yfilter.YFilter) { etherStatistics.YFilter = yf }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetGoName(yname string) string {
-    if yname == "rx-pkts-over-sized" { return "RxPktsOverSized" }
-    if yname == "rx-pkts-bad-fcs" { return "RxPktsBadFcs" }
-    if yname == "rx-error-jabbers" { return "RxErrorJabbers" }
-    if yname == "rx-pkts-multicast" { return "RxPktsMulticast" }
-    if yname == "rx-pkts-broadcast" { return "RxPktsBroadcast" }
-    if yname == "rx-pkts-under-sized" { return "RxPktsUnderSized" }
-    if yname == "rx-packets" { return "RxPackets" }
-    if yname == "rx-total-bytes" { return "RxTotalBytes" }
-    if yname == "rx-bytes-good" { return "RxBytesGood" }
-    if yname == "rx-pkts-good" { return "RxPktsGood" }
-    if yname == "tx-bytes-good" { return "TxBytesGood" }
-    if yname == "tx-pkts-good" { return "TxPktsGood" }
-    if yname == "rx-recv-fragments" { return "RxRecvFragments" }
-    if yname == "rx-pkts64-bytes" { return "RxPkts64Bytes" }
-    if yname == "rx-pkts65-to127-bytes" { return "RxPkts65To127Bytes" }
-    if yname == "rx-pkts128to255-bytes" { return "RxPkts128To255Bytes" }
-    if yname == "rx-pkts256-to511-bytes" { return "RxPkts256To511Bytes" }
-    if yname == "rx-pkts512-to1023-bytes" { return "RxPkts512To1023Bytes" }
-    if yname == "rx-pkts1024-to1518-bytes" { return "RxPkts1024To1518Bytes" }
-    if yname == "rx-pkts-unicast" { return "RxPktsUnicast" }
-    if yname == "tx-packets" { return "TxPackets" }
-    if yname == "tx-total-bytes" { return "TxTotalBytes" }
-    if yname == "tx-pkts-under-sized" { return "TxPktsUnderSized" }
-    if yname == "tx-pkts-over-sized" { return "TxPktsOverSized" }
-    if yname == "tx-fragments" { return "TxFragments" }
-    if yname == "tx-jabber" { return "TxJabber" }
-    if yname == "tx-bad-fcs" { return "TxBadFcs" }
-    if yname == "rx-pkt-drop" { return "RxPktDrop" }
-    if yname == "rx-pause" { return "RxPause" }
-    if yname == "tx-pause" { return "TxPause" }
-    if yname == "rx-lldp-pkt" { return "RxLldpPkt" }
-    if yname == "rx8021q-pkt" { return "Rx8021QPkt" }
-    return ""
+    etherStatistics.EntityData.Children = make(map[string]types.YChild)
+    etherStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    etherStatistics.EntityData.Leafs["rx-pkts-over-sized"] = types.YLeaf{"RxPktsOverSized", etherStatistics.RxPktsOverSized}
+    etherStatistics.EntityData.Leafs["rx-pkts-bad-fcs"] = types.YLeaf{"RxPktsBadFcs", etherStatistics.RxPktsBadFcs}
+    etherStatistics.EntityData.Leafs["rx-error-jabbers"] = types.YLeaf{"RxErrorJabbers", etherStatistics.RxErrorJabbers}
+    etherStatistics.EntityData.Leafs["rx-pkts-multicast"] = types.YLeaf{"RxPktsMulticast", etherStatistics.RxPktsMulticast}
+    etherStatistics.EntityData.Leafs["rx-pkts-broadcast"] = types.YLeaf{"RxPktsBroadcast", etherStatistics.RxPktsBroadcast}
+    etherStatistics.EntityData.Leafs["rx-pkts-under-sized"] = types.YLeaf{"RxPktsUnderSized", etherStatistics.RxPktsUnderSized}
+    etherStatistics.EntityData.Leafs["rx-packets"] = types.YLeaf{"RxPackets", etherStatistics.RxPackets}
+    etherStatistics.EntityData.Leafs["rx-total-bytes"] = types.YLeaf{"RxTotalBytes", etherStatistics.RxTotalBytes}
+    etherStatistics.EntityData.Leafs["rx-bytes-good"] = types.YLeaf{"RxBytesGood", etherStatistics.RxBytesGood}
+    etherStatistics.EntityData.Leafs["rx-pkts-good"] = types.YLeaf{"RxPktsGood", etherStatistics.RxPktsGood}
+    etherStatistics.EntityData.Leafs["tx-bytes-good"] = types.YLeaf{"TxBytesGood", etherStatistics.TxBytesGood}
+    etherStatistics.EntityData.Leafs["tx-pkts-good"] = types.YLeaf{"TxPktsGood", etherStatistics.TxPktsGood}
+    etherStatistics.EntityData.Leafs["rx-recv-fragments"] = types.YLeaf{"RxRecvFragments", etherStatistics.RxRecvFragments}
+    etherStatistics.EntityData.Leafs["rx-pkts64-bytes"] = types.YLeaf{"RxPkts64Bytes", etherStatistics.RxPkts64Bytes}
+    etherStatistics.EntityData.Leafs["rx-pkts65-to127-bytes"] = types.YLeaf{"RxPkts65To127Bytes", etherStatistics.RxPkts65To127Bytes}
+    etherStatistics.EntityData.Leafs["rx-pkts128to255-bytes"] = types.YLeaf{"RxPkts128To255Bytes", etherStatistics.RxPkts128To255Bytes}
+    etherStatistics.EntityData.Leafs["rx-pkts256-to511-bytes"] = types.YLeaf{"RxPkts256To511Bytes", etherStatistics.RxPkts256To511Bytes}
+    etherStatistics.EntityData.Leafs["rx-pkts512-to1023-bytes"] = types.YLeaf{"RxPkts512To1023Bytes", etherStatistics.RxPkts512To1023Bytes}
+    etherStatistics.EntityData.Leafs["rx-pkts1024-to1518-bytes"] = types.YLeaf{"RxPkts1024To1518Bytes", etherStatistics.RxPkts1024To1518Bytes}
+    etherStatistics.EntityData.Leafs["rx-pkts-unicast"] = types.YLeaf{"RxPktsUnicast", etherStatistics.RxPktsUnicast}
+    etherStatistics.EntityData.Leafs["tx-packets"] = types.YLeaf{"TxPackets", etherStatistics.TxPackets}
+    etherStatistics.EntityData.Leafs["tx-total-bytes"] = types.YLeaf{"TxTotalBytes", etherStatistics.TxTotalBytes}
+    etherStatistics.EntityData.Leafs["tx-pkts-under-sized"] = types.YLeaf{"TxPktsUnderSized", etherStatistics.TxPktsUnderSized}
+    etherStatistics.EntityData.Leafs["tx-pkts-over-sized"] = types.YLeaf{"TxPktsOverSized", etherStatistics.TxPktsOverSized}
+    etherStatistics.EntityData.Leafs["tx-fragments"] = types.YLeaf{"TxFragments", etherStatistics.TxFragments}
+    etherStatistics.EntityData.Leafs["tx-jabber"] = types.YLeaf{"TxJabber", etherStatistics.TxJabber}
+    etherStatistics.EntityData.Leafs["tx-bad-fcs"] = types.YLeaf{"TxBadFcs", etherStatistics.TxBadFcs}
+    etherStatistics.EntityData.Leafs["rx-pkt-drop"] = types.YLeaf{"RxPktDrop", etherStatistics.RxPktDrop}
+    etherStatistics.EntityData.Leafs["rx-pause"] = types.YLeaf{"RxPause", etherStatistics.RxPause}
+    etherStatistics.EntityData.Leafs["tx-pause"] = types.YLeaf{"TxPause", etherStatistics.TxPause}
+    etherStatistics.EntityData.Leafs["rx-lldp-pkt"] = types.YLeaf{"RxLldpPkt", etherStatistics.RxLldpPkt}
+    etherStatistics.EntityData.Leafs["rx8021q-pkt"] = types.YLeaf{"Rx8021QPkt", etherStatistics.Rx8021QPkt}
+    return &(etherStatistics.EntityData)
 }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetSegmentPath() string {
-    return "ether-statistics"
-}
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rx-pkts-over-sized"] = etherStatistics.RxPktsOverSized
-    leafs["rx-pkts-bad-fcs"] = etherStatistics.RxPktsBadFcs
-    leafs["rx-error-jabbers"] = etherStatistics.RxErrorJabbers
-    leafs["rx-pkts-multicast"] = etherStatistics.RxPktsMulticast
-    leafs["rx-pkts-broadcast"] = etherStatistics.RxPktsBroadcast
-    leafs["rx-pkts-under-sized"] = etherStatistics.RxPktsUnderSized
-    leafs["rx-packets"] = etherStatistics.RxPackets
-    leafs["rx-total-bytes"] = etherStatistics.RxTotalBytes
-    leafs["rx-bytes-good"] = etherStatistics.RxBytesGood
-    leafs["rx-pkts-good"] = etherStatistics.RxPktsGood
-    leafs["tx-bytes-good"] = etherStatistics.TxBytesGood
-    leafs["tx-pkts-good"] = etherStatistics.TxPktsGood
-    leafs["rx-recv-fragments"] = etherStatistics.RxRecvFragments
-    leafs["rx-pkts64-bytes"] = etherStatistics.RxPkts64Bytes
-    leafs["rx-pkts65-to127-bytes"] = etherStatistics.RxPkts65To127Bytes
-    leafs["rx-pkts128to255-bytes"] = etherStatistics.RxPkts128To255Bytes
-    leafs["rx-pkts256-to511-bytes"] = etherStatistics.RxPkts256To511Bytes
-    leafs["rx-pkts512-to1023-bytes"] = etherStatistics.RxPkts512To1023Bytes
-    leafs["rx-pkts1024-to1518-bytes"] = etherStatistics.RxPkts1024To1518Bytes
-    leafs["rx-pkts-unicast"] = etherStatistics.RxPktsUnicast
-    leafs["tx-packets"] = etherStatistics.TxPackets
-    leafs["tx-total-bytes"] = etherStatistics.TxTotalBytes
-    leafs["tx-pkts-under-sized"] = etherStatistics.TxPktsUnderSized
-    leafs["tx-pkts-over-sized"] = etherStatistics.TxPktsOverSized
-    leafs["tx-fragments"] = etherStatistics.TxFragments
-    leafs["tx-jabber"] = etherStatistics.TxJabber
-    leafs["tx-bad-fcs"] = etherStatistics.TxBadFcs
-    leafs["rx-pkt-drop"] = etherStatistics.RxPktDrop
-    leafs["rx-pause"] = etherStatistics.RxPause
-    leafs["tx-pause"] = etherStatistics.TxPause
-    leafs["rx-lldp-pkt"] = etherStatistics.RxLldpPkt
-    leafs["rx8021q-pkt"] = etherStatistics.Rx8021QPkt
-    return leafs
-}
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetYangName() string { return "ether-statistics" }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) SetParent(parent types.Entity) { etherStatistics.parent = parent }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetParent() types.Entity { return etherStatistics.parent }
-
-func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_EtherStatistics) GetParentYangName() string { return "ethernet-port-name" }
 

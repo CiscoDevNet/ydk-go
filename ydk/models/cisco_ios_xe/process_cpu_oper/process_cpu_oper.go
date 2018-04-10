@@ -22,66 +22,33 @@ func init() {
 // CpuUsage
 // CPU Utilization data
 type CpuUsage struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Data nodes for Total CPU Utilization Statistics.
     CpuUtilization CpuUsage_CpuUtilization
 }
 
-func (cpuUsage *CpuUsage) GetFilter() yfilter.YFilter { return cpuUsage.YFilter }
+func (cpuUsage *CpuUsage) GetEntityData() *types.CommonEntityData {
+    cpuUsage.EntityData.YFilter = cpuUsage.YFilter
+    cpuUsage.EntityData.YangName = "cpu-usage"
+    cpuUsage.EntityData.BundleName = "cisco_ios_xe"
+    cpuUsage.EntityData.ParentYangName = "Cisco-IOS-XE-process-cpu-oper"
+    cpuUsage.EntityData.SegmentPath = "Cisco-IOS-XE-process-cpu-oper:cpu-usage"
+    cpuUsage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpuUsage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpuUsage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpuUsage *CpuUsage) SetFilter(yf yfilter.YFilter) { cpuUsage.YFilter = yf }
-
-func (cpuUsage *CpuUsage) GetGoName(yname string) string {
-    if yname == "cpu-utilization" { return "CpuUtilization" }
-    return ""
+    cpuUsage.EntityData.Children = make(map[string]types.YChild)
+    cpuUsage.EntityData.Children["cpu-utilization"] = types.YChild{"CpuUtilization", &cpuUsage.CpuUtilization}
+    cpuUsage.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cpuUsage.EntityData)
 }
-
-func (cpuUsage *CpuUsage) GetSegmentPath() string {
-    return "Cisco-IOS-XE-process-cpu-oper:cpu-usage"
-}
-
-func (cpuUsage *CpuUsage) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpu-utilization" {
-        return &cpuUsage.CpuUtilization
-    }
-    return nil
-}
-
-func (cpuUsage *CpuUsage) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cpu-utilization"] = &cpuUsage.CpuUtilization
-    return children
-}
-
-func (cpuUsage *CpuUsage) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cpuUsage *CpuUsage) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpuUsage *CpuUsage) GetYangName() string { return "cpu-usage" }
-
-func (cpuUsage *CpuUsage) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpuUsage *CpuUsage) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpuUsage *CpuUsage) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpuUsage *CpuUsage) SetParent(parent types.Entity) { cpuUsage.parent = parent }
-
-func (cpuUsage *CpuUsage) GetParent() types.Entity { return cpuUsage.parent }
-
-func (cpuUsage *CpuUsage) GetParentYangName() string { return "Cisco-IOS-XE-process-cpu-oper" }
 
 // CpuUsage_CpuUtilization
 // Data nodes for Total CPU Utilization Statistics.
 type CpuUsage_CpuUtilization struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Busy percentage in last 5-seconds. The type is interface{} with range:
@@ -104,67 +71,30 @@ type CpuUsage_CpuUtilization struct {
     CpuUsageProcesses CpuUsage_CpuUtilization_CpuUsageProcesses
 }
 
-func (cpuUtilization *CpuUsage_CpuUtilization) GetFilter() yfilter.YFilter { return cpuUtilization.YFilter }
+func (cpuUtilization *CpuUsage_CpuUtilization) GetEntityData() *types.CommonEntityData {
+    cpuUtilization.EntityData.YFilter = cpuUtilization.YFilter
+    cpuUtilization.EntityData.YangName = "cpu-utilization"
+    cpuUtilization.EntityData.BundleName = "cisco_ios_xe"
+    cpuUtilization.EntityData.ParentYangName = "cpu-usage"
+    cpuUtilization.EntityData.SegmentPath = "cpu-utilization"
+    cpuUtilization.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpuUtilization.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpuUtilization.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpuUtilization *CpuUsage_CpuUtilization) SetFilter(yf yfilter.YFilter) { cpuUtilization.YFilter = yf }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetGoName(yname string) string {
-    if yname == "five-seconds" { return "FiveSeconds" }
-    if yname == "five-seconds-intr" { return "FiveSecondsIntr" }
-    if yname == "one-minute" { return "OneMinute" }
-    if yname == "five-minutes" { return "FiveMinutes" }
-    if yname == "cpu-usage-processes" { return "CpuUsageProcesses" }
-    return ""
+    cpuUtilization.EntityData.Children = make(map[string]types.YChild)
+    cpuUtilization.EntityData.Children["cpu-usage-processes"] = types.YChild{"CpuUsageProcesses", &cpuUtilization.CpuUsageProcesses}
+    cpuUtilization.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuUtilization.EntityData.Leafs["five-seconds"] = types.YLeaf{"FiveSeconds", cpuUtilization.FiveSeconds}
+    cpuUtilization.EntityData.Leafs["five-seconds-intr"] = types.YLeaf{"FiveSecondsIntr", cpuUtilization.FiveSecondsIntr}
+    cpuUtilization.EntityData.Leafs["one-minute"] = types.YLeaf{"OneMinute", cpuUtilization.OneMinute}
+    cpuUtilization.EntityData.Leafs["five-minutes"] = types.YLeaf{"FiveMinutes", cpuUtilization.FiveMinutes}
+    return &(cpuUtilization.EntityData)
 }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetSegmentPath() string {
-    return "cpu-utilization"
-}
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpu-usage-processes" {
-        return &cpuUtilization.CpuUsageProcesses
-    }
-    return nil
-}
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cpu-usage-processes"] = &cpuUtilization.CpuUsageProcesses
-    return children
-}
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["five-seconds"] = cpuUtilization.FiveSeconds
-    leafs["five-seconds-intr"] = cpuUtilization.FiveSecondsIntr
-    leafs["one-minute"] = cpuUtilization.OneMinute
-    leafs["five-minutes"] = cpuUtilization.FiveMinutes
-    return leafs
-}
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetYangName() string { return "cpu-utilization" }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) SetParent(parent types.Entity) { cpuUtilization.parent = parent }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetParent() types.Entity { return cpuUtilization.parent }
-
-func (cpuUtilization *CpuUsage_CpuUtilization) GetParentYangName() string { return "cpu-usage" }
 
 // CpuUsage_CpuUtilization_CpuUsageProcesses
 // Data nodes for System wide Process CPU usage Statistics.
 type CpuUsage_CpuUtilization_CpuUsageProcesses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of software processes on the device. The type is slice of
@@ -172,68 +102,29 @@ type CpuUsage_CpuUtilization_CpuUsageProcesses struct {
     CpuUsageProcess []CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess
 }
 
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetFilter() yfilter.YFilter { return cpuUsageProcesses.YFilter }
+func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetEntityData() *types.CommonEntityData {
+    cpuUsageProcesses.EntityData.YFilter = cpuUsageProcesses.YFilter
+    cpuUsageProcesses.EntityData.YangName = "cpu-usage-processes"
+    cpuUsageProcesses.EntityData.BundleName = "cisco_ios_xe"
+    cpuUsageProcesses.EntityData.ParentYangName = "cpu-utilization"
+    cpuUsageProcesses.EntityData.SegmentPath = "cpu-usage-processes"
+    cpuUsageProcesses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpuUsageProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpuUsageProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) SetFilter(yf yfilter.YFilter) { cpuUsageProcesses.YFilter = yf }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetGoName(yname string) string {
-    if yname == "cpu-usage-process" { return "CpuUsageProcess" }
-    return ""
-}
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetSegmentPath() string {
-    return "cpu-usage-processes"
-}
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpu-usage-process" {
-        for _, c := range cpuUsageProcesses.CpuUsageProcess {
-            if cpuUsageProcesses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess{}
-        cpuUsageProcesses.CpuUsageProcess = append(cpuUsageProcesses.CpuUsageProcess, child)
-        return &cpuUsageProcesses.CpuUsageProcess[len(cpuUsageProcesses.CpuUsageProcess)-1]
-    }
-    return nil
-}
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cpuUsageProcesses.EntityData.Children = make(map[string]types.YChild)
+    cpuUsageProcesses.EntityData.Children["cpu-usage-process"] = types.YChild{"CpuUsageProcess", nil}
     for i := range cpuUsageProcesses.CpuUsageProcess {
-        children[cpuUsageProcesses.CpuUsageProcess[i].GetSegmentPath()] = &cpuUsageProcesses.CpuUsageProcess[i]
+        cpuUsageProcesses.EntityData.Children[types.GetSegmentPath(&cpuUsageProcesses.CpuUsageProcess[i])] = types.YChild{"CpuUsageProcess", &cpuUsageProcesses.CpuUsageProcess[i]}
     }
-    return children
+    cpuUsageProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cpuUsageProcesses.EntityData)
 }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetYangName() string { return "cpu-usage-processes" }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) SetParent(parent types.Entity) { cpuUsageProcesses.parent = parent }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetParent() types.Entity { return cpuUsageProcesses.parent }
-
-func (cpuUsageProcesses *CpuUsage_CpuUtilization_CpuUsageProcesses) GetParentYangName() string { return "cpu-utilization" }
 
 // CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess
 // The list of software processes on the device.
 type CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process-ID of the process. The type is interface{}
@@ -271,65 +162,27 @@ type CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess struct {
     FiveMinutes interface{}
 }
 
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetFilter() yfilter.YFilter { return cpuUsageProcess.YFilter }
+func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetEntityData() *types.CommonEntityData {
+    cpuUsageProcess.EntityData.YFilter = cpuUsageProcess.YFilter
+    cpuUsageProcess.EntityData.YangName = "cpu-usage-process"
+    cpuUsageProcess.EntityData.BundleName = "cisco_ios_xe"
+    cpuUsageProcess.EntityData.ParentYangName = "cpu-usage-processes"
+    cpuUsageProcess.EntityData.SegmentPath = "cpu-usage-process" + "[pid='" + fmt.Sprintf("%v", cpuUsageProcess.Pid) + "']" + "[name='" + fmt.Sprintf("%v", cpuUsageProcess.Name) + "']"
+    cpuUsageProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpuUsageProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpuUsageProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) SetFilter(yf yfilter.YFilter) { cpuUsageProcess.YFilter = yf }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetGoName(yname string) string {
-    if yname == "pid" { return "Pid" }
-    if yname == "name" { return "Name" }
-    if yname == "tty" { return "Tty" }
-    if yname == "total-run-time" { return "TotalRunTime" }
-    if yname == "invocation-count" { return "InvocationCount" }
-    if yname == "avg-run-time" { return "AvgRunTime" }
-    if yname == "five-seconds" { return "FiveSeconds" }
-    if yname == "one-minute" { return "OneMinute" }
-    if yname == "five-minutes" { return "FiveMinutes" }
-    return ""
+    cpuUsageProcess.EntityData.Children = make(map[string]types.YChild)
+    cpuUsageProcess.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpuUsageProcess.EntityData.Leafs["pid"] = types.YLeaf{"Pid", cpuUsageProcess.Pid}
+    cpuUsageProcess.EntityData.Leafs["name"] = types.YLeaf{"Name", cpuUsageProcess.Name}
+    cpuUsageProcess.EntityData.Leafs["tty"] = types.YLeaf{"Tty", cpuUsageProcess.Tty}
+    cpuUsageProcess.EntityData.Leafs["total-run-time"] = types.YLeaf{"TotalRunTime", cpuUsageProcess.TotalRunTime}
+    cpuUsageProcess.EntityData.Leafs["invocation-count"] = types.YLeaf{"InvocationCount", cpuUsageProcess.InvocationCount}
+    cpuUsageProcess.EntityData.Leafs["avg-run-time"] = types.YLeaf{"AvgRunTime", cpuUsageProcess.AvgRunTime}
+    cpuUsageProcess.EntityData.Leafs["five-seconds"] = types.YLeaf{"FiveSeconds", cpuUsageProcess.FiveSeconds}
+    cpuUsageProcess.EntityData.Leafs["one-minute"] = types.YLeaf{"OneMinute", cpuUsageProcess.OneMinute}
+    cpuUsageProcess.EntityData.Leafs["five-minutes"] = types.YLeaf{"FiveMinutes", cpuUsageProcess.FiveMinutes}
+    return &(cpuUsageProcess.EntityData)
 }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetSegmentPath() string {
-    return "cpu-usage-process" + "[pid='" + fmt.Sprintf("%v", cpuUsageProcess.Pid) + "']" + "[name='" + fmt.Sprintf("%v", cpuUsageProcess.Name) + "']"
-}
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pid"] = cpuUsageProcess.Pid
-    leafs["name"] = cpuUsageProcess.Name
-    leafs["tty"] = cpuUsageProcess.Tty
-    leafs["total-run-time"] = cpuUsageProcess.TotalRunTime
-    leafs["invocation-count"] = cpuUsageProcess.InvocationCount
-    leafs["avg-run-time"] = cpuUsageProcess.AvgRunTime
-    leafs["five-seconds"] = cpuUsageProcess.FiveSeconds
-    leafs["one-minute"] = cpuUsageProcess.OneMinute
-    leafs["five-minutes"] = cpuUsageProcess.FiveMinutes
-    return leafs
-}
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetYangName() string { return "cpu-usage-process" }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) SetParent(parent types.Entity) { cpuUsageProcess.parent = parent }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetParent() types.Entity { return cpuUsageProcess.parent }
-
-func (cpuUsageProcess *CpuUsage_CpuUtilization_CpuUsageProcesses_CpuUsageProcess) GetParentYangName() string { return "cpu-usage-processes" }
 

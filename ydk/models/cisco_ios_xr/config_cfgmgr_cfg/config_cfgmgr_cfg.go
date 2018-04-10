@@ -27,56 +27,26 @@ func init() {
 // Cfgmgr
 // Cfgmgr configuration
 type Cfgmgr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enabled or Disabled. The type is bool. The default value is true.
     ModeExclusive interface{}
 }
 
-func (cfgmgr *Cfgmgr) GetFilter() yfilter.YFilter { return cfgmgr.YFilter }
+func (cfgmgr *Cfgmgr) GetEntityData() *types.CommonEntityData {
+    cfgmgr.EntityData.YFilter = cfgmgr.YFilter
+    cfgmgr.EntityData.YangName = "cfgmgr"
+    cfgmgr.EntityData.BundleName = "cisco_ios_xr"
+    cfgmgr.EntityData.ParentYangName = "Cisco-IOS-XR-config-cfgmgr-cfg"
+    cfgmgr.EntityData.SegmentPath = "Cisco-IOS-XR-config-cfgmgr-cfg:cfgmgr"
+    cfgmgr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cfgmgr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cfgmgr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cfgmgr *Cfgmgr) SetFilter(yf yfilter.YFilter) { cfgmgr.YFilter = yf }
-
-func (cfgmgr *Cfgmgr) GetGoName(yname string) string {
-    if yname == "mode-exclusive" { return "ModeExclusive" }
-    return ""
+    cfgmgr.EntityData.Children = make(map[string]types.YChild)
+    cfgmgr.EntityData.Leafs = make(map[string]types.YLeaf)
+    cfgmgr.EntityData.Leafs["mode-exclusive"] = types.YLeaf{"ModeExclusive", cfgmgr.ModeExclusive}
+    return &(cfgmgr.EntityData)
 }
-
-func (cfgmgr *Cfgmgr) GetSegmentPath() string {
-    return "Cisco-IOS-XR-config-cfgmgr-cfg:cfgmgr"
-}
-
-func (cfgmgr *Cfgmgr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cfgmgr *Cfgmgr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cfgmgr *Cfgmgr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mode-exclusive"] = cfgmgr.ModeExclusive
-    return leafs
-}
-
-func (cfgmgr *Cfgmgr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cfgmgr *Cfgmgr) GetYangName() string { return "cfgmgr" }
-
-func (cfgmgr *Cfgmgr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cfgmgr *Cfgmgr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cfgmgr *Cfgmgr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cfgmgr *Cfgmgr) SetParent(parent types.Entity) { cfgmgr.parent = parent }
-
-func (cfgmgr *Cfgmgr) GetParent() types.Entity { return cfgmgr.parent }
-
-func (cfgmgr *Cfgmgr) GetParentYangName() string { return "Cisco-IOS-XR-config-cfgmgr-cfg" }
 

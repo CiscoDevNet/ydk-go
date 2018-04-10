@@ -29,6 +29,31 @@ const (
     Ipv6SelfPing_enabled Ipv6SelfPing = "enabled"
 )
 
+// Ipv6Reachable represents Ipv6 reachable
+type Ipv6Reachable string
+
+const (
+    // Source is reachable via any interface
+    Ipv6Reachable_any Ipv6Reachable = "any"
+
+    // Source is reachable via interface on which
+    // packet was received
+    Ipv6Reachable_received Ipv6Reachable = "received"
+)
+
+// Ipv6DefaultPing represents Ipv6 default ping
+type Ipv6DefaultPing string
+
+const (
+    // Default route is not allowed to match when
+    // checking source address
+    Ipv6DefaultPing_disabled Ipv6DefaultPing = "disabled"
+
+    // Allow default route to match when checking
+    // source address
+    Ipv6DefaultPing_enabled Ipv6DefaultPing = "enabled"
+)
+
 // Ipv6Qppb represents Ipv6 qppb
 type Ipv6Qppb string
 
@@ -45,30 +70,5 @@ const (
     // Enable both ip-precedence and qos-group based
     // QPPB
     Ipv6Qppb_both Ipv6Qppb = "both"
-)
-
-// Ipv6DefaultPing represents Ipv6 default ping
-type Ipv6DefaultPing string
-
-const (
-    // Default route is not allowed to match when
-    // checking source address
-    Ipv6DefaultPing_disabled Ipv6DefaultPing = "disabled"
-
-    // Allow default route to match when checking
-    // source address
-    Ipv6DefaultPing_enabled Ipv6DefaultPing = "enabled"
-)
-
-// Ipv6Reachable represents Ipv6 reachable
-type Ipv6Reachable string
-
-const (
-    // Source is reachable via any interface
-    Ipv6Reachable_any Ipv6Reachable = "any"
-
-    // Source is reachable via interface on which
-    // packet was received
-    Ipv6Reachable_received Ipv6Reachable = "received"
 )
 

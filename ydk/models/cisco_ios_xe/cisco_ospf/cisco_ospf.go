@@ -13,29 +13,15 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_ospf"))
 }
 
-// OspfLogAdj represents Ospf log adjacency changes
-type OspfLogAdj string
+// OspfExternalType represents external route types
+type OspfExternalType string
 
 const (
-    // Enable log adjacency brief
-    OspfLogAdj_enable OspfLogAdj = "enable"
+    // type 1
+    OspfExternalType_Y_1 OspfExternalType = "1"
 
-    // Enable log adjcency detail
-    OspfLogAdj_detail OspfLogAdj = "detail"
-
-    // disable log adjacency
-    OspfLogAdj_disable OspfLogAdj = "disable"
-)
-
-// PrefixApplicability represents Ospf uloop avoidance
-type PrefixApplicability string
-
-const (
-    // Protected prefixes only
-    PrefixApplicability_protected PrefixApplicability = "protected"
-
-    // All prefixes
-    PrefixApplicability_all PrefixApplicability = "all"
+    // type 2
+    OspfExternalType_Y_2 OspfExternalType = "2"
 )
 
 // AccessListInOutType represents Access list in and out
@@ -49,14 +35,28 @@ const (
     AccessListInOutType_out AccessListInOutType = "out"
 )
 
-// OspfExternalType represents external route types
-type OspfExternalType string
+// PrefixApplicability represents Ospf uloop avoidance
+type PrefixApplicability string
 
 const (
-    // type 1
-    OspfExternalType_Y_1 OspfExternalType = "1"
+    // Protected prefixes only
+    PrefixApplicability_protected PrefixApplicability = "protected"
 
-    // type 2
-    OspfExternalType_Y_2 OspfExternalType = "2"
+    // All prefixes
+    PrefixApplicability_all PrefixApplicability = "all"
+)
+
+// OspfLogAdj represents Ospf log adjacency changes
+type OspfLogAdj string
+
+const (
+    // Enable log adjacency brief
+    OspfLogAdj_enable OspfLogAdj = "enable"
+
+    // Enable log adjcency detail
+    OspfLogAdj_detail OspfLogAdj = "detail"
+
+    // disable log adjacency
+    OspfLogAdj_disable OspfLogAdj = "disable"
 )
 

@@ -27,184 +27,85 @@ func init() {
 // Sla
 // SLA prtocol and profile Configuration
 type Sla struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of all SLA protocols.
     Protocols Sla_Protocols
 }
 
-func (sla *Sla) GetFilter() yfilter.YFilter { return sla.YFilter }
+func (sla *Sla) GetEntityData() *types.CommonEntityData {
+    sla.EntityData.YFilter = sla.YFilter
+    sla.EntityData.YangName = "sla"
+    sla.EntityData.BundleName = "cisco_ios_xr"
+    sla.EntityData.ParentYangName = "Cisco-IOS-XR-infra-sla-cfg"
+    sla.EntityData.SegmentPath = "Cisco-IOS-XR-infra-sla-cfg:sla"
+    sla.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sla.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sla.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sla *Sla) SetFilter(yf yfilter.YFilter) { sla.YFilter = yf }
-
-func (sla *Sla) GetGoName(yname string) string {
-    if yname == "protocols" { return "Protocols" }
-    return ""
+    sla.EntityData.Children = make(map[string]types.YChild)
+    sla.EntityData.Children["protocols"] = types.YChild{"Protocols", &sla.Protocols}
+    sla.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sla.EntityData)
 }
-
-func (sla *Sla) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-sla-cfg:sla"
-}
-
-func (sla *Sla) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "protocols" {
-        return &sla.Protocols
-    }
-    return nil
-}
-
-func (sla *Sla) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["protocols"] = &sla.Protocols
-    return children
-}
-
-func (sla *Sla) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sla *Sla) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sla *Sla) GetYangName() string { return "sla" }
-
-func (sla *Sla) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sla *Sla) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sla *Sla) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sla *Sla) SetParent(parent types.Entity) { sla.parent = parent }
-
-func (sla *Sla) GetParent() types.Entity { return sla.parent }
-
-func (sla *Sla) GetParentYangName() string { return "Cisco-IOS-XR-infra-sla-cfg" }
 
 // Sla_Protocols
 // Table of all SLA protocols
 type Sla_Protocols struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The Ethernet SLA protocol.
     Ethernet Sla_Protocols_Ethernet
 }
 
-func (protocols *Sla_Protocols) GetFilter() yfilter.YFilter { return protocols.YFilter }
+func (protocols *Sla_Protocols) GetEntityData() *types.CommonEntityData {
+    protocols.EntityData.YFilter = protocols.YFilter
+    protocols.EntityData.YangName = "protocols"
+    protocols.EntityData.BundleName = "cisco_ios_xr"
+    protocols.EntityData.ParentYangName = "sla"
+    protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (protocols *Sla_Protocols) SetFilter(yf yfilter.YFilter) { protocols.YFilter = yf }
-
-func (protocols *Sla_Protocols) GetGoName(yname string) string {
-    if yname == "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet" { return "Ethernet" }
-    return ""
+    protocols.EntityData.Children = make(map[string]types.YChild)
+    protocols.EntityData.Children["Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"] = types.YChild{"Ethernet", &protocols.Ethernet}
+    protocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(protocols.EntityData)
 }
-
-func (protocols *Sla_Protocols) GetSegmentPath() string {
-    return "protocols"
-}
-
-func (protocols *Sla_Protocols) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet" {
-        return &protocols.Ethernet
-    }
-    return nil
-}
-
-func (protocols *Sla_Protocols) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"] = &protocols.Ethernet
-    return children
-}
-
-func (protocols *Sla_Protocols) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (protocols *Sla_Protocols) GetBundleName() string { return "cisco_ios_xr" }
-
-func (protocols *Sla_Protocols) GetYangName() string { return "protocols" }
-
-func (protocols *Sla_Protocols) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (protocols *Sla_Protocols) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (protocols *Sla_Protocols) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (protocols *Sla_Protocols) SetParent(parent types.Entity) { protocols.parent = parent }
-
-func (protocols *Sla_Protocols) GetParent() types.Entity { return protocols.parent }
-
-func (protocols *Sla_Protocols) GetParentYangName() string { return "sla" }
 
 // Sla_Protocols_Ethernet
 // The Ethernet SLA protocol
 type Sla_Protocols_Ethernet struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of SLA profiles on the protocol.
     Profiles Sla_Protocols_Ethernet_Profiles
 }
 
-func (ethernet *Sla_Protocols_Ethernet) GetFilter() yfilter.YFilter { return ethernet.YFilter }
+func (ethernet *Sla_Protocols_Ethernet) GetEntityData() *types.CommonEntityData {
+    ethernet.EntityData.YFilter = ethernet.YFilter
+    ethernet.EntityData.YangName = "ethernet"
+    ethernet.EntityData.BundleName = "cisco_ios_xr"
+    ethernet.EntityData.ParentYangName = "protocols"
+    ethernet.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
+    ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ethernet *Sla_Protocols_Ethernet) SetFilter(yf yfilter.YFilter) { ethernet.YFilter = yf }
-
-func (ethernet *Sla_Protocols_Ethernet) GetGoName(yname string) string {
-    if yname == "profiles" { return "Profiles" }
-    return ""
+    ethernet.EntityData.Children = make(map[string]types.YChild)
+    ethernet.EntityData.Children["profiles"] = types.YChild{"Profiles", &ethernet.Profiles}
+    ethernet.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ethernet.EntityData)
 }
-
-func (ethernet *Sla_Protocols_Ethernet) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
-}
-
-func (ethernet *Sla_Protocols_Ethernet) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "profiles" {
-        return &ethernet.Profiles
-    }
-    return nil
-}
-
-func (ethernet *Sla_Protocols_Ethernet) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["profiles"] = &ethernet.Profiles
-    return children
-}
-
-func (ethernet *Sla_Protocols_Ethernet) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ethernet *Sla_Protocols_Ethernet) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ethernet *Sla_Protocols_Ethernet) GetYangName() string { return "ethernet" }
-
-func (ethernet *Sla_Protocols_Ethernet) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ethernet *Sla_Protocols_Ethernet) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ethernet *Sla_Protocols_Ethernet) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ethernet *Sla_Protocols_Ethernet) SetParent(parent types.Entity) { ethernet.parent = parent }
-
-func (ethernet *Sla_Protocols_Ethernet) GetParent() types.Entity { return ethernet.parent }
-
-func (ethernet *Sla_Protocols_Ethernet) GetParentYangName() string { return "protocols" }
 
 // Sla_Protocols_Ethernet_Profiles
 // Table of SLA profiles on the protocol
 type Sla_Protocols_Ethernet_Profiles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of the profile. The type is slice of
@@ -212,72 +113,33 @@ type Sla_Protocols_Ethernet_Profiles struct {
     Profile []Sla_Protocols_Ethernet_Profiles_Profile
 }
 
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetFilter() yfilter.YFilter { return profiles.YFilter }
+func (profiles *Sla_Protocols_Ethernet_Profiles) GetEntityData() *types.CommonEntityData {
+    profiles.EntityData.YFilter = profiles.YFilter
+    profiles.EntityData.YangName = "profiles"
+    profiles.EntityData.BundleName = "cisco_ios_xr"
+    profiles.EntityData.ParentYangName = "ethernet"
+    profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profiles *Sla_Protocols_Ethernet_Profiles) SetFilter(yf yfilter.YFilter) { profiles.YFilter = yf }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetGoName(yname string) string {
-    if yname == "profile" { return "Profile" }
-    return ""
-}
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetSegmentPath() string {
-    return "profiles"
-}
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "profile" {
-        for _, c := range profiles.Profile {
-            if profiles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sla_Protocols_Ethernet_Profiles_Profile{}
-        profiles.Profile = append(profiles.Profile, child)
-        return &profiles.Profile[len(profiles.Profile)-1]
-    }
-    return nil
-}
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    profiles.EntityData.Children = make(map[string]types.YChild)
+    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
     for i := range profiles.Profile {
-        children[profiles.Profile[i].GetSegmentPath()] = &profiles.Profile[i]
+        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
     }
-    return children
+    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(profiles.EntityData)
 }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetYangName() string { return "profiles" }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) SetParent(parent types.Entity) { profiles.parent = parent }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetParent() types.Entity { return profiles.parent }
-
-func (profiles *Sla_Protocols_Ethernet_Profiles) GetParentYangName() string { return "ethernet" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile
 // Name of the profile
 type Sla_Protocols_Ethernet_Profiles_Profile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // The possible packet types are cfm-loopback, cfm-delay-measurement,
@@ -295,73 +157,30 @@ type Sla_Protocols_Ethernet_Profiles_Profile struct {
     Probe Sla_Protocols_Ethernet_Profiles_Profile_Probe
 }
 
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetFilter() yfilter.YFilter { return profile.YFilter }
+func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "profiles"
+    profile.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) SetFilter(yf yfilter.YFilter) { profile.YFilter = yf }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "packet-type" { return "PacketType" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "schedule" { return "Schedule" }
-    if yname == "probe" { return "Probe" }
-    return ""
+    profile.EntityData.Children = make(map[string]types.YChild)
+    profile.EntityData.Children["statistics"] = types.YChild{"Statistics", &profile.Statistics}
+    profile.EntityData.Children["schedule"] = types.YChild{"Schedule", &profile.Schedule}
+    profile.EntityData.Children["probe"] = types.YChild{"Probe", &profile.Probe}
+    profile.EntityData.Leafs = make(map[string]types.YLeaf)
+    profile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile.ProfileName}
+    profile.EntityData.Leafs["packet-type"] = types.YLeaf{"PacketType", profile.PacketType}
+    return &(profile.EntityData)
 }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetSegmentPath() string {
-    return "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
-}
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &profile.Statistics
-    }
-    if childYangName == "schedule" {
-        return &profile.Schedule
-    }
-    if childYangName == "probe" {
-        return &profile.Probe
-    }
-    return nil
-}
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &profile.Statistics
-    children["schedule"] = &profile.Schedule
-    children["probe"] = &profile.Probe
-    return children
-}
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = profile.ProfileName
-    leafs["packet-type"] = profile.PacketType
-    return leafs
-}
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetYangName() string { return "profile" }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) SetParent(parent types.Entity) { profile.parent = parent }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetParent() types.Entity { return profile.parent }
-
-func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetParentYangName() string { return "profiles" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Statistics
 // Statistics configuration for the SLA profile
 type Sla_Protocols_Ethernet_Profiles_Profile_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Type of statistic. The type is slice of
@@ -369,68 +188,29 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Statistics struct {
     Statistic []Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic
 }
 
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "profile"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetGoName(yname string) string {
-    if yname == "statistic" { return "Statistic" }
-    return ""
-}
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistic" {
-        for _, c := range statistics.Statistic {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic{}
-        statistics.Statistic = append(statistics.Statistic, child)
-        return &statistics.Statistic[len(statistics.Statistic)-1]
-    }
-    return nil
-}
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["statistic"] = types.YChild{"Statistic", nil}
     for i := range statistics.Statistic {
-        children[statistics.Statistic[i].GetSegmentPath()] = &statistics.Statistic[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Statistic[i])] = types.YChild{"Statistic", &statistics.Statistic[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetParentYangName() string { return "profile" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic
 // Type of statistic
 type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of statistic to measure. The type is
@@ -451,72 +231,32 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic struct {
     Aggregation Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation
 }
 
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetFilter() yfilter.YFilter { return statistic.YFilter }
+func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetEntityData() *types.CommonEntityData {
+    statistic.EntityData.YFilter = statistic.YFilter
+    statistic.EntityData.YangName = "statistic"
+    statistic.EntityData.BundleName = "cisco_ios_xr"
+    statistic.EntityData.ParentYangName = "statistics"
+    statistic.EntityData.SegmentPath = "statistic" + "[statistic-name='" + fmt.Sprintf("%v", statistic.StatisticName) + "']"
+    statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) SetFilter(yf yfilter.YFilter) { statistic.YFilter = yf }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetGoName(yname string) string {
-    if yname == "statistic-name" { return "StatisticName" }
-    if yname == "enable" { return "Enable" }
-    if yname == "buckets-archive" { return "BucketsArchive" }
-    if yname == "buckets-size" { return "BucketsSize" }
-    if yname == "aggregation" { return "Aggregation" }
-    return ""
+    statistic.EntityData.Children = make(map[string]types.YChild)
+    statistic.EntityData.Children["buckets-size"] = types.YChild{"BucketsSize", &statistic.BucketsSize}
+    statistic.EntityData.Children["aggregation"] = types.YChild{"Aggregation", &statistic.Aggregation}
+    statistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistic.EntityData.Leafs["statistic-name"] = types.YLeaf{"StatisticName", statistic.StatisticName}
+    statistic.EntityData.Leafs["enable"] = types.YLeaf{"Enable", statistic.Enable}
+    statistic.EntityData.Leafs["buckets-archive"] = types.YLeaf{"BucketsArchive", statistic.BucketsArchive}
+    return &(statistic.EntityData)
 }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetSegmentPath() string {
-    return "statistic" + "[statistic-name='" + fmt.Sprintf("%v", statistic.StatisticName) + "']"
-}
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "buckets-size" {
-        return &statistic.BucketsSize
-    }
-    if childYangName == "aggregation" {
-        return &statistic.Aggregation
-    }
-    return nil
-}
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["buckets-size"] = &statistic.BucketsSize
-    children["aggregation"] = &statistic.Aggregation
-    return children
-}
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["statistic-name"] = statistic.StatisticName
-    leafs["enable"] = statistic.Enable
-    leafs["buckets-archive"] = statistic.BucketsArchive
-    return leafs
-}
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetYangName() string { return "statistic" }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) SetParent(parent types.Entity) { statistic.parent = parent }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetParent() types.Entity { return statistic.parent }
-
-func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) GetParentYangName() string { return "statistics" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize
 // Size of the buckets into which statistics
 // are collected
 // This type is a presence type.
 type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Size of each bucket. The type is interface{} with range: 1..100. This
@@ -528,60 +268,29 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize st
     BucketsSizeUnit interface{}
 }
 
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetFilter() yfilter.YFilter { return bucketsSize.YFilter }
+func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetEntityData() *types.CommonEntityData {
+    bucketsSize.EntityData.YFilter = bucketsSize.YFilter
+    bucketsSize.EntityData.YangName = "buckets-size"
+    bucketsSize.EntityData.BundleName = "cisco_ios_xr"
+    bucketsSize.EntityData.ParentYangName = "statistic"
+    bucketsSize.EntityData.SegmentPath = "buckets-size"
+    bucketsSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bucketsSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bucketsSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) SetFilter(yf yfilter.YFilter) { bucketsSize.YFilter = yf }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetGoName(yname string) string {
-    if yname == "buckets-size" { return "BucketsSize" }
-    if yname == "buckets-size-unit" { return "BucketsSizeUnit" }
-    return ""
+    bucketsSize.EntityData.Children = make(map[string]types.YChild)
+    bucketsSize.EntityData.Leafs = make(map[string]types.YLeaf)
+    bucketsSize.EntityData.Leafs["buckets-size"] = types.YLeaf{"BucketsSize", bucketsSize.BucketsSize}
+    bucketsSize.EntityData.Leafs["buckets-size-unit"] = types.YLeaf{"BucketsSizeUnit", bucketsSize.BucketsSizeUnit}
+    return &(bucketsSize.EntityData)
 }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetSegmentPath() string {
-    return "buckets-size"
-}
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["buckets-size"] = bucketsSize.BucketsSize
-    leafs["buckets-size-unit"] = bucketsSize.BucketsSizeUnit
-    return leafs
-}
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetYangName() string { return "buckets-size" }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) SetParent(parent types.Entity) { bucketsSize.parent = parent }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetParent() types.Entity { return bucketsSize.parent }
-
-func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_BucketsSize) GetParentYangName() string { return "statistic" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation
 // Aggregation to apply to results for the
 // statistic
 // This type is a presence type.
 type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of bins to aggregate results into (0 for no aggregation). The type
@@ -595,62 +304,30 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation st
     BinsWidthTenths interface{}
 }
 
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetFilter() yfilter.YFilter { return aggregation.YFilter }
+func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetEntityData() *types.CommonEntityData {
+    aggregation.EntityData.YFilter = aggregation.YFilter
+    aggregation.EntityData.YangName = "aggregation"
+    aggregation.EntityData.BundleName = "cisco_ios_xr"
+    aggregation.EntityData.ParentYangName = "statistic"
+    aggregation.EntityData.SegmentPath = "aggregation"
+    aggregation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aggregation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aggregation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) SetFilter(yf yfilter.YFilter) { aggregation.YFilter = yf }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetGoName(yname string) string {
-    if yname == "bins-count" { return "BinsCount" }
-    if yname == "bins-width" { return "BinsWidth" }
-    if yname == "bins-width-tenths" { return "BinsWidthTenths" }
-    return ""
+    aggregation.EntityData.Children = make(map[string]types.YChild)
+    aggregation.EntityData.Leafs = make(map[string]types.YLeaf)
+    aggregation.EntityData.Leafs["bins-count"] = types.YLeaf{"BinsCount", aggregation.BinsCount}
+    aggregation.EntityData.Leafs["bins-width"] = types.YLeaf{"BinsWidth", aggregation.BinsWidth}
+    aggregation.EntityData.Leafs["bins-width-tenths"] = types.YLeaf{"BinsWidthTenths", aggregation.BinsWidthTenths}
+    return &(aggregation.EntityData)
 }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetSegmentPath() string {
-    return "aggregation"
-}
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bins-count"] = aggregation.BinsCount
-    leafs["bins-width"] = aggregation.BinsWidth
-    leafs["bins-width-tenths"] = aggregation.BinsWidthTenths
-    return leafs
-}
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetYangName() string { return "aggregation" }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) SetParent(parent types.Entity) { aggregation.parent = parent }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetParent() types.Entity { return aggregation.parent }
-
-func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Aggregation) GetParentYangName() string { return "statistic" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Schedule
 // Schedule to use for probes within an
 // operation
 // This type is a presence type.
 type Sla_Protocols_Ethernet_Profiles_Profile_Schedule struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interval between probes.  This must be specified if, and only if,
@@ -693,70 +370,33 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Schedule struct {
     ProbeDurationUnit interface{}
 }
 
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetFilter() yfilter.YFilter { return schedule.YFilter }
+func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetEntityData() *types.CommonEntityData {
+    schedule.EntityData.YFilter = schedule.YFilter
+    schedule.EntityData.YangName = "schedule"
+    schedule.EntityData.BundleName = "cisco_ios_xr"
+    schedule.EntityData.ParentYangName = "profile"
+    schedule.EntityData.SegmentPath = "schedule"
+    schedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    schedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    schedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) SetFilter(yf yfilter.YFilter) { schedule.YFilter = yf }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetGoName(yname string) string {
-    if yname == "probe-interval" { return "ProbeInterval" }
-    if yname == "probe-interval-day" { return "ProbeIntervalDay" }
-    if yname == "probe-interval-unit" { return "ProbeIntervalUnit" }
-    if yname == "start-time-hour" { return "StartTimeHour" }
-    if yname == "start-time-minute" { return "StartTimeMinute" }
-    if yname == "start-time-second" { return "StartTimeSecond" }
-    if yname == "probe-duration" { return "ProbeDuration" }
-    if yname == "probe-duration-unit" { return "ProbeDurationUnit" }
-    return ""
+    schedule.EntityData.Children = make(map[string]types.YChild)
+    schedule.EntityData.Leafs = make(map[string]types.YLeaf)
+    schedule.EntityData.Leafs["probe-interval"] = types.YLeaf{"ProbeInterval", schedule.ProbeInterval}
+    schedule.EntityData.Leafs["probe-interval-day"] = types.YLeaf{"ProbeIntervalDay", schedule.ProbeIntervalDay}
+    schedule.EntityData.Leafs["probe-interval-unit"] = types.YLeaf{"ProbeIntervalUnit", schedule.ProbeIntervalUnit}
+    schedule.EntityData.Leafs["start-time-hour"] = types.YLeaf{"StartTimeHour", schedule.StartTimeHour}
+    schedule.EntityData.Leafs["start-time-minute"] = types.YLeaf{"StartTimeMinute", schedule.StartTimeMinute}
+    schedule.EntityData.Leafs["start-time-second"] = types.YLeaf{"StartTimeSecond", schedule.StartTimeSecond}
+    schedule.EntityData.Leafs["probe-duration"] = types.YLeaf{"ProbeDuration", schedule.ProbeDuration}
+    schedule.EntityData.Leafs["probe-duration-unit"] = types.YLeaf{"ProbeDurationUnit", schedule.ProbeDurationUnit}
+    return &(schedule.EntityData)
 }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetSegmentPath() string {
-    return "schedule"
-}
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["probe-interval"] = schedule.ProbeInterval
-    leafs["probe-interval-day"] = schedule.ProbeIntervalDay
-    leafs["probe-interval-unit"] = schedule.ProbeIntervalUnit
-    leafs["start-time-hour"] = schedule.StartTimeHour
-    leafs["start-time-minute"] = schedule.StartTimeMinute
-    leafs["start-time-second"] = schedule.StartTimeSecond
-    leafs["probe-duration"] = schedule.ProbeDuration
-    leafs["probe-duration-unit"] = schedule.ProbeDurationUnit
-    return leafs
-}
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetBundleName() string { return "cisco_ios_xr" }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetYangName() string { return "schedule" }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) SetParent(parent types.Entity) { schedule.parent = parent }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetParent() types.Entity { return schedule.parent }
-
-func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetParentYangName() string { return "profile" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Probe
 // Probe configuration for the SLA profile
 type Sla_Protocols_Ethernet_Profiles_Profile_Probe struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Priority class to assign to outgoing SLA packets. The type is interface{}
@@ -775,63 +415,24 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Probe struct {
     PacketSizeAndPadding Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding
 }
 
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetFilter() yfilter.YFilter { return probe.YFilter }
+func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetEntityData() *types.CommonEntityData {
+    probe.EntityData.YFilter = probe.YFilter
+    probe.EntityData.YangName = "probe"
+    probe.EntityData.BundleName = "cisco_ios_xr"
+    probe.EntityData.ParentYangName = "profile"
+    probe.EntityData.SegmentPath = "probe"
+    probe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    probe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) SetFilter(yf yfilter.YFilter) { probe.YFilter = yf }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetGoName(yname string) string {
-    if yname == "priority" { return "Priority" }
-    if yname == "synthetic-loss-calculation-packets" { return "SyntheticLossCalculationPackets" }
-    if yname == "send" { return "Send" }
-    if yname == "packet-size-and-padding" { return "PacketSizeAndPadding" }
-    return ""
+    probe.EntityData.Children = make(map[string]types.YChild)
+    probe.EntityData.Children["send"] = types.YChild{"Send", &probe.Send}
+    probe.EntityData.Children["packet-size-and-padding"] = types.YChild{"PacketSizeAndPadding", &probe.PacketSizeAndPadding}
+    probe.EntityData.Leafs = make(map[string]types.YLeaf)
+    probe.EntityData.Leafs["priority"] = types.YLeaf{"Priority", probe.Priority}
+    probe.EntityData.Leafs["synthetic-loss-calculation-packets"] = types.YLeaf{"SyntheticLossCalculationPackets", probe.SyntheticLossCalculationPackets}
+    return &(probe.EntityData)
 }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetSegmentPath() string {
-    return "probe"
-}
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "send" {
-        return &probe.Send
-    }
-    if childYangName == "packet-size-and-padding" {
-        return &probe.PacketSizeAndPadding
-    }
-    return nil
-}
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["send"] = &probe.Send
-    children["packet-size-and-padding"] = &probe.PacketSizeAndPadding
-    return children
-}
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["priority"] = probe.Priority
-    leafs["synthetic-loss-calculation-packets"] = probe.SyntheticLossCalculationPackets
-    return leafs
-}
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetBundleName() string { return "cisco_ios_xr" }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetYangName() string { return "probe" }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) SetParent(parent types.Entity) { probe.parent = parent }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetParent() types.Entity { return probe.parent }
-
-func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetParentYangName() string { return "profile" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send
 // Schedule to use for packets within a burst. 
@@ -839,7 +440,7 @@ func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetParentYangName() 
 // once.
 // This type is a presence type.
 type Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interval between bursts.  This must be specified if, and only if, the
@@ -870,67 +471,32 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send struct {
     SendType interface{}
 }
 
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetFilter() yfilter.YFilter { return send.YFilter }
+func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetEntityData() *types.CommonEntityData {
+    send.EntityData.YFilter = send.YFilter
+    send.EntityData.YangName = "send"
+    send.EntityData.BundleName = "cisco_ios_xr"
+    send.EntityData.ParentYangName = "probe"
+    send.EntityData.SegmentPath = "send"
+    send.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    send.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    send.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) SetFilter(yf yfilter.YFilter) { send.YFilter = yf }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetGoName(yname string) string {
-    if yname == "burst-interval" { return "BurstInterval" }
-    if yname == "burst-interval-unit" { return "BurstIntervalUnit" }
-    if yname == "packet-interval" { return "PacketInterval" }
-    if yname == "packet-interval-unit" { return "PacketIntervalUnit" }
-    if yname == "packet-count" { return "PacketCount" }
-    if yname == "send-type" { return "SendType" }
-    return ""
+    send.EntityData.Children = make(map[string]types.YChild)
+    send.EntityData.Leafs = make(map[string]types.YLeaf)
+    send.EntityData.Leafs["burst-interval"] = types.YLeaf{"BurstInterval", send.BurstInterval}
+    send.EntityData.Leafs["burst-interval-unit"] = types.YLeaf{"BurstIntervalUnit", send.BurstIntervalUnit}
+    send.EntityData.Leafs["packet-interval"] = types.YLeaf{"PacketInterval", send.PacketInterval}
+    send.EntityData.Leafs["packet-interval-unit"] = types.YLeaf{"PacketIntervalUnit", send.PacketIntervalUnit}
+    send.EntityData.Leafs["packet-count"] = types.YLeaf{"PacketCount", send.PacketCount}
+    send.EntityData.Leafs["send-type"] = types.YLeaf{"SendType", send.SendType}
+    return &(send.EntityData)
 }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetSegmentPath() string {
-    return "send"
-}
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["burst-interval"] = send.BurstInterval
-    leafs["burst-interval-unit"] = send.BurstIntervalUnit
-    leafs["packet-interval"] = send.PacketInterval
-    leafs["packet-interval-unit"] = send.PacketIntervalUnit
-    leafs["packet-count"] = send.PacketCount
-    leafs["send-type"] = send.SendType
-    return leafs
-}
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetBundleName() string { return "cisco_ios_xr" }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetYangName() string { return "send" }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) SetParent(parent types.Entity) { send.parent = parent }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetParent() types.Entity { return send.parent }
-
-func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetParentYangName() string { return "probe" }
 
 // Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding
 // Minimum size to pad outgoing packet to
 // This type is a presence type.
 type Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum size to pad outgoing packet to. The type is interface{} with range:
@@ -942,57 +508,25 @@ type Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding struct {
 
     // Pattern to be used for hex padding. This can be specified if, and only if,
     // the PaddingType is 'Hex'. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     PaddingValue interface{}
 }
 
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetFilter() yfilter.YFilter { return packetSizeAndPadding.YFilter }
+func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetEntityData() *types.CommonEntityData {
+    packetSizeAndPadding.EntityData.YFilter = packetSizeAndPadding.YFilter
+    packetSizeAndPadding.EntityData.YangName = "packet-size-and-padding"
+    packetSizeAndPadding.EntityData.BundleName = "cisco_ios_xr"
+    packetSizeAndPadding.EntityData.ParentYangName = "probe"
+    packetSizeAndPadding.EntityData.SegmentPath = "packet-size-and-padding"
+    packetSizeAndPadding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetSizeAndPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetSizeAndPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) SetFilter(yf yfilter.YFilter) { packetSizeAndPadding.YFilter = yf }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetGoName(yname string) string {
-    if yname == "size" { return "Size" }
-    if yname == "padding-type" { return "PaddingType" }
-    if yname == "padding-value" { return "PaddingValue" }
-    return ""
+    packetSizeAndPadding.EntityData.Children = make(map[string]types.YChild)
+    packetSizeAndPadding.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetSizeAndPadding.EntityData.Leafs["size"] = types.YLeaf{"Size", packetSizeAndPadding.Size}
+    packetSizeAndPadding.EntityData.Leafs["padding-type"] = types.YLeaf{"PaddingType", packetSizeAndPadding.PaddingType}
+    packetSizeAndPadding.EntityData.Leafs["padding-value"] = types.YLeaf{"PaddingValue", packetSizeAndPadding.PaddingValue}
+    return &(packetSizeAndPadding.EntityData)
 }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetSegmentPath() string {
-    return "packet-size-and-padding"
-}
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["size"] = packetSizeAndPadding.Size
-    leafs["padding-type"] = packetSizeAndPadding.PaddingType
-    leafs["padding-value"] = packetSizeAndPadding.PaddingValue
-    return leafs
-}
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetYangName() string { return "packet-size-and-padding" }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) SetParent(parent types.Entity) { packetSizeAndPadding.parent = parent }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetParent() types.Entity { return packetSizeAndPadding.parent }
-
-func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_PacketSizeAndPadding) GetParentYangName() string { return "probe" }
 

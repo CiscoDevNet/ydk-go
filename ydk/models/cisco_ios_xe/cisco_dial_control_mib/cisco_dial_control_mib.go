@@ -19,7 +19,7 @@ func init() {
 
 // CISCODIALCONTROLMIB
 type CISCODIALCONTROLMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -34,68 +34,27 @@ type CISCODIALCONTROLMIB struct {
     Ccallhistoryiectable CISCODIALCONTROLMIB_Ccallhistoryiectable
 }
 
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetFilter() yfilter.YFilter { return cISCODIALCONTROLMIB.YFilter }
+func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetEntityData() *types.CommonEntityData {
+    cISCODIALCONTROLMIB.EntityData.YFilter = cISCODIALCONTROLMIB.YFilter
+    cISCODIALCONTROLMIB.EntityData.YangName = "CISCO-DIAL-CONTROL-MIB"
+    cISCODIALCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCODIALCONTROLMIB.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    cISCODIALCONTROLMIB.EntityData.SegmentPath = "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB"
+    cISCODIALCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCODIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCODIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) SetFilter(yf yfilter.YFilter) { cISCODIALCONTROLMIB.YFilter = yf }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetGoName(yname string) string {
-    if yname == "cPeerGlobalConfiguration" { return "Cpeerglobalconfiguration" }
-    if yname == "cCallHistoryTable" { return "Ccallhistorytable" }
-    if yname == "cCallHistoryIecTable" { return "Ccallhistoryiectable" }
-    return ""
+    cISCODIALCONTROLMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCODIALCONTROLMIB.EntityData.Children["cPeerGlobalConfiguration"] = types.YChild{"Cpeerglobalconfiguration", &cISCODIALCONTROLMIB.Cpeerglobalconfiguration}
+    cISCODIALCONTROLMIB.EntityData.Children["cCallHistoryTable"] = types.YChild{"Ccallhistorytable", &cISCODIALCONTROLMIB.Ccallhistorytable}
+    cISCODIALCONTROLMIB.EntityData.Children["cCallHistoryIecTable"] = types.YChild{"Ccallhistoryiectable", &cISCODIALCONTROLMIB.Ccallhistoryiectable}
+    cISCODIALCONTROLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCODIALCONTROLMIB.EntityData)
 }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetSegmentPath() string {
-    return "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB"
-}
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cPeerGlobalConfiguration" {
-        return &cISCODIALCONTROLMIB.Cpeerglobalconfiguration
-    }
-    if childYangName == "cCallHistoryTable" {
-        return &cISCODIALCONTROLMIB.Ccallhistorytable
-    }
-    if childYangName == "cCallHistoryIecTable" {
-        return &cISCODIALCONTROLMIB.Ccallhistoryiectable
-    }
-    return nil
-}
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cPeerGlobalConfiguration"] = &cISCODIALCONTROLMIB.Cpeerglobalconfiguration
-    children["cCallHistoryTable"] = &cISCODIALCONTROLMIB.Ccallhistorytable
-    children["cCallHistoryIecTable"] = &cISCODIALCONTROLMIB.Ccallhistoryiectable
-    return children
-}
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetYangName() string { return "CISCO-DIAL-CONTROL-MIB" }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) SetParent(parent types.Entity) { cISCODIALCONTROLMIB.parent = parent }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetParent() types.Entity { return cISCODIALCONTROLMIB.parent }
-
-func (cISCODIALCONTROLMIB *CISCODIALCONTROLMIB) GetParentYangName() string { return "CISCO-DIAL-CONTROL-MIB" }
 
 // CISCODIALCONTROLMIB_Cpeerglobalconfiguration
 type CISCODIALCONTROLMIB_Cpeerglobalconfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specifies the peer search preference based on the type of peers in an
@@ -107,51 +66,21 @@ type CISCODIALCONTROLMIB_Cpeerglobalconfiguration struct {
     Cpeersearchtype interface{}
 }
 
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetFilter() yfilter.YFilter { return cpeerglobalconfiguration.YFilter }
+func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetEntityData() *types.CommonEntityData {
+    cpeerglobalconfiguration.EntityData.YFilter = cpeerglobalconfiguration.YFilter
+    cpeerglobalconfiguration.EntityData.YangName = "cPeerGlobalConfiguration"
+    cpeerglobalconfiguration.EntityData.BundleName = "cisco_ios_xe"
+    cpeerglobalconfiguration.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    cpeerglobalconfiguration.EntityData.SegmentPath = "cPeerGlobalConfiguration"
+    cpeerglobalconfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpeerglobalconfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpeerglobalconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) SetFilter(yf yfilter.YFilter) { cpeerglobalconfiguration.YFilter = yf }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetGoName(yname string) string {
-    if yname == "cPeerSearchType" { return "Cpeersearchtype" }
-    return ""
+    cpeerglobalconfiguration.EntityData.Children = make(map[string]types.YChild)
+    cpeerglobalconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpeerglobalconfiguration.EntityData.Leafs["cPeerSearchType"] = types.YLeaf{"Cpeersearchtype", cpeerglobalconfiguration.Cpeersearchtype}
+    return &(cpeerglobalconfiguration.EntityData)
 }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetSegmentPath() string {
-    return "cPeerGlobalConfiguration"
-}
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cPeerSearchType"] = cpeerglobalconfiguration.Cpeersearchtype
-    return leafs
-}
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetYangName() string { return "cPeerGlobalConfiguration" }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) SetParent(parent types.Entity) { cpeerglobalconfiguration.parent = parent }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetParent() types.Entity { return cpeerglobalconfiguration.parent }
-
-func (cpeerglobalconfiguration *CISCODIALCONTROLMIB_Cpeerglobalconfiguration) GetParentYangName() string { return "CISCO-DIAL-CONTROL-MIB" }
 
 // CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype represents            are found, the data peers are searched.
 type CISCODIALCONTROLMIB_Cpeerglobalconfiguration_Cpeersearchtype string
@@ -168,7 +97,7 @@ const (
 // A table containing information about specific
 // calls to a specific destination.
 type CISCODIALCONTROLMIB_Ccallhistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single Connection. The type is slice of
@@ -176,68 +105,29 @@ type CISCODIALCONTROLMIB_Ccallhistorytable struct {
     Ccallhistoryentry []CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry
 }
 
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetFilter() yfilter.YFilter { return ccallhistorytable.YFilter }
+func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetEntityData() *types.CommonEntityData {
+    ccallhistorytable.EntityData.YFilter = ccallhistorytable.YFilter
+    ccallhistorytable.EntityData.YangName = "cCallHistoryTable"
+    ccallhistorytable.EntityData.BundleName = "cisco_ios_xe"
+    ccallhistorytable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    ccallhistorytable.EntityData.SegmentPath = "cCallHistoryTable"
+    ccallhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccallhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccallhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) SetFilter(yf yfilter.YFilter) { ccallhistorytable.YFilter = yf }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetGoName(yname string) string {
-    if yname == "cCallHistoryEntry" { return "Ccallhistoryentry" }
-    return ""
-}
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetSegmentPath() string {
-    return "cCallHistoryTable"
-}
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cCallHistoryEntry" {
-        for _, c := range ccallhistorytable.Ccallhistoryentry {
-            if ccallhistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry{}
-        ccallhistorytable.Ccallhistoryentry = append(ccallhistorytable.Ccallhistoryentry, child)
-        return &ccallhistorytable.Ccallhistoryentry[len(ccallhistorytable.Ccallhistoryentry)-1]
-    }
-    return nil
-}
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ccallhistorytable.EntityData.Children = make(map[string]types.YChild)
+    ccallhistorytable.EntityData.Children["cCallHistoryEntry"] = types.YChild{"Ccallhistoryentry", nil}
     for i := range ccallhistorytable.Ccallhistoryentry {
-        children[ccallhistorytable.Ccallhistoryentry[i].GetSegmentPath()] = &ccallhistorytable.Ccallhistoryentry[i]
+        ccallhistorytable.EntityData.Children[types.GetSegmentPath(&ccallhistorytable.Ccallhistoryentry[i])] = types.YChild{"Ccallhistoryentry", &ccallhistorytable.Ccallhistoryentry[i]}
     }
-    return children
+    ccallhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ccallhistorytable.EntityData)
 }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetYangName() string { return "cCallHistoryTable" }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) SetParent(parent types.Entity) { ccallhistorytable.parent = parent }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetParent() types.Entity { return ccallhistorytable.parent }
-
-func (ccallhistorytable *CISCODIALCONTROLMIB_Ccallhistorytable) GetParentYangName() string { return "CISCO-DIAL-CONTROL-MIB" }
 
 // CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry
 // The information regarding a single Connection.
 type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer for the sole
@@ -355,89 +245,40 @@ type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry struct {
     Ccallhistoryreleasesrc interface{}
 }
 
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetFilter() yfilter.YFilter { return ccallhistoryentry.YFilter }
+func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetEntityData() *types.CommonEntityData {
+    ccallhistoryentry.EntityData.YFilter = ccallhistoryentry.YFilter
+    ccallhistoryentry.EntityData.YangName = "cCallHistoryEntry"
+    ccallhistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    ccallhistoryentry.EntityData.ParentYangName = "cCallHistoryTable"
+    ccallhistoryentry.EntityData.SegmentPath = "cCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", ccallhistoryentry.Ccallhistoryindex) + "']"
+    ccallhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccallhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccallhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) SetFilter(yf yfilter.YFilter) { ccallhistoryentry.YFilter = yf }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetGoName(yname string) string {
-    if yname == "cCallHistoryIndex" { return "Ccallhistoryindex" }
-    if yname == "cCallHistorySetupTime" { return "Ccallhistorysetuptime" }
-    if yname == "cCallHistoryPeerAddress" { return "Ccallhistorypeeraddress" }
-    if yname == "cCallHistoryPeerSubAddress" { return "Ccallhistorypeersubaddress" }
-    if yname == "cCallHistoryPeerId" { return "Ccallhistorypeerid" }
-    if yname == "cCallHistoryPeerIfIndex" { return "Ccallhistorypeerifindex" }
-    if yname == "cCallHistoryLogicalIfIndex" { return "Ccallhistorylogicalifindex" }
-    if yname == "cCallHistoryDisconnectCause" { return "Ccallhistorydisconnectcause" }
-    if yname == "cCallHistoryDisconnectText" { return "Ccallhistorydisconnecttext" }
-    if yname == "cCallHistoryConnectTime" { return "Ccallhistoryconnecttime" }
-    if yname == "cCallHistoryDisconnectTime" { return "Ccallhistorydisconnecttime" }
-    if yname == "cCallHistoryCallOrigin" { return "Ccallhistorycallorigin" }
-    if yname == "cCallHistoryChargedUnits" { return "Ccallhistorychargedunits" }
-    if yname == "cCallHistoryInfoType" { return "Ccallhistoryinfotype" }
-    if yname == "cCallHistoryTransmitPackets" { return "Ccallhistorytransmitpackets" }
-    if yname == "cCallHistoryTransmitBytes" { return "Ccallhistorytransmitbytes" }
-    if yname == "cCallHistoryReceivePackets" { return "Ccallhistoryreceivepackets" }
-    if yname == "cCallHistoryReceiveBytes" { return "Ccallhistoryreceivebytes" }
-    if yname == "cCallHistoryReleaseSource" { return "Ccallhistoryreleasesource" }
-    if yname == "cCallHistoryReleaseSrc" { return "Ccallhistoryreleasesrc" }
-    return ""
+    ccallhistoryentry.EntityData.Children = make(map[string]types.YChild)
+    ccallhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", ccallhistoryentry.Ccallhistoryindex}
+    ccallhistoryentry.EntityData.Leafs["cCallHistorySetupTime"] = types.YLeaf{"Ccallhistorysetuptime", ccallhistoryentry.Ccallhistorysetuptime}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerAddress"] = types.YLeaf{"Ccallhistorypeeraddress", ccallhistoryentry.Ccallhistorypeeraddress}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerSubAddress"] = types.YLeaf{"Ccallhistorypeersubaddress", ccallhistoryentry.Ccallhistorypeersubaddress}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerId"] = types.YLeaf{"Ccallhistorypeerid", ccallhistoryentry.Ccallhistorypeerid}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryPeerIfIndex"] = types.YLeaf{"Ccallhistorypeerifindex", ccallhistoryentry.Ccallhistorypeerifindex}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryLogicalIfIndex"] = types.YLeaf{"Ccallhistorylogicalifindex", ccallhistoryentry.Ccallhistorylogicalifindex}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryDisconnectCause"] = types.YLeaf{"Ccallhistorydisconnectcause", ccallhistoryentry.Ccallhistorydisconnectcause}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryDisconnectText"] = types.YLeaf{"Ccallhistorydisconnecttext", ccallhistoryentry.Ccallhistorydisconnecttext}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryConnectTime"] = types.YLeaf{"Ccallhistoryconnecttime", ccallhistoryentry.Ccallhistoryconnecttime}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryDisconnectTime"] = types.YLeaf{"Ccallhistorydisconnecttime", ccallhistoryentry.Ccallhistorydisconnecttime}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryCallOrigin"] = types.YLeaf{"Ccallhistorycallorigin", ccallhistoryentry.Ccallhistorycallorigin}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryChargedUnits"] = types.YLeaf{"Ccallhistorychargedunits", ccallhistoryentry.Ccallhistorychargedunits}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryInfoType"] = types.YLeaf{"Ccallhistoryinfotype", ccallhistoryentry.Ccallhistoryinfotype}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryTransmitPackets"] = types.YLeaf{"Ccallhistorytransmitpackets", ccallhistoryentry.Ccallhistorytransmitpackets}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryTransmitBytes"] = types.YLeaf{"Ccallhistorytransmitbytes", ccallhistoryentry.Ccallhistorytransmitbytes}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryReceivePackets"] = types.YLeaf{"Ccallhistoryreceivepackets", ccallhistoryentry.Ccallhistoryreceivepackets}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryReceiveBytes"] = types.YLeaf{"Ccallhistoryreceivebytes", ccallhistoryentry.Ccallhistoryreceivebytes}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryReleaseSource"] = types.YLeaf{"Ccallhistoryreleasesource", ccallhistoryentry.Ccallhistoryreleasesource}
+    ccallhistoryentry.EntityData.Leafs["cCallHistoryReleaseSrc"] = types.YLeaf{"Ccallhistoryreleasesrc", ccallhistoryentry.Ccallhistoryreleasesrc}
+    return &(ccallhistoryentry.EntityData)
 }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetSegmentPath() string {
-    return "cCallHistoryEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", ccallhistoryentry.Ccallhistoryindex) + "']"
-}
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cCallHistoryIndex"] = ccallhistoryentry.Ccallhistoryindex
-    leafs["cCallHistorySetupTime"] = ccallhistoryentry.Ccallhistorysetuptime
-    leafs["cCallHistoryPeerAddress"] = ccallhistoryentry.Ccallhistorypeeraddress
-    leafs["cCallHistoryPeerSubAddress"] = ccallhistoryentry.Ccallhistorypeersubaddress
-    leafs["cCallHistoryPeerId"] = ccallhistoryentry.Ccallhistorypeerid
-    leafs["cCallHistoryPeerIfIndex"] = ccallhistoryentry.Ccallhistorypeerifindex
-    leafs["cCallHistoryLogicalIfIndex"] = ccallhistoryentry.Ccallhistorylogicalifindex
-    leafs["cCallHistoryDisconnectCause"] = ccallhistoryentry.Ccallhistorydisconnectcause
-    leafs["cCallHistoryDisconnectText"] = ccallhistoryentry.Ccallhistorydisconnecttext
-    leafs["cCallHistoryConnectTime"] = ccallhistoryentry.Ccallhistoryconnecttime
-    leafs["cCallHistoryDisconnectTime"] = ccallhistoryentry.Ccallhistorydisconnecttime
-    leafs["cCallHistoryCallOrigin"] = ccallhistoryentry.Ccallhistorycallorigin
-    leafs["cCallHistoryChargedUnits"] = ccallhistoryentry.Ccallhistorychargedunits
-    leafs["cCallHistoryInfoType"] = ccallhistoryentry.Ccallhistoryinfotype
-    leafs["cCallHistoryTransmitPackets"] = ccallhistoryentry.Ccallhistorytransmitpackets
-    leafs["cCallHistoryTransmitBytes"] = ccallhistoryentry.Ccallhistorytransmitbytes
-    leafs["cCallHistoryReceivePackets"] = ccallhistoryentry.Ccallhistoryreceivepackets
-    leafs["cCallHistoryReceiveBytes"] = ccallhistoryentry.Ccallhistoryreceivebytes
-    leafs["cCallHistoryReleaseSource"] = ccallhistoryentry.Ccallhistoryreleasesource
-    leafs["cCallHistoryReleaseSrc"] = ccallhistoryentry.Ccallhistoryreleasesrc
-    return leafs
-}
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetYangName() string { return "cCallHistoryEntry" }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) SetParent(parent types.Entity) { ccallhistoryentry.parent = parent }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetParent() types.Entity { return ccallhistoryentry.parent }
-
-func (ccallhistoryentry *CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry) GetParentYangName() string { return "cCallHistoryTable" }
 
 // CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin represents The call origin.
 type CISCODIALCONTROLMIB_Ccallhistorytable_Ccallhistoryentry_Ccallhistorycallorigin string
@@ -537,7 +378,7 @@ const (
 // This table contains information about Internal Error
 // Code(s) (IEC) which caused the call to fail.
 type CISCODIALCONTROLMIB_Ccallhistoryiectable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The IEC information regarding a single call. The type is slice of
@@ -545,68 +386,29 @@ type CISCODIALCONTROLMIB_Ccallhistoryiectable struct {
     Ccallhistoryiecentry []CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry
 }
 
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetFilter() yfilter.YFilter { return ccallhistoryiectable.YFilter }
+func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetEntityData() *types.CommonEntityData {
+    ccallhistoryiectable.EntityData.YFilter = ccallhistoryiectable.YFilter
+    ccallhistoryiectable.EntityData.YangName = "cCallHistoryIecTable"
+    ccallhistoryiectable.EntityData.BundleName = "cisco_ios_xe"
+    ccallhistoryiectable.EntityData.ParentYangName = "CISCO-DIAL-CONTROL-MIB"
+    ccallhistoryiectable.EntityData.SegmentPath = "cCallHistoryIecTable"
+    ccallhistoryiectable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccallhistoryiectable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccallhistoryiectable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) SetFilter(yf yfilter.YFilter) { ccallhistoryiectable.YFilter = yf }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetGoName(yname string) string {
-    if yname == "cCallHistoryIecEntry" { return "Ccallhistoryiecentry" }
-    return ""
-}
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetSegmentPath() string {
-    return "cCallHistoryIecTable"
-}
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cCallHistoryIecEntry" {
-        for _, c := range ccallhistoryiectable.Ccallhistoryiecentry {
-            if ccallhistoryiectable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry{}
-        ccallhistoryiectable.Ccallhistoryiecentry = append(ccallhistoryiectable.Ccallhistoryiecentry, child)
-        return &ccallhistoryiectable.Ccallhistoryiecentry[len(ccallhistoryiectable.Ccallhistoryiecentry)-1]
-    }
-    return nil
-}
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ccallhistoryiectable.EntityData.Children = make(map[string]types.YChild)
+    ccallhistoryiectable.EntityData.Children["cCallHistoryIecEntry"] = types.YChild{"Ccallhistoryiecentry", nil}
     for i := range ccallhistoryiectable.Ccallhistoryiecentry {
-        children[ccallhistoryiectable.Ccallhistoryiecentry[i].GetSegmentPath()] = &ccallhistoryiectable.Ccallhistoryiecentry[i]
+        ccallhistoryiectable.EntityData.Children[types.GetSegmentPath(&ccallhistoryiectable.Ccallhistoryiecentry[i])] = types.YChild{"Ccallhistoryiecentry", &ccallhistoryiectable.Ccallhistoryiecentry[i]}
     }
-    return children
+    ccallhistoryiectable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ccallhistoryiectable.EntityData)
 }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetYangName() string { return "cCallHistoryIecTable" }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) SetParent(parent types.Entity) { ccallhistoryiectable.parent = parent }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetParent() types.Entity { return ccallhistoryiectable.parent }
-
-func (ccallhistoryiectable *CISCODIALCONTROLMIB_Ccallhistoryiectable) GetParentYangName() string { return "CISCO-DIAL-CONTROL-MIB" }
 
 // CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry
 // The IEC information regarding a single call.
 type CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -635,53 +437,21 @@ type CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry struct {
     Ccallhistoryiec interface{}
 }
 
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetFilter() yfilter.YFilter { return ccallhistoryiecentry.YFilter }
+func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetEntityData() *types.CommonEntityData {
+    ccallhistoryiecentry.EntityData.YFilter = ccallhistoryiecentry.YFilter
+    ccallhistoryiecentry.EntityData.YangName = "cCallHistoryIecEntry"
+    ccallhistoryiecentry.EntityData.BundleName = "cisco_ios_xe"
+    ccallhistoryiecentry.EntityData.ParentYangName = "cCallHistoryIecTable"
+    ccallhistoryiecentry.EntityData.SegmentPath = "cCallHistoryIecEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", ccallhistoryiecentry.Ccallhistoryindex) + "']" + "[cCallHistoryIecIndex='" + fmt.Sprintf("%v", ccallhistoryiecentry.Ccallhistoryiecindex) + "']"
+    ccallhistoryiecentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccallhistoryiecentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccallhistoryiecentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) SetFilter(yf yfilter.YFilter) { ccallhistoryiecentry.YFilter = yf }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetGoName(yname string) string {
-    if yname == "cCallHistoryIndex" { return "Ccallhistoryindex" }
-    if yname == "cCallHistoryIecIndex" { return "Ccallhistoryiecindex" }
-    if yname == "cCallHistoryIec" { return "Ccallhistoryiec" }
-    return ""
+    ccallhistoryiecentry.EntityData.Children = make(map[string]types.YChild)
+    ccallhistoryiecentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ccallhistoryiecentry.EntityData.Leafs["cCallHistoryIndex"] = types.YLeaf{"Ccallhistoryindex", ccallhistoryiecentry.Ccallhistoryindex}
+    ccallhistoryiecentry.EntityData.Leafs["cCallHistoryIecIndex"] = types.YLeaf{"Ccallhistoryiecindex", ccallhistoryiecentry.Ccallhistoryiecindex}
+    ccallhistoryiecentry.EntityData.Leafs["cCallHistoryIec"] = types.YLeaf{"Ccallhistoryiec", ccallhistoryiecentry.Ccallhistoryiec}
+    return &(ccallhistoryiecentry.EntityData)
 }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetSegmentPath() string {
-    return "cCallHistoryIecEntry" + "[cCallHistoryIndex='" + fmt.Sprintf("%v", ccallhistoryiecentry.Ccallhistoryindex) + "']" + "[cCallHistoryIecIndex='" + fmt.Sprintf("%v", ccallhistoryiecentry.Ccallhistoryiecindex) + "']"
-}
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cCallHistoryIndex"] = ccallhistoryiecentry.Ccallhistoryindex
-    leafs["cCallHistoryIecIndex"] = ccallhistoryiecentry.Ccallhistoryiecindex
-    leafs["cCallHistoryIec"] = ccallhistoryiecentry.Ccallhistoryiec
-    return leafs
-}
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetYangName() string { return "cCallHistoryIecEntry" }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) SetParent(parent types.Entity) { ccallhistoryiecentry.parent = parent }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetParent() types.Entity { return ccallhistoryiecentry.parent }
-
-func (ccallhistoryiecentry *CISCODIALCONTROLMIB_Ccallhistoryiectable_Ccallhistoryiecentry) GetParentYangName() string { return "cCallHistoryIecTable" }
 

@@ -162,6 +162,17 @@ func init() {
     ydk.RegisterEntity("CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB", reflect.TypeOf(CISCODATACOLLECTIONMIB{}))
 }
 
+// CdcFileFormat represents  immediately precedes the next tag or the end of file.
+type CdcFileFormat string
+
+const (
+    CdcFileFormat_cdcBulkASCII CdcFileFormat = "cdcBulkASCII"
+
+    CdcFileFormat_cdcBulkBinary CdcFileFormat = "cdcBulkBinary"
+
+    CdcFileFormat_cdcSchemaASCII CdcFileFormat = "cdcSchemaASCII"
+)
+
 // CdcFileXferStatus represents                        of FTP(File Transfer Protocol).
 type CdcFileXferStatus string
 
@@ -185,20 +196,9 @@ const (
     CdcFileXferStatus_authFailed CdcFileXferStatus = "authFailed"
 )
 
-// CdcFileFormat represents  immediately precedes the next tag or the end of file.
-type CdcFileFormat string
-
-const (
-    CdcFileFormat_cdcBulkASCII CdcFileFormat = "cdcBulkASCII"
-
-    CdcFileFormat_cdcBulkBinary CdcFileFormat = "cdcBulkBinary"
-
-    CdcFileFormat_cdcSchemaASCII CdcFileFormat = "cdcSchemaASCII"
-)
-
 // CISCODATACOLLECTIONMIB
 type CISCODATACOLLECTIONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -225,88 +225,31 @@ type CISCODATACOLLECTIONMIB struct {
     Cdcfilexferconftable CISCODATACOLLECTIONMIB_Cdcfilexferconftable
 }
 
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetFilter() yfilter.YFilter { return cISCODATACOLLECTIONMIB.YFilter }
+func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetEntityData() *types.CommonEntityData {
+    cISCODATACOLLECTIONMIB.EntityData.YFilter = cISCODATACOLLECTIONMIB.YFilter
+    cISCODATACOLLECTIONMIB.EntityData.YangName = "CISCO-DATA-COLLECTION-MIB"
+    cISCODATACOLLECTIONMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCODATACOLLECTIONMIB.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cISCODATACOLLECTIONMIB.EntityData.SegmentPath = "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB"
+    cISCODATACOLLECTIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCODATACOLLECTIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCODATACOLLECTIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) SetFilter(yf yfilter.YFilter) { cISCODATACOLLECTIONMIB.YFilter = yf }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetGoName(yname string) string {
-    if yname == "cdcVFile" { return "Cdcvfile" }
-    if yname == "cdcVFileTable" { return "Cdcvfiletable" }
-    if yname == "cdcVFileMgmtTable" { return "Cdcvfilemgmttable" }
-    if yname == "cdcDGTable" { return "Cdcdgtable" }
-    if yname == "cdcDGBaseObjectTable" { return "Cdcdgbaseobjecttable" }
-    if yname == "cdcDGInstanceTable" { return "Cdcdginstancetable" }
-    if yname == "cdcFileXferConfTable" { return "Cdcfilexferconftable" }
-    return ""
+    cISCODATACOLLECTIONMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcVFile"] = types.YChild{"Cdcvfile", &cISCODATACOLLECTIONMIB.Cdcvfile}
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcVFileTable"] = types.YChild{"Cdcvfiletable", &cISCODATACOLLECTIONMIB.Cdcvfiletable}
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcVFileMgmtTable"] = types.YChild{"Cdcvfilemgmttable", &cISCODATACOLLECTIONMIB.Cdcvfilemgmttable}
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcDGTable"] = types.YChild{"Cdcdgtable", &cISCODATACOLLECTIONMIB.Cdcdgtable}
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcDGBaseObjectTable"] = types.YChild{"Cdcdgbaseobjecttable", &cISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable}
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcDGInstanceTable"] = types.YChild{"Cdcdginstancetable", &cISCODATACOLLECTIONMIB.Cdcdginstancetable}
+    cISCODATACOLLECTIONMIB.EntityData.Children["cdcFileXferConfTable"] = types.YChild{"Cdcfilexferconftable", &cISCODATACOLLECTIONMIB.Cdcfilexferconftable}
+    cISCODATACOLLECTIONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCODATACOLLECTIONMIB.EntityData)
 }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetSegmentPath() string {
-    return "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB"
-}
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcVFile" {
-        return &cISCODATACOLLECTIONMIB.Cdcvfile
-    }
-    if childYangName == "cdcVFileTable" {
-        return &cISCODATACOLLECTIONMIB.Cdcvfiletable
-    }
-    if childYangName == "cdcVFileMgmtTable" {
-        return &cISCODATACOLLECTIONMIB.Cdcvfilemgmttable
-    }
-    if childYangName == "cdcDGTable" {
-        return &cISCODATACOLLECTIONMIB.Cdcdgtable
-    }
-    if childYangName == "cdcDGBaseObjectTable" {
-        return &cISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable
-    }
-    if childYangName == "cdcDGInstanceTable" {
-        return &cISCODATACOLLECTIONMIB.Cdcdginstancetable
-    }
-    if childYangName == "cdcFileXferConfTable" {
-        return &cISCODATACOLLECTIONMIB.Cdcfilexferconftable
-    }
-    return nil
-}
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cdcVFile"] = &cISCODATACOLLECTIONMIB.Cdcvfile
-    children["cdcVFileTable"] = &cISCODATACOLLECTIONMIB.Cdcvfiletable
-    children["cdcVFileMgmtTable"] = &cISCODATACOLLECTIONMIB.Cdcvfilemgmttable
-    children["cdcDGTable"] = &cISCODATACOLLECTIONMIB.Cdcdgtable
-    children["cdcDGBaseObjectTable"] = &cISCODATACOLLECTIONMIB.Cdcdgbaseobjecttable
-    children["cdcDGInstanceTable"] = &cISCODATACOLLECTIONMIB.Cdcdginstancetable
-    children["cdcFileXferConfTable"] = &cISCODATACOLLECTIONMIB.Cdcfilexferconftable
-    return children
-}
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) SetParent(parent types.Entity) { cISCODATACOLLECTIONMIB.parent = parent }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetParent() types.Entity { return cISCODATACOLLECTIONMIB.parent }
-
-func (cISCODATACOLLECTIONMIB *CISCODATACOLLECTIONMIB) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcvfile
 type CISCODATACOLLECTIONMIB_Cdcvfile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object's value reads 'true', if the agent implementation of this MIB
@@ -321,58 +264,27 @@ type CISCODATACOLLECTIONMIB_Cdcvfile struct {
     Cdcvfilemaxsizehitslimit interface{}
 }
 
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetFilter() yfilter.YFilter { return cdcvfile.YFilter }
+func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetEntityData() *types.CommonEntityData {
+    cdcvfile.EntityData.YFilter = cdcvfile.YFilter
+    cdcvfile.EntityData.YangName = "cdcVFile"
+    cdcvfile.EntityData.BundleName = "cisco_ios_xe"
+    cdcvfile.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcvfile.EntityData.SegmentPath = "cdcVFile"
+    cdcvfile.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcvfile.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcvfile.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) SetFilter(yf yfilter.YFilter) { cdcvfile.YFilter = yf }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetGoName(yname string) string {
-    if yname == "cdcVFilePersistentStorage" { return "Cdcvfilepersistentstorage" }
-    if yname == "cdcVFileMaxSizeHitsLimit" { return "Cdcvfilemaxsizehitslimit" }
-    return ""
+    cdcvfile.EntityData.Children = make(map[string]types.YChild)
+    cdcvfile.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcvfile.EntityData.Leafs["cdcVFilePersistentStorage"] = types.YLeaf{"Cdcvfilepersistentstorage", cdcvfile.Cdcvfilepersistentstorage}
+    cdcvfile.EntityData.Leafs["cdcVFileMaxSizeHitsLimit"] = types.YLeaf{"Cdcvfilemaxsizehitslimit", cdcvfile.Cdcvfilemaxsizehitslimit}
+    return &(cdcvfile.EntityData)
 }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetSegmentPath() string {
-    return "cdcVFile"
-}
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcVFilePersistentStorage"] = cdcvfile.Cdcvfilepersistentstorage
-    leafs["cdcVFileMaxSizeHitsLimit"] = cdcvfile.Cdcvfilemaxsizehitslimit
-    return leafs
-}
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetYangName() string { return "cdcVFile" }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) SetParent(parent types.Entity) { cdcvfile.parent = parent }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetParent() types.Entity { return cdcvfile.parent }
-
-func (cdcvfile *CISCODATACOLLECTIONMIB_Cdcvfile) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcvfiletable
 // A table for setting up VFiles for collecting data.
 type CISCODATACOLLECTIONMIB_Cdcvfiletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cdcVFileTable. Each entry contains application specified
@@ -389,63 +301,24 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable struct {
     Cdcvfileentry []CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry
 }
 
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetFilter() yfilter.YFilter { return cdcvfiletable.YFilter }
+func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetEntityData() *types.CommonEntityData {
+    cdcvfiletable.EntityData.YFilter = cdcvfiletable.YFilter
+    cdcvfiletable.EntityData.YangName = "cdcVFileTable"
+    cdcvfiletable.EntityData.BundleName = "cisco_ios_xe"
+    cdcvfiletable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcvfiletable.EntityData.SegmentPath = "cdcVFileTable"
+    cdcvfiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcvfiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcvfiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) SetFilter(yf yfilter.YFilter) { cdcvfiletable.YFilter = yf }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetGoName(yname string) string {
-    if yname == "cdcVFileEntry" { return "Cdcvfileentry" }
-    return ""
-}
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetSegmentPath() string {
-    return "cdcVFileTable"
-}
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcVFileEntry" {
-        for _, c := range cdcvfiletable.Cdcvfileentry {
-            if cdcvfiletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry{}
-        cdcvfiletable.Cdcvfileentry = append(cdcvfiletable.Cdcvfileentry, child)
-        return &cdcvfiletable.Cdcvfileentry[len(cdcvfiletable.Cdcvfileentry)-1]
-    }
-    return nil
-}
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdcvfiletable.EntityData.Children = make(map[string]types.YChild)
+    cdcvfiletable.EntityData.Children["cdcVFileEntry"] = types.YChild{"Cdcvfileentry", nil}
     for i := range cdcvfiletable.Cdcvfileentry {
-        children[cdcvfiletable.Cdcvfileentry[i].GetSegmentPath()] = &cdcvfiletable.Cdcvfileentry[i]
+        cdcvfiletable.EntityData.Children[types.GetSegmentPath(&cdcvfiletable.Cdcvfileentry[i])] = types.YChild{"Cdcvfileentry", &cdcvfiletable.Cdcvfileentry[i]}
     }
-    return children
+    cdcvfiletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdcvfiletable.EntityData)
 }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetYangName() string { return "cdcVFileTable" }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) SetParent(parent types.Entity) { cdcvfiletable.parent = parent }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetParent() types.Entity { return cdcvfiletable.parent }
-
-func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry
 // An entry in the cdcVFileTable. Each entry contains
@@ -463,7 +336,7 @@ func (cdcvfiletable *CISCODATACOLLECTIONMIB_Cdcvfiletable) GetParentYangName() s
 // time of the entry. The activation time for each entry is
 // maintained internally by the agent.
 type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer for uniquely identifying this
@@ -630,79 +503,35 @@ type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry struct {
     Cdcvfilerowstatus interface{}
 }
 
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetFilter() yfilter.YFilter { return cdcvfileentry.YFilter }
+func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetEntityData() *types.CommonEntityData {
+    cdcvfileentry.EntityData.YFilter = cdcvfileentry.YFilter
+    cdcvfileentry.EntityData.YangName = "cdcVFileEntry"
+    cdcvfileentry.EntityData.BundleName = "cisco_ios_xe"
+    cdcvfileentry.EntityData.ParentYangName = "cdcVFileTable"
+    cdcvfileentry.EntityData.SegmentPath = "cdcVFileEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcvfileentry.Cdcvfileindex) + "']"
+    cdcvfileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcvfileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcvfileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) SetFilter(yf yfilter.YFilter) { cdcvfileentry.YFilter = yf }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetGoName(yname string) string {
-    if yname == "cdcVFileIndex" { return "Cdcvfileindex" }
-    if yname == "cdcVFileName" { return "Cdcvfilename" }
-    if yname == "cdcVFileDescription" { return "Cdcvfiledescription" }
-    if yname == "cdcVFileCommand" { return "Cdcvfilecommand" }
-    if yname == "cdcVFileMaxSize" { return "Cdcvfilemaxsize" }
-    if yname == "cdcVFileCurrentSize" { return "Cdcvfilecurrentsize" }
-    if yname == "cdcVFileFormat" { return "Cdcvfileformat" }
-    if yname == "cdcVFileCollectMode" { return "Cdcvfilecollectmode" }
-    if yname == "cdcVFileCollectionPeriod" { return "Cdcvfilecollectionperiod" }
-    if yname == "cdcVFileRetentionPeriod" { return "Cdcvfileretentionperiod" }
-    if yname == "cdcVFileAdminStatus" { return "Cdcvfileadminstatus" }
-    if yname == "cdcVFileOperStatus" { return "Cdcvfileoperstatus" }
-    if yname == "cdcVFileErrorCode" { return "Cdcvfileerrorcode" }
-    if yname == "cdcVFileCollectionErrorEnable" { return "Cdcvfilecollectionerrorenable" }
-    if yname == "cdcVFileRowStatus" { return "Cdcvfilerowstatus" }
-    return ""
+    cdcvfileentry.EntityData.Children = make(map[string]types.YChild)
+    cdcvfileentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcvfileentry.EntityData.Leafs["cdcVFileIndex"] = types.YLeaf{"Cdcvfileindex", cdcvfileentry.Cdcvfileindex}
+    cdcvfileentry.EntityData.Leafs["cdcVFileName"] = types.YLeaf{"Cdcvfilename", cdcvfileentry.Cdcvfilename}
+    cdcvfileentry.EntityData.Leafs["cdcVFileDescription"] = types.YLeaf{"Cdcvfiledescription", cdcvfileentry.Cdcvfiledescription}
+    cdcvfileentry.EntityData.Leafs["cdcVFileCommand"] = types.YLeaf{"Cdcvfilecommand", cdcvfileentry.Cdcvfilecommand}
+    cdcvfileentry.EntityData.Leafs["cdcVFileMaxSize"] = types.YLeaf{"Cdcvfilemaxsize", cdcvfileentry.Cdcvfilemaxsize}
+    cdcvfileentry.EntityData.Leafs["cdcVFileCurrentSize"] = types.YLeaf{"Cdcvfilecurrentsize", cdcvfileentry.Cdcvfilecurrentsize}
+    cdcvfileentry.EntityData.Leafs["cdcVFileFormat"] = types.YLeaf{"Cdcvfileformat", cdcvfileentry.Cdcvfileformat}
+    cdcvfileentry.EntityData.Leafs["cdcVFileCollectMode"] = types.YLeaf{"Cdcvfilecollectmode", cdcvfileentry.Cdcvfilecollectmode}
+    cdcvfileentry.EntityData.Leafs["cdcVFileCollectionPeriod"] = types.YLeaf{"Cdcvfilecollectionperiod", cdcvfileentry.Cdcvfilecollectionperiod}
+    cdcvfileentry.EntityData.Leafs["cdcVFileRetentionPeriod"] = types.YLeaf{"Cdcvfileretentionperiod", cdcvfileentry.Cdcvfileretentionperiod}
+    cdcvfileentry.EntityData.Leafs["cdcVFileAdminStatus"] = types.YLeaf{"Cdcvfileadminstatus", cdcvfileentry.Cdcvfileadminstatus}
+    cdcvfileentry.EntityData.Leafs["cdcVFileOperStatus"] = types.YLeaf{"Cdcvfileoperstatus", cdcvfileentry.Cdcvfileoperstatus}
+    cdcvfileentry.EntityData.Leafs["cdcVFileErrorCode"] = types.YLeaf{"Cdcvfileerrorcode", cdcvfileentry.Cdcvfileerrorcode}
+    cdcvfileentry.EntityData.Leafs["cdcVFileCollectionErrorEnable"] = types.YLeaf{"Cdcvfilecollectionerrorenable", cdcvfileentry.Cdcvfilecollectionerrorenable}
+    cdcvfileentry.EntityData.Leafs["cdcVFileRowStatus"] = types.YLeaf{"Cdcvfilerowstatus", cdcvfileentry.Cdcvfilerowstatus}
+    return &(cdcvfileentry.EntityData)
 }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetSegmentPath() string {
-    return "cdcVFileEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcvfileentry.Cdcvfileindex) + "']"
-}
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcVFileIndex"] = cdcvfileentry.Cdcvfileindex
-    leafs["cdcVFileName"] = cdcvfileentry.Cdcvfilename
-    leafs["cdcVFileDescription"] = cdcvfileentry.Cdcvfiledescription
-    leafs["cdcVFileCommand"] = cdcvfileentry.Cdcvfilecommand
-    leafs["cdcVFileMaxSize"] = cdcvfileentry.Cdcvfilemaxsize
-    leafs["cdcVFileCurrentSize"] = cdcvfileentry.Cdcvfilecurrentsize
-    leafs["cdcVFileFormat"] = cdcvfileentry.Cdcvfileformat
-    leafs["cdcVFileCollectMode"] = cdcvfileentry.Cdcvfilecollectmode
-    leafs["cdcVFileCollectionPeriod"] = cdcvfileentry.Cdcvfilecollectionperiod
-    leafs["cdcVFileRetentionPeriod"] = cdcvfileentry.Cdcvfileretentionperiod
-    leafs["cdcVFileAdminStatus"] = cdcvfileentry.Cdcvfileadminstatus
-    leafs["cdcVFileOperStatus"] = cdcvfileentry.Cdcvfileoperstatus
-    leafs["cdcVFileErrorCode"] = cdcvfileentry.Cdcvfileerrorcode
-    leafs["cdcVFileCollectionErrorEnable"] = cdcvfileentry.Cdcvfilecollectionerrorenable
-    leafs["cdcVFileRowStatus"] = cdcvfileentry.Cdcvfilerowstatus
-    return leafs
-}
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetYangName() string { return "cdcVFileEntry" }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) SetParent(parent types.Entity) { cdcvfileentry.parent = parent }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetParent() types.Entity { return cdcvfileentry.parent }
-
-func (cdcvfileentry *CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry) GetParentYangName() string { return "cdcVFileTable" }
 
 // CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus represents by the active rows in this table.
 type CISCODATACOLLECTIONMIB_Cdcvfiletable_Cdcvfileentry_Cdcvfileadminstatus string
@@ -766,7 +595,7 @@ const (
 // CISCODATACOLLECTIONMIB_Cdcvfilemgmttable
 // A table to manage frozen VFiles.
 type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in cdcVFileMgmtTable. Each entry corresponds to a frozen VFile. An
@@ -783,63 +612,24 @@ type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable struct {
     Cdcvfilemgmtentry []CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry
 }
 
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetFilter() yfilter.YFilter { return cdcvfilemgmttable.YFilter }
+func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetEntityData() *types.CommonEntityData {
+    cdcvfilemgmttable.EntityData.YFilter = cdcvfilemgmttable.YFilter
+    cdcvfilemgmttable.EntityData.YangName = "cdcVFileMgmtTable"
+    cdcvfilemgmttable.EntityData.BundleName = "cisco_ios_xe"
+    cdcvfilemgmttable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcvfilemgmttable.EntityData.SegmentPath = "cdcVFileMgmtTable"
+    cdcvfilemgmttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcvfilemgmttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcvfilemgmttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) SetFilter(yf yfilter.YFilter) { cdcvfilemgmttable.YFilter = yf }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetGoName(yname string) string {
-    if yname == "cdcVFileMgmtEntry" { return "Cdcvfilemgmtentry" }
-    return ""
-}
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetSegmentPath() string {
-    return "cdcVFileMgmtTable"
-}
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcVFileMgmtEntry" {
-        for _, c := range cdcvfilemgmttable.Cdcvfilemgmtentry {
-            if cdcvfilemgmttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry{}
-        cdcvfilemgmttable.Cdcvfilemgmtentry = append(cdcvfilemgmttable.Cdcvfilemgmtentry, child)
-        return &cdcvfilemgmttable.Cdcvfilemgmtentry[len(cdcvfilemgmttable.Cdcvfilemgmtentry)-1]
-    }
-    return nil
-}
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdcvfilemgmttable.EntityData.Children = make(map[string]types.YChild)
+    cdcvfilemgmttable.EntityData.Children["cdcVFileMgmtEntry"] = types.YChild{"Cdcvfilemgmtentry", nil}
     for i := range cdcvfilemgmttable.Cdcvfilemgmtentry {
-        children[cdcvfilemgmttable.Cdcvfilemgmtentry[i].GetSegmentPath()] = &cdcvfilemgmttable.Cdcvfilemgmtentry[i]
+        cdcvfilemgmttable.EntityData.Children[types.GetSegmentPath(&cdcvfilemgmttable.Cdcvfilemgmtentry[i])] = types.YChild{"Cdcvfilemgmtentry", &cdcvfilemgmttable.Cdcvfilemgmtentry[i]}
     }
-    return children
+    cdcvfilemgmttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdcvfilemgmttable.EntityData)
 }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetYangName() string { return "cdcVFileMgmtTable" }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) SetParent(parent types.Entity) { cdcvfilemgmttable.parent = parent }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetParent() types.Entity { return cdcvfilemgmttable.parent }
-
-func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry
 // An entry in cdcVFileMgmtTable. Each entry corresponds to a
@@ -856,7 +646,7 @@ func (cdcvfilemgmttable *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable) GetParentYang
 // entry, like time to live etc. need not be maintained
 // across restarts.
 type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -919,67 +709,29 @@ type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry struct {
     Cdcvfilemgmtlastxferurl interface{}
 }
 
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetFilter() yfilter.YFilter { return cdcvfilemgmtentry.YFilter }
+func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetEntityData() *types.CommonEntityData {
+    cdcvfilemgmtentry.EntityData.YFilter = cdcvfilemgmtentry.YFilter
+    cdcvfilemgmtentry.EntityData.YangName = "cdcVFileMgmtEntry"
+    cdcvfilemgmtentry.EntityData.BundleName = "cisco_ios_xe"
+    cdcvfilemgmtentry.EntityData.ParentYangName = "cdcVFileMgmtTable"
+    cdcvfilemgmtentry.EntityData.SegmentPath = "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcvfilemgmtentry.Cdcvfileindex) + "']" + "[cdcVFileMgmtIndex='" + fmt.Sprintf("%v", cdcvfilemgmtentry.Cdcvfilemgmtindex) + "']"
+    cdcvfilemgmtentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcvfilemgmtentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcvfilemgmtentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) SetFilter(yf yfilter.YFilter) { cdcvfilemgmtentry.YFilter = yf }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetGoName(yname string) string {
-    if yname == "cdcVFileIndex" { return "Cdcvfileindex" }
-    if yname == "cdcVFileMgmtIndex" { return "Cdcvfilemgmtindex" }
-    if yname == "cdcVFileMgmtName" { return "Cdcvfilemgmtname" }
-    if yname == "cdcVFileMgmtTimestamp" { return "Cdcvfilemgmttimestamp" }
-    if yname == "cdcVFileMgmtTimeToLive" { return "Cdcvfilemgmttimetolive" }
-    if yname == "cdcVFileMgmtCommand" { return "Cdcvfilemgmtcommand" }
-    if yname == "cdcVFileMgmtXferURL" { return "Cdcvfilemgmtxferurl" }
-    if yname == "cdcVFileMgmtLastXferStatus" { return "Cdcvfilemgmtlastxferstatus" }
-    if yname == "cdcVFileMgmtLastXferURL" { return "Cdcvfilemgmtlastxferurl" }
-    return ""
+    cdcvfilemgmtentry.EntityData.Children = make(map[string]types.YChild)
+    cdcvfilemgmtentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileIndex"] = types.YLeaf{"Cdcvfileindex", cdcvfilemgmtentry.Cdcvfileindex}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtIndex"] = types.YLeaf{"Cdcvfilemgmtindex", cdcvfilemgmtentry.Cdcvfilemgmtindex}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtName"] = types.YLeaf{"Cdcvfilemgmtname", cdcvfilemgmtentry.Cdcvfilemgmtname}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtTimestamp"] = types.YLeaf{"Cdcvfilemgmttimestamp", cdcvfilemgmtentry.Cdcvfilemgmttimestamp}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtTimeToLive"] = types.YLeaf{"Cdcvfilemgmttimetolive", cdcvfilemgmtentry.Cdcvfilemgmttimetolive}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtCommand"] = types.YLeaf{"Cdcvfilemgmtcommand", cdcvfilemgmtentry.Cdcvfilemgmtcommand}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtXferURL"] = types.YLeaf{"Cdcvfilemgmtxferurl", cdcvfilemgmtentry.Cdcvfilemgmtxferurl}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtLastXferStatus"] = types.YLeaf{"Cdcvfilemgmtlastxferstatus", cdcvfilemgmtentry.Cdcvfilemgmtlastxferstatus}
+    cdcvfilemgmtentry.EntityData.Leafs["cdcVFileMgmtLastXferURL"] = types.YLeaf{"Cdcvfilemgmtlastxferurl", cdcvfilemgmtentry.Cdcvfilemgmtlastxferurl}
+    return &(cdcvfilemgmtentry.EntityData)
 }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetSegmentPath() string {
-    return "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcvfilemgmtentry.Cdcvfileindex) + "']" + "[cdcVFileMgmtIndex='" + fmt.Sprintf("%v", cdcvfilemgmtentry.Cdcvfilemgmtindex) + "']"
-}
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcVFileIndex"] = cdcvfilemgmtentry.Cdcvfileindex
-    leafs["cdcVFileMgmtIndex"] = cdcvfilemgmtentry.Cdcvfilemgmtindex
-    leafs["cdcVFileMgmtName"] = cdcvfilemgmtentry.Cdcvfilemgmtname
-    leafs["cdcVFileMgmtTimestamp"] = cdcvfilemgmtentry.Cdcvfilemgmttimestamp
-    leafs["cdcVFileMgmtTimeToLive"] = cdcvfilemgmtentry.Cdcvfilemgmttimetolive
-    leafs["cdcVFileMgmtCommand"] = cdcvfilemgmtentry.Cdcvfilemgmtcommand
-    leafs["cdcVFileMgmtXferURL"] = cdcvfilemgmtentry.Cdcvfilemgmtxferurl
-    leafs["cdcVFileMgmtLastXferStatus"] = cdcvfilemgmtentry.Cdcvfilemgmtlastxferstatus
-    leafs["cdcVFileMgmtLastXferURL"] = cdcvfilemgmtentry.Cdcvfilemgmtlastxferurl
-    return leafs
-}
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetYangName() string { return "cdcVFileMgmtEntry" }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) SetParent(parent types.Entity) { cdcvfilemgmtentry.parent = parent }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetParent() types.Entity { return cdcvfilemgmtentry.parent }
-
-func (cdcvfilemgmtentry *CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry) GetParentYangName() string { return "cdcVFileMgmtTable" }
 
 // CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand represents                to abort an ongoing transfer.
 type CISCODATACOLLECTIONMIB_Cdcvfilemgmttable_Cdcvfilemgmtentry_Cdcvfilemgmtcommand string
@@ -997,7 +749,7 @@ const (
 // CISCODATACOLLECTIONMIB_Cdcdgtable
 // A table for specifying data groups.
 type CISCODATACOLLECTIONMIB_Cdcdgtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table. Each entry corresponds to a data group. A data
@@ -1014,63 +766,24 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable struct {
     Cdcdgentry []CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry
 }
 
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetFilter() yfilter.YFilter { return cdcdgtable.YFilter }
+func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetEntityData() *types.CommonEntityData {
+    cdcdgtable.EntityData.YFilter = cdcdgtable.YFilter
+    cdcdgtable.EntityData.YangName = "cdcDGTable"
+    cdcdgtable.EntityData.BundleName = "cisco_ios_xe"
+    cdcdgtable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcdgtable.EntityData.SegmentPath = "cdcDGTable"
+    cdcdgtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcdgtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcdgtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) SetFilter(yf yfilter.YFilter) { cdcdgtable.YFilter = yf }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetGoName(yname string) string {
-    if yname == "cdcDGEntry" { return "Cdcdgentry" }
-    return ""
-}
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetSegmentPath() string {
-    return "cdcDGTable"
-}
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcDGEntry" {
-        for _, c := range cdcdgtable.Cdcdgentry {
-            if cdcdgtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry{}
-        cdcdgtable.Cdcdgentry = append(cdcdgtable.Cdcdgentry, child)
-        return &cdcdgtable.Cdcdgentry[len(cdcdgtable.Cdcdgentry)-1]
-    }
-    return nil
-}
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdcdgtable.EntityData.Children = make(map[string]types.YChild)
+    cdcdgtable.EntityData.Children["cdcDGEntry"] = types.YChild{"Cdcdgentry", nil}
     for i := range cdcdgtable.Cdcdgentry {
-        children[cdcdgtable.Cdcdgentry[i].GetSegmentPath()] = &cdcdgtable.Cdcdgentry[i]
+        cdcdgtable.EntityData.Children[types.GetSegmentPath(&cdcdgtable.Cdcdgentry[i])] = types.YChild{"Cdcdgentry", &cdcdgtable.Cdcdgentry[i]}
     }
-    return children
+    cdcdgtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdcdgtable.EntityData)
 }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetYangName() string { return "cdcDGTable" }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) SetParent(parent types.Entity) { cdcdgtable.parent = parent }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetParent() types.Entity { return cdcdgtable.parent }
-
-func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry
 // An entry in this table. Each entry corresponds to a data
@@ -1090,7 +803,7 @@ func (cdcdgtable *CISCODATACOLLECTIONMIB_Cdcdgtable) GetParentYangName() string 
 // VFile of the associated cdcVFileEntry at periodic
 // intervals (cdcDGPollPeriod).
 type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer used to uniquely identify
@@ -1144,7 +857,7 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     // 'object'.   This object's value may be modified at any time. The change
     // takes effect the next time data is fetched for this data group. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cdcdgobject interface{}
 
     // Corresponds to a value of cdcDGBaseObjectGrpIndex, thus identifying a set
@@ -1193,71 +906,31 @@ type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry struct {
     Cdcdgrowstatus interface{}
 }
 
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetFilter() yfilter.YFilter { return cdcdgentry.YFilter }
+func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetEntityData() *types.CommonEntityData {
+    cdcdgentry.EntityData.YFilter = cdcdgentry.YFilter
+    cdcdgentry.EntityData.YangName = "cdcDGEntry"
+    cdcdgentry.EntityData.BundleName = "cisco_ios_xe"
+    cdcdgentry.EntityData.ParentYangName = "cdcDGTable"
+    cdcdgentry.EntityData.SegmentPath = "cdcDGEntry" + "[cdcDGIndex='" + fmt.Sprintf("%v", cdcdgentry.Cdcdgindex) + "']"
+    cdcdgentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcdgentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcdgentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) SetFilter(yf yfilter.YFilter) { cdcdgentry.YFilter = yf }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetGoName(yname string) string {
-    if yname == "cdcDGIndex" { return "Cdcdgindex" }
-    if yname == "cdcDGComment" { return "Cdcdgcomment" }
-    if yname == "cdcDGType" { return "Cdcdgtype" }
-    if yname == "cdcDGVFileIndex" { return "Cdcdgvfileindex" }
-    if yname == "cdcDGTargetTag" { return "Cdcdgtargettag" }
-    if yname == "cdcDGContextName" { return "Cdcdgcontextname" }
-    if yname == "cdcDGObject" { return "Cdcdgobject" }
-    if yname == "cdcDGObjectGrpIndex" { return "Cdcdgobjectgrpindex" }
-    if yname == "cdcDGInstGrpIndex" { return "Cdcdginstgrpindex" }
-    if yname == "cdcDGPollPeriod" { return "Cdcdgpollperiod" }
-    if yname == "cdcDGRowStatus" { return "Cdcdgrowstatus" }
-    return ""
+    cdcdgentry.EntityData.Children = make(map[string]types.YChild)
+    cdcdgentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcdgentry.EntityData.Leafs["cdcDGIndex"] = types.YLeaf{"Cdcdgindex", cdcdgentry.Cdcdgindex}
+    cdcdgentry.EntityData.Leafs["cdcDGComment"] = types.YLeaf{"Cdcdgcomment", cdcdgentry.Cdcdgcomment}
+    cdcdgentry.EntityData.Leafs["cdcDGType"] = types.YLeaf{"Cdcdgtype", cdcdgentry.Cdcdgtype}
+    cdcdgentry.EntityData.Leafs["cdcDGVFileIndex"] = types.YLeaf{"Cdcdgvfileindex", cdcdgentry.Cdcdgvfileindex}
+    cdcdgentry.EntityData.Leafs["cdcDGTargetTag"] = types.YLeaf{"Cdcdgtargettag", cdcdgentry.Cdcdgtargettag}
+    cdcdgentry.EntityData.Leafs["cdcDGContextName"] = types.YLeaf{"Cdcdgcontextname", cdcdgentry.Cdcdgcontextname}
+    cdcdgentry.EntityData.Leafs["cdcDGObject"] = types.YLeaf{"Cdcdgobject", cdcdgentry.Cdcdgobject}
+    cdcdgentry.EntityData.Leafs["cdcDGObjectGrpIndex"] = types.YLeaf{"Cdcdgobjectgrpindex", cdcdgentry.Cdcdgobjectgrpindex}
+    cdcdgentry.EntityData.Leafs["cdcDGInstGrpIndex"] = types.YLeaf{"Cdcdginstgrpindex", cdcdgentry.Cdcdginstgrpindex}
+    cdcdgentry.EntityData.Leafs["cdcDGPollPeriod"] = types.YLeaf{"Cdcdgpollperiod", cdcdgentry.Cdcdgpollperiod}
+    cdcdgentry.EntityData.Leafs["cdcDGRowStatus"] = types.YLeaf{"Cdcdgrowstatus", cdcdgentry.Cdcdgrowstatus}
+    return &(cdcdgentry.EntityData)
 }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetSegmentPath() string {
-    return "cdcDGEntry" + "[cdcDGIndex='" + fmt.Sprintf("%v", cdcdgentry.Cdcdgindex) + "']"
-}
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcDGIndex"] = cdcdgentry.Cdcdgindex
-    leafs["cdcDGComment"] = cdcdgentry.Cdcdgcomment
-    leafs["cdcDGType"] = cdcdgentry.Cdcdgtype
-    leafs["cdcDGVFileIndex"] = cdcdgentry.Cdcdgvfileindex
-    leafs["cdcDGTargetTag"] = cdcdgentry.Cdcdgtargettag
-    leafs["cdcDGContextName"] = cdcdgentry.Cdcdgcontextname
-    leafs["cdcDGObject"] = cdcdgentry.Cdcdgobject
-    leafs["cdcDGObjectGrpIndex"] = cdcdgentry.Cdcdgobjectgrpindex
-    leafs["cdcDGInstGrpIndex"] = cdcdgentry.Cdcdginstgrpindex
-    leafs["cdcDGPollPeriod"] = cdcdgentry.Cdcdgpollperiod
-    leafs["cdcDGRowStatus"] = cdcdgentry.Cdcdgrowstatus
-    return leafs
-}
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetYangName() string { return "cdcDGEntry" }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) SetParent(parent types.Entity) { cdcdgentry.parent = parent }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetParent() types.Entity { return cdcdgentry.parent }
-
-func (cdcdgentry *CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry) GetParentYangName() string { return "cdcDGTable" }
 
 // CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype represents cdcDGRowStatus is 'active'.
 type CISCODATACOLLECTIONMIB_Cdcdgtable_Cdcdgentry_Cdcdgtype string
@@ -1272,7 +945,7 @@ const (
 // A table specifying the base objects of a 'table' type
 // data group.
 type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An individual entry in this table. Each entry is a  {subtree, list} tuple.
@@ -1282,70 +955,31 @@ type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable struct {
     Cdcdgbaseobjectentry []CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry
 }
 
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetFilter() yfilter.YFilter { return cdcdgbaseobjecttable.YFilter }
+func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetEntityData() *types.CommonEntityData {
+    cdcdgbaseobjecttable.EntityData.YFilter = cdcdgbaseobjecttable.YFilter
+    cdcdgbaseobjecttable.EntityData.YangName = "cdcDGBaseObjectTable"
+    cdcdgbaseobjecttable.EntityData.BundleName = "cisco_ios_xe"
+    cdcdgbaseobjecttable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcdgbaseobjecttable.EntityData.SegmentPath = "cdcDGBaseObjectTable"
+    cdcdgbaseobjecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcdgbaseobjecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcdgbaseobjecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) SetFilter(yf yfilter.YFilter) { cdcdgbaseobjecttable.YFilter = yf }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetGoName(yname string) string {
-    if yname == "cdcDGBaseObjectEntry" { return "Cdcdgbaseobjectentry" }
-    return ""
-}
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetSegmentPath() string {
-    return "cdcDGBaseObjectTable"
-}
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcDGBaseObjectEntry" {
-        for _, c := range cdcdgbaseobjecttable.Cdcdgbaseobjectentry {
-            if cdcdgbaseobjecttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry{}
-        cdcdgbaseobjecttable.Cdcdgbaseobjectentry = append(cdcdgbaseobjecttable.Cdcdgbaseobjectentry, child)
-        return &cdcdgbaseobjecttable.Cdcdgbaseobjectentry[len(cdcdgbaseobjecttable.Cdcdgbaseobjectentry)-1]
-    }
-    return nil
-}
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdcdgbaseobjecttable.EntityData.Children = make(map[string]types.YChild)
+    cdcdgbaseobjecttable.EntityData.Children["cdcDGBaseObjectEntry"] = types.YChild{"Cdcdgbaseobjectentry", nil}
     for i := range cdcdgbaseobjecttable.Cdcdgbaseobjectentry {
-        children[cdcdgbaseobjecttable.Cdcdgbaseobjectentry[i].GetSegmentPath()] = &cdcdgbaseobjecttable.Cdcdgbaseobjectentry[i]
+        cdcdgbaseobjecttable.EntityData.Children[types.GetSegmentPath(&cdcdgbaseobjecttable.Cdcdgbaseobjectentry[i])] = types.YChild{"Cdcdgbaseobjectentry", &cdcdgbaseobjecttable.Cdcdgbaseobjectentry[i]}
     }
-    return children
+    cdcdgbaseobjecttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdcdgbaseobjecttable.EntityData)
 }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetYangName() string { return "cdcDGBaseObjectTable" }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) SetParent(parent types.Entity) { cdcdgbaseobjecttable.parent = parent }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetParent() types.Entity { return cdcdgbaseobjecttable.parent }
-
-func (cdcdgbaseobjecttable *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry
 // An individual entry in this table. Each entry is a 
 // {subtree, list} tuple. Each tuple identifies a set of 
 // base objects for the associated data group.
 type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object's value when combined with the value
@@ -1367,7 +1001,7 @@ type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry struct {
     // The subtree component of a {subtree, list} tuple.  This object's value may
     // be modified at any time. The change takes effect the next time data is
     // fetched for this data group. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cdcdgbaseobjectsubtree interface{}
 
     // The list component of a {subtree, list} tuple.  This object's value may be
@@ -1381,59 +1015,25 @@ type CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry struct {
     Cdcdgbaseobjectrowstatus interface{}
 }
 
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetFilter() yfilter.YFilter { return cdcdgbaseobjectentry.YFilter }
+func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetEntityData() *types.CommonEntityData {
+    cdcdgbaseobjectentry.EntityData.YFilter = cdcdgbaseobjectentry.YFilter
+    cdcdgbaseobjectentry.EntityData.YangName = "cdcDGBaseObjectEntry"
+    cdcdgbaseobjectentry.EntityData.BundleName = "cisco_ios_xe"
+    cdcdgbaseobjectentry.EntityData.ParentYangName = "cdcDGBaseObjectTable"
+    cdcdgbaseobjectentry.EntityData.SegmentPath = "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + fmt.Sprintf("%v", cdcdgbaseobjectentry.Cdcdgbaseobjectgrpindex) + "']" + "[cdcDGBaseObjectIndex='" + fmt.Sprintf("%v", cdcdgbaseobjectentry.Cdcdgbaseobjectindex) + "']"
+    cdcdgbaseobjectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcdgbaseobjectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcdgbaseobjectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) SetFilter(yf yfilter.YFilter) { cdcdgbaseobjectentry.YFilter = yf }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetGoName(yname string) string {
-    if yname == "cdcDGBaseObjectGrpIndex" { return "Cdcdgbaseobjectgrpindex" }
-    if yname == "cdcDGBaseObjectIndex" { return "Cdcdgbaseobjectindex" }
-    if yname == "cdcDGBaseObjectSubtree" { return "Cdcdgbaseobjectsubtree" }
-    if yname == "cdcDGBaseObjectList" { return "Cdcdgbaseobjectlist" }
-    if yname == "cdcDGBaseObjectRowStatus" { return "Cdcdgbaseobjectrowstatus" }
-    return ""
+    cdcdgbaseobjectentry.EntityData.Children = make(map[string]types.YChild)
+    cdcdgbaseobjectentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectGrpIndex"] = types.YLeaf{"Cdcdgbaseobjectgrpindex", cdcdgbaseobjectentry.Cdcdgbaseobjectgrpindex}
+    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectIndex"] = types.YLeaf{"Cdcdgbaseobjectindex", cdcdgbaseobjectentry.Cdcdgbaseobjectindex}
+    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectSubtree"] = types.YLeaf{"Cdcdgbaseobjectsubtree", cdcdgbaseobjectentry.Cdcdgbaseobjectsubtree}
+    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectList"] = types.YLeaf{"Cdcdgbaseobjectlist", cdcdgbaseobjectentry.Cdcdgbaseobjectlist}
+    cdcdgbaseobjectentry.EntityData.Leafs["cdcDGBaseObjectRowStatus"] = types.YLeaf{"Cdcdgbaseobjectrowstatus", cdcdgbaseobjectentry.Cdcdgbaseobjectrowstatus}
+    return &(cdcdgbaseobjectentry.EntityData)
 }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetSegmentPath() string {
-    return "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + fmt.Sprintf("%v", cdcdgbaseobjectentry.Cdcdgbaseobjectgrpindex) + "']" + "[cdcDGBaseObjectIndex='" + fmt.Sprintf("%v", cdcdgbaseobjectentry.Cdcdgbaseobjectindex) + "']"
-}
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcDGBaseObjectGrpIndex"] = cdcdgbaseobjectentry.Cdcdgbaseobjectgrpindex
-    leafs["cdcDGBaseObjectIndex"] = cdcdgbaseobjectentry.Cdcdgbaseobjectindex
-    leafs["cdcDGBaseObjectSubtree"] = cdcdgbaseobjectentry.Cdcdgbaseobjectsubtree
-    leafs["cdcDGBaseObjectList"] = cdcdgbaseobjectentry.Cdcdgbaseobjectlist
-    leafs["cdcDGBaseObjectRowStatus"] = cdcdgbaseobjectentry.Cdcdgbaseobjectrowstatus
-    return leafs
-}
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetYangName() string { return "cdcDGBaseObjectEntry" }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) SetParent(parent types.Entity) { cdcdgbaseobjectentry.parent = parent }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetParent() types.Entity { return cdcdgbaseobjectentry.parent }
-
-func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbaseobjectentry) GetParentYangName() string { return "cdcDGBaseObjectTable" }
 
 // CISCODATACOLLECTIONMIB_Cdcdginstancetable
 // Identifies the instances of the base objects that need to
@@ -1442,7 +1042,7 @@ func (cdcdgbaseobjectentry *CISCODATACOLLECTIONMIB_Cdcdgbaseobjecttable_Cdcdgbas
 // The agent is not responsible for verifying that the instances
 // specified for a data group do not overlap.
 type CISCODATACOLLECTIONMIB_Cdcdginstancetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table. Each entry identifies one or more instances of the
@@ -1452,70 +1052,31 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable struct {
     Cdcdginstanceentry []CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry
 }
 
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetFilter() yfilter.YFilter { return cdcdginstancetable.YFilter }
+func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetEntityData() *types.CommonEntityData {
+    cdcdginstancetable.EntityData.YFilter = cdcdginstancetable.YFilter
+    cdcdginstancetable.EntityData.YangName = "cdcDGInstanceTable"
+    cdcdginstancetable.EntityData.BundleName = "cisco_ios_xe"
+    cdcdginstancetable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcdginstancetable.EntityData.SegmentPath = "cdcDGInstanceTable"
+    cdcdginstancetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcdginstancetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcdginstancetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) SetFilter(yf yfilter.YFilter) { cdcdginstancetable.YFilter = yf }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetGoName(yname string) string {
-    if yname == "cdcDGInstanceEntry" { return "Cdcdginstanceentry" }
-    return ""
-}
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetSegmentPath() string {
-    return "cdcDGInstanceTable"
-}
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcDGInstanceEntry" {
-        for _, c := range cdcdginstancetable.Cdcdginstanceentry {
-            if cdcdginstancetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry{}
-        cdcdginstancetable.Cdcdginstanceentry = append(cdcdginstancetable.Cdcdginstanceentry, child)
-        return &cdcdginstancetable.Cdcdginstanceentry[len(cdcdginstancetable.Cdcdginstanceentry)-1]
-    }
-    return nil
-}
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdcdginstancetable.EntityData.Children = make(map[string]types.YChild)
+    cdcdginstancetable.EntityData.Children["cdcDGInstanceEntry"] = types.YChild{"Cdcdginstanceentry", nil}
     for i := range cdcdginstancetable.Cdcdginstanceentry {
-        children[cdcdginstancetable.Cdcdginstanceentry[i].GetSegmentPath()] = &cdcdginstancetable.Cdcdginstanceentry[i]
+        cdcdginstancetable.EntityData.Children[types.GetSegmentPath(&cdcdginstancetable.Cdcdginstanceentry[i])] = types.YChild{"Cdcdginstanceentry", &cdcdginstancetable.Cdcdginstanceentry[i]}
     }
-    return children
+    cdcdginstancetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdcdginstancetable.EntityData)
 }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetYangName() string { return "cdcDGInstanceTable" }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) SetParent(parent types.Entity) { cdcdginstancetable.parent = parent }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetParent() types.Entity { return cdcdginstancetable.parent }
-
-func (cdcdginstancetable *CISCODATACOLLECTIONMIB_Cdcdginstancetable) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry
 // An entry in this table. Each entry identifies one or more
 // instances of the base objects that need to be fetched.
 // An instance is represented by an OID fragment.
 type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object's value when combined with the value
@@ -1571,7 +1132,7 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // to be fetched.  This object's value may be modified at any time. The change
     // takes effect the next time data is fetched for this data group. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cdcdginstanceoid interface{}
 
     // Contains the OID fragment that, when appended to each base object gives the
@@ -1579,7 +1140,8 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // is used only when the value of cdcDGInstanceType is of type 'range'.   This
     // object's value may be modified at any time. The change takes effect the
     // next time data is fetched for this data group. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cdcdginstanceoidend interface{}
 
     // Specifies the number of lexicographically consecutive object instances to
@@ -1594,72 +1156,35 @@ type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry struct {
     // of cdcDGInstanceType is of type 'other'.   This object's value may be
     // modified at any time. The change takes effect the next time data is fetched
     // for this data group. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cdcdginstanceotherptr interface{}
 
     // The status of this conceptual row. The type is RowStatus.
     Cdcdginstancerowstatus interface{}
 }
 
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetFilter() yfilter.YFilter { return cdcdginstanceentry.YFilter }
+func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetEntityData() *types.CommonEntityData {
+    cdcdginstanceentry.EntityData.YFilter = cdcdginstanceentry.YFilter
+    cdcdginstanceentry.EntityData.YangName = "cdcDGInstanceEntry"
+    cdcdginstanceentry.EntityData.BundleName = "cisco_ios_xe"
+    cdcdginstanceentry.EntityData.ParentYangName = "cdcDGInstanceTable"
+    cdcdginstanceentry.EntityData.SegmentPath = "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + fmt.Sprintf("%v", cdcdginstanceentry.Cdcdginstancegrpindex) + "']" + "[cdcDGInstanceIndex='" + fmt.Sprintf("%v", cdcdginstanceentry.Cdcdginstanceindex) + "']"
+    cdcdginstanceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcdginstanceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcdginstanceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) SetFilter(yf yfilter.YFilter) { cdcdginstanceentry.YFilter = yf }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetGoName(yname string) string {
-    if yname == "cdcDGInstanceGrpIndex" { return "Cdcdginstancegrpindex" }
-    if yname == "cdcDGInstanceIndex" { return "Cdcdginstanceindex" }
-    if yname == "cdcDGInstanceType" { return "Cdcdginstancetype" }
-    if yname == "cdcDGInstanceOid" { return "Cdcdginstanceoid" }
-    if yname == "cdcDGInstanceOidEnd" { return "Cdcdginstanceoidend" }
-    if yname == "cdcDGInstanceNumRepititions" { return "Cdcdginstancenumrepititions" }
-    if yname == "cdcDGInstanceOtherPtr" { return "Cdcdginstanceotherptr" }
-    if yname == "cdcDGInstanceRowStatus" { return "Cdcdginstancerowstatus" }
-    return ""
+    cdcdginstanceentry.EntityData.Children = make(map[string]types.YChild)
+    cdcdginstanceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceGrpIndex"] = types.YLeaf{"Cdcdginstancegrpindex", cdcdginstanceentry.Cdcdginstancegrpindex}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceIndex"] = types.YLeaf{"Cdcdginstanceindex", cdcdginstanceentry.Cdcdginstanceindex}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceType"] = types.YLeaf{"Cdcdginstancetype", cdcdginstanceentry.Cdcdginstancetype}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceOid"] = types.YLeaf{"Cdcdginstanceoid", cdcdginstanceentry.Cdcdginstanceoid}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceOidEnd"] = types.YLeaf{"Cdcdginstanceoidend", cdcdginstanceentry.Cdcdginstanceoidend}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceNumRepititions"] = types.YLeaf{"Cdcdginstancenumrepititions", cdcdginstanceentry.Cdcdginstancenumrepititions}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceOtherPtr"] = types.YLeaf{"Cdcdginstanceotherptr", cdcdginstanceentry.Cdcdginstanceotherptr}
+    cdcdginstanceentry.EntityData.Leafs["cdcDGInstanceRowStatus"] = types.YLeaf{"Cdcdginstancerowstatus", cdcdginstanceentry.Cdcdginstancerowstatus}
+    return &(cdcdginstanceentry.EntityData)
 }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetSegmentPath() string {
-    return "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + fmt.Sprintf("%v", cdcdginstanceentry.Cdcdginstancegrpindex) + "']" + "[cdcDGInstanceIndex='" + fmt.Sprintf("%v", cdcdginstanceentry.Cdcdginstanceindex) + "']"
-}
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcDGInstanceGrpIndex"] = cdcdginstanceentry.Cdcdginstancegrpindex
-    leafs["cdcDGInstanceIndex"] = cdcdginstanceentry.Cdcdginstanceindex
-    leafs["cdcDGInstanceType"] = cdcdginstanceentry.Cdcdginstancetype
-    leafs["cdcDGInstanceOid"] = cdcdginstanceentry.Cdcdginstanceoid
-    leafs["cdcDGInstanceOidEnd"] = cdcdginstanceentry.Cdcdginstanceoidend
-    leafs["cdcDGInstanceNumRepititions"] = cdcdginstanceentry.Cdcdginstancenumrepititions
-    leafs["cdcDGInstanceOtherPtr"] = cdcdginstanceentry.Cdcdginstanceotherptr
-    leafs["cdcDGInstanceRowStatus"] = cdcdginstanceentry.Cdcdginstancerowstatus
-    return leafs
-}
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetYangName() string { return "cdcDGInstanceEntry" }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) SetParent(parent types.Entity) { cdcdginstanceentry.parent = parent }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetParent() types.Entity { return cdcdginstanceentry.parent }
-
-func (cdcdginstanceentry *CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry) GetParentYangName() string { return "cdcDGInstanceTable" }
 
 // CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype represents cdcDGInstanceStatus is 'active'.
 type CISCODATACOLLECTIONMIB_Cdcdginstancetable_Cdcdginstanceentry_Cdcdginstancetype string
@@ -1679,7 +1204,7 @@ const (
 // CISCODATACOLLECTIONMIB_Cdcfilexferconftable
 // A table for configuring file transfer operations.
 type CISCODATACOLLECTIONMIB_Cdcfilexferconftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An individual entry in the cdcFileXferConfTable. Each entry identifies a
@@ -1695,63 +1220,24 @@ type CISCODATACOLLECTIONMIB_Cdcfilexferconftable struct {
     Cdcfilexferconfentry []CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry
 }
 
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetFilter() yfilter.YFilter { return cdcfilexferconftable.YFilter }
+func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetEntityData() *types.CommonEntityData {
+    cdcfilexferconftable.EntityData.YFilter = cdcfilexferconftable.YFilter
+    cdcfilexferconftable.EntityData.YangName = "cdcFileXferConfTable"
+    cdcfilexferconftable.EntityData.BundleName = "cisco_ios_xe"
+    cdcfilexferconftable.EntityData.ParentYangName = "CISCO-DATA-COLLECTION-MIB"
+    cdcfilexferconftable.EntityData.SegmentPath = "cdcFileXferConfTable"
+    cdcfilexferconftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcfilexferconftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcfilexferconftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) SetFilter(yf yfilter.YFilter) { cdcfilexferconftable.YFilter = yf }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetGoName(yname string) string {
-    if yname == "cdcFileXferConfEntry" { return "Cdcfilexferconfentry" }
-    return ""
-}
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetSegmentPath() string {
-    return "cdcFileXferConfTable"
-}
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdcFileXferConfEntry" {
-        for _, c := range cdcfilexferconftable.Cdcfilexferconfentry {
-            if cdcfilexferconftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry{}
-        cdcfilexferconftable.Cdcfilexferconfentry = append(cdcfilexferconftable.Cdcfilexferconfentry, child)
-        return &cdcfilexferconftable.Cdcfilexferconfentry[len(cdcfilexferconftable.Cdcfilexferconfentry)-1]
-    }
-    return nil
-}
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdcfilexferconftable.EntityData.Children = make(map[string]types.YChild)
+    cdcfilexferconftable.EntityData.Children["cdcFileXferConfEntry"] = types.YChild{"Cdcfilexferconfentry", nil}
     for i := range cdcfilexferconftable.Cdcfilexferconfentry {
-        children[cdcfilexferconftable.Cdcfilexferconfentry[i].GetSegmentPath()] = &cdcfilexferconftable.Cdcfilexferconfentry[i]
+        cdcfilexferconftable.EntityData.Children[types.GetSegmentPath(&cdcfilexferconftable.Cdcfilexferconfentry[i])] = types.YChild{"Cdcfilexferconfentry", &cdcfilexferconftable.Cdcfilexferconfentry[i]}
     }
-    return children
+    cdcfilexferconftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdcfilexferconftable.EntityData)
 }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetYangName() string { return "cdcFileXferConfTable" }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) SetParent(parent types.Entity) { cdcfilexferconftable.parent = parent }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetParent() types.Entity { return cdcfilexferconftable.parent }
-
-func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetParentYangName() string { return "CISCO-DATA-COLLECTION-MIB" }
 
 // CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry
 // An individual entry in the cdcFileXferConfTable. Each entry
@@ -1768,7 +1254,7 @@ func (cdcfilexferconftable *CISCODATACOLLECTIONMIB_Cdcfilexferconftable) GetPare
 // then the cycle is repeated again after a specified time
 // period (value of cdcFileXferConfRetryPeriod) elapses.
 type CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -1816,61 +1302,25 @@ type CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry struct {
     Cdcfilexferconffailureenable interface{}
 }
 
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetFilter() yfilter.YFilter { return cdcfilexferconfentry.YFilter }
+func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetEntityData() *types.CommonEntityData {
+    cdcfilexferconfentry.EntityData.YFilter = cdcfilexferconfentry.YFilter
+    cdcfilexferconfentry.EntityData.YangName = "cdcFileXferConfEntry"
+    cdcfilexferconfentry.EntityData.BundleName = "cisco_ios_xe"
+    cdcfilexferconfentry.EntityData.ParentYangName = "cdcFileXferConfTable"
+    cdcfilexferconfentry.EntityData.SegmentPath = "cdcFileXferConfEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcfilexferconfentry.Cdcvfileindex) + "']"
+    cdcfilexferconfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdcfilexferconfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdcfilexferconfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) SetFilter(yf yfilter.YFilter) { cdcfilexferconfentry.YFilter = yf }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetGoName(yname string) string {
-    if yname == "cdcVFileIndex" { return "Cdcvfileindex" }
-    if yname == "cdcFileXferConfPriUrl" { return "Cdcfilexferconfpriurl" }
-    if yname == "cdcFileXferConfSecUrl" { return "Cdcfilexferconfsecurl" }
-    if yname == "cdcFileXferConfRetryPeriod" { return "Cdcfilexferconfretryperiod" }
-    if yname == "cdcFileXferConfRetryCount" { return "Cdcfilexferconfretrycount" }
-    if yname == "cdcFileXferConfSuccessEnable" { return "Cdcfilexferconfsuccessenable" }
-    if yname == "cdcFileXferConfFailureEnable" { return "Cdcfilexferconffailureenable" }
-    return ""
+    cdcfilexferconfentry.EntityData.Children = make(map[string]types.YChild)
+    cdcfilexferconfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdcfilexferconfentry.EntityData.Leafs["cdcVFileIndex"] = types.YLeaf{"Cdcvfileindex", cdcfilexferconfentry.Cdcvfileindex}
+    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfPriUrl"] = types.YLeaf{"Cdcfilexferconfpriurl", cdcfilexferconfentry.Cdcfilexferconfpriurl}
+    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfSecUrl"] = types.YLeaf{"Cdcfilexferconfsecurl", cdcfilexferconfentry.Cdcfilexferconfsecurl}
+    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfRetryPeriod"] = types.YLeaf{"Cdcfilexferconfretryperiod", cdcfilexferconfentry.Cdcfilexferconfretryperiod}
+    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfRetryCount"] = types.YLeaf{"Cdcfilexferconfretrycount", cdcfilexferconfentry.Cdcfilexferconfretrycount}
+    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfSuccessEnable"] = types.YLeaf{"Cdcfilexferconfsuccessenable", cdcfilexferconfentry.Cdcfilexferconfsuccessenable}
+    cdcfilexferconfentry.EntityData.Leafs["cdcFileXferConfFailureEnable"] = types.YLeaf{"Cdcfilexferconffailureenable", cdcfilexferconfentry.Cdcfilexferconffailureenable}
+    return &(cdcfilexferconfentry.EntityData)
 }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetSegmentPath() string {
-    return "cdcFileXferConfEntry" + "[cdcVFileIndex='" + fmt.Sprintf("%v", cdcfilexferconfentry.Cdcvfileindex) + "']"
-}
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdcVFileIndex"] = cdcfilexferconfentry.Cdcvfileindex
-    leafs["cdcFileXferConfPriUrl"] = cdcfilexferconfentry.Cdcfilexferconfpriurl
-    leafs["cdcFileXferConfSecUrl"] = cdcfilexferconfentry.Cdcfilexferconfsecurl
-    leafs["cdcFileXferConfRetryPeriod"] = cdcfilexferconfentry.Cdcfilexferconfretryperiod
-    leafs["cdcFileXferConfRetryCount"] = cdcfilexferconfentry.Cdcfilexferconfretrycount
-    leafs["cdcFileXferConfSuccessEnable"] = cdcfilexferconfentry.Cdcfilexferconfsuccessenable
-    leafs["cdcFileXferConfFailureEnable"] = cdcfilexferconfentry.Cdcfilexferconffailureenable
-    return leafs
-}
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetYangName() string { return "cdcFileXferConfEntry" }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) SetParent(parent types.Entity) { cdcfilexferconfentry.parent = parent }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetParent() types.Entity { return cdcfilexferconfentry.parent }
-
-func (cdcfilexferconfentry *CISCODATACOLLECTIONMIB_Cdcfilexferconftable_Cdcfilexferconfentry) GetParentYangName() string { return "cdcFileXferConfTable" }
 

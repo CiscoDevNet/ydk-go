@@ -27,66 +27,33 @@ func init() {
 // Password
 // Configure masterkey
 type Password struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable password encryption.
     Encryption Password_Encryption
 }
 
-func (password *Password) GetFilter() yfilter.YFilter { return password.YFilter }
+func (password *Password) GetEntityData() *types.CommonEntityData {
+    password.EntityData.YFilter = password.YFilter
+    password.EntityData.YangName = "password"
+    password.EntityData.BundleName = "cisco_ios_xr"
+    password.EntityData.ParentYangName = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg"
+    password.EntityData.SegmentPath = "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password"
+    password.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    password.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    password.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (password *Password) SetFilter(yf yfilter.YFilter) { password.YFilter = yf }
-
-func (password *Password) GetGoName(yname string) string {
-    if yname == "encryption" { return "Encryption" }
-    return ""
+    password.EntityData.Children = make(map[string]types.YChild)
+    password.EntityData.Children["encryption"] = types.YChild{"Encryption", &password.Encryption}
+    password.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(password.EntityData)
 }
-
-func (password *Password) GetSegmentPath() string {
-    return "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password"
-}
-
-func (password *Password) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "encryption" {
-        return &password.Encryption
-    }
-    return nil
-}
-
-func (password *Password) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["encryption"] = &password.Encryption
-    return children
-}
-
-func (password *Password) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (password *Password) GetBundleName() string { return "cisco_ios_xr" }
-
-func (password *Password) GetYangName() string { return "password" }
-
-func (password *Password) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (password *Password) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (password *Password) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (password *Password) SetParent(parent types.Entity) { password.parent = parent }
-
-func (password *Password) GetParent() types.Entity { return password.parent }
-
-func (password *Password) GetParentYangName() string { return "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg" }
 
 // Password_Encryption
 // Enable password encryption
 type Password_Encryption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // encryption type used to store key. The type is interface{} with range:
@@ -94,49 +61,19 @@ type Password_Encryption struct {
     Aes interface{}
 }
 
-func (encryption *Password_Encryption) GetFilter() yfilter.YFilter { return encryption.YFilter }
+func (encryption *Password_Encryption) GetEntityData() *types.CommonEntityData {
+    encryption.EntityData.YFilter = encryption.YFilter
+    encryption.EntityData.YangName = "encryption"
+    encryption.EntityData.BundleName = "cisco_ios_xr"
+    encryption.EntityData.ParentYangName = "password"
+    encryption.EntityData.SegmentPath = "encryption"
+    encryption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    encryption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    encryption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (encryption *Password_Encryption) SetFilter(yf yfilter.YFilter) { encryption.YFilter = yf }
-
-func (encryption *Password_Encryption) GetGoName(yname string) string {
-    if yname == "aes" { return "Aes" }
-    return ""
+    encryption.EntityData.Children = make(map[string]types.YChild)
+    encryption.EntityData.Leafs = make(map[string]types.YLeaf)
+    encryption.EntityData.Leafs["aes"] = types.YLeaf{"Aes", encryption.Aes}
+    return &(encryption.EntityData)
 }
-
-func (encryption *Password_Encryption) GetSegmentPath() string {
-    return "encryption"
-}
-
-func (encryption *Password_Encryption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (encryption *Password_Encryption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (encryption *Password_Encryption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["aes"] = encryption.Aes
-    return leafs
-}
-
-func (encryption *Password_Encryption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (encryption *Password_Encryption) GetYangName() string { return "encryption" }
-
-func (encryption *Password_Encryption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (encryption *Password_Encryption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (encryption *Password_Encryption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (encryption *Password_Encryption) SetParent(parent types.Entity) { encryption.parent = parent }
-
-func (encryption *Password_Encryption) GetParent() types.Entity { return encryption.parent }
-
-func (encryption *Password_Encryption) GetParentYangName() string { return "password" }
 

@@ -27,267 +27,122 @@ func init() {
 // ProcessesMemory
 // Process statistics
 type ProcessesMemory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of nodes.
     Nodes ProcessesMemory_Nodes
 }
 
-func (processesMemory *ProcessesMemory) GetFilter() yfilter.YFilter { return processesMemory.YFilter }
+func (processesMemory *ProcessesMemory) GetEntityData() *types.CommonEntityData {
+    processesMemory.EntityData.YFilter = processesMemory.YFilter
+    processesMemory.EntityData.YangName = "processes-memory"
+    processesMemory.EntityData.BundleName = "cisco_ios_xr"
+    processesMemory.EntityData.ParentYangName = "Cisco-IOS-XR-nto-misc-shprocmem-oper"
+    processesMemory.EntityData.SegmentPath = "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory"
+    processesMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    processesMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    processesMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (processesMemory *ProcessesMemory) SetFilter(yf yfilter.YFilter) { processesMemory.YFilter = yf }
-
-func (processesMemory *ProcessesMemory) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    processesMemory.EntityData.Children = make(map[string]types.YChild)
+    processesMemory.EntityData.Children["nodes"] = types.YChild{"Nodes", &processesMemory.Nodes}
+    processesMemory.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(processesMemory.EntityData)
 }
-
-func (processesMemory *ProcessesMemory) GetSegmentPath() string {
-    return "Cisco-IOS-XR-nto-misc-shprocmem-oper:processes-memory"
-}
-
-func (processesMemory *ProcessesMemory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &processesMemory.Nodes
-    }
-    return nil
-}
-
-func (processesMemory *ProcessesMemory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &processesMemory.Nodes
-    return children
-}
-
-func (processesMemory *ProcessesMemory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (processesMemory *ProcessesMemory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (processesMemory *ProcessesMemory) GetYangName() string { return "processes-memory" }
-
-func (processesMemory *ProcessesMemory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (processesMemory *ProcessesMemory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (processesMemory *ProcessesMemory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (processesMemory *ProcessesMemory) SetParent(parent types.Entity) { processesMemory.parent = parent }
-
-func (processesMemory *ProcessesMemory) GetParent() types.Entity { return processesMemory.parent }
-
-func (processesMemory *ProcessesMemory) GetParentYangName() string { return "Cisco-IOS-XR-nto-misc-shprocmem-oper" }
 
 // ProcessesMemory_Nodes
 // List of nodes
 type ProcessesMemory_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of ProcessesMemory_Nodes_Node.
     Node []ProcessesMemory_Nodes_Node
 }
 
-func (nodes *ProcessesMemory_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *ProcessesMemory_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "processes-memory"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *ProcessesMemory_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *ProcessesMemory_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *ProcessesMemory_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *ProcessesMemory_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ProcessesMemory_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *ProcessesMemory_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *ProcessesMemory_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *ProcessesMemory_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *ProcessesMemory_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *ProcessesMemory_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *ProcessesMemory_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *ProcessesMemory_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *ProcessesMemory_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *ProcessesMemory_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *ProcessesMemory_Nodes) GetParentYangName() string { return "processes-memory" }
 
 // ProcessesMemory_Nodes_Node
 // Node ID
 type ProcessesMemory_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // List of jobs.
     JobIds ProcessesMemory_Nodes_Node_JobIds
 }
 
-func (node *ProcessesMemory_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *ProcessesMemory_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *ProcessesMemory_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *ProcessesMemory_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "job-ids" { return "JobIds" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["job-ids"] = types.YChild{"JobIds", &node.JobIds}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *ProcessesMemory_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *ProcessesMemory_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "job-ids" {
-        return &node.JobIds
-    }
-    return nil
-}
-
-func (node *ProcessesMemory_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["job-ids"] = &node.JobIds
-    return children
-}
-
-func (node *ProcessesMemory_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *ProcessesMemory_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *ProcessesMemory_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *ProcessesMemory_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *ProcessesMemory_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *ProcessesMemory_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *ProcessesMemory_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *ProcessesMemory_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *ProcessesMemory_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // ProcessesMemory_Nodes_Node_JobIds
 // List of jobs
 type ProcessesMemory_Nodes_Node_JobIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Job Id. The type is slice of ProcessesMemory_Nodes_Node_JobIds_JobId.
     JobId []ProcessesMemory_Nodes_Node_JobIds_JobId
 }
 
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetFilter() yfilter.YFilter { return jobIds.YFilter }
+func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetEntityData() *types.CommonEntityData {
+    jobIds.EntityData.YFilter = jobIds.YFilter
+    jobIds.EntityData.YangName = "job-ids"
+    jobIds.EntityData.BundleName = "cisco_ios_xr"
+    jobIds.EntityData.ParentYangName = "node"
+    jobIds.EntityData.SegmentPath = "job-ids"
+    jobIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    jobIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    jobIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) SetFilter(yf yfilter.YFilter) { jobIds.YFilter = yf }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetGoName(yname string) string {
-    if yname == "job-id" { return "JobId" }
-    return ""
-}
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetSegmentPath() string {
-    return "job-ids"
-}
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "job-id" {
-        for _, c := range jobIds.JobId {
-            if jobIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ProcessesMemory_Nodes_Node_JobIds_JobId{}
-        jobIds.JobId = append(jobIds.JobId, child)
-        return &jobIds.JobId[len(jobIds.JobId)-1]
-    }
-    return nil
-}
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    jobIds.EntityData.Children = make(map[string]types.YChild)
+    jobIds.EntityData.Children["job-id"] = types.YChild{"JobId", nil}
     for i := range jobIds.JobId {
-        children[jobIds.JobId[i].GetSegmentPath()] = &jobIds.JobId[i]
+        jobIds.EntityData.Children[types.GetSegmentPath(&jobIds.JobId[i])] = types.YChild{"JobId", &jobIds.JobId[i]}
     }
-    return children
+    jobIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(jobIds.EntityData)
 }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetYangName() string { return "job-ids" }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) SetParent(parent types.Entity) { jobIds.parent = parent }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetParent() types.Entity { return jobIds.parent }
-
-func (jobIds *ProcessesMemory_Nodes_Node_JobIds) GetParentYangName() string { return "node" }
 
 // ProcessesMemory_Nodes_Node_JobIds_JobId
 // Job Id
 type ProcessesMemory_Nodes_Node_JobIds_JobId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Job Id. The type is interface{} with range:
@@ -313,61 +168,25 @@ type ProcessesMemory_Nodes_Node_JobIds_JobId struct {
     MallocSize interface{}
 }
 
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetFilter() yfilter.YFilter { return jobId.YFilter }
+func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetEntityData() *types.CommonEntityData {
+    jobId.EntityData.YFilter = jobId.YFilter
+    jobId.EntityData.YangName = "job-id"
+    jobId.EntityData.BundleName = "cisco_ios_xr"
+    jobId.EntityData.ParentYangName = "job-ids"
+    jobId.EntityData.SegmentPath = "job-id" + "[job-id='" + fmt.Sprintf("%v", jobId.JobId) + "']"
+    jobId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    jobId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    jobId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) SetFilter(yf yfilter.YFilter) { jobId.YFilter = yf }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetGoName(yname string) string {
-    if yname == "job-id" { return "JobId" }
-    if yname == "name" { return "Name" }
-    if yname == "jid" { return "Jid" }
-    if yname == "text-seg-size" { return "TextSegSize" }
-    if yname == "data-seg-size" { return "DataSegSize" }
-    if yname == "stack-seg-size" { return "StackSegSize" }
-    if yname == "malloc-size" { return "MallocSize" }
-    return ""
+    jobId.EntityData.Children = make(map[string]types.YChild)
+    jobId.EntityData.Leafs = make(map[string]types.YLeaf)
+    jobId.EntityData.Leafs["job-id"] = types.YLeaf{"JobId", jobId.JobId}
+    jobId.EntityData.Leafs["name"] = types.YLeaf{"Name", jobId.Name}
+    jobId.EntityData.Leafs["jid"] = types.YLeaf{"Jid", jobId.Jid}
+    jobId.EntityData.Leafs["text-seg-size"] = types.YLeaf{"TextSegSize", jobId.TextSegSize}
+    jobId.EntityData.Leafs["data-seg-size"] = types.YLeaf{"DataSegSize", jobId.DataSegSize}
+    jobId.EntityData.Leafs["stack-seg-size"] = types.YLeaf{"StackSegSize", jobId.StackSegSize}
+    jobId.EntityData.Leafs["malloc-size"] = types.YLeaf{"MallocSize", jobId.MallocSize}
+    return &(jobId.EntityData)
 }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetSegmentPath() string {
-    return "job-id" + "[job-id='" + fmt.Sprintf("%v", jobId.JobId) + "']"
-}
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["job-id"] = jobId.JobId
-    leafs["name"] = jobId.Name
-    leafs["jid"] = jobId.Jid
-    leafs["text-seg-size"] = jobId.TextSegSize
-    leafs["data-seg-size"] = jobId.DataSegSize
-    leafs["stack-seg-size"] = jobId.StackSegSize
-    leafs["malloc-size"] = jobId.MallocSize
-    return leafs
-}
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetYangName() string { return "job-id" }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) SetParent(parent types.Entity) { jobId.parent = parent }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetParent() types.Entity { return jobId.parent }
-
-func (jobId *ProcessesMemory_Nodes_Node_JobIds_JobId) GetParentYangName() string { return "job-ids" }
 

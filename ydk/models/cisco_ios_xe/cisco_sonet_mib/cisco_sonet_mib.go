@@ -18,6 +18,19 @@ func init() {
     ydk.RegisterEntity("CISCO-SONET-MIB:CISCO-SONET-MIB", reflect.TypeOf(CISCOSONETMIB{}))
 }
 
+// CsApsLineFailureCode represents     csApsModeMismatch:        APS architecture mode mismatch.
+type CsApsLineFailureCode string
+
+const (
+    CsApsLineFailureCode_csApsChannelMismatch CsApsLineFailureCode = "csApsChannelMismatch"
+
+    CsApsLineFailureCode_csApsProtectionByteFail CsApsLineFailureCode = "csApsProtectionByteFail"
+
+    CsApsLineFailureCode_csApsFEProtectionFailure CsApsLineFailureCode = "csApsFEProtectionFailure"
+
+    CsApsLineFailureCode_csApsModeMismatch CsApsLineFailureCode = "csApsModeMismatch"
+)
+
 // CsApsLineSwitchReason represents   csApsNoSwitch : This is a state when no switch happens.
 type CsApsLineSwitchReason string
 
@@ -43,22 +56,9 @@ const (
     CsApsLineSwitchReason_csApsNoSwitch CsApsLineSwitchReason = "csApsNoSwitch"
 )
 
-// CsApsLineFailureCode represents     csApsModeMismatch:        APS architecture mode mismatch.
-type CsApsLineFailureCode string
-
-const (
-    CsApsLineFailureCode_csApsChannelMismatch CsApsLineFailureCode = "csApsChannelMismatch"
-
-    CsApsLineFailureCode_csApsProtectionByteFail CsApsLineFailureCode = "csApsProtectionByteFail"
-
-    CsApsLineFailureCode_csApsFEProtectionFailure CsApsLineFailureCode = "csApsFEProtectionFailure"
-
-    CsApsLineFailureCode_csApsModeMismatch CsApsLineFailureCode = "csApsModeMismatch"
-)
-
 // CISCOSONETMIB
 type CISCOSONETMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -133,118 +133,37 @@ type CISCOSONETMIB struct {
     Csau4Tug3Configtable CISCOSONETMIB_Csau4Tug3Configtable
 }
 
-func (cISCOSONETMIB *CISCOSONETMIB) GetFilter() yfilter.YFilter { return cISCOSONETMIB.YFilter }
+func (cISCOSONETMIB *CISCOSONETMIB) GetEntityData() *types.CommonEntityData {
+    cISCOSONETMIB.EntityData.YFilter = cISCOSONETMIB.YFilter
+    cISCOSONETMIB.EntityData.YangName = "CISCO-SONET-MIB"
+    cISCOSONETMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOSONETMIB.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    cISCOSONETMIB.EntityData.SegmentPath = "CISCO-SONET-MIB:CISCO-SONET-MIB"
+    cISCOSONETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOSONETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOSONETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOSONETMIB *CISCOSONETMIB) SetFilter(yf yfilter.YFilter) { cISCOSONETMIB.YFilter = yf }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetGoName(yname string) string {
-    if yname == "csApsConfig" { return "Csapsconfig" }
-    if yname == "csNotifications" { return "Csnotifications" }
-    if yname == "csConfigTable" { return "Csconfigtable" }
-    if yname == "csApsConfigTable" { return "Csapsconfigtable" }
-    if yname == "cssTotalTable" { return "Csstotaltable" }
-    if yname == "cssTraceTable" { return "Csstracetable" }
-    if yname == "cslTotalTable" { return "Csltotaltable" }
-    if yname == "cslFarEndTotalTable" { return "Cslfarendtotaltable" }
-    if yname == "cspTotalTable" { return "Csptotaltable" }
-    if yname == "cspFarEndTotalTable" { return "Cspfarendtotaltable" }
-    if yname == "cspTraceTable" { return "Csptracetable" }
-    if yname == "csStatsTable" { return "Csstatstable" }
-    if yname == "csAu4Tug3ConfigTable" { return "Csau4Tug3Configtable" }
-    return ""
+    cISCOSONETMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOSONETMIB.EntityData.Children["csApsConfig"] = types.YChild{"Csapsconfig", &cISCOSONETMIB.Csapsconfig}
+    cISCOSONETMIB.EntityData.Children["csNotifications"] = types.YChild{"Csnotifications", &cISCOSONETMIB.Csnotifications}
+    cISCOSONETMIB.EntityData.Children["csConfigTable"] = types.YChild{"Csconfigtable", &cISCOSONETMIB.Csconfigtable}
+    cISCOSONETMIB.EntityData.Children["csApsConfigTable"] = types.YChild{"Csapsconfigtable", &cISCOSONETMIB.Csapsconfigtable}
+    cISCOSONETMIB.EntityData.Children["cssTotalTable"] = types.YChild{"Csstotaltable", &cISCOSONETMIB.Csstotaltable}
+    cISCOSONETMIB.EntityData.Children["cssTraceTable"] = types.YChild{"Csstracetable", &cISCOSONETMIB.Csstracetable}
+    cISCOSONETMIB.EntityData.Children["cslTotalTable"] = types.YChild{"Csltotaltable", &cISCOSONETMIB.Csltotaltable}
+    cISCOSONETMIB.EntityData.Children["cslFarEndTotalTable"] = types.YChild{"Cslfarendtotaltable", &cISCOSONETMIB.Cslfarendtotaltable}
+    cISCOSONETMIB.EntityData.Children["cspTotalTable"] = types.YChild{"Csptotaltable", &cISCOSONETMIB.Csptotaltable}
+    cISCOSONETMIB.EntityData.Children["cspFarEndTotalTable"] = types.YChild{"Cspfarendtotaltable", &cISCOSONETMIB.Cspfarendtotaltable}
+    cISCOSONETMIB.EntityData.Children["cspTraceTable"] = types.YChild{"Csptracetable", &cISCOSONETMIB.Csptracetable}
+    cISCOSONETMIB.EntityData.Children["csStatsTable"] = types.YChild{"Csstatstable", &cISCOSONETMIB.Csstatstable}
+    cISCOSONETMIB.EntityData.Children["csAu4Tug3ConfigTable"] = types.YChild{"Csau4Tug3Configtable", &cISCOSONETMIB.Csau4Tug3Configtable}
+    cISCOSONETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOSONETMIB.EntityData)
 }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetSegmentPath() string {
-    return "CISCO-SONET-MIB:CISCO-SONET-MIB"
-}
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csApsConfig" {
-        return &cISCOSONETMIB.Csapsconfig
-    }
-    if childYangName == "csNotifications" {
-        return &cISCOSONETMIB.Csnotifications
-    }
-    if childYangName == "csConfigTable" {
-        return &cISCOSONETMIB.Csconfigtable
-    }
-    if childYangName == "csApsConfigTable" {
-        return &cISCOSONETMIB.Csapsconfigtable
-    }
-    if childYangName == "cssTotalTable" {
-        return &cISCOSONETMIB.Csstotaltable
-    }
-    if childYangName == "cssTraceTable" {
-        return &cISCOSONETMIB.Csstracetable
-    }
-    if childYangName == "cslTotalTable" {
-        return &cISCOSONETMIB.Csltotaltable
-    }
-    if childYangName == "cslFarEndTotalTable" {
-        return &cISCOSONETMIB.Cslfarendtotaltable
-    }
-    if childYangName == "cspTotalTable" {
-        return &cISCOSONETMIB.Csptotaltable
-    }
-    if childYangName == "cspFarEndTotalTable" {
-        return &cISCOSONETMIB.Cspfarendtotaltable
-    }
-    if childYangName == "cspTraceTable" {
-        return &cISCOSONETMIB.Csptracetable
-    }
-    if childYangName == "csStatsTable" {
-        return &cISCOSONETMIB.Csstatstable
-    }
-    if childYangName == "csAu4Tug3ConfigTable" {
-        return &cISCOSONETMIB.Csau4Tug3Configtable
-    }
-    return nil
-}
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["csApsConfig"] = &cISCOSONETMIB.Csapsconfig
-    children["csNotifications"] = &cISCOSONETMIB.Csnotifications
-    children["csConfigTable"] = &cISCOSONETMIB.Csconfigtable
-    children["csApsConfigTable"] = &cISCOSONETMIB.Csapsconfigtable
-    children["cssTotalTable"] = &cISCOSONETMIB.Csstotaltable
-    children["cssTraceTable"] = &cISCOSONETMIB.Csstracetable
-    children["cslTotalTable"] = &cISCOSONETMIB.Csltotaltable
-    children["cslFarEndTotalTable"] = &cISCOSONETMIB.Cslfarendtotaltable
-    children["cspTotalTable"] = &cISCOSONETMIB.Csptotaltable
-    children["cspFarEndTotalTable"] = &cISCOSONETMIB.Cspfarendtotaltable
-    children["cspTraceTable"] = &cISCOSONETMIB.Csptracetable
-    children["csStatsTable"] = &cISCOSONETMIB.Csstatstable
-    children["csAu4Tug3ConfigTable"] = &cISCOSONETMIB.Csau4Tug3Configtable
-    return children
-}
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetYangName() string { return "CISCO-SONET-MIB" }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOSONETMIB *CISCOSONETMIB) SetParent(parent types.Entity) { cISCOSONETMIB.parent = parent }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetParent() types.Entity { return cISCOSONETMIB.parent }
-
-func (cISCOSONETMIB *CISCOSONETMIB) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csapsconfig
 type CISCOSONETMIB_Csapsconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The object indicates the APS line failure code. This is the failure
@@ -260,57 +179,26 @@ type CISCOSONETMIB_Csapsconfig struct {
     Csapslineswitchreason interface{}
 }
 
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetFilter() yfilter.YFilter { return csapsconfig.YFilter }
+func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetEntityData() *types.CommonEntityData {
+    csapsconfig.EntityData.YFilter = csapsconfig.YFilter
+    csapsconfig.EntityData.YangName = "csApsConfig"
+    csapsconfig.EntityData.BundleName = "cisco_ios_xe"
+    csapsconfig.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csapsconfig.EntityData.SegmentPath = "csApsConfig"
+    csapsconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csapsconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csapsconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) SetFilter(yf yfilter.YFilter) { csapsconfig.YFilter = yf }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetGoName(yname string) string {
-    if yname == "csApsLineFailureCode" { return "Csapslinefailurecode" }
-    if yname == "csApsLineSwitchReason" { return "Csapslineswitchreason" }
-    return ""
+    csapsconfig.EntityData.Children = make(map[string]types.YChild)
+    csapsconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    csapsconfig.EntityData.Leafs["csApsLineFailureCode"] = types.YLeaf{"Csapslinefailurecode", csapsconfig.Csapslinefailurecode}
+    csapsconfig.EntityData.Leafs["csApsLineSwitchReason"] = types.YLeaf{"Csapslineswitchreason", csapsconfig.Csapslineswitchreason}
+    return &(csapsconfig.EntityData)
 }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetSegmentPath() string {
-    return "csApsConfig"
-}
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csApsLineFailureCode"] = csapsconfig.Csapslinefailurecode
-    leafs["csApsLineSwitchReason"] = csapsconfig.Csapslineswitchreason
-    return leafs
-}
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetYangName() string { return "csApsConfig" }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) SetParent(parent types.Entity) { csapsconfig.parent = parent }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetParent() types.Entity { return csapsconfig.parent }
-
-func (csapsconfig *CISCOSONETMIB_Csapsconfig) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csnotifications
 type CISCOSONETMIB_Csnotifications struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object controls if the generation of  ciscoSonetSectionStatusChange,
@@ -321,57 +209,27 @@ type CISCOSONETMIB_Csnotifications struct {
     Csnotificationsenabled interface{}
 }
 
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetFilter() yfilter.YFilter { return csnotifications.YFilter }
+func (csnotifications *CISCOSONETMIB_Csnotifications) GetEntityData() *types.CommonEntityData {
+    csnotifications.EntityData.YFilter = csnotifications.YFilter
+    csnotifications.EntityData.YangName = "csNotifications"
+    csnotifications.EntityData.BundleName = "cisco_ios_xe"
+    csnotifications.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csnotifications.EntityData.SegmentPath = "csNotifications"
+    csnotifications.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csnotifications.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csnotifications.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csnotifications *CISCOSONETMIB_Csnotifications) SetFilter(yf yfilter.YFilter) { csnotifications.YFilter = yf }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetGoName(yname string) string {
-    if yname == "csNotificationsEnabled" { return "Csnotificationsenabled" }
-    return ""
+    csnotifications.EntityData.Children = make(map[string]types.YChild)
+    csnotifications.EntityData.Leafs = make(map[string]types.YLeaf)
+    csnotifications.EntityData.Leafs["csNotificationsEnabled"] = types.YLeaf{"Csnotificationsenabled", csnotifications.Csnotificationsenabled}
+    return &(csnotifications.EntityData)
 }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetSegmentPath() string {
-    return "csNotifications"
-}
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csNotificationsEnabled"] = csnotifications.Csnotificationsenabled
-    return leafs
-}
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetYangName() string { return "csNotifications" }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) SetParent(parent types.Entity) { csnotifications.parent = parent }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetParent() types.Entity { return csnotifications.parent }
-
-func (csnotifications *CISCOSONETMIB_Csnotifications) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csconfigtable
 // The SONET/SDH configuration table. This table has objects 
 // for configuring sonet lines.
 type CISCOSONETMIB_Csconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table. There is an entry for each SONET line  in the table.
@@ -383,63 +241,24 @@ type CISCOSONETMIB_Csconfigtable struct {
     Csconfigentry []CISCOSONETMIB_Csconfigtable_Csconfigentry
 }
 
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetFilter() yfilter.YFilter { return csconfigtable.YFilter }
+func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetEntityData() *types.CommonEntityData {
+    csconfigtable.EntityData.YFilter = csconfigtable.YFilter
+    csconfigtable.EntityData.YangName = "csConfigTable"
+    csconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    csconfigtable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csconfigtable.EntityData.SegmentPath = "csConfigTable"
+    csconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) SetFilter(yf yfilter.YFilter) { csconfigtable.YFilter = yf }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetGoName(yname string) string {
-    if yname == "csConfigEntry" { return "Csconfigentry" }
-    return ""
-}
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetSegmentPath() string {
-    return "csConfigTable"
-}
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csConfigEntry" {
-        for _, c := range csconfigtable.Csconfigentry {
-            if csconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csconfigtable_Csconfigentry{}
-        csconfigtable.Csconfigentry = append(csconfigtable.Csconfigentry, child)
-        return &csconfigtable.Csconfigentry[len(csconfigtable.Csconfigentry)-1]
-    }
-    return nil
-}
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csconfigtable.EntityData.Children = make(map[string]types.YChild)
+    csconfigtable.EntityData.Children["csConfigEntry"] = types.YChild{"Csconfigentry", nil}
     for i := range csconfigtable.Csconfigentry {
-        children[csconfigtable.Csconfigentry[i].GetSegmentPath()] = &csconfigtable.Csconfigentry[i]
+        csconfigtable.EntityData.Children[types.GetSegmentPath(&csconfigtable.Csconfigentry[i])] = types.YChild{"Csconfigentry", &csconfigtable.Csconfigentry[i]}
     }
-    return children
+    csconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csconfigtable.EntityData)
 }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetYangName() string { return "csConfigTable" }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) SetParent(parent types.Entity) { csconfigtable.parent = parent }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetParent() types.Entity { return csconfigtable.parent }
-
-func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csconfigtable_Csconfigentry
 // An entry in the table. There is an entry for each SONET line 
@@ -449,7 +268,7 @@ func (csconfigtable *CISCOSONETMIB_Csconfigtable) GetParentYangName() string { r
 // disabled(down) state unless provisioned 'up' using 
 // 'ifAdminStatus'.
 type CISCOSONETMIB_Csconfigtable_Csconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -541,73 +360,32 @@ type CISCOSONETMIB_Csconfigtable_Csconfigentry struct {
     Cstributarygroupingtype interface{}
 }
 
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetFilter() yfilter.YFilter { return csconfigentry.YFilter }
+func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetEntityData() *types.CommonEntityData {
+    csconfigentry.EntityData.YFilter = csconfigentry.YFilter
+    csconfigentry.EntityData.YangName = "csConfigEntry"
+    csconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    csconfigentry.EntityData.ParentYangName = "csConfigTable"
+    csconfigentry.EntityData.SegmentPath = "csConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", csconfigentry.Ifindex) + "']"
+    csconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) SetFilter(yf yfilter.YFilter) { csconfigentry.YFilter = yf }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "csConfigLoopbackType" { return "Csconfigloopbacktype" }
-    if yname == "csConfigXmtClockSource" { return "Csconfigxmtclocksource" }
-    if yname == "csConfigFrameScramble" { return "Csconfigframescramble" }
-    if yname == "csConfigType" { return "Csconfigtype" }
-    if yname == "csConfigRDIVType" { return "Csconfigrdivtype" }
-    if yname == "csConfigRDIPType" { return "Csconfigrdiptype" }
-    if yname == "csTributaryType" { return "Cstributarytype" }
-    if yname == "csTributaryMappingType" { return "Cstributarymappingtype" }
-    if yname == "csTributaryFramingType" { return "Cstributaryframingtype" }
-    if yname == "csSignallingTransportMode" { return "Cssignallingtransportmode" }
-    if yname == "csTributaryGroupingType" { return "Cstributarygroupingtype" }
-    return ""
+    csconfigentry.EntityData.Children = make(map[string]types.YChild)
+    csconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csconfigentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csconfigentry.Ifindex}
+    csconfigentry.EntityData.Leafs["csConfigLoopbackType"] = types.YLeaf{"Csconfigloopbacktype", csconfigentry.Csconfigloopbacktype}
+    csconfigentry.EntityData.Leafs["csConfigXmtClockSource"] = types.YLeaf{"Csconfigxmtclocksource", csconfigentry.Csconfigxmtclocksource}
+    csconfigentry.EntityData.Leafs["csConfigFrameScramble"] = types.YLeaf{"Csconfigframescramble", csconfigentry.Csconfigframescramble}
+    csconfigentry.EntityData.Leafs["csConfigType"] = types.YLeaf{"Csconfigtype", csconfigentry.Csconfigtype}
+    csconfigentry.EntityData.Leafs["csConfigRDIVType"] = types.YLeaf{"Csconfigrdivtype", csconfigentry.Csconfigrdivtype}
+    csconfigentry.EntityData.Leafs["csConfigRDIPType"] = types.YLeaf{"Csconfigrdiptype", csconfigentry.Csconfigrdiptype}
+    csconfigentry.EntityData.Leafs["csTributaryType"] = types.YLeaf{"Cstributarytype", csconfigentry.Cstributarytype}
+    csconfigentry.EntityData.Leafs["csTributaryMappingType"] = types.YLeaf{"Cstributarymappingtype", csconfigentry.Cstributarymappingtype}
+    csconfigentry.EntityData.Leafs["csTributaryFramingType"] = types.YLeaf{"Cstributaryframingtype", csconfigentry.Cstributaryframingtype}
+    csconfigentry.EntityData.Leafs["csSignallingTransportMode"] = types.YLeaf{"Cssignallingtransportmode", csconfigentry.Cssignallingtransportmode}
+    csconfigentry.EntityData.Leafs["csTributaryGroupingType"] = types.YLeaf{"Cstributarygroupingtype", csconfigentry.Cstributarygroupingtype}
+    return &(csconfigentry.EntityData)
 }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetSegmentPath() string {
-    return "csConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", csconfigentry.Ifindex) + "']"
-}
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csconfigentry.Ifindex
-    leafs["csConfigLoopbackType"] = csconfigentry.Csconfigloopbacktype
-    leafs["csConfigXmtClockSource"] = csconfigentry.Csconfigxmtclocksource
-    leafs["csConfigFrameScramble"] = csconfigentry.Csconfigframescramble
-    leafs["csConfigType"] = csconfigentry.Csconfigtype
-    leafs["csConfigRDIVType"] = csconfigentry.Csconfigrdivtype
-    leafs["csConfigRDIPType"] = csconfigentry.Csconfigrdiptype
-    leafs["csTributaryType"] = csconfigentry.Cstributarytype
-    leafs["csTributaryMappingType"] = csconfigentry.Cstributarymappingtype
-    leafs["csTributaryFramingType"] = csconfigentry.Cstributaryframingtype
-    leafs["csSignallingTransportMode"] = csconfigentry.Cssignallingtransportmode
-    leafs["csTributaryGroupingType"] = csconfigentry.Cstributarygroupingtype
-    return leafs
-}
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetYangName() string { return "csConfigEntry" }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) SetParent(parent types.Entity) { csconfigentry.parent = parent }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetParent() types.Entity { return csconfigentry.parent }
-
-func (csconfigentry *CISCOSONETMIB_Csconfigtable_Csconfigentry) GetParentYangName() string { return "csConfigTable" }
 
 // CISCOSONETMIB_Csconfigtable_Csconfigentry_Csconfigframescramble represents option in SONET line.
 type CISCOSONETMIB_Csconfigtable_Csconfigentry_Csconfigframescramble string
@@ -739,7 +517,7 @@ const (
 // to the protection line or vice versa, within 60ms, 
 // when the active line fails.
 type CISCOSONETMIB_Csapsconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry is created when an APS pair is configured. To create an entry, the
@@ -755,63 +533,24 @@ type CISCOSONETMIB_Csapsconfigtable struct {
     Csapsconfigentry []CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry
 }
 
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetFilter() yfilter.YFilter { return csapsconfigtable.YFilter }
+func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetEntityData() *types.CommonEntityData {
+    csapsconfigtable.EntityData.YFilter = csapsconfigtable.YFilter
+    csapsconfigtable.EntityData.YangName = "csApsConfigTable"
+    csapsconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    csapsconfigtable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csapsconfigtable.EntityData.SegmentPath = "csApsConfigTable"
+    csapsconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csapsconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csapsconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) SetFilter(yf yfilter.YFilter) { csapsconfigtable.YFilter = yf }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetGoName(yname string) string {
-    if yname == "csApsConfigEntry" { return "Csapsconfigentry" }
-    return ""
-}
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetSegmentPath() string {
-    return "csApsConfigTable"
-}
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csApsConfigEntry" {
-        for _, c := range csapsconfigtable.Csapsconfigentry {
-            if csapsconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry{}
-        csapsconfigtable.Csapsconfigentry = append(csapsconfigtable.Csapsconfigentry, child)
-        return &csapsconfigtable.Csapsconfigentry[len(csapsconfigtable.Csapsconfigentry)-1]
-    }
-    return nil
-}
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csapsconfigtable.EntityData.Children = make(map[string]types.YChild)
+    csapsconfigtable.EntityData.Children["csApsConfigEntry"] = types.YChild{"Csapsconfigentry", nil}
     for i := range csapsconfigtable.Csapsconfigentry {
-        children[csapsconfigtable.Csapsconfigentry[i].GetSegmentPath()] = &csapsconfigtable.Csapsconfigentry[i]
+        csapsconfigtable.EntityData.Children[types.GetSegmentPath(&csapsconfigtable.Csapsconfigentry[i])] = types.YChild{"Csapsconfigentry", &csapsconfigtable.Csapsconfigentry[i]}
     }
-    return children
+    csapsconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csapsconfigtable.EntityData)
 }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetYangName() string { return "csApsConfigTable" }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) SetParent(parent types.Entity) { csapsconfigtable.parent = parent }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetParent() types.Entity { return csapsconfigtable.parent }
-
-func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry
 // An entry is created when an APS pair is configured.
@@ -828,7 +567,7 @@ func (csapsconfigtable *CISCOSONETMIB_Csapsconfigtable) GetParentYangName() stri
 // sonet line pair. It remains in the  working/protection 
 // role even after the card is reset.
 type CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. When a pair of APS lines is configured, one line
@@ -958,81 +697,36 @@ type CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry struct {
     Csapsprimarysection interface{}
 }
 
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetFilter() yfilter.YFilter { return csapsconfigentry.YFilter }
+func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetEntityData() *types.CommonEntityData {
+    csapsconfigentry.EntityData.YFilter = csapsconfigentry.YFilter
+    csapsconfigentry.EntityData.YangName = "csApsConfigEntry"
+    csapsconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    csapsconfigentry.EntityData.ParentYangName = "csApsConfigTable"
+    csapsconfigentry.EntityData.SegmentPath = "csApsConfigEntry" + "[csApsWorkingIndex='" + fmt.Sprintf("%v", csapsconfigentry.Csapsworkingindex) + "']"
+    csapsconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csapsconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csapsconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) SetFilter(yf yfilter.YFilter) { csapsconfigentry.YFilter = yf }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetGoName(yname string) string {
-    if yname == "csApsWorkingIndex" { return "Csapsworkingindex" }
-    if yname == "csApsProtectionIndex" { return "Csapsprotectionindex" }
-    if yname == "csApsEnable" { return "Csapsenable" }
-    if yname == "csApsArchMode" { return "Csapsarchmode" }
-    if yname == "csApsActiveLine" { return "Csapsactiveline" }
-    if yname == "csApsSigFaultBER" { return "Csapssigfaultber" }
-    if yname == "csApsSigDegradeBER" { return "Csapssigdegradeber" }
-    if yname == "csApsWaitToRestore" { return "Csapswaittorestore" }
-    if yname == "csApsDirection" { return "Csapsdirection" }
-    if yname == "csApsRevertive" { return "Csapsrevertive" }
-    if yname == "csApsDirectionOperational" { return "Csapsdirectionoperational" }
-    if yname == "csApsArchModeOperational" { return "Csapsarchmodeoperational" }
-    if yname == "csApsChannelProtocol" { return "Csapschannelprotocol" }
-    if yname == "csApsFailureStatus" { return "Csapsfailurestatus" }
-    if yname == "csApsSwitchReason" { return "Csapsswitchreason" }
-    if yname == "csApsPrimarySection" { return "Csapsprimarysection" }
-    return ""
+    csapsconfigentry.EntityData.Children = make(map[string]types.YChild)
+    csapsconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csapsconfigentry.EntityData.Leafs["csApsWorkingIndex"] = types.YLeaf{"Csapsworkingindex", csapsconfigentry.Csapsworkingindex}
+    csapsconfigentry.EntityData.Leafs["csApsProtectionIndex"] = types.YLeaf{"Csapsprotectionindex", csapsconfigentry.Csapsprotectionindex}
+    csapsconfigentry.EntityData.Leafs["csApsEnable"] = types.YLeaf{"Csapsenable", csapsconfigentry.Csapsenable}
+    csapsconfigentry.EntityData.Leafs["csApsArchMode"] = types.YLeaf{"Csapsarchmode", csapsconfigentry.Csapsarchmode}
+    csapsconfigentry.EntityData.Leafs["csApsActiveLine"] = types.YLeaf{"Csapsactiveline", csapsconfigentry.Csapsactiveline}
+    csapsconfigentry.EntityData.Leafs["csApsSigFaultBER"] = types.YLeaf{"Csapssigfaultber", csapsconfigentry.Csapssigfaultber}
+    csapsconfigentry.EntityData.Leafs["csApsSigDegradeBER"] = types.YLeaf{"Csapssigdegradeber", csapsconfigentry.Csapssigdegradeber}
+    csapsconfigentry.EntityData.Leafs["csApsWaitToRestore"] = types.YLeaf{"Csapswaittorestore", csapsconfigentry.Csapswaittorestore}
+    csapsconfigentry.EntityData.Leafs["csApsDirection"] = types.YLeaf{"Csapsdirection", csapsconfigentry.Csapsdirection}
+    csapsconfigentry.EntityData.Leafs["csApsRevertive"] = types.YLeaf{"Csapsrevertive", csapsconfigentry.Csapsrevertive}
+    csapsconfigentry.EntityData.Leafs["csApsDirectionOperational"] = types.YLeaf{"Csapsdirectionoperational", csapsconfigentry.Csapsdirectionoperational}
+    csapsconfigentry.EntityData.Leafs["csApsArchModeOperational"] = types.YLeaf{"Csapsarchmodeoperational", csapsconfigentry.Csapsarchmodeoperational}
+    csapsconfigentry.EntityData.Leafs["csApsChannelProtocol"] = types.YLeaf{"Csapschannelprotocol", csapsconfigentry.Csapschannelprotocol}
+    csapsconfigentry.EntityData.Leafs["csApsFailureStatus"] = types.YLeaf{"Csapsfailurestatus", csapsconfigentry.Csapsfailurestatus}
+    csapsconfigentry.EntityData.Leafs["csApsSwitchReason"] = types.YLeaf{"Csapsswitchreason", csapsconfigentry.Csapsswitchreason}
+    csapsconfigentry.EntityData.Leafs["csApsPrimarySection"] = types.YLeaf{"Csapsprimarysection", csapsconfigentry.Csapsprimarysection}
+    return &(csapsconfigentry.EntityData)
 }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetSegmentPath() string {
-    return "csApsConfigEntry" + "[csApsWorkingIndex='" + fmt.Sprintf("%v", csapsconfigentry.Csapsworkingindex) + "']"
-}
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["csApsWorkingIndex"] = csapsconfigentry.Csapsworkingindex
-    leafs["csApsProtectionIndex"] = csapsconfigentry.Csapsprotectionindex
-    leafs["csApsEnable"] = csapsconfigentry.Csapsenable
-    leafs["csApsArchMode"] = csapsconfigentry.Csapsarchmode
-    leafs["csApsActiveLine"] = csapsconfigentry.Csapsactiveline
-    leafs["csApsSigFaultBER"] = csapsconfigentry.Csapssigfaultber
-    leafs["csApsSigDegradeBER"] = csapsconfigentry.Csapssigdegradeber
-    leafs["csApsWaitToRestore"] = csapsconfigentry.Csapswaittorestore
-    leafs["csApsDirection"] = csapsconfigentry.Csapsdirection
-    leafs["csApsRevertive"] = csapsconfigentry.Csapsrevertive
-    leafs["csApsDirectionOperational"] = csapsconfigentry.Csapsdirectionoperational
-    leafs["csApsArchModeOperational"] = csapsconfigentry.Csapsarchmodeoperational
-    leafs["csApsChannelProtocol"] = csapsconfigentry.Csapschannelprotocol
-    leafs["csApsFailureStatus"] = csapsconfigentry.Csapsfailurestatus
-    leafs["csApsSwitchReason"] = csapsconfigentry.Csapsswitchreason
-    leafs["csApsPrimarySection"] = csapsconfigentry.Csapsprimarysection
-    return leafs
-}
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetYangName() string { return "csApsConfigEntry" }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) SetParent(parent types.Entity) { csapsconfigentry.parent = parent }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetParent() types.Entity { return csapsconfigentry.parent }
-
-func (csapsconfigentry *CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry) GetParentYangName() string { return "csApsConfigTable" }
 
 // CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry_Csapsactiveline represents This object reflects the status of receive direction.
 type CISCOSONETMIB_Csapsconfigtable_Csapsconfigentry_Csapsactiveline string
@@ -1139,7 +833,7 @@ const (
 // number of 15 minute intervals that have elapsed since
 // the line is enabled. 
 type CISCOSONETMIB_Csstotaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Section Total table. Entries are created
@@ -1148,69 +842,30 @@ type CISCOSONETMIB_Csstotaltable struct {
     Csstotalentry []CISCOSONETMIB_Csstotaltable_Csstotalentry
 }
 
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetFilter() yfilter.YFilter { return csstotaltable.YFilter }
+func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetEntityData() *types.CommonEntityData {
+    csstotaltable.EntityData.YFilter = csstotaltable.YFilter
+    csstotaltable.EntityData.YangName = "cssTotalTable"
+    csstotaltable.EntityData.BundleName = "cisco_ios_xe"
+    csstotaltable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csstotaltable.EntityData.SegmentPath = "cssTotalTable"
+    csstotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csstotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csstotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) SetFilter(yf yfilter.YFilter) { csstotaltable.YFilter = yf }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetGoName(yname string) string {
-    if yname == "cssTotalEntry" { return "Csstotalentry" }
-    return ""
-}
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetSegmentPath() string {
-    return "cssTotalTable"
-}
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cssTotalEntry" {
-        for _, c := range csstotaltable.Csstotalentry {
-            if csstotaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csstotaltable_Csstotalentry{}
-        csstotaltable.Csstotalentry = append(csstotaltable.Csstotalentry, child)
-        return &csstotaltable.Csstotalentry[len(csstotaltable.Csstotalentry)-1]
-    }
-    return nil
-}
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csstotaltable.EntityData.Children = make(map[string]types.YChild)
+    csstotaltable.EntityData.Children["cssTotalEntry"] = types.YChild{"Csstotalentry", nil}
     for i := range csstotaltable.Csstotalentry {
-        children[csstotaltable.Csstotalentry[i].GetSegmentPath()] = &csstotaltable.Csstotalentry[i]
+        csstotaltable.EntityData.Children[types.GetSegmentPath(&csstotaltable.Csstotalentry[i])] = types.YChild{"Csstotalentry", &csstotaltable.Csstotalentry[i]}
     }
-    return children
+    csstotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csstotaltable.EntityData)
 }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetYangName() string { return "cssTotalTable" }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) SetParent(parent types.Entity) { csstotaltable.parent = parent }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetParent() types.Entity { return csstotaltable.parent }
-
-func (csstotaltable *CISCOSONETMIB_Csstotaltable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csstotaltable_Csstotalentry
 // An entry in the SONET/SDH Section Total table. Entries
 // are created automatically for sonet lines.
 type CISCOSONETMIB_Csstotaltable_Csstotalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1238,65 +893,31 @@ type CISCOSONETMIB_Csstotaltable_Csstotalentry struct {
     Csstotalcvs interface{}
 }
 
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetFilter() yfilter.YFilter { return csstotalentry.YFilter }
+func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetEntityData() *types.CommonEntityData {
+    csstotalentry.EntityData.YFilter = csstotalentry.YFilter
+    csstotalentry.EntityData.YangName = "cssTotalEntry"
+    csstotalentry.EntityData.BundleName = "cisco_ios_xe"
+    csstotalentry.EntityData.ParentYangName = "cssTotalTable"
+    csstotalentry.EntityData.SegmentPath = "cssTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", csstotalentry.Ifindex) + "']"
+    csstotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csstotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csstotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) SetFilter(yf yfilter.YFilter) { csstotalentry.YFilter = yf }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cssTotalESs" { return "Csstotaless" }
-    if yname == "cssTotalSESs" { return "Csstotalsess" }
-    if yname == "cssTotalSEFSs" { return "Csstotalsefss" }
-    if yname == "cssTotalCVs" { return "Csstotalcvs" }
-    return ""
+    csstotalentry.EntityData.Children = make(map[string]types.YChild)
+    csstotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csstotalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csstotalentry.Ifindex}
+    csstotalentry.EntityData.Leafs["cssTotalESs"] = types.YLeaf{"Csstotaless", csstotalentry.Csstotaless}
+    csstotalentry.EntityData.Leafs["cssTotalSESs"] = types.YLeaf{"Csstotalsess", csstotalentry.Csstotalsess}
+    csstotalentry.EntityData.Leafs["cssTotalSEFSs"] = types.YLeaf{"Csstotalsefss", csstotalentry.Csstotalsefss}
+    csstotalentry.EntityData.Leafs["cssTotalCVs"] = types.YLeaf{"Csstotalcvs", csstotalentry.Csstotalcvs}
+    return &(csstotalentry.EntityData)
 }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetSegmentPath() string {
-    return "cssTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", csstotalentry.Ifindex) + "']"
-}
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csstotalentry.Ifindex
-    leafs["cssTotalESs"] = csstotalentry.Csstotaless
-    leafs["cssTotalSESs"] = csstotalentry.Csstotalsess
-    leafs["cssTotalSEFSs"] = csstotalentry.Csstotalsefss
-    leafs["cssTotalCVs"] = csstotalentry.Csstotalcvs
-    return leafs
-}
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetYangName() string { return "cssTotalEntry" }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) SetParent(parent types.Entity) { csstotalentry.parent = parent }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetParent() types.Entity { return csstotalentry.parent }
-
-func (csstotalentry *CISCOSONETMIB_Csstotaltable_Csstotalentry) GetParentYangName() string { return "cssTotalTable" }
 
 // CISCOSONETMIB_Csstracetable
 // The SONET/SDH Section Trace table. This table contains 
 // objects for tracing the sonet section.
 type CISCOSONETMIB_Csstracetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the trace table. Entries exist for active sonet lines. The
@@ -1306,70 +927,31 @@ type CISCOSONETMIB_Csstracetable struct {
     Csstraceentry []CISCOSONETMIB_Csstracetable_Csstraceentry
 }
 
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetFilter() yfilter.YFilter { return csstracetable.YFilter }
+func (csstracetable *CISCOSONETMIB_Csstracetable) GetEntityData() *types.CommonEntityData {
+    csstracetable.EntityData.YFilter = csstracetable.YFilter
+    csstracetable.EntityData.YangName = "cssTraceTable"
+    csstracetable.EntityData.BundleName = "cisco_ios_xe"
+    csstracetable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csstracetable.EntityData.SegmentPath = "cssTraceTable"
+    csstracetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csstracetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csstracetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csstracetable *CISCOSONETMIB_Csstracetable) SetFilter(yf yfilter.YFilter) { csstracetable.YFilter = yf }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetGoName(yname string) string {
-    if yname == "cssTraceEntry" { return "Csstraceentry" }
-    return ""
-}
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetSegmentPath() string {
-    return "cssTraceTable"
-}
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cssTraceEntry" {
-        for _, c := range csstracetable.Csstraceentry {
-            if csstracetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csstracetable_Csstraceentry{}
-        csstracetable.Csstraceentry = append(csstracetable.Csstraceentry, child)
-        return &csstracetable.Csstraceentry[len(csstracetable.Csstraceentry)-1]
-    }
-    return nil
-}
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csstracetable.EntityData.Children = make(map[string]types.YChild)
+    csstracetable.EntityData.Children["cssTraceEntry"] = types.YChild{"Csstraceentry", nil}
     for i := range csstracetable.Csstraceentry {
-        children[csstracetable.Csstraceentry[i].GetSegmentPath()] = &csstracetable.Csstraceentry[i]
+        csstracetable.EntityData.Children[types.GetSegmentPath(&csstracetable.Csstraceentry[i])] = types.YChild{"Csstraceentry", &csstracetable.Csstraceentry[i]}
     }
-    return children
+    csstracetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csstracetable.EntityData)
 }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetYangName() string { return "cssTraceTable" }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) SetParent(parent types.Entity) { csstracetable.parent = parent }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetParent() types.Entity { return csstracetable.parent }
-
-func (csstracetable *CISCOSONETMIB_Csstracetable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csstracetable_Csstraceentry
 // An entry in the trace table. Entries exist for active sonet
 // lines. The objects in this table are used to verify 
 // continued connection between the two ends of the line.
 type CISCOSONETMIB_Csstracetable_Csstraceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1399,59 +981,25 @@ type CISCOSONETMIB_Csstracetable_Csstraceentry struct {
     Csstracereceived interface{}
 }
 
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetFilter() yfilter.YFilter { return csstraceentry.YFilter }
+func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetEntityData() *types.CommonEntityData {
+    csstraceentry.EntityData.YFilter = csstraceentry.YFilter
+    csstraceentry.EntityData.YangName = "cssTraceEntry"
+    csstraceentry.EntityData.BundleName = "cisco_ios_xe"
+    csstraceentry.EntityData.ParentYangName = "cssTraceTable"
+    csstraceentry.EntityData.SegmentPath = "cssTraceEntry" + "[ifIndex='" + fmt.Sprintf("%v", csstraceentry.Ifindex) + "']"
+    csstraceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csstraceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csstraceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) SetFilter(yf yfilter.YFilter) { csstraceentry.YFilter = yf }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cssTraceToTransmit" { return "Csstracetotransmit" }
-    if yname == "cssTraceToExpect" { return "Csstracetoexpect" }
-    if yname == "cssTraceFailure" { return "Csstracefailure" }
-    if yname == "cssTraceReceived" { return "Csstracereceived" }
-    return ""
+    csstraceentry.EntityData.Children = make(map[string]types.YChild)
+    csstraceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csstraceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csstraceentry.Ifindex}
+    csstraceentry.EntityData.Leafs["cssTraceToTransmit"] = types.YLeaf{"Csstracetotransmit", csstraceentry.Csstracetotransmit}
+    csstraceentry.EntityData.Leafs["cssTraceToExpect"] = types.YLeaf{"Csstracetoexpect", csstraceentry.Csstracetoexpect}
+    csstraceentry.EntityData.Leafs["cssTraceFailure"] = types.YLeaf{"Csstracefailure", csstraceentry.Csstracefailure}
+    csstraceentry.EntityData.Leafs["cssTraceReceived"] = types.YLeaf{"Csstracereceived", csstraceentry.Csstracereceived}
+    return &(csstraceentry.EntityData)
 }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetSegmentPath() string {
-    return "cssTraceEntry" + "[ifIndex='" + fmt.Sprintf("%v", csstraceentry.Ifindex) + "']"
-}
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csstraceentry.Ifindex
-    leafs["cssTraceToTransmit"] = csstraceentry.Csstracetotransmit
-    leafs["cssTraceToExpect"] = csstraceentry.Csstracetoexpect
-    leafs["cssTraceFailure"] = csstraceentry.Csstracefailure
-    leafs["cssTraceReceived"] = csstraceentry.Csstracereceived
-    return leafs
-}
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetYangName() string { return "cssTraceEntry" }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) SetParent(parent types.Entity) { csstraceentry.parent = parent }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetParent() types.Entity { return csstraceentry.parent }
-
-func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetParentYangName() string { return "cssTraceTable" }
 
 // CISCOSONETMIB_Csltotaltable
 // The SONET/SDH Line Total table. It contains the 
@@ -1461,7 +1009,7 @@ func (csstraceentry *CISCOSONETMIB_Csstracetable_Csstraceentry) GetParentYangNam
 // number of 15 minute intervals that have elapsed since
 // the line is enabled.
 type CISCOSONETMIB_Csltotaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Line Total table. Entries are created
@@ -1470,69 +1018,30 @@ type CISCOSONETMIB_Csltotaltable struct {
     Csltotalentry []CISCOSONETMIB_Csltotaltable_Csltotalentry
 }
 
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetFilter() yfilter.YFilter { return csltotaltable.YFilter }
+func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetEntityData() *types.CommonEntityData {
+    csltotaltable.EntityData.YFilter = csltotaltable.YFilter
+    csltotaltable.EntityData.YangName = "cslTotalTable"
+    csltotaltable.EntityData.BundleName = "cisco_ios_xe"
+    csltotaltable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csltotaltable.EntityData.SegmentPath = "cslTotalTable"
+    csltotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csltotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csltotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) SetFilter(yf yfilter.YFilter) { csltotaltable.YFilter = yf }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetGoName(yname string) string {
-    if yname == "cslTotalEntry" { return "Csltotalentry" }
-    return ""
-}
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetSegmentPath() string {
-    return "cslTotalTable"
-}
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cslTotalEntry" {
-        for _, c := range csltotaltable.Csltotalentry {
-            if csltotaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csltotaltable_Csltotalentry{}
-        csltotaltable.Csltotalentry = append(csltotaltable.Csltotalentry, child)
-        return &csltotaltable.Csltotalentry[len(csltotaltable.Csltotalentry)-1]
-    }
-    return nil
-}
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csltotaltable.EntityData.Children = make(map[string]types.YChild)
+    csltotaltable.EntityData.Children["cslTotalEntry"] = types.YChild{"Csltotalentry", nil}
     for i := range csltotaltable.Csltotalentry {
-        children[csltotaltable.Csltotalentry[i].GetSegmentPath()] = &csltotaltable.Csltotalentry[i]
+        csltotaltable.EntityData.Children[types.GetSegmentPath(&csltotaltable.Csltotalentry[i])] = types.YChild{"Csltotalentry", &csltotaltable.Csltotalentry[i]}
     }
-    return children
+    csltotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csltotaltable.EntityData)
 }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetYangName() string { return "cslTotalTable" }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) SetParent(parent types.Entity) { csltotaltable.parent = parent }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetParent() types.Entity { return csltotaltable.parent }
-
-func (csltotaltable *CISCOSONETMIB_Csltotaltable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csltotaltable_Csltotalentry
 // An entry in the SONET/SDH Line Total table. Entries
 // are created automatically for sonet lines.
 type CISCOSONETMIB_Csltotaltable_Csltotalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1560,59 +1069,25 @@ type CISCOSONETMIB_Csltotaltable_Csltotalentry struct {
     Csltotaluass interface{}
 }
 
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetFilter() yfilter.YFilter { return csltotalentry.YFilter }
+func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetEntityData() *types.CommonEntityData {
+    csltotalentry.EntityData.YFilter = csltotalentry.YFilter
+    csltotalentry.EntityData.YangName = "cslTotalEntry"
+    csltotalentry.EntityData.BundleName = "cisco_ios_xe"
+    csltotalentry.EntityData.ParentYangName = "cslTotalTable"
+    csltotalentry.EntityData.SegmentPath = "cslTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", csltotalentry.Ifindex) + "']"
+    csltotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csltotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csltotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) SetFilter(yf yfilter.YFilter) { csltotalentry.YFilter = yf }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cslTotalESs" { return "Csltotaless" }
-    if yname == "cslTotalSESs" { return "Csltotalsess" }
-    if yname == "cslTotalCVs" { return "Csltotalcvs" }
-    if yname == "cslTotalUASs" { return "Csltotaluass" }
-    return ""
+    csltotalentry.EntityData.Children = make(map[string]types.YChild)
+    csltotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csltotalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csltotalentry.Ifindex}
+    csltotalentry.EntityData.Leafs["cslTotalESs"] = types.YLeaf{"Csltotaless", csltotalentry.Csltotaless}
+    csltotalentry.EntityData.Leafs["cslTotalSESs"] = types.YLeaf{"Csltotalsess", csltotalentry.Csltotalsess}
+    csltotalentry.EntityData.Leafs["cslTotalCVs"] = types.YLeaf{"Csltotalcvs", csltotalentry.Csltotalcvs}
+    csltotalentry.EntityData.Leafs["cslTotalUASs"] = types.YLeaf{"Csltotaluass", csltotalentry.Csltotaluass}
+    return &(csltotalentry.EntityData)
 }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetSegmentPath() string {
-    return "cslTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", csltotalentry.Ifindex) + "']"
-}
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csltotalentry.Ifindex
-    leafs["cslTotalESs"] = csltotalentry.Csltotaless
-    leafs["cslTotalSESs"] = csltotalentry.Csltotalsess
-    leafs["cslTotalCVs"] = csltotalentry.Csltotalcvs
-    leafs["cslTotalUASs"] = csltotalentry.Csltotaluass
-    return leafs
-}
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetYangName() string { return "cslTotalEntry" }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) SetParent(parent types.Entity) { csltotalentry.parent = parent }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetParent() types.Entity { return csltotalentry.parent }
-
-func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetParentYangName() string { return "cslTotalTable" }
 
 // CISCOSONETMIB_Cslfarendtotaltable
 // The SONET/SDH Far End Line Total table. It contains the 
@@ -1622,7 +1097,7 @@ func (csltotalentry *CISCOSONETMIB_Csltotaltable_Csltotalentry) GetParentYangNam
 // number of 15 minute intervals that have elapsed since the 
 // line is enabled.
 type CISCOSONETMIB_Cslfarendtotaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End Line Total table. Entries are created
@@ -1631,69 +1106,30 @@ type CISCOSONETMIB_Cslfarendtotaltable struct {
     Cslfarendtotalentry []CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry
 }
 
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetFilter() yfilter.YFilter { return cslfarendtotaltable.YFilter }
+func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetEntityData() *types.CommonEntityData {
+    cslfarendtotaltable.EntityData.YFilter = cslfarendtotaltable.YFilter
+    cslfarendtotaltable.EntityData.YangName = "cslFarEndTotalTable"
+    cslfarendtotaltable.EntityData.BundleName = "cisco_ios_xe"
+    cslfarendtotaltable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    cslfarendtotaltable.EntityData.SegmentPath = "cslFarEndTotalTable"
+    cslfarendtotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cslfarendtotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cslfarendtotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) SetFilter(yf yfilter.YFilter) { cslfarendtotaltable.YFilter = yf }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetGoName(yname string) string {
-    if yname == "cslFarEndTotalEntry" { return "Cslfarendtotalentry" }
-    return ""
-}
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetSegmentPath() string {
-    return "cslFarEndTotalTable"
-}
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cslFarEndTotalEntry" {
-        for _, c := range cslfarendtotaltable.Cslfarendtotalentry {
-            if cslfarendtotaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry{}
-        cslfarendtotaltable.Cslfarendtotalentry = append(cslfarendtotaltable.Cslfarendtotalentry, child)
-        return &cslfarendtotaltable.Cslfarendtotalentry[len(cslfarendtotaltable.Cslfarendtotalentry)-1]
-    }
-    return nil
-}
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cslfarendtotaltable.EntityData.Children = make(map[string]types.YChild)
+    cslfarendtotaltable.EntityData.Children["cslFarEndTotalEntry"] = types.YChild{"Cslfarendtotalentry", nil}
     for i := range cslfarendtotaltable.Cslfarendtotalentry {
-        children[cslfarendtotaltable.Cslfarendtotalentry[i].GetSegmentPath()] = &cslfarendtotaltable.Cslfarendtotalentry[i]
+        cslfarendtotaltable.EntityData.Children[types.GetSegmentPath(&cslfarendtotaltable.Cslfarendtotalentry[i])] = types.YChild{"Cslfarendtotalentry", &cslfarendtotaltable.Cslfarendtotalentry[i]}
     }
-    return children
+    cslfarendtotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cslfarendtotaltable.EntityData)
 }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetYangName() string { return "cslFarEndTotalTable" }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) SetParent(parent types.Entity) { cslfarendtotaltable.parent = parent }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetParent() types.Entity { return cslfarendtotaltable.parent }
-
-func (cslfarendtotaltable *CISCOSONETMIB_Cslfarendtotaltable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry
 // An entry in the SONET/SDH Far End Line Total table. Entries
 // are created automatically for sonet lines.
 type CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1721,59 +1157,25 @@ type CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry struct {
     Cslfarendtotaluass interface{}
 }
 
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetFilter() yfilter.YFilter { return cslfarendtotalentry.YFilter }
+func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetEntityData() *types.CommonEntityData {
+    cslfarendtotalentry.EntityData.YFilter = cslfarendtotalentry.YFilter
+    cslfarendtotalentry.EntityData.YangName = "cslFarEndTotalEntry"
+    cslfarendtotalentry.EntityData.BundleName = "cisco_ios_xe"
+    cslfarendtotalentry.EntityData.ParentYangName = "cslFarEndTotalTable"
+    cslfarendtotalentry.EntityData.SegmentPath = "cslFarEndTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", cslfarendtotalentry.Ifindex) + "']"
+    cslfarendtotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cslfarendtotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cslfarendtotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) SetFilter(yf yfilter.YFilter) { cslfarendtotalentry.YFilter = yf }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cslFarEndTotalESs" { return "Cslfarendtotaless" }
-    if yname == "cslFarEndTotalSESs" { return "Cslfarendtotalsess" }
-    if yname == "cslFarEndTotalCVs" { return "Cslfarendtotalcvs" }
-    if yname == "cslFarEndTotalUASs" { return "Cslfarendtotaluass" }
-    return ""
+    cslfarendtotalentry.EntityData.Children = make(map[string]types.YChild)
+    cslfarendtotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cslfarendtotalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cslfarendtotalentry.Ifindex}
+    cslfarendtotalentry.EntityData.Leafs["cslFarEndTotalESs"] = types.YLeaf{"Cslfarendtotaless", cslfarendtotalentry.Cslfarendtotaless}
+    cslfarendtotalentry.EntityData.Leafs["cslFarEndTotalSESs"] = types.YLeaf{"Cslfarendtotalsess", cslfarendtotalentry.Cslfarendtotalsess}
+    cslfarendtotalentry.EntityData.Leafs["cslFarEndTotalCVs"] = types.YLeaf{"Cslfarendtotalcvs", cslfarendtotalentry.Cslfarendtotalcvs}
+    cslfarendtotalentry.EntityData.Leafs["cslFarEndTotalUASs"] = types.YLeaf{"Cslfarendtotaluass", cslfarendtotalentry.Cslfarendtotaluass}
+    return &(cslfarendtotalentry.EntityData)
 }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetSegmentPath() string {
-    return "cslFarEndTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", cslfarendtotalentry.Ifindex) + "']"
-}
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cslfarendtotalentry.Ifindex
-    leafs["cslFarEndTotalESs"] = cslfarendtotalentry.Cslfarendtotaless
-    leafs["cslFarEndTotalSESs"] = cslfarendtotalentry.Cslfarendtotalsess
-    leafs["cslFarEndTotalCVs"] = cslfarendtotalentry.Cslfarendtotalcvs
-    leafs["cslFarEndTotalUASs"] = cslfarendtotalentry.Cslfarendtotaluass
-    return leafs
-}
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetYangName() string { return "cslFarEndTotalEntry" }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) SetParent(parent types.Entity) { cslfarendtotalentry.parent = parent }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetParent() types.Entity { return cslfarendtotalentry.parent }
-
-func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry) GetParentYangName() string { return "cslFarEndTotalTable" }
 
 // CISCOSONETMIB_Csptotaltable
 // The SONET/SDH Path Total table. It contains the cumulative 
@@ -1783,7 +1185,7 @@ func (cslfarendtotalentry *CISCOSONETMIB_Cslfarendtotaltable_Cslfarendtotalentry
 // of 15 minute intervals that have elapsed since the line is 
 // enabled.
 type CISCOSONETMIB_Csptotaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Path Total table. Entries are created
@@ -1792,69 +1194,30 @@ type CISCOSONETMIB_Csptotaltable struct {
     Csptotalentry []CISCOSONETMIB_Csptotaltable_Csptotalentry
 }
 
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetFilter() yfilter.YFilter { return csptotaltable.YFilter }
+func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetEntityData() *types.CommonEntityData {
+    csptotaltable.EntityData.YFilter = csptotaltable.YFilter
+    csptotaltable.EntityData.YangName = "cspTotalTable"
+    csptotaltable.EntityData.BundleName = "cisco_ios_xe"
+    csptotaltable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csptotaltable.EntityData.SegmentPath = "cspTotalTable"
+    csptotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csptotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csptotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) SetFilter(yf yfilter.YFilter) { csptotaltable.YFilter = yf }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetGoName(yname string) string {
-    if yname == "cspTotalEntry" { return "Csptotalentry" }
-    return ""
-}
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetSegmentPath() string {
-    return "cspTotalTable"
-}
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cspTotalEntry" {
-        for _, c := range csptotaltable.Csptotalentry {
-            if csptotaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csptotaltable_Csptotalentry{}
-        csptotaltable.Csptotalentry = append(csptotaltable.Csptotalentry, child)
-        return &csptotaltable.Csptotalentry[len(csptotaltable.Csptotalentry)-1]
-    }
-    return nil
-}
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csptotaltable.EntityData.Children = make(map[string]types.YChild)
+    csptotaltable.EntityData.Children["cspTotalEntry"] = types.YChild{"Csptotalentry", nil}
     for i := range csptotaltable.Csptotalentry {
-        children[csptotaltable.Csptotalentry[i].GetSegmentPath()] = &csptotaltable.Csptotalentry[i]
+        csptotaltable.EntityData.Children[types.GetSegmentPath(&csptotaltable.Csptotalentry[i])] = types.YChild{"Csptotalentry", &csptotaltable.Csptotalentry[i]}
     }
-    return children
+    csptotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csptotaltable.EntityData)
 }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetYangName() string { return "cspTotalTable" }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) SetParent(parent types.Entity) { csptotaltable.parent = parent }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetParent() types.Entity { return csptotaltable.parent }
-
-func (csptotaltable *CISCOSONETMIB_Csptotaltable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csptotaltable_Csptotalentry
 // An entry in the SONET/SDH Path Total table. Entries
 // are created automatically for sonet lines.
 type CISCOSONETMIB_Csptotaltable_Csptotalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1882,59 +1245,25 @@ type CISCOSONETMIB_Csptotaltable_Csptotalentry struct {
     Csptotaluass interface{}
 }
 
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetFilter() yfilter.YFilter { return csptotalentry.YFilter }
+func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetEntityData() *types.CommonEntityData {
+    csptotalentry.EntityData.YFilter = csptotalentry.YFilter
+    csptotalentry.EntityData.YangName = "cspTotalEntry"
+    csptotalentry.EntityData.BundleName = "cisco_ios_xe"
+    csptotalentry.EntityData.ParentYangName = "cspTotalTable"
+    csptotalentry.EntityData.SegmentPath = "cspTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", csptotalentry.Ifindex) + "']"
+    csptotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csptotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csptotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) SetFilter(yf yfilter.YFilter) { csptotalentry.YFilter = yf }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cspTotalESs" { return "Csptotaless" }
-    if yname == "cspTotalSESs" { return "Csptotalsess" }
-    if yname == "cspTotalCVs" { return "Csptotalcvs" }
-    if yname == "cspTotalUASs" { return "Csptotaluass" }
-    return ""
+    csptotalentry.EntityData.Children = make(map[string]types.YChild)
+    csptotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csptotalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csptotalentry.Ifindex}
+    csptotalentry.EntityData.Leafs["cspTotalESs"] = types.YLeaf{"Csptotaless", csptotalentry.Csptotaless}
+    csptotalentry.EntityData.Leafs["cspTotalSESs"] = types.YLeaf{"Csptotalsess", csptotalentry.Csptotalsess}
+    csptotalentry.EntityData.Leafs["cspTotalCVs"] = types.YLeaf{"Csptotalcvs", csptotalentry.Csptotalcvs}
+    csptotalentry.EntityData.Leafs["cspTotalUASs"] = types.YLeaf{"Csptotaluass", csptotalentry.Csptotaluass}
+    return &(csptotalentry.EntityData)
 }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetSegmentPath() string {
-    return "cspTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", csptotalentry.Ifindex) + "']"
-}
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csptotalentry.Ifindex
-    leafs["cspTotalESs"] = csptotalentry.Csptotaless
-    leafs["cspTotalSESs"] = csptotalentry.Csptotalsess
-    leafs["cspTotalCVs"] = csptotalentry.Csptotalcvs
-    leafs["cspTotalUASs"] = csptotalentry.Csptotaluass
-    return leafs
-}
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetYangName() string { return "cspTotalEntry" }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) SetParent(parent types.Entity) { csptotalentry.parent = parent }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetParent() types.Entity { return csptotalentry.parent }
-
-func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetParentYangName() string { return "cspTotalTable" }
 
 // CISCOSONETMIB_Cspfarendtotaltable
 // The SONET/SDH Far End Path Total table. Far End is the 
@@ -1945,7 +1274,7 @@ func (csptotalentry *CISCOSONETMIB_Csptotaltable_Csptotalentry) GetParentYangNam
 // number of 15 minute intervals that have elapsed since
 // the line is enabled. 
 type CISCOSONETMIB_Cspfarendtotaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Far End Path Total table.  Entries are created
@@ -1954,69 +1283,30 @@ type CISCOSONETMIB_Cspfarendtotaltable struct {
     Cspfarendtotalentry []CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry
 }
 
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetFilter() yfilter.YFilter { return cspfarendtotaltable.YFilter }
+func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetEntityData() *types.CommonEntityData {
+    cspfarendtotaltable.EntityData.YFilter = cspfarendtotaltable.YFilter
+    cspfarendtotaltable.EntityData.YangName = "cspFarEndTotalTable"
+    cspfarendtotaltable.EntityData.BundleName = "cisco_ios_xe"
+    cspfarendtotaltable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    cspfarendtotaltable.EntityData.SegmentPath = "cspFarEndTotalTable"
+    cspfarendtotaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cspfarendtotaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cspfarendtotaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) SetFilter(yf yfilter.YFilter) { cspfarendtotaltable.YFilter = yf }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetGoName(yname string) string {
-    if yname == "cspFarEndTotalEntry" { return "Cspfarendtotalentry" }
-    return ""
-}
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetSegmentPath() string {
-    return "cspFarEndTotalTable"
-}
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cspFarEndTotalEntry" {
-        for _, c := range cspfarendtotaltable.Cspfarendtotalentry {
-            if cspfarendtotaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry{}
-        cspfarendtotaltable.Cspfarendtotalentry = append(cspfarendtotaltable.Cspfarendtotalentry, child)
-        return &cspfarendtotaltable.Cspfarendtotalentry[len(cspfarendtotaltable.Cspfarendtotalentry)-1]
-    }
-    return nil
-}
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cspfarendtotaltable.EntityData.Children = make(map[string]types.YChild)
+    cspfarendtotaltable.EntityData.Children["cspFarEndTotalEntry"] = types.YChild{"Cspfarendtotalentry", nil}
     for i := range cspfarendtotaltable.Cspfarendtotalentry {
-        children[cspfarendtotaltable.Cspfarendtotalentry[i].GetSegmentPath()] = &cspfarendtotaltable.Cspfarendtotalentry[i]
+        cspfarendtotaltable.EntityData.Children[types.GetSegmentPath(&cspfarendtotaltable.Cspfarendtotalentry[i])] = types.YChild{"Cspfarendtotalentry", &cspfarendtotaltable.Cspfarendtotalentry[i]}
     }
-    return children
+    cspfarendtotaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cspfarendtotaltable.EntityData)
 }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetYangName() string { return "cspFarEndTotalTable" }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) SetParent(parent types.Entity) { cspfarendtotaltable.parent = parent }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetParent() types.Entity { return cspfarendtotaltable.parent }
-
-func (cspfarendtotaltable *CISCOSONETMIB_Cspfarendtotaltable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry
 // An entry in the SONET/SDH Far End Path Total table. 
 // Entries are created automatically for sonet lines.
 type CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2044,65 +1334,31 @@ type CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry struct {
     Cspfarendtotaluass interface{}
 }
 
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetFilter() yfilter.YFilter { return cspfarendtotalentry.YFilter }
+func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetEntityData() *types.CommonEntityData {
+    cspfarendtotalentry.EntityData.YFilter = cspfarendtotalentry.YFilter
+    cspfarendtotalentry.EntityData.YangName = "cspFarEndTotalEntry"
+    cspfarendtotalentry.EntityData.BundleName = "cisco_ios_xe"
+    cspfarendtotalentry.EntityData.ParentYangName = "cspFarEndTotalTable"
+    cspfarendtotalentry.EntityData.SegmentPath = "cspFarEndTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", cspfarendtotalentry.Ifindex) + "']"
+    cspfarendtotalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cspfarendtotalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cspfarendtotalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) SetFilter(yf yfilter.YFilter) { cspfarendtotalentry.YFilter = yf }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cspFarEndTotalESs" { return "Cspfarendtotaless" }
-    if yname == "cspFarEndTotalSESs" { return "Cspfarendtotalsess" }
-    if yname == "cspFarEndTotalCVs" { return "Cspfarendtotalcvs" }
-    if yname == "cspFarEndTotalUASs" { return "Cspfarendtotaluass" }
-    return ""
+    cspfarendtotalentry.EntityData.Children = make(map[string]types.YChild)
+    cspfarendtotalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cspfarendtotalentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cspfarendtotalentry.Ifindex}
+    cspfarendtotalentry.EntityData.Leafs["cspFarEndTotalESs"] = types.YLeaf{"Cspfarendtotaless", cspfarendtotalentry.Cspfarendtotaless}
+    cspfarendtotalentry.EntityData.Leafs["cspFarEndTotalSESs"] = types.YLeaf{"Cspfarendtotalsess", cspfarendtotalentry.Cspfarendtotalsess}
+    cspfarendtotalentry.EntityData.Leafs["cspFarEndTotalCVs"] = types.YLeaf{"Cspfarendtotalcvs", cspfarendtotalentry.Cspfarendtotalcvs}
+    cspfarendtotalentry.EntityData.Leafs["cspFarEndTotalUASs"] = types.YLeaf{"Cspfarendtotaluass", cspfarendtotalentry.Cspfarendtotaluass}
+    return &(cspfarendtotalentry.EntityData)
 }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetSegmentPath() string {
-    return "cspFarEndTotalEntry" + "[ifIndex='" + fmt.Sprintf("%v", cspfarendtotalentry.Ifindex) + "']"
-}
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cspfarendtotalentry.Ifindex
-    leafs["cspFarEndTotalESs"] = cspfarendtotalentry.Cspfarendtotaless
-    leafs["cspFarEndTotalSESs"] = cspfarendtotalentry.Cspfarendtotalsess
-    leafs["cspFarEndTotalCVs"] = cspfarendtotalentry.Cspfarendtotalcvs
-    leafs["cspFarEndTotalUASs"] = cspfarendtotalentry.Cspfarendtotaluass
-    return leafs
-}
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetYangName() string { return "cspFarEndTotalEntry" }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) SetParent(parent types.Entity) { cspfarendtotalentry.parent = parent }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetParent() types.Entity { return cspfarendtotalentry.parent }
-
-func (cspfarendtotalentry *CISCOSONETMIB_Cspfarendtotaltable_Cspfarendtotalentry) GetParentYangName() string { return "cspFarEndTotalTable" }
 
 // CISCOSONETMIB_Csptracetable
 // The SONET/SDH Path Trace table. This table contains objects 
 // for tracing the sonet path.
 type CISCOSONETMIB_Csptracetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH Path Trace table. The entries  exist for active
@@ -2112,63 +1368,24 @@ type CISCOSONETMIB_Csptracetable struct {
     Csptraceentry []CISCOSONETMIB_Csptracetable_Csptraceentry
 }
 
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetFilter() yfilter.YFilter { return csptracetable.YFilter }
+func (csptracetable *CISCOSONETMIB_Csptracetable) GetEntityData() *types.CommonEntityData {
+    csptracetable.EntityData.YFilter = csptracetable.YFilter
+    csptracetable.EntityData.YangName = "cspTraceTable"
+    csptracetable.EntityData.BundleName = "cisco_ios_xe"
+    csptracetable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csptracetable.EntityData.SegmentPath = "cspTraceTable"
+    csptracetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csptracetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csptracetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csptracetable *CISCOSONETMIB_Csptracetable) SetFilter(yf yfilter.YFilter) { csptracetable.YFilter = yf }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetGoName(yname string) string {
-    if yname == "cspTraceEntry" { return "Csptraceentry" }
-    return ""
-}
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetSegmentPath() string {
-    return "cspTraceTable"
-}
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cspTraceEntry" {
-        for _, c := range csptracetable.Csptraceentry {
-            if csptracetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csptracetable_Csptraceentry{}
-        csptracetable.Csptraceentry = append(csptracetable.Csptraceentry, child)
-        return &csptracetable.Csptraceentry[len(csptracetable.Csptraceentry)-1]
-    }
-    return nil
-}
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csptracetable.EntityData.Children = make(map[string]types.YChild)
+    csptracetable.EntityData.Children["cspTraceEntry"] = types.YChild{"Csptraceentry", nil}
     for i := range csptracetable.Csptraceentry {
-        children[csptracetable.Csptraceentry[i].GetSegmentPath()] = &csptracetable.Csptraceentry[i]
+        csptracetable.EntityData.Children[types.GetSegmentPath(&csptracetable.Csptraceentry[i])] = types.YChild{"Csptraceentry", &csptracetable.Csptraceentry[i]}
     }
-    return children
+    csptracetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csptracetable.EntityData)
 }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetYangName() string { return "cspTraceTable" }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) SetParent(parent types.Entity) { csptracetable.parent = parent }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetParent() types.Entity { return csptracetable.parent }
-
-func (csptracetable *CISCOSONETMIB_Csptracetable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csptracetable_Csptraceentry
 // An entry in the SONET/SDH Path Trace table. The entries 
@@ -2176,7 +1393,7 @@ func (csptracetable *CISCOSONETMIB_Csptracetable) GetParentYangName() string { r
 // used to verify continued connection between the two ends of
 // the line.
 type CISCOSONETMIB_Csptracetable_Csptraceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2206,59 +1423,25 @@ type CISCOSONETMIB_Csptracetable_Csptraceentry struct {
     Csptracereceived interface{}
 }
 
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetFilter() yfilter.YFilter { return csptraceentry.YFilter }
+func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetEntityData() *types.CommonEntityData {
+    csptraceentry.EntityData.YFilter = csptraceentry.YFilter
+    csptraceentry.EntityData.YangName = "cspTraceEntry"
+    csptraceentry.EntityData.BundleName = "cisco_ios_xe"
+    csptraceentry.EntityData.ParentYangName = "cspTraceTable"
+    csptraceentry.EntityData.SegmentPath = "cspTraceEntry" + "[ifIndex='" + fmt.Sprintf("%v", csptraceentry.Ifindex) + "']"
+    csptraceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csptraceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csptraceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) SetFilter(yf yfilter.YFilter) { csptraceentry.YFilter = yf }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cspTraceToTransmit" { return "Csptracetotransmit" }
-    if yname == "cspTraceToExpect" { return "Csptracetoexpect" }
-    if yname == "cspTraceFailure" { return "Csptracefailure" }
-    if yname == "cspTraceReceived" { return "Csptracereceived" }
-    return ""
+    csptraceentry.EntityData.Children = make(map[string]types.YChild)
+    csptraceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csptraceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csptraceentry.Ifindex}
+    csptraceentry.EntityData.Leafs["cspTraceToTransmit"] = types.YLeaf{"Csptracetotransmit", csptraceentry.Csptracetotransmit}
+    csptraceentry.EntityData.Leafs["cspTraceToExpect"] = types.YLeaf{"Csptracetoexpect", csptraceentry.Csptracetoexpect}
+    csptraceentry.EntityData.Leafs["cspTraceFailure"] = types.YLeaf{"Csptracefailure", csptraceentry.Csptracefailure}
+    csptraceentry.EntityData.Leafs["cspTraceReceived"] = types.YLeaf{"Csptracereceived", csptraceentry.Csptracereceived}
+    return &(csptraceentry.EntityData)
 }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetSegmentPath() string {
-    return "cspTraceEntry" + "[ifIndex='" + fmt.Sprintf("%v", csptraceentry.Ifindex) + "']"
-}
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csptraceentry.Ifindex
-    leafs["cspTraceToTransmit"] = csptraceentry.Csptracetotransmit
-    leafs["cspTraceToExpect"] = csptraceentry.Csptracetoexpect
-    leafs["cspTraceFailure"] = csptraceentry.Csptracefailure
-    leafs["cspTraceReceived"] = csptraceentry.Csptracereceived
-    return leafs
-}
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetYangName() string { return "cspTraceEntry" }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) SetParent(parent types.Entity) { csptraceentry.parent = parent }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetParent() types.Entity { return csptraceentry.parent }
-
-func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetParentYangName() string { return "cspTraceTable" }
 
 // CISCOSONETMIB_Csstatstable
 // The SONET/SDH Section statistics table. This table 
@@ -2266,7 +1449,7 @@ func (csptraceentry *CISCOSONETMIB_Csptracetable_Csptraceentry) GetParentYangNam
 // Signal(LOS), Loss of frame(LOF), Alarm Indication 
 // signals(AISs), Remote failure indications(RFIs).
 type CISCOSONETMIB_Csstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the SONET/SDH statistics table. These are  realtime statistics
@@ -2276,63 +1459,24 @@ type CISCOSONETMIB_Csstatstable struct {
     Csstatsentry []CISCOSONETMIB_Csstatstable_Csstatsentry
 }
 
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetFilter() yfilter.YFilter { return csstatstable.YFilter }
+func (csstatstable *CISCOSONETMIB_Csstatstable) GetEntityData() *types.CommonEntityData {
+    csstatstable.EntityData.YFilter = csstatstable.YFilter
+    csstatstable.EntityData.YangName = "csStatsTable"
+    csstatstable.EntityData.BundleName = "cisco_ios_xe"
+    csstatstable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csstatstable.EntityData.SegmentPath = "csStatsTable"
+    csstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csstatstable *CISCOSONETMIB_Csstatstable) SetFilter(yf yfilter.YFilter) { csstatstable.YFilter = yf }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetGoName(yname string) string {
-    if yname == "csStatsEntry" { return "Csstatsentry" }
-    return ""
-}
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetSegmentPath() string {
-    return "csStatsTable"
-}
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csStatsEntry" {
-        for _, c := range csstatstable.Csstatsentry {
-            if csstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csstatstable_Csstatsentry{}
-        csstatstable.Csstatsentry = append(csstatstable.Csstatsentry, child)
-        return &csstatstable.Csstatsentry[len(csstatstable.Csstatsentry)-1]
-    }
-    return nil
-}
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csstatstable.EntityData.Children = make(map[string]types.YChild)
+    csstatstable.EntityData.Children["csStatsEntry"] = types.YChild{"Csstatsentry", nil}
     for i := range csstatstable.Csstatsentry {
-        children[csstatstable.Csstatsentry[i].GetSegmentPath()] = &csstatstable.Csstatsentry[i]
+        csstatstable.EntityData.Children[types.GetSegmentPath(&csstatstable.Csstatsentry[i])] = types.YChild{"Csstatsentry", &csstatstable.Csstatsentry[i]}
     }
-    return children
+    csstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csstatstable.EntityData)
 }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetYangName() string { return "csStatsTable" }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) SetParent(parent types.Entity) { csstatstable.parent = parent }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetParent() types.Entity { return csstatstable.parent }
-
-func (csstatstable *CISCOSONETMIB_Csstatstable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csstatstable_Csstatsentry
 // An entry in the SONET/SDH statistics table. These are 
@@ -2341,7 +1485,7 @@ func (csstatstable *CISCOSONETMIB_Csstatstable) GetParentYangName() string { ret
 // An entry is created automatically and is indexed by 
 // ifIndex.
 type CISCOSONETMIB_Csstatstable_Csstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2385,63 +1529,27 @@ type CISCOSONETMIB_Csstatstable_Csstatsentry struct {
     Csprfis interface{}
 }
 
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetFilter() yfilter.YFilter { return csstatsentry.YFilter }
+func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetEntityData() *types.CommonEntityData {
+    csstatsentry.EntityData.YFilter = csstatsentry.YFilter
+    csstatsentry.EntityData.YangName = "csStatsEntry"
+    csstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    csstatsentry.EntityData.ParentYangName = "csStatsTable"
+    csstatsentry.EntityData.SegmentPath = "csStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", csstatsentry.Ifindex) + "']"
+    csstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) SetFilter(yf yfilter.YFilter) { csstatsentry.YFilter = yf }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cssLOSs" { return "Cssloss" }
-    if yname == "cssLOFs" { return "Csslofs" }
-    if yname == "cslAISs" { return "Cslaiss" }
-    if yname == "cslRFIs" { return "Cslrfis" }
-    if yname == "cspAISs" { return "Cspaiss" }
-    if yname == "cspRFIs" { return "Csprfis" }
-    return ""
+    csstatsentry.EntityData.Children = make(map[string]types.YChild)
+    csstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csstatsentry.Ifindex}
+    csstatsentry.EntityData.Leafs["cssLOSs"] = types.YLeaf{"Cssloss", csstatsentry.Cssloss}
+    csstatsentry.EntityData.Leafs["cssLOFs"] = types.YLeaf{"Csslofs", csstatsentry.Csslofs}
+    csstatsentry.EntityData.Leafs["cslAISs"] = types.YLeaf{"Cslaiss", csstatsentry.Cslaiss}
+    csstatsentry.EntityData.Leafs["cslRFIs"] = types.YLeaf{"Cslrfis", csstatsentry.Cslrfis}
+    csstatsentry.EntityData.Leafs["cspAISs"] = types.YLeaf{"Cspaiss", csstatsentry.Cspaiss}
+    csstatsentry.EntityData.Leafs["cspRFIs"] = types.YLeaf{"Csprfis", csstatsentry.Csprfis}
+    return &(csstatsentry.EntityData)
 }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetSegmentPath() string {
-    return "csStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", csstatsentry.Ifindex) + "']"
-}
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csstatsentry.Ifindex
-    leafs["cssLOSs"] = csstatsentry.Cssloss
-    leafs["cssLOFs"] = csstatsentry.Csslofs
-    leafs["cslAISs"] = csstatsentry.Cslaiss
-    leafs["cslRFIs"] = csstatsentry.Cslrfis
-    leafs["cspAISs"] = csstatsentry.Cspaiss
-    leafs["cspRFIs"] = csstatsentry.Csprfis
-    return leafs
-}
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetYangName() string { return "csStatsEntry" }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) SetParent(parent types.Entity) { csstatsentry.parent = parent }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetParent() types.Entity { return csstatsentry.parent }
-
-func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetParentYangName() string { return "csStatsTable" }
 
 // CISCOSONETMIB_Csau4Tug3Configtable
 // This table contains objects to configure the VC( Virtual
@@ -2464,7 +1572,7 @@ func (csstatsentry *CISCOSONETMIB_Csstatstable_Csstatsentry) GetParentYangName()
 //     e3(8),
 //     vtStructured(9)
 type CISCOSONETMIB_Csau4Tug3Configtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // There is an entry in this table for each TUG-3 within a  AU-4 SDH path that
@@ -2475,63 +1583,24 @@ type CISCOSONETMIB_Csau4Tug3Configtable struct {
     Csau4Tug3Configentry []CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry
 }
 
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetFilter() yfilter.YFilter { return csau4Tug3Configtable.YFilter }
+func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetEntityData() *types.CommonEntityData {
+    csau4Tug3Configtable.EntityData.YFilter = csau4Tug3Configtable.YFilter
+    csau4Tug3Configtable.EntityData.YangName = "csAu4Tug3ConfigTable"
+    csau4Tug3Configtable.EntityData.BundleName = "cisco_ios_xe"
+    csau4Tug3Configtable.EntityData.ParentYangName = "CISCO-SONET-MIB"
+    csau4Tug3Configtable.EntityData.SegmentPath = "csAu4Tug3ConfigTable"
+    csau4Tug3Configtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csau4Tug3Configtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csau4Tug3Configtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) SetFilter(yf yfilter.YFilter) { csau4Tug3Configtable.YFilter = yf }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetGoName(yname string) string {
-    if yname == "csAu4Tug3ConfigEntry" { return "Csau4Tug3Configentry" }
-    return ""
-}
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetSegmentPath() string {
-    return "csAu4Tug3ConfigTable"
-}
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "csAu4Tug3ConfigEntry" {
-        for _, c := range csau4Tug3Configtable.Csau4Tug3Configentry {
-            if csau4Tug3Configtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry{}
-        csau4Tug3Configtable.Csau4Tug3Configentry = append(csau4Tug3Configtable.Csau4Tug3Configentry, child)
-        return &csau4Tug3Configtable.Csau4Tug3Configentry[len(csau4Tug3Configtable.Csau4Tug3Configentry)-1]
-    }
-    return nil
-}
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    csau4Tug3Configtable.EntityData.Children = make(map[string]types.YChild)
+    csau4Tug3Configtable.EntityData.Children["csAu4Tug3ConfigEntry"] = types.YChild{"Csau4Tug3Configentry", nil}
     for i := range csau4Tug3Configtable.Csau4Tug3Configentry {
-        children[csau4Tug3Configtable.Csau4Tug3Configentry[i].GetSegmentPath()] = &csau4Tug3Configtable.Csau4Tug3Configentry[i]
+        csau4Tug3Configtable.EntityData.Children[types.GetSegmentPath(&csau4Tug3Configtable.Csau4Tug3Configentry[i])] = types.YChild{"Csau4Tug3Configentry", &csau4Tug3Configtable.Csau4Tug3Configentry[i]}
     }
-    return children
+    csau4Tug3Configtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(csau4Tug3Configtable.EntityData)
 }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetYangName() string { return "csAu4Tug3ConfigTable" }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) SetParent(parent types.Entity) { csau4Tug3Configtable.parent = parent }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetParent() types.Entity { return csau4Tug3Configtable.parent }
-
-func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetParentYangName() string { return "CISCO-SONET-MIB" }
 
 // CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry
 // There is an entry in this table for each TUG-3 within a 
@@ -2540,7 +1609,7 @@ func (csau4Tug3Configtable *CISCOSONETMIB_Csau4Tug3Configtable) GetParentYangNam
 // ifType = sonetPath(50).The ifTable entry applicable for
 // this entry belongs to AU-4 path.
 type CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2571,55 +1640,23 @@ type CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry struct {
     Csau4Tug3Payload interface{}
 }
 
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetFilter() yfilter.YFilter { return csau4Tug3Configentry.YFilter }
+func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetEntityData() *types.CommonEntityData {
+    csau4Tug3Configentry.EntityData.YFilter = csau4Tug3Configentry.YFilter
+    csau4Tug3Configentry.EntityData.YangName = "csAu4Tug3ConfigEntry"
+    csau4Tug3Configentry.EntityData.BundleName = "cisco_ios_xe"
+    csau4Tug3Configentry.EntityData.ParentYangName = "csAu4Tug3ConfigTable"
+    csau4Tug3Configentry.EntityData.SegmentPath = "csAu4Tug3ConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", csau4Tug3Configentry.Ifindex) + "']" + "[csAu4Tug3='" + fmt.Sprintf("%v", csau4Tug3Configentry.Csau4Tug3) + "']"
+    csau4Tug3Configentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    csau4Tug3Configentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    csau4Tug3Configentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) SetFilter(yf yfilter.YFilter) { csau4Tug3Configentry.YFilter = yf }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "csAu4Tug3" { return "Csau4Tug3" }
-    if yname == "csAu4Tug3Payload" { return "Csau4Tug3Payload" }
-    return ""
+    csau4Tug3Configentry.EntityData.Children = make(map[string]types.YChild)
+    csau4Tug3Configentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    csau4Tug3Configentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", csau4Tug3Configentry.Ifindex}
+    csau4Tug3Configentry.EntityData.Leafs["csAu4Tug3"] = types.YLeaf{"Csau4Tug3", csau4Tug3Configentry.Csau4Tug3}
+    csau4Tug3Configentry.EntityData.Leafs["csAu4Tug3Payload"] = types.YLeaf{"Csau4Tug3Payload", csau4Tug3Configentry.Csau4Tug3Payload}
+    return &(csau4Tug3Configentry.EntityData)
 }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetSegmentPath() string {
-    return "csAu4Tug3ConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", csau4Tug3Configentry.Ifindex) + "']" + "[csAu4Tug3='" + fmt.Sprintf("%v", csau4Tug3Configentry.Csau4Tug3) + "']"
-}
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = csau4Tug3Configentry.Ifindex
-    leafs["csAu4Tug3"] = csau4Tug3Configentry.Csau4Tug3
-    leafs["csAu4Tug3Payload"] = csau4Tug3Configentry.Csau4Tug3Payload
-    return leafs
-}
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetYangName() string { return "csAu4Tug3ConfigEntry" }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) SetParent(parent types.Entity) { csau4Tug3Configentry.parent = parent }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetParent() types.Entity { return csau4Tug3Configentry.parent }
-
-func (csau4Tug3Configentry *CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry) GetParentYangName() string { return "csAu4Tug3ConfigTable" }
 
 // CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry_Csau4Tug3Payload represents The value 'other' can not be set.
 type CISCOSONETMIB_Csau4Tug3Configtable_Csau4Tug3Configentry_Csau4Tug3Payload string

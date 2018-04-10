@@ -39,7 +39,7 @@ func init() {
 
 // CISCODYNAMICTEMPLATEMIB
 type CISCODYNAMICTEMPLATEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table lists the dynamic templates maintained by the system, including
@@ -105,99 +105,30 @@ type CISCODYNAMICTEMPLATEMIB struct {
     Cdtsrvtemplatetable CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable
 }
 
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetFilter() yfilter.YFilter { return cISCODYNAMICTEMPLATEMIB.YFilter }
+func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetEntityData() *types.CommonEntityData {
+    cISCODYNAMICTEMPLATEMIB.EntityData.YFilter = cISCODYNAMICTEMPLATEMIB.YFilter
+    cISCODYNAMICTEMPLATEMIB.EntityData.YangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cISCODYNAMICTEMPLATEMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCODYNAMICTEMPLATEMIB.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cISCODYNAMICTEMPLATEMIB.EntityData.SegmentPath = "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB"
+    cISCODYNAMICTEMPLATEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCODYNAMICTEMPLATEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCODYNAMICTEMPLATEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) SetFilter(yf yfilter.YFilter) { cISCODYNAMICTEMPLATEMIB.YFilter = yf }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetGoName(yname string) string {
-    if yname == "cdtTemplateTable" { return "Cdttemplatetable" }
-    if yname == "cdtTemplateTargetTable" { return "Cdttemplatetargettable" }
-    if yname == "cdtTemplateAssociationTable" { return "Cdttemplateassociationtable" }
-    if yname == "cdtTemplateUsageTable" { return "Cdttemplateusagetable" }
-    if yname == "cdtTemplateCommonTable" { return "Cdttemplatecommontable" }
-    if yname == "cdtIfTemplateTable" { return "Cdtiftemplatetable" }
-    if yname == "cdtPppTemplateTable" { return "Cdtppptemplatetable" }
-    if yname == "cdtPppPeerIpAddrPoolTable" { return "Cdtppppeeripaddrpooltable" }
-    if yname == "cdtEthernetTemplateTable" { return "Cdtethernettemplatetable" }
-    if yname == "cdtSrvTemplateTable" { return "Cdtsrvtemplatetable" }
-    return ""
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtTemplateTable"] = types.YChild{"Cdttemplatetable", &cISCODYNAMICTEMPLATEMIB.Cdttemplatetable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtTemplateTargetTable"] = types.YChild{"Cdttemplatetargettable", &cISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtTemplateAssociationTable"] = types.YChild{"Cdttemplateassociationtable", &cISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtTemplateUsageTable"] = types.YChild{"Cdttemplateusagetable", &cISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtTemplateCommonTable"] = types.YChild{"Cdttemplatecommontable", &cISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtIfTemplateTable"] = types.YChild{"Cdtiftemplatetable", &cISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtPppTemplateTable"] = types.YChild{"Cdtppptemplatetable", &cISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtPppPeerIpAddrPoolTable"] = types.YChild{"Cdtppppeeripaddrpooltable", &cISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtEthernetTemplateTable"] = types.YChild{"Cdtethernettemplatetable", &cISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Children["cdtSrvTemplateTable"] = types.YChild{"Cdtsrvtemplatetable", &cISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable}
+    cISCODYNAMICTEMPLATEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCODYNAMICTEMPLATEMIB.EntityData)
 }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetSegmentPath() string {
-    return "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB"
-}
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtTemplateTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdttemplatetable
-    }
-    if childYangName == "cdtTemplateTargetTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable
-    }
-    if childYangName == "cdtTemplateAssociationTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable
-    }
-    if childYangName == "cdtTemplateUsageTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable
-    }
-    if childYangName == "cdtTemplateCommonTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable
-    }
-    if childYangName == "cdtIfTemplateTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable
-    }
-    if childYangName == "cdtPppTemplateTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable
-    }
-    if childYangName == "cdtPppPeerIpAddrPoolTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable
-    }
-    if childYangName == "cdtEthernetTemplateTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable
-    }
-    if childYangName == "cdtSrvTemplateTable" {
-        return &cISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable
-    }
-    return nil
-}
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cdtTemplateTable"] = &cISCODYNAMICTEMPLATEMIB.Cdttemplatetable
-    children["cdtTemplateTargetTable"] = &cISCODYNAMICTEMPLATEMIB.Cdttemplatetargettable
-    children["cdtTemplateAssociationTable"] = &cISCODYNAMICTEMPLATEMIB.Cdttemplateassociationtable
-    children["cdtTemplateUsageTable"] = &cISCODYNAMICTEMPLATEMIB.Cdttemplateusagetable
-    children["cdtTemplateCommonTable"] = &cISCODYNAMICTEMPLATEMIB.Cdttemplatecommontable
-    children["cdtIfTemplateTable"] = &cISCODYNAMICTEMPLATEMIB.Cdtiftemplatetable
-    children["cdtPppTemplateTable"] = &cISCODYNAMICTEMPLATEMIB.Cdtppptemplatetable
-    children["cdtPppPeerIpAddrPoolTable"] = &cISCODYNAMICTEMPLATEMIB.Cdtppppeeripaddrpooltable
-    children["cdtEthernetTemplateTable"] = &cISCODYNAMICTEMPLATEMIB.Cdtethernettemplatetable
-    children["cdtSrvTemplateTable"] = &cISCODYNAMICTEMPLATEMIB.Cdtsrvtemplatetable
-    return children
-}
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) SetParent(parent types.Entity) { cISCODYNAMICTEMPLATEMIB.parent = parent }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetParent() types.Entity { return cISCODYNAMICTEMPLATEMIB.parent }
-
-func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplatetable
 // This table lists the dynamic templates maintained by the
@@ -205,7 +136,7 @@ func (cISCODYNAMICTEMPLATEMIB *CISCODYNAMICTEMPLATEMIB) GetParentYangName() stri
 // system and those pushed to the system by external policy
 // servers.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describes a dynamic template, which serves as a container for
@@ -223,63 +154,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplatetable struct {
     Cdttemplateentry []CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry
 }
 
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetFilter() yfilter.YFilter { return cdttemplatetable.YFilter }
+func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetEntityData() *types.CommonEntityData {
+    cdttemplatetable.EntityData.YFilter = cdttemplatetable.YFilter
+    cdttemplatetable.EntityData.YangName = "cdtTemplateTable"
+    cdttemplatetable.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplatetable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdttemplatetable.EntityData.SegmentPath = "cdtTemplateTable"
+    cdttemplatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) SetFilter(yf yfilter.YFilter) { cdttemplatetable.YFilter = yf }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetGoName(yname string) string {
-    if yname == "cdtTemplateEntry" { return "Cdttemplateentry" }
-    return ""
-}
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetSegmentPath() string {
-    return "cdtTemplateTable"
-}
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtTemplateEntry" {
-        for _, c := range cdttemplatetable.Cdttemplateentry {
-            if cdttemplatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry{}
-        cdttemplatetable.Cdttemplateentry = append(cdttemplatetable.Cdttemplateentry, child)
-        return &cdttemplatetable.Cdttemplateentry[len(cdttemplatetable.Cdttemplateentry)-1]
-    }
-    return nil
-}
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdttemplatetable.EntityData.Children = make(map[string]types.YChild)
+    cdttemplatetable.EntityData.Children["cdtTemplateEntry"] = types.YChild{"Cdttemplateentry", nil}
     for i := range cdttemplatetable.Cdttemplateentry {
-        children[cdttemplatetable.Cdttemplateentry[i].GetSegmentPath()] = &cdttemplatetable.Cdttemplateentry[i]
+        cdttemplatetable.EntityData.Children[types.GetSegmentPath(&cdttemplatetable.Cdttemplateentry[i])] = types.YChild{"Cdttemplateentry", &cdttemplatetable.Cdttemplateentry[i]}
     }
-    return children
+    cdttemplatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdttemplatetable.EntityData)
 }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetYangName() string { return "cdtTemplateTable" }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) SetParent(parent types.Entity) { cdttemplatetable.parent = parent }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetParent() types.Entity { return cdttemplatetable.parent }
-
-func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry
 // An entry describes a dynamic template, which serves as a
@@ -299,7 +191,7 @@ func (cdttemplatetable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable) GetParentYangN
 // The system automatically creates a corresponding entry when it
 // generates a derived configuration.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates a string-value that uniquely
@@ -345,61 +237,26 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry struct {
     Cdttemplateusagecount interface{}
 }
 
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetFilter() yfilter.YFilter { return cdttemplateentry.YFilter }
+func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetEntityData() *types.CommonEntityData {
+    cdttemplateentry.EntityData.YFilter = cdttemplateentry.YFilter
+    cdttemplateentry.EntityData.YangName = "cdtTemplateEntry"
+    cdttemplateentry.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplateentry.EntityData.ParentYangName = "cdtTemplateTable"
+    cdttemplateentry.EntityData.SegmentPath = "cdtTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdttemplateentry.Cdttemplatename) + "']"
+    cdttemplateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) SetFilter(yf yfilter.YFilter) { cdttemplateentry.YFilter = yf }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtTemplateStatus" { return "Cdttemplatestatus" }
-    if yname == "cdtTemplateStorage" { return "Cdttemplatestorage" }
-    if yname == "cdtTemplateType" { return "Cdttemplatetype" }
-    if yname == "cdtTemplateSrc" { return "Cdttemplatesrc" }
-    if yname == "cdtTemplateUsageCount" { return "Cdttemplateusagecount" }
-    return ""
+    cdttemplateentry.EntityData.Children = make(map[string]types.YChild)
+    cdttemplateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdttemplateentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdttemplateentry.Cdttemplatename}
+    cdttemplateentry.EntityData.Leafs["cdtTemplateStatus"] = types.YLeaf{"Cdttemplatestatus", cdttemplateentry.Cdttemplatestatus}
+    cdttemplateentry.EntityData.Leafs["cdtTemplateStorage"] = types.YLeaf{"Cdttemplatestorage", cdttemplateentry.Cdttemplatestorage}
+    cdttemplateentry.EntityData.Leafs["cdtTemplateType"] = types.YLeaf{"Cdttemplatetype", cdttemplateentry.Cdttemplatetype}
+    cdttemplateentry.EntityData.Leafs["cdtTemplateSrc"] = types.YLeaf{"Cdttemplatesrc", cdttemplateentry.Cdttemplatesrc}
+    cdttemplateentry.EntityData.Leafs["cdtTemplateUsageCount"] = types.YLeaf{"Cdttemplateusagecount", cdttemplateentry.Cdttemplateusagecount}
+    return &(cdttemplateentry.EntityData)
 }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetSegmentPath() string {
-    return "cdtTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdttemplateentry.Cdttemplatename) + "']"
-}
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdttemplateentry.Cdttemplatename
-    leafs["cdtTemplateStatus"] = cdttemplateentry.Cdttemplatestatus
-    leafs["cdtTemplateStorage"] = cdttemplateentry.Cdttemplatestorage
-    leafs["cdtTemplateType"] = cdttemplateentry.Cdttemplatetype
-    leafs["cdtTemplateSrc"] = cdttemplateentry.Cdttemplatesrc
-    leafs["cdtTemplateUsageCount"] = cdttemplateentry.Cdttemplateusagecount
-    return leafs
-}
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetYangName() string { return "cdtTemplateEntry" }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) SetParent(parent types.Entity) { cdttemplateentry.parent = parent }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetParent() types.Entity { return cdttemplateentry.parent }
-
-func (cdttemplateentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry) GetParentYangName() string { return "cdtTemplateTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry_Cdttemplatesrc represents     pushed from an external policy server.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatetable_Cdttemplateentry_Cdttemplatesrc string
@@ -420,7 +277,7 @@ const (
 // This table contains a list of targets associated with
 // one or more dynamic templates.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry describes a target associated with one or more dynamic templates. 
@@ -432,63 +289,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable struct {
     Cdttemplatetargetentry []CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry
 }
 
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetFilter() yfilter.YFilter { return cdttemplatetargettable.YFilter }
+func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetEntityData() *types.CommonEntityData {
+    cdttemplatetargettable.EntityData.YFilter = cdttemplatetargettable.YFilter
+    cdttemplatetargettable.EntityData.YangName = "cdtTemplateTargetTable"
+    cdttemplatetargettable.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplatetargettable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdttemplatetargettable.EntityData.SegmentPath = "cdtTemplateTargetTable"
+    cdttemplatetargettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplatetargettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplatetargettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) SetFilter(yf yfilter.YFilter) { cdttemplatetargettable.YFilter = yf }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetGoName(yname string) string {
-    if yname == "cdtTemplateTargetEntry" { return "Cdttemplatetargetentry" }
-    return ""
-}
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetSegmentPath() string {
-    return "cdtTemplateTargetTable"
-}
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtTemplateTargetEntry" {
-        for _, c := range cdttemplatetargettable.Cdttemplatetargetentry {
-            if cdttemplatetargettable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry{}
-        cdttemplatetargettable.Cdttemplatetargetentry = append(cdttemplatetargettable.Cdttemplatetargetentry, child)
-        return &cdttemplatetargettable.Cdttemplatetargetentry[len(cdttemplatetargettable.Cdttemplatetargetentry)-1]
-    }
-    return nil
-}
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdttemplatetargettable.EntityData.Children = make(map[string]types.YChild)
+    cdttemplatetargettable.EntityData.Children["cdtTemplateTargetEntry"] = types.YChild{"Cdttemplatetargetentry", nil}
     for i := range cdttemplatetargettable.Cdttemplatetargetentry {
-        children[cdttemplatetargettable.Cdttemplatetargetentry[i].GetSegmentPath()] = &cdttemplatetargettable.Cdttemplatetargetentry[i]
+        cdttemplatetargettable.EntityData.Children[types.GetSegmentPath(&cdttemplatetargettable.Cdttemplatetargetentry[i])] = types.YChild{"Cdttemplatetargetentry", &cdttemplatetargettable.Cdttemplatetargetentry[i]}
     }
-    return children
+    cdttemplatetargettable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdttemplatetargettable.EntityData)
 }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetYangName() string { return "cdtTemplateTargetTable" }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) SetParent(parent types.Entity) { cdttemplatetargettable.parent = parent }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetParent() types.Entity { return cdttemplatetargettable.parent }
-
-func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry
 // An entry describes a target associated with one or more
@@ -499,7 +317,7 @@ func (cdttemplatetargettable *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable) Ge
 // automatically destroys an entry when a target no longer has any
 // associated dynamic templates.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indicates the type of target. The type
@@ -525,57 +343,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry struc
     Cdttemplatetargetstorage interface{}
 }
 
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetFilter() yfilter.YFilter { return cdttemplatetargetentry.YFilter }
+func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetEntityData() *types.CommonEntityData {
+    cdttemplatetargetentry.EntityData.YFilter = cdttemplatetargetentry.YFilter
+    cdttemplatetargetentry.EntityData.YangName = "cdtTemplateTargetEntry"
+    cdttemplatetargetentry.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplatetargetentry.EntityData.ParentYangName = "cdtTemplateTargetTable"
+    cdttemplatetargetentry.EntityData.SegmentPath = "cdtTemplateTargetEntry" + "[cdtTemplateTargetType='" + fmt.Sprintf("%v", cdttemplatetargetentry.Cdttemplatetargettype) + "']" + "[cdtTemplateTargetId='" + fmt.Sprintf("%v", cdttemplatetargetentry.Cdttemplatetargetid) + "']"
+    cdttemplatetargetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplatetargetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplatetargetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) SetFilter(yf yfilter.YFilter) { cdttemplatetargetentry.YFilter = yf }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateTargetType" { return "Cdttemplatetargettype" }
-    if yname == "cdtTemplateTargetId" { return "Cdttemplatetargetid" }
-    if yname == "cdtTemplateTargetStatus" { return "Cdttemplatetargetstatus" }
-    if yname == "cdtTemplateTargetStorage" { return "Cdttemplatetargetstorage" }
-    return ""
+    cdttemplatetargetentry.EntityData.Children = make(map[string]types.YChild)
+    cdttemplatetargetentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdttemplatetargetentry.EntityData.Leafs["cdtTemplateTargetType"] = types.YLeaf{"Cdttemplatetargettype", cdttemplatetargetentry.Cdttemplatetargettype}
+    cdttemplatetargetentry.EntityData.Leafs["cdtTemplateTargetId"] = types.YLeaf{"Cdttemplatetargetid", cdttemplatetargetentry.Cdttemplatetargetid}
+    cdttemplatetargetentry.EntityData.Leafs["cdtTemplateTargetStatus"] = types.YLeaf{"Cdttemplatetargetstatus", cdttemplatetargetentry.Cdttemplatetargetstatus}
+    cdttemplatetargetentry.EntityData.Leafs["cdtTemplateTargetStorage"] = types.YLeaf{"Cdttemplatetargetstorage", cdttemplatetargetentry.Cdttemplatetargetstorage}
+    return &(cdttemplatetargetentry.EntityData)
 }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetSegmentPath() string {
-    return "cdtTemplateTargetEntry" + "[cdtTemplateTargetType='" + fmt.Sprintf("%v", cdttemplatetargetentry.Cdttemplatetargettype) + "']" + "[cdtTemplateTargetId='" + fmt.Sprintf("%v", cdttemplatetargetentry.Cdttemplatetargetid) + "']"
-}
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateTargetType"] = cdttemplatetargetentry.Cdttemplatetargettype
-    leafs["cdtTemplateTargetId"] = cdttemplatetargetentry.Cdttemplatetargetid
-    leafs["cdtTemplateTargetStatus"] = cdttemplatetargetentry.Cdttemplatetargetstatus
-    leafs["cdtTemplateTargetStorage"] = cdttemplatetargetentry.Cdttemplatetargetstorage
-    return leafs
-}
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetYangName() string { return "cdtTemplateTargetEntry" }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) SetParent(parent types.Entity) { cdttemplatetargetentry.parent = parent }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetParent() types.Entity { return cdttemplatetargetentry.parent }
-
-func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdttemplatetargetentry) GetParentYangName() string { return "cdtTemplateTargetTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable
 // This table contains a list of templates associated with each
@@ -585,7 +370,7 @@ func (cdttemplatetargetentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatetargettable_Cdt
 // cdtTemplateTargetTable, containing zero or more rows for each
 // target.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry indicates an association of a dynamic template with a target.  The
@@ -599,63 +384,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable struct {
     Cdttemplateassociationentry []CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry
 }
 
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetFilter() yfilter.YFilter { return cdttemplateassociationtable.YFilter }
+func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetEntityData() *types.CommonEntityData {
+    cdttemplateassociationtable.EntityData.YFilter = cdttemplateassociationtable.YFilter
+    cdttemplateassociationtable.EntityData.YangName = "cdtTemplateAssociationTable"
+    cdttemplateassociationtable.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplateassociationtable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdttemplateassociationtable.EntityData.SegmentPath = "cdtTemplateAssociationTable"
+    cdttemplateassociationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplateassociationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplateassociationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) SetFilter(yf yfilter.YFilter) { cdttemplateassociationtable.YFilter = yf }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetGoName(yname string) string {
-    if yname == "cdtTemplateAssociationEntry" { return "Cdttemplateassociationentry" }
-    return ""
-}
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetSegmentPath() string {
-    return "cdtTemplateAssociationTable"
-}
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtTemplateAssociationEntry" {
-        for _, c := range cdttemplateassociationtable.Cdttemplateassociationentry {
-            if cdttemplateassociationtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry{}
-        cdttemplateassociationtable.Cdttemplateassociationentry = append(cdttemplateassociationtable.Cdttemplateassociationentry, child)
-        return &cdttemplateassociationtable.Cdttemplateassociationentry[len(cdttemplateassociationtable.Cdttemplateassociationentry)-1]
-    }
-    return nil
-}
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdttemplateassociationtable.EntityData.Children = make(map[string]types.YChild)
+    cdttemplateassociationtable.EntityData.Children["cdtTemplateAssociationEntry"] = types.YChild{"Cdttemplateassociationentry", nil}
     for i := range cdttemplateassociationtable.Cdttemplateassociationentry {
-        children[cdttemplateassociationtable.Cdttemplateassociationentry[i].GetSegmentPath()] = &cdttemplateassociationtable.Cdttemplateassociationentry[i]
+        cdttemplateassociationtable.EntityData.Children[types.GetSegmentPath(&cdttemplateassociationtable.Cdttemplateassociationentry[i])] = types.YChild{"Cdttemplateassociationentry", &cdttemplateassociationtable.Cdttemplateassociationentry[i]}
     }
-    return children
+    cdttemplateassociationtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdttemplateassociationtable.EntityData)
 }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetYangName() string { return "cdtTemplateAssociationTable" }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) SetParent(parent types.Entity) { cdttemplateassociationtable.parent = parent }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetParent() types.Entity { return cdttemplateassociationtable.parent }
-
-func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry
 // An entry indicates an association of a dynamic template with a
@@ -675,7 +421,7 @@ func (cdttemplateassociationtable *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociatio
 // 2)  The association between the target and the dynamic template
 //     no longer exists.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is DynamicTemplateTargetType. Refers to
@@ -696,57 +442,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociatione
     Cdttemplateassociationprecedence interface{}
 }
 
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetFilter() yfilter.YFilter { return cdttemplateassociationentry.YFilter }
+func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetEntityData() *types.CommonEntityData {
+    cdttemplateassociationentry.EntityData.YFilter = cdttemplateassociationentry.YFilter
+    cdttemplateassociationentry.EntityData.YangName = "cdtTemplateAssociationEntry"
+    cdttemplateassociationentry.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplateassociationentry.EntityData.ParentYangName = "cdtTemplateAssociationTable"
+    cdttemplateassociationentry.EntityData.SegmentPath = "cdtTemplateAssociationEntry" + "[cdtTemplateTargetType='" + fmt.Sprintf("%v", cdttemplateassociationentry.Cdttemplatetargettype) + "']" + "[cdtTemplateTargetId='" + fmt.Sprintf("%v", cdttemplateassociationentry.Cdttemplatetargetid) + "']" + "[cdtTemplateAssociationName='" + fmt.Sprintf("%v", cdttemplateassociationentry.Cdttemplateassociationname) + "']"
+    cdttemplateassociationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplateassociationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplateassociationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) SetFilter(yf yfilter.YFilter) { cdttemplateassociationentry.YFilter = yf }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateTargetType" { return "Cdttemplatetargettype" }
-    if yname == "cdtTemplateTargetId" { return "Cdttemplatetargetid" }
-    if yname == "cdtTemplateAssociationName" { return "Cdttemplateassociationname" }
-    if yname == "cdtTemplateAssociationPrecedence" { return "Cdttemplateassociationprecedence" }
-    return ""
+    cdttemplateassociationentry.EntityData.Children = make(map[string]types.YChild)
+    cdttemplateassociationentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdttemplateassociationentry.EntityData.Leafs["cdtTemplateTargetType"] = types.YLeaf{"Cdttemplatetargettype", cdttemplateassociationentry.Cdttemplatetargettype}
+    cdttemplateassociationentry.EntityData.Leafs["cdtTemplateTargetId"] = types.YLeaf{"Cdttemplatetargetid", cdttemplateassociationentry.Cdttemplatetargetid}
+    cdttemplateassociationentry.EntityData.Leafs["cdtTemplateAssociationName"] = types.YLeaf{"Cdttemplateassociationname", cdttemplateassociationentry.Cdttemplateassociationname}
+    cdttemplateassociationentry.EntityData.Leafs["cdtTemplateAssociationPrecedence"] = types.YLeaf{"Cdttemplateassociationprecedence", cdttemplateassociationentry.Cdttemplateassociationprecedence}
+    return &(cdttemplateassociationentry.EntityData)
 }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetSegmentPath() string {
-    return "cdtTemplateAssociationEntry" + "[cdtTemplateTargetType='" + fmt.Sprintf("%v", cdttemplateassociationentry.Cdttemplatetargettype) + "']" + "[cdtTemplateTargetId='" + fmt.Sprintf("%v", cdttemplateassociationentry.Cdttemplatetargetid) + "']" + "[cdtTemplateAssociationName='" + fmt.Sprintf("%v", cdttemplateassociationentry.Cdttemplateassociationname) + "']"
-}
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateTargetType"] = cdttemplateassociationentry.Cdttemplatetargettype
-    leafs["cdtTemplateTargetId"] = cdttemplateassociationentry.Cdttemplatetargetid
-    leafs["cdtTemplateAssociationName"] = cdttemplateassociationentry.Cdttemplateassociationname
-    leafs["cdtTemplateAssociationPrecedence"] = cdttemplateassociationentry.Cdttemplateassociationprecedence
-    return leafs
-}
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetYangName() string { return "cdtTemplateAssociationEntry" }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) SetParent(parent types.Entity) { cdttemplateassociationentry.parent = parent }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetParent() types.Entity { return cdttemplateassociationentry.parent }
-
-func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociationtable_Cdttemplateassociationentry) GetParentYangName() string { return "cdtTemplateAssociationTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable
 // This table contains a list of targets using each dynamic
@@ -756,7 +469,7 @@ func (cdttemplateassociationentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateassociatio
 // cdtTemplateTable, containing zero or more rows for each
 // dynamic template.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry indicates a target using the dynamic template.  The system
@@ -770,63 +483,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable struct {
     Cdttemplateusageentry []CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry
 }
 
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetFilter() yfilter.YFilter { return cdttemplateusagetable.YFilter }
+func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetEntityData() *types.CommonEntityData {
+    cdttemplateusagetable.EntityData.YFilter = cdttemplateusagetable.YFilter
+    cdttemplateusagetable.EntityData.YangName = "cdtTemplateUsageTable"
+    cdttemplateusagetable.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplateusagetable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdttemplateusagetable.EntityData.SegmentPath = "cdtTemplateUsageTable"
+    cdttemplateusagetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplateusagetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplateusagetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) SetFilter(yf yfilter.YFilter) { cdttemplateusagetable.YFilter = yf }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetGoName(yname string) string {
-    if yname == "cdtTemplateUsageEntry" { return "Cdttemplateusageentry" }
-    return ""
-}
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetSegmentPath() string {
-    return "cdtTemplateUsageTable"
-}
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtTemplateUsageEntry" {
-        for _, c := range cdttemplateusagetable.Cdttemplateusageentry {
-            if cdttemplateusagetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry{}
-        cdttemplateusagetable.Cdttemplateusageentry = append(cdttemplateusagetable.Cdttemplateusageentry, child)
-        return &cdttemplateusagetable.Cdttemplateusageentry[len(cdttemplateusagetable.Cdttemplateusageentry)-1]
-    }
-    return nil
-}
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdttemplateusagetable.EntityData.Children = make(map[string]types.YChild)
+    cdttemplateusagetable.EntityData.Children["cdtTemplateUsageEntry"] = types.YChild{"Cdttemplateusageentry", nil}
     for i := range cdttemplateusagetable.Cdttemplateusageentry {
-        children[cdttemplateusagetable.Cdttemplateusageentry[i].GetSegmentPath()] = &cdttemplateusagetable.Cdttemplateusageentry[i]
+        cdttemplateusagetable.EntityData.Children[types.GetSegmentPath(&cdttemplateusagetable.Cdttemplateusageentry[i])] = types.YChild{"Cdttemplateusageentry", &cdttemplateusagetable.Cdttemplateusageentry[i]}
     }
-    return children
+    cdttemplateusagetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdttemplateusagetable.EntityData)
 }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetYangName() string { return "cdtTemplateUsageTable" }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) SetParent(parent types.Entity) { cdttemplateusagetable.parent = parent }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetParent() types.Entity { return cdttemplateusagetable.parent }
-
-func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry
 // An entry indicates a target using the dynamic template.
@@ -845,7 +519,7 @@ func (cdttemplateusagetable *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable) GetP
 // 2)  The association between the target and the dynamic template
 //     no longer exists.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -861,55 +535,23 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry struct 
     Cdttemplateusagetargetid interface{}
 }
 
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetFilter() yfilter.YFilter { return cdttemplateusageentry.YFilter }
+func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetEntityData() *types.CommonEntityData {
+    cdttemplateusageentry.EntityData.YFilter = cdttemplateusageentry.YFilter
+    cdttemplateusageentry.EntityData.YangName = "cdtTemplateUsageEntry"
+    cdttemplateusageentry.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplateusageentry.EntityData.ParentYangName = "cdtTemplateUsageTable"
+    cdttemplateusageentry.EntityData.SegmentPath = "cdtTemplateUsageEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdttemplateusageentry.Cdttemplatename) + "']" + "[cdtTemplateUsageTargetType='" + fmt.Sprintf("%v", cdttemplateusageentry.Cdttemplateusagetargettype) + "']" + "[cdtTemplateUsageTargetId='" + fmt.Sprintf("%v", cdttemplateusageentry.Cdttemplateusagetargetid) + "']"
+    cdttemplateusageentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplateusageentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplateusageentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) SetFilter(yf yfilter.YFilter) { cdttemplateusageentry.YFilter = yf }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtTemplateUsageTargetType" { return "Cdttemplateusagetargettype" }
-    if yname == "cdtTemplateUsageTargetId" { return "Cdttemplateusagetargetid" }
-    return ""
+    cdttemplateusageentry.EntityData.Children = make(map[string]types.YChild)
+    cdttemplateusageentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdttemplateusageentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdttemplateusageentry.Cdttemplatename}
+    cdttemplateusageentry.EntityData.Leafs["cdtTemplateUsageTargetType"] = types.YLeaf{"Cdttemplateusagetargettype", cdttemplateusageentry.Cdttemplateusagetargettype}
+    cdttemplateusageentry.EntityData.Leafs["cdtTemplateUsageTargetId"] = types.YLeaf{"Cdttemplateusagetargetid", cdttemplateusageentry.Cdttemplateusagetargetid}
+    return &(cdttemplateusageentry.EntityData)
 }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetSegmentPath() string {
-    return "cdtTemplateUsageEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdttemplateusageentry.Cdttemplatename) + "']" + "[cdtTemplateUsageTargetType='" + fmt.Sprintf("%v", cdttemplateusageentry.Cdttemplateusagetargettype) + "']" + "[cdtTemplateUsageTargetId='" + fmt.Sprintf("%v", cdttemplateusageentry.Cdttemplateusagetargetid) + "']"
-}
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdttemplateusageentry.Cdttemplatename
-    leafs["cdtTemplateUsageTargetType"] = cdttemplateusageentry.Cdttemplateusagetargettype
-    leafs["cdtTemplateUsageTargetId"] = cdttemplateusageentry.Cdttemplateusagetargetid
-    return leafs
-}
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetYangName() string { return "cdtTemplateUsageEntry" }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) SetParent(parent types.Entity) { cdttemplateusageentry.parent = parent }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetParent() types.Entity { return cdttemplateusageentry.parent }
-
-func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdttemplateusageentry) GetParentYangName() string { return "cdtTemplateUsageTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable
 // This table contains attributes relating to all dynamic
@@ -927,7 +569,7 @@ func (cdttemplateusageentry *CISCODYNAMICTEMPLATEMIB_Cdttemplateusagetable_Cdtte
 //     'ipSubscriber'
 //     'service'
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing attributes relating to any target.  The system
@@ -941,63 +583,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable struct {
     Cdttemplatecommonentry []CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry
 }
 
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetFilter() yfilter.YFilter { return cdttemplatecommontable.YFilter }
+func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetEntityData() *types.CommonEntityData {
+    cdttemplatecommontable.EntityData.YFilter = cdttemplatecommontable.YFilter
+    cdttemplatecommontable.EntityData.YangName = "cdtTemplateCommonTable"
+    cdttemplatecommontable.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplatecommontable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdttemplatecommontable.EntityData.SegmentPath = "cdtTemplateCommonTable"
+    cdttemplatecommontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplatecommontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplatecommontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) SetFilter(yf yfilter.YFilter) { cdttemplatecommontable.YFilter = yf }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetGoName(yname string) string {
-    if yname == "cdtTemplateCommonEntry" { return "Cdttemplatecommonentry" }
-    return ""
-}
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetSegmentPath() string {
-    return "cdtTemplateCommonTable"
-}
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtTemplateCommonEntry" {
-        for _, c := range cdttemplatecommontable.Cdttemplatecommonentry {
-            if cdttemplatecommontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry{}
-        cdttemplatecommontable.Cdttemplatecommonentry = append(cdttemplatecommontable.Cdttemplatecommonentry, child)
-        return &cdttemplatecommontable.Cdttemplatecommonentry[len(cdttemplatecommontable.Cdttemplatecommonentry)-1]
-    }
-    return nil
-}
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdttemplatecommontable.EntityData.Children = make(map[string]types.YChild)
+    cdttemplatecommontable.EntityData.Children["cdtTemplateCommonEntry"] = types.YChild{"Cdttemplatecommonentry", nil}
     for i := range cdttemplatecommontable.Cdttemplatecommonentry {
-        children[cdttemplatecommontable.Cdttemplatecommonentry[i].GetSegmentPath()] = &cdttemplatecommontable.Cdttemplatecommonentry[i]
+        cdttemplatecommontable.EntityData.Children[types.GetSegmentPath(&cdttemplatecommontable.Cdttemplatecommonentry[i])] = types.YChild{"Cdttemplatecommonentry", &cdttemplatecommontable.Cdttemplatecommonentry[i]}
     }
-    return children
+    cdttemplatecommontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdttemplatecommontable.EntityData)
 }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetYangName() string { return "cdtTemplateCommonTable" }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) SetParent(parent types.Entity) { cdttemplatecommontable.parent = parent }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetParent() types.Entity { return cdttemplatecommontable.parent }
-
-func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry
 // An entry containing attributes relating to any target.
@@ -1016,7 +619,7 @@ func (cdttemplatecommontable *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable) Ge
 // system or the EMS/NMS destroys the corresponding row in the
 // cdtTemplateTable.
 type CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -1133,81 +736,36 @@ type CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry struc
     Cdtcommonsrvnetflow interface{}
 }
 
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetFilter() yfilter.YFilter { return cdttemplatecommonentry.YFilter }
+func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetEntityData() *types.CommonEntityData {
+    cdttemplatecommonentry.EntityData.YFilter = cdttemplatecommonentry.YFilter
+    cdttemplatecommonentry.EntityData.YangName = "cdtTemplateCommonEntry"
+    cdttemplatecommonentry.EntityData.BundleName = "cisco_ios_xe"
+    cdttemplatecommonentry.EntityData.ParentYangName = "cdtTemplateCommonTable"
+    cdttemplatecommonentry.EntityData.SegmentPath = "cdtTemplateCommonEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdttemplatecommonentry.Cdttemplatename) + "']"
+    cdttemplatecommonentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdttemplatecommonentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdttemplatecommonentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) SetFilter(yf yfilter.YFilter) { cdttemplatecommonentry.YFilter = yf }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtCommonValid" { return "Cdtcommonvalid" }
-    if yname == "cdtCommonDescr" { return "Cdtcommondescr" }
-    if yname == "cdtCommonKeepaliveInt" { return "Cdtcommonkeepaliveint" }
-    if yname == "cdtCommonKeepaliveRetries" { return "Cdtcommonkeepaliveretries" }
-    if yname == "cdtCommonVrf" { return "Cdtcommonvrf" }
-    if yname == "cdtCommonAddrPool" { return "Cdtcommonaddrpool" }
-    if yname == "cdtCommonIpv4AccessGroup" { return "Cdtcommonipv4Accessgroup" }
-    if yname == "cdtCommonIpv4Unreachables" { return "Cdtcommonipv4Unreachables" }
-    if yname == "cdtCommonIpv6AccessGroup" { return "Cdtcommonipv6Accessgroup" }
-    if yname == "cdtCommonIpv6Unreachables" { return "Cdtcommonipv6Unreachables" }
-    if yname == "cdtCommonSrvSubControl" { return "Cdtcommonsrvsubcontrol" }
-    if yname == "cdtCommonSrvRedirect" { return "Cdtcommonsrvredirect" }
-    if yname == "cdtCommonSrvAcct" { return "Cdtcommonsrvacct" }
-    if yname == "cdtCommonSrvQos" { return "Cdtcommonsrvqos" }
-    if yname == "cdtCommonSrvNetflow" { return "Cdtcommonsrvnetflow" }
-    return ""
+    cdttemplatecommonentry.EntityData.Children = make(map[string]types.YChild)
+    cdttemplatecommonentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdttemplatecommonentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdttemplatecommonentry.Cdttemplatename}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonValid"] = types.YLeaf{"Cdtcommonvalid", cdttemplatecommonentry.Cdtcommonvalid}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonDescr"] = types.YLeaf{"Cdtcommondescr", cdttemplatecommonentry.Cdtcommondescr}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonKeepaliveInt"] = types.YLeaf{"Cdtcommonkeepaliveint", cdttemplatecommonentry.Cdtcommonkeepaliveint}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonKeepaliveRetries"] = types.YLeaf{"Cdtcommonkeepaliveretries", cdttemplatecommonentry.Cdtcommonkeepaliveretries}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonVrf"] = types.YLeaf{"Cdtcommonvrf", cdttemplatecommonentry.Cdtcommonvrf}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonAddrPool"] = types.YLeaf{"Cdtcommonaddrpool", cdttemplatecommonentry.Cdtcommonaddrpool}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonIpv4AccessGroup"] = types.YLeaf{"Cdtcommonipv4Accessgroup", cdttemplatecommonentry.Cdtcommonipv4Accessgroup}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonIpv4Unreachables"] = types.YLeaf{"Cdtcommonipv4Unreachables", cdttemplatecommonentry.Cdtcommonipv4Unreachables}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonIpv6AccessGroup"] = types.YLeaf{"Cdtcommonipv6Accessgroup", cdttemplatecommonentry.Cdtcommonipv6Accessgroup}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonIpv6Unreachables"] = types.YLeaf{"Cdtcommonipv6Unreachables", cdttemplatecommonentry.Cdtcommonipv6Unreachables}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonSrvSubControl"] = types.YLeaf{"Cdtcommonsrvsubcontrol", cdttemplatecommonentry.Cdtcommonsrvsubcontrol}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonSrvRedirect"] = types.YLeaf{"Cdtcommonsrvredirect", cdttemplatecommonentry.Cdtcommonsrvredirect}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonSrvAcct"] = types.YLeaf{"Cdtcommonsrvacct", cdttemplatecommonentry.Cdtcommonsrvacct}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonSrvQos"] = types.YLeaf{"Cdtcommonsrvqos", cdttemplatecommonentry.Cdtcommonsrvqos}
+    cdttemplatecommonentry.EntityData.Leafs["cdtCommonSrvNetflow"] = types.YLeaf{"Cdtcommonsrvnetflow", cdttemplatecommonentry.Cdtcommonsrvnetflow}
+    return &(cdttemplatecommonentry.EntityData)
 }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetSegmentPath() string {
-    return "cdtTemplateCommonEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdttemplatecommonentry.Cdttemplatename) + "']"
-}
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdttemplatecommonentry.Cdttemplatename
-    leafs["cdtCommonValid"] = cdttemplatecommonentry.Cdtcommonvalid
-    leafs["cdtCommonDescr"] = cdttemplatecommonentry.Cdtcommondescr
-    leafs["cdtCommonKeepaliveInt"] = cdttemplatecommonentry.Cdtcommonkeepaliveint
-    leafs["cdtCommonKeepaliveRetries"] = cdttemplatecommonentry.Cdtcommonkeepaliveretries
-    leafs["cdtCommonVrf"] = cdttemplatecommonentry.Cdtcommonvrf
-    leafs["cdtCommonAddrPool"] = cdttemplatecommonentry.Cdtcommonaddrpool
-    leafs["cdtCommonIpv4AccessGroup"] = cdttemplatecommonentry.Cdtcommonipv4Accessgroup
-    leafs["cdtCommonIpv4Unreachables"] = cdttemplatecommonentry.Cdtcommonipv4Unreachables
-    leafs["cdtCommonIpv6AccessGroup"] = cdttemplatecommonentry.Cdtcommonipv6Accessgroup
-    leafs["cdtCommonIpv6Unreachables"] = cdttemplatecommonentry.Cdtcommonipv6Unreachables
-    leafs["cdtCommonSrvSubControl"] = cdttemplatecommonentry.Cdtcommonsrvsubcontrol
-    leafs["cdtCommonSrvRedirect"] = cdttemplatecommonentry.Cdtcommonsrvredirect
-    leafs["cdtCommonSrvAcct"] = cdttemplatecommonentry.Cdtcommonsrvacct
-    leafs["cdtCommonSrvQos"] = cdttemplatecommonentry.Cdtcommonsrvqos
-    leafs["cdtCommonSrvNetflow"] = cdttemplatecommonentry.Cdtcommonsrvnetflow
-    return leafs
-}
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetYangName() string { return "cdtTemplateCommonEntry" }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) SetParent(parent types.Entity) { cdttemplatecommonentry.parent = parent }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetParent() types.Entity { return cdttemplatecommonentry.parent }
-
-func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdttemplatecommonentry) GetParentYangName() string { return "cdtTemplateCommonTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable
 // This table contains attributes relating to interface
@@ -1222,7 +780,7 @@ func (cdttemplatecommonentry *CISCODYNAMICTEMPLATEMIB_Cdttemplatecommontable_Cdt
 //     'ethernet'
 //     'ipSubscriber'
 type CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing attributes relating to interface configuration.  The
@@ -1236,63 +794,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable struct {
     Cdtiftemplateentry []CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry
 }
 
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetFilter() yfilter.YFilter { return cdtiftemplatetable.YFilter }
+func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetEntityData() *types.CommonEntityData {
+    cdtiftemplatetable.EntityData.YFilter = cdtiftemplatetable.YFilter
+    cdtiftemplatetable.EntityData.YangName = "cdtIfTemplateTable"
+    cdtiftemplatetable.EntityData.BundleName = "cisco_ios_xe"
+    cdtiftemplatetable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdtiftemplatetable.EntityData.SegmentPath = "cdtIfTemplateTable"
+    cdtiftemplatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtiftemplatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtiftemplatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) SetFilter(yf yfilter.YFilter) { cdtiftemplatetable.YFilter = yf }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetGoName(yname string) string {
-    if yname == "cdtIfTemplateEntry" { return "Cdtiftemplateentry" }
-    return ""
-}
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetSegmentPath() string {
-    return "cdtIfTemplateTable"
-}
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtIfTemplateEntry" {
-        for _, c := range cdtiftemplatetable.Cdtiftemplateentry {
-            if cdtiftemplatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry{}
-        cdtiftemplatetable.Cdtiftemplateentry = append(cdtiftemplatetable.Cdtiftemplateentry, child)
-        return &cdtiftemplatetable.Cdtiftemplateentry[len(cdtiftemplatetable.Cdtiftemplateentry)-1]
-    }
-    return nil
-}
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdtiftemplatetable.EntityData.Children = make(map[string]types.YChild)
+    cdtiftemplatetable.EntityData.Children["cdtIfTemplateEntry"] = types.YChild{"Cdtiftemplateentry", nil}
     for i := range cdtiftemplatetable.Cdtiftemplateentry {
-        children[cdtiftemplatetable.Cdtiftemplateentry[i].GetSegmentPath()] = &cdtiftemplatetable.Cdtiftemplateentry[i]
+        cdtiftemplatetable.EntityData.Children[types.GetSegmentPath(&cdtiftemplatetable.Cdtiftemplateentry[i])] = types.YChild{"Cdtiftemplateentry", &cdtiftemplatetable.Cdtiftemplateentry[i]}
     }
-    return children
+    cdtiftemplatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdtiftemplatetable.EntityData)
 }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetYangName() string { return "cdtIfTemplateTable" }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) SetParent(parent types.Entity) { cdtiftemplatetable.parent = parent }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetParent() types.Entity { return cdtiftemplatetable.parent }
-
-func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry
 // An entry containing attributes relating to interface
@@ -1311,7 +830,7 @@ func (cdtiftemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable) GetParentY
 // system or the EMS/NMS destroys the corresponding row in the
 // cdtTemplateTable.
 type CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -1579,111 +1098,51 @@ type CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry struct {
     Cdtifipv6Ndrouterpreference interface{}
 }
 
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetFilter() yfilter.YFilter { return cdtiftemplateentry.YFilter }
+func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetEntityData() *types.CommonEntityData {
+    cdtiftemplateentry.EntityData.YFilter = cdtiftemplateentry.YFilter
+    cdtiftemplateentry.EntityData.YangName = "cdtIfTemplateEntry"
+    cdtiftemplateentry.EntityData.BundleName = "cisco_ios_xe"
+    cdtiftemplateentry.EntityData.ParentYangName = "cdtIfTemplateTable"
+    cdtiftemplateentry.EntityData.SegmentPath = "cdtIfTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtiftemplateentry.Cdttemplatename) + "']"
+    cdtiftemplateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtiftemplateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtiftemplateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) SetFilter(yf yfilter.YFilter) { cdtiftemplateentry.YFilter = yf }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtIfValid" { return "Cdtifvalid" }
-    if yname == "cdtIfMtu" { return "Cdtifmtu" }
-    if yname == "cdtIfCdpEnable" { return "Cdtifcdpenable" }
-    if yname == "cdtIfFlowMonitor" { return "Cdtifflowmonitor" }
-    if yname == "cdtIfIpv4Unnumbered" { return "Cdtifipv4Unnumbered" }
-    if yname == "cdtIfIpv4SubEnable" { return "Cdtifipv4Subenable" }
-    if yname == "cdtIfIpv4Mtu" { return "Cdtifipv4Mtu" }
-    if yname == "cdtIfIpv4TcpMssAdjust" { return "Cdtifipv4Tcpmssadjust" }
-    if yname == "cdtIfIpv4VerifyUniRpf" { return "Cdtifipv4Verifyunirpf" }
-    if yname == "cdtIfIpv4VerifyUniRpfAcl" { return "Cdtifipv4Verifyunirpfacl" }
-    if yname == "cdtIfIpv4VerifyUniRpfOpts" { return "Cdtifipv4Verifyunirpfopts" }
-    if yname == "cdtIfIpv6Enable" { return "Cdtifipv6Enable" }
-    if yname == "cdtIfIpv6SubEnable" { return "Cdtifipv6Subenable" }
-    if yname == "cdtIfIpv6TcpMssAdjust" { return "Cdtifipv6Tcpmssadjust" }
-    if yname == "cdtIfIpv6VerifyUniRpf" { return "Cdtifipv6Verifyunirpf" }
-    if yname == "cdtIfIpv6VerifyUniRpfAcl" { return "Cdtifipv6Verifyunirpfacl" }
-    if yname == "cdtIfIpv6VerifyUniRpfOpts" { return "Cdtifipv6Verifyunirpfopts" }
-    if yname == "cdtIfIpv6NdPrefix" { return "Cdtifipv6Ndprefix" }
-    if yname == "cdtIfIpv6NdPrefixLength" { return "Cdtifipv6Ndprefixlength" }
-    if yname == "cdtIfIpv6NdValidLife" { return "Cdtifipv6Ndvalidlife" }
-    if yname == "cdtIfIpv6NdPreferredLife" { return "Cdtifipv6Ndpreferredlife" }
-    if yname == "cdtIfIpv6NdOpts" { return "Cdtifipv6Ndopts" }
-    if yname == "cdtIfIpv6NdDadAttempts" { return "Cdtifipv6Nddadattempts" }
-    if yname == "cdtIfIpv6NdNsInterval" { return "Cdtifipv6Ndnsinterval" }
-    if yname == "cdtIfIpv6NdReachableTime" { return "Cdtifipv6Ndreachabletime" }
-    if yname == "cdtIfIpv6NdRaIntervalUnits" { return "Cdtifipv6Ndraintervalunits" }
-    if yname == "cdtIfIpv6NdRaIntervalMax" { return "Cdtifipv6Ndraintervalmax" }
-    if yname == "cdtIfIpv6NdRaIntervalMin" { return "Cdtifipv6Ndraintervalmin" }
-    if yname == "cdtIfIpv6NdRaLife" { return "Cdtifipv6Ndralife" }
-    if yname == "cdtIfIpv6NdRouterPreference" { return "Cdtifipv6Ndrouterpreference" }
-    return ""
+    cdtiftemplateentry.EntityData.Children = make(map[string]types.YChild)
+    cdtiftemplateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdtiftemplateentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdtiftemplateentry.Cdttemplatename}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfValid"] = types.YLeaf{"Cdtifvalid", cdtiftemplateentry.Cdtifvalid}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfMtu"] = types.YLeaf{"Cdtifmtu", cdtiftemplateentry.Cdtifmtu}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfCdpEnable"] = types.YLeaf{"Cdtifcdpenable", cdtiftemplateentry.Cdtifcdpenable}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfFlowMonitor"] = types.YLeaf{"Cdtifflowmonitor", cdtiftemplateentry.Cdtifflowmonitor}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4Unnumbered"] = types.YLeaf{"Cdtifipv4Unnumbered", cdtiftemplateentry.Cdtifipv4Unnumbered}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4SubEnable"] = types.YLeaf{"Cdtifipv4Subenable", cdtiftemplateentry.Cdtifipv4Subenable}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4Mtu"] = types.YLeaf{"Cdtifipv4Mtu", cdtiftemplateentry.Cdtifipv4Mtu}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4TcpMssAdjust"] = types.YLeaf{"Cdtifipv4Tcpmssadjust", cdtiftemplateentry.Cdtifipv4Tcpmssadjust}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4VerifyUniRpf"] = types.YLeaf{"Cdtifipv4Verifyunirpf", cdtiftemplateentry.Cdtifipv4Verifyunirpf}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4VerifyUniRpfAcl"] = types.YLeaf{"Cdtifipv4Verifyunirpfacl", cdtiftemplateentry.Cdtifipv4Verifyunirpfacl}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv4VerifyUniRpfOpts"] = types.YLeaf{"Cdtifipv4Verifyunirpfopts", cdtiftemplateentry.Cdtifipv4Verifyunirpfopts}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6Enable"] = types.YLeaf{"Cdtifipv6Enable", cdtiftemplateentry.Cdtifipv6Enable}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6SubEnable"] = types.YLeaf{"Cdtifipv6Subenable", cdtiftemplateentry.Cdtifipv6Subenable}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6TcpMssAdjust"] = types.YLeaf{"Cdtifipv6Tcpmssadjust", cdtiftemplateentry.Cdtifipv6Tcpmssadjust}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6VerifyUniRpf"] = types.YLeaf{"Cdtifipv6Verifyunirpf", cdtiftemplateentry.Cdtifipv6Verifyunirpf}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6VerifyUniRpfAcl"] = types.YLeaf{"Cdtifipv6Verifyunirpfacl", cdtiftemplateentry.Cdtifipv6Verifyunirpfacl}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6VerifyUniRpfOpts"] = types.YLeaf{"Cdtifipv6Verifyunirpfopts", cdtiftemplateentry.Cdtifipv6Verifyunirpfopts}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdPrefix"] = types.YLeaf{"Cdtifipv6Ndprefix", cdtiftemplateentry.Cdtifipv6Ndprefix}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdPrefixLength"] = types.YLeaf{"Cdtifipv6Ndprefixlength", cdtiftemplateentry.Cdtifipv6Ndprefixlength}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdValidLife"] = types.YLeaf{"Cdtifipv6Ndvalidlife", cdtiftemplateentry.Cdtifipv6Ndvalidlife}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdPreferredLife"] = types.YLeaf{"Cdtifipv6Ndpreferredlife", cdtiftemplateentry.Cdtifipv6Ndpreferredlife}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdOpts"] = types.YLeaf{"Cdtifipv6Ndopts", cdtiftemplateentry.Cdtifipv6Ndopts}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdDadAttempts"] = types.YLeaf{"Cdtifipv6Nddadattempts", cdtiftemplateentry.Cdtifipv6Nddadattempts}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdNsInterval"] = types.YLeaf{"Cdtifipv6Ndnsinterval", cdtiftemplateentry.Cdtifipv6Ndnsinterval}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdReachableTime"] = types.YLeaf{"Cdtifipv6Ndreachabletime", cdtiftemplateentry.Cdtifipv6Ndreachabletime}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdRaIntervalUnits"] = types.YLeaf{"Cdtifipv6Ndraintervalunits", cdtiftemplateentry.Cdtifipv6Ndraintervalunits}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdRaIntervalMax"] = types.YLeaf{"Cdtifipv6Ndraintervalmax", cdtiftemplateentry.Cdtifipv6Ndraintervalmax}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdRaIntervalMin"] = types.YLeaf{"Cdtifipv6Ndraintervalmin", cdtiftemplateentry.Cdtifipv6Ndraintervalmin}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdRaLife"] = types.YLeaf{"Cdtifipv6Ndralife", cdtiftemplateentry.Cdtifipv6Ndralife}
+    cdtiftemplateentry.EntityData.Leafs["cdtIfIpv6NdRouterPreference"] = types.YLeaf{"Cdtifipv6Ndrouterpreference", cdtiftemplateentry.Cdtifipv6Ndrouterpreference}
+    return &(cdtiftemplateentry.EntityData)
 }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetSegmentPath() string {
-    return "cdtIfTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtiftemplateentry.Cdttemplatename) + "']"
-}
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdtiftemplateentry.Cdttemplatename
-    leafs["cdtIfValid"] = cdtiftemplateentry.Cdtifvalid
-    leafs["cdtIfMtu"] = cdtiftemplateentry.Cdtifmtu
-    leafs["cdtIfCdpEnable"] = cdtiftemplateentry.Cdtifcdpenable
-    leafs["cdtIfFlowMonitor"] = cdtiftemplateentry.Cdtifflowmonitor
-    leafs["cdtIfIpv4Unnumbered"] = cdtiftemplateentry.Cdtifipv4Unnumbered
-    leafs["cdtIfIpv4SubEnable"] = cdtiftemplateentry.Cdtifipv4Subenable
-    leafs["cdtIfIpv4Mtu"] = cdtiftemplateentry.Cdtifipv4Mtu
-    leafs["cdtIfIpv4TcpMssAdjust"] = cdtiftemplateentry.Cdtifipv4Tcpmssadjust
-    leafs["cdtIfIpv4VerifyUniRpf"] = cdtiftemplateentry.Cdtifipv4Verifyunirpf
-    leafs["cdtIfIpv4VerifyUniRpfAcl"] = cdtiftemplateentry.Cdtifipv4Verifyunirpfacl
-    leafs["cdtIfIpv4VerifyUniRpfOpts"] = cdtiftemplateentry.Cdtifipv4Verifyunirpfopts
-    leafs["cdtIfIpv6Enable"] = cdtiftemplateentry.Cdtifipv6Enable
-    leafs["cdtIfIpv6SubEnable"] = cdtiftemplateentry.Cdtifipv6Subenable
-    leafs["cdtIfIpv6TcpMssAdjust"] = cdtiftemplateentry.Cdtifipv6Tcpmssadjust
-    leafs["cdtIfIpv6VerifyUniRpf"] = cdtiftemplateentry.Cdtifipv6Verifyunirpf
-    leafs["cdtIfIpv6VerifyUniRpfAcl"] = cdtiftemplateentry.Cdtifipv6Verifyunirpfacl
-    leafs["cdtIfIpv6VerifyUniRpfOpts"] = cdtiftemplateentry.Cdtifipv6Verifyunirpfopts
-    leafs["cdtIfIpv6NdPrefix"] = cdtiftemplateentry.Cdtifipv6Ndprefix
-    leafs["cdtIfIpv6NdPrefixLength"] = cdtiftemplateentry.Cdtifipv6Ndprefixlength
-    leafs["cdtIfIpv6NdValidLife"] = cdtiftemplateentry.Cdtifipv6Ndvalidlife
-    leafs["cdtIfIpv6NdPreferredLife"] = cdtiftemplateentry.Cdtifipv6Ndpreferredlife
-    leafs["cdtIfIpv6NdOpts"] = cdtiftemplateentry.Cdtifipv6Ndopts
-    leafs["cdtIfIpv6NdDadAttempts"] = cdtiftemplateentry.Cdtifipv6Nddadattempts
-    leafs["cdtIfIpv6NdNsInterval"] = cdtiftemplateentry.Cdtifipv6Ndnsinterval
-    leafs["cdtIfIpv6NdReachableTime"] = cdtiftemplateentry.Cdtifipv6Ndreachabletime
-    leafs["cdtIfIpv6NdRaIntervalUnits"] = cdtiftemplateentry.Cdtifipv6Ndraintervalunits
-    leafs["cdtIfIpv6NdRaIntervalMax"] = cdtiftemplateentry.Cdtifipv6Ndraintervalmax
-    leafs["cdtIfIpv6NdRaIntervalMin"] = cdtiftemplateentry.Cdtifipv6Ndraintervalmin
-    leafs["cdtIfIpv6NdRaLife"] = cdtiftemplateentry.Cdtifipv6Ndralife
-    leafs["cdtIfIpv6NdRouterPreference"] = cdtiftemplateentry.Cdtifipv6Ndrouterpreference
-    return leafs
-}
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetYangName() string { return "cdtIfTemplateEntry" }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) SetParent(parent types.Entity) { cdtiftemplateentry.parent = parent }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetParent() types.Entity { return cdtiftemplateentry.parent }
-
-func (cdtiftemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry) GetParentYangName() string { return "cdtIfTemplateTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry_Cdtifipv6Ndraintervalunits represents corresponding instance of cdtIfValid is '1'.
 type CISCODYNAMICTEMPLATEMIB_Cdtiftemplatetable_Cdtiftemplateentry_Cdtifipv6Ndraintervalunits string
@@ -1716,7 +1175,7 @@ const (
 //     'derived'
 //     'ppp'
 type CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing attributes relating to PPP connection configuration. 
@@ -1729,63 +1188,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable struct {
     Cdtppptemplateentry []CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry
 }
 
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetFilter() yfilter.YFilter { return cdtppptemplatetable.YFilter }
+func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetEntityData() *types.CommonEntityData {
+    cdtppptemplatetable.EntityData.YFilter = cdtppptemplatetable.YFilter
+    cdtppptemplatetable.EntityData.YangName = "cdtPppTemplateTable"
+    cdtppptemplatetable.EntityData.BundleName = "cisco_ios_xe"
+    cdtppptemplatetable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdtppptemplatetable.EntityData.SegmentPath = "cdtPppTemplateTable"
+    cdtppptemplatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtppptemplatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtppptemplatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) SetFilter(yf yfilter.YFilter) { cdtppptemplatetable.YFilter = yf }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetGoName(yname string) string {
-    if yname == "cdtPppTemplateEntry" { return "Cdtppptemplateentry" }
-    return ""
-}
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetSegmentPath() string {
-    return "cdtPppTemplateTable"
-}
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtPppTemplateEntry" {
-        for _, c := range cdtppptemplatetable.Cdtppptemplateentry {
-            if cdtppptemplatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry{}
-        cdtppptemplatetable.Cdtppptemplateentry = append(cdtppptemplatetable.Cdtppptemplateentry, child)
-        return &cdtppptemplatetable.Cdtppptemplateentry[len(cdtppptemplatetable.Cdtppptemplateentry)-1]
-    }
-    return nil
-}
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdtppptemplatetable.EntityData.Children = make(map[string]types.YChild)
+    cdtppptemplatetable.EntityData.Children["cdtPppTemplateEntry"] = types.YChild{"Cdtppptemplateentry", nil}
     for i := range cdtppptemplatetable.Cdtppptemplateentry {
-        children[cdtppptemplatetable.Cdtppptemplateentry[i].GetSegmentPath()] = &cdtppptemplatetable.Cdtppptemplateentry[i]
+        cdtppptemplatetable.EntityData.Children[types.GetSegmentPath(&cdtppptemplatetable.Cdtppptemplateentry[i])] = types.YChild{"Cdtppptemplateentry", &cdtppptemplatetable.Cdtppptemplateentry[i]}
     }
-    return children
+    cdtppptemplatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdtppptemplatetable.EntityData)
 }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetYangName() string { return "cdtPppTemplateTable" }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) SetParent(parent types.Entity) { cdtppptemplatetable.parent = parent }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetParent() types.Entity { return cdtppptemplatetable.parent }
-
-func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry
 // An entry containing attributes relating to PPP connection
@@ -1802,7 +1222,7 @@ func (cdtppptemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable) GetParen
 // system or the EMS/NMS destroys the corresponding row in the
 // cdtTemplateTable.
 type CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -2175,129 +1595,60 @@ type CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry struct {
     Cdtppppeerdefipaddr interface{}
 }
 
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetFilter() yfilter.YFilter { return cdtppptemplateentry.YFilter }
+func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetEntityData() *types.CommonEntityData {
+    cdtppptemplateentry.EntityData.YFilter = cdtppptemplateentry.YFilter
+    cdtppptemplateentry.EntityData.YangName = "cdtPppTemplateEntry"
+    cdtppptemplateentry.EntityData.BundleName = "cisco_ios_xe"
+    cdtppptemplateentry.EntityData.ParentYangName = "cdtPppTemplateTable"
+    cdtppptemplateentry.EntityData.SegmentPath = "cdtPppTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtppptemplateentry.Cdttemplatename) + "']"
+    cdtppptemplateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtppptemplateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtppptemplateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) SetFilter(yf yfilter.YFilter) { cdtppptemplateentry.YFilter = yf }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtPppValid" { return "Cdtpppvalid" }
-    if yname == "cdtPppAccounting" { return "Cdtpppaccounting" }
-    if yname == "cdtPppAuthentication" { return "Cdtpppauthentication" }
-    if yname == "cdtPppAuthenticationMethods" { return "Cdtpppauthenticationmethods" }
-    if yname == "cdtPppAuthorization" { return "Cdtpppauthorization" }
-    if yname == "cdtPppLoopbackIgnore" { return "Cdtppploopbackignore" }
-    if yname == "cdtPppMaxBadAuth" { return "Cdtpppmaxbadauth" }
-    if yname == "cdtPppMaxConfigure" { return "Cdtpppmaxconfigure" }
-    if yname == "cdtPppMaxFailure" { return "Cdtpppmaxfailure" }
-    if yname == "cdtPppMaxTerminate" { return "Cdtpppmaxterminate" }
-    if yname == "cdtPppTimeoutAuthentication" { return "Cdtppptimeoutauthentication" }
-    if yname == "cdtPppTimeoutRetry" { return "Cdtppptimeoutretry" }
-    if yname == "cdtPppChapOpts" { return "Cdtpppchapopts" }
-    if yname == "cdtPppChapHostname" { return "Cdtpppchaphostname" }
-    if yname == "cdtPppChapPassword" { return "Cdtpppchappassword" }
-    if yname == "cdtPppMsChapV1Opts" { return "Cdtpppmschapv1Opts" }
-    if yname == "cdtPppMsChapV1Hostname" { return "Cdtpppmschapv1Hostname" }
-    if yname == "cdtPppMsChapV1Password" { return "Cdtpppmschapv1Password" }
-    if yname == "cdtPppMsChapV2Opts" { return "Cdtpppmschapv2Opts" }
-    if yname == "cdtPppMsChapV2Hostname" { return "Cdtpppmschapv2Hostname" }
-    if yname == "cdtPppMsChapV2Password" { return "Cdtpppmschapv2Password" }
-    if yname == "cdtPppPapOpts" { return "Cdtppppapopts" }
-    if yname == "cdtPppPapUsername" { return "Cdtppppapusername" }
-    if yname == "cdtPppPapPassword" { return "Cdtppppappassword" }
-    if yname == "cdtPppEapOpts" { return "Cdtpppeapopts" }
-    if yname == "cdtPppEapIdentity" { return "Cdtpppeapidentity" }
-    if yname == "cdtPppEapPassword" { return "Cdtpppeappassword" }
-    if yname == "cdtPppIpcpAddrOption" { return "Cdtpppipcpaddroption" }
-    if yname == "cdtPppIpcpDnsOption" { return "Cdtpppipcpdnsoption" }
-    if yname == "cdtPppIpcpDnsPrimary" { return "Cdtpppipcpdnsprimary" }
-    if yname == "cdtPppIpcpDnsSecondary" { return "Cdtpppipcpdnssecondary" }
-    if yname == "cdtPppIpcpWinsOption" { return "Cdtpppipcpwinsoption" }
-    if yname == "cdtPppIpcpWinsPrimary" { return "Cdtpppipcpwinsprimary" }
-    if yname == "cdtPppIpcpWinsSecondary" { return "Cdtpppipcpwinssecondary" }
-    if yname == "cdtPppIpcpMaskOption" { return "Cdtpppipcpmaskoption" }
-    if yname == "cdtPppIpcpMask" { return "Cdtpppipcpmask" }
-    if yname == "cdtPppPeerDefIpAddrOpts" { return "Cdtppppeerdefipaddropts" }
-    if yname == "cdtPppPeerDefIpAddrSrc" { return "Cdtppppeerdefipaddrsrc" }
-    if yname == "cdtPppPeerDefIpAddr" { return "Cdtppppeerdefipaddr" }
-    return ""
+    cdtppptemplateentry.EntityData.Children = make(map[string]types.YChild)
+    cdtppptemplateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdtppptemplateentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdtppptemplateentry.Cdttemplatename}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppValid"] = types.YLeaf{"Cdtpppvalid", cdtppptemplateentry.Cdtpppvalid}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppAccounting"] = types.YLeaf{"Cdtpppaccounting", cdtppptemplateentry.Cdtpppaccounting}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppAuthentication"] = types.YLeaf{"Cdtpppauthentication", cdtppptemplateentry.Cdtpppauthentication}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppAuthenticationMethods"] = types.YLeaf{"Cdtpppauthenticationmethods", cdtppptemplateentry.Cdtpppauthenticationmethods}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppAuthorization"] = types.YLeaf{"Cdtpppauthorization", cdtppptemplateentry.Cdtpppauthorization}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppLoopbackIgnore"] = types.YLeaf{"Cdtppploopbackignore", cdtppptemplateentry.Cdtppploopbackignore}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMaxBadAuth"] = types.YLeaf{"Cdtpppmaxbadauth", cdtppptemplateentry.Cdtpppmaxbadauth}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMaxConfigure"] = types.YLeaf{"Cdtpppmaxconfigure", cdtppptemplateentry.Cdtpppmaxconfigure}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMaxFailure"] = types.YLeaf{"Cdtpppmaxfailure", cdtppptemplateentry.Cdtpppmaxfailure}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMaxTerminate"] = types.YLeaf{"Cdtpppmaxterminate", cdtppptemplateentry.Cdtpppmaxterminate}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppTimeoutAuthentication"] = types.YLeaf{"Cdtppptimeoutauthentication", cdtppptemplateentry.Cdtppptimeoutauthentication}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppTimeoutRetry"] = types.YLeaf{"Cdtppptimeoutretry", cdtppptemplateentry.Cdtppptimeoutretry}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppChapOpts"] = types.YLeaf{"Cdtpppchapopts", cdtppptemplateentry.Cdtpppchapopts}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppChapHostname"] = types.YLeaf{"Cdtpppchaphostname", cdtppptemplateentry.Cdtpppchaphostname}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppChapPassword"] = types.YLeaf{"Cdtpppchappassword", cdtppptemplateentry.Cdtpppchappassword}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMsChapV1Opts"] = types.YLeaf{"Cdtpppmschapv1Opts", cdtppptemplateentry.Cdtpppmschapv1Opts}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMsChapV1Hostname"] = types.YLeaf{"Cdtpppmschapv1Hostname", cdtppptemplateentry.Cdtpppmschapv1Hostname}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMsChapV1Password"] = types.YLeaf{"Cdtpppmschapv1Password", cdtppptemplateentry.Cdtpppmschapv1Password}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMsChapV2Opts"] = types.YLeaf{"Cdtpppmschapv2Opts", cdtppptemplateentry.Cdtpppmschapv2Opts}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMsChapV2Hostname"] = types.YLeaf{"Cdtpppmschapv2Hostname", cdtppptemplateentry.Cdtpppmschapv2Hostname}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppMsChapV2Password"] = types.YLeaf{"Cdtpppmschapv2Password", cdtppptemplateentry.Cdtpppmschapv2Password}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppPapOpts"] = types.YLeaf{"Cdtppppapopts", cdtppptemplateentry.Cdtppppapopts}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppPapUsername"] = types.YLeaf{"Cdtppppapusername", cdtppptemplateentry.Cdtppppapusername}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppPapPassword"] = types.YLeaf{"Cdtppppappassword", cdtppptemplateentry.Cdtppppappassword}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppEapOpts"] = types.YLeaf{"Cdtpppeapopts", cdtppptemplateentry.Cdtpppeapopts}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppEapIdentity"] = types.YLeaf{"Cdtpppeapidentity", cdtppptemplateentry.Cdtpppeapidentity}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppEapPassword"] = types.YLeaf{"Cdtpppeappassword", cdtppptemplateentry.Cdtpppeappassword}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpAddrOption"] = types.YLeaf{"Cdtpppipcpaddroption", cdtppptemplateentry.Cdtpppipcpaddroption}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpDnsOption"] = types.YLeaf{"Cdtpppipcpdnsoption", cdtppptemplateentry.Cdtpppipcpdnsoption}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpDnsPrimary"] = types.YLeaf{"Cdtpppipcpdnsprimary", cdtppptemplateentry.Cdtpppipcpdnsprimary}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpDnsSecondary"] = types.YLeaf{"Cdtpppipcpdnssecondary", cdtppptemplateentry.Cdtpppipcpdnssecondary}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpWinsOption"] = types.YLeaf{"Cdtpppipcpwinsoption", cdtppptemplateentry.Cdtpppipcpwinsoption}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpWinsPrimary"] = types.YLeaf{"Cdtpppipcpwinsprimary", cdtppptemplateentry.Cdtpppipcpwinsprimary}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpWinsSecondary"] = types.YLeaf{"Cdtpppipcpwinssecondary", cdtppptemplateentry.Cdtpppipcpwinssecondary}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpMaskOption"] = types.YLeaf{"Cdtpppipcpmaskoption", cdtppptemplateentry.Cdtpppipcpmaskoption}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppIpcpMask"] = types.YLeaf{"Cdtpppipcpmask", cdtppptemplateentry.Cdtpppipcpmask}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppPeerDefIpAddrOpts"] = types.YLeaf{"Cdtppppeerdefipaddropts", cdtppptemplateentry.Cdtppppeerdefipaddropts}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppPeerDefIpAddrSrc"] = types.YLeaf{"Cdtppppeerdefipaddrsrc", cdtppptemplateentry.Cdtppppeerdefipaddrsrc}
+    cdtppptemplateentry.EntityData.Leafs["cdtPppPeerDefIpAddr"] = types.YLeaf{"Cdtppppeerdefipaddr", cdtppptemplateentry.Cdtppppeerdefipaddr}
+    return &(cdtppptemplateentry.EntityData)
 }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetSegmentPath() string {
-    return "cdtPppTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtppptemplateentry.Cdttemplatename) + "']"
-}
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdtppptemplateentry.Cdttemplatename
-    leafs["cdtPppValid"] = cdtppptemplateentry.Cdtpppvalid
-    leafs["cdtPppAccounting"] = cdtppptemplateentry.Cdtpppaccounting
-    leafs["cdtPppAuthentication"] = cdtppptemplateentry.Cdtpppauthentication
-    leafs["cdtPppAuthenticationMethods"] = cdtppptemplateentry.Cdtpppauthenticationmethods
-    leafs["cdtPppAuthorization"] = cdtppptemplateentry.Cdtpppauthorization
-    leafs["cdtPppLoopbackIgnore"] = cdtppptemplateentry.Cdtppploopbackignore
-    leafs["cdtPppMaxBadAuth"] = cdtppptemplateentry.Cdtpppmaxbadauth
-    leafs["cdtPppMaxConfigure"] = cdtppptemplateentry.Cdtpppmaxconfigure
-    leafs["cdtPppMaxFailure"] = cdtppptemplateentry.Cdtpppmaxfailure
-    leafs["cdtPppMaxTerminate"] = cdtppptemplateentry.Cdtpppmaxterminate
-    leafs["cdtPppTimeoutAuthentication"] = cdtppptemplateentry.Cdtppptimeoutauthentication
-    leafs["cdtPppTimeoutRetry"] = cdtppptemplateentry.Cdtppptimeoutretry
-    leafs["cdtPppChapOpts"] = cdtppptemplateentry.Cdtpppchapopts
-    leafs["cdtPppChapHostname"] = cdtppptemplateentry.Cdtpppchaphostname
-    leafs["cdtPppChapPassword"] = cdtppptemplateentry.Cdtpppchappassword
-    leafs["cdtPppMsChapV1Opts"] = cdtppptemplateentry.Cdtpppmschapv1Opts
-    leafs["cdtPppMsChapV1Hostname"] = cdtppptemplateentry.Cdtpppmschapv1Hostname
-    leafs["cdtPppMsChapV1Password"] = cdtppptemplateentry.Cdtpppmschapv1Password
-    leafs["cdtPppMsChapV2Opts"] = cdtppptemplateentry.Cdtpppmschapv2Opts
-    leafs["cdtPppMsChapV2Hostname"] = cdtppptemplateentry.Cdtpppmschapv2Hostname
-    leafs["cdtPppMsChapV2Password"] = cdtppptemplateentry.Cdtpppmschapv2Password
-    leafs["cdtPppPapOpts"] = cdtppptemplateentry.Cdtppppapopts
-    leafs["cdtPppPapUsername"] = cdtppptemplateentry.Cdtppppapusername
-    leafs["cdtPppPapPassword"] = cdtppptemplateentry.Cdtppppappassword
-    leafs["cdtPppEapOpts"] = cdtppptemplateentry.Cdtpppeapopts
-    leafs["cdtPppEapIdentity"] = cdtppptemplateentry.Cdtpppeapidentity
-    leafs["cdtPppEapPassword"] = cdtppptemplateentry.Cdtpppeappassword
-    leafs["cdtPppIpcpAddrOption"] = cdtppptemplateentry.Cdtpppipcpaddroption
-    leafs["cdtPppIpcpDnsOption"] = cdtppptemplateentry.Cdtpppipcpdnsoption
-    leafs["cdtPppIpcpDnsPrimary"] = cdtppptemplateentry.Cdtpppipcpdnsprimary
-    leafs["cdtPppIpcpDnsSecondary"] = cdtppptemplateentry.Cdtpppipcpdnssecondary
-    leafs["cdtPppIpcpWinsOption"] = cdtppptemplateentry.Cdtpppipcpwinsoption
-    leafs["cdtPppIpcpWinsPrimary"] = cdtppptemplateentry.Cdtpppipcpwinsprimary
-    leafs["cdtPppIpcpWinsSecondary"] = cdtppptemplateentry.Cdtpppipcpwinssecondary
-    leafs["cdtPppIpcpMaskOption"] = cdtppptemplateentry.Cdtpppipcpmaskoption
-    leafs["cdtPppIpcpMask"] = cdtppptemplateentry.Cdtpppipcpmask
-    leafs["cdtPppPeerDefIpAddrOpts"] = cdtppptemplateentry.Cdtppppeerdefipaddropts
-    leafs["cdtPppPeerDefIpAddrSrc"] = cdtppptemplateentry.Cdtppppeerdefipaddrsrc
-    leafs["cdtPppPeerDefIpAddr"] = cdtppptemplateentry.Cdtppppeerdefipaddr
-    return leafs
-}
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetYangName() string { return "cdtPppTemplateEntry" }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) SetParent(parent types.Entity) { cdtppptemplateentry.parent = parent }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetParent() types.Entity { return cdtppptemplateentry.parent }
-
-func (cdtppptemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry) GetParentYangName() string { return "cdtPppTemplateTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry_Cdtpppipcpaddroption represents corresponding instance of cdtPppValid is '1'.
 type CISCODYNAMICTEMPLATEMIB_Cdtppptemplatetable_Cdtppptemplateentry_Cdtpppipcpaddroption string
@@ -2371,7 +1722,7 @@ const (
 // cdtPppTemplateTable, containing zero or more rows for each PPP
 // template.
 type CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry specifies a named pool in a list of pools associated with a PPP
@@ -2390,63 +1741,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable struct {
     Cdtppppeeripaddrpoolentry []CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry
 }
 
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetFilter() yfilter.YFilter { return cdtppppeeripaddrpooltable.YFilter }
+func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetEntityData() *types.CommonEntityData {
+    cdtppppeeripaddrpooltable.EntityData.YFilter = cdtppppeeripaddrpooltable.YFilter
+    cdtppppeeripaddrpooltable.EntityData.YangName = "cdtPppPeerIpAddrPoolTable"
+    cdtppppeeripaddrpooltable.EntityData.BundleName = "cisco_ios_xe"
+    cdtppppeeripaddrpooltable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdtppppeeripaddrpooltable.EntityData.SegmentPath = "cdtPppPeerIpAddrPoolTable"
+    cdtppppeeripaddrpooltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtppppeeripaddrpooltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtppppeeripaddrpooltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) SetFilter(yf yfilter.YFilter) { cdtppppeeripaddrpooltable.YFilter = yf }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetGoName(yname string) string {
-    if yname == "cdtPppPeerIpAddrPoolEntry" { return "Cdtppppeeripaddrpoolentry" }
-    return ""
-}
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetSegmentPath() string {
-    return "cdtPppPeerIpAddrPoolTable"
-}
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtPppPeerIpAddrPoolEntry" {
-        for _, c := range cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry {
-            if cdtppppeeripaddrpooltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry{}
-        cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry = append(cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry, child)
-        return &cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry[len(cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry)-1]
-    }
-    return nil
-}
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdtppppeeripaddrpooltable.EntityData.Children = make(map[string]types.YChild)
+    cdtppppeeripaddrpooltable.EntityData.Children["cdtPppPeerIpAddrPoolEntry"] = types.YChild{"Cdtppppeeripaddrpoolentry", nil}
     for i := range cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry {
-        children[cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry[i].GetSegmentPath()] = &cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry[i]
+        cdtppppeeripaddrpooltable.EntityData.Children[types.GetSegmentPath(&cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry[i])] = types.YChild{"Cdtppppeeripaddrpoolentry", &cdtppppeeripaddrpooltable.Cdtppppeeripaddrpoolentry[i]}
     }
-    return children
+    cdtppppeeripaddrpooltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdtppppeeripaddrpooltable.EntityData)
 }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetYangName() string { return "cdtPppPeerIpAddrPoolTable" }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) SetParent(parent types.Entity) { cdtppppeeripaddrpooltable.parent = parent }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetParent() types.Entity { return cdtppppeeripaddrpooltable.parent }
-
-func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry
 // An entry specifies a named pool in a list of pools associated
@@ -2471,7 +1783,7 @@ func (cdtppppeeripaddrpooltable *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltab
 // 2)  The system or EMS/NMS sets the corresponding instance of
 //     cdtPppPeerIpAddrSrc with a value other than 'pool'.
 type CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -2505,59 +1817,25 @@ type CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry
     Cdtppppeeripaddrpoolname interface{}
 }
 
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetFilter() yfilter.YFilter { return cdtppppeeripaddrpoolentry.YFilter }
+func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetEntityData() *types.CommonEntityData {
+    cdtppppeeripaddrpoolentry.EntityData.YFilter = cdtppppeeripaddrpoolentry.YFilter
+    cdtppppeeripaddrpoolentry.EntityData.YangName = "cdtPppPeerIpAddrPoolEntry"
+    cdtppppeeripaddrpoolentry.EntityData.BundleName = "cisco_ios_xe"
+    cdtppppeeripaddrpoolentry.EntityData.ParentYangName = "cdtPppPeerIpAddrPoolTable"
+    cdtppppeeripaddrpoolentry.EntityData.SegmentPath = "cdtPppPeerIpAddrPoolEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtppppeeripaddrpoolentry.Cdttemplatename) + "']" + "[cdtPppPeerIpAddrPoolPriority='" + fmt.Sprintf("%v", cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolpriority) + "']"
+    cdtppppeeripaddrpoolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtppppeeripaddrpoolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtppppeeripaddrpoolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) SetFilter(yf yfilter.YFilter) { cdtppppeeripaddrpoolentry.YFilter = yf }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtPppPeerIpAddrPoolPriority" { return "Cdtppppeeripaddrpoolpriority" }
-    if yname == "cdtPppPeerIpAddrPoolStatus" { return "Cdtppppeeripaddrpoolstatus" }
-    if yname == "cdtPppPeerIpAddrPoolStorage" { return "Cdtppppeeripaddrpoolstorage" }
-    if yname == "cdtPppPeerIpAddrPoolName" { return "Cdtppppeeripaddrpoolname" }
-    return ""
+    cdtppppeeripaddrpoolentry.EntityData.Children = make(map[string]types.YChild)
+    cdtppppeeripaddrpoolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdtppppeeripaddrpoolentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdtppppeeripaddrpoolentry.Cdttemplatename}
+    cdtppppeeripaddrpoolentry.EntityData.Leafs["cdtPppPeerIpAddrPoolPriority"] = types.YLeaf{"Cdtppppeeripaddrpoolpriority", cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolpriority}
+    cdtppppeeripaddrpoolentry.EntityData.Leafs["cdtPppPeerIpAddrPoolStatus"] = types.YLeaf{"Cdtppppeeripaddrpoolstatus", cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolstatus}
+    cdtppppeeripaddrpoolentry.EntityData.Leafs["cdtPppPeerIpAddrPoolStorage"] = types.YLeaf{"Cdtppppeeripaddrpoolstorage", cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolstorage}
+    cdtppppeeripaddrpoolentry.EntityData.Leafs["cdtPppPeerIpAddrPoolName"] = types.YLeaf{"Cdtppppeeripaddrpoolname", cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolname}
+    return &(cdtppppeeripaddrpoolentry.EntityData)
 }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetSegmentPath() string {
-    return "cdtPppPeerIpAddrPoolEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtppppeeripaddrpoolentry.Cdttemplatename) + "']" + "[cdtPppPeerIpAddrPoolPriority='" + fmt.Sprintf("%v", cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolpriority) + "']"
-}
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdtppppeeripaddrpoolentry.Cdttemplatename
-    leafs["cdtPppPeerIpAddrPoolPriority"] = cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolpriority
-    leafs["cdtPppPeerIpAddrPoolStatus"] = cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolstatus
-    leafs["cdtPppPeerIpAddrPoolStorage"] = cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolstorage
-    leafs["cdtPppPeerIpAddrPoolName"] = cdtppppeeripaddrpoolentry.Cdtppppeeripaddrpoolname
-    return leafs
-}
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetYangName() string { return "cdtPppPeerIpAddrPoolEntry" }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) SetParent(parent types.Entity) { cdtppppeeripaddrpoolentry.parent = parent }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetParent() types.Entity { return cdtppppeeripaddrpoolentry.parent }
-
-func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltable_Cdtppppeeripaddrpoolentry) GetParentYangName() string { return "cdtPppPeerIpAddrPoolTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable
 // This table contains attributes relating to dynamic interfaces
@@ -2571,7 +1849,7 @@ func (cdtppppeeripaddrpoolentry *CISCODYNAMICTEMPLATEMIB_Cdtppppeeripaddrpooltab
 //     'derived'
 //     'ethernet'
 type CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing attributes relating to dynamic interfaces initiated on
@@ -2585,63 +1863,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable struct {
     Cdtethernettemplateentry []CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry
 }
 
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetFilter() yfilter.YFilter { return cdtethernettemplatetable.YFilter }
+func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetEntityData() *types.CommonEntityData {
+    cdtethernettemplatetable.EntityData.YFilter = cdtethernettemplatetable.YFilter
+    cdtethernettemplatetable.EntityData.YangName = "cdtEthernetTemplateTable"
+    cdtethernettemplatetable.EntityData.BundleName = "cisco_ios_xe"
+    cdtethernettemplatetable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdtethernettemplatetable.EntityData.SegmentPath = "cdtEthernetTemplateTable"
+    cdtethernettemplatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtethernettemplatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtethernettemplatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) SetFilter(yf yfilter.YFilter) { cdtethernettemplatetable.YFilter = yf }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetGoName(yname string) string {
-    if yname == "cdtEthernetTemplateEntry" { return "Cdtethernettemplateentry" }
-    return ""
-}
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetSegmentPath() string {
-    return "cdtEthernetTemplateTable"
-}
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtEthernetTemplateEntry" {
-        for _, c := range cdtethernettemplatetable.Cdtethernettemplateentry {
-            if cdtethernettemplatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry{}
-        cdtethernettemplatetable.Cdtethernettemplateentry = append(cdtethernettemplatetable.Cdtethernettemplateentry, child)
-        return &cdtethernettemplatetable.Cdtethernettemplateentry[len(cdtethernettemplatetable.Cdtethernettemplateentry)-1]
-    }
-    return nil
-}
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdtethernettemplatetable.EntityData.Children = make(map[string]types.YChild)
+    cdtethernettemplatetable.EntityData.Children["cdtEthernetTemplateEntry"] = types.YChild{"Cdtethernettemplateentry", nil}
     for i := range cdtethernettemplatetable.Cdtethernettemplateentry {
-        children[cdtethernettemplatetable.Cdtethernettemplateentry[i].GetSegmentPath()] = &cdtethernettemplatetable.Cdtethernettemplateentry[i]
+        cdtethernettemplatetable.EntityData.Children[types.GetSegmentPath(&cdtethernettemplatetable.Cdtethernettemplateentry[i])] = types.YChild{"Cdtethernettemplateentry", &cdtethernettemplatetable.Cdtethernettemplateentry[i]}
     }
-    return children
+    cdtethernettemplatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdtethernettemplatetable.EntityData)
 }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetYangName() string { return "cdtEthernetTemplateTable" }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) SetParent(parent types.Entity) { cdtethernettemplatetable.parent = parent }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetParent() types.Entity { return cdtethernettemplatetable.parent }
-
-func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry
 // An entry containing attributes relating to dynamic interfaces
@@ -2659,7 +1898,7 @@ func (cdtethernettemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable
 // system or the EMS/NMS destroys the corresponding row in the
 // cdtTemplateTable.
 type CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -2688,65 +1927,30 @@ type CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry s
     Cdtethernetipv4Pointtopoint interface{}
 
     // This object specifies the... The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Cdtethernetmacaddr interface{}
 }
 
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetFilter() yfilter.YFilter { return cdtethernettemplateentry.YFilter }
+func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetEntityData() *types.CommonEntityData {
+    cdtethernettemplateentry.EntityData.YFilter = cdtethernettemplateentry.YFilter
+    cdtethernettemplateentry.EntityData.YangName = "cdtEthernetTemplateEntry"
+    cdtethernettemplateentry.EntityData.BundleName = "cisco_ios_xe"
+    cdtethernettemplateentry.EntityData.ParentYangName = "cdtEthernetTemplateTable"
+    cdtethernettemplateentry.EntityData.SegmentPath = "cdtEthernetTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtethernettemplateentry.Cdttemplatename) + "']"
+    cdtethernettemplateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtethernettemplateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtethernettemplateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) SetFilter(yf yfilter.YFilter) { cdtethernettemplateentry.YFilter = yf }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtEthernetValid" { return "Cdtethernetvalid" }
-    if yname == "cdtEthernetBridgeDomain" { return "Cdtethernetbridgedomain" }
-    if yname == "cdtEthernetPppoeEnable" { return "Cdtethernetpppoeenable" }
-    if yname == "cdtEthernetIpv4PointToPoint" { return "Cdtethernetipv4Pointtopoint" }
-    if yname == "cdtEthernetMacAddr" { return "Cdtethernetmacaddr" }
-    return ""
+    cdtethernettemplateentry.EntityData.Children = make(map[string]types.YChild)
+    cdtethernettemplateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdtethernettemplateentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdtethernettemplateentry.Cdttemplatename}
+    cdtethernettemplateentry.EntityData.Leafs["cdtEthernetValid"] = types.YLeaf{"Cdtethernetvalid", cdtethernettemplateentry.Cdtethernetvalid}
+    cdtethernettemplateentry.EntityData.Leafs["cdtEthernetBridgeDomain"] = types.YLeaf{"Cdtethernetbridgedomain", cdtethernettemplateentry.Cdtethernetbridgedomain}
+    cdtethernettemplateentry.EntityData.Leafs["cdtEthernetPppoeEnable"] = types.YLeaf{"Cdtethernetpppoeenable", cdtethernettemplateentry.Cdtethernetpppoeenable}
+    cdtethernettemplateentry.EntityData.Leafs["cdtEthernetIpv4PointToPoint"] = types.YLeaf{"Cdtethernetipv4Pointtopoint", cdtethernettemplateentry.Cdtethernetipv4Pointtopoint}
+    cdtethernettemplateentry.EntityData.Leafs["cdtEthernetMacAddr"] = types.YLeaf{"Cdtethernetmacaddr", cdtethernettemplateentry.Cdtethernetmacaddr}
+    return &(cdtethernettemplateentry.EntityData)
 }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetSegmentPath() string {
-    return "cdtEthernetTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtethernettemplateentry.Cdttemplatename) + "']"
-}
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdtethernettemplateentry.Cdttemplatename
-    leafs["cdtEthernetValid"] = cdtethernettemplateentry.Cdtethernetvalid
-    leafs["cdtEthernetBridgeDomain"] = cdtethernettemplateentry.Cdtethernetbridgedomain
-    leafs["cdtEthernetPppoeEnable"] = cdtethernettemplateentry.Cdtethernetpppoeenable
-    leafs["cdtEthernetIpv4PointToPoint"] = cdtethernettemplateentry.Cdtethernetipv4Pointtopoint
-    leafs["cdtEthernetMacAddr"] = cdtethernettemplateentry.Cdtethernetmacaddr
-    return leafs
-}
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetYangName() string { return "cdtEthernetTemplateEntry" }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) SetParent(parent types.Entity) { cdtethernettemplateentry.parent = parent }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetParent() types.Entity { return cdtethernettemplateentry.parent }
-
-func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable_Cdtethernettemplateentry) GetParentYangName() string { return "cdtEthernetTemplateTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable
 // This table contains attributes relating to a service.
@@ -2758,7 +1962,7 @@ func (cdtethernettemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtethernettemplatetable
 //     'derived'
 //     'service'
 type CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing attributes relating to a service.  The system
@@ -2771,63 +1975,24 @@ type CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable struct {
     Cdtsrvtemplateentry []CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry
 }
 
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetFilter() yfilter.YFilter { return cdtsrvtemplatetable.YFilter }
+func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetEntityData() *types.CommonEntityData {
+    cdtsrvtemplatetable.EntityData.YFilter = cdtsrvtemplatetable.YFilter
+    cdtsrvtemplatetable.EntityData.YangName = "cdtSrvTemplateTable"
+    cdtsrvtemplatetable.EntityData.BundleName = "cisco_ios_xe"
+    cdtsrvtemplatetable.EntityData.ParentYangName = "CISCO-DYNAMIC-TEMPLATE-MIB"
+    cdtsrvtemplatetable.EntityData.SegmentPath = "cdtSrvTemplateTable"
+    cdtsrvtemplatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtsrvtemplatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtsrvtemplatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) SetFilter(yf yfilter.YFilter) { cdtsrvtemplatetable.YFilter = yf }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetGoName(yname string) string {
-    if yname == "cdtSrvTemplateEntry" { return "Cdtsrvtemplateentry" }
-    return ""
-}
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetSegmentPath() string {
-    return "cdtSrvTemplateTable"
-}
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdtSrvTemplateEntry" {
-        for _, c := range cdtsrvtemplatetable.Cdtsrvtemplateentry {
-            if cdtsrvtemplatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry{}
-        cdtsrvtemplatetable.Cdtsrvtemplateentry = append(cdtsrvtemplatetable.Cdtsrvtemplateentry, child)
-        return &cdtsrvtemplatetable.Cdtsrvtemplateentry[len(cdtsrvtemplatetable.Cdtsrvtemplateentry)-1]
-    }
-    return nil
-}
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdtsrvtemplatetable.EntityData.Children = make(map[string]types.YChild)
+    cdtsrvtemplatetable.EntityData.Children["cdtSrvTemplateEntry"] = types.YChild{"Cdtsrvtemplateentry", nil}
     for i := range cdtsrvtemplatetable.Cdtsrvtemplateentry {
-        children[cdtsrvtemplatetable.Cdtsrvtemplateentry[i].GetSegmentPath()] = &cdtsrvtemplatetable.Cdtsrvtemplateentry[i]
+        cdtsrvtemplatetable.EntityData.Children[types.GetSegmentPath(&cdtsrvtemplatetable.Cdtsrvtemplateentry[i])] = types.YChild{"Cdtsrvtemplateentry", &cdtsrvtemplatetable.Cdtsrvtemplateentry[i]}
     }
-    return children
+    cdtsrvtemplatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdtsrvtemplatetable.EntityData)
 }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetYangName() string { return "cdtSrvTemplateTable" }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) SetParent(parent types.Entity) { cdtsrvtemplatetable.parent = parent }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetParent() types.Entity { return cdtsrvtemplatetable.parent }
-
-func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetParentYangName() string { return "CISCO-DYNAMIC-TEMPLATE-MIB" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry
 // An entry containing attributes relating to a service.
@@ -2843,7 +2008,7 @@ func (cdtsrvtemplatetable *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable) GetParen
 // system or the EMS/NMS destroys the corresponding row in the
 // cdtTemplateTable.
 type CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -2910,63 +2075,27 @@ type CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry struct {
     Cdtsrvmulticast interface{}
 }
 
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetFilter() yfilter.YFilter { return cdtsrvtemplateentry.YFilter }
+func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetEntityData() *types.CommonEntityData {
+    cdtsrvtemplateentry.EntityData.YFilter = cdtsrvtemplateentry.YFilter
+    cdtsrvtemplateentry.EntityData.YangName = "cdtSrvTemplateEntry"
+    cdtsrvtemplateentry.EntityData.BundleName = "cisco_ios_xe"
+    cdtsrvtemplateentry.EntityData.ParentYangName = "cdtSrvTemplateTable"
+    cdtsrvtemplateentry.EntityData.SegmentPath = "cdtSrvTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtsrvtemplateentry.Cdttemplatename) + "']"
+    cdtsrvtemplateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdtsrvtemplateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdtsrvtemplateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) SetFilter(yf yfilter.YFilter) { cdtsrvtemplateentry.YFilter = yf }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetGoName(yname string) string {
-    if yname == "cdtTemplateName" { return "Cdttemplatename" }
-    if yname == "cdtSrvValid" { return "Cdtsrvvalid" }
-    if yname == "cdtSrvNetworkSrv" { return "Cdtsrvnetworksrv" }
-    if yname == "cdtSrvVpdnGroup" { return "Cdtsrvvpdngroup" }
-    if yname == "cdtSrvSgSrvGroup" { return "Cdtsrvsgsrvgroup" }
-    if yname == "cdtSrvSgSrvType" { return "Cdtsrvsgsrvtype" }
-    if yname == "cdtSrvMulticast" { return "Cdtsrvmulticast" }
-    return ""
+    cdtsrvtemplateentry.EntityData.Children = make(map[string]types.YChild)
+    cdtsrvtemplateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdtsrvtemplateentry.EntityData.Leafs["cdtTemplateName"] = types.YLeaf{"Cdttemplatename", cdtsrvtemplateentry.Cdttemplatename}
+    cdtsrvtemplateentry.EntityData.Leafs["cdtSrvValid"] = types.YLeaf{"Cdtsrvvalid", cdtsrvtemplateentry.Cdtsrvvalid}
+    cdtsrvtemplateentry.EntityData.Leafs["cdtSrvNetworkSrv"] = types.YLeaf{"Cdtsrvnetworksrv", cdtsrvtemplateentry.Cdtsrvnetworksrv}
+    cdtsrvtemplateentry.EntityData.Leafs["cdtSrvVpdnGroup"] = types.YLeaf{"Cdtsrvvpdngroup", cdtsrvtemplateentry.Cdtsrvvpdngroup}
+    cdtsrvtemplateentry.EntityData.Leafs["cdtSrvSgSrvGroup"] = types.YLeaf{"Cdtsrvsgsrvgroup", cdtsrvtemplateentry.Cdtsrvsgsrvgroup}
+    cdtsrvtemplateentry.EntityData.Leafs["cdtSrvSgSrvType"] = types.YLeaf{"Cdtsrvsgsrvtype", cdtsrvtemplateentry.Cdtsrvsgsrvtype}
+    cdtsrvtemplateentry.EntityData.Leafs["cdtSrvMulticast"] = types.YLeaf{"Cdtsrvmulticast", cdtsrvtemplateentry.Cdtsrvmulticast}
+    return &(cdtsrvtemplateentry.EntityData)
 }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetSegmentPath() string {
-    return "cdtSrvTemplateEntry" + "[cdtTemplateName='" + fmt.Sprintf("%v", cdtsrvtemplateentry.Cdttemplatename) + "']"
-}
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cdtTemplateName"] = cdtsrvtemplateentry.Cdttemplatename
-    leafs["cdtSrvValid"] = cdtsrvtemplateentry.Cdtsrvvalid
-    leafs["cdtSrvNetworkSrv"] = cdtsrvtemplateentry.Cdtsrvnetworksrv
-    leafs["cdtSrvVpdnGroup"] = cdtsrvtemplateentry.Cdtsrvvpdngroup
-    leafs["cdtSrvSgSrvGroup"] = cdtsrvtemplateentry.Cdtsrvsgsrvgroup
-    leafs["cdtSrvSgSrvType"] = cdtsrvtemplateentry.Cdtsrvsgsrvtype
-    leafs["cdtSrvMulticast"] = cdtsrvtemplateentry.Cdtsrvmulticast
-    return leafs
-}
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetYangName() string { return "cdtSrvTemplateEntry" }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) SetParent(parent types.Entity) { cdtsrvtemplateentry.parent = parent }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetParent() types.Entity { return cdtsrvtemplateentry.parent }
-
-func (cdtsrvtemplateentry *CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry) GetParentYangName() string { return "cdtSrvTemplateTable" }
 
 // CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry_Cdtsrvnetworksrv represents corresponding instance of cdtSrvValid is '1'.
 type CISCODYNAMICTEMPLATEMIB_Cdtsrvtemplatetable_Cdtsrvtemplateentry_Cdtsrvnetworksrv string

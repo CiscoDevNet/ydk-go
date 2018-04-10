@@ -21,7 +21,7 @@ func init() {
 
 // IFMIB
 type IFMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -62,78 +62,29 @@ type IFMIB struct {
     Ifrcvaddresstable IFMIB_Ifrcvaddresstable
 }
 
-func (iFMIB *IFMIB) GetFilter() yfilter.YFilter { return iFMIB.YFilter }
+func (iFMIB *IFMIB) GetEntityData() *types.CommonEntityData {
+    iFMIB.EntityData.YFilter = iFMIB.YFilter
+    iFMIB.EntityData.YangName = "IF-MIB"
+    iFMIB.EntityData.BundleName = "cisco_ios_xe"
+    iFMIB.EntityData.ParentYangName = "IF-MIB"
+    iFMIB.EntityData.SegmentPath = "IF-MIB:IF-MIB"
+    iFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iFMIB *IFMIB) SetFilter(yf yfilter.YFilter) { iFMIB.YFilter = yf }
-
-func (iFMIB *IFMIB) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "ifMIBObjects" { return "Ifmibobjects" }
-    if yname == "ifTable" { return "Iftable" }
-    if yname == "ifStackTable" { return "Ifstacktable" }
-    if yname == "ifRcvAddressTable" { return "Ifrcvaddresstable" }
-    return ""
+    iFMIB.EntityData.Children = make(map[string]types.YChild)
+    iFMIB.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &iFMIB.Interfaces}
+    iFMIB.EntityData.Children["ifMIBObjects"] = types.YChild{"Ifmibobjects", &iFMIB.Ifmibobjects}
+    iFMIB.EntityData.Children["ifTable"] = types.YChild{"Iftable", &iFMIB.Iftable}
+    iFMIB.EntityData.Children["ifStackTable"] = types.YChild{"Ifstacktable", &iFMIB.Ifstacktable}
+    iFMIB.EntityData.Children["ifRcvAddressTable"] = types.YChild{"Ifrcvaddresstable", &iFMIB.Ifrcvaddresstable}
+    iFMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iFMIB.EntityData)
 }
-
-func (iFMIB *IFMIB) GetSegmentPath() string {
-    return "IF-MIB:IF-MIB"
-}
-
-func (iFMIB *IFMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &iFMIB.Interfaces
-    }
-    if childYangName == "ifMIBObjects" {
-        return &iFMIB.Ifmibobjects
-    }
-    if childYangName == "ifTable" {
-        return &iFMIB.Iftable
-    }
-    if childYangName == "ifStackTable" {
-        return &iFMIB.Ifstacktable
-    }
-    if childYangName == "ifRcvAddressTable" {
-        return &iFMIB.Ifrcvaddresstable
-    }
-    return nil
-}
-
-func (iFMIB *IFMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &iFMIB.Interfaces
-    children["ifMIBObjects"] = &iFMIB.Ifmibobjects
-    children["ifTable"] = &iFMIB.Iftable
-    children["ifStackTable"] = &iFMIB.Ifstacktable
-    children["ifRcvAddressTable"] = &iFMIB.Ifrcvaddresstable
-    return children
-}
-
-func (iFMIB *IFMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iFMIB *IFMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iFMIB *IFMIB) GetYangName() string { return "IF-MIB" }
-
-func (iFMIB *IFMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iFMIB *IFMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iFMIB *IFMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iFMIB *IFMIB) SetParent(parent types.Entity) { iFMIB.parent = parent }
-
-func (iFMIB *IFMIB) GetParent() types.Entity { return iFMIB.parent }
-
-func (iFMIB *IFMIB) GetParentYangName() string { return "IF-MIB" }
 
 // IFMIB_Interfaces
 type IFMIB_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of network interfaces (regardless of their current state)
@@ -142,55 +93,25 @@ type IFMIB_Interfaces struct {
     Ifnumber interface{}
 }
 
-func (interfaces *IFMIB_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *IFMIB_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xe"
+    interfaces.EntityData.ParentYangName = "IF-MIB"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (interfaces *IFMIB_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *IFMIB_Interfaces) GetGoName(yname string) string {
-    if yname == "ifNumber" { return "Ifnumber" }
-    return ""
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs["ifNumber"] = types.YLeaf{"Ifnumber", interfaces.Ifnumber}
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *IFMIB_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *IFMIB_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaces *IFMIB_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaces *IFMIB_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifNumber"] = interfaces.Ifnumber
-    return leafs
-}
-
-func (interfaces *IFMIB_Interfaces) GetBundleName() string { return "cisco_ios_xe" }
-
-func (interfaces *IFMIB_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *IFMIB_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (interfaces *IFMIB_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (interfaces *IFMIB_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (interfaces *IFMIB_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *IFMIB_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *IFMIB_Interfaces) GetParentYangName() string { return "IF-MIB" }
 
 // IFMIB_Ifmibobjects
 type IFMIB_Ifmibobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of sysUpTime at the time of the last creation or deletion of an
@@ -209,59 +130,28 @@ type IFMIB_Ifmibobjects struct {
     Ifstacklastchange interface{}
 }
 
-func (ifmibobjects *IFMIB_Ifmibobjects) GetFilter() yfilter.YFilter { return ifmibobjects.YFilter }
+func (ifmibobjects *IFMIB_Ifmibobjects) GetEntityData() *types.CommonEntityData {
+    ifmibobjects.EntityData.YFilter = ifmibobjects.YFilter
+    ifmibobjects.EntityData.YangName = "ifMIBObjects"
+    ifmibobjects.EntityData.BundleName = "cisco_ios_xe"
+    ifmibobjects.EntityData.ParentYangName = "IF-MIB"
+    ifmibobjects.EntityData.SegmentPath = "ifMIBObjects"
+    ifmibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifmibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifmibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ifmibobjects *IFMIB_Ifmibobjects) SetFilter(yf yfilter.YFilter) { ifmibobjects.YFilter = yf }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetGoName(yname string) string {
-    if yname == "ifTableLastChange" { return "Iftablelastchange" }
-    if yname == "ifStackLastChange" { return "Ifstacklastchange" }
-    return ""
+    ifmibobjects.EntityData.Children = make(map[string]types.YChild)
+    ifmibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifmibobjects.EntityData.Leafs["ifTableLastChange"] = types.YLeaf{"Iftablelastchange", ifmibobjects.Iftablelastchange}
+    ifmibobjects.EntityData.Leafs["ifStackLastChange"] = types.YLeaf{"Ifstacklastchange", ifmibobjects.Ifstacklastchange}
+    return &(ifmibobjects.EntityData)
 }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetSegmentPath() string {
-    return "ifMIBObjects"
-}
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifTableLastChange"] = ifmibobjects.Iftablelastchange
-    leafs["ifStackLastChange"] = ifmibobjects.Ifstacklastchange
-    return leafs
-}
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetYangName() string { return "ifMIBObjects" }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) SetParent(parent types.Entity) { ifmibobjects.parent = parent }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetParent() types.Entity { return ifmibobjects.parent }
-
-func (ifmibobjects *IFMIB_Ifmibobjects) GetParentYangName() string { return "IF-MIB" }
 
 // IFMIB_Iftable
 // A list of interface entries.  The number of entries is
 // given by the value of ifNumber.
 type IFMIB_Iftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing management information applicable to a particular
@@ -269,69 +159,30 @@ type IFMIB_Iftable struct {
     Ifentry []IFMIB_Iftable_Ifentry
 }
 
-func (iftable *IFMIB_Iftable) GetFilter() yfilter.YFilter { return iftable.YFilter }
+func (iftable *IFMIB_Iftable) GetEntityData() *types.CommonEntityData {
+    iftable.EntityData.YFilter = iftable.YFilter
+    iftable.EntityData.YangName = "ifTable"
+    iftable.EntityData.BundleName = "cisco_ios_xe"
+    iftable.EntityData.ParentYangName = "IF-MIB"
+    iftable.EntityData.SegmentPath = "ifTable"
+    iftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iftable *IFMIB_Iftable) SetFilter(yf yfilter.YFilter) { iftable.YFilter = yf }
-
-func (iftable *IFMIB_Iftable) GetGoName(yname string) string {
-    if yname == "ifEntry" { return "Ifentry" }
-    return ""
-}
-
-func (iftable *IFMIB_Iftable) GetSegmentPath() string {
-    return "ifTable"
-}
-
-func (iftable *IFMIB_Iftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ifEntry" {
-        for _, c := range iftable.Ifentry {
-            if iftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IFMIB_Iftable_Ifentry{}
-        iftable.Ifentry = append(iftable.Ifentry, child)
-        return &iftable.Ifentry[len(iftable.Ifentry)-1]
-    }
-    return nil
-}
-
-func (iftable *IFMIB_Iftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    iftable.EntityData.Children = make(map[string]types.YChild)
+    iftable.EntityData.Children["ifEntry"] = types.YChild{"Ifentry", nil}
     for i := range iftable.Ifentry {
-        children[iftable.Ifentry[i].GetSegmentPath()] = &iftable.Ifentry[i]
+        iftable.EntityData.Children[types.GetSegmentPath(&iftable.Ifentry[i])] = types.YChild{"Ifentry", &iftable.Ifentry[i]}
     }
-    return children
+    iftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iftable.EntityData)
 }
-
-func (iftable *IFMIB_Iftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iftable *IFMIB_Iftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iftable *IFMIB_Iftable) GetYangName() string { return "ifTable" }
-
-func (iftable *IFMIB_Iftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iftable *IFMIB_Iftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iftable *IFMIB_Iftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iftable *IFMIB_Iftable) SetParent(parent types.Entity) { iftable.parent = parent }
-
-func (iftable *IFMIB_Iftable) GetParent() types.Entity { return iftable.parent }
-
-func (iftable *IFMIB_Iftable) GetParentYangName() string { return "IF-MIB" }
 
 // IFMIB_Iftable_Ifentry
 // An entry containing management information applicable to a
 // particular interface.
 type IFMIB_Iftable_Ifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique value, greater than zero, for each
@@ -376,7 +227,7 @@ type IFMIB_Iftable_Ifentry struct {
     // the format of the value of this object.  For interfaces which do not have
     // such an address (e.g., a serial line), this object should contain an octet
     // string of zero length. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Ifphysaddress interface{}
 
     // The desired state of the interface.  The testing(3) state indicates that no
@@ -519,7 +370,7 @@ type IFMIB_Iftable_Ifentry struct {
     // no MIB definitions specific to the particular media are available, the
     // value should be set to the OBJECT IDENTIFIER { 0 0 }. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ifspecific interface{}
 
     // The textual name of the interface.  The value of this object should be the
@@ -727,7 +578,7 @@ type IFMIB_Iftable_Ifentry struct {
     // set to.  If it has not been set since the last initialization of the
     // network management subsystem on the agent, a value of noTest is returned.
     // The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Iftesttype interface{}
 
     // This object contains the result of the most recently requested test, or the
@@ -744,7 +595,8 @@ type IFMIB_Iftable_Ifentry struct {
     // or InstancePointer textual conventions as defined in RFC 2579.  The
     // identifier:      testCodeUnknown  OBJECT IDENTIFIER ::= { 0 0 }  is defined
     // for use if no additional result code is available. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Iftestcode interface{}
 
     // The entity which currently has the 'ownership' required to invoke a test on
@@ -752,143 +604,67 @@ type IFMIB_Iftable_Ifentry struct {
     Iftestowner interface{}
 }
 
-func (ifentry *IFMIB_Iftable_Ifentry) GetFilter() yfilter.YFilter { return ifentry.YFilter }
+func (ifentry *IFMIB_Iftable_Ifentry) GetEntityData() *types.CommonEntityData {
+    ifentry.EntityData.YFilter = ifentry.YFilter
+    ifentry.EntityData.YangName = "ifEntry"
+    ifentry.EntityData.BundleName = "cisco_ios_xe"
+    ifentry.EntityData.ParentYangName = "ifTable"
+    ifentry.EntityData.SegmentPath = "ifEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifentry.Ifindex) + "']"
+    ifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ifentry *IFMIB_Iftable_Ifentry) SetFilter(yf yfilter.YFilter) { ifentry.YFilter = yf }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "ifDescr" { return "Ifdescr" }
-    if yname == "ifType" { return "Iftype" }
-    if yname == "ifMtu" { return "Ifmtu" }
-    if yname == "ifSpeed" { return "Ifspeed" }
-    if yname == "ifPhysAddress" { return "Ifphysaddress" }
-    if yname == "ifAdminStatus" { return "Ifadminstatus" }
-    if yname == "ifOperStatus" { return "Ifoperstatus" }
-    if yname == "ifLastChange" { return "Iflastchange" }
-    if yname == "ifInOctets" { return "Ifinoctets" }
-    if yname == "ifInUcastPkts" { return "Ifinucastpkts" }
-    if yname == "ifInNUcastPkts" { return "Ifinnucastpkts" }
-    if yname == "ifInDiscards" { return "Ifindiscards" }
-    if yname == "ifInErrors" { return "Ifinerrors" }
-    if yname == "ifInUnknownProtos" { return "Ifinunknownprotos" }
-    if yname == "ifOutOctets" { return "Ifoutoctets" }
-    if yname == "ifOutUcastPkts" { return "Ifoutucastpkts" }
-    if yname == "ifOutNUcastPkts" { return "Ifoutnucastpkts" }
-    if yname == "ifOutDiscards" { return "Ifoutdiscards" }
-    if yname == "ifOutErrors" { return "Ifouterrors" }
-    if yname == "ifOutQLen" { return "Ifoutqlen" }
-    if yname == "ifSpecific" { return "Ifspecific" }
-    if yname == "ifName" { return "Ifname" }
-    if yname == "ifInMulticastPkts" { return "Ifinmulticastpkts" }
-    if yname == "ifInBroadcastPkts" { return "Ifinbroadcastpkts" }
-    if yname == "ifOutMulticastPkts" { return "Ifoutmulticastpkts" }
-    if yname == "ifOutBroadcastPkts" { return "Ifoutbroadcastpkts" }
-    if yname == "ifHCInOctets" { return "Ifhcinoctets" }
-    if yname == "ifHCInUcastPkts" { return "Ifhcinucastpkts" }
-    if yname == "ifHCInMulticastPkts" { return "Ifhcinmulticastpkts" }
-    if yname == "ifHCInBroadcastPkts" { return "Ifhcinbroadcastpkts" }
-    if yname == "ifHCOutOctets" { return "Ifhcoutoctets" }
-    if yname == "ifHCOutUcastPkts" { return "Ifhcoutucastpkts" }
-    if yname == "ifHCOutMulticastPkts" { return "Ifhcoutmulticastpkts" }
-    if yname == "ifHCOutBroadcastPkts" { return "Ifhcoutbroadcastpkts" }
-    if yname == "ifLinkUpDownTrapEnable" { return "Iflinkupdowntrapenable" }
-    if yname == "ifHighSpeed" { return "Ifhighspeed" }
-    if yname == "ifPromiscuousMode" { return "Ifpromiscuousmode" }
-    if yname == "ifConnectorPresent" { return "Ifconnectorpresent" }
-    if yname == "ifAlias" { return "Ifalias" }
-    if yname == "ifCounterDiscontinuityTime" { return "Ifcounterdiscontinuitytime" }
-    if yname == "ifTestId" { return "Iftestid" }
-    if yname == "ifTestStatus" { return "Ifteststatus" }
-    if yname == "ifTestType" { return "Iftesttype" }
-    if yname == "ifTestResult" { return "Iftestresult" }
-    if yname == "ifTestCode" { return "Iftestcode" }
-    if yname == "ifTestOwner" { return "Iftestowner" }
-    return ""
+    ifentry.EntityData.Children = make(map[string]types.YChild)
+    ifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ifentry.Ifindex}
+    ifentry.EntityData.Leafs["ifDescr"] = types.YLeaf{"Ifdescr", ifentry.Ifdescr}
+    ifentry.EntityData.Leafs["ifType"] = types.YLeaf{"Iftype", ifentry.Iftype}
+    ifentry.EntityData.Leafs["ifMtu"] = types.YLeaf{"Ifmtu", ifentry.Ifmtu}
+    ifentry.EntityData.Leafs["ifSpeed"] = types.YLeaf{"Ifspeed", ifentry.Ifspeed}
+    ifentry.EntityData.Leafs["ifPhysAddress"] = types.YLeaf{"Ifphysaddress", ifentry.Ifphysaddress}
+    ifentry.EntityData.Leafs["ifAdminStatus"] = types.YLeaf{"Ifadminstatus", ifentry.Ifadminstatus}
+    ifentry.EntityData.Leafs["ifOperStatus"] = types.YLeaf{"Ifoperstatus", ifentry.Ifoperstatus}
+    ifentry.EntityData.Leafs["ifLastChange"] = types.YLeaf{"Iflastchange", ifentry.Iflastchange}
+    ifentry.EntityData.Leafs["ifInOctets"] = types.YLeaf{"Ifinoctets", ifentry.Ifinoctets}
+    ifentry.EntityData.Leafs["ifInUcastPkts"] = types.YLeaf{"Ifinucastpkts", ifentry.Ifinucastpkts}
+    ifentry.EntityData.Leafs["ifInNUcastPkts"] = types.YLeaf{"Ifinnucastpkts", ifentry.Ifinnucastpkts}
+    ifentry.EntityData.Leafs["ifInDiscards"] = types.YLeaf{"Ifindiscards", ifentry.Ifindiscards}
+    ifentry.EntityData.Leafs["ifInErrors"] = types.YLeaf{"Ifinerrors", ifentry.Ifinerrors}
+    ifentry.EntityData.Leafs["ifInUnknownProtos"] = types.YLeaf{"Ifinunknownprotos", ifentry.Ifinunknownprotos}
+    ifentry.EntityData.Leafs["ifOutOctets"] = types.YLeaf{"Ifoutoctets", ifentry.Ifoutoctets}
+    ifentry.EntityData.Leafs["ifOutUcastPkts"] = types.YLeaf{"Ifoutucastpkts", ifentry.Ifoutucastpkts}
+    ifentry.EntityData.Leafs["ifOutNUcastPkts"] = types.YLeaf{"Ifoutnucastpkts", ifentry.Ifoutnucastpkts}
+    ifentry.EntityData.Leafs["ifOutDiscards"] = types.YLeaf{"Ifoutdiscards", ifentry.Ifoutdiscards}
+    ifentry.EntityData.Leafs["ifOutErrors"] = types.YLeaf{"Ifouterrors", ifentry.Ifouterrors}
+    ifentry.EntityData.Leafs["ifOutQLen"] = types.YLeaf{"Ifoutqlen", ifentry.Ifoutqlen}
+    ifentry.EntityData.Leafs["ifSpecific"] = types.YLeaf{"Ifspecific", ifentry.Ifspecific}
+    ifentry.EntityData.Leafs["ifName"] = types.YLeaf{"Ifname", ifentry.Ifname}
+    ifentry.EntityData.Leafs["ifInMulticastPkts"] = types.YLeaf{"Ifinmulticastpkts", ifentry.Ifinmulticastpkts}
+    ifentry.EntityData.Leafs["ifInBroadcastPkts"] = types.YLeaf{"Ifinbroadcastpkts", ifentry.Ifinbroadcastpkts}
+    ifentry.EntityData.Leafs["ifOutMulticastPkts"] = types.YLeaf{"Ifoutmulticastpkts", ifentry.Ifoutmulticastpkts}
+    ifentry.EntityData.Leafs["ifOutBroadcastPkts"] = types.YLeaf{"Ifoutbroadcastpkts", ifentry.Ifoutbroadcastpkts}
+    ifentry.EntityData.Leafs["ifHCInOctets"] = types.YLeaf{"Ifhcinoctets", ifentry.Ifhcinoctets}
+    ifentry.EntityData.Leafs["ifHCInUcastPkts"] = types.YLeaf{"Ifhcinucastpkts", ifentry.Ifhcinucastpkts}
+    ifentry.EntityData.Leafs["ifHCInMulticastPkts"] = types.YLeaf{"Ifhcinmulticastpkts", ifentry.Ifhcinmulticastpkts}
+    ifentry.EntityData.Leafs["ifHCInBroadcastPkts"] = types.YLeaf{"Ifhcinbroadcastpkts", ifentry.Ifhcinbroadcastpkts}
+    ifentry.EntityData.Leafs["ifHCOutOctets"] = types.YLeaf{"Ifhcoutoctets", ifentry.Ifhcoutoctets}
+    ifentry.EntityData.Leafs["ifHCOutUcastPkts"] = types.YLeaf{"Ifhcoutucastpkts", ifentry.Ifhcoutucastpkts}
+    ifentry.EntityData.Leafs["ifHCOutMulticastPkts"] = types.YLeaf{"Ifhcoutmulticastpkts", ifentry.Ifhcoutmulticastpkts}
+    ifentry.EntityData.Leafs["ifHCOutBroadcastPkts"] = types.YLeaf{"Ifhcoutbroadcastpkts", ifentry.Ifhcoutbroadcastpkts}
+    ifentry.EntityData.Leafs["ifLinkUpDownTrapEnable"] = types.YLeaf{"Iflinkupdowntrapenable", ifentry.Iflinkupdowntrapenable}
+    ifentry.EntityData.Leafs["ifHighSpeed"] = types.YLeaf{"Ifhighspeed", ifentry.Ifhighspeed}
+    ifentry.EntityData.Leafs["ifPromiscuousMode"] = types.YLeaf{"Ifpromiscuousmode", ifentry.Ifpromiscuousmode}
+    ifentry.EntityData.Leafs["ifConnectorPresent"] = types.YLeaf{"Ifconnectorpresent", ifentry.Ifconnectorpresent}
+    ifentry.EntityData.Leafs["ifAlias"] = types.YLeaf{"Ifalias", ifentry.Ifalias}
+    ifentry.EntityData.Leafs["ifCounterDiscontinuityTime"] = types.YLeaf{"Ifcounterdiscontinuitytime", ifentry.Ifcounterdiscontinuitytime}
+    ifentry.EntityData.Leafs["ifTestId"] = types.YLeaf{"Iftestid", ifentry.Iftestid}
+    ifentry.EntityData.Leafs["ifTestStatus"] = types.YLeaf{"Ifteststatus", ifentry.Ifteststatus}
+    ifentry.EntityData.Leafs["ifTestType"] = types.YLeaf{"Iftesttype", ifentry.Iftesttype}
+    ifentry.EntityData.Leafs["ifTestResult"] = types.YLeaf{"Iftestresult", ifentry.Iftestresult}
+    ifentry.EntityData.Leafs["ifTestCode"] = types.YLeaf{"Iftestcode", ifentry.Iftestcode}
+    ifentry.EntityData.Leafs["ifTestOwner"] = types.YLeaf{"Iftestowner", ifentry.Iftestowner}
+    return &(ifentry.EntityData)
 }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetSegmentPath() string {
-    return "ifEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifentry.Ifindex) + "']"
-}
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = ifentry.Ifindex
-    leafs["ifDescr"] = ifentry.Ifdescr
-    leafs["ifType"] = ifentry.Iftype
-    leafs["ifMtu"] = ifentry.Ifmtu
-    leafs["ifSpeed"] = ifentry.Ifspeed
-    leafs["ifPhysAddress"] = ifentry.Ifphysaddress
-    leafs["ifAdminStatus"] = ifentry.Ifadminstatus
-    leafs["ifOperStatus"] = ifentry.Ifoperstatus
-    leafs["ifLastChange"] = ifentry.Iflastchange
-    leafs["ifInOctets"] = ifentry.Ifinoctets
-    leafs["ifInUcastPkts"] = ifentry.Ifinucastpkts
-    leafs["ifInNUcastPkts"] = ifentry.Ifinnucastpkts
-    leafs["ifInDiscards"] = ifentry.Ifindiscards
-    leafs["ifInErrors"] = ifentry.Ifinerrors
-    leafs["ifInUnknownProtos"] = ifentry.Ifinunknownprotos
-    leafs["ifOutOctets"] = ifentry.Ifoutoctets
-    leafs["ifOutUcastPkts"] = ifentry.Ifoutucastpkts
-    leafs["ifOutNUcastPkts"] = ifentry.Ifoutnucastpkts
-    leafs["ifOutDiscards"] = ifentry.Ifoutdiscards
-    leafs["ifOutErrors"] = ifentry.Ifouterrors
-    leafs["ifOutQLen"] = ifentry.Ifoutqlen
-    leafs["ifSpecific"] = ifentry.Ifspecific
-    leafs["ifName"] = ifentry.Ifname
-    leafs["ifInMulticastPkts"] = ifentry.Ifinmulticastpkts
-    leafs["ifInBroadcastPkts"] = ifentry.Ifinbroadcastpkts
-    leafs["ifOutMulticastPkts"] = ifentry.Ifoutmulticastpkts
-    leafs["ifOutBroadcastPkts"] = ifentry.Ifoutbroadcastpkts
-    leafs["ifHCInOctets"] = ifentry.Ifhcinoctets
-    leafs["ifHCInUcastPkts"] = ifentry.Ifhcinucastpkts
-    leafs["ifHCInMulticastPkts"] = ifentry.Ifhcinmulticastpkts
-    leafs["ifHCInBroadcastPkts"] = ifentry.Ifhcinbroadcastpkts
-    leafs["ifHCOutOctets"] = ifentry.Ifhcoutoctets
-    leafs["ifHCOutUcastPkts"] = ifentry.Ifhcoutucastpkts
-    leafs["ifHCOutMulticastPkts"] = ifentry.Ifhcoutmulticastpkts
-    leafs["ifHCOutBroadcastPkts"] = ifentry.Ifhcoutbroadcastpkts
-    leafs["ifLinkUpDownTrapEnable"] = ifentry.Iflinkupdowntrapenable
-    leafs["ifHighSpeed"] = ifentry.Ifhighspeed
-    leafs["ifPromiscuousMode"] = ifentry.Ifpromiscuousmode
-    leafs["ifConnectorPresent"] = ifentry.Ifconnectorpresent
-    leafs["ifAlias"] = ifentry.Ifalias
-    leafs["ifCounterDiscontinuityTime"] = ifentry.Ifcounterdiscontinuitytime
-    leafs["ifTestId"] = ifentry.Iftestid
-    leafs["ifTestStatus"] = ifentry.Ifteststatus
-    leafs["ifTestType"] = ifentry.Iftesttype
-    leafs["ifTestResult"] = ifentry.Iftestresult
-    leafs["ifTestCode"] = ifentry.Iftestcode
-    leafs["ifTestOwner"] = ifentry.Iftestowner
-    return leafs
-}
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetYangName() string { return "ifEntry" }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ifentry *IFMIB_Iftable_Ifentry) SetParent(parent types.Entity) { ifentry.parent = parent }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetParent() types.Entity { return ifentry.parent }
-
-func (ifentry *IFMIB_Iftable_Ifentry) GetParentYangName() string { return "ifTable" }
 
 // IFMIB_Iftable_Ifentry_Ifadminstatus represents in the down(2) state).
 type IFMIB_Iftable_Ifentry_Ifadminstatus string
@@ -983,7 +759,7 @@ const (
 //   ifStackStatus.0.x=active
 //   ifStackStatus.x.0=active 
 type IFMIB_Ifstacktable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information on a particular relationship between two sub- layers,
@@ -993,63 +769,24 @@ type IFMIB_Ifstacktable struct {
     Ifstackentry []IFMIB_Ifstacktable_Ifstackentry
 }
 
-func (ifstacktable *IFMIB_Ifstacktable) GetFilter() yfilter.YFilter { return ifstacktable.YFilter }
+func (ifstacktable *IFMIB_Ifstacktable) GetEntityData() *types.CommonEntityData {
+    ifstacktable.EntityData.YFilter = ifstacktable.YFilter
+    ifstacktable.EntityData.YangName = "ifStackTable"
+    ifstacktable.EntityData.BundleName = "cisco_ios_xe"
+    ifstacktable.EntityData.ParentYangName = "IF-MIB"
+    ifstacktable.EntityData.SegmentPath = "ifStackTable"
+    ifstacktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifstacktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifstacktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ifstacktable *IFMIB_Ifstacktable) SetFilter(yf yfilter.YFilter) { ifstacktable.YFilter = yf }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetGoName(yname string) string {
-    if yname == "ifStackEntry" { return "Ifstackentry" }
-    return ""
-}
-
-func (ifstacktable *IFMIB_Ifstacktable) GetSegmentPath() string {
-    return "ifStackTable"
-}
-
-func (ifstacktable *IFMIB_Ifstacktable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ifStackEntry" {
-        for _, c := range ifstacktable.Ifstackentry {
-            if ifstacktable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IFMIB_Ifstacktable_Ifstackentry{}
-        ifstacktable.Ifstackentry = append(ifstacktable.Ifstackentry, child)
-        return &ifstacktable.Ifstackentry[len(ifstacktable.Ifstackentry)-1]
-    }
-    return nil
-}
-
-func (ifstacktable *IFMIB_Ifstacktable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ifstacktable.EntityData.Children = make(map[string]types.YChild)
+    ifstacktable.EntityData.Children["ifStackEntry"] = types.YChild{"Ifstackentry", nil}
     for i := range ifstacktable.Ifstackentry {
-        children[ifstacktable.Ifstackentry[i].GetSegmentPath()] = &ifstacktable.Ifstackentry[i]
+        ifstacktable.EntityData.Children[types.GetSegmentPath(&ifstacktable.Ifstackentry[i])] = types.YChild{"Ifstackentry", &ifstacktable.Ifstackentry[i]}
     }
-    return children
+    ifstacktable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ifstacktable.EntityData)
 }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ifstacktable *IFMIB_Ifstacktable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetYangName() string { return "ifStackTable" }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ifstacktable *IFMIB_Ifstacktable) SetParent(parent types.Entity) { ifstacktable.parent = parent }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetParent() types.Entity { return ifstacktable.parent }
-
-func (ifstacktable *IFMIB_Ifstacktable) GetParentYangName() string { return "IF-MIB" }
 
 // IFMIB_Ifstacktable_Ifstackentry
 // Information on a particular relationship between two sub-
@@ -1057,7 +794,7 @@ func (ifstacktable *IFMIB_Ifstacktable) GetParentYangName() string { return "IF-
 // other sub-layer.  Each sub-layer corresponds to a conceptual
 // row in the ifTable.
 type IFMIB_Ifstacktable_Ifstackentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of ifIndex corresponding to the higher
@@ -1084,55 +821,23 @@ type IFMIB_Ifstacktable_Ifstackentry struct {
     Ifstackstatus interface{}
 }
 
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetFilter() yfilter.YFilter { return ifstackentry.YFilter }
+func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetEntityData() *types.CommonEntityData {
+    ifstackentry.EntityData.YFilter = ifstackentry.YFilter
+    ifstackentry.EntityData.YangName = "ifStackEntry"
+    ifstackentry.EntityData.BundleName = "cisco_ios_xe"
+    ifstackentry.EntityData.ParentYangName = "ifStackTable"
+    ifstackentry.EntityData.SegmentPath = "ifStackEntry" + "[ifStackHigherLayer='" + fmt.Sprintf("%v", ifstackentry.Ifstackhigherlayer) + "']" + "[ifStackLowerLayer='" + fmt.Sprintf("%v", ifstackentry.Ifstacklowerlayer) + "']"
+    ifstackentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifstackentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifstackentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) SetFilter(yf yfilter.YFilter) { ifstackentry.YFilter = yf }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetGoName(yname string) string {
-    if yname == "ifStackHigherLayer" { return "Ifstackhigherlayer" }
-    if yname == "ifStackLowerLayer" { return "Ifstacklowerlayer" }
-    if yname == "ifStackStatus" { return "Ifstackstatus" }
-    return ""
+    ifstackentry.EntityData.Children = make(map[string]types.YChild)
+    ifstackentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifstackentry.EntityData.Leafs["ifStackHigherLayer"] = types.YLeaf{"Ifstackhigherlayer", ifstackentry.Ifstackhigherlayer}
+    ifstackentry.EntityData.Leafs["ifStackLowerLayer"] = types.YLeaf{"Ifstacklowerlayer", ifstackentry.Ifstacklowerlayer}
+    ifstackentry.EntityData.Leafs["ifStackStatus"] = types.YLeaf{"Ifstackstatus", ifstackentry.Ifstackstatus}
+    return &(ifstackentry.EntityData)
 }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetSegmentPath() string {
-    return "ifStackEntry" + "[ifStackHigherLayer='" + fmt.Sprintf("%v", ifstackentry.Ifstackhigherlayer) + "']" + "[ifStackLowerLayer='" + fmt.Sprintf("%v", ifstackentry.Ifstacklowerlayer) + "']"
-}
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifStackHigherLayer"] = ifstackentry.Ifstackhigherlayer
-    leafs["ifStackLowerLayer"] = ifstackentry.Ifstacklowerlayer
-    leafs["ifStackStatus"] = ifstackentry.Ifstackstatus
-    return leafs
-}
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetYangName() string { return "ifStackEntry" }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) SetParent(parent types.Entity) { ifstackentry.parent = parent }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetParent() types.Entity { return ifstackentry.parent }
-
-func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetParentYangName() string { return "ifStackTable" }
 
 // IFMIB_Ifrcvaddresstable
 // This table contains an entry for each address (broadcast,
@@ -1152,7 +857,7 @@ func (ifstackentry *IFMIB_Ifstacktable_Ifstackentry) GetParentYangName() string 
 // A system is normally able to use any unicast address which
 // corresponds to an entry in this table as a source address.
 type IFMIB_Ifrcvaddresstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects identifying an address for which the system will accept
@@ -1161,70 +866,31 @@ type IFMIB_Ifrcvaddresstable struct {
     Ifrcvaddressentry []IFMIB_Ifrcvaddresstable_Ifrcvaddressentry
 }
 
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetFilter() yfilter.YFilter { return ifrcvaddresstable.YFilter }
+func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetEntityData() *types.CommonEntityData {
+    ifrcvaddresstable.EntityData.YFilter = ifrcvaddresstable.YFilter
+    ifrcvaddresstable.EntityData.YangName = "ifRcvAddressTable"
+    ifrcvaddresstable.EntityData.BundleName = "cisco_ios_xe"
+    ifrcvaddresstable.EntityData.ParentYangName = "IF-MIB"
+    ifrcvaddresstable.EntityData.SegmentPath = "ifRcvAddressTable"
+    ifrcvaddresstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifrcvaddresstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifrcvaddresstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) SetFilter(yf yfilter.YFilter) { ifrcvaddresstable.YFilter = yf }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetGoName(yname string) string {
-    if yname == "ifRcvAddressEntry" { return "Ifrcvaddressentry" }
-    return ""
-}
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetSegmentPath() string {
-    return "ifRcvAddressTable"
-}
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ifRcvAddressEntry" {
-        for _, c := range ifrcvaddresstable.Ifrcvaddressentry {
-            if ifrcvaddresstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IFMIB_Ifrcvaddresstable_Ifrcvaddressentry{}
-        ifrcvaddresstable.Ifrcvaddressentry = append(ifrcvaddresstable.Ifrcvaddressentry, child)
-        return &ifrcvaddresstable.Ifrcvaddressentry[len(ifrcvaddresstable.Ifrcvaddressentry)-1]
-    }
-    return nil
-}
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ifrcvaddresstable.EntityData.Children = make(map[string]types.YChild)
+    ifrcvaddresstable.EntityData.Children["ifRcvAddressEntry"] = types.YChild{"Ifrcvaddressentry", nil}
     for i := range ifrcvaddresstable.Ifrcvaddressentry {
-        children[ifrcvaddresstable.Ifrcvaddressentry[i].GetSegmentPath()] = &ifrcvaddresstable.Ifrcvaddressentry[i]
+        ifrcvaddresstable.EntityData.Children[types.GetSegmentPath(&ifrcvaddresstable.Ifrcvaddressentry[i])] = types.YChild{"Ifrcvaddressentry", &ifrcvaddresstable.Ifrcvaddressentry[i]}
     }
-    return children
+    ifrcvaddresstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ifrcvaddresstable.EntityData)
 }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetYangName() string { return "ifRcvAddressTable" }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) SetParent(parent types.Entity) { ifrcvaddresstable.parent = parent }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetParent() types.Entity { return ifrcvaddresstable.parent }
-
-func (ifrcvaddresstable *IFMIB_Ifrcvaddresstable) GetParentYangName() string { return "IF-MIB" }
 
 // IFMIB_Ifrcvaddresstable_Ifrcvaddressentry
 // A list of objects identifying an address for which the
 // system will accept packets/frames on the particular
 // interface identified by the index value ifIndex.
 type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1233,7 +899,7 @@ type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry struct {
 
     // This attribute is a key. An address for which the system will accept
     // packets/frames on this entry's interface. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     Ifrcvaddressaddress interface{}
 
     // This object is used to create and delete rows in the ifRcvAddressTable. The
@@ -1250,57 +916,24 @@ type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry struct {
     Ifrcvaddresstype interface{}
 }
 
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetFilter() yfilter.YFilter { return ifrcvaddressentry.YFilter }
+func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetEntityData() *types.CommonEntityData {
+    ifrcvaddressentry.EntityData.YFilter = ifrcvaddressentry.YFilter
+    ifrcvaddressentry.EntityData.YangName = "ifRcvAddressEntry"
+    ifrcvaddressentry.EntityData.BundleName = "cisco_ios_xe"
+    ifrcvaddressentry.EntityData.ParentYangName = "ifRcvAddressTable"
+    ifrcvaddressentry.EntityData.SegmentPath = "ifRcvAddressEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifrcvaddressentry.Ifindex) + "']" + "[ifRcvAddressAddress='" + fmt.Sprintf("%v", ifrcvaddressentry.Ifrcvaddressaddress) + "']"
+    ifrcvaddressentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ifrcvaddressentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ifrcvaddressentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) SetFilter(yf yfilter.YFilter) { ifrcvaddressentry.YFilter = yf }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "ifRcvAddressAddress" { return "Ifrcvaddressaddress" }
-    if yname == "ifRcvAddressStatus" { return "Ifrcvaddressstatus" }
-    if yname == "ifRcvAddressType" { return "Ifrcvaddresstype" }
-    return ""
+    ifrcvaddressentry.EntityData.Children = make(map[string]types.YChild)
+    ifrcvaddressentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifrcvaddressentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ifrcvaddressentry.Ifindex}
+    ifrcvaddressentry.EntityData.Leafs["ifRcvAddressAddress"] = types.YLeaf{"Ifrcvaddressaddress", ifrcvaddressentry.Ifrcvaddressaddress}
+    ifrcvaddressentry.EntityData.Leafs["ifRcvAddressStatus"] = types.YLeaf{"Ifrcvaddressstatus", ifrcvaddressentry.Ifrcvaddressstatus}
+    ifrcvaddressentry.EntityData.Leafs["ifRcvAddressType"] = types.YLeaf{"Ifrcvaddresstype", ifrcvaddressentry.Ifrcvaddresstype}
+    return &(ifrcvaddressentry.EntityData)
 }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetSegmentPath() string {
-    return "ifRcvAddressEntry" + "[ifIndex='" + fmt.Sprintf("%v", ifrcvaddressentry.Ifindex) + "']" + "[ifRcvAddressAddress='" + fmt.Sprintf("%v", ifrcvaddressentry.Ifrcvaddressaddress) + "']"
-}
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = ifrcvaddressentry.Ifindex
-    leafs["ifRcvAddressAddress"] = ifrcvaddressentry.Ifrcvaddressaddress
-    leafs["ifRcvAddressStatus"] = ifrcvaddressentry.Ifrcvaddressstatus
-    leafs["ifRcvAddressType"] = ifrcvaddressentry.Ifrcvaddresstype
-    return leafs
-}
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetYangName() string { return "ifRcvAddressEntry" }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) SetParent(parent types.Entity) { ifrcvaddressentry.parent = parent }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetParent() types.Entity { return ifrcvaddressentry.parent }
-
-func (ifrcvaddressentry *IFMIB_Ifrcvaddresstable_Ifrcvaddressentry) GetParentYangName() string { return "ifRcvAddressTable" }
 
 // IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype represents continue to exist after the next restart.
 type IFMIB_Ifrcvaddresstable_Ifrcvaddressentry_Ifrcvaddresstype string

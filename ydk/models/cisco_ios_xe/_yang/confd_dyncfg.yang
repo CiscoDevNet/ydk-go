@@ -1,6 +1,6 @@
 module confd_dyncfg {
   namespace "http://tail-f.com/ns/confd_dyncfg/1.0";
-  prefix confd_dyncfg;
+  prefix "confd_dyncfg";
   tailf:id "";
 
   import ietf-yang-types {
@@ -21,18 +21,30 @@ module confd_dyncfg {
     "This module defines the Tail-f ConfD configuration parameters
      that can be modified in runtime.";
 
-  revision 2017-07-08 {
+  revision 2017-09-15 {
     description
-      "Released as part of ConfD-6.3.3.1.
+      "Released as part of ConfD-6.4.4.
+
+       Updated description for /confdConfig/logs/errorLog.";
+  }
+  revision 2017-08-21 {
+    description
+      "Released as part of ConfD-6.4.3.
+
+       Added /confdConfig/cli/cliLeafListStyleType.";
+  }
+  revision 2017-07-09 {
+    description
+      "Released as part of ConfD-6.4.2.1.
 
        Added NCS-specific /confdConfig/javaVm, /confdConfig/pythonVm, and
        /confdConfig/smartLicense.";
   }
-  revision 2017-06-09 {
+  revision 2017-02-21 {
     description
-      "Released as part of ConfD-6.3.2.
+      "Released as part of ConfD-6.4.
 
-       Added /confdConfig/cli/cliLeafListStyleType.";
+       Changed default for /confdConfig/webui/audit to 'false'.";
   }
   revision 2017-01-16 {
     description
@@ -53,10 +65,10 @@ module confd_dyncfg {
 
   typedef candidateImplementationType {
     type enumeration {
-      enum confd {
+      enum "confd" {
         value 664387550;
       }
-      enum external {
+      enum "external" {
         value 1055777754;
       }
     }
@@ -64,10 +76,10 @@ module confd_dyncfg {
 
   typedef whoHistoryDateTimeFormatType {
     type enumeration {
-      enum long {
+      enum "long" {
         value 105537656;
       }
-      enum short {
+      enum "short" {
         value 2029155337;
       }
     }
@@ -75,10 +87,10 @@ module confd_dyncfg {
 
   typedef multiPatternOperationType {
     type enumeration {
-      enum any {
+      enum "any" {
         value 383440309;
       }
-      enum all {
+      enum "all" {
         value 2031982792;
       }
     }
@@ -86,13 +98,13 @@ module confd_dyncfg {
 
   typedef confirmUncommitedOnExitType {
     type enumeration {
-      enum prompt {
+      enum "prompt" {
         value 1796253006;
       }
-      enum discard {
+      enum "discard" {
         value 664427145;
       }
-      enum commit {
+      enum "commit" {
         value 128787545;
       }
     }
@@ -100,13 +112,13 @@ module confd_dyncfg {
 
   typedef tableBehaviorType {
     type enumeration {
-      enum dynamic {
+      enum "dynamic" {
         value 1339207079;
       }
-      enum suppress {
+      enum "suppress" {
         value 1746378947;
       }
-      enum enforce {
+      enum "enforce" {
         value 868039165;
       }
     }
@@ -114,10 +126,10 @@ module confd_dyncfg {
 
   typedef rollNumbering {
     type enumeration {
-      enum fixed {
+      enum "fixed" {
         value 1180146474;
       }
-      enum rolling {
+      enum "rolling" {
         value 492733776;
       }
     }
@@ -125,13 +137,13 @@ module confd_dyncfg {
 
   typedef completionMetaInfoType {
     type enumeration {
-      enum false {
+      enum "false" {
         value 1249155036;
       }
-      enum alt1 {
+      enum "alt1" {
         value 1173421906;
       }
-      enum alt2 {
+      enum "alt2" {
         value 780021010;
       }
     }
@@ -139,13 +151,13 @@ module confd_dyncfg {
 
   typedef pipeHelpModeType {
     type enumeration {
-      enum always {
+      enum "always" {
         value 1980885055;
       }
-      enum auto {
+      enum "auto" {
         value 1146214388;
       }
-      enum never {
+      enum "never" {
         value 1258673503;
       }
     }
@@ -153,13 +165,13 @@ module confd_dyncfg {
 
   typedef candidateStorageType {
     type enumeration {
-      enum disk {
+      enum "disk" {
         value 334675513;
       }
-      enum ram {
+      enum "ram" {
         value 781613798;
       }
-      enum auto {
+      enum "auto" {
         value 1146214388;
       }
     }
@@ -167,13 +179,13 @@ module confd_dyncfg {
 
   typedef editWrapModeType {
     type enumeration {
-      enum wrap {
+      enum "wrap" {
         value 1386835265;
       }
-      enum newline {
+      enum "newline" {
         value 100405574;
       }
-      enum vt100 {
+      enum "vt100" {
         value 321017956;
       }
     }
@@ -181,10 +193,10 @@ module confd_dyncfg {
 
   typedef cliTimezoneType {
     type enumeration {
-      enum utc {
+      enum "utc" {
         value 1427039597;
       }
-      enum local {
+      enum "local" {
         value 2129802687;
       }
     }
@@ -192,10 +204,10 @@ module confd_dyncfg {
 
   typedef journalCompactionType {
     type enumeration {
-      enum automatic {
+      enum "automatic" {
         value 1726921432;
       }
-      enum manual {
+      enum "manual" {
         value 48828153;
       }
     }
@@ -203,10 +215,10 @@ module confd_dyncfg {
 
   typedef configurationReplicationType {
     type enumeration {
-      enum async {
+      enum "async" {
         value 1368962940;
       }
-      enum sync {
+      enum "sync" {
         value 2047869128;
       }
     }
@@ -214,13 +226,13 @@ module confd_dyncfg {
 
   typedef operationalPersistentType {
     type enumeration {
-      enum confspec {
+      enum "confspec" {
         value 2093298699;
       }
-      enum always {
+      enum "always" {
         value 1980885055;
       }
-      enum never {
+      enum "never" {
         value 1258673503;
       }
     }
@@ -228,13 +240,13 @@ module confd_dyncfg {
 
   typedef operationalReplicationType {
     type enumeration {
-      enum never {
+      enum "never" {
         value 1258673503;
       }
-      enum always {
+      enum "always" {
         value 1980885055;
       }
-      enum persistent {
+      enum "persistent" {
         value 1783422916;
       }
     }
@@ -242,10 +254,10 @@ module confd_dyncfg {
 
   typedef operationalReplicationModeType {
     type enumeration {
-      enum async {
+      enum "async" {
         value 1368962940;
       }
-      enum sync {
+      enum "sync" {
         value 2047869128;
       }
     }
@@ -253,10 +265,10 @@ module confd_dyncfg {
 
   typedef snmpVersionType {
     type enumeration {
-      enum v1 {
+      enum "v1" {
         value 1223356638;
       }
-      enum v2c {
+      enum "v2c" {
         value 406691283;
       }
     }
@@ -277,7 +289,7 @@ module confd_dyncfg {
 
   typedef unboundedType {
     type enumeration {
-      enum unbounded {
+      enum "unbounded" {
         value 1813338730;
       }
     }
@@ -285,7 +297,7 @@ module confd_dyncfg {
 
   typedef infinityType {
     type enumeration {
-      enum infinity {
+      enum "infinity" {
         value 1378257424;
       }
     }
@@ -300,10 +312,10 @@ module confd_dyncfg {
 
   typedef rpcErrorType {
     type enumeration {
-      enum close {
+      enum "close" {
         value 1912083739;
       }
-      enum inline {
+      enum "inline" {
         value 1987224790;
       }
     }
@@ -311,10 +323,10 @@ module confd_dyncfg {
 
   typedef dbAccessType {
     type enumeration {
-      enum read-write {
+      enum "read-write" {
         value 1464236954;
       }
-      enum writable-through-candidate {
+      enum "writable-through-candidate" {
         value 532826246;
       }
     }
@@ -322,13 +334,13 @@ module confd_dyncfg {
 
   typedef pubkeyAuthenticationType {
     type enumeration {
-      enum none {
+      enum "none" {
         value 432063804;
       }
-      enum local {
+      enum "local" {
         value 2129802687;
       }
-      enum system {
+      enum "system" {
         value 1534086422;
       }
     }
@@ -336,13 +348,13 @@ module confd_dyncfg {
 
   typedef expirationWarningType {
     type enumeration {
-      enum ignore {
+      enum "ignore" {
         value 1852995428;
       }
-      enum display {
+      enum "display" {
         value 2135153981;
       }
-      enum prompt {
+      enum "prompt" {
         value 1796253006;
       }
     }
@@ -350,13 +362,13 @@ module confd_dyncfg {
 
   typedef auditUserNameType {
     type enumeration {
-      enum always {
+      enum "always" {
         value 1980885055;
       }
-      enum known {
+      enum "known" {
         value 584303659;
       }
-      enum never {
+      enum "never" {
         value 1258673503;
       }
     }
@@ -364,13 +376,13 @@ module confd_dyncfg {
 
   typedef defaultHandlingModeType {
     type enumeration {
-      enum explicit {
+      enum "explicit" {
         value 920928367;
       }
-      enum trim {
+      enum "trim" {
         value 250701330;
       }
-      enum report-all {
+      enum "report-all" {
         value 1824535838;
       }
     }
@@ -378,10 +390,10 @@ module confd_dyncfg {
 
   typedef syslogVersionType {
     type enumeration {
-      enum bsd {
+      enum "bsd" {
         value 1701318;
       }
-      enum 1 {
+      enum "1" {
         value 1535449617;
       }
     }
@@ -389,16 +401,16 @@ module confd_dyncfg {
 
   typedef cliAuditLogType {
     type enumeration {
-      enum all {
+      enum "all" {
         value 2031982792;
       }
-      enum none {
+      enum "none" {
         value 432063804;
       }
-      enum denied {
+      enum "denied" {
         value 1293974345;
       }
-      enum allowed {
+      enum "allowed" {
         value 1631106802;
       }
     }
@@ -406,13 +418,13 @@ module confd_dyncfg {
 
   typedef cliActionMapType {
     type enumeration {
-      enum both {
+      enum "both" {
         value 1577301616;
       }
-      enum config {
+      enum "config" {
         value 2105663071;
       }
-      enum oper {
+      enum "oper" {
         value 1313484953;
       }
     }
@@ -420,13 +432,13 @@ module confd_dyncfg {
 
   typedef cliModeNameStyleType {
     type enumeration {
-      enum short {
+      enum "short" {
         value 2029155337;
       }
-      enum two {
+      enum "two" {
         value 87009233;
       }
-      enum full {
+      enum "full" {
         value 476261018;
       }
     }
@@ -434,10 +446,10 @@ module confd_dyncfg {
 
   typedef quoteStyleType {
     type enumeration {
-      enum quote {
+      enum "quote" {
         value 883581901;
       }
-      enum backslash {
+      enum "backslash" {
         value 1857839842;
       }
     }
@@ -445,13 +457,13 @@ module confd_dyncfg {
 
   typedef modeInfoInAAAType {
     type enumeration {
-      enum true {
+      enum "true" {
         value 1808796341;
       }
-      enum false {
+      enum "false" {
         value 1249155036;
       }
-      enum path {
+      enum "path" {
         value 1002915403;
       }
     }
@@ -459,13 +471,13 @@ module confd_dyncfg {
 
   typedef modeInfoInAuditType {
     type enumeration {
-      enum true {
+      enum "true" {
         value 1808796341;
       }
-      enum false {
+      enum "false" {
         value 1249155036;
       }
-      enum path {
+      enum "path" {
         value 1002915403;
       }
     }
@@ -473,13 +485,13 @@ module confd_dyncfg {
 
   typedef enableDisplayLevelType {
     type enumeration {
-      enum true {
+      enum "true" {
         value 1808796341;
       }
-      enum false {
+      enum "false" {
         value 1249155036;
       }
-      enum pipe {
+      enum "pipe" {
         value 612053909;
       }
     }
@@ -487,13 +499,13 @@ module confd_dyncfg {
 
   typedef cliStyle {
     type enumeration {
-      enum j {
+      enum "j" {
         value 641834109;
       }
-      enum c {
+      enum "c" {
         value 589337185;
       }
-      enum i {
+      enum "i" {
         value 1541010383;
       }
     }
@@ -501,10 +513,10 @@ module confd_dyncfg {
 
   typedef rollbackType {
     type enumeration {
-      enum full {
+      enum "full" {
         value 476261018;
       }
-      enum delta {
+      enum "delta" {
         value 1928409309;
       }
     }
@@ -519,34 +531,34 @@ module confd_dyncfg {
 
   typedef bsdFacilityType {
     type enumeration {
-      enum daemon {
+      enum "daemon" {
         value 137874048;
       }
-      enum authpriv {
+      enum "authpriv" {
         value 2143429981;
       }
-      enum local0 {
+      enum "local0" {
         value 1223389442;
       }
-      enum local1 {
+      enum "local1" {
         value 659974174;
       }
-      enum local2 {
+      enum "local2" {
         value 388815177;
       }
-      enum local3 {
+      enum "local3" {
         value 133202671;
       }
-      enum local4 {
+      enum "local4" {
         value 1369253367;
       }
-      enum local5 {
+      enum "local5" {
         value 37794477;
       }
-      enum local6 {
+      enum "local6" {
         value 918612352;
       }
-      enum local7 {
+      enum "local7" {
         value 1098748970;
       }
     }
@@ -572,19 +584,19 @@ module confd_dyncfg {
 
   typedef hex8ValueType {
     type xs:hexBinary {
-      tailf:value-length 8;
+      tailf:value-length "8";
     }
   }
 
   typedef charType {
     type string {
-      length 1;
+      length "1";
     }
   }
 
   typedef falseType {
     type enumeration {
-      enum false {
+      enum "false" {
         value 1249155036;
       }
     }
@@ -599,7 +611,7 @@ module confd_dyncfg {
 
   typedef hex16ValueType {
     type xs:hexBinary {
-      tailf:value-length 16;
+      tailf:value-length "16";
     }
   }
 
@@ -611,10 +623,10 @@ module confd_dyncfg {
 
   typedef pendingChangesActionType {
     type enumeration {
-      enum continue {
+      enum "continue" {
         value 1852005625;
       }
-      enum fail {
+      enum "fail" {
         value 1504483183;
       }
     }
@@ -622,13 +634,13 @@ module confd_dyncfg {
 
   typedef developerLogLevelType {
     type enumeration {
-      enum error {
+      enum "error" {
         value 126243105;
       }
-      enum info {
+      enum "info" {
         value 2062105651;
       }
-      enum trace {
+      enum "trace" {
         value 1896625767;
       }
     }
@@ -636,10 +648,10 @@ module confd_dyncfg {
 
   typedef snmpLogLevelType {
     type enumeration {
-      enum error {
+      enum "error" {
         value 126243105;
       }
-      enum info {
+      enum "info" {
         value 2062105651;
       }
     }
@@ -647,10 +659,10 @@ module confd_dyncfg {
 
   typedef netconfTraceFormatType {
     type enumeration {
-      enum pretty {
+      enum "pretty" {
         value 560733322;
       }
-      enum raw {
+      enum "raw" {
         value 764753385;
       }
     }
@@ -676,13 +688,13 @@ module confd_dyncfg {
 
   typedef cryptHashAlgorithmType {
     type enumeration {
-      enum md5 {
+      enum "md5" {
         value 721897608;
       }
-      enum sha-256 {
+      enum "sha-256" {
         value 1426210322;
       }
-      enum sha-512 {
+      enum "sha-512" {
         value 945188773;
       }
     }
@@ -696,10 +708,10 @@ module confd_dyncfg {
 
   typedef runtimeReconfigurationType {
     type enumeration {
-      enum config-file {
+      enum "config-file" {
         value 2073952695;
       }
-      enum namespace {
+      enum "namespace" {
         value 1847615892;
       }
     }
@@ -716,13 +728,13 @@ module confd_dyncfg {
 
   typedef fixedIdType {
     type enumeration {
-      enum confd {
+      enum "confd" {
         value 664387550;
       }
-      enum user {
+      enum "user" {
         value 1529217067;
       }
-      enum root {
+      enum "root" {
         value 1945751049;
       }
     }
@@ -736,13 +748,13 @@ module confd_dyncfg {
 
   typedef X-Frame-OptionsType {
     type enumeration {
-      enum DENY {
+      enum "DENY" {
         value 864815184;
       }
-      enum SAMEORIGIN {
+      enum "SAMEORIGIN" {
         value 1594198254;
       }
-      enum ALLOW-FROM {
+      enum "ALLOW-FROM" {
         value 2088887798;
       }
     }
@@ -756,17 +768,17 @@ module confd_dyncfg {
 
   typedef cliLeafListStyleType {
     type enumeration {
-      enum flat-list {
+      enum "flat-list" {
         value 59492072;
       }
-      enum range-list {
+      enum "range-list" {
         value 2027731099;
       }
     }
   }
 
   container confdConfig {
-    tailf:validate confdConfig {
+    tailf:validate "confdConfig" {
       tailf:internal;
       tailf:dependency ".";
     }
@@ -778,7 +790,7 @@ module confd_dyncfg {
         "Present only if ConfD runs as a master agent.  Lists all
          registered subagents.";
       list subagent {
-        key name;
+        key "name";
         tailf:info
           "Parameters for a single subagent.";
         leaf name {
@@ -790,7 +802,7 @@ module confd_dyncfg {
         }
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "Whether the subagent should be considered by ConfD. When
              set to 'false' the subagent is ignored.";
@@ -810,7 +822,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 2023;
+            default "2023";
             tailf:info
               "The port where the subagent listens for NETCONF TCP
                connections.";
@@ -849,7 +861,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 2022;
+            default "2022";
             tailf:info
               "The port where the subagent listens for NETCONF SSH
                connections.";
@@ -898,7 +910,7 @@ module confd_dyncfg {
         }
         leaf disableSubtreeOptimization {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "Whenever possible, the master agent sends a single
              subtree filter request, instead of one request for each
@@ -915,7 +927,7 @@ module confd_dyncfg {
         tailf:info
           "Lists all available notification event streams.";
         list stream {
-          key name;
+          key "name";
           tailf:info
             "Parameters for a single notification event stream.";
           leaf name {
@@ -956,7 +968,7 @@ module confd_dyncfg {
                If in doubt use the recommended settings (see below).";
             leaf enabled {
               type boolean;
-              default false;
+              default "false";
               tailf:info
                 "enabled is either 'true' or 'false'. If 'false', the
                  applications must implement its own replay support.";
@@ -993,7 +1005,7 @@ module confd_dyncfg {
          operational data cache.";
       leaf enabled {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the cache
            is enabled.";
@@ -1014,7 +1026,7 @@ module confd_dyncfg {
          SNMP gateway.";
       leaf enabled {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the gateway
            is enabled.";
@@ -1025,7 +1037,7 @@ module confd_dyncfg {
           "The port number to listen for traps on.";
       }
       list agent {
-        key name;
+        key "name";
         tailf:info
           "Parameters for a single agent.";
         leaf name {
@@ -1050,14 +1062,14 @@ module confd_dyncfg {
         }
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the agent
              is enabled.";
         }
         leaf community {
           type string;
-          default private;
+          default "private";
           tailf:info
             "The community string for communication with the agent. If
              the community string cannot be expressed in Unicode, use
@@ -1077,7 +1089,7 @@ module confd_dyncfg {
         }
         leaf version {
           type snmpVersionType;
-          default v2c;
+          default "v2c";
           tailf:info
             "The default protocol version to use. The value indicates
              the preferred version - if the agent doesn't respond, the
@@ -1085,7 +1097,7 @@ module confd_dyncfg {
         }
         leaf timeout {
           type xs:duration;
-          default PT5S;
+          default "PT5S";
           tailf:info
             "The amount of time to wait for an answer from the agent
              before aborting the operation. The default is five
@@ -1100,7 +1112,7 @@ module confd_dyncfg {
         }
         leaf port {
           type inet:port-number;
-          default 161;
+          default "161";
           tailf:info
             "The port number to use for communication with the agent.";
         }
@@ -1114,7 +1126,7 @@ module confd_dyncfg {
       }
     }
     list hideGroup {
-      key name;
+      key "name";
       tailf:info
         "Hide groups that can be unhidden must be listed here. There
          can be zero, one or many hideGroup entries in the
@@ -1230,7 +1242,7 @@ module confd_dyncfg {
            used used.";
         leaf version {
           type syslogVersionType;
-          default bsd;
+          default "bsd";
           tailf:info
             "version is either 'bsd' (traditional syslog) or '1' (new
              IETF syslog format:
@@ -1240,7 +1252,7 @@ module confd_dyncfg {
         }
         leaf facility {
           type syslogFacilityType;
-          default daemon;
+          default "daemon";
           tailf:info
             "facility is either 'daemon', 'authpriv',
              'local0', ..., 'local7' or an
@@ -1262,7 +1274,7 @@ module confd_dyncfg {
              syslogServers container is ignored.";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'false',
                messages will be sent to the local syslog daemon.";
@@ -1276,7 +1288,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 514;
+            default "514";
             tailf:info
               "port is a valid port number to be used in combination
                with /confdConfig/logs/syslogConfig/udp/host.";
@@ -1291,7 +1303,7 @@ module confd_dyncfg {
              container is ignored, alternatively, if we use this container
              the /confdCfg/logs/syslogConfig/udp container is ignored.";
           list server {
-            key host;
+            key "host";
             tailf:info
               "A set of syslog servers that get a copy
                of all syslog messages.";
@@ -1303,14 +1315,14 @@ module confd_dyncfg {
             }
             leaf port {
               type inet:port-number;
-              default 514;
+              default "514";
               tailf:info
                 "port is the UDP port number where this syslog
                  server is listening.";
             }
             leaf version {
               type syslogVersionType;
-              default bsd;
+              default "bsd";
               tailf:info
                 "version is either 'bsd' (traditional syslog) or '1' (new
                  IETF syslog format:
@@ -1318,14 +1330,14 @@ module confd_dyncfg {
             }
             leaf facility {
               type syslogFacilityType;
-              default daemon;
+              default "daemon";
               tailf:info
                 "facility is either 'daemon', 'local0', ..., 'local7' or an
                  unsigned integer.";
             }
             leaf enabled {
               type boolean;
-              default true;
+              default "true";
               tailf:info
                 "enabled is either 'true' or 'false'. If 'false',
                  this syslog server will not get any udp messages.";
@@ -1341,7 +1353,7 @@ module confd_dyncfg {
            rotated, i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
              log is enabled.";
@@ -1350,7 +1362,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', file
                logging is enabled.";
@@ -1366,7 +1378,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', syslog
                messages are sent.";
@@ -1392,7 +1404,7 @@ module confd_dyncfg {
            confdLog. This log is not rotated, i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
              log is enabled.";
@@ -1401,7 +1413,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', file
                logging is enabled.";
@@ -1417,7 +1429,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', syslog
                messages are sent.";
@@ -1435,7 +1447,7 @@ module confd_dyncfg {
       }
       leaf developerLogLevel {
         type developerLogLevelType;
-        default info;
+        default "info";
         tailf:info
           "Controls which level of developer messages are printed in
            the developer log.";
@@ -1450,7 +1462,7 @@ module confd_dyncfg {
            i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
              log is enabled.";
@@ -1459,7 +1471,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', file
                logging is enabled.";
@@ -1475,7 +1487,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', syslog
                messages are sent.";
@@ -1493,7 +1505,7 @@ module confd_dyncfg {
       }
       leaf auditLogCommit {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Controls whether the audit log should include messages about
            the resulting configuration changes for each commit to the
@@ -1510,7 +1522,7 @@ module confd_dyncfg {
            i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
              log is enabled.";
@@ -1519,7 +1531,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', file
                logging is enabled.";
@@ -1535,7 +1547,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', syslog
                messages are sent.";
@@ -1561,7 +1573,7 @@ module confd_dyncfg {
            i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
              log is enabled.";
@@ -1570,7 +1582,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', file
                logging is enabled.";
@@ -1586,7 +1598,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', syslog
                messages are sent.";
@@ -1604,7 +1616,7 @@ module confd_dyncfg {
       }
       leaf snmpLogLevel {
         type snmpLogLevelType;
-        default info;
+        default "info";
         tailf:info
           "Controls which level of SNMP pdus are printed in the SNMP
            log. The value 'error' means that only PDUs with
@@ -1620,7 +1632,7 @@ module confd_dyncfg {
            logrotate(8).";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
              browser log is used.";
@@ -1642,14 +1654,14 @@ module confd_dyncfg {
            default and is not rotated, i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the access
              log is used.";
         }
         leaf trafficLog {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "Is either 'true' or 'false'. If 'true', all HTTP(S)
              traffic towards the embedded Web server is logged in a
@@ -1677,7 +1689,7 @@ module confd_dyncfg {
            logrotate(8).";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', all
              NETCONF traffic is logged.";
@@ -1691,7 +1703,7 @@ module confd_dyncfg {
         }
         leaf format {
           type netconfTraceFormatType;
-          default pretty;
+          default "pretty";
           tailf:info
             "The value 'pretty' means that the XML data is
              pretty-printed.  The value 'raw' means that it is not.";
@@ -1709,7 +1721,7 @@ module confd_dyncfg {
            this log.  This log is not rotated, i.e. use logrotate(8).";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', all
              XPath execution is logged.";
@@ -1726,12 +1738,13 @@ module confd_dyncfg {
         presence "";
         tailf:info
           "errorLog is an error log used for internal logging from the
-           ConfD daemon. It is used for troubleshooting the ConfD
-           daemon itself, and should normally be disabled. This log is
-           rotated by the ConfD daemon (see below).";
+           ConfD daemon. It is used for troubleshooting the ConfD daemon
+           itself, and it is recommended that it is enabled, in order to
+           capture information about problems that are difficult to
+           reproduce. This log is rotated by the ConfD daemon (see below).";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', error
              logging is performed.";
@@ -1745,7 +1758,7 @@ module confd_dyncfg {
         }
         leaf maxSize {
           type tailf:size;
-          default S1M;
+          default "S1M";
           tailf:info
             "maxSize is the maximum size of an individual log file
              before it is rotated. Log filenames are reused when five
@@ -1755,11 +1768,11 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
           }
           leaf level {
             type uint16;
-            default 2;
+            default "2";
           }
           leaf-list tag {
             type xs:token;
@@ -1773,12 +1786,12 @@ module confd_dyncfg {
         "Parameters for limiting concurrent access to ConfD.";
       leaf maxSessions {
         type limitType;
-        default unbounded;
+        default "unbounded";
         tailf:info
           "Puts a limit to the total number of concurrent sessions to ConfD.";
       }
       list sessionLimit {
-        key context;
+        key "context";
         tailf:info
           "Parameters for limiting concurrent access for a specific
            context to ConfD. There can be multiple instances of this
@@ -1803,13 +1816,13 @@ module confd_dyncfg {
       }
       leaf maxConfigSessions {
         type limitType;
-        default unbounded;
+        default "unbounded";
         tailf:info
           "Puts a limit to the total number of concurrent configuration
            sessions to ConfD.";
       }
       list configSessionLimit {
-        key context;
+        key "context";
         tailf:info
           "Parameters for limiting concurrent read-write transactions
            for a specific context to ConfD. There can be multiple
@@ -1841,7 +1854,7 @@ module confd_dyncfg {
          User Guide.";
       leaf sshPubkeyAuthentication {
         type pubkeyAuthenticationType;
-        default system;
+        default "system";
         tailf:info
           "Controls how the ConfD SSH daemon locates the user keys for
            public key authentication.
@@ -1862,7 +1875,7 @@ module confd_dyncfg {
       }
       leaf sshLoginGraceTime {
         type xs:duration;
-        default PT10M;
+        default "PT10M";
         tailf:info
           "ConfD closes ssh connections after this time if the client
            has not successfully authenticated itself by then. If the
@@ -1875,7 +1888,7 @@ module confd_dyncfg {
       }
       leaf sshMaxAuthTries {
         type limitType;
-        default unbounded;
+        default "unbounded";
         tailf:info
           "ConfD closes ssh connections when the client has made this
            number of unsuccessful authentication attempts.
@@ -1913,7 +1926,7 @@ module confd_dyncfg {
       }
       leaf expirationWarning {
         type expirationWarningType;
-        default ignore;
+        default "ignore";
         tailf:info
           "When PAM or external authentication is used, the
            authentication mechanism may give a warning that the user's
@@ -1931,7 +1944,7 @@ module confd_dyncfg {
       }
       leaf auditUserName {
         type auditUserNameType;
-        default always;
+        default "always";
         tailf:info
           "Controls the logging of the user name when a failed
            authentication attempt is logged to the audit log.
@@ -1953,13 +1966,13 @@ module confd_dyncfg {
            must run as root.";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "When set to 'true', ConfD uses PAM for authentication.";
         }
         leaf service {
           type string;
-          default common-auth;
+          default "common-auth";
           tailf:info
             "The PAM service to be used for the authentication.
              This can be any service we have installed in
@@ -1969,7 +1982,7 @@ module confd_dyncfg {
         }
         leaf timeout {
           type xs:duration;
-          default PT10S;
+          default "PT10S";
           tailf:info
             "The maximum time that authentication will wait for a reply
              from PAM. If the timeout is reached, the PAM
@@ -1979,11 +1992,23 @@ module confd_dyncfg {
              seconds.";
         }
       }
+      container rest {
+        presence "";
+        leaf authCacheTTL {
+          type xs:duration;
+          default "PT10S";
+          tailf:info
+            "The amount of time that REST API and RESTCONF locally caches
+             authentication credentials before querying the AAA server. Default
+             is PT10S, i.e. 10 seconds. Setting to PT0S, i.e. 0 seconds,
+             effectively disables the authentication cache.";
+        }
+      }
       container externalAuthentication {
         presence "";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "When set to 'true', external authentication is used.";
         }
@@ -2008,7 +2033,7 @@ module confd_dyncfg {
         }
         leaf useBase64 {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "When set to true, ${USER} and ${PASS} in the data passed
              to the executable will be base64-encoded, allowing e.g. for
@@ -2018,7 +2043,7 @@ module confd_dyncfg {
         }
         leaf includeExtra {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "When set to true, additional information items will be
              provided to the executable: source IP address and port,
@@ -2031,7 +2056,7 @@ module confd_dyncfg {
         presence "";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "When set to true, ConfD uses local authentication. That
              means that the user data kept in the aaa namespace is used
@@ -2044,7 +2069,7 @@ module confd_dyncfg {
         presence "";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "When set to true, ConfD will invoke an application
              callback when authentication has succeeded or failed. The
@@ -2058,7 +2083,7 @@ module confd_dyncfg {
         presence "";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "When set to false, all authorization checks are turned
              off, similar to the -noaaa flag in confd_cli.";
@@ -2067,7 +2092,7 @@ module confd_dyncfg {
           presence "";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "When set to true, ConfD will invoke application
                callbacks for authorization. If the callbacks have not
@@ -2084,7 +2109,7 @@ module confd_dyncfg {
          built in SSH implementation.";
       leaf idleConnectionTimeout {
         type xs:duration;
-        default PT10M;
+        default "PT10M";
         tailf:info
           "The maximum time that an authenticated connection to the SSH
            server is allowed to exist without open channels. If the
@@ -2144,13 +2169,13 @@ module confd_dyncfg {
           leaf minSize {
             must ". <= ../maxSize";
             type dhGroupSizeType;
-            default 2048;
+            default "2048";
             tailf:info
               "Minimal size of p in bits.";
           }
           leaf maxSize {
             type dhGroupSizeType;
-            default 4096;
+            default "4096";
             tailf:info
               "Maximal size of p in bits.";
           }
@@ -2174,7 +2199,7 @@ module confd_dyncfg {
       }
       leaf clientAliveInterval {
         type timeoutType;
-        default infinity;
+        default "infinity";
         tailf:info
           "If no data has been received from a connected client for this
            long, a request that requires a response from the client,
@@ -2182,7 +2207,7 @@ module confd_dyncfg {
       }
       leaf clientAliveCountMax {
         type uint32;
-        default 3;
+        default "3";
         tailf:info
           "If no data has been received from the client, after this many
            consecutive clientAliveInterval has passed, the connection will be
@@ -2195,14 +2220,14 @@ module confd_dyncfg {
         "CLI parameters.";
       leaf enabled {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "
            When set to true, the CLI server is started.";
       }
       leaf allowImplicitWildcard {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "When set to true, users do not need to explicitly type * in the
            place of keys in lists, in order to see all list instances. When
@@ -2211,7 +2236,7 @@ module confd_dyncfg {
       }
       leaf startupScriptNonInteractive {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "startupScriptNonInteractive is either 'true' or 'false'. If
            set to 'true' then a CLI startup script will be evalueated
@@ -2219,7 +2244,7 @@ module confd_dyncfg {
       }
       leaf modeNameStyle {
         type cliModeNameStyleType;
-        default short;
+        default "short";
         tailf:info
           "modeNameStyle is either 'short', 'two', or 'full'. If
            'short', then the mode name of submodes in the Cisco style
@@ -2230,7 +2255,7 @@ module confd_dyncfg {
       }
       leaf allowOverwriteOnCopy {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allowOverwriteOnCopy is either 'true' or 'false'. If set to
            'true' then the copy command in the CLI will overwrite the
@@ -2239,7 +2264,7 @@ module confd_dyncfg {
       }
       leaf inheritPaginate {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "inheritPaginate is either 'true' or 'false'. If set to
            'true' then the paginate setting of a pipe command will be
@@ -2250,7 +2275,7 @@ module confd_dyncfg {
       }
       leaf safeScriptExecution {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "safeScriptExecution is either 'true' or 'false'. If set to
            'true' then 'exit', 'abort', 'end', and 'commit' are not
@@ -2259,7 +2284,7 @@ module confd_dyncfg {
       }
       leaf exitConfigModeOnCtrlC {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "exitConfigModeOnCtrlC is either 'true' or 'false'. If set to
            'false' the user will not be thrown out of config mode when
@@ -2267,7 +2292,7 @@ module confd_dyncfg {
       }
       leaf execNavigationCmds {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "execNavigationCmds is either 'true' or 'false'. If set to
            'true' then it is possible to enter a submode also in
@@ -2275,7 +2300,7 @@ module confd_dyncfg {
       }
       leaf allowOldStyleModeCmds {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allowOldStyleModeCmds is either 'true' or 'false'. If set to
            'true' then CLI commands in I and C-style are interpreted
@@ -2285,7 +2310,7 @@ module confd_dyncfg {
       }
       leaf continueOnErrorCmdStack {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "continueOnErrorCmdStack is either 'true' or 'false'. If set to
            'true' then command stack execution will continue even if an
@@ -2298,7 +2323,7 @@ module confd_dyncfg {
       }
       leaf topLevelCmdsInSubMode {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "topLevelCmdsInSubMode is either 'true' or 'false'. If set
            to 'true' all top level commands in I and C-style CLI are
@@ -2306,14 +2331,14 @@ module confd_dyncfg {
       }
       leaf mixedMode {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "mixedMode is either 'true' or 'false'. If set to 'true'
            all oper mode commands are available in config mode.";
       }
       leaf completionShowOldVal {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "completionShowOldVal is either 'true' or 'false'. If set to
            'true' a leaf's old value will be displayed inside brackets
@@ -2322,7 +2347,7 @@ module confd_dyncfg {
       }
       leaf completionMetaInfo {
         type completionMetaInfoType;
-        default false;
+        default "false";
         tailf:info
           "completionMetaInfo is either 'false', 'alt1' or 'alt2'.
            If set to 'alt1' then the alternatives shown for
@@ -2362,7 +2387,7 @@ module confd_dyncfg {
       }
       leaf reportInvalidCompletionInput {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "reportInvalidCompletionInput is either true or false. If
            set to 'true' the CLI will display an error message during
@@ -2371,7 +2396,7 @@ module confd_dyncfg {
       }
       leaf useShortEnabled {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "useShortEnabled is either 'true' or 'false'. If set to
            'true' then the CLI will display 'enabled' or 'disabled'
@@ -2379,7 +2404,7 @@ module confd_dyncfg {
       }
       leaf smartRenameFiltering {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "smartRenameFiltering is either 'true' or 'false'. If set to
            'true' then only paths that leads to existing instances
@@ -2390,7 +2415,7 @@ module confd_dyncfg {
       }
       leaf allowParenQuotes {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allowParenQuotes is either 'true' or 'false'. If set to
            'true' then parentheses are treated as quotes, ie the
@@ -2399,7 +2424,7 @@ module confd_dyncfg {
       }
       leaf singleElemPattern {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "singleElemPattern is either 'true' or 'false'. If set to
            'true' then a pattern can be used to specify that only
@@ -2407,7 +2432,7 @@ module confd_dyncfg {
       }
       leaf multiPatternOperation {
         type multiPatternOperationType;
-        default any;
+        default "any";
         tailf:info
           "multiPatternOperation is one of 'any', and 'all'. When set
            to 'any' a pattern is true if at least one match is found,
@@ -2416,7 +2441,7 @@ module confd_dyncfg {
       }
       leaf sortSubmodeCmds {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "sortSubmodeCmds is either 'true' or 'false'. If set to
            'true' then local submode commands are listed before
@@ -2425,7 +2450,7 @@ module confd_dyncfg {
       }
       leaf sortLocalCmds {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "sortLocalCms is either 'true' or 'false'. If set to
            'true' and sortSubmodeCmds are also set to true, then
@@ -2438,7 +2463,7 @@ module confd_dyncfg {
       }
       leaf displayEmptyConfigContainers {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "displayEmptyConfigContainers is either 'true' or 'false'. If set to
            'true' then 'show status' in the J-style CLI will display
@@ -2448,7 +2473,7 @@ module confd_dyncfg {
       }
       leaf displayNonPresenceAttributes {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "displayNonPresenceAttributes is either 'true' or
            'false'. If set to 'true' then all non presence containers
@@ -2459,7 +2484,7 @@ module confd_dyncfg {
       }
       leaf showEditors {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showEditors is either true or false. If set to true
            then a list of current editors will be displayed when
@@ -2467,7 +2492,7 @@ module confd_dyncfg {
       }
       leaf whoShowMode {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "whoShowMode is either 'true' or 'false'. If set to
            'true' then an 'Config Mode' column will be added
@@ -2475,7 +2500,7 @@ module confd_dyncfg {
       }
       leaf whoHistoryDateTimeFormat {
         type whoHistoryDateTimeFormatType;
-        default short;
+        default "short";
         tailf:info
           "whoHistoryDateTimeFormat decides if the date should always
            include the date (long), or only include the date when different
@@ -2483,7 +2508,7 @@ module confd_dyncfg {
       }
       leaf editWrapMode {
         type editWrapModeType;
-        default wrap;
+        default "wrap";
         tailf:info
           "editWrapMode is either 'wrap', 'newline' or 'vt100'.
            If 'wrap' or 'vt100' is
@@ -2499,7 +2524,7 @@ module confd_dyncfg {
       }
       leaf supportQuotedEOL {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "supportQuoteEOL is either true or false. If set to true
            then a final backslash (\\) on a line means that the next
@@ -2508,14 +2533,14 @@ module confd_dyncfg {
       }
       leaf allowWildcard {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowWildcard is either 'true' or 'false'. If 'true'
            then wildcard expressions are allowed in show commands.";
       }
       leaf allowAllAsWildcard {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Wildcard is normally written as '*' but with 'allowAllAsWildcard'
            set to 'true' the string 'all' will also be accepted in place
@@ -2523,7 +2548,7 @@ module confd_dyncfg {
       }
       leaf allowRangeExpression {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowRangeExpression is either 'true' or 'false'. If 'true'
            then range expressions are allowed for all key values
@@ -2532,7 +2557,7 @@ module confd_dyncfg {
       }
       leaf allowRangeExpressionAllTypes {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowRangeExpressionAllTypes is either 'true' or 'false'. If 'true'
            then range expressions are allowed for all key values
@@ -2541,7 +2566,7 @@ module confd_dyncfg {
       }
       leaf useDoubleDotRanges {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "useDoubleDotRanges is either 'true' or 'false'. If 'true'
            then range expressions are types as 1..3, if set to 'false'
@@ -2549,15 +2574,16 @@ module confd_dyncfg {
       }
       leaf addExtraTableSpacing {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "addExtraTableSpacing is either 'true' or 'false'. If
            set to 'true' then an additional newline will be added
-           on each side of the table.";
+           on each side of the table. This configuration parameter
+           takes effect for both existing and new sessions.";
       }
       leaf suppressRangeKeyword {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "suppressRangeKeyword is either 'true' or 'false'. If 'true'
            then 'range' keyword is not allowed in C- and I-style for
@@ -2565,7 +2591,7 @@ module confd_dyncfg {
       }
       leaf exitModeOnEmptyRange {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "exitModeOnEmptyRange is either 'true' or 'false'. If 'true' and if
            standing in a range submode, the CLI will exit to the parent
@@ -2573,7 +2599,7 @@ module confd_dyncfg {
       }
       leaf tableLabel {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "tableLabel is either 'true' or 'false'. If 'true'
            then tables displayed in C and I style CLI will have
@@ -2584,7 +2610,7 @@ module confd_dyncfg {
         type uint64 {
           range "1 .. max";
         }
-        default 50;
+        default "50";
         tailf:info
           "The tableLookAhead element tells confd how many rows to
            pre-fetch when displaying a table. The prefetched rows are
@@ -2594,7 +2620,7 @@ module confd_dyncfg {
       }
       leaf moreBufferLines {
         type limitType;
-        default 5000;
+        default "5000";
         tailf:info
           "moreBufferLines is used to limit the buffering done by the more
            process. It can be 'unbounded' or a possitive integer describing
@@ -2602,7 +2628,7 @@ module confd_dyncfg {
       }
       leaf showTableLabelsIfMultiple {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showTableLabelsIfMultiple is either 'true' or 'false'.
            If set to 'true' then table labels will only be displayed
@@ -2612,7 +2638,7 @@ module confd_dyncfg {
       }
       leaf defaultTableBehavior {
         type tableBehaviorType;
-        default dynamic;
+        default "dynamic";
         tailf:info
           "defaultTableBehavior is either 'dynamic', 'suppress', or
            'enforce'. If set to 'dynamic' then list nodes will be displayed
@@ -2626,7 +2652,7 @@ module confd_dyncfg {
       }
       leaf allowTableOverflow {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allowTableOverflow is either 'true' or 'false'. If 'true'
            then tables displayed in a Cisco style CLI will be allowed
@@ -2635,14 +2661,14 @@ module confd_dyncfg {
       }
       leaf tableOverflowTruncate {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "tableOverflowTruncate is either 'true' or 'false'. If 'true'
            then overflowing tables will be truncated instead of wrapped.";
       }
       leaf allowTableCellWrap {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowTableCellWrap is either 'true' or 'false'. If 'true'
            then tables displayed in a Cisco style CLI will be allowed
@@ -2652,7 +2678,7 @@ module confd_dyncfg {
       }
       leaf showAllNs {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showAllNs is either 'true' or 'false'. If 'true' then all
            element names will be shown with their namespace prefix in
@@ -2661,7 +2687,7 @@ module confd_dyncfg {
       }
       leaf useExposeNsPrefix {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "useExposeNsPrefix is either 'true' or 'false'. If 'true' then all
            nodes annotated with the tailf:cli-expose-ns-prefix will
@@ -2671,7 +2697,7 @@ module confd_dyncfg {
       }
       leaf orderedShowConfig {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "orderedShowConfig is either 'true' or 'false'. If 'true' then
            the commands displayed when running the 'show configuration'
@@ -2680,7 +2706,7 @@ module confd_dyncfg {
       }
       leaf suppressFastShow {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "suppressFastShow is either 'true' or 'false'. If 'true' then
            the fast show optimization will be suppressed in the
@@ -2689,7 +2715,7 @@ module confd_dyncfg {
       }
       leaf leafPrompting {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "leafPrompting is either 'true' or 'false'. If 'true' the CLI will
            prompt the user for leaf values if they are not provided on the
@@ -2698,7 +2724,7 @@ module confd_dyncfg {
       }
       leaf modeInfoInAudit {
         type modeInfoInAuditType;
-        default false;
+        default "false";
         tailf:info
           "modeInfoInAudit is either 'true', 'false' or 'path'. If 'true',
            then all commands will be prefixed with major and minor mode
@@ -2712,7 +2738,7 @@ module confd_dyncfg {
       }
       leaf auditLogMode {
         type cliAuditLogType;
-        default all;
+        default "all";
         tailf:info
           "auditLogMode is either 'all', 'allowed', or 'denied'. If
            'all', then all commands that the user tries to execute will
@@ -2724,11 +2750,11 @@ module confd_dyncfg {
       }
       leaf transactions {
         type boolean;
-        default true;
+        default "true";
       }
       leaf transactionCtrlCmds {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "transactionCtrlCmds is either 'true' or 'false'. If
            'true', then the CLI will have commands for enabling
@@ -2738,7 +2764,7 @@ module confd_dyncfg {
       }
       leaf style {
         type cliStyle;
-        default j;
+        default "j";
         tailf:info
           "style is either 'j', 'c', or 'i'. If 'j', then the CLI will
            be presented as a Juniper style CLI. If 'c' then the CLI
@@ -2747,14 +2773,14 @@ module confd_dyncfg {
       }
       leaf completionShowMax {
         type cliMax;
-        default 100;
+        default "100";
         tailf:info
           "Maximum number of possible alternatives to present when
            doing completion.";
       }
       leaf rollbackAAA {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to true then AAA rules will be applied when a
            rollback file is loaded. This means that rollback may
@@ -2764,27 +2790,30 @@ module confd_dyncfg {
       }
       leaf rollbackMax {
         type rollMax;
-        default 1000;
+        default "1000";
         tailf:info
           "Maximum number of possible alternatives to present when
-           doing rollback.";
+           doing rollback. This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       leaf rollbackNumbering {
         type rollNumbering;
-        default rolling;
+        default "rolling";
         tailf:info
           "rollbackNumbering is either 'fixed' or 'rolling'. If set
            to 'rolling' then rollback file '0' will always contain the
            last commit. When using 'fixed' each rollback will get
-           a unique increasing number.";
+           a unique increasing number. This configuration parameter
+           takes effect for both existing and new sessions.";
       }
       leaf rollbackNumberingInitial {
         type int64;
-        default 10000;
+        default "10000";
         tailf:info
           "rollbackNumberingInitial is the starting point of the rollback
            numbering when the 'increasing' rollback numbering scheme is
-           used.";
+           used. This configuration parameter takes effect when ConfD
+           initially starts.";
       }
       leaf inconsistentDatabaseSuffix {
         type string;
@@ -2796,18 +2825,19 @@ module confd_dyncfg {
       }
       leaf showDefaults {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showDefaults is either 'true' or 'false'. If 'true' then
            default values will be shown when displaying the
            configuration. The default value is shown inside a comment
            on the same line as the value. Showing default values can
            also be enabled in the CLI per session using the operational
-           mode command 'set show defaults true'.";
+           mode command 'set show defaults true'. This configuration
+           parameter takes effect only for new sessions.";
       }
       leaf reallocateOperTrans {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "reallocateOperTrans is either 'true' or 'false'. If 'true' then
            a new read transaction will be allocated for each oper-mode
@@ -2816,7 +2846,7 @@ module confd_dyncfg {
       }
       leaf quickSshTeardown {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "quickSshTeardown controls if CLI sessions initiated through
            an SSH sessions should be torn down directly when the socket
@@ -2826,7 +2856,7 @@ module confd_dyncfg {
       }
       leaf cAlignLeafValues {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "cAlignLeafValues is either 'true' or 'false'. If 'true' then
            the leaf values of all siblings in a container or list will
@@ -2834,7 +2864,7 @@ module confd_dyncfg {
       }
       leaf jAlignLeafValues {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "jAlignLeafValues is either 'true' or 'false'. If 'true' then
            the leaf values of all siblings in a container or list will
@@ -2892,7 +2922,7 @@ module confd_dyncfg {
       }
       leaf invalidDataString {
         type string;
-        default --ERROR--;
+        default "--ERROR--";
         tailf:info
           "invalidDataString is a string that is displayed instead of
            the real value whenever a data provider returns an invalid
@@ -2900,14 +2930,14 @@ module confd_dyncfg {
       }
       leaf showKeyName {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showKeyName controls if the name of the key should be
            shown in the type string during completion.";
       }
       leaf commitRetryTimeout {
         type timeoutType;
-        default PT0S;
+        default "PT0S";
         tailf:info
           "Commit timeout in the CLI. This timeout controls for how
            long the commit operation will attempt to complete the
@@ -2921,21 +2951,21 @@ module confd_dyncfg {
       }
       leaf timezone {
         type cliTimezoneType;
-        default local;
+        default "local";
         tailf:info
           "Time in the CLI can be either local, as configured on
            the device, or UTC.";
       }
       leaf utcOffset {
         type int64;
-        default 0;
+        default "0";
         tailf:info
           "If the timezone is set to UTC this can be set to
            specify the UTC offset measured in minutes.";
       }
       leaf oldDetailsArg {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "oldDetailsArg is either 'true' or 'false'. If 'false' then
            commands that display the configuration will not have a
@@ -2945,7 +2975,7 @@ module confd_dyncfg {
       }
       leaf withDefaults {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "DEPRECATED - use defaultHandlingMode instead";
         description
@@ -2964,7 +2994,7 @@ module confd_dyncfg {
       }
       leaf ignoreShowWithDefaultOnDiff {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "When set to 'true' ConfD will ignore the annotation
            tailf:cli-show-with-default when displaying the
@@ -2972,39 +3002,44 @@ module confd_dyncfg {
       }
       leaf trimDefaultShow {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "trimDefaultShow is either 'true' or 'false'. If 'true' then
            leaf nodes that have the same value as the default value will
            not be displayed even when explicitly configured to have that
            value. When set to 'false' such leaves will be displayed if
            explicitly configured to have the value. This setting applies
-           to show commands, ie show running-config and show config.";
+           to show commands, ie show running-config and show config.
+           This configuration parameter takes effect for both existing
+           and new sessions.";
       }
       leaf trimDefaultSave {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "trimDefaultSave is either 'true' or 'false'. If 'true' then
            leaf nodes that have the same value as the default value will
            not be displayed even when explicitly configured to have that
            value. When set to 'false' such leaves will be displayed if
            explicitly configured to have the value. This setting applies
-           to the save command.";
+           to the save command. This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       leaf banner {
         type string;
         default "";
         tailf:info
           "Banner shown to the user when the CLI is started. Default is
-           empty.";
+           empty. This configuration parameter takes effect only for
+           new sessions.";
       }
       leaf bannerFile {
         type string;
         default "";
         tailf:info
           "Banner file containing a banner shown to the user when the
-           CLI is started. Default is empty.";
+           CLI is started. Default is empty. This configuration parameter
+           takes effect only for new sessions.";
       }
       leaf prompt1 {
         type string;
@@ -3049,7 +3084,8 @@ module confd_dyncfg {
         tailf:info
           "Prompt used in operational mode in C style. The string may
            contain a number of backslash-escaped special characters
-           which are decoded as described above.";
+           which are decoded as described above. This configuration
+           parameter takes effect for both existing and new sessions.";
       }
       leaf cPrompt2 {
         type string;
@@ -3057,11 +3093,12 @@ module confd_dyncfg {
         tailf:info
           "Prompt used in configuration mode in C style. The string may
            contain a number of backslash-escaped special characters
-           which are decoded as described above.";
+           which are decoded as described above. This configuration
+           parameter takes effect for both existing and new sessions.";
       }
       leaf cStylePromptInJStyle {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to true then the \\m and \\M will be expandes just as in C-
            and I-style";
@@ -3072,11 +3109,12 @@ module confd_dyncfg {
         tailf:info
           "When the \\h token is used in a prompt the first part of
            the hostname up until the first occurance of the
-           promptHostnameDelimiter is used.";
+           promptHostnameDelimiter is used. This configuration
+           parameter takes effect for both existing and new sessions.";
       }
       leaf asyncPromptRefresh {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "asyncPromptRefresh is either 'true' or 'false'. If set to
            'true' the CLI prompt will be refreshed when asynchronous
@@ -3091,14 +3129,15 @@ module confd_dyncfg {
       }
       leaf idleTimeout {
         type xs:duration;
-        default PT30M;
+        default "PT30M";
         tailf:info
           "Maximum idle time before terminating a CLI session. Default
-           is PT30M, ie 30 minutes.";
+           is PT30M, ie 30 minutes. This configuration parameter takes
+           effect only for new sessions.";
       }
       leaf promptSessionsCLI {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "promptSessionsCLI is either 'true' or 'false'. If set to 'true'
            then only the current CLI sessions will be displayed when the user
@@ -3109,7 +3148,7 @@ module confd_dyncfg {
       }
       leaf disableIdleTimeoutOnCmd {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "disableIdleTimeoutOnCmd is either 'true' or 'false'. If
            set to 'false' then the idle timeout will trigger even
@@ -3119,7 +3158,7 @@ module confd_dyncfg {
       }
       leaf commandTimeout {
         type timeoutType;
-        default infinity;
+        default "infinity";
         tailf:info
           "Global command timeout. Terminate command unless the command
            has completed within the timeout. It is generally a bad idea
@@ -3138,7 +3177,7 @@ module confd_dyncfg {
            controls the initial session value.";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true' command and
              argument completion will be performed when <space>
@@ -3153,17 +3192,20 @@ module confd_dyncfg {
            this only controls the initial session value.";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true' the CLI will
-             print a timestamp before the output of each command.";
+             print a timestamp before the output of each command. This
+             configuration parameter takes effect only for new sessions.";
         }
         leaf clock24 {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "clock24 is either 'true' or 'false'. If 'true' the 24-hour
-             time notation wil be used when displaying hours.";
+             time notation wil be used when displaying hours. This
+             configuration parameter takes effect for both existing
+             and new sessions.";
         }
         leaf format {
           type string;
@@ -3213,7 +3255,10 @@ module confd_dyncfg {
              W is the field width and P is the padding character. If P is not
              specified, ' ' will be used as the padding character.
              Example, the format '\\d{l,4}\\m{l,5}\\D{l,3}\\H{r,2,0}:\\t{r,2,0}'
-             would translate into 'Wed Jun  3  08:35'.";
+             would translate into 'Wed Jun  3  08:35'.
+
+             This configuration parameter takes effect for both existing and
+             new sessions.";
         }
       }
       container autoWizard {
@@ -3221,21 +3266,23 @@ module confd_dyncfg {
         tailf:info
           "Default value for autowizard in the CLI. The user can always
            enable or disable the auto wizard in each session, this
-           controls the initial session value.";
+           controls the initial session value. This configuration
+           parameter takes effect only for new sessions.";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true' the CLI
              will prompt the user for required attributes when a new
-             identifier is created.";
+             identifier is created. This configuration parameter
+             takes effect only for new sessions.";
         }
       }
       container ssh {
         presence "";
         leaf enabled {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true' ConfD will
              will use the built in SSH server.";
@@ -3251,7 +3298,7 @@ module confd_dyncfg {
         }
         leaf port {
           type inet:port-number;
-          default 2024;
+          default "2024";
           tailf:info
             "The port number for CLI SSH";
         }
@@ -3289,13 +3336,14 @@ module confd_dyncfg {
       }
       leaf commitMessage {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "commitMessage is either 'true' or 'false'. If set to
            'true' then a message will be displayed in the CLI
            whenever a commit operation is performed in the system.
            This is always disabled in I-style, and in transactionless
-           mode.";
+           mode. This configuration parameter takes effect only for
+           new sessions.";
       }
       leaf commitMessageFormat {
         type string;
@@ -3305,7 +3353,9 @@ module confd_dyncfg {
            displayed in the CLI. The format
            string may contain the variables $(user), $(time), $(ctx),
            $(date), $(time12), $(time12ampm), $(time12hm), $(host),
-           $(hostname), and $(proto).";
+           $(hostname), and $(proto).
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       container suppressCommitMessages {
         presence "";
@@ -3317,7 +3367,7 @@ module confd_dyncfg {
       }
       leaf jShowCR {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "jShowCR is either 'true' or 'false'. If set to
            'true' then the J-style CLI will show >cr< in
@@ -3325,7 +3375,7 @@ module confd_dyncfg {
       }
       leaf showPipe {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showPipe is either 'true' or 'false'. If set to 'true' the
            completion list will contain | in operational mode if it
@@ -3336,7 +3386,7 @@ module confd_dyncfg {
       }
       leaf showPipeConfig {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showPipeConfig is either 'true' or 'false'. If set to
            'true' the completion list will contain | in configure
@@ -3348,14 +3398,14 @@ module confd_dyncfg {
       }
       leaf disablePipe {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "disablePipe is either 'true' or 'false'. If set to 'true'
            then the pipe commands are disabled in operational mode.";
       }
       leaf disablePipeConfig {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "disablePipeConfig is either 'true' or 'false'. If set to
            'true' then the pipe commands are disabled in configure
@@ -3363,7 +3413,7 @@ module confd_dyncfg {
       }
       leaf pipeHelpMode {
         type pipeHelpModeType;
-        default auto;
+        default "auto";
         tailf:info
           "If showPipe is set to true, then pipeHelpMode determines
            how the pipe option will be displayed to the user. If set
@@ -3375,7 +3425,7 @@ module confd_dyncfg {
       }
       leaf jAllowDeleteAll {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "jAllowDeleteAll is either 'true' or 'false'. If set to
            'true' then the J-style CLI will show the command 'delete'
@@ -3384,13 +3434,13 @@ module confd_dyncfg {
       }
       leaf cSilentNo {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "Silently ignore deletes of non-existing instances.";
       }
       leaf noFollowIncompleteCommand {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "noFollowIncompleteCommand is either 'true' or 'false'. If set to
            'true' then the 'no' command will take incomplete-command
@@ -3398,7 +3448,7 @@ module confd_dyncfg {
       }
       leaf cRestrictiveNo {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If a leaf value is given when an optional leaf is deleted,
            the given value is normally ignored and the node is deleted
@@ -3408,7 +3458,7 @@ module confd_dyncfg {
       }
       leaf prioritizeSubmodeCmds {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "prioritizeSubmodeCmds is either 'true' or 'false'. If set to
            'true' then local submode commands are prioritized before
@@ -3420,7 +3470,7 @@ module confd_dyncfg {
       }
       leaf cExtendedCmdSearch {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "Extend the available submode commands to all commands in
            parent (and grand-parent) modes. These commands are not
@@ -3432,7 +3482,7 @@ module confd_dyncfg {
       }
       leaf cSuppressCmdSearch {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Prevent non-local commands from being executed. This
            negates the effect of cExtendedCmdSearch above. It is
@@ -3441,7 +3491,7 @@ module confd_dyncfg {
       }
       leaf enterSubmodeOnLeaf {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "enterSubmodeOnLeaf is either 'true' or 'false'. If set
            to 'true' (the default) then setting a leaf in a submode
@@ -3465,7 +3515,7 @@ module confd_dyncfg {
       }
       leaf jExtendedShow {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "jExtendedShow is either 'true' or 'false'. If set to
            'true' then the J-style CLI will have auto-rendered
@@ -3475,7 +3525,7 @@ module confd_dyncfg {
       }
       leaf jShowUnset {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "jShowUnset is either 'true' or 'false'. If set to
            'true' then the J-style CLI will show unset leaves
@@ -3483,7 +3533,7 @@ module confd_dyncfg {
       }
       leaf jShowUnsetText {
         type string;
-        default UNSET;
+        default "UNSET";
         tailf:info
           "jShowUnsetText is the text printed for unset values
            if jShowUnset has been set to true.";
@@ -3500,7 +3550,7 @@ module confd_dyncfg {
       }
       leaf cModeExitFormat {
         type string;
-        default !;
+        default "!";
         tailf:info
           "cModeExitFormat is the string used in the CLI when
            displaying the running configuration to indicate
@@ -3518,7 +3568,7 @@ module confd_dyncfg {
       }
       leaf showSubsystemMessages {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showSubsystemMessages is either 'true' or 'false'. If 'true'
            the CLI will display a system message whenever a connected
@@ -3526,7 +3576,7 @@ module confd_dyncfg {
       }
       leaf ignoreSubsystemFailures {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "ignoreSubsystemFailures is either 'true' or 'false'. If
            'true' the CLI will make a best effort to display data
@@ -3534,7 +3584,7 @@ module confd_dyncfg {
       }
       leaf showEmptyContainers {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showEmptyContainers is either 'true' or 'false'. If 'true'
            the CLI will display empty container nodes when displaying
@@ -3543,7 +3593,7 @@ module confd_dyncfg {
       }
       leaf showTags {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showTags is either 'true' or 'false'. If 'true'
            the CLI will display configuration tags if they are present.
@@ -3552,7 +3602,7 @@ module confd_dyncfg {
       }
       leaf showAnnotations {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showAnnotations is either 'true' or 'false'. If 'true'
            the CLI will display configuration annotations if they are present.
@@ -3561,15 +3611,15 @@ module confd_dyncfg {
       }
       leaf showServiceMetaData {
         type boolean;
-        default false;
+        default "false";
       }
       leaf suppressNedErrors {
         type boolean;
-        default false;
+        default "false";
       }
       leaf jShowTableRecursive {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "jShowTableRecursive is either 'true' or 'false'. If 'true' the
            J-style CLI will attempt to display the result of the command
@@ -3579,7 +3629,7 @@ module confd_dyncfg {
       }
       leaf cPrivate {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "cPrivate is either 'true' or 'false'. If set to 'true' then
            the term 'private' will be used in place of 'terminal' for
@@ -3588,7 +3638,7 @@ module confd_dyncfg {
       }
       leaf cTab {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "cTab is either 'true' or 'false'. If 'true' the Cisco style
            CLI will not display any help text when the user enters TAB.
@@ -3597,7 +3647,7 @@ module confd_dyncfg {
       }
       leaf cTabInfo {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "cTabInfo is either 'true' or 'false'. If 'false' the Cisco
            style CLI will not display any info text when the user
@@ -3606,14 +3656,14 @@ module confd_dyncfg {
       }
       leaf tabExtend {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "tabExtend is either 'true' or 'false'. If 'true' the CLI will
            extend the current token to the next longer alternative.";
       }
       leaf cHelp {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "cHelp is either 'true' or 'false'. If 'true' the Cisco style
            CLI will not display any desc text when the user enters
@@ -3622,7 +3672,7 @@ module confd_dyncfg {
       }
       leaf jHideHelp {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "jHideHelp is either 'true' or 'false'. If 'true' the
            Juniper style CLI will not display any desc text when the
@@ -3631,7 +3681,7 @@ module confd_dyncfg {
       }
       leaf restrictedFileAccess {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "restrictedFileAccess is either 'true' or 'false'. If 'true'
            then a CLI user will not be able to access files and
@@ -3639,7 +3689,7 @@ module confd_dyncfg {
       }
       leaf hideDotFiles {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "hideDotFile is either 'true' or 'false'. If 'true'
            then files starting with a '.' will not be visible in
@@ -3657,7 +3707,7 @@ module confd_dyncfg {
       }
       leaf historySave {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "If set to 'true' then the CLI history will be saved
            between CLI sessions. The history is stored in the
@@ -3665,7 +3715,7 @@ module confd_dyncfg {
       }
       leaf historyRemoveDuplicates {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to 'true' then repeated commands in the CLI will only
            be stored once in the history. Each invocation of the
@@ -3674,46 +3724,49 @@ module confd_dyncfg {
       }
       leaf historyMaxSize {
         type int64;
-        default 1000;
+        default "1000";
         tailf:info
           "Sets maximum configurable history size.";
       }
       leaf messageMaxSize {
         type int64;
-        default 10000;
+        default "10000";
         tailf:info
           "Maximum size of user message.";
       }
       leaf mapActions {
         type cliActionMapType;
-        default both;
+        default "both";
         tailf:info
           "Display data model actions in operational mode, configure
            mode, or both in C and I style CLIs.";
       }
       leaf compactTable {
         type boolean;
-        default true;
+        default "true";
         tailf:info
-          "Display tables in compact mode.";
+          "Display tables in compact mode. This configuration parameter
+           takes effect only for new sessions.";
       }
       leaf compactShow {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Use compact representation when showing the configuration in
-           C and I style CLIs.";
+           C and I style CLIs. This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       leaf compactStatsShow {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Use compact representation when showing the operational data
-           in C and I style CLIs.";
+           in C and I style CLIs. This configuration parameter takes
+           effect for both existing and new sessions.";
       }
       leaf prettifyStatsName {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Default setting for prettifying, ie changing _ and - to space
            in element names when displaying config='false' data in key-value
@@ -3721,7 +3774,7 @@ module confd_dyncfg {
       }
       leaf showCommitProgress {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showCommitProgress can be either 'true' or 'false'. If set to
            'true' then the commit operation in the CLI will provide
@@ -3729,15 +3782,17 @@ module confd_dyncfg {
       }
       leaf commitActivityClock {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "commitActivityClock can be either 'true' or 'false'. If set to
            'true' then a |/-\\| style animation will be displayed if
-           the commit operation takes more than 200 ms to complete.";
+           the commit operation takes more than 200 ms to complete.
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf confirmUncommitedOnExit {
         type confirmUncommitedOnExitType;
-        default prompt;
+        default "prompt";
         tailf:info
           "If set to 'prompt' then the user will be prompted whether
            to discard uncommitted changes or not. If set to 'discard'
@@ -3748,7 +3803,7 @@ module confd_dyncfg {
       }
       leaf reconfirmHidden {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to true the user will have to re-confirm non-echoing
            values in the CLI. Ie, when the CLI prompts the user for a
@@ -3757,7 +3812,7 @@ module confd_dyncfg {
       }
       leaf dequoteHidden {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to true the value that the user entered will be
            dequoted, ie if the user enters \\n it will be interpreted
@@ -3770,7 +3825,7 @@ module confd_dyncfg {
       }
       leaf enumKeyInfo {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to true the CLI will add the text
            <keyname:enumeration> whenever it is displaying a
@@ -3783,36 +3838,37 @@ module confd_dyncfg {
       }
       leaf columnStats {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "columnStats is either 'true' or 'false'. If 'false' then the
            container element is repeated on each line when displaying
            config='false' data in the C and I style CLIs using the
            'show' command. If set to 'true' then the name of the
            container will not be repeated, instead all leaves will be
-           indented.";
+           indented. This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf allowAbbrevCmds {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowAbbrevCmds is either 'true' or 'false'. If 'false' then
-           commands are not allowed to be abbrevated in the CLI.";
+           commands are not allowed to be abbreviated in the CLI.";
       }
       leaf allowAbbrevCmdsOnLoad {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowAbbrevCmdsOnLoad is either 'true' or 'false'. If 'false' then
-           commands are not allowed to be abbrevated in the CLI in non
+           commands are not allowed to be abbreviated in the CLI in non
            interactive mode, ie when loading configurations from file.";
       }
       leaf allowAbbrevKeys {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allowAbbrevKeys is either 'true' or 'false'. If 'false' then
-           key elements are not allowed to be abbrevated in the
+           key elements are not allowed to be abbreviated in the
            CLI. This is relevant in the J-style CLI when using the
            commands 'delete' and 'edit'. In the C/I-style CLIs when
            using the commands 'no', 'show configuration' and for
@@ -3820,22 +3876,22 @@ module confd_dyncfg {
       }
       leaf allowAbbrevParamNames {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allowAbbrevParamNames is either 'true' or 'false'. If
            'false' then cli command parameter names, ie
-           <name>xx</name>, cannot be abbrevated.";
+           <name>xx</name>, cannot be abbreviated.";
       }
       leaf allowAbbrevEnums {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowAbbrevEnums is either 'true' or 'false'. If 'false'
-           then enums entered in the cli cannot be abbrevated.";
+           then enums entered in the cli cannot be abbreviated.";
       }
       leaf allowCaseInsensitiveEnums {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "allowCaseInsensitiveEnums is either 'true' or 'false'. If
            'false' then enums entered in the cli must match in case, ie
@@ -3844,7 +3900,7 @@ module confd_dyncfg {
       }
       leaf strictRefsOnLoad {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "strictRefsOnLoad is either 'true' or 'false'. If 'false' then
            keyref/leafref targets does not have to exist when loading
@@ -3856,7 +3912,7 @@ module confd_dyncfg {
       }
       leaf stopLoadOnError {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "stopLoadOnError is either 'true' or 'false'. If 'false' then
            the 'load' command in the C and I-style CLIs will not terminate
@@ -3865,7 +3921,7 @@ module confd_dyncfg {
       }
       leaf allOrNothingLoad {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "allOrNothingLoad is either true or false. If set to true
            then the transaction will be reset and all changes discarded
@@ -3876,7 +3932,7 @@ module confd_dyncfg {
       }
       leaf autocommitLoad {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "autocommitLoad is either 'true' or 'false'. If 'true' then
            when executing the 'load' command each line will be committed
@@ -3887,7 +3943,7 @@ module confd_dyncfg {
         type uint64 {
           range "1 .. max";
         }
-        default 1;
+        default "1";
         tailf:info
           "autocommitLoadChunkSize is used to avoid auto commit:ing
            after each line but instead commit after a chunk of lines
@@ -3895,7 +3951,7 @@ module confd_dyncfg {
       }
       leaf enableLoadMerge {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "enableLoadMerge is either 'true' or 'false'. If 'false' then
            the 'load' command in the C and I-style CLIs will not have
@@ -3907,7 +3963,7 @@ module confd_dyncfg {
       }
       leaf loadActivityClock {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "loadActivityClock can be either 'true' or 'false'. If set to
            'true' then a |/-\\| style animation will be displayed if
@@ -3915,7 +3971,7 @@ module confd_dyncfg {
       }
       leaf instanceDescription {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "instanceDescription is either 'true' or 'false'. If 'true'
            then the CLI will look for description elems and add
@@ -3925,7 +3981,7 @@ module confd_dyncfg {
       }
       leaf addErrorPrefixSuffix {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "addErrorPrefixSuffix is either 'true' or 'false'. If 'true'
            then the CLI will add 'Error: ' or 'Aborted: ' and when operations
@@ -3934,26 +3990,30 @@ module confd_dyncfg {
       }
       leaf compListCompact {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "compListCompact is either 'true' or 'false'. If 'true'
            then the CLI will display items with an associated info
-           text one per line, and all the rest in compact format.";
+           text one per line, and all the rest in compact format.
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf completionListLine {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "completionListLine is either 'true' or 'false'. If 'true'
            then the CLI will display completion lists one item per
            line. If set to 'false' one-line presentation will be
            used for itmes with info texts and compact for the rest.
            (if compListCompact above is set to 'true' there may be a
-           mix of the to formats in the same listing)";
+           mix of the to formats in the same listing)
+           This configuration parameter takes effect for both
+           existing and new sessions.";
       }
       leaf infoOnMatch {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "infoOnMatch is either 'true' or 'false'. If 'true'
            then the CLI will add info texts when displaying
@@ -3968,7 +4028,7 @@ module confd_dyncfg {
       }
       leaf enableDisplayLevel {
         type enableDisplayLevelType;
-        default pipe;
+        default "pipe";
         tailf:info
           "enableDisplayLevel is either 'true', 'false' or 'pipe'. If 'false'
            then the 'displaylevel' option to the show command will not
@@ -3988,7 +4048,7 @@ module confd_dyncfg {
       }
       leaf defaultDisplayLevel {
         type int64;
-        default 99999999;
+        default "99999999";
         tailf:info
           "If enableDisplayLevel is set to 'true' then this settings
            controls the default display level used if no explicit
@@ -3997,7 +4057,7 @@ module confd_dyncfg {
       }
       leaf enableDisplayGroups {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "enableDisplayGroups is either 'true' or 'false'. If 'false'
            then the user will not be able to provide a set of display
@@ -4005,7 +4065,7 @@ module confd_dyncfg {
       }
       leaf unifiedHistory {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If set to 'true' then the 'show history' command will
            display the unified command history, ie the command history
@@ -4014,7 +4074,7 @@ module confd_dyncfg {
       }
       leaf modeInfoInAAA {
         type modeInfoInAAAType;
-        default false;
+        default "false";
         tailf:info
           "modeInfoInAAA is either 'true', 'false' or 'path', If 'true', then
            all commands will be prefixed with major and minor mode name
@@ -4028,7 +4088,7 @@ module confd_dyncfg {
       }
       leaf cmdAAAForAutowizard {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "cmdAAAForAutowizard si either 'true' or 'false'. If set to
            'true' then the CLI will generate synthetic commands, and
@@ -4037,7 +4097,7 @@ module confd_dyncfg {
       }
       leaf quoteStyle {
         type quoteStyleType;
-        default backslash;
+        default "backslash";
         tailf:info
           "quoteStyle is either 'quote' or 'backslash'. If set to
            'quote' then the quote characters will be used on the CLI
@@ -4055,7 +4115,7 @@ module confd_dyncfg {
       }
       leaf laxBarQuoting {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "laxBarQuoting is either 'true' or 'false'. If set to 'true'
            then | and ; are only quoted if they appear by them selves.
@@ -4065,7 +4125,7 @@ module confd_dyncfg {
       }
       leaf expandAliasOnCompletion {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "expandAliasOnCompletion is either true or false. If set to
            true then aliases will be expanded before invoking the
@@ -4073,7 +4133,7 @@ module confd_dyncfg {
       }
       leaf expandAliasEscape {
         type aliasQuoteType;
-        default false;
+        default "false";
         tailf:info
           "expandAliasEscape is either true or false. If set to
            true then expanding an alias can be prevented by putting
@@ -4081,7 +4141,7 @@ module confd_dyncfg {
       }
       leaf docWrap {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "docWrap is either 'true' or 'false'. If 'false' then certain
            documentation texts will not be enclosed in '<' and
@@ -4089,7 +4149,7 @@ module confd_dyncfg {
       }
       leaf infoOnTab {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "infoOnTab is either 'true' or 'false'. If 'false' then no
            info strings will be displayed in the tab completion list
@@ -4097,7 +4157,7 @@ module confd_dyncfg {
       }
       leaf infoOnSpace {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "infoOnSpace is either 'true' or 'false'. If 'false' then no
            info strings will be displayed in the tab completion list
@@ -4105,7 +4165,7 @@ module confd_dyncfg {
       }
       leaf newLogout {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "newLogout is either 'true' or 'false'. If 'false' then the I
            and C modes will have a single 'logout' command for logging
@@ -4115,7 +4175,7 @@ module confd_dyncfg {
       }
       leaf newInsert {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "newInsert is either 'true' or 'false'. If 'false' then the old
            insert command will be used. If set to 'true' then the new
@@ -4134,7 +4194,7 @@ module confd_dyncfg {
       }
       leaf messageWordWrap {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "messageWordWrap is either 'true' or 'false'. If set to 'true'
            then all system/user/prio messages in the CLI will be word-wrapped
@@ -4142,18 +4202,19 @@ module confd_dyncfg {
       }
       leaf messageQueueSize {
         type int64;
-        default 10;
+        default "10";
         tailf:info
           "Some messages are not displayed in the CLI when a command
            executed, but are delayed until the current command execution
            has finished. The size of the queue of pending messages is
-           configured in messageQueueSize.";
+           configured in messageQueueSize. This configuration parameter
+           takes effect for both existing and new sessions.";
       }
       leaf promptEnumLimit {
         type uint64 {
           range "0 .. max";
         }
-        default 4;
+        default "4";
         tailf:info
           "promptEnumLimit controls how many enumerations should be included
            in the prompt when prompting the user for a value where there are
@@ -4163,7 +4224,7 @@ module confd_dyncfg {
       }
       leaf caseInsensitive {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "caseInsensitive is either 'true' or 'false'. If 'false' then
            all CLI commands must have the correct case. If set to
@@ -4174,7 +4235,7 @@ module confd_dyncfg {
       }
       leaf caseInsensitiveKeys {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "caseInsensitiveKeys is either 'true' or 'false'. If 'false' then
            all user defined instance names must have correct case. If set to
@@ -4185,7 +4246,7 @@ module confd_dyncfg {
       }
       leaf ignoreLeadingWhitespace {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "ignoreLeadingWhitespace is either 'true' or 'false'. If
            'false' then the CLI will show completion help when the user
@@ -4197,7 +4258,7 @@ module confd_dyncfg {
       }
       leaf indentTemplates {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "indentTemplates is either 'true' or 'false'. If set to 'true'
            then the text resulting from a show template will be indented
@@ -4208,7 +4269,7 @@ module confd_dyncfg {
       }
       leaf wrapInfo {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "wrapInfo is either 'true' or 'false'. If 'false' then the
            CLI will not automatically wrap the info field in 'Possible
@@ -4217,7 +4278,7 @@ module confd_dyncfg {
       }
       leaf wrapPrompt {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "wrapPrompt is either 'true' or 'false'. If 'false' then the
            CLI will not automatically word wrap the prompt when prompting
@@ -4226,7 +4287,7 @@ module confd_dyncfg {
       }
       leaf sortShowElems {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "sortShowElems is either 'true' or 'false'. If 'false' then
            the show commands will display the elements in the order
@@ -4236,7 +4297,7 @@ module confd_dyncfg {
       }
       leaf showMatchBeforePossible {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "showMatchBeforePossible is either 'true' or 'false'. If set to
            'true' then the match completions will be displayed before
@@ -4267,14 +4328,14 @@ module confd_dyncfg {
       }
       leaf showDescription {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "showDescription is either true or false. If set to false then
            the Description: xx text will not be displayed.";
       }
       leaf explicitSetCreate {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "explicitSetCreate is either 'true' or 'false'. If set to
            'true' then the 'set' command in J-style CLI cannot be used
@@ -4284,7 +4345,7 @@ module confd_dyncfg {
            creation is performed by the 'set' command.";
       }
       list templateFilter {
-        key name;
+        key "name";
         tailf:info
           "User defined template filters must be listed here. They
            can be used in show templates in the same manner as the
@@ -4308,14 +4369,14 @@ module confd_dyncfg {
       }
       leaf escapeBackslash {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "escapeBackslash is either 'true' or 'false'. If 'true' then
            backslash is escaped in the CLI.";
       }
       leaf showNedErrorAsInfo {
         type boolean;
-        default true;
+        default "true";
       }
       leaf defaultLeafListStyle {
         type cliLeafListStyleType;
@@ -4323,6 +4384,19 @@ module confd_dyncfg {
           "Make all plain leaf-lists behave as they were decorated with
            either 'tailf:cli-flat-list-syntax' or
            'tailf:cli-range-list-syntax'";
+      }
+      leaf bypassAllowAbbrevKeys {
+        type boolean;
+        default "false";
+        tailf:info
+          "bypassAllowAbbrevKeys is either 'true' or 'false'. If 'true'
+           then /confdConfig/cli/allowAbbrevKeys setting does not take
+           any effect. It means that no matter what is set for
+           /confdConfig/cli/allowAbbrevKeys, the key elements are not
+           allowed to be abbreviated in the CLI. This is relevant in the
+           J-style CLI when using the commands 'delete' and 'edit'. In
+           the C/I-style CLIs when using the commands 'no',
+           'show configuration' and for commands to enter submodes.";
       }
     }
     container webui {
@@ -4333,20 +4407,20 @@ module confd_dyncfg {
          etc.";
       leaf enabled {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the Web
            server is started.";
       }
       leaf serverName {
         type xs:token;
-        default localhost;
+        default "localhost";
         tailf:info
           "The hostname the Web server serves.";
       }
       leaf matchHostName {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "This setting specifies if the Web server only should serve
            URLs adhering to the serverName defined above. By default
@@ -4359,7 +4433,7 @@ module confd_dyncfg {
         type uint64 {
           range "0 .. max";
         }
-        default 0;
+        default "0";
         tailf:info
           "The ConfD Web server uses a RAM cache for static content. An
            entry sits in the cache for a number of seconds before it is
@@ -4369,7 +4443,7 @@ module confd_dyncfg {
         type uint64 {
           range "0 .. max";
         }
-        default 100;
+        default "100";
         tailf:info
           "Leafref and keyref entries are represented as drop-down
            menues in the automatically generated Web UI. By default
@@ -4382,6 +4456,20 @@ module confd_dyncfg {
           "The location of the document root on disk. If this
            configurable is omited the docroot points to the next
            generation docroot in the ConfD distro instead.";
+      }
+      leaf webuiIndexUrl {
+        type string;
+        default "/index.html";
+        tailf:info
+          "Where to redirect after successful login, which by default
+           is '/index.html'.";
+      }
+      leaf hatcheryUrl {
+        type string;
+        default "/webui";
+        tailf:info
+          "Url where the 'hatchery' webui is mapped if enabled.
+           The default is '/webui'.";
       }
       leaf loginDir {
         type string;
@@ -4398,7 +4486,7 @@ module confd_dyncfg {
       container customHeaders {
         presence "";
         list header {
-          key name;
+          key "name";
           tailf:info
             "The customHeaders element contains any number of header
              elements, with a valid header-field as defined in RFC7230.
@@ -4420,7 +4508,7 @@ module confd_dyncfg {
       }
       leaf X-Frame-Options {
         type X-Frame-OptionsType;
-        default DENY;
+        default "DENY";
         tailf:info
           "By default the X-Frame-Options header is set to DENY for
            the /login.html and /index.html pages. With this header
@@ -4441,7 +4529,7 @@ module confd_dyncfg {
       }
       leaf allowSymlinks {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "Allow symlinks in the docroot directory.";
       }
@@ -4457,14 +4545,14 @@ module confd_dyncfg {
              should behave.";
           leaf enabled {
             type boolean;
-            default true;
+            default "true";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', the Web
                server uses cleart text TCP as a transport service.";
           }
           leaf disableNonAuthRedirect {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "disableNonAuthRedirect is either 'true' or 'false'. If
                'true' non-authenticated HTTP requests (expect '/' and
@@ -4491,7 +4579,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 8008;
+            default "8008";
             tailf:info
               "port is a valid port number to be used in combination
                with the address in /confdConfig/webui/transport/tcp/ip.";
@@ -4524,14 +4612,14 @@ module confd_dyncfg {
              which describes how to manage certificates and keys.";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', the Web
                server uses SSL as a transport service.";
           }
           leaf disableNonAuthRedirect {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "disableNonAuthRedirect is either 'true' or 'false'. If
                'true' non-authenticated HTTP requests (expect '/' and
@@ -4558,7 +4646,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 8888;
+            default "8888";
             tailf:info
               "port is a valid port number to be used in combination
                with /confdConfig/webui/transport/ssl/ip.";
@@ -4630,7 +4718,7 @@ module confd_dyncfg {
           }
           leaf verify {
             type verifyType;
-            default 1;
+            default "1";
             tailf:info
               "Specifies the level of verification the server does on
                client certificates. 1 means nothing, 2 means the
@@ -4660,7 +4748,7 @@ module confd_dyncfg {
             type uint64 {
               range "0 .. max";
             }
-            default 1;
+            default "1";
             tailf:info
               "Specifies the depth of certificate chains the server
                is prepared to follow when verifying client
@@ -4668,24 +4756,41 @@ module confd_dyncfg {
           }
           leaf ciphers {
             type string;
-            default DEFAULT;
+            default "DEFAULT";
             tailf:info
               "Specifies the cipher suites to be used by the server as a
-               colon-separated list from the set DHE-RSA-AES256-SHA256,
-               DHE-DSS-AES256-SHA256, AES256-SHA256, DHE-RSA-AES128-SHA256,
-               DHE-DSS-AES128-SHA256, AES128-SHA256, DHE-RSA-AES256-SHA,
-               DHE-DSS-AES256-SHA, AES256-SHA, EDH-RSA-DES-CBC3-SHA,
-               EDH-DSS-DES-CBC3-SHA, DES-CBC3-SHA, DHE-RSA-AES128-SHA,
-               DHE-DSS-AES128-SHA, AES128-SHA, RC4-SHA, RC4-MD5,
-               EDH-RSA-DES-CBC-SHA, and DES-CBC-SHA, or the word 'DEFAULT'
-               (use all supported cipher suites in that list). See the
-               OpenSSL manual page ciphers(1) for the definition of the
-               cipher suites.  NOTE: The general cipher list syntax
-               described in ciphers(1) is not supported.";
+               colon-separated list from the set
+               ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-RSA-AES256-GCM-SHA384,
+               ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES256-SHA384,
+               ECDH-ECDSA-AES256-GCM-SHA384, ECDH-RSA-AES256-GCM-SHA384,
+               ECDH-ECDSA-AES256-SHA384, ECDH-RSA-AES256-SHA384,
+               DHE-RSA-AES256-GCM-SHA384, DHE-DSS-AES256-GCM-SHA384,
+               DHE-RSA-AES256-SHA256, DHE-DSS-AES256-SHA256,
+               AES256-GCM-SHA384, AES256-SHA256,
+               ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-RSA-AES128-GCM-SHA256,
+               ECDHE-ECDSA-AES128-SHA256, ECDHE-RSA-AES128-SHA256,
+               ECDH-ECDSA-AES128-GCM-SHA256, ECDH-RSA-AES128-GCM-SHA256,
+               ECDH-ECDSA-AES128-SHA256, ECDH-RSA-AES128-SHA256,
+               DHE-RSA-AES128-GCM-SHA256, DHE-DSS-AES128-GCM-SHA256,
+               DHE-RSA-AES128-SHA256, DHE-DSS-AES128-SHA256,
+               AES128-GCM-SHA256, AES128-SHA256, ECDHE-ECDSA-AES256-SHA,
+               ECDHE-RSA-AES256-SHA, DHE-RSA-AES256-SHA, DHE-DSS-AES256-SHA,
+               ECDH-ECDSA-AES256-SHA, ECDH-RSA-AES256-SHA, AES256-SHA,
+               ECDHE-ECDSA-DES-CBC3-SHA, ECDHE-RSA-DES-CBC3-SHA,
+               EDH-RSA-DES-CBC3-SHA, EDH-DSS-DES-CBC3-SHA,
+               ECDH-ECDSA-DES-CBC3-SHA, ECDH-RSA-DES-CBC3-SHA, DES-CBC3-SHA,
+               ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA,
+               DHE-RSA-AES128-SHA, DHE-DSS-AES128-SHA, ECDH-ECDSA-AES128-SHA,
+               ECDH-RSA-AES128-SHA, AES128-SHA, EDH-RSA-DES-CBC-SHA, and
+               DES-CBC-SHA, or the word 'DEFAULT' (use all supported
+               cipher suites in that list). See the OpenSSL manual page
+               ciphers(1) for the definition of the cipher suites.
+               NOTE: The general cipher list syntax described in
+               ciphers(1) is not supported.";
           }
           leaf protocols {
             type string;
-            default DEFAULT;
+            default "DEFAULT";
             tailf:info
               "Specifies the SSL/TLS protocol versions to be used by the
                server as a whitespace-separated list from the set
@@ -4700,14 +4805,14 @@ module confd_dyncfg {
           "CGI-script support";
         leaf enabled {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true',
              CGI-script support is enabled.";
         }
         leaf dir {
           type string;
-          default cgi-bin;
+          default "cgi-bin";
           tailf:info
             "
              The directory path to the location of the CGI-scripts.";
@@ -4731,7 +4836,7 @@ module confd_dyncfg {
             "PHP support";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true',
                PHP support is enabled.";
@@ -4740,7 +4845,7 @@ module confd_dyncfg {
       }
       leaf idleTimeout {
         type xs:duration;
-        default PT30M;
+        default "PT30M";
         tailf:info
           "
            Maximum idle time before terminating a Web UI session.
@@ -4748,7 +4853,7 @@ module confd_dyncfg {
       }
       leaf absoluteTimeout {
         type xs:duration;
-        default PT60M;
+        default "PT60M";
         tailf:info
           "Maximum absolute time before terminating a Web UI session.
            PT0M means no timeout. Default is PT60M, ie 60 minutes.";
@@ -4757,14 +4862,14 @@ module confd_dyncfg {
         type uint64 {
           range "0 .. max";
         }
-        default 1000000;
+        default "1000000";
         tailf:info
           "Maximum number of allowed JSON-RPC requests every hour.
            0 means infinity. Default is 1 million.";
       }
       leaf audit {
         type boolean;
-        default true;
+        default "false";
         tailf:info
           "audit is either 'true' or 'false'. If 'true', then JSON-RPC/CGI
            requests are logged to the audit log.";
@@ -4776,7 +4881,7 @@ module confd_dyncfg {
         "This section defines settings for the experimental REST api.";
       leaf enabled {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the
            experimental REST api is enabled on the Web server used by
@@ -4784,7 +4889,7 @@ module confd_dyncfg {
       }
       leaf showHidden {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Hidden nodes are not shown by default in REST.  Such nodes can be
            unhidden to the REST client by including the query parameter
@@ -4799,7 +4904,7 @@ module confd_dyncfg {
       container customHeaders {
         presence "";
         list header {
-          key name;
+          key "name";
           tailf:info
             "The customHeaders element contains any number of header
              elements, with a valid header-field as defined in RFC7230.";
@@ -4823,7 +4928,7 @@ module confd_dyncfg {
         "This section defines settings for the RESTCONF api.";
       leaf enabled {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the RESTCONF api is
            enabled on the Web server used by the Web UI.  Note that the Web UI
@@ -4831,13 +4936,13 @@ module confd_dyncfg {
       }
       leaf rootResource {
         type string;
-        default restconf;
+        default "restconf";
         tailf:info
           "The RESTCONF root resource path.";
       }
       leaf schemaServerUrl {
         type string {
-          pattern "(http[s]?:)//[a-zA-Z0-9.-]+:[0-9]+";
+          pattern '(http[s]?:)//[a-zA-Z0-9.-]+:[0-9]+';
         }
         tailf:info
           "Change the schema element in the ietf-yang-library:modules-state
@@ -4851,7 +4956,7 @@ module confd_dyncfg {
          Proxy Forwarding.";
       leaf autoLogin {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "autoLogin is either 'true' or 'false'. If 'true', ConfD will
            try to login to the target system with the current
@@ -4860,7 +4965,7 @@ module confd_dyncfg {
            builtin SSH daemon must be used.";
       }
       list proxy {
-        key target;
+        key "target";
         tailf:info
           "Parameters for a single proxy.";
         leaf target {
@@ -4891,7 +4996,7 @@ module confd_dyncfg {
                  the proxy NETCONF target will be over SSH.";
               leaf port {
                 type inet:port-number;
-                default 2022;
+                default "2022";
                 tailf:info
                   "The port where the proxy target listens for NETCONF
                    SSH connections.";
@@ -4903,7 +5008,7 @@ module confd_dyncfg {
                  the proxy NETCONF target will be over TCP.";
               leaf port {
                 type inet:port-number;
-                default 2023;
+                default "2023";
                 tailf:info
                   "The port where the proxy target listens for NETCONF
                    TCP connections.";
@@ -4922,7 +5027,7 @@ module confd_dyncfg {
                  the proxy CLI target will be over SSH.";
               leaf port {
                 type inet:port-number;
-                default 22;
+                default "22";
                 tailf:info
                   "The port where the proxy target listens for CLI SSH
                    connections.";
@@ -4939,7 +5044,7 @@ module confd_dyncfg {
          SNMP agent.";
       leaf enabled {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the SNMP
            agent is enabled.";
@@ -4955,7 +5060,7 @@ module confd_dyncfg {
       }
       leaf port {
         type inet:port-number;
-        default 161;
+        default "161";
         tailf:info
           "port is a valid port number to be used in combination with
            /confdConfig/snmpAgent/ip.";
@@ -4993,7 +5098,7 @@ module confd_dyncfg {
         }
         leaf fromLoadPath {
           type boolean;
-          default false;
+          default "false";
           tailf:info
             "If true, any '.bin' file found in the
              /confdConfig/loadPath is loaded at startup.  Bult-in
@@ -5002,7 +5107,7 @@ module confd_dyncfg {
       }
       leaf temporaryStorageTime {
         type uint32;
-        default 300;
+        default "300";
         tailf:info
           "The time, in seconds, that the agent keeps temporary table
            entries before deleting them.  A table entry is temporary
@@ -5015,21 +5120,21 @@ module confd_dyncfg {
            understand.";
         leaf v1 {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "Setting the value to true will enable SNMP v1 in the SNMP
              agent.";
         }
         leaf v2c {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "Setting the value to true will enable SNMP v2c in the SNMP
              agent.";
         }
         leaf v3 {
           type boolean;
-          default true;
+          default "true";
           tailf:info
             "Setting the value to true will enable SNMP v3 in the SNMP
              agent.";
@@ -5051,7 +5156,7 @@ module confd_dyncfg {
           type uint64 {
             range "0 .. max";
           }
-          default 50000;
+          default "50000";
           tailf:info
             "The maximum size of SNMP messages that the agent can send
              or receive.  The snmpEngineMaxMessageSize is defined in
@@ -5060,7 +5165,7 @@ module confd_dyncfg {
       }
       leaf sessionIgnorePort {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If true, the SNMP Agent will consider requests originating
            from one and the same IP Address, and using the same security
@@ -5096,7 +5201,7 @@ module confd_dyncfg {
            those to the running configuration.";
         leaf maxLockWait {
           type xs:duration;
-          default PT0S;
+          default "PT0S";
           tailf:info
             "If the candidate is locked by another user session, the SNMP
              Agent will send a resourceUnavailable response unless the
@@ -5106,7 +5211,7 @@ module confd_dyncfg {
         }
         leaf pendingChangesAction {
           type pendingChangesActionType;
-          default continue;
+          default "continue";
           tailf:info
             "If there are pending changes in the candidate when the SNMP
              Agent attempts to lock it, these will be discarded (continue) or
@@ -5116,7 +5221,7 @@ module confd_dyncfg {
       }
       leaf dropWhenInUse {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "Whenever a set request cannot be completed, due to competing
            actions (typically CDB clients, or other transactions) preventing
@@ -5157,7 +5262,7 @@ module confd_dyncfg {
           type uint64 {
             range "0 .. max";
           }
-          default 72;
+          default "72";
           tailf:info
             "A value which indicates the set of services that this
              entity may potentially offer.  The sysServices is defined
@@ -5168,7 +5273,7 @@ module confd_dyncfg {
           tailf:info
             "Entries that will populate the sysORTable from SNMPv2-MIB.";
           list sysOREntry {
-            key sysORIndex;
+            key "sysORIndex";
             leaf sysORIndex {
               type uint64 {
                 range "0 .. max";
@@ -5199,7 +5304,7 @@ module confd_dyncfg {
          server should behave, with respect to NETCONF and SSH.";
       leaf enabled {
         type boolean;
-        default true;
+        default "true";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the NETCONF
            server is started.";
@@ -5216,7 +5321,7 @@ module confd_dyncfg {
              should behave.";
           leaf enabled {
             type boolean;
-            default true;
+            default "true";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', the
                NETCONF server uses SSH as a transport service.";
@@ -5232,7 +5337,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 2022;
+            default "2022";
             tailf:info
               "port is a valid port number to be used in combination
                with /confdConfig/netconf/transport/ssh/ip.  Note that
@@ -5264,7 +5369,7 @@ module confd_dyncfg {
              transport service module.";
           leaf enabled {
             type boolean;
-            default false;
+            default "false";
             tailf:info
               "enabled is either 'true' or 'false'. If 'true', the
                NETCONF server uses clear text TCP as a transport
@@ -5281,7 +5386,7 @@ module confd_dyncfg {
           }
           leaf port {
             type inet:port-number;
-            default 2023;
+            default "2023";
             tailf:info
               "port is a valid port number to be used in combination
                with /confdConfig/netconf/transport/tcp/ip.";
@@ -5304,7 +5409,7 @@ module confd_dyncfg {
       }
       leaf extendedSessions {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "If extendedSessions are enabled, all ConfD sessions can be
            terminated using <kill-session>, i.e. not only can
@@ -5318,7 +5423,7 @@ module confd_dyncfg {
       }
       leaf sendDefaults {
         type boolean;
-        default false;
+        default "false";
         tailf:info
           "DEPRECATED - use defaultHandlingMode instead";
         description
@@ -5337,7 +5442,7 @@ module confd_dyncfg {
       }
       leaf idleTimeout {
         type xs:duration;
-        default PT0S;
+        default "PT0S";
         tailf:info
           "Maximum idle time before terminating a NETCONF session.
            If the session is waiting for notifications, or has a
@@ -5349,7 +5454,7 @@ module confd_dyncfg {
       }
       leaf writeTimeout {
         type xs:duration;
-        default PT0S;
+        default "PT0S";
         tailf:info
           "Maximum time for a write operation towards a client to complete.
            If the time is exceeded, the NETCONF session is terminated.
@@ -5360,7 +5465,7 @@ module confd_dyncfg {
       }
       leaf rpcErrors {
         type rpcErrorType;
-        default close;
+        default "close";
         tailf:info
           "If rpcErrors is 'inline', and an error occurs during the
            processing of a <get> or <get-config> request when ConfD
@@ -5373,7 +5478,7 @@ module confd_dyncfg {
       }
       leaf maxBatchProcesses {
         type limitType;
-        default unbounded;
+        default "unbounded";
         tailf:info
           "Controls how many concurrent NETCONF batch processes there
            can be at any time.  A batch process can be started by the

@@ -22,7 +22,7 @@ func init() {
 
 // ENTITYSTATEMIB
 type ENTITYSTATEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table of information about state/status of entities. This is a sparse
@@ -32,54 +32,21 @@ type ENTITYSTATEMIB struct {
     Entstatetable ENTITYSTATEMIB_Entstatetable
 }
 
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetFilter() yfilter.YFilter { return eNTITYSTATEMIB.YFilter }
+func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetEntityData() *types.CommonEntityData {
+    eNTITYSTATEMIB.EntityData.YFilter = eNTITYSTATEMIB.YFilter
+    eNTITYSTATEMIB.EntityData.YangName = "ENTITY-STATE-MIB"
+    eNTITYSTATEMIB.EntityData.BundleName = "cisco_ios_xe"
+    eNTITYSTATEMIB.EntityData.ParentYangName = "ENTITY-STATE-MIB"
+    eNTITYSTATEMIB.EntityData.SegmentPath = "ENTITY-STATE-MIB:ENTITY-STATE-MIB"
+    eNTITYSTATEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    eNTITYSTATEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    eNTITYSTATEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) SetFilter(yf yfilter.YFilter) { eNTITYSTATEMIB.YFilter = yf }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetGoName(yname string) string {
-    if yname == "entStateTable" { return "Entstatetable" }
-    return ""
+    eNTITYSTATEMIB.EntityData.Children = make(map[string]types.YChild)
+    eNTITYSTATEMIB.EntityData.Children["entStateTable"] = types.YChild{"Entstatetable", &eNTITYSTATEMIB.Entstatetable}
+    eNTITYSTATEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(eNTITYSTATEMIB.EntityData)
 }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetSegmentPath() string {
-    return "ENTITY-STATE-MIB:ENTITY-STATE-MIB"
-}
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entStateTable" {
-        return &eNTITYSTATEMIB.Entstatetable
-    }
-    return nil
-}
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["entStateTable"] = &eNTITYSTATEMIB.Entstatetable
-    return children
-}
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetYangName() string { return "ENTITY-STATE-MIB" }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) SetParent(parent types.Entity) { eNTITYSTATEMIB.parent = parent }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetParent() types.Entity { return eNTITYSTATEMIB.parent }
-
-func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetParentYangName() string { return "ENTITY-STATE-MIB" }
 
 // ENTITYSTATEMIB_Entstatetable
 // A table of information about state/status of entities.
@@ -89,7 +56,7 @@ func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetParentYangName() string { return "ENTIT
 // are able to report any of the state or status stored in
 // this table.
 type ENTITYSTATEMIB_Entstatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // State information about this physical entity. The type is slice of
@@ -97,68 +64,29 @@ type ENTITYSTATEMIB_Entstatetable struct {
     Entstateentry []ENTITYSTATEMIB_Entstatetable_Entstateentry
 }
 
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetFilter() yfilter.YFilter { return entstatetable.YFilter }
+func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetEntityData() *types.CommonEntityData {
+    entstatetable.EntityData.YFilter = entstatetable.YFilter
+    entstatetable.EntityData.YangName = "entStateTable"
+    entstatetable.EntityData.BundleName = "cisco_ios_xe"
+    entstatetable.EntityData.ParentYangName = "ENTITY-STATE-MIB"
+    entstatetable.EntityData.SegmentPath = "entStateTable"
+    entstatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entstatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entstatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) SetFilter(yf yfilter.YFilter) { entstatetable.YFilter = yf }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetGoName(yname string) string {
-    if yname == "entStateEntry" { return "Entstateentry" }
-    return ""
-}
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetSegmentPath() string {
-    return "entStateTable"
-}
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entStateEntry" {
-        for _, c := range entstatetable.Entstateentry {
-            if entstatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ENTITYSTATEMIB_Entstatetable_Entstateentry{}
-        entstatetable.Entstateentry = append(entstatetable.Entstateentry, child)
-        return &entstatetable.Entstateentry[len(entstatetable.Entstateentry)-1]
-    }
-    return nil
-}
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    entstatetable.EntityData.Children = make(map[string]types.YChild)
+    entstatetable.EntityData.Children["entStateEntry"] = types.YChild{"Entstateentry", nil}
     for i := range entstatetable.Entstateentry {
-        children[entstatetable.Entstateentry[i].GetSegmentPath()] = &entstatetable.Entstateentry[i]
+        entstatetable.EntityData.Children[types.GetSegmentPath(&entstatetable.Entstateentry[i])] = types.YChild{"Entstateentry", &entstatetable.Entstateentry[i]}
     }
-    return children
+    entstatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(entstatetable.EntityData)
 }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetYangName() string { return "entStateTable" }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) SetParent(parent types.Entity) { entstatetable.parent = parent }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetParent() types.Entity { return entstatetable.parent }
-
-func (entstatetable *ENTITYSTATEMIB_Entstatetable) GetParentYangName() string { return "ENTITY-STATE-MIB" }
 
 // ENTITYSTATEMIB_Entstatetable_Entstateentry
 // State information about this physical entity.
 type ENTITYSTATEMIB_Entstatetable_Entstateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -239,61 +167,25 @@ type ENTITYSTATEMIB_Entstatetable_Entstateentry struct {
     Entstatestandby interface{}
 }
 
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetFilter() yfilter.YFilter { return entstateentry.YFilter }
+func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetEntityData() *types.CommonEntityData {
+    entstateentry.EntityData.YFilter = entstateentry.YFilter
+    entstateentry.EntityData.YangName = "entStateEntry"
+    entstateentry.EntityData.BundleName = "cisco_ios_xe"
+    entstateentry.EntityData.ParentYangName = "entStateTable"
+    entstateentry.EntityData.SegmentPath = "entStateEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entstateentry.Entphysicalindex) + "']"
+    entstateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entstateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entstateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) SetFilter(yf yfilter.YFilter) { entstateentry.YFilter = yf }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "entStateLastChanged" { return "Entstatelastchanged" }
-    if yname == "entStateAdmin" { return "Entstateadmin" }
-    if yname == "entStateOper" { return "Entstateoper" }
-    if yname == "entStateUsage" { return "Entstateusage" }
-    if yname == "entStateAlarm" { return "Entstatealarm" }
-    if yname == "entStateStandby" { return "Entstatestandby" }
-    return ""
+    entstateentry.EntityData.Children = make(map[string]types.YChild)
+    entstateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    entstateentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entstateentry.Entphysicalindex}
+    entstateentry.EntityData.Leafs["entStateLastChanged"] = types.YLeaf{"Entstatelastchanged", entstateentry.Entstatelastchanged}
+    entstateentry.EntityData.Leafs["entStateAdmin"] = types.YLeaf{"Entstateadmin", entstateentry.Entstateadmin}
+    entstateentry.EntityData.Leafs["entStateOper"] = types.YLeaf{"Entstateoper", entstateentry.Entstateoper}
+    entstateentry.EntityData.Leafs["entStateUsage"] = types.YLeaf{"Entstateusage", entstateentry.Entstateusage}
+    entstateentry.EntityData.Leafs["entStateAlarm"] = types.YLeaf{"Entstatealarm", entstateentry.Entstatealarm}
+    entstateentry.EntityData.Leafs["entStateStandby"] = types.YLeaf{"Entstatestandby", entstateentry.Entstatestandby}
+    return &(entstateentry.EntityData)
 }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetSegmentPath() string {
-    return "entStateEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entstateentry.Entphysicalindex) + "']"
-}
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = entstateentry.Entphysicalindex
-    leafs["entStateLastChanged"] = entstateentry.Entstatelastchanged
-    leafs["entStateAdmin"] = entstateentry.Entstateadmin
-    leafs["entStateOper"] = entstateentry.Entstateoper
-    leafs["entStateUsage"] = entstateentry.Entstateusage
-    leafs["entStateAlarm"] = entstateentry.Entstatealarm
-    leafs["entStateStandby"] = entstateentry.Entstatestandby
-    return leafs
-}
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetYangName() string { return "entStateEntry" }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) SetParent(parent types.Entity) { entstateentry.parent = parent }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetParent() types.Entity { return entstateentry.parent }
-
-func (entstateentry *ENTITYSTATEMIB_Entstatetable_Entstateentry) GetParentYangName() string { return "entStateTable" }
 

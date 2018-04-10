@@ -104,134 +104,62 @@ const (
 // Inventory
 // Logical Router Inventory operational data
 type Inventory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of racks.
     Racks Inventory_Racks
 }
 
-func (inventory *Inventory) GetFilter() yfilter.YFilter { return inventory.YFilter }
+func (inventory *Inventory) GetEntityData() *types.CommonEntityData {
+    inventory.EntityData.YFilter = inventory.YFilter
+    inventory.EntityData.YangName = "inventory"
+    inventory.EntityData.BundleName = "cisco_ios_xr"
+    inventory.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-sc-invmgr-oper"
+    inventory.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-sc-invmgr-oper:inventory"
+    inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inventory *Inventory) SetFilter(yf yfilter.YFilter) { inventory.YFilter = yf }
-
-func (inventory *Inventory) GetGoName(yname string) string {
-    if yname == "racks" { return "Racks" }
-    return ""
+    inventory.EntityData.Children = make(map[string]types.YChild)
+    inventory.EntityData.Children["racks"] = types.YChild{"Racks", &inventory.Racks}
+    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(inventory.EntityData)
 }
-
-func (inventory *Inventory) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-sc-invmgr-oper:inventory"
-}
-
-func (inventory *Inventory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "racks" {
-        return &inventory.Racks
-    }
-    return nil
-}
-
-func (inventory *Inventory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["racks"] = &inventory.Racks
-    return children
-}
-
-func (inventory *Inventory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (inventory *Inventory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inventory *Inventory) GetYangName() string { return "inventory" }
-
-func (inventory *Inventory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inventory *Inventory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inventory *Inventory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inventory *Inventory) SetParent(parent types.Entity) { inventory.parent = parent }
-
-func (inventory *Inventory) GetParent() types.Entity { return inventory.parent }
-
-func (inventory *Inventory) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-sc-invmgr-oper" }
 
 // Inventory_Racks
 // Table of racks
 type Inventory_Racks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack number. The type is slice of Inventory_Racks_Rack.
     Rack []Inventory_Racks_Rack
 }
 
-func (racks *Inventory_Racks) GetFilter() yfilter.YFilter { return racks.YFilter }
+func (racks *Inventory_Racks) GetEntityData() *types.CommonEntityData {
+    racks.EntityData.YFilter = racks.YFilter
+    racks.EntityData.YangName = "racks"
+    racks.EntityData.BundleName = "cisco_ios_xr"
+    racks.EntityData.ParentYangName = "inventory"
+    racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (racks *Inventory_Racks) SetFilter(yf yfilter.YFilter) { racks.YFilter = yf }
-
-func (racks *Inventory_Racks) GetGoName(yname string) string {
-    if yname == "rack" { return "Rack" }
-    return ""
-}
-
-func (racks *Inventory_Racks) GetSegmentPath() string {
-    return "racks"
-}
-
-func (racks *Inventory_Racks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rack" {
-        for _, c := range racks.Rack {
-            if racks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack{}
-        racks.Rack = append(racks.Rack, child)
-        return &racks.Rack[len(racks.Rack)-1]
-    }
-    return nil
-}
-
-func (racks *Inventory_Racks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    racks.EntityData.Children = make(map[string]types.YChild)
+    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
     for i := range racks.Rack {
-        children[racks.Rack[i].GetSegmentPath()] = &racks.Rack[i]
+        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
     }
-    return children
+    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(racks.EntityData)
 }
-
-func (racks *Inventory_Racks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (racks *Inventory_Racks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (racks *Inventory_Racks) GetYangName() string { return "racks" }
-
-func (racks *Inventory_Racks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (racks *Inventory_Racks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (racks *Inventory_Racks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (racks *Inventory_Racks) SetParent(parent types.Entity) { racks.parent = parent }
-
-func (racks *Inventory_Racks) GetParent() types.Entity { return racks.parent }
-
-func (racks *Inventory_Racks) GetParentYangName() string { return "inventory" }
 
 // Inventory_Racks_Rack
 // Rack number
 type Inventory_Racks_Rack struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack number. The type is interface{} with range:
@@ -242,129 +170,56 @@ type Inventory_Racks_Rack struct {
     Slots Inventory_Racks_Rack_Slots
 }
 
-func (rack *Inventory_Racks_Rack) GetFilter() yfilter.YFilter { return rack.YFilter }
+func (rack *Inventory_Racks_Rack) GetEntityData() *types.CommonEntityData {
+    rack.EntityData.YFilter = rack.YFilter
+    rack.EntityData.YangName = "rack"
+    rack.EntityData.BundleName = "cisco_ios_xr"
+    rack.EntityData.ParentYangName = "racks"
+    rack.EntityData.SegmentPath = "rack" + "[number='" + fmt.Sprintf("%v", rack.Number) + "']"
+    rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rack *Inventory_Racks_Rack) SetFilter(yf yfilter.YFilter) { rack.YFilter = yf }
-
-func (rack *Inventory_Racks_Rack) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "slots" { return "Slots" }
-    return ""
+    rack.EntityData.Children = make(map[string]types.YChild)
+    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
+    rack.EntityData.Leafs = make(map[string]types.YLeaf)
+    rack.EntityData.Leafs["number"] = types.YLeaf{"Number", rack.Number}
+    return &(rack.EntityData)
 }
-
-func (rack *Inventory_Racks_Rack) GetSegmentPath() string {
-    return "rack" + "[number='" + fmt.Sprintf("%v", rack.Number) + "']"
-}
-
-func (rack *Inventory_Racks_Rack) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slots" {
-        return &rack.Slots
-    }
-    return nil
-}
-
-func (rack *Inventory_Racks_Rack) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["slots"] = &rack.Slots
-    return children
-}
-
-func (rack *Inventory_Racks_Rack) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = rack.Number
-    return leafs
-}
-
-func (rack *Inventory_Racks_Rack) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rack *Inventory_Racks_Rack) GetYangName() string { return "rack" }
-
-func (rack *Inventory_Racks_Rack) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rack *Inventory_Racks_Rack) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rack *Inventory_Racks_Rack) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rack *Inventory_Racks_Rack) SetParent(parent types.Entity) { rack.parent = parent }
-
-func (rack *Inventory_Racks_Rack) GetParent() types.Entity { return rack.parent }
-
-func (rack *Inventory_Racks_Rack) GetParentYangName() string { return "racks" }
 
 // Inventory_Racks_Rack_Slots
 // Slot table contains all slots in the rack
 type Inventory_Racks_Rack_Slots struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Slot number. The type is slice of Inventory_Racks_Rack_Slots_Slot.
     Slot []Inventory_Racks_Rack_Slots_Slot
 }
 
-func (slots *Inventory_Racks_Rack_Slots) GetFilter() yfilter.YFilter { return slots.YFilter }
+func (slots *Inventory_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
+    slots.EntityData.YFilter = slots.YFilter
+    slots.EntityData.YangName = "slots"
+    slots.EntityData.BundleName = "cisco_ios_xr"
+    slots.EntityData.ParentYangName = "rack"
+    slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slots *Inventory_Racks_Rack_Slots) SetFilter(yf yfilter.YFilter) { slots.YFilter = yf }
-
-func (slots *Inventory_Racks_Rack_Slots) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    return ""
-}
-
-func (slots *Inventory_Racks_Rack_Slots) GetSegmentPath() string {
-    return "slots"
-}
-
-func (slots *Inventory_Racks_Rack_Slots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slot" {
-        for _, c := range slots.Slot {
-            if slots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot{}
-        slots.Slot = append(slots.Slot, child)
-        return &slots.Slot[len(slots.Slot)-1]
-    }
-    return nil
-}
-
-func (slots *Inventory_Racks_Rack_Slots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    slots.EntityData.Children = make(map[string]types.YChild)
+    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
     for i := range slots.Slot {
-        children[slots.Slot[i].GetSegmentPath()] = &slots.Slot[i]
+        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
     }
-    return children
+    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(slots.EntityData)
 }
-
-func (slots *Inventory_Racks_Rack_Slots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (slots *Inventory_Racks_Rack_Slots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slots *Inventory_Racks_Rack_Slots) GetYangName() string { return "slots" }
-
-func (slots *Inventory_Racks_Rack_Slots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slots *Inventory_Racks_Rack_Slots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slots *Inventory_Racks_Rack_Slots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slots *Inventory_Racks_Rack_Slots) SetParent(parent types.Entity) { slots.parent = parent }
-
-func (slots *Inventory_Racks_Rack_Slots) GetParent() types.Entity { return slots.parent }
-
-func (slots *Inventory_Racks_Rack_Slots) GetParentYangName() string { return "rack" }
 
 // Inventory_Racks_Rack_Slots_Slot
 // Slot number
 type Inventory_Racks_Rack_Slots_Slot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot number. The type is interface{} with range:
@@ -378,66 +233,28 @@ type Inventory_Racks_Rack_Slots_Slot struct {
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_BasicAttributes
 }
 
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetFilter() yfilter.YFilter { return slot.YFilter }
+func (slot *Inventory_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
+    slot.EntityData.YFilter = slot.YFilter
+    slot.EntityData.YangName = "slot"
+    slot.EntityData.BundleName = "cisco_ios_xr"
+    slot.EntityData.ParentYangName = "slots"
+    slot.EntityData.SegmentPath = "slot" + "[number='" + fmt.Sprintf("%v", slot.Number) + "']"
+    slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slot *Inventory_Racks_Rack_Slots_Slot) SetFilter(yf yfilter.YFilter) { slot.YFilter = yf }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "cards" { return "Cards" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    slot.EntityData.Children = make(map[string]types.YChild)
+    slot.EntityData.Children["cards"] = types.YChild{"Cards", &slot.Cards}
+    slot.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &slot.BasicAttributes}
+    slot.EntityData.Leafs = make(map[string]types.YLeaf)
+    slot.EntityData.Leafs["number"] = types.YLeaf{"Number", slot.Number}
+    return &(slot.EntityData)
 }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetSegmentPath() string {
-    return "slot" + "[number='" + fmt.Sprintf("%v", slot.Number) + "']"
-}
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cards" {
-        return &slot.Cards
-    }
-    if childYangName == "basic-attributes" {
-        return &slot.BasicAttributes
-    }
-    return nil
-}
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cards"] = &slot.Cards
-    children["basic-attributes"] = &slot.BasicAttributes
-    return children
-}
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = slot.Number
-    return leafs
-}
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetYangName() string { return "slot" }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) SetParent(parent types.Entity) { slot.parent = parent }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetParent() types.Entity { return slot.parent }
-
-func (slot *Inventory_Racks_Rack_Slots_Slot) GetParentYangName() string { return "slots" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards
 // Card table contains all cards in the slot
 type Inventory_Racks_Rack_Slots_Slot_Cards struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Card number. The type is slice of
@@ -445,68 +262,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards struct {
     Card []Inventory_Racks_Rack_Slots_Slot_Cards_Card
 }
 
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetFilter() yfilter.YFilter { return cards.YFilter }
+func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetEntityData() *types.CommonEntityData {
+    cards.EntityData.YFilter = cards.YFilter
+    cards.EntityData.YangName = "cards"
+    cards.EntityData.BundleName = "cisco_ios_xr"
+    cards.EntityData.ParentYangName = "slot"
+    cards.EntityData.SegmentPath = "cards"
+    cards.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cards.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cards.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) SetFilter(yf yfilter.YFilter) { cards.YFilter = yf }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetGoName(yname string) string {
-    if yname == "card" { return "Card" }
-    return ""
-}
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetSegmentPath() string {
-    return "cards"
-}
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "card" {
-        for _, c := range cards.Card {
-            if cards.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card{}
-        cards.Card = append(cards.Card, child)
-        return &cards.Card[len(cards.Card)-1]
-    }
-    return nil
-}
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cards.EntityData.Children = make(map[string]types.YChild)
+    cards.EntityData.Children["card"] = types.YChild{"Card", nil}
     for i := range cards.Card {
-        children[cards.Card[i].GetSegmentPath()] = &cards.Card[i]
+        cards.EntityData.Children[types.GetSegmentPath(&cards.Card[i])] = types.YChild{"Card", &cards.Card[i]}
     }
-    return children
+    cards.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cards.EntityData)
 }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetYangName() string { return "cards" }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) SetParent(parent types.Entity) { cards.parent = parent }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetParent() types.Entity { return cards.parent }
-
-func (cards *Inventory_Racks_Rack_Slots_Slot_Cards) GetParentYangName() string { return "slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card
 // Card number
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. card number. The type is interface{} with range:
@@ -529,82 +307,32 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card struct {
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes
 }
 
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetFilter() yfilter.YFilter { return card.YFilter }
+func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetEntityData() *types.CommonEntityData {
+    card.EntityData.YFilter = card.YFilter
+    card.EntityData.YangName = "card"
+    card.EntityData.BundleName = "cisco_ios_xr"
+    card.EntityData.ParentYangName = "cards"
+    card.EntityData.SegmentPath = "card" + "[number='" + fmt.Sprintf("%v", card.Number) + "']"
+    card.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    card.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    card.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) SetFilter(yf yfilter.YFilter) { card.YFilter = yf }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "sub-slots" { return "SubSlots" }
-    if yname == "hw-components" { return "HwComponents" }
-    if yname == "sensors" { return "Sensors" }
-    if yname == "port-slots" { return "PortSlots" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    card.EntityData.Children = make(map[string]types.YChild)
+    card.EntityData.Children["sub-slots"] = types.YChild{"SubSlots", &card.SubSlots}
+    card.EntityData.Children["hw-components"] = types.YChild{"HwComponents", &card.HwComponents}
+    card.EntityData.Children["sensors"] = types.YChild{"Sensors", &card.Sensors}
+    card.EntityData.Children["port-slots"] = types.YChild{"PortSlots", &card.PortSlots}
+    card.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &card.BasicAttributes}
+    card.EntityData.Leafs = make(map[string]types.YLeaf)
+    card.EntityData.Leafs["number"] = types.YLeaf{"Number", card.Number}
+    return &(card.EntityData)
 }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetSegmentPath() string {
-    return "card" + "[number='" + fmt.Sprintf("%v", card.Number) + "']"
-}
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sub-slots" {
-        return &card.SubSlots
-    }
-    if childYangName == "hw-components" {
-        return &card.HwComponents
-    }
-    if childYangName == "sensors" {
-        return &card.Sensors
-    }
-    if childYangName == "port-slots" {
-        return &card.PortSlots
-    }
-    if childYangName == "basic-attributes" {
-        return &card.BasicAttributes
-    }
-    return nil
-}
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sub-slots"] = &card.SubSlots
-    children["hw-components"] = &card.HwComponents
-    children["sensors"] = &card.Sensors
-    children["port-slots"] = &card.PortSlots
-    children["basic-attributes"] = &card.BasicAttributes
-    return children
-}
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = card.Number
-    return leafs
-}
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetBundleName() string { return "cisco_ios_xr" }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetYangName() string { return "card" }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) SetParent(parent types.Entity) { card.parent = parent }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetParent() types.Entity { return card.parent }
-
-func (card *Inventory_Racks_Rack_Slots_Slot_Cards_Card) GetParentYangName() string { return "cards" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots
 // SubSlotTable contains all subslots in a
 // Slot
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // SubSlot number. The type is slice of
@@ -612,68 +340,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots struct {
     SubSlot []Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot
 }
 
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetFilter() yfilter.YFilter { return subSlots.YFilter }
+func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetEntityData() *types.CommonEntityData {
+    subSlots.EntityData.YFilter = subSlots.YFilter
+    subSlots.EntityData.YangName = "sub-slots"
+    subSlots.EntityData.BundleName = "cisco_ios_xr"
+    subSlots.EntityData.ParentYangName = "card"
+    subSlots.EntityData.SegmentPath = "sub-slots"
+    subSlots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) SetFilter(yf yfilter.YFilter) { subSlots.YFilter = yf }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetGoName(yname string) string {
-    if yname == "sub-slot" { return "SubSlot" }
-    return ""
-}
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetSegmentPath() string {
-    return "sub-slots"
-}
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sub-slot" {
-        for _, c := range subSlots.SubSlot {
-            if subSlots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot{}
-        subSlots.SubSlot = append(subSlots.SubSlot, child)
-        return &subSlots.SubSlot[len(subSlots.SubSlot)-1]
-    }
-    return nil
-}
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subSlots.EntityData.Children = make(map[string]types.YChild)
+    subSlots.EntityData.Children["sub-slot"] = types.YChild{"SubSlot", nil}
     for i := range subSlots.SubSlot {
-        children[subSlots.SubSlot[i].GetSegmentPath()] = &subSlots.SubSlot[i]
+        subSlots.EntityData.Children[types.GetSegmentPath(&subSlots.SubSlot[i])] = types.YChild{"SubSlot", &subSlots.SubSlot[i]}
     }
-    return children
+    subSlots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subSlots.EntityData)
 }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetYangName() string { return "sub-slots" }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) SetParent(parent types.Entity) { subSlots.parent = parent }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetParent() types.Entity { return subSlots.parent }
-
-func (subSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots) GetParentYangName() string { return "card" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot
 // SubSlot number
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. subslot number. The type is interface{} with
@@ -687,66 +376,28 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot struct {
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
 }
 
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetFilter() yfilter.YFilter { return subSlot.YFilter }
+func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetEntityData() *types.CommonEntityData {
+    subSlot.EntityData.YFilter = subSlot.YFilter
+    subSlot.EntityData.YangName = "sub-slot"
+    subSlot.EntityData.BundleName = "cisco_ios_xr"
+    subSlot.EntityData.ParentYangName = "sub-slots"
+    subSlot.EntityData.SegmentPath = "sub-slot" + "[number='" + fmt.Sprintf("%v", subSlot.Number) + "']"
+    subSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) SetFilter(yf yfilter.YFilter) { subSlot.YFilter = yf }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "module" { return "Module" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    subSlot.EntityData.Children = make(map[string]types.YChild)
+    subSlot.EntityData.Children["module"] = types.YChild{"Module", &subSlot.Module}
+    subSlot.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &subSlot.BasicAttributes}
+    subSlot.EntityData.Leafs = make(map[string]types.YLeaf)
+    subSlot.EntityData.Leafs["number"] = types.YLeaf{"Number", subSlot.Number}
+    return &(subSlot.EntityData)
 }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetSegmentPath() string {
-    return "sub-slot" + "[number='" + fmt.Sprintf("%v", subSlot.Number) + "']"
-}
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "module" {
-        return &subSlot.Module
-    }
-    if childYangName == "basic-attributes" {
-        return &subSlot.BasicAttributes
-    }
-    return nil
-}
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["module"] = &subSlot.Module
-    children["basic-attributes"] = &subSlot.BasicAttributes
-    return children
-}
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = subSlot.Number
-    return leafs
-}
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetYangName() string { return "sub-slot" }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) SetParent(parent types.Entity) { subSlot.parent = parent }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetParent() types.Entity { return subSlot.parent }
-
-func (subSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot) GetParentYangName() string { return "sub-slots" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module
 // Module string
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ModuleSensorTable contains all sensors in a Module.
@@ -759,70 +410,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module struct {
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes
 }
 
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetFilter() yfilter.YFilter { return module.YFilter }
+func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetEntityData() *types.CommonEntityData {
+    module.EntityData.YFilter = module.YFilter
+    module.EntityData.YangName = "module"
+    module.EntityData.BundleName = "cisco_ios_xr"
+    module.EntityData.ParentYangName = "sub-slot"
+    module.EntityData.SegmentPath = "module"
+    module.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    module.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    module.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) SetFilter(yf yfilter.YFilter) { module.YFilter = yf }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetGoName(yname string) string {
-    if yname == "sensors" { return "Sensors" }
-    if yname == "port-slots" { return "PortSlots" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    module.EntityData.Children = make(map[string]types.YChild)
+    module.EntityData.Children["sensors"] = types.YChild{"Sensors", &module.Sensors}
+    module.EntityData.Children["port-slots"] = types.YChild{"PortSlots", &module.PortSlots}
+    module.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &module.BasicAttributes}
+    module.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(module.EntityData)
 }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetSegmentPath() string {
-    return "module"
-}
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensors" {
-        return &module.Sensors
-    }
-    if childYangName == "port-slots" {
-        return &module.PortSlots
-    }
-    if childYangName == "basic-attributes" {
-        return &module.BasicAttributes
-    }
-    return nil
-}
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sensors"] = &module.Sensors
-    children["port-slots"] = &module.PortSlots
-    children["basic-attributes"] = &module.BasicAttributes
-    return children
-}
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetBundleName() string { return "cisco_ios_xr" }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetYangName() string { return "module" }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) SetParent(parent types.Entity) { module.parent = parent }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetParent() types.Entity { return module.parent }
-
-func (module *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module) GetParentYangName() string { return "sub-slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors
 // ModuleSensorTable contains all sensors in a
 // Module.
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor number in the Module. The type is slice of
@@ -830,68 +440,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors 
     Sensor []Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor
 }
 
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetFilter() yfilter.YFilter { return sensors.YFilter }
+func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetEntityData() *types.CommonEntityData {
+    sensors.EntityData.YFilter = sensors.YFilter
+    sensors.EntityData.YangName = "sensors"
+    sensors.EntityData.BundleName = "cisco_ios_xr"
+    sensors.EntityData.ParentYangName = "module"
+    sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) SetFilter(yf yfilter.YFilter) { sensors.YFilter = yf }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetGoName(yname string) string {
-    if yname == "sensor" { return "Sensor" }
-    return ""
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetSegmentPath() string {
-    return "sensors"
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor" {
-        for _, c := range sensors.Sensor {
-            if sensors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor{}
-        sensors.Sensor = append(sensors.Sensor, child)
-        return &sensors.Sensor[len(sensors.Sensor)-1]
-    }
-    return nil
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sensors.EntityData.Children = make(map[string]types.YChild)
+    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
     for i := range sensors.Sensor {
-        children[sensors.Sensor[i].GetSegmentPath()] = &sensors.Sensor[i]
+        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
     }
-    return children
+    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensors.EntityData)
 }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetYangName() string { return "sensors" }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) SetParent(parent types.Entity) { sensors.parent = parent }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetParent() types.Entity { return sensors.parent }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors) GetParentYangName() string { return "module" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor
 // Sensor number in the Module
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. sensor number. The type is interface{} with range:
@@ -902,61 +473,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes
 }
 
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetFilter() yfilter.YFilter { return sensor.YFilter }
+func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetEntityData() *types.CommonEntityData {
+    sensor.EntityData.YFilter = sensor.YFilter
+    sensor.EntityData.YangName = "sensor"
+    sensor.EntityData.BundleName = "cisco_ios_xr"
+    sensor.EntityData.ParentYangName = "sensors"
+    sensor.EntityData.SegmentPath = "sensor" + "[number='" + fmt.Sprintf("%v", sensor.Number) + "']"
+    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) SetFilter(yf yfilter.YFilter) { sensor.YFilter = yf }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    sensor.EntityData.Children = make(map[string]types.YChild)
+    sensor.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &sensor.BasicAttributes}
+    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensor.EntityData.Leafs["number"] = types.YLeaf{"Number", sensor.Number}
+    return &(sensor.EntityData)
 }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetSegmentPath() string {
-    return "sensor" + "[number='" + fmt.Sprintf("%v", sensor.Number) + "']"
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-attributes" {
-        return &sensor.BasicAttributes
-    }
-    return nil
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-attributes"] = &sensor.BasicAttributes
-    return children
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = sensor.Number
-    return leafs
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetYangName() string { return "sensor" }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) SetParent(parent types.Entity) { sensor.parent = parent }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetParent() types.Entity { return sensor.parent }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor) GetParentYangName() string { return "sensors" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -966,64 +503,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "sensor"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes) GetParentYangName() string { return "sensor" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -1116,107 +616,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -1253,78 +698,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -1336,58 +737,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -1399,59 +769,28 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots
 // PortSlotTable contains all optics ports in a
 // SPA/PLIM.
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PortSlot number in the SPA/PLIM. The type is slice of
@@ -1459,68 +798,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     PortSlot []Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot
 }
 
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetFilter() yfilter.YFilter { return portSlots.YFilter }
+func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetEntityData() *types.CommonEntityData {
+    portSlots.EntityData.YFilter = portSlots.YFilter
+    portSlots.EntityData.YangName = "port-slots"
+    portSlots.EntityData.BundleName = "cisco_ios_xr"
+    portSlots.EntityData.ParentYangName = "module"
+    portSlots.EntityData.SegmentPath = "port-slots"
+    portSlots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) SetFilter(yf yfilter.YFilter) { portSlots.YFilter = yf }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetGoName(yname string) string {
-    if yname == "port-slot" { return "PortSlot" }
-    return ""
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetSegmentPath() string {
-    return "port-slots"
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "port-slot" {
-        for _, c := range portSlots.PortSlot {
-            if portSlots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot{}
-        portSlots.PortSlot = append(portSlots.PortSlot, child)
-        return &portSlots.PortSlot[len(portSlots.PortSlot)-1]
-    }
-    return nil
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    portSlots.EntityData.Children = make(map[string]types.YChild)
+    portSlots.EntityData.Children["port-slot"] = types.YChild{"PortSlot", nil}
     for i := range portSlots.PortSlot {
-        children[portSlots.PortSlot[i].GetSegmentPath()] = &portSlots.PortSlot[i]
+        portSlots.EntityData.Children[types.GetSegmentPath(&portSlots.PortSlot[i])] = types.YChild{"PortSlot", &portSlots.PortSlot[i]}
     }
-    return children
+    portSlots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(portSlots.EntityData)
 }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetYangName() string { return "port-slots" }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) SetParent(parent types.Entity) { portSlots.parent = parent }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetParent() types.Entity { return portSlots.parent }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots) GetParentYangName() string { return "module" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot
 // PortSlot number in the SPA/PLIM
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. portslot number. The type is interface{} with
@@ -1534,125 +834,54 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes
 }
 
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetFilter() yfilter.YFilter { return portSlot.YFilter }
+func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetEntityData() *types.CommonEntityData {
+    portSlot.EntityData.YFilter = portSlot.YFilter
+    portSlot.EntityData.YangName = "port-slot"
+    portSlot.EntityData.BundleName = "cisco_ios_xr"
+    portSlot.EntityData.ParentYangName = "port-slots"
+    portSlot.EntityData.SegmentPath = "port-slot" + "[number='" + fmt.Sprintf("%v", portSlot.Number) + "']"
+    portSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) SetFilter(yf yfilter.YFilter) { portSlot.YFilter = yf }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "port" { return "Port" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    portSlot.EntityData.Children = make(map[string]types.YChild)
+    portSlot.EntityData.Children["port"] = types.YChild{"Port", &portSlot.Port}
+    portSlot.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &portSlot.BasicAttributes}
+    portSlot.EntityData.Leafs = make(map[string]types.YLeaf)
+    portSlot.EntityData.Leafs["number"] = types.YLeaf{"Number", portSlot.Number}
+    return &(portSlot.EntityData)
 }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetSegmentPath() string {
-    return "port-slot" + "[number='" + fmt.Sprintf("%v", portSlot.Number) + "']"
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "port" {
-        return &portSlot.Port
-    }
-    if childYangName == "basic-attributes" {
-        return &portSlot.BasicAttributes
-    }
-    return nil
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["port"] = &portSlot.Port
-    children["basic-attributes"] = &portSlot.BasicAttributes
-    return children
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = portSlot.Number
-    return leafs
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetYangName() string { return "port-slot" }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) SetParent(parent types.Entity) { portSlot.parent = parent }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetParent() types.Entity { return portSlot.parent }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot) GetParentYangName() string { return "port-slots" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port
 // Port string
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Attributes.
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes
 }
 
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetFilter() yfilter.YFilter { return port.YFilter }
+func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetEntityData() *types.CommonEntityData {
+    port.EntityData.YFilter = port.YFilter
+    port.EntityData.YangName = "port"
+    port.EntityData.BundleName = "cisco_ios_xr"
+    port.EntityData.ParentYangName = "port-slot"
+    port.EntityData.SegmentPath = "port"
+    port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) SetFilter(yf yfilter.YFilter) { port.YFilter = yf }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetGoName(yname string) string {
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    port.EntityData.Children = make(map[string]types.YChild)
+    port.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &port.BasicAttributes}
+    port.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(port.EntityData)
 }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetSegmentPath() string {
-    return "port"
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-attributes" {
-        return &port.BasicAttributes
-    }
-    return nil
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-attributes"] = &port.BasicAttributes
-    return children
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetBundleName() string { return "cisco_ios_xr" }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetYangName() string { return "port" }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) SetParent(parent types.Entity) { port.parent = parent }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetParent() types.Entity { return port.parent }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port) GetParentYangName() string { return "port-slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -1662,64 +891,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "port"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes) GetParentYangName() string { return "port" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -1812,107 +1004,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -1949,78 +1086,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -2032,58 +1125,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -2095,58 +1157,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -2156,64 +1187,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "port-slot"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes) GetParentYangName() string { return "port-slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -2306,107 +1300,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -2443,78 +1382,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -2526,58 +1421,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -2589,58 +1453,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlot
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -2650,64 +1483,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "module"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes) GetParentYangName() string { return "module" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -2800,107 +1596,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -2937,78 +1678,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -3020,58 +1717,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -3083,58 +1749,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAtt
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -3144,64 +1779,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "sub-slot"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes) GetParentYangName() string { return "sub-slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -3294,107 +1892,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -3431,78 +1974,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -3514,58 +2013,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -3577,59 +2045,28 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents
 // HWComponent table contains all HW modules
 // within the card 
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // HWComponent number. The type is slice of
@@ -3637,68 +2074,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents struct {
     HwComponent []Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
 }
 
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetFilter() yfilter.YFilter { return hwComponents.YFilter }
+func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetEntityData() *types.CommonEntityData {
+    hwComponents.EntityData.YFilter = hwComponents.YFilter
+    hwComponents.EntityData.YangName = "hw-components"
+    hwComponents.EntityData.BundleName = "cisco_ios_xr"
+    hwComponents.EntityData.ParentYangName = "card"
+    hwComponents.EntityData.SegmentPath = "hw-components"
+    hwComponents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwComponents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwComponents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) SetFilter(yf yfilter.YFilter) { hwComponents.YFilter = yf }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetGoName(yname string) string {
-    if yname == "hw-component" { return "HwComponent" }
-    return ""
-}
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetSegmentPath() string {
-    return "hw-components"
-}
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hw-component" {
-        for _, c := range hwComponents.HwComponent {
-            if hwComponents.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent{}
-        hwComponents.HwComponent = append(hwComponents.HwComponent, child)
-        return &hwComponents.HwComponent[len(hwComponents.HwComponent)-1]
-    }
-    return nil
-}
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hwComponents.EntityData.Children = make(map[string]types.YChild)
+    hwComponents.EntityData.Children["hw-component"] = types.YChild{"HwComponent", nil}
     for i := range hwComponents.HwComponent {
-        children[hwComponents.HwComponent[i].GetSegmentPath()] = &hwComponents.HwComponent[i]
+        hwComponents.EntityData.Children[types.GetSegmentPath(&hwComponents.HwComponent[i])] = types.YChild{"HwComponent", &hwComponents.HwComponent[i]}
     }
-    return children
+    hwComponents.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hwComponents.EntityData)
 }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetYangName() string { return "hw-components" }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) SetParent(parent types.Entity) { hwComponents.parent = parent }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetParent() types.Entity { return hwComponents.parent }
-
-func (hwComponents *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents) GetParentYangName() string { return "card" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
 // HWComponent number
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. node number. The type is interface{} with range:
@@ -3712,67 +2110,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent struct 
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes
 }
 
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetFilter() yfilter.YFilter { return hwComponent.YFilter }
+func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetEntityData() *types.CommonEntityData {
+    hwComponent.EntityData.YFilter = hwComponent.YFilter
+    hwComponent.EntityData.YangName = "hw-component"
+    hwComponent.EntityData.BundleName = "cisco_ios_xr"
+    hwComponent.EntityData.ParentYangName = "hw-components"
+    hwComponent.EntityData.SegmentPath = "hw-component" + "[number='" + fmt.Sprintf("%v", hwComponent.Number) + "']"
+    hwComponent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwComponent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwComponent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) SetFilter(yf yfilter.YFilter) { hwComponent.YFilter = yf }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "sensors" { return "Sensors" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    hwComponent.EntityData.Children = make(map[string]types.YChild)
+    hwComponent.EntityData.Children["sensors"] = types.YChild{"Sensors", &hwComponent.Sensors}
+    hwComponent.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &hwComponent.BasicAttributes}
+    hwComponent.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwComponent.EntityData.Leafs["number"] = types.YLeaf{"Number", hwComponent.Number}
+    return &(hwComponent.EntityData)
 }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetSegmentPath() string {
-    return "hw-component" + "[number='" + fmt.Sprintf("%v", hwComponent.Number) + "']"
-}
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensors" {
-        return &hwComponent.Sensors
-    }
-    if childYangName == "basic-attributes" {
-        return &hwComponent.BasicAttributes
-    }
-    return nil
-}
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sensors"] = &hwComponent.Sensors
-    children["basic-attributes"] = &hwComponent.BasicAttributes
-    return children
-}
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = hwComponent.Number
-    return leafs
-}
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetYangName() string { return "hw-component" }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) SetParent(parent types.Entity) { hwComponent.parent = parent }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetParent() types.Entity { return hwComponent.parent }
-
-func (hwComponent *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent) GetParentYangName() string { return "hw-components" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
 // ModuleSensorTable contains all sensors in a
 // Module.
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor number in the Module. The type is slice of
@@ -3780,68 +2140,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     Sensor []Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor
 }
 
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetFilter() yfilter.YFilter { return sensors.YFilter }
+func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetEntityData() *types.CommonEntityData {
+    sensors.EntityData.YFilter = sensors.YFilter
+    sensors.EntityData.YangName = "sensors"
+    sensors.EntityData.BundleName = "cisco_ios_xr"
+    sensors.EntityData.ParentYangName = "hw-component"
+    sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) SetFilter(yf yfilter.YFilter) { sensors.YFilter = yf }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetGoName(yname string) string {
-    if yname == "sensor" { return "Sensor" }
-    return ""
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetSegmentPath() string {
-    return "sensors"
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor" {
-        for _, c := range sensors.Sensor {
-            if sensors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor{}
-        sensors.Sensor = append(sensors.Sensor, child)
-        return &sensors.Sensor[len(sensors.Sensor)-1]
-    }
-    return nil
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sensors.EntityData.Children = make(map[string]types.YChild)
+    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
     for i := range sensors.Sensor {
-        children[sensors.Sensor[i].GetSegmentPath()] = &sensors.Sensor[i]
+        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
     }
-    return children
+    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensors.EntityData)
 }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetYangName() string { return "sensors" }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) SetParent(parent types.Entity) { sensors.parent = parent }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetParent() types.Entity { return sensors.parent }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors) GetParentYangName() string { return "hw-component" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor
 // Sensor number in the Module
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. sensor number. The type is interface{} with range:
@@ -3852,61 +2173,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes
 }
 
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetFilter() yfilter.YFilter { return sensor.YFilter }
+func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetEntityData() *types.CommonEntityData {
+    sensor.EntityData.YFilter = sensor.YFilter
+    sensor.EntityData.YangName = "sensor"
+    sensor.EntityData.BundleName = "cisco_ios_xr"
+    sensor.EntityData.ParentYangName = "sensors"
+    sensor.EntityData.SegmentPath = "sensor" + "[number='" + fmt.Sprintf("%v", sensor.Number) + "']"
+    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) SetFilter(yf yfilter.YFilter) { sensor.YFilter = yf }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    sensor.EntityData.Children = make(map[string]types.YChild)
+    sensor.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &sensor.BasicAttributes}
+    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensor.EntityData.Leafs["number"] = types.YLeaf{"Number", sensor.Number}
+    return &(sensor.EntityData)
 }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetSegmentPath() string {
-    return "sensor" + "[number='" + fmt.Sprintf("%v", sensor.Number) + "']"
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-attributes" {
-        return &sensor.BasicAttributes
-    }
-    return nil
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-attributes"] = &sensor.BasicAttributes
-    return children
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = sensor.Number
-    return leafs
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetYangName() string { return "sensor" }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) SetParent(parent types.Entity) { sensor.parent = parent }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetParent() types.Entity { return sensor.parent }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor) GetParentYangName() string { return "sensors" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -3916,64 +2203,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "sensor"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes) GetParentYangName() string { return "sensor" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -4066,107 +2316,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -4203,78 +2398,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -4286,58 +2437,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -4349,58 +2469,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -4410,64 +2499,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "hw-component"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes) GetParentYangName() string { return "hw-component" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -4560,107 +2612,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -4697,78 +2694,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -4780,58 +2733,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -4843,59 +2765,28 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAt
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors
 // ModuleSensorTable contains all sensors in a
 // Module.
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sensor number in the Module. The type is slice of
@@ -4903,68 +2794,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors struct {
     Sensor []Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor
 }
 
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetFilter() yfilter.YFilter { return sensors.YFilter }
+func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetEntityData() *types.CommonEntityData {
+    sensors.EntityData.YFilter = sensors.YFilter
+    sensors.EntityData.YangName = "sensors"
+    sensors.EntityData.BundleName = "cisco_ios_xr"
+    sensors.EntityData.ParentYangName = "card"
+    sensors.EntityData.SegmentPath = "sensors"
+    sensors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) SetFilter(yf yfilter.YFilter) { sensors.YFilter = yf }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetGoName(yname string) string {
-    if yname == "sensor" { return "Sensor" }
-    return ""
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetSegmentPath() string {
-    return "sensors"
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sensor" {
-        for _, c := range sensors.Sensor {
-            if sensors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor{}
-        sensors.Sensor = append(sensors.Sensor, child)
-        return &sensors.Sensor[len(sensors.Sensor)-1]
-    }
-    return nil
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sensors.EntityData.Children = make(map[string]types.YChild)
+    sensors.EntityData.Children["sensor"] = types.YChild{"Sensor", nil}
     for i := range sensors.Sensor {
-        children[sensors.Sensor[i].GetSegmentPath()] = &sensors.Sensor[i]
+        sensors.EntityData.Children[types.GetSegmentPath(&sensors.Sensor[i])] = types.YChild{"Sensor", &sensors.Sensor[i]}
     }
-    return children
+    sensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sensors.EntityData)
 }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetYangName() string { return "sensors" }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) SetParent(parent types.Entity) { sensors.parent = parent }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetParent() types.Entity { return sensors.parent }
-
-func (sensors *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors) GetParentYangName() string { return "card" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor
 // Sensor number in the Module
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. sensor number. The type is interface{} with range:
@@ -4975,61 +2827,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor struct {
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes
 }
 
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetFilter() yfilter.YFilter { return sensor.YFilter }
+func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetEntityData() *types.CommonEntityData {
+    sensor.EntityData.YFilter = sensor.YFilter
+    sensor.EntityData.YangName = "sensor"
+    sensor.EntityData.BundleName = "cisco_ios_xr"
+    sensor.EntityData.ParentYangName = "sensors"
+    sensor.EntityData.SegmentPath = "sensor" + "[number='" + fmt.Sprintf("%v", sensor.Number) + "']"
+    sensor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sensor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sensor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) SetFilter(yf yfilter.YFilter) { sensor.YFilter = yf }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    sensor.EntityData.Children = make(map[string]types.YChild)
+    sensor.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &sensor.BasicAttributes}
+    sensor.EntityData.Leafs = make(map[string]types.YLeaf)
+    sensor.EntityData.Leafs["number"] = types.YLeaf{"Number", sensor.Number}
+    return &(sensor.EntityData)
 }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetSegmentPath() string {
-    return "sensor" + "[number='" + fmt.Sprintf("%v", sensor.Number) + "']"
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-attributes" {
-        return &sensor.BasicAttributes
-    }
-    return nil
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-attributes"] = &sensor.BasicAttributes
-    return children
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = sensor.Number
-    return leafs
-}
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetYangName() string { return "sensor" }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) SetParent(parent types.Entity) { sensor.parent = parent }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetParent() types.Entity { return sensor.parent }
-
-func (sensor *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor) GetParentYangName() string { return "sensors" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -5039,64 +2857,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes s
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "sensor"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes) GetParentYangName() string { return "sensor" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -5189,107 +2970,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_B
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -5326,78 +3052,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_F
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -5409,58 +3091,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_F
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -5472,59 +3123,28 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_F
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots
 // PortSlotTable contains all optics ports in a
 // SPA/PLIM.
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PortSlot number in the SPA/PLIM. The type is slice of
@@ -5532,68 +3152,29 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots struct {
     PortSlot []Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot
 }
 
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetFilter() yfilter.YFilter { return portSlots.YFilter }
+func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetEntityData() *types.CommonEntityData {
+    portSlots.EntityData.YFilter = portSlots.YFilter
+    portSlots.EntityData.YangName = "port-slots"
+    portSlots.EntityData.BundleName = "cisco_ios_xr"
+    portSlots.EntityData.ParentYangName = "card"
+    portSlots.EntityData.SegmentPath = "port-slots"
+    portSlots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portSlots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portSlots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) SetFilter(yf yfilter.YFilter) { portSlots.YFilter = yf }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetGoName(yname string) string {
-    if yname == "port-slot" { return "PortSlot" }
-    return ""
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetSegmentPath() string {
-    return "port-slots"
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "port-slot" {
-        for _, c := range portSlots.PortSlot {
-            if portSlots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot{}
-        portSlots.PortSlot = append(portSlots.PortSlot, child)
-        return &portSlots.PortSlot[len(portSlots.PortSlot)-1]
-    }
-    return nil
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    portSlots.EntityData.Children = make(map[string]types.YChild)
+    portSlots.EntityData.Children["port-slot"] = types.YChild{"PortSlot", nil}
     for i := range portSlots.PortSlot {
-        children[portSlots.PortSlot[i].GetSegmentPath()] = &portSlots.PortSlot[i]
+        portSlots.EntityData.Children[types.GetSegmentPath(&portSlots.PortSlot[i])] = types.YChild{"PortSlot", &portSlots.PortSlot[i]}
     }
-    return children
+    portSlots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(portSlots.EntityData)
 }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetYangName() string { return "port-slots" }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) SetParent(parent types.Entity) { portSlots.parent = parent }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetParent() types.Entity { return portSlots.parent }
-
-func (portSlots *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots) GetParentYangName() string { return "card" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot
 // PortSlot number in the SPA/PLIM
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. portslot number. The type is interface{} with
@@ -5607,125 +3188,54 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot struct {
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes
 }
 
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetFilter() yfilter.YFilter { return portSlot.YFilter }
+func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetEntityData() *types.CommonEntityData {
+    portSlot.EntityData.YFilter = portSlot.YFilter
+    portSlot.EntityData.YangName = "port-slot"
+    portSlot.EntityData.BundleName = "cisco_ios_xr"
+    portSlot.EntityData.ParentYangName = "port-slots"
+    portSlot.EntityData.SegmentPath = "port-slot" + "[number='" + fmt.Sprintf("%v", portSlot.Number) + "']"
+    portSlot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portSlot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portSlot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) SetFilter(yf yfilter.YFilter) { portSlot.YFilter = yf }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "port" { return "Port" }
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    portSlot.EntityData.Children = make(map[string]types.YChild)
+    portSlot.EntityData.Children["port"] = types.YChild{"Port", &portSlot.Port}
+    portSlot.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &portSlot.BasicAttributes}
+    portSlot.EntityData.Leafs = make(map[string]types.YLeaf)
+    portSlot.EntityData.Leafs["number"] = types.YLeaf{"Number", portSlot.Number}
+    return &(portSlot.EntityData)
 }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetSegmentPath() string {
-    return "port-slot" + "[number='" + fmt.Sprintf("%v", portSlot.Number) + "']"
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "port" {
-        return &portSlot.Port
-    }
-    if childYangName == "basic-attributes" {
-        return &portSlot.BasicAttributes
-    }
-    return nil
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["port"] = &portSlot.Port
-    children["basic-attributes"] = &portSlot.BasicAttributes
-    return children
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = portSlot.Number
-    return leafs
-}
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetYangName() string { return "port-slot" }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) SetParent(parent types.Entity) { portSlot.parent = parent }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetParent() types.Entity { return portSlot.parent }
-
-func (portSlot *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot) GetParentYangName() string { return "port-slots" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port
 // Port string
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Attributes.
     BasicAttributes Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes
 }
 
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetFilter() yfilter.YFilter { return port.YFilter }
+func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetEntityData() *types.CommonEntityData {
+    port.EntityData.YFilter = port.YFilter
+    port.EntityData.YangName = "port"
+    port.EntityData.BundleName = "cisco_ios_xr"
+    port.EntityData.ParentYangName = "port-slot"
+    port.EntityData.SegmentPath = "port"
+    port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) SetFilter(yf yfilter.YFilter) { port.YFilter = yf }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetGoName(yname string) string {
-    if yname == "basic-attributes" { return "BasicAttributes" }
-    return ""
+    port.EntityData.Children = make(map[string]types.YChild)
+    port.EntityData.Children["basic-attributes"] = types.YChild{"BasicAttributes", &port.BasicAttributes}
+    port.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(port.EntityData)
 }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetSegmentPath() string {
-    return "port"
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-attributes" {
-        return &port.BasicAttributes
-    }
-    return nil
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-attributes"] = &port.BasicAttributes
-    return children
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetBundleName() string { return "cisco_ios_xr" }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetYangName() string { return "port" }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) SetParent(parent types.Entity) { port.parent = parent }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetParent() types.Entity { return port.parent }
-
-func (port *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port) GetParentYangName() string { return "port-slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -5735,64 +3245,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "port"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes) GetParentYangName() string { return "port" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -5885,107 +3358,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -6022,78 +3440,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -6105,58 +3479,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -6168,58 +3511,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAtt
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -6229,64 +3541,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "port-slot"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes) GetParentYangName() string { return "port-slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -6379,107 +3654,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -6516,78 +3736,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -6599,58 +3775,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -6662,58 +3807,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttribut
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -6723,64 +3837,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes struct {
     FruInfo Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "card"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes) GetParentYangName() string { return "card" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -6873,107 +3950,52 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo struct
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -7010,78 +4032,34 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo struct {
     CardUpTime Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -7093,58 +4071,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOper
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -7156,58 +4103,27 @@ type Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTi
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_Cards_Card_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_BasicAttributes
 // Attributes
 type Inventory_Racks_Rack_Slots_Slot_BasicAttributes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Inventory information.
@@ -7217,64 +4133,27 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes struct {
     FruInfo Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo
 }
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetFilter() yfilter.YFilter { return basicAttributes.YFilter }
+func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetEntityData() *types.CommonEntityData {
+    basicAttributes.EntityData.YFilter = basicAttributes.YFilter
+    basicAttributes.EntityData.YangName = "basic-attributes"
+    basicAttributes.EntityData.BundleName = "cisco_ios_xr"
+    basicAttributes.EntityData.ParentYangName = "slot"
+    basicAttributes.EntityData.SegmentPath = "basic-attributes"
+    basicAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) SetFilter(yf yfilter.YFilter) { basicAttributes.YFilter = yf }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetGoName(yname string) string {
-    if yname == "basic-info" { return "BasicInfo" }
-    if yname == "fru-info" { return "FruInfo" }
-    return ""
+    basicAttributes.EntityData.Children = make(map[string]types.YChild)
+    basicAttributes.EntityData.Children["basic-info"] = types.YChild{"BasicInfo", &basicAttributes.BasicInfo}
+    basicAttributes.EntityData.Children["fru-info"] = types.YChild{"FruInfo", &basicAttributes.FruInfo}
+    basicAttributes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(basicAttributes.EntityData)
 }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetSegmentPath() string {
-    return "basic-attributes"
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "basic-info" {
-        return &basicAttributes.BasicInfo
-    }
-    if childYangName == "fru-info" {
-        return &basicAttributes.FruInfo
-    }
-    return nil
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["basic-info"] = &basicAttributes.BasicInfo
-    children["fru-info"] = &basicAttributes.FruInfo
-    return children
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetYangName() string { return "basic-attributes" }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) SetParent(parent types.Entity) { basicAttributes.parent = parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetParent() types.Entity { return basicAttributes.parent }
-
-func (basicAttributes *Inventory_Racks_Rack_Slots_Slot_BasicAttributes) GetParentYangName() string { return "slot" }
 
 // Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo
 // Inventory information
 type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // describes in user-readable terms       what the entity in question does.
@@ -7367,107 +4246,52 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo struct {
     UniqueId interface{}
 }
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetFilter() yfilter.YFilter { return basicInfo.YFilter }
+func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetEntityData() *types.CommonEntityData {
+    basicInfo.EntityData.YFilter = basicInfo.YFilter
+    basicInfo.EntityData.YangName = "basic-info"
+    basicInfo.EntityData.BundleName = "cisco_ios_xr"
+    basicInfo.EntityData.ParentYangName = "basic-attributes"
+    basicInfo.EntityData.SegmentPath = "basic-info"
+    basicInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    basicInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    basicInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) SetFilter(yf yfilter.YFilter) { basicInfo.YFilter = yf }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "vendor-type" { return "VendorType" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-revision" { return "HardwareRevision" }
-    if yname == "firmware-revision" { return "FirmwareRevision" }
-    if yname == "software-revision" { return "SoftwareRevision" }
-    if yname == "chip-hardware-revision" { return "ChipHardwareRevision" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "manufacturer-name" { return "ManufacturerName" }
-    if yname == "model-name" { return "ModelName" }
-    if yname == "asset-id-str" { return "AssetIdStr" }
-    if yname == "asset-identification" { return "AssetIdentification" }
-    if yname == "is-field-replaceable-unit" { return "IsFieldReplaceableUnit" }
-    if yname == "manufacturer-asset-tags" { return "ManufacturerAssetTags" }
-    if yname == "composite-class-code" { return "CompositeClassCode" }
-    if yname == "memory-size" { return "MemorySize" }
-    if yname == "environmental-monitor-path" { return "EnvironmentalMonitorPath" }
-    if yname == "alias" { return "Alias" }
-    if yname == "group-flag" { return "GroupFlag" }
-    if yname == "new-deviation-number" { return "NewDeviationNumber" }
-    if yname == "physical-layer-interface-module-type" { return "PhysicalLayerInterfaceModuleType" }
-    if yname == "unrecognized-fru" { return "UnrecognizedFru" }
-    if yname == "redundancystate" { return "Redundancystate" }
-    if yname == "ceport" { return "Ceport" }
-    if yname == "xr-scoped" { return "XrScoped" }
-    if yname == "unique-id" { return "UniqueId" }
-    return ""
+    basicInfo.EntityData.Children = make(map[string]types.YChild)
+    basicInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    basicInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", basicInfo.Description}
+    basicInfo.EntityData.Leafs["vendor-type"] = types.YLeaf{"VendorType", basicInfo.VendorType}
+    basicInfo.EntityData.Leafs["name"] = types.YLeaf{"Name", basicInfo.Name}
+    basicInfo.EntityData.Leafs["hardware-revision"] = types.YLeaf{"HardwareRevision", basicInfo.HardwareRevision}
+    basicInfo.EntityData.Leafs["firmware-revision"] = types.YLeaf{"FirmwareRevision", basicInfo.FirmwareRevision}
+    basicInfo.EntityData.Leafs["software-revision"] = types.YLeaf{"SoftwareRevision", basicInfo.SoftwareRevision}
+    basicInfo.EntityData.Leafs["chip-hardware-revision"] = types.YLeaf{"ChipHardwareRevision", basicInfo.ChipHardwareRevision}
+    basicInfo.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", basicInfo.SerialNumber}
+    basicInfo.EntityData.Leafs["manufacturer-name"] = types.YLeaf{"ManufacturerName", basicInfo.ManufacturerName}
+    basicInfo.EntityData.Leafs["model-name"] = types.YLeaf{"ModelName", basicInfo.ModelName}
+    basicInfo.EntityData.Leafs["asset-id-str"] = types.YLeaf{"AssetIdStr", basicInfo.AssetIdStr}
+    basicInfo.EntityData.Leafs["asset-identification"] = types.YLeaf{"AssetIdentification", basicInfo.AssetIdentification}
+    basicInfo.EntityData.Leafs["is-field-replaceable-unit"] = types.YLeaf{"IsFieldReplaceableUnit", basicInfo.IsFieldReplaceableUnit}
+    basicInfo.EntityData.Leafs["manufacturer-asset-tags"] = types.YLeaf{"ManufacturerAssetTags", basicInfo.ManufacturerAssetTags}
+    basicInfo.EntityData.Leafs["composite-class-code"] = types.YLeaf{"CompositeClassCode", basicInfo.CompositeClassCode}
+    basicInfo.EntityData.Leafs["memory-size"] = types.YLeaf{"MemorySize", basicInfo.MemorySize}
+    basicInfo.EntityData.Leafs["environmental-monitor-path"] = types.YLeaf{"EnvironmentalMonitorPath", basicInfo.EnvironmentalMonitorPath}
+    basicInfo.EntityData.Leafs["alias"] = types.YLeaf{"Alias", basicInfo.Alias}
+    basicInfo.EntityData.Leafs["group-flag"] = types.YLeaf{"GroupFlag", basicInfo.GroupFlag}
+    basicInfo.EntityData.Leafs["new-deviation-number"] = types.YLeaf{"NewDeviationNumber", basicInfo.NewDeviationNumber}
+    basicInfo.EntityData.Leafs["physical-layer-interface-module-type"] = types.YLeaf{"PhysicalLayerInterfaceModuleType", basicInfo.PhysicalLayerInterfaceModuleType}
+    basicInfo.EntityData.Leafs["unrecognized-fru"] = types.YLeaf{"UnrecognizedFru", basicInfo.UnrecognizedFru}
+    basicInfo.EntityData.Leafs["redundancystate"] = types.YLeaf{"Redundancystate", basicInfo.Redundancystate}
+    basicInfo.EntityData.Leafs["ceport"] = types.YLeaf{"Ceport", basicInfo.Ceport}
+    basicInfo.EntityData.Leafs["xr-scoped"] = types.YLeaf{"XrScoped", basicInfo.XrScoped}
+    basicInfo.EntityData.Leafs["unique-id"] = types.YLeaf{"UniqueId", basicInfo.UniqueId}
+    return &(basicInfo.EntityData)
 }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetSegmentPath() string {
-    return "basic-info"
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = basicInfo.Description
-    leafs["vendor-type"] = basicInfo.VendorType
-    leafs["name"] = basicInfo.Name
-    leafs["hardware-revision"] = basicInfo.HardwareRevision
-    leafs["firmware-revision"] = basicInfo.FirmwareRevision
-    leafs["software-revision"] = basicInfo.SoftwareRevision
-    leafs["chip-hardware-revision"] = basicInfo.ChipHardwareRevision
-    leafs["serial-number"] = basicInfo.SerialNumber
-    leafs["manufacturer-name"] = basicInfo.ManufacturerName
-    leafs["model-name"] = basicInfo.ModelName
-    leafs["asset-id-str"] = basicInfo.AssetIdStr
-    leafs["asset-identification"] = basicInfo.AssetIdentification
-    leafs["is-field-replaceable-unit"] = basicInfo.IsFieldReplaceableUnit
-    leafs["manufacturer-asset-tags"] = basicInfo.ManufacturerAssetTags
-    leafs["composite-class-code"] = basicInfo.CompositeClassCode
-    leafs["memory-size"] = basicInfo.MemorySize
-    leafs["environmental-monitor-path"] = basicInfo.EnvironmentalMonitorPath
-    leafs["alias"] = basicInfo.Alias
-    leafs["group-flag"] = basicInfo.GroupFlag
-    leafs["new-deviation-number"] = basicInfo.NewDeviationNumber
-    leafs["physical-layer-interface-module-type"] = basicInfo.PhysicalLayerInterfaceModuleType
-    leafs["unrecognized-fru"] = basicInfo.UnrecognizedFru
-    leafs["redundancystate"] = basicInfo.Redundancystate
-    leafs["ceport"] = basicInfo.Ceport
-    leafs["xr-scoped"] = basicInfo.XrScoped
-    leafs["unique-id"] = basicInfo.UniqueId
-    return leafs
-}
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetYangName() string { return "basic-info" }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) SetParent(parent types.Entity) { basicInfo.parent = parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetParent() types.Entity { return basicInfo.parent }
-
-func (basicInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_BasicInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo
 // Field Replaceable Unit (FRU) inventory
 // information
 type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card admin state: shutdown or not. The type is interface{} with range:
@@ -7504,78 +4328,34 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo struct {
     CardUpTime Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime
 }
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetFilter() yfilter.YFilter { return fruInfo.YFilter }
+func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetEntityData() *types.CommonEntityData {
+    fruInfo.EntityData.YFilter = fruInfo.YFilter
+    fruInfo.EntityData.YangName = "fru-info"
+    fruInfo.EntityData.BundleName = "cisco_ios_xr"
+    fruInfo.EntityData.ParentYangName = "basic-attributes"
+    fruInfo.EntityData.SegmentPath = "fru-info"
+    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) SetFilter(yf yfilter.YFilter) { fruInfo.YFilter = yf }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetGoName(yname string) string {
-    if yname == "card-administrative-state" { return "CardAdministrativeState" }
-    if yname == "power-administrative-state" { return "PowerAdministrativeState" }
-    if yname == "card-operational-state" { return "CardOperationalState" }
-    if yname == "card-monitor-state" { return "CardMonitorState" }
-    if yname == "card-reset-reason" { return "CardResetReason" }
-    if yname == "power-current-measurement" { return "PowerCurrentMeasurement" }
-    if yname == "power-operational-state" { return "PowerOperationalState" }
-    if yname == "last-operational-state-change" { return "LastOperationalStateChange" }
-    if yname == "card-up-time" { return "CardUpTime" }
-    return ""
+    fruInfo.EntityData.Children = make(map[string]types.YChild)
+    fruInfo.EntityData.Children["last-operational-state-change"] = types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange}
+    fruInfo.EntityData.Children["card-up-time"] = types.YChild{"CardUpTime", &fruInfo.CardUpTime}
+    fruInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fruInfo.EntityData.Leafs["card-administrative-state"] = types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState}
+    fruInfo.EntityData.Leafs["power-administrative-state"] = types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState}
+    fruInfo.EntityData.Leafs["card-operational-state"] = types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState}
+    fruInfo.EntityData.Leafs["card-monitor-state"] = types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState}
+    fruInfo.EntityData.Leafs["card-reset-reason"] = types.YLeaf{"CardResetReason", fruInfo.CardResetReason}
+    fruInfo.EntityData.Leafs["power-current-measurement"] = types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement}
+    fruInfo.EntityData.Leafs["power-operational-state"] = types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState}
+    return &(fruInfo.EntityData)
 }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetSegmentPath() string {
-    return "fru-info"
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-operational-state-change" {
-        return &fruInfo.LastOperationalStateChange
-    }
-    if childYangName == "card-up-time" {
-        return &fruInfo.CardUpTime
-    }
-    return nil
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-operational-state-change"] = &fruInfo.LastOperationalStateChange
-    children["card-up-time"] = &fruInfo.CardUpTime
-    return children
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-administrative-state"] = fruInfo.CardAdministrativeState
-    leafs["power-administrative-state"] = fruInfo.PowerAdministrativeState
-    leafs["card-operational-state"] = fruInfo.CardOperationalState
-    leafs["card-monitor-state"] = fruInfo.CardMonitorState
-    leafs["card-reset-reason"] = fruInfo.CardResetReason
-    leafs["power-current-measurement"] = fruInfo.PowerCurrentMeasurement
-    leafs["power-operational-state"] = fruInfo.PowerOperationalState
-    return leafs
-}
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetYangName() string { return "fru-info" }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) SetParent(parent types.Entity) { fruInfo.parent = parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetParent() types.Entity { return fruInfo.parent }
-
-func (fruInfo *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo) GetParentYangName() string { return "basic-attributes" }
 
 // Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange
 // last card oper change state
 type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -7587,58 +4367,27 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStat
     TimeInNanoSeconds interface{}
 }
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetFilter() yfilter.YFilter { return lastOperationalStateChange.YFilter }
+func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
+    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
+    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
+    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
+    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
+    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) SetFilter(yf yfilter.YFilter) { lastOperationalStateChange.YFilter = yf }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    lastOperationalStateChange.EntityData.Children = make(map[string]types.YChild)
+    lastOperationalStateChange.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastOperationalStateChange.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds}
+    lastOperationalStateChange.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds}
+    return &(lastOperationalStateChange.EntityData)
 }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetSegmentPath() string {
-    return "last-operational-state-change"
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = lastOperationalStateChange.TimeInSeconds
-    leafs["time-in-nano-seconds"] = lastOperationalStateChange.TimeInNanoSeconds
-    return leafs
-}
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetYangName() string { return "last-operational-state-change" }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) SetParent(parent types.Entity) { lastOperationalStateChange.parent = parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParent() types.Entity { return lastOperationalStateChange.parent }
-
-func (lastOperationalStateChange *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_LastOperationalStateChange) GetParentYangName() string { return "fru-info" }
 
 // Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime
 // card up time
 type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Time Value in Seconds. The type is interface{} with range:
@@ -7650,51 +4399,20 @@ type Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime struct {
     TimeInNanoSeconds interface{}
 }
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetFilter() yfilter.YFilter { return cardUpTime.YFilter }
+func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
+    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
+    cardUpTime.EntityData.YangName = "card-up-time"
+    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
+    cardUpTime.EntityData.ParentYangName = "fru-info"
+    cardUpTime.EntityData.SegmentPath = "card-up-time"
+    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) SetFilter(yf yfilter.YFilter) { cardUpTime.YFilter = yf }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetGoName(yname string) string {
-    if yname == "time-in-seconds" { return "TimeInSeconds" }
-    if yname == "time-in-nano-seconds" { return "TimeInNanoSeconds" }
-    return ""
+    cardUpTime.EntityData.Children = make(map[string]types.YChild)
+    cardUpTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardUpTime.EntityData.Leafs["time-in-seconds"] = types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds}
+    cardUpTime.EntityData.Leafs["time-in-nano-seconds"] = types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds}
+    return &(cardUpTime.EntityData)
 }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetSegmentPath() string {
-    return "card-up-time"
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["time-in-seconds"] = cardUpTime.TimeInSeconds
-    leafs["time-in-nano-seconds"] = cardUpTime.TimeInNanoSeconds
-    return leafs
-}
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetYangName() string { return "card-up-time" }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) SetParent(parent types.Entity) { cardUpTime.parent = parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetParent() types.Entity { return cardUpTime.parent }
-
-func (cardUpTime *Inventory_Racks_Rack_Slots_Slot_BasicAttributes_FruInfo_CardUpTime) GetParentYangName() string { return "fru-info" }
 

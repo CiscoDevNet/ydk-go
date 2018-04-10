@@ -24,7 +24,7 @@ func init() {
 
 // TUNNELMIB
 type TUNNELMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The (conceptual) table containing information on configured tunnels.
@@ -48,70 +48,29 @@ type TUNNELMIB struct {
     Tunnelinetconfigtable TUNNELMIB_Tunnelinetconfigtable
 }
 
-func (tUNNELMIB *TUNNELMIB) GetFilter() yfilter.YFilter { return tUNNELMIB.YFilter }
+func (tUNNELMIB *TUNNELMIB) GetEntityData() *types.CommonEntityData {
+    tUNNELMIB.EntityData.YFilter = tUNNELMIB.YFilter
+    tUNNELMIB.EntityData.YangName = "TUNNEL-MIB"
+    tUNNELMIB.EntityData.BundleName = "cisco_ios_xe"
+    tUNNELMIB.EntityData.ParentYangName = "TUNNEL-MIB"
+    tUNNELMIB.EntityData.SegmentPath = "TUNNEL-MIB:TUNNEL-MIB"
+    tUNNELMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tUNNELMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tUNNELMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tUNNELMIB *TUNNELMIB) SetFilter(yf yfilter.YFilter) { tUNNELMIB.YFilter = yf }
-
-func (tUNNELMIB *TUNNELMIB) GetGoName(yname string) string {
-    if yname == "tunnelIfTable" { return "Tunneliftable" }
-    if yname == "tunnelConfigTable" { return "Tunnelconfigtable" }
-    if yname == "tunnelInetConfigTable" { return "Tunnelinetconfigtable" }
-    return ""
+    tUNNELMIB.EntityData.Children = make(map[string]types.YChild)
+    tUNNELMIB.EntityData.Children["tunnelIfTable"] = types.YChild{"Tunneliftable", &tUNNELMIB.Tunneliftable}
+    tUNNELMIB.EntityData.Children["tunnelConfigTable"] = types.YChild{"Tunnelconfigtable", &tUNNELMIB.Tunnelconfigtable}
+    tUNNELMIB.EntityData.Children["tunnelInetConfigTable"] = types.YChild{"Tunnelinetconfigtable", &tUNNELMIB.Tunnelinetconfigtable}
+    tUNNELMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tUNNELMIB.EntityData)
 }
-
-func (tUNNELMIB *TUNNELMIB) GetSegmentPath() string {
-    return "TUNNEL-MIB:TUNNEL-MIB"
-}
-
-func (tUNNELMIB *TUNNELMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnelIfTable" {
-        return &tUNNELMIB.Tunneliftable
-    }
-    if childYangName == "tunnelConfigTable" {
-        return &tUNNELMIB.Tunnelconfigtable
-    }
-    if childYangName == "tunnelInetConfigTable" {
-        return &tUNNELMIB.Tunnelinetconfigtable
-    }
-    return nil
-}
-
-func (tUNNELMIB *TUNNELMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tunnelIfTable"] = &tUNNELMIB.Tunneliftable
-    children["tunnelConfigTable"] = &tUNNELMIB.Tunnelconfigtable
-    children["tunnelInetConfigTable"] = &tUNNELMIB.Tunnelinetconfigtable
-    return children
-}
-
-func (tUNNELMIB *TUNNELMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tUNNELMIB *TUNNELMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tUNNELMIB *TUNNELMIB) GetYangName() string { return "TUNNEL-MIB" }
-
-func (tUNNELMIB *TUNNELMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tUNNELMIB *TUNNELMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tUNNELMIB *TUNNELMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tUNNELMIB *TUNNELMIB) SetParent(parent types.Entity) { tUNNELMIB.parent = parent }
-
-func (tUNNELMIB *TUNNELMIB) GetParent() types.Entity { return tUNNELMIB.parent }
-
-func (tUNNELMIB *TUNNELMIB) GetParentYangName() string { return "TUNNEL-MIB" }
 
 // TUNNELMIB_Tunneliftable
 // The (conceptual) table containing information on
 // configured tunnels.
 type TUNNELMIB_Tunneliftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) containing the information on a particular
@@ -120,69 +79,30 @@ type TUNNELMIB_Tunneliftable struct {
     Tunnelifentry []TUNNELMIB_Tunneliftable_Tunnelifentry
 }
 
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetFilter() yfilter.YFilter { return tunneliftable.YFilter }
+func (tunneliftable *TUNNELMIB_Tunneliftable) GetEntityData() *types.CommonEntityData {
+    tunneliftable.EntityData.YFilter = tunneliftable.YFilter
+    tunneliftable.EntityData.YangName = "tunnelIfTable"
+    tunneliftable.EntityData.BundleName = "cisco_ios_xe"
+    tunneliftable.EntityData.ParentYangName = "TUNNEL-MIB"
+    tunneliftable.EntityData.SegmentPath = "tunnelIfTable"
+    tunneliftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tunneliftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tunneliftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tunneliftable *TUNNELMIB_Tunneliftable) SetFilter(yf yfilter.YFilter) { tunneliftable.YFilter = yf }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetGoName(yname string) string {
-    if yname == "tunnelIfEntry" { return "Tunnelifentry" }
-    return ""
-}
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetSegmentPath() string {
-    return "tunnelIfTable"
-}
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnelIfEntry" {
-        for _, c := range tunneliftable.Tunnelifentry {
-            if tunneliftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TUNNELMIB_Tunneliftable_Tunnelifentry{}
-        tunneliftable.Tunnelifentry = append(tunneliftable.Tunnelifentry, child)
-        return &tunneliftable.Tunnelifentry[len(tunneliftable.Tunnelifentry)-1]
-    }
-    return nil
-}
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunneliftable.EntityData.Children = make(map[string]types.YChild)
+    tunneliftable.EntityData.Children["tunnelIfEntry"] = types.YChild{"Tunnelifentry", nil}
     for i := range tunneliftable.Tunnelifentry {
-        children[tunneliftable.Tunnelifentry[i].GetSegmentPath()] = &tunneliftable.Tunnelifentry[i]
+        tunneliftable.EntityData.Children[types.GetSegmentPath(&tunneliftable.Tunnelifentry[i])] = types.YChild{"Tunnelifentry", &tunneliftable.Tunnelifentry[i]}
     }
-    return children
+    tunneliftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunneliftable.EntityData)
 }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetYangName() string { return "tunnelIfTable" }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) SetParent(parent types.Entity) { tunneliftable.parent = parent }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetParent() types.Entity { return tunneliftable.parent }
-
-func (tunneliftable *TUNNELMIB_Tunneliftable) GetParentYangName() string { return "TUNNEL-MIB" }
 
 // TUNNELMIB_Tunneliftable_Tunnelifentry
 // An entry (conceptual row) containing the information
 // on a particular configured tunnel.
 type TUNNELMIB_Tunneliftable_Tunnelifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -193,7 +113,7 @@ type TUNNELMIB_Tunneliftable_Tunnelifentry struct {
     // used in the outer IP header), or 0.0.0.0 if unknown or if the tunnel is
     // over IPv6.  Since this object does not support IPv6, it is deprecated in
     // favor of tunnelIfLocalInetAddress. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Tunneliflocaladdress interface{}
 
     // The address of the remote endpoint of the tunnel (i.e., the destination
@@ -201,7 +121,7 @@ type TUNNELMIB_Tunneliftable_Tunnelifentry struct {
     // address, or  the tunnel is not a point-to-point link (e.g., if it is a 6to4
     // tunnel).  Since this object does not support IPv6, it is deprecated in
     // favor of tunnelIfRemoteInetAddress. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Tunnelifremoteaddress interface{}
 
     // The encapsulation method used by the tunnel. The type is IANAtunnelType.
@@ -264,73 +184,32 @@ type TUNNELMIB_Tunneliftable_Tunnelifentry struct {
     Tunnelifencapslimit interface{}
 }
 
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetFilter() yfilter.YFilter { return tunnelifentry.YFilter }
+func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetEntityData() *types.CommonEntityData {
+    tunnelifentry.EntityData.YFilter = tunnelifentry.YFilter
+    tunnelifentry.EntityData.YangName = "tunnelIfEntry"
+    tunnelifentry.EntityData.BundleName = "cisco_ios_xe"
+    tunnelifentry.EntityData.ParentYangName = "tunnelIfTable"
+    tunnelifentry.EntityData.SegmentPath = "tunnelIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", tunnelifentry.Ifindex) + "']"
+    tunnelifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tunnelifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tunnelifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) SetFilter(yf yfilter.YFilter) { tunnelifentry.YFilter = yf }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "tunnelIfLocalAddress" { return "Tunneliflocaladdress" }
-    if yname == "tunnelIfRemoteAddress" { return "Tunnelifremoteaddress" }
-    if yname == "tunnelIfEncapsMethod" { return "Tunnelifencapsmethod" }
-    if yname == "tunnelIfHopLimit" { return "Tunnelifhoplimit" }
-    if yname == "tunnelIfSecurity" { return "Tunnelifsecurity" }
-    if yname == "tunnelIfTOS" { return "Tunneliftos" }
-    if yname == "tunnelIfFlowLabel" { return "Tunnelifflowlabel" }
-    if yname == "tunnelIfAddressType" { return "Tunnelifaddresstype" }
-    if yname == "tunnelIfLocalInetAddress" { return "Tunneliflocalinetaddress" }
-    if yname == "tunnelIfRemoteInetAddress" { return "Tunnelifremoteinetaddress" }
-    if yname == "tunnelIfEncapsLimit" { return "Tunnelifencapslimit" }
-    return ""
+    tunnelifentry.EntityData.Children = make(map[string]types.YChild)
+    tunnelifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", tunnelifentry.Ifindex}
+    tunnelifentry.EntityData.Leafs["tunnelIfLocalAddress"] = types.YLeaf{"Tunneliflocaladdress", tunnelifentry.Tunneliflocaladdress}
+    tunnelifentry.EntityData.Leafs["tunnelIfRemoteAddress"] = types.YLeaf{"Tunnelifremoteaddress", tunnelifentry.Tunnelifremoteaddress}
+    tunnelifentry.EntityData.Leafs["tunnelIfEncapsMethod"] = types.YLeaf{"Tunnelifencapsmethod", tunnelifentry.Tunnelifencapsmethod}
+    tunnelifentry.EntityData.Leafs["tunnelIfHopLimit"] = types.YLeaf{"Tunnelifhoplimit", tunnelifentry.Tunnelifhoplimit}
+    tunnelifentry.EntityData.Leafs["tunnelIfSecurity"] = types.YLeaf{"Tunnelifsecurity", tunnelifentry.Tunnelifsecurity}
+    tunnelifentry.EntityData.Leafs["tunnelIfTOS"] = types.YLeaf{"Tunneliftos", tunnelifentry.Tunneliftos}
+    tunnelifentry.EntityData.Leafs["tunnelIfFlowLabel"] = types.YLeaf{"Tunnelifflowlabel", tunnelifentry.Tunnelifflowlabel}
+    tunnelifentry.EntityData.Leafs["tunnelIfAddressType"] = types.YLeaf{"Tunnelifaddresstype", tunnelifentry.Tunnelifaddresstype}
+    tunnelifentry.EntityData.Leafs["tunnelIfLocalInetAddress"] = types.YLeaf{"Tunneliflocalinetaddress", tunnelifentry.Tunneliflocalinetaddress}
+    tunnelifentry.EntityData.Leafs["tunnelIfRemoteInetAddress"] = types.YLeaf{"Tunnelifremoteinetaddress", tunnelifentry.Tunnelifremoteinetaddress}
+    tunnelifentry.EntityData.Leafs["tunnelIfEncapsLimit"] = types.YLeaf{"Tunnelifencapslimit", tunnelifentry.Tunnelifencapslimit}
+    return &(tunnelifentry.EntityData)
 }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetSegmentPath() string {
-    return "tunnelIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", tunnelifentry.Ifindex) + "']"
-}
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = tunnelifentry.Ifindex
-    leafs["tunnelIfLocalAddress"] = tunnelifentry.Tunneliflocaladdress
-    leafs["tunnelIfRemoteAddress"] = tunnelifentry.Tunnelifremoteaddress
-    leafs["tunnelIfEncapsMethod"] = tunnelifentry.Tunnelifencapsmethod
-    leafs["tunnelIfHopLimit"] = tunnelifentry.Tunnelifhoplimit
-    leafs["tunnelIfSecurity"] = tunnelifentry.Tunnelifsecurity
-    leafs["tunnelIfTOS"] = tunnelifentry.Tunneliftos
-    leafs["tunnelIfFlowLabel"] = tunnelifentry.Tunnelifflowlabel
-    leafs["tunnelIfAddressType"] = tunnelifentry.Tunnelifaddresstype
-    leafs["tunnelIfLocalInetAddress"] = tunnelifentry.Tunneliflocalinetaddress
-    leafs["tunnelIfRemoteInetAddress"] = tunnelifentry.Tunnelifremoteinetaddress
-    leafs["tunnelIfEncapsLimit"] = tunnelifentry.Tunnelifencapslimit
-    return leafs
-}
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetYangName() string { return "tunnelIfEntry" }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) SetParent(parent types.Entity) { tunnelifentry.parent = parent }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetParent() types.Entity { return tunnelifentry.parent }
-
-func (tunnelifentry *TUNNELMIB_Tunneliftable_Tunnelifentry) GetParentYangName() string { return "tunnelIfTable" }
 
 // TUNNELMIB_Tunneliftable_Tunnelifentry_Tunnelifsecurity represents security protocol in use.
 type TUNNELMIB_Tunneliftable_Tunnelifentry_Tunnelifsecurity string
@@ -356,7 +235,7 @@ const (
 // Since this table does not support IPv6, it is
 // deprecated in favor of tunnelInetConfigTable.
 type TUNNELMIB_Tunnelconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) containing the information on a particular
@@ -366,63 +245,24 @@ type TUNNELMIB_Tunnelconfigtable struct {
     Tunnelconfigentry []TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry
 }
 
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetFilter() yfilter.YFilter { return tunnelconfigtable.YFilter }
+func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetEntityData() *types.CommonEntityData {
+    tunnelconfigtable.EntityData.YFilter = tunnelconfigtable.YFilter
+    tunnelconfigtable.EntityData.YangName = "tunnelConfigTable"
+    tunnelconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    tunnelconfigtable.EntityData.ParentYangName = "TUNNEL-MIB"
+    tunnelconfigtable.EntityData.SegmentPath = "tunnelConfigTable"
+    tunnelconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tunnelconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tunnelconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) SetFilter(yf yfilter.YFilter) { tunnelconfigtable.YFilter = yf }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetGoName(yname string) string {
-    if yname == "tunnelConfigEntry" { return "Tunnelconfigentry" }
-    return ""
-}
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetSegmentPath() string {
-    return "tunnelConfigTable"
-}
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnelConfigEntry" {
-        for _, c := range tunnelconfigtable.Tunnelconfigentry {
-            if tunnelconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry{}
-        tunnelconfigtable.Tunnelconfigentry = append(tunnelconfigtable.Tunnelconfigentry, child)
-        return &tunnelconfigtable.Tunnelconfigentry[len(tunnelconfigtable.Tunnelconfigentry)-1]
-    }
-    return nil
-}
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnelconfigtable.EntityData.Children = make(map[string]types.YChild)
+    tunnelconfigtable.EntityData.Children["tunnelConfigEntry"] = types.YChild{"Tunnelconfigentry", nil}
     for i := range tunnelconfigtable.Tunnelconfigentry {
-        children[tunnelconfigtable.Tunnelconfigentry[i].GetSegmentPath()] = &tunnelconfigtable.Tunnelconfigentry[i]
+        tunnelconfigtable.EntityData.Children[types.GetSegmentPath(&tunnelconfigtable.Tunnelconfigentry[i])] = types.YChild{"Tunnelconfigentry", &tunnelconfigtable.Tunnelconfigentry[i]}
     }
-    return children
+    tunnelconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelconfigtable.EntityData)
 }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetYangName() string { return "tunnelConfigTable" }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) SetParent(parent types.Entity) { tunnelconfigtable.parent = parent }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetParent() types.Entity { return tunnelconfigtable.parent }
-
-func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetParentYangName() string { return "TUNNEL-MIB" }
 
 // TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry
 // An entry (conceptual row) containing the information
@@ -431,7 +271,7 @@ func (tunnelconfigtable *TUNNELMIB_Tunnelconfigtable) GetParentYangName() string
 // Since this entry does not support IPv6, it is
 // deprecated in favor of tunnelInetConfigEntry.
 type TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address of the local endpoint of the tunnel,
@@ -439,13 +279,13 @@ type TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry struct {
     // establishment time.  Since this object does not support IPv6, it is
     // deprecated in favor of tunnelInetConfigLocalAddress. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Tunnelconfiglocaladdress interface{}
 
     // This attribute is a key. The address of the remote endpoint of the tunnel. 
     // Since this object does not support IPv6, it is deprecated in favor of
     // tunnelInetConfigRemoteAddress. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Tunnelconfigremoteaddress interface{}
 
     // This attribute is a key. The encapsulation method used by the tunnel. 
@@ -497,61 +337,26 @@ type TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry struct {
     Tunnelconfigstatus interface{}
 }
 
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetFilter() yfilter.YFilter { return tunnelconfigentry.YFilter }
+func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetEntityData() *types.CommonEntityData {
+    tunnelconfigentry.EntityData.YFilter = tunnelconfigentry.YFilter
+    tunnelconfigentry.EntityData.YangName = "tunnelConfigEntry"
+    tunnelconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    tunnelconfigentry.EntityData.ParentYangName = "tunnelConfigTable"
+    tunnelconfigentry.EntityData.SegmentPath = "tunnelConfigEntry" + "[tunnelConfigLocalAddress='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfiglocaladdress) + "']" + "[tunnelConfigRemoteAddress='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfigremoteaddress) + "']" + "[tunnelConfigEncapsMethod='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfigencapsmethod) + "']" + "[tunnelConfigID='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfigid) + "']"
+    tunnelconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tunnelconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tunnelconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) SetFilter(yf yfilter.YFilter) { tunnelconfigentry.YFilter = yf }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetGoName(yname string) string {
-    if yname == "tunnelConfigLocalAddress" { return "Tunnelconfiglocaladdress" }
-    if yname == "tunnelConfigRemoteAddress" { return "Tunnelconfigremoteaddress" }
-    if yname == "tunnelConfigEncapsMethod" { return "Tunnelconfigencapsmethod" }
-    if yname == "tunnelConfigID" { return "Tunnelconfigid" }
-    if yname == "tunnelConfigIfIndex" { return "Tunnelconfigifindex" }
-    if yname == "tunnelConfigStatus" { return "Tunnelconfigstatus" }
-    return ""
+    tunnelconfigentry.EntityData.Children = make(map[string]types.YChild)
+    tunnelconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelconfigentry.EntityData.Leafs["tunnelConfigLocalAddress"] = types.YLeaf{"Tunnelconfiglocaladdress", tunnelconfigentry.Tunnelconfiglocaladdress}
+    tunnelconfigentry.EntityData.Leafs["tunnelConfigRemoteAddress"] = types.YLeaf{"Tunnelconfigremoteaddress", tunnelconfigentry.Tunnelconfigremoteaddress}
+    tunnelconfigentry.EntityData.Leafs["tunnelConfigEncapsMethod"] = types.YLeaf{"Tunnelconfigencapsmethod", tunnelconfigentry.Tunnelconfigencapsmethod}
+    tunnelconfigentry.EntityData.Leafs["tunnelConfigID"] = types.YLeaf{"Tunnelconfigid", tunnelconfigentry.Tunnelconfigid}
+    tunnelconfigentry.EntityData.Leafs["tunnelConfigIfIndex"] = types.YLeaf{"Tunnelconfigifindex", tunnelconfigentry.Tunnelconfigifindex}
+    tunnelconfigentry.EntityData.Leafs["tunnelConfigStatus"] = types.YLeaf{"Tunnelconfigstatus", tunnelconfigentry.Tunnelconfigstatus}
+    return &(tunnelconfigentry.EntityData)
 }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetSegmentPath() string {
-    return "tunnelConfigEntry" + "[tunnelConfigLocalAddress='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfiglocaladdress) + "']" + "[tunnelConfigRemoteAddress='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfigremoteaddress) + "']" + "[tunnelConfigEncapsMethod='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfigencapsmethod) + "']" + "[tunnelConfigID='" + fmt.Sprintf("%v", tunnelconfigentry.Tunnelconfigid) + "']"
-}
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tunnelConfigLocalAddress"] = tunnelconfigentry.Tunnelconfiglocaladdress
-    leafs["tunnelConfigRemoteAddress"] = tunnelconfigentry.Tunnelconfigremoteaddress
-    leafs["tunnelConfigEncapsMethod"] = tunnelconfigentry.Tunnelconfigencapsmethod
-    leafs["tunnelConfigID"] = tunnelconfigentry.Tunnelconfigid
-    leafs["tunnelConfigIfIndex"] = tunnelconfigentry.Tunnelconfigifindex
-    leafs["tunnelConfigStatus"] = tunnelconfigentry.Tunnelconfigstatus
-    return leafs
-}
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetYangName() string { return "tunnelConfigEntry" }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) SetParent(parent types.Entity) { tunnelconfigentry.parent = parent }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetParent() types.Entity { return tunnelconfigentry.parent }
-
-func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetParentYangName() string { return "tunnelConfigTable" }
 
 // TUNNELMIB_Tunnelinetconfigtable
 // The (conceptual) table containing information on
@@ -563,7 +368,7 @@ func (tunnelconfigentry *TUNNELMIB_Tunnelconfigtable_Tunnelconfigentry) GetParen
 // the tunnelInetConfigTable, regardless of whether it
 // was created via SNMP.
 type TUNNELMIB_Tunnelinetconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) containing the information on a particular
@@ -580,63 +385,24 @@ type TUNNELMIB_Tunnelinetconfigtable struct {
     Tunnelinetconfigentry []TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry
 }
 
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetFilter() yfilter.YFilter { return tunnelinetconfigtable.YFilter }
+func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetEntityData() *types.CommonEntityData {
+    tunnelinetconfigtable.EntityData.YFilter = tunnelinetconfigtable.YFilter
+    tunnelinetconfigtable.EntityData.YangName = "tunnelInetConfigTable"
+    tunnelinetconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    tunnelinetconfigtable.EntityData.ParentYangName = "TUNNEL-MIB"
+    tunnelinetconfigtable.EntityData.SegmentPath = "tunnelInetConfigTable"
+    tunnelinetconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tunnelinetconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tunnelinetconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) SetFilter(yf yfilter.YFilter) { tunnelinetconfigtable.YFilter = yf }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetGoName(yname string) string {
-    if yname == "tunnelInetConfigEntry" { return "Tunnelinetconfigentry" }
-    return ""
-}
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetSegmentPath() string {
-    return "tunnelInetConfigTable"
-}
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnelInetConfigEntry" {
-        for _, c := range tunnelinetconfigtable.Tunnelinetconfigentry {
-            if tunnelinetconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry{}
-        tunnelinetconfigtable.Tunnelinetconfigentry = append(tunnelinetconfigtable.Tunnelinetconfigentry, child)
-        return &tunnelinetconfigtable.Tunnelinetconfigentry[len(tunnelinetconfigtable.Tunnelinetconfigentry)-1]
-    }
-    return nil
-}
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnelinetconfigtable.EntityData.Children = make(map[string]types.YChild)
+    tunnelinetconfigtable.EntityData.Children["tunnelInetConfigEntry"] = types.YChild{"Tunnelinetconfigentry", nil}
     for i := range tunnelinetconfigtable.Tunnelinetconfigentry {
-        children[tunnelinetconfigtable.Tunnelinetconfigentry[i].GetSegmentPath()] = &tunnelinetconfigtable.Tunnelinetconfigentry[i]
+        tunnelinetconfigtable.EntityData.Children[types.GetSegmentPath(&tunnelinetconfigtable.Tunnelinetconfigentry[i])] = types.YChild{"Tunnelinetconfigentry", &tunnelinetconfigtable.Tunnelinetconfigentry[i]}
     }
-    return children
+    tunnelinetconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelinetconfigtable.EntityData)
 }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetYangName() string { return "tunnelInetConfigTable" }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) SetParent(parent types.Entity) { tunnelinetconfigtable.parent = parent }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetParent() types.Entity { return tunnelinetconfigtable.parent }
-
-func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetParentYangName() string { return "TUNNEL-MIB" }
 
 // TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry
 // An entry (conceptual row) containing the information
@@ -654,7 +420,7 @@ func (tunnelinetconfigtable *TUNNELMIB_Tunnelinetconfigtable) GetParentYangName(
 // that the sum of the lengths do not cause the limit to
 // be exceeded.
 type TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type over which the tunnel
@@ -721,63 +487,26 @@ type TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry struct {
     Tunnelinetconfigstoragetype interface{}
 }
 
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetFilter() yfilter.YFilter { return tunnelinetconfigentry.YFilter }
+func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetEntityData() *types.CommonEntityData {
+    tunnelinetconfigentry.EntityData.YFilter = tunnelinetconfigentry.YFilter
+    tunnelinetconfigentry.EntityData.YangName = "tunnelInetConfigEntry"
+    tunnelinetconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    tunnelinetconfigentry.EntityData.ParentYangName = "tunnelInetConfigTable"
+    tunnelinetconfigentry.EntityData.SegmentPath = "tunnelInetConfigEntry" + "[tunnelInetConfigAddressType='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigaddresstype) + "']" + "[tunnelInetConfigLocalAddress='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfiglocaladdress) + "']" + "[tunnelInetConfigRemoteAddress='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigremoteaddress) + "']" + "[tunnelInetConfigEncapsMethod='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigencapsmethod) + "']" + "[tunnelInetConfigID='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigid) + "']"
+    tunnelinetconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tunnelinetconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tunnelinetconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) SetFilter(yf yfilter.YFilter) { tunnelinetconfigentry.YFilter = yf }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetGoName(yname string) string {
-    if yname == "tunnelInetConfigAddressType" { return "Tunnelinetconfigaddresstype" }
-    if yname == "tunnelInetConfigLocalAddress" { return "Tunnelinetconfiglocaladdress" }
-    if yname == "tunnelInetConfigRemoteAddress" { return "Tunnelinetconfigremoteaddress" }
-    if yname == "tunnelInetConfigEncapsMethod" { return "Tunnelinetconfigencapsmethod" }
-    if yname == "tunnelInetConfigID" { return "Tunnelinetconfigid" }
-    if yname == "tunnelInetConfigIfIndex" { return "Tunnelinetconfigifindex" }
-    if yname == "tunnelInetConfigStatus" { return "Tunnelinetconfigstatus" }
-    if yname == "tunnelInetConfigStorageType" { return "Tunnelinetconfigstoragetype" }
-    return ""
+    tunnelinetconfigentry.EntityData.Children = make(map[string]types.YChild)
+    tunnelinetconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigAddressType"] = types.YLeaf{"Tunnelinetconfigaddresstype", tunnelinetconfigentry.Tunnelinetconfigaddresstype}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigLocalAddress"] = types.YLeaf{"Tunnelinetconfiglocaladdress", tunnelinetconfigentry.Tunnelinetconfiglocaladdress}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigRemoteAddress"] = types.YLeaf{"Tunnelinetconfigremoteaddress", tunnelinetconfigentry.Tunnelinetconfigremoteaddress}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigEncapsMethod"] = types.YLeaf{"Tunnelinetconfigencapsmethod", tunnelinetconfigentry.Tunnelinetconfigencapsmethod}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigID"] = types.YLeaf{"Tunnelinetconfigid", tunnelinetconfigentry.Tunnelinetconfigid}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigIfIndex"] = types.YLeaf{"Tunnelinetconfigifindex", tunnelinetconfigentry.Tunnelinetconfigifindex}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigStatus"] = types.YLeaf{"Tunnelinetconfigstatus", tunnelinetconfigentry.Tunnelinetconfigstatus}
+    tunnelinetconfigentry.EntityData.Leafs["tunnelInetConfigStorageType"] = types.YLeaf{"Tunnelinetconfigstoragetype", tunnelinetconfigentry.Tunnelinetconfigstoragetype}
+    return &(tunnelinetconfigentry.EntityData)
 }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetSegmentPath() string {
-    return "tunnelInetConfigEntry" + "[tunnelInetConfigAddressType='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigaddresstype) + "']" + "[tunnelInetConfigLocalAddress='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfiglocaladdress) + "']" + "[tunnelInetConfigRemoteAddress='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigremoteaddress) + "']" + "[tunnelInetConfigEncapsMethod='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigencapsmethod) + "']" + "[tunnelInetConfigID='" + fmt.Sprintf("%v", tunnelinetconfigentry.Tunnelinetconfigid) + "']"
-}
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tunnelInetConfigAddressType"] = tunnelinetconfigentry.Tunnelinetconfigaddresstype
-    leafs["tunnelInetConfigLocalAddress"] = tunnelinetconfigentry.Tunnelinetconfiglocaladdress
-    leafs["tunnelInetConfigRemoteAddress"] = tunnelinetconfigentry.Tunnelinetconfigremoteaddress
-    leafs["tunnelInetConfigEncapsMethod"] = tunnelinetconfigentry.Tunnelinetconfigencapsmethod
-    leafs["tunnelInetConfigID"] = tunnelinetconfigentry.Tunnelinetconfigid
-    leafs["tunnelInetConfigIfIndex"] = tunnelinetconfigentry.Tunnelinetconfigifindex
-    leafs["tunnelInetConfigStatus"] = tunnelinetconfigentry.Tunnelinetconfigstatus
-    leafs["tunnelInetConfigStorageType"] = tunnelinetconfigentry.Tunnelinetconfigstoragetype
-    return leafs
-}
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetYangName() string { return "tunnelInetConfigEntry" }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) SetParent(parent types.Entity) { tunnelinetconfigentry.parent = parent }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetParent() types.Entity { return tunnelinetconfigentry.parent }
-
-func (tunnelinetconfigentry *TUNNELMIB_Tunnelinetconfigtable_Tunnelinetconfigentry) GetParentYangName() string { return "tunnelInetConfigTable" }
 

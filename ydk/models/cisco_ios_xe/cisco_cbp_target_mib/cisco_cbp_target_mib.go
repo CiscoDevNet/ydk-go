@@ -21,7 +21,7 @@ func init() {
 
 // CISCOCBPTARGETMIB
 type CISCOCBPTARGETMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -32,63 +32,26 @@ type CISCOCBPTARGETMIB struct {
     Ccbpttargettable CISCOCBPTARGETMIB_Ccbpttargettable
 }
 
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetFilter() yfilter.YFilter { return cISCOCBPTARGETMIB.YFilter }
+func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetEntityData() *types.CommonEntityData {
+    cISCOCBPTARGETMIB.EntityData.YFilter = cISCOCBPTARGETMIB.YFilter
+    cISCOCBPTARGETMIB.EntityData.YangName = "CISCO-CBP-TARGET-MIB"
+    cISCOCBPTARGETMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOCBPTARGETMIB.EntityData.ParentYangName = "CISCO-CBP-TARGET-MIB"
+    cISCOCBPTARGETMIB.EntityData.SegmentPath = "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB"
+    cISCOCBPTARGETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOCBPTARGETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOCBPTARGETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) SetFilter(yf yfilter.YFilter) { cISCOCBPTARGETMIB.YFilter = yf }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetGoName(yname string) string {
-    if yname == "ccbptTargetAttachCfg" { return "Ccbpttargetattachcfg" }
-    if yname == "ccbptTargetTable" { return "Ccbpttargettable" }
-    return ""
+    cISCOCBPTARGETMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOCBPTARGETMIB.EntityData.Children["ccbptTargetAttachCfg"] = types.YChild{"Ccbpttargetattachcfg", &cISCOCBPTARGETMIB.Ccbpttargetattachcfg}
+    cISCOCBPTARGETMIB.EntityData.Children["ccbptTargetTable"] = types.YChild{"Ccbpttargettable", &cISCOCBPTARGETMIB.Ccbpttargettable}
+    cISCOCBPTARGETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOCBPTARGETMIB.EntityData)
 }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetSegmentPath() string {
-    return "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB"
-}
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ccbptTargetAttachCfg" {
-        return &cISCOCBPTARGETMIB.Ccbpttargetattachcfg
-    }
-    if childYangName == "ccbptTargetTable" {
-        return &cISCOCBPTARGETMIB.Ccbpttargettable
-    }
-    return nil
-}
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ccbptTargetAttachCfg"] = &cISCOCBPTARGETMIB.Ccbpttargetattachcfg
-    children["ccbptTargetTable"] = &cISCOCBPTARGETMIB.Ccbpttargettable
-    return children
-}
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetYangName() string { return "CISCO-CBP-TARGET-MIB" }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) SetParent(parent types.Entity) { cISCOCBPTARGETMIB.parent = parent }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetParent() types.Entity { return cISCOCBPTARGETMIB.parent }
-
-func (cISCOCBPTARGETMIB *CISCOCBPTARGETMIB) GetParentYangName() string { return "CISCO-CBP-TARGET-MIB" }
 
 // CISCOCBPTARGETMIB_Ccbpttargetattachcfg
 type CISCOCBPTARGETMIB_Ccbpttargetattachcfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object indicates the next available value of  ccbptPolicyId that can
@@ -102,59 +65,28 @@ type CISCOCBPTARGETMIB_Ccbpttargetattachcfg struct {
     Ccbpttargettablelastchange interface{}
 }
 
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetFilter() yfilter.YFilter { return ccbpttargetattachcfg.YFilter }
+func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetEntityData() *types.CommonEntityData {
+    ccbpttargetattachcfg.EntityData.YFilter = ccbpttargetattachcfg.YFilter
+    ccbpttargetattachcfg.EntityData.YangName = "ccbptTargetAttachCfg"
+    ccbpttargetattachcfg.EntityData.BundleName = "cisco_ios_xe"
+    ccbpttargetattachcfg.EntityData.ParentYangName = "CISCO-CBP-TARGET-MIB"
+    ccbpttargetattachcfg.EntityData.SegmentPath = "ccbptTargetAttachCfg"
+    ccbpttargetattachcfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccbpttargetattachcfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccbpttargetattachcfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) SetFilter(yf yfilter.YFilter) { ccbpttargetattachcfg.YFilter = yf }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetGoName(yname string) string {
-    if yname == "ccbptPolicyIdNext" { return "Ccbptpolicyidnext" }
-    if yname == "ccbptTargetTableLastChange" { return "Ccbpttargettablelastchange" }
-    return ""
+    ccbpttargetattachcfg.EntityData.Children = make(map[string]types.YChild)
+    ccbpttargetattachcfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    ccbpttargetattachcfg.EntityData.Leafs["ccbptPolicyIdNext"] = types.YLeaf{"Ccbptpolicyidnext", ccbpttargetattachcfg.Ccbptpolicyidnext}
+    ccbpttargetattachcfg.EntityData.Leafs["ccbptTargetTableLastChange"] = types.YLeaf{"Ccbpttargettablelastchange", ccbpttargetattachcfg.Ccbpttargettablelastchange}
+    return &(ccbpttargetattachcfg.EntityData)
 }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetSegmentPath() string {
-    return "ccbptTargetAttachCfg"
-}
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ccbptPolicyIdNext"] = ccbpttargetattachcfg.Ccbptpolicyidnext
-    leafs["ccbptTargetTableLastChange"] = ccbpttargetattachcfg.Ccbpttargettablelastchange
-    return leafs
-}
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetYangName() string { return "ccbptTargetAttachCfg" }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) SetParent(parent types.Entity) { ccbpttargetattachcfg.parent = parent }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetParent() types.Entity { return ccbpttargetattachcfg.parent }
-
-func (ccbpttargetattachcfg *CISCOCBPTARGETMIB_Ccbpttargetattachcfg) GetParentYangName() string { return "CISCO-CBP-TARGET-MIB" }
 
 // CISCOCBPTARGETMIB_Ccbpttargettable
 // This table describes the class-based policy attachments to
 // to specific targets.
 type CISCOCBPTARGETMIB_Ccbpttargettable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry describes a class-based policy attachment to a  particular
@@ -182,63 +114,24 @@ type CISCOCBPTARGETMIB_Ccbpttargettable struct {
     Ccbpttargetentry []CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry
 }
 
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetFilter() yfilter.YFilter { return ccbpttargettable.YFilter }
+func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetEntityData() *types.CommonEntityData {
+    ccbpttargettable.EntityData.YFilter = ccbpttargettable.YFilter
+    ccbpttargettable.EntityData.YangName = "ccbptTargetTable"
+    ccbpttargettable.EntityData.BundleName = "cisco_ios_xe"
+    ccbpttargettable.EntityData.ParentYangName = "CISCO-CBP-TARGET-MIB"
+    ccbpttargettable.EntityData.SegmentPath = "ccbptTargetTable"
+    ccbpttargettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccbpttargettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccbpttargettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) SetFilter(yf yfilter.YFilter) { ccbpttargettable.YFilter = yf }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetGoName(yname string) string {
-    if yname == "ccbptTargetEntry" { return "Ccbpttargetentry" }
-    return ""
-}
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetSegmentPath() string {
-    return "ccbptTargetTable"
-}
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ccbptTargetEntry" {
-        for _, c := range ccbpttargettable.Ccbpttargetentry {
-            if ccbpttargettable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry{}
-        ccbpttargettable.Ccbpttargetentry = append(ccbpttargettable.Ccbpttargetentry, child)
-        return &ccbpttargettable.Ccbpttargetentry[len(ccbpttargettable.Ccbpttargetentry)-1]
-    }
-    return nil
-}
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ccbpttargettable.EntityData.Children = make(map[string]types.YChild)
+    ccbpttargettable.EntityData.Children["ccbptTargetEntry"] = types.YChild{"Ccbpttargetentry", nil}
     for i := range ccbpttargettable.Ccbpttargetentry {
-        children[ccbpttargettable.Ccbpttargetentry[i].GetSegmentPath()] = &ccbpttargettable.Ccbpttargetentry[i]
+        ccbpttargettable.EntityData.Children[types.GetSegmentPath(&ccbpttargettable.Ccbpttargetentry[i])] = types.YChild{"Ccbpttargetentry", &ccbpttargettable.Ccbpttargetentry[i]}
     }
-    return children
+    ccbpttargettable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ccbpttargettable.EntityData)
 }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetYangName() string { return "ccbptTargetTable" }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) SetParent(parent types.Entity) { ccbpttargettable.parent = parent }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetParent() types.Entity { return ccbpttargettable.parent }
-
-func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetParentYangName() string { return "CISCO-CBP-TARGET-MIB" }
 
 // CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry
 // Each entry describes a class-based policy attachment to a 
@@ -274,7 +167,7 @@ func (ccbpttargettable *CISCOCBPTARGETMIB_Ccbpttargettable) GetParentYangName() 
 // within the scope of the target type, identifier, direction,
 // and policy-source type.
 type CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of target for this class-based policy
@@ -324,7 +217,7 @@ type CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry struct {
     // intent of this mapping is to allow for different implementations to  refer
     // to their supported class-based policy definition table without requiring
     // support of a specific MIB module. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ccbptpolicymap interface{}
 
     // Refers to the first accessible object in the policy  instance table used to
@@ -333,7 +226,7 @@ type CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry struct {
     // intent of this mapping is to allow for different implementations to  refer
     // to their supported class-based policy definition table without requiring
     // support of a specific MIB module. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ccbptpolicyinstance interface{}
 
     // The value of sysUpTime for the last time that the corresponding
@@ -342,67 +235,28 @@ type CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry struct {
     Ccbptpolicyattachtime interface{}
 }
 
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetFilter() yfilter.YFilter { return ccbpttargetentry.YFilter }
+func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetEntityData() *types.CommonEntityData {
+    ccbpttargetentry.EntityData.YFilter = ccbpttargetentry.YFilter
+    ccbpttargetentry.EntityData.YangName = "ccbptTargetEntry"
+    ccbpttargetentry.EntityData.BundleName = "cisco_ios_xe"
+    ccbpttargetentry.EntityData.ParentYangName = "ccbptTargetTable"
+    ccbpttargetentry.EntityData.SegmentPath = "ccbptTargetEntry" + "[ccbptTargetType='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbpttargettype) + "']" + "[ccbptTargetId='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbpttargetid) + "']" + "[ccbptTargetDir='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbpttargetdir) + "']" + "[ccbptPolicySourceType='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbptpolicysourcetype) + "']" + "[ccbptPolicyId='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbptpolicyid) + "']"
+    ccbpttargetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ccbpttargetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ccbpttargetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) SetFilter(yf yfilter.YFilter) { ccbpttargetentry.YFilter = yf }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetGoName(yname string) string {
-    if yname == "ccbptTargetType" { return "Ccbpttargettype" }
-    if yname == "ccbptTargetId" { return "Ccbpttargetid" }
-    if yname == "ccbptTargetDir" { return "Ccbpttargetdir" }
-    if yname == "ccbptPolicySourceType" { return "Ccbptpolicysourcetype" }
-    if yname == "ccbptPolicyId" { return "Ccbptpolicyid" }
-    if yname == "ccbptTargetStatus" { return "Ccbpttargetstatus" }
-    if yname == "ccbptTargetStorageType" { return "Ccbpttargetstoragetype" }
-    if yname == "ccbptPolicyMap" { return "Ccbptpolicymap" }
-    if yname == "ccbptPolicyInstance" { return "Ccbptpolicyinstance" }
-    if yname == "ccbptPolicyAttachTime" { return "Ccbptpolicyattachtime" }
-    return ""
+    ccbpttargetentry.EntityData.Children = make(map[string]types.YChild)
+    ccbpttargetentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ccbpttargetentry.EntityData.Leafs["ccbptTargetType"] = types.YLeaf{"Ccbpttargettype", ccbpttargetentry.Ccbpttargettype}
+    ccbpttargetentry.EntityData.Leafs["ccbptTargetId"] = types.YLeaf{"Ccbpttargetid", ccbpttargetentry.Ccbpttargetid}
+    ccbpttargetentry.EntityData.Leafs["ccbptTargetDir"] = types.YLeaf{"Ccbpttargetdir", ccbpttargetentry.Ccbpttargetdir}
+    ccbpttargetentry.EntityData.Leafs["ccbptPolicySourceType"] = types.YLeaf{"Ccbptpolicysourcetype", ccbpttargetentry.Ccbptpolicysourcetype}
+    ccbpttargetentry.EntityData.Leafs["ccbptPolicyId"] = types.YLeaf{"Ccbptpolicyid", ccbpttargetentry.Ccbptpolicyid}
+    ccbpttargetentry.EntityData.Leafs["ccbptTargetStatus"] = types.YLeaf{"Ccbpttargetstatus", ccbpttargetentry.Ccbpttargetstatus}
+    ccbpttargetentry.EntityData.Leafs["ccbptTargetStorageType"] = types.YLeaf{"Ccbpttargetstoragetype", ccbpttargetentry.Ccbpttargetstoragetype}
+    ccbpttargetentry.EntityData.Leafs["ccbptPolicyMap"] = types.YLeaf{"Ccbptpolicymap", ccbpttargetentry.Ccbptpolicymap}
+    ccbpttargetentry.EntityData.Leafs["ccbptPolicyInstance"] = types.YLeaf{"Ccbptpolicyinstance", ccbpttargetentry.Ccbptpolicyinstance}
+    ccbpttargetentry.EntityData.Leafs["ccbptPolicyAttachTime"] = types.YLeaf{"Ccbptpolicyattachtime", ccbpttargetentry.Ccbptpolicyattachtime}
+    return &(ccbpttargetentry.EntityData)
 }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetSegmentPath() string {
-    return "ccbptTargetEntry" + "[ccbptTargetType='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbpttargettype) + "']" + "[ccbptTargetId='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbpttargetid) + "']" + "[ccbptTargetDir='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbpttargetdir) + "']" + "[ccbptPolicySourceType='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbptpolicysourcetype) + "']" + "[ccbptPolicyId='" + fmt.Sprintf("%v", ccbpttargetentry.Ccbptpolicyid) + "']"
-}
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ccbptTargetType"] = ccbpttargetentry.Ccbpttargettype
-    leafs["ccbptTargetId"] = ccbpttargetentry.Ccbpttargetid
-    leafs["ccbptTargetDir"] = ccbpttargetentry.Ccbpttargetdir
-    leafs["ccbptPolicySourceType"] = ccbpttargetentry.Ccbptpolicysourcetype
-    leafs["ccbptPolicyId"] = ccbpttargetentry.Ccbptpolicyid
-    leafs["ccbptTargetStatus"] = ccbpttargetentry.Ccbpttargetstatus
-    leafs["ccbptTargetStorageType"] = ccbpttargetentry.Ccbpttargetstoragetype
-    leafs["ccbptPolicyMap"] = ccbpttargetentry.Ccbptpolicymap
-    leafs["ccbptPolicyInstance"] = ccbpttargetentry.Ccbptpolicyinstance
-    leafs["ccbptPolicyAttachTime"] = ccbpttargetentry.Ccbptpolicyattachtime
-    return leafs
-}
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetYangName() string { return "ccbptTargetEntry" }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) SetParent(parent types.Entity) { ccbpttargetentry.parent = parent }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetParent() types.Entity { return ccbpttargetentry.parent }
-
-func (ccbpttargetentry *CISCOCBPTARGETMIB_Ccbpttargettable_Ccbpttargetentry) GetParentYangName() string { return "ccbptTargetTable" }
 

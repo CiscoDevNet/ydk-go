@@ -49,6 +49,25 @@ module Cisco-IOS-XE-rip {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-04-12 {
     description
       "Send ipv6 rip vrf-mode enable before address-family in ipv6 router rip";
@@ -950,6 +969,26 @@ module Cisco-IOS-XE-rip {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:ipv6" {
+    uses config-interface-ip-rip-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:ipv6" {
+    uses config-interface-ip-rip-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:ipv6" {
+    uses config-interface-ip-rip-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:ipv6" {
+    uses config-interface-ip-rip-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:ipv6" {
+    uses config-interface-ip-rip-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:ipv6" {
     uses config-interface-ip-rip-grouping;
   }
 

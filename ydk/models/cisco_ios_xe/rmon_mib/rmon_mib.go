@@ -41,7 +41,7 @@ const (
 
 // RMONMIB
 type RMONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of Ethernet statistics entries.
@@ -101,144 +101,43 @@ type RMONMIB struct {
     Logtable RMONMIB_Logtable
 }
 
-func (rMONMIB *RMONMIB) GetFilter() yfilter.YFilter { return rMONMIB.YFilter }
+func (rMONMIB *RMONMIB) GetEntityData() *types.CommonEntityData {
+    rMONMIB.EntityData.YFilter = rMONMIB.YFilter
+    rMONMIB.EntityData.YangName = "RMON-MIB"
+    rMONMIB.EntityData.BundleName = "cisco_ios_xe"
+    rMONMIB.EntityData.ParentYangName = "RMON-MIB"
+    rMONMIB.EntityData.SegmentPath = "RMON-MIB:RMON-MIB"
+    rMONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rMONMIB *RMONMIB) SetFilter(yf yfilter.YFilter) { rMONMIB.YFilter = yf }
-
-func (rMONMIB *RMONMIB) GetGoName(yname string) string {
-    if yname == "etherStatsTable" { return "Etherstatstable" }
-    if yname == "historyControlTable" { return "Historycontroltable" }
-    if yname == "etherHistoryTable" { return "Etherhistorytable" }
-    if yname == "alarmTable" { return "Alarmtable" }
-    if yname == "hostControlTable" { return "Hostcontroltable" }
-    if yname == "hostTable" { return "Hosttable" }
-    if yname == "hostTimeTable" { return "Hosttimetable" }
-    if yname == "hostTopNControlTable" { return "Hosttopncontroltable" }
-    if yname == "hostTopNTable" { return "Hosttopntable" }
-    if yname == "matrixControlTable" { return "Matrixcontroltable" }
-    if yname == "matrixSDTable" { return "Matrixsdtable" }
-    if yname == "matrixDSTable" { return "Matrixdstable" }
-    if yname == "filterTable" { return "Filtertable" }
-    if yname == "channelTable" { return "Channeltable" }
-    if yname == "bufferControlTable" { return "Buffercontroltable" }
-    if yname == "captureBufferTable" { return "Capturebuffertable" }
-    if yname == "eventTable" { return "Eventtable" }
-    if yname == "logTable" { return "Logtable" }
-    return ""
+    rMONMIB.EntityData.Children = make(map[string]types.YChild)
+    rMONMIB.EntityData.Children["etherStatsTable"] = types.YChild{"Etherstatstable", &rMONMIB.Etherstatstable}
+    rMONMIB.EntityData.Children["historyControlTable"] = types.YChild{"Historycontroltable", &rMONMIB.Historycontroltable}
+    rMONMIB.EntityData.Children["etherHistoryTable"] = types.YChild{"Etherhistorytable", &rMONMIB.Etherhistorytable}
+    rMONMIB.EntityData.Children["alarmTable"] = types.YChild{"Alarmtable", &rMONMIB.Alarmtable}
+    rMONMIB.EntityData.Children["hostControlTable"] = types.YChild{"Hostcontroltable", &rMONMIB.Hostcontroltable}
+    rMONMIB.EntityData.Children["hostTable"] = types.YChild{"Hosttable", &rMONMIB.Hosttable}
+    rMONMIB.EntityData.Children["hostTimeTable"] = types.YChild{"Hosttimetable", &rMONMIB.Hosttimetable}
+    rMONMIB.EntityData.Children["hostTopNControlTable"] = types.YChild{"Hosttopncontroltable", &rMONMIB.Hosttopncontroltable}
+    rMONMIB.EntityData.Children["hostTopNTable"] = types.YChild{"Hosttopntable", &rMONMIB.Hosttopntable}
+    rMONMIB.EntityData.Children["matrixControlTable"] = types.YChild{"Matrixcontroltable", &rMONMIB.Matrixcontroltable}
+    rMONMIB.EntityData.Children["matrixSDTable"] = types.YChild{"Matrixsdtable", &rMONMIB.Matrixsdtable}
+    rMONMIB.EntityData.Children["matrixDSTable"] = types.YChild{"Matrixdstable", &rMONMIB.Matrixdstable}
+    rMONMIB.EntityData.Children["filterTable"] = types.YChild{"Filtertable", &rMONMIB.Filtertable}
+    rMONMIB.EntityData.Children["channelTable"] = types.YChild{"Channeltable", &rMONMIB.Channeltable}
+    rMONMIB.EntityData.Children["bufferControlTable"] = types.YChild{"Buffercontroltable", &rMONMIB.Buffercontroltable}
+    rMONMIB.EntityData.Children["captureBufferTable"] = types.YChild{"Capturebuffertable", &rMONMIB.Capturebuffertable}
+    rMONMIB.EntityData.Children["eventTable"] = types.YChild{"Eventtable", &rMONMIB.Eventtable}
+    rMONMIB.EntityData.Children["logTable"] = types.YChild{"Logtable", &rMONMIB.Logtable}
+    rMONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rMONMIB.EntityData)
 }
-
-func (rMONMIB *RMONMIB) GetSegmentPath() string {
-    return "RMON-MIB:RMON-MIB"
-}
-
-func (rMONMIB *RMONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "etherStatsTable" {
-        return &rMONMIB.Etherstatstable
-    }
-    if childYangName == "historyControlTable" {
-        return &rMONMIB.Historycontroltable
-    }
-    if childYangName == "etherHistoryTable" {
-        return &rMONMIB.Etherhistorytable
-    }
-    if childYangName == "alarmTable" {
-        return &rMONMIB.Alarmtable
-    }
-    if childYangName == "hostControlTable" {
-        return &rMONMIB.Hostcontroltable
-    }
-    if childYangName == "hostTable" {
-        return &rMONMIB.Hosttable
-    }
-    if childYangName == "hostTimeTable" {
-        return &rMONMIB.Hosttimetable
-    }
-    if childYangName == "hostTopNControlTable" {
-        return &rMONMIB.Hosttopncontroltable
-    }
-    if childYangName == "hostTopNTable" {
-        return &rMONMIB.Hosttopntable
-    }
-    if childYangName == "matrixControlTable" {
-        return &rMONMIB.Matrixcontroltable
-    }
-    if childYangName == "matrixSDTable" {
-        return &rMONMIB.Matrixsdtable
-    }
-    if childYangName == "matrixDSTable" {
-        return &rMONMIB.Matrixdstable
-    }
-    if childYangName == "filterTable" {
-        return &rMONMIB.Filtertable
-    }
-    if childYangName == "channelTable" {
-        return &rMONMIB.Channeltable
-    }
-    if childYangName == "bufferControlTable" {
-        return &rMONMIB.Buffercontroltable
-    }
-    if childYangName == "captureBufferTable" {
-        return &rMONMIB.Capturebuffertable
-    }
-    if childYangName == "eventTable" {
-        return &rMONMIB.Eventtable
-    }
-    if childYangName == "logTable" {
-        return &rMONMIB.Logtable
-    }
-    return nil
-}
-
-func (rMONMIB *RMONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["etherStatsTable"] = &rMONMIB.Etherstatstable
-    children["historyControlTable"] = &rMONMIB.Historycontroltable
-    children["etherHistoryTable"] = &rMONMIB.Etherhistorytable
-    children["alarmTable"] = &rMONMIB.Alarmtable
-    children["hostControlTable"] = &rMONMIB.Hostcontroltable
-    children["hostTable"] = &rMONMIB.Hosttable
-    children["hostTimeTable"] = &rMONMIB.Hosttimetable
-    children["hostTopNControlTable"] = &rMONMIB.Hosttopncontroltable
-    children["hostTopNTable"] = &rMONMIB.Hosttopntable
-    children["matrixControlTable"] = &rMONMIB.Matrixcontroltable
-    children["matrixSDTable"] = &rMONMIB.Matrixsdtable
-    children["matrixDSTable"] = &rMONMIB.Matrixdstable
-    children["filterTable"] = &rMONMIB.Filtertable
-    children["channelTable"] = &rMONMIB.Channeltable
-    children["bufferControlTable"] = &rMONMIB.Buffercontroltable
-    children["captureBufferTable"] = &rMONMIB.Capturebuffertable
-    children["eventTable"] = &rMONMIB.Eventtable
-    children["logTable"] = &rMONMIB.Logtable
-    return children
-}
-
-func (rMONMIB *RMONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rMONMIB *RMONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rMONMIB *RMONMIB) GetYangName() string { return "RMON-MIB" }
-
-func (rMONMIB *RMONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rMONMIB *RMONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rMONMIB *RMONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rMONMIB *RMONMIB) SetParent(parent types.Entity) { rMONMIB.parent = parent }
-
-func (rMONMIB *RMONMIB) GetParent() types.Entity { return rMONMIB.parent }
-
-func (rMONMIB *RMONMIB) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Etherstatstable
 // A list of Ethernet statistics entries.
 type RMONMIB_Etherstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics kept for a particular Ethernet interface.  As an
@@ -248,70 +147,31 @@ type RMONMIB_Etherstatstable struct {
     Etherstatsentry []RMONMIB_Etherstatstable_Etherstatsentry
 }
 
-func (etherstatstable *RMONMIB_Etherstatstable) GetFilter() yfilter.YFilter { return etherstatstable.YFilter }
+func (etherstatstable *RMONMIB_Etherstatstable) GetEntityData() *types.CommonEntityData {
+    etherstatstable.EntityData.YFilter = etherstatstable.YFilter
+    etherstatstable.EntityData.YangName = "etherStatsTable"
+    etherstatstable.EntityData.BundleName = "cisco_ios_xe"
+    etherstatstable.EntityData.ParentYangName = "RMON-MIB"
+    etherstatstable.EntityData.SegmentPath = "etherStatsTable"
+    etherstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (etherstatstable *RMONMIB_Etherstatstable) SetFilter(yf yfilter.YFilter) { etherstatstable.YFilter = yf }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetGoName(yname string) string {
-    if yname == "etherStatsEntry" { return "Etherstatsentry" }
-    return ""
-}
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetSegmentPath() string {
-    return "etherStatsTable"
-}
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "etherStatsEntry" {
-        for _, c := range etherstatstable.Etherstatsentry {
-            if etherstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Etherstatstable_Etherstatsentry{}
-        etherstatstable.Etherstatsentry = append(etherstatstable.Etherstatsentry, child)
-        return &etherstatstable.Etherstatsentry[len(etherstatstable.Etherstatsentry)-1]
-    }
-    return nil
-}
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    etherstatstable.EntityData.Children = make(map[string]types.YChild)
+    etherstatstable.EntityData.Children["etherStatsEntry"] = types.YChild{"Etherstatsentry", nil}
     for i := range etherstatstable.Etherstatsentry {
-        children[etherstatstable.Etherstatsentry[i].GetSegmentPath()] = &etherstatstable.Etherstatsentry[i]
+        etherstatstable.EntityData.Children[types.GetSegmentPath(&etherstatstable.Etherstatsentry[i])] = types.YChild{"Etherstatsentry", &etherstatstable.Etherstatsentry[i]}
     }
-    return children
+    etherstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(etherstatstable.EntityData)
 }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetYangName() string { return "etherStatsTable" }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (etherstatstable *RMONMIB_Etherstatstable) SetParent(parent types.Entity) { etherstatstable.parent = parent }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetParent() types.Entity { return etherstatstable.parent }
-
-func (etherstatstable *RMONMIB_Etherstatstable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Etherstatstable_Etherstatsentry
 // A collection of statistics kept for a particular
 // Ethernet interface.  As an example, an instance of the
 // etherStatsPkts object might be named etherStatsPkts.1
 type RMONMIB_Etherstatstable_Etherstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies this
@@ -333,7 +193,7 @@ type RMONMIB_Etherstatstable_Etherstatsentry struct {
     // recommended that it invalidate this entry.  This object may not be modified
     // if the associated etherStatsStatus object is equal to valid(1). The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Etherstatsdatasource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -494,100 +354,48 @@ type RMONMIB_Etherstatstable_Etherstatsentry struct {
     Etherstatscreatetime interface{}
 }
 
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetFilter() yfilter.YFilter { return etherstatsentry.YFilter }
+func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetEntityData() *types.CommonEntityData {
+    etherstatsentry.EntityData.YFilter = etherstatsentry.YFilter
+    etherstatsentry.EntityData.YangName = "etherStatsEntry"
+    etherstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    etherstatsentry.EntityData.ParentYangName = "etherStatsTable"
+    etherstatsentry.EntityData.SegmentPath = "etherStatsEntry" + "[etherStatsIndex='" + fmt.Sprintf("%v", etherstatsentry.Etherstatsindex) + "']"
+    etherstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) SetFilter(yf yfilter.YFilter) { etherstatsentry.YFilter = yf }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetGoName(yname string) string {
-    if yname == "etherStatsIndex" { return "Etherstatsindex" }
-    if yname == "etherStatsDataSource" { return "Etherstatsdatasource" }
-    if yname == "etherStatsDropEvents" { return "Etherstatsdropevents" }
-    if yname == "etherStatsOctets" { return "Etherstatsoctets" }
-    if yname == "etherStatsPkts" { return "Etherstatspkts" }
-    if yname == "etherStatsBroadcastPkts" { return "Etherstatsbroadcastpkts" }
-    if yname == "etherStatsMulticastPkts" { return "Etherstatsmulticastpkts" }
-    if yname == "etherStatsCRCAlignErrors" { return "Etherstatscrcalignerrors" }
-    if yname == "etherStatsUndersizePkts" { return "Etherstatsundersizepkts" }
-    if yname == "etherStatsOversizePkts" { return "Etherstatsoversizepkts" }
-    if yname == "etherStatsFragments" { return "Etherstatsfragments" }
-    if yname == "etherStatsJabbers" { return "Etherstatsjabbers" }
-    if yname == "etherStatsCollisions" { return "Etherstatscollisions" }
-    if yname == "etherStatsPkts64Octets" { return "Etherstatspkts64Octets" }
-    if yname == "etherStatsPkts65to127Octets" { return "Etherstatspkts65To127Octets" }
-    if yname == "etherStatsPkts128to255Octets" { return "Etherstatspkts128To255Octets" }
-    if yname == "etherStatsPkts256to511Octets" { return "Etherstatspkts256To511Octets" }
-    if yname == "etherStatsPkts512to1023Octets" { return "Etherstatspkts512To1023Octets" }
-    if yname == "etherStatsPkts1024to1518Octets" { return "Etherstatspkts1024To1518Octets" }
-    if yname == "etherStatsOwner" { return "Etherstatsowner" }
-    if yname == "etherStatsStatus" { return "Etherstatsstatus" }
-    if yname == "etherStatsDroppedFrames" { return "Etherstatsdroppedframes" }
-    if yname == "etherStatsCreateTime" { return "Etherstatscreatetime" }
-    return ""
+    etherstatsentry.EntityData.Children = make(map[string]types.YChild)
+    etherstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    etherstatsentry.EntityData.Leafs["etherStatsIndex"] = types.YLeaf{"Etherstatsindex", etherstatsentry.Etherstatsindex}
+    etherstatsentry.EntityData.Leafs["etherStatsDataSource"] = types.YLeaf{"Etherstatsdatasource", etherstatsentry.Etherstatsdatasource}
+    etherstatsentry.EntityData.Leafs["etherStatsDropEvents"] = types.YLeaf{"Etherstatsdropevents", etherstatsentry.Etherstatsdropevents}
+    etherstatsentry.EntityData.Leafs["etherStatsOctets"] = types.YLeaf{"Etherstatsoctets", etherstatsentry.Etherstatsoctets}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts"] = types.YLeaf{"Etherstatspkts", etherstatsentry.Etherstatspkts}
+    etherstatsentry.EntityData.Leafs["etherStatsBroadcastPkts"] = types.YLeaf{"Etherstatsbroadcastpkts", etherstatsentry.Etherstatsbroadcastpkts}
+    etherstatsentry.EntityData.Leafs["etherStatsMulticastPkts"] = types.YLeaf{"Etherstatsmulticastpkts", etherstatsentry.Etherstatsmulticastpkts}
+    etherstatsentry.EntityData.Leafs["etherStatsCRCAlignErrors"] = types.YLeaf{"Etherstatscrcalignerrors", etherstatsentry.Etherstatscrcalignerrors}
+    etherstatsentry.EntityData.Leafs["etherStatsUndersizePkts"] = types.YLeaf{"Etherstatsundersizepkts", etherstatsentry.Etherstatsundersizepkts}
+    etherstatsentry.EntityData.Leafs["etherStatsOversizePkts"] = types.YLeaf{"Etherstatsoversizepkts", etherstatsentry.Etherstatsoversizepkts}
+    etherstatsentry.EntityData.Leafs["etherStatsFragments"] = types.YLeaf{"Etherstatsfragments", etherstatsentry.Etherstatsfragments}
+    etherstatsentry.EntityData.Leafs["etherStatsJabbers"] = types.YLeaf{"Etherstatsjabbers", etherstatsentry.Etherstatsjabbers}
+    etherstatsentry.EntityData.Leafs["etherStatsCollisions"] = types.YLeaf{"Etherstatscollisions", etherstatsentry.Etherstatscollisions}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts64Octets"] = types.YLeaf{"Etherstatspkts64Octets", etherstatsentry.Etherstatspkts64Octets}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts65to127Octets"] = types.YLeaf{"Etherstatspkts65To127Octets", etherstatsentry.Etherstatspkts65To127Octets}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts128to255Octets"] = types.YLeaf{"Etherstatspkts128To255Octets", etherstatsentry.Etherstatspkts128To255Octets}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts256to511Octets"] = types.YLeaf{"Etherstatspkts256To511Octets", etherstatsentry.Etherstatspkts256To511Octets}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts512to1023Octets"] = types.YLeaf{"Etherstatspkts512To1023Octets", etherstatsentry.Etherstatspkts512To1023Octets}
+    etherstatsentry.EntityData.Leafs["etherStatsPkts1024to1518Octets"] = types.YLeaf{"Etherstatspkts1024To1518Octets", etherstatsentry.Etherstatspkts1024To1518Octets}
+    etherstatsentry.EntityData.Leafs["etherStatsOwner"] = types.YLeaf{"Etherstatsowner", etherstatsentry.Etherstatsowner}
+    etherstatsentry.EntityData.Leafs["etherStatsStatus"] = types.YLeaf{"Etherstatsstatus", etherstatsentry.Etherstatsstatus}
+    etherstatsentry.EntityData.Leafs["etherStatsDroppedFrames"] = types.YLeaf{"Etherstatsdroppedframes", etherstatsentry.Etherstatsdroppedframes}
+    etherstatsentry.EntityData.Leafs["etherStatsCreateTime"] = types.YLeaf{"Etherstatscreatetime", etherstatsentry.Etherstatscreatetime}
+    return &(etherstatsentry.EntityData)
 }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetSegmentPath() string {
-    return "etherStatsEntry" + "[etherStatsIndex='" + fmt.Sprintf("%v", etherstatsentry.Etherstatsindex) + "']"
-}
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["etherStatsIndex"] = etherstatsentry.Etherstatsindex
-    leafs["etherStatsDataSource"] = etherstatsentry.Etherstatsdatasource
-    leafs["etherStatsDropEvents"] = etherstatsentry.Etherstatsdropevents
-    leafs["etherStatsOctets"] = etherstatsentry.Etherstatsoctets
-    leafs["etherStatsPkts"] = etherstatsentry.Etherstatspkts
-    leafs["etherStatsBroadcastPkts"] = etherstatsentry.Etherstatsbroadcastpkts
-    leafs["etherStatsMulticastPkts"] = etherstatsentry.Etherstatsmulticastpkts
-    leafs["etherStatsCRCAlignErrors"] = etherstatsentry.Etherstatscrcalignerrors
-    leafs["etherStatsUndersizePkts"] = etherstatsentry.Etherstatsundersizepkts
-    leafs["etherStatsOversizePkts"] = etherstatsentry.Etherstatsoversizepkts
-    leafs["etherStatsFragments"] = etherstatsentry.Etherstatsfragments
-    leafs["etherStatsJabbers"] = etherstatsentry.Etherstatsjabbers
-    leafs["etherStatsCollisions"] = etherstatsentry.Etherstatscollisions
-    leafs["etherStatsPkts64Octets"] = etherstatsentry.Etherstatspkts64Octets
-    leafs["etherStatsPkts65to127Octets"] = etherstatsentry.Etherstatspkts65To127Octets
-    leafs["etherStatsPkts128to255Octets"] = etherstatsentry.Etherstatspkts128To255Octets
-    leafs["etherStatsPkts256to511Octets"] = etherstatsentry.Etherstatspkts256To511Octets
-    leafs["etherStatsPkts512to1023Octets"] = etherstatsentry.Etherstatspkts512To1023Octets
-    leafs["etherStatsPkts1024to1518Octets"] = etherstatsentry.Etherstatspkts1024To1518Octets
-    leafs["etherStatsOwner"] = etherstatsentry.Etherstatsowner
-    leafs["etherStatsStatus"] = etherstatsentry.Etherstatsstatus
-    leafs["etherStatsDroppedFrames"] = etherstatsentry.Etherstatsdroppedframes
-    leafs["etherStatsCreateTime"] = etherstatsentry.Etherstatscreatetime
-    return leafs
-}
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetYangName() string { return "etherStatsEntry" }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) SetParent(parent types.Entity) { etherstatsentry.parent = parent }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetParent() types.Entity { return etherstatsentry.parent }
-
-func (etherstatsentry *RMONMIB_Etherstatstable_Etherstatsentry) GetParentYangName() string { return "etherStatsTable" }
 
 // RMONMIB_Historycontroltable
 // A list of history control entries.
 type RMONMIB_Historycontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of parameters that set up a periodic sampling of statistics.  As an
@@ -597,63 +405,24 @@ type RMONMIB_Historycontroltable struct {
     Historycontrolentry []RMONMIB_Historycontroltable_Historycontrolentry
 }
 
-func (historycontroltable *RMONMIB_Historycontroltable) GetFilter() yfilter.YFilter { return historycontroltable.YFilter }
+func (historycontroltable *RMONMIB_Historycontroltable) GetEntityData() *types.CommonEntityData {
+    historycontroltable.EntityData.YFilter = historycontroltable.YFilter
+    historycontroltable.EntityData.YangName = "historyControlTable"
+    historycontroltable.EntityData.BundleName = "cisco_ios_xe"
+    historycontroltable.EntityData.ParentYangName = "RMON-MIB"
+    historycontroltable.EntityData.SegmentPath = "historyControlTable"
+    historycontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    historycontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    historycontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (historycontroltable *RMONMIB_Historycontroltable) SetFilter(yf yfilter.YFilter) { historycontroltable.YFilter = yf }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetGoName(yname string) string {
-    if yname == "historyControlEntry" { return "Historycontrolentry" }
-    return ""
-}
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetSegmentPath() string {
-    return "historyControlTable"
-}
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "historyControlEntry" {
-        for _, c := range historycontroltable.Historycontrolentry {
-            if historycontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Historycontroltable_Historycontrolentry{}
-        historycontroltable.Historycontrolentry = append(historycontroltable.Historycontrolentry, child)
-        return &historycontroltable.Historycontrolentry[len(historycontroltable.Historycontrolentry)-1]
-    }
-    return nil
-}
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    historycontroltable.EntityData.Children = make(map[string]types.YChild)
+    historycontroltable.EntityData.Children["historyControlEntry"] = types.YChild{"Historycontrolentry", nil}
     for i := range historycontroltable.Historycontrolentry {
-        children[historycontroltable.Historycontrolentry[i].GetSegmentPath()] = &historycontroltable.Historycontrolentry[i]
+        historycontroltable.EntityData.Children[types.GetSegmentPath(&historycontroltable.Historycontrolentry[i])] = types.YChild{"Historycontrolentry", &historycontroltable.Historycontrolentry[i]}
     }
-    return children
+    historycontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(historycontroltable.EntityData)
 }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetYangName() string { return "historyControlTable" }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (historycontroltable *RMONMIB_Historycontroltable) SetParent(parent types.Entity) { historycontroltable.parent = parent }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetParent() types.Entity { return historycontroltable.parent }
-
-func (historycontroltable *RMONMIB_Historycontroltable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Historycontroltable_Historycontrolentry
 // A list of parameters that set up a periodic sampling of
@@ -661,7 +430,7 @@ func (historycontroltable *RMONMIB_Historycontroltable) GetParentYangName() stri
 // historyControlInterval object might be named
 // historyControlInterval.2
 type RMONMIB_Historycontroltable_Historycontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -685,7 +454,8 @@ type RMONMIB_Historycontroltable_Historycontrolentry struct {
     // such knowledge of the change, it is recommended that it invalidate this
     // entry.  This object may not be modified if the associated
     // historyControlStatus object is equal to valid(1). The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Historycontroldatasource interface{}
 
     // The requested number of discrete time intervals over which data is to be
@@ -758,70 +528,33 @@ type RMONMIB_Historycontroltable_Historycontrolentry struct {
     Historycontroldroppedframes interface{}
 }
 
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetFilter() yfilter.YFilter { return historycontrolentry.YFilter }
+func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetEntityData() *types.CommonEntityData {
+    historycontrolentry.EntityData.YFilter = historycontrolentry.YFilter
+    historycontrolentry.EntityData.YangName = "historyControlEntry"
+    historycontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    historycontrolentry.EntityData.ParentYangName = "historyControlTable"
+    historycontrolentry.EntityData.SegmentPath = "historyControlEntry" + "[historyControlIndex='" + fmt.Sprintf("%v", historycontrolentry.Historycontrolindex) + "']"
+    historycontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    historycontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    historycontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) SetFilter(yf yfilter.YFilter) { historycontrolentry.YFilter = yf }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetGoName(yname string) string {
-    if yname == "historyControlIndex" { return "Historycontrolindex" }
-    if yname == "historyControlDataSource" { return "Historycontroldatasource" }
-    if yname == "historyControlBucketsRequested" { return "Historycontrolbucketsrequested" }
-    if yname == "historyControlBucketsGranted" { return "Historycontrolbucketsgranted" }
-    if yname == "historyControlInterval" { return "Historycontrolinterval" }
-    if yname == "historyControlOwner" { return "Historycontrolowner" }
-    if yname == "historyControlStatus" { return "Historycontrolstatus" }
-    if yname == "historyControlDroppedFrames" { return "Historycontroldroppedframes" }
-    return ""
+    historycontrolentry.EntityData.Children = make(map[string]types.YChild)
+    historycontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    historycontrolentry.EntityData.Leafs["historyControlIndex"] = types.YLeaf{"Historycontrolindex", historycontrolentry.Historycontrolindex}
+    historycontrolentry.EntityData.Leafs["historyControlDataSource"] = types.YLeaf{"Historycontroldatasource", historycontrolentry.Historycontroldatasource}
+    historycontrolentry.EntityData.Leafs["historyControlBucketsRequested"] = types.YLeaf{"Historycontrolbucketsrequested", historycontrolentry.Historycontrolbucketsrequested}
+    historycontrolentry.EntityData.Leafs["historyControlBucketsGranted"] = types.YLeaf{"Historycontrolbucketsgranted", historycontrolentry.Historycontrolbucketsgranted}
+    historycontrolentry.EntityData.Leafs["historyControlInterval"] = types.YLeaf{"Historycontrolinterval", historycontrolentry.Historycontrolinterval}
+    historycontrolentry.EntityData.Leafs["historyControlOwner"] = types.YLeaf{"Historycontrolowner", historycontrolentry.Historycontrolowner}
+    historycontrolentry.EntityData.Leafs["historyControlStatus"] = types.YLeaf{"Historycontrolstatus", historycontrolentry.Historycontrolstatus}
+    historycontrolentry.EntityData.Leafs["historyControlDroppedFrames"] = types.YLeaf{"Historycontroldroppedframes", historycontrolentry.Historycontroldroppedframes}
+    return &(historycontrolentry.EntityData)
 }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetSegmentPath() string {
-    return "historyControlEntry" + "[historyControlIndex='" + fmt.Sprintf("%v", historycontrolentry.Historycontrolindex) + "']"
-}
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["historyControlIndex"] = historycontrolentry.Historycontrolindex
-    leafs["historyControlDataSource"] = historycontrolentry.Historycontroldatasource
-    leafs["historyControlBucketsRequested"] = historycontrolentry.Historycontrolbucketsrequested
-    leafs["historyControlBucketsGranted"] = historycontrolentry.Historycontrolbucketsgranted
-    leafs["historyControlInterval"] = historycontrolentry.Historycontrolinterval
-    leafs["historyControlOwner"] = historycontrolentry.Historycontrolowner
-    leafs["historyControlStatus"] = historycontrolentry.Historycontrolstatus
-    leafs["historyControlDroppedFrames"] = historycontrolentry.Historycontroldroppedframes
-    return leafs
-}
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetYangName() string { return "historyControlEntry" }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) SetParent(parent types.Entity) { historycontrolentry.parent = parent }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetParent() types.Entity { return historycontrolentry.parent }
-
-func (historycontrolentry *RMONMIB_Historycontroltable_Historycontrolentry) GetParentYangName() string { return "historyControlTable" }
 
 // RMONMIB_Etherhistorytable
 // A list of Ethernet history entries.
 type RMONMIB_Etherhistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An historical sample of Ethernet statistics on a particular Ethernet
@@ -833,63 +566,24 @@ type RMONMIB_Etherhistorytable struct {
     Etherhistoryentry []RMONMIB_Etherhistorytable_Etherhistoryentry
 }
 
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetFilter() yfilter.YFilter { return etherhistorytable.YFilter }
+func (etherhistorytable *RMONMIB_Etherhistorytable) GetEntityData() *types.CommonEntityData {
+    etherhistorytable.EntityData.YFilter = etherhistorytable.YFilter
+    etherhistorytable.EntityData.YangName = "etherHistoryTable"
+    etherhistorytable.EntityData.BundleName = "cisco_ios_xe"
+    etherhistorytable.EntityData.ParentYangName = "RMON-MIB"
+    etherhistorytable.EntityData.SegmentPath = "etherHistoryTable"
+    etherhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (etherhistorytable *RMONMIB_Etherhistorytable) SetFilter(yf yfilter.YFilter) { etherhistorytable.YFilter = yf }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetGoName(yname string) string {
-    if yname == "etherHistoryEntry" { return "Etherhistoryentry" }
-    return ""
-}
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetSegmentPath() string {
-    return "etherHistoryTable"
-}
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "etherHistoryEntry" {
-        for _, c := range etherhistorytable.Etherhistoryentry {
-            if etherhistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Etherhistorytable_Etherhistoryentry{}
-        etherhistorytable.Etherhistoryentry = append(etherhistorytable.Etherhistoryentry, child)
-        return &etherhistorytable.Etherhistoryentry[len(etherhistorytable.Etherhistoryentry)-1]
-    }
-    return nil
-}
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    etherhistorytable.EntityData.Children = make(map[string]types.YChild)
+    etherhistorytable.EntityData.Children["etherHistoryEntry"] = types.YChild{"Etherhistoryentry", nil}
     for i := range etherhistorytable.Etherhistoryentry {
-        children[etherhistorytable.Etherhistoryentry[i].GetSegmentPath()] = &etherhistorytable.Etherhistoryentry[i]
+        etherhistorytable.EntityData.Children[types.GetSegmentPath(&etherhistorytable.Etherhistoryentry[i])] = types.YChild{"Etherhistoryentry", &etherhistorytable.Etherhistoryentry[i]}
     }
-    return children
+    etherhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(etherhistorytable.EntityData)
 }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetYangName() string { return "etherHistoryTable" }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) SetParent(parent types.Entity) { etherhistorytable.parent = parent }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetParent() types.Entity { return etherhistorytable.parent }
-
-func (etherhistorytable *RMONMIB_Etherhistorytable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Etherhistorytable_Etherhistoryentry
 // An historical sample of Ethernet statistics on a particular
@@ -899,7 +593,7 @@ func (etherhistorytable *RMONMIB_Etherhistorytable) GetParentYangName() string {
 // instance of the etherHistoryPkts object might be named
 // etherHistoryPkts.2.89
 type RMONMIB_Etherhistorytable_Etherhistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The history of which this entry is a part.  The
@@ -1021,84 +715,40 @@ type RMONMIB_Etherhistorytable_Etherhistoryentry struct {
     Etherhistoryutilization interface{}
 }
 
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetFilter() yfilter.YFilter { return etherhistoryentry.YFilter }
+func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetEntityData() *types.CommonEntityData {
+    etherhistoryentry.EntityData.YFilter = etherhistoryentry.YFilter
+    etherhistoryentry.EntityData.YangName = "etherHistoryEntry"
+    etherhistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    etherhistoryentry.EntityData.ParentYangName = "etherHistoryTable"
+    etherhistoryentry.EntityData.SegmentPath = "etherHistoryEntry" + "[etherHistoryIndex='" + fmt.Sprintf("%v", etherhistoryentry.Etherhistoryindex) + "']" + "[etherHistorySampleIndex='" + fmt.Sprintf("%v", etherhistoryentry.Etherhistorysampleindex) + "']"
+    etherhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) SetFilter(yf yfilter.YFilter) { etherhistoryentry.YFilter = yf }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetGoName(yname string) string {
-    if yname == "etherHistoryIndex" { return "Etherhistoryindex" }
-    if yname == "etherHistorySampleIndex" { return "Etherhistorysampleindex" }
-    if yname == "etherHistoryIntervalStart" { return "Etherhistoryintervalstart" }
-    if yname == "etherHistoryDropEvents" { return "Etherhistorydropevents" }
-    if yname == "etherHistoryOctets" { return "Etherhistoryoctets" }
-    if yname == "etherHistoryPkts" { return "Etherhistorypkts" }
-    if yname == "etherHistoryBroadcastPkts" { return "Etherhistorybroadcastpkts" }
-    if yname == "etherHistoryMulticastPkts" { return "Etherhistorymulticastpkts" }
-    if yname == "etherHistoryCRCAlignErrors" { return "Etherhistorycrcalignerrors" }
-    if yname == "etherHistoryUndersizePkts" { return "Etherhistoryundersizepkts" }
-    if yname == "etherHistoryOversizePkts" { return "Etherhistoryoversizepkts" }
-    if yname == "etherHistoryFragments" { return "Etherhistoryfragments" }
-    if yname == "etherHistoryJabbers" { return "Etherhistoryjabbers" }
-    if yname == "etherHistoryCollisions" { return "Etherhistorycollisions" }
-    if yname == "etherHistoryUtilization" { return "Etherhistoryutilization" }
-    return ""
+    etherhistoryentry.EntityData.Children = make(map[string]types.YChild)
+    etherhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    etherhistoryentry.EntityData.Leafs["etherHistoryIndex"] = types.YLeaf{"Etherhistoryindex", etherhistoryentry.Etherhistoryindex}
+    etherhistoryentry.EntityData.Leafs["etherHistorySampleIndex"] = types.YLeaf{"Etherhistorysampleindex", etherhistoryentry.Etherhistorysampleindex}
+    etherhistoryentry.EntityData.Leafs["etherHistoryIntervalStart"] = types.YLeaf{"Etherhistoryintervalstart", etherhistoryentry.Etherhistoryintervalstart}
+    etherhistoryentry.EntityData.Leafs["etherHistoryDropEvents"] = types.YLeaf{"Etherhistorydropevents", etherhistoryentry.Etherhistorydropevents}
+    etherhistoryentry.EntityData.Leafs["etherHistoryOctets"] = types.YLeaf{"Etherhistoryoctets", etherhistoryentry.Etherhistoryoctets}
+    etherhistoryentry.EntityData.Leafs["etherHistoryPkts"] = types.YLeaf{"Etherhistorypkts", etherhistoryentry.Etherhistorypkts}
+    etherhistoryentry.EntityData.Leafs["etherHistoryBroadcastPkts"] = types.YLeaf{"Etherhistorybroadcastpkts", etherhistoryentry.Etherhistorybroadcastpkts}
+    etherhistoryentry.EntityData.Leafs["etherHistoryMulticastPkts"] = types.YLeaf{"Etherhistorymulticastpkts", etherhistoryentry.Etherhistorymulticastpkts}
+    etherhistoryentry.EntityData.Leafs["etherHistoryCRCAlignErrors"] = types.YLeaf{"Etherhistorycrcalignerrors", etherhistoryentry.Etherhistorycrcalignerrors}
+    etherhistoryentry.EntityData.Leafs["etherHistoryUndersizePkts"] = types.YLeaf{"Etherhistoryundersizepkts", etherhistoryentry.Etherhistoryundersizepkts}
+    etherhistoryentry.EntityData.Leafs["etherHistoryOversizePkts"] = types.YLeaf{"Etherhistoryoversizepkts", etherhistoryentry.Etherhistoryoversizepkts}
+    etherhistoryentry.EntityData.Leafs["etherHistoryFragments"] = types.YLeaf{"Etherhistoryfragments", etherhistoryentry.Etherhistoryfragments}
+    etherhistoryentry.EntityData.Leafs["etherHistoryJabbers"] = types.YLeaf{"Etherhistoryjabbers", etherhistoryentry.Etherhistoryjabbers}
+    etherhistoryentry.EntityData.Leafs["etherHistoryCollisions"] = types.YLeaf{"Etherhistorycollisions", etherhistoryentry.Etherhistorycollisions}
+    etherhistoryentry.EntityData.Leafs["etherHistoryUtilization"] = types.YLeaf{"Etherhistoryutilization", etherhistoryentry.Etherhistoryutilization}
+    return &(etherhistoryentry.EntityData)
 }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetSegmentPath() string {
-    return "etherHistoryEntry" + "[etherHistoryIndex='" + fmt.Sprintf("%v", etherhistoryentry.Etherhistoryindex) + "']" + "[etherHistorySampleIndex='" + fmt.Sprintf("%v", etherhistoryentry.Etherhistorysampleindex) + "']"
-}
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["etherHistoryIndex"] = etherhistoryentry.Etherhistoryindex
-    leafs["etherHistorySampleIndex"] = etherhistoryentry.Etherhistorysampleindex
-    leafs["etherHistoryIntervalStart"] = etherhistoryentry.Etherhistoryintervalstart
-    leafs["etherHistoryDropEvents"] = etherhistoryentry.Etherhistorydropevents
-    leafs["etherHistoryOctets"] = etherhistoryentry.Etherhistoryoctets
-    leafs["etherHistoryPkts"] = etherhistoryentry.Etherhistorypkts
-    leafs["etherHistoryBroadcastPkts"] = etherhistoryentry.Etherhistorybroadcastpkts
-    leafs["etherHistoryMulticastPkts"] = etherhistoryentry.Etherhistorymulticastpkts
-    leafs["etherHistoryCRCAlignErrors"] = etherhistoryentry.Etherhistorycrcalignerrors
-    leafs["etherHistoryUndersizePkts"] = etherhistoryentry.Etherhistoryundersizepkts
-    leafs["etherHistoryOversizePkts"] = etherhistoryentry.Etherhistoryoversizepkts
-    leafs["etherHistoryFragments"] = etherhistoryentry.Etherhistoryfragments
-    leafs["etherHistoryJabbers"] = etherhistoryentry.Etherhistoryjabbers
-    leafs["etherHistoryCollisions"] = etherhistoryentry.Etherhistorycollisions
-    leafs["etherHistoryUtilization"] = etherhistoryentry.Etherhistoryutilization
-    return leafs
-}
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetYangName() string { return "etherHistoryEntry" }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) SetParent(parent types.Entity) { etherhistoryentry.parent = parent }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetParent() types.Entity { return etherhistoryentry.parent }
-
-func (etherhistoryentry *RMONMIB_Etherhistorytable_Etherhistoryentry) GetParentYangName() string { return "etherHistoryTable" }
 
 // RMONMIB_Alarmtable
 // A list of alarm entries.
 type RMONMIB_Alarmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of parameters that set up a periodic checking for alarm conditions. 
@@ -1107,70 +757,31 @@ type RMONMIB_Alarmtable struct {
     Alarmentry []RMONMIB_Alarmtable_Alarmentry
 }
 
-func (alarmtable *RMONMIB_Alarmtable) GetFilter() yfilter.YFilter { return alarmtable.YFilter }
+func (alarmtable *RMONMIB_Alarmtable) GetEntityData() *types.CommonEntityData {
+    alarmtable.EntityData.YFilter = alarmtable.YFilter
+    alarmtable.EntityData.YangName = "alarmTable"
+    alarmtable.EntityData.BundleName = "cisco_ios_xe"
+    alarmtable.EntityData.ParentYangName = "RMON-MIB"
+    alarmtable.EntityData.SegmentPath = "alarmTable"
+    alarmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alarmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alarmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (alarmtable *RMONMIB_Alarmtable) SetFilter(yf yfilter.YFilter) { alarmtable.YFilter = yf }
-
-func (alarmtable *RMONMIB_Alarmtable) GetGoName(yname string) string {
-    if yname == "alarmEntry" { return "Alarmentry" }
-    return ""
-}
-
-func (alarmtable *RMONMIB_Alarmtable) GetSegmentPath() string {
-    return "alarmTable"
-}
-
-func (alarmtable *RMONMIB_Alarmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "alarmEntry" {
-        for _, c := range alarmtable.Alarmentry {
-            if alarmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Alarmtable_Alarmentry{}
-        alarmtable.Alarmentry = append(alarmtable.Alarmentry, child)
-        return &alarmtable.Alarmentry[len(alarmtable.Alarmentry)-1]
-    }
-    return nil
-}
-
-func (alarmtable *RMONMIB_Alarmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    alarmtable.EntityData.Children = make(map[string]types.YChild)
+    alarmtable.EntityData.Children["alarmEntry"] = types.YChild{"Alarmentry", nil}
     for i := range alarmtable.Alarmentry {
-        children[alarmtable.Alarmentry[i].GetSegmentPath()] = &alarmtable.Alarmentry[i]
+        alarmtable.EntityData.Children[types.GetSegmentPath(&alarmtable.Alarmentry[i])] = types.YChild{"Alarmentry", &alarmtable.Alarmentry[i]}
     }
-    return children
+    alarmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(alarmtable.EntityData)
 }
-
-func (alarmtable *RMONMIB_Alarmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (alarmtable *RMONMIB_Alarmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (alarmtable *RMONMIB_Alarmtable) GetYangName() string { return "alarmTable" }
-
-func (alarmtable *RMONMIB_Alarmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (alarmtable *RMONMIB_Alarmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (alarmtable *RMONMIB_Alarmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (alarmtable *RMONMIB_Alarmtable) SetParent(parent types.Entity) { alarmtable.parent = parent }
-
-func (alarmtable *RMONMIB_Alarmtable) GetParent() types.Entity { return alarmtable.parent }
-
-func (alarmtable *RMONMIB_Alarmtable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Alarmtable_Alarmentry
 // A list of parameters that set up a periodic checking
 // for alarm conditions.  For example, an instance of the
 // alarmValue object might be named alarmValue.8
 type RMONMIB_Alarmtable_Alarmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -1205,7 +816,7 @@ type RMONMIB_Alarmtable_Alarmentry struct {
     // MIB view, the probe must change the status of this alarmEntry to
     // invalid(4).  This object may not be modified if the associated alarmStatus
     // object is equal to valid(1). The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Alarmvariable interface{}
 
     // The method of sampling the selected variable and calculating the value to
@@ -1295,73 +906,32 @@ type RMONMIB_Alarmtable_Alarmentry struct {
     Alarmstatus interface{}
 }
 
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetFilter() yfilter.YFilter { return alarmentry.YFilter }
+func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetEntityData() *types.CommonEntityData {
+    alarmentry.EntityData.YFilter = alarmentry.YFilter
+    alarmentry.EntityData.YangName = "alarmEntry"
+    alarmentry.EntityData.BundleName = "cisco_ios_xe"
+    alarmentry.EntityData.ParentYangName = "alarmTable"
+    alarmentry.EntityData.SegmentPath = "alarmEntry" + "[alarmIndex='" + fmt.Sprintf("%v", alarmentry.Alarmindex) + "']"
+    alarmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    alarmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    alarmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) SetFilter(yf yfilter.YFilter) { alarmentry.YFilter = yf }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetGoName(yname string) string {
-    if yname == "alarmIndex" { return "Alarmindex" }
-    if yname == "alarmInterval" { return "Alarminterval" }
-    if yname == "alarmVariable" { return "Alarmvariable" }
-    if yname == "alarmSampleType" { return "Alarmsampletype" }
-    if yname == "alarmValue" { return "Alarmvalue" }
-    if yname == "alarmStartupAlarm" { return "Alarmstartupalarm" }
-    if yname == "alarmRisingThreshold" { return "Alarmrisingthreshold" }
-    if yname == "alarmFallingThreshold" { return "Alarmfallingthreshold" }
-    if yname == "alarmRisingEventIndex" { return "Alarmrisingeventindex" }
-    if yname == "alarmFallingEventIndex" { return "Alarmfallingeventindex" }
-    if yname == "alarmOwner" { return "Alarmowner" }
-    if yname == "alarmStatus" { return "Alarmstatus" }
-    return ""
+    alarmentry.EntityData.Children = make(map[string]types.YChild)
+    alarmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarmentry.EntityData.Leafs["alarmIndex"] = types.YLeaf{"Alarmindex", alarmentry.Alarmindex}
+    alarmentry.EntityData.Leafs["alarmInterval"] = types.YLeaf{"Alarminterval", alarmentry.Alarminterval}
+    alarmentry.EntityData.Leafs["alarmVariable"] = types.YLeaf{"Alarmvariable", alarmentry.Alarmvariable}
+    alarmentry.EntityData.Leafs["alarmSampleType"] = types.YLeaf{"Alarmsampletype", alarmentry.Alarmsampletype}
+    alarmentry.EntityData.Leafs["alarmValue"] = types.YLeaf{"Alarmvalue", alarmentry.Alarmvalue}
+    alarmentry.EntityData.Leafs["alarmStartupAlarm"] = types.YLeaf{"Alarmstartupalarm", alarmentry.Alarmstartupalarm}
+    alarmentry.EntityData.Leafs["alarmRisingThreshold"] = types.YLeaf{"Alarmrisingthreshold", alarmentry.Alarmrisingthreshold}
+    alarmentry.EntityData.Leafs["alarmFallingThreshold"] = types.YLeaf{"Alarmfallingthreshold", alarmentry.Alarmfallingthreshold}
+    alarmentry.EntityData.Leafs["alarmRisingEventIndex"] = types.YLeaf{"Alarmrisingeventindex", alarmentry.Alarmrisingeventindex}
+    alarmentry.EntityData.Leafs["alarmFallingEventIndex"] = types.YLeaf{"Alarmfallingeventindex", alarmentry.Alarmfallingeventindex}
+    alarmentry.EntityData.Leafs["alarmOwner"] = types.YLeaf{"Alarmowner", alarmentry.Alarmowner}
+    alarmentry.EntityData.Leafs["alarmStatus"] = types.YLeaf{"Alarmstatus", alarmentry.Alarmstatus}
+    return &(alarmentry.EntityData)
 }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetSegmentPath() string {
-    return "alarmEntry" + "[alarmIndex='" + fmt.Sprintf("%v", alarmentry.Alarmindex) + "']"
-}
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["alarmIndex"] = alarmentry.Alarmindex
-    leafs["alarmInterval"] = alarmentry.Alarminterval
-    leafs["alarmVariable"] = alarmentry.Alarmvariable
-    leafs["alarmSampleType"] = alarmentry.Alarmsampletype
-    leafs["alarmValue"] = alarmentry.Alarmvalue
-    leafs["alarmStartupAlarm"] = alarmentry.Alarmstartupalarm
-    leafs["alarmRisingThreshold"] = alarmentry.Alarmrisingthreshold
-    leafs["alarmFallingThreshold"] = alarmentry.Alarmfallingthreshold
-    leafs["alarmRisingEventIndex"] = alarmentry.Alarmrisingeventindex
-    leafs["alarmFallingEventIndex"] = alarmentry.Alarmfallingeventindex
-    leafs["alarmOwner"] = alarmentry.Alarmowner
-    leafs["alarmStatus"] = alarmentry.Alarmstatus
-    return leafs
-}
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetYangName() string { return "alarmEntry" }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) SetParent(parent types.Entity) { alarmentry.parent = parent }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetParent() types.Entity { return alarmentry.parent }
-
-func (alarmentry *RMONMIB_Alarmtable_Alarmentry) GetParentYangName() string { return "alarmTable" }
 
 // RMONMIB_Alarmtable_Alarmentry_Alarmsampletype represents alarmStatus object is equal to valid(1).
 type RMONMIB_Alarmtable_Alarmentry_Alarmsampletype string
@@ -1386,7 +956,7 @@ const (
 // RMONMIB_Hostcontroltable
 // A list of host table control entries.
 type RMONMIB_Hostcontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of parameters that set up the discovery of hosts on a particular
@@ -1397,63 +967,24 @@ type RMONMIB_Hostcontroltable struct {
     Hostcontrolentry []RMONMIB_Hostcontroltable_Hostcontrolentry
 }
 
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetFilter() yfilter.YFilter { return hostcontroltable.YFilter }
+func (hostcontroltable *RMONMIB_Hostcontroltable) GetEntityData() *types.CommonEntityData {
+    hostcontroltable.EntityData.YFilter = hostcontroltable.YFilter
+    hostcontroltable.EntityData.YangName = "hostControlTable"
+    hostcontroltable.EntityData.BundleName = "cisco_ios_xe"
+    hostcontroltable.EntityData.ParentYangName = "RMON-MIB"
+    hostcontroltable.EntityData.SegmentPath = "hostControlTable"
+    hostcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hostcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hostcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hostcontroltable *RMONMIB_Hostcontroltable) SetFilter(yf yfilter.YFilter) { hostcontroltable.YFilter = yf }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetGoName(yname string) string {
-    if yname == "hostControlEntry" { return "Hostcontrolentry" }
-    return ""
-}
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetSegmentPath() string {
-    return "hostControlTable"
-}
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hostControlEntry" {
-        for _, c := range hostcontroltable.Hostcontrolentry {
-            if hostcontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Hostcontroltable_Hostcontrolentry{}
-        hostcontroltable.Hostcontrolentry = append(hostcontroltable.Hostcontrolentry, child)
-        return &hostcontroltable.Hostcontrolentry[len(hostcontroltable.Hostcontrolentry)-1]
-    }
-    return nil
-}
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hostcontroltable.EntityData.Children = make(map[string]types.YChild)
+    hostcontroltable.EntityData.Children["hostControlEntry"] = types.YChild{"Hostcontrolentry", nil}
     for i := range hostcontroltable.Hostcontrolentry {
-        children[hostcontroltable.Hostcontrolentry[i].GetSegmentPath()] = &hostcontroltable.Hostcontrolentry[i]
+        hostcontroltable.EntityData.Children[types.GetSegmentPath(&hostcontroltable.Hostcontrolentry[i])] = types.YChild{"Hostcontrolentry", &hostcontroltable.Hostcontrolentry[i]}
     }
-    return children
+    hostcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hostcontroltable.EntityData)
 }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetYangName() string { return "hostControlTable" }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) SetParent(parent types.Entity) { hostcontroltable.parent = parent }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetParent() types.Entity { return hostcontroltable.parent }
-
-func (hostcontroltable *RMONMIB_Hostcontroltable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Hostcontroltable_Hostcontrolentry
 // A list of parameters that set up the discovery of hosts
@@ -1462,7 +993,7 @@ func (hostcontroltable *RMONMIB_Hostcontroltable) GetParentYangName() string { r
 // hostControlTableSize object might be named
 // hostControlTableSize.1
 type RMONMIB_Hostcontroltable_Hostcontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -1486,7 +1017,7 @@ type RMONMIB_Hostcontroltable_Hostcontrolentry struct {
     // knowledge of the change, it is recommended that it invalidate this entry. 
     // This object may not be modified if the associated hostControlStatus object
     // is equal to valid(1). The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Hostcontroldatasource interface{}
 
     // The number of hostEntries in the hostTable and the hostTimeTable associated
@@ -1526,70 +1057,33 @@ type RMONMIB_Hostcontroltable_Hostcontrolentry struct {
     Hostcontrolcreatetime interface{}
 }
 
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetFilter() yfilter.YFilter { return hostcontrolentry.YFilter }
+func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetEntityData() *types.CommonEntityData {
+    hostcontrolentry.EntityData.YFilter = hostcontrolentry.YFilter
+    hostcontrolentry.EntityData.YangName = "hostControlEntry"
+    hostcontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    hostcontrolentry.EntityData.ParentYangName = "hostControlTable"
+    hostcontrolentry.EntityData.SegmentPath = "hostControlEntry" + "[hostControlIndex='" + fmt.Sprintf("%v", hostcontrolentry.Hostcontrolindex) + "']"
+    hostcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hostcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hostcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) SetFilter(yf yfilter.YFilter) { hostcontrolentry.YFilter = yf }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetGoName(yname string) string {
-    if yname == "hostControlIndex" { return "Hostcontrolindex" }
-    if yname == "hostControlDataSource" { return "Hostcontroldatasource" }
-    if yname == "hostControlTableSize" { return "Hostcontroltablesize" }
-    if yname == "hostControlLastDeleteTime" { return "Hostcontrollastdeletetime" }
-    if yname == "hostControlOwner" { return "Hostcontrolowner" }
-    if yname == "hostControlStatus" { return "Hostcontrolstatus" }
-    if yname == "hostControlDroppedFrames" { return "Hostcontroldroppedframes" }
-    if yname == "hostControlCreateTime" { return "Hostcontrolcreatetime" }
-    return ""
+    hostcontrolentry.EntityData.Children = make(map[string]types.YChild)
+    hostcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    hostcontrolentry.EntityData.Leafs["hostControlIndex"] = types.YLeaf{"Hostcontrolindex", hostcontrolentry.Hostcontrolindex}
+    hostcontrolentry.EntityData.Leafs["hostControlDataSource"] = types.YLeaf{"Hostcontroldatasource", hostcontrolentry.Hostcontroldatasource}
+    hostcontrolentry.EntityData.Leafs["hostControlTableSize"] = types.YLeaf{"Hostcontroltablesize", hostcontrolentry.Hostcontroltablesize}
+    hostcontrolentry.EntityData.Leafs["hostControlLastDeleteTime"] = types.YLeaf{"Hostcontrollastdeletetime", hostcontrolentry.Hostcontrollastdeletetime}
+    hostcontrolentry.EntityData.Leafs["hostControlOwner"] = types.YLeaf{"Hostcontrolowner", hostcontrolentry.Hostcontrolowner}
+    hostcontrolentry.EntityData.Leafs["hostControlStatus"] = types.YLeaf{"Hostcontrolstatus", hostcontrolentry.Hostcontrolstatus}
+    hostcontrolentry.EntityData.Leafs["hostControlDroppedFrames"] = types.YLeaf{"Hostcontroldroppedframes", hostcontrolentry.Hostcontroldroppedframes}
+    hostcontrolentry.EntityData.Leafs["hostControlCreateTime"] = types.YLeaf{"Hostcontrolcreatetime", hostcontrolentry.Hostcontrolcreatetime}
+    return &(hostcontrolentry.EntityData)
 }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetSegmentPath() string {
-    return "hostControlEntry" + "[hostControlIndex='" + fmt.Sprintf("%v", hostcontrolentry.Hostcontrolindex) + "']"
-}
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hostControlIndex"] = hostcontrolentry.Hostcontrolindex
-    leafs["hostControlDataSource"] = hostcontrolentry.Hostcontroldatasource
-    leafs["hostControlTableSize"] = hostcontrolentry.Hostcontroltablesize
-    leafs["hostControlLastDeleteTime"] = hostcontrolentry.Hostcontrollastdeletetime
-    leafs["hostControlOwner"] = hostcontrolentry.Hostcontrolowner
-    leafs["hostControlStatus"] = hostcontrolentry.Hostcontrolstatus
-    leafs["hostControlDroppedFrames"] = hostcontrolentry.Hostcontroldroppedframes
-    leafs["hostControlCreateTime"] = hostcontrolentry.Hostcontrolcreatetime
-    return leafs
-}
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetYangName() string { return "hostControlEntry" }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) SetParent(parent types.Entity) { hostcontrolentry.parent = parent }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetParent() types.Entity { return hostcontrolentry.parent }
-
-func (hostcontrolentry *RMONMIB_Hostcontroltable_Hostcontrolentry) GetParentYangName() string { return "hostControlTable" }
 
 // RMONMIB_Hosttable
 // A list of host entries.
 type RMONMIB_Hosttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular host that has been discovered
@@ -1600,63 +1094,24 @@ type RMONMIB_Hosttable struct {
     Hostentry []RMONMIB_Hosttable_Hostentry
 }
 
-func (hosttable *RMONMIB_Hosttable) GetFilter() yfilter.YFilter { return hosttable.YFilter }
+func (hosttable *RMONMIB_Hosttable) GetEntityData() *types.CommonEntityData {
+    hosttable.EntityData.YFilter = hosttable.YFilter
+    hosttable.EntityData.YangName = "hostTable"
+    hosttable.EntityData.BundleName = "cisco_ios_xe"
+    hosttable.EntityData.ParentYangName = "RMON-MIB"
+    hosttable.EntityData.SegmentPath = "hostTable"
+    hosttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttable *RMONMIB_Hosttable) SetFilter(yf yfilter.YFilter) { hosttable.YFilter = yf }
-
-func (hosttable *RMONMIB_Hosttable) GetGoName(yname string) string {
-    if yname == "hostEntry" { return "Hostentry" }
-    return ""
-}
-
-func (hosttable *RMONMIB_Hosttable) GetSegmentPath() string {
-    return "hostTable"
-}
-
-func (hosttable *RMONMIB_Hosttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hostEntry" {
-        for _, c := range hosttable.Hostentry {
-            if hosttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Hosttable_Hostentry{}
-        hosttable.Hostentry = append(hosttable.Hostentry, child)
-        return &hosttable.Hostentry[len(hosttable.Hostentry)-1]
-    }
-    return nil
-}
-
-func (hosttable *RMONMIB_Hosttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hosttable.EntityData.Children = make(map[string]types.YChild)
+    hosttable.EntityData.Children["hostEntry"] = types.YChild{"Hostentry", nil}
     for i := range hosttable.Hostentry {
-        children[hosttable.Hostentry[i].GetSegmentPath()] = &hosttable.Hostentry[i]
+        hosttable.EntityData.Children[types.GetSegmentPath(&hosttable.Hostentry[i])] = types.YChild{"Hostentry", &hosttable.Hostentry[i]}
     }
-    return children
+    hosttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hosttable.EntityData)
 }
-
-func (hosttable *RMONMIB_Hosttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hosttable *RMONMIB_Hosttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttable *RMONMIB_Hosttable) GetYangName() string { return "hostTable" }
-
-func (hosttable *RMONMIB_Hosttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttable *RMONMIB_Hosttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttable *RMONMIB_Hosttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttable *RMONMIB_Hosttable) SetParent(parent types.Entity) { hosttable.parent = parent }
-
-func (hosttable *RMONMIB_Hosttable) GetParent() types.Entity { return hosttable.parent }
-
-func (hosttable *RMONMIB_Hosttable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Hosttable_Hostentry
 // A collection of statistics for a particular host that has
@@ -1664,7 +1119,7 @@ func (hosttable *RMONMIB_Hosttable) GetParentYangName() string { return "RMON-MI
 // an instance of the hostOutBroadcastPkts object might be
 // named hostOutBroadcastPkts.1.6.8.0.32.27.3.176
 type RMONMIB_Hosttable_Hostentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The set of collected host statistics of which this
@@ -1732,74 +1187,35 @@ type RMONMIB_Hosttable_Hostentry struct {
     Hostoutmulticastpkts interface{}
 }
 
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetFilter() yfilter.YFilter { return hostentry.YFilter }
+func (hostentry *RMONMIB_Hosttable_Hostentry) GetEntityData() *types.CommonEntityData {
+    hostentry.EntityData.YFilter = hostentry.YFilter
+    hostentry.EntityData.YangName = "hostEntry"
+    hostentry.EntityData.BundleName = "cisco_ios_xe"
+    hostentry.EntityData.ParentYangName = "hostTable"
+    hostentry.EntityData.SegmentPath = "hostEntry" + "[hostIndex='" + fmt.Sprintf("%v", hostentry.Hostindex) + "']" + "[hostAddress='" + fmt.Sprintf("%v", hostentry.Hostaddress) + "']"
+    hostentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hostentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hostentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hostentry *RMONMIB_Hosttable_Hostentry) SetFilter(yf yfilter.YFilter) { hostentry.YFilter = yf }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetGoName(yname string) string {
-    if yname == "hostIndex" { return "Hostindex" }
-    if yname == "hostAddress" { return "Hostaddress" }
-    if yname == "hostCreationOrder" { return "Hostcreationorder" }
-    if yname == "hostInPkts" { return "Hostinpkts" }
-    if yname == "hostOutPkts" { return "Hostoutpkts" }
-    if yname == "hostInOctets" { return "Hostinoctets" }
-    if yname == "hostOutOctets" { return "Hostoutoctets" }
-    if yname == "hostOutErrors" { return "Hostouterrors" }
-    if yname == "hostOutBroadcastPkts" { return "Hostoutbroadcastpkts" }
-    if yname == "hostOutMulticastPkts" { return "Hostoutmulticastpkts" }
-    return ""
+    hostentry.EntityData.Children = make(map[string]types.YChild)
+    hostentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    hostentry.EntityData.Leafs["hostIndex"] = types.YLeaf{"Hostindex", hostentry.Hostindex}
+    hostentry.EntityData.Leafs["hostAddress"] = types.YLeaf{"Hostaddress", hostentry.Hostaddress}
+    hostentry.EntityData.Leafs["hostCreationOrder"] = types.YLeaf{"Hostcreationorder", hostentry.Hostcreationorder}
+    hostentry.EntityData.Leafs["hostInPkts"] = types.YLeaf{"Hostinpkts", hostentry.Hostinpkts}
+    hostentry.EntityData.Leafs["hostOutPkts"] = types.YLeaf{"Hostoutpkts", hostentry.Hostoutpkts}
+    hostentry.EntityData.Leafs["hostInOctets"] = types.YLeaf{"Hostinoctets", hostentry.Hostinoctets}
+    hostentry.EntityData.Leafs["hostOutOctets"] = types.YLeaf{"Hostoutoctets", hostentry.Hostoutoctets}
+    hostentry.EntityData.Leafs["hostOutErrors"] = types.YLeaf{"Hostouterrors", hostentry.Hostouterrors}
+    hostentry.EntityData.Leafs["hostOutBroadcastPkts"] = types.YLeaf{"Hostoutbroadcastpkts", hostentry.Hostoutbroadcastpkts}
+    hostentry.EntityData.Leafs["hostOutMulticastPkts"] = types.YLeaf{"Hostoutmulticastpkts", hostentry.Hostoutmulticastpkts}
+    return &(hostentry.EntityData)
 }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetSegmentPath() string {
-    return "hostEntry" + "[hostIndex='" + fmt.Sprintf("%v", hostentry.Hostindex) + "']" + "[hostAddress='" + fmt.Sprintf("%v", hostentry.Hostaddress) + "']"
-}
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hostIndex"] = hostentry.Hostindex
-    leafs["hostAddress"] = hostentry.Hostaddress
-    leafs["hostCreationOrder"] = hostentry.Hostcreationorder
-    leafs["hostInPkts"] = hostentry.Hostinpkts
-    leafs["hostOutPkts"] = hostentry.Hostoutpkts
-    leafs["hostInOctets"] = hostentry.Hostinoctets
-    leafs["hostOutOctets"] = hostentry.Hostoutoctets
-    leafs["hostOutErrors"] = hostentry.Hostouterrors
-    leafs["hostOutBroadcastPkts"] = hostentry.Hostoutbroadcastpkts
-    leafs["hostOutMulticastPkts"] = hostentry.Hostoutmulticastpkts
-    return leafs
-}
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetYangName() string { return "hostEntry" }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) SetParent(parent types.Entity) { hostentry.parent = parent }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetParent() types.Entity { return hostentry.parent }
-
-func (hostentry *RMONMIB_Hosttable_Hostentry) GetParentYangName() string { return "hostTable" }
 
 // RMONMIB_Hosttimetable
 // A list of time-ordered host table entries.
 type RMONMIB_Hosttimetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular host that has been discovered
@@ -1811,63 +1227,24 @@ type RMONMIB_Hosttimetable struct {
     Hosttimeentry []RMONMIB_Hosttimetable_Hosttimeentry
 }
 
-func (hosttimetable *RMONMIB_Hosttimetable) GetFilter() yfilter.YFilter { return hosttimetable.YFilter }
+func (hosttimetable *RMONMIB_Hosttimetable) GetEntityData() *types.CommonEntityData {
+    hosttimetable.EntityData.YFilter = hosttimetable.YFilter
+    hosttimetable.EntityData.YangName = "hostTimeTable"
+    hosttimetable.EntityData.BundleName = "cisco_ios_xe"
+    hosttimetable.EntityData.ParentYangName = "RMON-MIB"
+    hosttimetable.EntityData.SegmentPath = "hostTimeTable"
+    hosttimetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttimetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttimetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttimetable *RMONMIB_Hosttimetable) SetFilter(yf yfilter.YFilter) { hosttimetable.YFilter = yf }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetGoName(yname string) string {
-    if yname == "hostTimeEntry" { return "Hosttimeentry" }
-    return ""
-}
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetSegmentPath() string {
-    return "hostTimeTable"
-}
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hostTimeEntry" {
-        for _, c := range hosttimetable.Hosttimeentry {
-            if hosttimetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Hosttimetable_Hosttimeentry{}
-        hosttimetable.Hosttimeentry = append(hosttimetable.Hosttimeentry, child)
-        return &hosttimetable.Hosttimeentry[len(hosttimetable.Hosttimeentry)-1]
-    }
-    return nil
-}
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hosttimetable.EntityData.Children = make(map[string]types.YChild)
+    hosttimetable.EntityData.Children["hostTimeEntry"] = types.YChild{"Hosttimeentry", nil}
     for i := range hosttimetable.Hosttimeentry {
-        children[hosttimetable.Hosttimeentry[i].GetSegmentPath()] = &hosttimetable.Hosttimeentry[i]
+        hosttimetable.EntityData.Children[types.GetSegmentPath(&hosttimetable.Hosttimeentry[i])] = types.YChild{"Hosttimeentry", &hosttimetable.Hosttimeentry[i]}
     }
-    return children
+    hosttimetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hosttimetable.EntityData)
 }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetYangName() string { return "hostTimeTable" }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttimetable *RMONMIB_Hosttimetable) SetParent(parent types.Entity) { hosttimetable.parent = parent }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetParent() types.Entity { return hosttimetable.parent }
-
-func (hosttimetable *RMONMIB_Hosttimetable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Hosttimetable_Hosttimeentry
 // A collection of statistics for a particular host that has
@@ -1877,7 +1254,7 @@ func (hosttimetable *RMONMIB_Hosttimetable) GetParentYangName() string { return 
 // hostTimeOutBroadcastPkts object might be named
 // hostTimeOutBroadcastPkts.1.687
 type RMONMIB_Hosttimetable_Hosttimeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The set of collected host statistics of which this
@@ -1948,74 +1325,35 @@ type RMONMIB_Hosttimetable_Hosttimeentry struct {
     Hosttimeoutmulticastpkts interface{}
 }
 
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetFilter() yfilter.YFilter { return hosttimeentry.YFilter }
+func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetEntityData() *types.CommonEntityData {
+    hosttimeentry.EntityData.YFilter = hosttimeentry.YFilter
+    hosttimeentry.EntityData.YangName = "hostTimeEntry"
+    hosttimeentry.EntityData.BundleName = "cisco_ios_xe"
+    hosttimeentry.EntityData.ParentYangName = "hostTimeTable"
+    hosttimeentry.EntityData.SegmentPath = "hostTimeEntry" + "[hostTimeIndex='" + fmt.Sprintf("%v", hosttimeentry.Hosttimeindex) + "']" + "[hostTimeCreationOrder='" + fmt.Sprintf("%v", hosttimeentry.Hosttimecreationorder) + "']"
+    hosttimeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttimeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttimeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) SetFilter(yf yfilter.YFilter) { hosttimeentry.YFilter = yf }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetGoName(yname string) string {
-    if yname == "hostTimeIndex" { return "Hosttimeindex" }
-    if yname == "hostTimeCreationOrder" { return "Hosttimecreationorder" }
-    if yname == "hostTimeAddress" { return "Hosttimeaddress" }
-    if yname == "hostTimeInPkts" { return "Hosttimeinpkts" }
-    if yname == "hostTimeOutPkts" { return "Hosttimeoutpkts" }
-    if yname == "hostTimeInOctets" { return "Hosttimeinoctets" }
-    if yname == "hostTimeOutOctets" { return "Hosttimeoutoctets" }
-    if yname == "hostTimeOutErrors" { return "Hosttimeouterrors" }
-    if yname == "hostTimeOutBroadcastPkts" { return "Hosttimeoutbroadcastpkts" }
-    if yname == "hostTimeOutMulticastPkts" { return "Hosttimeoutmulticastpkts" }
-    return ""
+    hosttimeentry.EntityData.Children = make(map[string]types.YChild)
+    hosttimeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosttimeentry.EntityData.Leafs["hostTimeIndex"] = types.YLeaf{"Hosttimeindex", hosttimeentry.Hosttimeindex}
+    hosttimeentry.EntityData.Leafs["hostTimeCreationOrder"] = types.YLeaf{"Hosttimecreationorder", hosttimeentry.Hosttimecreationorder}
+    hosttimeentry.EntityData.Leafs["hostTimeAddress"] = types.YLeaf{"Hosttimeaddress", hosttimeentry.Hosttimeaddress}
+    hosttimeentry.EntityData.Leafs["hostTimeInPkts"] = types.YLeaf{"Hosttimeinpkts", hosttimeentry.Hosttimeinpkts}
+    hosttimeentry.EntityData.Leafs["hostTimeOutPkts"] = types.YLeaf{"Hosttimeoutpkts", hosttimeentry.Hosttimeoutpkts}
+    hosttimeentry.EntityData.Leafs["hostTimeInOctets"] = types.YLeaf{"Hosttimeinoctets", hosttimeentry.Hosttimeinoctets}
+    hosttimeentry.EntityData.Leafs["hostTimeOutOctets"] = types.YLeaf{"Hosttimeoutoctets", hosttimeentry.Hosttimeoutoctets}
+    hosttimeentry.EntityData.Leafs["hostTimeOutErrors"] = types.YLeaf{"Hosttimeouterrors", hosttimeentry.Hosttimeouterrors}
+    hosttimeentry.EntityData.Leafs["hostTimeOutBroadcastPkts"] = types.YLeaf{"Hosttimeoutbroadcastpkts", hosttimeentry.Hosttimeoutbroadcastpkts}
+    hosttimeentry.EntityData.Leafs["hostTimeOutMulticastPkts"] = types.YLeaf{"Hosttimeoutmulticastpkts", hosttimeentry.Hosttimeoutmulticastpkts}
+    return &(hosttimeentry.EntityData)
 }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetSegmentPath() string {
-    return "hostTimeEntry" + "[hostTimeIndex='" + fmt.Sprintf("%v", hosttimeentry.Hosttimeindex) + "']" + "[hostTimeCreationOrder='" + fmt.Sprintf("%v", hosttimeentry.Hosttimecreationorder) + "']"
-}
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hostTimeIndex"] = hosttimeentry.Hosttimeindex
-    leafs["hostTimeCreationOrder"] = hosttimeentry.Hosttimecreationorder
-    leafs["hostTimeAddress"] = hosttimeentry.Hosttimeaddress
-    leafs["hostTimeInPkts"] = hosttimeentry.Hosttimeinpkts
-    leafs["hostTimeOutPkts"] = hosttimeentry.Hosttimeoutpkts
-    leafs["hostTimeInOctets"] = hosttimeentry.Hosttimeinoctets
-    leafs["hostTimeOutOctets"] = hosttimeentry.Hosttimeoutoctets
-    leafs["hostTimeOutErrors"] = hosttimeentry.Hosttimeouterrors
-    leafs["hostTimeOutBroadcastPkts"] = hosttimeentry.Hosttimeoutbroadcastpkts
-    leafs["hostTimeOutMulticastPkts"] = hosttimeentry.Hosttimeoutmulticastpkts
-    return leafs
-}
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetYangName() string { return "hostTimeEntry" }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) SetParent(parent types.Entity) { hosttimeentry.parent = parent }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetParent() types.Entity { return hosttimeentry.parent }
-
-func (hosttimeentry *RMONMIB_Hosttimetable_Hosttimeentry) GetParentYangName() string { return "hostTimeTable" }
 
 // RMONMIB_Hosttopncontroltable
 // A list of top N host control entries.
 type RMONMIB_Hosttopncontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of parameters that control the creation of a report of the top N
@@ -2025,63 +1363,24 @@ type RMONMIB_Hosttopncontroltable struct {
     Hosttopncontrolentry []RMONMIB_Hosttopncontroltable_Hosttopncontrolentry
 }
 
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetFilter() yfilter.YFilter { return hosttopncontroltable.YFilter }
+func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetEntityData() *types.CommonEntityData {
+    hosttopncontroltable.EntityData.YFilter = hosttopncontroltable.YFilter
+    hosttopncontroltable.EntityData.YangName = "hostTopNControlTable"
+    hosttopncontroltable.EntityData.BundleName = "cisco_ios_xe"
+    hosttopncontroltable.EntityData.ParentYangName = "RMON-MIB"
+    hosttopncontroltable.EntityData.SegmentPath = "hostTopNControlTable"
+    hosttopncontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttopncontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttopncontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) SetFilter(yf yfilter.YFilter) { hosttopncontroltable.YFilter = yf }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetGoName(yname string) string {
-    if yname == "hostTopNControlEntry" { return "Hosttopncontrolentry" }
-    return ""
-}
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetSegmentPath() string {
-    return "hostTopNControlTable"
-}
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hostTopNControlEntry" {
-        for _, c := range hosttopncontroltable.Hosttopncontrolentry {
-            if hosttopncontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Hosttopncontroltable_Hosttopncontrolentry{}
-        hosttopncontroltable.Hosttopncontrolentry = append(hosttopncontroltable.Hosttopncontrolentry, child)
-        return &hosttopncontroltable.Hosttopncontrolentry[len(hosttopncontroltable.Hosttopncontrolentry)-1]
-    }
-    return nil
-}
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hosttopncontroltable.EntityData.Children = make(map[string]types.YChild)
+    hosttopncontroltable.EntityData.Children["hostTopNControlEntry"] = types.YChild{"Hosttopncontrolentry", nil}
     for i := range hosttopncontroltable.Hosttopncontrolentry {
-        children[hosttopncontroltable.Hosttopncontrolentry[i].GetSegmentPath()] = &hosttopncontroltable.Hosttopncontrolentry[i]
+        hosttopncontroltable.EntityData.Children[types.GetSegmentPath(&hosttopncontroltable.Hosttopncontrolentry[i])] = types.YChild{"Hosttopncontrolentry", &hosttopncontroltable.Hosttopncontrolentry[i]}
     }
-    return children
+    hosttopncontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hosttopncontroltable.EntityData)
 }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetYangName() string { return "hostTopNControlTable" }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) SetParent(parent types.Entity) { hosttopncontroltable.parent = parent }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetParent() types.Entity { return hosttopncontroltable.parent }
-
-func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Hosttopncontroltable_Hosttopncontrolentry
 // A set of parameters that control the creation of a report
@@ -2089,7 +1388,7 @@ func (hosttopncontroltable *RMONMIB_Hosttopncontroltable) GetParentYangName() st
 // example, an instance of the hostTopNDuration object might
 // be named hostTopNDuration.3
 type RMONMIB_Hosttopncontroltable_Hosttopncontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -2170,69 +1469,30 @@ type RMONMIB_Hosttopncontroltable_Hosttopncontrolentry struct {
     Hosttopnstatus interface{}
 }
 
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetFilter() yfilter.YFilter { return hosttopncontrolentry.YFilter }
+func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetEntityData() *types.CommonEntityData {
+    hosttopncontrolentry.EntityData.YFilter = hosttopncontrolentry.YFilter
+    hosttopncontrolentry.EntityData.YangName = "hostTopNControlEntry"
+    hosttopncontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    hosttopncontrolentry.EntityData.ParentYangName = "hostTopNControlTable"
+    hosttopncontrolentry.EntityData.SegmentPath = "hostTopNControlEntry" + "[hostTopNControlIndex='" + fmt.Sprintf("%v", hosttopncontrolentry.Hosttopncontrolindex) + "']"
+    hosttopncontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttopncontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttopncontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) SetFilter(yf yfilter.YFilter) { hosttopncontrolentry.YFilter = yf }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetGoName(yname string) string {
-    if yname == "hostTopNControlIndex" { return "Hosttopncontrolindex" }
-    if yname == "hostTopNHostIndex" { return "Hosttopnhostindex" }
-    if yname == "hostTopNRateBase" { return "Hosttopnratebase" }
-    if yname == "hostTopNTimeRemaining" { return "Hosttopntimeremaining" }
-    if yname == "hostTopNDuration" { return "Hosttopnduration" }
-    if yname == "hostTopNRequestedSize" { return "Hosttopnrequestedsize" }
-    if yname == "hostTopNGrantedSize" { return "Hosttopngrantedsize" }
-    if yname == "hostTopNStartTime" { return "Hosttopnstarttime" }
-    if yname == "hostTopNOwner" { return "Hosttopnowner" }
-    if yname == "hostTopNStatus" { return "Hosttopnstatus" }
-    return ""
+    hosttopncontrolentry.EntityData.Children = make(map[string]types.YChild)
+    hosttopncontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosttopncontrolentry.EntityData.Leafs["hostTopNControlIndex"] = types.YLeaf{"Hosttopncontrolindex", hosttopncontrolentry.Hosttopncontrolindex}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNHostIndex"] = types.YLeaf{"Hosttopnhostindex", hosttopncontrolentry.Hosttopnhostindex}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNRateBase"] = types.YLeaf{"Hosttopnratebase", hosttopncontrolentry.Hosttopnratebase}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNTimeRemaining"] = types.YLeaf{"Hosttopntimeremaining", hosttopncontrolentry.Hosttopntimeremaining}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNDuration"] = types.YLeaf{"Hosttopnduration", hosttopncontrolentry.Hosttopnduration}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNRequestedSize"] = types.YLeaf{"Hosttopnrequestedsize", hosttopncontrolentry.Hosttopnrequestedsize}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNGrantedSize"] = types.YLeaf{"Hosttopngrantedsize", hosttopncontrolentry.Hosttopngrantedsize}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNStartTime"] = types.YLeaf{"Hosttopnstarttime", hosttopncontrolentry.Hosttopnstarttime}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNOwner"] = types.YLeaf{"Hosttopnowner", hosttopncontrolentry.Hosttopnowner}
+    hosttopncontrolentry.EntityData.Leafs["hostTopNStatus"] = types.YLeaf{"Hosttopnstatus", hosttopncontrolentry.Hosttopnstatus}
+    return &(hosttopncontrolentry.EntityData)
 }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetSegmentPath() string {
-    return "hostTopNControlEntry" + "[hostTopNControlIndex='" + fmt.Sprintf("%v", hosttopncontrolentry.Hosttopncontrolindex) + "']"
-}
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hostTopNControlIndex"] = hosttopncontrolentry.Hosttopncontrolindex
-    leafs["hostTopNHostIndex"] = hosttopncontrolentry.Hosttopnhostindex
-    leafs["hostTopNRateBase"] = hosttopncontrolentry.Hosttopnratebase
-    leafs["hostTopNTimeRemaining"] = hosttopncontrolentry.Hosttopntimeremaining
-    leafs["hostTopNDuration"] = hosttopncontrolentry.Hosttopnduration
-    leafs["hostTopNRequestedSize"] = hosttopncontrolentry.Hosttopnrequestedsize
-    leafs["hostTopNGrantedSize"] = hosttopncontrolentry.Hosttopngrantedsize
-    leafs["hostTopNStartTime"] = hosttopncontrolentry.Hosttopnstarttime
-    leafs["hostTopNOwner"] = hosttopncontrolentry.Hosttopnowner
-    leafs["hostTopNStatus"] = hosttopncontrolentry.Hosttopnstatus
-    return leafs
-}
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetYangName() string { return "hostTopNControlEntry" }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) SetParent(parent types.Entity) { hosttopncontrolentry.parent = parent }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetParent() types.Entity { return hosttopncontrolentry.parent }
-
-func (hosttopncontrolentry *RMONMIB_Hosttopncontroltable_Hosttopncontrolentry) GetParentYangName() string { return "hostTopNControlTable" }
 
 // RMONMIB_Hosttopncontroltable_Hosttopncontrolentry_Hosttopnratebase represents hostTopNStatus object is equal to valid(1).
 type RMONMIB_Hosttopncontroltable_Hosttopncontrolentry_Hosttopnratebase string
@@ -2256,7 +1516,7 @@ const (
 // RMONMIB_Hosttopntable
 // A list of top N host entries.
 type RMONMIB_Hosttopntable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of statistics for a host that is part of a top N report.  For
@@ -2266,70 +1526,31 @@ type RMONMIB_Hosttopntable struct {
     Hosttopnentry []RMONMIB_Hosttopntable_Hosttopnentry
 }
 
-func (hosttopntable *RMONMIB_Hosttopntable) GetFilter() yfilter.YFilter { return hosttopntable.YFilter }
+func (hosttopntable *RMONMIB_Hosttopntable) GetEntityData() *types.CommonEntityData {
+    hosttopntable.EntityData.YFilter = hosttopntable.YFilter
+    hosttopntable.EntityData.YangName = "hostTopNTable"
+    hosttopntable.EntityData.BundleName = "cisco_ios_xe"
+    hosttopntable.EntityData.ParentYangName = "RMON-MIB"
+    hosttopntable.EntityData.SegmentPath = "hostTopNTable"
+    hosttopntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttopntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttopntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttopntable *RMONMIB_Hosttopntable) SetFilter(yf yfilter.YFilter) { hosttopntable.YFilter = yf }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetGoName(yname string) string {
-    if yname == "hostTopNEntry" { return "Hosttopnentry" }
-    return ""
-}
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetSegmentPath() string {
-    return "hostTopNTable"
-}
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hostTopNEntry" {
-        for _, c := range hosttopntable.Hosttopnentry {
-            if hosttopntable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Hosttopntable_Hosttopnentry{}
-        hosttopntable.Hosttopnentry = append(hosttopntable.Hosttopnentry, child)
-        return &hosttopntable.Hosttopnentry[len(hosttopntable.Hosttopnentry)-1]
-    }
-    return nil
-}
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hosttopntable.EntityData.Children = make(map[string]types.YChild)
+    hosttopntable.EntityData.Children["hostTopNEntry"] = types.YChild{"Hosttopnentry", nil}
     for i := range hosttopntable.Hosttopnentry {
-        children[hosttopntable.Hosttopnentry[i].GetSegmentPath()] = &hosttopntable.Hosttopnentry[i]
+        hosttopntable.EntityData.Children[types.GetSegmentPath(&hosttopntable.Hosttopnentry[i])] = types.YChild{"Hosttopnentry", &hosttopntable.Hosttopnentry[i]}
     }
-    return children
+    hosttopntable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hosttopntable.EntityData)
 }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetYangName() string { return "hostTopNTable" }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttopntable *RMONMIB_Hosttopntable) SetParent(parent types.Entity) { hosttopntable.parent = parent }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetParent() types.Entity { return hosttopntable.parent }
-
-func (hosttopntable *RMONMIB_Hosttopntable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Hosttopntable_Hosttopnentry
 // A set of statistics for a host that is part of a top N
 // report.  For example, an instance of the hostTopNRate
 // object might be named hostTopNRate.3.10
 type RMONMIB_Hosttopntable_Hosttopnentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object identifies the top N report of which
@@ -2358,63 +1579,30 @@ type RMONMIB_Hosttopntable_Hosttopnentry struct {
     Hosttopnrate interface{}
 }
 
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetFilter() yfilter.YFilter { return hosttopnentry.YFilter }
+func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetEntityData() *types.CommonEntityData {
+    hosttopnentry.EntityData.YFilter = hosttopnentry.YFilter
+    hosttopnentry.EntityData.YangName = "hostTopNEntry"
+    hosttopnentry.EntityData.BundleName = "cisco_ios_xe"
+    hosttopnentry.EntityData.ParentYangName = "hostTopNTable"
+    hosttopnentry.EntityData.SegmentPath = "hostTopNEntry" + "[hostTopNReport='" + fmt.Sprintf("%v", hosttopnentry.Hosttopnreport) + "']" + "[hostTopNIndex='" + fmt.Sprintf("%v", hosttopnentry.Hosttopnindex) + "']"
+    hosttopnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    hosttopnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    hosttopnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) SetFilter(yf yfilter.YFilter) { hosttopnentry.YFilter = yf }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetGoName(yname string) string {
-    if yname == "hostTopNReport" { return "Hosttopnreport" }
-    if yname == "hostTopNIndex" { return "Hosttopnindex" }
-    if yname == "hostTopNAddress" { return "Hosttopnaddress" }
-    if yname == "hostTopNRate" { return "Hosttopnrate" }
-    return ""
+    hosttopnentry.EntityData.Children = make(map[string]types.YChild)
+    hosttopnentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    hosttopnentry.EntityData.Leafs["hostTopNReport"] = types.YLeaf{"Hosttopnreport", hosttopnentry.Hosttopnreport}
+    hosttopnentry.EntityData.Leafs["hostTopNIndex"] = types.YLeaf{"Hosttopnindex", hosttopnentry.Hosttopnindex}
+    hosttopnentry.EntityData.Leafs["hostTopNAddress"] = types.YLeaf{"Hosttopnaddress", hosttopnentry.Hosttopnaddress}
+    hosttopnentry.EntityData.Leafs["hostTopNRate"] = types.YLeaf{"Hosttopnrate", hosttopnentry.Hosttopnrate}
+    return &(hosttopnentry.EntityData)
 }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetSegmentPath() string {
-    return "hostTopNEntry" + "[hostTopNReport='" + fmt.Sprintf("%v", hosttopnentry.Hosttopnreport) + "']" + "[hostTopNIndex='" + fmt.Sprintf("%v", hosttopnentry.Hosttopnindex) + "']"
-}
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hostTopNReport"] = hosttopnentry.Hosttopnreport
-    leafs["hostTopNIndex"] = hosttopnentry.Hosttopnindex
-    leafs["hostTopNAddress"] = hosttopnentry.Hosttopnaddress
-    leafs["hostTopNRate"] = hosttopnentry.Hosttopnrate
-    return leafs
-}
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetYangName() string { return "hostTopNEntry" }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) SetParent(parent types.Entity) { hosttopnentry.parent = parent }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetParent() types.Entity { return hosttopnentry.parent }
-
-func (hosttopnentry *RMONMIB_Hosttopntable_Hosttopnentry) GetParentYangName() string { return "hostTopNTable" }
 
 // RMONMIB_Matrixcontroltable
 // A list of information entries for the
 // traffic matrix on each interface.
 type RMONMIB_Matrixcontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a traffic matrix on a particular interface.  For example,
@@ -2424,63 +1612,24 @@ type RMONMIB_Matrixcontroltable struct {
     Matrixcontrolentry []RMONMIB_Matrixcontroltable_Matrixcontrolentry
 }
 
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetFilter() yfilter.YFilter { return matrixcontroltable.YFilter }
+func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetEntityData() *types.CommonEntityData {
+    matrixcontroltable.EntityData.YFilter = matrixcontroltable.YFilter
+    matrixcontroltable.EntityData.YangName = "matrixControlTable"
+    matrixcontroltable.EntityData.BundleName = "cisco_ios_xe"
+    matrixcontroltable.EntityData.ParentYangName = "RMON-MIB"
+    matrixcontroltable.EntityData.SegmentPath = "matrixControlTable"
+    matrixcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    matrixcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    matrixcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) SetFilter(yf yfilter.YFilter) { matrixcontroltable.YFilter = yf }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetGoName(yname string) string {
-    if yname == "matrixControlEntry" { return "Matrixcontrolentry" }
-    return ""
-}
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetSegmentPath() string {
-    return "matrixControlTable"
-}
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "matrixControlEntry" {
-        for _, c := range matrixcontroltable.Matrixcontrolentry {
-            if matrixcontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Matrixcontroltable_Matrixcontrolentry{}
-        matrixcontroltable.Matrixcontrolentry = append(matrixcontroltable.Matrixcontrolentry, child)
-        return &matrixcontroltable.Matrixcontrolentry[len(matrixcontroltable.Matrixcontrolentry)-1]
-    }
-    return nil
-}
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    matrixcontroltable.EntityData.Children = make(map[string]types.YChild)
+    matrixcontroltable.EntityData.Children["matrixControlEntry"] = types.YChild{"Matrixcontrolentry", nil}
     for i := range matrixcontroltable.Matrixcontrolentry {
-        children[matrixcontroltable.Matrixcontrolentry[i].GetSegmentPath()] = &matrixcontroltable.Matrixcontrolentry[i]
+        matrixcontroltable.EntityData.Children[types.GetSegmentPath(&matrixcontroltable.Matrixcontrolentry[i])] = types.YChild{"Matrixcontrolentry", &matrixcontroltable.Matrixcontrolentry[i]}
     }
-    return children
+    matrixcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(matrixcontroltable.EntityData)
 }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetYangName() string { return "matrixControlTable" }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) SetParent(parent types.Entity) { matrixcontroltable.parent = parent }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetParent() types.Entity { return matrixcontroltable.parent }
-
-func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Matrixcontroltable_Matrixcontrolentry
 // Information about a traffic matrix on a particular
@@ -2488,7 +1637,7 @@ func (matrixcontroltable *RMONMIB_Matrixcontroltable) GetParentYangName() string
 // matrixControlLastDeleteTime object might be named
 // matrixControlLastDeleteTime.1
 type RMONMIB_Matrixcontroltable_Matrixcontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -2512,7 +1661,8 @@ type RMONMIB_Matrixcontroltable_Matrixcontrolentry struct {
     // such knowledge of the change, it is recommended that it invalidate this
     // entry.  This object may not be modified if the associated
     // matrixControlStatus object is equal to valid(1). The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Matrixcontroldatasource interface{}
 
     // The number of matrixSDEntries in the matrixSDTable for this interface. 
@@ -2553,71 +1703,34 @@ type RMONMIB_Matrixcontroltable_Matrixcontrolentry struct {
     Matrixcontrolcreatetime interface{}
 }
 
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetFilter() yfilter.YFilter { return matrixcontrolentry.YFilter }
+func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetEntityData() *types.CommonEntityData {
+    matrixcontrolentry.EntityData.YFilter = matrixcontrolentry.YFilter
+    matrixcontrolentry.EntityData.YangName = "matrixControlEntry"
+    matrixcontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    matrixcontrolentry.EntityData.ParentYangName = "matrixControlTable"
+    matrixcontrolentry.EntityData.SegmentPath = "matrixControlEntry" + "[matrixControlIndex='" + fmt.Sprintf("%v", matrixcontrolentry.Matrixcontrolindex) + "']"
+    matrixcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    matrixcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    matrixcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) SetFilter(yf yfilter.YFilter) { matrixcontrolentry.YFilter = yf }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetGoName(yname string) string {
-    if yname == "matrixControlIndex" { return "Matrixcontrolindex" }
-    if yname == "matrixControlDataSource" { return "Matrixcontroldatasource" }
-    if yname == "matrixControlTableSize" { return "Matrixcontroltablesize" }
-    if yname == "matrixControlLastDeleteTime" { return "Matrixcontrollastdeletetime" }
-    if yname == "matrixControlOwner" { return "Matrixcontrolowner" }
-    if yname == "matrixControlStatus" { return "Matrixcontrolstatus" }
-    if yname == "matrixControlDroppedFrames" { return "Matrixcontroldroppedframes" }
-    if yname == "matrixControlCreateTime" { return "Matrixcontrolcreatetime" }
-    return ""
+    matrixcontrolentry.EntityData.Children = make(map[string]types.YChild)
+    matrixcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    matrixcontrolentry.EntityData.Leafs["matrixControlIndex"] = types.YLeaf{"Matrixcontrolindex", matrixcontrolentry.Matrixcontrolindex}
+    matrixcontrolentry.EntityData.Leafs["matrixControlDataSource"] = types.YLeaf{"Matrixcontroldatasource", matrixcontrolentry.Matrixcontroldatasource}
+    matrixcontrolentry.EntityData.Leafs["matrixControlTableSize"] = types.YLeaf{"Matrixcontroltablesize", matrixcontrolentry.Matrixcontroltablesize}
+    matrixcontrolentry.EntityData.Leafs["matrixControlLastDeleteTime"] = types.YLeaf{"Matrixcontrollastdeletetime", matrixcontrolentry.Matrixcontrollastdeletetime}
+    matrixcontrolentry.EntityData.Leafs["matrixControlOwner"] = types.YLeaf{"Matrixcontrolowner", matrixcontrolentry.Matrixcontrolowner}
+    matrixcontrolentry.EntityData.Leafs["matrixControlStatus"] = types.YLeaf{"Matrixcontrolstatus", matrixcontrolentry.Matrixcontrolstatus}
+    matrixcontrolentry.EntityData.Leafs["matrixControlDroppedFrames"] = types.YLeaf{"Matrixcontroldroppedframes", matrixcontrolentry.Matrixcontroldroppedframes}
+    matrixcontrolentry.EntityData.Leafs["matrixControlCreateTime"] = types.YLeaf{"Matrixcontrolcreatetime", matrixcontrolentry.Matrixcontrolcreatetime}
+    return &(matrixcontrolentry.EntityData)
 }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetSegmentPath() string {
-    return "matrixControlEntry" + "[matrixControlIndex='" + fmt.Sprintf("%v", matrixcontrolentry.Matrixcontrolindex) + "']"
-}
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["matrixControlIndex"] = matrixcontrolentry.Matrixcontrolindex
-    leafs["matrixControlDataSource"] = matrixcontrolentry.Matrixcontroldatasource
-    leafs["matrixControlTableSize"] = matrixcontrolentry.Matrixcontroltablesize
-    leafs["matrixControlLastDeleteTime"] = matrixcontrolentry.Matrixcontrollastdeletetime
-    leafs["matrixControlOwner"] = matrixcontrolentry.Matrixcontrolowner
-    leafs["matrixControlStatus"] = matrixcontrolentry.Matrixcontrolstatus
-    leafs["matrixControlDroppedFrames"] = matrixcontrolentry.Matrixcontroldroppedframes
-    leafs["matrixControlCreateTime"] = matrixcontrolentry.Matrixcontrolcreatetime
-    return leafs
-}
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetYangName() string { return "matrixControlEntry" }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) SetParent(parent types.Entity) { matrixcontrolentry.parent = parent }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetParent() types.Entity { return matrixcontrolentry.parent }
-
-func (matrixcontrolentry *RMONMIB_Matrixcontroltable_Matrixcontrolentry) GetParentYangName() string { return "matrixControlTable" }
 
 // RMONMIB_Matrixsdtable
 // A list of traffic matrix entries indexed by
 // source and destination MAC address.
 type RMONMIB_Matrixsdtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for communications between two addresses on a
@@ -2627,63 +1740,24 @@ type RMONMIB_Matrixsdtable struct {
     Matrixsdentry []RMONMIB_Matrixsdtable_Matrixsdentry
 }
 
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetFilter() yfilter.YFilter { return matrixsdtable.YFilter }
+func (matrixsdtable *RMONMIB_Matrixsdtable) GetEntityData() *types.CommonEntityData {
+    matrixsdtable.EntityData.YFilter = matrixsdtable.YFilter
+    matrixsdtable.EntityData.YangName = "matrixSDTable"
+    matrixsdtable.EntityData.BundleName = "cisco_ios_xe"
+    matrixsdtable.EntityData.ParentYangName = "RMON-MIB"
+    matrixsdtable.EntityData.SegmentPath = "matrixSDTable"
+    matrixsdtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    matrixsdtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    matrixsdtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (matrixsdtable *RMONMIB_Matrixsdtable) SetFilter(yf yfilter.YFilter) { matrixsdtable.YFilter = yf }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetGoName(yname string) string {
-    if yname == "matrixSDEntry" { return "Matrixsdentry" }
-    return ""
-}
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetSegmentPath() string {
-    return "matrixSDTable"
-}
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "matrixSDEntry" {
-        for _, c := range matrixsdtable.Matrixsdentry {
-            if matrixsdtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Matrixsdtable_Matrixsdentry{}
-        matrixsdtable.Matrixsdentry = append(matrixsdtable.Matrixsdentry, child)
-        return &matrixsdtable.Matrixsdentry[len(matrixsdtable.Matrixsdentry)-1]
-    }
-    return nil
-}
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    matrixsdtable.EntityData.Children = make(map[string]types.YChild)
+    matrixsdtable.EntityData.Children["matrixSDEntry"] = types.YChild{"Matrixsdentry", nil}
     for i := range matrixsdtable.Matrixsdentry {
-        children[matrixsdtable.Matrixsdentry[i].GetSegmentPath()] = &matrixsdtable.Matrixsdentry[i]
+        matrixsdtable.EntityData.Children[types.GetSegmentPath(&matrixsdtable.Matrixsdentry[i])] = types.YChild{"Matrixsdentry", &matrixsdtable.Matrixsdentry[i]}
     }
-    return children
+    matrixsdtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(matrixsdtable.EntityData)
 }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetYangName() string { return "matrixSDTable" }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) SetParent(parent types.Entity) { matrixsdtable.parent = parent }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetParent() types.Entity { return matrixsdtable.parent }
-
-func (matrixsdtable *RMONMIB_Matrixsdtable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Matrixsdtable_Matrixsdentry
 // A collection of statistics for communications between
@@ -2691,7 +1765,7 @@ func (matrixsdtable *RMONMIB_Matrixsdtable) GetParentYangName() string { return 
 // an instance of the matrixSDPkts object might be named
 // matrixSDPkts.1.6.8.0.32.27.3.176.6.8.0.32.10.8.113
 type RMONMIB_Matrixsdtable_Matrixsdentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The set of collected matrix statistics of which
@@ -2725,67 +1799,32 @@ type RMONMIB_Matrixsdtable_Matrixsdentry struct {
     Matrixsderrors interface{}
 }
 
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetFilter() yfilter.YFilter { return matrixsdentry.YFilter }
+func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetEntityData() *types.CommonEntityData {
+    matrixsdentry.EntityData.YFilter = matrixsdentry.YFilter
+    matrixsdentry.EntityData.YangName = "matrixSDEntry"
+    matrixsdentry.EntityData.BundleName = "cisco_ios_xe"
+    matrixsdentry.EntityData.ParentYangName = "matrixSDTable"
+    matrixsdentry.EntityData.SegmentPath = "matrixSDEntry" + "[matrixSDIndex='" + fmt.Sprintf("%v", matrixsdentry.Matrixsdindex) + "']" + "[matrixSDSourceAddress='" + fmt.Sprintf("%v", matrixsdentry.Matrixsdsourceaddress) + "']" + "[matrixSDDestAddress='" + fmt.Sprintf("%v", matrixsdentry.Matrixsddestaddress) + "']"
+    matrixsdentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    matrixsdentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    matrixsdentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) SetFilter(yf yfilter.YFilter) { matrixsdentry.YFilter = yf }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetGoName(yname string) string {
-    if yname == "matrixSDIndex" { return "Matrixsdindex" }
-    if yname == "matrixSDSourceAddress" { return "Matrixsdsourceaddress" }
-    if yname == "matrixSDDestAddress" { return "Matrixsddestaddress" }
-    if yname == "matrixSDPkts" { return "Matrixsdpkts" }
-    if yname == "matrixSDOctets" { return "Matrixsdoctets" }
-    if yname == "matrixSDErrors" { return "Matrixsderrors" }
-    return ""
+    matrixsdentry.EntityData.Children = make(map[string]types.YChild)
+    matrixsdentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    matrixsdentry.EntityData.Leafs["matrixSDIndex"] = types.YLeaf{"Matrixsdindex", matrixsdentry.Matrixsdindex}
+    matrixsdentry.EntityData.Leafs["matrixSDSourceAddress"] = types.YLeaf{"Matrixsdsourceaddress", matrixsdentry.Matrixsdsourceaddress}
+    matrixsdentry.EntityData.Leafs["matrixSDDestAddress"] = types.YLeaf{"Matrixsddestaddress", matrixsdentry.Matrixsddestaddress}
+    matrixsdentry.EntityData.Leafs["matrixSDPkts"] = types.YLeaf{"Matrixsdpkts", matrixsdentry.Matrixsdpkts}
+    matrixsdentry.EntityData.Leafs["matrixSDOctets"] = types.YLeaf{"Matrixsdoctets", matrixsdentry.Matrixsdoctets}
+    matrixsdentry.EntityData.Leafs["matrixSDErrors"] = types.YLeaf{"Matrixsderrors", matrixsdentry.Matrixsderrors}
+    return &(matrixsdentry.EntityData)
 }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetSegmentPath() string {
-    return "matrixSDEntry" + "[matrixSDIndex='" + fmt.Sprintf("%v", matrixsdentry.Matrixsdindex) + "']" + "[matrixSDSourceAddress='" + fmt.Sprintf("%v", matrixsdentry.Matrixsdsourceaddress) + "']" + "[matrixSDDestAddress='" + fmt.Sprintf("%v", matrixsdentry.Matrixsddestaddress) + "']"
-}
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["matrixSDIndex"] = matrixsdentry.Matrixsdindex
-    leafs["matrixSDSourceAddress"] = matrixsdentry.Matrixsdsourceaddress
-    leafs["matrixSDDestAddress"] = matrixsdentry.Matrixsddestaddress
-    leafs["matrixSDPkts"] = matrixsdentry.Matrixsdpkts
-    leafs["matrixSDOctets"] = matrixsdentry.Matrixsdoctets
-    leafs["matrixSDErrors"] = matrixsdentry.Matrixsderrors
-    return leafs
-}
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetYangName() string { return "matrixSDEntry" }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) SetParent(parent types.Entity) { matrixsdentry.parent = parent }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetParent() types.Entity { return matrixsdentry.parent }
-
-func (matrixsdentry *RMONMIB_Matrixsdtable_Matrixsdentry) GetParentYangName() string { return "matrixSDTable" }
 
 // RMONMIB_Matrixdstable
 // A list of traffic matrix entries indexed by
 // destination and source MAC address.
 type RMONMIB_Matrixdstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for communications between two addresses on a
@@ -2795,63 +1834,24 @@ type RMONMIB_Matrixdstable struct {
     Matrixdsentry []RMONMIB_Matrixdstable_Matrixdsentry
 }
 
-func (matrixdstable *RMONMIB_Matrixdstable) GetFilter() yfilter.YFilter { return matrixdstable.YFilter }
+func (matrixdstable *RMONMIB_Matrixdstable) GetEntityData() *types.CommonEntityData {
+    matrixdstable.EntityData.YFilter = matrixdstable.YFilter
+    matrixdstable.EntityData.YangName = "matrixDSTable"
+    matrixdstable.EntityData.BundleName = "cisco_ios_xe"
+    matrixdstable.EntityData.ParentYangName = "RMON-MIB"
+    matrixdstable.EntityData.SegmentPath = "matrixDSTable"
+    matrixdstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    matrixdstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    matrixdstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (matrixdstable *RMONMIB_Matrixdstable) SetFilter(yf yfilter.YFilter) { matrixdstable.YFilter = yf }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetGoName(yname string) string {
-    if yname == "matrixDSEntry" { return "Matrixdsentry" }
-    return ""
-}
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetSegmentPath() string {
-    return "matrixDSTable"
-}
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "matrixDSEntry" {
-        for _, c := range matrixdstable.Matrixdsentry {
-            if matrixdstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Matrixdstable_Matrixdsentry{}
-        matrixdstable.Matrixdsentry = append(matrixdstable.Matrixdsentry, child)
-        return &matrixdstable.Matrixdsentry[len(matrixdstable.Matrixdsentry)-1]
-    }
-    return nil
-}
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    matrixdstable.EntityData.Children = make(map[string]types.YChild)
+    matrixdstable.EntityData.Children["matrixDSEntry"] = types.YChild{"Matrixdsentry", nil}
     for i := range matrixdstable.Matrixdsentry {
-        children[matrixdstable.Matrixdsentry[i].GetSegmentPath()] = &matrixdstable.Matrixdsentry[i]
+        matrixdstable.EntityData.Children[types.GetSegmentPath(&matrixdstable.Matrixdsentry[i])] = types.YChild{"Matrixdsentry", &matrixdstable.Matrixdsentry[i]}
     }
-    return children
+    matrixdstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(matrixdstable.EntityData)
 }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetYangName() string { return "matrixDSTable" }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (matrixdstable *RMONMIB_Matrixdstable) SetParent(parent types.Entity) { matrixdstable.parent = parent }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetParent() types.Entity { return matrixdstable.parent }
-
-func (matrixdstable *RMONMIB_Matrixdstable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Matrixdstable_Matrixdsentry
 // A collection of statistics for communications between
@@ -2859,7 +1859,7 @@ func (matrixdstable *RMONMIB_Matrixdstable) GetParentYangName() string { return 
 // an instance of the matrixSDPkts object might be named
 // matrixSDPkts.1.6.8.0.32.10.8.113.6.8.0.32.27.3.176
 type RMONMIB_Matrixdstable_Matrixdsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The set of collected matrix statistics of which
@@ -2893,66 +1893,31 @@ type RMONMIB_Matrixdstable_Matrixdsentry struct {
     Matrixdserrors interface{}
 }
 
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetFilter() yfilter.YFilter { return matrixdsentry.YFilter }
+func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetEntityData() *types.CommonEntityData {
+    matrixdsentry.EntityData.YFilter = matrixdsentry.YFilter
+    matrixdsentry.EntityData.YangName = "matrixDSEntry"
+    matrixdsentry.EntityData.BundleName = "cisco_ios_xe"
+    matrixdsentry.EntityData.ParentYangName = "matrixDSTable"
+    matrixdsentry.EntityData.SegmentPath = "matrixDSEntry" + "[matrixDSIndex='" + fmt.Sprintf("%v", matrixdsentry.Matrixdsindex) + "']" + "[matrixDSDestAddress='" + fmt.Sprintf("%v", matrixdsentry.Matrixdsdestaddress) + "']" + "[matrixDSSourceAddress='" + fmt.Sprintf("%v", matrixdsentry.Matrixdssourceaddress) + "']"
+    matrixdsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    matrixdsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    matrixdsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) SetFilter(yf yfilter.YFilter) { matrixdsentry.YFilter = yf }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetGoName(yname string) string {
-    if yname == "matrixDSIndex" { return "Matrixdsindex" }
-    if yname == "matrixDSDestAddress" { return "Matrixdsdestaddress" }
-    if yname == "matrixDSSourceAddress" { return "Matrixdssourceaddress" }
-    if yname == "matrixDSPkts" { return "Matrixdspkts" }
-    if yname == "matrixDSOctets" { return "Matrixdsoctets" }
-    if yname == "matrixDSErrors" { return "Matrixdserrors" }
-    return ""
+    matrixdsentry.EntityData.Children = make(map[string]types.YChild)
+    matrixdsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    matrixdsentry.EntityData.Leafs["matrixDSIndex"] = types.YLeaf{"Matrixdsindex", matrixdsentry.Matrixdsindex}
+    matrixdsentry.EntityData.Leafs["matrixDSDestAddress"] = types.YLeaf{"Matrixdsdestaddress", matrixdsentry.Matrixdsdestaddress}
+    matrixdsentry.EntityData.Leafs["matrixDSSourceAddress"] = types.YLeaf{"Matrixdssourceaddress", matrixdsentry.Matrixdssourceaddress}
+    matrixdsentry.EntityData.Leafs["matrixDSPkts"] = types.YLeaf{"Matrixdspkts", matrixdsentry.Matrixdspkts}
+    matrixdsentry.EntityData.Leafs["matrixDSOctets"] = types.YLeaf{"Matrixdsoctets", matrixdsentry.Matrixdsoctets}
+    matrixdsentry.EntityData.Leafs["matrixDSErrors"] = types.YLeaf{"Matrixdserrors", matrixdsentry.Matrixdserrors}
+    return &(matrixdsentry.EntityData)
 }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetSegmentPath() string {
-    return "matrixDSEntry" + "[matrixDSIndex='" + fmt.Sprintf("%v", matrixdsentry.Matrixdsindex) + "']" + "[matrixDSDestAddress='" + fmt.Sprintf("%v", matrixdsentry.Matrixdsdestaddress) + "']" + "[matrixDSSourceAddress='" + fmt.Sprintf("%v", matrixdsentry.Matrixdssourceaddress) + "']"
-}
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["matrixDSIndex"] = matrixdsentry.Matrixdsindex
-    leafs["matrixDSDestAddress"] = matrixdsentry.Matrixdsdestaddress
-    leafs["matrixDSSourceAddress"] = matrixdsentry.Matrixdssourceaddress
-    leafs["matrixDSPkts"] = matrixdsentry.Matrixdspkts
-    leafs["matrixDSOctets"] = matrixdsentry.Matrixdsoctets
-    leafs["matrixDSErrors"] = matrixdsentry.Matrixdserrors
-    return leafs
-}
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetYangName() string { return "matrixDSEntry" }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) SetParent(parent types.Entity) { matrixdsentry.parent = parent }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetParent() types.Entity { return matrixdsentry.parent }
-
-func (matrixdsentry *RMONMIB_Matrixdstable_Matrixdsentry) GetParentYangName() string { return "matrixDSTable" }
 
 // RMONMIB_Filtertable
 // A list of packet filter entries.
 type RMONMIB_Filtertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of parameters for a packet filter applied on a particular interface. 
@@ -2961,70 +1926,31 @@ type RMONMIB_Filtertable struct {
     Filterentry []RMONMIB_Filtertable_Filterentry
 }
 
-func (filtertable *RMONMIB_Filtertable) GetFilter() yfilter.YFilter { return filtertable.YFilter }
+func (filtertable *RMONMIB_Filtertable) GetEntityData() *types.CommonEntityData {
+    filtertable.EntityData.YFilter = filtertable.YFilter
+    filtertable.EntityData.YangName = "filterTable"
+    filtertable.EntityData.BundleName = "cisco_ios_xe"
+    filtertable.EntityData.ParentYangName = "RMON-MIB"
+    filtertable.EntityData.SegmentPath = "filterTable"
+    filtertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    filtertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    filtertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (filtertable *RMONMIB_Filtertable) SetFilter(yf yfilter.YFilter) { filtertable.YFilter = yf }
-
-func (filtertable *RMONMIB_Filtertable) GetGoName(yname string) string {
-    if yname == "filterEntry" { return "Filterentry" }
-    return ""
-}
-
-func (filtertable *RMONMIB_Filtertable) GetSegmentPath() string {
-    return "filterTable"
-}
-
-func (filtertable *RMONMIB_Filtertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "filterEntry" {
-        for _, c := range filtertable.Filterentry {
-            if filtertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Filtertable_Filterentry{}
-        filtertable.Filterentry = append(filtertable.Filterentry, child)
-        return &filtertable.Filterentry[len(filtertable.Filterentry)-1]
-    }
-    return nil
-}
-
-func (filtertable *RMONMIB_Filtertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    filtertable.EntityData.Children = make(map[string]types.YChild)
+    filtertable.EntityData.Children["filterEntry"] = types.YChild{"Filterentry", nil}
     for i := range filtertable.Filterentry {
-        children[filtertable.Filterentry[i].GetSegmentPath()] = &filtertable.Filterentry[i]
+        filtertable.EntityData.Children[types.GetSegmentPath(&filtertable.Filterentry[i])] = types.YChild{"Filterentry", &filtertable.Filterentry[i]}
     }
-    return children
+    filtertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(filtertable.EntityData)
 }
-
-func (filtertable *RMONMIB_Filtertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (filtertable *RMONMIB_Filtertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (filtertable *RMONMIB_Filtertable) GetYangName() string { return "filterTable" }
-
-func (filtertable *RMONMIB_Filtertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (filtertable *RMONMIB_Filtertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (filtertable *RMONMIB_Filtertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (filtertable *RMONMIB_Filtertable) SetParent(parent types.Entity) { filtertable.parent = parent }
-
-func (filtertable *RMONMIB_Filtertable) GetParent() types.Entity { return filtertable.parent }
-
-func (filtertable *RMONMIB_Filtertable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Filtertable_Filterentry
 // A set of parameters for a packet filter applied on a
 // particular interface.  As an example, an instance of the
 // filterPktData object might be named filterPktData.12
 type RMONMIB_Filtertable_Filterentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -3178,80 +2104,38 @@ type RMONMIB_Filtertable_Filterentry struct {
     Filterprotocoldirlocalindex interface{}
 }
 
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetFilter() yfilter.YFilter { return filterentry.YFilter }
+func (filterentry *RMONMIB_Filtertable_Filterentry) GetEntityData() *types.CommonEntityData {
+    filterentry.EntityData.YFilter = filterentry.YFilter
+    filterentry.EntityData.YangName = "filterEntry"
+    filterentry.EntityData.BundleName = "cisco_ios_xe"
+    filterentry.EntityData.ParentYangName = "filterTable"
+    filterentry.EntityData.SegmentPath = "filterEntry" + "[filterIndex='" + fmt.Sprintf("%v", filterentry.Filterindex) + "']"
+    filterentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    filterentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    filterentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (filterentry *RMONMIB_Filtertable_Filterentry) SetFilter(yf yfilter.YFilter) { filterentry.YFilter = yf }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetGoName(yname string) string {
-    if yname == "filterIndex" { return "Filterindex" }
-    if yname == "filterChannelIndex" { return "Filterchannelindex" }
-    if yname == "filterPktDataOffset" { return "Filterpktdataoffset" }
-    if yname == "filterPktData" { return "Filterpktdata" }
-    if yname == "filterPktDataMask" { return "Filterpktdatamask" }
-    if yname == "filterPktDataNotMask" { return "Filterpktdatanotmask" }
-    if yname == "filterPktStatus" { return "Filterpktstatus" }
-    if yname == "filterPktStatusMask" { return "Filterpktstatusmask" }
-    if yname == "filterPktStatusNotMask" { return "Filterpktstatusnotmask" }
-    if yname == "filterOwner" { return "Filterowner" }
-    if yname == "filterStatus" { return "Filterstatus" }
-    if yname == "filterProtocolDirDataLocalIndex" { return "Filterprotocoldirdatalocalindex" }
-    if yname == "filterProtocolDirLocalIndex" { return "Filterprotocoldirlocalindex" }
-    return ""
+    filterentry.EntityData.Children = make(map[string]types.YChild)
+    filterentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    filterentry.EntityData.Leafs["filterIndex"] = types.YLeaf{"Filterindex", filterentry.Filterindex}
+    filterentry.EntityData.Leafs["filterChannelIndex"] = types.YLeaf{"Filterchannelindex", filterentry.Filterchannelindex}
+    filterentry.EntityData.Leafs["filterPktDataOffset"] = types.YLeaf{"Filterpktdataoffset", filterentry.Filterpktdataoffset}
+    filterentry.EntityData.Leafs["filterPktData"] = types.YLeaf{"Filterpktdata", filterentry.Filterpktdata}
+    filterentry.EntityData.Leafs["filterPktDataMask"] = types.YLeaf{"Filterpktdatamask", filterentry.Filterpktdatamask}
+    filterentry.EntityData.Leafs["filterPktDataNotMask"] = types.YLeaf{"Filterpktdatanotmask", filterentry.Filterpktdatanotmask}
+    filterentry.EntityData.Leafs["filterPktStatus"] = types.YLeaf{"Filterpktstatus", filterentry.Filterpktstatus}
+    filterentry.EntityData.Leafs["filterPktStatusMask"] = types.YLeaf{"Filterpktstatusmask", filterentry.Filterpktstatusmask}
+    filterentry.EntityData.Leafs["filterPktStatusNotMask"] = types.YLeaf{"Filterpktstatusnotmask", filterentry.Filterpktstatusnotmask}
+    filterentry.EntityData.Leafs["filterOwner"] = types.YLeaf{"Filterowner", filterentry.Filterowner}
+    filterentry.EntityData.Leafs["filterStatus"] = types.YLeaf{"Filterstatus", filterentry.Filterstatus}
+    filterentry.EntityData.Leafs["filterProtocolDirDataLocalIndex"] = types.YLeaf{"Filterprotocoldirdatalocalindex", filterentry.Filterprotocoldirdatalocalindex}
+    filterentry.EntityData.Leafs["filterProtocolDirLocalIndex"] = types.YLeaf{"Filterprotocoldirlocalindex", filterentry.Filterprotocoldirlocalindex}
+    return &(filterentry.EntityData)
 }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetSegmentPath() string {
-    return "filterEntry" + "[filterIndex='" + fmt.Sprintf("%v", filterentry.Filterindex) + "']"
-}
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["filterIndex"] = filterentry.Filterindex
-    leafs["filterChannelIndex"] = filterentry.Filterchannelindex
-    leafs["filterPktDataOffset"] = filterentry.Filterpktdataoffset
-    leafs["filterPktData"] = filterentry.Filterpktdata
-    leafs["filterPktDataMask"] = filterentry.Filterpktdatamask
-    leafs["filterPktDataNotMask"] = filterentry.Filterpktdatanotmask
-    leafs["filterPktStatus"] = filterentry.Filterpktstatus
-    leafs["filterPktStatusMask"] = filterentry.Filterpktstatusmask
-    leafs["filterPktStatusNotMask"] = filterentry.Filterpktstatusnotmask
-    leafs["filterOwner"] = filterentry.Filterowner
-    leafs["filterStatus"] = filterentry.Filterstatus
-    leafs["filterProtocolDirDataLocalIndex"] = filterentry.Filterprotocoldirdatalocalindex
-    leafs["filterProtocolDirLocalIndex"] = filterentry.Filterprotocoldirlocalindex
-    return leafs
-}
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetYangName() string { return "filterEntry" }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) SetParent(parent types.Entity) { filterentry.parent = parent }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetParent() types.Entity { return filterentry.parent }
-
-func (filterentry *RMONMIB_Filtertable_Filterentry) GetParentYangName() string { return "filterTable" }
 
 // RMONMIB_Channeltable
 // A list of packet channel entries.
 type RMONMIB_Channeltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of parameters for a packet channel applied on a particular interface.
@@ -3260,70 +2144,31 @@ type RMONMIB_Channeltable struct {
     Channelentry []RMONMIB_Channeltable_Channelentry
 }
 
-func (channeltable *RMONMIB_Channeltable) GetFilter() yfilter.YFilter { return channeltable.YFilter }
+func (channeltable *RMONMIB_Channeltable) GetEntityData() *types.CommonEntityData {
+    channeltable.EntityData.YFilter = channeltable.YFilter
+    channeltable.EntityData.YangName = "channelTable"
+    channeltable.EntityData.BundleName = "cisco_ios_xe"
+    channeltable.EntityData.ParentYangName = "RMON-MIB"
+    channeltable.EntityData.SegmentPath = "channelTable"
+    channeltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    channeltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    channeltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (channeltable *RMONMIB_Channeltable) SetFilter(yf yfilter.YFilter) { channeltable.YFilter = yf }
-
-func (channeltable *RMONMIB_Channeltable) GetGoName(yname string) string {
-    if yname == "channelEntry" { return "Channelentry" }
-    return ""
-}
-
-func (channeltable *RMONMIB_Channeltable) GetSegmentPath() string {
-    return "channelTable"
-}
-
-func (channeltable *RMONMIB_Channeltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "channelEntry" {
-        for _, c := range channeltable.Channelentry {
-            if channeltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Channeltable_Channelentry{}
-        channeltable.Channelentry = append(channeltable.Channelentry, child)
-        return &channeltable.Channelentry[len(channeltable.Channelentry)-1]
-    }
-    return nil
-}
-
-func (channeltable *RMONMIB_Channeltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    channeltable.EntityData.Children = make(map[string]types.YChild)
+    channeltable.EntityData.Children["channelEntry"] = types.YChild{"Channelentry", nil}
     for i := range channeltable.Channelentry {
-        children[channeltable.Channelentry[i].GetSegmentPath()] = &channeltable.Channelentry[i]
+        channeltable.EntityData.Children[types.GetSegmentPath(&channeltable.Channelentry[i])] = types.YChild{"Channelentry", &channeltable.Channelentry[i]}
     }
-    return children
+    channeltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(channeltable.EntityData)
 }
-
-func (channeltable *RMONMIB_Channeltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (channeltable *RMONMIB_Channeltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (channeltable *RMONMIB_Channeltable) GetYangName() string { return "channelTable" }
-
-func (channeltable *RMONMIB_Channeltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (channeltable *RMONMIB_Channeltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (channeltable *RMONMIB_Channeltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (channeltable *RMONMIB_Channeltable) SetParent(parent types.Entity) { channeltable.parent = parent }
-
-func (channeltable *RMONMIB_Channeltable) GetParent() types.Entity { return channeltable.parent }
-
-func (channeltable *RMONMIB_Channeltable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Channeltable_Channelentry
 // A set of parameters for a packet channel applied on a
 // particular interface.  As an example, an instance of the
 // channelMatches object might be named channelMatches.3
 type RMONMIB_Channeltable_Channelentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -3450,77 +2295,34 @@ type RMONMIB_Channeltable_Channelentry struct {
     Channelcreatetime interface{}
 }
 
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetFilter() yfilter.YFilter { return channelentry.YFilter }
+func (channelentry *RMONMIB_Channeltable_Channelentry) GetEntityData() *types.CommonEntityData {
+    channelentry.EntityData.YFilter = channelentry.YFilter
+    channelentry.EntityData.YangName = "channelEntry"
+    channelentry.EntityData.BundleName = "cisco_ios_xe"
+    channelentry.EntityData.ParentYangName = "channelTable"
+    channelentry.EntityData.SegmentPath = "channelEntry" + "[channelIndex='" + fmt.Sprintf("%v", channelentry.Channelindex) + "']"
+    channelentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    channelentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    channelentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (channelentry *RMONMIB_Channeltable_Channelentry) SetFilter(yf yfilter.YFilter) { channelentry.YFilter = yf }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetGoName(yname string) string {
-    if yname == "channelIndex" { return "Channelindex" }
-    if yname == "channelIfIndex" { return "Channelifindex" }
-    if yname == "channelAcceptType" { return "Channelaccepttype" }
-    if yname == "channelDataControl" { return "Channeldatacontrol" }
-    if yname == "channelTurnOnEventIndex" { return "Channelturnoneventindex" }
-    if yname == "channelTurnOffEventIndex" { return "Channelturnoffeventindex" }
-    if yname == "channelEventIndex" { return "Channeleventindex" }
-    if yname == "channelEventStatus" { return "Channeleventstatus" }
-    if yname == "channelMatches" { return "Channelmatches" }
-    if yname == "channelDescription" { return "Channeldescription" }
-    if yname == "channelOwner" { return "Channelowner" }
-    if yname == "channelStatus" { return "Channelstatus" }
-    if yname == "channelDroppedFrames" { return "Channeldroppedframes" }
-    if yname == "channelCreateTime" { return "Channelcreatetime" }
-    return ""
+    channelentry.EntityData.Children = make(map[string]types.YChild)
+    channelentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    channelentry.EntityData.Leafs["channelIndex"] = types.YLeaf{"Channelindex", channelentry.Channelindex}
+    channelentry.EntityData.Leafs["channelIfIndex"] = types.YLeaf{"Channelifindex", channelentry.Channelifindex}
+    channelentry.EntityData.Leafs["channelAcceptType"] = types.YLeaf{"Channelaccepttype", channelentry.Channelaccepttype}
+    channelentry.EntityData.Leafs["channelDataControl"] = types.YLeaf{"Channeldatacontrol", channelentry.Channeldatacontrol}
+    channelentry.EntityData.Leafs["channelTurnOnEventIndex"] = types.YLeaf{"Channelturnoneventindex", channelentry.Channelturnoneventindex}
+    channelentry.EntityData.Leafs["channelTurnOffEventIndex"] = types.YLeaf{"Channelturnoffeventindex", channelentry.Channelturnoffeventindex}
+    channelentry.EntityData.Leafs["channelEventIndex"] = types.YLeaf{"Channeleventindex", channelentry.Channeleventindex}
+    channelentry.EntityData.Leafs["channelEventStatus"] = types.YLeaf{"Channeleventstatus", channelentry.Channeleventstatus}
+    channelentry.EntityData.Leafs["channelMatches"] = types.YLeaf{"Channelmatches", channelentry.Channelmatches}
+    channelentry.EntityData.Leafs["channelDescription"] = types.YLeaf{"Channeldescription", channelentry.Channeldescription}
+    channelentry.EntityData.Leafs["channelOwner"] = types.YLeaf{"Channelowner", channelentry.Channelowner}
+    channelentry.EntityData.Leafs["channelStatus"] = types.YLeaf{"Channelstatus", channelentry.Channelstatus}
+    channelentry.EntityData.Leafs["channelDroppedFrames"] = types.YLeaf{"Channeldroppedframes", channelentry.Channeldroppedframes}
+    channelentry.EntityData.Leafs["channelCreateTime"] = types.YLeaf{"Channelcreatetime", channelentry.Channelcreatetime}
+    return &(channelentry.EntityData)
 }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetSegmentPath() string {
-    return "channelEntry" + "[channelIndex='" + fmt.Sprintf("%v", channelentry.Channelindex) + "']"
-}
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["channelIndex"] = channelentry.Channelindex
-    leafs["channelIfIndex"] = channelentry.Channelifindex
-    leafs["channelAcceptType"] = channelentry.Channelaccepttype
-    leafs["channelDataControl"] = channelentry.Channeldatacontrol
-    leafs["channelTurnOnEventIndex"] = channelentry.Channelturnoneventindex
-    leafs["channelTurnOffEventIndex"] = channelentry.Channelturnoffeventindex
-    leafs["channelEventIndex"] = channelentry.Channeleventindex
-    leafs["channelEventStatus"] = channelentry.Channeleventstatus
-    leafs["channelMatches"] = channelentry.Channelmatches
-    leafs["channelDescription"] = channelentry.Channeldescription
-    leafs["channelOwner"] = channelentry.Channelowner
-    leafs["channelStatus"] = channelentry.Channelstatus
-    leafs["channelDroppedFrames"] = channelentry.Channeldroppedframes
-    leafs["channelCreateTime"] = channelentry.Channelcreatetime
-    return leafs
-}
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetYangName() string { return "channelEntry" }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) SetParent(parent types.Entity) { channelentry.parent = parent }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetParent() types.Entity { return channelentry.parent }
-
-func (channelentry *RMONMIB_Channeltable_Channelentry) GetParentYangName() string { return "channelTable" }
 
 // RMONMIB_Channeltable_Channelentry_Channelaccepttype represents channelStatus object is equal to valid(1).
 type RMONMIB_Channeltable_Channelentry_Channelaccepttype string
@@ -3554,7 +2356,7 @@ const (
 // RMONMIB_Buffercontroltable
 // A list of buffers control entries.
 type RMONMIB_Buffercontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of parameters that control the collection of a stream of packets that
@@ -3565,63 +2367,24 @@ type RMONMIB_Buffercontroltable struct {
     Buffercontrolentry []RMONMIB_Buffercontroltable_Buffercontrolentry
 }
 
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetFilter() yfilter.YFilter { return buffercontroltable.YFilter }
+func (buffercontroltable *RMONMIB_Buffercontroltable) GetEntityData() *types.CommonEntityData {
+    buffercontroltable.EntityData.YFilter = buffercontroltable.YFilter
+    buffercontroltable.EntityData.YangName = "bufferControlTable"
+    buffercontroltable.EntityData.BundleName = "cisco_ios_xe"
+    buffercontroltable.EntityData.ParentYangName = "RMON-MIB"
+    buffercontroltable.EntityData.SegmentPath = "bufferControlTable"
+    buffercontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    buffercontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    buffercontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (buffercontroltable *RMONMIB_Buffercontroltable) SetFilter(yf yfilter.YFilter) { buffercontroltable.YFilter = yf }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetGoName(yname string) string {
-    if yname == "bufferControlEntry" { return "Buffercontrolentry" }
-    return ""
-}
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetSegmentPath() string {
-    return "bufferControlTable"
-}
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bufferControlEntry" {
-        for _, c := range buffercontroltable.Buffercontrolentry {
-            if buffercontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Buffercontroltable_Buffercontrolentry{}
-        buffercontroltable.Buffercontrolentry = append(buffercontroltable.Buffercontrolentry, child)
-        return &buffercontroltable.Buffercontrolentry[len(buffercontroltable.Buffercontrolentry)-1]
-    }
-    return nil
-}
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    buffercontroltable.EntityData.Children = make(map[string]types.YChild)
+    buffercontroltable.EntityData.Children["bufferControlEntry"] = types.YChild{"Buffercontrolentry", nil}
     for i := range buffercontroltable.Buffercontrolentry {
-        children[buffercontroltable.Buffercontrolentry[i].GetSegmentPath()] = &buffercontroltable.Buffercontrolentry[i]
+        buffercontroltable.EntityData.Children[types.GetSegmentPath(&buffercontroltable.Buffercontrolentry[i])] = types.YChild{"Buffercontrolentry", &buffercontroltable.Buffercontrolentry[i]}
     }
-    return children
+    buffercontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(buffercontroltable.EntityData)
 }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetYangName() string { return "bufferControlTable" }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) SetParent(parent types.Entity) { buffercontroltable.parent = parent }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetParent() types.Entity { return buffercontroltable.parent }
-
-func (buffercontroltable *RMONMIB_Buffercontroltable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Buffercontroltable_Buffercontrolentry
 // A set of parameters that control the collection of a stream
@@ -3629,7 +2392,7 @@ func (buffercontroltable *RMONMIB_Buffercontroltable) GetParentYangName() string
 // instance of the bufferControlCaptureSliceSize object might
 // be named bufferControlCaptureSliceSize.3
 type RMONMIB_Buffercontroltable_Buffercontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -3753,75 +2516,33 @@ type RMONMIB_Buffercontroltable_Buffercontrolentry struct {
     Buffercontrolstatus interface{}
 }
 
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetFilter() yfilter.YFilter { return buffercontrolentry.YFilter }
+func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetEntityData() *types.CommonEntityData {
+    buffercontrolentry.EntityData.YFilter = buffercontrolentry.YFilter
+    buffercontrolentry.EntityData.YangName = "bufferControlEntry"
+    buffercontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    buffercontrolentry.EntityData.ParentYangName = "bufferControlTable"
+    buffercontrolentry.EntityData.SegmentPath = "bufferControlEntry" + "[bufferControlIndex='" + fmt.Sprintf("%v", buffercontrolentry.Buffercontrolindex) + "']"
+    buffercontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    buffercontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    buffercontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) SetFilter(yf yfilter.YFilter) { buffercontrolentry.YFilter = yf }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetGoName(yname string) string {
-    if yname == "bufferControlIndex" { return "Buffercontrolindex" }
-    if yname == "bufferControlChannelIndex" { return "Buffercontrolchannelindex" }
-    if yname == "bufferControlFullStatus" { return "Buffercontrolfullstatus" }
-    if yname == "bufferControlFullAction" { return "Buffercontrolfullaction" }
-    if yname == "bufferControlCaptureSliceSize" { return "Buffercontrolcaptureslicesize" }
-    if yname == "bufferControlDownloadSliceSize" { return "Buffercontroldownloadslicesize" }
-    if yname == "bufferControlDownloadOffset" { return "Buffercontroldownloadoffset" }
-    if yname == "bufferControlMaxOctetsRequested" { return "Buffercontrolmaxoctetsrequested" }
-    if yname == "bufferControlMaxOctetsGranted" { return "Buffercontrolmaxoctetsgranted" }
-    if yname == "bufferControlCapturedPackets" { return "Buffercontrolcapturedpackets" }
-    if yname == "bufferControlTurnOnTime" { return "Buffercontrolturnontime" }
-    if yname == "bufferControlOwner" { return "Buffercontrolowner" }
-    if yname == "bufferControlStatus" { return "Buffercontrolstatus" }
-    return ""
+    buffercontrolentry.EntityData.Children = make(map[string]types.YChild)
+    buffercontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    buffercontrolentry.EntityData.Leafs["bufferControlIndex"] = types.YLeaf{"Buffercontrolindex", buffercontrolentry.Buffercontrolindex}
+    buffercontrolentry.EntityData.Leafs["bufferControlChannelIndex"] = types.YLeaf{"Buffercontrolchannelindex", buffercontrolentry.Buffercontrolchannelindex}
+    buffercontrolentry.EntityData.Leafs["bufferControlFullStatus"] = types.YLeaf{"Buffercontrolfullstatus", buffercontrolentry.Buffercontrolfullstatus}
+    buffercontrolentry.EntityData.Leafs["bufferControlFullAction"] = types.YLeaf{"Buffercontrolfullaction", buffercontrolentry.Buffercontrolfullaction}
+    buffercontrolentry.EntityData.Leafs["bufferControlCaptureSliceSize"] = types.YLeaf{"Buffercontrolcaptureslicesize", buffercontrolentry.Buffercontrolcaptureslicesize}
+    buffercontrolentry.EntityData.Leafs["bufferControlDownloadSliceSize"] = types.YLeaf{"Buffercontroldownloadslicesize", buffercontrolentry.Buffercontroldownloadslicesize}
+    buffercontrolentry.EntityData.Leafs["bufferControlDownloadOffset"] = types.YLeaf{"Buffercontroldownloadoffset", buffercontrolentry.Buffercontroldownloadoffset}
+    buffercontrolentry.EntityData.Leafs["bufferControlMaxOctetsRequested"] = types.YLeaf{"Buffercontrolmaxoctetsrequested", buffercontrolentry.Buffercontrolmaxoctetsrequested}
+    buffercontrolentry.EntityData.Leafs["bufferControlMaxOctetsGranted"] = types.YLeaf{"Buffercontrolmaxoctetsgranted", buffercontrolentry.Buffercontrolmaxoctetsgranted}
+    buffercontrolentry.EntityData.Leafs["bufferControlCapturedPackets"] = types.YLeaf{"Buffercontrolcapturedpackets", buffercontrolentry.Buffercontrolcapturedpackets}
+    buffercontrolentry.EntityData.Leafs["bufferControlTurnOnTime"] = types.YLeaf{"Buffercontrolturnontime", buffercontrolentry.Buffercontrolturnontime}
+    buffercontrolentry.EntityData.Leafs["bufferControlOwner"] = types.YLeaf{"Buffercontrolowner", buffercontrolentry.Buffercontrolowner}
+    buffercontrolentry.EntityData.Leafs["bufferControlStatus"] = types.YLeaf{"Buffercontrolstatus", buffercontrolentry.Buffercontrolstatus}
+    return &(buffercontrolentry.EntityData)
 }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetSegmentPath() string {
-    return "bufferControlEntry" + "[bufferControlIndex='" + fmt.Sprintf("%v", buffercontrolentry.Buffercontrolindex) + "']"
-}
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bufferControlIndex"] = buffercontrolentry.Buffercontrolindex
-    leafs["bufferControlChannelIndex"] = buffercontrolentry.Buffercontrolchannelindex
-    leafs["bufferControlFullStatus"] = buffercontrolentry.Buffercontrolfullstatus
-    leafs["bufferControlFullAction"] = buffercontrolentry.Buffercontrolfullaction
-    leafs["bufferControlCaptureSliceSize"] = buffercontrolentry.Buffercontrolcaptureslicesize
-    leafs["bufferControlDownloadSliceSize"] = buffercontrolentry.Buffercontroldownloadslicesize
-    leafs["bufferControlDownloadOffset"] = buffercontrolentry.Buffercontroldownloadoffset
-    leafs["bufferControlMaxOctetsRequested"] = buffercontrolentry.Buffercontrolmaxoctetsrequested
-    leafs["bufferControlMaxOctetsGranted"] = buffercontrolentry.Buffercontrolmaxoctetsgranted
-    leafs["bufferControlCapturedPackets"] = buffercontrolentry.Buffercontrolcapturedpackets
-    leafs["bufferControlTurnOnTime"] = buffercontrolentry.Buffercontrolturnontime
-    leafs["bufferControlOwner"] = buffercontrolentry.Buffercontrolowner
-    leafs["bufferControlStatus"] = buffercontrolentry.Buffercontrolstatus
-    return leafs
-}
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetYangName() string { return "bufferControlEntry" }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) SetParent(parent types.Entity) { buffercontrolentry.parent = parent }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetParent() types.Entity { return buffercontrolentry.parent }
-
-func (buffercontrolentry *RMONMIB_Buffercontroltable_Buffercontrolentry) GetParentYangName() string { return "bufferControlTable" }
 
 // RMONMIB_Buffercontroltable_Buffercontrolentry_Buffercontrolfullaction represents packets.
 type RMONMIB_Buffercontroltable_Buffercontrolentry_Buffercontrolfullaction string
@@ -3844,7 +2565,7 @@ const (
 // RMONMIB_Capturebuffertable
 // A list of packets captured off of a channel.
 type RMONMIB_Capturebuffertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A packet captured off of an attached network.  As an example, an instance
@@ -3854,70 +2575,31 @@ type RMONMIB_Capturebuffertable struct {
     Capturebufferentry []RMONMIB_Capturebuffertable_Capturebufferentry
 }
 
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetFilter() yfilter.YFilter { return capturebuffertable.YFilter }
+func (capturebuffertable *RMONMIB_Capturebuffertable) GetEntityData() *types.CommonEntityData {
+    capturebuffertable.EntityData.YFilter = capturebuffertable.YFilter
+    capturebuffertable.EntityData.YangName = "captureBufferTable"
+    capturebuffertable.EntityData.BundleName = "cisco_ios_xe"
+    capturebuffertable.EntityData.ParentYangName = "RMON-MIB"
+    capturebuffertable.EntityData.SegmentPath = "captureBufferTable"
+    capturebuffertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    capturebuffertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    capturebuffertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (capturebuffertable *RMONMIB_Capturebuffertable) SetFilter(yf yfilter.YFilter) { capturebuffertable.YFilter = yf }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetGoName(yname string) string {
-    if yname == "captureBufferEntry" { return "Capturebufferentry" }
-    return ""
-}
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetSegmentPath() string {
-    return "captureBufferTable"
-}
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "captureBufferEntry" {
-        for _, c := range capturebuffertable.Capturebufferentry {
-            if capturebuffertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Capturebuffertable_Capturebufferentry{}
-        capturebuffertable.Capturebufferentry = append(capturebuffertable.Capturebufferentry, child)
-        return &capturebuffertable.Capturebufferentry[len(capturebuffertable.Capturebufferentry)-1]
-    }
-    return nil
-}
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    capturebuffertable.EntityData.Children = make(map[string]types.YChild)
+    capturebuffertable.EntityData.Children["captureBufferEntry"] = types.YChild{"Capturebufferentry", nil}
     for i := range capturebuffertable.Capturebufferentry {
-        children[capturebuffertable.Capturebufferentry[i].GetSegmentPath()] = &capturebuffertable.Capturebufferentry[i]
+        capturebuffertable.EntityData.Children[types.GetSegmentPath(&capturebuffertable.Capturebufferentry[i])] = types.YChild{"Capturebufferentry", &capturebuffertable.Capturebufferentry[i]}
     }
-    return children
+    capturebuffertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(capturebuffertable.EntityData)
 }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetYangName() string { return "captureBufferTable" }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) SetParent(parent types.Entity) { capturebuffertable.parent = parent }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetParent() types.Entity { return capturebuffertable.parent }
-
-func (capturebuffertable *RMONMIB_Capturebuffertable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Capturebuffertable_Capturebufferentry
 // A packet captured off of an attached network.  As an
 // example, an instance of the captureBufferPacketData
 // object might be named captureBufferPacketData.3.1783
 type RMONMIB_Capturebuffertable_Capturebufferentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the bufferControlEntry with which
@@ -3979,68 +2661,32 @@ type RMONMIB_Capturebuffertable_Capturebufferentry struct {
     Capturebufferpacketstatus interface{}
 }
 
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetFilter() yfilter.YFilter { return capturebufferentry.YFilter }
+func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetEntityData() *types.CommonEntityData {
+    capturebufferentry.EntityData.YFilter = capturebufferentry.YFilter
+    capturebufferentry.EntityData.YangName = "captureBufferEntry"
+    capturebufferentry.EntityData.BundleName = "cisco_ios_xe"
+    capturebufferentry.EntityData.ParentYangName = "captureBufferTable"
+    capturebufferentry.EntityData.SegmentPath = "captureBufferEntry" + "[captureBufferControlIndex='" + fmt.Sprintf("%v", capturebufferentry.Capturebuffercontrolindex) + "']" + "[captureBufferIndex='" + fmt.Sprintf("%v", capturebufferentry.Capturebufferindex) + "']"
+    capturebufferentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    capturebufferentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    capturebufferentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) SetFilter(yf yfilter.YFilter) { capturebufferentry.YFilter = yf }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetGoName(yname string) string {
-    if yname == "captureBufferControlIndex" { return "Capturebuffercontrolindex" }
-    if yname == "captureBufferIndex" { return "Capturebufferindex" }
-    if yname == "captureBufferPacketID" { return "Capturebufferpacketid" }
-    if yname == "captureBufferPacketData" { return "Capturebufferpacketdata" }
-    if yname == "captureBufferPacketLength" { return "Capturebufferpacketlength" }
-    if yname == "captureBufferPacketTime" { return "Capturebufferpackettime" }
-    if yname == "captureBufferPacketStatus" { return "Capturebufferpacketstatus" }
-    return ""
+    capturebufferentry.EntityData.Children = make(map[string]types.YChild)
+    capturebufferentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    capturebufferentry.EntityData.Leafs["captureBufferControlIndex"] = types.YLeaf{"Capturebuffercontrolindex", capturebufferentry.Capturebuffercontrolindex}
+    capturebufferentry.EntityData.Leafs["captureBufferIndex"] = types.YLeaf{"Capturebufferindex", capturebufferentry.Capturebufferindex}
+    capturebufferentry.EntityData.Leafs["captureBufferPacketID"] = types.YLeaf{"Capturebufferpacketid", capturebufferentry.Capturebufferpacketid}
+    capturebufferentry.EntityData.Leafs["captureBufferPacketData"] = types.YLeaf{"Capturebufferpacketdata", capturebufferentry.Capturebufferpacketdata}
+    capturebufferentry.EntityData.Leafs["captureBufferPacketLength"] = types.YLeaf{"Capturebufferpacketlength", capturebufferentry.Capturebufferpacketlength}
+    capturebufferentry.EntityData.Leafs["captureBufferPacketTime"] = types.YLeaf{"Capturebufferpackettime", capturebufferentry.Capturebufferpackettime}
+    capturebufferentry.EntityData.Leafs["captureBufferPacketStatus"] = types.YLeaf{"Capturebufferpacketstatus", capturebufferentry.Capturebufferpacketstatus}
+    return &(capturebufferentry.EntityData)
 }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetSegmentPath() string {
-    return "captureBufferEntry" + "[captureBufferControlIndex='" + fmt.Sprintf("%v", capturebufferentry.Capturebuffercontrolindex) + "']" + "[captureBufferIndex='" + fmt.Sprintf("%v", capturebufferentry.Capturebufferindex) + "']"
-}
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["captureBufferControlIndex"] = capturebufferentry.Capturebuffercontrolindex
-    leafs["captureBufferIndex"] = capturebufferentry.Capturebufferindex
-    leafs["captureBufferPacketID"] = capturebufferentry.Capturebufferpacketid
-    leafs["captureBufferPacketData"] = capturebufferentry.Capturebufferpacketdata
-    leafs["captureBufferPacketLength"] = capturebufferentry.Capturebufferpacketlength
-    leafs["captureBufferPacketTime"] = capturebufferentry.Capturebufferpackettime
-    leafs["captureBufferPacketStatus"] = capturebufferentry.Capturebufferpacketstatus
-    return leafs
-}
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetYangName() string { return "captureBufferEntry" }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) SetParent(parent types.Entity) { capturebufferentry.parent = parent }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetParent() types.Entity { return capturebufferentry.parent }
-
-func (capturebufferentry *RMONMIB_Capturebuffertable_Capturebufferentry) GetParentYangName() string { return "captureBufferTable" }
 
 // RMONMIB_Eventtable
 // A list of events to be generated.
 type RMONMIB_Eventtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of parameters that describe an event to be generated when certain
@@ -4050,63 +2696,24 @@ type RMONMIB_Eventtable struct {
     Evententry []RMONMIB_Eventtable_Evententry
 }
 
-func (eventtable *RMONMIB_Eventtable) GetFilter() yfilter.YFilter { return eventtable.YFilter }
+func (eventtable *RMONMIB_Eventtable) GetEntityData() *types.CommonEntityData {
+    eventtable.EntityData.YFilter = eventtable.YFilter
+    eventtable.EntityData.YangName = "eventTable"
+    eventtable.EntityData.BundleName = "cisco_ios_xe"
+    eventtable.EntityData.ParentYangName = "RMON-MIB"
+    eventtable.EntityData.SegmentPath = "eventTable"
+    eventtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    eventtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    eventtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (eventtable *RMONMIB_Eventtable) SetFilter(yf yfilter.YFilter) { eventtable.YFilter = yf }
-
-func (eventtable *RMONMIB_Eventtable) GetGoName(yname string) string {
-    if yname == "eventEntry" { return "Evententry" }
-    return ""
-}
-
-func (eventtable *RMONMIB_Eventtable) GetSegmentPath() string {
-    return "eventTable"
-}
-
-func (eventtable *RMONMIB_Eventtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "eventEntry" {
-        for _, c := range eventtable.Evententry {
-            if eventtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Eventtable_Evententry{}
-        eventtable.Evententry = append(eventtable.Evententry, child)
-        return &eventtable.Evententry[len(eventtable.Evententry)-1]
-    }
-    return nil
-}
-
-func (eventtable *RMONMIB_Eventtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    eventtable.EntityData.Children = make(map[string]types.YChild)
+    eventtable.EntityData.Children["eventEntry"] = types.YChild{"Evententry", nil}
     for i := range eventtable.Evententry {
-        children[eventtable.Evententry[i].GetSegmentPath()] = &eventtable.Evententry[i]
+        eventtable.EntityData.Children[types.GetSegmentPath(&eventtable.Evententry[i])] = types.YChild{"Evententry", &eventtable.Evententry[i]}
     }
-    return children
+    eventtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(eventtable.EntityData)
 }
-
-func (eventtable *RMONMIB_Eventtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (eventtable *RMONMIB_Eventtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (eventtable *RMONMIB_Eventtable) GetYangName() string { return "eventTable" }
-
-func (eventtable *RMONMIB_Eventtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (eventtable *RMONMIB_Eventtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (eventtable *RMONMIB_Eventtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (eventtable *RMONMIB_Eventtable) SetParent(parent types.Entity) { eventtable.parent = parent }
-
-func (eventtable *RMONMIB_Eventtable) GetParent() types.Entity { return eventtable.parent }
-
-func (eventtable *RMONMIB_Eventtable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Eventtable_Evententry
 // A set of parameters that describe an event to be generated
@@ -4114,7 +2721,7 @@ func (eventtable *RMONMIB_Eventtable) GetParentYangName() string { return "RMON-
 // of the eventLastTimeSent object might be named
 // eventLastTimeSent.6
 type RMONMIB_Eventtable_Evententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index that uniquely identifies an entry in the
@@ -4156,63 +2763,27 @@ type RMONMIB_Eventtable_Evententry struct {
     Eventstatus interface{}
 }
 
-func (evententry *RMONMIB_Eventtable_Evententry) GetFilter() yfilter.YFilter { return evententry.YFilter }
+func (evententry *RMONMIB_Eventtable_Evententry) GetEntityData() *types.CommonEntityData {
+    evententry.EntityData.YFilter = evententry.YFilter
+    evententry.EntityData.YangName = "eventEntry"
+    evententry.EntityData.BundleName = "cisco_ios_xe"
+    evententry.EntityData.ParentYangName = "eventTable"
+    evententry.EntityData.SegmentPath = "eventEntry" + "[eventIndex='" + fmt.Sprintf("%v", evententry.Eventindex) + "']"
+    evententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    evententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    evententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (evententry *RMONMIB_Eventtable_Evententry) SetFilter(yf yfilter.YFilter) { evententry.YFilter = yf }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetGoName(yname string) string {
-    if yname == "eventIndex" { return "Eventindex" }
-    if yname == "eventDescription" { return "Eventdescription" }
-    if yname == "eventType" { return "Eventtype" }
-    if yname == "eventCommunity" { return "Eventcommunity" }
-    if yname == "eventLastTimeSent" { return "Eventlasttimesent" }
-    if yname == "eventOwner" { return "Eventowner" }
-    if yname == "eventStatus" { return "Eventstatus" }
-    return ""
+    evententry.EntityData.Children = make(map[string]types.YChild)
+    evententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    evententry.EntityData.Leafs["eventIndex"] = types.YLeaf{"Eventindex", evententry.Eventindex}
+    evententry.EntityData.Leafs["eventDescription"] = types.YLeaf{"Eventdescription", evententry.Eventdescription}
+    evententry.EntityData.Leafs["eventType"] = types.YLeaf{"Eventtype", evententry.Eventtype}
+    evententry.EntityData.Leafs["eventCommunity"] = types.YLeaf{"Eventcommunity", evententry.Eventcommunity}
+    evententry.EntityData.Leafs["eventLastTimeSent"] = types.YLeaf{"Eventlasttimesent", evententry.Eventlasttimesent}
+    evententry.EntityData.Leafs["eventOwner"] = types.YLeaf{"Eventowner", evententry.Eventowner}
+    evententry.EntityData.Leafs["eventStatus"] = types.YLeaf{"Eventstatus", evententry.Eventstatus}
+    return &(evententry.EntityData)
 }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetSegmentPath() string {
-    return "eventEntry" + "[eventIndex='" + fmt.Sprintf("%v", evententry.Eventindex) + "']"
-}
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["eventIndex"] = evententry.Eventindex
-    leafs["eventDescription"] = evententry.Eventdescription
-    leafs["eventType"] = evententry.Eventtype
-    leafs["eventCommunity"] = evententry.Eventcommunity
-    leafs["eventLastTimeSent"] = evententry.Eventlasttimesent
-    leafs["eventOwner"] = evententry.Eventowner
-    leafs["eventStatus"] = evententry.Eventstatus
-    return leafs
-}
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetYangName() string { return "eventEntry" }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (evententry *RMONMIB_Eventtable_Evententry) SetParent(parent types.Entity) { evententry.parent = parent }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetParent() types.Entity { return evententry.parent }
-
-func (evententry *RMONMIB_Eventtable_Evententry) GetParentYangName() string { return "eventTable" }
 
 // RMONMIB_Eventtable_Evententry_Eventtype represents management stations.
 type RMONMIB_Eventtable_Evententry_Eventtype string
@@ -4230,7 +2801,7 @@ const (
 // RMONMIB_Logtable
 // A list of events that have been logged.
 type RMONMIB_Logtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A set of data describing an event that has been logged.  For example, an
@@ -4239,70 +2810,31 @@ type RMONMIB_Logtable struct {
     Logentry []RMONMIB_Logtable_Logentry
 }
 
-func (logtable *RMONMIB_Logtable) GetFilter() yfilter.YFilter { return logtable.YFilter }
+func (logtable *RMONMIB_Logtable) GetEntityData() *types.CommonEntityData {
+    logtable.EntityData.YFilter = logtable.YFilter
+    logtable.EntityData.YangName = "logTable"
+    logtable.EntityData.BundleName = "cisco_ios_xe"
+    logtable.EntityData.ParentYangName = "RMON-MIB"
+    logtable.EntityData.SegmentPath = "logTable"
+    logtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    logtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    logtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (logtable *RMONMIB_Logtable) SetFilter(yf yfilter.YFilter) { logtable.YFilter = yf }
-
-func (logtable *RMONMIB_Logtable) GetGoName(yname string) string {
-    if yname == "logEntry" { return "Logentry" }
-    return ""
-}
-
-func (logtable *RMONMIB_Logtable) GetSegmentPath() string {
-    return "logTable"
-}
-
-func (logtable *RMONMIB_Logtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "logEntry" {
-        for _, c := range logtable.Logentry {
-            if logtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := RMONMIB_Logtable_Logentry{}
-        logtable.Logentry = append(logtable.Logentry, child)
-        return &logtable.Logentry[len(logtable.Logentry)-1]
-    }
-    return nil
-}
-
-func (logtable *RMONMIB_Logtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    logtable.EntityData.Children = make(map[string]types.YChild)
+    logtable.EntityData.Children["logEntry"] = types.YChild{"Logentry", nil}
     for i := range logtable.Logentry {
-        children[logtable.Logentry[i].GetSegmentPath()] = &logtable.Logentry[i]
+        logtable.EntityData.Children[types.GetSegmentPath(&logtable.Logentry[i])] = types.YChild{"Logentry", &logtable.Logentry[i]}
     }
-    return children
+    logtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(logtable.EntityData)
 }
-
-func (logtable *RMONMIB_Logtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (logtable *RMONMIB_Logtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (logtable *RMONMIB_Logtable) GetYangName() string { return "logTable" }
-
-func (logtable *RMONMIB_Logtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (logtable *RMONMIB_Logtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (logtable *RMONMIB_Logtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (logtable *RMONMIB_Logtable) SetParent(parent types.Entity) { logtable.parent = parent }
-
-func (logtable *RMONMIB_Logtable) GetParent() types.Entity { return logtable.parent }
-
-func (logtable *RMONMIB_Logtable) GetParentYangName() string { return "RMON-MIB" }
 
 // RMONMIB_Logtable_Logentry
 // A set of data describing an event that has been
 // logged.  For example, an instance of the logDescription
 // object might be named logDescription.6.47
 type RMONMIB_Logtable_Logentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The event entry that generated this log entry. 
@@ -4330,55 +2862,22 @@ type RMONMIB_Logtable_Logentry struct {
     Logdescription interface{}
 }
 
-func (logentry *RMONMIB_Logtable_Logentry) GetFilter() yfilter.YFilter { return logentry.YFilter }
+func (logentry *RMONMIB_Logtable_Logentry) GetEntityData() *types.CommonEntityData {
+    logentry.EntityData.YFilter = logentry.YFilter
+    logentry.EntityData.YangName = "logEntry"
+    logentry.EntityData.BundleName = "cisco_ios_xe"
+    logentry.EntityData.ParentYangName = "logTable"
+    logentry.EntityData.SegmentPath = "logEntry" + "[logEventIndex='" + fmt.Sprintf("%v", logentry.Logeventindex) + "']" + "[logIndex='" + fmt.Sprintf("%v", logentry.Logindex) + "']"
+    logentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    logentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    logentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (logentry *RMONMIB_Logtable_Logentry) SetFilter(yf yfilter.YFilter) { logentry.YFilter = yf }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetGoName(yname string) string {
-    if yname == "logEventIndex" { return "Logeventindex" }
-    if yname == "logIndex" { return "Logindex" }
-    if yname == "logTime" { return "Logtime" }
-    if yname == "logDescription" { return "Logdescription" }
-    return ""
+    logentry.EntityData.Children = make(map[string]types.YChild)
+    logentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    logentry.EntityData.Leafs["logEventIndex"] = types.YLeaf{"Logeventindex", logentry.Logeventindex}
+    logentry.EntityData.Leafs["logIndex"] = types.YLeaf{"Logindex", logentry.Logindex}
+    logentry.EntityData.Leafs["logTime"] = types.YLeaf{"Logtime", logentry.Logtime}
+    logentry.EntityData.Leafs["logDescription"] = types.YLeaf{"Logdescription", logentry.Logdescription}
+    return &(logentry.EntityData)
 }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetSegmentPath() string {
-    return "logEntry" + "[logEventIndex='" + fmt.Sprintf("%v", logentry.Logeventindex) + "']" + "[logIndex='" + fmt.Sprintf("%v", logentry.Logindex) + "']"
-}
-
-func (logentry *RMONMIB_Logtable_Logentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (logentry *RMONMIB_Logtable_Logentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (logentry *RMONMIB_Logtable_Logentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["logEventIndex"] = logentry.Logeventindex
-    leafs["logIndex"] = logentry.Logindex
-    leafs["logTime"] = logentry.Logtime
-    leafs["logDescription"] = logentry.Logdescription
-    return leafs
-}
-
-func (logentry *RMONMIB_Logtable_Logentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetYangName() string { return "logEntry" }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (logentry *RMONMIB_Logtable_Logentry) SetParent(parent types.Entity) { logentry.parent = parent }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetParent() types.Entity { return logentry.parent }
-
-func (logentry *RMONMIB_Logtable_Logentry) GetParentYangName() string { return "logTable" }
 

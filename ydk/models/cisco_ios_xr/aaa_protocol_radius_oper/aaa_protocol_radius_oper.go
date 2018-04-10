@@ -31,66 +31,33 @@ func init() {
 // Radius
 // RADIUS operational data
 type Radius struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Contains all the nodes.
     Nodes Radius_Nodes
 }
 
-func (radius *Radius) GetFilter() yfilter.YFilter { return radius.YFilter }
+func (radius *Radius) GetEntityData() *types.CommonEntityData {
+    radius.EntityData.YFilter = radius.YFilter
+    radius.EntityData.YangName = "radius"
+    radius.EntityData.BundleName = "cisco_ios_xr"
+    radius.EntityData.ParentYangName = "Cisco-IOS-XR-aaa-protocol-radius-oper"
+    radius.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+    radius.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (radius *Radius) SetFilter(yf yfilter.YFilter) { radius.YFilter = yf }
-
-func (radius *Radius) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    radius.EntityData.Children = make(map[string]types.YChild)
+    radius.EntityData.Children["nodes"] = types.YChild{"Nodes", &radius.Nodes}
+    radius.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(radius.EntityData)
 }
-
-func (radius *Radius) GetSegmentPath() string {
-    return "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-}
-
-func (radius *Radius) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &radius.Nodes
-    }
-    return nil
-}
-
-func (radius *Radius) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &radius.Nodes
-    return children
-}
-
-func (radius *Radius) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (radius *Radius) GetBundleName() string { return "cisco_ios_xr" }
-
-func (radius *Radius) GetYangName() string { return "radius" }
-
-func (radius *Radius) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (radius *Radius) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (radius *Radius) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (radius *Radius) SetParent(parent types.Entity) { radius.parent = parent }
-
-func (radius *Radius) GetParent() types.Entity { return radius.parent }
-
-func (radius *Radius) GetParentYangName() string { return "Cisco-IOS-XR-aaa-protocol-radius-oper" }
 
 // Radius_Nodes
 // Contains all the nodes
 type Radius_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RADIUS operational data for a particular node. The type is slice of
@@ -98,72 +65,33 @@ type Radius_Nodes struct {
     Node []Radius_Nodes_Node
 }
 
-func (nodes *Radius_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Radius_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "radius"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Radius_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Radius_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Radius_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Radius_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Radius_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Radius_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Radius_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Radius_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Radius_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Radius_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Radius_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Radius_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Radius_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Radius_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Radius_Nodes) GetParentYangName() string { return "radius" }
 
 // Radius_Nodes_Node
 // RADIUS operational data for a particular node
 type Radius_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // RADIUS client data.
@@ -185,86 +113,32 @@ type Radius_Nodes_Node struct {
     DynamicAuthorization Radius_Nodes_Node_DynamicAuthorization
 }
 
-func (node *Radius_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Radius_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Radius_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Radius_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "client" { return "Client" }
-    if yname == "dead-criteria" { return "DeadCriteria" }
-    if yname == "authentication" { return "Authentication" }
-    if yname == "accounting" { return "Accounting" }
-    if yname == "server-groups" { return "ServerGroups" }
-    if yname == "dynamic-authorization" { return "DynamicAuthorization" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["client"] = types.YChild{"Client", &node.Client}
+    node.EntityData.Children["dead-criteria"] = types.YChild{"DeadCriteria", &node.DeadCriteria}
+    node.EntityData.Children["authentication"] = types.YChild{"Authentication", &node.Authentication}
+    node.EntityData.Children["accounting"] = types.YChild{"Accounting", &node.Accounting}
+    node.EntityData.Children["server-groups"] = types.YChild{"ServerGroups", &node.ServerGroups}
+    node.EntityData.Children["dynamic-authorization"] = types.YChild{"DynamicAuthorization", &node.DynamicAuthorization}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Radius_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Radius_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        return &node.Client
-    }
-    if childYangName == "dead-criteria" {
-        return &node.DeadCriteria
-    }
-    if childYangName == "authentication" {
-        return &node.Authentication
-    }
-    if childYangName == "accounting" {
-        return &node.Accounting
-    }
-    if childYangName == "server-groups" {
-        return &node.ServerGroups
-    }
-    if childYangName == "dynamic-authorization" {
-        return &node.DynamicAuthorization
-    }
-    return nil
-}
-
-func (node *Radius_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["client"] = &node.Client
-    children["dead-criteria"] = &node.DeadCriteria
-    children["authentication"] = &node.Authentication
-    children["accounting"] = &node.Accounting
-    children["server-groups"] = &node.ServerGroups
-    children["dynamic-authorization"] = &node.DynamicAuthorization
-    return children
-}
-
-func (node *Radius_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Radius_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Radius_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Radius_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Radius_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Radius_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Radius_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Radius_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Radius_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Radius_Nodes_Node_Client
 // RADIUS client data
 type Radius_Nodes_Node_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of RADIUS access responses packets received from unknown addresses.
@@ -279,119 +153,54 @@ type Radius_Nodes_Node_Client struct {
     UnknownAccountingResponses interface{}
 }
 
-func (client *Radius_Nodes_Node_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *Radius_Nodes_Node_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "node"
+    client.EntityData.SegmentPath = "client"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *Radius_Nodes_Node_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *Radius_Nodes_Node_Client) GetGoName(yname string) string {
-    if yname == "unknown-authentication-responses" { return "UnknownAuthenticationResponses" }
-    if yname == "authentication-nas-id" { return "AuthenticationNasId" }
-    if yname == "unknown-accounting-responses" { return "UnknownAccountingResponses" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["unknown-authentication-responses"] = types.YLeaf{"UnknownAuthenticationResponses", client.UnknownAuthenticationResponses}
+    client.EntityData.Leafs["authentication-nas-id"] = types.YLeaf{"AuthenticationNasId", client.AuthenticationNasId}
+    client.EntityData.Leafs["unknown-accounting-responses"] = types.YLeaf{"UnknownAccountingResponses", client.UnknownAccountingResponses}
+    return &(client.EntityData)
 }
-
-func (client *Radius_Nodes_Node_Client) GetSegmentPath() string {
-    return "client"
-}
-
-func (client *Radius_Nodes_Node_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (client *Radius_Nodes_Node_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (client *Radius_Nodes_Node_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unknown-authentication-responses"] = client.UnknownAuthenticationResponses
-    leafs["authentication-nas-id"] = client.AuthenticationNasId
-    leafs["unknown-accounting-responses"] = client.UnknownAccountingResponses
-    return leafs
-}
-
-func (client *Radius_Nodes_Node_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *Radius_Nodes_Node_Client) GetYangName() string { return "client" }
-
-func (client *Radius_Nodes_Node_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *Radius_Nodes_Node_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *Radius_Nodes_Node_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *Radius_Nodes_Node_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *Radius_Nodes_Node_Client) GetParent() types.Entity { return client.parent }
-
-func (client *Radius_Nodes_Node_Client) GetParentYangName() string { return "node" }
 
 // Radius_Nodes_Node_DeadCriteria
 // RADIUS dead criteria information
 type Radius_Nodes_Node_DeadCriteria struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RADIUS server dead criteria host table.
     Hosts Radius_Nodes_Node_DeadCriteria_Hosts
 }
 
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetFilter() yfilter.YFilter { return deadCriteria.YFilter }
+func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetEntityData() *types.CommonEntityData {
+    deadCriteria.EntityData.YFilter = deadCriteria.YFilter
+    deadCriteria.EntityData.YangName = "dead-criteria"
+    deadCriteria.EntityData.BundleName = "cisco_ios_xr"
+    deadCriteria.EntityData.ParentYangName = "node"
+    deadCriteria.EntityData.SegmentPath = "dead-criteria"
+    deadCriteria.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    deadCriteria.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    deadCriteria.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) SetFilter(yf yfilter.YFilter) { deadCriteria.YFilter = yf }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetGoName(yname string) string {
-    if yname == "hosts" { return "Hosts" }
-    return ""
+    deadCriteria.EntityData.Children = make(map[string]types.YChild)
+    deadCriteria.EntityData.Children["hosts"] = types.YChild{"Hosts", &deadCriteria.Hosts}
+    deadCriteria.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(deadCriteria.EntityData)
 }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetSegmentPath() string {
-    return "dead-criteria"
-}
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hosts" {
-        return &deadCriteria.Hosts
-    }
-    return nil
-}
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["hosts"] = &deadCriteria.Hosts
-    return children
-}
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetBundleName() string { return "cisco_ios_xr" }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetYangName() string { return "dead-criteria" }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) SetParent(parent types.Entity) { deadCriteria.parent = parent }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetParent() types.Entity { return deadCriteria.parent }
-
-func (deadCriteria *Radius_Nodes_Node_DeadCriteria) GetParentYangName() string { return "node" }
 
 // Radius_Nodes_Node_DeadCriteria_Hosts
 // RADIUS server dead criteria host table
 type Radius_Nodes_Node_DeadCriteria_Hosts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RADIUS Server. The type is slice of
@@ -399,75 +208,36 @@ type Radius_Nodes_Node_DeadCriteria_Hosts struct {
     Host []Radius_Nodes_Node_DeadCriteria_Hosts_Host
 }
 
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetFilter() yfilter.YFilter { return hosts.YFilter }
+func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetEntityData() *types.CommonEntityData {
+    hosts.EntityData.YFilter = hosts.YFilter
+    hosts.EntityData.YangName = "hosts"
+    hosts.EntityData.BundleName = "cisco_ios_xr"
+    hosts.EntityData.ParentYangName = "dead-criteria"
+    hosts.EntityData.SegmentPath = "hosts"
+    hosts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) SetFilter(yf yfilter.YFilter) { hosts.YFilter = yf }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetGoName(yname string) string {
-    if yname == "host" { return "Host" }
-    return ""
-}
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetSegmentPath() string {
-    return "hosts"
-}
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "host" {
-        for _, c := range hosts.Host {
-            if hosts.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Radius_Nodes_Node_DeadCriteria_Hosts_Host{}
-        hosts.Host = append(hosts.Host, child)
-        return &hosts.Host[len(hosts.Host)-1]
-    }
-    return nil
-}
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hosts.EntityData.Children = make(map[string]types.YChild)
+    hosts.EntityData.Children["host"] = types.YChild{"Host", nil}
     for i := range hosts.Host {
-        children[hosts.Host[i].GetSegmentPath()] = &hosts.Host[i]
+        hosts.EntityData.Children[types.GetSegmentPath(&hosts.Host[i])] = types.YChild{"Host", &hosts.Host[i]}
     }
-    return children
+    hosts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hosts.EntityData)
 }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetYangName() string { return "hosts" }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) SetParent(parent types.Entity) { hosts.parent = parent }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetParent() types.Entity { return hosts.parent }
-
-func (hosts *Radius_Nodes_Node_DeadCriteria_Hosts) GetParentYangName() string { return "dead-criteria" }
 
 // Radius_Nodes_Node_DeadCriteria_Hosts_Host
 // RADIUS Server
 type Radius_Nodes_Node_DeadCriteria_Hosts_Host struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address of RADIUS server. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // Authentication Port number (standard port 1645). The type is interface{}
@@ -485,70 +255,30 @@ type Radius_Nodes_Node_DeadCriteria_Hosts_Host struct {
     Tries Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries
 }
 
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetFilter() yfilter.YFilter { return host.YFilter }
+func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetEntityData() *types.CommonEntityData {
+    host.EntityData.YFilter = host.YFilter
+    host.EntityData.YangName = "host"
+    host.EntityData.BundleName = "cisco_ios_xr"
+    host.EntityData.ParentYangName = "hosts"
+    host.EntityData.SegmentPath = "host"
+    host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) SetFilter(yf yfilter.YFilter) { host.YFilter = yf }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetGoName(yname string) string {
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "auth-port-number" { return "AuthPortNumber" }
-    if yname == "acct-port-number" { return "AcctPortNumber" }
-    if yname == "time" { return "Time" }
-    if yname == "tries" { return "Tries" }
-    return ""
+    host.EntityData.Children = make(map[string]types.YChild)
+    host.EntityData.Children["time"] = types.YChild{"Time", &host.Time}
+    host.EntityData.Children["tries"] = types.YChild{"Tries", &host.Tries}
+    host.EntityData.Leafs = make(map[string]types.YLeaf)
+    host.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", host.IpAddress}
+    host.EntityData.Leafs["auth-port-number"] = types.YLeaf{"AuthPortNumber", host.AuthPortNumber}
+    host.EntityData.Leafs["acct-port-number"] = types.YLeaf{"AcctPortNumber", host.AcctPortNumber}
+    return &(host.EntityData)
 }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetSegmentPath() string {
-    return "host"
-}
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "time" {
-        return &host.Time
-    }
-    if childYangName == "tries" {
-        return &host.Tries
-    }
-    return nil
-}
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["time"] = &host.Time
-    children["tries"] = &host.Tries
-    return children
-}
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ip-address"] = host.IpAddress
-    leafs["auth-port-number"] = host.AuthPortNumber
-    leafs["acct-port-number"] = host.AcctPortNumber
-    return leafs
-}
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetBundleName() string { return "cisco_ios_xr" }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetYangName() string { return "host" }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) SetParent(parent types.Entity) { host.parent = parent }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetParent() types.Entity { return host.parent }
-
-func (host *Radius_Nodes_Node_DeadCriteria_Hosts_Host) GetParentYangName() string { return "hosts" }
 
 // Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time
 // Time in seconds
 type Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Value for time or tries. The type is interface{} with range: 0..4294967295.
@@ -558,58 +288,27 @@ type Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time struct {
     IsComputed interface{}
 }
 
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetFilter() yfilter.YFilter { return time.YFilter }
+func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetEntityData() *types.CommonEntityData {
+    time.EntityData.YFilter = time.YFilter
+    time.EntityData.YangName = "time"
+    time.EntityData.BundleName = "cisco_ios_xr"
+    time.EntityData.ParentYangName = "host"
+    time.EntityData.SegmentPath = "time"
+    time.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    time.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    time.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) SetFilter(yf yfilter.YFilter) { time.YFilter = yf }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetGoName(yname string) string {
-    if yname == "value" { return "Value" }
-    if yname == "is-computed" { return "IsComputed" }
-    return ""
+    time.EntityData.Children = make(map[string]types.YChild)
+    time.EntityData.Leafs = make(map[string]types.YLeaf)
+    time.EntityData.Leafs["value"] = types.YLeaf{"Value", time.Value}
+    time.EntityData.Leafs["is-computed"] = types.YLeaf{"IsComputed", time.IsComputed}
+    return &(time.EntityData)
 }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetSegmentPath() string {
-    return "time"
-}
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["value"] = time.Value
-    leafs["is-computed"] = time.IsComputed
-    return leafs
-}
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetBundleName() string { return "cisco_ios_xr" }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetYangName() string { return "time" }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) SetParent(parent types.Entity) { time.parent = parent }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetParent() types.Entity { return time.parent }
-
-func (time *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Time) GetParentYangName() string { return "host" }
 
 // Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries
 // Number of tries
 type Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Value for time or tries. The type is interface{} with range: 0..4294967295.
@@ -619,58 +318,27 @@ type Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries struct {
     IsComputed interface{}
 }
 
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetFilter() yfilter.YFilter { return tries.YFilter }
+func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetEntityData() *types.CommonEntityData {
+    tries.EntityData.YFilter = tries.YFilter
+    tries.EntityData.YangName = "tries"
+    tries.EntityData.BundleName = "cisco_ios_xr"
+    tries.EntityData.ParentYangName = "host"
+    tries.EntityData.SegmentPath = "tries"
+    tries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) SetFilter(yf yfilter.YFilter) { tries.YFilter = yf }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetGoName(yname string) string {
-    if yname == "value" { return "Value" }
-    if yname == "is-computed" { return "IsComputed" }
-    return ""
+    tries.EntityData.Children = make(map[string]types.YChild)
+    tries.EntityData.Leafs = make(map[string]types.YLeaf)
+    tries.EntityData.Leafs["value"] = types.YLeaf{"Value", tries.Value}
+    tries.EntityData.Leafs["is-computed"] = types.YLeaf{"IsComputed", tries.IsComputed}
+    return &(tries.EntityData)
 }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetSegmentPath() string {
-    return "tries"
-}
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["value"] = tries.Value
-    leafs["is-computed"] = tries.IsComputed
-    return leafs
-}
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetYangName() string { return "tries" }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) SetParent(parent types.Entity) { tries.parent = parent }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetParent() types.Entity { return tries.parent }
-
-func (tries *Radius_Nodes_Node_DeadCriteria_Hosts_Host_Tries) GetParentYangName() string { return "host" }
 
 // Radius_Nodes_Node_Authentication
 // RADIUS authentication data
 type Radius_Nodes_Node_Authentication struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of authentication groups. The type is slice of
@@ -678,72 +346,33 @@ type Radius_Nodes_Node_Authentication struct {
     AuthenticationGroup []Radius_Nodes_Node_Authentication_AuthenticationGroup
 }
 
-func (authentication *Radius_Nodes_Node_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication *Radius_Nodes_Node_Authentication) GetEntityData() *types.CommonEntityData {
+    authentication.EntityData.YFilter = authentication.YFilter
+    authentication.EntityData.YangName = "authentication"
+    authentication.EntityData.BundleName = "cisco_ios_xr"
+    authentication.EntityData.ParentYangName = "node"
+    authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *Radius_Nodes_Node_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetGoName(yname string) string {
-    if yname == "authentication-group" { return "AuthenticationGroup" }
-    return ""
-}
-
-func (authentication *Radius_Nodes_Node_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *Radius_Nodes_Node_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authentication-group" {
-        for _, c := range authentication.AuthenticationGroup {
-            if authentication.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Radius_Nodes_Node_Authentication_AuthenticationGroup{}
-        authentication.AuthenticationGroup = append(authentication.AuthenticationGroup, child)
-        return &authentication.AuthenticationGroup[len(authentication.AuthenticationGroup)-1]
-    }
-    return nil
-}
-
-func (authentication *Radius_Nodes_Node_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    authentication.EntityData.Children = make(map[string]types.YChild)
+    authentication.EntityData.Children["authentication-group"] = types.YChild{"AuthenticationGroup", nil}
     for i := range authentication.AuthenticationGroup {
-        children[authentication.AuthenticationGroup[i].GetSegmentPath()] = &authentication.AuthenticationGroup[i]
+        authentication.EntityData.Children[types.GetSegmentPath(&authentication.AuthenticationGroup[i])] = types.YChild{"AuthenticationGroup", &authentication.AuthenticationGroup[i]}
     }
-    return children
+    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(authentication.EntityData)
 }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (authentication *Radius_Nodes_Node_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *Radius_Nodes_Node_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *Radius_Nodes_Node_Authentication) GetParentYangName() string { return "node" }
 
 // Radius_Nodes_Node_Authentication_AuthenticationGroup
 // List of authentication groups
 type Radius_Nodes_Node_Authentication_AuthenticationGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerAddress interface{}
 
     // Authentication port number. The type is interface{} with range:
@@ -757,70 +386,33 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup struct {
     Family interface{}
 
     // Authentication data.
-    Authentication Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication
+    Authentication Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication_
 }
 
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetFilter() yfilter.YFilter { return authenticationGroup.YFilter }
+func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetEntityData() *types.CommonEntityData {
+    authenticationGroup.EntityData.YFilter = authenticationGroup.YFilter
+    authenticationGroup.EntityData.YangName = "authentication-group"
+    authenticationGroup.EntityData.BundleName = "cisco_ios_xr"
+    authenticationGroup.EntityData.ParentYangName = "authentication"
+    authenticationGroup.EntityData.SegmentPath = "authentication-group"
+    authenticationGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authenticationGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authenticationGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) SetFilter(yf yfilter.YFilter) { authenticationGroup.YFilter = yf }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetGoName(yname string) string {
-    if yname == "server-address" { return "ServerAddress" }
-    if yname == "port" { return "Port" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "family" { return "Family" }
-    if yname == "authentication" { return "Authentication" }
-    return ""
+    authenticationGroup.EntityData.Children = make(map[string]types.YChild)
+    authenticationGroup.EntityData.Children["authentication"] = types.YChild{"Authentication", &authenticationGroup.Authentication}
+    authenticationGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    authenticationGroup.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", authenticationGroup.ServerAddress}
+    authenticationGroup.EntityData.Leafs["port"] = types.YLeaf{"Port", authenticationGroup.Port}
+    authenticationGroup.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", authenticationGroup.IpAddress}
+    authenticationGroup.EntityData.Leafs["family"] = types.YLeaf{"Family", authenticationGroup.Family}
+    return &(authenticationGroup.EntityData)
 }
 
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetSegmentPath() string {
-    return "authentication-group"
-}
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "authentication" {
-        return &authenticationGroup.Authentication
-    }
-    return nil
-}
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["authentication"] = &authenticationGroup.Authentication
-    return children
-}
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["server-address"] = authenticationGroup.ServerAddress
-    leafs["port"] = authenticationGroup.Port
-    leafs["ip-address"] = authenticationGroup.IpAddress
-    leafs["family"] = authenticationGroup.Family
-    return leafs
-}
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetYangName() string { return "authentication-group" }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) SetParent(parent types.Entity) { authenticationGroup.parent = parent }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetParent() types.Entity { return authenticationGroup.parent }
-
-func (authenticationGroup *Radius_Nodes_Node_Authentication_AuthenticationGroup) GetParentYangName() string { return "authentication" }
-
-// Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication
+// Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication_
 // Authentication data
-type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication struct {
-    parent types.Entity
+type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of access requests. The type is interface{} with range:
@@ -896,90 +488,43 @@ type Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication struct 
     AuthenIncorrectResponses interface{}
 }
 
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication_ *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication_) GetEntityData() *types.CommonEntityData {
+    authentication_.EntityData.YFilter = authentication_.YFilter
+    authentication_.EntityData.YangName = "authentication"
+    authentication_.EntityData.BundleName = "cisco_ios_xr"
+    authentication_.EntityData.ParentYangName = "authentication-group"
+    authentication_.EntityData.SegmentPath = "authentication"
+    authentication_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetGoName(yname string) string {
-    if yname == "access-requests" { return "AccessRequests" }
-    if yname == "pending-access-requests" { return "PendingAccessRequests" }
-    if yname == "access-request-retransmits" { return "AccessRequestRetransmits" }
-    if yname == "access-accepts" { return "AccessAccepts" }
-    if yname == "access-rejects" { return "AccessRejects" }
-    if yname == "access-challenges" { return "AccessChallenges" }
-    if yname == "access-timeouts" { return "AccessTimeouts" }
-    if yname == "bad-access-responses" { return "BadAccessResponses" }
-    if yname == "bad-access-authenticators" { return "BadAccessAuthenticators" }
-    if yname == "unknown-access-types" { return "UnknownAccessTypes" }
-    if yname == "dropped-access-responses" { return "DroppedAccessResponses" }
-    if yname == "rtt" { return "Rtt" }
-    if yname == "authen-response-time" { return "AuthenResponseTime" }
-    if yname == "authen-transaction-successess" { return "AuthenTransactionSuccessess" }
-    if yname == "authen-transaction-failure" { return "AuthenTransactionFailure" }
-    if yname == "authen-unexpected-responses" { return "AuthenUnexpectedResponses" }
-    if yname == "authen-server-error-responses" { return "AuthenServerErrorResponses" }
-    if yname == "authen-incorrect-responses" { return "AuthenIncorrectResponses" }
-    return ""
+    authentication_.EntityData.Children = make(map[string]types.YChild)
+    authentication_.EntityData.Leafs = make(map[string]types.YLeaf)
+    authentication_.EntityData.Leafs["access-requests"] = types.YLeaf{"AccessRequests", authentication_.AccessRequests}
+    authentication_.EntityData.Leafs["pending-access-requests"] = types.YLeaf{"PendingAccessRequests", authentication_.PendingAccessRequests}
+    authentication_.EntityData.Leafs["access-request-retransmits"] = types.YLeaf{"AccessRequestRetransmits", authentication_.AccessRequestRetransmits}
+    authentication_.EntityData.Leafs["access-accepts"] = types.YLeaf{"AccessAccepts", authentication_.AccessAccepts}
+    authentication_.EntityData.Leafs["access-rejects"] = types.YLeaf{"AccessRejects", authentication_.AccessRejects}
+    authentication_.EntityData.Leafs["access-challenges"] = types.YLeaf{"AccessChallenges", authentication_.AccessChallenges}
+    authentication_.EntityData.Leafs["access-timeouts"] = types.YLeaf{"AccessTimeouts", authentication_.AccessTimeouts}
+    authentication_.EntityData.Leafs["bad-access-responses"] = types.YLeaf{"BadAccessResponses", authentication_.BadAccessResponses}
+    authentication_.EntityData.Leafs["bad-access-authenticators"] = types.YLeaf{"BadAccessAuthenticators", authentication_.BadAccessAuthenticators}
+    authentication_.EntityData.Leafs["unknown-access-types"] = types.YLeaf{"UnknownAccessTypes", authentication_.UnknownAccessTypes}
+    authentication_.EntityData.Leafs["dropped-access-responses"] = types.YLeaf{"DroppedAccessResponses", authentication_.DroppedAccessResponses}
+    authentication_.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", authentication_.Rtt}
+    authentication_.EntityData.Leafs["authen-response-time"] = types.YLeaf{"AuthenResponseTime", authentication_.AuthenResponseTime}
+    authentication_.EntityData.Leafs["authen-transaction-successess"] = types.YLeaf{"AuthenTransactionSuccessess", authentication_.AuthenTransactionSuccessess}
+    authentication_.EntityData.Leafs["authen-transaction-failure"] = types.YLeaf{"AuthenTransactionFailure", authentication_.AuthenTransactionFailure}
+    authentication_.EntityData.Leafs["authen-unexpected-responses"] = types.YLeaf{"AuthenUnexpectedResponses", authentication_.AuthenUnexpectedResponses}
+    authentication_.EntityData.Leafs["authen-server-error-responses"] = types.YLeaf{"AuthenServerErrorResponses", authentication_.AuthenServerErrorResponses}
+    authentication_.EntityData.Leafs["authen-incorrect-responses"] = types.YLeaf{"AuthenIncorrectResponses", authentication_.AuthenIncorrectResponses}
+    return &(authentication_.EntityData)
 }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["access-requests"] = authentication.AccessRequests
-    leafs["pending-access-requests"] = authentication.PendingAccessRequests
-    leafs["access-request-retransmits"] = authentication.AccessRequestRetransmits
-    leafs["access-accepts"] = authentication.AccessAccepts
-    leafs["access-rejects"] = authentication.AccessRejects
-    leafs["access-challenges"] = authentication.AccessChallenges
-    leafs["access-timeouts"] = authentication.AccessTimeouts
-    leafs["bad-access-responses"] = authentication.BadAccessResponses
-    leafs["bad-access-authenticators"] = authentication.BadAccessAuthenticators
-    leafs["unknown-access-types"] = authentication.UnknownAccessTypes
-    leafs["dropped-access-responses"] = authentication.DroppedAccessResponses
-    leafs["rtt"] = authentication.Rtt
-    leafs["authen-response-time"] = authentication.AuthenResponseTime
-    leafs["authen-transaction-successess"] = authentication.AuthenTransactionSuccessess
-    leafs["authen-transaction-failure"] = authentication.AuthenTransactionFailure
-    leafs["authen-unexpected-responses"] = authentication.AuthenUnexpectedResponses
-    leafs["authen-server-error-responses"] = authentication.AuthenServerErrorResponses
-    leafs["authen-incorrect-responses"] = authentication.AuthenIncorrectResponses
-    return leafs
-}
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *Radius_Nodes_Node_Authentication_AuthenticationGroup_Authentication) GetParentYangName() string { return "authentication-group" }
 
 // Radius_Nodes_Node_Accounting
 // RADIUS accounting data
 type Radius_Nodes_Node_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of accounting groups. The type is slice of
@@ -987,72 +532,33 @@ type Radius_Nodes_Node_Accounting struct {
     AccountingGroup []Radius_Nodes_Node_Accounting_AccountingGroup
 }
 
-func (accounting *Radius_Nodes_Node_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *Radius_Nodes_Node_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "node"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *Radius_Nodes_Node_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetGoName(yname string) string {
-    if yname == "accounting-group" { return "AccountingGroup" }
-    return ""
-}
-
-func (accounting *Radius_Nodes_Node_Accounting) GetSegmentPath() string {
-    return "accounting"
-}
-
-func (accounting *Radius_Nodes_Node_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accounting-group" {
-        for _, c := range accounting.AccountingGroup {
-            if accounting.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Radius_Nodes_Node_Accounting_AccountingGroup{}
-        accounting.AccountingGroup = append(accounting.AccountingGroup, child)
-        return &accounting.AccountingGroup[len(accounting.AccountingGroup)-1]
-    }
-    return nil
-}
-
-func (accounting *Radius_Nodes_Node_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["accounting-group"] = types.YChild{"AccountingGroup", nil}
     for i := range accounting.AccountingGroup {
-        children[accounting.AccountingGroup[i].GetSegmentPath()] = &accounting.AccountingGroup[i]
+        accounting.EntityData.Children[types.GetSegmentPath(&accounting.AccountingGroup[i])] = types.YChild{"AccountingGroup", &accounting.AccountingGroup[i]}
     }
-    return children
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accounting.EntityData)
 }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accounting *Radius_Nodes_Node_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *Radius_Nodes_Node_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *Radius_Nodes_Node_Accounting) GetParentYangName() string { return "node" }
 
 // Radius_Nodes_Node_Accounting_AccountingGroup
 // List of accounting groups
 type Radius_Nodes_Node_Accounting_AccountingGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP address of RADIUS server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerAddress interface{}
 
     // Accounting port number. The type is interface{} with range: 0..4294967295.
@@ -1065,70 +571,33 @@ type Radius_Nodes_Node_Accounting_AccountingGroup struct {
     Family interface{}
 
     // Accounting data.
-    Accounting Radius_Nodes_Node_Accounting_AccountingGroup_Accounting
+    Accounting Radius_Nodes_Node_Accounting_AccountingGroup_Accounting_
 }
 
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetFilter() yfilter.YFilter { return accountingGroup.YFilter }
+func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetEntityData() *types.CommonEntityData {
+    accountingGroup.EntityData.YFilter = accountingGroup.YFilter
+    accountingGroup.EntityData.YangName = "accounting-group"
+    accountingGroup.EntityData.BundleName = "cisco_ios_xr"
+    accountingGroup.EntityData.ParentYangName = "accounting"
+    accountingGroup.EntityData.SegmentPath = "accounting-group"
+    accountingGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accountingGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accountingGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) SetFilter(yf yfilter.YFilter) { accountingGroup.YFilter = yf }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetGoName(yname string) string {
-    if yname == "server-address" { return "ServerAddress" }
-    if yname == "port" { return "Port" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "family" { return "Family" }
-    if yname == "accounting" { return "Accounting" }
-    return ""
+    accountingGroup.EntityData.Children = make(map[string]types.YChild)
+    accountingGroup.EntityData.Children["accounting"] = types.YChild{"Accounting", &accountingGroup.Accounting}
+    accountingGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    accountingGroup.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", accountingGroup.ServerAddress}
+    accountingGroup.EntityData.Leafs["port"] = types.YLeaf{"Port", accountingGroup.Port}
+    accountingGroup.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", accountingGroup.IpAddress}
+    accountingGroup.EntityData.Leafs["family"] = types.YLeaf{"Family", accountingGroup.Family}
+    return &(accountingGroup.EntityData)
 }
 
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetSegmentPath() string {
-    return "accounting-group"
-}
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accounting" {
-        return &accountingGroup.Accounting
-    }
-    return nil
-}
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accounting"] = &accountingGroup.Accounting
-    return children
-}
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["server-address"] = accountingGroup.ServerAddress
-    leafs["port"] = accountingGroup.Port
-    leafs["ip-address"] = accountingGroup.IpAddress
-    leafs["family"] = accountingGroup.Family
-    return leafs
-}
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetYangName() string { return "accounting-group" }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) SetParent(parent types.Entity) { accountingGroup.parent = parent }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetParent() types.Entity { return accountingGroup.parent }
-
-func (accountingGroup *Radius_Nodes_Node_Accounting_AccountingGroup) GetParentYangName() string { return "accounting" }
-
-// Radius_Nodes_Node_Accounting_AccountingGroup_Accounting
+// Radius_Nodes_Node_Accounting_AccountingGroup_Accounting_
 // Accounting data
-type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting struct {
-    parent types.Entity
+type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of accounting requests. The type is interface{} with range:
@@ -1196,86 +665,41 @@ type Radius_Nodes_Node_Accounting_AccountingGroup_Accounting struct {
     AcctTransactionFailure interface{}
 }
 
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting_ *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting_) GetEntityData() *types.CommonEntityData {
+    accounting_.EntityData.YFilter = accounting_.YFilter
+    accounting_.EntityData.YangName = "accounting"
+    accounting_.EntityData.BundleName = "cisco_ios_xr"
+    accounting_.EntityData.ParentYangName = "accounting-group"
+    accounting_.EntityData.SegmentPath = "accounting"
+    accounting_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetGoName(yname string) string {
-    if yname == "requests" { return "Requests" }
-    if yname == "pending-requests" { return "PendingRequests" }
-    if yname == "retransmits" { return "Retransmits" }
-    if yname == "responses" { return "Responses" }
-    if yname == "timeouts" { return "Timeouts" }
-    if yname == "bad-responses" { return "BadResponses" }
-    if yname == "bad-authenticators" { return "BadAuthenticators" }
-    if yname == "unknown-packet-types" { return "UnknownPacketTypes" }
-    if yname == "dropped-responses" { return "DroppedResponses" }
-    if yname == "rtt" { return "Rtt" }
-    if yname == "acct-unexpected-responses" { return "AcctUnexpectedResponses" }
-    if yname == "acct-server-error-responses" { return "AcctServerErrorResponses" }
-    if yname == "acct-incorrect-responses" { return "AcctIncorrectResponses" }
-    if yname == "acct-response-time" { return "AcctResponseTime" }
-    if yname == "acct-transaction-successess" { return "AcctTransactionSuccessess" }
-    if yname == "acct-transaction-failure" { return "AcctTransactionFailure" }
-    return ""
+    accounting_.EntityData.Children = make(map[string]types.YChild)
+    accounting_.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting_.EntityData.Leafs["requests"] = types.YLeaf{"Requests", accounting_.Requests}
+    accounting_.EntityData.Leafs["pending-requests"] = types.YLeaf{"PendingRequests", accounting_.PendingRequests}
+    accounting_.EntityData.Leafs["retransmits"] = types.YLeaf{"Retransmits", accounting_.Retransmits}
+    accounting_.EntityData.Leafs["responses"] = types.YLeaf{"Responses", accounting_.Responses}
+    accounting_.EntityData.Leafs["timeouts"] = types.YLeaf{"Timeouts", accounting_.Timeouts}
+    accounting_.EntityData.Leafs["bad-responses"] = types.YLeaf{"BadResponses", accounting_.BadResponses}
+    accounting_.EntityData.Leafs["bad-authenticators"] = types.YLeaf{"BadAuthenticators", accounting_.BadAuthenticators}
+    accounting_.EntityData.Leafs["unknown-packet-types"] = types.YLeaf{"UnknownPacketTypes", accounting_.UnknownPacketTypes}
+    accounting_.EntityData.Leafs["dropped-responses"] = types.YLeaf{"DroppedResponses", accounting_.DroppedResponses}
+    accounting_.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", accounting_.Rtt}
+    accounting_.EntityData.Leafs["acct-unexpected-responses"] = types.YLeaf{"AcctUnexpectedResponses", accounting_.AcctUnexpectedResponses}
+    accounting_.EntityData.Leafs["acct-server-error-responses"] = types.YLeaf{"AcctServerErrorResponses", accounting_.AcctServerErrorResponses}
+    accounting_.EntityData.Leafs["acct-incorrect-responses"] = types.YLeaf{"AcctIncorrectResponses", accounting_.AcctIncorrectResponses}
+    accounting_.EntityData.Leafs["acct-response-time"] = types.YLeaf{"AcctResponseTime", accounting_.AcctResponseTime}
+    accounting_.EntityData.Leafs["acct-transaction-successess"] = types.YLeaf{"AcctTransactionSuccessess", accounting_.AcctTransactionSuccessess}
+    accounting_.EntityData.Leafs["acct-transaction-failure"] = types.YLeaf{"AcctTransactionFailure", accounting_.AcctTransactionFailure}
+    return &(accounting_.EntityData)
 }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetSegmentPath() string {
-    return "accounting"
-}
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["requests"] = accounting.Requests
-    leafs["pending-requests"] = accounting.PendingRequests
-    leafs["retransmits"] = accounting.Retransmits
-    leafs["responses"] = accounting.Responses
-    leafs["timeouts"] = accounting.Timeouts
-    leafs["bad-responses"] = accounting.BadResponses
-    leafs["bad-authenticators"] = accounting.BadAuthenticators
-    leafs["unknown-packet-types"] = accounting.UnknownPacketTypes
-    leafs["dropped-responses"] = accounting.DroppedResponses
-    leafs["rtt"] = accounting.Rtt
-    leafs["acct-unexpected-responses"] = accounting.AcctUnexpectedResponses
-    leafs["acct-server-error-responses"] = accounting.AcctServerErrorResponses
-    leafs["acct-incorrect-responses"] = accounting.AcctIncorrectResponses
-    leafs["acct-response-time"] = accounting.AcctResponseTime
-    leafs["acct-transaction-successess"] = accounting.AcctTransactionSuccessess
-    leafs["acct-transaction-failure"] = accounting.AcctTransactionFailure
-    return leafs
-}
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *Radius_Nodes_Node_Accounting_AccountingGroup_Accounting) GetParentYangName() string { return "accounting-group" }
 
 // Radius_Nodes_Node_ServerGroups
 // RADIUS server group table
 type Radius_Nodes_Node_ServerGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // RADIUS server group data. The type is slice of
@@ -1283,72 +707,33 @@ type Radius_Nodes_Node_ServerGroups struct {
     ServerGroup []Radius_Nodes_Node_ServerGroups_ServerGroup
 }
 
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetFilter() yfilter.YFilter { return serverGroups.YFilter }
+func (serverGroups *Radius_Nodes_Node_ServerGroups) GetEntityData() *types.CommonEntityData {
+    serverGroups.EntityData.YFilter = serverGroups.YFilter
+    serverGroups.EntityData.YangName = "server-groups"
+    serverGroups.EntityData.BundleName = "cisco_ios_xr"
+    serverGroups.EntityData.ParentYangName = "node"
+    serverGroups.EntityData.SegmentPath = "server-groups"
+    serverGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serverGroups *Radius_Nodes_Node_ServerGroups) SetFilter(yf yfilter.YFilter) { serverGroups.YFilter = yf }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetGoName(yname string) string {
-    if yname == "server-group" { return "ServerGroup" }
-    return ""
-}
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetSegmentPath() string {
-    return "server-groups"
-}
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "server-group" {
-        for _, c := range serverGroups.ServerGroup {
-            if serverGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Radius_Nodes_Node_ServerGroups_ServerGroup{}
-        serverGroups.ServerGroup = append(serverGroups.ServerGroup, child)
-        return &serverGroups.ServerGroup[len(serverGroups.ServerGroup)-1]
-    }
-    return nil
-}
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    serverGroups.EntityData.Children = make(map[string]types.YChild)
+    serverGroups.EntityData.Children["server-group"] = types.YChild{"ServerGroup", nil}
     for i := range serverGroups.ServerGroup {
-        children[serverGroups.ServerGroup[i].GetSegmentPath()] = &serverGroups.ServerGroup[i]
+        serverGroups.EntityData.Children[types.GetSegmentPath(&serverGroups.ServerGroup[i])] = types.YChild{"ServerGroup", &serverGroups.ServerGroup[i]}
     }
-    return children
+    serverGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(serverGroups.EntityData)
 }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetYangName() string { return "server-groups" }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) SetParent(parent types.Entity) { serverGroups.parent = parent }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetParent() types.Entity { return serverGroups.parent }
-
-func (serverGroups *Radius_Nodes_Node_ServerGroups) GetParentYangName() string { return "node" }
 
 // Radius_Nodes_Node_ServerGroups_ServerGroup
 // RADIUS server group data
 type Radius_Nodes_Node_ServerGroups_ServerGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ServerGroupName interface{}
 
     // Number of groups. The type is interface{} with range: 0..4294967295.
@@ -1366,85 +751,41 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup struct {
 
     // Server groups. The type is slice of
     // Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup.
-    ServerGroup []Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup
+    ServerGroup []Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_
 }
 
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetFilter() yfilter.YFilter { return serverGroup.YFilter }
+func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetEntityData() *types.CommonEntityData {
+    serverGroup.EntityData.YFilter = serverGroup.YFilter
+    serverGroup.EntityData.YangName = "server-group"
+    serverGroup.EntityData.BundleName = "cisco_ios_xr"
+    serverGroup.EntityData.ParentYangName = "server-groups"
+    serverGroup.EntityData.SegmentPath = "server-group" + "[server-group-name='" + fmt.Sprintf("%v", serverGroup.ServerGroupName) + "']"
+    serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) SetFilter(yf yfilter.YFilter) { serverGroup.YFilter = yf }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetGoName(yname string) string {
-    if yname == "server-group-name" { return "ServerGroupName" }
-    if yname == "groups" { return "Groups" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "dead-time" { return "DeadTime" }
-    if yname == "servers" { return "Servers" }
-    if yname == "server-group" { return "ServerGroup" }
-    return ""
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetSegmentPath() string {
-    return "server-group" + "[server-group-name='" + fmt.Sprintf("%v", serverGroup.ServerGroupName) + "']"
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "server-group" {
-        for _, c := range serverGroup.ServerGroup {
-            if serverGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup{}
-        serverGroup.ServerGroup = append(serverGroup.ServerGroup, child)
-        return &serverGroup.ServerGroup[len(serverGroup.ServerGroup)-1]
-    }
-    return nil
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    serverGroup.EntityData.Children = make(map[string]types.YChild)
+    serverGroup.EntityData.Children["server-group"] = types.YChild{"ServerGroup", nil}
     for i := range serverGroup.ServerGroup {
-        children[serverGroup.ServerGroup[i].GetSegmentPath()] = &serverGroup.ServerGroup[i]
+        serverGroup.EntityData.Children[types.GetSegmentPath(&serverGroup.ServerGroup[i])] = types.YChild{"ServerGroup", &serverGroup.ServerGroup[i]}
     }
-    return children
+    serverGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    serverGroup.EntityData.Leafs["server-group-name"] = types.YLeaf{"ServerGroupName", serverGroup.ServerGroupName}
+    serverGroup.EntityData.Leafs["groups"] = types.YLeaf{"Groups", serverGroup.Groups}
+    serverGroup.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", serverGroup.VrfName}
+    serverGroup.EntityData.Leafs["dead-time"] = types.YLeaf{"DeadTime", serverGroup.DeadTime}
+    serverGroup.EntityData.Leafs["servers"] = types.YLeaf{"Servers", serverGroup.Servers}
+    return &(serverGroup.EntityData)
 }
 
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["server-group-name"] = serverGroup.ServerGroupName
-    leafs["groups"] = serverGroup.Groups
-    leafs["vrf-name"] = serverGroup.VrfName
-    leafs["dead-time"] = serverGroup.DeadTime
-    leafs["servers"] = serverGroup.Servers
-    return leafs
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetYangName() string { return "server-group" }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) SetParent(parent types.Entity) { serverGroup.parent = parent }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetParent() types.Entity { return serverGroup.parent }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup) GetParentYangName() string { return "server-groups" }
-
-// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup
+// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_
 // Server groups
-type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup struct {
-    parent types.Entity
+type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Server address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     ServerAddress interface{}
 
     // Authentication port. The type is interface{} with range: 0..4294967295.
@@ -1463,90 +804,43 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup struct {
     Family interface{}
 
     // Accounting data.
-    Accounting Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting
+    Accounting Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Accounting
 
     // Authentication data.
-    Authentication Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication
+    Authentication Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authentication
 
     // Authorization data.
-    Authorization Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization
+    Authorization Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authorization
 }
 
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetFilter() yfilter.YFilter { return serverGroup.YFilter }
+func (serverGroup_ *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_) GetEntityData() *types.CommonEntityData {
+    serverGroup_.EntityData.YFilter = serverGroup_.YFilter
+    serverGroup_.EntityData.YangName = "server-group"
+    serverGroup_.EntityData.BundleName = "cisco_ios_xr"
+    serverGroup_.EntityData.ParentYangName = "server-group"
+    serverGroup_.EntityData.SegmentPath = "server-group"
+    serverGroup_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroup_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroup_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) SetFilter(yf yfilter.YFilter) { serverGroup.YFilter = yf }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetGoName(yname string) string {
-    if yname == "server-address" { return "ServerAddress" }
-    if yname == "authentication-port" { return "AuthenticationPort" }
-    if yname == "accounting-port" { return "AccountingPort" }
-    if yname == "is-private" { return "IsPrivate" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "family" { return "Family" }
-    if yname == "accounting" { return "Accounting" }
-    if yname == "authentication" { return "Authentication" }
-    if yname == "authorization" { return "Authorization" }
-    return ""
+    serverGroup_.EntityData.Children = make(map[string]types.YChild)
+    serverGroup_.EntityData.Children["accounting"] = types.YChild{"Accounting", &serverGroup_.Accounting}
+    serverGroup_.EntityData.Children["authentication"] = types.YChild{"Authentication", &serverGroup_.Authentication}
+    serverGroup_.EntityData.Children["authorization"] = types.YChild{"Authorization", &serverGroup_.Authorization}
+    serverGroup_.EntityData.Leafs = make(map[string]types.YLeaf)
+    serverGroup_.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", serverGroup_.ServerAddress}
+    serverGroup_.EntityData.Leafs["authentication-port"] = types.YLeaf{"AuthenticationPort", serverGroup_.AuthenticationPort}
+    serverGroup_.EntityData.Leafs["accounting-port"] = types.YLeaf{"AccountingPort", serverGroup_.AccountingPort}
+    serverGroup_.EntityData.Leafs["is-private"] = types.YLeaf{"IsPrivate", serverGroup_.IsPrivate}
+    serverGroup_.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", serverGroup_.IpAddress}
+    serverGroup_.EntityData.Leafs["family"] = types.YLeaf{"Family", serverGroup_.Family}
+    return &(serverGroup_.EntityData)
 }
 
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetSegmentPath() string {
-    return "server-group"
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accounting" {
-        return &serverGroup.Accounting
-    }
-    if childYangName == "authentication" {
-        return &serverGroup.Authentication
-    }
-    if childYangName == "authorization" {
-        return &serverGroup.Authorization
-    }
-    return nil
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accounting"] = &serverGroup.Accounting
-    children["authentication"] = &serverGroup.Authentication
-    children["authorization"] = &serverGroup.Authorization
-    return children
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["server-address"] = serverGroup.ServerAddress
-    leafs["authentication-port"] = serverGroup.AuthenticationPort
-    leafs["accounting-port"] = serverGroup.AccountingPort
-    leafs["is-private"] = serverGroup.IsPrivate
-    leafs["ip-address"] = serverGroup.IpAddress
-    leafs["family"] = serverGroup.Family
-    return leafs
-}
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetYangName() string { return "server-group" }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) SetParent(parent types.Entity) { serverGroup.parent = parent }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetParent() types.Entity { return serverGroup.parent }
-
-func (serverGroup *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup) GetParentYangName() string { return "server-group" }
-
-// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting
+// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Accounting
 // Accounting data
-type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting struct {
-    parent types.Entity
+type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Accounting struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of accounting requests. The type is interface{} with range:
@@ -1614,86 +908,41 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting struct {
     AcctTransactionFailure interface{}
 }
 
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "server-group"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetGoName(yname string) string {
-    if yname == "requests" { return "Requests" }
-    if yname == "pending-requests" { return "PendingRequests" }
-    if yname == "retransmits" { return "Retransmits" }
-    if yname == "responses" { return "Responses" }
-    if yname == "timeouts" { return "Timeouts" }
-    if yname == "bad-responses" { return "BadResponses" }
-    if yname == "bad-authenticators" { return "BadAuthenticators" }
-    if yname == "unknown-packet-types" { return "UnknownPacketTypes" }
-    if yname == "dropped-responses" { return "DroppedResponses" }
-    if yname == "rtt" { return "Rtt" }
-    if yname == "acct-unexpected-responses" { return "AcctUnexpectedResponses" }
-    if yname == "acct-server-error-responses" { return "AcctServerErrorResponses" }
-    if yname == "acct-incorrect-responses" { return "AcctIncorrectResponses" }
-    if yname == "acct-response-time" { return "AcctResponseTime" }
-    if yname == "acct-transaction-successess" { return "AcctTransactionSuccessess" }
-    if yname == "acct-transaction-failure" { return "AcctTransactionFailure" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs["requests"] = types.YLeaf{"Requests", accounting.Requests}
+    accounting.EntityData.Leafs["pending-requests"] = types.YLeaf{"PendingRequests", accounting.PendingRequests}
+    accounting.EntityData.Leafs["retransmits"] = types.YLeaf{"Retransmits", accounting.Retransmits}
+    accounting.EntityData.Leafs["responses"] = types.YLeaf{"Responses", accounting.Responses}
+    accounting.EntityData.Leafs["timeouts"] = types.YLeaf{"Timeouts", accounting.Timeouts}
+    accounting.EntityData.Leafs["bad-responses"] = types.YLeaf{"BadResponses", accounting.BadResponses}
+    accounting.EntityData.Leafs["bad-authenticators"] = types.YLeaf{"BadAuthenticators", accounting.BadAuthenticators}
+    accounting.EntityData.Leafs["unknown-packet-types"] = types.YLeaf{"UnknownPacketTypes", accounting.UnknownPacketTypes}
+    accounting.EntityData.Leafs["dropped-responses"] = types.YLeaf{"DroppedResponses", accounting.DroppedResponses}
+    accounting.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", accounting.Rtt}
+    accounting.EntityData.Leafs["acct-unexpected-responses"] = types.YLeaf{"AcctUnexpectedResponses", accounting.AcctUnexpectedResponses}
+    accounting.EntityData.Leafs["acct-server-error-responses"] = types.YLeaf{"AcctServerErrorResponses", accounting.AcctServerErrorResponses}
+    accounting.EntityData.Leafs["acct-incorrect-responses"] = types.YLeaf{"AcctIncorrectResponses", accounting.AcctIncorrectResponses}
+    accounting.EntityData.Leafs["acct-response-time"] = types.YLeaf{"AcctResponseTime", accounting.AcctResponseTime}
+    accounting.EntityData.Leafs["acct-transaction-successess"] = types.YLeaf{"AcctTransactionSuccessess", accounting.AcctTransactionSuccessess}
+    accounting.EntityData.Leafs["acct-transaction-failure"] = types.YLeaf{"AcctTransactionFailure", accounting.AcctTransactionFailure}
+    return &(accounting.EntityData)
 }
 
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetSegmentPath() string {
-    return "accounting"
-}
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["requests"] = accounting.Requests
-    leafs["pending-requests"] = accounting.PendingRequests
-    leafs["retransmits"] = accounting.Retransmits
-    leafs["responses"] = accounting.Responses
-    leafs["timeouts"] = accounting.Timeouts
-    leafs["bad-responses"] = accounting.BadResponses
-    leafs["bad-authenticators"] = accounting.BadAuthenticators
-    leafs["unknown-packet-types"] = accounting.UnknownPacketTypes
-    leafs["dropped-responses"] = accounting.DroppedResponses
-    leafs["rtt"] = accounting.Rtt
-    leafs["acct-unexpected-responses"] = accounting.AcctUnexpectedResponses
-    leafs["acct-server-error-responses"] = accounting.AcctServerErrorResponses
-    leafs["acct-incorrect-responses"] = accounting.AcctIncorrectResponses
-    leafs["acct-response-time"] = accounting.AcctResponseTime
-    leafs["acct-transaction-successess"] = accounting.AcctTransactionSuccessess
-    leafs["acct-transaction-failure"] = accounting.AcctTransactionFailure
-    return leafs
-}
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Accounting) GetParentYangName() string { return "server-group" }
-
-// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication
+// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authentication
 // Authentication data
-type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication struct {
-    parent types.Entity
+type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authentication struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of access requests. The type is interface{} with range:
@@ -1769,90 +1018,43 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication struc
     AuthenIncorrectResponses interface{}
 }
 
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authentication) GetEntityData() *types.CommonEntityData {
+    authentication.EntityData.YFilter = authentication.YFilter
+    authentication.EntityData.YangName = "authentication"
+    authentication.EntityData.BundleName = "cisco_ios_xr"
+    authentication.EntityData.ParentYangName = "server-group"
+    authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetGoName(yname string) string {
-    if yname == "access-requests" { return "AccessRequests" }
-    if yname == "pending-access-requests" { return "PendingAccessRequests" }
-    if yname == "access-request-retransmits" { return "AccessRequestRetransmits" }
-    if yname == "access-accepts" { return "AccessAccepts" }
-    if yname == "access-rejects" { return "AccessRejects" }
-    if yname == "access-challenges" { return "AccessChallenges" }
-    if yname == "access-timeouts" { return "AccessTimeouts" }
-    if yname == "bad-access-responses" { return "BadAccessResponses" }
-    if yname == "bad-access-authenticators" { return "BadAccessAuthenticators" }
-    if yname == "unknown-access-types" { return "UnknownAccessTypes" }
-    if yname == "dropped-access-responses" { return "DroppedAccessResponses" }
-    if yname == "rtt" { return "Rtt" }
-    if yname == "authen-response-time" { return "AuthenResponseTime" }
-    if yname == "authen-transaction-successess" { return "AuthenTransactionSuccessess" }
-    if yname == "authen-transaction-failure" { return "AuthenTransactionFailure" }
-    if yname == "authen-unexpected-responses" { return "AuthenUnexpectedResponses" }
-    if yname == "authen-server-error-responses" { return "AuthenServerErrorResponses" }
-    if yname == "authen-incorrect-responses" { return "AuthenIncorrectResponses" }
-    return ""
+    authentication.EntityData.Children = make(map[string]types.YChild)
+    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    authentication.EntityData.Leafs["access-requests"] = types.YLeaf{"AccessRequests", authentication.AccessRequests}
+    authentication.EntityData.Leafs["pending-access-requests"] = types.YLeaf{"PendingAccessRequests", authentication.PendingAccessRequests}
+    authentication.EntityData.Leafs["access-request-retransmits"] = types.YLeaf{"AccessRequestRetransmits", authentication.AccessRequestRetransmits}
+    authentication.EntityData.Leafs["access-accepts"] = types.YLeaf{"AccessAccepts", authentication.AccessAccepts}
+    authentication.EntityData.Leafs["access-rejects"] = types.YLeaf{"AccessRejects", authentication.AccessRejects}
+    authentication.EntityData.Leafs["access-challenges"] = types.YLeaf{"AccessChallenges", authentication.AccessChallenges}
+    authentication.EntityData.Leafs["access-timeouts"] = types.YLeaf{"AccessTimeouts", authentication.AccessTimeouts}
+    authentication.EntityData.Leafs["bad-access-responses"] = types.YLeaf{"BadAccessResponses", authentication.BadAccessResponses}
+    authentication.EntityData.Leafs["bad-access-authenticators"] = types.YLeaf{"BadAccessAuthenticators", authentication.BadAccessAuthenticators}
+    authentication.EntityData.Leafs["unknown-access-types"] = types.YLeaf{"UnknownAccessTypes", authentication.UnknownAccessTypes}
+    authentication.EntityData.Leafs["dropped-access-responses"] = types.YLeaf{"DroppedAccessResponses", authentication.DroppedAccessResponses}
+    authentication.EntityData.Leafs["rtt"] = types.YLeaf{"Rtt", authentication.Rtt}
+    authentication.EntityData.Leafs["authen-response-time"] = types.YLeaf{"AuthenResponseTime", authentication.AuthenResponseTime}
+    authentication.EntityData.Leafs["authen-transaction-successess"] = types.YLeaf{"AuthenTransactionSuccessess", authentication.AuthenTransactionSuccessess}
+    authentication.EntityData.Leafs["authen-transaction-failure"] = types.YLeaf{"AuthenTransactionFailure", authentication.AuthenTransactionFailure}
+    authentication.EntityData.Leafs["authen-unexpected-responses"] = types.YLeaf{"AuthenUnexpectedResponses", authentication.AuthenUnexpectedResponses}
+    authentication.EntityData.Leafs["authen-server-error-responses"] = types.YLeaf{"AuthenServerErrorResponses", authentication.AuthenServerErrorResponses}
+    authentication.EntityData.Leafs["authen-incorrect-responses"] = types.YLeaf{"AuthenIncorrectResponses", authentication.AuthenIncorrectResponses}
+    return &(authentication.EntityData)
 }
 
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["access-requests"] = authentication.AccessRequests
-    leafs["pending-access-requests"] = authentication.PendingAccessRequests
-    leafs["access-request-retransmits"] = authentication.AccessRequestRetransmits
-    leafs["access-accepts"] = authentication.AccessAccepts
-    leafs["access-rejects"] = authentication.AccessRejects
-    leafs["access-challenges"] = authentication.AccessChallenges
-    leafs["access-timeouts"] = authentication.AccessTimeouts
-    leafs["bad-access-responses"] = authentication.BadAccessResponses
-    leafs["bad-access-authenticators"] = authentication.BadAccessAuthenticators
-    leafs["unknown-access-types"] = authentication.UnknownAccessTypes
-    leafs["dropped-access-responses"] = authentication.DroppedAccessResponses
-    leafs["rtt"] = authentication.Rtt
-    leafs["authen-response-time"] = authentication.AuthenResponseTime
-    leafs["authen-transaction-successess"] = authentication.AuthenTransactionSuccessess
-    leafs["authen-transaction-failure"] = authentication.AuthenTransactionFailure
-    leafs["authen-unexpected-responses"] = authentication.AuthenUnexpectedResponses
-    leafs["authen-server-error-responses"] = authentication.AuthenServerErrorResponses
-    leafs["authen-incorrect-responses"] = authentication.AuthenIncorrectResponses
-    return leafs
-}
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authentication) GetParentYangName() string { return "server-group" }
-
-// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization
+// Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authorization
 // Authorization data
-type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization struct {
-    parent types.Entity
+type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authorization struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of access requests. The type is interface{} with range:
@@ -1888,70 +1090,33 @@ type Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization struct
     AuthorTransactionFailure interface{}
 }
 
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetFilter() yfilter.YFilter { return authorization.YFilter }
+func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup__Authorization) GetEntityData() *types.CommonEntityData {
+    authorization.EntityData.YFilter = authorization.YFilter
+    authorization.EntityData.YangName = "authorization"
+    authorization.EntityData.BundleName = "cisco_ios_xr"
+    authorization.EntityData.ParentYangName = "server-group"
+    authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) SetFilter(yf yfilter.YFilter) { authorization.YFilter = yf }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetGoName(yname string) string {
-    if yname == "author-requests" { return "AuthorRequests" }
-    if yname == "author-request-timeouts" { return "AuthorRequestTimeouts" }
-    if yname == "author-unexpected-responses" { return "AuthorUnexpectedResponses" }
-    if yname == "author-server-error-responses" { return "AuthorServerErrorResponses" }
-    if yname == "author-incorrect-responses" { return "AuthorIncorrectResponses" }
-    if yname == "author-response-time" { return "AuthorResponseTime" }
-    if yname == "author-transaction-successess" { return "AuthorTransactionSuccessess" }
-    if yname == "author-transaction-failure" { return "AuthorTransactionFailure" }
-    return ""
+    authorization.EntityData.Children = make(map[string]types.YChild)
+    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorization.EntityData.Leafs["author-requests"] = types.YLeaf{"AuthorRequests", authorization.AuthorRequests}
+    authorization.EntityData.Leafs["author-request-timeouts"] = types.YLeaf{"AuthorRequestTimeouts", authorization.AuthorRequestTimeouts}
+    authorization.EntityData.Leafs["author-unexpected-responses"] = types.YLeaf{"AuthorUnexpectedResponses", authorization.AuthorUnexpectedResponses}
+    authorization.EntityData.Leafs["author-server-error-responses"] = types.YLeaf{"AuthorServerErrorResponses", authorization.AuthorServerErrorResponses}
+    authorization.EntityData.Leafs["author-incorrect-responses"] = types.YLeaf{"AuthorIncorrectResponses", authorization.AuthorIncorrectResponses}
+    authorization.EntityData.Leafs["author-response-time"] = types.YLeaf{"AuthorResponseTime", authorization.AuthorResponseTime}
+    authorization.EntityData.Leafs["author-transaction-successess"] = types.YLeaf{"AuthorTransactionSuccessess", authorization.AuthorTransactionSuccessess}
+    authorization.EntityData.Leafs["author-transaction-failure"] = types.YLeaf{"AuthorTransactionFailure", authorization.AuthorTransactionFailure}
+    return &(authorization.EntityData)
 }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetSegmentPath() string {
-    return "authorization"
-}
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["author-requests"] = authorization.AuthorRequests
-    leafs["author-request-timeouts"] = authorization.AuthorRequestTimeouts
-    leafs["author-unexpected-responses"] = authorization.AuthorUnexpectedResponses
-    leafs["author-server-error-responses"] = authorization.AuthorServerErrorResponses
-    leafs["author-incorrect-responses"] = authorization.AuthorIncorrectResponses
-    leafs["author-response-time"] = authorization.AuthorResponseTime
-    leafs["author-transaction-successess"] = authorization.AuthorTransactionSuccessess
-    leafs["author-transaction-failure"] = authorization.AuthorTransactionFailure
-    return leafs
-}
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetYangName() string { return "authorization" }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) SetParent(parent types.Entity) { authorization.parent = parent }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetParent() types.Entity { return authorization.parent }
-
-func (authorization *Radius_Nodes_Node_ServerGroups_ServerGroup_ServerGroup_Authorization) GetParentYangName() string { return "server-group" }
 
 // Radius_Nodes_Node_DynamicAuthorization
 // Dynamic authorization data
 type Radius_Nodes_Node_DynamicAuthorization struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid disconnected requests. The type is interface{} with range:
@@ -1963,51 +1128,20 @@ type Radius_Nodes_Node_DynamicAuthorization struct {
     InvalidCoaRequests interface{}
 }
 
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetFilter() yfilter.YFilter { return dynamicAuthorization.YFilter }
+func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetEntityData() *types.CommonEntityData {
+    dynamicAuthorization.EntityData.YFilter = dynamicAuthorization.YFilter
+    dynamicAuthorization.EntityData.YangName = "dynamic-authorization"
+    dynamicAuthorization.EntityData.BundleName = "cisco_ios_xr"
+    dynamicAuthorization.EntityData.ParentYangName = "node"
+    dynamicAuthorization.EntityData.SegmentPath = "dynamic-authorization"
+    dynamicAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) SetFilter(yf yfilter.YFilter) { dynamicAuthorization.YFilter = yf }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetGoName(yname string) string {
-    if yname == "disconnected-invalid-requests" { return "DisconnectedInvalidRequests" }
-    if yname == "invalid-coa-requests" { return "InvalidCoaRequests" }
-    return ""
+    dynamicAuthorization.EntityData.Children = make(map[string]types.YChild)
+    dynamicAuthorization.EntityData.Leafs = make(map[string]types.YLeaf)
+    dynamicAuthorization.EntityData.Leafs["disconnected-invalid-requests"] = types.YLeaf{"DisconnectedInvalidRequests", dynamicAuthorization.DisconnectedInvalidRequests}
+    dynamicAuthorization.EntityData.Leafs["invalid-coa-requests"] = types.YLeaf{"InvalidCoaRequests", dynamicAuthorization.InvalidCoaRequests}
+    return &(dynamicAuthorization.EntityData)
 }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetSegmentPath() string {
-    return "dynamic-authorization"
-}
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disconnected-invalid-requests"] = dynamicAuthorization.DisconnectedInvalidRequests
-    leafs["invalid-coa-requests"] = dynamicAuthorization.InvalidCoaRequests
-    return leafs
-}
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetYangName() string { return "dynamic-authorization" }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) SetParent(parent types.Entity) { dynamicAuthorization.parent = parent }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetParent() types.Entity { return dynamicAuthorization.parent }
-
-func (dynamicAuthorization *Radius_Nodes_Node_DynamicAuthorization) GetParentYangName() string { return "node" }
 

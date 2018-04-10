@@ -42,6 +42,15 @@ module Cisco-IOS-XE-device-sensor {
           "Trigger accounting updates with sensor TLVs/Options";
         type empty;
       }
+      container notify {
+        description 
+          "Options for when to trigger identity update events";
+        leaf all-changes {
+          description
+            "Trigger identity update when TLVs are added/modified/removed";
+          type empty;
+        }		  
+      }
     }  
   }
 

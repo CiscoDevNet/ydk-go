@@ -83,65 +83,32 @@ func init() {
 // If there is an ongoing transaction for this session already, an
 // error MUST be returned with <error-app-tag> set to 'bad-state'.
 type StartTransaction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input StartTransaction_Input
 }
 
-func (startTransaction *StartTransaction) GetFilter() yfilter.YFilter { return startTransaction.YFilter }
+func (startTransaction *StartTransaction) GetEntityData() *types.CommonEntityData {
+    startTransaction.EntityData.YFilter = startTransaction.YFilter
+    startTransaction.EntityData.YangName = "start-transaction"
+    startTransaction.EntityData.BundleName = "cisco_ios_xe"
+    startTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
+    startTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:start-transaction"
+    startTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    startTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    startTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (startTransaction *StartTransaction) SetFilter(yf yfilter.YFilter) { startTransaction.YFilter = yf }
-
-func (startTransaction *StartTransaction) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    startTransaction.EntityData.Children = make(map[string]types.YChild)
+    startTransaction.EntityData.Children["input"] = types.YChild{"Input", &startTransaction.Input}
+    startTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(startTransaction.EntityData)
 }
-
-func (startTransaction *StartTransaction) GetSegmentPath() string {
-    return "tailf-netconf-transactions:start-transaction"
-}
-
-func (startTransaction *StartTransaction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &startTransaction.Input
-    }
-    return nil
-}
-
-func (startTransaction *StartTransaction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &startTransaction.Input
-    return children
-}
-
-func (startTransaction *StartTransaction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (startTransaction *StartTransaction) GetBundleName() string { return "cisco_ios_xe" }
-
-func (startTransaction *StartTransaction) GetYangName() string { return "start-transaction" }
-
-func (startTransaction *StartTransaction) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (startTransaction *StartTransaction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (startTransaction *StartTransaction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (startTransaction *StartTransaction) SetParent(parent types.Entity) { startTransaction.parent = parent }
-
-func (startTransaction *StartTransaction) GetParent() types.Entity { return startTransaction.parent }
-
-func (startTransaction *StartTransaction) GetParentYangName() string { return "tailf-netconf-transactions" }
 
 // StartTransaction_Input
 type StartTransaction_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // If the parameter is present in <start-transaction>, it MUST also be present
@@ -156,62 +123,28 @@ type StartTransaction_Input struct {
     Target StartTransaction_Input_Target
 }
 
-func (input *StartTransaction_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *StartTransaction_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "start-transaction"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *StartTransaction_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *StartTransaction_Input) GetGoName(yname string) string {
-    if yname == "with-inactive" { return "WithInactive" }
-    if yname == "target" { return "Target" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["target"] = types.YChild{"Target", &input.Target}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["with-inactive"] = types.YLeaf{"WithInactive", input.WithInactive}
+    return &(input.EntityData)
 }
-
-func (input *StartTransaction_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *StartTransaction_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "target" {
-        return &input.Target
-    }
-    return nil
-}
-
-func (input *StartTransaction_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["target"] = &input.Target
-    return children
-}
-
-func (input *StartTransaction_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["with-inactive"] = input.WithInactive
-    return leafs
-}
-
-func (input *StartTransaction_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *StartTransaction_Input) GetYangName() string { return "input" }
-
-func (input *StartTransaction_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *StartTransaction_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *StartTransaction_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *StartTransaction_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *StartTransaction_Input) GetParent() types.Entity { return input.parent }
-
-func (input *StartTransaction_Input) GetParentYangName() string { return "start-transaction" }
 
 // StartTransaction_Input_Target
 // Name of the configuration datastore towards which the
 // transaction is started.
 type StartTransaction_Input_Target struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is interface{}.
@@ -224,55 +157,23 @@ type StartTransaction_Input_Target struct {
     Candidate interface{}
 }
 
-func (target *StartTransaction_Input_Target) GetFilter() yfilter.YFilter { return target.YFilter }
+func (target *StartTransaction_Input_Target) GetEntityData() *types.CommonEntityData {
+    target.EntityData.YFilter = target.YFilter
+    target.EntityData.YangName = "target"
+    target.EntityData.BundleName = "cisco_ios_xe"
+    target.EntityData.ParentYangName = "input"
+    target.EntityData.SegmentPath = "target"
+    target.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    target.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    target.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (target *StartTransaction_Input_Target) SetFilter(yf yfilter.YFilter) { target.YFilter = yf }
-
-func (target *StartTransaction_Input_Target) GetGoName(yname string) string {
-    if yname == "startup" { return "Startup" }
-    if yname == "running" { return "Running" }
-    if yname == "candidate" { return "Candidate" }
-    return ""
+    target.EntityData.Children = make(map[string]types.YChild)
+    target.EntityData.Leafs = make(map[string]types.YLeaf)
+    target.EntityData.Leafs["startup"] = types.YLeaf{"Startup", target.Startup}
+    target.EntityData.Leafs["running"] = types.YLeaf{"Running", target.Running}
+    target.EntityData.Leafs["candidate"] = types.YLeaf{"Candidate", target.Candidate}
+    return &(target.EntityData)
 }
-
-func (target *StartTransaction_Input_Target) GetSegmentPath() string {
-    return "target"
-}
-
-func (target *StartTransaction_Input_Target) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (target *StartTransaction_Input_Target) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (target *StartTransaction_Input_Target) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["startup"] = target.Startup
-    leafs["running"] = target.Running
-    leafs["candidate"] = target.Candidate
-    return leafs
-}
-
-func (target *StartTransaction_Input_Target) GetBundleName() string { return "cisco_ios_xe" }
-
-func (target *StartTransaction_Input_Target) GetYangName() string { return "target" }
-
-func (target *StartTransaction_Input_Target) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (target *StartTransaction_Input_Target) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (target *StartTransaction_Input_Target) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (target *StartTransaction_Input_Target) SetParent(parent types.Entity) { target.parent = parent }
-
-func (target *StartTransaction_Input_Target) GetParent() types.Entity { return target.parent }
-
-func (target *StartTransaction_Input_Target) GetParentYangName() string { return "input" }
 
 // PrepareTransaction
 // Prepares the transaction state for commit.  The server may reject
@@ -296,53 +197,24 @@ func (target *StartTransaction_Input_Target) GetParentYangName() string { return
 // ongoing transaction already has been prepared, an error MUST be
 // returned with <error-app-tag> set to 'bad-state'.
 type PrepareTransaction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (prepareTransaction *PrepareTransaction) GetFilter() yfilter.YFilter { return prepareTransaction.YFilter }
+func (prepareTransaction *PrepareTransaction) GetEntityData() *types.CommonEntityData {
+    prepareTransaction.EntityData.YFilter = prepareTransaction.YFilter
+    prepareTransaction.EntityData.YangName = "prepare-transaction"
+    prepareTransaction.EntityData.BundleName = "cisco_ios_xe"
+    prepareTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
+    prepareTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:prepare-transaction"
+    prepareTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    prepareTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    prepareTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (prepareTransaction *PrepareTransaction) SetFilter(yf yfilter.YFilter) { prepareTransaction.YFilter = yf }
-
-func (prepareTransaction *PrepareTransaction) GetGoName(yname string) string {
-    return ""
+    prepareTransaction.EntityData.Children = make(map[string]types.YChild)
+    prepareTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(prepareTransaction.EntityData)
 }
-
-func (prepareTransaction *PrepareTransaction) GetSegmentPath() string {
-    return "tailf-netconf-transactions:prepare-transaction"
-}
-
-func (prepareTransaction *PrepareTransaction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (prepareTransaction *PrepareTransaction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (prepareTransaction *PrepareTransaction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (prepareTransaction *PrepareTransaction) GetBundleName() string { return "cisco_ios_xe" }
-
-func (prepareTransaction *PrepareTransaction) GetYangName() string { return "prepare-transaction" }
-
-func (prepareTransaction *PrepareTransaction) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (prepareTransaction *PrepareTransaction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (prepareTransaction *PrepareTransaction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (prepareTransaction *PrepareTransaction) SetParent(parent types.Entity) { prepareTransaction.parent = parent }
-
-func (prepareTransaction *PrepareTransaction) GetParent() types.Entity { return prepareTransaction.parent }
-
-func (prepareTransaction *PrepareTransaction) GetParentYangName() string { return "tailf-netconf-transactions" }
 
 // CommitTransaction
 // Applies the changes made in the transaction to the configuration
@@ -352,53 +224,24 @@ func (prepareTransaction *PrepareTransaction) GetParentYangName() string { retur
 // ongoing transaction already has not been prepared, an error
 // MUST be returned with <error-app-tag> set to 'bad-state'.
 type CommitTransaction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (commitTransaction *CommitTransaction) GetFilter() yfilter.YFilter { return commitTransaction.YFilter }
+func (commitTransaction *CommitTransaction) GetEntityData() *types.CommonEntityData {
+    commitTransaction.EntityData.YFilter = commitTransaction.YFilter
+    commitTransaction.EntityData.YangName = "commit-transaction"
+    commitTransaction.EntityData.BundleName = "cisco_ios_xe"
+    commitTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
+    commitTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:commit-transaction"
+    commitTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    commitTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    commitTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (commitTransaction *CommitTransaction) SetFilter(yf yfilter.YFilter) { commitTransaction.YFilter = yf }
-
-func (commitTransaction *CommitTransaction) GetGoName(yname string) string {
-    return ""
+    commitTransaction.EntityData.Children = make(map[string]types.YChild)
+    commitTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(commitTransaction.EntityData)
 }
-
-func (commitTransaction *CommitTransaction) GetSegmentPath() string {
-    return "tailf-netconf-transactions:commit-transaction"
-}
-
-func (commitTransaction *CommitTransaction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (commitTransaction *CommitTransaction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (commitTransaction *CommitTransaction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (commitTransaction *CommitTransaction) GetBundleName() string { return "cisco_ios_xe" }
-
-func (commitTransaction *CommitTransaction) GetYangName() string { return "commit-transaction" }
-
-func (commitTransaction *CommitTransaction) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (commitTransaction *CommitTransaction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (commitTransaction *CommitTransaction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (commitTransaction *CommitTransaction) SetParent(parent types.Entity) { commitTransaction.parent = parent }
-
-func (commitTransaction *CommitTransaction) GetParent() types.Entity { return commitTransaction.parent }
-
-func (commitTransaction *CommitTransaction) GetParentYangName() string { return "tailf-netconf-transactions" }
 
 // AbortTransaction
 // Aborts the ongoing transaction, and all pending changes are
@@ -408,51 +251,22 @@ func (commitTransaction *CommitTransaction) GetParentYangName() string { return 
 // If there is no ongoing transaction in this session, an error MUST
 // be returned with <error-app-tag> set to 'bad-state'.
 type AbortTransaction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (abortTransaction *AbortTransaction) GetFilter() yfilter.YFilter { return abortTransaction.YFilter }
+func (abortTransaction *AbortTransaction) GetEntityData() *types.CommonEntityData {
+    abortTransaction.EntityData.YFilter = abortTransaction.YFilter
+    abortTransaction.EntityData.YangName = "abort-transaction"
+    abortTransaction.EntityData.BundleName = "cisco_ios_xe"
+    abortTransaction.EntityData.ParentYangName = "tailf-netconf-transactions"
+    abortTransaction.EntityData.SegmentPath = "tailf-netconf-transactions:abort-transaction"
+    abortTransaction.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    abortTransaction.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    abortTransaction.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (abortTransaction *AbortTransaction) SetFilter(yf yfilter.YFilter) { abortTransaction.YFilter = yf }
-
-func (abortTransaction *AbortTransaction) GetGoName(yname string) string {
-    return ""
+    abortTransaction.EntityData.Children = make(map[string]types.YChild)
+    abortTransaction.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(abortTransaction.EntityData)
 }
-
-func (abortTransaction *AbortTransaction) GetSegmentPath() string {
-    return "tailf-netconf-transactions:abort-transaction"
-}
-
-func (abortTransaction *AbortTransaction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (abortTransaction *AbortTransaction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (abortTransaction *AbortTransaction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (abortTransaction *AbortTransaction) GetBundleName() string { return "cisco_ios_xe" }
-
-func (abortTransaction *AbortTransaction) GetYangName() string { return "abort-transaction" }
-
-func (abortTransaction *AbortTransaction) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (abortTransaction *AbortTransaction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (abortTransaction *AbortTransaction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (abortTransaction *AbortTransaction) SetParent(parent types.Entity) { abortTransaction.parent = parent }
-
-func (abortTransaction *AbortTransaction) GetParent() types.Entity { return abortTransaction.parent }
-
-func (abortTransaction *AbortTransaction) GetParentYangName() string { return "tailf-netconf-transactions" }
 

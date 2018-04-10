@@ -19,7 +19,7 @@ func init() {
 
 // CISCOFTPCLIENTMIB
 type CISCOFTPCLIENTMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -29,63 +29,26 @@ type CISCOFTPCLIENTMIB struct {
     Cfcrequesttable CISCOFTPCLIENTMIB_Cfcrequesttable
 }
 
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetFilter() yfilter.YFilter { return cISCOFTPCLIENTMIB.YFilter }
+func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetEntityData() *types.CommonEntityData {
+    cISCOFTPCLIENTMIB.EntityData.YFilter = cISCOFTPCLIENTMIB.YFilter
+    cISCOFTPCLIENTMIB.EntityData.YangName = "CISCO-FTP-CLIENT-MIB"
+    cISCOFTPCLIENTMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOFTPCLIENTMIB.EntityData.ParentYangName = "CISCO-FTP-CLIENT-MIB"
+    cISCOFTPCLIENTMIB.EntityData.SegmentPath = "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB"
+    cISCOFTPCLIENTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOFTPCLIENTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOFTPCLIENTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) SetFilter(yf yfilter.YFilter) { cISCOFTPCLIENTMIB.YFilter = yf }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetGoName(yname string) string {
-    if yname == "cfcRequest" { return "Cfcrequest" }
-    if yname == "cfcRequestTable" { return "Cfcrequesttable" }
-    return ""
+    cISCOFTPCLIENTMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOFTPCLIENTMIB.EntityData.Children["cfcRequest"] = types.YChild{"Cfcrequest", &cISCOFTPCLIENTMIB.Cfcrequest}
+    cISCOFTPCLIENTMIB.EntityData.Children["cfcRequestTable"] = types.YChild{"Cfcrequesttable", &cISCOFTPCLIENTMIB.Cfcrequesttable}
+    cISCOFTPCLIENTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOFTPCLIENTMIB.EntityData)
 }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetSegmentPath() string {
-    return "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB"
-}
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cfcRequest" {
-        return &cISCOFTPCLIENTMIB.Cfcrequest
-    }
-    if childYangName == "cfcRequestTable" {
-        return &cISCOFTPCLIENTMIB.Cfcrequesttable
-    }
-    return nil
-}
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cfcRequest"] = &cISCOFTPCLIENTMIB.Cfcrequest
-    children["cfcRequestTable"] = &cISCOFTPCLIENTMIB.Cfcrequesttable
-    return children
-}
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetYangName() string { return "CISCO-FTP-CLIENT-MIB" }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) SetParent(parent types.Entity) { cISCOFTPCLIENTMIB.parent = parent }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetParent() types.Entity { return cISCOFTPCLIENTMIB.parent }
-
-func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetParentYangName() string { return "CISCO-FTP-CLIENT-MIB" }
 
 // CISCOFTPCLIENTMIB_Cfcrequest
 type CISCOFTPCLIENTMIB_Cfcrequest struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of requests this system can hold in cfcRequestTable.  A
@@ -110,62 +73,29 @@ type CISCOFTPCLIENTMIB_Cfcrequest struct {
     Cfcrequestsbumped interface{}
 }
 
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetFilter() yfilter.YFilter { return cfcrequest.YFilter }
+func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetEntityData() *types.CommonEntityData {
+    cfcrequest.EntityData.YFilter = cfcrequest.YFilter
+    cfcrequest.EntityData.YangName = "cfcRequest"
+    cfcrequest.EntityData.BundleName = "cisco_ios_xe"
+    cfcrequest.EntityData.ParentYangName = "CISCO-FTP-CLIENT-MIB"
+    cfcrequest.EntityData.SegmentPath = "cfcRequest"
+    cfcrequest.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cfcrequest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cfcrequest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) SetFilter(yf yfilter.YFilter) { cfcrequest.YFilter = yf }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetGoName(yname string) string {
-    if yname == "cfcRequestMaximum" { return "Cfcrequestmaximum" }
-    if yname == "cfcRequests" { return "Cfcrequests" }
-    if yname == "cfcRequestsHigh" { return "Cfcrequestshigh" }
-    if yname == "cfcRequestsBumped" { return "Cfcrequestsbumped" }
-    return ""
+    cfcrequest.EntityData.Children = make(map[string]types.YChild)
+    cfcrequest.EntityData.Leafs = make(map[string]types.YLeaf)
+    cfcrequest.EntityData.Leafs["cfcRequestMaximum"] = types.YLeaf{"Cfcrequestmaximum", cfcrequest.Cfcrequestmaximum}
+    cfcrequest.EntityData.Leafs["cfcRequests"] = types.YLeaf{"Cfcrequests", cfcrequest.Cfcrequests}
+    cfcrequest.EntityData.Leafs["cfcRequestsHigh"] = types.YLeaf{"Cfcrequestshigh", cfcrequest.Cfcrequestshigh}
+    cfcrequest.EntityData.Leafs["cfcRequestsBumped"] = types.YLeaf{"Cfcrequestsbumped", cfcrequest.Cfcrequestsbumped}
+    return &(cfcrequest.EntityData)
 }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetSegmentPath() string {
-    return "cfcRequest"
-}
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cfcRequestMaximum"] = cfcrequest.Cfcrequestmaximum
-    leafs["cfcRequests"] = cfcrequest.Cfcrequests
-    leafs["cfcRequestsHigh"] = cfcrequest.Cfcrequestshigh
-    leafs["cfcRequestsBumped"] = cfcrequest.Cfcrequestsbumped
-    return leafs
-}
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetYangName() string { return "cfcRequest" }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) SetParent(parent types.Entity) { cfcrequest.parent = parent }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetParent() types.Entity { return cfcrequest.parent }
-
-func (cfcrequest *CISCOFTPCLIENTMIB_Cfcrequest) GetParentYangName() string { return "CISCO-FTP-CLIENT-MIB" }
 
 // CISCOFTPCLIENTMIB_Cfcrequesttable
 // A table of FTP client requests.
 type CISCOFTPCLIENTMIB_Cfcrequesttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about an FTP client request.  Management applications use
@@ -180,63 +110,24 @@ type CISCOFTPCLIENTMIB_Cfcrequesttable struct {
     Cfcrequestentry []CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry
 }
 
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetFilter() yfilter.YFilter { return cfcrequesttable.YFilter }
+func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetEntityData() *types.CommonEntityData {
+    cfcrequesttable.EntityData.YFilter = cfcrequesttable.YFilter
+    cfcrequesttable.EntityData.YangName = "cfcRequestTable"
+    cfcrequesttable.EntityData.BundleName = "cisco_ios_xe"
+    cfcrequesttable.EntityData.ParentYangName = "CISCO-FTP-CLIENT-MIB"
+    cfcrequesttable.EntityData.SegmentPath = "cfcRequestTable"
+    cfcrequesttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cfcrequesttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cfcrequesttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) SetFilter(yf yfilter.YFilter) { cfcrequesttable.YFilter = yf }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetGoName(yname string) string {
-    if yname == "cfcRequestEntry" { return "Cfcrequestentry" }
-    return ""
-}
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetSegmentPath() string {
-    return "cfcRequestTable"
-}
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cfcRequestEntry" {
-        for _, c := range cfcrequesttable.Cfcrequestentry {
-            if cfcrequesttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry{}
-        cfcrequesttable.Cfcrequestentry = append(cfcrequesttable.Cfcrequestentry, child)
-        return &cfcrequesttable.Cfcrequestentry[len(cfcrequesttable.Cfcrequestentry)-1]
-    }
-    return nil
-}
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cfcrequesttable.EntityData.Children = make(map[string]types.YChild)
+    cfcrequesttable.EntityData.Children["cfcRequestEntry"] = types.YChild{"Cfcrequestentry", nil}
     for i := range cfcrequesttable.Cfcrequestentry {
-        children[cfcrequesttable.Cfcrequestentry[i].GetSegmentPath()] = &cfcrequesttable.Cfcrequestentry[i]
+        cfcrequesttable.EntityData.Children[types.GetSegmentPath(&cfcrequesttable.Cfcrequestentry[i])] = types.YChild{"Cfcrequestentry", &cfcrequesttable.Cfcrequestentry[i]}
     }
-    return children
+    cfcrequesttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cfcrequesttable.EntityData)
 }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetYangName() string { return "cfcRequestTable" }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) SetParent(parent types.Entity) { cfcrequesttable.parent = parent }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetParent() types.Entity { return cfcrequesttable.parent }
-
-func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetParentYangName() string { return "CISCO-FTP-CLIENT-MIB" }
 
 // CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry
 // Information about an FTP client request.  Management applications
@@ -255,7 +146,7 @@ func (cfcrequesttable *CISCOFTPCLIENTMIB_Cfcrequesttable) GetParentYangName() st
 // Entries may not be created without explicitly setting
 // cfcRequestEntryStatus to either 'createAndGo' or 'createAndWait'.
 type CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
@@ -311,73 +202,32 @@ type CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry struct {
     Cfcrequestentrystatus interface{}
 }
 
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetFilter() yfilter.YFilter { return cfcrequestentry.YFilter }
+func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetEntityData() *types.CommonEntityData {
+    cfcrequestentry.EntityData.YFilter = cfcrequestentry.YFilter
+    cfcrequestentry.EntityData.YangName = "cfcRequestEntry"
+    cfcrequestentry.EntityData.BundleName = "cisco_ios_xe"
+    cfcrequestentry.EntityData.ParentYangName = "cfcRequestTable"
+    cfcrequestentry.EntityData.SegmentPath = "cfcRequestEntry" + "[cfcRequestIndex='" + fmt.Sprintf("%v", cfcrequestentry.Cfcrequestindex) + "']"
+    cfcrequestentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cfcrequestentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cfcrequestentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) SetFilter(yf yfilter.YFilter) { cfcrequestentry.YFilter = yf }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetGoName(yname string) string {
-    if yname == "cfcRequestIndex" { return "Cfcrequestindex" }
-    if yname == "cfcRequestOperation" { return "Cfcrequestoperation" }
-    if yname == "cfcRequestLocalFile" { return "Cfcrequestlocalfile" }
-    if yname == "cfcRequestRemoteFile" { return "Cfcrequestremotefile" }
-    if yname == "cfcRequestServer" { return "Cfcrequestserver" }
-    if yname == "cfcRequestUser" { return "Cfcrequestuser" }
-    if yname == "cfcRequestPassword" { return "Cfcrequestpassword" }
-    if yname == "cfcRequestResult" { return "Cfcrequestresult" }
-    if yname == "cfcRequestCompletionTime" { return "Cfcrequestcompletiontime" }
-    if yname == "cfcRequestStop" { return "Cfcrequeststop" }
-    if yname == "cfcRequestOperationState" { return "Cfcrequestoperationstate" }
-    if yname == "cfcRequestEntryStatus" { return "Cfcrequestentrystatus" }
-    return ""
+    cfcrequestentry.EntityData.Children = make(map[string]types.YChild)
+    cfcrequestentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cfcrequestentry.EntityData.Leafs["cfcRequestIndex"] = types.YLeaf{"Cfcrequestindex", cfcrequestentry.Cfcrequestindex}
+    cfcrequestentry.EntityData.Leafs["cfcRequestOperation"] = types.YLeaf{"Cfcrequestoperation", cfcrequestentry.Cfcrequestoperation}
+    cfcrequestentry.EntityData.Leafs["cfcRequestLocalFile"] = types.YLeaf{"Cfcrequestlocalfile", cfcrequestentry.Cfcrequestlocalfile}
+    cfcrequestentry.EntityData.Leafs["cfcRequestRemoteFile"] = types.YLeaf{"Cfcrequestremotefile", cfcrequestentry.Cfcrequestremotefile}
+    cfcrequestentry.EntityData.Leafs["cfcRequestServer"] = types.YLeaf{"Cfcrequestserver", cfcrequestentry.Cfcrequestserver}
+    cfcrequestentry.EntityData.Leafs["cfcRequestUser"] = types.YLeaf{"Cfcrequestuser", cfcrequestentry.Cfcrequestuser}
+    cfcrequestentry.EntityData.Leafs["cfcRequestPassword"] = types.YLeaf{"Cfcrequestpassword", cfcrequestentry.Cfcrequestpassword}
+    cfcrequestentry.EntityData.Leafs["cfcRequestResult"] = types.YLeaf{"Cfcrequestresult", cfcrequestentry.Cfcrequestresult}
+    cfcrequestentry.EntityData.Leafs["cfcRequestCompletionTime"] = types.YLeaf{"Cfcrequestcompletiontime", cfcrequestentry.Cfcrequestcompletiontime}
+    cfcrequestentry.EntityData.Leafs["cfcRequestStop"] = types.YLeaf{"Cfcrequeststop", cfcrequestentry.Cfcrequeststop}
+    cfcrequestentry.EntityData.Leafs["cfcRequestOperationState"] = types.YLeaf{"Cfcrequestoperationstate", cfcrequestentry.Cfcrequestoperationstate}
+    cfcrequestentry.EntityData.Leafs["cfcRequestEntryStatus"] = types.YLeaf{"Cfcrequestentrystatus", cfcrequestentry.Cfcrequestentrystatus}
+    return &(cfcrequestentry.EntityData)
 }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetSegmentPath() string {
-    return "cfcRequestEntry" + "[cfcRequestIndex='" + fmt.Sprintf("%v", cfcrequestentry.Cfcrequestindex) + "']"
-}
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cfcRequestIndex"] = cfcrequestentry.Cfcrequestindex
-    leafs["cfcRequestOperation"] = cfcrequestentry.Cfcrequestoperation
-    leafs["cfcRequestLocalFile"] = cfcrequestentry.Cfcrequestlocalfile
-    leafs["cfcRequestRemoteFile"] = cfcrequestentry.Cfcrequestremotefile
-    leafs["cfcRequestServer"] = cfcrequestentry.Cfcrequestserver
-    leafs["cfcRequestUser"] = cfcrequestentry.Cfcrequestuser
-    leafs["cfcRequestPassword"] = cfcrequestentry.Cfcrequestpassword
-    leafs["cfcRequestResult"] = cfcrequestentry.Cfcrequestresult
-    leafs["cfcRequestCompletionTime"] = cfcrequestentry.Cfcrequestcompletiontime
-    leafs["cfcRequestStop"] = cfcrequestentry.Cfcrequeststop
-    leafs["cfcRequestOperationState"] = cfcrequestentry.Cfcrequestoperationstate
-    leafs["cfcRequestEntryStatus"] = cfcrequestentry.Cfcrequestentrystatus
-    return leafs
-}
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetYangName() string { return "cfcRequestEntry" }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) SetParent(parent types.Entity) { cfcrequestentry.parent = parent }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetParent() types.Entity { return cfcrequestentry.parent }
-
-func (cfcrequestentry *CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry) GetParentYangName() string { return "cfcRequestTable" }
 
 // CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry_Cfcrequestoperation represents The FTP operation to be performed.
 type CISCOFTPCLIENTMIB_Cfcrequesttable_Cfcrequestentry_Cfcrequestoperation string

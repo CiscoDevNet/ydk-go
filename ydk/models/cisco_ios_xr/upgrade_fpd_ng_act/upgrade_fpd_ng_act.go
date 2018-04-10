@@ -27,65 +27,32 @@ func init() {
 // UpgradeFpd
 // Execute FPD upgrade
 type UpgradeFpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input UpgradeFpd_Input
 }
 
-func (upgradeFpd *UpgradeFpd) GetFilter() yfilter.YFilter { return upgradeFpd.YFilter }
+func (upgradeFpd *UpgradeFpd) GetEntityData() *types.CommonEntityData {
+    upgradeFpd.EntityData.YFilter = upgradeFpd.YFilter
+    upgradeFpd.EntityData.YangName = "upgrade-fpd"
+    upgradeFpd.EntityData.BundleName = "cisco_ios_xr"
+    upgradeFpd.EntityData.ParentYangName = "Cisco-IOS-XR-upgrade-fpd-ng-act"
+    upgradeFpd.EntityData.SegmentPath = "Cisco-IOS-XR-upgrade-fpd-ng-act:upgrade-fpd"
+    upgradeFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    upgradeFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    upgradeFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (upgradeFpd *UpgradeFpd) SetFilter(yf yfilter.YFilter) { upgradeFpd.YFilter = yf }
-
-func (upgradeFpd *UpgradeFpd) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    upgradeFpd.EntityData.Children = make(map[string]types.YChild)
+    upgradeFpd.EntityData.Children["input"] = types.YChild{"Input", &upgradeFpd.Input}
+    upgradeFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(upgradeFpd.EntityData)
 }
-
-func (upgradeFpd *UpgradeFpd) GetSegmentPath() string {
-    return "Cisco-IOS-XR-upgrade-fpd-ng-act:upgrade-fpd"
-}
-
-func (upgradeFpd *UpgradeFpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &upgradeFpd.Input
-    }
-    return nil
-}
-
-func (upgradeFpd *UpgradeFpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &upgradeFpd.Input
-    return children
-}
-
-func (upgradeFpd *UpgradeFpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (upgradeFpd *UpgradeFpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (upgradeFpd *UpgradeFpd) GetYangName() string { return "upgrade-fpd" }
-
-func (upgradeFpd *UpgradeFpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (upgradeFpd *UpgradeFpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (upgradeFpd *UpgradeFpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (upgradeFpd *UpgradeFpd) SetParent(parent types.Entity) { upgradeFpd.parent = parent }
-
-func (upgradeFpd *UpgradeFpd) GetParent() types.Entity { return upgradeFpd.parent }
-
-func (upgradeFpd *UpgradeFpd) GetParentYangName() string { return "Cisco-IOS-XR-upgrade-fpd-ng-act" }
 
 // UpgradeFpd_Input
 type UpgradeFpd_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Location of the FPD to be upgraded. The type is string. This attribute is
@@ -100,53 +67,21 @@ type UpgradeFpd_Input struct {
     Force interface{}
 }
 
-func (input *UpgradeFpd_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *UpgradeFpd_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "upgrade-fpd"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *UpgradeFpd_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *UpgradeFpd_Input) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "fpd" { return "Fpd" }
-    if yname == "force" { return "Force" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["location"] = types.YLeaf{"Location", input.Location}
+    input.EntityData.Leafs["fpd"] = types.YLeaf{"Fpd", input.Fpd}
+    input.EntityData.Leafs["force"] = types.YLeaf{"Force", input.Force}
+    return &(input.EntityData)
 }
-
-func (input *UpgradeFpd_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *UpgradeFpd_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *UpgradeFpd_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *UpgradeFpd_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = input.Location
-    leafs["fpd"] = input.Fpd
-    leafs["force"] = input.Force
-    return leafs
-}
-
-func (input *UpgradeFpd_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *UpgradeFpd_Input) GetYangName() string { return "input" }
-
-func (input *UpgradeFpd_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *UpgradeFpd_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *UpgradeFpd_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *UpgradeFpd_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *UpgradeFpd_Input) GetParent() types.Entity { return input.parent }
-
-func (input *UpgradeFpd_Input) GetParentYangName() string { return "upgrade-fpd" }
 

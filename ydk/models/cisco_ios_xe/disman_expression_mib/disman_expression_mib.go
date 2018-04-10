@@ -19,7 +19,7 @@ func init() {
 
 // DISMANEXPRESSIONMIB
 type DISMANEXPRESSIONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -45,78 +45,29 @@ type DISMANEXPRESSIONMIB struct {
     Expvaluetable DISMANEXPRESSIONMIB_Expvaluetable
 }
 
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetFilter() yfilter.YFilter { return dISMANEXPRESSIONMIB.YFilter }
+func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetEntityData() *types.CommonEntityData {
+    dISMANEXPRESSIONMIB.EntityData.YFilter = dISMANEXPRESSIONMIB.YFilter
+    dISMANEXPRESSIONMIB.EntityData.YangName = "DISMAN-EXPRESSION-MIB"
+    dISMANEXPRESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
+    dISMANEXPRESSIONMIB.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
+    dISMANEXPRESSIONMIB.EntityData.SegmentPath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB"
+    dISMANEXPRESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dISMANEXPRESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dISMANEXPRESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) SetFilter(yf yfilter.YFilter) { dISMANEXPRESSIONMIB.YFilter = yf }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetGoName(yname string) string {
-    if yname == "expResource" { return "Expresource" }
-    if yname == "expExpressionTable" { return "Expexpressiontable" }
-    if yname == "expErrorTable" { return "Experrortable" }
-    if yname == "expObjectTable" { return "Expobjecttable" }
-    if yname == "expValueTable" { return "Expvaluetable" }
-    return ""
+    dISMANEXPRESSIONMIB.EntityData.Children = make(map[string]types.YChild)
+    dISMANEXPRESSIONMIB.EntityData.Children["expResource"] = types.YChild{"Expresource", &dISMANEXPRESSIONMIB.Expresource}
+    dISMANEXPRESSIONMIB.EntityData.Children["expExpressionTable"] = types.YChild{"Expexpressiontable", &dISMANEXPRESSIONMIB.Expexpressiontable}
+    dISMANEXPRESSIONMIB.EntityData.Children["expErrorTable"] = types.YChild{"Experrortable", &dISMANEXPRESSIONMIB.Experrortable}
+    dISMANEXPRESSIONMIB.EntityData.Children["expObjectTable"] = types.YChild{"Expobjecttable", &dISMANEXPRESSIONMIB.Expobjecttable}
+    dISMANEXPRESSIONMIB.EntityData.Children["expValueTable"] = types.YChild{"Expvaluetable", &dISMANEXPRESSIONMIB.Expvaluetable}
+    dISMANEXPRESSIONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dISMANEXPRESSIONMIB.EntityData)
 }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetSegmentPath() string {
-    return "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB"
-}
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "expResource" {
-        return &dISMANEXPRESSIONMIB.Expresource
-    }
-    if childYangName == "expExpressionTable" {
-        return &dISMANEXPRESSIONMIB.Expexpressiontable
-    }
-    if childYangName == "expErrorTable" {
-        return &dISMANEXPRESSIONMIB.Experrortable
-    }
-    if childYangName == "expObjectTable" {
-        return &dISMANEXPRESSIONMIB.Expobjecttable
-    }
-    if childYangName == "expValueTable" {
-        return &dISMANEXPRESSIONMIB.Expvaluetable
-    }
-    return nil
-}
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["expResource"] = &dISMANEXPRESSIONMIB.Expresource
-    children["expExpressionTable"] = &dISMANEXPRESSIONMIB.Expexpressiontable
-    children["expErrorTable"] = &dISMANEXPRESSIONMIB.Experrortable
-    children["expObjectTable"] = &dISMANEXPRESSIONMIB.Expobjecttable
-    children["expValueTable"] = &dISMANEXPRESSIONMIB.Expvaluetable
-    return children
-}
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetYangName() string { return "DISMAN-EXPRESSION-MIB" }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) SetParent(parent types.Entity) { dISMANEXPRESSIONMIB.parent = parent }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetParent() types.Entity { return dISMANEXPRESSIONMIB.parent }
-
-func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetParentYangName() string { return "DISMAN-EXPRESSION-MIB" }
 
 // DISMANEXPRESSIONMIB_Expresource
 type DISMANEXPRESSIONMIB_Expresource struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The minimum expExpressionDeltaInterval this system will accept.  A system
@@ -166,64 +117,30 @@ type DISMANEXPRESSIONMIB_Expresource struct {
     Expresourcedeltawildcardinstanceresourcelacks interface{}
 }
 
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetFilter() yfilter.YFilter { return expresource.YFilter }
+func (expresource *DISMANEXPRESSIONMIB_Expresource) GetEntityData() *types.CommonEntityData {
+    expresource.EntityData.YFilter = expresource.YFilter
+    expresource.EntityData.YangName = "expResource"
+    expresource.EntityData.BundleName = "cisco_ios_xe"
+    expresource.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
+    expresource.EntityData.SegmentPath = "expResource"
+    expresource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expresource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expresource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expresource *DISMANEXPRESSIONMIB_Expresource) SetFilter(yf yfilter.YFilter) { expresource.YFilter = yf }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetGoName(yname string) string {
-    if yname == "expResourceDeltaMinimum" { return "Expresourcedeltaminimum" }
-    if yname == "expResourceDeltaWildcardInstanceMaximum" { return "Expresourcedeltawildcardinstancemaximum" }
-    if yname == "expResourceDeltaWildcardInstances" { return "Expresourcedeltawildcardinstances" }
-    if yname == "expResourceDeltaWildcardInstancesHigh" { return "Expresourcedeltawildcardinstanceshigh" }
-    if yname == "expResourceDeltaWildcardInstanceResourceLacks" { return "Expresourcedeltawildcardinstanceresourcelacks" }
-    return ""
+    expresource.EntityData.Children = make(map[string]types.YChild)
+    expresource.EntityData.Leafs = make(map[string]types.YLeaf)
+    expresource.EntityData.Leafs["expResourceDeltaMinimum"] = types.YLeaf{"Expresourcedeltaminimum", expresource.Expresourcedeltaminimum}
+    expresource.EntityData.Leafs["expResourceDeltaWildcardInstanceMaximum"] = types.YLeaf{"Expresourcedeltawildcardinstancemaximum", expresource.Expresourcedeltawildcardinstancemaximum}
+    expresource.EntityData.Leafs["expResourceDeltaWildcardInstances"] = types.YLeaf{"Expresourcedeltawildcardinstances", expresource.Expresourcedeltawildcardinstances}
+    expresource.EntityData.Leafs["expResourceDeltaWildcardInstancesHigh"] = types.YLeaf{"Expresourcedeltawildcardinstanceshigh", expresource.Expresourcedeltawildcardinstanceshigh}
+    expresource.EntityData.Leafs["expResourceDeltaWildcardInstanceResourceLacks"] = types.YLeaf{"Expresourcedeltawildcardinstanceresourcelacks", expresource.Expresourcedeltawildcardinstanceresourcelacks}
+    return &(expresource.EntityData)
 }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetSegmentPath() string {
-    return "expResource"
-}
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["expResourceDeltaMinimum"] = expresource.Expresourcedeltaminimum
-    leafs["expResourceDeltaWildcardInstanceMaximum"] = expresource.Expresourcedeltawildcardinstancemaximum
-    leafs["expResourceDeltaWildcardInstances"] = expresource.Expresourcedeltawildcardinstances
-    leafs["expResourceDeltaWildcardInstancesHigh"] = expresource.Expresourcedeltawildcardinstanceshigh
-    leafs["expResourceDeltaWildcardInstanceResourceLacks"] = expresource.Expresourcedeltawildcardinstanceresourcelacks
-    return leafs
-}
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetYangName() string { return "expResource" }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) SetParent(parent types.Entity) { expresource.parent = parent }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetParent() types.Entity { return expresource.parent }
-
-func (expresource *DISMANEXPRESSIONMIB_Expresource) GetParentYangName() string { return "DISMAN-EXPRESSION-MIB" }
 
 // DISMANEXPRESSIONMIB_Expexpressiontable
 // A table of expression definitions.
 type DISMANEXPRESSIONMIB_Expexpressiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single expression.  New expressions can be created
@@ -254,63 +171,24 @@ type DISMANEXPRESSIONMIB_Expexpressiontable struct {
     Expexpressionentry []DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry
 }
 
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetFilter() yfilter.YFilter { return expexpressiontable.YFilter }
+func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetEntityData() *types.CommonEntityData {
+    expexpressiontable.EntityData.YFilter = expexpressiontable.YFilter
+    expexpressiontable.EntityData.YangName = "expExpressionTable"
+    expexpressiontable.EntityData.BundleName = "cisco_ios_xe"
+    expexpressiontable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
+    expexpressiontable.EntityData.SegmentPath = "expExpressionTable"
+    expexpressiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expexpressiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expexpressiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) SetFilter(yf yfilter.YFilter) { expexpressiontable.YFilter = yf }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetGoName(yname string) string {
-    if yname == "expExpressionEntry" { return "Expexpressionentry" }
-    return ""
-}
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetSegmentPath() string {
-    return "expExpressionTable"
-}
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "expExpressionEntry" {
-        for _, c := range expexpressiontable.Expexpressionentry {
-            if expexpressiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry{}
-        expexpressiontable.Expexpressionentry = append(expexpressiontable.Expexpressionentry, child)
-        return &expexpressiontable.Expexpressionentry[len(expexpressiontable.Expexpressionentry)-1]
-    }
-    return nil
-}
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    expexpressiontable.EntityData.Children = make(map[string]types.YChild)
+    expexpressiontable.EntityData.Children["expExpressionEntry"] = types.YChild{"Expexpressionentry", nil}
     for i := range expexpressiontable.Expexpressionentry {
-        children[expexpressiontable.Expexpressionentry[i].GetSegmentPath()] = &expexpressiontable.Expexpressionentry[i]
+        expexpressiontable.EntityData.Children[types.GetSegmentPath(&expexpressiontable.Expexpressionentry[i])] = types.YChild{"Expexpressionentry", &expexpressiontable.Expexpressionentry[i]}
     }
-    return children
+    expexpressiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(expexpressiontable.EntityData)
 }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetYangName() string { return "expExpressionTable" }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) SetParent(parent types.Entity) { expexpressiontable.parent = parent }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetParent() types.Entity { return expexpressiontable.parent }
-
-func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetParentYangName() string { return "DISMAN-EXPRESSION-MIB" }
 
 // DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry
 // Information about a single expression.  New expressions
@@ -351,7 +229,7 @@ func (expexpressiontable *DISMANEXPRESSIONMIB_Expexpressiontable) GetParentYangN
 // Values of read-write objects in this table may be changed
 // at any time.
 type DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The owner of this entry. The exact semantics of
@@ -504,7 +382,8 @@ type DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry struct {
     // objects for the expression. This is sufficient, as the remainder, that is,
     // the instance fragment relevant to instancing the values, must be the same
     // for all wildcarded objects in the expression. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Expexpressionprefix interface{}
 
     // The number of errors encountered while evaluating this expression.  Note
@@ -521,67 +400,29 @@ type DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry struct {
     Expexpressionentrystatus interface{}
 }
 
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetFilter() yfilter.YFilter { return expexpressionentry.YFilter }
+func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetEntityData() *types.CommonEntityData {
+    expexpressionentry.EntityData.YFilter = expexpressionentry.YFilter
+    expexpressionentry.EntityData.YangName = "expExpressionEntry"
+    expexpressionentry.EntityData.BundleName = "cisco_ios_xe"
+    expexpressionentry.EntityData.ParentYangName = "expExpressionTable"
+    expexpressionentry.EntityData.SegmentPath = "expExpressionEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", expexpressionentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", expexpressionentry.Expexpressionname) + "']"
+    expexpressionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expexpressionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expexpressionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) SetFilter(yf yfilter.YFilter) { expexpressionentry.YFilter = yf }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetGoName(yname string) string {
-    if yname == "expExpressionOwner" { return "Expexpressionowner" }
-    if yname == "expExpressionName" { return "Expexpressionname" }
-    if yname == "expExpression" { return "Expexpression" }
-    if yname == "expExpressionValueType" { return "Expexpressionvaluetype" }
-    if yname == "expExpressionComment" { return "Expexpressioncomment" }
-    if yname == "expExpressionDeltaInterval" { return "Expexpressiondeltainterval" }
-    if yname == "expExpressionPrefix" { return "Expexpressionprefix" }
-    if yname == "expExpressionErrors" { return "Expexpressionerrors" }
-    if yname == "expExpressionEntryStatus" { return "Expexpressionentrystatus" }
-    return ""
+    expexpressionentry.EntityData.Children = make(map[string]types.YChild)
+    expexpressionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    expexpressionentry.EntityData.Leafs["expExpressionOwner"] = types.YLeaf{"Expexpressionowner", expexpressionentry.Expexpressionowner}
+    expexpressionentry.EntityData.Leafs["expExpressionName"] = types.YLeaf{"Expexpressionname", expexpressionentry.Expexpressionname}
+    expexpressionentry.EntityData.Leafs["expExpression"] = types.YLeaf{"Expexpression", expexpressionentry.Expexpression}
+    expexpressionentry.EntityData.Leafs["expExpressionValueType"] = types.YLeaf{"Expexpressionvaluetype", expexpressionentry.Expexpressionvaluetype}
+    expexpressionentry.EntityData.Leafs["expExpressionComment"] = types.YLeaf{"Expexpressioncomment", expexpressionentry.Expexpressioncomment}
+    expexpressionentry.EntityData.Leafs["expExpressionDeltaInterval"] = types.YLeaf{"Expexpressiondeltainterval", expexpressionentry.Expexpressiondeltainterval}
+    expexpressionentry.EntityData.Leafs["expExpressionPrefix"] = types.YLeaf{"Expexpressionprefix", expexpressionentry.Expexpressionprefix}
+    expexpressionentry.EntityData.Leafs["expExpressionErrors"] = types.YLeaf{"Expexpressionerrors", expexpressionentry.Expexpressionerrors}
+    expexpressionentry.EntityData.Leafs["expExpressionEntryStatus"] = types.YLeaf{"Expexpressionentrystatus", expexpressionentry.Expexpressionentrystatus}
+    return &(expexpressionentry.EntityData)
 }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetSegmentPath() string {
-    return "expExpressionEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", expexpressionentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", expexpressionentry.Expexpressionname) + "']"
-}
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["expExpressionOwner"] = expexpressionentry.Expexpressionowner
-    leafs["expExpressionName"] = expexpressionentry.Expexpressionname
-    leafs["expExpression"] = expexpressionentry.Expexpression
-    leafs["expExpressionValueType"] = expexpressionentry.Expexpressionvaluetype
-    leafs["expExpressionComment"] = expexpressionentry.Expexpressioncomment
-    leafs["expExpressionDeltaInterval"] = expexpressionentry.Expexpressiondeltainterval
-    leafs["expExpressionPrefix"] = expexpressionentry.Expexpressionprefix
-    leafs["expExpressionErrors"] = expexpressionentry.Expexpressionerrors
-    leafs["expExpressionEntryStatus"] = expexpressionentry.Expexpressionentrystatus
-    return leafs
-}
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetYangName() string { return "expExpressionEntry" }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) SetParent(parent types.Entity) { expexpressionentry.parent = parent }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetParent() types.Entity { return expexpressionentry.parent }
-
-func (expexpressionentry *DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry) GetParentYangName() string { return "expExpressionTable" }
 
 // DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry_Expexpressionvaluetype represents an invalidOperandType error will occur.
 type DISMANEXPRESSIONMIB_Expexpressiontable_Expexpressionentry_Expexpressionvaluetype string
@@ -607,7 +448,7 @@ const (
 // DISMANEXPRESSIONMIB_Experrortable
 // A table of expression errors.
 type DISMANEXPRESSIONMIB_Experrortable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about errors in processing an expression.  Entries appear in
@@ -618,63 +459,24 @@ type DISMANEXPRESSIONMIB_Experrortable struct {
     Experrorentry []DISMANEXPRESSIONMIB_Experrortable_Experrorentry
 }
 
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetFilter() yfilter.YFilter { return experrortable.YFilter }
+func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetEntityData() *types.CommonEntityData {
+    experrortable.EntityData.YFilter = experrortable.YFilter
+    experrortable.EntityData.YangName = "expErrorTable"
+    experrortable.EntityData.BundleName = "cisco_ios_xe"
+    experrortable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
+    experrortable.EntityData.SegmentPath = "expErrorTable"
+    experrortable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    experrortable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    experrortable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) SetFilter(yf yfilter.YFilter) { experrortable.YFilter = yf }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetGoName(yname string) string {
-    if yname == "expErrorEntry" { return "Experrorentry" }
-    return ""
-}
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetSegmentPath() string {
-    return "expErrorTable"
-}
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "expErrorEntry" {
-        for _, c := range experrortable.Experrorentry {
-            if experrortable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DISMANEXPRESSIONMIB_Experrortable_Experrorentry{}
-        experrortable.Experrorentry = append(experrortable.Experrorentry, child)
-        return &experrortable.Experrorentry[len(experrortable.Experrorentry)-1]
-    }
-    return nil
-}
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    experrortable.EntityData.Children = make(map[string]types.YChild)
+    experrortable.EntityData.Children["expErrorEntry"] = types.YChild{"Experrorentry", nil}
     for i := range experrortable.Experrorentry {
-        children[experrortable.Experrorentry[i].GetSegmentPath()] = &experrortable.Experrorentry[i]
+        experrortable.EntityData.Children[types.GetSegmentPath(&experrortable.Experrorentry[i])] = types.YChild{"Experrorentry", &experrortable.Experrorentry[i]}
     }
-    return children
+    experrortable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(experrortable.EntityData)
 }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetYangName() string { return "expErrorTable" }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) SetParent(parent types.Entity) { experrortable.parent = parent }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetParent() types.Entity { return experrortable.parent }
-
-func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetParentYangName() string { return "DISMAN-EXPRESSION-MIB" }
 
 // DISMANEXPRESSIONMIB_Experrortable_Experrorentry
 // Information about errors in processing an expression.
@@ -684,7 +486,7 @@ func (experrortable *DISMANEXPRESSIONMIB_Experrortable) GetParentYangName() stri
 // error for that expression as reflected by the error codes
 // defined for expErrorCode.
 type DISMANEXPRESSIONMIB_Experrortable_Experrorentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
@@ -739,65 +541,30 @@ type DISMANEXPRESSIONMIB_Experrortable_Experrorentry struct {
 
     // The expValueInstance being evaluated when the error occurred.  A
     // zero-length indicates irrelevance. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Experrorinstance interface{}
 }
 
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetFilter() yfilter.YFilter { return experrorentry.YFilter }
+func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetEntityData() *types.CommonEntityData {
+    experrorentry.EntityData.YFilter = experrorentry.YFilter
+    experrorentry.EntityData.YangName = "expErrorEntry"
+    experrorentry.EntityData.BundleName = "cisco_ios_xe"
+    experrorentry.EntityData.ParentYangName = "expErrorTable"
+    experrorentry.EntityData.SegmentPath = "expErrorEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", experrorentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", experrorentry.Expexpressionname) + "']"
+    experrorentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    experrorentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    experrorentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) SetFilter(yf yfilter.YFilter) { experrorentry.YFilter = yf }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetGoName(yname string) string {
-    if yname == "expExpressionOwner" { return "Expexpressionowner" }
-    if yname == "expExpressionName" { return "Expexpressionname" }
-    if yname == "expErrorTime" { return "Experrortime" }
-    if yname == "expErrorIndex" { return "Experrorindex" }
-    if yname == "expErrorCode" { return "Experrorcode" }
-    if yname == "expErrorInstance" { return "Experrorinstance" }
-    return ""
+    experrorentry.EntityData.Children = make(map[string]types.YChild)
+    experrorentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    experrorentry.EntityData.Leafs["expExpressionOwner"] = types.YLeaf{"Expexpressionowner", experrorentry.Expexpressionowner}
+    experrorentry.EntityData.Leafs["expExpressionName"] = types.YLeaf{"Expexpressionname", experrorentry.Expexpressionname}
+    experrorentry.EntityData.Leafs["expErrorTime"] = types.YLeaf{"Experrortime", experrorentry.Experrortime}
+    experrorentry.EntityData.Leafs["expErrorIndex"] = types.YLeaf{"Experrorindex", experrorentry.Experrorindex}
+    experrorentry.EntityData.Leafs["expErrorCode"] = types.YLeaf{"Experrorcode", experrorentry.Experrorcode}
+    experrorentry.EntityData.Leafs["expErrorInstance"] = types.YLeaf{"Experrorinstance", experrorentry.Experrorinstance}
+    return &(experrorentry.EntityData)
 }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetSegmentPath() string {
-    return "expErrorEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", experrorentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", experrorentry.Expexpressionname) + "']"
-}
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["expExpressionOwner"] = experrorentry.Expexpressionowner
-    leafs["expExpressionName"] = experrorentry.Expexpressionname
-    leafs["expErrorTime"] = experrorentry.Experrortime
-    leafs["expErrorIndex"] = experrorentry.Experrorindex
-    leafs["expErrorCode"] = experrorentry.Experrorcode
-    leafs["expErrorInstance"] = experrorentry.Experrorinstance
-    return leafs
-}
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetYangName() string { return "expErrorEntry" }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) SetParent(parent types.Entity) { experrorentry.parent = parent }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetParent() types.Entity { return experrorentry.parent }
-
-func (experrorentry *DISMANEXPRESSIONMIB_Experrortable_Experrorentry) GetParentYangName() string { return "expErrorTable" }
 
 // DISMANEXPRESSIONMIB_Experrortable_Experrorentry_Experrorcode represents 'resourceUnavailable'.
 type DISMANEXPRESSIONMIB_Experrortable_Experrorentry_Experrorcode string
@@ -841,7 +608,7 @@ const (
 // same semantic index value (e.g., a value of ifIndex)
 // for the wildcarded portion.
 type DISMANEXPRESSIONMIB_Expobjecttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about an object.  An application uses expObjectEntryStatus to
@@ -852,63 +619,24 @@ type DISMANEXPRESSIONMIB_Expobjecttable struct {
     Expobjectentry []DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry
 }
 
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetFilter() yfilter.YFilter { return expobjecttable.YFilter }
+func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetEntityData() *types.CommonEntityData {
+    expobjecttable.EntityData.YFilter = expobjecttable.YFilter
+    expobjecttable.EntityData.YangName = "expObjectTable"
+    expobjecttable.EntityData.BundleName = "cisco_ios_xe"
+    expobjecttable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
+    expobjecttable.EntityData.SegmentPath = "expObjectTable"
+    expobjecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expobjecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expobjecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) SetFilter(yf yfilter.YFilter) { expobjecttable.YFilter = yf }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetGoName(yname string) string {
-    if yname == "expObjectEntry" { return "Expobjectentry" }
-    return ""
-}
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetSegmentPath() string {
-    return "expObjectTable"
-}
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "expObjectEntry" {
-        for _, c := range expobjecttable.Expobjectentry {
-            if expobjecttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry{}
-        expobjecttable.Expobjectentry = append(expobjecttable.Expobjectentry, child)
-        return &expobjecttable.Expobjectentry[len(expobjecttable.Expobjectentry)-1]
-    }
-    return nil
-}
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    expobjecttable.EntityData.Children = make(map[string]types.YChild)
+    expobjecttable.EntityData.Children["expObjectEntry"] = types.YChild{"Expobjectentry", nil}
     for i := range expobjecttable.Expobjectentry {
-        children[expobjecttable.Expobjectentry[i].GetSegmentPath()] = &expobjecttable.Expobjectentry[i]
+        expobjecttable.EntityData.Children[types.GetSegmentPath(&expobjecttable.Expobjectentry[i])] = types.YChild{"Expobjectentry", &expobjecttable.Expobjectentry[i]}
     }
-    return children
+    expobjecttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(expobjecttable.EntityData)
 }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetYangName() string { return "expObjectTable" }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) SetParent(parent types.Entity) { expobjecttable.parent = parent }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetParent() types.Entity { return expobjecttable.parent }
-
-func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetParentYangName() string { return "DISMAN-EXPRESSION-MIB" }
 
 // DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry
 // Information about an object.  An application uses
@@ -918,7 +646,7 @@ func (expobjecttable *DISMANEXPRESSIONMIB_Expobjecttable) GetParentYangName() st
 // Values of read-create objects in this table may be
 // changed at any time.
 type DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
@@ -944,7 +672,7 @@ type DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry struct {
     // of the object.  An object here may itself be the result of an expression
     // but recursion is not allowed.  NOTE:  The simplest implementations of this
     // MIB may not allow wildcards. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Expobjectid interface{}
 
     // A true value indicates the expObjecID of this row is a wildcard object.
@@ -978,7 +706,7 @@ type DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry struct {
     // to sysUpTime discontinuity checking must still check sysUpTime for an
     // overall discontinuity.  If the object identified is not accessible no
     // discontinuity check will be made. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Expobjectdeltadiscontinuityid interface{}
 
     // A true value indicates the expObjectDeltaDiscontinuityID of this row is a
@@ -1011,7 +739,7 @@ type DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry struct {
     // non-zero (true) value.  Note that expObjectConditional can not trivially
     // use an object of syntax TruthValue, since the underlying value is not 0 or
     // 1. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Expobjectconditional interface{}
 
     // A true value indicates the expObjectConditional of this row is a wildcard
@@ -1026,73 +754,32 @@ type DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry struct {
     Expobjectentrystatus interface{}
 }
 
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetFilter() yfilter.YFilter { return expobjectentry.YFilter }
+func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetEntityData() *types.CommonEntityData {
+    expobjectentry.EntityData.YFilter = expobjectentry.YFilter
+    expobjectentry.EntityData.YangName = "expObjectEntry"
+    expobjectentry.EntityData.BundleName = "cisco_ios_xe"
+    expobjectentry.EntityData.ParentYangName = "expObjectTable"
+    expobjectentry.EntityData.SegmentPath = "expObjectEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", expobjectentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", expobjectentry.Expexpressionname) + "']" + "[expObjectIndex='" + fmt.Sprintf("%v", expobjectentry.Expobjectindex) + "']"
+    expobjectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expobjectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expobjectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) SetFilter(yf yfilter.YFilter) { expobjectentry.YFilter = yf }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetGoName(yname string) string {
-    if yname == "expExpressionOwner" { return "Expexpressionowner" }
-    if yname == "expExpressionName" { return "Expexpressionname" }
-    if yname == "expObjectIndex" { return "Expobjectindex" }
-    if yname == "expObjectID" { return "Expobjectid" }
-    if yname == "expObjectIDWildcard" { return "Expobjectidwildcard" }
-    if yname == "expObjectSampleType" { return "Expobjectsampletype" }
-    if yname == "expObjectDeltaDiscontinuityID" { return "Expobjectdeltadiscontinuityid" }
-    if yname == "expObjectDiscontinuityIDWildcard" { return "Expobjectdiscontinuityidwildcard" }
-    if yname == "expObjectDiscontinuityIDType" { return "Expobjectdiscontinuityidtype" }
-    if yname == "expObjectConditional" { return "Expobjectconditional" }
-    if yname == "expObjectConditionalWildcard" { return "Expobjectconditionalwildcard" }
-    if yname == "expObjectEntryStatus" { return "Expobjectentrystatus" }
-    return ""
+    expobjectentry.EntityData.Children = make(map[string]types.YChild)
+    expobjectentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    expobjectentry.EntityData.Leafs["expExpressionOwner"] = types.YLeaf{"Expexpressionowner", expobjectentry.Expexpressionowner}
+    expobjectentry.EntityData.Leafs["expExpressionName"] = types.YLeaf{"Expexpressionname", expobjectentry.Expexpressionname}
+    expobjectentry.EntityData.Leafs["expObjectIndex"] = types.YLeaf{"Expobjectindex", expobjectentry.Expobjectindex}
+    expobjectentry.EntityData.Leafs["expObjectID"] = types.YLeaf{"Expobjectid", expobjectentry.Expobjectid}
+    expobjectentry.EntityData.Leafs["expObjectIDWildcard"] = types.YLeaf{"Expobjectidwildcard", expobjectentry.Expobjectidwildcard}
+    expobjectentry.EntityData.Leafs["expObjectSampleType"] = types.YLeaf{"Expobjectsampletype", expobjectentry.Expobjectsampletype}
+    expobjectentry.EntityData.Leafs["expObjectDeltaDiscontinuityID"] = types.YLeaf{"Expobjectdeltadiscontinuityid", expobjectentry.Expobjectdeltadiscontinuityid}
+    expobjectentry.EntityData.Leafs["expObjectDiscontinuityIDWildcard"] = types.YLeaf{"Expobjectdiscontinuityidwildcard", expobjectentry.Expobjectdiscontinuityidwildcard}
+    expobjectentry.EntityData.Leafs["expObjectDiscontinuityIDType"] = types.YLeaf{"Expobjectdiscontinuityidtype", expobjectentry.Expobjectdiscontinuityidtype}
+    expobjectentry.EntityData.Leafs["expObjectConditional"] = types.YLeaf{"Expobjectconditional", expobjectentry.Expobjectconditional}
+    expobjectentry.EntityData.Leafs["expObjectConditionalWildcard"] = types.YLeaf{"Expobjectconditionalwildcard", expobjectentry.Expobjectconditionalwildcard}
+    expobjectentry.EntityData.Leafs["expObjectEntryStatus"] = types.YLeaf{"Expobjectentrystatus", expobjectentry.Expobjectentrystatus}
+    return &(expobjectentry.EntityData)
 }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetSegmentPath() string {
-    return "expObjectEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", expobjectentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", expobjectentry.Expexpressionname) + "']" + "[expObjectIndex='" + fmt.Sprintf("%v", expobjectentry.Expobjectindex) + "']"
-}
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["expExpressionOwner"] = expobjectentry.Expexpressionowner
-    leafs["expExpressionName"] = expobjectentry.Expexpressionname
-    leafs["expObjectIndex"] = expobjectentry.Expobjectindex
-    leafs["expObjectID"] = expobjectentry.Expobjectid
-    leafs["expObjectIDWildcard"] = expobjectentry.Expobjectidwildcard
-    leafs["expObjectSampleType"] = expobjectentry.Expobjectsampletype
-    leafs["expObjectDeltaDiscontinuityID"] = expobjectentry.Expobjectdeltadiscontinuityid
-    leafs["expObjectDiscontinuityIDWildcard"] = expobjectentry.Expobjectdiscontinuityidwildcard
-    leafs["expObjectDiscontinuityIDType"] = expobjectentry.Expobjectdiscontinuityidtype
-    leafs["expObjectConditional"] = expobjectentry.Expobjectconditional
-    leafs["expObjectConditionalWildcard"] = expobjectentry.Expobjectconditionalwildcard
-    leafs["expObjectEntryStatus"] = expobjectentry.Expobjectentrystatus
-    return leafs
-}
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetYangName() string { return "expObjectEntry" }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) SetParent(parent types.Entity) { expobjectentry.parent = parent }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetParent() types.Entity { return expobjectentry.parent }
-
-func (expobjectentry *DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry) GetParentYangName() string { return "expObjectTable" }
 
 // DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry_Expobjectdiscontinuityidtype represents 'deltaValue' or 'changedValue'.
 type DISMANEXPRESSIONMIB_Expobjecttable_Expobjectentry_Expobjectdiscontinuityidtype string
@@ -1119,7 +806,7 @@ const (
 // DISMANEXPRESSIONMIB_Expvaluetable
 // A table of values from evaluated expressions.
 type DISMANEXPRESSIONMIB_Expvaluetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single value from an evaluated expression.  For a given instance, only
@@ -1148,63 +835,24 @@ type DISMANEXPRESSIONMIB_Expvaluetable struct {
     Expvalueentry []DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry
 }
 
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetFilter() yfilter.YFilter { return expvaluetable.YFilter }
+func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetEntityData() *types.CommonEntityData {
+    expvaluetable.EntityData.YFilter = expvaluetable.YFilter
+    expvaluetable.EntityData.YangName = "expValueTable"
+    expvaluetable.EntityData.BundleName = "cisco_ios_xe"
+    expvaluetable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
+    expvaluetable.EntityData.SegmentPath = "expValueTable"
+    expvaluetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expvaluetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expvaluetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) SetFilter(yf yfilter.YFilter) { expvaluetable.YFilter = yf }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetGoName(yname string) string {
-    if yname == "expValueEntry" { return "Expvalueentry" }
-    return ""
-}
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetSegmentPath() string {
-    return "expValueTable"
-}
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "expValueEntry" {
-        for _, c := range expvaluetable.Expvalueentry {
-            if expvaluetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry{}
-        expvaluetable.Expvalueentry = append(expvaluetable.Expvalueentry, child)
-        return &expvaluetable.Expvalueentry[len(expvaluetable.Expvalueentry)-1]
-    }
-    return nil
-}
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    expvaluetable.EntityData.Children = make(map[string]types.YChild)
+    expvaluetable.EntityData.Children["expValueEntry"] = types.YChild{"Expvalueentry", nil}
     for i := range expvaluetable.Expvalueentry {
-        children[expvaluetable.Expvalueentry[i].GetSegmentPath()] = &expvaluetable.Expvalueentry[i]
+        expvaluetable.EntityData.Children[types.GetSegmentPath(&expvaluetable.Expvalueentry[i])] = types.YChild{"Expvalueentry", &expvaluetable.Expvalueentry[i]}
     }
-    return children
+    expvaluetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(expvaluetable.EntityData)
 }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetYangName() string { return "expValueTable" }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) SetParent(parent types.Entity) { expvaluetable.parent = parent }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetParent() types.Entity { return expvaluetable.parent }
-
-func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetParentYangName() string { return "DISMAN-EXPRESSION-MIB" }
 
 // DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry
 // A single value from an evaluated expression.  For a given
@@ -1239,7 +887,7 @@ func (expvaluetable *DISMANEXPRESSIONMIB_Expvaluetable) GetParentYangName() stri
 // Management Frameworks.  These are the security credentials of the
 // creator of the corresponding expExpressionEntry.
 type DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
@@ -1260,7 +908,8 @@ type DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry struct {
     // value instance for each real, possible value of the wildcard. So, for
     // example, if the wildcard worked out to be an ifIndex, there is an
     // expValueInstance for each applicable ifIndex. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Expvalueinstance interface{}
 
     // The value when expExpressionValueType is 'counter32'. The type is
@@ -1281,7 +930,7 @@ type DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry struct {
 
     // The value when expExpressionValueType is 'ipAddress'. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Expvalueipaddressval interface{}
 
     // The value when expExpressionValueType is 'octetString'. The type is string
@@ -1290,7 +939,7 @@ type DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry struct {
 
     // The value when expExpressionValueType is 'objectId'. The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Expvalueoidval interface{}
 
     // The value when expExpressionValueType is 'counter64'. The type is
@@ -1298,69 +947,29 @@ type DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry struct {
     Expvaluecounter64Val interface{}
 }
 
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetFilter() yfilter.YFilter { return expvalueentry.YFilter }
+func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetEntityData() *types.CommonEntityData {
+    expvalueentry.EntityData.YFilter = expvalueentry.YFilter
+    expvalueentry.EntityData.YangName = "expValueEntry"
+    expvalueentry.EntityData.BundleName = "cisco_ios_xe"
+    expvalueentry.EntityData.ParentYangName = "expValueTable"
+    expvalueentry.EntityData.SegmentPath = "expValueEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", expvalueentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", expvalueentry.Expexpressionname) + "']" + "[expValueInstance='" + fmt.Sprintf("%v", expvalueentry.Expvalueinstance) + "']"
+    expvalueentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    expvalueentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    expvalueentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) SetFilter(yf yfilter.YFilter) { expvalueentry.YFilter = yf }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetGoName(yname string) string {
-    if yname == "expExpressionOwner" { return "Expexpressionowner" }
-    if yname == "expExpressionName" { return "Expexpressionname" }
-    if yname == "expValueInstance" { return "Expvalueinstance" }
-    if yname == "expValueCounter32Val" { return "Expvaluecounter32Val" }
-    if yname == "expValueUnsigned32Val" { return "Expvalueunsigned32Val" }
-    if yname == "expValueTimeTicksVal" { return "Expvaluetimeticksval" }
-    if yname == "expValueInteger32Val" { return "Expvalueinteger32Val" }
-    if yname == "expValueIpAddressVal" { return "Expvalueipaddressval" }
-    if yname == "expValueOctetStringVal" { return "Expvalueoctetstringval" }
-    if yname == "expValueOidVal" { return "Expvalueoidval" }
-    if yname == "expValueCounter64Val" { return "Expvaluecounter64Val" }
-    return ""
+    expvalueentry.EntityData.Children = make(map[string]types.YChild)
+    expvalueentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    expvalueentry.EntityData.Leafs["expExpressionOwner"] = types.YLeaf{"Expexpressionowner", expvalueentry.Expexpressionowner}
+    expvalueentry.EntityData.Leafs["expExpressionName"] = types.YLeaf{"Expexpressionname", expvalueentry.Expexpressionname}
+    expvalueentry.EntityData.Leafs["expValueInstance"] = types.YLeaf{"Expvalueinstance", expvalueentry.Expvalueinstance}
+    expvalueentry.EntityData.Leafs["expValueCounter32Val"] = types.YLeaf{"Expvaluecounter32Val", expvalueentry.Expvaluecounter32Val}
+    expvalueentry.EntityData.Leafs["expValueUnsigned32Val"] = types.YLeaf{"Expvalueunsigned32Val", expvalueentry.Expvalueunsigned32Val}
+    expvalueentry.EntityData.Leafs["expValueTimeTicksVal"] = types.YLeaf{"Expvaluetimeticksval", expvalueentry.Expvaluetimeticksval}
+    expvalueentry.EntityData.Leafs["expValueInteger32Val"] = types.YLeaf{"Expvalueinteger32Val", expvalueentry.Expvalueinteger32Val}
+    expvalueentry.EntityData.Leafs["expValueIpAddressVal"] = types.YLeaf{"Expvalueipaddressval", expvalueentry.Expvalueipaddressval}
+    expvalueentry.EntityData.Leafs["expValueOctetStringVal"] = types.YLeaf{"Expvalueoctetstringval", expvalueentry.Expvalueoctetstringval}
+    expvalueentry.EntityData.Leafs["expValueOidVal"] = types.YLeaf{"Expvalueoidval", expvalueentry.Expvalueoidval}
+    expvalueentry.EntityData.Leafs["expValueCounter64Val"] = types.YLeaf{"Expvaluecounter64Val", expvalueentry.Expvaluecounter64Val}
+    return &(expvalueentry.EntityData)
 }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetSegmentPath() string {
-    return "expValueEntry" + "[expExpressionOwner='" + fmt.Sprintf("%v", expvalueentry.Expexpressionowner) + "']" + "[expExpressionName='" + fmt.Sprintf("%v", expvalueentry.Expexpressionname) + "']" + "[expValueInstance='" + fmt.Sprintf("%v", expvalueentry.Expvalueinstance) + "']"
-}
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["expExpressionOwner"] = expvalueentry.Expexpressionowner
-    leafs["expExpressionName"] = expvalueentry.Expexpressionname
-    leafs["expValueInstance"] = expvalueentry.Expvalueinstance
-    leafs["expValueCounter32Val"] = expvalueentry.Expvaluecounter32Val
-    leafs["expValueUnsigned32Val"] = expvalueentry.Expvalueunsigned32Val
-    leafs["expValueTimeTicksVal"] = expvalueentry.Expvaluetimeticksval
-    leafs["expValueInteger32Val"] = expvalueentry.Expvalueinteger32Val
-    leafs["expValueIpAddressVal"] = expvalueentry.Expvalueipaddressval
-    leafs["expValueOctetStringVal"] = expvalueentry.Expvalueoctetstringval
-    leafs["expValueOidVal"] = expvalueentry.Expvalueoidval
-    leafs["expValueCounter64Val"] = expvalueentry.Expvaluecounter64Val
-    return leafs
-}
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetYangName() string { return "expValueEntry" }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) SetParent(parent types.Entity) { expvalueentry.parent = parent }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetParent() types.Entity { return expvalueentry.parent }
-
-func (expvalueentry *DISMANEXPRESSIONMIB_Expvaluetable_Expvalueentry) GetParentYangName() string { return "expValueTable" }
 

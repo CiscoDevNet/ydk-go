@@ -18,66 +18,33 @@ func init() {
 
 // CISCOPINGMIB
 type CISCOPINGMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table of ping request entries.
     Ciscopingtable CISCOPINGMIB_Ciscopingtable
 }
 
-func (cISCOPINGMIB *CISCOPINGMIB) GetFilter() yfilter.YFilter { return cISCOPINGMIB.YFilter }
+func (cISCOPINGMIB *CISCOPINGMIB) GetEntityData() *types.CommonEntityData {
+    cISCOPINGMIB.EntityData.YFilter = cISCOPINGMIB.YFilter
+    cISCOPINGMIB.EntityData.YangName = "CISCO-PING-MIB"
+    cISCOPINGMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOPINGMIB.EntityData.ParentYangName = "CISCO-PING-MIB"
+    cISCOPINGMIB.EntityData.SegmentPath = "CISCO-PING-MIB:CISCO-PING-MIB"
+    cISCOPINGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOPINGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOPINGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOPINGMIB *CISCOPINGMIB) SetFilter(yf yfilter.YFilter) { cISCOPINGMIB.YFilter = yf }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetGoName(yname string) string {
-    if yname == "ciscoPingTable" { return "Ciscopingtable" }
-    return ""
+    cISCOPINGMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOPINGMIB.EntityData.Children["ciscoPingTable"] = types.YChild{"Ciscopingtable", &cISCOPINGMIB.Ciscopingtable}
+    cISCOPINGMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOPINGMIB.EntityData)
 }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetSegmentPath() string {
-    return "CISCO-PING-MIB:CISCO-PING-MIB"
-}
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoPingTable" {
-        return &cISCOPINGMIB.Ciscopingtable
-    }
-    return nil
-}
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ciscoPingTable"] = &cISCOPINGMIB.Ciscopingtable
-    return children
-}
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetYangName() string { return "CISCO-PING-MIB" }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOPINGMIB *CISCOPINGMIB) SetParent(parent types.Entity) { cISCOPINGMIB.parent = parent }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetParent() types.Entity { return cISCOPINGMIB.parent }
-
-func (cISCOPINGMIB *CISCOPINGMIB) GetParentYangName() string { return "CISCO-PING-MIB" }
 
 // CISCOPINGMIB_Ciscopingtable
 // A table of ping request entries.
 type CISCOPINGMIB_Ciscopingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A ping request entry.  A management station wishing to create an entry
@@ -103,63 +70,24 @@ type CISCOPINGMIB_Ciscopingtable struct {
     Ciscopingentry []CISCOPINGMIB_Ciscopingtable_Ciscopingentry
 }
 
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetFilter() yfilter.YFilter { return ciscopingtable.YFilter }
+func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetEntityData() *types.CommonEntityData {
+    ciscopingtable.EntityData.YFilter = ciscopingtable.YFilter
+    ciscopingtable.EntityData.YangName = "ciscoPingTable"
+    ciscopingtable.EntityData.BundleName = "cisco_ios_xe"
+    ciscopingtable.EntityData.ParentYangName = "CISCO-PING-MIB"
+    ciscopingtable.EntityData.SegmentPath = "ciscoPingTable"
+    ciscopingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscopingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscopingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) SetFilter(yf yfilter.YFilter) { ciscopingtable.YFilter = yf }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetGoName(yname string) string {
-    if yname == "ciscoPingEntry" { return "Ciscopingentry" }
-    return ""
-}
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetSegmentPath() string {
-    return "ciscoPingTable"
-}
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoPingEntry" {
-        for _, c := range ciscopingtable.Ciscopingentry {
-            if ciscopingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOPINGMIB_Ciscopingtable_Ciscopingentry{}
-        ciscopingtable.Ciscopingentry = append(ciscopingtable.Ciscopingentry, child)
-        return &ciscopingtable.Ciscopingentry[len(ciscopingtable.Ciscopingentry)-1]
-    }
-    return nil
-}
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciscopingtable.EntityData.Children = make(map[string]types.YChild)
+    ciscopingtable.EntityData.Children["ciscoPingEntry"] = types.YChild{"Ciscopingentry", nil}
     for i := range ciscopingtable.Ciscopingentry {
-        children[ciscopingtable.Ciscopingentry[i].GetSegmentPath()] = &ciscopingtable.Ciscopingentry[i]
+        ciscopingtable.EntityData.Children[types.GetSegmentPath(&ciscopingtable.Ciscopingentry[i])] = types.YChild{"Ciscopingentry", &ciscopingtable.Ciscopingentry[i]}
     }
-    return children
+    ciscopingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscopingtable.EntityData)
 }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetYangName() string { return "ciscoPingTable" }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) SetParent(parent types.Entity) { ciscopingtable.parent = parent }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetParent() types.Entity { return ciscopingtable.parent }
-
-func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetParentYangName() string { return "CISCO-PING-MIB" }
 
 // CISCOPINGMIB_Ciscopingtable_Ciscopingentry
 // A ping request entry.
@@ -193,7 +121,7 @@ func (ciscopingtable *CISCOPINGMIB_Ciscopingtable) GetParentYangName() string { 
 // but an entry will never be deleted within 5 minutes of
 // completing.
 type CISCOPINGMIB_Ciscopingtable_Ciscopingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Object which specifies a unique entry in the
@@ -290,81 +218,35 @@ type CISCOPINGMIB_Ciscopingtable_Ciscopingentry struct {
     Ciscopingvrfname interface{}
 }
 
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetFilter() yfilter.YFilter { return ciscopingentry.YFilter }
+func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetEntityData() *types.CommonEntityData {
+    ciscopingentry.EntityData.YFilter = ciscopingentry.YFilter
+    ciscopingentry.EntityData.YangName = "ciscoPingEntry"
+    ciscopingentry.EntityData.BundleName = "cisco_ios_xe"
+    ciscopingentry.EntityData.ParentYangName = "ciscoPingTable"
+    ciscopingentry.EntityData.SegmentPath = "ciscoPingEntry" + "[ciscoPingSerialNumber='" + fmt.Sprintf("%v", ciscopingentry.Ciscopingserialnumber) + "']"
+    ciscopingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscopingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscopingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) SetFilter(yf yfilter.YFilter) { ciscopingentry.YFilter = yf }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetGoName(yname string) string {
-    if yname == "ciscoPingSerialNumber" { return "Ciscopingserialnumber" }
-    if yname == "ciscoPingProtocol" { return "Ciscopingprotocol" }
-    if yname == "ciscoPingAddress" { return "Ciscopingaddress" }
-    if yname == "ciscoPingPacketCount" { return "Ciscopingpacketcount" }
-    if yname == "ciscoPingPacketSize" { return "Ciscopingpacketsize" }
-    if yname == "ciscoPingPacketTimeout" { return "Ciscopingpackettimeout" }
-    if yname == "ciscoPingDelay" { return "Ciscopingdelay" }
-    if yname == "ciscoPingTrapOnCompletion" { return "Ciscopingtraponcompletion" }
-    if yname == "ciscoPingSentPackets" { return "Ciscopingsentpackets" }
-    if yname == "ciscoPingReceivedPackets" { return "Ciscopingreceivedpackets" }
-    if yname == "ciscoPingMinRtt" { return "Ciscopingminrtt" }
-    if yname == "ciscoPingAvgRtt" { return "Ciscopingavgrtt" }
-    if yname == "ciscoPingMaxRtt" { return "Ciscopingmaxrtt" }
-    if yname == "ciscoPingCompleted" { return "Ciscopingcompleted" }
-    if yname == "ciscoPingEntryOwner" { return "Ciscopingentryowner" }
-    if yname == "ciscoPingEntryStatus" { return "Ciscopingentrystatus" }
-    if yname == "ciscoPingVrfName" { return "Ciscopingvrfname" }
-    return ""
+    ciscopingentry.EntityData.Children = make(map[string]types.YChild)
+    ciscopingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscopingentry.EntityData.Leafs["ciscoPingSerialNumber"] = types.YLeaf{"Ciscopingserialnumber", ciscopingentry.Ciscopingserialnumber}
+    ciscopingentry.EntityData.Leafs["ciscoPingProtocol"] = types.YLeaf{"Ciscopingprotocol", ciscopingentry.Ciscopingprotocol}
+    ciscopingentry.EntityData.Leafs["ciscoPingAddress"] = types.YLeaf{"Ciscopingaddress", ciscopingentry.Ciscopingaddress}
+    ciscopingentry.EntityData.Leafs["ciscoPingPacketCount"] = types.YLeaf{"Ciscopingpacketcount", ciscopingentry.Ciscopingpacketcount}
+    ciscopingentry.EntityData.Leafs["ciscoPingPacketSize"] = types.YLeaf{"Ciscopingpacketsize", ciscopingentry.Ciscopingpacketsize}
+    ciscopingentry.EntityData.Leafs["ciscoPingPacketTimeout"] = types.YLeaf{"Ciscopingpackettimeout", ciscopingentry.Ciscopingpackettimeout}
+    ciscopingentry.EntityData.Leafs["ciscoPingDelay"] = types.YLeaf{"Ciscopingdelay", ciscopingentry.Ciscopingdelay}
+    ciscopingentry.EntityData.Leafs["ciscoPingTrapOnCompletion"] = types.YLeaf{"Ciscopingtraponcompletion", ciscopingentry.Ciscopingtraponcompletion}
+    ciscopingentry.EntityData.Leafs["ciscoPingSentPackets"] = types.YLeaf{"Ciscopingsentpackets", ciscopingentry.Ciscopingsentpackets}
+    ciscopingentry.EntityData.Leafs["ciscoPingReceivedPackets"] = types.YLeaf{"Ciscopingreceivedpackets", ciscopingentry.Ciscopingreceivedpackets}
+    ciscopingentry.EntityData.Leafs["ciscoPingMinRtt"] = types.YLeaf{"Ciscopingminrtt", ciscopingentry.Ciscopingminrtt}
+    ciscopingentry.EntityData.Leafs["ciscoPingAvgRtt"] = types.YLeaf{"Ciscopingavgrtt", ciscopingentry.Ciscopingavgrtt}
+    ciscopingentry.EntityData.Leafs["ciscoPingMaxRtt"] = types.YLeaf{"Ciscopingmaxrtt", ciscopingentry.Ciscopingmaxrtt}
+    ciscopingentry.EntityData.Leafs["ciscoPingCompleted"] = types.YLeaf{"Ciscopingcompleted", ciscopingentry.Ciscopingcompleted}
+    ciscopingentry.EntityData.Leafs["ciscoPingEntryOwner"] = types.YLeaf{"Ciscopingentryowner", ciscopingentry.Ciscopingentryowner}
+    ciscopingentry.EntityData.Leafs["ciscoPingEntryStatus"] = types.YLeaf{"Ciscopingentrystatus", ciscopingentry.Ciscopingentrystatus}
+    ciscopingentry.EntityData.Leafs["ciscoPingVrfName"] = types.YLeaf{"Ciscopingvrfname", ciscopingentry.Ciscopingvrfname}
+    return &(ciscopingentry.EntityData)
 }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetSegmentPath() string {
-    return "ciscoPingEntry" + "[ciscoPingSerialNumber='" + fmt.Sprintf("%v", ciscopingentry.Ciscopingserialnumber) + "']"
-}
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ciscoPingSerialNumber"] = ciscopingentry.Ciscopingserialnumber
-    leafs["ciscoPingProtocol"] = ciscopingentry.Ciscopingprotocol
-    leafs["ciscoPingAddress"] = ciscopingentry.Ciscopingaddress
-    leafs["ciscoPingPacketCount"] = ciscopingentry.Ciscopingpacketcount
-    leafs["ciscoPingPacketSize"] = ciscopingentry.Ciscopingpacketsize
-    leafs["ciscoPingPacketTimeout"] = ciscopingentry.Ciscopingpackettimeout
-    leafs["ciscoPingDelay"] = ciscopingentry.Ciscopingdelay
-    leafs["ciscoPingTrapOnCompletion"] = ciscopingentry.Ciscopingtraponcompletion
-    leafs["ciscoPingSentPackets"] = ciscopingentry.Ciscopingsentpackets
-    leafs["ciscoPingReceivedPackets"] = ciscopingentry.Ciscopingreceivedpackets
-    leafs["ciscoPingMinRtt"] = ciscopingentry.Ciscopingminrtt
-    leafs["ciscoPingAvgRtt"] = ciscopingentry.Ciscopingavgrtt
-    leafs["ciscoPingMaxRtt"] = ciscopingentry.Ciscopingmaxrtt
-    leafs["ciscoPingCompleted"] = ciscopingentry.Ciscopingcompleted
-    leafs["ciscoPingEntryOwner"] = ciscopingentry.Ciscopingentryowner
-    leafs["ciscoPingEntryStatus"] = ciscopingentry.Ciscopingentrystatus
-    leafs["ciscoPingVrfName"] = ciscopingentry.Ciscopingvrfname
-    return leafs
-}
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetYangName() string { return "ciscoPingEntry" }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) SetParent(parent types.Entity) { ciscopingentry.parent = parent }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetParent() types.Entity { return ciscopingentry.parent }
-
-func (ciscopingentry *CISCOPINGMIB_Ciscopingtable_Ciscopingentry) GetParentYangName() string { return "ciscoPingTable" }
 

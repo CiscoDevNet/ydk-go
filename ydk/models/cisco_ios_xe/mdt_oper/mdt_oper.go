@@ -19,6 +19,23 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mdt-oper:mdt-oper-data", reflect.TypeOf(MdtOperData{}))
 }
 
+// MdtSubType represents Subscription types
+type MdtSubType string
+
+const (
+    // Dynamic subscriptions
+    // -do not survive reboot
+    // -existence tied to connection they are created on
+    // -send updates only to peer that creates them
+    MdtSubType_sub_type_dynamic MdtSubType = "sub-type-dynamic"
+
+    // Static subscriptions
+    // -created, (modified), and deleted by management operations
+    // -survive reboot
+    // -receivers are configured 
+    MdtSubType_sub_type_static MdtSubType = "sub-type-static"
+)
+
 // MdtSubState represents Subscription states
 type MdtSubState string
 
@@ -37,42 +54,6 @@ const (
     // The subscription is invalid. This state is valid
     // only for static subscriptions.
     MdtSubState_sub_state_invalid MdtSubState = "sub-state-invalid"
-)
-
-// MdtConState represents Connection states.
-type MdtConState string
-
-const (
-    // The connection is active and usable.
-    MdtConState_con_state_active MdtConState = "con-state-active"
-
-    // An attempt is being made to set the connection up.
-    MdtConState_con_state_connecting MdtConState = "con-state-connecting"
-
-    // The connection is down, but between connection
-    // attempts. It is in this state, for example, during
-    // the idle time between retries.
-    MdtConState_con_state_pending MdtConState = "con-state-pending"
-
-    // The connection is the process of being disconnected.
-    MdtConState_con_state_disconnecting MdtConState = "con-state-disconnecting"
-)
-
-// MdtSubType represents Subscription types
-type MdtSubType string
-
-const (
-    // Dynamic subscriptions
-    // -do not survive reboot
-    // -existence tied to connection they are created on
-    // -send updates only to peer that creates them
-    MdtSubType_sub_type_dynamic MdtSubType = "sub-type-dynamic"
-
-    // Static subscriptions
-    // -created, (modified), and deleted by management operations
-    // -survive reboot
-    // -receivers are configured 
-    MdtSubType_sub_type_static MdtSubType = "sub-type-static"
 )
 
 // MdtReceiverState represents Receiver states.
@@ -95,10 +76,29 @@ const (
     MdtReceiverState_rcvr_state_connected MdtReceiverState = "rcvr-state-connected"
 )
 
+// MdtConState represents Connection states.
+type MdtConState string
+
+const (
+    // The connection is active and usable.
+    MdtConState_con_state_active MdtConState = "con-state-active"
+
+    // An attempt is being made to set the connection up.
+    MdtConState_con_state_connecting MdtConState = "con-state-connecting"
+
+    // The connection is down, but between connection
+    // attempts. It is in this state, for example, during
+    // the idle time between retries.
+    MdtConState_con_state_pending MdtConState = "con-state-pending"
+
+    // The connection is the process of being disconnected.
+    MdtConState_con_state_disconnecting MdtConState = "con-state-disconnecting"
+)
+
 // MdtOperData
 // MDT operational data.
 type MdtOperData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MDT streams table. The list of supported streams.
@@ -113,143 +113,60 @@ type MdtOperData struct {
     MdtConnections []MdtOperData_MdtConnections
 }
 
-func (mdtOperData *MdtOperData) GetFilter() yfilter.YFilter { return mdtOperData.YFilter }
+func (mdtOperData *MdtOperData) GetEntityData() *types.CommonEntityData {
+    mdtOperData.EntityData.YFilter = mdtOperData.YFilter
+    mdtOperData.EntityData.YangName = "mdt-oper-data"
+    mdtOperData.EntityData.BundleName = "cisco_ios_xe"
+    mdtOperData.EntityData.ParentYangName = "Cisco-IOS-XE-mdt-oper"
+    mdtOperData.EntityData.SegmentPath = "Cisco-IOS-XE-mdt-oper:mdt-oper-data"
+    mdtOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mdtOperData *MdtOperData) SetFilter(yf yfilter.YFilter) { mdtOperData.YFilter = yf }
-
-func (mdtOperData *MdtOperData) GetGoName(yname string) string {
-    if yname == "mdt-streams" { return "MdtStreams" }
-    if yname == "mdt-subscriptions" { return "MdtSubscriptions" }
-    if yname == "mdt-connections" { return "MdtConnections" }
-    return ""
-}
-
-func (mdtOperData *MdtOperData) GetSegmentPath() string {
-    return "Cisco-IOS-XE-mdt-oper:mdt-oper-data"
-}
-
-func (mdtOperData *MdtOperData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mdt-streams" {
-        return &mdtOperData.MdtStreams
-    }
-    if childYangName == "mdt-subscriptions" {
-        for _, c := range mdtOperData.MdtSubscriptions {
-            if mdtOperData.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MdtOperData_MdtSubscriptions{}
-        mdtOperData.MdtSubscriptions = append(mdtOperData.MdtSubscriptions, child)
-        return &mdtOperData.MdtSubscriptions[len(mdtOperData.MdtSubscriptions)-1]
-    }
-    if childYangName == "mdt-connections" {
-        for _, c := range mdtOperData.MdtConnections {
-            if mdtOperData.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MdtOperData_MdtConnections{}
-        mdtOperData.MdtConnections = append(mdtOperData.MdtConnections, child)
-        return &mdtOperData.MdtConnections[len(mdtOperData.MdtConnections)-1]
-    }
-    return nil
-}
-
-func (mdtOperData *MdtOperData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mdt-streams"] = &mdtOperData.MdtStreams
+    mdtOperData.EntityData.Children = make(map[string]types.YChild)
+    mdtOperData.EntityData.Children["mdt-streams"] = types.YChild{"MdtStreams", &mdtOperData.MdtStreams}
+    mdtOperData.EntityData.Children["mdt-subscriptions"] = types.YChild{"MdtSubscriptions", nil}
     for i := range mdtOperData.MdtSubscriptions {
-        children[mdtOperData.MdtSubscriptions[i].GetSegmentPath()] = &mdtOperData.MdtSubscriptions[i]
+        mdtOperData.EntityData.Children[types.GetSegmentPath(&mdtOperData.MdtSubscriptions[i])] = types.YChild{"MdtSubscriptions", &mdtOperData.MdtSubscriptions[i]}
     }
+    mdtOperData.EntityData.Children["mdt-connections"] = types.YChild{"MdtConnections", nil}
     for i := range mdtOperData.MdtConnections {
-        children[mdtOperData.MdtConnections[i].GetSegmentPath()] = &mdtOperData.MdtConnections[i]
+        mdtOperData.EntityData.Children[types.GetSegmentPath(&mdtOperData.MdtConnections[i])] = types.YChild{"MdtConnections", &mdtOperData.MdtConnections[i]}
     }
-    return children
+    mdtOperData.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mdtOperData.EntityData)
 }
-
-func (mdtOperData *MdtOperData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mdtOperData *MdtOperData) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mdtOperData *MdtOperData) GetYangName() string { return "mdt-oper-data" }
-
-func (mdtOperData *MdtOperData) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mdtOperData *MdtOperData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mdtOperData *MdtOperData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mdtOperData *MdtOperData) SetParent(parent types.Entity) { mdtOperData.parent = parent }
-
-func (mdtOperData *MdtOperData) GetParent() types.Entity { return mdtOperData.parent }
-
-func (mdtOperData *MdtOperData) GetParentYangName() string { return "Cisco-IOS-XE-mdt-oper" }
 
 // MdtOperData_MdtStreams
 // MDT streams table. The list of supported streams.
 type MdtOperData_MdtStreams struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of a supported stream. The type is slice of string.
     Stream []interface{}
 }
 
-func (mdtStreams *MdtOperData_MdtStreams) GetFilter() yfilter.YFilter { return mdtStreams.YFilter }
+func (mdtStreams *MdtOperData_MdtStreams) GetEntityData() *types.CommonEntityData {
+    mdtStreams.EntityData.YFilter = mdtStreams.YFilter
+    mdtStreams.EntityData.YangName = "mdt-streams"
+    mdtStreams.EntityData.BundleName = "cisco_ios_xe"
+    mdtStreams.EntityData.ParentYangName = "mdt-oper-data"
+    mdtStreams.EntityData.SegmentPath = "mdt-streams"
+    mdtStreams.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtStreams.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtStreams.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mdtStreams *MdtOperData_MdtStreams) SetFilter(yf yfilter.YFilter) { mdtStreams.YFilter = yf }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetGoName(yname string) string {
-    if yname == "stream" { return "Stream" }
-    return ""
+    mdtStreams.EntityData.Children = make(map[string]types.YChild)
+    mdtStreams.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtStreams.EntityData.Leafs["stream"] = types.YLeaf{"Stream", mdtStreams.Stream}
+    return &(mdtStreams.EntityData)
 }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetSegmentPath() string {
-    return "mdt-streams"
-}
-
-func (mdtStreams *MdtOperData_MdtStreams) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mdtStreams *MdtOperData_MdtStreams) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mdtStreams *MdtOperData_MdtStreams) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["stream"] = mdtStreams.Stream
-    return leafs
-}
-
-func (mdtStreams *MdtOperData_MdtStreams) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetYangName() string { return "mdt-streams" }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mdtStreams *MdtOperData_MdtStreams) SetParent(parent types.Entity) { mdtStreams.parent = parent }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetParent() types.Entity { return mdtStreams.parent }
-
-func (mdtStreams *MdtOperData_MdtStreams) GetParentYangName() string { return "mdt-oper-data" }
 
 // MdtOperData_MdtSubscriptions
 // MDT subscription operational data.
 type MdtOperData_MdtSubscriptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unique subscription identifier. The type is
@@ -257,7 +174,7 @@ type MdtOperData_MdtSubscriptions struct {
     SubscriptionId interface{}
 
     // Subscription type. The type is MdtSubType.
-    Type interface{}
+    Type_ interface{}
 
     // Subscription state. The type is MdtSubState.
     State interface{}
@@ -285,87 +202,37 @@ type MdtOperData_MdtSubscriptions struct {
     MdtReceivers []MdtOperData_MdtSubscriptions_MdtReceivers
 }
 
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetFilter() yfilter.YFilter { return mdtSubscriptions.YFilter }
+func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetEntityData() *types.CommonEntityData {
+    mdtSubscriptions.EntityData.YFilter = mdtSubscriptions.YFilter
+    mdtSubscriptions.EntityData.YangName = "mdt-subscriptions"
+    mdtSubscriptions.EntityData.BundleName = "cisco_ios_xe"
+    mdtSubscriptions.EntityData.ParentYangName = "mdt-oper-data"
+    mdtSubscriptions.EntityData.SegmentPath = "mdt-subscriptions" + "[subscription-id='" + fmt.Sprintf("%v", mdtSubscriptions.SubscriptionId) + "']"
+    mdtSubscriptions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtSubscriptions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtSubscriptions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) SetFilter(yf yfilter.YFilter) { mdtSubscriptions.YFilter = yf }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetGoName(yname string) string {
-    if yname == "subscription-id" { return "SubscriptionId" }
-    if yname == "type" { return "Type" }
-    if yname == "state" { return "State" }
-    if yname == "comments" { return "Comments" }
-    if yname == "updates-in" { return "UpdatesIn" }
-    if yname == "updates-dampened" { return "UpdatesDampened" }
-    if yname == "updates-dropped" { return "UpdatesDropped" }
-    if yname == "base" { return "Base" }
-    if yname == "mdt-receivers" { return "MdtReceivers" }
-    return ""
-}
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetSegmentPath() string {
-    return "mdt-subscriptions" + "[subscription-id='" + fmt.Sprintf("%v", mdtSubscriptions.SubscriptionId) + "']"
-}
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base" {
-        return &mdtSubscriptions.Base
-    }
-    if childYangName == "mdt-receivers" {
-        for _, c := range mdtSubscriptions.MdtReceivers {
-            if mdtSubscriptions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MdtOperData_MdtSubscriptions_MdtReceivers{}
-        mdtSubscriptions.MdtReceivers = append(mdtSubscriptions.MdtReceivers, child)
-        return &mdtSubscriptions.MdtReceivers[len(mdtSubscriptions.MdtReceivers)-1]
-    }
-    return nil
-}
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["base"] = &mdtSubscriptions.Base
+    mdtSubscriptions.EntityData.Children = make(map[string]types.YChild)
+    mdtSubscriptions.EntityData.Children["base"] = types.YChild{"Base", &mdtSubscriptions.Base}
+    mdtSubscriptions.EntityData.Children["mdt-receivers"] = types.YChild{"MdtReceivers", nil}
     for i := range mdtSubscriptions.MdtReceivers {
-        children[mdtSubscriptions.MdtReceivers[i].GetSegmentPath()] = &mdtSubscriptions.MdtReceivers[i]
+        mdtSubscriptions.EntityData.Children[types.GetSegmentPath(&mdtSubscriptions.MdtReceivers[i])] = types.YChild{"MdtReceivers", &mdtSubscriptions.MdtReceivers[i]}
     }
-    return children
+    mdtSubscriptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtSubscriptions.EntityData.Leafs["subscription-id"] = types.YLeaf{"SubscriptionId", mdtSubscriptions.SubscriptionId}
+    mdtSubscriptions.EntityData.Leafs["type"] = types.YLeaf{"Type_", mdtSubscriptions.Type_}
+    mdtSubscriptions.EntityData.Leafs["state"] = types.YLeaf{"State", mdtSubscriptions.State}
+    mdtSubscriptions.EntityData.Leafs["comments"] = types.YLeaf{"Comments", mdtSubscriptions.Comments}
+    mdtSubscriptions.EntityData.Leafs["updates-in"] = types.YLeaf{"UpdatesIn", mdtSubscriptions.UpdatesIn}
+    mdtSubscriptions.EntityData.Leafs["updates-dampened"] = types.YLeaf{"UpdatesDampened", mdtSubscriptions.UpdatesDampened}
+    mdtSubscriptions.EntityData.Leafs["updates-dropped"] = types.YLeaf{"UpdatesDropped", mdtSubscriptions.UpdatesDropped}
+    return &(mdtSubscriptions.EntityData)
 }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscription-id"] = mdtSubscriptions.SubscriptionId
-    leafs["type"] = mdtSubscriptions.Type
-    leafs["state"] = mdtSubscriptions.State
-    leafs["comments"] = mdtSubscriptions.Comments
-    leafs["updates-in"] = mdtSubscriptions.UpdatesIn
-    leafs["updates-dampened"] = mdtSubscriptions.UpdatesDampened
-    leafs["updates-dropped"] = mdtSubscriptions.UpdatesDropped
-    return leafs
-}
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetYangName() string { return "mdt-subscriptions" }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) SetParent(parent types.Entity) { mdtSubscriptions.parent = parent }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetParent() types.Entity { return mdtSubscriptions.parent }
-
-func (mdtSubscriptions *MdtOperData_MdtSubscriptions) GetParentYangName() string { return "mdt-oper-data" }
 
 // MdtOperData_MdtSubscriptions_Base
 // Common subscription information.
 type MdtOperData_MdtSubscriptions_Base struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The name of the event stream being subscribed to. The type is string. The
@@ -375,6 +242,16 @@ type MdtOperData_MdtSubscriptions_Base struct {
     // Update notification encoding. The type is string. The default value is
     // encode-xml.
     Encoding interface{}
+
+    // Network instance name for the VRF. The type is string.
+    SourceVrf interface{}
+
+    // The source address for the notifications. The type is one of the following
+    // types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // or string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    SourceAddress interface{}
 
     // Placeholder for unset value. The type is interface{} with range:
     // 0..4294967295. The default value is 0.
@@ -397,77 +274,53 @@ type MdtOperData_MdtSubscriptions_Base struct {
     // XPath expression describing the set of objects wanted as part of the
     // subscription. The type is string.
     Xpath interface{}
+
+    // TDL-URI expression describing the set of objects wanted as part of the
+    // subscription. The type is string.
+    TdlUri interface{}
+
+    // Transform name is the reference to  tdl transform scheme. The type is
+    // string.
+    TransformName interface{}
 }
 
-func (base *MdtOperData_MdtSubscriptions_Base) GetFilter() yfilter.YFilter { return base.YFilter }
+func (base *MdtOperData_MdtSubscriptions_Base) GetEntityData() *types.CommonEntityData {
+    base.EntityData.YFilter = base.YFilter
+    base.EntityData.YangName = "base"
+    base.EntityData.BundleName = "cisco_ios_xe"
+    base.EntityData.ParentYangName = "mdt-subscriptions"
+    base.EntityData.SegmentPath = "base"
+    base.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    base.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    base.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (base *MdtOperData_MdtSubscriptions_Base) SetFilter(yf yfilter.YFilter) { base.YFilter = yf }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetGoName(yname string) string {
-    if yname == "stream" { return "Stream" }
-    if yname == "encoding" { return "Encoding" }
-    if yname == "no-trigger" { return "NoTrigger" }
-    if yname == "period" { return "Period" }
-    if yname == "no-synch-on-start" { return "NoSynchOnStart" }
-    if yname == "no-filter" { return "NoFilter" }
-    if yname == "xpath" { return "Xpath" }
-    return ""
+    base.EntityData.Children = make(map[string]types.YChild)
+    base.EntityData.Leafs = make(map[string]types.YLeaf)
+    base.EntityData.Leafs["stream"] = types.YLeaf{"Stream", base.Stream}
+    base.EntityData.Leafs["encoding"] = types.YLeaf{"Encoding", base.Encoding}
+    base.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", base.SourceVrf}
+    base.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", base.SourceAddress}
+    base.EntityData.Leafs["no-trigger"] = types.YLeaf{"NoTrigger", base.NoTrigger}
+    base.EntityData.Leafs["period"] = types.YLeaf{"Period", base.Period}
+    base.EntityData.Leafs["no-synch-on-start"] = types.YLeaf{"NoSynchOnStart", base.NoSynchOnStart}
+    base.EntityData.Leafs["no-filter"] = types.YLeaf{"NoFilter", base.NoFilter}
+    base.EntityData.Leafs["xpath"] = types.YLeaf{"Xpath", base.Xpath}
+    base.EntityData.Leafs["tdl-uri"] = types.YLeaf{"TdlUri", base.TdlUri}
+    base.EntityData.Leafs["transform-name"] = types.YLeaf{"TransformName", base.TransformName}
+    return &(base.EntityData)
 }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetSegmentPath() string {
-    return "base"
-}
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["stream"] = base.Stream
-    leafs["encoding"] = base.Encoding
-    leafs["no-trigger"] = base.NoTrigger
-    leafs["period"] = base.Period
-    leafs["no-synch-on-start"] = base.NoSynchOnStart
-    leafs["no-filter"] = base.NoFilter
-    leafs["xpath"] = base.Xpath
-    return leafs
-}
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetBundleName() string { return "cisco_ios_xe" }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetYangName() string { return "base" }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (base *MdtOperData_MdtSubscriptions_Base) SetParent(parent types.Entity) { base.parent = parent }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetParent() types.Entity { return base.parent }
-
-func (base *MdtOperData_MdtSubscriptions_Base) GetParentYangName() string { return "mdt-subscriptions" }
 
 // MdtOperData_MdtSubscriptions_MdtReceivers
 // List of MDT receivers.
 type MdtOperData_MdtSubscriptions_MdtReceivers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP address of the receiver. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory., or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
     // This attribute is mandatory..
     Address interface{}
 
@@ -483,78 +336,59 @@ type MdtOperData_MdtSubscriptions_MdtReceivers struct {
 
     // Comments related to receiver state. The type is string.
     Comments interface{}
+
+    // Receiver security profile. The type is string.
+    SecurityProfile interface{}
 }
 
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetFilter() yfilter.YFilter { return mdtReceivers.YFilter }
+func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetEntityData() *types.CommonEntityData {
+    mdtReceivers.EntityData.YFilter = mdtReceivers.YFilter
+    mdtReceivers.EntityData.YangName = "mdt-receivers"
+    mdtReceivers.EntityData.BundleName = "cisco_ios_xe"
+    mdtReceivers.EntityData.ParentYangName = "mdt-subscriptions"
+    mdtReceivers.EntityData.SegmentPath = "mdt-receivers" + "[address='" + fmt.Sprintf("%v", mdtReceivers.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtReceivers.Port) + "']"
+    mdtReceivers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtReceivers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtReceivers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) SetFilter(yf yfilter.YFilter) { mdtReceivers.YFilter = yf }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "port" { return "Port" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "state" { return "State" }
-    if yname == "comments" { return "Comments" }
-    return ""
+    mdtReceivers.EntityData.Children = make(map[string]types.YChild)
+    mdtReceivers.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtReceivers.EntityData.Leafs["address"] = types.YLeaf{"Address", mdtReceivers.Address}
+    mdtReceivers.EntityData.Leafs["port"] = types.YLeaf{"Port", mdtReceivers.Port}
+    mdtReceivers.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", mdtReceivers.Protocol}
+    mdtReceivers.EntityData.Leafs["state"] = types.YLeaf{"State", mdtReceivers.State}
+    mdtReceivers.EntityData.Leafs["comments"] = types.YLeaf{"Comments", mdtReceivers.Comments}
+    mdtReceivers.EntityData.Leafs["security-profile"] = types.YLeaf{"SecurityProfile", mdtReceivers.SecurityProfile}
+    return &(mdtReceivers.EntityData)
 }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetSegmentPath() string {
-    return "mdt-receivers" + "[address='" + fmt.Sprintf("%v", mdtReceivers.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtReceivers.Port) + "']"
-}
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = mdtReceivers.Address
-    leafs["port"] = mdtReceivers.Port
-    leafs["protocol"] = mdtReceivers.Protocol
-    leafs["state"] = mdtReceivers.State
-    leafs["comments"] = mdtReceivers.Comments
-    return leafs
-}
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetYangName() string { return "mdt-receivers" }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) SetParent(parent types.Entity) { mdtReceivers.parent = parent }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetParent() types.Entity { return mdtReceivers.parent }
-
-func (mdtReceivers *MdtOperData_MdtSubscriptions_MdtReceivers) GetParentYangName() string { return "mdt-subscriptions" }
 
 // MdtOperData_MdtConnections
 // MDT subscription connection operational data.
 type MdtOperData_MdtConnections struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // This attribute is a key. Network port. The type is interface{} with range:
     // 0..65535.
     Port interface{}
+
+    // This attribute is a key. Network instance name for the VRF that the
+    // connection originates from. The type is string.
+    SourceVrf interface{}
+
+    // This attribute is a key. The source address used for the connection. The
+    // type is one of the following types: string with pattern:
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // or string with pattern:
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    SourceAddress interface{}
 
     // Transport protocol on this connection See transport-protocol from
     // subscribed-notifications for possible values. The type is string.
@@ -567,84 +401,46 @@ type MdtOperData_MdtConnections struct {
     // Connection state. The type is MdtConState.
     State interface{}
 
+    // Security profile used with this connection. The type is string.
+    SecurityProfile interface{}
+
     // List of subscription specific statistics for this connection. The type is
     // slice of MdtOperData_MdtConnections_MdtSubConStats.
     MdtSubConStats []MdtOperData_MdtConnections_MdtSubConStats
 }
 
-func (mdtConnections *MdtOperData_MdtConnections) GetFilter() yfilter.YFilter { return mdtConnections.YFilter }
+func (mdtConnections *MdtOperData_MdtConnections) GetEntityData() *types.CommonEntityData {
+    mdtConnections.EntityData.YFilter = mdtConnections.YFilter
+    mdtConnections.EntityData.YangName = "mdt-connections"
+    mdtConnections.EntityData.BundleName = "cisco_ios_xe"
+    mdtConnections.EntityData.ParentYangName = "mdt-oper-data"
+    mdtConnections.EntityData.SegmentPath = "mdt-connections" + "[address='" + fmt.Sprintf("%v", mdtConnections.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtConnections.Port) + "']" + "[source-vrf='" + fmt.Sprintf("%v", mdtConnections.SourceVrf) + "']" + "[source-address='" + fmt.Sprintf("%v", mdtConnections.SourceAddress) + "']"
+    mdtConnections.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtConnections.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtConnections.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mdtConnections *MdtOperData_MdtConnections) SetFilter(yf yfilter.YFilter) { mdtConnections.YFilter = yf }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "port" { return "Port" }
-    if yname == "transport" { return "Transport" }
-    if yname == "peer-id" { return "PeerId" }
-    if yname == "state" { return "State" }
-    if yname == "mdt-sub-con-stats" { return "MdtSubConStats" }
-    return ""
-}
-
-func (mdtConnections *MdtOperData_MdtConnections) GetSegmentPath() string {
-    return "mdt-connections" + "[address='" + fmt.Sprintf("%v", mdtConnections.Address) + "']" + "[port='" + fmt.Sprintf("%v", mdtConnections.Port) + "']"
-}
-
-func (mdtConnections *MdtOperData_MdtConnections) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mdt-sub-con-stats" {
-        for _, c := range mdtConnections.MdtSubConStats {
-            if mdtConnections.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MdtOperData_MdtConnections_MdtSubConStats{}
-        mdtConnections.MdtSubConStats = append(mdtConnections.MdtSubConStats, child)
-        return &mdtConnections.MdtSubConStats[len(mdtConnections.MdtSubConStats)-1]
-    }
-    return nil
-}
-
-func (mdtConnections *MdtOperData_MdtConnections) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mdtConnections.EntityData.Children = make(map[string]types.YChild)
+    mdtConnections.EntityData.Children["mdt-sub-con-stats"] = types.YChild{"MdtSubConStats", nil}
     for i := range mdtConnections.MdtSubConStats {
-        children[mdtConnections.MdtSubConStats[i].GetSegmentPath()] = &mdtConnections.MdtSubConStats[i]
+        mdtConnections.EntityData.Children[types.GetSegmentPath(&mdtConnections.MdtSubConStats[i])] = types.YChild{"MdtSubConStats", &mdtConnections.MdtSubConStats[i]}
     }
-    return children
+    mdtConnections.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtConnections.EntityData.Leafs["address"] = types.YLeaf{"Address", mdtConnections.Address}
+    mdtConnections.EntityData.Leafs["port"] = types.YLeaf{"Port", mdtConnections.Port}
+    mdtConnections.EntityData.Leafs["source-vrf"] = types.YLeaf{"SourceVrf", mdtConnections.SourceVrf}
+    mdtConnections.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", mdtConnections.SourceAddress}
+    mdtConnections.EntityData.Leafs["transport"] = types.YLeaf{"Transport", mdtConnections.Transport}
+    mdtConnections.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", mdtConnections.PeerId}
+    mdtConnections.EntityData.Leafs["state"] = types.YLeaf{"State", mdtConnections.State}
+    mdtConnections.EntityData.Leafs["security-profile"] = types.YLeaf{"SecurityProfile", mdtConnections.SecurityProfile}
+    return &(mdtConnections.EntityData)
 }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = mdtConnections.Address
-    leafs["port"] = mdtConnections.Port
-    leafs["transport"] = mdtConnections.Transport
-    leafs["peer-id"] = mdtConnections.PeerId
-    leafs["state"] = mdtConnections.State
-    return leafs
-}
-
-func (mdtConnections *MdtOperData_MdtConnections) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetYangName() string { return "mdt-connections" }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mdtConnections *MdtOperData_MdtConnections) SetParent(parent types.Entity) { mdtConnections.parent = parent }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetParent() types.Entity { return mdtConnections.parent }
-
-func (mdtConnections *MdtOperData_MdtConnections) GetParentYangName() string { return "mdt-oper-data" }
 
 // MdtOperData_MdtConnections_MdtSubConStats
 // List of subscription specific statistics for this
 // connection.
 type MdtOperData_MdtConnections_MdtSubConStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Subscription identifier. The type is interface{}
@@ -661,53 +457,21 @@ type MdtOperData_MdtConnections_MdtSubConStats struct {
     UpdatesDropped interface{}
 }
 
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetFilter() yfilter.YFilter { return mdtSubConStats.YFilter }
+func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetEntityData() *types.CommonEntityData {
+    mdtSubConStats.EntityData.YFilter = mdtSubConStats.YFilter
+    mdtSubConStats.EntityData.YangName = "mdt-sub-con-stats"
+    mdtSubConStats.EntityData.BundleName = "cisco_ios_xe"
+    mdtSubConStats.EntityData.ParentYangName = "mdt-connections"
+    mdtSubConStats.EntityData.SegmentPath = "mdt-sub-con-stats" + "[sub-id='" + fmt.Sprintf("%v", mdtSubConStats.SubId) + "']"
+    mdtSubConStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mdtSubConStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mdtSubConStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) SetFilter(yf yfilter.YFilter) { mdtSubConStats.YFilter = yf }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetGoName(yname string) string {
-    if yname == "sub-id" { return "SubId" }
-    if yname == "updates-sent" { return "UpdatesSent" }
-    if yname == "updates-dropped" { return "UpdatesDropped" }
-    return ""
+    mdtSubConStats.EntityData.Children = make(map[string]types.YChild)
+    mdtSubConStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    mdtSubConStats.EntityData.Leafs["sub-id"] = types.YLeaf{"SubId", mdtSubConStats.SubId}
+    mdtSubConStats.EntityData.Leafs["updates-sent"] = types.YLeaf{"UpdatesSent", mdtSubConStats.UpdatesSent}
+    mdtSubConStats.EntityData.Leafs["updates-dropped"] = types.YLeaf{"UpdatesDropped", mdtSubConStats.UpdatesDropped}
+    return &(mdtSubConStats.EntityData)
 }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetSegmentPath() string {
-    return "mdt-sub-con-stats" + "[sub-id='" + fmt.Sprintf("%v", mdtSubConStats.SubId) + "']"
-}
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sub-id"] = mdtSubConStats.SubId
-    leafs["updates-sent"] = mdtSubConStats.UpdatesSent
-    leafs["updates-dropped"] = mdtSubConStats.UpdatesDropped
-    return leafs
-}
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetYangName() string { return "mdt-sub-con-stats" }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) SetParent(parent types.Entity) { mdtSubConStats.parent = parent }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetParent() types.Entity { return mdtSubConStats.parent }
-
-func (mdtSubConStats *MdtOperData_MdtConnections_MdtSubConStats) GetParentYangName() string { return "mdt-connections" }
 

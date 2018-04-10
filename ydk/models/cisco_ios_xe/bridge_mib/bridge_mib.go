@@ -23,7 +23,7 @@ func init() {
 
 // BRIDGEMIB
 type BRIDGEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -65,93 +65,32 @@ type BRIDGEMIB struct {
     Dot1Dstatictable BRIDGEMIB_Dot1Dstatictable
 }
 
-func (bRIDGEMIB *BRIDGEMIB) GetFilter() yfilter.YFilter { return bRIDGEMIB.YFilter }
+func (bRIDGEMIB *BRIDGEMIB) GetEntityData() *types.CommonEntityData {
+    bRIDGEMIB.EntityData.YFilter = bRIDGEMIB.YFilter
+    bRIDGEMIB.EntityData.YangName = "BRIDGE-MIB"
+    bRIDGEMIB.EntityData.BundleName = "cisco_ios_xe"
+    bRIDGEMIB.EntityData.ParentYangName = "BRIDGE-MIB"
+    bRIDGEMIB.EntityData.SegmentPath = "BRIDGE-MIB:BRIDGE-MIB"
+    bRIDGEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bRIDGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bRIDGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bRIDGEMIB *BRIDGEMIB) SetFilter(yf yfilter.YFilter) { bRIDGEMIB.YFilter = yf }
-
-func (bRIDGEMIB *BRIDGEMIB) GetGoName(yname string) string {
-    if yname == "dot1dBase" { return "Dot1Dbase" }
-    if yname == "dot1dStp" { return "Dot1Dstp" }
-    if yname == "dot1dTp" { return "Dot1Dtp" }
-    if yname == "dot1dBasePortTable" { return "Dot1Dbaseporttable" }
-    if yname == "dot1dStpPortTable" { return "Dot1Dstpporttable" }
-    if yname == "dot1dTpFdbTable" { return "Dot1Dtpfdbtable" }
-    if yname == "dot1dTpPortTable" { return "Dot1Dtpporttable" }
-    if yname == "dot1dStaticTable" { return "Dot1Dstatictable" }
-    return ""
+    bRIDGEMIB.EntityData.Children = make(map[string]types.YChild)
+    bRIDGEMIB.EntityData.Children["dot1dBase"] = types.YChild{"Dot1Dbase", &bRIDGEMIB.Dot1Dbase}
+    bRIDGEMIB.EntityData.Children["dot1dStp"] = types.YChild{"Dot1Dstp", &bRIDGEMIB.Dot1Dstp}
+    bRIDGEMIB.EntityData.Children["dot1dTp"] = types.YChild{"Dot1Dtp", &bRIDGEMIB.Dot1Dtp}
+    bRIDGEMIB.EntityData.Children["dot1dBasePortTable"] = types.YChild{"Dot1Dbaseporttable", &bRIDGEMIB.Dot1Dbaseporttable}
+    bRIDGEMIB.EntityData.Children["dot1dStpPortTable"] = types.YChild{"Dot1Dstpporttable", &bRIDGEMIB.Dot1Dstpporttable}
+    bRIDGEMIB.EntityData.Children["dot1dTpFdbTable"] = types.YChild{"Dot1Dtpfdbtable", &bRIDGEMIB.Dot1Dtpfdbtable}
+    bRIDGEMIB.EntityData.Children["dot1dTpPortTable"] = types.YChild{"Dot1Dtpporttable", &bRIDGEMIB.Dot1Dtpporttable}
+    bRIDGEMIB.EntityData.Children["dot1dStaticTable"] = types.YChild{"Dot1Dstatictable", &bRIDGEMIB.Dot1Dstatictable}
+    bRIDGEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bRIDGEMIB.EntityData)
 }
-
-func (bRIDGEMIB *BRIDGEMIB) GetSegmentPath() string {
-    return "BRIDGE-MIB:BRIDGE-MIB"
-}
-
-func (bRIDGEMIB *BRIDGEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dBase" {
-        return &bRIDGEMIB.Dot1Dbase
-    }
-    if childYangName == "dot1dStp" {
-        return &bRIDGEMIB.Dot1Dstp
-    }
-    if childYangName == "dot1dTp" {
-        return &bRIDGEMIB.Dot1Dtp
-    }
-    if childYangName == "dot1dBasePortTable" {
-        return &bRIDGEMIB.Dot1Dbaseporttable
-    }
-    if childYangName == "dot1dStpPortTable" {
-        return &bRIDGEMIB.Dot1Dstpporttable
-    }
-    if childYangName == "dot1dTpFdbTable" {
-        return &bRIDGEMIB.Dot1Dtpfdbtable
-    }
-    if childYangName == "dot1dTpPortTable" {
-        return &bRIDGEMIB.Dot1Dtpporttable
-    }
-    if childYangName == "dot1dStaticTable" {
-        return &bRIDGEMIB.Dot1Dstatictable
-    }
-    return nil
-}
-
-func (bRIDGEMIB *BRIDGEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dot1dBase"] = &bRIDGEMIB.Dot1Dbase
-    children["dot1dStp"] = &bRIDGEMIB.Dot1Dstp
-    children["dot1dTp"] = &bRIDGEMIB.Dot1Dtp
-    children["dot1dBasePortTable"] = &bRIDGEMIB.Dot1Dbaseporttable
-    children["dot1dStpPortTable"] = &bRIDGEMIB.Dot1Dstpporttable
-    children["dot1dTpFdbTable"] = &bRIDGEMIB.Dot1Dtpfdbtable
-    children["dot1dTpPortTable"] = &bRIDGEMIB.Dot1Dtpporttable
-    children["dot1dStaticTable"] = &bRIDGEMIB.Dot1Dstatictable
-    return children
-}
-
-func (bRIDGEMIB *BRIDGEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bRIDGEMIB *BRIDGEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bRIDGEMIB *BRIDGEMIB) GetYangName() string { return "BRIDGE-MIB" }
-
-func (bRIDGEMIB *BRIDGEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bRIDGEMIB *BRIDGEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bRIDGEMIB *BRIDGEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bRIDGEMIB *BRIDGEMIB) SetParent(parent types.Entity) { bRIDGEMIB.parent = parent }
-
-func (bRIDGEMIB *BRIDGEMIB) GetParent() types.Entity { return bRIDGEMIB.parent }
-
-func (bRIDGEMIB *BRIDGEMIB) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dbase
 type BRIDGEMIB_Dot1Dbase struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The MAC address used by this bridge when it must be referred to in a unique
@@ -159,7 +98,7 @@ type BRIDGEMIB_Dot1Dbase struct {
     // address of all ports that belong to this bridge.  However, it is only 
     // required to be unique.  When concatenated with dot1dStpPriority, a unique
     // BridgeIdentifier is formed, which is used in the Spanning Tree Protocol.
-    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1Dbasebridgeaddress interface{}
 
     // The number of ports controlled by this bridging entity. The type is
@@ -172,55 +111,23 @@ type BRIDGEMIB_Dot1Dbase struct {
     Dot1Dbasetype interface{}
 }
 
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetFilter() yfilter.YFilter { return dot1Dbase.YFilter }
+func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetEntityData() *types.CommonEntityData {
+    dot1Dbase.EntityData.YFilter = dot1Dbase.YFilter
+    dot1Dbase.EntityData.YangName = "dot1dBase"
+    dot1Dbase.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dbase.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dbase.EntityData.SegmentPath = "dot1dBase"
+    dot1Dbase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dbase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dbase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) SetFilter(yf yfilter.YFilter) { dot1Dbase.YFilter = yf }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetGoName(yname string) string {
-    if yname == "dot1dBaseBridgeAddress" { return "Dot1Dbasebridgeaddress" }
-    if yname == "dot1dBaseNumPorts" { return "Dot1Dbasenumports" }
-    if yname == "dot1dBaseType" { return "Dot1Dbasetype" }
-    return ""
+    dot1Dbase.EntityData.Children = make(map[string]types.YChild)
+    dot1Dbase.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dbase.EntityData.Leafs["dot1dBaseBridgeAddress"] = types.YLeaf{"Dot1Dbasebridgeaddress", dot1Dbase.Dot1Dbasebridgeaddress}
+    dot1Dbase.EntityData.Leafs["dot1dBaseNumPorts"] = types.YLeaf{"Dot1Dbasenumports", dot1Dbase.Dot1Dbasenumports}
+    dot1Dbase.EntityData.Leafs["dot1dBaseType"] = types.YLeaf{"Dot1Dbasetype", dot1Dbase.Dot1Dbasetype}
+    return &(dot1Dbase.EntityData)
 }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetSegmentPath() string {
-    return "dot1dBase"
-}
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dBaseBridgeAddress"] = dot1Dbase.Dot1Dbasebridgeaddress
-    leafs["dot1dBaseNumPorts"] = dot1Dbase.Dot1Dbasenumports
-    leafs["dot1dBaseType"] = dot1Dbase.Dot1Dbasetype
-    return leafs
-}
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetYangName() string { return "dot1dBase" }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) SetParent(parent types.Entity) { dot1Dbase.parent = parent }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetParent() types.Entity { return dot1Dbase.parent }
-
-func (dot1Dbase *BRIDGEMIB_Dot1Dbase) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dbase_Dot1Dbasetype represents entries in the port table for the given type.
 type BRIDGEMIB_Dot1Dbase_Dot1Dbasetype string
@@ -237,7 +144,7 @@ const (
 
 // BRIDGEMIB_Dot1Dstp
 type BRIDGEMIB_Dot1Dstp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An indication of what version of the Spanning Tree Protocol is being run. 
@@ -340,77 +247,34 @@ type BRIDGEMIB_Dot1Dstp struct {
     Dot1Dstpbridgeforwarddelay interface{}
 }
 
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetFilter() yfilter.YFilter { return dot1Dstp.YFilter }
+func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetEntityData() *types.CommonEntityData {
+    dot1Dstp.EntityData.YFilter = dot1Dstp.YFilter
+    dot1Dstp.EntityData.YangName = "dot1dStp"
+    dot1Dstp.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dstp.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dstp.EntityData.SegmentPath = "dot1dStp"
+    dot1Dstp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dstp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dstp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) SetFilter(yf yfilter.YFilter) { dot1Dstp.YFilter = yf }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetGoName(yname string) string {
-    if yname == "dot1dStpProtocolSpecification" { return "Dot1Dstpprotocolspecification" }
-    if yname == "dot1dStpPriority" { return "Dot1Dstppriority" }
-    if yname == "dot1dStpTimeSinceTopologyChange" { return "Dot1Dstptimesincetopologychange" }
-    if yname == "dot1dStpTopChanges" { return "Dot1Dstptopchanges" }
-    if yname == "dot1dStpDesignatedRoot" { return "Dot1Dstpdesignatedroot" }
-    if yname == "dot1dStpRootCost" { return "Dot1Dstprootcost" }
-    if yname == "dot1dStpRootPort" { return "Dot1Dstprootport" }
-    if yname == "dot1dStpMaxAge" { return "Dot1Dstpmaxage" }
-    if yname == "dot1dStpHelloTime" { return "Dot1Dstphellotime" }
-    if yname == "dot1dStpHoldTime" { return "Dot1Dstpholdtime" }
-    if yname == "dot1dStpForwardDelay" { return "Dot1Dstpforwarddelay" }
-    if yname == "dot1dStpBridgeMaxAge" { return "Dot1Dstpbridgemaxage" }
-    if yname == "dot1dStpBridgeHelloTime" { return "Dot1Dstpbridgehellotime" }
-    if yname == "dot1dStpBridgeForwardDelay" { return "Dot1Dstpbridgeforwarddelay" }
-    return ""
+    dot1Dstp.EntityData.Children = make(map[string]types.YChild)
+    dot1Dstp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dstp.EntityData.Leafs["dot1dStpProtocolSpecification"] = types.YLeaf{"Dot1Dstpprotocolspecification", dot1Dstp.Dot1Dstpprotocolspecification}
+    dot1Dstp.EntityData.Leafs["dot1dStpPriority"] = types.YLeaf{"Dot1Dstppriority", dot1Dstp.Dot1Dstppriority}
+    dot1Dstp.EntityData.Leafs["dot1dStpTimeSinceTopologyChange"] = types.YLeaf{"Dot1Dstptimesincetopologychange", dot1Dstp.Dot1Dstptimesincetopologychange}
+    dot1Dstp.EntityData.Leafs["dot1dStpTopChanges"] = types.YLeaf{"Dot1Dstptopchanges", dot1Dstp.Dot1Dstptopchanges}
+    dot1Dstp.EntityData.Leafs["dot1dStpDesignatedRoot"] = types.YLeaf{"Dot1Dstpdesignatedroot", dot1Dstp.Dot1Dstpdesignatedroot}
+    dot1Dstp.EntityData.Leafs["dot1dStpRootCost"] = types.YLeaf{"Dot1Dstprootcost", dot1Dstp.Dot1Dstprootcost}
+    dot1Dstp.EntityData.Leafs["dot1dStpRootPort"] = types.YLeaf{"Dot1Dstprootport", dot1Dstp.Dot1Dstprootport}
+    dot1Dstp.EntityData.Leafs["dot1dStpMaxAge"] = types.YLeaf{"Dot1Dstpmaxage", dot1Dstp.Dot1Dstpmaxage}
+    dot1Dstp.EntityData.Leafs["dot1dStpHelloTime"] = types.YLeaf{"Dot1Dstphellotime", dot1Dstp.Dot1Dstphellotime}
+    dot1Dstp.EntityData.Leafs["dot1dStpHoldTime"] = types.YLeaf{"Dot1Dstpholdtime", dot1Dstp.Dot1Dstpholdtime}
+    dot1Dstp.EntityData.Leafs["dot1dStpForwardDelay"] = types.YLeaf{"Dot1Dstpforwarddelay", dot1Dstp.Dot1Dstpforwarddelay}
+    dot1Dstp.EntityData.Leafs["dot1dStpBridgeMaxAge"] = types.YLeaf{"Dot1Dstpbridgemaxage", dot1Dstp.Dot1Dstpbridgemaxage}
+    dot1Dstp.EntityData.Leafs["dot1dStpBridgeHelloTime"] = types.YLeaf{"Dot1Dstpbridgehellotime", dot1Dstp.Dot1Dstpbridgehellotime}
+    dot1Dstp.EntityData.Leafs["dot1dStpBridgeForwardDelay"] = types.YLeaf{"Dot1Dstpbridgeforwarddelay", dot1Dstp.Dot1Dstpbridgeforwarddelay}
+    return &(dot1Dstp.EntityData)
 }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetSegmentPath() string {
-    return "dot1dStp"
-}
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dStpProtocolSpecification"] = dot1Dstp.Dot1Dstpprotocolspecification
-    leafs["dot1dStpPriority"] = dot1Dstp.Dot1Dstppriority
-    leafs["dot1dStpTimeSinceTopologyChange"] = dot1Dstp.Dot1Dstptimesincetopologychange
-    leafs["dot1dStpTopChanges"] = dot1Dstp.Dot1Dstptopchanges
-    leafs["dot1dStpDesignatedRoot"] = dot1Dstp.Dot1Dstpdesignatedroot
-    leafs["dot1dStpRootCost"] = dot1Dstp.Dot1Dstprootcost
-    leafs["dot1dStpRootPort"] = dot1Dstp.Dot1Dstprootport
-    leafs["dot1dStpMaxAge"] = dot1Dstp.Dot1Dstpmaxage
-    leafs["dot1dStpHelloTime"] = dot1Dstp.Dot1Dstphellotime
-    leafs["dot1dStpHoldTime"] = dot1Dstp.Dot1Dstpholdtime
-    leafs["dot1dStpForwardDelay"] = dot1Dstp.Dot1Dstpforwarddelay
-    leafs["dot1dStpBridgeMaxAge"] = dot1Dstp.Dot1Dstpbridgemaxage
-    leafs["dot1dStpBridgeHelloTime"] = dot1Dstp.Dot1Dstpbridgehellotime
-    leafs["dot1dStpBridgeForwardDelay"] = dot1Dstp.Dot1Dstpbridgeforwarddelay
-    return leafs
-}
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetYangName() string { return "dot1dStp" }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) SetParent(parent types.Entity) { dot1Dstp.parent = parent }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetParent() types.Entity { return dot1Dstp.parent }
-
-func (dot1Dstp *BRIDGEMIB_Dot1Dstp) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dstp_Dot1Dstpprotocolspecification represents are released a new value will be defined.
 type BRIDGEMIB_Dot1Dstp_Dot1Dstpprotocolspecification string
@@ -425,7 +289,7 @@ const (
 
 // BRIDGEMIB_Dot1Dtp
 type BRIDGEMIB_Dot1Dtp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of Forwarding Database entries that have been or would
@@ -444,60 +308,29 @@ type BRIDGEMIB_Dot1Dtp struct {
     Dot1Dtpagingtime interface{}
 }
 
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetFilter() yfilter.YFilter { return dot1Dtp.YFilter }
+func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetEntityData() *types.CommonEntityData {
+    dot1Dtp.EntityData.YFilter = dot1Dtp.YFilter
+    dot1Dtp.EntityData.YangName = "dot1dTp"
+    dot1Dtp.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtp.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dtp.EntityData.SegmentPath = "dot1dTp"
+    dot1Dtp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) SetFilter(yf yfilter.YFilter) { dot1Dtp.YFilter = yf }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetGoName(yname string) string {
-    if yname == "dot1dTpLearnedEntryDiscards" { return "Dot1Dtplearnedentrydiscards" }
-    if yname == "dot1dTpAgingTime" { return "Dot1Dtpagingtime" }
-    return ""
+    dot1Dtp.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dtp.EntityData.Leafs["dot1dTpLearnedEntryDiscards"] = types.YLeaf{"Dot1Dtplearnedentrydiscards", dot1Dtp.Dot1Dtplearnedentrydiscards}
+    dot1Dtp.EntityData.Leafs["dot1dTpAgingTime"] = types.YLeaf{"Dot1Dtpagingtime", dot1Dtp.Dot1Dtpagingtime}
+    return &(dot1Dtp.EntityData)
 }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetSegmentPath() string {
-    return "dot1dTp"
-}
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dTpLearnedEntryDiscards"] = dot1Dtp.Dot1Dtplearnedentrydiscards
-    leafs["dot1dTpAgingTime"] = dot1Dtp.Dot1Dtpagingtime
-    return leafs
-}
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetYangName() string { return "dot1dTp" }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) SetParent(parent types.Entity) { dot1Dtp.parent = parent }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetParent() types.Entity { return dot1Dtp.parent }
-
-func (dot1Dtp *BRIDGEMIB_Dot1Dtp) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dbaseporttable
 // A table that contains generic information about every
 // port that is associated with this bridge.  Transparent,
 // source-route, and srt ports are included.
 type BRIDGEMIB_Dot1Dbaseporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of information for each port of the bridge. The type is slice of
@@ -505,68 +338,29 @@ type BRIDGEMIB_Dot1Dbaseporttable struct {
     Dot1Dbaseportentry []BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry
 }
 
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetFilter() yfilter.YFilter { return dot1Dbaseporttable.YFilter }
+func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetEntityData() *types.CommonEntityData {
+    dot1Dbaseporttable.EntityData.YFilter = dot1Dbaseporttable.YFilter
+    dot1Dbaseporttable.EntityData.YangName = "dot1dBasePortTable"
+    dot1Dbaseporttable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dbaseporttable.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dbaseporttable.EntityData.SegmentPath = "dot1dBasePortTable"
+    dot1Dbaseporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dbaseporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dbaseporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) SetFilter(yf yfilter.YFilter) { dot1Dbaseporttable.YFilter = yf }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetGoName(yname string) string {
-    if yname == "dot1dBasePortEntry" { return "Dot1Dbaseportentry" }
-    return ""
-}
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetSegmentPath() string {
-    return "dot1dBasePortTable"
-}
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dBasePortEntry" {
-        for _, c := range dot1Dbaseporttable.Dot1Dbaseportentry {
-            if dot1Dbaseporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry{}
-        dot1Dbaseporttable.Dot1Dbaseportentry = append(dot1Dbaseporttable.Dot1Dbaseportentry, child)
-        return &dot1Dbaseporttable.Dot1Dbaseportentry[len(dot1Dbaseporttable.Dot1Dbaseportentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dbaseporttable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dbaseporttable.EntityData.Children["dot1dBasePortEntry"] = types.YChild{"Dot1Dbaseportentry", nil}
     for i := range dot1Dbaseporttable.Dot1Dbaseportentry {
-        children[dot1Dbaseporttable.Dot1Dbaseportentry[i].GetSegmentPath()] = &dot1Dbaseporttable.Dot1Dbaseportentry[i]
+        dot1Dbaseporttable.EntityData.Children[types.GetSegmentPath(&dot1Dbaseporttable.Dot1Dbaseportentry[i])] = types.YChild{"Dot1Dbaseportentry", &dot1Dbaseporttable.Dot1Dbaseportentry[i]}
     }
-    return children
+    dot1Dbaseporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dbaseporttable.EntityData)
 }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetYangName() string { return "dot1dBasePortTable" }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) SetParent(parent types.Entity) { dot1Dbaseporttable.parent = parent }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetParent() types.Entity { return dot1Dbaseporttable.parent }
-
-func (dot1Dbaseporttable *BRIDGEMIB_Dot1Dbaseporttable) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry
 // A list of information for each port of the bridge.
 type BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The port number of the port for which this entry
@@ -587,7 +381,7 @@ type BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry struct {
     // X.25 virtual circuit corresponding to this port.  For a port which has a
     // unique value of dot1dBasePortIfIndex, this object can have the value { 0 0
     // }. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Dot1Dbaseportcircuit interface{}
 
     // The number of frames discarded by this port due to excessive transit delay
@@ -658,7 +452,7 @@ type BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry struct {
     Dot1Dportgmrpfailedregistrations interface{}
 
     // The Source MAC Address of the last GMRP message received on this port. The
-    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1Dportgmrplastpduorigin interface{}
 
     // The state of Restricted Group Registration on this port. If the value of
@@ -712,7 +506,7 @@ type BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry struct {
     Dot1Qportgvrpfailedregistrations interface{}
 
     // The Source MAC Address of the last GVRP message received on this port. The
-    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1Qportgvrplastpduorigin interface{}
 
     // The state of Restricted VLAN Registration on this port. If the value of
@@ -724,93 +518,42 @@ type BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry struct {
     Dot1Qportrestrictedvlanregistration interface{}
 }
 
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetFilter() yfilter.YFilter { return dot1Dbaseportentry.YFilter }
+func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetEntityData() *types.CommonEntityData {
+    dot1Dbaseportentry.EntityData.YFilter = dot1Dbaseportentry.YFilter
+    dot1Dbaseportentry.EntityData.YangName = "dot1dBasePortEntry"
+    dot1Dbaseportentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dbaseportentry.EntityData.ParentYangName = "dot1dBasePortTable"
+    dot1Dbaseportentry.EntityData.SegmentPath = "dot1dBasePortEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Dbaseportentry.Dot1Dbaseport) + "']"
+    dot1Dbaseportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dbaseportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dbaseportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) SetFilter(yf yfilter.YFilter) { dot1Dbaseportentry.YFilter = yf }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetGoName(yname string) string {
-    if yname == "dot1dBasePort" { return "Dot1Dbaseport" }
-    if yname == "dot1dBasePortIfIndex" { return "Dot1Dbaseportifindex" }
-    if yname == "dot1dBasePortCircuit" { return "Dot1Dbaseportcircuit" }
-    if yname == "dot1dBasePortDelayExceededDiscards" { return "Dot1Dbaseportdelayexceededdiscards" }
-    if yname == "dot1dBasePortMtuExceededDiscards" { return "Dot1Dbaseportmtuexceededdiscards" }
-    if yname == "dot1dPortCapabilities" { return "Dot1Dportcapabilities" }
-    if yname == "dot1dPortDefaultUserPriority" { return "Dot1Dportdefaultuserpriority" }
-    if yname == "dot1dPortNumTrafficClasses" { return "Dot1Dportnumtrafficclasses" }
-    if yname == "dot1dPortGarpJoinTime" { return "Dot1Dportgarpjointime" }
-    if yname == "dot1dPortGarpLeaveTime" { return "Dot1Dportgarpleavetime" }
-    if yname == "dot1dPortGarpLeaveAllTime" { return "Dot1Dportgarpleavealltime" }
-    if yname == "dot1dPortGmrpStatus" { return "Dot1Dportgmrpstatus" }
-    if yname == "dot1dPortGmrpFailedRegistrations" { return "Dot1Dportgmrpfailedregistrations" }
-    if yname == "dot1dPortGmrpLastPduOrigin" { return "Dot1Dportgmrplastpduorigin" }
-    if yname == "dot1dPortRestrictedGroupRegistration" { return "Dot1Dportrestrictedgroupregistration" }
-    if yname == "dot1qPvid" { return "Dot1Qpvid" }
-    if yname == "dot1qPortAcceptableFrameTypes" { return "Dot1Qportacceptableframetypes" }
-    if yname == "dot1qPortIngressFiltering" { return "Dot1Qportingressfiltering" }
-    if yname == "dot1qPortGvrpStatus" { return "Dot1Qportgvrpstatus" }
-    if yname == "dot1qPortGvrpFailedRegistrations" { return "Dot1Qportgvrpfailedregistrations" }
-    if yname == "dot1qPortGvrpLastPduOrigin" { return "Dot1Qportgvrplastpduorigin" }
-    if yname == "dot1qPortRestrictedVlanRegistration" { return "Dot1Qportrestrictedvlanregistration" }
-    return ""
+    dot1Dbaseportentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dbaseportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dbaseportentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Dbaseportentry.Dot1Dbaseport}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dBasePortIfIndex"] = types.YLeaf{"Dot1Dbaseportifindex", dot1Dbaseportentry.Dot1Dbaseportifindex}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dBasePortCircuit"] = types.YLeaf{"Dot1Dbaseportcircuit", dot1Dbaseportentry.Dot1Dbaseportcircuit}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dBasePortDelayExceededDiscards"] = types.YLeaf{"Dot1Dbaseportdelayexceededdiscards", dot1Dbaseportentry.Dot1Dbaseportdelayexceededdiscards}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dBasePortMtuExceededDiscards"] = types.YLeaf{"Dot1Dbaseportmtuexceededdiscards", dot1Dbaseportentry.Dot1Dbaseportmtuexceededdiscards}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortCapabilities"] = types.YLeaf{"Dot1Dportcapabilities", dot1Dbaseportentry.Dot1Dportcapabilities}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortDefaultUserPriority"] = types.YLeaf{"Dot1Dportdefaultuserpriority", dot1Dbaseportentry.Dot1Dportdefaultuserpriority}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortNumTrafficClasses"] = types.YLeaf{"Dot1Dportnumtrafficclasses", dot1Dbaseportentry.Dot1Dportnumtrafficclasses}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortGarpJoinTime"] = types.YLeaf{"Dot1Dportgarpjointime", dot1Dbaseportentry.Dot1Dportgarpjointime}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortGarpLeaveTime"] = types.YLeaf{"Dot1Dportgarpleavetime", dot1Dbaseportentry.Dot1Dportgarpleavetime}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortGarpLeaveAllTime"] = types.YLeaf{"Dot1Dportgarpleavealltime", dot1Dbaseportentry.Dot1Dportgarpleavealltime}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortGmrpStatus"] = types.YLeaf{"Dot1Dportgmrpstatus", dot1Dbaseportentry.Dot1Dportgmrpstatus}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortGmrpFailedRegistrations"] = types.YLeaf{"Dot1Dportgmrpfailedregistrations", dot1Dbaseportentry.Dot1Dportgmrpfailedregistrations}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortGmrpLastPduOrigin"] = types.YLeaf{"Dot1Dportgmrplastpduorigin", dot1Dbaseportentry.Dot1Dportgmrplastpduorigin}
+    dot1Dbaseportentry.EntityData.Leafs["dot1dPortRestrictedGroupRegistration"] = types.YLeaf{"Dot1Dportrestrictedgroupregistration", dot1Dbaseportentry.Dot1Dportrestrictedgroupregistration}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPvid"] = types.YLeaf{"Dot1Qpvid", dot1Dbaseportentry.Dot1Qpvid}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPortAcceptableFrameTypes"] = types.YLeaf{"Dot1Qportacceptableframetypes", dot1Dbaseportentry.Dot1Qportacceptableframetypes}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPortIngressFiltering"] = types.YLeaf{"Dot1Qportingressfiltering", dot1Dbaseportentry.Dot1Qportingressfiltering}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPortGvrpStatus"] = types.YLeaf{"Dot1Qportgvrpstatus", dot1Dbaseportentry.Dot1Qportgvrpstatus}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPortGvrpFailedRegistrations"] = types.YLeaf{"Dot1Qportgvrpfailedregistrations", dot1Dbaseportentry.Dot1Qportgvrpfailedregistrations}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPortGvrpLastPduOrigin"] = types.YLeaf{"Dot1Qportgvrplastpduorigin", dot1Dbaseportentry.Dot1Qportgvrplastpduorigin}
+    dot1Dbaseportentry.EntityData.Leafs["dot1qPortRestrictedVlanRegistration"] = types.YLeaf{"Dot1Qportrestrictedvlanregistration", dot1Dbaseportentry.Dot1Qportrestrictedvlanregistration}
+    return &(dot1Dbaseportentry.EntityData)
 }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetSegmentPath() string {
-    return "dot1dBasePortEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Dbaseportentry.Dot1Dbaseport) + "']"
-}
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dBasePort"] = dot1Dbaseportentry.Dot1Dbaseport
-    leafs["dot1dBasePortIfIndex"] = dot1Dbaseportentry.Dot1Dbaseportifindex
-    leafs["dot1dBasePortCircuit"] = dot1Dbaseportentry.Dot1Dbaseportcircuit
-    leafs["dot1dBasePortDelayExceededDiscards"] = dot1Dbaseportentry.Dot1Dbaseportdelayexceededdiscards
-    leafs["dot1dBasePortMtuExceededDiscards"] = dot1Dbaseportentry.Dot1Dbaseportmtuexceededdiscards
-    leafs["dot1dPortCapabilities"] = dot1Dbaseportentry.Dot1Dportcapabilities
-    leafs["dot1dPortDefaultUserPriority"] = dot1Dbaseportentry.Dot1Dportdefaultuserpriority
-    leafs["dot1dPortNumTrafficClasses"] = dot1Dbaseportentry.Dot1Dportnumtrafficclasses
-    leafs["dot1dPortGarpJoinTime"] = dot1Dbaseportentry.Dot1Dportgarpjointime
-    leafs["dot1dPortGarpLeaveTime"] = dot1Dbaseportentry.Dot1Dportgarpleavetime
-    leafs["dot1dPortGarpLeaveAllTime"] = dot1Dbaseportentry.Dot1Dportgarpleavealltime
-    leafs["dot1dPortGmrpStatus"] = dot1Dbaseportentry.Dot1Dportgmrpstatus
-    leafs["dot1dPortGmrpFailedRegistrations"] = dot1Dbaseportentry.Dot1Dportgmrpfailedregistrations
-    leafs["dot1dPortGmrpLastPduOrigin"] = dot1Dbaseportentry.Dot1Dportgmrplastpduorigin
-    leafs["dot1dPortRestrictedGroupRegistration"] = dot1Dbaseportentry.Dot1Dportrestrictedgroupregistration
-    leafs["dot1qPvid"] = dot1Dbaseportentry.Dot1Qpvid
-    leafs["dot1qPortAcceptableFrameTypes"] = dot1Dbaseportentry.Dot1Qportacceptableframetypes
-    leafs["dot1qPortIngressFiltering"] = dot1Dbaseportentry.Dot1Qportingressfiltering
-    leafs["dot1qPortGvrpStatus"] = dot1Dbaseportentry.Dot1Qportgvrpstatus
-    leafs["dot1qPortGvrpFailedRegistrations"] = dot1Dbaseportentry.Dot1Qportgvrpfailedregistrations
-    leafs["dot1qPortGvrpLastPduOrigin"] = dot1Dbaseportentry.Dot1Qportgvrplastpduorigin
-    leafs["dot1qPortRestrictedVlanRegistration"] = dot1Dbaseportentry.Dot1Qportrestrictedvlanregistration
-    return leafs
-}
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetYangName() string { return "dot1dBasePortEntry" }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) SetParent(parent types.Entity) { dot1Dbaseportentry.parent = parent }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetParent() types.Entity { return dot1Dbaseportentry.parent }
-
-func (dot1Dbaseportentry *BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry) GetParentYangName() string { return "dot1dBasePortTable" }
 
 // BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry_Dot1Qportacceptableframetypes represents reinitializations of the management system.
 type BRIDGEMIB_Dot1Dbaseporttable_Dot1Dbaseportentry_Dot1Qportacceptableframetypes string
@@ -825,7 +568,7 @@ const (
 // A table that contains port-specific information
 // for the Spanning Tree Protocol.
 type BRIDGEMIB_Dot1Dstpporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of information maintained by every port about the Spanning Tree
@@ -834,69 +577,30 @@ type BRIDGEMIB_Dot1Dstpporttable struct {
     Dot1Dstpportentry []BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry
 }
 
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetFilter() yfilter.YFilter { return dot1Dstpporttable.YFilter }
+func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetEntityData() *types.CommonEntityData {
+    dot1Dstpporttable.EntityData.YFilter = dot1Dstpporttable.YFilter
+    dot1Dstpporttable.EntityData.YangName = "dot1dStpPortTable"
+    dot1Dstpporttable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dstpporttable.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dstpporttable.EntityData.SegmentPath = "dot1dStpPortTable"
+    dot1Dstpporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dstpporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dstpporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) SetFilter(yf yfilter.YFilter) { dot1Dstpporttable.YFilter = yf }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetGoName(yname string) string {
-    if yname == "dot1dStpPortEntry" { return "Dot1Dstpportentry" }
-    return ""
-}
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetSegmentPath() string {
-    return "dot1dStpPortTable"
-}
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dStpPortEntry" {
-        for _, c := range dot1Dstpporttable.Dot1Dstpportentry {
-            if dot1Dstpporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry{}
-        dot1Dstpporttable.Dot1Dstpportentry = append(dot1Dstpporttable.Dot1Dstpportentry, child)
-        return &dot1Dstpporttable.Dot1Dstpportentry[len(dot1Dstpporttable.Dot1Dstpportentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dstpporttable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dstpporttable.EntityData.Children["dot1dStpPortEntry"] = types.YChild{"Dot1Dstpportentry", nil}
     for i := range dot1Dstpporttable.Dot1Dstpportentry {
-        children[dot1Dstpporttable.Dot1Dstpportentry[i].GetSegmentPath()] = &dot1Dstpporttable.Dot1Dstpportentry[i]
+        dot1Dstpporttable.EntityData.Children[types.GetSegmentPath(&dot1Dstpporttable.Dot1Dstpportentry[i])] = types.YChild{"Dot1Dstpportentry", &dot1Dstpporttable.Dot1Dstpportentry[i]}
     }
-    return children
+    dot1Dstpporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dstpporttable.EntityData)
 }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetYangName() string { return "dot1dStpPortTable" }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) SetParent(parent types.Entity) { dot1Dstpporttable.parent = parent }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetParent() types.Entity { return dot1Dstpporttable.parent }
-
-func (dot1Dstpporttable *BRIDGEMIB_Dot1Dstpporttable) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry
 // A list of information maintained by every port about
 // the Spanning Tree Protocol state for that port.
 type BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The port number of the port for which this entry
@@ -972,73 +676,32 @@ type BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry struct {
     Stpxlongstpportpathcost interface{}
 }
 
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetFilter() yfilter.YFilter { return dot1Dstpportentry.YFilter }
+func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetEntityData() *types.CommonEntityData {
+    dot1Dstpportentry.EntityData.YFilter = dot1Dstpportentry.YFilter
+    dot1Dstpportentry.EntityData.YangName = "dot1dStpPortEntry"
+    dot1Dstpportentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dstpportentry.EntityData.ParentYangName = "dot1dStpPortTable"
+    dot1Dstpportentry.EntityData.SegmentPath = "dot1dStpPortEntry" + "[dot1dStpPort='" + fmt.Sprintf("%v", dot1Dstpportentry.Dot1Dstpport) + "']"
+    dot1Dstpportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dstpportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dstpportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) SetFilter(yf yfilter.YFilter) { dot1Dstpportentry.YFilter = yf }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetGoName(yname string) string {
-    if yname == "dot1dStpPort" { return "Dot1Dstpport" }
-    if yname == "dot1dStpPortPriority" { return "Dot1Dstpportpriority" }
-    if yname == "dot1dStpPortState" { return "Dot1Dstpportstate" }
-    if yname == "dot1dStpPortEnable" { return "Dot1Dstpportenable" }
-    if yname == "dot1dStpPortPathCost" { return "Dot1Dstpportpathcost" }
-    if yname == "dot1dStpPortDesignatedRoot" { return "Dot1Dstpportdesignatedroot" }
-    if yname == "dot1dStpPortDesignatedCost" { return "Dot1Dstpportdesignatedcost" }
-    if yname == "dot1dStpPortDesignatedBridge" { return "Dot1Dstpportdesignatedbridge" }
-    if yname == "dot1dStpPortDesignatedPort" { return "Dot1Dstpportdesignatedport" }
-    if yname == "dot1dStpPortForwardTransitions" { return "Dot1Dstpportforwardtransitions" }
-    if yname == "dot1dStpPortPathCost32" { return "Dot1Dstpportpathcost32" }
-    if yname == "stpxLongStpPortPathCost" { return "Stpxlongstpportpathcost" }
-    return ""
+    dot1Dstpportentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dstpportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPort"] = types.YLeaf{"Dot1Dstpport", dot1Dstpportentry.Dot1Dstpport}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortPriority"] = types.YLeaf{"Dot1Dstpportpriority", dot1Dstpportentry.Dot1Dstpportpriority}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortState"] = types.YLeaf{"Dot1Dstpportstate", dot1Dstpportentry.Dot1Dstpportstate}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortEnable"] = types.YLeaf{"Dot1Dstpportenable", dot1Dstpportentry.Dot1Dstpportenable}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortPathCost"] = types.YLeaf{"Dot1Dstpportpathcost", dot1Dstpportentry.Dot1Dstpportpathcost}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortDesignatedRoot"] = types.YLeaf{"Dot1Dstpportdesignatedroot", dot1Dstpportentry.Dot1Dstpportdesignatedroot}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortDesignatedCost"] = types.YLeaf{"Dot1Dstpportdesignatedcost", dot1Dstpportentry.Dot1Dstpportdesignatedcost}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortDesignatedBridge"] = types.YLeaf{"Dot1Dstpportdesignatedbridge", dot1Dstpportentry.Dot1Dstpportdesignatedbridge}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortDesignatedPort"] = types.YLeaf{"Dot1Dstpportdesignatedport", dot1Dstpportentry.Dot1Dstpportdesignatedport}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortForwardTransitions"] = types.YLeaf{"Dot1Dstpportforwardtransitions", dot1Dstpportentry.Dot1Dstpportforwardtransitions}
+    dot1Dstpportentry.EntityData.Leafs["dot1dStpPortPathCost32"] = types.YLeaf{"Dot1Dstpportpathcost32", dot1Dstpportentry.Dot1Dstpportpathcost32}
+    dot1Dstpportentry.EntityData.Leafs["stpxLongStpPortPathCost"] = types.YLeaf{"Stpxlongstpportpathcost", dot1Dstpportentry.Stpxlongstpportpathcost}
+    return &(dot1Dstpportentry.EntityData)
 }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetSegmentPath() string {
-    return "dot1dStpPortEntry" + "[dot1dStpPort='" + fmt.Sprintf("%v", dot1Dstpportentry.Dot1Dstpport) + "']"
-}
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dStpPort"] = dot1Dstpportentry.Dot1Dstpport
-    leafs["dot1dStpPortPriority"] = dot1Dstpportentry.Dot1Dstpportpriority
-    leafs["dot1dStpPortState"] = dot1Dstpportentry.Dot1Dstpportstate
-    leafs["dot1dStpPortEnable"] = dot1Dstpportentry.Dot1Dstpportenable
-    leafs["dot1dStpPortPathCost"] = dot1Dstpportentry.Dot1Dstpportpathcost
-    leafs["dot1dStpPortDesignatedRoot"] = dot1Dstpportentry.Dot1Dstpportdesignatedroot
-    leafs["dot1dStpPortDesignatedCost"] = dot1Dstpportentry.Dot1Dstpportdesignatedcost
-    leafs["dot1dStpPortDesignatedBridge"] = dot1Dstpportentry.Dot1Dstpportdesignatedbridge
-    leafs["dot1dStpPortDesignatedPort"] = dot1Dstpportentry.Dot1Dstpportdesignatedport
-    leafs["dot1dStpPortForwardTransitions"] = dot1Dstpportentry.Dot1Dstpportforwardtransitions
-    leafs["dot1dStpPortPathCost32"] = dot1Dstpportentry.Dot1Dstpportpathcost32
-    leafs["stpxLongStpPortPathCost"] = dot1Dstpportentry.Stpxlongstpportpathcost
-    return leafs
-}
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetYangName() string { return "dot1dStpPortEntry" }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) SetParent(parent types.Entity) { dot1Dstpportentry.parent = parent }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetParent() types.Entity { return dot1Dstpportentry.parent }
-
-func (dot1Dstpportentry *BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry) GetParentYangName() string { return "dot1dStpPortTable" }
 
 // BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry_Dot1Dstpportenable represents The enabled/disabled status of the port.
 type BRIDGEMIB_Dot1Dstpporttable_Dot1Dstpportentry_Dot1Dstpportenable string
@@ -1073,7 +736,7 @@ const (
 // by the transparent bridging function in
 // determining how to propagate a received frame.
 type BRIDGEMIB_Dot1Dtpfdbtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a specific unicast MAC address for which the bridge has
@@ -1082,75 +745,36 @@ type BRIDGEMIB_Dot1Dtpfdbtable struct {
     Dot1Dtpfdbentry []BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry
 }
 
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetFilter() yfilter.YFilter { return dot1Dtpfdbtable.YFilter }
+func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetEntityData() *types.CommonEntityData {
+    dot1Dtpfdbtable.EntityData.YFilter = dot1Dtpfdbtable.YFilter
+    dot1Dtpfdbtable.EntityData.YangName = "dot1dTpFdbTable"
+    dot1Dtpfdbtable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtpfdbtable.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dtpfdbtable.EntityData.SegmentPath = "dot1dTpFdbTable"
+    dot1Dtpfdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtpfdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtpfdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) SetFilter(yf yfilter.YFilter) { dot1Dtpfdbtable.YFilter = yf }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetGoName(yname string) string {
-    if yname == "dot1dTpFdbEntry" { return "Dot1Dtpfdbentry" }
-    return ""
-}
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetSegmentPath() string {
-    return "dot1dTpFdbTable"
-}
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dTpFdbEntry" {
-        for _, c := range dot1Dtpfdbtable.Dot1Dtpfdbentry {
-            if dot1Dtpfdbtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry{}
-        dot1Dtpfdbtable.Dot1Dtpfdbentry = append(dot1Dtpfdbtable.Dot1Dtpfdbentry, child)
-        return &dot1Dtpfdbtable.Dot1Dtpfdbentry[len(dot1Dtpfdbtable.Dot1Dtpfdbentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dtpfdbtable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtpfdbtable.EntityData.Children["dot1dTpFdbEntry"] = types.YChild{"Dot1Dtpfdbentry", nil}
     for i := range dot1Dtpfdbtable.Dot1Dtpfdbentry {
-        children[dot1Dtpfdbtable.Dot1Dtpfdbentry[i].GetSegmentPath()] = &dot1Dtpfdbtable.Dot1Dtpfdbentry[i]
+        dot1Dtpfdbtable.EntityData.Children[types.GetSegmentPath(&dot1Dtpfdbtable.Dot1Dtpfdbentry[i])] = types.YChild{"Dot1Dtpfdbentry", &dot1Dtpfdbtable.Dot1Dtpfdbentry[i]}
     }
-    return children
+    dot1Dtpfdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dtpfdbtable.EntityData)
 }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetYangName() string { return "dot1dTpFdbTable" }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) SetParent(parent types.Entity) { dot1Dtpfdbtable.parent = parent }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetParent() types.Entity { return dot1Dtpfdbtable.parent }
-
-func (dot1Dtpfdbtable *BRIDGEMIB_Dot1Dtpfdbtable) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry
 // Information about a specific unicast MAC address
 // for which the bridge has some forwarding and/or
 // filtering information.
 type BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unicast MAC address for which the bridge has
     // forwarding and/or filtering information. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1Dtpfdbaddress interface{}
 
     // Either the value '0', or the port number of the port on which a frame
@@ -1183,55 +807,23 @@ type BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry struct {
     Dot1Dtpfdbstatus interface{}
 }
 
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetFilter() yfilter.YFilter { return dot1Dtpfdbentry.YFilter }
+func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetEntityData() *types.CommonEntityData {
+    dot1Dtpfdbentry.EntityData.YFilter = dot1Dtpfdbentry.YFilter
+    dot1Dtpfdbentry.EntityData.YangName = "dot1dTpFdbEntry"
+    dot1Dtpfdbentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtpfdbentry.EntityData.ParentYangName = "dot1dTpFdbTable"
+    dot1Dtpfdbentry.EntityData.SegmentPath = "dot1dTpFdbEntry" + "[dot1dTpFdbAddress='" + fmt.Sprintf("%v", dot1Dtpfdbentry.Dot1Dtpfdbaddress) + "']"
+    dot1Dtpfdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtpfdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtpfdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) SetFilter(yf yfilter.YFilter) { dot1Dtpfdbentry.YFilter = yf }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetGoName(yname string) string {
-    if yname == "dot1dTpFdbAddress" { return "Dot1Dtpfdbaddress" }
-    if yname == "dot1dTpFdbPort" { return "Dot1Dtpfdbport" }
-    if yname == "dot1dTpFdbStatus" { return "Dot1Dtpfdbstatus" }
-    return ""
+    dot1Dtpfdbentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtpfdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dtpfdbentry.EntityData.Leafs["dot1dTpFdbAddress"] = types.YLeaf{"Dot1Dtpfdbaddress", dot1Dtpfdbentry.Dot1Dtpfdbaddress}
+    dot1Dtpfdbentry.EntityData.Leafs["dot1dTpFdbPort"] = types.YLeaf{"Dot1Dtpfdbport", dot1Dtpfdbentry.Dot1Dtpfdbport}
+    dot1Dtpfdbentry.EntityData.Leafs["dot1dTpFdbStatus"] = types.YLeaf{"Dot1Dtpfdbstatus", dot1Dtpfdbentry.Dot1Dtpfdbstatus}
+    return &(dot1Dtpfdbentry.EntityData)
 }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetSegmentPath() string {
-    return "dot1dTpFdbEntry" + "[dot1dTpFdbAddress='" + fmt.Sprintf("%v", dot1Dtpfdbentry.Dot1Dtpfdbaddress) + "']"
-}
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dTpFdbAddress"] = dot1Dtpfdbentry.Dot1Dtpfdbaddress
-    leafs["dot1dTpFdbPort"] = dot1Dtpfdbentry.Dot1Dtpfdbport
-    leafs["dot1dTpFdbStatus"] = dot1Dtpfdbentry.Dot1Dtpfdbstatus
-    return leafs
-}
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetYangName() string { return "dot1dTpFdbEntry" }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) SetParent(parent types.Entity) { dot1Dtpfdbentry.parent = parent }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetParent() types.Entity { return dot1Dtpfdbentry.parent }
-
-func (dot1Dtpfdbentry *BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry) GetParentYangName() string { return "dot1dTpFdbTable" }
 
 // BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry_Dot1Dtpfdbstatus represents         existing instance of dot1dStaticAddress.
 type BRIDGEMIB_Dot1Dtpfdbtable_Dot1Dtpfdbentry_Dot1Dtpfdbstatus string
@@ -1252,7 +844,7 @@ const (
 // A table that contains information about every port that
 // is associated with this transparent bridge.
 type BRIDGEMIB_Dot1Dtpporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of information for each port of a transparent bridge. The type is
@@ -1260,69 +852,30 @@ type BRIDGEMIB_Dot1Dtpporttable struct {
     Dot1Dtpportentry []BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry
 }
 
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetFilter() yfilter.YFilter { return dot1Dtpporttable.YFilter }
+func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetEntityData() *types.CommonEntityData {
+    dot1Dtpporttable.EntityData.YFilter = dot1Dtpporttable.YFilter
+    dot1Dtpporttable.EntityData.YangName = "dot1dTpPortTable"
+    dot1Dtpporttable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtpporttable.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dtpporttable.EntityData.SegmentPath = "dot1dTpPortTable"
+    dot1Dtpporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtpporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtpporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) SetFilter(yf yfilter.YFilter) { dot1Dtpporttable.YFilter = yf }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetGoName(yname string) string {
-    if yname == "dot1dTpPortEntry" { return "Dot1Dtpportentry" }
-    return ""
-}
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetSegmentPath() string {
-    return "dot1dTpPortTable"
-}
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dTpPortEntry" {
-        for _, c := range dot1Dtpporttable.Dot1Dtpportentry {
-            if dot1Dtpporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry{}
-        dot1Dtpporttable.Dot1Dtpportentry = append(dot1Dtpporttable.Dot1Dtpportentry, child)
-        return &dot1Dtpporttable.Dot1Dtpportentry[len(dot1Dtpporttable.Dot1Dtpportentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dtpporttable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtpporttable.EntityData.Children["dot1dTpPortEntry"] = types.YChild{"Dot1Dtpportentry", nil}
     for i := range dot1Dtpporttable.Dot1Dtpportentry {
-        children[dot1Dtpporttable.Dot1Dtpportentry[i].GetSegmentPath()] = &dot1Dtpporttable.Dot1Dtpportentry[i]
+        dot1Dtpporttable.EntityData.Children[types.GetSegmentPath(&dot1Dtpporttable.Dot1Dtpportentry[i])] = types.YChild{"Dot1Dtpportentry", &dot1Dtpporttable.Dot1Dtpportentry[i]}
     }
-    return children
+    dot1Dtpporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dtpporttable.EntityData)
 }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetYangName() string { return "dot1dTpPortTable" }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) SetParent(parent types.Entity) { dot1Dtpporttable.parent = parent }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetParent() types.Entity { return dot1Dtpporttable.parent }
-
-func (dot1Dtpporttable *BRIDGEMIB_Dot1Dtpporttable) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry
 // A list of information for each port of a transparent
 // bridge.
 type BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The port number of the port for which this entry
@@ -1357,59 +910,25 @@ type BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry struct {
     Dot1Dtpportindiscards interface{}
 }
 
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetFilter() yfilter.YFilter { return dot1Dtpportentry.YFilter }
+func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetEntityData() *types.CommonEntityData {
+    dot1Dtpportentry.EntityData.YFilter = dot1Dtpportentry.YFilter
+    dot1Dtpportentry.EntityData.YangName = "dot1dTpPortEntry"
+    dot1Dtpportentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtpportentry.EntityData.ParentYangName = "dot1dTpPortTable"
+    dot1Dtpportentry.EntityData.SegmentPath = "dot1dTpPortEntry" + "[dot1dTpPort='" + fmt.Sprintf("%v", dot1Dtpportentry.Dot1Dtpport) + "']"
+    dot1Dtpportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtpportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtpportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) SetFilter(yf yfilter.YFilter) { dot1Dtpportentry.YFilter = yf }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetGoName(yname string) string {
-    if yname == "dot1dTpPort" { return "Dot1Dtpport" }
-    if yname == "dot1dTpPortMaxInfo" { return "Dot1Dtpportmaxinfo" }
-    if yname == "dot1dTpPortInFrames" { return "Dot1Dtpportinframes" }
-    if yname == "dot1dTpPortOutFrames" { return "Dot1Dtpportoutframes" }
-    if yname == "dot1dTpPortInDiscards" { return "Dot1Dtpportindiscards" }
-    return ""
+    dot1Dtpportentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtpportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dtpportentry.EntityData.Leafs["dot1dTpPort"] = types.YLeaf{"Dot1Dtpport", dot1Dtpportentry.Dot1Dtpport}
+    dot1Dtpportentry.EntityData.Leafs["dot1dTpPortMaxInfo"] = types.YLeaf{"Dot1Dtpportmaxinfo", dot1Dtpportentry.Dot1Dtpportmaxinfo}
+    dot1Dtpportentry.EntityData.Leafs["dot1dTpPortInFrames"] = types.YLeaf{"Dot1Dtpportinframes", dot1Dtpportentry.Dot1Dtpportinframes}
+    dot1Dtpportentry.EntityData.Leafs["dot1dTpPortOutFrames"] = types.YLeaf{"Dot1Dtpportoutframes", dot1Dtpportentry.Dot1Dtpportoutframes}
+    dot1Dtpportentry.EntityData.Leafs["dot1dTpPortInDiscards"] = types.YLeaf{"Dot1Dtpportindiscards", dot1Dtpportentry.Dot1Dtpportindiscards}
+    return &(dot1Dtpportentry.EntityData)
 }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetSegmentPath() string {
-    return "dot1dTpPortEntry" + "[dot1dTpPort='" + fmt.Sprintf("%v", dot1Dtpportentry.Dot1Dtpport) + "']"
-}
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dTpPort"] = dot1Dtpportentry.Dot1Dtpport
-    leafs["dot1dTpPortMaxInfo"] = dot1Dtpportentry.Dot1Dtpportmaxinfo
-    leafs["dot1dTpPortInFrames"] = dot1Dtpportentry.Dot1Dtpportinframes
-    leafs["dot1dTpPortOutFrames"] = dot1Dtpportentry.Dot1Dtpportoutframes
-    leafs["dot1dTpPortInDiscards"] = dot1Dtpportentry.Dot1Dtpportindiscards
-    return leafs
-}
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetYangName() string { return "dot1dTpPortEntry" }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) SetParent(parent types.Entity) { dot1Dtpportentry.parent = parent }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetParent() types.Entity { return dot1Dtpportentry.parent }
-
-func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetParentYangName() string { return "dot1dTpPortTable" }
 
 // BRIDGEMIB_Dot1Dstatictable
 // A table containing filtering information configured
@@ -1424,7 +943,7 @@ func (dot1Dtpportentry *BRIDGEMIB_Dot1Dtpporttable_Dot1Dtpportentry) GetParentYa
 // address.  Entries are valid for unicast and for
 // group/broadcast addresses.
 type BRIDGEMIB_Dot1Dstatictable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Filtering information configured into the bridge by (local or network)
@@ -1435,63 +954,24 @@ type BRIDGEMIB_Dot1Dstatictable struct {
     Dot1Dstaticentry []BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry
 }
 
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetFilter() yfilter.YFilter { return dot1Dstatictable.YFilter }
+func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetEntityData() *types.CommonEntityData {
+    dot1Dstatictable.EntityData.YFilter = dot1Dstatictable.YFilter
+    dot1Dstatictable.EntityData.YangName = "dot1dStaticTable"
+    dot1Dstatictable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dstatictable.EntityData.ParentYangName = "BRIDGE-MIB"
+    dot1Dstatictable.EntityData.SegmentPath = "dot1dStaticTable"
+    dot1Dstatictable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dstatictable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dstatictable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) SetFilter(yf yfilter.YFilter) { dot1Dstatictable.YFilter = yf }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetGoName(yname string) string {
-    if yname == "dot1dStaticEntry" { return "Dot1Dstaticentry" }
-    return ""
-}
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetSegmentPath() string {
-    return "dot1dStaticTable"
-}
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dStaticEntry" {
-        for _, c := range dot1Dstatictable.Dot1Dstaticentry {
-            if dot1Dstatictable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry{}
-        dot1Dstatictable.Dot1Dstaticentry = append(dot1Dstatictable.Dot1Dstaticentry, child)
-        return &dot1Dstatictable.Dot1Dstaticentry[len(dot1Dstatictable.Dot1Dstaticentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dstatictable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dstatictable.EntityData.Children["dot1dStaticEntry"] = types.YChild{"Dot1Dstaticentry", nil}
     for i := range dot1Dstatictable.Dot1Dstaticentry {
-        children[dot1Dstatictable.Dot1Dstaticentry[i].GetSegmentPath()] = &dot1Dstatictable.Dot1Dstaticentry[i]
+        dot1Dstatictable.EntityData.Children[types.GetSegmentPath(&dot1Dstatictable.Dot1Dstaticentry[i])] = types.YChild{"Dot1Dstaticentry", &dot1Dstatictable.Dot1Dstaticentry[i]}
     }
-    return children
+    dot1Dstatictable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dstatictable.EntityData)
 }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetYangName() string { return "dot1dStaticTable" }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) SetParent(parent types.Entity) { dot1Dstatictable.parent = parent }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetParent() types.Entity { return dot1Dstatictable.parent }
-
-func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetParentYangName() string { return "BRIDGE-MIB" }
 
 // BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry
 // Filtering information configured into the bridge by
@@ -1500,13 +980,13 @@ func (dot1Dstatictable *BRIDGEMIB_Dot1Dstatictable) GetParentYangName() string {
 // containing a specific destination address are allowed to
 // be forwarded.
 type BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object can take the value
     // of a unicast address, a group address, or the broadcast address. The type
-    // is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Dot1Dstaticaddress interface{}
 
     // This attribute is a key. Either the value '0', or the port number of the
@@ -1548,57 +1028,24 @@ type BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry struct {
     Dot1Dstaticstatus interface{}
 }
 
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetFilter() yfilter.YFilter { return dot1Dstaticentry.YFilter }
+func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetEntityData() *types.CommonEntityData {
+    dot1Dstaticentry.EntityData.YFilter = dot1Dstaticentry.YFilter
+    dot1Dstaticentry.EntityData.YangName = "dot1dStaticEntry"
+    dot1Dstaticentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dstaticentry.EntityData.ParentYangName = "dot1dStaticTable"
+    dot1Dstaticentry.EntityData.SegmentPath = "dot1dStaticEntry" + "[dot1dStaticAddress='" + fmt.Sprintf("%v", dot1Dstaticentry.Dot1Dstaticaddress) + "']" + "[dot1dStaticReceivePort='" + fmt.Sprintf("%v", dot1Dstaticentry.Dot1Dstaticreceiveport) + "']"
+    dot1Dstaticentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dstaticentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dstaticentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) SetFilter(yf yfilter.YFilter) { dot1Dstaticentry.YFilter = yf }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetGoName(yname string) string {
-    if yname == "dot1dStaticAddress" { return "Dot1Dstaticaddress" }
-    if yname == "dot1dStaticReceivePort" { return "Dot1Dstaticreceiveport" }
-    if yname == "dot1dStaticAllowedToGoTo" { return "Dot1Dstaticallowedtogoto" }
-    if yname == "dot1dStaticStatus" { return "Dot1Dstaticstatus" }
-    return ""
+    dot1Dstaticentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dstaticentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dstaticentry.EntityData.Leafs["dot1dStaticAddress"] = types.YLeaf{"Dot1Dstaticaddress", dot1Dstaticentry.Dot1Dstaticaddress}
+    dot1Dstaticentry.EntityData.Leafs["dot1dStaticReceivePort"] = types.YLeaf{"Dot1Dstaticreceiveport", dot1Dstaticentry.Dot1Dstaticreceiveport}
+    dot1Dstaticentry.EntityData.Leafs["dot1dStaticAllowedToGoTo"] = types.YLeaf{"Dot1Dstaticallowedtogoto", dot1Dstaticentry.Dot1Dstaticallowedtogoto}
+    dot1Dstaticentry.EntityData.Leafs["dot1dStaticStatus"] = types.YLeaf{"Dot1Dstaticstatus", dot1Dstaticentry.Dot1Dstaticstatus}
+    return &(dot1Dstaticentry.EntityData)
 }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetSegmentPath() string {
-    return "dot1dStaticEntry" + "[dot1dStaticAddress='" + fmt.Sprintf("%v", dot1Dstaticentry.Dot1Dstaticaddress) + "']" + "[dot1dStaticReceivePort='" + fmt.Sprintf("%v", dot1Dstaticentry.Dot1Dstaticreceiveport) + "']"
-}
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dStaticAddress"] = dot1Dstaticentry.Dot1Dstaticaddress
-    leafs["dot1dStaticReceivePort"] = dot1Dstaticentry.Dot1Dstaticreceiveport
-    leafs["dot1dStaticAllowedToGoTo"] = dot1Dstaticentry.Dot1Dstaticallowedtogoto
-    leafs["dot1dStaticStatus"] = dot1Dstaticentry.Dot1Dstaticstatus
-    return leafs
-}
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetYangName() string { return "dot1dStaticEntry" }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) SetParent(parent types.Entity) { dot1Dstaticentry.parent = parent }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetParent() types.Entity { return dot1Dstaticentry.parent }
-
-func (dot1Dstaticentry *BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry) GetParentYangName() string { return "dot1dStaticTable" }
 
 // BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry_Dot1Dstaticstatus represents         and will remain so until it is aged out.
 type BRIDGEMIB_Dot1Dstatictable_Dot1Dstaticentry_Dot1Dstaticstatus string

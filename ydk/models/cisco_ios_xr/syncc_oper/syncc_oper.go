@@ -24,100 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-syncc-oper:timing-controller", reflect.TypeOf(TimingController{}))
 }
 
-// Smode1 represents First mode type
-type Smode1 string
-
-const (
-    // Extended Superframe(ESF)
-    Smode1_extended_super_frame Smode1 = "extended-super-frame"
-
-    // D4 channel unit
-    Smode1_d4 Smode1 = "d4"
-
-    // Non CRC 4 mode
-    Smode1_non_crc4 Smode1 = "non-crc4"
-
-    // CRC 4
-    Smode1_crc4 Smode1 = "crc4"
-
-    // No mode is selected
-    Smode1_submode1_none Smode1 = "submode1-none"
-)
-
-// Smode2 represents Second mode type
-type Smode2 string
-
-const (
-    // AMI
-    Smode2_ami_mode Smode2 = "ami-mode"
-
-    // B8ZS submode
-    Smode2_b8zs Smode2 = "b8zs"
-
-    // HDB3 submode
-    Smode2_hdb3 Smode2 = "hdb3"
-
-    // No mode is selected
-    Smode2_submode2_none Smode2 = "submode2-none"
-)
-
-// ClockModes represents Different clock modes
-type ClockModes string
-
-const (
-    // T1 mode
-    ClockModes_t1 ClockModes = "t1"
-
-    // E1 mode
-    ClockModes_e1 ClockModes = "e1"
-
-    // 2048M mode
-    ClockModes_two_m ClockModes = "two-m"
-
-    // 64kCC input
-    ClockModes_input64k ClockModes = "input64k"
-
-    // 6312M output
-    ClockModes_output6m ClockModes = "output6m"
-
-    // Universal transport interface(UTI)
-    ClockModes_uti ClockModes = "uti"
-
-    // No mode is selected
-    ClockModes_none ClockModes = "none"
-)
-
-// QlOption1 represents Quality level options
-type QlOption1 string
-
-const (
-    // No value
-    QlOption1_quality_level_none QlOption1 = "quality-level-none"
-
-    // Option 1
-    QlOption1_o1 QlOption1 = "o1"
-
-    // Option 2 Gen 1
-    QlOption1_o2_g1 QlOption1 = "o2-g1"
-
-    // Option 2 Gen 2
-    QlOption1_o2_g2 QlOption1 = "o2-g2"
-)
-
-// Direct represents Direction status
-type Direct string
-
-const (
-    // Receive or transmit
-    Direct_receive_transmit Direct = "receive-transmit"
-
-    // Transmit
-    Direct_transmit Direct = "transmit"
-
-    // Receive
-    Direct_receive Direct = "receive"
-)
-
 // SourceStateName represents Syncc source state name
 type SourceStateName string
 
@@ -161,17 +67,6 @@ const (
     Source_internal Source = "internal"
 )
 
-// NodeState represents Different modes of a node
-type NodeState string
-
-const (
-    // Node in active mode
-    NodeState_active NodeState = "active"
-
-    // Node in standby mode
-    NodeState_standby NodeState = "standby"
-)
-
 // InterfaceState represents Interface state
 type InterfaceState string
 
@@ -184,6 +79,111 @@ const (
 
     // Admin down state
     InterfaceState_admin_down InterfaceState = "admin-down"
+)
+
+// QlOption1 represents Quality level options
+type QlOption1 string
+
+const (
+    // No value
+    QlOption1_quality_level_none QlOption1 = "quality-level-none"
+
+    // Option 1
+    QlOption1_o1 QlOption1 = "o1"
+
+    // Option 2 Gen 1
+    QlOption1_o2_g1 QlOption1 = "o2-g1"
+
+    // Option 2 Gen 2
+    QlOption1_o2_g2 QlOption1 = "o2-g2"
+)
+
+// Direct represents Direction status
+type Direct string
+
+const (
+    // Receive or transmit
+    Direct_receive_transmit Direct = "receive-transmit"
+
+    // Transmit
+    Direct_transmit Direct = "transmit"
+
+    // Receive
+    Direct_receive Direct = "receive"
+)
+
+// Smode2 represents Second mode type
+type Smode2 string
+
+const (
+    // AMI
+    Smode2_ami_mode Smode2 = "ami-mode"
+
+    // B8ZS submode
+    Smode2_b8zs Smode2 = "b8zs"
+
+    // HDB3 submode
+    Smode2_hdb3 Smode2 = "hdb3"
+
+    // No mode is selected
+    Smode2_submode2_none Smode2 = "submode2-none"
+)
+
+// Smode1 represents First mode type
+type Smode1 string
+
+const (
+    // Extended Superframe(ESF)
+    Smode1_extended_super_frame Smode1 = "extended-super-frame"
+
+    // D4 channel unit
+    Smode1_d4 Smode1 = "d4"
+
+    // Non CRC 4 mode
+    Smode1_non_crc4 Smode1 = "non-crc4"
+
+    // CRC 4
+    Smode1_crc4 Smode1 = "crc4"
+
+    // No mode is selected
+    Smode1_submode1_none Smode1 = "submode1-none"
+)
+
+// ClockModes represents Different clock modes
+type ClockModes string
+
+const (
+    // T1 mode
+    ClockModes_t1 ClockModes = "t1"
+
+    // E1 mode
+    ClockModes_e1 ClockModes = "e1"
+
+    // 2048M mode
+    ClockModes_two_m ClockModes = "two-m"
+
+    // 64kCC input
+    ClockModes_input64k ClockModes = "input64k"
+
+    // 6312M output
+    ClockModes_output6m ClockModes = "output6m"
+
+    // Universal transport interface(UTI)
+    ClockModes_uti ClockModes = "uti"
+
+    // No mode is selected
+    ClockModes_none ClockModes = "none"
+)
+
+// NodeState represents Different modes of a node
+type NodeState string
+
+const (
+    // Node in active mode
+    NodeState_active NodeState = "active"
+
+    // Node in standby mode
+    NodeState_standby NodeState = "standby"
 )
 
 // SynccStates represents Different syncc states
@@ -206,66 +206,33 @@ const (
 // TimingController
 // Timing controller operational data
 type TimingController struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of nodes applicable to timing controller.
     Nodes TimingController_Nodes
 }
 
-func (timingController *TimingController) GetFilter() yfilter.YFilter { return timingController.YFilter }
+func (timingController *TimingController) GetEntityData() *types.CommonEntityData {
+    timingController.EntityData.YFilter = timingController.YFilter
+    timingController.EntityData.YangName = "timing-controller"
+    timingController.EntityData.BundleName = "cisco_ios_xr"
+    timingController.EntityData.ParentYangName = "Cisco-IOS-XR-syncc-oper"
+    timingController.EntityData.SegmentPath = "Cisco-IOS-XR-syncc-oper:timing-controller"
+    timingController.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timingController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timingController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timingController *TimingController) SetFilter(yf yfilter.YFilter) { timingController.YFilter = yf }
-
-func (timingController *TimingController) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    timingController.EntityData.Children = make(map[string]types.YChild)
+    timingController.EntityData.Children["nodes"] = types.YChild{"Nodes", &timingController.Nodes}
+    timingController.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(timingController.EntityData)
 }
-
-func (timingController *TimingController) GetSegmentPath() string {
-    return "Cisco-IOS-XR-syncc-oper:timing-controller"
-}
-
-func (timingController *TimingController) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &timingController.Nodes
-    }
-    return nil
-}
-
-func (timingController *TimingController) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &timingController.Nodes
-    return children
-}
-
-func (timingController *TimingController) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (timingController *TimingController) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timingController *TimingController) GetYangName() string { return "timing-controller" }
-
-func (timingController *TimingController) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timingController *TimingController) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timingController *TimingController) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timingController *TimingController) SetParent(parent types.Entity) { timingController.parent = parent }
-
-func (timingController *TimingController) GetParent() types.Entity { return timingController.parent }
-
-func (timingController *TimingController) GetParentYangName() string { return "Cisco-IOS-XR-syncc-oper" }
 
 // TimingController_Nodes
 // List of nodes applicable to timing controller
 type TimingController_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Syncc operational data for a single node. The type is slice of
@@ -273,72 +240,33 @@ type TimingController_Nodes struct {
     Node []TimingController_Nodes_Node
 }
 
-func (nodes *TimingController_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *TimingController_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "timing-controller"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *TimingController_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *TimingController_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *TimingController_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *TimingController_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *TimingController_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *TimingController_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *TimingController_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *TimingController_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *TimingController_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *TimingController_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *TimingController_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *TimingController_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *TimingController_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *TimingController_Nodes) GetParentYangName() string { return "timing-controller" }
 
 // TimingController_Nodes_Node
 // Syncc operational data for a single node
 type TimingController_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node Name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Syncc state for a node.
@@ -351,71 +279,29 @@ type TimingController_Nodes_Node struct {
     TimingSource TimingController_Nodes_Node_TimingSource
 }
 
-func (node *TimingController_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *TimingController_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *TimingController_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *TimingController_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "state" { return "State" }
-    if yname == "clock" { return "Clock" }
-    if yname == "timing-source" { return "TimingSource" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["state"] = types.YChild{"State", &node.State}
+    node.EntityData.Children["clock"] = types.YChild{"Clock", &node.Clock}
+    node.EntityData.Children["timing-source"] = types.YChild{"TimingSource", &node.TimingSource}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *TimingController_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *TimingController_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "state" {
-        return &node.State
-    }
-    if childYangName == "clock" {
-        return &node.Clock
-    }
-    if childYangName == "timing-source" {
-        return &node.TimingSource
-    }
-    return nil
-}
-
-func (node *TimingController_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["state"] = &node.State
-    children["clock"] = &node.Clock
-    children["timing-source"] = &node.TimingSource
-    return children
-}
-
-func (node *TimingController_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *TimingController_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *TimingController_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *TimingController_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *TimingController_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *TimingController_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *TimingController_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *TimingController_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *TimingController_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // TimingController_Nodes_Node_State
 // Syncc state for a node
 type TimingController_Nodes_Node_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of syncc states. The type is slice of
@@ -423,68 +309,29 @@ type TimingController_Nodes_Node_State struct {
     SynccInstance []TimingController_Nodes_Node_State_SynccInstance
 }
 
-func (state *TimingController_Nodes_Node_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *TimingController_Nodes_Node_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "cisco_ios_xr"
+    state.EntityData.ParentYangName = "node"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (state *TimingController_Nodes_Node_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *TimingController_Nodes_Node_State) GetGoName(yname string) string {
-    if yname == "syncc-instance" { return "SynccInstance" }
-    return ""
-}
-
-func (state *TimingController_Nodes_Node_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *TimingController_Nodes_Node_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "syncc-instance" {
-        for _, c := range state.SynccInstance {
-            if state.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_State_SynccInstance{}
-        state.SynccInstance = append(state.SynccInstance, child)
-        return &state.SynccInstance[len(state.SynccInstance)-1]
-    }
-    return nil
-}
-
-func (state *TimingController_Nodes_Node_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Children["syncc-instance"] = types.YChild{"SynccInstance", nil}
     for i := range state.SynccInstance {
-        children[state.SynccInstance[i].GetSegmentPath()] = &state.SynccInstance[i]
+        state.EntityData.Children[types.GetSegmentPath(&state.SynccInstance[i])] = types.YChild{"SynccInstance", &state.SynccInstance[i]}
     }
-    return children
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(state.EntityData)
 }
-
-func (state *TimingController_Nodes_Node_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (state *TimingController_Nodes_Node_State) GetBundleName() string { return "cisco_ios_xr" }
-
-func (state *TimingController_Nodes_Node_State) GetYangName() string { return "state" }
-
-func (state *TimingController_Nodes_Node_State) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (state *TimingController_Nodes_Node_State) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (state *TimingController_Nodes_Node_State) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (state *TimingController_Nodes_Node_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *TimingController_Nodes_Node_State) GetParent() types.Entity { return state.parent }
-
-func (state *TimingController_Nodes_Node_State) GetParentYangName() string { return "node" }
 
 // TimingController_Nodes_Node_State_SynccInstance
 // List of syncc states
 type TimingController_Nodes_Node_State_SynccInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Syncc controller state. The type is SynccStates.
@@ -549,88 +396,42 @@ type TimingController_Nodes_Node_State_SynccInstance struct {
     ResyncNotification interface{}
 }
 
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetFilter() yfilter.YFilter { return synccInstance.YFilter }
+func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetEntityData() *types.CommonEntityData {
+    synccInstance.EntityData.YFilter = synccInstance.YFilter
+    synccInstance.EntityData.YangName = "syncc-instance"
+    synccInstance.EntityData.BundleName = "cisco_ios_xr"
+    synccInstance.EntityData.ParentYangName = "state"
+    synccInstance.EntityData.SegmentPath = "syncc-instance"
+    synccInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    synccInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    synccInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) SetFilter(yf yfilter.YFilter) { synccInstance.YFilter = yf }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetGoName(yname string) string {
-    if yname == "controller-state" { return "ControllerState" }
-    if yname == "syncc-node-state" { return "SynccNodeState" }
-    if yname == "verbose-level" { return "VerboseLevel" }
-    if yname == "initial-count" { return "InitialCount" }
-    if yname == "shutdown-count" { return "ShutdownCount" }
-    if yname == "set-input-count" { return "SetInputCount" }
-    if yname == "set-capability-count" { return "SetCapabilityCount" }
-    if yname == "get-clock-count" { return "GetClockCount" }
-    if yname == "set-clock-out-count" { return "SetClockOutCount" }
-    if yname == "sync-enable-count" { return "SyncEnableCount" }
-    if yname == "sync-disable-count" { return "SyncDisableCount" }
-    if yname == "capability-count" { return "CapabilityCount" }
-    if yname == "set-quality-level-count" { return "SetQualityLevelCount" }
-    if yname == "input-notification" { return "InputNotification" }
-    if yname == "capability-notification" { return "CapabilityNotification" }
-    if yname == "status-notification" { return "StatusNotification" }
-    if yname == "resync-notification" { return "ResyncNotification" }
-    return ""
+    synccInstance.EntityData.Children = make(map[string]types.YChild)
+    synccInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    synccInstance.EntityData.Leafs["controller-state"] = types.YLeaf{"ControllerState", synccInstance.ControllerState}
+    synccInstance.EntityData.Leafs["syncc-node-state"] = types.YLeaf{"SynccNodeState", synccInstance.SynccNodeState}
+    synccInstance.EntityData.Leafs["verbose-level"] = types.YLeaf{"VerboseLevel", synccInstance.VerboseLevel}
+    synccInstance.EntityData.Leafs["initial-count"] = types.YLeaf{"InitialCount", synccInstance.InitialCount}
+    synccInstance.EntityData.Leafs["shutdown-count"] = types.YLeaf{"ShutdownCount", synccInstance.ShutdownCount}
+    synccInstance.EntityData.Leafs["set-input-count"] = types.YLeaf{"SetInputCount", synccInstance.SetInputCount}
+    synccInstance.EntityData.Leafs["set-capability-count"] = types.YLeaf{"SetCapabilityCount", synccInstance.SetCapabilityCount}
+    synccInstance.EntityData.Leafs["get-clock-count"] = types.YLeaf{"GetClockCount", synccInstance.GetClockCount}
+    synccInstance.EntityData.Leafs["set-clock-out-count"] = types.YLeaf{"SetClockOutCount", synccInstance.SetClockOutCount}
+    synccInstance.EntityData.Leafs["sync-enable-count"] = types.YLeaf{"SyncEnableCount", synccInstance.SyncEnableCount}
+    synccInstance.EntityData.Leafs["sync-disable-count"] = types.YLeaf{"SyncDisableCount", synccInstance.SyncDisableCount}
+    synccInstance.EntityData.Leafs["capability-count"] = types.YLeaf{"CapabilityCount", synccInstance.CapabilityCount}
+    synccInstance.EntityData.Leafs["set-quality-level-count"] = types.YLeaf{"SetQualityLevelCount", synccInstance.SetQualityLevelCount}
+    synccInstance.EntityData.Leafs["input-notification"] = types.YLeaf{"InputNotification", synccInstance.InputNotification}
+    synccInstance.EntityData.Leafs["capability-notification"] = types.YLeaf{"CapabilityNotification", synccInstance.CapabilityNotification}
+    synccInstance.EntityData.Leafs["status-notification"] = types.YLeaf{"StatusNotification", synccInstance.StatusNotification}
+    synccInstance.EntityData.Leafs["resync-notification"] = types.YLeaf{"ResyncNotification", synccInstance.ResyncNotification}
+    return &(synccInstance.EntityData)
 }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetSegmentPath() string {
-    return "syncc-instance"
-}
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["controller-state"] = synccInstance.ControllerState
-    leafs["syncc-node-state"] = synccInstance.SynccNodeState
-    leafs["verbose-level"] = synccInstance.VerboseLevel
-    leafs["initial-count"] = synccInstance.InitialCount
-    leafs["shutdown-count"] = synccInstance.ShutdownCount
-    leafs["set-input-count"] = synccInstance.SetInputCount
-    leafs["set-capability-count"] = synccInstance.SetCapabilityCount
-    leafs["get-clock-count"] = synccInstance.GetClockCount
-    leafs["set-clock-out-count"] = synccInstance.SetClockOutCount
-    leafs["sync-enable-count"] = synccInstance.SyncEnableCount
-    leafs["sync-disable-count"] = synccInstance.SyncDisableCount
-    leafs["capability-count"] = synccInstance.CapabilityCount
-    leafs["set-quality-level-count"] = synccInstance.SetQualityLevelCount
-    leafs["input-notification"] = synccInstance.InputNotification
-    leafs["capability-notification"] = synccInstance.CapabilityNotification
-    leafs["status-notification"] = synccInstance.StatusNotification
-    leafs["resync-notification"] = synccInstance.ResyncNotification
-    return leafs
-}
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetYangName() string { return "syncc-instance" }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) SetParent(parent types.Entity) { synccInstance.parent = parent }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetParent() types.Entity { return synccInstance.parent }
-
-func (synccInstance *TimingController_Nodes_Node_State_SynccInstance) GetParentYangName() string { return "state" }
 
 // TimingController_Nodes_Node_Clock
 // Syncc clock information for a node
 type TimingController_Nodes_Node_Clock struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of syncc clock information . The type is slice of
@@ -638,137 +439,59 @@ type TimingController_Nodes_Node_Clock struct {
     SynccInstance []TimingController_Nodes_Node_Clock_SynccInstance
 }
 
-func (clock *TimingController_Nodes_Node_Clock) GetFilter() yfilter.YFilter { return clock.YFilter }
+func (clock *TimingController_Nodes_Node_Clock) GetEntityData() *types.CommonEntityData {
+    clock.EntityData.YFilter = clock.YFilter
+    clock.EntityData.YangName = "clock"
+    clock.EntityData.BundleName = "cisco_ios_xr"
+    clock.EntityData.ParentYangName = "node"
+    clock.EntityData.SegmentPath = "clock"
+    clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clock *TimingController_Nodes_Node_Clock) SetFilter(yf yfilter.YFilter) { clock.YFilter = yf }
-
-func (clock *TimingController_Nodes_Node_Clock) GetGoName(yname string) string {
-    if yname == "syncc-instance" { return "SynccInstance" }
-    return ""
-}
-
-func (clock *TimingController_Nodes_Node_Clock) GetSegmentPath() string {
-    return "clock"
-}
-
-func (clock *TimingController_Nodes_Node_Clock) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "syncc-instance" {
-        for _, c := range clock.SynccInstance {
-            if clock.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_Clock_SynccInstance{}
-        clock.SynccInstance = append(clock.SynccInstance, child)
-        return &clock.SynccInstance[len(clock.SynccInstance)-1]
-    }
-    return nil
-}
-
-func (clock *TimingController_Nodes_Node_Clock) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clock.EntityData.Children = make(map[string]types.YChild)
+    clock.EntityData.Children["syncc-instance"] = types.YChild{"SynccInstance", nil}
     for i := range clock.SynccInstance {
-        children[clock.SynccInstance[i].GetSegmentPath()] = &clock.SynccInstance[i]
+        clock.EntityData.Children[types.GetSegmentPath(&clock.SynccInstance[i])] = types.YChild{"SynccInstance", &clock.SynccInstance[i]}
     }
-    return children
+    clock.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clock.EntityData)
 }
-
-func (clock *TimingController_Nodes_Node_Clock) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clock *TimingController_Nodes_Node_Clock) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clock *TimingController_Nodes_Node_Clock) GetYangName() string { return "clock" }
-
-func (clock *TimingController_Nodes_Node_Clock) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clock *TimingController_Nodes_Node_Clock) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clock *TimingController_Nodes_Node_Clock) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clock *TimingController_Nodes_Node_Clock) SetParent(parent types.Entity) { clock.parent = parent }
-
-func (clock *TimingController_Nodes_Node_Clock) GetParent() types.Entity { return clock.parent }
-
-func (clock *TimingController_Nodes_Node_Clock) GetParentYangName() string { return "node" }
 
 // TimingController_Nodes_Node_Clock_SynccInstance
 // List of syncc clock information 
 type TimingController_Nodes_Node_Clock_SynccInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Clock table for an RP. The type is slice of
     // TimingController_Nodes_Node_Clock_SynccInstance_Clock.
-    Clock []TimingController_Nodes_Node_Clock_SynccInstance_Clock
+    Clock []TimingController_Nodes_Node_Clock_SynccInstance_Clock_
 }
 
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetFilter() yfilter.YFilter { return synccInstance.YFilter }
+func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetEntityData() *types.CommonEntityData {
+    synccInstance.EntityData.YFilter = synccInstance.YFilter
+    synccInstance.EntityData.YangName = "syncc-instance"
+    synccInstance.EntityData.BundleName = "cisco_ios_xr"
+    synccInstance.EntityData.ParentYangName = "clock"
+    synccInstance.EntityData.SegmentPath = "syncc-instance"
+    synccInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    synccInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    synccInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) SetFilter(yf yfilter.YFilter) { synccInstance.YFilter = yf }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetGoName(yname string) string {
-    if yname == "clock" { return "Clock" }
-    return ""
-}
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetSegmentPath() string {
-    return "syncc-instance"
-}
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "clock" {
-        for _, c := range synccInstance.Clock {
-            if synccInstance.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_Clock_SynccInstance_Clock{}
-        synccInstance.Clock = append(synccInstance.Clock, child)
-        return &synccInstance.Clock[len(synccInstance.Clock)-1]
-    }
-    return nil
-}
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    synccInstance.EntityData.Children = make(map[string]types.YChild)
+    synccInstance.EntityData.Children["clock"] = types.YChild{"Clock", nil}
     for i := range synccInstance.Clock {
-        children[synccInstance.Clock[i].GetSegmentPath()] = &synccInstance.Clock[i]
+        synccInstance.EntityData.Children[types.GetSegmentPath(&synccInstance.Clock[i])] = types.YChild{"Clock", &synccInstance.Clock[i]}
     }
-    return children
+    synccInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(synccInstance.EntityData)
 }
 
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetYangName() string { return "syncc-instance" }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) SetParent(parent types.Entity) { synccInstance.parent = parent }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetParent() types.Entity { return synccInstance.parent }
-
-func (synccInstance *TimingController_Nodes_Node_Clock_SynccInstance) GetParentYangName() string { return "clock" }
-
-// TimingController_Nodes_Node_Clock_SynccInstance_Clock
+// TimingController_Nodes_Node_Clock_SynccInstance_Clock_
 // Clock table for an RP
-type TimingController_Nodes_Node_Clock_SynccInstance_Clock struct {
-    parent types.Entity
+type TimingController_Nodes_Node_Clock_SynccInstance_Clock_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // True if clock is configured for port 0. The type is bool.
@@ -924,150 +647,73 @@ type TimingController_Nodes_Node_Clock_SynccInstance_Clock struct {
     InterfaceStatePort3 interface{}
 }
 
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetFilter() yfilter.YFilter { return clock.YFilter }
+func (clock_ *TimingController_Nodes_Node_Clock_SynccInstance_Clock_) GetEntityData() *types.CommonEntityData {
+    clock_.EntityData.YFilter = clock_.YFilter
+    clock_.EntityData.YangName = "clock"
+    clock_.EntityData.BundleName = "cisco_ios_xr"
+    clock_.EntityData.ParentYangName = "syncc-instance"
+    clock_.EntityData.SegmentPath = "clock"
+    clock_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clock_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clock_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) SetFilter(yf yfilter.YFilter) { clock.YFilter = yf }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetGoName(yname string) string {
-    if yname == "is-configured-port0" { return "IsConfiguredPort0" }
-    if yname == "is-configured-port1" { return "IsConfiguredPort1" }
-    if yname == "is-configured-port2" { return "IsConfiguredPort2" }
-    if yname == "is-configured-port3" { return "IsConfiguredPort3" }
-    if yname == "mode-port0" { return "ModePort0" }
-    if yname == "mode-port1" { return "ModePort1" }
-    if yname == "mode-port2" { return "ModePort2" }
-    if yname == "mode-port3" { return "ModePort3" }
-    if yname == "submode1-port0" { return "Submode1Port0" }
-    if yname == "submode1-port1" { return "Submode1Port1" }
-    if yname == "submode1-port2" { return "Submode1Port2" }
-    if yname == "submode1-port3" { return "Submode1Port3" }
-    if yname == "submode2-port0" { return "Submode2Port0" }
-    if yname == "submode2-port1" { return "Submode2Port1" }
-    if yname == "submode2-port2" { return "Submode2Port2" }
-    if yname == "submode2-port3" { return "Submode2Port3" }
-    if yname == "submode3-port0" { return "Submode3Port0" }
-    if yname == "submode3-port1" { return "Submode3Port1" }
-    if yname == "submode3-port2" { return "Submode3Port2" }
-    if yname == "submode3-port3" { return "Submode3Port3" }
-    if yname == "shutdown-port0" { return "ShutdownPort0" }
-    if yname == "shutdown-port1" { return "ShutdownPort1" }
-    if yname == "shutdown-port2" { return "ShutdownPort2" }
-    if yname == "shutdown-port3" { return "ShutdownPort3" }
-    if yname == "direction-port0" { return "DirectionPort0" }
-    if yname == "direction-port1" { return "DirectionPort1" }
-    if yname == "direction-port2" { return "DirectionPort2" }
-    if yname == "direction-port3" { return "DirectionPort3" }
-    if yname == "baudrate-port0" { return "BaudratePort0" }
-    if yname == "baudrate-port1" { return "BaudratePort1" }
-    if yname == "baudrate-port2" { return "BaudratePort2" }
-    if yname == "baudrate-port3" { return "BaudratePort3" }
-    if yname == "quality-option-port0" { return "QualityOptionPort0" }
-    if yname == "quality-option-port1" { return "QualityOptionPort1" }
-    if yname == "quality-option-port2" { return "QualityOptionPort2" }
-    if yname == "quality-option-port3" { return "QualityOptionPort3" }
-    if yname == "transmit-ssm-port0" { return "TransmitSsmPort0" }
-    if yname == "transmit-ssm-port1" { return "TransmitSsmPort1" }
-    if yname == "transmit-ssm-port2" { return "TransmitSsmPort2" }
-    if yname == "transmit-ssm-port3" { return "TransmitSsmPort3" }
-    if yname == "recieve-ssm-port0" { return "RecieveSsmPort0" }
-    if yname == "recieve-ssm-port1" { return "RecieveSsmPort1" }
-    if yname == "recieve-ssm-port2" { return "RecieveSsmPort2" }
-    if yname == "recieve-ssm-port3" { return "RecieveSsmPort3" }
-    if yname == "interface-state-port0" { return "InterfaceStatePort0" }
-    if yname == "interface-state-port1" { return "InterfaceStatePort1" }
-    if yname == "interface-state-port2" { return "InterfaceStatePort2" }
-    if yname == "interface-state-port3" { return "InterfaceStatePort3" }
-    return ""
+    clock_.EntityData.Children = make(map[string]types.YChild)
+    clock_.EntityData.Leafs = make(map[string]types.YLeaf)
+    clock_.EntityData.Leafs["is-configured-port0"] = types.YLeaf{"IsConfiguredPort0", clock_.IsConfiguredPort0}
+    clock_.EntityData.Leafs["is-configured-port1"] = types.YLeaf{"IsConfiguredPort1", clock_.IsConfiguredPort1}
+    clock_.EntityData.Leafs["is-configured-port2"] = types.YLeaf{"IsConfiguredPort2", clock_.IsConfiguredPort2}
+    clock_.EntityData.Leafs["is-configured-port3"] = types.YLeaf{"IsConfiguredPort3", clock_.IsConfiguredPort3}
+    clock_.EntityData.Leafs["mode-port0"] = types.YLeaf{"ModePort0", clock_.ModePort0}
+    clock_.EntityData.Leafs["mode-port1"] = types.YLeaf{"ModePort1", clock_.ModePort1}
+    clock_.EntityData.Leafs["mode-port2"] = types.YLeaf{"ModePort2", clock_.ModePort2}
+    clock_.EntityData.Leafs["mode-port3"] = types.YLeaf{"ModePort3", clock_.ModePort3}
+    clock_.EntityData.Leafs["submode1-port0"] = types.YLeaf{"Submode1Port0", clock_.Submode1Port0}
+    clock_.EntityData.Leafs["submode1-port1"] = types.YLeaf{"Submode1Port1", clock_.Submode1Port1}
+    clock_.EntityData.Leafs["submode1-port2"] = types.YLeaf{"Submode1Port2", clock_.Submode1Port2}
+    clock_.EntityData.Leafs["submode1-port3"] = types.YLeaf{"Submode1Port3", clock_.Submode1Port3}
+    clock_.EntityData.Leafs["submode2-port0"] = types.YLeaf{"Submode2Port0", clock_.Submode2Port0}
+    clock_.EntityData.Leafs["submode2-port1"] = types.YLeaf{"Submode2Port1", clock_.Submode2Port1}
+    clock_.EntityData.Leafs["submode2-port2"] = types.YLeaf{"Submode2Port2", clock_.Submode2Port2}
+    clock_.EntityData.Leafs["submode2-port3"] = types.YLeaf{"Submode2Port3", clock_.Submode2Port3}
+    clock_.EntityData.Leafs["submode3-port0"] = types.YLeaf{"Submode3Port0", clock_.Submode3Port0}
+    clock_.EntityData.Leafs["submode3-port1"] = types.YLeaf{"Submode3Port1", clock_.Submode3Port1}
+    clock_.EntityData.Leafs["submode3-port2"] = types.YLeaf{"Submode3Port2", clock_.Submode3Port2}
+    clock_.EntityData.Leafs["submode3-port3"] = types.YLeaf{"Submode3Port3", clock_.Submode3Port3}
+    clock_.EntityData.Leafs["shutdown-port0"] = types.YLeaf{"ShutdownPort0", clock_.ShutdownPort0}
+    clock_.EntityData.Leafs["shutdown-port1"] = types.YLeaf{"ShutdownPort1", clock_.ShutdownPort1}
+    clock_.EntityData.Leafs["shutdown-port2"] = types.YLeaf{"ShutdownPort2", clock_.ShutdownPort2}
+    clock_.EntityData.Leafs["shutdown-port3"] = types.YLeaf{"ShutdownPort3", clock_.ShutdownPort3}
+    clock_.EntityData.Leafs["direction-port0"] = types.YLeaf{"DirectionPort0", clock_.DirectionPort0}
+    clock_.EntityData.Leafs["direction-port1"] = types.YLeaf{"DirectionPort1", clock_.DirectionPort1}
+    clock_.EntityData.Leafs["direction-port2"] = types.YLeaf{"DirectionPort2", clock_.DirectionPort2}
+    clock_.EntityData.Leafs["direction-port3"] = types.YLeaf{"DirectionPort3", clock_.DirectionPort3}
+    clock_.EntityData.Leafs["baudrate-port0"] = types.YLeaf{"BaudratePort0", clock_.BaudratePort0}
+    clock_.EntityData.Leafs["baudrate-port1"] = types.YLeaf{"BaudratePort1", clock_.BaudratePort1}
+    clock_.EntityData.Leafs["baudrate-port2"] = types.YLeaf{"BaudratePort2", clock_.BaudratePort2}
+    clock_.EntityData.Leafs["baudrate-port3"] = types.YLeaf{"BaudratePort3", clock_.BaudratePort3}
+    clock_.EntityData.Leafs["quality-option-port0"] = types.YLeaf{"QualityOptionPort0", clock_.QualityOptionPort0}
+    clock_.EntityData.Leafs["quality-option-port1"] = types.YLeaf{"QualityOptionPort1", clock_.QualityOptionPort1}
+    clock_.EntityData.Leafs["quality-option-port2"] = types.YLeaf{"QualityOptionPort2", clock_.QualityOptionPort2}
+    clock_.EntityData.Leafs["quality-option-port3"] = types.YLeaf{"QualityOptionPort3", clock_.QualityOptionPort3}
+    clock_.EntityData.Leafs["transmit-ssm-port0"] = types.YLeaf{"TransmitSsmPort0", clock_.TransmitSsmPort0}
+    clock_.EntityData.Leafs["transmit-ssm-port1"] = types.YLeaf{"TransmitSsmPort1", clock_.TransmitSsmPort1}
+    clock_.EntityData.Leafs["transmit-ssm-port2"] = types.YLeaf{"TransmitSsmPort2", clock_.TransmitSsmPort2}
+    clock_.EntityData.Leafs["transmit-ssm-port3"] = types.YLeaf{"TransmitSsmPort3", clock_.TransmitSsmPort3}
+    clock_.EntityData.Leafs["recieve-ssm-port0"] = types.YLeaf{"RecieveSsmPort0", clock_.RecieveSsmPort0}
+    clock_.EntityData.Leafs["recieve-ssm-port1"] = types.YLeaf{"RecieveSsmPort1", clock_.RecieveSsmPort1}
+    clock_.EntityData.Leafs["recieve-ssm-port2"] = types.YLeaf{"RecieveSsmPort2", clock_.RecieveSsmPort2}
+    clock_.EntityData.Leafs["recieve-ssm-port3"] = types.YLeaf{"RecieveSsmPort3", clock_.RecieveSsmPort3}
+    clock_.EntityData.Leafs["interface-state-port0"] = types.YLeaf{"InterfaceStatePort0", clock_.InterfaceStatePort0}
+    clock_.EntityData.Leafs["interface-state-port1"] = types.YLeaf{"InterfaceStatePort1", clock_.InterfaceStatePort1}
+    clock_.EntityData.Leafs["interface-state-port2"] = types.YLeaf{"InterfaceStatePort2", clock_.InterfaceStatePort2}
+    clock_.EntityData.Leafs["interface-state-port3"] = types.YLeaf{"InterfaceStatePort3", clock_.InterfaceStatePort3}
+    return &(clock_.EntityData)
 }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetSegmentPath() string {
-    return "clock"
-}
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-configured-port0"] = clock.IsConfiguredPort0
-    leafs["is-configured-port1"] = clock.IsConfiguredPort1
-    leafs["is-configured-port2"] = clock.IsConfiguredPort2
-    leafs["is-configured-port3"] = clock.IsConfiguredPort3
-    leafs["mode-port0"] = clock.ModePort0
-    leafs["mode-port1"] = clock.ModePort1
-    leafs["mode-port2"] = clock.ModePort2
-    leafs["mode-port3"] = clock.ModePort3
-    leafs["submode1-port0"] = clock.Submode1Port0
-    leafs["submode1-port1"] = clock.Submode1Port1
-    leafs["submode1-port2"] = clock.Submode1Port2
-    leafs["submode1-port3"] = clock.Submode1Port3
-    leafs["submode2-port0"] = clock.Submode2Port0
-    leafs["submode2-port1"] = clock.Submode2Port1
-    leafs["submode2-port2"] = clock.Submode2Port2
-    leafs["submode2-port3"] = clock.Submode2Port3
-    leafs["submode3-port0"] = clock.Submode3Port0
-    leafs["submode3-port1"] = clock.Submode3Port1
-    leafs["submode3-port2"] = clock.Submode3Port2
-    leafs["submode3-port3"] = clock.Submode3Port3
-    leafs["shutdown-port0"] = clock.ShutdownPort0
-    leafs["shutdown-port1"] = clock.ShutdownPort1
-    leafs["shutdown-port2"] = clock.ShutdownPort2
-    leafs["shutdown-port3"] = clock.ShutdownPort3
-    leafs["direction-port0"] = clock.DirectionPort0
-    leafs["direction-port1"] = clock.DirectionPort1
-    leafs["direction-port2"] = clock.DirectionPort2
-    leafs["direction-port3"] = clock.DirectionPort3
-    leafs["baudrate-port0"] = clock.BaudratePort0
-    leafs["baudrate-port1"] = clock.BaudratePort1
-    leafs["baudrate-port2"] = clock.BaudratePort2
-    leafs["baudrate-port3"] = clock.BaudratePort3
-    leafs["quality-option-port0"] = clock.QualityOptionPort0
-    leafs["quality-option-port1"] = clock.QualityOptionPort1
-    leafs["quality-option-port2"] = clock.QualityOptionPort2
-    leafs["quality-option-port3"] = clock.QualityOptionPort3
-    leafs["transmit-ssm-port0"] = clock.TransmitSsmPort0
-    leafs["transmit-ssm-port1"] = clock.TransmitSsmPort1
-    leafs["transmit-ssm-port2"] = clock.TransmitSsmPort2
-    leafs["transmit-ssm-port3"] = clock.TransmitSsmPort3
-    leafs["recieve-ssm-port0"] = clock.RecieveSsmPort0
-    leafs["recieve-ssm-port1"] = clock.RecieveSsmPort1
-    leafs["recieve-ssm-port2"] = clock.RecieveSsmPort2
-    leafs["recieve-ssm-port3"] = clock.RecieveSsmPort3
-    leafs["interface-state-port0"] = clock.InterfaceStatePort0
-    leafs["interface-state-port1"] = clock.InterfaceStatePort1
-    leafs["interface-state-port2"] = clock.InterfaceStatePort2
-    leafs["interface-state-port3"] = clock.InterfaceStatePort3
-    return leafs
-}
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetYangName() string { return "clock" }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) SetParent(parent types.Entity) { clock.parent = parent }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetParent() types.Entity { return clock.parent }
-
-func (clock *TimingController_Nodes_Node_Clock_SynccInstance_Clock) GetParentYangName() string { return "syncc-instance" }
 
 // TimingController_Nodes_Node_TimingSource
 // Syncc timing information for a node
 type TimingController_Nodes_Node_TimingSource struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of syncc timing table information. The type is slice of
@@ -1075,68 +721,29 @@ type TimingController_Nodes_Node_TimingSource struct {
     SynccInstance []TimingController_Nodes_Node_TimingSource_SynccInstance
 }
 
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetFilter() yfilter.YFilter { return timingSource.YFilter }
+func (timingSource *TimingController_Nodes_Node_TimingSource) GetEntityData() *types.CommonEntityData {
+    timingSource.EntityData.YFilter = timingSource.YFilter
+    timingSource.EntityData.YangName = "timing-source"
+    timingSource.EntityData.BundleName = "cisco_ios_xr"
+    timingSource.EntityData.ParentYangName = "node"
+    timingSource.EntityData.SegmentPath = "timing-source"
+    timingSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timingSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timingSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timingSource *TimingController_Nodes_Node_TimingSource) SetFilter(yf yfilter.YFilter) { timingSource.YFilter = yf }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetGoName(yname string) string {
-    if yname == "syncc-instance" { return "SynccInstance" }
-    return ""
-}
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetSegmentPath() string {
-    return "timing-source"
-}
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "syncc-instance" {
-        for _, c := range timingSource.SynccInstance {
-            if timingSource.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_TimingSource_SynccInstance{}
-        timingSource.SynccInstance = append(timingSource.SynccInstance, child)
-        return &timingSource.SynccInstance[len(timingSource.SynccInstance)-1]
-    }
-    return nil
-}
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    timingSource.EntityData.Children = make(map[string]types.YChild)
+    timingSource.EntityData.Children["syncc-instance"] = types.YChild{"SynccInstance", nil}
     for i := range timingSource.SynccInstance {
-        children[timingSource.SynccInstance[i].GetSegmentPath()] = &timingSource.SynccInstance[i]
+        timingSource.EntityData.Children[types.GetSegmentPath(&timingSource.SynccInstance[i])] = types.YChild{"SynccInstance", &timingSource.SynccInstance[i]}
     }
-    return children
+    timingSource.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(timingSource.EntityData)
 }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetYangName() string { return "timing-source" }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) SetParent(parent types.Entity) { timingSource.parent = parent }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetParent() types.Entity { return timingSource.parent }
-
-func (timingSource *TimingController_Nodes_Node_TimingSource) GetParentYangName() string { return "node" }
 
 // TimingController_Nodes_Node_TimingSource_SynccInstance
 // List of syncc timing table information
 type TimingController_Nodes_Node_TimingSource_SynccInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Scheduling PLL T0 . The type is slice of
@@ -1152,96 +759,37 @@ type TimingController_Nodes_Node_TimingSource_SynccInstance struct {
     TimingStatus1588 []TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588
 }
 
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetFilter() yfilter.YFilter { return synccInstance.YFilter }
+func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetEntityData() *types.CommonEntityData {
+    synccInstance.EntityData.YFilter = synccInstance.YFilter
+    synccInstance.EntityData.YangName = "syncc-instance"
+    synccInstance.EntityData.BundleName = "cisco_ios_xr"
+    synccInstance.EntityData.ParentYangName = "timing-source"
+    synccInstance.EntityData.SegmentPath = "syncc-instance"
+    synccInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    synccInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    synccInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) SetFilter(yf yfilter.YFilter) { synccInstance.YFilter = yf }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetGoName(yname string) string {
-    if yname == "timing-status-t0" { return "TimingStatusT0" }
-    if yname == "timing-status-t4" { return "TimingStatusT4" }
-    if yname == "timing-status1588" { return "TimingStatus1588" }
-    return ""
-}
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetSegmentPath() string {
-    return "syncc-instance"
-}
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "timing-status-t0" {
-        for _, c := range synccInstance.TimingStatusT0 {
-            if synccInstance.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0{}
-        synccInstance.TimingStatusT0 = append(synccInstance.TimingStatusT0, child)
-        return &synccInstance.TimingStatusT0[len(synccInstance.TimingStatusT0)-1]
-    }
-    if childYangName == "timing-status-t4" {
-        for _, c := range synccInstance.TimingStatusT4 {
-            if synccInstance.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4{}
-        synccInstance.TimingStatusT4 = append(synccInstance.TimingStatusT4, child)
-        return &synccInstance.TimingStatusT4[len(synccInstance.TimingStatusT4)-1]
-    }
-    if childYangName == "timing-status1588" {
-        for _, c := range synccInstance.TimingStatus1588 {
-            if synccInstance.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588{}
-        synccInstance.TimingStatus1588 = append(synccInstance.TimingStatus1588, child)
-        return &synccInstance.TimingStatus1588[len(synccInstance.TimingStatus1588)-1]
-    }
-    return nil
-}
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    synccInstance.EntityData.Children = make(map[string]types.YChild)
+    synccInstance.EntityData.Children["timing-status-t0"] = types.YChild{"TimingStatusT0", nil}
     for i := range synccInstance.TimingStatusT0 {
-        children[synccInstance.TimingStatusT0[i].GetSegmentPath()] = &synccInstance.TimingStatusT0[i]
+        synccInstance.EntityData.Children[types.GetSegmentPath(&synccInstance.TimingStatusT0[i])] = types.YChild{"TimingStatusT0", &synccInstance.TimingStatusT0[i]}
     }
+    synccInstance.EntityData.Children["timing-status-t4"] = types.YChild{"TimingStatusT4", nil}
     for i := range synccInstance.TimingStatusT4 {
-        children[synccInstance.TimingStatusT4[i].GetSegmentPath()] = &synccInstance.TimingStatusT4[i]
+        synccInstance.EntityData.Children[types.GetSegmentPath(&synccInstance.TimingStatusT4[i])] = types.YChild{"TimingStatusT4", &synccInstance.TimingStatusT4[i]}
     }
+    synccInstance.EntityData.Children["timing-status1588"] = types.YChild{"TimingStatus1588", nil}
     for i := range synccInstance.TimingStatus1588 {
-        children[synccInstance.TimingStatus1588[i].GetSegmentPath()] = &synccInstance.TimingStatus1588[i]
+        synccInstance.EntityData.Children[types.GetSegmentPath(&synccInstance.TimingStatus1588[i])] = types.YChild{"TimingStatus1588", &synccInstance.TimingStatus1588[i]}
     }
-    return children
+    synccInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(synccInstance.EntityData)
 }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetYangName() string { return "syncc-instance" }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) SetParent(parent types.Entity) { synccInstance.parent = parent }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetParent() types.Entity { return synccInstance.parent }
-
-func (synccInstance *TimingController_Nodes_Node_TimingSource_SynccInstance) GetParentYangName() string { return "timing-source" }
 
 // TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0
 // Scheduling PLL T0 
 type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Input number. The type is interface{} with range: 0..255.
@@ -1277,74 +825,35 @@ type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0 struc
     IsSelect interface{}
 }
 
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetFilter() yfilter.YFilter { return timingStatusT0.YFilter }
+func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetEntityData() *types.CommonEntityData {
+    timingStatusT0.EntityData.YFilter = timingStatusT0.YFilter
+    timingStatusT0.EntityData.YangName = "timing-status-t0"
+    timingStatusT0.EntityData.BundleName = "cisco_ios_xr"
+    timingStatusT0.EntityData.ParentYangName = "syncc-instance"
+    timingStatusT0.EntityData.SegmentPath = "timing-status-t0"
+    timingStatusT0.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timingStatusT0.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timingStatusT0.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) SetFilter(yf yfilter.YFilter) { timingStatusT0.YFilter = yf }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "slot" { return "Slot" }
-    if yname == "port" { return "Port" }
-    if yname == "clock-source" { return "ClockSource" }
-    if yname == "rank" { return "Rank" }
-    if yname == "quality-level-option" { return "QualityLevelOption" }
-    if yname == "quality-level-value" { return "QualityLevelValue" }
-    if yname == "user-priority" { return "UserPriority" }
-    if yname == "clock-state" { return "ClockState" }
-    if yname == "is-select" { return "IsSelect" }
-    return ""
+    timingStatusT0.EntityData.Children = make(map[string]types.YChild)
+    timingStatusT0.EntityData.Leafs = make(map[string]types.YLeaf)
+    timingStatusT0.EntityData.Leafs["input"] = types.YLeaf{"Input", timingStatusT0.Input}
+    timingStatusT0.EntityData.Leafs["slot"] = types.YLeaf{"Slot", timingStatusT0.Slot}
+    timingStatusT0.EntityData.Leafs["port"] = types.YLeaf{"Port", timingStatusT0.Port}
+    timingStatusT0.EntityData.Leafs["clock-source"] = types.YLeaf{"ClockSource", timingStatusT0.ClockSource}
+    timingStatusT0.EntityData.Leafs["rank"] = types.YLeaf{"Rank", timingStatusT0.Rank}
+    timingStatusT0.EntityData.Leafs["quality-level-option"] = types.YLeaf{"QualityLevelOption", timingStatusT0.QualityLevelOption}
+    timingStatusT0.EntityData.Leafs["quality-level-value"] = types.YLeaf{"QualityLevelValue", timingStatusT0.QualityLevelValue}
+    timingStatusT0.EntityData.Leafs["user-priority"] = types.YLeaf{"UserPriority", timingStatusT0.UserPriority}
+    timingStatusT0.EntityData.Leafs["clock-state"] = types.YLeaf{"ClockState", timingStatusT0.ClockState}
+    timingStatusT0.EntityData.Leafs["is-select"] = types.YLeaf{"IsSelect", timingStatusT0.IsSelect}
+    return &(timingStatusT0.EntityData)
 }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetSegmentPath() string {
-    return "timing-status-t0"
-}
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input"] = timingStatusT0.Input
-    leafs["slot"] = timingStatusT0.Slot
-    leafs["port"] = timingStatusT0.Port
-    leafs["clock-source"] = timingStatusT0.ClockSource
-    leafs["rank"] = timingStatusT0.Rank
-    leafs["quality-level-option"] = timingStatusT0.QualityLevelOption
-    leafs["quality-level-value"] = timingStatusT0.QualityLevelValue
-    leafs["user-priority"] = timingStatusT0.UserPriority
-    leafs["clock-state"] = timingStatusT0.ClockState
-    leafs["is-select"] = timingStatusT0.IsSelect
-    return leafs
-}
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetYangName() string { return "timing-status-t0" }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) SetParent(parent types.Entity) { timingStatusT0.parent = parent }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetParent() types.Entity { return timingStatusT0.parent }
-
-func (timingStatusT0 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT0) GetParentYangName() string { return "syncc-instance" }
 
 // TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4
 // Scheduling PLL T4 
 type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Input number. The type is interface{} with range: 0..255.
@@ -1380,74 +889,35 @@ type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4 struc
     IsSelect interface{}
 }
 
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetFilter() yfilter.YFilter { return timingStatusT4.YFilter }
+func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetEntityData() *types.CommonEntityData {
+    timingStatusT4.EntityData.YFilter = timingStatusT4.YFilter
+    timingStatusT4.EntityData.YangName = "timing-status-t4"
+    timingStatusT4.EntityData.BundleName = "cisco_ios_xr"
+    timingStatusT4.EntityData.ParentYangName = "syncc-instance"
+    timingStatusT4.EntityData.SegmentPath = "timing-status-t4"
+    timingStatusT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timingStatusT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timingStatusT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) SetFilter(yf yfilter.YFilter) { timingStatusT4.YFilter = yf }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "slot" { return "Slot" }
-    if yname == "port" { return "Port" }
-    if yname == "clock-source" { return "ClockSource" }
-    if yname == "rank" { return "Rank" }
-    if yname == "quality-level-option" { return "QualityLevelOption" }
-    if yname == "quality-level-value" { return "QualityLevelValue" }
-    if yname == "user-priority" { return "UserPriority" }
-    if yname == "clock-state" { return "ClockState" }
-    if yname == "is-select" { return "IsSelect" }
-    return ""
+    timingStatusT4.EntityData.Children = make(map[string]types.YChild)
+    timingStatusT4.EntityData.Leafs = make(map[string]types.YLeaf)
+    timingStatusT4.EntityData.Leafs["input"] = types.YLeaf{"Input", timingStatusT4.Input}
+    timingStatusT4.EntityData.Leafs["slot"] = types.YLeaf{"Slot", timingStatusT4.Slot}
+    timingStatusT4.EntityData.Leafs["port"] = types.YLeaf{"Port", timingStatusT4.Port}
+    timingStatusT4.EntityData.Leafs["clock-source"] = types.YLeaf{"ClockSource", timingStatusT4.ClockSource}
+    timingStatusT4.EntityData.Leafs["rank"] = types.YLeaf{"Rank", timingStatusT4.Rank}
+    timingStatusT4.EntityData.Leafs["quality-level-option"] = types.YLeaf{"QualityLevelOption", timingStatusT4.QualityLevelOption}
+    timingStatusT4.EntityData.Leafs["quality-level-value"] = types.YLeaf{"QualityLevelValue", timingStatusT4.QualityLevelValue}
+    timingStatusT4.EntityData.Leafs["user-priority"] = types.YLeaf{"UserPriority", timingStatusT4.UserPriority}
+    timingStatusT4.EntityData.Leafs["clock-state"] = types.YLeaf{"ClockState", timingStatusT4.ClockState}
+    timingStatusT4.EntityData.Leafs["is-select"] = types.YLeaf{"IsSelect", timingStatusT4.IsSelect}
+    return &(timingStatusT4.EntityData)
 }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetSegmentPath() string {
-    return "timing-status-t4"
-}
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input"] = timingStatusT4.Input
-    leafs["slot"] = timingStatusT4.Slot
-    leafs["port"] = timingStatusT4.Port
-    leafs["clock-source"] = timingStatusT4.ClockSource
-    leafs["rank"] = timingStatusT4.Rank
-    leafs["quality-level-option"] = timingStatusT4.QualityLevelOption
-    leafs["quality-level-value"] = timingStatusT4.QualityLevelValue
-    leafs["user-priority"] = timingStatusT4.UserPriority
-    leafs["clock-state"] = timingStatusT4.ClockState
-    leafs["is-select"] = timingStatusT4.IsSelect
-    return leafs
-}
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetYangName() string { return "timing-status-t4" }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) SetParent(parent types.Entity) { timingStatusT4.parent = parent }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetParent() types.Entity { return timingStatusT4.parent }
-
-func (timingStatusT4 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatusT4) GetParentYangName() string { return "syncc-instance" }
 
 // TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588
 // Scheduling PLL 1588 
 type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Input number. The type is interface{} with range: 0..255.
@@ -1483,67 +953,28 @@ type TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588 str
     IsSelect interface{}
 }
 
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetFilter() yfilter.YFilter { return timingStatus1588.YFilter }
+func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetEntityData() *types.CommonEntityData {
+    timingStatus1588.EntityData.YFilter = timingStatus1588.YFilter
+    timingStatus1588.EntityData.YangName = "timing-status1588"
+    timingStatus1588.EntityData.BundleName = "cisco_ios_xr"
+    timingStatus1588.EntityData.ParentYangName = "syncc-instance"
+    timingStatus1588.EntityData.SegmentPath = "timing-status1588"
+    timingStatus1588.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    timingStatus1588.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    timingStatus1588.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) SetFilter(yf yfilter.YFilter) { timingStatus1588.YFilter = yf }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "slot" { return "Slot" }
-    if yname == "port" { return "Port" }
-    if yname == "clock-source" { return "ClockSource" }
-    if yname == "rank" { return "Rank" }
-    if yname == "quality-level-option" { return "QualityLevelOption" }
-    if yname == "quality-level-value" { return "QualityLevelValue" }
-    if yname == "user-priority" { return "UserPriority" }
-    if yname == "clock-state" { return "ClockState" }
-    if yname == "is-select" { return "IsSelect" }
-    return ""
+    timingStatus1588.EntityData.Children = make(map[string]types.YChild)
+    timingStatus1588.EntityData.Leafs = make(map[string]types.YLeaf)
+    timingStatus1588.EntityData.Leafs["input"] = types.YLeaf{"Input", timingStatus1588.Input}
+    timingStatus1588.EntityData.Leafs["slot"] = types.YLeaf{"Slot", timingStatus1588.Slot}
+    timingStatus1588.EntityData.Leafs["port"] = types.YLeaf{"Port", timingStatus1588.Port}
+    timingStatus1588.EntityData.Leafs["clock-source"] = types.YLeaf{"ClockSource", timingStatus1588.ClockSource}
+    timingStatus1588.EntityData.Leafs["rank"] = types.YLeaf{"Rank", timingStatus1588.Rank}
+    timingStatus1588.EntityData.Leafs["quality-level-option"] = types.YLeaf{"QualityLevelOption", timingStatus1588.QualityLevelOption}
+    timingStatus1588.EntityData.Leafs["quality-level-value"] = types.YLeaf{"QualityLevelValue", timingStatus1588.QualityLevelValue}
+    timingStatus1588.EntityData.Leafs["user-priority"] = types.YLeaf{"UserPriority", timingStatus1588.UserPriority}
+    timingStatus1588.EntityData.Leafs["clock-state"] = types.YLeaf{"ClockState", timingStatus1588.ClockState}
+    timingStatus1588.EntityData.Leafs["is-select"] = types.YLeaf{"IsSelect", timingStatus1588.IsSelect}
+    return &(timingStatus1588.EntityData)
 }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetSegmentPath() string {
-    return "timing-status1588"
-}
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input"] = timingStatus1588.Input
-    leafs["slot"] = timingStatus1588.Slot
-    leafs["port"] = timingStatus1588.Port
-    leafs["clock-source"] = timingStatus1588.ClockSource
-    leafs["rank"] = timingStatus1588.Rank
-    leafs["quality-level-option"] = timingStatus1588.QualityLevelOption
-    leafs["quality-level-value"] = timingStatus1588.QualityLevelValue
-    leafs["user-priority"] = timingStatus1588.UserPriority
-    leafs["clock-state"] = timingStatus1588.ClockState
-    leafs["is-select"] = timingStatus1588.IsSelect
-    return leafs
-}
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetBundleName() string { return "cisco_ios_xr" }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetYangName() string { return "timing-status1588" }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) SetParent(parent types.Entity) { timingStatus1588.parent = parent }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetParent() types.Entity { return timingStatus1588.parent }
-
-func (timingStatus1588 *TimingController_Nodes_Node_TimingSource_SynccInstance_TimingStatus1588) GetParentYangName() string { return "syncc-instance" }
 

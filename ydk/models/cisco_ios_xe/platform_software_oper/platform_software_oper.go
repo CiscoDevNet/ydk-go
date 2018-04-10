@@ -33,66 +33,41 @@ const (
 // CiscoPlatformSoftware
 // Cisco platform software information
 type CiscoPlatformSoftware struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about control processes.
     ControlProcesses CiscoPlatformSoftware_ControlProcesses
+
+    // Information about the filesystem. The type is slice of
+    // CiscoPlatformSoftware_QFilesystem.
+    QFilesystem []CiscoPlatformSoftware_QFilesystem
 }
 
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetFilter() yfilter.YFilter { return ciscoPlatformSoftware.YFilter }
+func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetEntityData() *types.CommonEntityData {
+    ciscoPlatformSoftware.EntityData.YFilter = ciscoPlatformSoftware.YFilter
+    ciscoPlatformSoftware.EntityData.YangName = "cisco-platform-software"
+    ciscoPlatformSoftware.EntityData.BundleName = "cisco_ios_xe"
+    ciscoPlatformSoftware.EntityData.ParentYangName = "Cisco-IOS-XE-platform-software-oper"
+    ciscoPlatformSoftware.EntityData.SegmentPath = "Cisco-IOS-XE-platform-software-oper:cisco-platform-software"
+    ciscoPlatformSoftware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoPlatformSoftware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoPlatformSoftware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) SetFilter(yf yfilter.YFilter) { ciscoPlatformSoftware.YFilter = yf }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetGoName(yname string) string {
-    if yname == "control-processes" { return "ControlProcesses" }
-    return ""
-}
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetSegmentPath() string {
-    return "Cisco-IOS-XE-platform-software-oper:cisco-platform-software"
-}
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "control-processes" {
-        return &ciscoPlatformSoftware.ControlProcesses
+    ciscoPlatformSoftware.EntityData.Children = make(map[string]types.YChild)
+    ciscoPlatformSoftware.EntityData.Children["control-processes"] = types.YChild{"ControlProcesses", &ciscoPlatformSoftware.ControlProcesses}
+    ciscoPlatformSoftware.EntityData.Children["q-filesystem"] = types.YChild{"QFilesystem", nil}
+    for i := range ciscoPlatformSoftware.QFilesystem {
+        ciscoPlatformSoftware.EntityData.Children[types.GetSegmentPath(&ciscoPlatformSoftware.QFilesystem[i])] = types.YChild{"QFilesystem", &ciscoPlatformSoftware.QFilesystem[i]}
     }
-    return nil
+    ciscoPlatformSoftware.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciscoPlatformSoftware.EntityData)
 }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["control-processes"] = &ciscoPlatformSoftware.ControlProcesses
-    return children
-}
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetYangName() string { return "cisco-platform-software" }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) SetParent(parent types.Entity) { ciscoPlatformSoftware.parent = parent }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetParent() types.Entity { return ciscoPlatformSoftware.parent }
-
-func (ciscoPlatformSoftware *CiscoPlatformSoftware) GetParentYangName() string { return "Cisco-IOS-XE-platform-software-oper" }
 
 // CiscoPlatformSoftware_ControlProcesses
 // Information about control processes
 type CiscoPlatformSoftware_ControlProcesses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of control processes. The type is slice of
@@ -100,68 +75,29 @@ type CiscoPlatformSoftware_ControlProcesses struct {
     ControlProcess []CiscoPlatformSoftware_ControlProcesses_ControlProcess
 }
 
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetFilter() yfilter.YFilter { return controlProcesses.YFilter }
+func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetEntityData() *types.CommonEntityData {
+    controlProcesses.EntityData.YFilter = controlProcesses.YFilter
+    controlProcesses.EntityData.YangName = "control-processes"
+    controlProcesses.EntityData.BundleName = "cisco_ios_xe"
+    controlProcesses.EntityData.ParentYangName = "cisco-platform-software"
+    controlProcesses.EntityData.SegmentPath = "control-processes"
+    controlProcesses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    controlProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    controlProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) SetFilter(yf yfilter.YFilter) { controlProcesses.YFilter = yf }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetGoName(yname string) string {
-    if yname == "control-process" { return "ControlProcess" }
-    return ""
-}
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetSegmentPath() string {
-    return "control-processes"
-}
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "control-process" {
-        for _, c := range controlProcesses.ControlProcess {
-            if controlProcesses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CiscoPlatformSoftware_ControlProcesses_ControlProcess{}
-        controlProcesses.ControlProcess = append(controlProcesses.ControlProcess, child)
-        return &controlProcesses.ControlProcess[len(controlProcesses.ControlProcess)-1]
-    }
-    return nil
-}
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    controlProcesses.EntityData.Children = make(map[string]types.YChild)
+    controlProcesses.EntityData.Children["control-process"] = types.YChild{"ControlProcess", nil}
     for i := range controlProcesses.ControlProcess {
-        children[controlProcesses.ControlProcess[i].GetSegmentPath()] = &controlProcesses.ControlProcess[i]
+        controlProcesses.EntityData.Children[types.GetSegmentPath(&controlProcesses.ControlProcess[i])] = types.YChild{"ControlProcess", &controlProcesses.ControlProcess[i]}
     }
-    return children
+    controlProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(controlProcesses.EntityData)
 }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetBundleName() string { return "cisco_ios_xe" }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetYangName() string { return "control-processes" }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) SetParent(parent types.Entity) { controlProcesses.parent = parent }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetParent() types.Entity { return controlProcesses.parent }
-
-func (controlProcesses *CiscoPlatformSoftware_ControlProcesses) GetParentYangName() string { return "cisco-platform-software" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess
 // The list of control processes
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Field replaceable unit. The type is BFru.
@@ -199,142 +135,61 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess struct {
     PerCoreStats CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats
 }
 
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetFilter() yfilter.YFilter { return controlProcess.YFilter }
+func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetEntityData() *types.CommonEntityData {
+    controlProcess.EntityData.YFilter = controlProcess.YFilter
+    controlProcess.EntityData.YangName = "control-process"
+    controlProcess.EntityData.BundleName = "cisco_ios_xe"
+    controlProcess.EntityData.ParentYangName = "control-processes"
+    controlProcess.EntityData.SegmentPath = "control-process" + "[fru='" + fmt.Sprintf("%v", controlProcess.Fru) + "']" + "[slotnum='" + fmt.Sprintf("%v", controlProcess.Slotnum) + "']" + "[baynum='" + fmt.Sprintf("%v", controlProcess.Baynum) + "']" + "[chassisnum='" + fmt.Sprintf("%v", controlProcess.Chassisnum) + "']"
+    controlProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    controlProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    controlProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) SetFilter(yf yfilter.YFilter) { controlProcess.YFilter = yf }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetGoName(yname string) string {
-    if yname == "fru" { return "Fru" }
-    if yname == "slotnum" { return "Slotnum" }
-    if yname == "baynum" { return "Baynum" }
-    if yname == "chassisnum" { return "Chassisnum" }
-    if yname == "control-process-status" { return "ControlProcessStatus" }
-    if yname == "updated" { return "Updated" }
-    if yname == "load-average-stats" { return "LoadAverageStats" }
-    if yname == "load-avg-minutes" { return "LoadAvgMinutes" }
-    if yname == "memory-stats" { return "MemoryStats" }
-    if yname == "per-core-stats" { return "PerCoreStats" }
-    return ""
+    controlProcess.EntityData.Children = make(map[string]types.YChild)
+    controlProcess.EntityData.Children["load-average-stats"] = types.YChild{"LoadAverageStats", &controlProcess.LoadAverageStats}
+    controlProcess.EntityData.Children["load-avg-minutes"] = types.YChild{"LoadAvgMinutes", &controlProcess.LoadAvgMinutes}
+    controlProcess.EntityData.Children["memory-stats"] = types.YChild{"MemoryStats", &controlProcess.MemoryStats}
+    controlProcess.EntityData.Children["per-core-stats"] = types.YChild{"PerCoreStats", &controlProcess.PerCoreStats}
+    controlProcess.EntityData.Leafs = make(map[string]types.YLeaf)
+    controlProcess.EntityData.Leafs["fru"] = types.YLeaf{"Fru", controlProcess.Fru}
+    controlProcess.EntityData.Leafs["slotnum"] = types.YLeaf{"Slotnum", controlProcess.Slotnum}
+    controlProcess.EntityData.Leafs["baynum"] = types.YLeaf{"Baynum", controlProcess.Baynum}
+    controlProcess.EntityData.Leafs["chassisnum"] = types.YLeaf{"Chassisnum", controlProcess.Chassisnum}
+    controlProcess.EntityData.Leafs["control-process-status"] = types.YLeaf{"ControlProcessStatus", controlProcess.ControlProcessStatus}
+    controlProcess.EntityData.Leafs["updated"] = types.YLeaf{"Updated", controlProcess.Updated}
+    return &(controlProcess.EntityData)
 }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetSegmentPath() string {
-    return "control-process" + "[fru='" + fmt.Sprintf("%v", controlProcess.Fru) + "']" + "[slotnum='" + fmt.Sprintf("%v", controlProcess.Slotnum) + "']" + "[baynum='" + fmt.Sprintf("%v", controlProcess.Baynum) + "']" + "[chassisnum='" + fmt.Sprintf("%v", controlProcess.Chassisnum) + "']"
-}
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "load-average-stats" {
-        return &controlProcess.LoadAverageStats
-    }
-    if childYangName == "load-avg-minutes" {
-        return &controlProcess.LoadAvgMinutes
-    }
-    if childYangName == "memory-stats" {
-        return &controlProcess.MemoryStats
-    }
-    if childYangName == "per-core-stats" {
-        return &controlProcess.PerCoreStats
-    }
-    return nil
-}
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["load-average-stats"] = &controlProcess.LoadAverageStats
-    children["load-avg-minutes"] = &controlProcess.LoadAvgMinutes
-    children["memory-stats"] = &controlProcess.MemoryStats
-    children["per-core-stats"] = &controlProcess.PerCoreStats
-    return children
-}
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fru"] = controlProcess.Fru
-    leafs["slotnum"] = controlProcess.Slotnum
-    leafs["baynum"] = controlProcess.Baynum
-    leafs["chassisnum"] = controlProcess.Chassisnum
-    leafs["control-process-status"] = controlProcess.ControlProcessStatus
-    leafs["updated"] = controlProcess.Updated
-    return leafs
-}
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetBundleName() string { return "cisco_ios_xe" }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetYangName() string { return "control-process" }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) SetParent(parent types.Entity) { controlProcess.parent = parent }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetParent() types.Entity { return controlProcess.parent }
-
-func (controlProcess *CiscoPlatformSoftware_ControlProcesses_ControlProcess) GetParentYangName() string { return "control-processes" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats
 // Load average statictics
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Load average status. The type is string.
     LoadAverageStatus interface{}
 }
 
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetFilter() yfilter.YFilter { return loadAverageStats.YFilter }
+func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetEntityData() *types.CommonEntityData {
+    loadAverageStats.EntityData.YFilter = loadAverageStats.YFilter
+    loadAverageStats.EntityData.YangName = "load-average-stats"
+    loadAverageStats.EntityData.BundleName = "cisco_ios_xe"
+    loadAverageStats.EntityData.ParentYangName = "control-process"
+    loadAverageStats.EntityData.SegmentPath = "load-average-stats"
+    loadAverageStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    loadAverageStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    loadAverageStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) SetFilter(yf yfilter.YFilter) { loadAverageStats.YFilter = yf }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetGoName(yname string) string {
-    if yname == "load-average-status" { return "LoadAverageStatus" }
-    return ""
+    loadAverageStats.EntityData.Children = make(map[string]types.YChild)
+    loadAverageStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadAverageStats.EntityData.Leafs["load-average-status"] = types.YLeaf{"LoadAverageStatus", loadAverageStats.LoadAverageStatus}
+    return &(loadAverageStats.EntityData)
 }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetSegmentPath() string {
-    return "load-average-stats"
-}
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["load-average-status"] = loadAverageStats.LoadAverageStatus
-    return leafs
-}
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetYangName() string { return "load-average-stats" }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) SetParent(parent types.Entity) { loadAverageStats.parent = parent }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetParent() types.Entity { return loadAverageStats.parent }
-
-func (loadAverageStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAverageStats) GetParentYangName() string { return "control-process" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes
 // Load average statistics calculated over a period of time
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of Load averages based on a time frame. The type is slice of
@@ -342,68 +197,29 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes struct
     LoadAvgMinute []CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute
 }
 
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetFilter() yfilter.YFilter { return loadAvgMinutes.YFilter }
+func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetEntityData() *types.CommonEntityData {
+    loadAvgMinutes.EntityData.YFilter = loadAvgMinutes.YFilter
+    loadAvgMinutes.EntityData.YangName = "load-avg-minutes"
+    loadAvgMinutes.EntityData.BundleName = "cisco_ios_xe"
+    loadAvgMinutes.EntityData.ParentYangName = "control-process"
+    loadAvgMinutes.EntityData.SegmentPath = "load-avg-minutes"
+    loadAvgMinutes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    loadAvgMinutes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    loadAvgMinutes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) SetFilter(yf yfilter.YFilter) { loadAvgMinutes.YFilter = yf }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetGoName(yname string) string {
-    if yname == "load-avg-minute" { return "LoadAvgMinute" }
-    return ""
-}
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetSegmentPath() string {
-    return "load-avg-minutes"
-}
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "load-avg-minute" {
-        for _, c := range loadAvgMinutes.LoadAvgMinute {
-            if loadAvgMinutes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute{}
-        loadAvgMinutes.LoadAvgMinute = append(loadAvgMinutes.LoadAvgMinute, child)
-        return &loadAvgMinutes.LoadAvgMinute[len(loadAvgMinutes.LoadAvgMinute)-1]
-    }
-    return nil
-}
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    loadAvgMinutes.EntityData.Children = make(map[string]types.YChild)
+    loadAvgMinutes.EntityData.Children["load-avg-minute"] = types.YChild{"LoadAvgMinute", nil}
     for i := range loadAvgMinutes.LoadAvgMinute {
-        children[loadAvgMinutes.LoadAvgMinute[i].GetSegmentPath()] = &loadAvgMinutes.LoadAvgMinute[i]
+        loadAvgMinutes.EntityData.Children[types.GetSegmentPath(&loadAvgMinutes.LoadAvgMinute[i])] = types.YChild{"LoadAvgMinute", &loadAvgMinutes.LoadAvgMinute[i]}
     }
-    return children
+    loadAvgMinutes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(loadAvgMinutes.EntityData)
 }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetBundleName() string { return "cisco_ios_xe" }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetYangName() string { return "load-avg-minutes" }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) SetParent(parent types.Entity) { loadAvgMinutes.parent = parent }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetParent() types.Entity { return loadAvgMinutes.parent }
-
-func (loadAvgMinutes *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes) GetParentYangName() string { return "control-process" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute
 // List of Load averages based on a time frame
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The number of minutes the average was calculated
@@ -418,63 +234,28 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAv
     Status CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status
 }
 
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetFilter() yfilter.YFilter { return loadAvgMinute.YFilter }
+func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetEntityData() *types.CommonEntityData {
+    loadAvgMinute.EntityData.YFilter = loadAvgMinute.YFilter
+    loadAvgMinute.EntityData.YangName = "load-avg-minute"
+    loadAvgMinute.EntityData.BundleName = "cisco_ios_xe"
+    loadAvgMinute.EntityData.ParentYangName = "load-avg-minutes"
+    loadAvgMinute.EntityData.SegmentPath = "load-avg-minute" + "[number='" + fmt.Sprintf("%v", loadAvgMinute.Number) + "']"
+    loadAvgMinute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    loadAvgMinute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    loadAvgMinute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) SetFilter(yf yfilter.YFilter) { loadAvgMinute.YFilter = yf }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "average" { return "Average" }
-    if yname == "status" { return "Status" }
-    return ""
+    loadAvgMinute.EntityData.Children = make(map[string]types.YChild)
+    loadAvgMinute.EntityData.Children["status"] = types.YChild{"Status", &loadAvgMinute.Status}
+    loadAvgMinute.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadAvgMinute.EntityData.Leafs["number"] = types.YLeaf{"Number", loadAvgMinute.Number}
+    loadAvgMinute.EntityData.Leafs["average"] = types.YLeaf{"Average", loadAvgMinute.Average}
+    return &(loadAvgMinute.EntityData)
 }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetSegmentPath() string {
-    return "load-avg-minute" + "[number='" + fmt.Sprintf("%v", loadAvgMinute.Number) + "']"
-}
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "status" {
-        return &loadAvgMinute.Status
-    }
-    return nil
-}
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["status"] = &loadAvgMinute.Status
-    return children
-}
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = loadAvgMinute.Number
-    leafs["average"] = loadAvgMinute.Average
-    return leafs
-}
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetBundleName() string { return "cisco_ios_xe" }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetYangName() string { return "load-avg-minute" }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) SetParent(parent types.Entity) { loadAvgMinute.parent = parent }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetParent() types.Entity { return loadAvgMinute.parent }
-
-func (loadAvgMinute *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute) GetParentYangName() string { return "load-avg-minutes" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status
 // Load average statistics minute status
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Load average condition. The type is string.
@@ -488,60 +269,28 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAv
     ThresholdValue interface{}
 }
 
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetFilter() yfilter.YFilter { return status.YFilter }
+func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetEntityData() *types.CommonEntityData {
+    status.EntityData.YFilter = status.YFilter
+    status.EntityData.YangName = "status"
+    status.EntityData.BundleName = "cisco_ios_xe"
+    status.EntityData.ParentYangName = "load-avg-minute"
+    status.EntityData.SegmentPath = "status"
+    status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) SetFilter(yf yfilter.YFilter) { status.YFilter = yf }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetGoName(yname string) string {
-    if yname == "condition" { return "Condition" }
-    if yname == "threshold-status" { return "ThresholdStatus" }
-    if yname == "threshold-value" { return "ThresholdValue" }
-    return ""
+    status.EntityData.Children = make(map[string]types.YChild)
+    status.EntityData.Leafs = make(map[string]types.YLeaf)
+    status.EntityData.Leafs["condition"] = types.YLeaf{"Condition", status.Condition}
+    status.EntityData.Leafs["threshold-status"] = types.YLeaf{"ThresholdStatus", status.ThresholdStatus}
+    status.EntityData.Leafs["threshold-value"] = types.YLeaf{"ThresholdValue", status.ThresholdValue}
+    return &(status.EntityData)
 }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetSegmentPath() string {
-    return "status"
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["condition"] = status.Condition
-    leafs["threshold-status"] = status.ThresholdStatus
-    leafs["threshold-value"] = status.ThresholdValue
-    return leafs
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetBundleName() string { return "cisco_ios_xe" }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetYangName() string { return "status" }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) SetParent(parent types.Entity) { status.parent = parent }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetParent() types.Entity { return status.parent }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_LoadAvgMinutes_LoadAvgMinute_Status) GetParentYangName() string { return "load-avg-minute" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats
 // Memory statistics
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The status of the memory. The type is string.
@@ -587,79 +336,36 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats struct {
     Status CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status
 }
 
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetFilter() yfilter.YFilter { return memoryStats.YFilter }
+func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetEntityData() *types.CommonEntityData {
+    memoryStats.EntityData.YFilter = memoryStats.YFilter
+    memoryStats.EntityData.YangName = "memory-stats"
+    memoryStats.EntityData.BundleName = "cisco_ios_xe"
+    memoryStats.EntityData.ParentYangName = "control-process"
+    memoryStats.EntityData.SegmentPath = "memory-stats"
+    memoryStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    memoryStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    memoryStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) SetFilter(yf yfilter.YFilter) { memoryStats.YFilter = yf }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetGoName(yname string) string {
-    if yname == "memory-status" { return "MemoryStatus" }
-    if yname == "total" { return "Total" }
-    if yname == "used-number" { return "UsedNumber" }
-    if yname == "used-percent" { return "UsedPercent" }
-    if yname == "free-number" { return "FreeNumber" }
-    if yname == "free-percent" { return "FreePercent" }
-    if yname == "available-number" { return "AvailableNumber" }
-    if yname == "available-percent" { return "AvailablePercent" }
-    if yname == "committed-number" { return "CommittedNumber" }
-    if yname == "committed-percent" { return "CommittedPercent" }
-    if yname == "status" { return "Status" }
-    return ""
+    memoryStats.EntityData.Children = make(map[string]types.YChild)
+    memoryStats.EntityData.Children["status"] = types.YChild{"Status", &memoryStats.Status}
+    memoryStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryStats.EntityData.Leafs["memory-status"] = types.YLeaf{"MemoryStatus", memoryStats.MemoryStatus}
+    memoryStats.EntityData.Leafs["total"] = types.YLeaf{"Total", memoryStats.Total}
+    memoryStats.EntityData.Leafs["used-number"] = types.YLeaf{"UsedNumber", memoryStats.UsedNumber}
+    memoryStats.EntityData.Leafs["used-percent"] = types.YLeaf{"UsedPercent", memoryStats.UsedPercent}
+    memoryStats.EntityData.Leafs["free-number"] = types.YLeaf{"FreeNumber", memoryStats.FreeNumber}
+    memoryStats.EntityData.Leafs["free-percent"] = types.YLeaf{"FreePercent", memoryStats.FreePercent}
+    memoryStats.EntityData.Leafs["available-number"] = types.YLeaf{"AvailableNumber", memoryStats.AvailableNumber}
+    memoryStats.EntityData.Leafs["available-percent"] = types.YLeaf{"AvailablePercent", memoryStats.AvailablePercent}
+    memoryStats.EntityData.Leafs["committed-number"] = types.YLeaf{"CommittedNumber", memoryStats.CommittedNumber}
+    memoryStats.EntityData.Leafs["committed-percent"] = types.YLeaf{"CommittedPercent", memoryStats.CommittedPercent}
+    return &(memoryStats.EntityData)
 }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetSegmentPath() string {
-    return "memory-stats"
-}
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "status" {
-        return &memoryStats.Status
-    }
-    return nil
-}
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["status"] = &memoryStats.Status
-    return children
-}
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["memory-status"] = memoryStats.MemoryStatus
-    leafs["total"] = memoryStats.Total
-    leafs["used-number"] = memoryStats.UsedNumber
-    leafs["used-percent"] = memoryStats.UsedPercent
-    leafs["free-number"] = memoryStats.FreeNumber
-    leafs["free-percent"] = memoryStats.FreePercent
-    leafs["available-number"] = memoryStats.AvailableNumber
-    leafs["available-percent"] = memoryStats.AvailablePercent
-    leafs["committed-number"] = memoryStats.CommittedNumber
-    leafs["committed-percent"] = memoryStats.CommittedPercent
-    return leafs
-}
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetYangName() string { return "memory-stats" }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) SetParent(parent types.Entity) { memoryStats.parent = parent }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetParent() types.Entity { return memoryStats.parent }
-
-func (memoryStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats) GetParentYangName() string { return "control-process" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status
 // Memory status
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Memory warning threshold value percent. The type is interface{} with range:
@@ -671,58 +377,27 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status st
     CriticalThresholdPercent interface{}
 }
 
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetFilter() yfilter.YFilter { return status.YFilter }
+func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetEntityData() *types.CommonEntityData {
+    status.EntityData.YFilter = status.YFilter
+    status.EntityData.YangName = "status"
+    status.EntityData.BundleName = "cisco_ios_xe"
+    status.EntityData.ParentYangName = "memory-stats"
+    status.EntityData.SegmentPath = "status"
+    status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) SetFilter(yf yfilter.YFilter) { status.YFilter = yf }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetGoName(yname string) string {
-    if yname == "warning-threshold-percent" { return "WarningThresholdPercent" }
-    if yname == "critical-threshold-percent" { return "CriticalThresholdPercent" }
-    return ""
+    status.EntityData.Children = make(map[string]types.YChild)
+    status.EntityData.Leafs = make(map[string]types.YLeaf)
+    status.EntityData.Leafs["warning-threshold-percent"] = types.YLeaf{"WarningThresholdPercent", status.WarningThresholdPercent}
+    status.EntityData.Leafs["critical-threshold-percent"] = types.YLeaf{"CriticalThresholdPercent", status.CriticalThresholdPercent}
+    return &(status.EntityData)
 }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetSegmentPath() string {
-    return "status"
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["warning-threshold-percent"] = status.WarningThresholdPercent
-    leafs["critical-threshold-percent"] = status.CriticalThresholdPercent
-    return leafs
-}
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetBundleName() string { return "cisco_ios_xe" }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetYangName() string { return "status" }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) SetParent(parent types.Entity) { status.parent = parent }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetParent() types.Entity { return status.parent }
-
-func (status *CiscoPlatformSoftware_ControlProcesses_ControlProcess_MemoryStats_Status) GetParentYangName() string { return "memory-stats" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats
 // Processor core statistics
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of processor cores. The type is slice of
@@ -730,68 +405,29 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats struct {
     PerCoreStat []CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat
 }
 
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetFilter() yfilter.YFilter { return perCoreStats.YFilter }
+func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetEntityData() *types.CommonEntityData {
+    perCoreStats.EntityData.YFilter = perCoreStats.YFilter
+    perCoreStats.EntityData.YangName = "per-core-stats"
+    perCoreStats.EntityData.BundleName = "cisco_ios_xe"
+    perCoreStats.EntityData.ParentYangName = "control-process"
+    perCoreStats.EntityData.SegmentPath = "per-core-stats"
+    perCoreStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    perCoreStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    perCoreStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) SetFilter(yf yfilter.YFilter) { perCoreStats.YFilter = yf }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetGoName(yname string) string {
-    if yname == "per-core-stat" { return "PerCoreStat" }
-    return ""
-}
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetSegmentPath() string {
-    return "per-core-stats"
-}
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "per-core-stat" {
-        for _, c := range perCoreStats.PerCoreStat {
-            if perCoreStats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat{}
-        perCoreStats.PerCoreStat = append(perCoreStats.PerCoreStat, child)
-        return &perCoreStats.PerCoreStat[len(perCoreStats.PerCoreStat)-1]
-    }
-    return nil
-}
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    perCoreStats.EntityData.Children = make(map[string]types.YChild)
+    perCoreStats.EntityData.Children["per-core-stat"] = types.YChild{"PerCoreStat", nil}
     for i := range perCoreStats.PerCoreStat {
-        children[perCoreStats.PerCoreStat[i].GetSegmentPath()] = &perCoreStats.PerCoreStat[i]
+        perCoreStats.EntityData.Children[types.GetSegmentPath(&perCoreStats.PerCoreStat[i])] = types.YChild{"PerCoreStat", &perCoreStats.PerCoreStat[i]}
     }
-    return children
+    perCoreStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(perCoreStats.EntityData)
 }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetYangName() string { return "per-core-stats" }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) SetParent(parent types.Entity) { perCoreStats.parent = parent }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetParent() types.Entity { return perCoreStats.parent }
-
-func (perCoreStats *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats) GetParentYangName() string { return "control-process" }
 
 // CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat
 // List of processor cores
 type CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identifier of the core. The type is
@@ -827,63 +463,150 @@ type CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreS
     IoWait interface{}
 }
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetFilter() yfilter.YFilter { return perCoreStat.YFilter }
+func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetEntityData() *types.CommonEntityData {
+    perCoreStat.EntityData.YFilter = perCoreStat.YFilter
+    perCoreStat.EntityData.YangName = "per-core-stat"
+    perCoreStat.EntityData.BundleName = "cisco_ios_xe"
+    perCoreStat.EntityData.ParentYangName = "per-core-stats"
+    perCoreStat.EntityData.SegmentPath = "per-core-stat" + "[name='" + fmt.Sprintf("%v", perCoreStat.Name) + "']"
+    perCoreStat.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    perCoreStat.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    perCoreStat.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) SetFilter(yf yfilter.YFilter) { perCoreStat.YFilter = yf }
-
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "user" { return "User" }
-    if yname == "system" { return "System" }
-    if yname == "nice" { return "Nice" }
-    if yname == "idle" { return "Idle" }
-    if yname == "irq" { return "Irq" }
-    if yname == "sirq" { return "Sirq" }
-    if yname == "io-wait" { return "IoWait" }
-    return ""
+    perCoreStat.EntityData.Children = make(map[string]types.YChild)
+    perCoreStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    perCoreStat.EntityData.Leafs["name"] = types.YLeaf{"Name", perCoreStat.Name}
+    perCoreStat.EntityData.Leafs["user"] = types.YLeaf{"User", perCoreStat.User}
+    perCoreStat.EntityData.Leafs["system"] = types.YLeaf{"System", perCoreStat.System}
+    perCoreStat.EntityData.Leafs["nice"] = types.YLeaf{"Nice", perCoreStat.Nice}
+    perCoreStat.EntityData.Leafs["idle"] = types.YLeaf{"Idle", perCoreStat.Idle}
+    perCoreStat.EntityData.Leafs["irq"] = types.YLeaf{"Irq", perCoreStat.Irq}
+    perCoreStat.EntityData.Leafs["sirq"] = types.YLeaf{"Sirq", perCoreStat.Sirq}
+    perCoreStat.EntityData.Leafs["io-wait"] = types.YLeaf{"IoWait", perCoreStat.IoWait}
+    return &(perCoreStat.EntityData)
 }
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetSegmentPath() string {
-    return "per-core-stat" + "[name='" + fmt.Sprintf("%v", perCoreStat.Name) + "']"
+// CiscoPlatformSoftware_QFilesystem
+// Information about the filesystem
+type CiscoPlatformSoftware_QFilesystem struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Field replaceable unit. The type is BFru.
+    Fru interface{}
+
+    // This attribute is a key. Slot number. The type is interface{} with range:
+    // -32768..32767.
+    Slotnum interface{}
+
+    // This attribute is a key. Bay number. The type is interface{} with range:
+    // -32768..32767.
+    Baynum interface{}
+
+    // This attribute is a key. Chassis number. The type is interface{} with
+    // range: -32768..32767.
+    Chassisnum interface{}
+
+    // Information about partitions. The type is slice of
+    // CiscoPlatformSoftware_QFilesystem_Partitions.
+    Partitions []CiscoPlatformSoftware_QFilesystem_Partitions
+
+    // Information about core files. The type is slice of
+    // CiscoPlatformSoftware_QFilesystem_CoreFiles.
+    CoreFiles []CiscoPlatformSoftware_QFilesystem_CoreFiles
 }
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (qFilesystem *CiscoPlatformSoftware_QFilesystem) GetEntityData() *types.CommonEntityData {
+    qFilesystem.EntityData.YFilter = qFilesystem.YFilter
+    qFilesystem.EntityData.YangName = "q-filesystem"
+    qFilesystem.EntityData.BundleName = "cisco_ios_xe"
+    qFilesystem.EntityData.ParentYangName = "cisco-platform-software"
+    qFilesystem.EntityData.SegmentPath = "q-filesystem" + "[fru='" + fmt.Sprintf("%v", qFilesystem.Fru) + "']" + "[slotnum='" + fmt.Sprintf("%v", qFilesystem.Slotnum) + "']" + "[baynum='" + fmt.Sprintf("%v", qFilesystem.Baynum) + "']" + "[chassisnum='" + fmt.Sprintf("%v", qFilesystem.Chassisnum) + "']"
+    qFilesystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qFilesystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qFilesystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    qFilesystem.EntityData.Children = make(map[string]types.YChild)
+    qFilesystem.EntityData.Children["partitions"] = types.YChild{"Partitions", nil}
+    for i := range qFilesystem.Partitions {
+        qFilesystem.EntityData.Children[types.GetSegmentPath(&qFilesystem.Partitions[i])] = types.YChild{"Partitions", &qFilesystem.Partitions[i]}
+    }
+    qFilesystem.EntityData.Children["core-files"] = types.YChild{"CoreFiles", nil}
+    for i := range qFilesystem.CoreFiles {
+        qFilesystem.EntityData.Children[types.GetSegmentPath(&qFilesystem.CoreFiles[i])] = types.YChild{"CoreFiles", &qFilesystem.CoreFiles[i]}
+    }
+    qFilesystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    qFilesystem.EntityData.Leafs["fru"] = types.YLeaf{"Fru", qFilesystem.Fru}
+    qFilesystem.EntityData.Leafs["slotnum"] = types.YLeaf{"Slotnum", qFilesystem.Slotnum}
+    qFilesystem.EntityData.Leafs["baynum"] = types.YLeaf{"Baynum", qFilesystem.Baynum}
+    qFilesystem.EntityData.Leafs["chassisnum"] = types.YLeaf{"Chassisnum", qFilesystem.Chassisnum}
+    return &(qFilesystem.EntityData)
 }
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// CiscoPlatformSoftware_QFilesystem_Partitions
+// Information about partitions
+type CiscoPlatformSoftware_QFilesystem_Partitions struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The name of the partition. The type is string.
+    Name interface{}
+
+    // Total size of the partition in Kilobytes. The type is interface{} with
+    // range: 0..18446744073709551615.
+    TotalSize interface{}
+
+    // Size used in Kilobytes. The type is interface{} with range:
+    // 0..18446744073709551615.
+    UsedSize interface{}
 }
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = perCoreStat.Name
-    leafs["user"] = perCoreStat.User
-    leafs["system"] = perCoreStat.System
-    leafs["nice"] = perCoreStat.Nice
-    leafs["idle"] = perCoreStat.Idle
-    leafs["irq"] = perCoreStat.Irq
-    leafs["sirq"] = perCoreStat.Sirq
-    leafs["io-wait"] = perCoreStat.IoWait
-    return leafs
+func (partitions *CiscoPlatformSoftware_QFilesystem_Partitions) GetEntityData() *types.CommonEntityData {
+    partitions.EntityData.YFilter = partitions.YFilter
+    partitions.EntityData.YangName = "partitions"
+    partitions.EntityData.BundleName = "cisco_ios_xe"
+    partitions.EntityData.ParentYangName = "q-filesystem"
+    partitions.EntityData.SegmentPath = "partitions" + "[name='" + fmt.Sprintf("%v", partitions.Name) + "']"
+    partitions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    partitions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    partitions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
+
+    partitions.EntityData.Children = make(map[string]types.YChild)
+    partitions.EntityData.Leafs = make(map[string]types.YLeaf)
+    partitions.EntityData.Leafs["name"] = types.YLeaf{"Name", partitions.Name}
+    partitions.EntityData.Leafs["total-size"] = types.YLeaf{"TotalSize", partitions.TotalSize}
+    partitions.EntityData.Leafs["used-size"] = types.YLeaf{"UsedSize", partitions.UsedSize}
+    return &(partitions.EntityData)
 }
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetBundleName() string { return "cisco_ios_xe" }
+// CiscoPlatformSoftware_QFilesystem_CoreFiles
+// Information about core files
+type CiscoPlatformSoftware_QFilesystem_CoreFiles struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetYangName() string { return "per-core-stat" }
+    // This attribute is a key. The core filename. The type is string.
+    Filename interface{}
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
+    // The date of generation. The type is string with pattern:
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    Time interface{}
+}
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
+func (coreFiles *CiscoPlatformSoftware_QFilesystem_CoreFiles) GetEntityData() *types.CommonEntityData {
+    coreFiles.EntityData.YFilter = coreFiles.YFilter
+    coreFiles.EntityData.YangName = "core-files"
+    coreFiles.EntityData.BundleName = "cisco_ios_xe"
+    coreFiles.EntityData.ParentYangName = "q-filesystem"
+    coreFiles.EntityData.SegmentPath = "core-files" + "[filename='" + fmt.Sprintf("%v", coreFiles.Filename) + "']"
+    coreFiles.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    coreFiles.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    coreFiles.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) SetParent(parent types.Entity) { perCoreStat.parent = parent }
-
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetParent() types.Entity { return perCoreStat.parent }
-
-func (perCoreStat *CiscoPlatformSoftware_ControlProcesses_ControlProcess_PerCoreStats_PerCoreStat) GetParentYangName() string { return "per-core-stats" }
+    coreFiles.EntityData.Children = make(map[string]types.YChild)
+    coreFiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    coreFiles.EntityData.Leafs["filename"] = types.YLeaf{"Filename", coreFiles.Filename}
+    coreFiles.EntityData.Leafs["time"] = types.YLeaf{"Time", coreFiles.Time}
+    return &(coreFiles.EntityData)
+}
 

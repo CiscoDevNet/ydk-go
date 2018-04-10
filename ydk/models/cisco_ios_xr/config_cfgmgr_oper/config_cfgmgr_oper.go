@@ -27,110 +27,48 @@ func init() {
 // Config
 // Configuration-related operational data
 type Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Global operational data.
     Global Config_Global
 }
 
-func (config *Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "cisco_ios_xr"
+    config.EntityData.ParentYangName = "Cisco-IOS-XR-config-cfgmgr-oper"
+    config.EntityData.SegmentPath = "Cisco-IOS-XR-config-cfgmgr-oper:config"
+    config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (config *Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *Config) GetGoName(yname string) string {
-    if yname == "global" { return "Global" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Children["global"] = types.YChild{"Global", &config.Global}
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(config.EntityData)
 }
-
-func (config *Config) GetSegmentPath() string {
-    return "Cisco-IOS-XR-config-cfgmgr-oper:config"
-}
-
-func (config *Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "global" {
-        return &config.Global
-    }
-    return nil
-}
-
-func (config *Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["global"] = &config.Global
-    return children
-}
-
-func (config *Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (config *Config) GetBundleName() string { return "cisco_ios_xr" }
-
-func (config *Config) GetYangName() string { return "config" }
-
-func (config *Config) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (config *Config) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (config *Config) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (config *Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *Config) GetParent() types.Entity { return config.parent }
-
-func (config *Config) GetParentYangName() string { return "Cisco-IOS-XR-config-cfgmgr-oper" }
 
 // Config_Global
 // Global operational data
 type Config_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 }
 
-func (global *Config_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *Config_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "config"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *Config_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *Config_Global) GetGoName(yname string) string {
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(global.EntityData)
 }
-
-func (global *Config_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *Config_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (global *Config_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (global *Config_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (global *Config_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *Config_Global) GetYangName() string { return "global" }
-
-func (global *Config_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *Config_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *Config_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *Config_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *Config_Global) GetParent() types.Entity { return global.parent }
-
-func (global *Config_Global) GetParentYangName() string { return "config" }
 

@@ -39,7 +39,7 @@ const (
 // TrafficCollector
 // Global Traffic Collector configuration commands
 type TrafficCollector struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // External Interface.
@@ -55,74 +55,29 @@ type TrafficCollector struct {
     Afs TrafficCollector_Afs
 }
 
-func (trafficCollector *TrafficCollector) GetFilter() yfilter.YFilter { return trafficCollector.YFilter }
+func (trafficCollector *TrafficCollector) GetEntityData() *types.CommonEntityData {
+    trafficCollector.EntityData.YFilter = trafficCollector.YFilter
+    trafficCollector.EntityData.YangName = "traffic-collector"
+    trafficCollector.EntityData.BundleName = "cisco_ios_xr"
+    trafficCollector.EntityData.ParentYangName = "Cisco-IOS-XR-infra-tc-oper"
+    trafficCollector.EntityData.SegmentPath = "Cisco-IOS-XR-infra-tc-oper:traffic-collector"
+    trafficCollector.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficCollector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficCollector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficCollector *TrafficCollector) SetFilter(yf yfilter.YFilter) { trafficCollector.YFilter = yf }
-
-func (trafficCollector *TrafficCollector) GetGoName(yname string) string {
-    if yname == "external-interfaces" { return "ExternalInterfaces" }
-    if yname == "summary" { return "Summary" }
-    if yname == "vrf-table" { return "VrfTable" }
-    if yname == "afs" { return "Afs" }
-    return ""
+    trafficCollector.EntityData.Children = make(map[string]types.YChild)
+    trafficCollector.EntityData.Children["external-interfaces"] = types.YChild{"ExternalInterfaces", &trafficCollector.ExternalInterfaces}
+    trafficCollector.EntityData.Children["summary"] = types.YChild{"Summary", &trafficCollector.Summary}
+    trafficCollector.EntityData.Children["vrf-table"] = types.YChild{"VrfTable", &trafficCollector.VrfTable}
+    trafficCollector.EntityData.Children["afs"] = types.YChild{"Afs", &trafficCollector.Afs}
+    trafficCollector.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trafficCollector.EntityData)
 }
-
-func (trafficCollector *TrafficCollector) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-tc-oper:traffic-collector"
-}
-
-func (trafficCollector *TrafficCollector) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "external-interfaces" {
-        return &trafficCollector.ExternalInterfaces
-    }
-    if childYangName == "summary" {
-        return &trafficCollector.Summary
-    }
-    if childYangName == "vrf-table" {
-        return &trafficCollector.VrfTable
-    }
-    if childYangName == "afs" {
-        return &trafficCollector.Afs
-    }
-    return nil
-}
-
-func (trafficCollector *TrafficCollector) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["external-interfaces"] = &trafficCollector.ExternalInterfaces
-    children["summary"] = &trafficCollector.Summary
-    children["vrf-table"] = &trafficCollector.VrfTable
-    children["afs"] = &trafficCollector.Afs
-    return children
-}
-
-func (trafficCollector *TrafficCollector) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trafficCollector *TrafficCollector) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficCollector *TrafficCollector) GetYangName() string { return "traffic-collector" }
-
-func (trafficCollector *TrafficCollector) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficCollector *TrafficCollector) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficCollector *TrafficCollector) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficCollector *TrafficCollector) SetParent(parent types.Entity) { trafficCollector.parent = parent }
-
-func (trafficCollector *TrafficCollector) GetParent() types.Entity { return trafficCollector.parent }
-
-func (trafficCollector *TrafficCollector) GetParentYangName() string { return "Cisco-IOS-XR-infra-tc-oper" }
 
 // TrafficCollector_ExternalInterfaces
 // External Interface
 type TrafficCollector_ExternalInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // External Interface . The type is slice of
@@ -130,72 +85,33 @@ type TrafficCollector_ExternalInterfaces struct {
     ExternalInterface []TrafficCollector_ExternalInterfaces_ExternalInterface
 }
 
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetFilter() yfilter.YFilter { return externalInterfaces.YFilter }
+func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetEntityData() *types.CommonEntityData {
+    externalInterfaces.EntityData.YFilter = externalInterfaces.YFilter
+    externalInterfaces.EntityData.YangName = "external-interfaces"
+    externalInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    externalInterfaces.EntityData.ParentYangName = "traffic-collector"
+    externalInterfaces.EntityData.SegmentPath = "external-interfaces"
+    externalInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    externalInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    externalInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) SetFilter(yf yfilter.YFilter) { externalInterfaces.YFilter = yf }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetGoName(yname string) string {
-    if yname == "external-interface" { return "ExternalInterface" }
-    return ""
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetSegmentPath() string {
-    return "external-interfaces"
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "external-interface" {
-        for _, c := range externalInterfaces.ExternalInterface {
-            if externalInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_ExternalInterfaces_ExternalInterface{}
-        externalInterfaces.ExternalInterface = append(externalInterfaces.ExternalInterface, child)
-        return &externalInterfaces.ExternalInterface[len(externalInterfaces.ExternalInterface)-1]
-    }
-    return nil
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    externalInterfaces.EntityData.Children = make(map[string]types.YChild)
+    externalInterfaces.EntityData.Children["external-interface"] = types.YChild{"ExternalInterface", nil}
     for i := range externalInterfaces.ExternalInterface {
-        children[externalInterfaces.ExternalInterface[i].GetSegmentPath()] = &externalInterfaces.ExternalInterface[i]
+        externalInterfaces.EntityData.Children[types.GetSegmentPath(&externalInterfaces.ExternalInterface[i])] = types.YChild{"ExternalInterface", &externalInterfaces.ExternalInterface[i]}
     }
-    return children
+    externalInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(externalInterfaces.EntityData)
 }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetYangName() string { return "external-interfaces" }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) SetParent(parent types.Entity) { externalInterfaces.parent = parent }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetParent() types.Entity { return externalInterfaces.parent }
-
-func (externalInterfaces *TrafficCollector_ExternalInterfaces) GetParentYangName() string { return "traffic-collector" }
 
 // TrafficCollector_ExternalInterfaces_ExternalInterface
 // External Interface 
 type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -211,64 +127,30 @@ type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     IsInterfaceEnabled interface{}
 }
 
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetFilter() yfilter.YFilter { return externalInterface.YFilter }
+func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetEntityData() *types.CommonEntityData {
+    externalInterface.EntityData.YFilter = externalInterface.YFilter
+    externalInterface.EntityData.YangName = "external-interface"
+    externalInterface.EntityData.BundleName = "cisco_ios_xr"
+    externalInterface.EntityData.ParentYangName = "external-interfaces"
+    externalInterface.EntityData.SegmentPath = "external-interface" + "[interface-name='" + fmt.Sprintf("%v", externalInterface.InterfaceName) + "']"
+    externalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    externalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    externalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) SetFilter(yf yfilter.YFilter) { externalInterface.YFilter = yf }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "vrfid" { return "Vrfid" }
-    if yname == "is-interface-enabled" { return "IsInterfaceEnabled" }
-    return ""
+    externalInterface.EntityData.Children = make(map[string]types.YChild)
+    externalInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    externalInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", externalInterface.InterfaceName}
+    externalInterface.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", externalInterface.InterfaceNameXr}
+    externalInterface.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", externalInterface.InterfaceHandle}
+    externalInterface.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", externalInterface.Vrfid}
+    externalInterface.EntityData.Leafs["is-interface-enabled"] = types.YLeaf{"IsInterfaceEnabled", externalInterface.IsInterfaceEnabled}
+    return &(externalInterface.EntityData)
 }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetSegmentPath() string {
-    return "external-interface" + "[interface-name='" + fmt.Sprintf("%v", externalInterface.InterfaceName) + "']"
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = externalInterface.InterfaceName
-    leafs["interface-name-xr"] = externalInterface.InterfaceNameXr
-    leafs["interface-handle"] = externalInterface.InterfaceHandle
-    leafs["vrfid"] = externalInterface.Vrfid
-    leafs["is-interface-enabled"] = externalInterface.IsInterfaceEnabled
-    return leafs
-}
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetYangName() string { return "external-interface" }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) SetParent(parent types.Entity) { externalInterface.parent = parent }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetParent() types.Entity { return externalInterface.parent }
-
-func (externalInterface *TrafficCollector_ExternalInterfaces_ExternalInterface) GetParentYangName() string { return "external-interfaces" }
 
 // TrafficCollector_Summary
 // Traffic Collector summary
 type TrafficCollector_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistic collection interval in minutes. The type is interface{} with
@@ -304,111 +186,43 @@ type TrafficCollector_Summary struct {
     CheckpointMessageStatistic []TrafficCollector_Summary_CheckpointMessageStatistic
 }
 
-func (summary *TrafficCollector_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *TrafficCollector_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "traffic-collector"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *TrafficCollector_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *TrafficCollector_Summary) GetGoName(yname string) string {
-    if yname == "collection-interval" { return "CollectionInterval" }
-    if yname == "collection-timer-is-running" { return "CollectionTimerIsRunning" }
-    if yname == "timeout-interval" { return "TimeoutInterval" }
-    if yname == "timeout-timer-is-running" { return "TimeoutTimerIsRunning" }
-    if yname == "history-size" { return "HistorySize" }
-    if yname == "database-statistics-external-interface" { return "DatabaseStatisticsExternalInterface" }
-    if yname == "vrf-statistic" { return "VrfStatistic" }
-    if yname == "collection-message-statistic" { return "CollectionMessageStatistic" }
-    if yname == "checkpoint-message-statistic" { return "CheckpointMessageStatistic" }
-    return ""
-}
-
-func (summary *TrafficCollector_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *TrafficCollector_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "database-statistics-external-interface" {
-        return &summary.DatabaseStatisticsExternalInterface
-    }
-    if childYangName == "vrf-statistic" {
-        for _, c := range summary.VrfStatistic {
-            if summary.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Summary_VrfStatistic{}
-        summary.VrfStatistic = append(summary.VrfStatistic, child)
-        return &summary.VrfStatistic[len(summary.VrfStatistic)-1]
-    }
-    if childYangName == "collection-message-statistic" {
-        for _, c := range summary.CollectionMessageStatistic {
-            if summary.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Summary_CollectionMessageStatistic{}
-        summary.CollectionMessageStatistic = append(summary.CollectionMessageStatistic, child)
-        return &summary.CollectionMessageStatistic[len(summary.CollectionMessageStatistic)-1]
-    }
-    if childYangName == "checkpoint-message-statistic" {
-        for _, c := range summary.CheckpointMessageStatistic {
-            if summary.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Summary_CheckpointMessageStatistic{}
-        summary.CheckpointMessageStatistic = append(summary.CheckpointMessageStatistic, child)
-        return &summary.CheckpointMessageStatistic[len(summary.CheckpointMessageStatistic)-1]
-    }
-    return nil
-}
-
-func (summary *TrafficCollector_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["database-statistics-external-interface"] = &summary.DatabaseStatisticsExternalInterface
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["database-statistics-external-interface"] = types.YChild{"DatabaseStatisticsExternalInterface", &summary.DatabaseStatisticsExternalInterface}
+    summary.EntityData.Children["vrf-statistic"] = types.YChild{"VrfStatistic", nil}
     for i := range summary.VrfStatistic {
-        children[summary.VrfStatistic[i].GetSegmentPath()] = &summary.VrfStatistic[i]
+        summary.EntityData.Children[types.GetSegmentPath(&summary.VrfStatistic[i])] = types.YChild{"VrfStatistic", &summary.VrfStatistic[i]}
     }
+    summary.EntityData.Children["collection-message-statistic"] = types.YChild{"CollectionMessageStatistic", nil}
     for i := range summary.CollectionMessageStatistic {
-        children[summary.CollectionMessageStatistic[i].GetSegmentPath()] = &summary.CollectionMessageStatistic[i]
+        summary.EntityData.Children[types.GetSegmentPath(&summary.CollectionMessageStatistic[i])] = types.YChild{"CollectionMessageStatistic", &summary.CollectionMessageStatistic[i]}
     }
+    summary.EntityData.Children["checkpoint-message-statistic"] = types.YChild{"CheckpointMessageStatistic", nil}
     for i := range summary.CheckpointMessageStatistic {
-        children[summary.CheckpointMessageStatistic[i].GetSegmentPath()] = &summary.CheckpointMessageStatistic[i]
+        summary.EntityData.Children[types.GetSegmentPath(&summary.CheckpointMessageStatistic[i])] = types.YChild{"CheckpointMessageStatistic", &summary.CheckpointMessageStatistic[i]}
     }
-    return children
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["collection-interval"] = types.YLeaf{"CollectionInterval", summary.CollectionInterval}
+    summary.EntityData.Leafs["collection-timer-is-running"] = types.YLeaf{"CollectionTimerIsRunning", summary.CollectionTimerIsRunning}
+    summary.EntityData.Leafs["timeout-interval"] = types.YLeaf{"TimeoutInterval", summary.TimeoutInterval}
+    summary.EntityData.Leafs["timeout-timer-is-running"] = types.YLeaf{"TimeoutTimerIsRunning", summary.TimeoutTimerIsRunning}
+    summary.EntityData.Leafs["history-size"] = types.YLeaf{"HistorySize", summary.HistorySize}
+    return &(summary.EntityData)
 }
-
-func (summary *TrafficCollector_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["collection-interval"] = summary.CollectionInterval
-    leafs["collection-timer-is-running"] = summary.CollectionTimerIsRunning
-    leafs["timeout-interval"] = summary.TimeoutInterval
-    leafs["timeout-timer-is-running"] = summary.TimeoutTimerIsRunning
-    leafs["history-size"] = summary.HistorySize
-    return leafs
-}
-
-func (summary *TrafficCollector_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *TrafficCollector_Summary) GetYangName() string { return "summary" }
-
-func (summary *TrafficCollector_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *TrafficCollector_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *TrafficCollector_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *TrafficCollector_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *TrafficCollector_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *TrafficCollector_Summary) GetParentYangName() string { return "traffic-collector" }
 
 // TrafficCollector_Summary_DatabaseStatisticsExternalInterface
 // Database statistics for External Interface
 type TrafficCollector_Summary_DatabaseStatisticsExternalInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of DB entries. The type is interface{} with range: 0..4294967295.
@@ -427,62 +241,29 @@ type TrafficCollector_Summary_DatabaseStatisticsExternalInterface struct {
     NumberOfDeleteOPerations interface{}
 }
 
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetFilter() yfilter.YFilter { return databaseStatisticsExternalInterface.YFilter }
+func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetEntityData() *types.CommonEntityData {
+    databaseStatisticsExternalInterface.EntityData.YFilter = databaseStatisticsExternalInterface.YFilter
+    databaseStatisticsExternalInterface.EntityData.YangName = "database-statistics-external-interface"
+    databaseStatisticsExternalInterface.EntityData.BundleName = "cisco_ios_xr"
+    databaseStatisticsExternalInterface.EntityData.ParentYangName = "summary"
+    databaseStatisticsExternalInterface.EntityData.SegmentPath = "database-statistics-external-interface"
+    databaseStatisticsExternalInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    databaseStatisticsExternalInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    databaseStatisticsExternalInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) SetFilter(yf yfilter.YFilter) { databaseStatisticsExternalInterface.YFilter = yf }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetGoName(yname string) string {
-    if yname == "number-of-entries" { return "NumberOfEntries" }
-    if yname == "number-of-stale-entries" { return "NumberOfStaleEntries" }
-    if yname == "number-of-add-o-perations" { return "NumberOfAddOPerations" }
-    if yname == "number-of-delete-o-perations" { return "NumberOfDeleteOPerations" }
-    return ""
+    databaseStatisticsExternalInterface.EntityData.Children = make(map[string]types.YChild)
+    databaseStatisticsExternalInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-entries"] = types.YLeaf{"NumberOfEntries", databaseStatisticsExternalInterface.NumberOfEntries}
+    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-stale-entries"] = types.YLeaf{"NumberOfStaleEntries", databaseStatisticsExternalInterface.NumberOfStaleEntries}
+    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-add-o-perations"] = types.YLeaf{"NumberOfAddOPerations", databaseStatisticsExternalInterface.NumberOfAddOPerations}
+    databaseStatisticsExternalInterface.EntityData.Leafs["number-of-delete-o-perations"] = types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsExternalInterface.NumberOfDeleteOPerations}
+    return &(databaseStatisticsExternalInterface.EntityData)
 }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetSegmentPath() string {
-    return "database-statistics-external-interface"
-}
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number-of-entries"] = databaseStatisticsExternalInterface.NumberOfEntries
-    leafs["number-of-stale-entries"] = databaseStatisticsExternalInterface.NumberOfStaleEntries
-    leafs["number-of-add-o-perations"] = databaseStatisticsExternalInterface.NumberOfAddOPerations
-    leafs["number-of-delete-o-perations"] = databaseStatisticsExternalInterface.NumberOfDeleteOPerations
-    return leafs
-}
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetYangName() string { return "database-statistics-external-interface" }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) SetParent(parent types.Entity) { databaseStatisticsExternalInterface.parent = parent }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetParent() types.Entity { return databaseStatisticsExternalInterface.parent }
-
-func (databaseStatisticsExternalInterface *TrafficCollector_Summary_DatabaseStatisticsExternalInterface) GetParentYangName() string { return "summary" }
 
 // TrafficCollector_Summary_VrfStatistic
 // VRF table statistics
 type TrafficCollector_Summary_VrfStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF name. The type is string.
@@ -495,66 +276,28 @@ type TrafficCollector_Summary_VrfStatistic struct {
     DatabaseStatisticsTunnel TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel
 }
 
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetFilter() yfilter.YFilter { return vrfStatistic.YFilter }
+func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetEntityData() *types.CommonEntityData {
+    vrfStatistic.EntityData.YFilter = vrfStatistic.YFilter
+    vrfStatistic.EntityData.YangName = "vrf-statistic"
+    vrfStatistic.EntityData.BundleName = "cisco_ios_xr"
+    vrfStatistic.EntityData.ParentYangName = "summary"
+    vrfStatistic.EntityData.SegmentPath = "vrf-statistic"
+    vrfStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) SetFilter(yf yfilter.YFilter) { vrfStatistic.YFilter = yf }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "database-statistics-ipv4" { return "DatabaseStatisticsIpv4" }
-    if yname == "database-statistics-tunnel" { return "DatabaseStatisticsTunnel" }
-    return ""
+    vrfStatistic.EntityData.Children = make(map[string]types.YChild)
+    vrfStatistic.EntityData.Children["database-statistics-ipv4"] = types.YChild{"DatabaseStatisticsIpv4", &vrfStatistic.DatabaseStatisticsIpv4}
+    vrfStatistic.EntityData.Children["database-statistics-tunnel"] = types.YChild{"DatabaseStatisticsTunnel", &vrfStatistic.DatabaseStatisticsTunnel}
+    vrfStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfStatistic.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrfStatistic.VrfName}
+    return &(vrfStatistic.EntityData)
 }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetSegmentPath() string {
-    return "vrf-statistic"
-}
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "database-statistics-ipv4" {
-        return &vrfStatistic.DatabaseStatisticsIpv4
-    }
-    if childYangName == "database-statistics-tunnel" {
-        return &vrfStatistic.DatabaseStatisticsTunnel
-    }
-    return nil
-}
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["database-statistics-ipv4"] = &vrfStatistic.DatabaseStatisticsIpv4
-    children["database-statistics-tunnel"] = &vrfStatistic.DatabaseStatisticsTunnel
-    return children
-}
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrfStatistic.VrfName
-    return leafs
-}
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetYangName() string { return "vrf-statistic" }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) SetParent(parent types.Entity) { vrfStatistic.parent = parent }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetParent() types.Entity { return vrfStatistic.parent }
-
-func (vrfStatistic *TrafficCollector_Summary_VrfStatistic) GetParentYangName() string { return "summary" }
 
 // TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4
 // Database statistics for IPv4 table
 type TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of DB entries. The type is interface{} with range: 0..4294967295.
@@ -573,62 +316,29 @@ type TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4 struct {
     NumberOfDeleteOPerations interface{}
 }
 
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetFilter() yfilter.YFilter { return databaseStatisticsIpv4.YFilter }
+func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetEntityData() *types.CommonEntityData {
+    databaseStatisticsIpv4.EntityData.YFilter = databaseStatisticsIpv4.YFilter
+    databaseStatisticsIpv4.EntityData.YangName = "database-statistics-ipv4"
+    databaseStatisticsIpv4.EntityData.BundleName = "cisco_ios_xr"
+    databaseStatisticsIpv4.EntityData.ParentYangName = "vrf-statistic"
+    databaseStatisticsIpv4.EntityData.SegmentPath = "database-statistics-ipv4"
+    databaseStatisticsIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    databaseStatisticsIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    databaseStatisticsIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) SetFilter(yf yfilter.YFilter) { databaseStatisticsIpv4.YFilter = yf }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetGoName(yname string) string {
-    if yname == "number-of-entries" { return "NumberOfEntries" }
-    if yname == "number-of-stale-entries" { return "NumberOfStaleEntries" }
-    if yname == "number-of-add-o-perations" { return "NumberOfAddOPerations" }
-    if yname == "number-of-delete-o-perations" { return "NumberOfDeleteOPerations" }
-    return ""
+    databaseStatisticsIpv4.EntityData.Children = make(map[string]types.YChild)
+    databaseStatisticsIpv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    databaseStatisticsIpv4.EntityData.Leafs["number-of-entries"] = types.YLeaf{"NumberOfEntries", databaseStatisticsIpv4.NumberOfEntries}
+    databaseStatisticsIpv4.EntityData.Leafs["number-of-stale-entries"] = types.YLeaf{"NumberOfStaleEntries", databaseStatisticsIpv4.NumberOfStaleEntries}
+    databaseStatisticsIpv4.EntityData.Leafs["number-of-add-o-perations"] = types.YLeaf{"NumberOfAddOPerations", databaseStatisticsIpv4.NumberOfAddOPerations}
+    databaseStatisticsIpv4.EntityData.Leafs["number-of-delete-o-perations"] = types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsIpv4.NumberOfDeleteOPerations}
+    return &(databaseStatisticsIpv4.EntityData)
 }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetSegmentPath() string {
-    return "database-statistics-ipv4"
-}
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number-of-entries"] = databaseStatisticsIpv4.NumberOfEntries
-    leafs["number-of-stale-entries"] = databaseStatisticsIpv4.NumberOfStaleEntries
-    leafs["number-of-add-o-perations"] = databaseStatisticsIpv4.NumberOfAddOPerations
-    leafs["number-of-delete-o-perations"] = databaseStatisticsIpv4.NumberOfDeleteOPerations
-    return leafs
-}
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetYangName() string { return "database-statistics-ipv4" }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) SetParent(parent types.Entity) { databaseStatisticsIpv4.parent = parent }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetParent() types.Entity { return databaseStatisticsIpv4.parent }
-
-func (databaseStatisticsIpv4 *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsIpv4) GetParentYangName() string { return "vrf-statistic" }
 
 // TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel
 // Database statistics for Tunnel table
 type TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of DB entries. The type is interface{} with range: 0..4294967295.
@@ -647,62 +357,29 @@ type TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel struct {
     NumberOfDeleteOPerations interface{}
 }
 
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetFilter() yfilter.YFilter { return databaseStatisticsTunnel.YFilter }
+func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetEntityData() *types.CommonEntityData {
+    databaseStatisticsTunnel.EntityData.YFilter = databaseStatisticsTunnel.YFilter
+    databaseStatisticsTunnel.EntityData.YangName = "database-statistics-tunnel"
+    databaseStatisticsTunnel.EntityData.BundleName = "cisco_ios_xr"
+    databaseStatisticsTunnel.EntityData.ParentYangName = "vrf-statistic"
+    databaseStatisticsTunnel.EntityData.SegmentPath = "database-statistics-tunnel"
+    databaseStatisticsTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    databaseStatisticsTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    databaseStatisticsTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) SetFilter(yf yfilter.YFilter) { databaseStatisticsTunnel.YFilter = yf }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetGoName(yname string) string {
-    if yname == "number-of-entries" { return "NumberOfEntries" }
-    if yname == "number-of-stale-entries" { return "NumberOfStaleEntries" }
-    if yname == "number-of-add-o-perations" { return "NumberOfAddOPerations" }
-    if yname == "number-of-delete-o-perations" { return "NumberOfDeleteOPerations" }
-    return ""
+    databaseStatisticsTunnel.EntityData.Children = make(map[string]types.YChild)
+    databaseStatisticsTunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    databaseStatisticsTunnel.EntityData.Leafs["number-of-entries"] = types.YLeaf{"NumberOfEntries", databaseStatisticsTunnel.NumberOfEntries}
+    databaseStatisticsTunnel.EntityData.Leafs["number-of-stale-entries"] = types.YLeaf{"NumberOfStaleEntries", databaseStatisticsTunnel.NumberOfStaleEntries}
+    databaseStatisticsTunnel.EntityData.Leafs["number-of-add-o-perations"] = types.YLeaf{"NumberOfAddOPerations", databaseStatisticsTunnel.NumberOfAddOPerations}
+    databaseStatisticsTunnel.EntityData.Leafs["number-of-delete-o-perations"] = types.YLeaf{"NumberOfDeleteOPerations", databaseStatisticsTunnel.NumberOfDeleteOPerations}
+    return &(databaseStatisticsTunnel.EntityData)
 }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetSegmentPath() string {
-    return "database-statistics-tunnel"
-}
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number-of-entries"] = databaseStatisticsTunnel.NumberOfEntries
-    leafs["number-of-stale-entries"] = databaseStatisticsTunnel.NumberOfStaleEntries
-    leafs["number-of-add-o-perations"] = databaseStatisticsTunnel.NumberOfAddOPerations
-    leafs["number-of-delete-o-perations"] = databaseStatisticsTunnel.NumberOfDeleteOPerations
-    return leafs
-}
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetYangName() string { return "database-statistics-tunnel" }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) SetParent(parent types.Entity) { databaseStatisticsTunnel.parent = parent }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetParent() types.Entity { return databaseStatisticsTunnel.parent }
-
-func (databaseStatisticsTunnel *TrafficCollector_Summary_VrfStatistic_DatabaseStatisticsTunnel) GetParentYangName() string { return "vrf-statistic" }
 
 // TrafficCollector_Summary_CollectionMessageStatistic
 // Statistics per message type for STAT collector
 type TrafficCollector_Summary_CollectionMessageStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of packets sent. The type is interface{} with range:
@@ -730,66 +407,31 @@ type TrafficCollector_Summary_CollectionMessageStatistic struct {
     MaimumLatencyTimestamp interface{}
 }
 
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetFilter() yfilter.YFilter { return collectionMessageStatistic.YFilter }
+func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetEntityData() *types.CommonEntityData {
+    collectionMessageStatistic.EntityData.YFilter = collectionMessageStatistic.YFilter
+    collectionMessageStatistic.EntityData.YangName = "collection-message-statistic"
+    collectionMessageStatistic.EntityData.BundleName = "cisco_ios_xr"
+    collectionMessageStatistic.EntityData.ParentYangName = "summary"
+    collectionMessageStatistic.EntityData.SegmentPath = "collection-message-statistic"
+    collectionMessageStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    collectionMessageStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    collectionMessageStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) SetFilter(yf yfilter.YFilter) { collectionMessageStatistic.YFilter = yf }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetGoName(yname string) string {
-    if yname == "packet-sent" { return "PacketSent" }
-    if yname == "byte-sent" { return "ByteSent" }
-    if yname == "packet-received" { return "PacketReceived" }
-    if yname == "byte-received" { return "ByteReceived" }
-    if yname == "maximum-roundtrip-latency" { return "MaximumRoundtripLatency" }
-    if yname == "maimum-latency-timestamp" { return "MaimumLatencyTimestamp" }
-    return ""
+    collectionMessageStatistic.EntityData.Children = make(map[string]types.YChild)
+    collectionMessageStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    collectionMessageStatistic.EntityData.Leafs["packet-sent"] = types.YLeaf{"PacketSent", collectionMessageStatistic.PacketSent}
+    collectionMessageStatistic.EntityData.Leafs["byte-sent"] = types.YLeaf{"ByteSent", collectionMessageStatistic.ByteSent}
+    collectionMessageStatistic.EntityData.Leafs["packet-received"] = types.YLeaf{"PacketReceived", collectionMessageStatistic.PacketReceived}
+    collectionMessageStatistic.EntityData.Leafs["byte-received"] = types.YLeaf{"ByteReceived", collectionMessageStatistic.ByteReceived}
+    collectionMessageStatistic.EntityData.Leafs["maximum-roundtrip-latency"] = types.YLeaf{"MaximumRoundtripLatency", collectionMessageStatistic.MaximumRoundtripLatency}
+    collectionMessageStatistic.EntityData.Leafs["maimum-latency-timestamp"] = types.YLeaf{"MaimumLatencyTimestamp", collectionMessageStatistic.MaimumLatencyTimestamp}
+    return &(collectionMessageStatistic.EntityData)
 }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetSegmentPath() string {
-    return "collection-message-statistic"
-}
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["packet-sent"] = collectionMessageStatistic.PacketSent
-    leafs["byte-sent"] = collectionMessageStatistic.ByteSent
-    leafs["packet-received"] = collectionMessageStatistic.PacketReceived
-    leafs["byte-received"] = collectionMessageStatistic.ByteReceived
-    leafs["maximum-roundtrip-latency"] = collectionMessageStatistic.MaximumRoundtripLatency
-    leafs["maimum-latency-timestamp"] = collectionMessageStatistic.MaimumLatencyTimestamp
-    return leafs
-}
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetYangName() string { return "collection-message-statistic" }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) SetParent(parent types.Entity) { collectionMessageStatistic.parent = parent }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetParent() types.Entity { return collectionMessageStatistic.parent }
-
-func (collectionMessageStatistic *TrafficCollector_Summary_CollectionMessageStatistic) GetParentYangName() string { return "summary" }
 
 // TrafficCollector_Summary_CheckpointMessageStatistic
 // Statistics per message type for Chkpt
 type TrafficCollector_Summary_CheckpointMessageStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of packets sent. The type is interface{} with range:
@@ -817,184 +459,83 @@ type TrafficCollector_Summary_CheckpointMessageStatistic struct {
     MaimumLatencyTimestamp interface{}
 }
 
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetFilter() yfilter.YFilter { return checkpointMessageStatistic.YFilter }
+func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetEntityData() *types.CommonEntityData {
+    checkpointMessageStatistic.EntityData.YFilter = checkpointMessageStatistic.YFilter
+    checkpointMessageStatistic.EntityData.YangName = "checkpoint-message-statistic"
+    checkpointMessageStatistic.EntityData.BundleName = "cisco_ios_xr"
+    checkpointMessageStatistic.EntityData.ParentYangName = "summary"
+    checkpointMessageStatistic.EntityData.SegmentPath = "checkpoint-message-statistic"
+    checkpointMessageStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    checkpointMessageStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    checkpointMessageStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) SetFilter(yf yfilter.YFilter) { checkpointMessageStatistic.YFilter = yf }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetGoName(yname string) string {
-    if yname == "packet-sent" { return "PacketSent" }
-    if yname == "byte-sent" { return "ByteSent" }
-    if yname == "packet-received" { return "PacketReceived" }
-    if yname == "byte-received" { return "ByteReceived" }
-    if yname == "maximum-roundtrip-latency" { return "MaximumRoundtripLatency" }
-    if yname == "maimum-latency-timestamp" { return "MaimumLatencyTimestamp" }
-    return ""
+    checkpointMessageStatistic.EntityData.Children = make(map[string]types.YChild)
+    checkpointMessageStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    checkpointMessageStatistic.EntityData.Leafs["packet-sent"] = types.YLeaf{"PacketSent", checkpointMessageStatistic.PacketSent}
+    checkpointMessageStatistic.EntityData.Leafs["byte-sent"] = types.YLeaf{"ByteSent", checkpointMessageStatistic.ByteSent}
+    checkpointMessageStatistic.EntityData.Leafs["packet-received"] = types.YLeaf{"PacketReceived", checkpointMessageStatistic.PacketReceived}
+    checkpointMessageStatistic.EntityData.Leafs["byte-received"] = types.YLeaf{"ByteReceived", checkpointMessageStatistic.ByteReceived}
+    checkpointMessageStatistic.EntityData.Leafs["maximum-roundtrip-latency"] = types.YLeaf{"MaximumRoundtripLatency", checkpointMessageStatistic.MaximumRoundtripLatency}
+    checkpointMessageStatistic.EntityData.Leafs["maimum-latency-timestamp"] = types.YLeaf{"MaimumLatencyTimestamp", checkpointMessageStatistic.MaimumLatencyTimestamp}
+    return &(checkpointMessageStatistic.EntityData)
 }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetSegmentPath() string {
-    return "checkpoint-message-statistic"
-}
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["packet-sent"] = checkpointMessageStatistic.PacketSent
-    leafs["byte-sent"] = checkpointMessageStatistic.ByteSent
-    leafs["packet-received"] = checkpointMessageStatistic.PacketReceived
-    leafs["byte-received"] = checkpointMessageStatistic.ByteReceived
-    leafs["maximum-roundtrip-latency"] = checkpointMessageStatistic.MaximumRoundtripLatency
-    leafs["maimum-latency-timestamp"] = checkpointMessageStatistic.MaimumLatencyTimestamp
-    return leafs
-}
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetYangName() string { return "checkpoint-message-statistic" }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) SetParent(parent types.Entity) { checkpointMessageStatistic.parent = parent }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetParent() types.Entity { return checkpointMessageStatistic.parent }
-
-func (checkpointMessageStatistic *TrafficCollector_Summary_CheckpointMessageStatistic) GetParentYangName() string { return "summary" }
 
 // TrafficCollector_VrfTable
 // VRF specific operational data
 type TrafficCollector_VrfTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DefaultVRF specific operational data.
     DefaultVrf TrafficCollector_VrfTable_DefaultVrf
 }
 
-func (vrfTable *TrafficCollector_VrfTable) GetFilter() yfilter.YFilter { return vrfTable.YFilter }
+func (vrfTable *TrafficCollector_VrfTable) GetEntityData() *types.CommonEntityData {
+    vrfTable.EntityData.YFilter = vrfTable.YFilter
+    vrfTable.EntityData.YangName = "vrf-table"
+    vrfTable.EntityData.BundleName = "cisco_ios_xr"
+    vrfTable.EntityData.ParentYangName = "traffic-collector"
+    vrfTable.EntityData.SegmentPath = "vrf-table"
+    vrfTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfTable *TrafficCollector_VrfTable) SetFilter(yf yfilter.YFilter) { vrfTable.YFilter = yf }
-
-func (vrfTable *TrafficCollector_VrfTable) GetGoName(yname string) string {
-    if yname == "default-vrf" { return "DefaultVrf" }
-    return ""
+    vrfTable.EntityData.Children = make(map[string]types.YChild)
+    vrfTable.EntityData.Children["default-vrf"] = types.YChild{"DefaultVrf", &vrfTable.DefaultVrf}
+    vrfTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfTable.EntityData)
 }
-
-func (vrfTable *TrafficCollector_VrfTable) GetSegmentPath() string {
-    return "vrf-table"
-}
-
-func (vrfTable *TrafficCollector_VrfTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "default-vrf" {
-        return &vrfTable.DefaultVrf
-    }
-    return nil
-}
-
-func (vrfTable *TrafficCollector_VrfTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["default-vrf"] = &vrfTable.DefaultVrf
-    return children
-}
-
-func (vrfTable *TrafficCollector_VrfTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfTable *TrafficCollector_VrfTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfTable *TrafficCollector_VrfTable) GetYangName() string { return "vrf-table" }
-
-func (vrfTable *TrafficCollector_VrfTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfTable *TrafficCollector_VrfTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfTable *TrafficCollector_VrfTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfTable *TrafficCollector_VrfTable) SetParent(parent types.Entity) { vrfTable.parent = parent }
-
-func (vrfTable *TrafficCollector_VrfTable) GetParent() types.Entity { return vrfTable.parent }
-
-func (vrfTable *TrafficCollector_VrfTable) GetParentYangName() string { return "traffic-collector" }
 
 // TrafficCollector_VrfTable_DefaultVrf
 // DefaultVRF specific operational data
 type TrafficCollector_VrfTable_DefaultVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address Family specific operational data.
     Afs TrafficCollector_VrfTable_DefaultVrf_Afs
 }
 
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetFilter() yfilter.YFilter { return defaultVrf.YFilter }
+func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetEntityData() *types.CommonEntityData {
+    defaultVrf.EntityData.YFilter = defaultVrf.YFilter
+    defaultVrf.EntityData.YangName = "default-vrf"
+    defaultVrf.EntityData.BundleName = "cisco_ios_xr"
+    defaultVrf.EntityData.ParentYangName = "vrf-table"
+    defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) SetFilter(yf yfilter.YFilter) { defaultVrf.YFilter = yf }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetGoName(yname string) string {
-    if yname == "afs" { return "Afs" }
-    return ""
+    defaultVrf.EntityData.Children = make(map[string]types.YChild)
+    defaultVrf.EntityData.Children["afs"] = types.YChild{"Afs", &defaultVrf.Afs}
+    defaultVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(defaultVrf.EntityData)
 }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetSegmentPath() string {
-    return "default-vrf"
-}
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "afs" {
-        return &defaultVrf.Afs
-    }
-    return nil
-}
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["afs"] = &defaultVrf.Afs
-    return children
-}
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetYangName() string { return "default-vrf" }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) SetParent(parent types.Entity) { defaultVrf.parent = parent }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetParent() types.Entity { return defaultVrf.parent }
-
-func (defaultVrf *TrafficCollector_VrfTable_DefaultVrf) GetParentYangName() string { return "vrf-table" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs
 // Address Family specific operational data
 type TrafficCollector_VrfTable_DefaultVrf_Afs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational data for given Address Family. The type is slice of
@@ -1002,68 +543,29 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs struct {
     Af []TrafficCollector_VrfTable_DefaultVrf_Afs_Af
 }
 
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetFilter() yfilter.YFilter { return afs.YFilter }
+func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetEntityData() *types.CommonEntityData {
+    afs.EntityData.YFilter = afs.YFilter
+    afs.EntityData.YangName = "afs"
+    afs.EntityData.BundleName = "cisco_ios_xr"
+    afs.EntityData.ParentYangName = "default-vrf"
+    afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) SetFilter(yf yfilter.YFilter) { afs.YFilter = yf }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetGoName(yname string) string {
-    if yname == "af" { return "Af" }
-    return ""
-}
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetSegmentPath() string {
-    return "afs"
-}
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "af" {
-        for _, c := range afs.Af {
-            if afs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_VrfTable_DefaultVrf_Afs_Af{}
-        afs.Af = append(afs.Af, child)
-        return &afs.Af[len(afs.Af)-1]
-    }
-    return nil
-}
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    afs.EntityData.Children = make(map[string]types.YChild)
+    afs.EntityData.Children["af"] = types.YChild{"Af", nil}
     for i := range afs.Af {
-        children[afs.Af[i].GetSegmentPath()] = &afs.Af[i]
+        afs.EntityData.Children[types.GetSegmentPath(&afs.Af[i])] = types.YChild{"Af", &afs.Af[i]}
     }
-    return children
+    afs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(afs.EntityData)
 }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetYangName() string { return "afs" }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) SetParent(parent types.Entity) { afs.parent = parent }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetParent() types.Entity { return afs.parent }
-
-func (afs *TrafficCollector_VrfTable_DefaultVrf_Afs) GetParentYangName() string { return "default-vrf" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af
 // Operational data for given Address Family
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address Family name. The type is TcOperAfName.
@@ -1073,61 +575,27 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af struct {
     Counters TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters
 }
 
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetFilter() yfilter.YFilter { return af.YFilter }
+func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetEntityData() *types.CommonEntityData {
+    af.EntityData.YFilter = af.YFilter
+    af.EntityData.YangName = "af"
+    af.EntityData.BundleName = "cisco_ios_xr"
+    af.EntityData.ParentYangName = "afs"
+    af.EntityData.SegmentPath = "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
+    af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) SetFilter(yf yfilter.YFilter) { af.YFilter = yf }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "counters" { return "Counters" }
-    return ""
+    af.EntityData.Children = make(map[string]types.YChild)
+    af.EntityData.Children["counters"] = types.YChild{"Counters", &af.Counters}
+    af.EntityData.Leafs = make(map[string]types.YLeaf)
+    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
+    return &(af.EntityData)
 }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetSegmentPath() string {
-    return "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
-}
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "counters" {
-        return &af.Counters
-    }
-    return nil
-}
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["counters"] = &af.Counters
-    return children
-}
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = af.AfName
-    return leafs
-}
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetBundleName() string { return "cisco_ios_xr" }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetYangName() string { return "af" }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) SetParent(parent types.Entity) { af.parent = parent }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetParent() types.Entity { return af.parent }
-
-func (af *TrafficCollector_VrfTable_DefaultVrf_Afs_Af) GetParentYangName() string { return "afs" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters
 // Show Counters
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Prefix Database.
@@ -1137,64 +605,27 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters struct {
     Tunnels TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels
 }
 
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetFilter() yfilter.YFilter { return counters.YFilter }
+func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetEntityData() *types.CommonEntityData {
+    counters.EntityData.YFilter = counters.YFilter
+    counters.EntityData.YangName = "counters"
+    counters.EntityData.BundleName = "cisco_ios_xr"
+    counters.EntityData.ParentYangName = "af"
+    counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) SetFilter(yf yfilter.YFilter) { counters.YFilter = yf }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetGoName(yname string) string {
-    if yname == "prefixes" { return "Prefixes" }
-    if yname == "tunnels" { return "Tunnels" }
-    return ""
+    counters.EntityData.Children = make(map[string]types.YChild)
+    counters.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &counters.Prefixes}
+    counters.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &counters.Tunnels}
+    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(counters.EntityData)
 }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetSegmentPath() string {
-    return "counters"
-}
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefixes" {
-        return &counters.Prefixes
-    }
-    if childYangName == "tunnels" {
-        return &counters.Tunnels
-    }
-    return nil
-}
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["prefixes"] = &counters.Prefixes
-    children["tunnels"] = &counters.Tunnels
-    return children
-}
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetYangName() string { return "counters" }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) SetParent(parent types.Entity) { counters.parent = parent }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetParent() types.Entity { return counters.parent }
-
-func (counters *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters) GetParentYangName() string { return "af" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes
 // Prefix Database
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Show Prefix Counter. The type is slice of
@@ -1202,74 +633,37 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes struct {
     Prefix []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix
 }
 
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetFilter() yfilter.YFilter { return prefixes.YFilter }
+func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetEntityData() *types.CommonEntityData {
+    prefixes.EntityData.YFilter = prefixes.YFilter
+    prefixes.EntityData.YangName = "prefixes"
+    prefixes.EntityData.BundleName = "cisco_ios_xr"
+    prefixes.EntityData.ParentYangName = "counters"
+    prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) SetFilter(yf yfilter.YFilter) { prefixes.YFilter = yf }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    return ""
-}
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetSegmentPath() string {
-    return "prefixes"
-}
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefix" {
-        for _, c := range prefixes.Prefix {
-            if prefixes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix{}
-        prefixes.Prefix = append(prefixes.Prefix, child)
-        return &prefixes.Prefix[len(prefixes.Prefix)-1]
-    }
-    return nil
-}
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    prefixes.EntityData.Children = make(map[string]types.YChild)
+    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
     for i := range prefixes.Prefix {
-        children[prefixes.Prefix[i].GetSegmentPath()] = &prefixes.Prefix[i]
+        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
     }
-    return children
+    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(prefixes.EntityData)
 }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetYangName() string { return "prefixes" }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) SetParent(parent types.Entity) { prefixes.parent = parent }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetParent() types.Entity { return prefixes.parent }
-
-func (prefixes *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes) GetParentYangName() string { return "counters" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix
 // Show Prefix Counter
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP Address. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Ipaddr interface{}
 
-    // Prefix Mask. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Prefix Mask. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Mask interface{}
 
     // Local Label. The type is interface{} with range: 16..1048575.
@@ -1291,76 +685,33 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix struct
     TrafficMatrixCounterStatistics TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics
 }
 
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetFilter() yfilter.YFilter { return prefix.YFilter }
+func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefixes"
+    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) SetFilter(yf yfilter.YFilter) { prefix.YFilter = yf }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetGoName(yname string) string {
-    if yname == "ipaddr" { return "Ipaddr" }
-    if yname == "mask" { return "Mask" }
-    if yname == "label" { return "Label" }
-    if yname == "prefix" { return "Prefix" }
-    if yname == "label-xr" { return "LabelXr" }
-    if yname == "is-active" { return "IsActive" }
-    if yname == "base-counter-statistics" { return "BaseCounterStatistics" }
-    if yname == "traffic-matrix-counter-statistics" { return "TrafficMatrixCounterStatistics" }
-    return ""
+    prefix.EntityData.Children = make(map[string]types.YChild)
+    prefix.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &prefix.BaseCounterStatistics}
+    prefix.EntityData.Children["traffic-matrix-counter-statistics"] = types.YChild{"TrafficMatrixCounterStatistics", &prefix.TrafficMatrixCounterStatistics}
+    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefix.EntityData.Leafs["ipaddr"] = types.YLeaf{"Ipaddr", prefix.Ipaddr}
+    prefix.EntityData.Leafs["mask"] = types.YLeaf{"Mask", prefix.Mask}
+    prefix.EntityData.Leafs["label"] = types.YLeaf{"Label", prefix.Label}
+    prefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefix.Prefix}
+    prefix.EntityData.Leafs["label-xr"] = types.YLeaf{"LabelXr", prefix.LabelXr}
+    prefix.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", prefix.IsActive}
+    return &(prefix.EntityData)
 }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetSegmentPath() string {
-    return "prefix"
-}
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base-counter-statistics" {
-        return &prefix.BaseCounterStatistics
-    }
-    if childYangName == "traffic-matrix-counter-statistics" {
-        return &prefix.TrafficMatrixCounterStatistics
-    }
-    return nil
-}
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["base-counter-statistics"] = &prefix.BaseCounterStatistics
-    children["traffic-matrix-counter-statistics"] = &prefix.TrafficMatrixCounterStatistics
-    return children
-}
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipaddr"] = prefix.Ipaddr
-    leafs["mask"] = prefix.Mask
-    leafs["label"] = prefix.Label
-    leafs["prefix"] = prefix.Prefix
-    leafs["label-xr"] = prefix.LabelXr
-    leafs["is-active"] = prefix.IsActive
-    return leafs
-}
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetYangName() string { return "prefix" }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) SetParent(parent types.Entity) { prefix.parent = parent }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetParent() types.Entity { return prefix.parent }
-
-func (prefix *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix) GetParentYangName() string { return "prefixes" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics
 // Base counter statistics
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Average Rate of Packets/second switched. The type is interface{} with
@@ -1376,72 +727,31 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCo
     CountHistory []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
 }
 
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetFilter() yfilter.YFilter { return baseCounterStatistics.YFilter }
+func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
+    baseCounterStatistics.EntityData.YFilter = baseCounterStatistics.YFilter
+    baseCounterStatistics.EntityData.YangName = "base-counter-statistics"
+    baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
+    baseCounterStatistics.EntityData.ParentYangName = "prefix"
+    baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) SetFilter(yf yfilter.YFilter) { baseCounterStatistics.YFilter = yf }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetGoName(yname string) string {
-    if yname == "transmit-packets-per-second-switched" { return "TransmitPacketsPerSecondSwitched" }
-    if yname == "transmit-bytes-per-second-switched" { return "TransmitBytesPerSecondSwitched" }
-    if yname == "count-history" { return "CountHistory" }
-    return ""
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetSegmentPath() string {
-    return "base-counter-statistics"
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "count-history" {
-        for _, c := range baseCounterStatistics.CountHistory {
-            if baseCounterStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory{}
-        baseCounterStatistics.CountHistory = append(baseCounterStatistics.CountHistory, child)
-        return &baseCounterStatistics.CountHistory[len(baseCounterStatistics.CountHistory)-1]
-    }
-    return nil
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
+    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
     for i := range baseCounterStatistics.CountHistory {
-        children[baseCounterStatistics.CountHistory[i].GetSegmentPath()] = &baseCounterStatistics.CountHistory[i]
+        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
     }
-    return children
+    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    return &(baseCounterStatistics.EntityData)
 }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-packets-per-second-switched"] = baseCounterStatistics.TransmitPacketsPerSecondSwitched
-    leafs["transmit-bytes-per-second-switched"] = baseCounterStatistics.TransmitBytesPerSecondSwitched
-    return leafs
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetYangName() string { return "base-counter-statistics" }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) SetParent(parent types.Entity) { baseCounterStatistics.parent = parent }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetParent() types.Entity { return baseCounterStatistics.parent }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetParentYangName() string { return "prefix" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
 // Counter History
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event Start timestamp. The type is interface{} with range:
@@ -1464,64 +774,30 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCo
     IsValid interface{}
 }
 
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetFilter() yfilter.YFilter { return countHistory.YFilter }
+func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetEntityData() *types.CommonEntityData {
+    countHistory.EntityData.YFilter = countHistory.YFilter
+    countHistory.EntityData.YangName = "count-history"
+    countHistory.EntityData.BundleName = "cisco_ios_xr"
+    countHistory.EntityData.ParentYangName = "base-counter-statistics"
+    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) SetFilter(yf yfilter.YFilter) { countHistory.YFilter = yf }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetGoName(yname string) string {
-    if yname == "event-start-timestamp" { return "EventStartTimestamp" }
-    if yname == "event-end-timestamp" { return "EventEndTimestamp" }
-    if yname == "transmit-number-of-packets-switched" { return "TransmitNumberOfPacketsSwitched" }
-    if yname == "transmit-number-of-bytes-switched" { return "TransmitNumberOfBytesSwitched" }
-    if yname == "is-valid" { return "IsValid" }
-    return ""
+    countHistory.EntityData.Children = make(map[string]types.YChild)
+    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
+    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
+    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
+    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
+    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    return &(countHistory.EntityData)
 }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetSegmentPath() string {
-    return "count-history"
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-start-timestamp"] = countHistory.EventStartTimestamp
-    leafs["event-end-timestamp"] = countHistory.EventEndTimestamp
-    leafs["transmit-number-of-packets-switched"] = countHistory.TransmitNumberOfPacketsSwitched
-    leafs["transmit-number-of-bytes-switched"] = countHistory.TransmitNumberOfBytesSwitched
-    leafs["is-valid"] = countHistory.IsValid
-    return leafs
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetYangName() string { return "count-history" }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) SetParent(parent types.Entity) { countHistory.parent = parent }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetParent() types.Entity { return countHistory.parent }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetParentYangName() string { return "base-counter-statistics" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics
 // Traffic Matrix (TM) counter statistics
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Average Rate of Packets/second switched. The type is interface{} with
@@ -1537,72 +813,31 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_Traffi
     CountHistory []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
 }
 
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetFilter() yfilter.YFilter { return trafficMatrixCounterStatistics.YFilter }
+func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetEntityData() *types.CommonEntityData {
+    trafficMatrixCounterStatistics.EntityData.YFilter = trafficMatrixCounterStatistics.YFilter
+    trafficMatrixCounterStatistics.EntityData.YangName = "traffic-matrix-counter-statistics"
+    trafficMatrixCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
+    trafficMatrixCounterStatistics.EntityData.ParentYangName = "prefix"
+    trafficMatrixCounterStatistics.EntityData.SegmentPath = "traffic-matrix-counter-statistics"
+    trafficMatrixCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficMatrixCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficMatrixCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) SetFilter(yf yfilter.YFilter) { trafficMatrixCounterStatistics.YFilter = yf }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetGoName(yname string) string {
-    if yname == "transmit-packets-per-second-switched" { return "TransmitPacketsPerSecondSwitched" }
-    if yname == "transmit-bytes-per-second-switched" { return "TransmitBytesPerSecondSwitched" }
-    if yname == "count-history" { return "CountHistory" }
-    return ""
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetSegmentPath() string {
-    return "traffic-matrix-counter-statistics"
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "count-history" {
-        for _, c := range trafficMatrixCounterStatistics.CountHistory {
-            if trafficMatrixCounterStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory{}
-        trafficMatrixCounterStatistics.CountHistory = append(trafficMatrixCounterStatistics.CountHistory, child)
-        return &trafficMatrixCounterStatistics.CountHistory[len(trafficMatrixCounterStatistics.CountHistory)-1]
-    }
-    return nil
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trafficMatrixCounterStatistics.EntityData.Children = make(map[string]types.YChild)
+    trafficMatrixCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
     for i := range trafficMatrixCounterStatistics.CountHistory {
-        children[trafficMatrixCounterStatistics.CountHistory[i].GetSegmentPath()] = &trafficMatrixCounterStatistics.CountHistory[i]
+        trafficMatrixCounterStatistics.EntityData.Children[types.GetSegmentPath(&trafficMatrixCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &trafficMatrixCounterStatistics.CountHistory[i]}
     }
-    return children
+    trafficMatrixCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched}
+    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched}
+    return &(trafficMatrixCounterStatistics.EntityData)
 }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-packets-per-second-switched"] = trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched
-    leafs["transmit-bytes-per-second-switched"] = trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched
-    return leafs
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetYangName() string { return "traffic-matrix-counter-statistics" }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) SetParent(parent types.Entity) { trafficMatrixCounterStatistics.parent = parent }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetParent() types.Entity { return trafficMatrixCounterStatistics.parent }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetParentYangName() string { return "prefix" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
 // Counter History
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event Start timestamp. The type is interface{} with range:
@@ -1625,64 +860,30 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_Traffi
     IsValid interface{}
 }
 
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetFilter() yfilter.YFilter { return countHistory.YFilter }
+func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetEntityData() *types.CommonEntityData {
+    countHistory.EntityData.YFilter = countHistory.YFilter
+    countHistory.EntityData.YangName = "count-history"
+    countHistory.EntityData.BundleName = "cisco_ios_xr"
+    countHistory.EntityData.ParentYangName = "traffic-matrix-counter-statistics"
+    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) SetFilter(yf yfilter.YFilter) { countHistory.YFilter = yf }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetGoName(yname string) string {
-    if yname == "event-start-timestamp" { return "EventStartTimestamp" }
-    if yname == "event-end-timestamp" { return "EventEndTimestamp" }
-    if yname == "transmit-number-of-packets-switched" { return "TransmitNumberOfPacketsSwitched" }
-    if yname == "transmit-number-of-bytes-switched" { return "TransmitNumberOfBytesSwitched" }
-    if yname == "is-valid" { return "IsValid" }
-    return ""
+    countHistory.EntityData.Children = make(map[string]types.YChild)
+    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
+    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
+    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
+    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
+    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    return &(countHistory.EntityData)
 }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetSegmentPath() string {
-    return "count-history"
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-start-timestamp"] = countHistory.EventStartTimestamp
-    leafs["event-end-timestamp"] = countHistory.EventEndTimestamp
-    leafs["transmit-number-of-packets-switched"] = countHistory.TransmitNumberOfPacketsSwitched
-    leafs["transmit-number-of-bytes-switched"] = countHistory.TransmitNumberOfBytesSwitched
-    leafs["is-valid"] = countHistory.IsValid
-    return leafs
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetYangName() string { return "count-history" }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) SetParent(parent types.Entity) { countHistory.parent = parent }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetParent() types.Entity { return countHistory.parent }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetParentYangName() string { return "traffic-matrix-counter-statistics" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels
 // Tunnels
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel information. The type is slice of
@@ -1690,72 +891,33 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels struct {
     Tunnel []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel
 }
 
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetFilter() yfilter.YFilter { return tunnels.YFilter }
+func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "cisco_ios_xr"
+    tunnels.EntityData.ParentYangName = "counters"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) SetFilter(yf yfilter.YFilter) { tunnels.YFilter = yf }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetGoName(yname string) string {
-    if yname == "tunnel" { return "Tunnel" }
-    return ""
-}
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetSegmentPath() string {
-    return "tunnels"
-}
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel" {
-        for _, c := range tunnels.Tunnel {
-            if tunnels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel{}
-        tunnels.Tunnel = append(tunnels.Tunnel, child)
-        return &tunnels.Tunnel[len(tunnels.Tunnel)-1]
-    }
-    return nil
-}
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnels.EntityData.Children = make(map[string]types.YChild)
+    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
     for i := range tunnels.Tunnel {
-        children[tunnels.Tunnel[i].GetSegmentPath()] = &tunnels.Tunnel[i]
+        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
     }
-    return children
+    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnels.EntityData)
 }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetYangName() string { return "tunnels" }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) SetParent(parent types.Entity) { tunnels.parent = parent }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetParent() types.Entity { return tunnels.parent }
-
-func (tunnels *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels) GetParentYangName() string { return "counters" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel
 // Tunnel information
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -1774,69 +936,31 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel struct 
     BaseCounterStatistics TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics
 }
 
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + "[interface-name='" + fmt.Sprintf("%v", tunnel.InterfaceName) + "']"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "vrfid" { return "Vrfid" }
-    if yname == "is-active" { return "IsActive" }
-    if yname == "base-counter-statistics" { return "BaseCounterStatistics" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &tunnel.BaseCounterStatistics}
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnel.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", tunnel.InterfaceName}
+    tunnel.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", tunnel.InterfaceNameXr}
+    tunnel.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", tunnel.InterfaceHandle}
+    tunnel.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", tunnel.Vrfid}
+    tunnel.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", tunnel.IsActive}
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetSegmentPath() string {
-    return "tunnel" + "[interface-name='" + fmt.Sprintf("%v", tunnel.InterfaceName) + "']"
-}
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base-counter-statistics" {
-        return &tunnel.BaseCounterStatistics
-    }
-    return nil
-}
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["base-counter-statistics"] = &tunnel.BaseCounterStatistics
-    return children
-}
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = tunnel.InterfaceName
-    leafs["interface-name-xr"] = tunnel.InterfaceNameXr
-    leafs["interface-handle"] = tunnel.InterfaceHandle
-    leafs["vrfid"] = tunnel.Vrfid
-    leafs["is-active"] = tunnel.IsActive
-    return leafs
-}
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel) GetParentYangName() string { return "tunnels" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics
 // Base counter statistics
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Average Rate of Packets/second switched. The type is interface{} with
@@ -1852,72 +976,31 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCou
     CountHistory []TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
 }
 
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetFilter() yfilter.YFilter { return baseCounterStatistics.YFilter }
+func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
+    baseCounterStatistics.EntityData.YFilter = baseCounterStatistics.YFilter
+    baseCounterStatistics.EntityData.YangName = "base-counter-statistics"
+    baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
+    baseCounterStatistics.EntityData.ParentYangName = "tunnel"
+    baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) SetFilter(yf yfilter.YFilter) { baseCounterStatistics.YFilter = yf }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetGoName(yname string) string {
-    if yname == "transmit-packets-per-second-switched" { return "TransmitPacketsPerSecondSwitched" }
-    if yname == "transmit-bytes-per-second-switched" { return "TransmitBytesPerSecondSwitched" }
-    if yname == "count-history" { return "CountHistory" }
-    return ""
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetSegmentPath() string {
-    return "base-counter-statistics"
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "count-history" {
-        for _, c := range baseCounterStatistics.CountHistory {
-            if baseCounterStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory{}
-        baseCounterStatistics.CountHistory = append(baseCounterStatistics.CountHistory, child)
-        return &baseCounterStatistics.CountHistory[len(baseCounterStatistics.CountHistory)-1]
-    }
-    return nil
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
+    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
     for i := range baseCounterStatistics.CountHistory {
-        children[baseCounterStatistics.CountHistory[i].GetSegmentPath()] = &baseCounterStatistics.CountHistory[i]
+        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
     }
-    return children
+    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    return &(baseCounterStatistics.EntityData)
 }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-packets-per-second-switched"] = baseCounterStatistics.TransmitPacketsPerSecondSwitched
-    leafs["transmit-bytes-per-second-switched"] = baseCounterStatistics.TransmitBytesPerSecondSwitched
-    return leafs
-}
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetYangName() string { return "base-counter-statistics" }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) SetParent(parent types.Entity) { baseCounterStatistics.parent = parent }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetParent() types.Entity { return baseCounterStatistics.parent }
-
-func (baseCounterStatistics *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetParentYangName() string { return "tunnel" }
 
 // TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
 // Counter History
 type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event Start timestamp. The type is interface{} with range:
@@ -1940,64 +1023,30 @@ type TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCou
     IsValid interface{}
 }
 
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetFilter() yfilter.YFilter { return countHistory.YFilter }
+func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetEntityData() *types.CommonEntityData {
+    countHistory.EntityData.YFilter = countHistory.YFilter
+    countHistory.EntityData.YangName = "count-history"
+    countHistory.EntityData.BundleName = "cisco_ios_xr"
+    countHistory.EntityData.ParentYangName = "base-counter-statistics"
+    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) SetFilter(yf yfilter.YFilter) { countHistory.YFilter = yf }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetGoName(yname string) string {
-    if yname == "event-start-timestamp" { return "EventStartTimestamp" }
-    if yname == "event-end-timestamp" { return "EventEndTimestamp" }
-    if yname == "transmit-number-of-packets-switched" { return "TransmitNumberOfPacketsSwitched" }
-    if yname == "transmit-number-of-bytes-switched" { return "TransmitNumberOfBytesSwitched" }
-    if yname == "is-valid" { return "IsValid" }
-    return ""
+    countHistory.EntityData.Children = make(map[string]types.YChild)
+    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
+    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
+    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
+    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
+    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    return &(countHistory.EntityData)
 }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetSegmentPath() string {
-    return "count-history"
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-start-timestamp"] = countHistory.EventStartTimestamp
-    leafs["event-end-timestamp"] = countHistory.EventEndTimestamp
-    leafs["transmit-number-of-packets-switched"] = countHistory.TransmitNumberOfPacketsSwitched
-    leafs["transmit-number-of-bytes-switched"] = countHistory.TransmitNumberOfBytesSwitched
-    leafs["is-valid"] = countHistory.IsValid
-    return leafs
-}
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetYangName() string { return "count-history" }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) SetParent(parent types.Entity) { countHistory.parent = parent }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetParent() types.Entity { return countHistory.parent }
-
-func (countHistory *TrafficCollector_VrfTable_DefaultVrf_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetParentYangName() string { return "base-counter-statistics" }
 
 // TrafficCollector_Afs
 // Address Family specific operational data
 type TrafficCollector_Afs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Operational data for given Address Family. The type is slice of
@@ -2005,68 +1054,29 @@ type TrafficCollector_Afs struct {
     Af []TrafficCollector_Afs_Af
 }
 
-func (afs *TrafficCollector_Afs) GetFilter() yfilter.YFilter { return afs.YFilter }
+func (afs *TrafficCollector_Afs) GetEntityData() *types.CommonEntityData {
+    afs.EntityData.YFilter = afs.YFilter
+    afs.EntityData.YangName = "afs"
+    afs.EntityData.BundleName = "cisco_ios_xr"
+    afs.EntityData.ParentYangName = "traffic-collector"
+    afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    afs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    afs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (afs *TrafficCollector_Afs) SetFilter(yf yfilter.YFilter) { afs.YFilter = yf }
-
-func (afs *TrafficCollector_Afs) GetGoName(yname string) string {
-    if yname == "af" { return "Af" }
-    return ""
-}
-
-func (afs *TrafficCollector_Afs) GetSegmentPath() string {
-    return "afs"
-}
-
-func (afs *TrafficCollector_Afs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "af" {
-        for _, c := range afs.Af {
-            if afs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Afs_Af{}
-        afs.Af = append(afs.Af, child)
-        return &afs.Af[len(afs.Af)-1]
-    }
-    return nil
-}
-
-func (afs *TrafficCollector_Afs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    afs.EntityData.Children = make(map[string]types.YChild)
+    afs.EntityData.Children["af"] = types.YChild{"Af", nil}
     for i := range afs.Af {
-        children[afs.Af[i].GetSegmentPath()] = &afs.Af[i]
+        afs.EntityData.Children[types.GetSegmentPath(&afs.Af[i])] = types.YChild{"Af", &afs.Af[i]}
     }
-    return children
+    afs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(afs.EntityData)
 }
-
-func (afs *TrafficCollector_Afs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (afs *TrafficCollector_Afs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (afs *TrafficCollector_Afs) GetYangName() string { return "afs" }
-
-func (afs *TrafficCollector_Afs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (afs *TrafficCollector_Afs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (afs *TrafficCollector_Afs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (afs *TrafficCollector_Afs) SetParent(parent types.Entity) { afs.parent = parent }
-
-func (afs *TrafficCollector_Afs) GetParent() types.Entity { return afs.parent }
-
-func (afs *TrafficCollector_Afs) GetParentYangName() string { return "traffic-collector" }
 
 // TrafficCollector_Afs_Af
 // Operational data for given Address Family
 type TrafficCollector_Afs_Af struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address Family name. The type is TcOperAfName.
@@ -2076,61 +1086,27 @@ type TrafficCollector_Afs_Af struct {
     Counters TrafficCollector_Afs_Af_Counters
 }
 
-func (af *TrafficCollector_Afs_Af) GetFilter() yfilter.YFilter { return af.YFilter }
+func (af *TrafficCollector_Afs_Af) GetEntityData() *types.CommonEntityData {
+    af.EntityData.YFilter = af.YFilter
+    af.EntityData.YangName = "af"
+    af.EntityData.BundleName = "cisco_ios_xr"
+    af.EntityData.ParentYangName = "afs"
+    af.EntityData.SegmentPath = "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
+    af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (af *TrafficCollector_Afs_Af) SetFilter(yf yfilter.YFilter) { af.YFilter = yf }
-
-func (af *TrafficCollector_Afs_Af) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "counters" { return "Counters" }
-    return ""
+    af.EntityData.Children = make(map[string]types.YChild)
+    af.EntityData.Children["counters"] = types.YChild{"Counters", &af.Counters}
+    af.EntityData.Leafs = make(map[string]types.YLeaf)
+    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
+    return &(af.EntityData)
 }
-
-func (af *TrafficCollector_Afs_Af) GetSegmentPath() string {
-    return "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
-}
-
-func (af *TrafficCollector_Afs_Af) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "counters" {
-        return &af.Counters
-    }
-    return nil
-}
-
-func (af *TrafficCollector_Afs_Af) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["counters"] = &af.Counters
-    return children
-}
-
-func (af *TrafficCollector_Afs_Af) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = af.AfName
-    return leafs
-}
-
-func (af *TrafficCollector_Afs_Af) GetBundleName() string { return "cisco_ios_xr" }
-
-func (af *TrafficCollector_Afs_Af) GetYangName() string { return "af" }
-
-func (af *TrafficCollector_Afs_Af) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (af *TrafficCollector_Afs_Af) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (af *TrafficCollector_Afs_Af) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (af *TrafficCollector_Afs_Af) SetParent(parent types.Entity) { af.parent = parent }
-
-func (af *TrafficCollector_Afs_Af) GetParent() types.Entity { return af.parent }
-
-func (af *TrafficCollector_Afs_Af) GetParentYangName() string { return "afs" }
 
 // TrafficCollector_Afs_Af_Counters
 // Show Counters
 type TrafficCollector_Afs_Af_Counters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Prefix Database.
@@ -2140,64 +1116,27 @@ type TrafficCollector_Afs_Af_Counters struct {
     Tunnels TrafficCollector_Afs_Af_Counters_Tunnels
 }
 
-func (counters *TrafficCollector_Afs_Af_Counters) GetFilter() yfilter.YFilter { return counters.YFilter }
+func (counters *TrafficCollector_Afs_Af_Counters) GetEntityData() *types.CommonEntityData {
+    counters.EntityData.YFilter = counters.YFilter
+    counters.EntityData.YangName = "counters"
+    counters.EntityData.BundleName = "cisco_ios_xr"
+    counters.EntityData.ParentYangName = "af"
+    counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (counters *TrafficCollector_Afs_Af_Counters) SetFilter(yf yfilter.YFilter) { counters.YFilter = yf }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetGoName(yname string) string {
-    if yname == "prefixes" { return "Prefixes" }
-    if yname == "tunnels" { return "Tunnels" }
-    return ""
+    counters.EntityData.Children = make(map[string]types.YChild)
+    counters.EntityData.Children["prefixes"] = types.YChild{"Prefixes", &counters.Prefixes}
+    counters.EntityData.Children["tunnels"] = types.YChild{"Tunnels", &counters.Tunnels}
+    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(counters.EntityData)
 }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetSegmentPath() string {
-    return "counters"
-}
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefixes" {
-        return &counters.Prefixes
-    }
-    if childYangName == "tunnels" {
-        return &counters.Tunnels
-    }
-    return nil
-}
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["prefixes"] = &counters.Prefixes
-    children["tunnels"] = &counters.Tunnels
-    return children
-}
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetYangName() string { return "counters" }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (counters *TrafficCollector_Afs_Af_Counters) SetParent(parent types.Entity) { counters.parent = parent }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetParent() types.Entity { return counters.parent }
-
-func (counters *TrafficCollector_Afs_Af_Counters) GetParentYangName() string { return "af" }
 
 // TrafficCollector_Afs_Af_Counters_Prefixes
 // Prefix Database
 type TrafficCollector_Afs_Af_Counters_Prefixes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Show Prefix Counter. The type is slice of
@@ -2205,74 +1144,37 @@ type TrafficCollector_Afs_Af_Counters_Prefixes struct {
     Prefix []TrafficCollector_Afs_Af_Counters_Prefixes_Prefix
 }
 
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetFilter() yfilter.YFilter { return prefixes.YFilter }
+func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetEntityData() *types.CommonEntityData {
+    prefixes.EntityData.YFilter = prefixes.YFilter
+    prefixes.EntityData.YangName = "prefixes"
+    prefixes.EntityData.BundleName = "cisco_ios_xr"
+    prefixes.EntityData.ParentYangName = "counters"
+    prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) SetFilter(yf yfilter.YFilter) { prefixes.YFilter = yf }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    return ""
-}
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetSegmentPath() string {
-    return "prefixes"
-}
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prefix" {
-        for _, c := range prefixes.Prefix {
-            if prefixes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Afs_Af_Counters_Prefixes_Prefix{}
-        prefixes.Prefix = append(prefixes.Prefix, child)
-        return &prefixes.Prefix[len(prefixes.Prefix)-1]
-    }
-    return nil
-}
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    prefixes.EntityData.Children = make(map[string]types.YChild)
+    prefixes.EntityData.Children["prefix"] = types.YChild{"Prefix", nil}
     for i := range prefixes.Prefix {
-        children[prefixes.Prefix[i].GetSegmentPath()] = &prefixes.Prefix[i]
+        prefixes.EntityData.Children[types.GetSegmentPath(&prefixes.Prefix[i])] = types.YChild{"Prefix", &prefixes.Prefix[i]}
     }
-    return children
+    prefixes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(prefixes.EntityData)
 }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetYangName() string { return "prefixes" }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) SetParent(parent types.Entity) { prefixes.parent = parent }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetParent() types.Entity { return prefixes.parent }
-
-func (prefixes *TrafficCollector_Afs_Af_Counters_Prefixes) GetParentYangName() string { return "counters" }
 
 // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix
 // Show Prefix Counter
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // IP Address. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IP Address. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Ipaddr interface{}
 
-    // Prefix Mask. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Prefix Mask. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Mask interface{}
 
     // Local Label. The type is interface{} with range: 16..1048575.
@@ -2294,76 +1196,33 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix struct {
     TrafficMatrixCounterStatistics TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics
 }
 
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetFilter() yfilter.YFilter { return prefix.YFilter }
+func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetEntityData() *types.CommonEntityData {
+    prefix.EntityData.YFilter = prefix.YFilter
+    prefix.EntityData.YangName = "prefix"
+    prefix.EntityData.BundleName = "cisco_ios_xr"
+    prefix.EntityData.ParentYangName = "prefixes"
+    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) SetFilter(yf yfilter.YFilter) { prefix.YFilter = yf }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetGoName(yname string) string {
-    if yname == "ipaddr" { return "Ipaddr" }
-    if yname == "mask" { return "Mask" }
-    if yname == "label" { return "Label" }
-    if yname == "prefix" { return "Prefix" }
-    if yname == "label-xr" { return "LabelXr" }
-    if yname == "is-active" { return "IsActive" }
-    if yname == "base-counter-statistics" { return "BaseCounterStatistics" }
-    if yname == "traffic-matrix-counter-statistics" { return "TrafficMatrixCounterStatistics" }
-    return ""
+    prefix.EntityData.Children = make(map[string]types.YChild)
+    prefix.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &prefix.BaseCounterStatistics}
+    prefix.EntityData.Children["traffic-matrix-counter-statistics"] = types.YChild{"TrafficMatrixCounterStatistics", &prefix.TrafficMatrixCounterStatistics}
+    prefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    prefix.EntityData.Leafs["ipaddr"] = types.YLeaf{"Ipaddr", prefix.Ipaddr}
+    prefix.EntityData.Leafs["mask"] = types.YLeaf{"Mask", prefix.Mask}
+    prefix.EntityData.Leafs["label"] = types.YLeaf{"Label", prefix.Label}
+    prefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", prefix.Prefix}
+    prefix.EntityData.Leafs["label-xr"] = types.YLeaf{"LabelXr", prefix.LabelXr}
+    prefix.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", prefix.IsActive}
+    return &(prefix.EntityData)
 }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetSegmentPath() string {
-    return "prefix"
-}
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base-counter-statistics" {
-        return &prefix.BaseCounterStatistics
-    }
-    if childYangName == "traffic-matrix-counter-statistics" {
-        return &prefix.TrafficMatrixCounterStatistics
-    }
-    return nil
-}
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["base-counter-statistics"] = &prefix.BaseCounterStatistics
-    children["traffic-matrix-counter-statistics"] = &prefix.TrafficMatrixCounterStatistics
-    return children
-}
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipaddr"] = prefix.Ipaddr
-    leafs["mask"] = prefix.Mask
-    leafs["label"] = prefix.Label
-    leafs["prefix"] = prefix.Prefix
-    leafs["label-xr"] = prefix.LabelXr
-    leafs["is-active"] = prefix.IsActive
-    return leafs
-}
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetYangName() string { return "prefix" }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) SetParent(parent types.Entity) { prefix.parent = parent }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetParent() types.Entity { return prefix.parent }
-
-func (prefix *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix) GetParentYangName() string { return "prefixes" }
 
 // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics
 // Base counter statistics
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Average Rate of Packets/second switched. The type is interface{} with
@@ -2379,72 +1238,31 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics stru
     CountHistory []TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
 }
 
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetFilter() yfilter.YFilter { return baseCounterStatistics.YFilter }
+func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
+    baseCounterStatistics.EntityData.YFilter = baseCounterStatistics.YFilter
+    baseCounterStatistics.EntityData.YangName = "base-counter-statistics"
+    baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
+    baseCounterStatistics.EntityData.ParentYangName = "prefix"
+    baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) SetFilter(yf yfilter.YFilter) { baseCounterStatistics.YFilter = yf }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetGoName(yname string) string {
-    if yname == "transmit-packets-per-second-switched" { return "TransmitPacketsPerSecondSwitched" }
-    if yname == "transmit-bytes-per-second-switched" { return "TransmitBytesPerSecondSwitched" }
-    if yname == "count-history" { return "CountHistory" }
-    return ""
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetSegmentPath() string {
-    return "base-counter-statistics"
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "count-history" {
-        for _, c := range baseCounterStatistics.CountHistory {
-            if baseCounterStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory{}
-        baseCounterStatistics.CountHistory = append(baseCounterStatistics.CountHistory, child)
-        return &baseCounterStatistics.CountHistory[len(baseCounterStatistics.CountHistory)-1]
-    }
-    return nil
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
+    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
     for i := range baseCounterStatistics.CountHistory {
-        children[baseCounterStatistics.CountHistory[i].GetSegmentPath()] = &baseCounterStatistics.CountHistory[i]
+        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
     }
-    return children
+    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    return &(baseCounterStatistics.EntityData)
 }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-packets-per-second-switched"] = baseCounterStatistics.TransmitPacketsPerSecondSwitched
-    leafs["transmit-bytes-per-second-switched"] = baseCounterStatistics.TransmitBytesPerSecondSwitched
-    return leafs
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetYangName() string { return "base-counter-statistics" }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) SetParent(parent types.Entity) { baseCounterStatistics.parent = parent }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetParent() types.Entity { return baseCounterStatistics.parent }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics) GetParentYangName() string { return "prefix" }
 
 // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory
 // Counter History
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event Start timestamp. The type is interface{} with range:
@@ -2467,64 +1285,30 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_Coun
     IsValid interface{}
 }
 
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetFilter() yfilter.YFilter { return countHistory.YFilter }
+func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetEntityData() *types.CommonEntityData {
+    countHistory.EntityData.YFilter = countHistory.YFilter
+    countHistory.EntityData.YangName = "count-history"
+    countHistory.EntityData.BundleName = "cisco_ios_xr"
+    countHistory.EntityData.ParentYangName = "base-counter-statistics"
+    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) SetFilter(yf yfilter.YFilter) { countHistory.YFilter = yf }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetGoName(yname string) string {
-    if yname == "event-start-timestamp" { return "EventStartTimestamp" }
-    if yname == "event-end-timestamp" { return "EventEndTimestamp" }
-    if yname == "transmit-number-of-packets-switched" { return "TransmitNumberOfPacketsSwitched" }
-    if yname == "transmit-number-of-bytes-switched" { return "TransmitNumberOfBytesSwitched" }
-    if yname == "is-valid" { return "IsValid" }
-    return ""
+    countHistory.EntityData.Children = make(map[string]types.YChild)
+    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
+    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
+    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
+    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
+    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    return &(countHistory.EntityData)
 }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetSegmentPath() string {
-    return "count-history"
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-start-timestamp"] = countHistory.EventStartTimestamp
-    leafs["event-end-timestamp"] = countHistory.EventEndTimestamp
-    leafs["transmit-number-of-packets-switched"] = countHistory.TransmitNumberOfPacketsSwitched
-    leafs["transmit-number-of-bytes-switched"] = countHistory.TransmitNumberOfBytesSwitched
-    leafs["is-valid"] = countHistory.IsValid
-    return leafs
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetYangName() string { return "count-history" }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) SetParent(parent types.Entity) { countHistory.parent = parent }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetParent() types.Entity { return countHistory.parent }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_BaseCounterStatistics_CountHistory) GetParentYangName() string { return "base-counter-statistics" }
 
 // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics
 // Traffic Matrix (TM) counter statistics
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Average Rate of Packets/second switched. The type is interface{} with
@@ -2540,72 +1324,31 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatis
     CountHistory []TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
 }
 
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetFilter() yfilter.YFilter { return trafficMatrixCounterStatistics.YFilter }
+func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetEntityData() *types.CommonEntityData {
+    trafficMatrixCounterStatistics.EntityData.YFilter = trafficMatrixCounterStatistics.YFilter
+    trafficMatrixCounterStatistics.EntityData.YangName = "traffic-matrix-counter-statistics"
+    trafficMatrixCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
+    trafficMatrixCounterStatistics.EntityData.ParentYangName = "prefix"
+    trafficMatrixCounterStatistics.EntityData.SegmentPath = "traffic-matrix-counter-statistics"
+    trafficMatrixCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficMatrixCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficMatrixCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) SetFilter(yf yfilter.YFilter) { trafficMatrixCounterStatistics.YFilter = yf }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetGoName(yname string) string {
-    if yname == "transmit-packets-per-second-switched" { return "TransmitPacketsPerSecondSwitched" }
-    if yname == "transmit-bytes-per-second-switched" { return "TransmitBytesPerSecondSwitched" }
-    if yname == "count-history" { return "CountHistory" }
-    return ""
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetSegmentPath() string {
-    return "traffic-matrix-counter-statistics"
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "count-history" {
-        for _, c := range trafficMatrixCounterStatistics.CountHistory {
-            if trafficMatrixCounterStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory{}
-        trafficMatrixCounterStatistics.CountHistory = append(trafficMatrixCounterStatistics.CountHistory, child)
-        return &trafficMatrixCounterStatistics.CountHistory[len(trafficMatrixCounterStatistics.CountHistory)-1]
-    }
-    return nil
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trafficMatrixCounterStatistics.EntityData.Children = make(map[string]types.YChild)
+    trafficMatrixCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
     for i := range trafficMatrixCounterStatistics.CountHistory {
-        children[trafficMatrixCounterStatistics.CountHistory[i].GetSegmentPath()] = &trafficMatrixCounterStatistics.CountHistory[i]
+        trafficMatrixCounterStatistics.EntityData.Children[types.GetSegmentPath(&trafficMatrixCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &trafficMatrixCounterStatistics.CountHistory[i]}
     }
-    return children
+    trafficMatrixCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched}
+    trafficMatrixCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched}
+    return &(trafficMatrixCounterStatistics.EntityData)
 }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-packets-per-second-switched"] = trafficMatrixCounterStatistics.TransmitPacketsPerSecondSwitched
-    leafs["transmit-bytes-per-second-switched"] = trafficMatrixCounterStatistics.TransmitBytesPerSecondSwitched
-    return leafs
-}
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetYangName() string { return "traffic-matrix-counter-statistics" }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) SetParent(parent types.Entity) { trafficMatrixCounterStatistics.parent = parent }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetParent() types.Entity { return trafficMatrixCounterStatistics.parent }
-
-func (trafficMatrixCounterStatistics *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics) GetParentYangName() string { return "prefix" }
 
 // TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory
 // Counter History
 type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event Start timestamp. The type is interface{} with range:
@@ -2628,64 +1371,30 @@ type TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatis
     IsValid interface{}
 }
 
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetFilter() yfilter.YFilter { return countHistory.YFilter }
+func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetEntityData() *types.CommonEntityData {
+    countHistory.EntityData.YFilter = countHistory.YFilter
+    countHistory.EntityData.YangName = "count-history"
+    countHistory.EntityData.BundleName = "cisco_ios_xr"
+    countHistory.EntityData.ParentYangName = "traffic-matrix-counter-statistics"
+    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) SetFilter(yf yfilter.YFilter) { countHistory.YFilter = yf }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetGoName(yname string) string {
-    if yname == "event-start-timestamp" { return "EventStartTimestamp" }
-    if yname == "event-end-timestamp" { return "EventEndTimestamp" }
-    if yname == "transmit-number-of-packets-switched" { return "TransmitNumberOfPacketsSwitched" }
-    if yname == "transmit-number-of-bytes-switched" { return "TransmitNumberOfBytesSwitched" }
-    if yname == "is-valid" { return "IsValid" }
-    return ""
+    countHistory.EntityData.Children = make(map[string]types.YChild)
+    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
+    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
+    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
+    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
+    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    return &(countHistory.EntityData)
 }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetSegmentPath() string {
-    return "count-history"
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-start-timestamp"] = countHistory.EventStartTimestamp
-    leafs["event-end-timestamp"] = countHistory.EventEndTimestamp
-    leafs["transmit-number-of-packets-switched"] = countHistory.TransmitNumberOfPacketsSwitched
-    leafs["transmit-number-of-bytes-switched"] = countHistory.TransmitNumberOfBytesSwitched
-    leafs["is-valid"] = countHistory.IsValid
-    return leafs
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetYangName() string { return "count-history" }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) SetParent(parent types.Entity) { countHistory.parent = parent }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetParent() types.Entity { return countHistory.parent }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Prefixes_Prefix_TrafficMatrixCounterStatistics_CountHistory) GetParentYangName() string { return "traffic-matrix-counter-statistics" }
 
 // TrafficCollector_Afs_Af_Counters_Tunnels
 // Tunnels
 type TrafficCollector_Afs_Af_Counters_Tunnels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel information. The type is slice of
@@ -2693,72 +1402,33 @@ type TrafficCollector_Afs_Af_Counters_Tunnels struct {
     Tunnel []TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel
 }
 
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetFilter() yfilter.YFilter { return tunnels.YFilter }
+func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetEntityData() *types.CommonEntityData {
+    tunnels.EntityData.YFilter = tunnels.YFilter
+    tunnels.EntityData.YangName = "tunnels"
+    tunnels.EntityData.BundleName = "cisco_ios_xr"
+    tunnels.EntityData.ParentYangName = "counters"
+    tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) SetFilter(yf yfilter.YFilter) { tunnels.YFilter = yf }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetGoName(yname string) string {
-    if yname == "tunnel" { return "Tunnel" }
-    return ""
-}
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetSegmentPath() string {
-    return "tunnels"
-}
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel" {
-        for _, c := range tunnels.Tunnel {
-            if tunnels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel{}
-        tunnels.Tunnel = append(tunnels.Tunnel, child)
-        return &tunnels.Tunnel[len(tunnels.Tunnel)-1]
-    }
-    return nil
-}
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnels.EntityData.Children = make(map[string]types.YChild)
+    tunnels.EntityData.Children["tunnel"] = types.YChild{"Tunnel", nil}
     for i := range tunnels.Tunnel {
-        children[tunnels.Tunnel[i].GetSegmentPath()] = &tunnels.Tunnel[i]
+        tunnels.EntityData.Children[types.GetSegmentPath(&tunnels.Tunnel[i])] = types.YChild{"Tunnel", &tunnels.Tunnel[i]}
     }
-    return children
+    tunnels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnels.EntityData)
 }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetYangName() string { return "tunnels" }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) SetParent(parent types.Entity) { tunnels.parent = parent }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetParent() types.Entity { return tunnels.parent }
-
-func (tunnels *TrafficCollector_Afs_Af_Counters_Tunnels) GetParentYangName() string { return "counters" }
 
 // TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel
 // Tunnel information
 type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Interface Name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Interface name in Display format. The type is string.
@@ -2777,69 +1447,31 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel struct {
     BaseCounterStatistics TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics
 }
 
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetFilter() yfilter.YFilter { return tunnel.YFilter }
+func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+    tunnel.EntityData.YFilter = tunnel.YFilter
+    tunnel.EntityData.YangName = "tunnel"
+    tunnel.EntityData.BundleName = "cisco_ios_xr"
+    tunnel.EntityData.ParentYangName = "tunnels"
+    tunnel.EntityData.SegmentPath = "tunnel" + "[interface-name='" + fmt.Sprintf("%v", tunnel.InterfaceName) + "']"
+    tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) SetFilter(yf yfilter.YFilter) { tunnel.YFilter = yf }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "vrfid" { return "Vrfid" }
-    if yname == "is-active" { return "IsActive" }
-    if yname == "base-counter-statistics" { return "BaseCounterStatistics" }
-    return ""
+    tunnel.EntityData.Children = make(map[string]types.YChild)
+    tunnel.EntityData.Children["base-counter-statistics"] = types.YChild{"BaseCounterStatistics", &tunnel.BaseCounterStatistics}
+    tunnel.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnel.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", tunnel.InterfaceName}
+    tunnel.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", tunnel.InterfaceNameXr}
+    tunnel.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", tunnel.InterfaceHandle}
+    tunnel.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", tunnel.Vrfid}
+    tunnel.EntityData.Leafs["is-active"] = types.YLeaf{"IsActive", tunnel.IsActive}
+    return &(tunnel.EntityData)
 }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetSegmentPath() string {
-    return "tunnel" + "[interface-name='" + fmt.Sprintf("%v", tunnel.InterfaceName) + "']"
-}
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base-counter-statistics" {
-        return &tunnel.BaseCounterStatistics
-    }
-    return nil
-}
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["base-counter-statistics"] = &tunnel.BaseCounterStatistics
-    return children
-}
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = tunnel.InterfaceName
-    leafs["interface-name-xr"] = tunnel.InterfaceNameXr
-    leafs["interface-handle"] = tunnel.InterfaceHandle
-    leafs["vrfid"] = tunnel.Vrfid
-    leafs["is-active"] = tunnel.IsActive
-    return leafs
-}
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetYangName() string { return "tunnel" }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) SetParent(parent types.Entity) { tunnel.parent = parent }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetParent() types.Entity { return tunnel.parent }
-
-func (tunnel *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel) GetParentYangName() string { return "tunnels" }
 
 // TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics
 // Base counter statistics
 type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Average Rate of Packets/second switched. The type is interface{} with
@@ -2855,72 +1487,31 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics struc
     CountHistory []TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
 }
 
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetFilter() yfilter.YFilter { return baseCounterStatistics.YFilter }
+func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetEntityData() *types.CommonEntityData {
+    baseCounterStatistics.EntityData.YFilter = baseCounterStatistics.YFilter
+    baseCounterStatistics.EntityData.YangName = "base-counter-statistics"
+    baseCounterStatistics.EntityData.BundleName = "cisco_ios_xr"
+    baseCounterStatistics.EntityData.ParentYangName = "tunnel"
+    baseCounterStatistics.EntityData.SegmentPath = "base-counter-statistics"
+    baseCounterStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseCounterStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseCounterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) SetFilter(yf yfilter.YFilter) { baseCounterStatistics.YFilter = yf }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetGoName(yname string) string {
-    if yname == "transmit-packets-per-second-switched" { return "TransmitPacketsPerSecondSwitched" }
-    if yname == "transmit-bytes-per-second-switched" { return "TransmitBytesPerSecondSwitched" }
-    if yname == "count-history" { return "CountHistory" }
-    return ""
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetSegmentPath() string {
-    return "base-counter-statistics"
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "count-history" {
-        for _, c := range baseCounterStatistics.CountHistory {
-            if baseCounterStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory{}
-        baseCounterStatistics.CountHistory = append(baseCounterStatistics.CountHistory, child)
-        return &baseCounterStatistics.CountHistory[len(baseCounterStatistics.CountHistory)-1]
-    }
-    return nil
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    baseCounterStatistics.EntityData.Children = make(map[string]types.YChild)
+    baseCounterStatistics.EntityData.Children["count-history"] = types.YChild{"CountHistory", nil}
     for i := range baseCounterStatistics.CountHistory {
-        children[baseCounterStatistics.CountHistory[i].GetSegmentPath()] = &baseCounterStatistics.CountHistory[i]
+        baseCounterStatistics.EntityData.Children[types.GetSegmentPath(&baseCounterStatistics.CountHistory[i])] = types.YChild{"CountHistory", &baseCounterStatistics.CountHistory[i]}
     }
-    return children
+    baseCounterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    baseCounterStatistics.EntityData.Leafs["transmit-packets-per-second-switched"] = types.YLeaf{"TransmitPacketsPerSecondSwitched", baseCounterStatistics.TransmitPacketsPerSecondSwitched}
+    baseCounterStatistics.EntityData.Leafs["transmit-bytes-per-second-switched"] = types.YLeaf{"TransmitBytesPerSecondSwitched", baseCounterStatistics.TransmitBytesPerSecondSwitched}
+    return &(baseCounterStatistics.EntityData)
 }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transmit-packets-per-second-switched"] = baseCounterStatistics.TransmitPacketsPerSecondSwitched
-    leafs["transmit-bytes-per-second-switched"] = baseCounterStatistics.TransmitBytesPerSecondSwitched
-    return leafs
-}
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetYangName() string { return "base-counter-statistics" }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) SetParent(parent types.Entity) { baseCounterStatistics.parent = parent }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetParent() types.Entity { return baseCounterStatistics.parent }
-
-func (baseCounterStatistics *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics) GetParentYangName() string { return "tunnel" }
 
 // TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory
 // Counter History
 type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event Start timestamp. The type is interface{} with range:
@@ -2943,57 +1534,23 @@ type TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_Count
     IsValid interface{}
 }
 
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetFilter() yfilter.YFilter { return countHistory.YFilter }
+func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetEntityData() *types.CommonEntityData {
+    countHistory.EntityData.YFilter = countHistory.YFilter
+    countHistory.EntityData.YangName = "count-history"
+    countHistory.EntityData.BundleName = "cisco_ios_xr"
+    countHistory.EntityData.ParentYangName = "base-counter-statistics"
+    countHistory.EntityData.SegmentPath = "count-history"
+    countHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    countHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    countHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) SetFilter(yf yfilter.YFilter) { countHistory.YFilter = yf }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetGoName(yname string) string {
-    if yname == "event-start-timestamp" { return "EventStartTimestamp" }
-    if yname == "event-end-timestamp" { return "EventEndTimestamp" }
-    if yname == "transmit-number-of-packets-switched" { return "TransmitNumberOfPacketsSwitched" }
-    if yname == "transmit-number-of-bytes-switched" { return "TransmitNumberOfBytesSwitched" }
-    if yname == "is-valid" { return "IsValid" }
-    return ""
+    countHistory.EntityData.Children = make(map[string]types.YChild)
+    countHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    countHistory.EntityData.Leafs["event-start-timestamp"] = types.YLeaf{"EventStartTimestamp", countHistory.EventStartTimestamp}
+    countHistory.EntityData.Leafs["event-end-timestamp"] = types.YLeaf{"EventEndTimestamp", countHistory.EventEndTimestamp}
+    countHistory.EntityData.Leafs["transmit-number-of-packets-switched"] = types.YLeaf{"TransmitNumberOfPacketsSwitched", countHistory.TransmitNumberOfPacketsSwitched}
+    countHistory.EntityData.Leafs["transmit-number-of-bytes-switched"] = types.YLeaf{"TransmitNumberOfBytesSwitched", countHistory.TransmitNumberOfBytesSwitched}
+    countHistory.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", countHistory.IsValid}
+    return &(countHistory.EntityData)
 }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetSegmentPath() string {
-    return "count-history"
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["event-start-timestamp"] = countHistory.EventStartTimestamp
-    leafs["event-end-timestamp"] = countHistory.EventEndTimestamp
-    leafs["transmit-number-of-packets-switched"] = countHistory.TransmitNumberOfPacketsSwitched
-    leafs["transmit-number-of-bytes-switched"] = countHistory.TransmitNumberOfBytesSwitched
-    leafs["is-valid"] = countHistory.IsValid
-    return leafs
-}
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetYangName() string { return "count-history" }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) SetParent(parent types.Entity) { countHistory.parent = parent }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetParent() types.Entity { return countHistory.parent }
-
-func (countHistory *TrafficCollector_Afs_Af_Counters_Tunnels_Tunnel_BaseCounterStatistics_CountHistory) GetParentYangName() string { return "base-counter-statistics" }
 

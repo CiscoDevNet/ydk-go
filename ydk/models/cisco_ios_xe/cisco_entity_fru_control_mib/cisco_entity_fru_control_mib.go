@@ -23,26 +23,23 @@ func init() {
     ydk.RegisterEntity("CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB", reflect.TypeOf(CISCOENTITYFRUCONTROLMIB{}))
 }
 
-// ModuleAdminType represents                        service, set by CLI.
-type ModuleAdminType string
+// PowerRedundancyType represents     support power redundancy with single input.
+type PowerRedundancyType string
 
 const (
-    ModuleAdminType_enabled ModuleAdminType = "enabled"
+    PowerRedundancyType_notsupported PowerRedundancyType = "notsupported"
 
-    ModuleAdminType_disabled ModuleAdminType = "disabled"
+    PowerRedundancyType_redundant PowerRedundancyType = "redundant"
 
-    ModuleAdminType_reset ModuleAdminType = "reset"
+    PowerRedundancyType_combined PowerRedundancyType = "combined"
 
-    ModuleAdminType_outOfServiceAdmin ModuleAdminType = "outOfServiceAdmin"
-)
+    PowerRedundancyType_nonRedundant PowerRedundancyType = "nonRedundant"
 
-// FRUCoolingUnit represents watts(2)  Watts
-type FRUCoolingUnit string
+    PowerRedundancyType_psRedundant PowerRedundancyType = "psRedundant"
 
-const (
-    FRUCoolingUnit_cfm FRUCoolingUnit = "cfm"
+    PowerRedundancyType_inPwrSrcRedundant PowerRedundancyType = "inPwrSrcRedundant"
 
-    FRUCoolingUnit_watts FRUCoolingUnit = "watts"
+    PowerRedundancyType_psRedundantSingleInput PowerRedundancyType = "psRedundantSingleInput"
 )
 
 // PowerAdminType represents in response to a management protocol retrieval operation.
@@ -58,6 +55,48 @@ const (
     PowerAdminType_inlineOn PowerAdminType = "inlineOn"
 
     PowerAdminType_powerCycle PowerAdminType = "powerCycle"
+)
+
+// PowerOperType represents                           FRU has failed.
+type PowerOperType string
+
+const (
+    PowerOperType_offEnvOther PowerOperType = "offEnvOther"
+
+    PowerOperType_on PowerOperType = "on"
+
+    PowerOperType_offAdmin PowerOperType = "offAdmin"
+
+    PowerOperType_offDenied PowerOperType = "offDenied"
+
+    PowerOperType_offEnvPower PowerOperType = "offEnvPower"
+
+    PowerOperType_offEnvTemp PowerOperType = "offEnvTemp"
+
+    PowerOperType_offEnvFan PowerOperType = "offEnvFan"
+
+    PowerOperType_failed PowerOperType = "failed"
+
+    PowerOperType_onButFanFail PowerOperType = "onButFanFail"
+
+    PowerOperType_offCooling PowerOperType = "offCooling"
+
+    PowerOperType_offConnectorRating PowerOperType = "offConnectorRating"
+
+    PowerOperType_onButInlinePowerFail PowerOperType = "onButInlinePowerFail"
+)
+
+// ModuleAdminType represents                        service, set by CLI.
+type ModuleAdminType string
+
+const (
+    ModuleAdminType_enabled ModuleAdminType = "enabled"
+
+    ModuleAdminType_disabled ModuleAdminType = "disabled"
+
+    ModuleAdminType_reset ModuleAdminType = "reset"
+
+    ModuleAdminType_outOfServiceAdmin ModuleAdminType = "outOfServiceAdmin"
 )
 
 // ModuleOperType represents fwDownloadFailure(27) Module firmware download failed.
@@ -170,57 +209,18 @@ const (
     ModuleResetReasonType_memoryProtectionErrorReset ModuleResetReasonType = "memoryProtectionErrorReset"
 )
 
-// PowerRedundancyType represents     support power redundancy with single input.
-type PowerRedundancyType string
+// FRUCoolingUnit represents watts(2)  Watts
+type FRUCoolingUnit string
 
 const (
-    PowerRedundancyType_notsupported PowerRedundancyType = "notsupported"
+    FRUCoolingUnit_cfm FRUCoolingUnit = "cfm"
 
-    PowerRedundancyType_redundant PowerRedundancyType = "redundant"
-
-    PowerRedundancyType_combined PowerRedundancyType = "combined"
-
-    PowerRedundancyType_nonRedundant PowerRedundancyType = "nonRedundant"
-
-    PowerRedundancyType_psRedundant PowerRedundancyType = "psRedundant"
-
-    PowerRedundancyType_inPwrSrcRedundant PowerRedundancyType = "inPwrSrcRedundant"
-
-    PowerRedundancyType_psRedundantSingleInput PowerRedundancyType = "psRedundantSingleInput"
-)
-
-// PowerOperType represents                           FRU has failed.
-type PowerOperType string
-
-const (
-    PowerOperType_offEnvOther PowerOperType = "offEnvOther"
-
-    PowerOperType_on PowerOperType = "on"
-
-    PowerOperType_offAdmin PowerOperType = "offAdmin"
-
-    PowerOperType_offDenied PowerOperType = "offDenied"
-
-    PowerOperType_offEnvPower PowerOperType = "offEnvPower"
-
-    PowerOperType_offEnvTemp PowerOperType = "offEnvTemp"
-
-    PowerOperType_offEnvFan PowerOperType = "offEnvFan"
-
-    PowerOperType_failed PowerOperType = "failed"
-
-    PowerOperType_onButFanFail PowerOperType = "onButFanFail"
-
-    PowerOperType_offCooling PowerOperType = "offCooling"
-
-    PowerOperType_offConnectorRating PowerOperType = "offConnectorRating"
-
-    PowerOperType_onButInlinePowerFail PowerOperType = "onButInlinePowerFail"
+    FRUCoolingUnit_watts FRUCoolingUnit = "watts"
 )
 
 // CISCOENTITYFRUCONTROLMIB
 type CISCOENTITYFRUCONTROLMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -320,143 +320,42 @@ type CISCOENTITYFRUCONTROLMIB struct {
     Cefcmodulepowerconsumptiontable CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable
 }
 
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetFilter() yfilter.YFilter { return cISCOENTITYFRUCONTROLMIB.YFilter }
+func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetEntityData() *types.CommonEntityData {
+    cISCOENTITYFRUCONTROLMIB.EntityData.YFilter = cISCOENTITYFRUCONTROLMIB.YFilter
+    cISCOENTITYFRUCONTROLMIB.EntityData.YangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cISCOENTITYFRUCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOENTITYFRUCONTROLMIB.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cISCOENTITYFRUCONTROLMIB.EntityData.SegmentPath = "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB"
+    cISCOENTITYFRUCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOENTITYFRUCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOENTITYFRUCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) SetFilter(yf yfilter.YFilter) { cISCOENTITYFRUCONTROLMIB.YFilter = yf }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetGoName(yname string) string {
-    if yname == "cefcFRUPower" { return "Cefcfrupower" }
-    if yname == "cefcMIBNotificationEnables" { return "Cefcmibnotificationenables" }
-    if yname == "cefcFRUPowerSupplyGroupTable" { return "Cefcfrupowersupplygrouptable" }
-    if yname == "cefcFRUPowerStatusTable" { return "Cefcfrupowerstatustable" }
-    if yname == "cefcFRUPowerSupplyValueTable" { return "Cefcfrupowersupplyvaluetable" }
-    if yname == "cefcModuleTable" { return "Cefcmoduletable" }
-    if yname == "cefcIntelliModuleTable" { return "Cefcintellimoduletable" }
-    if yname == "cefcModuleLocalSwitchingTable" { return "Cefcmodulelocalswitchingtable" }
-    if yname == "cefcFanTrayStatusTable" { return "Cefcfantraystatustable" }
-    if yname == "cefcPhysicalTable" { return "Cefcphysicaltable" }
-    if yname == "cefcPowerSupplyInputTable" { return "Cefcpowersupplyinputtable" }
-    if yname == "cefcPowerSupplyOutputTable" { return "Cefcpowersupplyoutputtable" }
-    if yname == "cefcChassisCoolingTable" { return "Cefcchassiscoolingtable" }
-    if yname == "cefcFanCoolingTable" { return "Cefcfancoolingtable" }
-    if yname == "cefcModuleCoolingTable" { return "Cefcmodulecoolingtable" }
-    if yname == "cefcFanCoolingCapTable" { return "Cefcfancoolingcaptable" }
-    if yname == "cefcConnectorRatingTable" { return "Cefcconnectorratingtable" }
-    if yname == "cefcModulePowerConsumptionTable" { return "Cefcmodulepowerconsumptiontable" }
-    return ""
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFRUPower"] = types.YChild{"Cefcfrupower", &cISCOENTITYFRUCONTROLMIB.Cefcfrupower}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcMIBNotificationEnables"] = types.YChild{"Cefcmibnotificationenables", &cISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFRUPowerSupplyGroupTable"] = types.YChild{"Cefcfrupowersupplygrouptable", &cISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFRUPowerStatusTable"] = types.YChild{"Cefcfrupowerstatustable", &cISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFRUPowerSupplyValueTable"] = types.YChild{"Cefcfrupowersupplyvaluetable", &cISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcModuleTable"] = types.YChild{"Cefcmoduletable", &cISCOENTITYFRUCONTROLMIB.Cefcmoduletable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcIntelliModuleTable"] = types.YChild{"Cefcintellimoduletable", &cISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcModuleLocalSwitchingTable"] = types.YChild{"Cefcmodulelocalswitchingtable", &cISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFanTrayStatusTable"] = types.YChild{"Cefcfantraystatustable", &cISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcPhysicalTable"] = types.YChild{"Cefcphysicaltable", &cISCOENTITYFRUCONTROLMIB.Cefcphysicaltable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcPowerSupplyInputTable"] = types.YChild{"Cefcpowersupplyinputtable", &cISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcPowerSupplyOutputTable"] = types.YChild{"Cefcpowersupplyoutputtable", &cISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcChassisCoolingTable"] = types.YChild{"Cefcchassiscoolingtable", &cISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFanCoolingTable"] = types.YChild{"Cefcfancoolingtable", &cISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcModuleCoolingTable"] = types.YChild{"Cefcmodulecoolingtable", &cISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcFanCoolingCapTable"] = types.YChild{"Cefcfancoolingcaptable", &cISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcConnectorRatingTable"] = types.YChild{"Cefcconnectorratingtable", &cISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Children["cefcModulePowerConsumptionTable"] = types.YChild{"Cefcmodulepowerconsumptiontable", &cISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable}
+    cISCOENTITYFRUCONTROLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOENTITYFRUCONTROLMIB.EntityData)
 }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetSegmentPath() string {
-    return "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB"
-}
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFRUPower" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfrupower
-    }
-    if childYangName == "cefcMIBNotificationEnables" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables
-    }
-    if childYangName == "cefcFRUPowerSupplyGroupTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable
-    }
-    if childYangName == "cefcFRUPowerStatusTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable
-    }
-    if childYangName == "cefcFRUPowerSupplyValueTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable
-    }
-    if childYangName == "cefcModuleTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcmoduletable
-    }
-    if childYangName == "cefcIntelliModuleTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable
-    }
-    if childYangName == "cefcModuleLocalSwitchingTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable
-    }
-    if childYangName == "cefcFanTrayStatusTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable
-    }
-    if childYangName == "cefcPhysicalTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcphysicaltable
-    }
-    if childYangName == "cefcPowerSupplyInputTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable
-    }
-    if childYangName == "cefcPowerSupplyOutputTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable
-    }
-    if childYangName == "cefcChassisCoolingTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable
-    }
-    if childYangName == "cefcFanCoolingTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable
-    }
-    if childYangName == "cefcModuleCoolingTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable
-    }
-    if childYangName == "cefcFanCoolingCapTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable
-    }
-    if childYangName == "cefcConnectorRatingTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable
-    }
-    if childYangName == "cefcModulePowerConsumptionTable" {
-        return &cISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable
-    }
-    return nil
-}
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cefcFRUPower"] = &cISCOENTITYFRUCONTROLMIB.Cefcfrupower
-    children["cefcMIBNotificationEnables"] = &cISCOENTITYFRUCONTROLMIB.Cefcmibnotificationenables
-    children["cefcFRUPowerSupplyGroupTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplygrouptable
-    children["cefcFRUPowerStatusTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcfrupowerstatustable
-    children["cefcFRUPowerSupplyValueTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcfrupowersupplyvaluetable
-    children["cefcModuleTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcmoduletable
-    children["cefcIntelliModuleTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcintellimoduletable
-    children["cefcModuleLocalSwitchingTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcmodulelocalswitchingtable
-    children["cefcFanTrayStatusTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcfantraystatustable
-    children["cefcPhysicalTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcphysicaltable
-    children["cefcPowerSupplyInputTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcpowersupplyinputtable
-    children["cefcPowerSupplyOutputTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcpowersupplyoutputtable
-    children["cefcChassisCoolingTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcchassiscoolingtable
-    children["cefcFanCoolingTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcfancoolingtable
-    children["cefcModuleCoolingTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcmodulecoolingtable
-    children["cefcFanCoolingCapTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcfancoolingcaptable
-    children["cefcConnectorRatingTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcconnectorratingtable
-    children["cefcModulePowerConsumptionTable"] = &cISCOENTITYFRUCONTROLMIB.Cefcmodulepowerconsumptiontable
-    return children
-}
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) SetParent(parent types.Entity) { cISCOENTITYFRUCONTROLMIB.parent = parent }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetParent() types.Entity { return cISCOENTITYFRUCONTROLMIB.parent }
-
-func (cISCOENTITYFRUCONTROLMIB *CISCOENTITYFRUCONTROLMIB) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupower
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The system will provide power to the device connecting to the FRU if the
@@ -478,57 +377,26 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupower struct {
     Cefcmaxdefaulthighinlinepower interface{}
 }
 
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetFilter() yfilter.YFilter { return cefcfrupower.YFilter }
+func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetEntityData() *types.CommonEntityData {
+    cefcfrupower.EntityData.YFilter = cefcfrupower.YFilter
+    cefcfrupower.EntityData.YangName = "cefcFRUPower"
+    cefcfrupower.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupower.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfrupower.EntityData.SegmentPath = "cefcFRUPower"
+    cefcfrupower.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupower.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupower.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) SetFilter(yf yfilter.YFilter) { cefcfrupower.YFilter = yf }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetGoName(yname string) string {
-    if yname == "cefcMaxDefaultInLinePower" { return "Cefcmaxdefaultinlinepower" }
-    if yname == "cefcMaxDefaultHighInLinePower" { return "Cefcmaxdefaulthighinlinepower" }
-    return ""
+    cefcfrupower.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupower.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfrupower.EntityData.Leafs["cefcMaxDefaultInLinePower"] = types.YLeaf{"Cefcmaxdefaultinlinepower", cefcfrupower.Cefcmaxdefaultinlinepower}
+    cefcfrupower.EntityData.Leafs["cefcMaxDefaultHighInLinePower"] = types.YLeaf{"Cefcmaxdefaulthighinlinepower", cefcfrupower.Cefcmaxdefaulthighinlinepower}
+    return &(cefcfrupower.EntityData)
 }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetSegmentPath() string {
-    return "cefcFRUPower"
-}
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cefcMaxDefaultInLinePower"] = cefcfrupower.Cefcmaxdefaultinlinepower
-    leafs["cefcMaxDefaultHighInLinePower"] = cefcfrupower.Cefcmaxdefaulthighinlinepower
-    return leafs
-}
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetYangName() string { return "cefcFRUPower" }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) SetParent(parent types.Entity) { cefcfrupower.parent = parent }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetParent() types.Entity { return cefcfrupower.parent }
-
-func (cefcfrupower *CISCOENTITYFRUCONTROLMIB_Cefcfrupower) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables
 type CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This variable indicates whether the system produces the following
@@ -545,60 +413,29 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables struct {
     Cefcenablepsoutputchangenotif interface{}
 }
 
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetFilter() yfilter.YFilter { return cefcmibnotificationenables.YFilter }
+func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetEntityData() *types.CommonEntityData {
+    cefcmibnotificationenables.EntityData.YFilter = cefcmibnotificationenables.YFilter
+    cefcmibnotificationenables.EntityData.YangName = "cefcMIBNotificationEnables"
+    cefcmibnotificationenables.EntityData.BundleName = "cisco_ios_xe"
+    cefcmibnotificationenables.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcmibnotificationenables.EntityData.SegmentPath = "cefcMIBNotificationEnables"
+    cefcmibnotificationenables.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmibnotificationenables.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmibnotificationenables.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) SetFilter(yf yfilter.YFilter) { cefcmibnotificationenables.YFilter = yf }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetGoName(yname string) string {
-    if yname == "cefcMIBEnableStatusNotification" { return "Cefcmibenablestatusnotification" }
-    if yname == "cefcEnablePSOutputChangeNotif" { return "Cefcenablepsoutputchangenotif" }
-    return ""
+    cefcmibnotificationenables.EntityData.Children = make(map[string]types.YChild)
+    cefcmibnotificationenables.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcmibnotificationenables.EntityData.Leafs["cefcMIBEnableStatusNotification"] = types.YLeaf{"Cefcmibenablestatusnotification", cefcmibnotificationenables.Cefcmibenablestatusnotification}
+    cefcmibnotificationenables.EntityData.Leafs["cefcEnablePSOutputChangeNotif"] = types.YLeaf{"Cefcenablepsoutputchangenotif", cefcmibnotificationenables.Cefcenablepsoutputchangenotif}
+    return &(cefcmibnotificationenables.EntityData)
 }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetSegmentPath() string {
-    return "cefcMIBNotificationEnables"
-}
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cefcMIBEnableStatusNotification"] = cefcmibnotificationenables.Cefcmibenablestatusnotification
-    leafs["cefcEnablePSOutputChangeNotif"] = cefcmibnotificationenables.Cefcenablepsoutputchangenotif
-    return leafs
-}
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetYangName() string { return "cefcMIBNotificationEnables" }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) SetParent(parent types.Entity) { cefcmibnotificationenables.parent = parent }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetParent() types.Entity { return cefcmibnotificationenables.parent }
-
-func (cefcmibnotificationenables *CISCOENTITYFRUCONTROLMIB_Cefcmibnotificationenables) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable
 // This table lists the redundancy mode and the
 // operational status of the power supply groups
 // in the system.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An cefcFRUPowerSupplyGroupTable entry lists the desired redundancy mode,
@@ -610,63 +447,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable struct {
     Cefcfrupowersupplygroupentry []CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry
 }
 
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetFilter() yfilter.YFilter { return cefcfrupowersupplygrouptable.YFilter }
+func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetEntityData() *types.CommonEntityData {
+    cefcfrupowersupplygrouptable.EntityData.YFilter = cefcfrupowersupplygrouptable.YFilter
+    cefcfrupowersupplygrouptable.EntityData.YangName = "cefcFRUPowerSupplyGroupTable"
+    cefcfrupowersupplygrouptable.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupowersupplygrouptable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfrupowersupplygrouptable.EntityData.SegmentPath = "cefcFRUPowerSupplyGroupTable"
+    cefcfrupowersupplygrouptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupowersupplygrouptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupowersupplygrouptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) SetFilter(yf yfilter.YFilter) { cefcfrupowersupplygrouptable.YFilter = yf }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetGoName(yname string) string {
-    if yname == "cefcFRUPowerSupplyGroupEntry" { return "Cefcfrupowersupplygroupentry" }
-    return ""
-}
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetSegmentPath() string {
-    return "cefcFRUPowerSupplyGroupTable"
-}
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFRUPowerSupplyGroupEntry" {
-        for _, c := range cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry {
-            if cefcfrupowersupplygrouptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry{}
-        cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry = append(cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry, child)
-        return &cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry[len(cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry)-1]
-    }
-    return nil
-}
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcfrupowersupplygrouptable.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupowersupplygrouptable.EntityData.Children["cefcFRUPowerSupplyGroupEntry"] = types.YChild{"Cefcfrupowersupplygroupentry", nil}
     for i := range cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry {
-        children[cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry[i].GetSegmentPath()] = &cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry[i]
+        cefcfrupowersupplygrouptable.EntityData.Children[types.GetSegmentPath(&cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry[i])] = types.YChild{"Cefcfrupowersupplygroupentry", &cefcfrupowersupplygrouptable.Cefcfrupowersupplygroupentry[i]}
     }
-    return children
+    cefcfrupowersupplygrouptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcfrupowersupplygrouptable.EntityData)
 }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetYangName() string { return "cefcFRUPowerSupplyGroupTable" }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) SetParent(parent types.Entity) { cefcfrupowersupplygrouptable.parent = parent }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetParent() types.Entity { return cefcfrupowersupplygrouptable.parent }
-
-func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry
 // An cefcFRUPowerSupplyGroupTable entry lists the desired
@@ -677,7 +475,7 @@ func (cefcfrupowersupplygrouptable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyg
 // is added to the entPhysicalTable. Entries are deleted by 
 // the agent at power supply group removal.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -725,65 +523,28 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygro
     Cefctotaldrawninlinecurrent interface{}
 }
 
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetFilter() yfilter.YFilter { return cefcfrupowersupplygroupentry.YFilter }
+func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetEntityData() *types.CommonEntityData {
+    cefcfrupowersupplygroupentry.EntityData.YFilter = cefcfrupowersupplygroupentry.YFilter
+    cefcfrupowersupplygroupentry.EntityData.YangName = "cefcFRUPowerSupplyGroupEntry"
+    cefcfrupowersupplygroupentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupowersupplygroupentry.EntityData.ParentYangName = "cefcFRUPowerSupplyGroupTable"
+    cefcfrupowersupplygroupentry.EntityData.SegmentPath = "cefcFRUPowerSupplyGroupEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfrupowersupplygroupentry.Entphysicalindex) + "']"
+    cefcfrupowersupplygroupentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupowersupplygroupentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupowersupplygroupentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) SetFilter(yf yfilter.YFilter) { cefcfrupowersupplygroupentry.YFilter = yf }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcPowerRedundancyMode" { return "Cefcpowerredundancymode" }
-    if yname == "cefcPowerUnits" { return "Cefcpowerunits" }
-    if yname == "cefcTotalAvailableCurrent" { return "Cefctotalavailablecurrent" }
-    if yname == "cefcTotalDrawnCurrent" { return "Cefctotaldrawncurrent" }
-    if yname == "cefcPowerRedundancyOperMode" { return "Cefcpowerredundancyopermode" }
-    if yname == "cefcPowerNonRedundantReason" { return "Cefcpowernonredundantreason" }
-    if yname == "cefcTotalDrawnInlineCurrent" { return "Cefctotaldrawninlinecurrent" }
-    return ""
+    cefcfrupowersupplygroupentry.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupowersupplygroupentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfrupowersupplygroupentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcfrupowersupplygroupentry.Entphysicalindex}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcPowerRedundancyMode"] = types.YLeaf{"Cefcpowerredundancymode", cefcfrupowersupplygroupentry.Cefcpowerredundancymode}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcPowerUnits"] = types.YLeaf{"Cefcpowerunits", cefcfrupowersupplygroupentry.Cefcpowerunits}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcTotalAvailableCurrent"] = types.YLeaf{"Cefctotalavailablecurrent", cefcfrupowersupplygroupentry.Cefctotalavailablecurrent}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcTotalDrawnCurrent"] = types.YLeaf{"Cefctotaldrawncurrent", cefcfrupowersupplygroupentry.Cefctotaldrawncurrent}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcPowerRedundancyOperMode"] = types.YLeaf{"Cefcpowerredundancyopermode", cefcfrupowersupplygroupentry.Cefcpowerredundancyopermode}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcPowerNonRedundantReason"] = types.YLeaf{"Cefcpowernonredundantreason", cefcfrupowersupplygroupentry.Cefcpowernonredundantreason}
+    cefcfrupowersupplygroupentry.EntityData.Leafs["cefcTotalDrawnInlineCurrent"] = types.YLeaf{"Cefctotaldrawninlinecurrent", cefcfrupowersupplygroupentry.Cefctotaldrawninlinecurrent}
+    return &(cefcfrupowersupplygroupentry.EntityData)
 }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetSegmentPath() string {
-    return "cefcFRUPowerSupplyGroupEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfrupowersupplygroupentry.Entphysicalindex) + "']"
-}
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcfrupowersupplygroupentry.Entphysicalindex
-    leafs["cefcPowerRedundancyMode"] = cefcfrupowersupplygroupentry.Cefcpowerredundancymode
-    leafs["cefcPowerUnits"] = cefcfrupowersupplygroupentry.Cefcpowerunits
-    leafs["cefcTotalAvailableCurrent"] = cefcfrupowersupplygroupentry.Cefctotalavailablecurrent
-    leafs["cefcTotalDrawnCurrent"] = cefcfrupowersupplygroupentry.Cefctotaldrawncurrent
-    leafs["cefcPowerRedundancyOperMode"] = cefcfrupowersupplygroupentry.Cefcpowerredundancyopermode
-    leafs["cefcPowerNonRedundantReason"] = cefcfrupowersupplygroupentry.Cefcpowernonredundantreason
-    leafs["cefcTotalDrawnInlineCurrent"] = cefcfrupowersupplygroupentry.Cefctotaldrawninlinecurrent
-    return leafs
-}
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetYangName() string { return "cefcFRUPowerSupplyGroupEntry" }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) SetParent(parent types.Entity) { cefcfrupowersupplygroupentry.parent = parent }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetParent() types.Entity { return cefcfrupowersupplygroupentry.parent }
-
-func (cefcfrupowersupplygroupentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry) GetParentYangName() string { return "cefcFRUPowerSupplyGroupTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry_Cefcpowernonredundantreason represents                        does or do not working properly.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplygrouptable_Cefcfrupowersupplygroupentry_Cefcpowernonredundantreason string
@@ -805,7 +566,7 @@ const (
 // and operational status of the manageable components
 // in the system.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An cefcFRUPowerStatusTable entry lists the desired administrative status,
@@ -818,63 +579,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable struct {
     Cefcfrupowerstatusentry []CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry
 }
 
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetFilter() yfilter.YFilter { return cefcfrupowerstatustable.YFilter }
+func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetEntityData() *types.CommonEntityData {
+    cefcfrupowerstatustable.EntityData.YFilter = cefcfrupowerstatustable.YFilter
+    cefcfrupowerstatustable.EntityData.YangName = "cefcFRUPowerStatusTable"
+    cefcfrupowerstatustable.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupowerstatustable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfrupowerstatustable.EntityData.SegmentPath = "cefcFRUPowerStatusTable"
+    cefcfrupowerstatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupowerstatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupowerstatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) SetFilter(yf yfilter.YFilter) { cefcfrupowerstatustable.YFilter = yf }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetGoName(yname string) string {
-    if yname == "cefcFRUPowerStatusEntry" { return "Cefcfrupowerstatusentry" }
-    return ""
-}
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetSegmentPath() string {
-    return "cefcFRUPowerStatusTable"
-}
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFRUPowerStatusEntry" {
-        for _, c := range cefcfrupowerstatustable.Cefcfrupowerstatusentry {
-            if cefcfrupowerstatustable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry{}
-        cefcfrupowerstatustable.Cefcfrupowerstatusentry = append(cefcfrupowerstatustable.Cefcfrupowerstatusentry, child)
-        return &cefcfrupowerstatustable.Cefcfrupowerstatusentry[len(cefcfrupowerstatustable.Cefcfrupowerstatusentry)-1]
-    }
-    return nil
-}
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcfrupowerstatustable.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupowerstatustable.EntityData.Children["cefcFRUPowerStatusEntry"] = types.YChild{"Cefcfrupowerstatusentry", nil}
     for i := range cefcfrupowerstatustable.Cefcfrupowerstatusentry {
-        children[cefcfrupowerstatustable.Cefcfrupowerstatusentry[i].GetSegmentPath()] = &cefcfrupowerstatustable.Cefcfrupowerstatusentry[i]
+        cefcfrupowerstatustable.EntityData.Children[types.GetSegmentPath(&cefcfrupowerstatustable.Cefcfrupowerstatusentry[i])] = types.YChild{"Cefcfrupowerstatusentry", &cefcfrupowerstatustable.Cefcfrupowerstatusentry[i]}
     }
-    return children
+    cefcfrupowerstatustable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcfrupowerstatustable.EntityData)
 }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetYangName() string { return "cefcFRUPowerStatusTable" }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) SetParent(parent types.Entity) { cefcfrupowerstatustable.parent = parent }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetParent() types.Entity { return cefcfrupowerstatustable.parent }
-
-func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry
 // An cefcFRUPowerStatusTable entry lists the desired
@@ -889,7 +611,7 @@ func (cefcfrupowerstatustable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable)
 // Only components with power control are listed in the 
 // table.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -920,61 +642,26 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry st
     Cefcfrurealtimecurrent interface{}
 }
 
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetFilter() yfilter.YFilter { return cefcfrupowerstatusentry.YFilter }
+func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetEntityData() *types.CommonEntityData {
+    cefcfrupowerstatusentry.EntityData.YFilter = cefcfrupowerstatusentry.YFilter
+    cefcfrupowerstatusentry.EntityData.YangName = "cefcFRUPowerStatusEntry"
+    cefcfrupowerstatusentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupowerstatusentry.EntityData.ParentYangName = "cefcFRUPowerStatusTable"
+    cefcfrupowerstatusentry.EntityData.SegmentPath = "cefcFRUPowerStatusEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfrupowerstatusentry.Entphysicalindex) + "']"
+    cefcfrupowerstatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupowerstatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupowerstatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) SetFilter(yf yfilter.YFilter) { cefcfrupowerstatusentry.YFilter = yf }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcFRUPowerAdminStatus" { return "Cefcfrupoweradminstatus" }
-    if yname == "cefcFRUPowerOperStatus" { return "Cefcfrupoweroperstatus" }
-    if yname == "cefcFRUCurrent" { return "Cefcfrucurrent" }
-    if yname == "cefcFRUPowerCapability" { return "Cefcfrupowercapability" }
-    if yname == "cefcFRURealTimeCurrent" { return "Cefcfrurealtimecurrent" }
-    return ""
+    cefcfrupowerstatusentry.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupowerstatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfrupowerstatusentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcfrupowerstatusentry.Entphysicalindex}
+    cefcfrupowerstatusentry.EntityData.Leafs["cefcFRUPowerAdminStatus"] = types.YLeaf{"Cefcfrupoweradminstatus", cefcfrupowerstatusentry.Cefcfrupoweradminstatus}
+    cefcfrupowerstatusentry.EntityData.Leafs["cefcFRUPowerOperStatus"] = types.YLeaf{"Cefcfrupoweroperstatus", cefcfrupowerstatusentry.Cefcfrupoweroperstatus}
+    cefcfrupowerstatusentry.EntityData.Leafs["cefcFRUCurrent"] = types.YLeaf{"Cefcfrucurrent", cefcfrupowerstatusentry.Cefcfrucurrent}
+    cefcfrupowerstatusentry.EntityData.Leafs["cefcFRUPowerCapability"] = types.YLeaf{"Cefcfrupowercapability", cefcfrupowerstatusentry.Cefcfrupowercapability}
+    cefcfrupowerstatusentry.EntityData.Leafs["cefcFRURealTimeCurrent"] = types.YLeaf{"Cefcfrurealtimecurrent", cefcfrupowerstatusentry.Cefcfrurealtimecurrent}
+    return &(cefcfrupowerstatusentry.EntityData)
 }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetSegmentPath() string {
-    return "cefcFRUPowerStatusEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfrupowerstatusentry.Entphysicalindex) + "']"
-}
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcfrupowerstatusentry.Entphysicalindex
-    leafs["cefcFRUPowerAdminStatus"] = cefcfrupowerstatusentry.Cefcfrupoweradminstatus
-    leafs["cefcFRUPowerOperStatus"] = cefcfrupowerstatusentry.Cefcfrupoweroperstatus
-    leafs["cefcFRUCurrent"] = cefcfrupowerstatusentry.Cefcfrucurrent
-    leafs["cefcFRUPowerCapability"] = cefcfrupowerstatusentry.Cefcfrupowercapability
-    leafs["cefcFRURealTimeCurrent"] = cefcfrupowerstatusentry.Cefcfrurealtimecurrent
-    return leafs
-}
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetYangName() string { return "cefcFRUPowerStatusEntry" }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) SetParent(parent types.Entity) { cefcfrupowerstatusentry.parent = parent }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetParent() types.Entity { return cefcfrupowerstatusentry.parent }
-
-func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_Cefcfrupowerstatusentry) GetParentYangName() string { return "cefcFRUPowerStatusTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable
 // This table lists the power capacity of a power FRU in the
@@ -994,7 +681,7 @@ func (cefcfrupowerstatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowerstatustable_
 // gives us the individual contribution towards system and 
 // inline power.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An cefcFRUPowerSupplyValueTable entry lists the current provided by the FRU
@@ -1005,63 +692,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable struct {
     Cefcfrupowersupplyvalueentry []CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry
 }
 
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetFilter() yfilter.YFilter { return cefcfrupowersupplyvaluetable.YFilter }
+func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetEntityData() *types.CommonEntityData {
+    cefcfrupowersupplyvaluetable.EntityData.YFilter = cefcfrupowersupplyvaluetable.YFilter
+    cefcfrupowersupplyvaluetable.EntityData.YangName = "cefcFRUPowerSupplyValueTable"
+    cefcfrupowersupplyvaluetable.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupowersupplyvaluetable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfrupowersupplyvaluetable.EntityData.SegmentPath = "cefcFRUPowerSupplyValueTable"
+    cefcfrupowersupplyvaluetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupowersupplyvaluetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupowersupplyvaluetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) SetFilter(yf yfilter.YFilter) { cefcfrupowersupplyvaluetable.YFilter = yf }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetGoName(yname string) string {
-    if yname == "cefcFRUPowerSupplyValueEntry" { return "Cefcfrupowersupplyvalueentry" }
-    return ""
-}
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetSegmentPath() string {
-    return "cefcFRUPowerSupplyValueTable"
-}
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFRUPowerSupplyValueEntry" {
-        for _, c := range cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry {
-            if cefcfrupowersupplyvaluetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry{}
-        cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry = append(cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry, child)
-        return &cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry[len(cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry)-1]
-    }
-    return nil
-}
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcfrupowersupplyvaluetable.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupowersupplyvaluetable.EntityData.Children["cefcFRUPowerSupplyValueEntry"] = types.YChild{"Cefcfrupowersupplyvalueentry", nil}
     for i := range cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry {
-        children[cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry[i].GetSegmentPath()] = &cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry[i]
+        cefcfrupowersupplyvaluetable.EntityData.Children[types.GetSegmentPath(&cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry[i])] = types.YChild{"Cefcfrupowersupplyvalueentry", &cefcfrupowersupplyvaluetable.Cefcfrupowersupplyvalueentry[i]}
     }
-    return children
+    cefcfrupowersupplyvaluetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcfrupowersupplyvaluetable.EntityData)
 }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetYangName() string { return "cefcFRUPowerSupplyValueTable" }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) SetParent(parent types.Entity) { cefcfrupowersupplyvaluetable.parent = parent }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetParent() types.Entity { return cefcfrupowersupplyvaluetable.parent }
-
-func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry
 // An cefcFRUPowerSupplyValueTable entry lists the current
@@ -1073,7 +721,7 @@ func (cefcfrupowersupplyvaluetable *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyv
 // 
 // Only power supply FRUs are listed in the table.
 type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1100,59 +748,25 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyval
     Cefcfrudrawninlinecurrent interface{}
 }
 
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetFilter() yfilter.YFilter { return cefcfrupowersupplyvalueentry.YFilter }
+func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetEntityData() *types.CommonEntityData {
+    cefcfrupowersupplyvalueentry.EntityData.YFilter = cefcfrupowersupplyvalueentry.YFilter
+    cefcfrupowersupplyvalueentry.EntityData.YangName = "cefcFRUPowerSupplyValueEntry"
+    cefcfrupowersupplyvalueentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcfrupowersupplyvalueentry.EntityData.ParentYangName = "cefcFRUPowerSupplyValueTable"
+    cefcfrupowersupplyvalueentry.EntityData.SegmentPath = "cefcFRUPowerSupplyValueEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfrupowersupplyvalueentry.Entphysicalindex) + "']"
+    cefcfrupowersupplyvalueentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfrupowersupplyvalueentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfrupowersupplyvalueentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) SetFilter(yf yfilter.YFilter) { cefcfrupowersupplyvalueentry.YFilter = yf }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcFRUTotalSystemCurrent" { return "Cefcfrutotalsystemcurrent" }
-    if yname == "cefcFRUDrawnSystemCurrent" { return "Cefcfrudrawnsystemcurrent" }
-    if yname == "cefcFRUTotalInlineCurrent" { return "Cefcfrutotalinlinecurrent" }
-    if yname == "cefcFRUDrawnInlineCurrent" { return "Cefcfrudrawninlinecurrent" }
-    return ""
+    cefcfrupowersupplyvalueentry.EntityData.Children = make(map[string]types.YChild)
+    cefcfrupowersupplyvalueentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfrupowersupplyvalueentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcfrupowersupplyvalueentry.Entphysicalindex}
+    cefcfrupowersupplyvalueentry.EntityData.Leafs["cefcFRUTotalSystemCurrent"] = types.YLeaf{"Cefcfrutotalsystemcurrent", cefcfrupowersupplyvalueentry.Cefcfrutotalsystemcurrent}
+    cefcfrupowersupplyvalueentry.EntityData.Leafs["cefcFRUDrawnSystemCurrent"] = types.YLeaf{"Cefcfrudrawnsystemcurrent", cefcfrupowersupplyvalueentry.Cefcfrudrawnsystemcurrent}
+    cefcfrupowersupplyvalueentry.EntityData.Leafs["cefcFRUTotalInlineCurrent"] = types.YLeaf{"Cefcfrutotalinlinecurrent", cefcfrupowersupplyvalueentry.Cefcfrutotalinlinecurrent}
+    cefcfrupowersupplyvalueentry.EntityData.Leafs["cefcFRUDrawnInlineCurrent"] = types.YLeaf{"Cefcfrudrawninlinecurrent", cefcfrupowersupplyvalueentry.Cefcfrudrawninlinecurrent}
+    return &(cefcfrupowersupplyvalueentry.EntityData)
 }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetSegmentPath() string {
-    return "cefcFRUPowerSupplyValueEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfrupowersupplyvalueentry.Entphysicalindex) + "']"
-}
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcfrupowersupplyvalueentry.Entphysicalindex
-    leafs["cefcFRUTotalSystemCurrent"] = cefcfrupowersupplyvalueentry.Cefcfrutotalsystemcurrent
-    leafs["cefcFRUDrawnSystemCurrent"] = cefcfrupowersupplyvalueentry.Cefcfrudrawnsystemcurrent
-    leafs["cefcFRUTotalInlineCurrent"] = cefcfrupowersupplyvalueentry.Cefcfrutotalinlinecurrent
-    leafs["cefcFRUDrawnInlineCurrent"] = cefcfrupowersupplyvalueentry.Cefcfrudrawninlinecurrent
-    return leafs
-}
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetYangName() string { return "cefcFRUPowerSupplyValueEntry" }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) SetParent(parent types.Entity) { cefcfrupowersupplyvalueentry.parent = parent }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetParent() types.Entity { return cefcfrupowersupplyvalueentry.parent }
-
-func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyvaluetable_Cefcfrupowersupplyvalueentry) GetParentYangName() string { return "cefcFRUPowerSupplyValueTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmoduletable
 // A cefcModuleTable entry lists the operational and
@@ -1160,7 +774,7 @@ func (cefcfrupowersupplyvalueentry *CISCOENTITYFRUCONTROLMIB_Cefcfrupowersupplyv
 // entPhysicalTable entries for manageable components
 // of type PhysicalClass module(9).
 type CISCOENTITYFRUCONTROLMIB_Cefcmoduletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcModuleStatusTable entry lists the operational and administrative
@@ -1172,63 +786,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmoduletable struct {
     Cefcmoduleentry []CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry
 }
 
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetFilter() yfilter.YFilter { return cefcmoduletable.YFilter }
+func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetEntityData() *types.CommonEntityData {
+    cefcmoduletable.EntityData.YFilter = cefcmoduletable.YFilter
+    cefcmoduletable.EntityData.YangName = "cefcModuleTable"
+    cefcmoduletable.EntityData.BundleName = "cisco_ios_xe"
+    cefcmoduletable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcmoduletable.EntityData.SegmentPath = "cefcModuleTable"
+    cefcmoduletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmoduletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmoduletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) SetFilter(yf yfilter.YFilter) { cefcmoduletable.YFilter = yf }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetGoName(yname string) string {
-    if yname == "cefcModuleEntry" { return "Cefcmoduleentry" }
-    return ""
-}
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetSegmentPath() string {
-    return "cefcModuleTable"
-}
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcModuleEntry" {
-        for _, c := range cefcmoduletable.Cefcmoduleentry {
-            if cefcmoduletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry{}
-        cefcmoduletable.Cefcmoduleentry = append(cefcmoduletable.Cefcmoduleentry, child)
-        return &cefcmoduletable.Cefcmoduleentry[len(cefcmoduletable.Cefcmoduleentry)-1]
-    }
-    return nil
-}
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcmoduletable.EntityData.Children = make(map[string]types.YChild)
+    cefcmoduletable.EntityData.Children["cefcModuleEntry"] = types.YChild{"Cefcmoduleentry", nil}
     for i := range cefcmoduletable.Cefcmoduleentry {
-        children[cefcmoduletable.Cefcmoduleentry[i].GetSegmentPath()] = &cefcmoduletable.Cefcmoduleentry[i]
+        cefcmoduletable.EntityData.Children[types.GetSegmentPath(&cefcmoduletable.Cefcmoduleentry[i])] = types.YChild{"Cefcmoduleentry", &cefcmoduletable.Cefcmoduleentry[i]}
     }
-    return children
+    cefcmoduletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcmoduletable.EntityData)
 }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetYangName() string { return "cefcModuleTable" }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) SetParent(parent types.Entity) { cefcmoduletable.parent = parent }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetParent() types.Entity { return cefcmoduletable.parent }
-
-func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry
 // A cefcModuleStatusTable entry lists the operational and
@@ -1241,7 +816,7 @@ func (cefcmoduletable *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable) GetParentYangNa
 // 
 // Entries are deleted by the agent upon module removal.
 type CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1292,67 +867,29 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry struct {
     Cefcmoduleuptime interface{}
 }
 
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetFilter() yfilter.YFilter { return cefcmoduleentry.YFilter }
+func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetEntityData() *types.CommonEntityData {
+    cefcmoduleentry.EntityData.YFilter = cefcmoduleentry.YFilter
+    cefcmoduleentry.EntityData.YangName = "cefcModuleEntry"
+    cefcmoduleentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcmoduleentry.EntityData.ParentYangName = "cefcModuleTable"
+    cefcmoduleentry.EntityData.SegmentPath = "cefcModuleEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmoduleentry.Entphysicalindex) + "']"
+    cefcmoduleentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmoduleentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmoduleentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) SetFilter(yf yfilter.YFilter) { cefcmoduleentry.YFilter = yf }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcModuleAdminStatus" { return "Cefcmoduleadminstatus" }
-    if yname == "cefcModuleOperStatus" { return "Cefcmoduleoperstatus" }
-    if yname == "cefcModuleResetReason" { return "Cefcmoduleresetreason" }
-    if yname == "cefcModuleStatusLastChangeTime" { return "Cefcmodulestatuslastchangetime" }
-    if yname == "cefcModuleLastClearConfigTime" { return "Cefcmodulelastclearconfigtime" }
-    if yname == "cefcModuleResetReasonDescription" { return "Cefcmoduleresetreasondescription" }
-    if yname == "cefcModuleStateChangeReasonDescr" { return "Cefcmodulestatechangereasondescr" }
-    if yname == "cefcModuleUpTime" { return "Cefcmoduleuptime" }
-    return ""
+    cefcmoduleentry.EntityData.Children = make(map[string]types.YChild)
+    cefcmoduleentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcmoduleentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcmoduleentry.Entphysicalindex}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleAdminStatus"] = types.YLeaf{"Cefcmoduleadminstatus", cefcmoduleentry.Cefcmoduleadminstatus}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleOperStatus"] = types.YLeaf{"Cefcmoduleoperstatus", cefcmoduleentry.Cefcmoduleoperstatus}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleResetReason"] = types.YLeaf{"Cefcmoduleresetreason", cefcmoduleentry.Cefcmoduleresetreason}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleStatusLastChangeTime"] = types.YLeaf{"Cefcmodulestatuslastchangetime", cefcmoduleentry.Cefcmodulestatuslastchangetime}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleLastClearConfigTime"] = types.YLeaf{"Cefcmodulelastclearconfigtime", cefcmoduleentry.Cefcmodulelastclearconfigtime}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleResetReasonDescription"] = types.YLeaf{"Cefcmoduleresetreasondescription", cefcmoduleentry.Cefcmoduleresetreasondescription}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleStateChangeReasonDescr"] = types.YLeaf{"Cefcmodulestatechangereasondescr", cefcmoduleentry.Cefcmodulestatechangereasondescr}
+    cefcmoduleentry.EntityData.Leafs["cefcModuleUpTime"] = types.YLeaf{"Cefcmoduleuptime", cefcmoduleentry.Cefcmoduleuptime}
+    return &(cefcmoduleentry.EntityData)
 }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetSegmentPath() string {
-    return "cefcModuleEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmoduleentry.Entphysicalindex) + "']"
-}
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcmoduleentry.Entphysicalindex
-    leafs["cefcModuleAdminStatus"] = cefcmoduleentry.Cefcmoduleadminstatus
-    leafs["cefcModuleOperStatus"] = cefcmoduleentry.Cefcmoduleoperstatus
-    leafs["cefcModuleResetReason"] = cefcmoduleentry.Cefcmoduleresetreason
-    leafs["cefcModuleStatusLastChangeTime"] = cefcmoduleentry.Cefcmodulestatuslastchangetime
-    leafs["cefcModuleLastClearConfigTime"] = cefcmoduleentry.Cefcmodulelastclearconfigtime
-    leafs["cefcModuleResetReasonDescription"] = cefcmoduleentry.Cefcmoduleresetreasondescription
-    leafs["cefcModuleStateChangeReasonDescr"] = cefcmoduleentry.Cefcmodulestatechangereasondescr
-    leafs["cefcModuleUpTime"] = cefcmoduleentry.Cefcmoduleuptime
-    return leafs
-}
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetYangName() string { return "cefcModuleEntry" }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) SetParent(parent types.Entity) { cefcmoduleentry.parent = parent }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetParent() types.Entity { return cefcmoduleentry.parent }
-
-func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry) GetParentYangName() string { return "cefcModuleTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable
 // This table sparsely augments the
@@ -1366,7 +903,7 @@ func (cefcmoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcmoduletable_Cefcmoduleentry)
 // modules which cannot be provided by the
 // cefcModuleTable.
 type CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcIntelliModuleTable entry lists the information specific to an
@@ -1381,63 +918,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable struct {
     Cefcintellimoduleentry []CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry
 }
 
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetFilter() yfilter.YFilter { return cefcintellimoduletable.YFilter }
+func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetEntityData() *types.CommonEntityData {
+    cefcintellimoduletable.EntityData.YFilter = cefcintellimoduletable.YFilter
+    cefcintellimoduletable.EntityData.YangName = "cefcIntelliModuleTable"
+    cefcintellimoduletable.EntityData.BundleName = "cisco_ios_xe"
+    cefcintellimoduletable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcintellimoduletable.EntityData.SegmentPath = "cefcIntelliModuleTable"
+    cefcintellimoduletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcintellimoduletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcintellimoduletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) SetFilter(yf yfilter.YFilter) { cefcintellimoduletable.YFilter = yf }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetGoName(yname string) string {
-    if yname == "cefcIntelliModuleEntry" { return "Cefcintellimoduleentry" }
-    return ""
-}
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetSegmentPath() string {
-    return "cefcIntelliModuleTable"
-}
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcIntelliModuleEntry" {
-        for _, c := range cefcintellimoduletable.Cefcintellimoduleentry {
-            if cefcintellimoduletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry{}
-        cefcintellimoduletable.Cefcintellimoduleentry = append(cefcintellimoduletable.Cefcintellimoduleentry, child)
-        return &cefcintellimoduletable.Cefcintellimoduleentry[len(cefcintellimoduletable.Cefcintellimoduleentry)-1]
-    }
-    return nil
-}
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcintellimoduletable.EntityData.Children = make(map[string]types.YChild)
+    cefcintellimoduletable.EntityData.Children["cefcIntelliModuleEntry"] = types.YChild{"Cefcintellimoduleentry", nil}
     for i := range cefcintellimoduletable.Cefcintellimoduleentry {
-        children[cefcintellimoduletable.Cefcintellimoduleentry[i].GetSegmentPath()] = &cefcintellimoduletable.Cefcintellimoduleentry[i]
+        cefcintellimoduletable.EntityData.Children[types.GetSegmentPath(&cefcintellimoduletable.Cefcintellimoduleentry[i])] = types.YChild{"Cefcintellimoduleentry", &cefcintellimoduletable.Cefcintellimoduleentry[i]}
     }
-    return children
+    cefcintellimoduletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcintellimoduletable.EntityData)
 }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetYangName() string { return "cefcIntelliModuleTable" }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) SetParent(parent types.Entity) { cefcintellimoduletable.parent = parent }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetParent() types.Entity { return cefcintellimoduletable.parent }
-
-func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry
 // A cefcIntelliModuleTable entry lists the
@@ -1458,7 +956,7 @@ func (cefcintellimoduletable *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable) G
 // removal of Internet address configuration of 
 // this module or the module itself.
 type CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1476,55 +974,23 @@ type CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry stru
     Cefcintellimoduleipaddr interface{}
 }
 
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetFilter() yfilter.YFilter { return cefcintellimoduleentry.YFilter }
+func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetEntityData() *types.CommonEntityData {
+    cefcintellimoduleentry.EntityData.YFilter = cefcintellimoduleentry.YFilter
+    cefcintellimoduleentry.EntityData.YangName = "cefcIntelliModuleEntry"
+    cefcintellimoduleentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcintellimoduleentry.EntityData.ParentYangName = "cefcIntelliModuleTable"
+    cefcintellimoduleentry.EntityData.SegmentPath = "cefcIntelliModuleEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcintellimoduleentry.Entphysicalindex) + "']"
+    cefcintellimoduleentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcintellimoduleentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcintellimoduleentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) SetFilter(yf yfilter.YFilter) { cefcintellimoduleentry.YFilter = yf }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcIntelliModuleIPAddrType" { return "Cefcintellimoduleipaddrtype" }
-    if yname == "cefcIntelliModuleIPAddr" { return "Cefcintellimoduleipaddr" }
-    return ""
+    cefcintellimoduleentry.EntityData.Children = make(map[string]types.YChild)
+    cefcintellimoduleentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcintellimoduleentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcintellimoduleentry.Entphysicalindex}
+    cefcintellimoduleentry.EntityData.Leafs["cefcIntelliModuleIPAddrType"] = types.YLeaf{"Cefcintellimoduleipaddrtype", cefcintellimoduleentry.Cefcintellimoduleipaddrtype}
+    cefcintellimoduleentry.EntityData.Leafs["cefcIntelliModuleIPAddr"] = types.YLeaf{"Cefcintellimoduleipaddr", cefcintellimoduleentry.Cefcintellimoduleipaddr}
+    return &(cefcintellimoduleentry.EntityData)
 }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetSegmentPath() string {
-    return "cefcIntelliModuleEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcintellimoduleentry.Entphysicalindex) + "']"
-}
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcintellimoduleentry.Entphysicalindex
-    leafs["cefcIntelliModuleIPAddrType"] = cefcintellimoduleentry.Cefcintellimoduleipaddrtype
-    leafs["cefcIntelliModuleIPAddr"] = cefcintellimoduleentry.Cefcintellimoduleipaddr
-    return leafs
-}
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetYangName() string { return "cefcIntelliModuleEntry" }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) SetParent(parent types.Entity) { cefcintellimoduleentry.parent = parent }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetParent() types.Entity { return cefcintellimoduleentry.parent }
-
-func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Cefcintellimoduleentry) GetParentYangName() string { return "cefcIntelliModuleTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable
 // This table sparsely augments the cefcModuleTable
@@ -1536,7 +1002,7 @@ func (cefcintellimoduleentry *CISCOENTITYFRUCONTROLMIB_Cefcintellimoduletable_Ce
 // modules which cannot be provided by the
 // cefcModuleTable.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcModuleLocalSwitchingTable entry lists the information specific to a
@@ -1550,63 +1016,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable struct {
     Cefcmodulelocalswitchingentry []CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry
 }
 
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetFilter() yfilter.YFilter { return cefcmodulelocalswitchingtable.YFilter }
+func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetEntityData() *types.CommonEntityData {
+    cefcmodulelocalswitchingtable.EntityData.YFilter = cefcmodulelocalswitchingtable.YFilter
+    cefcmodulelocalswitchingtable.EntityData.YangName = "cefcModuleLocalSwitchingTable"
+    cefcmodulelocalswitchingtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcmodulelocalswitchingtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcmodulelocalswitchingtable.EntityData.SegmentPath = "cefcModuleLocalSwitchingTable"
+    cefcmodulelocalswitchingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmodulelocalswitchingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmodulelocalswitchingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) SetFilter(yf yfilter.YFilter) { cefcmodulelocalswitchingtable.YFilter = yf }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetGoName(yname string) string {
-    if yname == "cefcModuleLocalSwitchingEntry" { return "Cefcmodulelocalswitchingentry" }
-    return ""
-}
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetSegmentPath() string {
-    return "cefcModuleLocalSwitchingTable"
-}
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcModuleLocalSwitchingEntry" {
-        for _, c := range cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry {
-            if cefcmodulelocalswitchingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry{}
-        cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry = append(cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry, child)
-        return &cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry[len(cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry)-1]
-    }
-    return nil
-}
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcmodulelocalswitchingtable.EntityData.Children = make(map[string]types.YChild)
+    cefcmodulelocalswitchingtable.EntityData.Children["cefcModuleLocalSwitchingEntry"] = types.YChild{"Cefcmodulelocalswitchingentry", nil}
     for i := range cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry {
-        children[cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry[i].GetSegmentPath()] = &cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry[i]
+        cefcmodulelocalswitchingtable.EntityData.Children[types.GetSegmentPath(&cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry[i])] = types.YChild{"Cefcmodulelocalswitchingentry", &cefcmodulelocalswitchingtable.Cefcmodulelocalswitchingentry[i]}
     }
-    return children
+    cefcmodulelocalswitchingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcmodulelocalswitchingtable.EntityData)
 }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetYangName() string { return "cefcModuleLocalSwitchingTable" }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) SetParent(parent types.Entity) { cefcmodulelocalswitchingtable.parent = parent }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetParent() types.Entity { return cefcmodulelocalswitchingtable.parent }
-
-func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry
 // A cefcModuleLocalSwitchingTable entry lists the
@@ -1623,7 +1050,7 @@ func (cefcmodulelocalswitchingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswi
 // An entry of this table is deleted if the
 // removal of this module.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1637,53 +1064,22 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitc
     Cefcmodulelocalswitchingmode interface{}
 }
 
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetFilter() yfilter.YFilter { return cefcmodulelocalswitchingentry.YFilter }
+func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetEntityData() *types.CommonEntityData {
+    cefcmodulelocalswitchingentry.EntityData.YFilter = cefcmodulelocalswitchingentry.YFilter
+    cefcmodulelocalswitchingentry.EntityData.YangName = "cefcModuleLocalSwitchingEntry"
+    cefcmodulelocalswitchingentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcmodulelocalswitchingentry.EntityData.ParentYangName = "cefcModuleLocalSwitchingTable"
+    cefcmodulelocalswitchingentry.EntityData.SegmentPath = "cefcModuleLocalSwitchingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmodulelocalswitchingentry.Entphysicalindex) + "']"
+    cefcmodulelocalswitchingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmodulelocalswitchingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmodulelocalswitchingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) SetFilter(yf yfilter.YFilter) { cefcmodulelocalswitchingentry.YFilter = yf }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcModuleLocalSwitchingMode" { return "Cefcmodulelocalswitchingmode" }
-    return ""
+    cefcmodulelocalswitchingentry.EntityData.Children = make(map[string]types.YChild)
+    cefcmodulelocalswitchingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcmodulelocalswitchingentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcmodulelocalswitchingentry.Entphysicalindex}
+    cefcmodulelocalswitchingentry.EntityData.Leafs["cefcModuleLocalSwitchingMode"] = types.YLeaf{"Cefcmodulelocalswitchingmode", cefcmodulelocalswitchingentry.Cefcmodulelocalswitchingmode}
+    return &(cefcmodulelocalswitchingentry.EntityData)
 }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetSegmentPath() string {
-    return "cefcModuleLocalSwitchingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmodulelocalswitchingentry.Entphysicalindex) + "']"
-}
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcmodulelocalswitchingentry.Entphysicalindex
-    leafs["cefcModuleLocalSwitchingMode"] = cefcmodulelocalswitchingentry.Cefcmodulelocalswitchingmode
-    return leafs
-}
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetYangName() string { return "cefcModuleLocalSwitchingEntry" }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) SetParent(parent types.Entity) { cefcmodulelocalswitchingentry.parent = parent }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetParent() types.Entity { return cefcmodulelocalswitchingentry.parent }
-
-func (cefcmodulelocalswitchingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry) GetParentYangName() string { return "cefcModuleLocalSwitchingTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry_Cefcmodulelocalswitchingmode represents disabled(2) - local switching is disabled.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulelocalswitchingtable_Cefcmodulelocalswitchingentry_Cefcmodulelocalswitchingmode string
@@ -1703,7 +1099,7 @@ const (
 // manufactured (inseparable in the field) combination of 
 // multiple fans.
 type CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An cefcFanTrayStatusTable entry lists the operational status information
@@ -1719,63 +1115,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable struct {
     Cefcfantraystatusentry []CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry
 }
 
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetFilter() yfilter.YFilter { return cefcfantraystatustable.YFilter }
+func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetEntityData() *types.CommonEntityData {
+    cefcfantraystatustable.EntityData.YFilter = cefcfantraystatustable.YFilter
+    cefcfantraystatustable.EntityData.YangName = "cefcFanTrayStatusTable"
+    cefcfantraystatustable.EntityData.BundleName = "cisco_ios_xe"
+    cefcfantraystatustable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfantraystatustable.EntityData.SegmentPath = "cefcFanTrayStatusTable"
+    cefcfantraystatustable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfantraystatustable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfantraystatustable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) SetFilter(yf yfilter.YFilter) { cefcfantraystatustable.YFilter = yf }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetGoName(yname string) string {
-    if yname == "cefcFanTrayStatusEntry" { return "Cefcfantraystatusentry" }
-    return ""
-}
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetSegmentPath() string {
-    return "cefcFanTrayStatusTable"
-}
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFanTrayStatusEntry" {
-        for _, c := range cefcfantraystatustable.Cefcfantraystatusentry {
-            if cefcfantraystatustable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry{}
-        cefcfantraystatustable.Cefcfantraystatusentry = append(cefcfantraystatustable.Cefcfantraystatusentry, child)
-        return &cefcfantraystatustable.Cefcfantraystatusentry[len(cefcfantraystatustable.Cefcfantraystatusentry)-1]
-    }
-    return nil
-}
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcfantraystatustable.EntityData.Children = make(map[string]types.YChild)
+    cefcfantraystatustable.EntityData.Children["cefcFanTrayStatusEntry"] = types.YChild{"Cefcfantraystatusentry", nil}
     for i := range cefcfantraystatustable.Cefcfantraystatusentry {
-        children[cefcfantraystatustable.Cefcfantraystatusentry[i].GetSegmentPath()] = &cefcfantraystatustable.Cefcfantraystatusentry[i]
+        cefcfantraystatustable.EntityData.Children[types.GetSegmentPath(&cefcfantraystatustable.Cefcfantraystatusentry[i])] = types.YChild{"Cefcfantraystatusentry", &cefcfantraystatustable.Cefcfantraystatusentry[i]}
     }
-    return children
+    cefcfantraystatustable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcfantraystatustable.EntityData)
 }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetYangName() string { return "cefcFanTrayStatusTable" }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) SetParent(parent types.Entity) { cefcfantraystatustable.parent = parent }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetParent() types.Entity { return cefcfantraystatustable.parent }
-
-func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry
 // An cefcFanTrayStatusTable entry lists the operational
@@ -1791,7 +1148,7 @@ func (cefcfantraystatustable *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable) G
 // fan or fan tray insertion.  Entries are deleted 
 // by the agent at the fan or fan tray removal.
 type CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1806,53 +1163,22 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry stru
     Cefcfantrayoperstatus interface{}
 }
 
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetFilter() yfilter.YFilter { return cefcfantraystatusentry.YFilter }
+func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetEntityData() *types.CommonEntityData {
+    cefcfantraystatusentry.EntityData.YFilter = cefcfantraystatusentry.YFilter
+    cefcfantraystatusentry.EntityData.YangName = "cefcFanTrayStatusEntry"
+    cefcfantraystatusentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcfantraystatusentry.EntityData.ParentYangName = "cefcFanTrayStatusTable"
+    cefcfantraystatusentry.EntityData.SegmentPath = "cefcFanTrayStatusEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfantraystatusentry.Entphysicalindex) + "']"
+    cefcfantraystatusentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfantraystatusentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfantraystatusentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) SetFilter(yf yfilter.YFilter) { cefcfantraystatusentry.YFilter = yf }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcFanTrayOperStatus" { return "Cefcfantrayoperstatus" }
-    return ""
+    cefcfantraystatusentry.EntityData.Children = make(map[string]types.YChild)
+    cefcfantraystatusentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfantraystatusentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcfantraystatusentry.Entphysicalindex}
+    cefcfantraystatusentry.EntityData.Leafs["cefcFanTrayOperStatus"] = types.YLeaf{"Cefcfantrayoperstatus", cefcfantraystatusentry.Cefcfantrayoperstatus}
+    return &(cefcfantraystatusentry.EntityData)
 }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetSegmentPath() string {
-    return "cefcFanTrayStatusEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfantraystatusentry.Entphysicalindex) + "']"
-}
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcfantraystatusentry.Entphysicalindex
-    leafs["cefcFanTrayOperStatus"] = cefcfantraystatusentry.Cefcfantrayoperstatus
-    return leafs
-}
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetYangName() string { return "cefcFanTrayStatusEntry" }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) SetParent(parent types.Entity) { cefcfantraystatusentry.parent = parent }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetParent() types.Entity { return cefcfantraystatusentry.parent }
-
-func (cefcfantraystatusentry *CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry) GetParentYangName() string { return "cefcFanTrayStatusTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry_Cefcfantrayoperstatus represents              as soon as possible.
 type CISCOENTITYFRUCONTROLMIB_Cefcfantraystatustable_Cefcfantraystatusentry_Cefcfantrayoperstatus string
@@ -1870,7 +1196,7 @@ const (
 // CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable
 // This table contains one row per physical entity.
 type CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular physical entity. The type is slice of
@@ -1878,68 +1204,29 @@ type CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable struct {
     Cefcphysicalentry []CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry
 }
 
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetFilter() yfilter.YFilter { return cefcphysicaltable.YFilter }
+func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetEntityData() *types.CommonEntityData {
+    cefcphysicaltable.EntityData.YFilter = cefcphysicaltable.YFilter
+    cefcphysicaltable.EntityData.YangName = "cefcPhysicalTable"
+    cefcphysicaltable.EntityData.BundleName = "cisco_ios_xe"
+    cefcphysicaltable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcphysicaltable.EntityData.SegmentPath = "cefcPhysicalTable"
+    cefcphysicaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcphysicaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcphysicaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) SetFilter(yf yfilter.YFilter) { cefcphysicaltable.YFilter = yf }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetGoName(yname string) string {
-    if yname == "cefcPhysicalEntry" { return "Cefcphysicalentry" }
-    return ""
-}
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetSegmentPath() string {
-    return "cefcPhysicalTable"
-}
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcPhysicalEntry" {
-        for _, c := range cefcphysicaltable.Cefcphysicalentry {
-            if cefcphysicaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry{}
-        cefcphysicaltable.Cefcphysicalentry = append(cefcphysicaltable.Cefcphysicalentry, child)
-        return &cefcphysicaltable.Cefcphysicalentry[len(cefcphysicaltable.Cefcphysicalentry)-1]
-    }
-    return nil
-}
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcphysicaltable.EntityData.Children = make(map[string]types.YChild)
+    cefcphysicaltable.EntityData.Children["cefcPhysicalEntry"] = types.YChild{"Cefcphysicalentry", nil}
     for i := range cefcphysicaltable.Cefcphysicalentry {
-        children[cefcphysicaltable.Cefcphysicalentry[i].GetSegmentPath()] = &cefcphysicaltable.Cefcphysicalentry[i]
+        cefcphysicaltable.EntityData.Children[types.GetSegmentPath(&cefcphysicaltable.Cefcphysicalentry[i])] = types.YChild{"Cefcphysicalentry", &cefcphysicaltable.Cefcphysicalentry[i]}
     }
-    return children
+    cefcphysicaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcphysicaltable.EntityData)
 }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetYangName() string { return "cefcPhysicalTable" }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) SetParent(parent types.Entity) { cefcphysicaltable.parent = parent }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetParent() types.Entity { return cefcphysicaltable.parent }
-
-func (cefcphysicaltable *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry
 // Information about a particular physical entity.
 type CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1956,53 +1243,22 @@ type CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry struct {
     Cefcphysicalstatus interface{}
 }
 
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetFilter() yfilter.YFilter { return cefcphysicalentry.YFilter }
+func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetEntityData() *types.CommonEntityData {
+    cefcphysicalentry.EntityData.YFilter = cefcphysicalentry.YFilter
+    cefcphysicalentry.EntityData.YangName = "cefcPhysicalEntry"
+    cefcphysicalentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcphysicalentry.EntityData.ParentYangName = "cefcPhysicalTable"
+    cefcphysicalentry.EntityData.SegmentPath = "cefcPhysicalEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcphysicalentry.Entphysicalindex) + "']"
+    cefcphysicalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcphysicalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcphysicalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) SetFilter(yf yfilter.YFilter) { cefcphysicalentry.YFilter = yf }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcPhysicalStatus" { return "Cefcphysicalstatus" }
-    return ""
+    cefcphysicalentry.EntityData.Children = make(map[string]types.YChild)
+    cefcphysicalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcphysicalentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcphysicalentry.Entphysicalindex}
+    cefcphysicalentry.EntityData.Leafs["cefcPhysicalStatus"] = types.YLeaf{"Cefcphysicalstatus", cefcphysicalentry.Cefcphysicalstatus}
+    return &(cefcphysicalentry.EntityData)
 }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetSegmentPath() string {
-    return "cefcPhysicalEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcphysicalentry.Entphysicalindex) + "']"
-}
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcphysicalentry.Entphysicalindex
-    leafs["cefcPhysicalStatus"] = cefcphysicalentry.Cefcphysicalstatus
-    return leafs
-}
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetYangName() string { return "cefcPhysicalEntry" }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) SetParent(parent types.Entity) { cefcphysicalentry.parent = parent }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetParent() types.Entity { return cefcphysicalentry.parent }
-
-func (cefcphysicalentry *CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry) GetParentYangName() string { return "cefcPhysicalTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry_Cefcphysicalstatus represents in the present configuration this FRU is not supported.
 type CISCOENTITYFRUCONTROLMIB_Cefcphysicaltable_Cefcphysicalentry_Cefcphysicalstatus string
@@ -2032,7 +1288,7 @@ const (
 // power supplies and number of power inputs on the power 
 // supply.
 type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing power input management information applicable to a
@@ -2041,69 +1297,30 @@ type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable struct {
     Cefcpowersupplyinputentry []CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry
 }
 
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetFilter() yfilter.YFilter { return cefcpowersupplyinputtable.YFilter }
+func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetEntityData() *types.CommonEntityData {
+    cefcpowersupplyinputtable.EntityData.YFilter = cefcpowersupplyinputtable.YFilter
+    cefcpowersupplyinputtable.EntityData.YangName = "cefcPowerSupplyInputTable"
+    cefcpowersupplyinputtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcpowersupplyinputtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcpowersupplyinputtable.EntityData.SegmentPath = "cefcPowerSupplyInputTable"
+    cefcpowersupplyinputtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcpowersupplyinputtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcpowersupplyinputtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) SetFilter(yf yfilter.YFilter) { cefcpowersupplyinputtable.YFilter = yf }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetGoName(yname string) string {
-    if yname == "cefcPowerSupplyInputEntry" { return "Cefcpowersupplyinputentry" }
-    return ""
-}
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetSegmentPath() string {
-    return "cefcPowerSupplyInputTable"
-}
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcPowerSupplyInputEntry" {
-        for _, c := range cefcpowersupplyinputtable.Cefcpowersupplyinputentry {
-            if cefcpowersupplyinputtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry{}
-        cefcpowersupplyinputtable.Cefcpowersupplyinputentry = append(cefcpowersupplyinputtable.Cefcpowersupplyinputentry, child)
-        return &cefcpowersupplyinputtable.Cefcpowersupplyinputentry[len(cefcpowersupplyinputtable.Cefcpowersupplyinputentry)-1]
-    }
-    return nil
-}
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcpowersupplyinputtable.EntityData.Children = make(map[string]types.YChild)
+    cefcpowersupplyinputtable.EntityData.Children["cefcPowerSupplyInputEntry"] = types.YChild{"Cefcpowersupplyinputentry", nil}
     for i := range cefcpowersupplyinputtable.Cefcpowersupplyinputentry {
-        children[cefcpowersupplyinputtable.Cefcpowersupplyinputentry[i].GetSegmentPath()] = &cefcpowersupplyinputtable.Cefcpowersupplyinputentry[i]
+        cefcpowersupplyinputtable.EntityData.Children[types.GetSegmentPath(&cefcpowersupplyinputtable.Cefcpowersupplyinputentry[i])] = types.YChild{"Cefcpowersupplyinputentry", &cefcpowersupplyinputtable.Cefcpowersupplyinputentry[i]}
     }
-    return children
+    cefcpowersupplyinputtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcpowersupplyinputtable.EntityData)
 }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetYangName() string { return "cefcPowerSupplyInputTable" }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) SetParent(parent types.Entity) { cefcpowersupplyinputtable.parent = parent }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetParent() types.Entity { return cefcpowersupplyinputtable.parent }
-
-func (cefcpowersupplyinputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry
 // An entry containing power input management information
 // applicable to a particular power supply and input.
 type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2123,55 +1340,23 @@ type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentr
     Cefcpowersupplyinputtype interface{}
 }
 
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetFilter() yfilter.YFilter { return cefcpowersupplyinputentry.YFilter }
+func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetEntityData() *types.CommonEntityData {
+    cefcpowersupplyinputentry.EntityData.YFilter = cefcpowersupplyinputentry.YFilter
+    cefcpowersupplyinputentry.EntityData.YangName = "cefcPowerSupplyInputEntry"
+    cefcpowersupplyinputentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcpowersupplyinputentry.EntityData.ParentYangName = "cefcPowerSupplyInputTable"
+    cefcpowersupplyinputentry.EntityData.SegmentPath = "cefcPowerSupplyInputEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcpowersupplyinputentry.Entphysicalindex) + "']" + "[cefcPowerSupplyInputIndex='" + fmt.Sprintf("%v", cefcpowersupplyinputentry.Cefcpowersupplyinputindex) + "']"
+    cefcpowersupplyinputentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcpowersupplyinputentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcpowersupplyinputentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) SetFilter(yf yfilter.YFilter) { cefcpowersupplyinputentry.YFilter = yf }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcPowerSupplyInputIndex" { return "Cefcpowersupplyinputindex" }
-    if yname == "cefcPowerSupplyInputType" { return "Cefcpowersupplyinputtype" }
-    return ""
+    cefcpowersupplyinputentry.EntityData.Children = make(map[string]types.YChild)
+    cefcpowersupplyinputentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcpowersupplyinputentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcpowersupplyinputentry.Entphysicalindex}
+    cefcpowersupplyinputentry.EntityData.Leafs["cefcPowerSupplyInputIndex"] = types.YLeaf{"Cefcpowersupplyinputindex", cefcpowersupplyinputentry.Cefcpowersupplyinputindex}
+    cefcpowersupplyinputentry.EntityData.Leafs["cefcPowerSupplyInputType"] = types.YLeaf{"Cefcpowersupplyinputtype", cefcpowersupplyinputentry.Cefcpowersupplyinputtype}
+    return &(cefcpowersupplyinputentry.EntityData)
 }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetSegmentPath() string {
-    return "cefcPowerSupplyInputEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcpowersupplyinputentry.Entphysicalindex) + "']" + "[cefcPowerSupplyInputIndex='" + fmt.Sprintf("%v", cefcpowersupplyinputentry.Cefcpowersupplyinputindex) + "']"
-}
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcpowersupplyinputentry.Entphysicalindex
-    leafs["cefcPowerSupplyInputIndex"] = cefcpowersupplyinputentry.Cefcpowersupplyinputindex
-    leafs["cefcPowerSupplyInputType"] = cefcpowersupplyinputentry.Cefcpowersupplyinputtype
-    return leafs
-}
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetYangName() string { return "cefcPowerSupplyInputEntry" }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) SetParent(parent types.Entity) { cefcpowersupplyinputentry.parent = parent }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetParent() types.Entity { return cefcpowersupplyinputentry.parent }
-
-func (cefcpowersupplyinputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry) GetParentYangName() string { return "cefcPowerSupplyInputTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry_Cefcpowersupplyinputtype represents dcHigh(5): Higher rating DC input power is detected.
 type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyinputtable_Cefcpowersupplyinputentry_Cefcpowersupplyinputtype string
@@ -2195,7 +1380,7 @@ const (
 // of 'powerSupply'. It also indicate which mode
 // is the operational mode within the system.
 type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcPowerSupplyOutputTable entry lists the power output capacity and its
@@ -2208,63 +1393,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable struct {
     Cefcpowersupplyoutputentry []CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry
 }
 
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetFilter() yfilter.YFilter { return cefcpowersupplyoutputtable.YFilter }
+func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetEntityData() *types.CommonEntityData {
+    cefcpowersupplyoutputtable.EntityData.YFilter = cefcpowersupplyoutputtable.YFilter
+    cefcpowersupplyoutputtable.EntityData.YangName = "cefcPowerSupplyOutputTable"
+    cefcpowersupplyoutputtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcpowersupplyoutputtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcpowersupplyoutputtable.EntityData.SegmentPath = "cefcPowerSupplyOutputTable"
+    cefcpowersupplyoutputtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcpowersupplyoutputtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcpowersupplyoutputtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) SetFilter(yf yfilter.YFilter) { cefcpowersupplyoutputtable.YFilter = yf }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetGoName(yname string) string {
-    if yname == "cefcPowerSupplyOutputEntry" { return "Cefcpowersupplyoutputentry" }
-    return ""
-}
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetSegmentPath() string {
-    return "cefcPowerSupplyOutputTable"
-}
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcPowerSupplyOutputEntry" {
-        for _, c := range cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry {
-            if cefcpowersupplyoutputtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry{}
-        cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry = append(cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry, child)
-        return &cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry[len(cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry)-1]
-    }
-    return nil
-}
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcpowersupplyoutputtable.EntityData.Children = make(map[string]types.YChild)
+    cefcpowersupplyoutputtable.EntityData.Children["cefcPowerSupplyOutputEntry"] = types.YChild{"Cefcpowersupplyoutputentry", nil}
     for i := range cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry {
-        children[cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry[i].GetSegmentPath()] = &cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry[i]
+        cefcpowersupplyoutputtable.EntityData.Children[types.GetSegmentPath(&cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry[i])] = types.YChild{"Cefcpowersupplyoutputentry", &cefcpowersupplyoutputtable.Cefcpowersupplyoutputentry[i]}
     }
-    return children
+    cefcpowersupplyoutputtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcpowersupplyoutputtable.EntityData)
 }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetYangName() string { return "cefcPowerSupplyOutputTable" }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) SetParent(parent types.Entity) { cefcpowersupplyoutputtable.parent = parent }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetParent() types.Entity { return cefcpowersupplyoutputtable.parent }
-
-func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry
 // A cefcPowerSupplyOutputTable entry lists the
@@ -2281,7 +1427,7 @@ func (cefcpowersupplyoutputtable *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutput
 // The number of entries of a power supply is determined
 // by the power supply.
 type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2306,57 +1452,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputen
     Cefcpsoutputmodeinoperation interface{}
 }
 
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetFilter() yfilter.YFilter { return cefcpowersupplyoutputentry.YFilter }
+func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetEntityData() *types.CommonEntityData {
+    cefcpowersupplyoutputentry.EntityData.YFilter = cefcpowersupplyoutputentry.YFilter
+    cefcpowersupplyoutputentry.EntityData.YangName = "cefcPowerSupplyOutputEntry"
+    cefcpowersupplyoutputentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcpowersupplyoutputentry.EntityData.ParentYangName = "cefcPowerSupplyOutputTable"
+    cefcpowersupplyoutputentry.EntityData.SegmentPath = "cefcPowerSupplyOutputEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcpowersupplyoutputentry.Entphysicalindex) + "']" + "[cefcPSOutputModeIndex='" + fmt.Sprintf("%v", cefcpowersupplyoutputentry.Cefcpsoutputmodeindex) + "']"
+    cefcpowersupplyoutputentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcpowersupplyoutputentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcpowersupplyoutputentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) SetFilter(yf yfilter.YFilter) { cefcpowersupplyoutputentry.YFilter = yf }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcPSOutputModeIndex" { return "Cefcpsoutputmodeindex" }
-    if yname == "cefcPSOutputModeCurrent" { return "Cefcpsoutputmodecurrent" }
-    if yname == "cefcPSOutputModeInOperation" { return "Cefcpsoutputmodeinoperation" }
-    return ""
+    cefcpowersupplyoutputentry.EntityData.Children = make(map[string]types.YChild)
+    cefcpowersupplyoutputentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcpowersupplyoutputentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcpowersupplyoutputentry.Entphysicalindex}
+    cefcpowersupplyoutputentry.EntityData.Leafs["cefcPSOutputModeIndex"] = types.YLeaf{"Cefcpsoutputmodeindex", cefcpowersupplyoutputentry.Cefcpsoutputmodeindex}
+    cefcpowersupplyoutputentry.EntityData.Leafs["cefcPSOutputModeCurrent"] = types.YLeaf{"Cefcpsoutputmodecurrent", cefcpowersupplyoutputentry.Cefcpsoutputmodecurrent}
+    cefcpowersupplyoutputentry.EntityData.Leafs["cefcPSOutputModeInOperation"] = types.YLeaf{"Cefcpsoutputmodeinoperation", cefcpowersupplyoutputentry.Cefcpsoutputmodeinoperation}
+    return &(cefcpowersupplyoutputentry.EntityData)
 }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetSegmentPath() string {
-    return "cefcPowerSupplyOutputEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcpowersupplyoutputentry.Entphysicalindex) + "']" + "[cefcPSOutputModeIndex='" + fmt.Sprintf("%v", cefcpowersupplyoutputentry.Cefcpsoutputmodeindex) + "']"
-}
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcpowersupplyoutputentry.Entphysicalindex
-    leafs["cefcPSOutputModeIndex"] = cefcpowersupplyoutputentry.Cefcpsoutputmodeindex
-    leafs["cefcPSOutputModeCurrent"] = cefcpowersupplyoutputentry.Cefcpsoutputmodecurrent
-    leafs["cefcPSOutputModeInOperation"] = cefcpowersupplyoutputentry.Cefcpsoutputmodeinoperation
-    return leafs
-}
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetYangName() string { return "cefcPowerSupplyOutputEntry" }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) SetParent(parent types.Entity) { cefcpowersupplyoutputentry.parent = parent }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetParent() types.Entity { return cefcpowersupplyoutputentry.parent }
-
-func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutputtable_Cefcpowersupplyoutputentry) GetParentYangName() string { return "cefcPowerSupplyOutputTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable
 // This table contains the cooling capacity
@@ -2364,7 +1477,7 @@ func (cefcpowersupplyoutputentry *CISCOENTITYFRUCONTROLMIB_Cefcpowersupplyoutput
 // entPhysicalTable entries have an
 // entPhysicalClass of 'chassis'.
 type CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcChassisCoolingEntry lists the maximum cooling capacity that could be
@@ -2377,63 +1490,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable struct {
     Cefcchassiscoolingentry []CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry
 }
 
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetFilter() yfilter.YFilter { return cefcchassiscoolingtable.YFilter }
+func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetEntityData() *types.CommonEntityData {
+    cefcchassiscoolingtable.EntityData.YFilter = cefcchassiscoolingtable.YFilter
+    cefcchassiscoolingtable.EntityData.YangName = "cefcChassisCoolingTable"
+    cefcchassiscoolingtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcchassiscoolingtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcchassiscoolingtable.EntityData.SegmentPath = "cefcChassisCoolingTable"
+    cefcchassiscoolingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcchassiscoolingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcchassiscoolingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) SetFilter(yf yfilter.YFilter) { cefcchassiscoolingtable.YFilter = yf }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetGoName(yname string) string {
-    if yname == "cefcChassisCoolingEntry" { return "Cefcchassiscoolingentry" }
-    return ""
-}
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetSegmentPath() string {
-    return "cefcChassisCoolingTable"
-}
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcChassisCoolingEntry" {
-        for _, c := range cefcchassiscoolingtable.Cefcchassiscoolingentry {
-            if cefcchassiscoolingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry{}
-        cefcchassiscoolingtable.Cefcchassiscoolingentry = append(cefcchassiscoolingtable.Cefcchassiscoolingentry, child)
-        return &cefcchassiscoolingtable.Cefcchassiscoolingentry[len(cefcchassiscoolingtable.Cefcchassiscoolingentry)-1]
-    }
-    return nil
-}
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcchassiscoolingtable.EntityData.Children = make(map[string]types.YChild)
+    cefcchassiscoolingtable.EntityData.Children["cefcChassisCoolingEntry"] = types.YChild{"Cefcchassiscoolingentry", nil}
     for i := range cefcchassiscoolingtable.Cefcchassiscoolingentry {
-        children[cefcchassiscoolingtable.Cefcchassiscoolingentry[i].GetSegmentPath()] = &cefcchassiscoolingtable.Cefcchassiscoolingentry[i]
+        cefcchassiscoolingtable.EntityData.Children[types.GetSegmentPath(&cefcchassiscoolingtable.Cefcchassiscoolingentry[i])] = types.YChild{"Cefcchassiscoolingentry", &cefcchassiscoolingtable.Cefcchassiscoolingentry[i]}
     }
-    return children
+    cefcchassiscoolingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcchassiscoolingtable.EntityData)
 }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetYangName() string { return "cefcChassisCoolingTable" }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) SetParent(parent types.Entity) { cefcchassiscoolingtable.parent = parent }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetParent() types.Entity { return cefcchassiscoolingtable.parent }
-
-func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry
 // A cefcChassisCoolingEntry lists the maximum
@@ -2447,7 +1521,7 @@ func (cefcchassiscoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable)
 // Entries are deleted by the agent if the corresponding
 // entry is deleted in ENTITY-MIB entPhysicalTable.
 type CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2466,55 +1540,23 @@ type CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry st
     Cefcchassisperslotcoolingunit interface{}
 }
 
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetFilter() yfilter.YFilter { return cefcchassiscoolingentry.YFilter }
+func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetEntityData() *types.CommonEntityData {
+    cefcchassiscoolingentry.EntityData.YFilter = cefcchassiscoolingentry.YFilter
+    cefcchassiscoolingentry.EntityData.YangName = "cefcChassisCoolingEntry"
+    cefcchassiscoolingentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcchassiscoolingentry.EntityData.ParentYangName = "cefcChassisCoolingTable"
+    cefcchassiscoolingentry.EntityData.SegmentPath = "cefcChassisCoolingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcchassiscoolingentry.Entphysicalindex) + "']"
+    cefcchassiscoolingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcchassiscoolingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcchassiscoolingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) SetFilter(yf yfilter.YFilter) { cefcchassiscoolingentry.YFilter = yf }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcChassisPerSlotCoolingCap" { return "Cefcchassisperslotcoolingcap" }
-    if yname == "cefcChassisPerSlotCoolingUnit" { return "Cefcchassisperslotcoolingunit" }
-    return ""
+    cefcchassiscoolingentry.EntityData.Children = make(map[string]types.YChild)
+    cefcchassiscoolingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcchassiscoolingentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcchassiscoolingentry.Entphysicalindex}
+    cefcchassiscoolingentry.EntityData.Leafs["cefcChassisPerSlotCoolingCap"] = types.YLeaf{"Cefcchassisperslotcoolingcap", cefcchassiscoolingentry.Cefcchassisperslotcoolingcap}
+    cefcchassiscoolingentry.EntityData.Leafs["cefcChassisPerSlotCoolingUnit"] = types.YLeaf{"Cefcchassisperslotcoolingunit", cefcchassiscoolingentry.Cefcchassisperslotcoolingunit}
+    return &(cefcchassiscoolingentry.EntityData)
 }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetSegmentPath() string {
-    return "cefcChassisCoolingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcchassiscoolingentry.Entphysicalindex) + "']"
-}
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcchassiscoolingentry.Entphysicalindex
-    leafs["cefcChassisPerSlotCoolingCap"] = cefcchassiscoolingentry.Cefcchassisperslotcoolingcap
-    leafs["cefcChassisPerSlotCoolingUnit"] = cefcchassiscoolingentry.Cefcchassisperslotcoolingunit
-    return leafs
-}
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetYangName() string { return "cefcChassisCoolingEntry" }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) SetParent(parent types.Entity) { cefcchassiscoolingentry.parent = parent }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetParent() types.Entity { return cefcchassiscoolingentry.parent }
-
-func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_Cefcchassiscoolingentry) GetParentYangName() string { return "cefcChassisCoolingTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable
 // This table contains the cooling capacity
@@ -2522,7 +1564,7 @@ func (cefcchassiscoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcchassiscoolingtable_
 // entPhysicalTable entries have an
 // entPhysicalClass of 'fan'.
 type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcFanCoolingEntry lists the cooling capacity that is provided by the 
@@ -2534,63 +1576,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable struct {
     Cefcfancoolingentry []CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry
 }
 
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetFilter() yfilter.YFilter { return cefcfancoolingtable.YFilter }
+func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetEntityData() *types.CommonEntityData {
+    cefcfancoolingtable.EntityData.YFilter = cefcfancoolingtable.YFilter
+    cefcfancoolingtable.EntityData.YangName = "cefcFanCoolingTable"
+    cefcfancoolingtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcfancoolingtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfancoolingtable.EntityData.SegmentPath = "cefcFanCoolingTable"
+    cefcfancoolingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfancoolingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfancoolingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) SetFilter(yf yfilter.YFilter) { cefcfancoolingtable.YFilter = yf }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetGoName(yname string) string {
-    if yname == "cefcFanCoolingEntry" { return "Cefcfancoolingentry" }
-    return ""
-}
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetSegmentPath() string {
-    return "cefcFanCoolingTable"
-}
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFanCoolingEntry" {
-        for _, c := range cefcfancoolingtable.Cefcfancoolingentry {
-            if cefcfancoolingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry{}
-        cefcfancoolingtable.Cefcfancoolingentry = append(cefcfancoolingtable.Cefcfancoolingentry, child)
-        return &cefcfancoolingtable.Cefcfancoolingentry[len(cefcfancoolingtable.Cefcfancoolingentry)-1]
-    }
-    return nil
-}
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcfancoolingtable.EntityData.Children = make(map[string]types.YChild)
+    cefcfancoolingtable.EntityData.Children["cefcFanCoolingEntry"] = types.YChild{"Cefcfancoolingentry", nil}
     for i := range cefcfancoolingtable.Cefcfancoolingentry {
-        children[cefcfancoolingtable.Cefcfancoolingentry[i].GetSegmentPath()] = &cefcfancoolingtable.Cefcfancoolingentry[i]
+        cefcfancoolingtable.EntityData.Children[types.GetSegmentPath(&cefcfancoolingtable.Cefcfancoolingentry[i])] = types.YChild{"Cefcfancoolingentry", &cefcfancoolingtable.Cefcfancoolingentry[i]}
     }
-    return children
+    cefcfancoolingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcfancoolingtable.EntityData)
 }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetYangName() string { return "cefcFanCoolingTable" }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) SetParent(parent types.Entity) { cefcfancoolingtable.parent = parent }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetParent() types.Entity { return cefcfancoolingtable.parent }
-
-func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry
 // A cefcFanCoolingEntry lists the cooling
@@ -2604,7 +1607,7 @@ func (cefcfancoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable) GetPare
 // Entries are deleted by the agent if the corresponding
 // entry is deleted in ENTITY-MIB entPhysicalTable.
 type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2621,62 +1624,30 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry struct {
     Cefcfancoolingcapacityunit interface{}
 }
 
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetFilter() yfilter.YFilter { return cefcfancoolingentry.YFilter }
+func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetEntityData() *types.CommonEntityData {
+    cefcfancoolingentry.EntityData.YFilter = cefcfancoolingentry.YFilter
+    cefcfancoolingentry.EntityData.YangName = "cefcFanCoolingEntry"
+    cefcfancoolingentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcfancoolingentry.EntityData.ParentYangName = "cefcFanCoolingTable"
+    cefcfancoolingentry.EntityData.SegmentPath = "cefcFanCoolingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfancoolingentry.Entphysicalindex) + "']"
+    cefcfancoolingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfancoolingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfancoolingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) SetFilter(yf yfilter.YFilter) { cefcfancoolingentry.YFilter = yf }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcFanCoolingCapacity" { return "Cefcfancoolingcapacity" }
-    if yname == "cefcFanCoolingCapacityUnit" { return "Cefcfancoolingcapacityunit" }
-    return ""
+    cefcfancoolingentry.EntityData.Children = make(map[string]types.YChild)
+    cefcfancoolingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfancoolingentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcfancoolingentry.Entphysicalindex}
+    cefcfancoolingentry.EntityData.Leafs["cefcFanCoolingCapacity"] = types.YLeaf{"Cefcfancoolingcapacity", cefcfancoolingentry.Cefcfancoolingcapacity}
+    cefcfancoolingentry.EntityData.Leafs["cefcFanCoolingCapacityUnit"] = types.YLeaf{"Cefcfancoolingcapacityunit", cefcfancoolingentry.Cefcfancoolingcapacityunit}
+    return &(cefcfancoolingentry.EntityData)
 }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetSegmentPath() string {
-    return "cefcFanCoolingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfancoolingentry.Entphysicalindex) + "']"
-}
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcfancoolingentry.Entphysicalindex
-    leafs["cefcFanCoolingCapacity"] = cefcfancoolingentry.Cefcfancoolingcapacity
-    leafs["cefcFanCoolingCapacityUnit"] = cefcfancoolingentry.Cefcfancoolingcapacityunit
-    return leafs
-}
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetYangName() string { return "cefcFanCoolingEntry" }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) SetParent(parent types.Entity) { cefcfancoolingentry.parent = parent }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetParent() types.Entity { return cefcfancoolingentry.parent }
-
-func (cefcfancoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingtable_Cefcfancoolingentry) GetParentYangName() string { return "cefcFanCoolingTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable
 // This table contains the cooling requirement for
 // all the manageable components of type entPhysicalClass
 // 'module'.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcModuleCoolingEntry lists the cooling requirement for a manageable
@@ -2687,63 +1658,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable struct {
     Cefcmodulecoolingentry []CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry
 }
 
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetFilter() yfilter.YFilter { return cefcmodulecoolingtable.YFilter }
+func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetEntityData() *types.CommonEntityData {
+    cefcmodulecoolingtable.EntityData.YFilter = cefcmodulecoolingtable.YFilter
+    cefcmodulecoolingtable.EntityData.YangName = "cefcModuleCoolingTable"
+    cefcmodulecoolingtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcmodulecoolingtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcmodulecoolingtable.EntityData.SegmentPath = "cefcModuleCoolingTable"
+    cefcmodulecoolingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmodulecoolingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmodulecoolingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) SetFilter(yf yfilter.YFilter) { cefcmodulecoolingtable.YFilter = yf }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetGoName(yname string) string {
-    if yname == "cefcModuleCoolingEntry" { return "Cefcmodulecoolingentry" }
-    return ""
-}
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetSegmentPath() string {
-    return "cefcModuleCoolingTable"
-}
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcModuleCoolingEntry" {
-        for _, c := range cefcmodulecoolingtable.Cefcmodulecoolingentry {
-            if cefcmodulecoolingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry{}
-        cefcmodulecoolingtable.Cefcmodulecoolingentry = append(cefcmodulecoolingtable.Cefcmodulecoolingentry, child)
-        return &cefcmodulecoolingtable.Cefcmodulecoolingentry[len(cefcmodulecoolingtable.Cefcmodulecoolingentry)-1]
-    }
-    return nil
-}
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcmodulecoolingtable.EntityData.Children = make(map[string]types.YChild)
+    cefcmodulecoolingtable.EntityData.Children["cefcModuleCoolingEntry"] = types.YChild{"Cefcmodulecoolingentry", nil}
     for i := range cefcmodulecoolingtable.Cefcmodulecoolingentry {
-        children[cefcmodulecoolingtable.Cefcmodulecoolingentry[i].GetSegmentPath()] = &cefcmodulecoolingtable.Cefcmodulecoolingentry[i]
+        cefcmodulecoolingtable.EntityData.Children[types.GetSegmentPath(&cefcmodulecoolingtable.Cefcmodulecoolingentry[i])] = types.YChild{"Cefcmodulecoolingentry", &cefcmodulecoolingtable.Cefcmodulecoolingentry[i]}
     }
-    return children
+    cefcmodulecoolingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcmodulecoolingtable.EntityData)
 }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetYangName() string { return "cefcModuleCoolingTable" }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) SetParent(parent types.Entity) { cefcmodulecoolingtable.parent = parent }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetParent() types.Entity { return cefcmodulecoolingtable.parent }
-
-func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry
 // A cefcModuleCoolingEntry lists the cooling
@@ -2756,7 +1688,7 @@ func (cefcmodulecoolingtable *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable) G
 // Entries are deleted by the agent upon module
 // removal.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2774,55 +1706,23 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry stru
     Cefcmodulecoolingunit interface{}
 }
 
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetFilter() yfilter.YFilter { return cefcmodulecoolingentry.YFilter }
+func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetEntityData() *types.CommonEntityData {
+    cefcmodulecoolingentry.EntityData.YFilter = cefcmodulecoolingentry.YFilter
+    cefcmodulecoolingentry.EntityData.YangName = "cefcModuleCoolingEntry"
+    cefcmodulecoolingentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcmodulecoolingentry.EntityData.ParentYangName = "cefcModuleCoolingTable"
+    cefcmodulecoolingentry.EntityData.SegmentPath = "cefcModuleCoolingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmodulecoolingentry.Entphysicalindex) + "']"
+    cefcmodulecoolingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmodulecoolingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmodulecoolingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) SetFilter(yf yfilter.YFilter) { cefcmodulecoolingentry.YFilter = yf }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcModuleCooling" { return "Cefcmodulecooling" }
-    if yname == "cefcModuleCoolingUnit" { return "Cefcmodulecoolingunit" }
-    return ""
+    cefcmodulecoolingentry.EntityData.Children = make(map[string]types.YChild)
+    cefcmodulecoolingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcmodulecoolingentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcmodulecoolingentry.Entphysicalindex}
+    cefcmodulecoolingentry.EntityData.Leafs["cefcModuleCooling"] = types.YLeaf{"Cefcmodulecooling", cefcmodulecoolingentry.Cefcmodulecooling}
+    cefcmodulecoolingentry.EntityData.Leafs["cefcModuleCoolingUnit"] = types.YLeaf{"Cefcmodulecoolingunit", cefcmodulecoolingentry.Cefcmodulecoolingunit}
+    return &(cefcmodulecoolingentry.EntityData)
 }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetSegmentPath() string {
-    return "cefcModuleCoolingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmodulecoolingentry.Entphysicalindex) + "']"
-}
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcmodulecoolingentry.Entphysicalindex
-    leafs["cefcModuleCooling"] = cefcmodulecoolingentry.Cefcmodulecooling
-    leafs["cefcModuleCoolingUnit"] = cefcmodulecoolingentry.Cefcmodulecoolingunit
-    return leafs
-}
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetYangName() string { return "cefcModuleCoolingEntry" }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) SetParent(parent types.Entity) { cefcmodulecoolingentry.parent = parent }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetParent() types.Entity { return cefcmodulecoolingentry.parent }
-
-func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Cefcmodulecoolingentry) GetParentYangName() string { return "cefcModuleCoolingTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable
 // This table contains a list of the possible cooling
@@ -2830,7 +1730,7 @@ func (cefcmodulecoolingentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulecoolingtable_Ce
 // ENTITY-MIB entPhysicalTable entries have an 
 // entPhysicalClass of 'fan'.
 type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcFanCoolingCapacityEntry lists the cooling capacity mode of a
@@ -2844,63 +1744,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable struct {
     Cefcfancoolingcapentry []CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry
 }
 
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetFilter() yfilter.YFilter { return cefcfancoolingcaptable.YFilter }
+func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetEntityData() *types.CommonEntityData {
+    cefcfancoolingcaptable.EntityData.YFilter = cefcfancoolingcaptable.YFilter
+    cefcfancoolingcaptable.EntityData.YangName = "cefcFanCoolingCapTable"
+    cefcfancoolingcaptable.EntityData.BundleName = "cisco_ios_xe"
+    cefcfancoolingcaptable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcfancoolingcaptable.EntityData.SegmentPath = "cefcFanCoolingCapTable"
+    cefcfancoolingcaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfancoolingcaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfancoolingcaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) SetFilter(yf yfilter.YFilter) { cefcfancoolingcaptable.YFilter = yf }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetGoName(yname string) string {
-    if yname == "cefcFanCoolingCapEntry" { return "Cefcfancoolingcapentry" }
-    return ""
-}
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetSegmentPath() string {
-    return "cefcFanCoolingCapTable"
-}
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcFanCoolingCapEntry" {
-        for _, c := range cefcfancoolingcaptable.Cefcfancoolingcapentry {
-            if cefcfancoolingcaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry{}
-        cefcfancoolingcaptable.Cefcfancoolingcapentry = append(cefcfancoolingcaptable.Cefcfancoolingcapentry, child)
-        return &cefcfancoolingcaptable.Cefcfancoolingcapentry[len(cefcfancoolingcaptable.Cefcfancoolingcapentry)-1]
-    }
-    return nil
-}
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcfancoolingcaptable.EntityData.Children = make(map[string]types.YChild)
+    cefcfancoolingcaptable.EntityData.Children["cefcFanCoolingCapEntry"] = types.YChild{"Cefcfancoolingcapentry", nil}
     for i := range cefcfancoolingcaptable.Cefcfancoolingcapentry {
-        children[cefcfancoolingcaptable.Cefcfancoolingcapentry[i].GetSegmentPath()] = &cefcfancoolingcaptable.Cefcfancoolingcapentry[i]
+        cefcfancoolingcaptable.EntityData.Children[types.GetSegmentPath(&cefcfancoolingcaptable.Cefcfancoolingcapentry[i])] = types.YChild{"Cefcfancoolingcapentry", &cefcfancoolingcaptable.Cefcfancoolingcapentry[i]}
     }
-    return children
+    cefcfancoolingcaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcfancoolingcaptable.EntityData)
 }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetYangName() string { return "cefcFanCoolingCapTable" }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) SetParent(parent types.Entity) { cefcfancoolingcaptable.parent = parent }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetParent() types.Entity { return cefcfancoolingcaptable.parent }
-
-func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry
 // A cefcFanCoolingCapacityEntry lists the cooling
@@ -2916,7 +1777,7 @@ func (cefcfancoolingcaptable *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable) G
 // Entries are deleted by the agent if the corresponding
 // entry is deleted in ENTITY-MIB entPhysicalTable.
 type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2948,61 +1809,26 @@ type CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry stru
     Cefcfancoolingcapcapacityunit interface{}
 }
 
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetFilter() yfilter.YFilter { return cefcfancoolingcapentry.YFilter }
+func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetEntityData() *types.CommonEntityData {
+    cefcfancoolingcapentry.EntityData.YFilter = cefcfancoolingcapentry.YFilter
+    cefcfancoolingcapentry.EntityData.YangName = "cefcFanCoolingCapEntry"
+    cefcfancoolingcapentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcfancoolingcapentry.EntityData.ParentYangName = "cefcFanCoolingCapTable"
+    cefcfancoolingcapentry.EntityData.SegmentPath = "cefcFanCoolingCapEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfancoolingcapentry.Entphysicalindex) + "']" + "[cefcFanCoolingCapIndex='" + fmt.Sprintf("%v", cefcfancoolingcapentry.Cefcfancoolingcapindex) + "']"
+    cefcfancoolingcapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcfancoolingcapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcfancoolingcapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) SetFilter(yf yfilter.YFilter) { cefcfancoolingcapentry.YFilter = yf }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcFanCoolingCapIndex" { return "Cefcfancoolingcapindex" }
-    if yname == "cefcFanCoolingCapModeDescr" { return "Cefcfancoolingcapmodedescr" }
-    if yname == "cefcFanCoolingCapCapacity" { return "Cefcfancoolingcapcapacity" }
-    if yname == "cefcFanCoolingCapCurrent" { return "Cefcfancoolingcapcurrent" }
-    if yname == "cefcFanCoolingCapCapacityUnit" { return "Cefcfancoolingcapcapacityunit" }
-    return ""
+    cefcfancoolingcapentry.EntityData.Children = make(map[string]types.YChild)
+    cefcfancoolingcapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcfancoolingcapentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcfancoolingcapentry.Entphysicalindex}
+    cefcfancoolingcapentry.EntityData.Leafs["cefcFanCoolingCapIndex"] = types.YLeaf{"Cefcfancoolingcapindex", cefcfancoolingcapentry.Cefcfancoolingcapindex}
+    cefcfancoolingcapentry.EntityData.Leafs["cefcFanCoolingCapModeDescr"] = types.YLeaf{"Cefcfancoolingcapmodedescr", cefcfancoolingcapentry.Cefcfancoolingcapmodedescr}
+    cefcfancoolingcapentry.EntityData.Leafs["cefcFanCoolingCapCapacity"] = types.YLeaf{"Cefcfancoolingcapcapacity", cefcfancoolingcapentry.Cefcfancoolingcapcapacity}
+    cefcfancoolingcapentry.EntityData.Leafs["cefcFanCoolingCapCurrent"] = types.YLeaf{"Cefcfancoolingcapcurrent", cefcfancoolingcapentry.Cefcfancoolingcapcurrent}
+    cefcfancoolingcapentry.EntityData.Leafs["cefcFanCoolingCapCapacityUnit"] = types.YLeaf{"Cefcfancoolingcapcapacityunit", cefcfancoolingcapentry.Cefcfancoolingcapcapacityunit}
+    return &(cefcfancoolingcapentry.EntityData)
 }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetSegmentPath() string {
-    return "cefcFanCoolingCapEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcfancoolingcapentry.Entphysicalindex) + "']" + "[cefcFanCoolingCapIndex='" + fmt.Sprintf("%v", cefcfancoolingcapentry.Cefcfancoolingcapindex) + "']"
-}
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcfancoolingcapentry.Entphysicalindex
-    leafs["cefcFanCoolingCapIndex"] = cefcfancoolingcapentry.Cefcfancoolingcapindex
-    leafs["cefcFanCoolingCapModeDescr"] = cefcfancoolingcapentry.Cefcfancoolingcapmodedescr
-    leafs["cefcFanCoolingCapCapacity"] = cefcfancoolingcapentry.Cefcfancoolingcapcapacity
-    leafs["cefcFanCoolingCapCurrent"] = cefcfancoolingcapentry.Cefcfancoolingcapcurrent
-    leafs["cefcFanCoolingCapCapacityUnit"] = cefcfancoolingcapentry.Cefcfancoolingcapcapacityunit
-    return leafs
-}
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetYangName() string { return "cefcFanCoolingCapEntry" }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) SetParent(parent types.Entity) { cefcfancoolingcapentry.parent = parent }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetParent() types.Entity { return cefcfancoolingcapentry.parent }
-
-func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Cefcfancoolingcapentry) GetParentYangName() string { return "cefcFanCoolingCapTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable
 // This table contains the connector power
@@ -3011,7 +1837,7 @@ func (cefcfancoolingcapentry *CISCOENTITYFRUCONTROLMIB_Cefcfancoolingcaptable_Ce
 // Only components with power connector rating 
 // management are listed in this table.
 type CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcConnectorRatingEntry lists the power connector rating information of
@@ -3023,63 +1849,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable struct {
     Cefcconnectorratingentry []CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry
 }
 
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetFilter() yfilter.YFilter { return cefcconnectorratingtable.YFilter }
+func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetEntityData() *types.CommonEntityData {
+    cefcconnectorratingtable.EntityData.YFilter = cefcconnectorratingtable.YFilter
+    cefcconnectorratingtable.EntityData.YangName = "cefcConnectorRatingTable"
+    cefcconnectorratingtable.EntityData.BundleName = "cisco_ios_xe"
+    cefcconnectorratingtable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcconnectorratingtable.EntityData.SegmentPath = "cefcConnectorRatingTable"
+    cefcconnectorratingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcconnectorratingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcconnectorratingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) SetFilter(yf yfilter.YFilter) { cefcconnectorratingtable.YFilter = yf }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetGoName(yname string) string {
-    if yname == "cefcConnectorRatingEntry" { return "Cefcconnectorratingentry" }
-    return ""
-}
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetSegmentPath() string {
-    return "cefcConnectorRatingTable"
-}
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcConnectorRatingEntry" {
-        for _, c := range cefcconnectorratingtable.Cefcconnectorratingentry {
-            if cefcconnectorratingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry{}
-        cefcconnectorratingtable.Cefcconnectorratingentry = append(cefcconnectorratingtable.Cefcconnectorratingentry, child)
-        return &cefcconnectorratingtable.Cefcconnectorratingentry[len(cefcconnectorratingtable.Cefcconnectorratingentry)-1]
-    }
-    return nil
-}
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcconnectorratingtable.EntityData.Children = make(map[string]types.YChild)
+    cefcconnectorratingtable.EntityData.Children["cefcConnectorRatingEntry"] = types.YChild{"Cefcconnectorratingentry", nil}
     for i := range cefcconnectorratingtable.Cefcconnectorratingentry {
-        children[cefcconnectorratingtable.Cefcconnectorratingentry[i].GetSegmentPath()] = &cefcconnectorratingtable.Cefcconnectorratingentry[i]
+        cefcconnectorratingtable.EntityData.Children[types.GetSegmentPath(&cefcconnectorratingtable.Cefcconnectorratingentry[i])] = types.YChild{"Cefcconnectorratingentry", &cefcconnectorratingtable.Cefcconnectorratingentry[i]}
     }
-    return children
+    cefcconnectorratingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcconnectorratingtable.EntityData)
 }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetYangName() string { return "cefcConnectorRatingTable" }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) SetParent(parent types.Entity) { cefcconnectorratingtable.parent = parent }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetParent() types.Entity { return cefcconnectorratingtable.parent }
-
-func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry
 // A cefcConnectorRatingEntry lists the
@@ -3092,7 +1879,7 @@ func (cefcconnectorratingtable *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtabl
 // entPhysicalTable. An entry is deleted 
 // by the agent at the entity removal.
 type CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3105,53 +1892,22 @@ type CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry 
     Cefcconnectorrating interface{}
 }
 
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetFilter() yfilter.YFilter { return cefcconnectorratingentry.YFilter }
+func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetEntityData() *types.CommonEntityData {
+    cefcconnectorratingentry.EntityData.YFilter = cefcconnectorratingentry.YFilter
+    cefcconnectorratingentry.EntityData.YangName = "cefcConnectorRatingEntry"
+    cefcconnectorratingentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcconnectorratingentry.EntityData.ParentYangName = "cefcConnectorRatingTable"
+    cefcconnectorratingentry.EntityData.SegmentPath = "cefcConnectorRatingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcconnectorratingentry.Entphysicalindex) + "']"
+    cefcconnectorratingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcconnectorratingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcconnectorratingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) SetFilter(yf yfilter.YFilter) { cefcconnectorratingentry.YFilter = yf }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcConnectorRating" { return "Cefcconnectorrating" }
-    return ""
+    cefcconnectorratingentry.EntityData.Children = make(map[string]types.YChild)
+    cefcconnectorratingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcconnectorratingentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcconnectorratingentry.Entphysicalindex}
+    cefcconnectorratingentry.EntityData.Leafs["cefcConnectorRating"] = types.YLeaf{"Cefcconnectorrating", cefcconnectorratingentry.Cefcconnectorrating}
+    return &(cefcconnectorratingentry.EntityData)
 }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetSegmentPath() string {
-    return "cefcConnectorRatingEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcconnectorratingentry.Entphysicalindex) + "']"
-}
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcconnectorratingentry.Entphysicalindex
-    leafs["cefcConnectorRating"] = cefcconnectorratingentry.Cefcconnectorrating
-    return leafs
-}
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetYangName() string { return "cefcConnectorRatingEntry" }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) SetParent(parent types.Entity) { cefcconnectorratingentry.parent = parent }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetParent() types.Entity { return cefcconnectorratingentry.parent }
-
-func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtable_Cefcconnectorratingentry) GetParentYangName() string { return "cefcConnectorRatingTable" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable
 // This table contains the total power consumption
@@ -3159,7 +1915,7 @@ func (cefcconnectorratingentry *CISCOENTITYFRUCONTROLMIB_Cefcconnectorratingtabl
 // entPhysicalTable entries have an entPhysicalClass 
 // of 'module'.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cefcModulePowerConsumptionEntry lists the total power consumption of a
@@ -3170,63 +1926,24 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable struct {
     Cefcmodulepowerconsumptionentry []CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry
 }
 
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetFilter() yfilter.YFilter { return cefcmodulepowerconsumptiontable.YFilter }
+func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetEntityData() *types.CommonEntityData {
+    cefcmodulepowerconsumptiontable.EntityData.YFilter = cefcmodulepowerconsumptiontable.YFilter
+    cefcmodulepowerconsumptiontable.EntityData.YangName = "cefcModulePowerConsumptionTable"
+    cefcmodulepowerconsumptiontable.EntityData.BundleName = "cisco_ios_xe"
+    cefcmodulepowerconsumptiontable.EntityData.ParentYangName = "CISCO-ENTITY-FRU-CONTROL-MIB"
+    cefcmodulepowerconsumptiontable.EntityData.SegmentPath = "cefcModulePowerConsumptionTable"
+    cefcmodulepowerconsumptiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmodulepowerconsumptiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmodulepowerconsumptiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) SetFilter(yf yfilter.YFilter) { cefcmodulepowerconsumptiontable.YFilter = yf }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetGoName(yname string) string {
-    if yname == "cefcModulePowerConsumptionEntry" { return "Cefcmodulepowerconsumptionentry" }
-    return ""
-}
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetSegmentPath() string {
-    return "cefcModulePowerConsumptionTable"
-}
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cefcModulePowerConsumptionEntry" {
-        for _, c := range cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry {
-            if cefcmodulepowerconsumptiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry{}
-        cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry = append(cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry, child)
-        return &cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry[len(cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry)-1]
-    }
-    return nil
-}
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cefcmodulepowerconsumptiontable.EntityData.Children = make(map[string]types.YChild)
+    cefcmodulepowerconsumptiontable.EntityData.Children["cefcModulePowerConsumptionEntry"] = types.YChild{"Cefcmodulepowerconsumptionentry", nil}
     for i := range cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry {
-        children[cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry[i].GetSegmentPath()] = &cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry[i]
+        cefcmodulepowerconsumptiontable.EntityData.Children[types.GetSegmentPath(&cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry[i])] = types.YChild{"Cefcmodulepowerconsumptionentry", &cefcmodulepowerconsumptiontable.Cefcmodulepowerconsumptionentry[i]}
     }
-    return children
+    cefcmodulepowerconsumptiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cefcmodulepowerconsumptiontable.EntityData)
 }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetYangName() string { return "cefcModulePowerConsumptionTable" }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) SetParent(parent types.Entity) { cefcmodulepowerconsumptiontable.parent = parent }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetParent() types.Entity { return cefcmodulepowerconsumptiontable.parent }
-
-func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable) GetParentYangName() string { return "CISCO-ENTITY-FRU-CONTROL-MIB" }
 
 // CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry
 // A cefcModulePowerConsumptionEntry lists the total
@@ -3239,7 +1956,7 @@ func (cefcmodulepowerconsumptiontable *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerc
 // Entries are deleted by the agent upon module
 // removal.
 type CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3253,51 +1970,20 @@ type CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowercon
     Cefcmodulepowerconsumption interface{}
 }
 
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetFilter() yfilter.YFilter { return cefcmodulepowerconsumptionentry.YFilter }
+func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetEntityData() *types.CommonEntityData {
+    cefcmodulepowerconsumptionentry.EntityData.YFilter = cefcmodulepowerconsumptionentry.YFilter
+    cefcmodulepowerconsumptionentry.EntityData.YangName = "cefcModulePowerConsumptionEntry"
+    cefcmodulepowerconsumptionentry.EntityData.BundleName = "cisco_ios_xe"
+    cefcmodulepowerconsumptionentry.EntityData.ParentYangName = "cefcModulePowerConsumptionTable"
+    cefcmodulepowerconsumptionentry.EntityData.SegmentPath = "cefcModulePowerConsumptionEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmodulepowerconsumptionentry.Entphysicalindex) + "']"
+    cefcmodulepowerconsumptionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cefcmodulepowerconsumptionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cefcmodulepowerconsumptionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) SetFilter(yf yfilter.YFilter) { cefcmodulepowerconsumptionentry.YFilter = yf }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cefcModulePowerConsumption" { return "Cefcmodulepowerconsumption" }
-    return ""
+    cefcmodulepowerconsumptionentry.EntityData.Children = make(map[string]types.YChild)
+    cefcmodulepowerconsumptionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cefcmodulepowerconsumptionentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cefcmodulepowerconsumptionentry.Entphysicalindex}
+    cefcmodulepowerconsumptionentry.EntityData.Leafs["cefcModulePowerConsumption"] = types.YLeaf{"Cefcmodulepowerconsumption", cefcmodulepowerconsumptionentry.Cefcmodulepowerconsumption}
+    return &(cefcmodulepowerconsumptionentry.EntityData)
 }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetSegmentPath() string {
-    return "cefcModulePowerConsumptionEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cefcmodulepowerconsumptionentry.Entphysicalindex) + "']"
-}
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cefcmodulepowerconsumptionentry.Entphysicalindex
-    leafs["cefcModulePowerConsumption"] = cefcmodulepowerconsumptionentry.Cefcmodulepowerconsumption
-    return leafs
-}
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetYangName() string { return "cefcModulePowerConsumptionEntry" }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) SetParent(parent types.Entity) { cefcmodulepowerconsumptionentry.parent = parent }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetParent() types.Entity { return cefcmodulepowerconsumptionentry.parent }
-
-func (cefcmodulepowerconsumptionentry *CISCOENTITYFRUCONTROLMIB_Cefcmodulepowerconsumptiontable_Cefcmodulepowerconsumptionentry) GetParentYangName() string { return "cefcModulePowerConsumptionTable" }
 
